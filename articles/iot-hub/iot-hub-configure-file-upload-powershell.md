@@ -1,6 +1,6 @@
 ---
-title: "Umożliwia skonfigurowanie przekazywania pliku programu Azure PowerShell | Dokumentacja firmy Microsoft"
-description: "Sposób użycia poleceń cmdlet programu Azure PowerShell do konfigurowania Centrum IoT włączyć plik zostanie przesłany z połączonych urządzeń. Zawiera informacje o konfigurowaniu docelowym kontem magazynu platformy Azure."
+title: Przekazywanie pliku tooconfigure aaaUse hello Azure PowerShell | Dokumentacja firmy Microsoft
+description: "Jak tooconfigure poleceń cmdlet programu Azure PowerShell hello toouse Twojego pliku tooenable Centrum IoT przekazuje z połączonych urządzeń. Zawiera informacje o konfigurowaniu hello miejsce docelowe konto magazynu Azure."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: a72bda794b2da3e044c46249559610d06b1f1843
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9dcdc41693c09cece411921b30c91d7b3db47395
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-iot-hub-file-uploads-using-powershell"></a><span data-ttu-id="709a1-104">Konfigurowanie Centrum IoT przekazywania plików przy użyciu programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="709a1-104">Configure IoT Hub file uploads using PowerShell</span></span>
+# <a name="configure-iot-hub-file-uploads-using-powershell"></a><span data-ttu-id="6f62b-104">Konfigurowanie Centrum IoT przekazywania plików przy użyciu programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="6f62b-104">Configure IoT Hub file uploads using PowerShell</span></span>
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-<span data-ttu-id="709a1-105">Aby użyć [plików funkcji przekazywania w Centrum IoT][lnk-upload], należy najpierw powiązać konta magazynu platformy Azure z Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="709a1-105">To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure storage account with your IoT hub.</span></span> <span data-ttu-id="709a1-106">Możesz użyć istniejącego konta magazynu lub Utwórz nową.</span><span class="sxs-lookup"><span data-stu-id="709a1-106">You can use an existing storage account or create a new one.</span></span>
+<span data-ttu-id="6f62b-105">Witaj toouse [plików funkcji przekazywania w Centrum IoT][lnk-upload], należy najpierw powiązać konta magazynu platformy Azure z Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="6f62b-105">toouse hello [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure storage account with your IoT hub.</span></span> <span data-ttu-id="6f62b-106">Możesz użyć istniejącego konta magazynu lub Utwórz nową.</span><span class="sxs-lookup"><span data-stu-id="6f62b-106">You can use an existing storage account or create a new one.</span></span>
 
-<span data-ttu-id="709a1-107">Do wykonania kroków tego samouczka niezbędne są następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="709a1-107">To complete this tutorial, you need the following:</span></span>
+<span data-ttu-id="6f62b-107">toocomplete tego samouczka należy hello następujące:</span><span class="sxs-lookup"><span data-stu-id="6f62b-107">toocomplete this tutorial, you need hello following:</span></span>
 
-* <span data-ttu-id="709a1-108">Aktywne konto platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="709a1-108">An active Azure account.</span></span> <span data-ttu-id="709a1-109">Jeśli go nie masz, możesz utworzyć [bezpłatne konto][lnk-free-trial] w zaledwie kilka minut.</span><span class="sxs-lookup"><span data-stu-id="709a1-109">If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.</span></span>
-* <span data-ttu-id="709a1-110">[Polecenia cmdlet programu PowerShell systemu Azure][lnk-powershell-install].</span><span class="sxs-lookup"><span data-stu-id="709a1-110">[Azure PowerShell cmdlets][lnk-powershell-install].</span></span>
-* <span data-ttu-id="709a1-111">Centrum Azure IoT.</span><span class="sxs-lookup"><span data-stu-id="709a1-111">An Azure IoT hub.</span></span> <span data-ttu-id="709a1-112">Jeśli nie masz Centrum IoT, możesz użyć [polecenia cmdlet New-AzureRmIoTHub] [ lnk-powershell-iothub] można utworzyć jeden lub Portal umożliwia [tworzenia Centrum IoT][lnk-portal-hub].</span><span class="sxs-lookup"><span data-stu-id="709a1-112">If you don't have an IoT hub, you can use the [New-AzureRmIoTHub cmdlet][lnk-powershell-iothub] to create one or use the portal to [Create an IoT hub][lnk-portal-hub].</span></span>
-* <span data-ttu-id="709a1-113">Konto usługi Azure Storage.</span><span class="sxs-lookup"><span data-stu-id="709a1-113">An Azure storage account.</span></span> <span data-ttu-id="709a1-114">Jeśli nie masz konta magazynu platformy Azure, możesz użyć [poleceń cmdlet programu PowerShell magazynu Azure] [ lnk-powershell-storage] można utworzyć jeden lub Portal umożliwia [Utwórz konto magazynu] [lnk-portal-storage].</span><span class="sxs-lookup"><span data-stu-id="709a1-114">If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets][lnk-powershell-storage] to create one or use the portal to [Create a storage account][lnk-portal-storage].</span></span>
+* <span data-ttu-id="6f62b-108">Aktywne konto platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="6f62b-108">An active Azure account.</span></span> <span data-ttu-id="6f62b-109">Jeśli go nie masz, możesz utworzyć [bezpłatne konto][lnk-free-trial] w zaledwie kilka minut.</span><span class="sxs-lookup"><span data-stu-id="6f62b-109">If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.</span></span>
+* <span data-ttu-id="6f62b-110">[Polecenia cmdlet programu PowerShell systemu Azure][lnk-powershell-install].</span><span class="sxs-lookup"><span data-stu-id="6f62b-110">[Azure PowerShell cmdlets][lnk-powershell-install].</span></span>
+* <span data-ttu-id="6f62b-111">Centrum Azure IoT.</span><span class="sxs-lookup"><span data-stu-id="6f62b-111">An Azure IoT hub.</span></span> <span data-ttu-id="6f62b-112">Jeśli nie masz Centrum IoT, możesz użyć hello [polecenia cmdlet New-AzureRmIoTHub] [ lnk-powershell-iothub] toocreate jeden lub użyj hello portalu zbyt[tworzenia Centrum IoT] [ lnk-portal-hub].</span><span class="sxs-lookup"><span data-stu-id="6f62b-112">If you don't have an IoT hub, you can use hello [New-AzureRmIoTHub cmdlet][lnk-powershell-iothub] toocreate one or use hello portal too[Create an IoT hub][lnk-portal-hub].</span></span>
+* <span data-ttu-id="6f62b-113">Konto usługi Azure Storage.</span><span class="sxs-lookup"><span data-stu-id="6f62b-113">An Azure storage account.</span></span> <span data-ttu-id="6f62b-114">Jeśli nie masz konta magazynu platformy Azure, możesz użyć hello [poleceń cmdlet programu PowerShell magazynu Azure] [ lnk-powershell-storage] toocreate jeden lub użyj hello portalu zbyt[Utwórz konto magazynu] [ lnk-portal-storage].</span><span class="sxs-lookup"><span data-stu-id="6f62b-114">If you don't have an Azure storage account, you can use hello [Azure Storage PowerShell cmdlets][lnk-powershell-storage] toocreate one or use hello portal too[Create a storage account][lnk-portal-storage].</span></span>
 
-## <a name="sign-in-and-set-your-azure-account"></a><span data-ttu-id="709a1-115">Zaloguj się i ustawić konta platformy Azure</span><span class="sxs-lookup"><span data-stu-id="709a1-115">Sign in and set your Azure account</span></span>
+## <a name="sign-in-and-set-your-azure-account"></a><span data-ttu-id="6f62b-115">Zaloguj się i ustawić konta platformy Azure</span><span class="sxs-lookup"><span data-stu-id="6f62b-115">Sign in and set your Azure account</span></span>
 
-<span data-ttu-id="709a1-116">Zaloguj się do konta platformy Azure i wyboru subskrypcji.</span><span class="sxs-lookup"><span data-stu-id="709a1-116">Sign in to your Azure account and select your subscription.</span></span>
+<span data-ttu-id="6f62b-116">Zaloguj się tooyour konto platformy Azure i wyboru subskrypcji.</span><span class="sxs-lookup"><span data-stu-id="6f62b-116">Sign in tooyour Azure account and select your subscription.</span></span>
 
-1. <span data-ttu-id="709a1-117">W wierszu polecenia programu PowerShell, uruchom **Login-AzureRmAccount** polecenia cmdlet:</span><span class="sxs-lookup"><span data-stu-id="709a1-117">At the PowerShell prompt, run the **Login-AzureRmAccount** cmdlet:</span></span>
+1. <span data-ttu-id="6f62b-117">W wierszu polecenia programu PowerShell hello, uruchom hello **Login-AzureRmAccount** polecenia cmdlet:</span><span class="sxs-lookup"><span data-stu-id="6f62b-117">At hello PowerShell prompt, run hello **Login-AzureRmAccount** cmdlet:</span></span>
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. <span data-ttu-id="709a1-118">Jeśli masz wiele subskrypcji Azure, logowanie do platformy Azure udziela dostępu do subskrypcji platformy Azure skojarzone z poświadczeniami użytkownika.</span><span class="sxs-lookup"><span data-stu-id="709a1-118">If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure subscriptions associated with your credentials.</span></span> <span data-ttu-id="709a1-119">Aby wyświetlić listę dostępnych przy użyciu subskrypcji platformy Azure, użyj następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="709a1-119">Use the following command to list the Azure subscriptions available for you to use:</span></span>
+1. <span data-ttu-id="6f62b-118">Jeśli masz wiele subskrypcji Azure, logowanie tooAzure umożliwiają dostęp tooall hello subskrypcji platformy Azure skojarzonych z poświadczeniami użytkownika.</span><span class="sxs-lookup"><span data-stu-id="6f62b-118">If you have multiple Azure subscriptions, signing in tooAzure grants you access tooall hello Azure subscriptions associated with your credentials.</span></span> <span data-ttu-id="6f62b-119">Użyj następującego polecenia toolist hello subskrypcji platformy Azure, dostępne dla Ciebie toouse hello:</span><span class="sxs-lookup"><span data-stu-id="6f62b-119">Use hello following command toolist hello Azure subscriptions available for you toouse:</span></span>
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    <span data-ttu-id="709a1-120">Użyj następującego polecenia, aby wybrać subskrypcję, która ma być używany do uruchamiania polecenia do zarządzania Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="709a1-120">Use the following command to select subscription that you want to use to run the commands to manage your IoT hub.</span></span> <span data-ttu-id="709a1-121">Przy użyciu subskrypcji nazwa lub identyfikator z danych wyjściowych poprzednie polecenie:</span><span class="sxs-lookup"><span data-stu-id="709a1-121">You can use either the subscription name or ID from the output of the previous command:</span></span>
+    <span data-ttu-id="6f62b-120">Użyj następującego polecenia tooselect subskrypcji ma się, że toouse toorun hello polecenia toomanage Centrum IoT hello.</span><span class="sxs-lookup"><span data-stu-id="6f62b-120">Use hello following command tooselect subscription that you want toouse toorun hello commands toomanage your IoT hub.</span></span> <span data-ttu-id="6f62b-121">Identyfikator lub Nazwa subskrypcji hello można użyć z danych wyjściowych hello hello poprzednie polecenie:</span><span class="sxs-lookup"><span data-stu-id="6f62b-121">You can use either hello subscription name or ID from hello output of hello previous command:</span></span>
 
     ```powershell
     Select-AzureRMSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
-## <a name="retrieve-your-storage-account-details"></a><span data-ttu-id="709a1-122">Pobieranie informacji o koncie magazynu</span><span class="sxs-lookup"><span data-stu-id="709a1-122">Retrieve your storage account details</span></span>
+## <a name="retrieve-your-storage-account-details"></a><span data-ttu-id="6f62b-122">Pobieranie informacji o koncie magazynu</span><span class="sxs-lookup"><span data-stu-id="6f62b-122">Retrieve your storage account details</span></span>
 
-<span data-ttu-id="709a1-123">W następujących krokach założono, używając konta magazynu utworzone **Resource Manager** modelu wdrażania i nie **klasycznego** modelu wdrażania.</span><span class="sxs-lookup"><span data-stu-id="709a1-123">The following steps assume that you created your storage account using the **Resource Manager** deployment model, and not the **Classic** deployment model.</span></span>
+<span data-ttu-id="6f62b-123">Hello kroków założono, że utworzone konto magazynu przy użyciu hello **Resource Manager** modelu wdrażania i nie hello **klasycznego** modelu wdrażania.</span><span class="sxs-lookup"><span data-stu-id="6f62b-123">hello following steps assume that you created your storage account using hello **Resource Manager** deployment model, and not hello **Classic** deployment model.</span></span>
 
-<span data-ttu-id="709a1-124">Aby skonfigurować przekazywania plików z urządzeń, należy parametry połączenia dla konta magazynu platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="709a1-124">To configure file uploads from your devices, you need the connection string for an Azure storage account.</span></span> <span data-ttu-id="709a1-125">Konta magazynu musi być w tej samej subskrypcji co Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="709a1-125">The storage account must be in the same subscription as your IoT hub.</span></span> <span data-ttu-id="709a1-126">Należy również nazwę kontenera obiektów blob na koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="709a1-126">You also need the name of a blob container in the storage account.</span></span> <span data-ttu-id="709a1-127">Aby pobrać kluczy konta magazynu, użyj następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="709a1-127">Use the following command to retrieve your storage account keys:</span></span>
+<span data-ttu-id="6f62b-124">Plik tooconfigure przekazuje z urządzeń, należy hello parametry połączenia dla konta magazynu platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="6f62b-124">tooconfigure file uploads from your devices, you need hello connection string for an Azure storage account.</span></span> <span data-ttu-id="6f62b-125">Konto magazynu Hello musi znajdować się w hello tej samej subskrypcji co Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="6f62b-125">hello storage account must be in hello same subscription as your IoT hub.</span></span> <span data-ttu-id="6f62b-126">Należy również hello nazwa kontenera obiektów blob na koncie magazynu hello.</span><span class="sxs-lookup"><span data-stu-id="6f62b-126">You also need hello name of a blob container in hello storage account.</span></span> <span data-ttu-id="6f62b-127">Użyj następującego polecenia tooretrieve hello kluczy konta magazynu:</span><span class="sxs-lookup"><span data-stu-id="6f62b-127">Use hello following command tooretrieve your storage account keys:</span></span>
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -68,11 +68,11 @@ Get-AzureRmStorageAccountKey `
   -ResourceGroupName {your storage account resource group}
 ```
 
-<span data-ttu-id="709a1-128">Zanotuj **klucz1** wartość klucza konta magazynu.</span><span class="sxs-lookup"><span data-stu-id="709a1-128">Make a note of the **key1** storage account key value.</span></span> <span data-ttu-id="709a1-129">Należy go w kolejnych krokach.</span><span class="sxs-lookup"><span data-stu-id="709a1-129">You need it in the following steps.</span></span>
+<span data-ttu-id="6f62b-128">Zanotuj hello **klucz1** wartość klucza konta magazynu.</span><span class="sxs-lookup"><span data-stu-id="6f62b-128">Make a note of hello **key1** storage account key value.</span></span> <span data-ttu-id="6f62b-129">Należy go hello następujące kroki.</span><span class="sxs-lookup"><span data-stu-id="6f62b-129">You need it in hello following steps.</span></span>
 
-<span data-ttu-id="709a1-130">Można użyć istniejącego kontenera obiektów blob z przekazywania plików lub Utwórz nowe:</span><span class="sxs-lookup"><span data-stu-id="709a1-130">You can either use an existing blob container for your file uploads or create new one:</span></span>
+<span data-ttu-id="6f62b-130">Można użyć istniejącego kontenera obiektów blob z przekazywania plików lub Utwórz nowe:</span><span class="sxs-lookup"><span data-stu-id="6f62b-130">You can either use an existing blob container for your file uploads or create new one:</span></span>
 
-* <span data-ttu-id="709a1-131">Aby wyświetlić listę istniejących kontenerów obiektów blob na koncie magazynu, użyj następujących poleceń:</span><span class="sxs-lookup"><span data-stu-id="709a1-131">To list the existing blob containers in your storage account, use the following commands:</span></span>
+* <span data-ttu-id="6f62b-131">toolist hello istniejących kontenerów obiektów blob na koncie magazynu, należy użyć hello następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="6f62b-131">toolist hello existing blob containers in your storage account, use hello following commands:</span></span>
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -81,7 +81,7 @@ Get-AzureRmStorageAccountKey `
     Get-AzureStorageContainer -Context $ctx
     ```
 
-* <span data-ttu-id="709a1-132">Aby utworzyć kontener obiektów blob na koncie magazynu, należy użyć następujących poleceń:</span><span class="sxs-lookup"><span data-stu-id="709a1-132">To create a blob container in your storage account, use the following commands:</span></span>
+* <span data-ttu-id="6f62b-132">toocreate kontenera obiektów blob na koncie magazynu hello Użyj następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="6f62b-132">toocreate a blob container in your storage account, use hello following commands:</span></span>
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -93,23 +93,23 @@ Get-AzureRmStorageAccountKey `
         -Context $ctx
     ```
 
-## <a name="configure-your-iot-hub"></a><span data-ttu-id="709a1-133">Konfigurowanie Centrum IoT</span><span class="sxs-lookup"><span data-stu-id="709a1-133">Configure your IoT hub</span></span>
+## <a name="configure-your-iot-hub"></a><span data-ttu-id="6f62b-133">Konfigurowanie Centrum IoT</span><span class="sxs-lookup"><span data-stu-id="6f62b-133">Configure your IoT hub</span></span>
 
-<span data-ttu-id="709a1-134">Aby włączyć Centrum IoT można teraz skonfigurować [plików funkcji przekazywania] [ lnk-upload] przy użyciu informacji o koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="709a1-134">You can now configure your IoT hub to enable [file upload functionality][lnk-upload] using your storage account details.</span></span>
+<span data-ttu-id="6f62b-134">Można teraz skonfigurować Twoje tooenable Centrum IoT [plików funkcji przekazywania] [ lnk-upload] przy użyciu informacji o koncie magazynu.</span><span class="sxs-lookup"><span data-stu-id="6f62b-134">You can now configure your IoT hub tooenable [file upload functionality][lnk-upload] using your storage account details.</span></span>
 
-<span data-ttu-id="709a1-135">Konfiguracja wymaga następujących wartości:</span><span class="sxs-lookup"><span data-stu-id="709a1-135">The configuration requires the following values:</span></span>
+<span data-ttu-id="6f62b-135">Konfiguracja Hello wymaga hello następujące wartości:</span><span class="sxs-lookup"><span data-stu-id="6f62b-135">hello configuration requires hello following values:</span></span>
 
-<span data-ttu-id="709a1-136">**Kontener magazynu**: kontener obiektów blob na koncie magazynu Azure w Twojej bieżącej subskrypcji platformy Azure do skojarzenia z Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="709a1-136">**Storage container**: A blob container in an Azure storage account in your current Azure subscription to associate with your IoT hub.</span></span> <span data-ttu-id="709a1-137">Możesz pobrać informacje o koncie magazynu niezbędne w poprzedniej sekcji.</span><span class="sxs-lookup"><span data-stu-id="709a1-137">You retrieved the necessary storage account information in the preceding section.</span></span> <span data-ttu-id="709a1-138">Centrum IoT automatycznie generuje identyfikator URI sygnatury dostępu Współdzielonego z uprawnieniami do zapisu do tego kontenera obiektów blob dla urządzeń do użycia podczas ich przekazywania plików.</span><span class="sxs-lookup"><span data-stu-id="709a1-138">IoT Hub automatically generates SAS URIs with write permissions to this blob container for devices to use when they upload files.</span></span>
+<span data-ttu-id="6f62b-136">**Kontener magazynu**: kontener obiektów blob na koncie magazynu Azure w Twojej bieżącej subskrypcji platformy Azure tooassociate z Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="6f62b-136">**Storage container**: A blob container in an Azure storage account in your current Azure subscription tooassociate with your IoT hub.</span></span> <span data-ttu-id="6f62b-137">Można pobrać informacji o koncie magazynu niezbędne hello w powyższej sekcji hello.</span><span class="sxs-lookup"><span data-stu-id="6f62b-137">You retrieved hello necessary storage account information in hello preceding section.</span></span> <span data-ttu-id="6f62b-138">Centrum IoT automatycznie generuje identyfikator URI SAS z kontenera obiektów blob toothis uprawnienia zapisu dla urządzeń toouse podczas ich przekazywania plików.</span><span class="sxs-lookup"><span data-stu-id="6f62b-138">IoT Hub automatically generates SAS URIs with write permissions toothis blob container for devices toouse when they upload files.</span></span>
 
-<span data-ttu-id="709a1-139">**Odbieranie powiadomień dla przekazanych plików**: Włącz lub Wyłącz powiadomienia o przekazywania plików.</span><span class="sxs-lookup"><span data-stu-id="709a1-139">**Receive notifications for uploaded files**: Enable or disable file upload notifications.</span></span>
+<span data-ttu-id="6f62b-139">**Odbieranie powiadomień dla przekazanych plików**: Włącz lub Wyłącz powiadomienia o przekazywania plików.</span><span class="sxs-lookup"><span data-stu-id="6f62b-139">**Receive notifications for uploaded files**: Enable or disable file upload notifications.</span></span>
 
-<span data-ttu-id="709a1-140">**Czas wygaśnięcia SAS**: to ustawienie jest time-to-live identyfikatorów SAS zwrócony do urządzenia przez Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="709a1-140">**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub.</span></span> <span data-ttu-id="709a1-141">Domyślnie do godzinę.</span><span class="sxs-lookup"><span data-stu-id="709a1-141">Set to one hour by default.</span></span>
+<span data-ttu-id="6f62b-140">**Czas wygaśnięcia SAS**: to ustawienie jest hello time-to-live z hello identyfikatorów URI SAS zwrócony toohello urządzenia przez Centrum IoT.</span><span class="sxs-lookup"><span data-stu-id="6f62b-140">**SAS TTL**: This setting is hello time-to-live of hello SAS URIs returned toohello device by IoT Hub.</span></span> <span data-ttu-id="6f62b-141">Domyślnie tooone godzinę.</span><span class="sxs-lookup"><span data-stu-id="6f62b-141">Set tooone hour by default.</span></span>
 
-<span data-ttu-id="709a1-142">**Plik powiadomienia, ustawienia domyślne TTL**: czas wygaśnięcia pliku Przekaż powiadomienia przed jego wygaśnięciem.</span><span class="sxs-lookup"><span data-stu-id="709a1-142">**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired.</span></span> <span data-ttu-id="709a1-143">Domyślnie na jeden dzień.</span><span class="sxs-lookup"><span data-stu-id="709a1-143">Set to one day by default.</span></span>
+<span data-ttu-id="6f62b-142">**Plik powiadomienia, ustawienia domyślne TTL**: hello time-to-live powiadomienia przekazywania pliku przed jego wygaśnięciem.</span><span class="sxs-lookup"><span data-stu-id="6f62b-142">**File notification settings default TTL**: hello time-to-live of a file upload notification before it is expired.</span></span> <span data-ttu-id="6f62b-143">Domyślnie tooone dnia.</span><span class="sxs-lookup"><span data-stu-id="6f62b-143">Set tooone day by default.</span></span>
 
-<span data-ttu-id="709a1-144">**Powiadomienie dostarczania maksymalna liczba plików**: liczba prób Centrum IoT dostarczyć plik Przekaż powiadomień.</span><span class="sxs-lookup"><span data-stu-id="709a1-144">**File notification maximum delivery count**: The number of times the IoT Hub attempts to deliver a file upload notification.</span></span> <span data-ttu-id="709a1-145">Domyślnie do 10.</span><span class="sxs-lookup"><span data-stu-id="709a1-145">Set to 10 by default.</span></span>
+<span data-ttu-id="6f62b-144">**Powiadomienie dostarczania maksymalna liczba plików**: hello liczba hello Centrum IoT prób toodeliver powiadomienie przekazywania plików.</span><span class="sxs-lookup"><span data-stu-id="6f62b-144">**File notification maximum delivery count**: hello number of times hello IoT Hub attempts toodeliver a file upload notification.</span></span> <span data-ttu-id="6f62b-145">Domyślnie too10.</span><span class="sxs-lookup"><span data-stu-id="6f62b-145">Set too10 by default.</span></span>
 
-<span data-ttu-id="709a1-146">Użyj następującego polecenia cmdlet programu PowerShell umożliwiają skonfigurowanie pliku Przekaż ustawienia Centrum IoT:</span><span class="sxs-lookup"><span data-stu-id="709a1-146">Use the following PowerShell cmdlet to configure the file upload settings on your IoT hub:</span></span>
+<span data-ttu-id="6f62b-146">Użyj następującego ustawienia przekazywania plików hello tooconfigure polecenia cmdlet programu PowerShell w Centrum IoT hello:</span><span class="sxs-lookup"><span data-stu-id="6f62b-146">Use hello following PowerShell cmdlet tooconfigure hello file upload settings on your IoT hub:</span></span>
 
 ```powershell
 Set-AzureRmIotHub `
@@ -123,21 +123,21 @@ Set-AzureRmIotHub `
     -FileUploadNotificationMaxDeliveryCount 10
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="709a1-147">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="709a1-147">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="6f62b-147">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="6f62b-147">Next steps</span></span>
 
-<span data-ttu-id="709a1-148">Aby uzyskać więcej informacji na temat możliwości przekazywania plików Centrum IoT, zobacz [przekazywania plików z urządzeniem][lnk-upload].</span><span class="sxs-lookup"><span data-stu-id="709a1-148">For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload].</span></span>
+<span data-ttu-id="6f62b-148">Aby uzyskać więcej informacji na temat możliwości przekazywania plików hello Centrum IoT, zobacz [przekazywania plików z urządzeniem][lnk-upload].</span><span class="sxs-lookup"><span data-stu-id="6f62b-148">For more information about hello file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload].</span></span>
 
-<span data-ttu-id="709a1-149">Skorzystaj z poniższych linków, aby dowiedzieć się więcej o zarządzaniu Centrum IoT Azure:</span><span class="sxs-lookup"><span data-stu-id="709a1-149">Follow these links to learn more about managing Azure IoT Hub:</span></span>
+<span data-ttu-id="6f62b-149">Wykonaj te toolearn łącza więcej informacji na temat zarządzania Centrum IoT Azure:</span><span class="sxs-lookup"><span data-stu-id="6f62b-149">Follow these links toolearn more about managing Azure IoT Hub:</span></span>
 
-* <span data-ttu-id="709a1-150">[Zbiorcze zarządzania urządzeniami IoT][lnk-bulk]</span><span class="sxs-lookup"><span data-stu-id="709a1-150">[Bulk manage IoT devices][lnk-bulk]</span></span>
-* <span data-ttu-id="709a1-151">[Metryki Centrum IoT][lnk-metrics]</span><span class="sxs-lookup"><span data-stu-id="709a1-151">[IoT Hub metrics][lnk-metrics]</span></span>
-* <span data-ttu-id="709a1-152">[Operacje monitorowania][lnk-monitor]</span><span class="sxs-lookup"><span data-stu-id="709a1-152">[Operations monitoring][lnk-monitor]</span></span>
+* <span data-ttu-id="6f62b-150">[Zbiorcze zarządzania urządzeniami IoT][lnk-bulk]</span><span class="sxs-lookup"><span data-stu-id="6f62b-150">[Bulk manage IoT devices][lnk-bulk]</span></span>
+* <span data-ttu-id="6f62b-151">[Metryki Centrum IoT][lnk-metrics]</span><span class="sxs-lookup"><span data-stu-id="6f62b-151">[IoT Hub metrics][lnk-metrics]</span></span>
+* <span data-ttu-id="6f62b-152">[Operacje monitorowania][lnk-monitor]</span><span class="sxs-lookup"><span data-stu-id="6f62b-152">[Operations monitoring][lnk-monitor]</span></span>
 
-<span data-ttu-id="709a1-153">Aby dokładniej analizować możliwości Centrum IoT, zobacz:</span><span class="sxs-lookup"><span data-stu-id="709a1-153">To further explore the capabilities of IoT Hub, see:</span></span>
+<span data-ttu-id="6f62b-153">toofurther Poznaj możliwości hello Centrum IoT, zobacz:</span><span class="sxs-lookup"><span data-stu-id="6f62b-153">toofurther explore hello capabilities of IoT Hub, see:</span></span>
 
-* <span data-ttu-id="709a1-154">[Przewodnik dewelopera Centrum IoT][lnk-devguide]</span><span class="sxs-lookup"><span data-stu-id="709a1-154">[IoT Hub developer guide][lnk-devguide]</span></span>
-* <span data-ttu-id="709a1-155">[Symuluje urządzenia IoT krawędzi][lnk-iotedge]</span><span class="sxs-lookup"><span data-stu-id="709a1-155">[Simulating a device with IoT Edge][lnk-iotedge]</span></span>
-* <span data-ttu-id="709a1-156">[Zabezpieczanie rozwiązania IoT od podstaw w górę][lnk-securing]</span><span class="sxs-lookup"><span data-stu-id="709a1-156">[Secure your IoT solution from the ground up][lnk-securing]</span></span>
+* <span data-ttu-id="6f62b-154">[Przewodnik dewelopera Centrum IoT][lnk-devguide]</span><span class="sxs-lookup"><span data-stu-id="6f62b-154">[IoT Hub developer guide][lnk-devguide]</span></span>
+* <span data-ttu-id="6f62b-155">[Symuluje urządzenia IoT krawędzi][lnk-iotedge]</span><span class="sxs-lookup"><span data-stu-id="6f62b-155">[Simulating a device with IoT Edge][lnk-iotedge]</span></span>
+* <span data-ttu-id="6f62b-156">[Zabezpieczanie rozwiązania IoT z hello tła w][lnk-securing]</span><span class="sxs-lookup"><span data-stu-id="6f62b-156">[Secure your IoT solution from hello ground up][lnk-securing]</span></span>
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
 

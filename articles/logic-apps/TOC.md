@@ -7,7 +7,7 @@
 ## [Tworzenie pierwszej aplikacji logiki](logic-apps-create-a-logic-app.md)
 ## [Szablony aplikacji logiki](logic-apps-use-logic-app-templates.md)
 ## [Tworzenie aplikacji logiki przy użyciu szablonów](logic-apps-arm-provision.md)
-## [Przenoszenie aplikacji MABS do aplikacji logiki](logic-apps-move-from-mabs.md)
+## [Przenieś aplikacje toologic aplikacji MABS](logic-apps-move-from-mabs.md)
 
 # Instrukcje
 ## Kompilacja
@@ -46,7 +46,7 @@
 ### [Integracja EDIFACT w przedsiębiorstwach](logic-apps-enterprise-integration-edifact.md)
 ### [Kodowanie EDIFACT](logic-apps-enterprise-integration-edifact-encode.md)
 ### [Dekodowanie EDIFACT](logic-apps-enterprise-integration-edifact-decode.md)
-### [Jak obsługiwać dokumenty EDIFACT z segmentem UNH2.5](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
+### [Jak toohandle EDIFACT dokumentów o UNH2.5 segment](logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md)
 ### [Integracja X12 w przedsiębiorstwach](logic-apps-enterprise-integration-x12.md)
 ### [Kodowanie X12](logic-apps-enterprise-integration-x12-encode.md)
 ### [Dekodowanie X12](logic-apps-enterprise-integration-x12-decode.md)
@@ -54,7 +54,7 @@
 ### [Błędy i rozwiązania](logic-apps-enterprise-integration-b2b-list-errors-solutions.md)
 
 ## Dostęp do danych lokalnych
-### [Nawiązywanie połączenia z danymi lokalnymi](logic-apps-gateway-connection.md)
+### [Połącz dane lokalne tooon](logic-apps-gateway-connection.md)
 ### [Instalowanie bramy danych](logic-apps-gateway-install.md)
 
 ## Automatyzowanie i wdrażanie

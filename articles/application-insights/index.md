@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Application Insights — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak przy użyciu usługi Application Insights — rozszerzalnego rozwiązania do zarządzania wydajnością aplikacji — wykrywać i diagnozować problemy oraz oceniać ich istotność w aplikacjach sieci Web i w usługach."
+title: "aaaAzure aplikacji Insights dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse Application Insights zarządzania toodetect wydajności aplikacji rozszerzalnej klasyfikowanie i diagnozowanie problemów dotyczących usług i aplikacji sieci web."
 services: application-insights
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 341ac74463dc44ea477c9f0f7bcf83fed6189f0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-insights-documentation"></a>Dokumentacja usługi Application Insights
 
-Dowiedz się, jak używać rozwiązania Application Insights, rozszerzalnej usługi zarządzania wydajnością aplikacji dla deweloperów sieci Web. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak wykrywać i diagnozować problemy oraz oceniać ich istotność w aplikacjach sieci Web i w usługach.
+Dowiedz się, jak toouse usługi Application Insights, zarządzanie wydajnością aplikacji rozszerzalnej usługi dla deweloperów sieci web. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób toodetect, klasyfikowanie i diagnozowanie problemów dotyczących usług i aplikacji sieci web.
 
 <ul class="panelContent cardsFTitle">
     <li>

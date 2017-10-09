@@ -12,7 +12,7 @@
 ### [Typowe scenariusze](power-bi-embedded-scenarios.md)
 
 ## Zarządzanie
-### [Łączenie ze źródłem danych](power-bi-embedded-connect-datasource.md)
+### [Łączenie ze źródłem danych tooa](power-bi-embedded-connect-datasource.md)
 ### [Osadzanie raportu usługi Power BI](power-bi-embedded-embed-report.md)
 ### [Interakcja z raportami](power-bi-embedded-interact-with-reports.md)
 ### [Tworzenie nowego raportu przy użyciu zestawu danych](power-bi-embedded-create-report-from-dataset.md)

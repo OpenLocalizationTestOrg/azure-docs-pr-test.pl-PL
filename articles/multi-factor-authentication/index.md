@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Multi-Factor Authentication — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Informacje o sposobie wdrażania uwierzytelniania wieloskładnikowego przy użyciu szeregu metod weryfikacji, które zapewniają prostotę procesu logowania. Samouczki, zestaw SDK i inne materiały."
+title: "aaaAzure dokumentacji uwierzytelnianie wieloskładnikowe — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak uwierzytelnianie wieloskładnikowe toodeploy szereg metod weryfikacji które zapewniają prosty proces logowania. Samouczki, zestaw SDK i inne materiały."
 services: multi-factor-authentication
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c4aaa14007bf441f99ef6599bda411bcaed92a92
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0ede2ad48a3d4e756aeb0b1f6bc0e07e4e7b1fcc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="multi-factor-authentication-documentation"></a>Dokumentacja usługi Multi-factor Authentication
 
-Informacje o sposobie wdrażania usługi Azure Multi-Factor Authentication — systemu dwuetapowej weryfikacji tożsamości — i zarządzania nią. Samouczki, zestaw SDK i inne dokumenty przedstawiające sposób zapewnienia silnego uwierzytelniania przy użyciu szeregu metod weryfikacji, które zapewniają prostotę procesu logowania.
+Dowiedz się, jak toodeploy i zarządzanie nimi Azure Multi-Factor Authentication, tożsamość systemu weryfikacji dwuetapowej. Samouczki, zestaw SDK i dokumentacji przedstawia sposób toodeliver silne uwierzytelnianie za pomocą szereg metod weryfikacji zapewniając prostych procesu logowania.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Informacje o sposobie wdrażania usługi Azure Multi-Factor Authentication — s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpocznij pracę z usługą Azure Multi-Factor Authentication w chmurze</h3>
+                        <h3>Wprowadzenie do usługi Azure Multi-Factor Authentication w chmurze hello</h3>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
-title: Tworzenie, uruchamianie i usuwanie bramy aplikacji | Microsoft Docs
-description: "Ta strona zawiera instrukcje dotyczące tworzenia, konfigurowania, uruchamiania i usuwania bramy aplikacji na platformie Azure"
+title: "aaaCreate, uruchomić lub usunąć bramę aplikacji | Dokumentacja firmy Microsoft"
+description: "Ta strona zawiera instrukcje toocreate, skonfigurować, uruchomić i usunąć bramę aplikacji Azure"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -15,70 +15,70 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
-ms.openlocfilehash: c4932096229b1941e0966e7f3e97de39c6931392
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3efef5b49880c9efdafad8b88d4bce5b749b82af
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-start-or-delete-an-application-gateway-with-powershell"></a><span data-ttu-id="4db2d-103">Tworzenie, uruchamianie i usuwanie bramy aplikacji przy użyciu programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="4db2d-103">Create, start, or delete an application gateway with PowerShell</span></span> 
+# <a name="create-start-or-delete-an-application-gateway-with-powershell"></a><span data-ttu-id="bd040-103">Tworzenie, uruchamianie i usuwanie bramy aplikacji przy użyciu programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="bd040-103">Create, start, or delete an application gateway with PowerShell</span></span> 
 
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="4db2d-104">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="4db2d-104">Azure portal</span></span>](application-gateway-create-gateway-portal.md)
-> * [<span data-ttu-id="4db2d-105">Azure Resource Manager — program PowerShell</span><span class="sxs-lookup"><span data-stu-id="4db2d-105">Azure Resource Manager PowerShell</span></span>](application-gateway-create-gateway-arm.md)
-> * [<span data-ttu-id="4db2d-106">Klasyczny portal Azure — program PowerShell</span><span class="sxs-lookup"><span data-stu-id="4db2d-106">Azure Classic PowerShell</span></span>](application-gateway-create-gateway.md)
-> * [<span data-ttu-id="4db2d-107">Szablon usługi Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="4db2d-107">Azure Resource Manager template</span></span>](application-gateway-create-gateway-arm-template.md)
-> * [<span data-ttu-id="4db2d-108">Interfejs wiersza polecenia platformy Azure</span><span class="sxs-lookup"><span data-stu-id="4db2d-108">Azure CLI</span></span>](application-gateway-create-gateway-cli.md)
+> * [<span data-ttu-id="bd040-104">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="bd040-104">Azure portal</span></span>](application-gateway-create-gateway-portal.md)
+> * [<span data-ttu-id="bd040-105">Azure Resource Manager — program PowerShell</span><span class="sxs-lookup"><span data-stu-id="bd040-105">Azure Resource Manager PowerShell</span></span>](application-gateway-create-gateway-arm.md)
+> * [<span data-ttu-id="bd040-106">Klasyczny portal Azure — program PowerShell</span><span class="sxs-lookup"><span data-stu-id="bd040-106">Azure Classic PowerShell</span></span>](application-gateway-create-gateway.md)
+> * [<span data-ttu-id="bd040-107">Szablon usługi Azure Resource Manager</span><span class="sxs-lookup"><span data-stu-id="bd040-107">Azure Resource Manager template</span></span>](application-gateway-create-gateway-arm-template.md)
+> * [<span data-ttu-id="bd040-108">Interfejs wiersza polecenia platformy Azure</span><span class="sxs-lookup"><span data-stu-id="bd040-108">Azure CLI</span></span>](application-gateway-create-gateway-cli.md)
 
-<span data-ttu-id="4db2d-109">Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7.</span><span class="sxs-lookup"><span data-stu-id="4db2d-109">Azure Application Gateway is a layer-7 load balancer.</span></span> <span data-ttu-id="4db2d-110">Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi.</span><span class="sxs-lookup"><span data-stu-id="4db2d-110">It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.</span></span> <span data-ttu-id="4db2d-111">Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn.</span><span class="sxs-lookup"><span data-stu-id="4db2d-111">Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.</span></span> <span data-ttu-id="4db2d-112">Aby uzyskać pełną listę obsługiwanych funkcji, odwiedź stronę [Application Gateway — omówienie](application-gateway-introduction.md)</span><span class="sxs-lookup"><span data-stu-id="4db2d-112">To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)</span></span>
+<span data-ttu-id="bd040-109">Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7.</span><span class="sxs-lookup"><span data-stu-id="bd040-109">Azure Application Gateway is a layer-7 load balancer.</span></span> <span data-ttu-id="bd040-110">Zapewnia on trybu failover, wydajności routingu żądań HTTP między różnymi serwerami, czy znajdują się w chmurze hello lub lokalnie.</span><span class="sxs-lookup"><span data-stu-id="bd040-110">It provides failover, performance-routing HTTP requests between different servers, whether they are on hello cloud or on-premises.</span></span> <span data-ttu-id="bd040-111">Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn.</span><span class="sxs-lookup"><span data-stu-id="bd040-111">Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.</span></span> <span data-ttu-id="bd040-112">odwiedź toofind pełną listę obsługiwanych funkcji [omówienie bramy aplikacji](application-gateway-introduction.md)</span><span class="sxs-lookup"><span data-stu-id="bd040-112">toofind a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)</span></span>
 
-<span data-ttu-id="4db2d-113">W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, uruchamianie i usuwanie bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-113">This article walks you through the steps to create, configure, start, and delete an application gateway.</span></span>
+<span data-ttu-id="bd040-113">W tym artykule przedstawiono toocreate kroki hello, skonfiguruj start i usunąć bramę aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bd040-113">This article walks you through hello steps toocreate, configure, start, and delete an application gateway.</span></span>
 
-## <a name="before-you-begin"></a><span data-ttu-id="4db2d-114">Przed rozpoczęciem</span><span class="sxs-lookup"><span data-stu-id="4db2d-114">Before you begin</span></span>
+## <a name="before-you-begin"></a><span data-ttu-id="bd040-114">Przed rozpoczęciem</span><span class="sxs-lookup"><span data-stu-id="bd040-114">Before you begin</span></span>
 
-1. <span data-ttu-id="4db2d-115">Zainstaluj najnowszą wersję poleceń cmdlet programu Azure PowerShell za pomocą Instalatora platformy sieci Web.</span><span class="sxs-lookup"><span data-stu-id="4db2d-115">Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer.</span></span> <span data-ttu-id="4db2d-116">Najnowszą wersję można pobrać i zainstalować z sekcji **Windows PowerShell** strony [Pliki do pobrania](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="4db2d-116">You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).</span></span>
-2. <span data-ttu-id="4db2d-117">Jeśli masz istniejącą sieć wirtualną, wybierz istniejącą pustą podsieć lub utwórz nową podsieć w istniejącej sieci wirtualnej wyłącznie do użytku przez tę bramę aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-117">If you have an existing virtual network, either select an existing empty subnet or create a new subnet in your existing virtual network solely for use by the application gateway.</span></span> <span data-ttu-id="4db2d-118">Nie można wdrożyć bramy aplikacji do innej sieci wirtualnej niż sieć wirtualna zasobów, które zamierzasz wdrożyć za bramą aplikacji, chyba że są używane wirtualne sieci równorzędne.</span><span class="sxs-lookup"><span data-stu-id="4db2d-118">You cannot deploy the application gateway to a different virtual network than the resources you intend to deploy behind the application gateway unless vnet peering is used.</span></span> <span data-ttu-id="4db2d-119">Aby dowiedzieć się więcej, odwiedź stronę [Wirtualne sieci równorzędne](../virtual-network/virtual-network-peering-overview.md)</span><span class="sxs-lookup"><span data-stu-id="4db2d-119">To learn more visit [Vnet Peering](../virtual-network/virtual-network-peering-overview.md)</span></span>
-3. <span data-ttu-id="4db2d-120">Sprawdź, czy masz działającą sieć wirtualną z prawidłową podsiecią.</span><span class="sxs-lookup"><span data-stu-id="4db2d-120">Verify that you have a working virtual network with a valid subnet.</span></span> <span data-ttu-id="4db2d-121">Upewnij się, że z podsieci nie korzystają żadne maszyny wirtualne ani wdrożenia w chmurze.</span><span class="sxs-lookup"><span data-stu-id="4db2d-121">Make sure that no virtual machines or cloud deployments are using the subnet.</span></span> <span data-ttu-id="4db2d-122">Brama aplikacji musi znajdować się w podsieci sieci wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="4db2d-122">The application gateway must be by itself in a virtual network subnet.</span></span>
-4. <span data-ttu-id="4db2d-123">Serwery konfigurowane do używania bramy aplikacji muszą być umieszczone w sieci wirtualnej lub z przypisanym adresem IP/VIP lub mieć w niej utworzone punkty końcowe.</span><span class="sxs-lookup"><span data-stu-id="4db2d-123">The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.</span></span>
+1. <span data-ttu-id="bd040-115">Zainstaluj najnowszą wersję hello hello Azure poleceń cmdlet programu PowerShell, za pomocą hello Instalatora platformy sieci Web.</span><span class="sxs-lookup"><span data-stu-id="bd040-115">Install hello latest version of hello Azure PowerShell cmdlets by using hello Web Platform Installer.</span></span> <span data-ttu-id="bd040-116">Można pobrać i zainstalować najnowszą wersję hello z hello **programu Windows PowerShell** sekcji hello [pliki do pobrania](https://azure.microsoft.com/downloads/).</span><span class="sxs-lookup"><span data-stu-id="bd040-116">You can download and install hello latest version from hello **Windows PowerShell** section of hello [Downloads page](https://azure.microsoft.com/downloads/).</span></span>
+2. <span data-ttu-id="bd040-117">Jeśli masz istniejącą sieć wirtualną, wybierz istniejącą podsieć pusty albo utwórz nową podsieć w istniejącej sieci wirtualnej wyłącznie do użytku przez bramę aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-117">If you have an existing virtual network, either select an existing empty subnet or create a new subnet in your existing virtual network solely for use by hello application gateway.</span></span> <span data-ttu-id="bd040-118">Nie można wdrożyć hello aplikacji bramy tooa innej sieci wirtualnej niż hello zasobów ma toodeploy za bramy aplikacji hello chyba że używana jest sieć wirtualną komunikacji równorzędnej.</span><span class="sxs-lookup"><span data-stu-id="bd040-118">You cannot deploy hello application gateway tooa different virtual network than hello resources you intend toodeploy behind hello application gateway unless vnet peering is used.</span></span> <span data-ttu-id="bd040-119">toolearn więcej odwiedź [równorzędna sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md)</span><span class="sxs-lookup"><span data-stu-id="bd040-119">toolearn more visit [Vnet Peering](../virtual-network/virtual-network-peering-overview.md)</span></span>
+3. <span data-ttu-id="bd040-120">Sprawdź, czy masz działającą sieć wirtualną z prawidłową podsiecią.</span><span class="sxs-lookup"><span data-stu-id="bd040-120">Verify that you have a working virtual network with a valid subnet.</span></span> <span data-ttu-id="bd040-121">Upewnij się, że nie maszyny wirtualne lub wdrożenia chmury z hello podsieci.</span><span class="sxs-lookup"><span data-stu-id="bd040-121">Make sure that no virtual machines or cloud deployments are using hello subnet.</span></span> <span data-ttu-id="bd040-122">Brama aplikacji Hello należy samodzielnie w podsieci sieci wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="bd040-122">hello application gateway must be by itself in a virtual network subnet.</span></span>
+4. <span data-ttu-id="bd040-123">Skonfigurowanie bramy aplikacji hello toouse serwerów Hello musi istnieć lub mieć przypisane ich punkty końcowe utworzone w sieci wirtualnej hello lub z publicznego adresu IP/VIP.</span><span class="sxs-lookup"><span data-stu-id="bd040-123">hello servers that you configure toouse hello application gateway must exist or have their endpoints created either in hello virtual network or with a public IP/VIP assigned.</span></span>
 
-## <a name="what-is-required-to-create-an-application-gateway"></a><span data-ttu-id="4db2d-124">Co jest wymagane do utworzenia bramy aplikacji?</span><span class="sxs-lookup"><span data-stu-id="4db2d-124">What is required to create an application gateway?</span></span>
+## <a name="what-is-required-toocreate-an-application-gateway"></a><span data-ttu-id="bd040-124">Co to jest wymagana toocreate bramę aplikacji?</span><span class="sxs-lookup"><span data-stu-id="bd040-124">What is required toocreate an application gateway?</span></span>
 
-<span data-ttu-id="4db2d-125">W momencie użycia polecenia `New-AzureApplicationGateway` w celu utworzenia bramy aplikacji nic nie jest jeszcze skonfigurowane i nowo utworzony zasób musi zostać skonfigurowany przy użyciu kodu XML lub obiektu konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-125">When you use the `New-AzureApplicationGateway` command to create the application gateway, no configuration is set at this point and the newly created resource are configured either by using XML or a configuration object.</span></span>
+<span data-ttu-id="bd040-125">Jeśli używasz hello `New-AzureApplicationGateway` bramy aplikacji hello toocreate polecenia, konfiguracja nie jest ustawiona na tym etapie i hello nowo utworzony zasób są skonfigurowane przy użyciu XML lub obiekt konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="bd040-125">When you use hello `New-AzureApplicationGateway` command toocreate hello application gateway, no configuration is set at this point and hello newly created resource are configured either by using XML or a configuration object.</span></span>
 
-<span data-ttu-id="4db2d-126">Potrzebne wartości:</span><span class="sxs-lookup"><span data-stu-id="4db2d-126">The values are:</span></span>
+<span data-ttu-id="bd040-126">Witaj wartości są następujące:</span><span class="sxs-lookup"><span data-stu-id="bd040-126">hello values are:</span></span>
 
-* <span data-ttu-id="4db2d-127">**Pula serwerów zaplecza:** lista adresów IP serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="4db2d-127">**Back-end server pool:** The list of IP addresses of the back-end servers.</span></span> <span data-ttu-id="4db2d-128">Adresy IP na liście powinny należeć do podsieci sieci wirtualnej lub być publicznymi bądź wirtualnymi adresami IP.</span><span class="sxs-lookup"><span data-stu-id="4db2d-128">The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.</span></span>
-* <span data-ttu-id="4db2d-129">**Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie.</span><span class="sxs-lookup"><span data-stu-id="4db2d-129">**Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity.</span></span> <span data-ttu-id="4db2d-130">Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.</span><span class="sxs-lookup"><span data-stu-id="4db2d-130">These settings are tied to a pool and are applied to all servers within the pool.</span></span>
-* <span data-ttu-id="4db2d-131">**Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-131">**Front-end port:** This port is the public port that is opened on the application gateway.</span></span> <span data-ttu-id="4db2d-132">Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="4db2d-132">Traffic hits this port, and then gets redirected to one of the back-end servers.</span></span>
-* <span data-ttu-id="4db2d-133">**Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).</span><span class="sxs-lookup"><span data-stu-id="4db2d-133">**Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).</span></span>
-* <span data-ttu-id="4db2d-134">**Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika.</span><span class="sxs-lookup"><span data-stu-id="4db2d-134">**Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.</span></span>
+* <span data-ttu-id="bd040-127">**Pula serwerów zaplecza:** hello listę adresów IP serwerów wewnętrznych hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-127">**Back-end server pool:** hello list of IP addresses of hello back-end servers.</span></span> <span data-ttu-id="bd040-128">wymienionych na liście adresów IP Hello albo powinny należeć toohello podsieć sieci wirtualnej lub powinny być publicznego adresu IP/VIP.</span><span class="sxs-lookup"><span data-stu-id="bd040-128">hello IP addresses listed should either belong toohello virtual network subnet or should be a public IP/VIP.</span></span>
+* <span data-ttu-id="bd040-129">**Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie.</span><span class="sxs-lookup"><span data-stu-id="bd040-129">**Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity.</span></span> <span data-ttu-id="bd040-130">Te ustawienia są wiązanej tooa puli i są stosowane tooall serwery w puli hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-130">These settings are tied tooa pool and are applied tooall servers within hello pool.</span></span>
+* <span data-ttu-id="bd040-131">**Port frontonu:** ten port jest port publiczny hello, która jest otwarta w bramie aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-131">**Front-end port:** This port is hello public port that is opened on hello application gateway.</span></span> <span data-ttu-id="bd040-132">Ruch trafienia tego portu, a następnie pobiera przekierowanie tooone serwerami zaplecza hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-132">Traffic hits this port, and then gets redirected tooone of hello back-end servers.</span></span>
+* <span data-ttu-id="bd040-133">**Odbiornik:** odbiornika hello ma port frontonu, protokół (Http lub Https, te wartości jest rozróżniana wielkość liter), a hello nazwa certyfikatu SSL (jeśli odciążania Konfigurowanie protokołu SSL).</span><span class="sxs-lookup"><span data-stu-id="bd040-133">**Listener:** hello listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and hello SSL certificate name (if configuring SSL offload).</span></span>
+* <span data-ttu-id="bd040-134">**Reguła:** reguła hello wiąże odbiornika hello i hello puli serwerów zaplecza i określa, jaki ruch hello puli serwera zaplecza ukierunkowanej toowhen trafienia w szczególności odbiornika.</span><span class="sxs-lookup"><span data-stu-id="bd040-134">**Rule:** hello rule binds hello listener and hello back-end server pool and defines which back-end server pool hello traffic should be directed toowhen it hits a particular listener.</span></span>
 
-## <a name="create-an-application-gateway"></a><span data-ttu-id="4db2d-135">Tworzenie bramy aplikacji</span><span class="sxs-lookup"><span data-stu-id="4db2d-135">Create an application gateway</span></span>
+## <a name="create-an-application-gateway"></a><span data-ttu-id="bd040-135">Tworzenie bramy aplikacji</span><span class="sxs-lookup"><span data-stu-id="bd040-135">Create an application gateway</span></span>
 
-<span data-ttu-id="4db2d-136">Aby utworzyć bramę aplikacji:</span><span class="sxs-lookup"><span data-stu-id="4db2d-136">To create an application gateway:</span></span>
+<span data-ttu-id="bd040-136">toocreate bramę aplikacji:</span><span class="sxs-lookup"><span data-stu-id="bd040-136">toocreate an application gateway:</span></span>
 
-1. <span data-ttu-id="4db2d-137">Utwórz zasób bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-137">Create an application gateway resource.</span></span>
-2. <span data-ttu-id="4db2d-138">Utwórz konfiguracyjny plik XML lub obiekt konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-138">Create a configuration XML file or a configuration object.</span></span>
-3. <span data-ttu-id="4db2d-139">Przekaż konfigurację aplikacji do nowo utworzonego zasobu bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-139">Commit the configuration to the newly created application gateway resource.</span></span>
+1. <span data-ttu-id="bd040-137">Utwórz zasób bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bd040-137">Create an application gateway resource.</span></span>
+2. <span data-ttu-id="bd040-138">Utwórz konfiguracyjny plik XML lub obiekt konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="bd040-138">Create a configuration XML file or a configuration object.</span></span>
+3. <span data-ttu-id="bd040-139">Zatwierdź toohello konfiguracji hello nowo utworzony zasób bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bd040-139">Commit hello configuration toohello newly created application gateway resource.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="4db2d-140">Jeśli musisz skonfigurować niestandardową sondę bramy aplikacji, zobacz artykuł [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md) (Tworzenie bramy aplikacji z sondami niestandardowymi przy użyciu programu PowerShell).</span><span class="sxs-lookup"><span data-stu-id="4db2d-140">If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md).</span></span> <span data-ttu-id="4db2d-141">Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat [sond niestandardowych i monitorowania kondycji](application-gateway-probe-overview.md).</span><span class="sxs-lookup"><span data-stu-id="4db2d-141">Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.</span></span>
+> <span data-ttu-id="bd040-140">Jeśli potrzebujesz tooconfigure sondowania niestandardowych dla bramy aplikacji, zobacz [Utwórz bramę aplikacji z niestandardowego sond przy użyciu programu PowerShell](application-gateway-create-probe-classic-ps.md).</span><span class="sxs-lookup"><span data-stu-id="bd040-140">If you need tooconfigure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md).</span></span> <span data-ttu-id="bd040-141">Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat [sond niestandardowych i monitorowania kondycji](application-gateway-probe-overview.md).</span><span class="sxs-lookup"><span data-stu-id="bd040-141">Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.</span></span>
 
 ![Przykładowy scenariusz][scenario]
 
-### <a name="create-an-application-gateway-resource"></a><span data-ttu-id="4db2d-143">Tworzenie zasobu bramy aplikacji</span><span class="sxs-lookup"><span data-stu-id="4db2d-143">Create an application gateway resource</span></span>
+### <a name="create-an-application-gateway-resource"></a><span data-ttu-id="bd040-143">Tworzenie zasobu bramy aplikacji</span><span class="sxs-lookup"><span data-stu-id="bd040-143">Create an application gateway resource</span></span>
 
-<span data-ttu-id="4db2d-144">Aby utworzyć bramę, użyj polecenia cmdlet `New-AzureApplicationGateway`, zastępując wartości własnymi.</span><span class="sxs-lookup"><span data-stu-id="4db2d-144">To create the gateway, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own.</span></span> <span data-ttu-id="4db2d-145">Opłaty za bramę nie są jeszcze naliczane.</span><span class="sxs-lookup"><span data-stu-id="4db2d-145">Billing for the gateway does not start at this point.</span></span> <span data-ttu-id="4db2d-146">Rozliczanie zaczyna się na późniejszym etapie, po pomyślnym uruchomieniu bramy.</span><span class="sxs-lookup"><span data-stu-id="4db2d-146">Billing begins in a later step, when the gateway is successfully started.</span></span>
+<span data-ttu-id="bd040-144">toocreate hello bramy, użyj hello `New-AzureApplicationGateway` polecenia cmdlet, zastępując wartości hello własne.</span><span class="sxs-lookup"><span data-stu-id="bd040-144">toocreate hello gateway, use hello `New-AzureApplicationGateway` cmdlet, replacing hello values with your own.</span></span> <span data-ttu-id="bd040-145">Karta hello bramy nie rozpoczyna się w tym momencie.</span><span class="sxs-lookup"><span data-stu-id="bd040-145">Billing for hello gateway does not start at this point.</span></span> <span data-ttu-id="bd040-146">Karta rozpoczyna się od w kolejnym kroku hello bramy została pomyślnie uruchomiona.</span><span class="sxs-lookup"><span data-stu-id="bd040-146">Billing begins in a later step, when hello gateway is successfully started.</span></span>
 
-<span data-ttu-id="4db2d-147">W poniższym przykładzie utworzono bramę aplikacji przy użyciu sieci wirtualnej „testvnet1” i podsieci „subnet-1”:</span><span class="sxs-lookup"><span data-stu-id="4db2d-147">The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1":</span></span>
+<span data-ttu-id="bd040-147">Witaj poniższy przykład tworzy bramę aplikacji przy użyciu sieci wirtualnej o nazwie "testvnet1" i podsieć o nazwie "podsieć 1":</span><span class="sxs-lookup"><span data-stu-id="bd040-147">hello following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1":</span></span>
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 ```
 
-<span data-ttu-id="4db2d-148">Parametry *Description* (opis), *InstanceCount* (Liczba wystąpień) i *GatewaySize* (Rozmiar bramy) są opcjonalne.</span><span class="sxs-lookup"><span data-stu-id="4db2d-148">*Description*, *InstanceCount*, and *GatewaySize* are optional parameters.</span></span>
+<span data-ttu-id="bd040-148">Parametry *Description* (opis), *InstanceCount* (Liczba wystąpień) i *GatewaySize* (Rozmiar bramy) są opcjonalne.</span><span class="sxs-lookup"><span data-stu-id="bd040-148">*Description*, *InstanceCount*, and *GatewaySize* are optional parameters.</span></span>
 
-<span data-ttu-id="4db2d-149">Aby sprawdzić, czy brama została utworzona, możesz użyć polecenia cmdlet `Get-AzureApplicationGateway`.</span><span class="sxs-lookup"><span data-stu-id="4db2d-149">To validate that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet.</span></span>
+<span data-ttu-id="bd040-149">toovalidate, który hello bramy został utworzony, można użyć hello `Get-AzureApplicationGateway` polecenia cmdlet.</span><span class="sxs-lookup"><span data-stu-id="bd040-149">toovalidate that hello gateway was created, you can use hello `Get-AzureApplicationGateway` cmdlet.</span></span>
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -97,21 +97,21 @@ DnsName       :
 ```
 
 > [!NOTE]
-> <span data-ttu-id="4db2d-150">Wartość domyślna parametru *InstanceCount* to 2, a wartość maksymalna — 10.</span><span class="sxs-lookup"><span data-stu-id="4db2d-150">The default value for *InstanceCount* is 2, with a maximum value of 10.</span></span> <span data-ttu-id="4db2d-151">Wartość domyślna parametru *GatewaySize* to Medium (Średnia).</span><span class="sxs-lookup"><span data-stu-id="4db2d-151">The default value for *GatewaySize* is Medium.</span></span> <span data-ttu-id="4db2d-152">Do wyboru są wartości Small (Mała), Medium (Średnia) i Large (Duża).</span><span class="sxs-lookup"><span data-stu-id="4db2d-152">You can choose between Small, Medium and Large.</span></span>
+> <span data-ttu-id="bd040-150">Witaj wartości domyślnej dla *InstanceCount* 2, maksymalna wartość 10.</span><span class="sxs-lookup"><span data-stu-id="bd040-150">hello default value for *InstanceCount* is 2, with a maximum value of 10.</span></span> <span data-ttu-id="bd040-151">Witaj wartości domyślnej dla *GatewaySize* to średni.</span><span class="sxs-lookup"><span data-stu-id="bd040-151">hello default value for *GatewaySize* is Medium.</span></span> <span data-ttu-id="bd040-152">Do wyboru są wartości Small (Mała), Medium (Średnia) i Large (Duża).</span><span class="sxs-lookup"><span data-stu-id="bd040-152">You can choose between Small, Medium and Large.</span></span>
 
-<span data-ttu-id="4db2d-153">Parametry *VirtualIPs* (Wirtualne adresy IP) i *DnsName* (Nazwa serwera DNS) są wyświetlane jako puste, ponieważ brama nie została jeszcze uruchomiona.</span><span class="sxs-lookup"><span data-stu-id="4db2d-153">*VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet.</span></span> <span data-ttu-id="4db2d-154">Zostaną utworzone, gdy brama zacznie działać.</span><span class="sxs-lookup"><span data-stu-id="4db2d-154">These are created once the gateway is in the running state.</span></span>
+<span data-ttu-id="bd040-153">*VirtualIPs* i *DnsName* są wyświetlane jako puste, ponieważ brama hello nie została jeszcze uruchomiona.</span><span class="sxs-lookup"><span data-stu-id="bd040-153">*VirtualIPs* and *DnsName* are shown as blank because hello gateway has not started yet.</span></span> <span data-ttu-id="bd040-154">Są one tworzone po hello brama jest w hello stanu działania.</span><span class="sxs-lookup"><span data-stu-id="bd040-154">These are created once hello gateway is in hello running state.</span></span>
 
-## <a name="configure-the-application-gateway"></a><span data-ttu-id="4db2d-155">Konfigurowanie bramy aplikacji</span><span class="sxs-lookup"><span data-stu-id="4db2d-155">Configure the application gateway</span></span>
+## <a name="configure-hello-application-gateway"></a><span data-ttu-id="bd040-155">Brama aplikacji hello</span><span class="sxs-lookup"><span data-stu-id="bd040-155">Configure hello application gateway</span></span>
 
-<span data-ttu-id="4db2d-156">Bramę aplikacji możesz skonfigurować za pomocą pliku XML lub obiektu konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-156">You can configure the application gateway by using XML or a configuration object.</span></span>
+<span data-ttu-id="bd040-156">Brama aplikacji hello można skonfigurować za pomocą XML lub obiekt konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="bd040-156">You can configure hello application gateway by using XML or a configuration object.</span></span>
 
-### <a name="configure-the-application-gateway-by-using-xml"></a><span data-ttu-id="4db2d-157">Konfigurowanie bramy aplikacji za pomocą pliku XML</span><span class="sxs-lookup"><span data-stu-id="4db2d-157">Configure the application gateway by using XML</span></span>
+### <a name="configure-hello-application-gateway-by-using-xml"></a><span data-ttu-id="bd040-157">Konfigurowanie bramy aplikacji hello za pomocą XML</span><span class="sxs-lookup"><span data-stu-id="bd040-157">Configure hello application gateway by using XML</span></span>
 
-<span data-ttu-id="4db2d-158">W poniższym przykładzie używany jest plik XML, aby skonfigurować wszystkie ustawienia bramy aplikacji i zatwierdzić je w zasobie bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-158">In the following example, you use an XML file to configure all application gateway settings and commit them to the application gateway resource.</span></span>  
+<span data-ttu-id="bd040-158">W hello poniższy przykład użyj tooconfigure pliku XML wszystkie ustawienia bramy aplikacji i je zatwierdzić zasobu bramy toohello aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bd040-158">In hello following example, you use an XML file tooconfigure all application gateway settings and commit them toohello application gateway resource.</span></span>  
 
-#### <a name="step-1"></a><span data-ttu-id="4db2d-159">Krok 1</span><span class="sxs-lookup"><span data-stu-id="4db2d-159">Step 1</span></span>
+#### <a name="step-1"></a><span data-ttu-id="bd040-159">Krok 1</span><span class="sxs-lookup"><span data-stu-id="bd040-159">Step 1</span></span>
 
-<span data-ttu-id="4db2d-160">Skopiuj poniższy tekst do Notatnika.</span><span class="sxs-lookup"><span data-stu-id="4db2d-160">Copy the following text to Notepad.</span></span>
+<span data-ttu-id="bd040-160">Skopiuj powitania po tooNotepad tekstu.</span><span class="sxs-lookup"><span data-stu-id="bd040-160">Copy hello following text tooNotepad.</span></span>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,12 +158,12 @@ DnsName       :
 </ApplicationGatewayConfiguration>
 ```
 
-<span data-ttu-id="4db2d-161">Edytuj zawarte w nawiasach wartości elementów konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-161">Edit the values between the parentheses for the configuration items.</span></span> <span data-ttu-id="4db2d-162">Zapisz plik z rozszerzeniem .xml.</span><span class="sxs-lookup"><span data-stu-id="4db2d-162">Save the file with extension .xml.</span></span>
+<span data-ttu-id="bd040-161">Edytuj wartości hello między nawiasami hello hello elementów konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="bd040-161">Edit hello values between hello parentheses for hello configuration items.</span></span> <span data-ttu-id="bd040-162">Zapisz plik hello z rozszerzeniem .xml.</span><span class="sxs-lookup"><span data-stu-id="bd040-162">Save hello file with extension .xml.</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="4db2d-163">W elemencie Http lub Https jest rozróżniana wielkość liter.</span><span class="sxs-lookup"><span data-stu-id="4db2d-163">The protocol item Http or Https is case-sensitive.</span></span>
+> <span data-ttu-id="bd040-163">Element protokołu Hello Http lub Https jest rozróżniana wielkość liter.</span><span class="sxs-lookup"><span data-stu-id="bd040-163">hello protocol item Http or Https is case-sensitive.</span></span>
 
-<span data-ttu-id="4db2d-164">Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu pliku konfiguracyjnego.</span><span class="sxs-lookup"><span data-stu-id="4db2d-164">The following example shows how to use a configuration file to set up the application gateway.</span></span> <span data-ttu-id="4db2d-165">W tym przykładzie równoważone jest obciążenie ruchu HTTP na publicznym porcie 80, a ruch sieciowy jest rozsyłany do portu 80 zaplecza między dwoma adresami IP.</span><span class="sxs-lookup"><span data-stu-id="4db2d-165">The example load balances HTTP traffic on public port 80 and sends network traffic to back-end port 80 between two IP addresses.</span></span>
+<span data-ttu-id="bd040-164">Witaj poniższy przykład pokazuje, jak toouse konfiguracji pliku tooset się bramy aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-164">hello following example shows how toouse a configuration file tooset up hello application gateway.</span></span> <span data-ttu-id="bd040-165">obciążenia przykład Hello równoważy ruchu HTTP na port publiczny 80 i wysyła ruch sieciowy tooback-end port 80 między dwoma adresami IP.</span><span class="sxs-lookup"><span data-stu-id="bd040-165">hello example load balances HTTP traffic on public port 80 and sends network traffic tooback-end port 80 between two IP addresses.</span></span>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -210,26 +210,26 @@ DnsName       :
 </ApplicationGatewayConfiguration>
 ```
 
-#### <a name="step-2"></a><span data-ttu-id="4db2d-166">Krok 2</span><span class="sxs-lookup"><span data-stu-id="4db2d-166">Step 2</span></span>
+#### <a name="step-2"></a><span data-ttu-id="bd040-166">Krok 2</span><span class="sxs-lookup"><span data-stu-id="bd040-166">Step 2</span></span>
 
-<span data-ttu-id="4db2d-167">Następnym etapem jest skonfigurowanie bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-167">Next, set the application gateway.</span></span> <span data-ttu-id="4db2d-168">Użyj polecenia cmdlet `Set-AzureApplicationGatewayConfig` z plikiem konfiguracyjnym XML.</span><span class="sxs-lookup"><span data-stu-id="4db2d-168">Use the `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file.</span></span>
+<span data-ttu-id="bd040-167">Następnie ustaw hello bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bd040-167">Next, set hello application gateway.</span></span> <span data-ttu-id="bd040-168">Użyj hello `Set-AzureApplicationGatewayConfig` polecenie cmdlet z pliku XML konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="bd040-168">Use hello `Set-AzureApplicationGatewayConfig` cmdlet with a configuration XML file.</span></span>
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a><span data-ttu-id="4db2d-169">Skonfiguruj bramę aplikacji za pomocą obiektu konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-169">Configure the application gateway by using a configuration object</span></span>
+### <a name="configure-hello-application-gateway-by-using-a-configuration-object"></a><span data-ttu-id="bd040-169">Konfigurowanie bramy aplikacji hello za pomocą obiektu konfiguracji</span><span class="sxs-lookup"><span data-stu-id="bd040-169">Configure hello application gateway by using a configuration object</span></span>
 
-<span data-ttu-id="4db2d-170">Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu obiektów konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-170">The following example shows how to configure the application gateway by using configuration objects.</span></span> <span data-ttu-id="4db2d-171">Wszystkie elementy konfiguracji muszą być skonfigurowane indywidualnie, a następnie dodane do obiektu konfiguracji bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-171">All configuration items must be configured individually and then added to an application gateway configuration object.</span></span> <span data-ttu-id="4db2d-172">Po utworzeniu obiektu konfiguracji użyte zostanie polecenie cmdlet `Set-AzureApplicationGateway`, aby zatwierdzić konfigurację we wcześniej utworzonym zasobie bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-172">After creating the configuration object, you use the `Set-AzureApplicationGateway` command to commit the configuration to the previously created application gateway resource.</span></span>
+<span data-ttu-id="bd040-170">Witaj poniższy przykład pokazuje, jak tooconfigure hello bramy aplikacji przy użyciu obiektów konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="bd040-170">hello following example shows how tooconfigure hello application gateway by using configuration objects.</span></span> <span data-ttu-id="bd040-171">Wszystkie elementy konfiguracji należy skonfigurować osobno i następnie dodany obiekt konfiguracji bramy aplikacji tooan.</span><span class="sxs-lookup"><span data-stu-id="bd040-171">All configuration items must be configured individually and then added tooan application gateway configuration object.</span></span> <span data-ttu-id="bd040-172">Po utworzeniu obiektu konfiguracji hello używasz hello `Set-AzureApplicationGateway` polecenia toocommit hello konfiguracji toohello wcześniej utworzony zasób bramy aplikacji.</span><span class="sxs-lookup"><span data-stu-id="bd040-172">After creating hello configuration object, you use hello `Set-AzureApplicationGateway` command toocommit hello configuration toohello previously created application gateway resource.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="4db2d-173">Przed przypisaniem wartości do poszczególnych obiektów konfiguracji trzeba zadeklarować rodzaj obiektu używanego przez program PowerShell jako magazyn.</span><span class="sxs-lookup"><span data-stu-id="4db2d-173">Before assigning a value to each configuration object, you need to declare what kind of object PowerShell uses for storage.</span></span> <span data-ttu-id="4db2d-174">Pierwszy krok procesu tworzenia elementów polega na zdefiniowaniu elementów `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` do użycia.</span><span class="sxs-lookup"><span data-stu-id="4db2d-174">The first line to create the individual items defines what `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` are used.</span></span>
+> <span data-ttu-id="bd040-173">Przed przypisaniem obiekt konfiguracji tooeach wartości, należy toodeclare obiektem jakiego rodzaju PowerShell korzysta z magazynu.</span><span class="sxs-lookup"><span data-stu-id="bd040-173">Before assigning a value tooeach configuration object, you need toodeclare what kind of object PowerShell uses for storage.</span></span> <span data-ttu-id="bd040-174">Witaj pierwszego wiersza toocreate hello poszczególne elementy definiuje, jakie `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` są używane.</span><span class="sxs-lookup"><span data-stu-id="bd040-174">hello first line toocreate hello individual items defines what `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` are used.</span></span>
 
-#### <a name="step-1"></a><span data-ttu-id="4db2d-175">Krok 1</span><span class="sxs-lookup"><span data-stu-id="4db2d-175">Step 1</span></span>
+#### <a name="step-1"></a><span data-ttu-id="bd040-175">Krok 1</span><span class="sxs-lookup"><span data-stu-id="bd040-175">Step 1</span></span>
 
-<span data-ttu-id="4db2d-176">Utwórz wszystkie poszczególne elementy konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="4db2d-176">Create all individual configuration items.</span></span>
+<span data-ttu-id="bd040-176">Utwórz wszystkie poszczególne elementy konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="bd040-176">Create all individual configuration items.</span></span>
 
-<span data-ttu-id="4db2d-177">Utwórz adres IP frontonu, jak pokazano w poniższym przykładzie.</span><span class="sxs-lookup"><span data-stu-id="4db2d-177">Create the front-end IP as shown in the following example.</span></span>
+<span data-ttu-id="bd040-177">Utwórz hello IP frontonu, jak pokazano w hello poniższy przykład.</span><span class="sxs-lookup"><span data-stu-id="bd040-177">Create hello front-end IP as shown in hello following example.</span></span>
 
 ```powershell
 $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
@@ -238,7 +238,7 @@ $fip.Type = "Private"
 $fip.StaticIPAddress = "10.0.0.5"
 ```
 
-<span data-ttu-id="4db2d-178">Utwórz port frontonu, jak pokazano w poniższym przykładzie.</span><span class="sxs-lookup"><span data-stu-id="4db2d-178">Create the front-end port as shown in the following example.</span></span>
+<span data-ttu-id="bd040-178">Utworzyć hello portów frontonu, jak pokazano w hello poniższy przykład.</span><span class="sxs-lookup"><span data-stu-id="bd040-178">Create hello front-end port as shown in hello following example.</span></span>
 
 ```powershell
 $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
@@ -246,9 +246,9 @@ $fep.Name = "fep1"
 $fep.Port = 80
 ```
 
-<span data-ttu-id="4db2d-179">Utwórz pulę serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="4db2d-179">Create the back-end server pool.</span></span>
+<span data-ttu-id="bd040-179">Utwórz hello puli serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="bd040-179">Create hello back-end server pool.</span></span>
 
-<span data-ttu-id="4db2d-180">Zdefiniuj adresy IP, które zostaną dodane do puli serwerów zaplecza, jak pokazano w następnym przykładzie.</span><span class="sxs-lookup"><span data-stu-id="4db2d-180">Define the IP addresses that are added to the back-end server pool as shown in the next example.</span></span>
+<span data-ttu-id="bd040-180">Zdefiniuj hello adresów IP, które są dodawane do puli serwerów zaplecza toohello, jak pokazano w następnym przykładzie hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-180">Define hello IP addresses that are added toohello back-end server pool as shown in hello next example.</span></span>
 
 ```powershell
 $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -256,7 +256,7 @@ $servers.Add("10.0.0.1")
 $servers.Add("10.0.0.2")
 ```
 
-<span data-ttu-id="4db2d-181">Użyj obiektu $server, aby dodać wartości do obiektu puli zaplecza ($pool).</span><span class="sxs-lookup"><span data-stu-id="4db2d-181">Use the $server object to add the values to the back-end pool object ($pool).</span></span>
+<span data-ttu-id="bd040-181">Użyj hello $server tooadd hello wartości toohello puli zaplecza dla obiektu ($pool).</span><span class="sxs-lookup"><span data-stu-id="bd040-181">Use hello $server object tooadd hello values toohello back-end pool object ($pool).</span></span>
 
 ```powershell
 $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
@@ -264,7 +264,7 @@ $pool.BackendServers = $servers
 $pool.Name = "pool1"
 ```
 
-<span data-ttu-id="4db2d-182">Utwórz ustawienie puli serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="4db2d-182">Create the back-end server pool setting.</span></span>
+<span data-ttu-id="bd040-182">Utwórz ustawienie puli serwera zaplecza hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-182">Create hello back-end server pool setting.</span></span>
 
 ```powershell
 $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
@@ -274,7 +274,7 @@ $setting.Port = 80
 $setting.Protocol = "http"
 ```
 
-<span data-ttu-id="4db2d-183">Utwórz odbiornik.</span><span class="sxs-lookup"><span data-stu-id="4db2d-183">Create the listener.</span></span>
+<span data-ttu-id="bd040-183">Utwórz odbiornik hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-183">Create hello listener.</span></span>
 
 ```powershell
 $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
@@ -285,7 +285,7 @@ $listener.Protocol = "http"
 $listener.SslCert = ""
 ```
 
-<span data-ttu-id="4db2d-184">Utwórz regułę.</span><span class="sxs-lookup"><span data-stu-id="4db2d-184">Create the rule.</span></span>
+<span data-ttu-id="bd040-184">Utwórz regułę hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-184">Create hello rule.</span></span>
 
 ```powershell
 $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
@@ -296,11 +296,11 @@ $rule.Listener = "listener1"
 $rule.BackendAddressPool = "pool1"
 ```
 
-#### <a name="step-2"></a><span data-ttu-id="4db2d-185">Krok 2</span><span class="sxs-lookup"><span data-stu-id="4db2d-185">Step 2</span></span>
+#### <a name="step-2"></a><span data-ttu-id="bd040-185">Krok 2</span><span class="sxs-lookup"><span data-stu-id="bd040-185">Step 2</span></span>
 
-<span data-ttu-id="4db2d-186">Przypisz wszystkie poszczególne elementy konfiguracji do obiektu konfiguracji bramy aplikacji ($appgwconfig).</span><span class="sxs-lookup"><span data-stu-id="4db2d-186">Assign all individual configuration items to an application gateway configuration object ($appgwconfig).</span></span>
+<span data-ttu-id="bd040-186">Przypisz wszystkich konfiguracji poszczególnych elementów tooan aplikacji konfiguracji obiektu bramy ($appgwconfig).</span><span class="sxs-lookup"><span data-stu-id="bd040-186">Assign all individual configuration items tooan application gateway configuration object ($appgwconfig).</span></span>
 
-<span data-ttu-id="4db2d-187">Dodaj do konfiguracji adres IP frontonu.</span><span class="sxs-lookup"><span data-stu-id="4db2d-187">Add the front-end IP to the configuration.</span></span>
+<span data-ttu-id="bd040-187">Dodaj hello konfiguracji IP frontonu w toohello.</span><span class="sxs-lookup"><span data-stu-id="bd040-187">Add hello front-end IP toohello configuration.</span></span>
 
 ```powershell
 $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
@@ -308,63 +308,63 @@ $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.L
 $appgwconfig.FrontendIPConfigurations.Add($fip)
 ```
 
-<span data-ttu-id="4db2d-188">Dodaj do konfiguracji port frontonu.</span><span class="sxs-lookup"><span data-stu-id="4db2d-188">Add the front-end port to the configuration.</span></span>
+<span data-ttu-id="bd040-188">Dodaj konfigurację toohello portów frontonu hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-188">Add hello front-end port toohello configuration.</span></span>
 
 ```powershell
 $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
 $appgwconfig.FrontendPorts.Add($fep)
 ```
-<span data-ttu-id="4db2d-189">Dodaj do konfiguracji pulę serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="4db2d-189">Add the back-end server pool to the configuration.</span></span>
+<span data-ttu-id="bd040-189">Dodaj powitania serwera zaplecza puli toohello konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="bd040-189">Add hello back-end server pool toohello configuration.</span></span>
 
 ```powershell
 $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
 $appgwconfig.BackendAddressPools.Add($pool)
 ```
 
-<span data-ttu-id="4db2d-190">Dodaj do konfiguracji ustawienia puli serwerów zaplecza.</span><span class="sxs-lookup"><span data-stu-id="4db2d-190">Add the back-end pool setting to the configuration.</span></span>
+<span data-ttu-id="bd040-190">Dodawanie konfiguracji toohello hello puli zaplecza.</span><span class="sxs-lookup"><span data-stu-id="bd040-190">Add hello back-end pool setting toohello configuration.</span></span>
 
 ```powershell
 $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
 $appgwconfig.BackendHttpSettingsList.Add($setting)
 ```
 
-<span data-ttu-id="4db2d-191">Dodaj do konfiguracji odbiornik.</span><span class="sxs-lookup"><span data-stu-id="4db2d-191">Add the listener to the configuration.</span></span>
+<span data-ttu-id="bd040-191">Dodaj konfigurację toohello odbiornika hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-191">Add hello listener toohello configuration.</span></span>
 
 ```powershell
 $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
 $appgwconfig.HttpListeners.Add($listener)
 ```
 
-<span data-ttu-id="4db2d-192">Dodaj do konfiguracji regułę.</span><span class="sxs-lookup"><span data-stu-id="4db2d-192">Add the rule to the configuration.</span></span>
+<span data-ttu-id="bd040-192">Dodaj konfigurację toohello reguły hello.</span><span class="sxs-lookup"><span data-stu-id="bd040-192">Add hello rule toohello configuration.</span></span>
 
 ```powershell
 $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
 $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
-### <a name="step-3"></a><span data-ttu-id="4db2d-193">Krok 3</span><span class="sxs-lookup"><span data-stu-id="4db2d-193">Step 3</span></span>
-<span data-ttu-id="4db2d-194">Przekaż obiekt konfiguracji do zasobu bramy aplikacji za pomocą polecenia cmdlet `Set-AzureApplicationGatewayConfig`.</span><span class="sxs-lookup"><span data-stu-id="4db2d-194">Commit the configuration object to the application gateway resource by using `Set-AzureApplicationGatewayConfig`.</span></span>
+### <a name="step-3"></a><span data-ttu-id="bd040-193">Krok 3</span><span class="sxs-lookup"><span data-stu-id="bd040-193">Step 3</span></span>
+<span data-ttu-id="bd040-194">Zatwierdź zasobu bramy aplikacji hello konfiguracji obiektu toohello przy użyciu `Set-AzureApplicationGatewayConfig`.</span><span class="sxs-lookup"><span data-stu-id="bd040-194">Commit hello configuration object toohello application gateway resource by using `Set-AzureApplicationGatewayConfig`.</span></span>
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
-## <a name="start-the-gateway"></a><span data-ttu-id="4db2d-195">Uruchamianie bramy</span><span class="sxs-lookup"><span data-stu-id="4db2d-195">Start the gateway</span></span>
+## <a name="start-hello-gateway"></a><span data-ttu-id="bd040-195">Uruchom hello bramy</span><span class="sxs-lookup"><span data-stu-id="bd040-195">Start hello gateway</span></span>
 
-<span data-ttu-id="4db2d-196">Po skonfigurowaniu bramy użyj polecenia cmdlet `Start-AzureApplicationGateway`, aby uruchomić bramę.</span><span class="sxs-lookup"><span data-stu-id="4db2d-196">Once the gateway has been configured, use the `Start-AzureApplicationGateway` cmdlet to start the gateway.</span></span> <span data-ttu-id="4db2d-197">Naliczanie opłat za bramę aplikacji rozpocznie się po pomyślnym uruchomieniu bramy.</span><span class="sxs-lookup"><span data-stu-id="4db2d-197">Billing for an application gateway begins after the gateway has been successfully started.</span></span>
+<span data-ttu-id="bd040-196">Po skonfigurowaniu bramy hello Użyj hello `Start-AzureApplicationGateway` bramy hello toostart polecenia cmdlet.</span><span class="sxs-lookup"><span data-stu-id="bd040-196">Once hello gateway has been configured, use hello `Start-AzureApplicationGateway` cmdlet toostart hello gateway.</span></span> <span data-ttu-id="bd040-197">Rozliczeń dla bramy aplikacji rozpocznie się po pomyślnym uruchomieniu hello bramy.</span><span class="sxs-lookup"><span data-stu-id="bd040-197">Billing for an application gateway begins after hello gateway has been successfully started.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="4db2d-198">Wykonanie polecenia cmdlet `Start-AzureApplicationGateway` może zająć do 15–20 minut.</span><span class="sxs-lookup"><span data-stu-id="4db2d-198">The `Start-AzureApplicationGateway` cmdlet might take up to 15-20 minutes to finish.</span></span>
+> <span data-ttu-id="bd040-198">Witaj `Start-AzureApplicationGateway` polecenie cmdlet może potrwać toofinish too15 20 minut.</span><span class="sxs-lookup"><span data-stu-id="bd040-198">hello `Start-AzureApplicationGateway` cmdlet might take up too15-20 minutes toofinish.</span></span>
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="verify-the-gateway-status"></a><span data-ttu-id="4db2d-199">Sprawdzanie stanu bramy</span><span class="sxs-lookup"><span data-stu-id="4db2d-199">Verify the gateway status</span></span>
+## <a name="verify-hello-gateway-status"></a><span data-ttu-id="bd040-199">Sprawdź stan bramy hello</span><span class="sxs-lookup"><span data-stu-id="bd040-199">Verify hello gateway status</span></span>
 
-<span data-ttu-id="4db2d-200">Użyj polecenia cmdlet `Get-AzureApplicationGateway`, aby sprawdzić stan bramy.</span><span class="sxs-lookup"><span data-stu-id="4db2d-200">Use the `Get-AzureApplicationGateway` cmdlet to check the status of the gateway.</span></span> <span data-ttu-id="4db2d-201">Jeśli polecenie cmdlet `Start-AzureApplicationGateway` zostało pomyślnie wykonane w poprzednim kroku, atrybut *State* (Stan) powinien mieć wartość Running (Uruchomiono), a atrybuty *Vip* (Wirtualny adres IP) i *DnsName* (Nazwa serwera DNS) powinny zawierać prawidłowe wpisy.</span><span class="sxs-lookup"><span data-stu-id="4db2d-201">If `Start-AzureApplicationGateway` succeeded in the previous step, *State* should be Running, and *Vip* and *DnsName* should have valid entries.</span></span>
+<span data-ttu-id="bd040-200">Użyj hello `Get-AzureApplicationGateway` polecenia cmdlet toocheck hello stan hello bramy.</span><span class="sxs-lookup"><span data-stu-id="bd040-200">Use hello `Get-AzureApplicationGateway` cmdlet toocheck hello status of hello gateway.</span></span> <span data-ttu-id="bd040-201">Jeśli `Start-AzureApplicationGateway` zakończyło się pomyślnie w poprzednim kroku hello *stanu* powinna być uruchomiona, i *Vip* i *DnsName* powinny mieć prawidłowe wpisy.</span><span class="sxs-lookup"><span data-stu-id="bd040-201">If `Start-AzureApplicationGateway` succeeded in hello previous step, *State* should be Running, and *Vip* and *DnsName* should have valid entries.</span></span>
 
-<span data-ttu-id="4db2d-202">W poniższym przykładzie pokazano bramę aplikacji, która jest włączona, działająca i gotowa do przyjmowania ruchu skierowanego na adres `http://<generated-dns-name>.cloudapp.net`.</span><span class="sxs-lookup"><span data-stu-id="4db2d-202">The following example shows an application gateway that is up, running, and ready to take traffic destined for `http://<generated-dns-name>.cloudapp.net`.</span></span>
+<span data-ttu-id="bd040-202">Witaj poniższy przykład przedstawia bramę aplikacji, która jest włączone, uaktywnione i gotowe tootake ruchu przeznaczony dla `http://<generated-dns-name>.cloudapp.net`.</span><span class="sxs-lookup"><span data-stu-id="bd040-202">hello following example shows an application gateway that is up, running, and ready tootake traffic destined for `http://<generated-dns-name>.cloudapp.net`.</span></span>
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -384,15 +384,15 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-the-application-gateway"></a><span data-ttu-id="4db2d-203">Usuwanie bramy aplikacji</span><span class="sxs-lookup"><span data-stu-id="4db2d-203">Delete the application gateway</span></span>
+## <a name="delete-hello-application-gateway"></a><span data-ttu-id="bd040-203">Usuń bramę aplikacji hello</span><span class="sxs-lookup"><span data-stu-id="bd040-203">Delete hello application gateway</span></span>
 
-<span data-ttu-id="4db2d-204">Aby usunąć bramę aplikacji:</span><span class="sxs-lookup"><span data-stu-id="4db2d-204">To delete the application gateway:</span></span>
+<span data-ttu-id="bd040-204">Brama aplikacji hello toodelete:</span><span class="sxs-lookup"><span data-stu-id="bd040-204">toodelete hello application gateway:</span></span>
 
-1. <span data-ttu-id="4db2d-205">Użyj polecenia cmdlet `Stop-AzureApplicationGateway`, aby zatrzymać bramę.</span><span class="sxs-lookup"><span data-stu-id="4db2d-205">Use the `Stop-AzureApplicationGateway` cmdlet to stop the gateway.</span></span>
-2. <span data-ttu-id="4db2d-206">Użyj polecenia cmdlet `Remove-AzureApplicationGateway`, aby usunąć bramę.</span><span class="sxs-lookup"><span data-stu-id="4db2d-206">Use the `Remove-AzureApplicationGateway` cmdlet to remove the gateway.</span></span>
-3. <span data-ttu-id="4db2d-207">Aby sprawdzić, czy brama została usunięta, użyj polecenia cmdlet `Get-AzureApplicationGateway`.</span><span class="sxs-lookup"><span data-stu-id="4db2d-207">Verify that the gateway has been removed by using the `Get-AzureApplicationGateway` cmdlet.</span></span>
+1. <span data-ttu-id="bd040-205">Użyj hello `Stop-AzureApplicationGateway` bramy hello toostop polecenia cmdlet.</span><span class="sxs-lookup"><span data-stu-id="bd040-205">Use hello `Stop-AzureApplicationGateway` cmdlet toostop hello gateway.</span></span>
+2. <span data-ttu-id="bd040-206">Użyj hello `Remove-AzureApplicationGateway` bramy hello tooremove polecenia cmdlet.</span><span class="sxs-lookup"><span data-stu-id="bd040-206">Use hello `Remove-AzureApplicationGateway` cmdlet tooremove hello gateway.</span></span>
+3. <span data-ttu-id="bd040-207">Sprawdź tej bramy hello został usunięty przy użyciu hello `Get-AzureApplicationGateway` polecenia cmdlet.</span><span class="sxs-lookup"><span data-stu-id="bd040-207">Verify that hello gateway has been removed by using hello `Get-AzureApplicationGateway` cmdlet.</span></span>
 
-<span data-ttu-id="4db2d-208">W poniższym przykładzie pierwszy wiersz zawiera polecenie cmdlet `Stop-AzureApplicationGateway`, a kolejne wiersze zawierają dane wyjściowe.</span><span class="sxs-lookup"><span data-stu-id="4db2d-208">The following example shows the `Stop-AzureApplicationGateway` cmdlet on the first line, followed by the output.</span></span>
+<span data-ttu-id="bd040-208">Witaj poniższy przykład przedstawia hello `Stop-AzureApplicationGateway` polecenia cmdlet na powitania pierwszy wiersz, następuje hello danych wyjściowych.</span><span class="sxs-lookup"><span data-stu-id="bd040-208">hello following example shows hello `Stop-AzureApplicationGateway` cmdlet on hello first line, followed by hello output.</span></span>
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -406,7 +406,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-<span data-ttu-id="4db2d-209">Po zatrzymaniu bramy aplikacji użyj polecenia cmdlet `Remove-AzureApplicationGateway`, aby usunąć usługę.</span><span class="sxs-lookup"><span data-stu-id="4db2d-209">Once the application gateway is in a stopped state, use the `Remove-AzureApplicationGateway` cmdlet to remove the service.</span></span>
+<span data-ttu-id="bd040-209">Po bramy aplikacji hello jest w stanie zatrzymania, użyj hello `Remove-AzureApplicationGateway` usługi hello tooremove polecenia cmdlet.</span><span class="sxs-lookup"><span data-stu-id="bd040-209">Once hello application gateway is in a stopped state, use hello `Remove-AzureApplicationGateway` cmdlet tooremove hello service.</span></span>
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -420,7 +420,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-<span data-ttu-id="4db2d-210">Aby sprawdzić, czy usługa została usunięta, możesz użyć polecenia cmdlet `Get-AzureApplicationGateway`.</span><span class="sxs-lookup"><span data-stu-id="4db2d-210">To verify that the service has been removed, you can use the `Get-AzureApplicationGateway` cmdlet.</span></span> <span data-ttu-id="4db2d-211">Ten krok nie jest wymagany.</span><span class="sxs-lookup"><span data-stu-id="4db2d-211">This step is not required.</span></span>
+<span data-ttu-id="bd040-210">tooverify, który hello usługi zostały usunięte, możesz użyć hello `Get-AzureApplicationGateway` polecenia cmdlet.</span><span class="sxs-lookup"><span data-stu-id="bd040-210">tooverify that hello service has been removed, you can use hello `Get-AzureApplicationGateway` cmdlet.</span></span> <span data-ttu-id="bd040-211">Ten krok nie jest wymagany.</span><span class="sxs-lookup"><span data-stu-id="bd040-211">This step is not required.</span></span>
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -429,19 +429,19 @@ Get-AzureApplicationGateway AppGwTest
 ```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
+Get-AzureApplicationGateway : ResourceNotFound: hello gateway does not exist.
 .....
 ```
 
-## <a name="next-steps"></a><span data-ttu-id="4db2d-212">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="4db2d-212">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="bd040-212">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="bd040-212">Next steps</span></span>
 
-<span data-ttu-id="4db2d-213">Jeśli chcesz skonfigurować odciążanie protokołu SSL, zobacz artykuł [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu SSL).</span><span class="sxs-lookup"><span data-stu-id="4db2d-213">If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).</span></span>
+<span data-ttu-id="bd040-213">Jeśli tooconfigure odciążanie protokołu SSL, zobacz [skonfigurować bramę aplikacji dla odciążania SSL](application-gateway-ssl.md).</span><span class="sxs-lookup"><span data-stu-id="bd040-213">If you want tooconfigure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).</span></span>
 
-<span data-ttu-id="4db2d-214">Jeśli chcesz skonfigurować bramę aplikacji do użycia z wewnętrznym modułem równoważenia obciążenia, zobacz artykuł [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia).</span><span class="sxs-lookup"><span data-stu-id="4db2d-214">If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).</span></span>
+<span data-ttu-id="bd040-214">Jeśli chcesz tooconfigure toouse bramy aplikacji z wewnętrznego modułu równoważenia obciążenia, zobacz [Utwórz bramę aplikacji z wewnętrznego modułu równoważenia obciążenia (ILB)](application-gateway-ilb.md).</span><span class="sxs-lookup"><span data-stu-id="bd040-214">If you want tooconfigure an application gateway toouse with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).</span></span>
 
-<span data-ttu-id="4db2d-215">Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz znaleźć w następujących artykułach:</span><span class="sxs-lookup"><span data-stu-id="4db2d-215">If you want more information about load balancing options in general, see:</span></span>
+<span data-ttu-id="bd040-215">Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz znaleźć w następujących artykułach:</span><span class="sxs-lookup"><span data-stu-id="bd040-215">If you want more information about load balancing options in general, see:</span></span>
 
-* [<span data-ttu-id="4db2d-216">Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="4db2d-216">Azure Load Balancer</span></span>](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [<span data-ttu-id="4db2d-217">Azure Traffic Manager</span><span class="sxs-lookup"><span data-stu-id="4db2d-217">Azure Traffic Manager</span></span>](https://azure.microsoft.com/documentation/services/traffic-manager/)
+* [<span data-ttu-id="bd040-216">Azure Load Balancer</span><span class="sxs-lookup"><span data-stu-id="bd040-216">Azure Load Balancer</span></span>](https://azure.microsoft.com/documentation/services/load-balancer/)
+* [<span data-ttu-id="bd040-217">Azure Traffic Manager</span><span class="sxs-lookup"><span data-stu-id="bd040-217">Azure Traffic Manager</span></span>](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 [scenario]: ./media/application-gateway-create-gateway/scenario.png

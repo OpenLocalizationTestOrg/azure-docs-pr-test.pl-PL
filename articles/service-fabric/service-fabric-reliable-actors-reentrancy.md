@@ -1,6 +1,6 @@
 ---
-title: "Ponownego rozpoczęcia w podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie do ponownego rozpoczęcia dla elementów Reliable Actors sieci szkieletowej usług"
+title: "aaaReentrancy w podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
+description: "Tooreentrancy wprowadzenie do usługi sieci szkieletowej Reliable Actors"
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 00fcccb379bf1ba3875fbaba57a05b00fa228622
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 61c69bcf0f100e075d19ba155954c05789b71761
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="reliable-actors-reentrancy"></a><span data-ttu-id="813f4-103">Niezawodne wielobieżność złośliwych użytkowników</span><span class="sxs-lookup"><span data-stu-id="813f4-103">Reliable Actors reentrancy</span></span>
-<span data-ttu-id="813f4-104">Środowisko uruchomieniowe Reliable Actors, domyślnie umożliwia wywołanie logiczną na podstawie kontekstu wielobieżność.</span><span class="sxs-lookup"><span data-stu-id="813f4-104">The Reliable Actors runtime, by default, allows logical call context-based reentrancy.</span></span> <span data-ttu-id="813f4-105">Dzięki temu podmiotów być współużytkowane, jeśli są w tym samym łańcuchu kontekstu wywołania.</span><span class="sxs-lookup"><span data-stu-id="813f4-105">This allows for actors to be reentrant if they are in the same call context chain.</span></span> <span data-ttu-id="813f4-106">Na przykład aktora A wysyła komunikat do aktora B, który wysyła wiadomość do aktora. Podczas przetwarzania komunikatu C aktora wywołuje aktora A, wiadomość jest współużytkowane, więc może być.</span><span class="sxs-lookup"><span data-stu-id="813f4-106">For example, Actor A sends a message to Actor B, who sends a message to Actor C. As part of the message processing, if Actor C calls Actor A, the message is reentrant, so it will be allowed.</span></span> <span data-ttu-id="813f4-107">Komunikaty, które są częścią kontekstu wywołania różnych zostaną zablokowane na aktora A zakończenie przetwarzania.</span><span class="sxs-lookup"><span data-stu-id="813f4-107">Any other messages that are part of a different call context will be blocked on Actor A until it finishes processing.</span></span>
+# <a name="reliable-actors-reentrancy"></a><span data-ttu-id="2d2f2-103">Niezawodne wielobieżność złośliwych użytkowników</span><span class="sxs-lookup"><span data-stu-id="2d2f2-103">Reliable Actors reentrancy</span></span>
+<span data-ttu-id="2d2f2-104">środowisko uruchomieniowe Reliable Actors Hello, domyślnie umożliwia ponowne wejście wywołania logiczną na podstawie kontekstu.</span><span class="sxs-lookup"><span data-stu-id="2d2f2-104">hello Reliable Actors runtime, by default, allows logical call context-based reentrancy.</span></span> <span data-ttu-id="2d2f2-105">Dzięki temu wielobieżna toobe złośliwych użytkowników, jeśli są one hello sam wywołać kontekstu łańcucha.</span><span class="sxs-lookup"><span data-stu-id="2d2f2-105">This allows for actors toobe reentrant if they are in hello same call context chain.</span></span> <span data-ttu-id="2d2f2-106">Na przykład aktora A wysyła tooActor komunikat B, który wysyła wiadomości tooActor C. W ramach przetwarzania wiadomość hello C aktora wywołuje aktora A, wiadomość hello jest współużytkowane, więc będą dozwolone.</span><span class="sxs-lookup"><span data-stu-id="2d2f2-106">For example, Actor A sends a message tooActor B, who sends a message tooActor C. As part of hello message processing, if Actor C calls Actor A, hello message is reentrant, so it will be allowed.</span></span> <span data-ttu-id="2d2f2-107">Komunikaty, które są częścią kontekstu wywołania różnych zostaną zablokowane na aktora A zakończenie przetwarzania.</span><span class="sxs-lookup"><span data-stu-id="2d2f2-107">Any other messages that are part of a different call context will be blocked on Actor A until it finishes processing.</span></span>
 
-<span data-ttu-id="813f4-108">Dostępne są dwie opcje do ponownego rozpoczęcia aktora zdefiniowane w `ActorReentrancyMode` wyliczenia:</span><span class="sxs-lookup"><span data-stu-id="813f4-108">There are two options available for actor reentrancy defined in the `ActorReentrancyMode` enum:</span></span>
+<span data-ttu-id="2d2f2-108">Dostępne są dwie opcje do ponownego rozpoczęcia aktora zdefiniowane w hello `ActorReentrancyMode` wyliczenia:</span><span class="sxs-lookup"><span data-stu-id="2d2f2-108">There are two options available for actor reentrancy defined in hello `ActorReentrancyMode` enum:</span></span>
 
-* <span data-ttu-id="813f4-109">`LogicalCallContext`(domyślnie)</span><span class="sxs-lookup"><span data-stu-id="813f4-109">`LogicalCallContext` (default behavior)</span></span>
-* <span data-ttu-id="813f4-110">`Disallowed`— Wyłącza ponowne wejście</span><span class="sxs-lookup"><span data-stu-id="813f4-110">`Disallowed` - disables reentrancy</span></span>
+* <span data-ttu-id="2d2f2-109">`LogicalCallContext`(domyślnie)</span><span class="sxs-lookup"><span data-stu-id="2d2f2-109">`LogicalCallContext` (default behavior)</span></span>
+* <span data-ttu-id="2d2f2-110">`Disallowed`— Wyłącza ponowne wejście</span><span class="sxs-lookup"><span data-stu-id="2d2f2-110">`Disallowed` - disables reentrancy</span></span>
 
 ```csharp
 public enum ActorReentrancyMode
@@ -42,9 +42,9 @@ public enum ActorReentrancyMode
     Disallowed(2)
 }
 ```
-<span data-ttu-id="813f4-111">Wielobieżność można skonfigurować w `ActorService`tego ustawienia podczas rejestracji.</span><span class="sxs-lookup"><span data-stu-id="813f4-111">Reentrancy can be configured in an `ActorService`'s settings during registration.</span></span> <span data-ttu-id="813f4-112">Ustawienie ma zastosowanie do wszystkich wystąpień aktora utworzone w usłudze aktora.</span><span class="sxs-lookup"><span data-stu-id="813f4-112">The setting applies to all actor instances created in the actor service.</span></span>
+<span data-ttu-id="2d2f2-111">Wielobieżność można skonfigurować w `ActorService`tego ustawienia podczas rejestracji.</span><span class="sxs-lookup"><span data-stu-id="2d2f2-111">Reentrancy can be configured in an `ActorService`'s settings during registration.</span></span> <span data-ttu-id="2d2f2-112">Ustawienie Hello dotyczy tooall aktora wystąpienia utworzone w hello usługi aktora.</span><span class="sxs-lookup"><span data-stu-id="2d2f2-112">hello setting applies tooall actor instances created in hello actor service.</span></span>
 
-<span data-ttu-id="813f4-113">W poniższym przykładzie przedstawiono usługi aktora, która ustawia tryb wielobieżność `ActorReentrancyMode.Disallowed`.</span><span class="sxs-lookup"><span data-stu-id="813f4-113">The following example shows an actor service that sets the reentrancy mode to `ActorReentrancyMode.Disallowed`.</span></span> <span data-ttu-id="813f4-114">W tym przypadku aktora wysyła komunikat współużytkowane do innego aktora, wyjątek typu `FabricException` zostanie wygenerowany.</span><span class="sxs-lookup"><span data-stu-id="813f4-114">In this case, if an actor sends a reentrant message to another actor, an exception of type `FabricException` will be thrown.</span></span>
+<span data-ttu-id="2d2f2-113">Witaj poniższy przykład przedstawia usługa aktora, która ustawia tryb wielobieżność hello zbyt`ActorReentrancyMode.Disallowed`.</span><span class="sxs-lookup"><span data-stu-id="2d2f2-113">hello following example shows an actor service that sets hello reentrancy mode too`ActorReentrancyMode.Disallowed`.</span></span> <span data-ttu-id="2d2f2-114">W tym przypadku aktora wysyła komunikat współużytkowane aktora tooanother, wyjątek typu `FabricException` zostanie wygenerowany.</span><span class="sxs-lookup"><span data-stu-id="2d2f2-114">In this case, if an actor sends a reentrant message tooanother actor, an exception of type `FabricException` will be thrown.</span></span>
 
 ```csharp
 static class Program
@@ -109,5 +109,5 @@ static class Program
 ```
 
 
-## <a name="next-steps"></a><span data-ttu-id="813f4-115">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="813f4-115">Next steps</span></span>
-* <span data-ttu-id="813f4-116">Dowiedz się więcej na temat ponownego rozpoczęcia w [dokumentacji interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)</span><span class="sxs-lookup"><span data-stu-id="813f4-116">Learn more about reentrancy in the [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)</span></span>
+## <a name="next-steps"></a><span data-ttu-id="2d2f2-115">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="2d2f2-115">Next steps</span></span>
+* <span data-ttu-id="2d2f2-116">Dowiedz się więcej na temat ponownego rozpoczęcia w hello [dokumentacji interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)</span><span class="sxs-lookup"><span data-stu-id="2d2f2-116">Learn more about reentrancy in hello [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)</span></span>

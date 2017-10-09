@@ -1,6 +1,6 @@
 ---
-title: "Dowiedz się, jak używać łącznika usług Salesforce w aplikacjach logiki | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Łącznik usług Salesforce zapewnia interfejs API do pracy z obiektami Salesforce."
+title: "aaaLearn toouse hello łącznika usług Salesforce w aplikacjach logiki | Dokumentacja firmy Microsoft"
+description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Witaj łącznika usług Salesforce umożliwia toowork interfejsu API z obiektami usługi Salesforce."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,48 +15,48 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/05/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: c2e2efd356382df9404f5c4ed54f24758b2cd22b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b14b41fa8a4648b4f0090472dc0f9575bf13a2ad
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-salesforce-connector"></a><span data-ttu-id="87ba4-104">Rozpoczynanie pracy z łącznika usług Salesforce</span><span class="sxs-lookup"><span data-stu-id="87ba4-104">Get started with the Salesforce connector</span></span>
-<span data-ttu-id="87ba4-105">Łącznik usług Salesforce zapewnia interfejs API do pracy z obiektami Salesforce.</span><span class="sxs-lookup"><span data-stu-id="87ba4-105">The Salesforce Connector provides an API to work with Salesforce objects.</span></span>
+# <a name="get-started-with-hello-salesforce-connector"></a><span data-ttu-id="5b68e-104">Rozpoczynanie pracy z hello łącznika usług Salesforce</span><span class="sxs-lookup"><span data-stu-id="5b68e-104">Get started with hello Salesforce connector</span></span>
+<span data-ttu-id="5b68e-105">Witaj łącznika usług Salesforce umożliwia toowork interfejsu API z obiektami usługi Salesforce.</span><span class="sxs-lookup"><span data-stu-id="5b68e-105">hello Salesforce Connector provides an API toowork with Salesforce objects.</span></span>
 
-<span data-ttu-id="87ba4-106">Aby użyć [każdy łącznik](apis-list.md), należy najpierw utworzyć aplikację logiki.</span><span class="sxs-lookup"><span data-stu-id="87ba4-106">To use [any connector](apis-list.md), you first need to create a logic app.</span></span> <span data-ttu-id="87ba4-107">Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).</span><span class="sxs-lookup"><span data-stu-id="87ba4-107">You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).</span></span>
+<span data-ttu-id="5b68e-106">toouse [każdy łącznik](apis-list.md), należy najpierw toocreate aplikacji logiki.</span><span class="sxs-lookup"><span data-stu-id="5b68e-106">toouse [any connector](apis-list.md), you first need toocreate a logic app.</span></span> <span data-ttu-id="5b68e-107">Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).</span><span class="sxs-lookup"><span data-stu-id="5b68e-107">You can get started by [creating a logic app now](../logic-apps/logic-apps-create-a-logic-app.md).</span></span>
 
-## <a name="connect-to-salesforce-connector"></a><span data-ttu-id="87ba4-108">Nawiązać łącznika usług Salesforce</span><span class="sxs-lookup"><span data-stu-id="87ba4-108">Connect to Salesforce connector</span></span>
-<span data-ttu-id="87ba4-109">Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenia* do usługi.</span><span class="sxs-lookup"><span data-stu-id="87ba4-109">Before your logic app can access any service, you first need to create a *connection* to the service.</span></span> <span data-ttu-id="87ba4-110">A [połączenia](connectors-overview.md) udostępnia łączność między aplikacji logiki i innej usługi.</span><span class="sxs-lookup"><span data-stu-id="87ba4-110">A [connection](connectors-overview.md) provides connectivity between a logic app and another service.</span></span>  
+## <a name="connect-toosalesforce-connector"></a><span data-ttu-id="5b68e-108">Połącz tooSalesforce łącznika</span><span class="sxs-lookup"><span data-stu-id="5b68e-108">Connect tooSalesforce connector</span></span>
+<span data-ttu-id="5b68e-109">Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw toocreate *połączenia* toohello usługi.</span><span class="sxs-lookup"><span data-stu-id="5b68e-109">Before your logic app can access any service, you first need toocreate a *connection* toohello service.</span></span> <span data-ttu-id="5b68e-110">A [połączenia](connectors-overview.md) udostępnia łączność między aplikacji logiki i innej usługi.</span><span class="sxs-lookup"><span data-stu-id="5b68e-110">A [connection](connectors-overview.md) provides connectivity between a logic app and another service.</span></span>  
 
-### <a name="create-a-connection-to-salesforce-connector"></a><span data-ttu-id="87ba4-111">Utwórz połączenie łącznika usług Salesforce</span><span class="sxs-lookup"><span data-stu-id="87ba4-111">Create a connection to Salesforce connector</span></span>
-> [!INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
+### <a name="create-a-connection-toosalesforce-connector"></a><span data-ttu-id="5b68e-111">Tworzenie łącznika tooSalesforce połączenia</span><span class="sxs-lookup"><span data-stu-id="5b68e-111">Create a connection tooSalesforce connector</span></span>
+> [!INCLUDE [Steps toocreate a connection tooSalesforce Connector](../../includes/connectors-create-api-salesforce.md)]
 > 
 > 
 
-## <a name="use-a-salesforce-connector-trigger"></a><span data-ttu-id="87ba4-112">Użyj wyzwalacz łącznika usług Salesforce</span><span class="sxs-lookup"><span data-stu-id="87ba4-112">Use a Salesforce connector trigger</span></span>
-<span data-ttu-id="87ba4-113">Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki.</span><span class="sxs-lookup"><span data-stu-id="87ba4-113">A trigger is an event that can be used to start the workflow defined in a logic app.</span></span> <span data-ttu-id="87ba4-114">[Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).</span><span class="sxs-lookup"><span data-stu-id="87ba4-114">[Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).</span></span>
+## <a name="use-a-salesforce-connector-trigger"></a><span data-ttu-id="5b68e-112">Użyj wyzwalacz łącznika usług Salesforce</span><span class="sxs-lookup"><span data-stu-id="5b68e-112">Use a Salesforce connector trigger</span></span>
+<span data-ttu-id="5b68e-113">Wyzwalacz jest zdarzenie, które mogą być zdefiniowane w aplikacji logiki hello toostart używane w przepływie pracy.</span><span class="sxs-lookup"><span data-stu-id="5b68e-113">A trigger is an event that can be used toostart hello workflow defined in a logic app.</span></span> <span data-ttu-id="5b68e-114">[Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).</span><span class="sxs-lookup"><span data-stu-id="5b68e-114">[Learn more about triggers](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).</span></span>
 
-> [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
+> [!INCLUDE [Steps toocreate a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 > 
 > 
 
-## <a name="add-a-condition"></a><span data-ttu-id="87ba4-115">Dodaj warunek</span><span class="sxs-lookup"><span data-stu-id="87ba4-115">Add a condition</span></span>
-> [!INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
+## <a name="add-a-condition"></a><span data-ttu-id="5b68e-115">Dodaj warunek</span><span class="sxs-lookup"><span data-stu-id="5b68e-115">Add a condition</span></span>
+> [!INCLUDE [Steps toocreate a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
 > 
 > 
 
-## <a name="use-a-salesforce-connector-action"></a><span data-ttu-id="87ba4-116">Za pomocą akcji łącznika usług Salesforce</span><span class="sxs-lookup"><span data-stu-id="87ba4-116">Use a Salesforce connector action</span></span>
-<span data-ttu-id="87ba4-117">Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji.</span><span class="sxs-lookup"><span data-stu-id="87ba4-117">An action is an operation carried out by the workflow defined in a logic app.</span></span> <span data-ttu-id="87ba4-118">[Dowiedz się więcej o akcjach](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).</span><span class="sxs-lookup"><span data-stu-id="87ba4-118">[Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).</span></span>
+## <a name="use-a-salesforce-connector-action"></a><span data-ttu-id="5b68e-116">Za pomocą akcji łącznika usług Salesforce</span><span class="sxs-lookup"><span data-stu-id="5b68e-116">Use a Salesforce connector action</span></span>
+<span data-ttu-id="5b68e-117">Akcja jest wykonywane przez przepływ pracy hello zdefiniowanych w aplikacji logiki operacji.</span><span class="sxs-lookup"><span data-stu-id="5b68e-117">An action is an operation carried out by hello workflow defined in a logic app.</span></span> <span data-ttu-id="5b68e-118">[Dowiedz się więcej o akcjach](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).</span><span class="sxs-lookup"><span data-stu-id="5b68e-118">[Learn more about actions](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).</span></span>
 
-> [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
+> [!INCLUDE [Steps toocreate a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 > 
 > 
 
-## <a name="connector-specific-details"></a><span data-ttu-id="87ba4-119">Szczegóły dotyczące łącznika</span><span class="sxs-lookup"><span data-stu-id="87ba4-119">Connector-specific details</span></span>
+## <a name="connector-specific-details"></a><span data-ttu-id="5b68e-119">Szczegóły dotyczące łącznika</span><span class="sxs-lookup"><span data-stu-id="5b68e-119">Connector-specific details</span></span>
 
-<span data-ttu-id="87ba4-120">Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/salesforce/).</span><span class="sxs-lookup"><span data-stu-id="87ba4-120">View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/salesforce/).</span></span> 
+<span data-ttu-id="5b68e-120">Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w hello swagger i zobacz też żadnych limitów w hello [szczegóły łącznika](/connectors/salesforce/).</span><span class="sxs-lookup"><span data-stu-id="5b68e-120">View any triggers and actions defined in hello swagger, and also see any limits in hello [connector details](/connectors/salesforce/).</span></span> 
 
-## <a name="next-steps"></a><span data-ttu-id="87ba4-121">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="87ba4-121">Next steps</span></span>
-[<span data-ttu-id="87ba4-122">Tworzenie aplikacji logiki</span><span class="sxs-lookup"><span data-stu-id="87ba4-122">Create a logic app</span></span>](../logic-apps/logic-apps-create-a-logic-app.md)
+## <a name="next-steps"></a><span data-ttu-id="5b68e-121">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="5b68e-121">Next steps</span></span>
+[<span data-ttu-id="5b68e-122">Tworzenie aplikacji logiki</span><span class="sxs-lookup"><span data-stu-id="5b68e-122">Create a logic app</span></span>](../logic-apps/logic-apps-create-a-logic-app.md)
 

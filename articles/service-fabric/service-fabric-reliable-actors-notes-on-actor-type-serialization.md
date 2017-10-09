@@ -1,6 +1,6 @@
 ---
-title: "Niezawodne dodatkowej podmiotów aktora typu serializacji | Dokumentacja firmy Microsoft"
-description: "W tym artykule omówiono podstawowe wymagania dotyczące Definiowanie klas możliwych do serializacji, które mogą służyć do definiowania stanów Reliable Actors sieci szkieletowej usług i interfejsów"
+title: "aaaReliable podmiotów uwagi o aktora wpisz serializacji | Dokumentacja firmy Microsoft"
+description: "W tym artykule omówiono podstawowe wymagania dotyczące definiowania klas możliwych do serializacji, które mogą być używane toodefine, Stany Reliable Actors sieci szkieletowej usług i interfejsów"
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 4b48b893e5a3bf5620f00a336576efe1ad63def8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d8584e7d90fe1c68af38983e71e5d0a7554689bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a><span data-ttu-id="02e1f-103">Uwagi dotyczące usługi sieci szkieletowej Reliable Actors typu serializacji</span><span class="sxs-lookup"><span data-stu-id="02e1f-103">Notes on Service Fabric Reliable Actors type serialization</span></span>
-<span data-ttu-id="02e1f-104">Argumenty metod wszystkie typy wyników zadań zwracane przez każda metoda w interfejsie aktora, a obiekty przechowywane w Menedżerze stanu aktora musi być [serializacji kontraktu danych](https://msdn.microsoft.com/library/ms731923.aspx).</span><span class="sxs-lookup"><span data-stu-id="02e1f-104">The arguments of all methods, result types of the tasks returned by each method in an actor interface, and objects stored in an actor's state manager must be [data contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).</span></span> <span data-ttu-id="02e1f-105">Dotyczy to również argumenty metody zdefiniowane w [interfejsów zdarzeń aktora](service-fabric-reliable-actors-events.md).</span><span class="sxs-lookup"><span data-stu-id="02e1f-105">This also applies to the arguments of the methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md).</span></span> <span data-ttu-id="02e1f-106">(Metod interfejsu zdarzenia aktora zawsze zwracać typ void.)</span><span class="sxs-lookup"><span data-stu-id="02e1f-106">(Actor event interface methods always return void.)</span></span>
+# <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a><span data-ttu-id="3f1c7-103">Uwagi dotyczące usługi sieci szkieletowej Reliable Actors typu serializacji</span><span class="sxs-lookup"><span data-stu-id="3f1c7-103">Notes on Service Fabric Reliable Actors type serialization</span></span>
+<span data-ttu-id="3f1c7-104">argumenty Hello wszystkie metody, wynik typy zadań hello zwracane przez każda metoda w interfejsie aktora, a musi być obiekty przechowywane w Menedżerze stanu aktora [serializacji kontraktu danych](https://msdn.microsoft.com/library/ms731923.aspx).</span><span class="sxs-lookup"><span data-stu-id="3f1c7-104">hello arguments of all methods, result types of hello tasks returned by each method in an actor interface, and objects stored in an actor's state manager must be [data contract serializable](https://msdn.microsoft.com/library/ms731923.aspx).</span></span> <span data-ttu-id="3f1c7-105">Dotyczy to również toohello argumenty metody hello zdefiniowane w [interfejsów zdarzeń aktora](service-fabric-reliable-actors-events.md).</span><span class="sxs-lookup"><span data-stu-id="3f1c7-105">This also applies toohello arguments of hello methods defined in [actor event interfaces](service-fabric-reliable-actors-events.md).</span></span> <span data-ttu-id="3f1c7-106">(Metod interfejsu zdarzenia aktora zawsze zwracać typ void.)</span><span class="sxs-lookup"><span data-stu-id="3f1c7-106">(Actor event interface methods always return void.)</span></span>
 
-## <a name="custom-data-types"></a><span data-ttu-id="02e1f-107">Niestandardowe typy danych</span><span class="sxs-lookup"><span data-stu-id="02e1f-107">Custom data types</span></span>
-<span data-ttu-id="02e1f-108">W tym przykładzie interfejsu aktora definiuje metodę, która zwraca niestandardowego typu danych o nazwie `VoicemailBox`:</span><span class="sxs-lookup"><span data-stu-id="02e1f-108">In this example, the following actor interface defines a method that returns a custom data type called `VoicemailBox`:</span></span>
+## <a name="custom-data-types"></a><span data-ttu-id="3f1c7-107">Niestandardowe typy danych</span><span class="sxs-lookup"><span data-stu-id="3f1c7-107">Custom data types</span></span>
+<span data-ttu-id="3f1c7-108">W tym przykładzie powitania po aktora interfejs definiuje metodę, która zwraca niestandardowego typu danych o nazwie `VoicemailBox`:</span><span class="sxs-lookup"><span data-stu-id="3f1c7-108">In this example, hello following actor interface defines a method that returns a custom data type called `VoicemailBox`:</span></span>
 
 ```csharp
 public interface IVoiceMailBoxActor : IActor
@@ -40,7 +40,7 @@ public interface VoiceMailBoxActor extends Actor
 }
 ```
 
-<span data-ttu-id="02e1f-109">Interfejs jest implementowany przez aktora, który używa Menedżera stanu do przechowywania `VoicemailBox` obiektu:</span><span class="sxs-lookup"><span data-stu-id="02e1f-109">The interface is implemented by an actor that uses the state manager to store a `VoicemailBox` object:</span></span>
+<span data-ttu-id="3f1c7-109">Witaj interfejs jest implementowany przez aktora używającej hello stanu Menedżera toostore `VoicemailBox` obiektu:</span><span class="sxs-lookup"><span data-stu-id="3f1c7-109">hello interface is implemented by an actor that uses hello state manager toostore a `VoicemailBox` object:</span></span>
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -76,12 +76,12 @@ public class VoiceMailBoxActorImpl extends FabricActor implements VoicemailBoxAc
 
 ```
 
-<span data-ttu-id="02e1f-110">W tym przykładzie `VoicemailBox` serializowany jest obiekt po:</span><span class="sxs-lookup"><span data-stu-id="02e1f-110">In this example, the `VoicemailBox` object is serialized when:</span></span>
+<span data-ttu-id="3f1c7-110">W tym przykładzie hello `VoicemailBox` serializowany jest obiekt po:</span><span class="sxs-lookup"><span data-stu-id="3f1c7-110">In this example, hello `VoicemailBox` object is serialized when:</span></span>
 
-* <span data-ttu-id="02e1f-111">Obiekt przesyłane między wystąpieniem aktora i obiekt wywołujący.</span><span class="sxs-lookup"><span data-stu-id="02e1f-111">The object is transmitted between an actor instance and a caller.</span></span>
-* <span data-ttu-id="02e1f-112">Obiekt zostanie zapisany menedżera stanu, gdzie jest utrwalony na dysku i replikowany do innych węzłów.</span><span class="sxs-lookup"><span data-stu-id="02e1f-112">The object is saved in the state manager where it is persisted to disk and replicated to other nodes.</span></span>
+* <span data-ttu-id="3f1c7-111">Obiekt Hello przesyłane między wystąpieniem aktora i obiekt wywołujący.</span><span class="sxs-lookup"><span data-stu-id="3f1c7-111">hello object is transmitted between an actor instance and a caller.</span></span>
+* <span data-ttu-id="3f1c7-112">Obiekt Hello jest zapisywany w hello menedżera stanu, gdy jest trwałe toodisk i tooother węzły replikowana.</span><span class="sxs-lookup"><span data-stu-id="3f1c7-112">hello object is saved in hello state manager where it is persisted toodisk and replicated tooother nodes.</span></span>
 
-<span data-ttu-id="02e1f-113">Platforma niezawodnego aktora korzysta z serializacji DataContract.</span><span class="sxs-lookup"><span data-stu-id="02e1f-113">The Reliable Actor framework uses DataContract serialization.</span></span> <span data-ttu-id="02e1f-114">W związku z tym obiektów danych niestandardowych i ich elementy Członkowskie musi być adnotowany przy **DataContract** i **DataMember** atrybuty odpowiednio.</span><span class="sxs-lookup"><span data-stu-id="02e1f-114">Therefore, the custom data objects and their members must be annotated with the **DataContract** and **DataMember** attributes, respectively.</span></span>
+<span data-ttu-id="3f1c7-113">Platforma niezawodnego aktora Hello korzysta z serializacji DataContract.</span><span class="sxs-lookup"><span data-stu-id="3f1c7-113">hello Reliable Actor framework uses DataContract serialization.</span></span> <span data-ttu-id="3f1c7-114">W związku z tym hello danych niestandardowych obiektów i ich elementy Członkowskie musi być adnotowany przy hello **DataContract** i **DataMember** atrybuty odpowiednio.</span><span class="sxs-lookup"><span data-stu-id="3f1c7-114">Therefore, hello custom data objects and their members must be annotated with hello **DataContract** and **DataMember** attributes, respectively.</span></span>
 
 ```csharp
 [DataContract]
@@ -144,10 +144,10 @@ public class VoicemailBox implements Serializable
 ```
 
 
-## <a name="next-steps"></a><span data-ttu-id="02e1f-115">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="02e1f-115">Next steps</span></span>
-* [<span data-ttu-id="02e1f-116">Aktora cykl życia i odzyskiwanie pamięci</span><span class="sxs-lookup"><span data-stu-id="02e1f-116">Actor lifecycle and garbage collection</span></span>](service-fabric-reliable-actors-lifecycle.md)
-* [<span data-ttu-id="02e1f-117">Czasomierze aktora i przypomnieniami</span><span class="sxs-lookup"><span data-stu-id="02e1f-117">Actor timers and reminders</span></span>](service-fabric-reliable-actors-timers-reminders.md)
-* [<span data-ttu-id="02e1f-118">Zdarzenia aktora</span><span class="sxs-lookup"><span data-stu-id="02e1f-118">Actor events</span></span>](service-fabric-reliable-actors-events.md)
-* [<span data-ttu-id="02e1f-119">Wielobieżność aktora</span><span class="sxs-lookup"><span data-stu-id="02e1f-119">Actor reentrancy</span></span>](service-fabric-reliable-actors-reentrancy.md)
-* [<span data-ttu-id="02e1f-120">Polimorfizm aktora i wzorce projektowe zorientowane obiektowo</span><span class="sxs-lookup"><span data-stu-id="02e1f-120">Actor polymorphism and object-oriented design patterns</span></span>](service-fabric-reliable-actors-polymorphism.md)
-* [<span data-ttu-id="02e1f-121">Aktora Diagnostyka i monitorowanie wydajności</span><span class="sxs-lookup"><span data-stu-id="02e1f-121">Actor diagnostics and performance monitoring</span></span>](service-fabric-reliable-actors-diagnostics.md)
+## <a name="next-steps"></a><span data-ttu-id="3f1c7-115">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="3f1c7-115">Next steps</span></span>
+* [<span data-ttu-id="3f1c7-116">Aktora cykl życia i odzyskiwanie pamięci</span><span class="sxs-lookup"><span data-stu-id="3f1c7-116">Actor lifecycle and garbage collection</span></span>](service-fabric-reliable-actors-lifecycle.md)
+* [<span data-ttu-id="3f1c7-117">Czasomierze aktora i przypomnieniami</span><span class="sxs-lookup"><span data-stu-id="3f1c7-117">Actor timers and reminders</span></span>](service-fabric-reliable-actors-timers-reminders.md)
+* [<span data-ttu-id="3f1c7-118">Zdarzenia aktora</span><span class="sxs-lookup"><span data-stu-id="3f1c7-118">Actor events</span></span>](service-fabric-reliable-actors-events.md)
+* [<span data-ttu-id="3f1c7-119">Wielobieżność aktora</span><span class="sxs-lookup"><span data-stu-id="3f1c7-119">Actor reentrancy</span></span>](service-fabric-reliable-actors-reentrancy.md)
+* [<span data-ttu-id="3f1c7-120">Polimorfizm aktora i wzorce projektowe zorientowane obiektowo</span><span class="sxs-lookup"><span data-stu-id="3f1c7-120">Actor polymorphism and object-oriented design patterns</span></span>](service-fabric-reliable-actors-polymorphism.md)
+* [<span data-ttu-id="3f1c7-121">Aktora Diagnostyka i monitorowanie wydajności</span><span class="sxs-lookup"><span data-stu-id="3f1c7-121">Actor diagnostics and performance monitoring</span></span>](service-fabric-reliable-actors-diagnostics.md)

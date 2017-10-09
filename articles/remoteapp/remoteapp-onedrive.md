@@ -1,5 +1,5 @@
 ---
-title: "Korzystanie z usług OneDrive dla Firm i Azure RemoteApp | Microsoft Docs"
+title: "aaaUsing usługi OneDrive dla firm i Azure RemoteApp | Dokumentacja firmy Microsoft"
 description: "Korzystanie z usługi OneDrive dla Firm z usługą Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: e718f1e5edb72f66eab2a531c5e2509ea584ac72
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1a7bc6e972a2a22350f61a0e9a04b4a1afb47ae9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="onedrive-for-business-and-azure-remoteapp"></a><span data-ttu-id="e68a3-103">Usługi OneDrive dla Firm i Azure RemoteApp</span><span class="sxs-lookup"><span data-stu-id="e68a3-103">OneDrive for Business and Azure RemoteApp</span></span>
+# <a name="onedrive-for-business-and-azure-remoteapp"></a><span data-ttu-id="24e50-103">Usługi OneDrive dla Firm i Azure RemoteApp</span><span class="sxs-lookup"><span data-stu-id="24e50-103">OneDrive for Business and Azure RemoteApp</span></span>
 > [!IMPORTANT]
-> <span data-ttu-id="e68a3-104">Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r.</span><span class="sxs-lookup"><span data-stu-id="e68a3-104">Azure RemoteApp is being discontinued on August 31, 2017.</span></span> <span data-ttu-id="e68a3-105">Szczegółowe informacje zawiera [powiadomienie](https://go.microsoft.com/fwlink/?linkid=821148).</span><span class="sxs-lookup"><span data-stu-id="e68a3-105">Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.</span></span>
+> <span data-ttu-id="24e50-104">Usługa Azure RemoteApp nie będzie obsługiwana od 31 sierpnia 2017 r.</span><span class="sxs-lookup"><span data-stu-id="24e50-104">Azure RemoteApp is being discontinued on August 31, 2017.</span></span> <span data-ttu-id="24e50-105">Witaj odczytu [anonsu](https://go.microsoft.com/fwlink/?linkid=821148) szczegółowe informacje.</span><span class="sxs-lookup"><span data-stu-id="24e50-105">Read hello [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.</span></span>
 > 
 > 
 
-<span data-ttu-id="e68a3-106">Agent synchronizacji usługi OneDrive dla Firm nie działa z usługą Azure RemoteApp.</span><span class="sxs-lookup"><span data-stu-id="e68a3-106">The OneDrive for Business sync agent is not supported with Azure RemoteApp.</span></span>
+<span data-ttu-id="24e50-106">Witaj usługi OneDrive dla firm synchronizacji agenta nie jest obsługiwane z usługą Azure RemoteApp.</span><span class="sxs-lookup"><span data-stu-id="24e50-106">hello OneDrive for Business sync agent is not supported with Azure RemoteApp.</span></span>
 
-<span data-ttu-id="e68a3-107">Usługę OneDrive dla Firm możesz umieścić wewnątrz kolekcji do użycia z usługą Office 365.</span><span class="sxs-lookup"><span data-stu-id="e68a3-107">You can include OneDrive for Business inside a collection for use with Office 365.</span></span> 
+<span data-ttu-id="24e50-107">Usługę OneDrive dla Firm możesz umieścić wewnątrz kolekcji do użycia z usługą Office 365.</span><span class="sxs-lookup"><span data-stu-id="24e50-107">You can include OneDrive for Business inside a collection for use with Office 365.</span></span> 
 

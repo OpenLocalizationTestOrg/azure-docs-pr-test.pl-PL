@@ -33,18 +33,18 @@
 ###[Dostawca stanu sesji](cache-aspnet-session-state-provider.md)
 ###[Dostawca wyjściowej pamięci podręcznej](cache-aspnet-output-cache-provider.md)
 ## Zarządzanie
-###[Konfigurowanie w portalu](cache-configure.md)
+###[Konfigurowanie w portalu hello](cache-configure.md)
 ###[Konfigurowanie replikacji geograficznej](cache-how-to-geo-replication.md)
 ###[Importowanie/eksportowanie danych](cache-how-to-import-export-data.md)
 ###[Ponowne uruchamianie](cache-administration.md#reboot)
 ###[Aktualizacje harmonogramu](cache-administration.md#schedule-updates)
 ## Monitorowanie i rozwiązywanie problemów
-###[Monitorowanie w portalu](cache-how-to-monitor.md)
+###[Monitorowanie w portalu hello](cache-how-to-monitor.md)
 ###[Rozwiązywanie problemów z pamięcią podręczną](cache-how-to-troubleshoot.md)
 ###[Ustawianie alertów dla wyjątków](cache-how-to-monitor.md#operations-and-alerts)
 ## Skalowanie
-###[Aktualizowanie do innego rozmiaru i innej warstwy](cache-how-to-scale.md)
-###[Używanie klastra pamięci podręcznej Redis do skalowania w pionie i w poziomie](cache-how-to-premium-clustering.md)
+###[Aktualizacja tooa inny rozmiar i warstwy](cache-how-to-scale.md)
+###[Użyj tooscale klaster Redis we/wy](cache-how-to-premium-clustering.md)
 ## Integracja ze środowiskiem Spring Boot
 ###[Używanie aplikacji Spring Boot Initializer z usługą Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
 

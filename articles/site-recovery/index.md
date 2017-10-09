@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Azure Site Recovery — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak skonfigurować odzyskiwanie po awarii w chmurze i ciągłość działania dla serwerów fizycznych oraz maszyn wirtualnych przez wdrożenie replikacji i zarządzanie nią."
+title: "aaaAzure dokumentacji odzyskiwania lokacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooset się chmury ciągłości odzyskiwania i business po awarii dla serwerów fizycznych i maszyn wirtualnych za pomocą wdrażania i zarządzania nimi replikacji."
 services: site-recovery
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/05/2017
 ms.author: carolz
-ms.openlocfilehash: ef7a25de4536cfd54331e1bce7d22f351768585c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08c295488f2e9058922a495ffac24ee96f33fbda
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="site-recovery-documentation"></a>Dokumentacja usługi Site Recovery
 
-Dowiedz się, jak wpisać usługę Site Recovery w strategię ciągłej działalności firmy i odzyskiwania sprawności po awarii, tak aby aplikacje i obciążenia były dostępne podczas przestojów. W samouczkach i innych artykułach pokazano, jak planować i wdrażać replikację, przełączanie do trybu failover i odzyskiwanie maszyn lokalnych oraz maszyn wirtualnych na platformie Azure, a także zarządzać nimi.
+Dowiedz się, jak toouse usługi Site Recovery toocontribute tooyour ciągłości i awaryjnego odzyskiwania strategii biznesowej, tookeep aplikacji i obciążeń dostępnych w trakcie przestoju. Samouczki i inne artykuły zawierają jak tooplan, wdrażania i zarządzania hello replikacji, trybu failover i odzyskiwania lokalnych maszyn i maszyn wirtualnych platformy Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Dowiedz się, jak wpisać usługę Site Recovery w strategię ciągłej działal
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do replikacji maszyn wirtualnych funkcji Hyper-V na platformie Azure (bez programu VMM)</h3>
+                        <h3>Rozpoczynanie pracy z replikacji tooAzure maszyn wirtualnych funkcji Hyper-V (bez VMM)</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Dowiedz się, jak wpisać usługę Site Recovery w strategię ciągłej działal
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do replikacji maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM na platformie Azure</h3>
+                        <h3>Rozpoczynanie pracy z replikacji maszyn wirtualnych funkcji Hyper-V w tooAzure chmury VMM</h3>
                     </div>
                 </div>
             </div>

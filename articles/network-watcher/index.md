@@ -1,15 +1,15 @@
 ---
 layout: LandingPage
-description: "Dowiedz się, jak usługa Network Watcher umożliwia monitorowanie i diagnozowanie warunków na poziomie sieci."
-ms.openlocfilehash: 3c390494f5e86eb82a3011b962217798feff5ca2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+description: "Dowiedz się, jak toouse toomonitor obserwatora sieciowego i diagnozowanie warunków na poziomie sieci."
+ms.openlocfilehash: 6c5fcdb2e5095eaceb759e45ae3d35875a0c3fc7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-network-watcher-documentation"></a>Dokumentacja usługi Azure Network Watcher
 
-Dowiedz się, jak usługa Network Watcher umożliwia monitorowanie i diagnozowanie warunków na poziomie sieci. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak uzyskać wgląd w sieć platformy Azure za pomocą takich narzędzi jak przechwytywania pakietów, topologia i nie tylko.
+Dowiedz się, jak toouse obserwatora sieciowego, to usługa, która umożliwia możesz toomonitor i diagnozowanie warunków na poziomie scenariusz sieci. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób zbyt korzyści wgląd w sieci Azure za pomocą narzędzi, takich jak przechwytywania pakietów, topologii i inne.
 
 <ul class="panelContent cardsFTitle">
     <li>

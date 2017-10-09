@@ -1,6 +1,6 @@
 ---
-title: "Dokumentacja usługi Power BI Embedded — samouczki i dokumentacja interfejsu API | Microsoft Docs"
-description: "Dowiedz się, jak osadzać w aplikacjach wizualizacje danych i interakcyjne raporty usługi Power BI. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+title: "aaaAzure Power BI Embedded dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooembed usługi Power BI wizualizacje danych i interakcyjnych raportów do aplikacji. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: power-bi-embedded
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e01a812ccc3b8daeb0569df90bad87f12c649db5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="power-bi-embedded-documentation"></a>Dokumentacja usługi Power BI Embedded
 
-Dowiedz się, jak za pomocą usługi Power BI Embedded dodawać do aplikacji wizualizacje danych i interakcyjne raporty. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób płynnego osadzania raportów i pulpitów nawigacyjnych usługi Power BI w aplikacjach.
+Dowiedz się, jak tooadd wizualizacje danych i tooapplications interakcyjnych raportów z Power BI Embedded. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób tooseamlessly osadzania raportów usługi Power BI i pulpitów nawigacyjnych w aplikacji.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Dowiedz się, jak za pomocą usługi Power BI Embedded dodawać do aplikacji wiz
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpocznij tworzenie raportów usługi Power BI przy użyciu galerii przykładów</h3>
+                        <h3>Rozpocząć tworzenie raportów usługi Power BI z galerii próbki hello</h3>
                     </div>
                 </div>
             </div>

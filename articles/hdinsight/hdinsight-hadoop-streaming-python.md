@@ -1,6 +1,6 @@
 ---
-title: "Tworzenie zadań MapReduce z usługą HDInsight - Azure przesyłania strumieniowego Python | Dokumentacja firmy Microsoft"
-description: "Informacje o sposobie korzystania z języka Python w strumieniowym zadań MapReduce. Hadoop udostępnia interfejs API przesyłania strumieniowego dla MapReduce do pisania w językach innych niż Java."
+title: "aaaDevelop Python przesyłania strumieniowego MapReduce zadania z usługą HDInsight - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak toouse Python w strumieniowym zadań MapReduce. Hadoop udostępnia interfejs API przesyłania strumieniowego dla MapReduce do pisania w językach innych niż Java."
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 documentationcenter: 
@@ -17,56 +17,56 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: a6ae3ba650b665ecc5839a4ddf5282f8ccfb6bd6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a><span data-ttu-id="64367-104">Opracowywanie Python przesyłania strumieniowego programy MapReduce dla usługi HDInsight</span><span class="sxs-lookup"><span data-stu-id="64367-104">Develop Python streaming MapReduce programs for HDInsight</span></span>
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a><span data-ttu-id="6e706-104">Opracowywanie Python przesyłania strumieniowego programy MapReduce dla usługi HDInsight</span><span class="sxs-lookup"><span data-stu-id="6e706-104">Develop Python streaming MapReduce programs for HDInsight</span></span>
 
-<span data-ttu-id="64367-105">Informacje o sposobie korzystania z języka Python w strumieniowym działania MapReduce.</span><span class="sxs-lookup"><span data-stu-id="64367-105">Learn how to use Python in streaming MapReduce operations.</span></span> <span data-ttu-id="64367-106">Hadoop udostępnia interfejs API przesyłania strumieniowego dla MapReduce, umożliwiającą zapis mapy i ograniczyć funkcje w językach innych niż Java.</span><span class="sxs-lookup"><span data-stu-id="64367-106">Hadoop provides a streaming API for MapReduce that enables you to write map and reduce functions in languages other than Java.</span></span> <span data-ttu-id="64367-107">Kroki opisane w tym dokumencie mapy implementacji i zmniejszyć składników w języku Python.</span><span class="sxs-lookup"><span data-stu-id="64367-107">The steps in this document implement the Map and Reduce components in Python.</span></span>
+<span data-ttu-id="6e706-105">Dowiedz się, jak toouse Python w strumieniowym działania MapReduce.</span><span class="sxs-lookup"><span data-stu-id="6e706-105">Learn how toouse Python in streaming MapReduce operations.</span></span> <span data-ttu-id="6e706-106">Hadoop udostępnia interfejs API przesyłania strumieniowego dla MapReduce, Zmniejsz funkcje w językach innych niż Java i możliwość toowrite mapy.</span><span class="sxs-lookup"><span data-stu-id="6e706-106">Hadoop provides a streaming API for MapReduce that enables you toowrite map and reduce functions in languages other than Java.</span></span> <span data-ttu-id="6e706-107">Witaj kroki opisane w tym dokumencie hello mapy implementacji i zmniejszyć składników w języku Python.</span><span class="sxs-lookup"><span data-stu-id="6e706-107">hello steps in this document implement hello Map and Reduce components in Python.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="64367-108">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="64367-108">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="6e706-108">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="6e706-108">Prerequisites</span></span>
 
-* <span data-ttu-id="64367-109">Opartych na systemie Linux platformą Hadoop w klastrze usługi HDInsight</span><span class="sxs-lookup"><span data-stu-id="64367-109">A Linux-based Hadoop on HDInsight cluster</span></span>
-
-  > [!IMPORTANT]
-  > <span data-ttu-id="64367-110">Kroki opisane w tym dokumencie wymagają klastra usługi HDInsight, który używa systemu Linux.</span><span class="sxs-lookup"><span data-stu-id="64367-110">The steps in this document require an HDInsight cluster that uses Linux.</span></span> <span data-ttu-id="64367-111">Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą.</span><span class="sxs-lookup"><span data-stu-id="64367-111">Linux is the only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="64367-112">Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).</span><span class="sxs-lookup"><span data-stu-id="64367-112">For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span></span>
-
-* <span data-ttu-id="64367-113">Edytor tekstu</span><span class="sxs-lookup"><span data-stu-id="64367-113">A text editor</span></span>
+* <span data-ttu-id="6e706-109">Opartych na systemie Linux platformą Hadoop w klastrze usługi HDInsight</span><span class="sxs-lookup"><span data-stu-id="6e706-109">A Linux-based Hadoop on HDInsight cluster</span></span>
 
   > [!IMPORTANT]
-  > <span data-ttu-id="64367-114">Edytor tekstu, należy użyć LF jako zakończenia linii.</span><span class="sxs-lookup"><span data-stu-id="64367-114">The text editor must use LF as the line ending.</span></span> <span data-ttu-id="64367-115">Przy użyciu wiersza koniec CRLF powoduje, że błędy podczas uruchamiania zadania MapReduce w klastrach HDInsight opartych na systemie Linux.</span><span class="sxs-lookup"><span data-stu-id="64367-115">Using a line ending of CRLF causes errors when running the MapReduce job on Linux-based HDInsight clusters.</span></span>
+  > <span data-ttu-id="6e706-110">kroki Hello w tym dokumencie wymagają klastra usługi HDInsight, który używa systemu Linux.</span><span class="sxs-lookup"><span data-stu-id="6e706-110">hello steps in this document require an HDInsight cluster that uses Linux.</span></span> <span data-ttu-id="6e706-111">Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej.</span><span class="sxs-lookup"><span data-stu-id="6e706-111">Linux is hello only operating system used on HDInsight version 3.4 or greater.</span></span> <span data-ttu-id="6e706-112">Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).</span><span class="sxs-lookup"><span data-stu-id="6e706-112">For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).</span></span>
 
-* <span data-ttu-id="64367-116">`ssh` i `scp` polecenia, lub [programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)</span><span class="sxs-lookup"><span data-stu-id="64367-116">The `ssh` and `scp` commands, or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)</span></span>
+* <span data-ttu-id="6e706-113">Edytor tekstu</span><span class="sxs-lookup"><span data-stu-id="6e706-113">A text editor</span></span>
 
-## <a name="word-count"></a><span data-ttu-id="64367-117">Liczba programu Word</span><span class="sxs-lookup"><span data-stu-id="64367-117">Word count</span></span>
+  > [!IMPORTANT]
+  > <span data-ttu-id="6e706-114">Edytor tekstu Hello musi używać LF co hello zakończenia linii.</span><span class="sxs-lookup"><span data-stu-id="6e706-114">hello text editor must use LF as hello line ending.</span></span> <span data-ttu-id="6e706-115">Przy użyciu wiersza koniec CRLF powoduje, że błędy podczas uruchamiania zadania MapReduce hello w klastrach HDInsight opartych na systemie Linux.</span><span class="sxs-lookup"><span data-stu-id="6e706-115">Using a line ending of CRLF causes errors when running hello MapReduce job on Linux-based HDInsight clusters.</span></span>
 
-<span data-ttu-id="64367-118">W tym przykładzie jest podstawowe wyrazów zaimplementowana w języku python mapowania i reduktor.</span><span class="sxs-lookup"><span data-stu-id="64367-118">This example is a basic word count implemented in a python a mapper and reducer.</span></span> <span data-ttu-id="64367-119">Mapowania dzieli zdania na poszczególnych wyrazów, a reduktor agreguje słowa i liczby do generowania danych wyjściowych.</span><span class="sxs-lookup"><span data-stu-id="64367-119">The mapper breaks sentences into individual words, and the reducer aggregates the words and counts to produce the output.</span></span>
+* <span data-ttu-id="6e706-116">Witaj `ssh` i `scp` polecenia, lub [programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)</span><span class="sxs-lookup"><span data-stu-id="6e706-116">hello `ssh` and `scp` commands, or [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)</span></span>
 
-<span data-ttu-id="64367-120">Poniższy schemat przedstawia co się dzieje podczas mapy i ograniczyć faz.</span><span class="sxs-lookup"><span data-stu-id="64367-120">The following flowchart illustrates what happens during the map and reduce phases.</span></span>
+## <a name="word-count"></a><span data-ttu-id="6e706-117">Liczba programu Word</span><span class="sxs-lookup"><span data-stu-id="6e706-117">Word count</span></span>
 
-![Ilustracja procesu mapreduce](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
+<span data-ttu-id="6e706-118">W tym przykładzie jest podstawowe wyrazów zaimplementowana w języku python mapowania i reduktor.</span><span class="sxs-lookup"><span data-stu-id="6e706-118">This example is a basic word count implemented in a python a mapper and reducer.</span></span> <span data-ttu-id="6e706-119">mapowania Hello dzieli zdania na poszczególnych wyrazów, a reduktor hello agreguje hello słów i liczby tooproduce hello w danych wyjściowych.</span><span class="sxs-lookup"><span data-stu-id="6e706-119">hello mapper breaks sentences into individual words, and hello reducer aggregates hello words and counts tooproduce hello output.</span></span>
 
-## <a name="streaming-mapreduce"></a><span data-ttu-id="64367-122">MapReduce przesyłania strumieniowego</span><span class="sxs-lookup"><span data-stu-id="64367-122">Streaming MapReduce</span></span>
+<span data-ttu-id="6e706-120">powitania po schemat blokowy przedstawia co się działo podczas mapy hello i ograniczyć faz.</span><span class="sxs-lookup"><span data-stu-id="6e706-120">hello following flowchart illustrates what happens during hello map and reduce phases.</span></span>
 
-<span data-ttu-id="64367-123">Hadoop umożliwia Określ plik, który zawiera mapy i zmniejszyć logikę, która jest używana przez zadanie.</span><span class="sxs-lookup"><span data-stu-id="64367-123">Hadoop allows you to specify a file that contains the map and reduce logic that is used by a job.</span></span> <span data-ttu-id="64367-124">Określone wymagania dotyczące mapy i zmniejszyć logiki są:</span><span class="sxs-lookup"><span data-stu-id="64367-124">The specific requirements for the map and reduce logic are:</span></span>
+![Ilustracja hello mapreduce procesu](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-* <span data-ttu-id="64367-125">**Wejściowy**: mapy i zmniejszyć składniki muszą odczytać dane wejściowe z STDIN.</span><span class="sxs-lookup"><span data-stu-id="64367-125">**Input**: The map and reduce components must read input data from STDIN.</span></span>
-* <span data-ttu-id="64367-126">**Dane wyjściowe**: mapy i zmniejszyć składniki musi zapisać danych wyjściowych stdout.</span><span class="sxs-lookup"><span data-stu-id="64367-126">**Output**: The map and reduce components must write output data to STDOUT.</span></span>
-* <span data-ttu-id="64367-127">**Format danych**: dane używane i wyprodukowanych muszą być parę klucza i wartości, rozdzielając znak tabulacji.</span><span class="sxs-lookup"><span data-stu-id="64367-127">**Data format**: The data consumed and produced must be a key/value pair, separated by a tab character.</span></span>
+## <a name="streaming-mapreduce"></a><span data-ttu-id="6e706-122">MapReduce przesyłania strumieniowego</span><span class="sxs-lookup"><span data-stu-id="6e706-122">Streaming MapReduce</span></span>
 
-<span data-ttu-id="64367-128">Python może z łatwością obsłużyć te wymagania przy użyciu `sys` modułu do odczytu z STDIN z zastosowaniem `print` do drukowania do STDOUT.</span><span class="sxs-lookup"><span data-stu-id="64367-128">Python can easily handle these requirements by using the `sys` module to read from STDIN and using `print` to print to STDOUT.</span></span> <span data-ttu-id="64367-129">Pozostałe zadania jest po prostu formatowania danych przy użyciu karty (`\t`) znak między kluczem i wartością.</span><span class="sxs-lookup"><span data-stu-id="64367-129">The remaining task is simply formatting the data with a tab (`\t`) character between the key and value.</span></span>
+<span data-ttu-id="6e706-123">Hadoop umożliwia toospecify pliku, który zawiera mapy hello i zmniejszyć logikę, która jest używana przez zadanie.</span><span class="sxs-lookup"><span data-stu-id="6e706-123">Hadoop allows you toospecify a file that contains hello map and reduce logic that is used by a job.</span></span> <span data-ttu-id="6e706-124">Hello określonych wymagań dotyczących hello mapowania i zmniejszyć logiki są:</span><span class="sxs-lookup"><span data-stu-id="6e706-124">hello specific requirements for hello map and reduce logic are:</span></span>
 
-## <a name="create-the-mapper-and-reducer"></a><span data-ttu-id="64367-130">Utwórz mapowania i reduktor</span><span class="sxs-lookup"><span data-stu-id="64367-130">Create the mapper and reducer</span></span>
+* <span data-ttu-id="6e706-125">**Wejściowy**: hello mapy co pozwala zmniejszyć liczbę składników należy odczytać dane wejściowe z STDIN.</span><span class="sxs-lookup"><span data-stu-id="6e706-125">**Input**: hello map and reduce components must read input data from STDIN.</span></span>
+* <span data-ttu-id="6e706-126">**Dane wyjściowe**: hello mapy co pozwala zmniejszyć liczbę składników musi być zapisana tooSTDOUT danych wyjściowych.</span><span class="sxs-lookup"><span data-stu-id="6e706-126">**Output**: hello map and reduce components must write output data tooSTDOUT.</span></span>
+* <span data-ttu-id="6e706-127">**Format danych**: hello danych używane i wyprodukowanych musi być parę klucza i wartości, rozdzielając znak tabulacji.</span><span class="sxs-lookup"><span data-stu-id="6e706-127">**Data format**: hello data consumed and produced must be a key/value pair, separated by a tab character.</span></span>
 
-1. <span data-ttu-id="64367-131">Utwórz plik o nazwie `mapper.py` i użyć poniższego kodu jako zawartości:</span><span class="sxs-lookup"><span data-stu-id="64367-131">Create a file named `mapper.py` and use the following code as the content:</span></span>
+<span data-ttu-id="6e706-128">Python może z łatwością obsłużyć te wymagania przy użyciu hello `sys` tooread modułu z STDIN z zastosowaniem `print` tooprint tooSTDOUT.</span><span class="sxs-lookup"><span data-stu-id="6e706-128">Python can easily handle these requirements by using hello `sys` module tooread from STDIN and using `print` tooprint tooSTDOUT.</span></span> <span data-ttu-id="6e706-129">Witaj pozostałych zadań jest po prostu formatowania danych hello za pomocą karty (`\t`) znak między hello klucz i wartość.</span><span class="sxs-lookup"><span data-stu-id="6e706-129">hello remaining task is simply formatting hello data with a tab (`\t`) character between hello key and value.</span></span>
+
+## <a name="create-hello-mapper-and-reducer"></a><span data-ttu-id="6e706-130">Utwórz mapowania hello i reduktor</span><span class="sxs-lookup"><span data-stu-id="6e706-130">Create hello mapper and reducer</span></span>
+
+1. <span data-ttu-id="6e706-131">Utwórz plik o nazwie `mapper.py` i hello Użyj następującego kodu jako zawartość hello:</span><span class="sxs-lookup"><span data-stu-id="6e706-131">Create a file named `mapper.py` and use hello following code as hello content:</span></span>
 
    ```python
    #!/usr/bin/env python
 
-   # Use the sys module
+   # Use hello sys module
    import sys
 
    # 'file' in this case is STDIN
@@ -76,20 +76,20 @@ ms.lasthandoff: 08/03/2017
            yield line.split()
 
    def main(separator='\t'):
-       # Read the data using read_input
+       # Read hello data using read_input
        data = read_input(sys.stdin)
        # Process each word returned from read_input
        for words in data:
            # Process each word
            for word in words:
-               # Write to STDOUT
+               # Write tooSTDOUT
                print '%s%s%d' % (word, separator, 1)
 
    if __name__ == "__main__":
        main()
    ```
 
-2. <span data-ttu-id="64367-132">Utwórz plik o nazwie **reducer.py** i użyć poniższego kodu jako zawartości:</span><span class="sxs-lookup"><span data-stu-id="64367-132">Create a file named **reducer.py** and use the following code as the content:</span></span>
+2. <span data-ttu-id="6e706-132">Utwórz plik o nazwie **reducer.py** i hello Użyj następującego kodu jako zawartość hello:</span><span class="sxs-lookup"><span data-stu-id="6e706-132">Create a file named **reducer.py** and use hello following code as hello content:</span></span>
 
    ```python
    #!/usr/bin/env python
@@ -103,22 +103,22 @@ ms.lasthandoff: 08/03/2017
    def read_mapper_output(file, separator='\t'):
        # Go through each line
        for line in file:
-           # Strip out the separator character
+           # Strip out hello separator character
            yield line.rstrip().split(separator, 1)
 
    def main(separator='\t'):
-       # Read the data using read_mapper_output
+       # Read hello data using read_mapper_output
        data = read_mapper_output(sys.stdin, separator=separator)
        # Group words and counts into 'group'
        #   Since MapReduce is a distributed process, each word
        #   may have multiple counts. 'group' will have all counts
-       #   which can be retrieved using the word as the key.
+       #   which can be retrieved using hello word as hello key.
        for current_word, group in groupby(data, itemgetter(0)):
            try:
-               # For each word, pull the count(s) for the word
+               # For each word, pull hello count(s) for hello word
                #   from 'group' and create a total count
                total_count = sum(int(count) for current_word, count in group)
-               # Write to stdout
+               # Write toostdout
                print "%s%s%d" % (current_word, separator, total_count)
            except ValueError:
                # Count was not a number, so do nothing
@@ -128,83 +128,83 @@ ms.lasthandoff: 08/03/2017
        main()
    ```
 
-## <a name="run-using-powershell"></a><span data-ttu-id="64367-133">Uruchamianie przy użyciu programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="64367-133">Run using PowerShell</span></span>
+## <a name="run-using-powershell"></a><span data-ttu-id="6e706-133">Uruchamianie przy użyciu programu PowerShell</span><span class="sxs-lookup"><span data-stu-id="6e706-133">Run using PowerShell</span></span>
 
-<span data-ttu-id="64367-134">Aby upewnić się, że pliki mają prawo zakończenia wierszy, użyj następującego skryptu programu PowerShell:</span><span class="sxs-lookup"><span data-stu-id="64367-134">To ensure that your files have the right line endings, use the following PowerShell script:</span></span>
+<span data-ttu-id="6e706-134">tooensure że pliki mają zakończenia wierszy prawo hello, hello Użyj następującego skryptu programu PowerShell:</span><span class="sxs-lookup"><span data-stu-id="6e706-134">tooensure that your files have hello right line endings, use hello following PowerShell script:</span></span>
 
-<span data-ttu-id="64367-135">[!code-powershell[główne](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]</span><span class="sxs-lookup"><span data-stu-id="64367-135">[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]</span></span>
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
-<span data-ttu-id="64367-136">Poniższy skrypt programu PowerShell umożliwia przekazanie plików, uruchom zadanie i wyświetlić dane wyjściowe:</span><span class="sxs-lookup"><span data-stu-id="64367-136">Use the following PowerShell script to upload the files, run the job, and view the output:</span></span>
+<span data-ttu-id="6e706-135">Użyj hello następujące pliki hello tooupload skrypt programu PowerShell, uruchom zadanie hello i wyświetlić dane wyjściowe hello:</span><span class="sxs-lookup"><span data-stu-id="6e706-135">Use hello following PowerShell script tooupload hello files, run hello job, and view hello output:</span></span>
 
-<span data-ttu-id="64367-137">[!code-powershell[główne](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]</span><span class="sxs-lookup"><span data-stu-id="64367-137">[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]</span></span>
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
-## <a name="run-from-an-ssh-session"></a><span data-ttu-id="64367-138">Uruchom w sesji SSH</span><span class="sxs-lookup"><span data-stu-id="64367-138">Run from an SSH session</span></span>
+## <a name="run-from-an-ssh-session"></a><span data-ttu-id="6e706-136">Uruchom w sesji SSH</span><span class="sxs-lookup"><span data-stu-id="6e706-136">Run from an SSH session</span></span>
 
-1. <span data-ttu-id="64367-139">Ze środowiska programowania, w tym samym katalogu co `mapper.py` i `reducer.py` pliki, użyj następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="64367-139">From your development environment, in the same directory as `mapper.py` and `reducer.py` files, use the following command:</span></span>
+1. <span data-ttu-id="6e706-137">Ze środowiska deweloperskiego w hello sam katalogu jako `mapper.py` i `reducer.py` plików, użyj następującego polecenia hello:</span><span class="sxs-lookup"><span data-stu-id="6e706-137">From your development environment, in hello same directory as `mapper.py` and `reducer.py` files, use hello following command:</span></span>
 
     ```bash
     scp mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:
     ```
 
-    <span data-ttu-id="64367-140">Zastąp `username` z nazwą użytkownika SSH dla klastra, i `clustername` z nazwą klastra.</span><span class="sxs-lookup"><span data-stu-id="64367-140">Replace `username` with the SSH user name for your cluster, and `clustername` with the name of your cluster.</span></span>
+    <span data-ttu-id="6e706-138">Zastąp `username` z nazwą użytkownika SSH powitania dla klastra, i `clustername` o nazwie hello klastra.</span><span class="sxs-lookup"><span data-stu-id="6e706-138">Replace `username` with hello SSH user name for your cluster, and `clustername` with hello name of your cluster.</span></span>
 
-    <span data-ttu-id="64367-141">To polecenie kopiuje pliki z systemu lokalnego do węzła głównego.</span><span class="sxs-lookup"><span data-stu-id="64367-141">This command copies the files from the local system to the head node.</span></span>
+    <span data-ttu-id="6e706-139">To polecenie kopiuje pliki hello z węzłem głównym toohello hello systemu lokalnego.</span><span class="sxs-lookup"><span data-stu-id="6e706-139">This command copies hello files from hello local system toohello head node.</span></span>
 
     > [!NOTE]
-    > <span data-ttu-id="64367-142">Jeśli użyto hasła, aby zabezpieczyć konto SSH, zostanie wyświetlony monit o hasło.</span><span class="sxs-lookup"><span data-stu-id="64367-142">If you used a password to secure your SSH account, you are prompted for the password.</span></span> <span data-ttu-id="64367-143">Jeśli używasz klucza SSH, może być konieczne użycie `-i` parametru i ścieżkę do klucza prywatnego.</span><span class="sxs-lookup"><span data-stu-id="64367-143">If you used an SSH key, you may have to use the `-i` parameter and the path to the private key.</span></span> <span data-ttu-id="64367-144">Na przykład `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.</span><span class="sxs-lookup"><span data-stu-id="64367-144">For example, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.</span></span>
+    > <span data-ttu-id="6e706-140">Jeśli używasz toosecure hasło konta SSH, zostanie wyświetlony monit o hasło hello.</span><span class="sxs-lookup"><span data-stu-id="6e706-140">If you used a password toosecure your SSH account, you are prompted for hello password.</span></span> <span data-ttu-id="6e706-141">Jeśli używasz klucza SSH, może być toouse hello `-i` parametr i hello ścieżki toohello klucza prywatnego.</span><span class="sxs-lookup"><span data-stu-id="6e706-141">If you used an SSH key, you may have toouse hello `-i` parameter and hello path toohello private key.</span></span> <span data-ttu-id="6e706-142">Na przykład `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.</span><span class="sxs-lookup"><span data-stu-id="6e706-142">For example, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.</span></span>
 
-2. <span data-ttu-id="64367-145">Połącz się z klastrem przy użyciu protokołu SSH:</span><span class="sxs-lookup"><span data-stu-id="64367-145">Connect to the cluster by using SSH:</span></span>
+2. <span data-ttu-id="6e706-143">Połącz toohello klastra przy użyciu protokołu SSH:</span><span class="sxs-lookup"><span data-stu-id="6e706-143">Connect toohello cluster by using SSH:</span></span>
 
     ```bash
     ssh username@clustername-ssh.azurehdinsight.net`
     ```
 
-    <span data-ttu-id="64367-146">Aby uzyskać więcej informacji o zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span><span class="sxs-lookup"><span data-stu-id="64367-146">For more information on, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span></span>
+    <span data-ttu-id="6e706-144">Aby uzyskać więcej informacji o zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span><span class="sxs-lookup"><span data-stu-id="6e706-144">For more information on, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).</span></span>
 
-3. <span data-ttu-id="64367-147">Aby zapewnić, że mapper.py i reducer.py mają zakończenia prawidłowe wierszy, użyj następujących poleceń:</span><span class="sxs-lookup"><span data-stu-id="64367-147">To ensure the mapper.py and reducer.py have the correct line endings, use the following commands:</span></span>
+3. <span data-ttu-id="6e706-145">tooensure hello mapper.py i reducer.py mają hello Popraw zakończenia wierszy, użyj następującego polecenia hello:</span><span class="sxs-lookup"><span data-stu-id="6e706-145">tooensure hello mapper.py and reducer.py have hello correct line endings, use hello following commands:</span></span>
 
     ```bash
     perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 
-4. <span data-ttu-id="64367-148">Użyj następującego polecenia, aby uruchomić zadanie MapReduce.</span><span class="sxs-lookup"><span data-stu-id="64367-148">Use the following command to start the MapReduce job.</span></span>
+4. <span data-ttu-id="6e706-146">Użyj hello następujące zadania MapReduce hello toostart polecenia.</span><span class="sxs-lookup"><span data-stu-id="6e706-146">Use hello following command toostart hello MapReduce job.</span></span>
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
     ```
 
-    <span data-ttu-id="64367-149">To polecenie zawiera następujące części:</span><span class="sxs-lookup"><span data-stu-id="64367-149">This command has the following parts:</span></span>
+    <span data-ttu-id="6e706-147">To polecenie ma hello następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="6e706-147">This command has hello following parts:</span></span>
 
-   * <span data-ttu-id="64367-150">**hadoop streaming.jar**: używane podczas wykonywania operacji MapReduce przesyłania strumieniowego.</span><span class="sxs-lookup"><span data-stu-id="64367-150">**hadoop-streaming.jar**: Used when performing streaming MapReduce operations.</span></span> <span data-ttu-id="64367-151">Hadoop go interfejsów z kodu zewnętrznego MapReduce, podane przez użytkownika.</span><span class="sxs-lookup"><span data-stu-id="64367-151">It interfaces Hadoop with the external MapReduce code you provide.</span></span>
+   * <span data-ttu-id="6e706-148">**hadoop streaming.jar**: używane podczas wykonywania operacji MapReduce przesyłania strumieniowego.</span><span class="sxs-lookup"><span data-stu-id="6e706-148">**hadoop-streaming.jar**: Used when performing streaming MapReduce operations.</span></span> <span data-ttu-id="6e706-149">Hadoop go interfejsów z hello MapReduce kod zewnętrzny podane przez użytkownika.</span><span class="sxs-lookup"><span data-stu-id="6e706-149">It interfaces Hadoop with hello external MapReduce code you provide.</span></span>
 
-   * <span data-ttu-id="64367-152">**— pliki**: Dodaje określone pliki do zadania MapReduce.</span><span class="sxs-lookup"><span data-stu-id="64367-152">**-files**: Adds the specified files to the MapReduce job.</span></span>
+   * <span data-ttu-id="6e706-150">**— pliki**: dodaje określony hello zadania MapReduce toohello plików.</span><span class="sxs-lookup"><span data-stu-id="6e706-150">**-files**: Adds hello specified files toohello MapReduce job.</span></span>
 
-   * <span data-ttu-id="64367-153">**-mapowania**: Określa plik, który ma być używana jako mapowania Hadoop.</span><span class="sxs-lookup"><span data-stu-id="64367-153">**-mapper**: Tells Hadoop which file to use as the mapper.</span></span>
+   * <span data-ttu-id="6e706-151">**-mapowania**: Określa, że Hadoop, która plików toouse hello mapowania.</span><span class="sxs-lookup"><span data-stu-id="6e706-151">**-mapper**: Tells Hadoop which file toouse as hello mapper.</span></span>
 
-   * <span data-ttu-id="64367-154">**-Reduktor**: Określa plik, który ma być używana jako reduktor Hadoop.</span><span class="sxs-lookup"><span data-stu-id="64367-154">**-reducer**: Tells Hadoop which file to use as the reducer.</span></span>
+   * <span data-ttu-id="6e706-152">**-Reduktor**: Określa, że Hadoop, która plików toouse hello reduktor.</span><span class="sxs-lookup"><span data-stu-id="6e706-152">**-reducer**: Tells Hadoop which file toouse as hello reducer.</span></span>
 
-   * <span data-ttu-id="64367-155">**-wejściowych**: wejściowego, możemy należy policzyć wyrazów z.</span><span class="sxs-lookup"><span data-stu-id="64367-155">**-input**: The input file that we should count words from.</span></span>
+   * <span data-ttu-id="6e706-153">**-wejściowych**: hello pliku wejściowego możemy należy policzyć wyrazów z.</span><span class="sxs-lookup"><span data-stu-id="6e706-153">**-input**: hello input file that we should count words from.</span></span>
 
-   * <span data-ttu-id="64367-156">**-dane wyjściowe**: katalog, w którym są zapisywane dane wyjściowe.</span><span class="sxs-lookup"><span data-stu-id="64367-156">**-output**: The directory that the output is written to.</span></span>
+   * <span data-ttu-id="6e706-154">**-dane wyjściowe**: hello katalogu, w którym hello dane wyjściowe są zapisywane.</span><span class="sxs-lookup"><span data-stu-id="6e706-154">**-output**: hello directory that hello output is written to.</span></span>
 
-    <span data-ttu-id="64367-157">Jak działa zadania MapReduce, proces jest wyświetlana jako wartości procentowe.</span><span class="sxs-lookup"><span data-stu-id="64367-157">As the MapReduce job works, the process is displayed as percentages.</span></span>
+    <span data-ttu-id="6e706-155">Jak działa hello zadania MapReduce, proces hello jest wyświetlana jako wartości procentowe.</span><span class="sxs-lookup"><span data-stu-id="6e706-155">As hello MapReduce job works, hello process is displayed as percentages.</span></span>
 
-        <span data-ttu-id="64367-158">05-15-02 19:01:04 informacji o mapreduce. Zadanie: 0% zmniejszyć mapy 0% 05-15-02 19:01:16 informacji o mapreduce. Zadanie: 0% zmniejszyć mapy 100% 05-15-02 19:01:27 informacji o mapreduce. Zadania: 100% zmniejszyć mapy 100%</span><span class="sxs-lookup"><span data-stu-id="64367-158">15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%    15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%    15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%</span></span>
+        <span data-ttu-id="6e706-156">05-15-02 19:01:04 informacji o mapreduce. Zadanie: 0% zmniejszyć mapy 0% 05-15-02 19:01:16 informacji o mapreduce. Zadanie: 0% zmniejszyć mapy 100% 05-15-02 19:01:27 informacji o mapreduce. Zadania: 100% zmniejszyć mapy 100%</span><span class="sxs-lookup"><span data-stu-id="6e706-156">15/02/05 19:01:04 INFO mapreduce.Job:  map 0% reduce 0%    15/02/05 19:01:16 INFO mapreduce.Job:  map 100% reduce 0%    15/02/05 19:01:27 INFO mapreduce.Job:  map 100% reduce 100%</span></span>
 
 
-5. <span data-ttu-id="64367-159">Aby wyświetlić dane wyjściowe, użyj następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="64367-159">To view the output, use the following command:</span></span>
+5. <span data-ttu-id="6e706-157">dane wyjściowe hello tooview, hello Użyj następującego polecenia:</span><span class="sxs-lookup"><span data-stu-id="6e706-157">tooview hello output, use hello following command:</span></span>
 
     ```bash
     hdfs dfs -text /example/wordcountout/part-00000
     ```
 
-    <span data-ttu-id="64367-160">To polecenie wyświetla listę słów i ile razy wyraz wystąpił.</span><span class="sxs-lookup"><span data-stu-id="64367-160">This command displays a list of words and how many times the word occurred.</span></span>
+    <span data-ttu-id="6e706-158">To polecenie wyświetla listę słów i ile razy program word hello wystąpił.</span><span class="sxs-lookup"><span data-stu-id="6e706-158">This command displays a list of words and how many times hello word occurred.</span></span>
 
-## <a name="next-steps"></a><span data-ttu-id="64367-161">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="64367-161">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="6e706-159">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="6e706-159">Next steps</span></span>
 
-<span data-ttu-id="64367-162">Teraz, kiedy znasz sposobu używania zadań przesyłania strumieniowego MapRedcue z usługą HDInsight, użyj następujących linków, aby poznać inne sposoby pracy z usługą Azure HDInsight.</span><span class="sxs-lookup"><span data-stu-id="64367-162">Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.</span></span>
+<span data-ttu-id="6e706-160">Teraz wiesz już, jak zadania przesyłania strumieniowego MapRedcue toouse z usługą HDInsight, za pomocą następującego łącza tooexplore hello toowork inne sposoby z usługą Azure HDInsight.</span><span class="sxs-lookup"><span data-stu-id="6e706-160">Now that you have learned how toouse streaming MapRedcue jobs with HDInsight, use hello following links tooexplore other ways toowork with Azure HDInsight.</span></span>
 
-* [<span data-ttu-id="64367-163">Korzystanie z programu Hive z usługą HDInsight</span><span class="sxs-lookup"><span data-stu-id="64367-163">Use Hive with HDInsight</span></span>](hdinsight-use-hive.md)
-* [<span data-ttu-id="64367-164">Korzystanie z języka Pig z usługą HDInsight</span><span class="sxs-lookup"><span data-stu-id="64367-164">Use Pig with HDInsight</span></span>](hdinsight-use-pig.md)
-* [<span data-ttu-id="64367-165">Korzystanie z zadań MapReduce z usługą HDInsight</span><span class="sxs-lookup"><span data-stu-id="64367-165">Use MapReduce jobs with HDInsight</span></span>](hdinsight-use-mapreduce.md)
+* [<span data-ttu-id="6e706-161">Korzystanie z programu Hive z usługą HDInsight</span><span class="sxs-lookup"><span data-stu-id="6e706-161">Use Hive with HDInsight</span></span>](hdinsight-use-hive.md)
+* [<span data-ttu-id="6e706-162">Korzystanie z języka Pig z usługą HDInsight</span><span class="sxs-lookup"><span data-stu-id="6e706-162">Use Pig with HDInsight</span></span>](hdinsight-use-pig.md)
+* [<span data-ttu-id="6e706-163">Korzystanie z zadań MapReduce z usługą HDInsight</span><span class="sxs-lookup"><span data-stu-id="6e706-163">Use MapReduce jobs with HDInsight</span></span>](hdinsight-use-mapreduce.md)

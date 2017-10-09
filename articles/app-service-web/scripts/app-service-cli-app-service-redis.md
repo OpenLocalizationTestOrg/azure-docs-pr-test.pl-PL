@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI skrypt przykładowy — łączenie aplikacji sieci web z pamięci podręcznej redis | Dokumentacja firmy Microsoft"
-description: "Azure CLI skrypt przykładowy — łączenie aplikacji sieci web z pamięci podręcznej redis"
+title: "aaaAzure przykładowym skrypcie interfejsu wiersza polecenia — Połącz pamięci podręcznej redis tooa aplikacji sieci web | Dokumentacja firmy Microsoft"
+description: "Azure CLI skrypt przykładowy — Połącz pamięci podręcznej redis tooa aplikacji sieci web"
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,15 +16,15 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: b697c8508a6c3422b6b0d0ca36843a9c884b505f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b911e6643591b8f07aeb64d4d62876c0fa156a8a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-a-web-app-to-a-redis-cache"></a><span data-ttu-id="9ff24-103">Łączenie aplikacji sieci web z pamięci podręcznej redis</span><span class="sxs-lookup"><span data-stu-id="9ff24-103">Connect a web app to a redis cache</span></span>
+# <a name="connect-a-web-app-tooa-redis-cache"></a><span data-ttu-id="b4e39-103">Połączenie pamięci podręcznej redis tooa aplikacji sieci web</span><span class="sxs-lookup"><span data-stu-id="b4e39-103">Connect a web app tooa redis cache</span></span>
 
-<span data-ttu-id="9ff24-104">W tym scenariuszu dowiesz się, jak tworzyć pamięć podręczna Azure redis i aplikacji sieci web platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="9ff24-104">In this scenario you will learn how to create an Azure redis cache and an Azure web app.</span></span> <span data-ttu-id="9ff24-105">Następnie połączy pamięć podręczna redis do aplikacji sieci web, przy użyciu ustawień aplikacji.</span><span class="sxs-lookup"><span data-stu-id="9ff24-105">Then you will link the redis cache to the web app using app settings.</span></span>
+<span data-ttu-id="b4e39-104">W tym scenariuszu dowiesz się, jak toocreate Azure redis pamięci podręcznej i aplikacji sieci web platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="b4e39-104">In this scenario you will learn how toocreate an Azure redis cache and an Azure web app.</span></span> <span data-ttu-id="b4e39-105">Następnie zostanie Połącz hello redis pamięci podręcznej toohello web app przy użyciu ustawień aplikacji.</span><span class="sxs-lookup"><span data-stu-id="b4e39-105">Then you will link hello redis cache toohello web app using app settings.</span></span>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -32,27 +32,27 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a><span data-ttu-id="9ff24-106">Przykładowy skrypt</span><span class="sxs-lookup"><span data-stu-id="9ff24-106">Sample script</span></span>
+## <a name="sample-script"></a><span data-ttu-id="b4e39-106">Przykładowy skrypt</span><span class="sxs-lookup"><span data-stu-id="b4e39-106">Sample script</span></span>
 
-<span data-ttu-id="9ff24-107">[!code-azurecli-interactive[główne](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "pamięć podręczna Redis Azure")]</span><span class="sxs-lookup"><span data-stu-id="9ff24-107">[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Redis Cache")]</span></span>
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-redis/connect-to-redis.sh "Azure Redis Cache")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
-## <a name="script-explanation"></a><span data-ttu-id="9ff24-108">Wyjaśnienie skryptu</span><span class="sxs-lookup"><span data-stu-id="9ff24-108">Script explanation</span></span>
+## <a name="script-explanation"></a><span data-ttu-id="b4e39-107">Wyjaśnienie skryptu</span><span class="sxs-lookup"><span data-stu-id="b4e39-107">Script explanation</span></span>
 
-<span data-ttu-id="9ff24-109">Ten skrypt używa następujących poleceń, aby utworzyć grupę zasobów, aplikacji sieci web, redis pamięci podręcznej i wszystkie powiązane zasoby.</span><span class="sxs-lookup"><span data-stu-id="9ff24-109">This script uses the following commands to create a resource group, web app, redis cache and all related resources.</span></span> <span data-ttu-id="9ff24-110">Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.</span><span class="sxs-lookup"><span data-stu-id="9ff24-110">Each command in the table links to command specific documentation.</span></span>
+<span data-ttu-id="b4e39-108">Ten skrypt używa hello następujące polecenia redis toocreate grupę zasobów aplikacji sieci web i wszystkie powiązane zasoby pamięci podręcznej.</span><span class="sxs-lookup"><span data-stu-id="b4e39-108">This script uses hello following commands toocreate a resource group, web app, redis cache and all related resources.</span></span> <span data-ttu-id="b4e39-109">Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.</span><span class="sxs-lookup"><span data-stu-id="b4e39-109">Each command in hello table links toocommand specific documentation.</span></span>
 
-| <span data-ttu-id="9ff24-111">Polecenie</span><span class="sxs-lookup"><span data-stu-id="9ff24-111">Command</span></span> | <span data-ttu-id="9ff24-112">Uwagi</span><span class="sxs-lookup"><span data-stu-id="9ff24-112">Notes</span></span> |
+| <span data-ttu-id="b4e39-110">Polecenie</span><span class="sxs-lookup"><span data-stu-id="b4e39-110">Command</span></span> | <span data-ttu-id="b4e39-111">Uwagi</span><span class="sxs-lookup"><span data-stu-id="b4e39-111">Notes</span></span> |
 |---|---|
-| [<span data-ttu-id="9ff24-113">Tworzenie grupy az</span><span class="sxs-lookup"><span data-stu-id="9ff24-113">az group create</span></span>](https://docs.microsoft.com/cli/azure/group#create) | <span data-ttu-id="9ff24-114">Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby.</span><span class="sxs-lookup"><span data-stu-id="9ff24-114">Creates a resource group in which all resources are stored.</span></span> |
-| [<span data-ttu-id="9ff24-115">Tworzenie planu usług aplikacji az</span><span class="sxs-lookup"><span data-stu-id="9ff24-115">az appservice plan create</span></span>](https://docs.microsoft.com/cli/azure/appservice/plan#create) | <span data-ttu-id="9ff24-116">Tworzy plan usługi App Service.</span><span class="sxs-lookup"><span data-stu-id="9ff24-116">Creates an App Service plan.</span></span> <span data-ttu-id="9ff24-117">Przypomina farmy serwerów aplikacji sieci web platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="9ff24-117">This is like a server farm for your Azure web app.</span></span> |
-| [<span data-ttu-id="9ff24-118">Tworzenie aplikacji sieci Web az</span><span class="sxs-lookup"><span data-stu-id="9ff24-118">az webapp create</span></span>](https://docs.microsoft.com/cli/azure/webapp#create) | <span data-ttu-id="9ff24-119">Tworzenie aplikacji sieci web platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="9ff24-119">Creates an Azure web app.</span></span> |
-| [<span data-ttu-id="9ff24-120">Tworzenie pamięci podręcznej redis az</span><span class="sxs-lookup"><span data-stu-id="9ff24-120">az redis create</span></span>](https://docs.microsoft.com/en-us/cli/azure/redis#create) | <span data-ttu-id="9ff24-121">Utwórz nowe wystąpienie pamięci podręcznej Redis.</span><span class="sxs-lookup"><span data-stu-id="9ff24-121">Create new Redis Cache instance.</span></span> <span data-ttu-id="9ff24-122">Jest to, gdzie będą przechowywane dane.</span><span class="sxs-lookup"><span data-stu-id="9ff24-122">This is where the data will be stored.</span></span> |
-| [<span data-ttu-id="9ff24-123">klucze listy az redis</span><span class="sxs-lookup"><span data-stu-id="9ff24-123">az redis list-keys</span></span>](https://docs.microsoft.com/en-us/cli/azure/redis#list-keys) | <span data-ttu-id="9ff24-124">Wyświetla klucze dostępu do wystąpienia pamięci podręcznej redis.</span><span class="sxs-lookup"><span data-stu-id="9ff24-124">Lists the access keys for the redis cache instance.</span></span> |
-| [<span data-ttu-id="9ff24-125">AZ aplikacji sieci Web config appsettings zestawu</span><span class="sxs-lookup"><span data-stu-id="9ff24-125">az webapp config appsettings set</span></span>](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | <span data-ttu-id="9ff24-126">Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji sieci web platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="9ff24-126">Creates or updates an app setting for an Azure web app.</span></span> <span data-ttu-id="9ff24-127">Ustawienia aplikacji są widoczne jako zmienne środowiskowe dla aplikacji.</span><span class="sxs-lookup"><span data-stu-id="9ff24-127">App settings are exposed as environment variables for your app.</span></span> |
+| [<span data-ttu-id="b4e39-112">Tworzenie grupy az</span><span class="sxs-lookup"><span data-stu-id="b4e39-112">az group create</span></span>](https://docs.microsoft.com/cli/azure/group#create) | <span data-ttu-id="b4e39-113">Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby.</span><span class="sxs-lookup"><span data-stu-id="b4e39-113">Creates a resource group in which all resources are stored.</span></span> |
+| [<span data-ttu-id="b4e39-114">Tworzenie planu usług aplikacji az</span><span class="sxs-lookup"><span data-stu-id="b4e39-114">az appservice plan create</span></span>](https://docs.microsoft.com/cli/azure/appservice/plan#create) | <span data-ttu-id="b4e39-115">Tworzy plan usługi App Service.</span><span class="sxs-lookup"><span data-stu-id="b4e39-115">Creates an App Service plan.</span></span> <span data-ttu-id="b4e39-116">Przypomina farmy serwerów aplikacji sieci web platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="b4e39-116">This is like a server farm for your Azure web app.</span></span> |
+| [<span data-ttu-id="b4e39-117">Tworzenie aplikacji sieci Web az</span><span class="sxs-lookup"><span data-stu-id="b4e39-117">az webapp create</span></span>](https://docs.microsoft.com/cli/azure/webapp#create) | <span data-ttu-id="b4e39-118">Tworzenie aplikacji sieci web platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="b4e39-118">Creates an Azure web app.</span></span> |
+| [<span data-ttu-id="b4e39-119">Tworzenie pamięci podręcznej redis az</span><span class="sxs-lookup"><span data-stu-id="b4e39-119">az redis create</span></span>](https://docs.microsoft.com/en-us/cli/azure/redis#create) | <span data-ttu-id="b4e39-120">Utwórz nowe wystąpienie pamięci podręcznej Redis.</span><span class="sxs-lookup"><span data-stu-id="b4e39-120">Create new Redis Cache instance.</span></span> <span data-ttu-id="b4e39-121">Jest to, gdzie będą przechowywane dane hello.</span><span class="sxs-lookup"><span data-stu-id="b4e39-121">This is where hello data will be stored.</span></span> |
+| [<span data-ttu-id="b4e39-122">klucze listy az redis</span><span class="sxs-lookup"><span data-stu-id="b4e39-122">az redis list-keys</span></span>](https://docs.microsoft.com/en-us/cli/azure/redis#list-keys) | <span data-ttu-id="b4e39-123">Wyświetla listę hello klucze dostępu dla wystąpienia pamięci podręcznej redis hello.</span><span class="sxs-lookup"><span data-stu-id="b4e39-123">Lists hello access keys for hello redis cache instance.</span></span> |
+| [<span data-ttu-id="b4e39-124">AZ aplikacji sieci Web config appsettings zestawu</span><span class="sxs-lookup"><span data-stu-id="b4e39-124">az webapp config appsettings set</span></span>](https://docs.microsoft.com/cli/azure/webapp/config/appsettings#set) | <span data-ttu-id="b4e39-125">Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji sieci web platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="b4e39-125">Creates or updates an app setting for an Azure web app.</span></span> <span data-ttu-id="b4e39-126">Ustawienia aplikacji są widoczne jako zmienne środowiskowe dla aplikacji.</span><span class="sxs-lookup"><span data-stu-id="b4e39-126">App settings are exposed as environment variables for your app.</span></span> |
 
-## <a name="next-steps"></a><span data-ttu-id="9ff24-128">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="9ff24-128">Next steps</span></span>
+## <a name="next-steps"></a><span data-ttu-id="b4e39-127">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="b4e39-127">Next steps</span></span>
 
-<span data-ttu-id="9ff24-129">Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="9ff24-129">For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
+<span data-ttu-id="b4e39-128">Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/overview).</span><span class="sxs-lookup"><span data-stu-id="b4e39-128">For more information on hello Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).</span></span>
 
-<span data-ttu-id="9ff24-130">Dodatkowe przykłady skryptów aplikacji usługi interfejsu wiersza polecenia można znaleźć w [dokumentacji usługi Azure App Service](../app-service-cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="9ff24-130">Additional App Service CLI script samples can be found in the [Azure App Service documentation](../app-service-cli-samples.md).</span></span>
+<span data-ttu-id="b4e39-129">Dodatkowe przykłady skryptów aplikacji usługi interfejsu wiersza polecenia można znaleźć w hello [dokumentacji usługi Azure App Service](../app-service-cli-samples.md).</span><span class="sxs-lookup"><span data-stu-id="b4e39-129">Additional App Service CLI script samples can be found in hello [Azure App Service documentation](../app-service-cli-samples.md).</span></span>

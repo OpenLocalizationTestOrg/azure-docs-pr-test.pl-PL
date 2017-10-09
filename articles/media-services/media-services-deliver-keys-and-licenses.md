@@ -1,6 +1,6 @@
 ---
-title: "Użyj usługi Azure Media Services do dostarczania licencji DRM lub kluczy AES"
-description: "W tym artykule opisano, jak można użyć usługi Azure Media Services (AMS) do dostarczania PlayReady i/lub licencji Widevine i kluczy AES, ale nie rest (kodowania, szyfrowania i przesyłania strumieniowego) przy użyciu serwerów lokalnych."
+title: "licencji DRM toodeliver usługi Azure Media Services aaaUse lub kluczy AES"
+description: "W tym artykule opisano, jak można użyć licencji PlayReady i Widevine toodeliver Azure Media Services (AMS) i kluczy AES, ale hello rest (kodowania, szyfrowania i przesyłania strumieniowego) przy użyciu serwerów lokalnych."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a81da2973c79e5182ae58aeca7a0f14f3fc7c9ae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a><span data-ttu-id="7dd34-103">Użyj usługi Azure Media Services do dostarczania licencji DRM lub kluczy AES</span><span class="sxs-lookup"><span data-stu-id="7dd34-103">Use Azure Media Services to deliver DRM licenses or AES keys</span></span>
-<span data-ttu-id="7dd34-104">Azure Media Services (AMS) umożliwia pozyskiwania, kodowania, Dodaj ochrony zawartości i strumieniowo zawartość (zobacz [to](media-services-protect-with-drm.md) artykułu, aby uzyskać szczegółowe informacje).</span><span class="sxs-lookup"><span data-stu-id="7dd34-104">Azure Media Services (AMS) enables you to ingest, encode, add content protection, and stream your content (see [this](media-services-protect-with-drm.md) article for details).</span></span> <span data-ttu-id="7dd34-105">Istnieją jednak klientów, którzy chcą korzystać AMS do dostarczania licencji i/lub kluczy i czy kodowania, szyfrowania i przesyłania strumieniowego przy użyciu ich lokalnych serwerów tylko.</span><span class="sxs-lookup"><span data-stu-id="7dd34-105">However, there are customers who only want to use AMS to deliver licenses and/or keys and do encoding, encrypting and streaming using their on-premises servers.</span></span> <span data-ttu-id="7dd34-106">W tym artykule opisano, jak można użyć AMS dostarczania licencji PlayReady i Widevine, ale wykonaj pozostałe z serwerami lokalnymi.</span><span class="sxs-lookup"><span data-stu-id="7dd34-106">This article describes how you can use AMS to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers.</span></span> 
+# <a name="use-azure-media-services-toodeliver-drm-licenses-or-aes-keys"></a><span data-ttu-id="e0d00-103">Użyj licencji DRM toodeliver usługi Azure Media Services lub kluczy AES</span><span class="sxs-lookup"><span data-stu-id="e0d00-103">Use Azure Media Services toodeliver DRM licenses or AES keys</span></span>
+<span data-ttu-id="e0d00-104">Azure Media Services (AMS) umożliwia tooingest, kodowania, Dodaj ochrony zawartości i strumieniowo zawartość (zobacz [to](media-services-protect-with-drm.md) artykułu, aby uzyskać szczegółowe informacje).</span><span class="sxs-lookup"><span data-stu-id="e0d00-104">Azure Media Services (AMS) enables you tooingest, encode, add content protection, and stream your content (see [this](media-services-protect-with-drm.md) article for details).</span></span> <span data-ttu-id="e0d00-105">Istnieją jednak klientów, którzy tylko toouse AMS toodeliver licencji i/lub klucze a wykonaj kodowania, szyfrowania i przesyłania strumieniowego przy użyciu ich lokalnych serwerów.</span><span class="sxs-lookup"><span data-stu-id="e0d00-105">However, there are customers who only want toouse AMS toodeliver licenses and/or keys and do encoding, encrypting and streaming using their on-premises servers.</span></span> <span data-ttu-id="e0d00-106">W tym artykule opisano, jak można używać AMS toodeliver PlayReady lub Widevine licencji, ale hello rest z serwerów lokalnych.</span><span class="sxs-lookup"><span data-stu-id="e0d00-106">This article describes how you can use AMS toodeliver PlayReady and/or Widevine licenses but do hello rest with your on-premises servers.</span></span> 
 
-## <a name="overview"></a><span data-ttu-id="7dd34-107">Omówienie</span><span class="sxs-lookup"><span data-stu-id="7dd34-107">Overview</span></span>
-<span data-ttu-id="7dd34-108">Usługa Media Services udostępnia usługę dostarczania PlayReady i Widevine DRM, licencji i kluczy AES-128.</span><span class="sxs-lookup"><span data-stu-id="7dd34-108">Media Services provides a service for delivering PlayReady and Widevine DRM licenses and AES-128 keys.</span></span> <span data-ttu-id="7dd34-109">Media Services dostarcza również interfejsy API, które umożliwiają skonfigurowanie uprawnień i ograniczeń dla środowiska uruchomieniowego DRM wymusić, gdy użytkownik odtwarza DRM chronionej zawartości.</span><span class="sxs-lookup"><span data-stu-id="7dd34-109">Media Services also provides APIs that let you configure the rights and restrictions that you want for the DRM runtime to enforce when a user plays back the DRM protected content.</span></span> <span data-ttu-id="7dd34-110">Gdy użytkownik zażąda zawartości chronionej, aplikacja odtwarzacza zażąda licencji od usługi licencjonowania AMS.</span><span class="sxs-lookup"><span data-stu-id="7dd34-110">When a user requests the protected content, the player application will request a license from the AMS license service.</span></span> <span data-ttu-id="7dd34-111">Usługa licencjonowania AMS wystawi licencję do odtwarzacza (jeśli jest on autoryzowany).</span><span class="sxs-lookup"><span data-stu-id="7dd34-111">The AMS license service will issue the license to the player (if it is authorized).</span></span> <span data-ttu-id="7dd34-112">Licencje PlayReady i Widevine zawiera klucz odszyfrowujący, który może być używany przez odtwarzacz klienta do odszyfrowania i strumieniowego przesyłania zawartości.</span><span class="sxs-lookup"><span data-stu-id="7dd34-112">The PlayReady and Widevine licenses contain the decryption key that can be used by the client player to decrypt and stream the content.</span></span>
+## <a name="overview"></a><span data-ttu-id="e0d00-107">Omówienie</span><span class="sxs-lookup"><span data-stu-id="e0d00-107">Overview</span></span>
+<span data-ttu-id="e0d00-108">Usługa Media Services udostępnia usługę dostarczania PlayReady i Widevine DRM, licencji i kluczy AES-128.</span><span class="sxs-lookup"><span data-stu-id="e0d00-108">Media Services provides a service for delivering PlayReady and Widevine DRM licenses and AES-128 keys.</span></span> <span data-ttu-id="e0d00-109">Media Services dostarcza również interfejsy API, które umożliwiają skonfigurowanie hello prawa i ograniczenia, które chcesz hello tooenforce środowiska uruchomieniowego DRM, gdy użytkownik odtwarza się, że hello DRM chronionej zawartości.</span><span class="sxs-lookup"><span data-stu-id="e0d00-109">Media Services also provides APIs that let you configure hello rights and restrictions that you want for hello DRM runtime tooenforce when a user plays back hello DRM protected content.</span></span> <span data-ttu-id="e0d00-110">Gdy zawartości chronionej hello żądań użytkownika, hello aplikacja odtwarzacza zażąda licencji od hello AMS licencji usługi.</span><span class="sxs-lookup"><span data-stu-id="e0d00-110">When a user requests hello protected content, hello player application will request a license from hello AMS license service.</span></span> <span data-ttu-id="e0d00-111">Usługa licencji Hello AMS wystawi hello licencji toohello player (jeśli jest on autoryzowany).</span><span class="sxs-lookup"><span data-stu-id="e0d00-111">hello AMS license service will issue hello license toohello player (if it is authorized).</span></span> <span data-ttu-id="e0d00-112">licencje PlayReady i Widevine Hello zawierają hello klucz odszyfrowujący, który może służyć powitania klienta player toodecrypt i strumienia hello zawartości.</span><span class="sxs-lookup"><span data-stu-id="e0d00-112">hello PlayReady and Widevine licenses contain hello decryption key that can be used by hello client player toodecrypt and stream hello content.</span></span>
 
-<span data-ttu-id="7dd34-113">Usługa Media Services obsługuje wiele sposobów autoryzacji użytkowników, którzy tworzą licencji lub klucza żądań.</span><span class="sxs-lookup"><span data-stu-id="7dd34-113">Media Services supports multiple ways of authorizing users who make license or key requests.</span></span> <span data-ttu-id="7dd34-114">Skonfiguruj zasady autoryzacji klucza zawartości i zasad może mieć jeden lub więcej ograniczeń: otwarte lub ograniczenie tokenu.</span><span class="sxs-lookup"><span data-stu-id="7dd34-114">You configure the content key's authorization policy and the policy could have one or more restrictions: open or token restriction.</span></span> <span data-ttu-id="7dd34-115">Zasadzie ograniczenia tokenu musi towarzyszyć token wystawiony przez usługę STS (Secure Token Service).</span><span class="sxs-lookup"><span data-stu-id="7dd34-115">The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS).</span></span> <span data-ttu-id="7dd34-116">Usługa Media Services obsługuje tokenów w formacie proste tokenów sieci Web (SWT) i format tokenu Web JSON (JWT).</span><span class="sxs-lookup"><span data-stu-id="7dd34-116">Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format.</span></span>
+<span data-ttu-id="e0d00-113">Usługa Media Services obsługuje wiele sposobów autoryzacji użytkowników, którzy tworzą licencji lub klucza żądań.</span><span class="sxs-lookup"><span data-stu-id="e0d00-113">Media Services supports multiple ways of authorizing users who make license or key requests.</span></span> <span data-ttu-id="e0d00-114">Skonfiguruj zasady autoryzacji klucza zawartości hello i hello zasad może mieć jeden lub więcej ograniczeń: otwarte lub ograniczenie tokenu.</span><span class="sxs-lookup"><span data-stu-id="e0d00-114">You configure hello content key's authorization policy and hello policy could have one or more restrictions: open or token restriction.</span></span> <span data-ttu-id="e0d00-115">Witaj zasadzie ograniczenia tokenu musi towarzyszyć token wystawiony przez Secure Token Service (STS).</span><span class="sxs-lookup"><span data-stu-id="e0d00-115">hello token restricted policy must be accompanied by a token issued by a Secure Token Service (STS).</span></span> <span data-ttu-id="e0d00-116">Usługa Media Services obsługuje tokenów w i hello proste tokenów sieci Web (SWT) format tokenu Web JSON (JWT).</span><span class="sxs-lookup"><span data-stu-id="e0d00-116">Media Services supports tokens in hello Simple Web Tokens (SWT) format and JSON Web Token (JWT) format.</span></span>
 
-<span data-ttu-id="7dd34-117">Na poniższym diagramie przedstawiono główne kroki, które należy wykonać na potrzeby AMS dostarczania licencji PlayReady i Widevine, ale mają rest z serwerów lokalnych.</span><span class="sxs-lookup"><span data-stu-id="7dd34-117">The following diagram shows the main steps you need to take to use AMS to deliver PlayReady and/or Widevine licenses but do the rest with your on-premises servers.</span></span>
+<span data-ttu-id="e0d00-117">Witaj Poniższy diagram przedstawia główne kroki hello muszą tootake toouse AMS toodeliver PlayReady lub Widevine licencji, ale hello rest z serwerami lokalnymi.</span><span class="sxs-lookup"><span data-stu-id="e0d00-117">hello following diagram shows hello main steps you need tootake toouse AMS toodeliver PlayReady and/or Widevine licenses but do hello rest with your on-premises servers.</span></span>
 
 ![Ochrona za pomocą PlayReady](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
-## <a name="download-sample"></a><span data-ttu-id="7dd34-119">Pobieranie przykładu</span><span class="sxs-lookup"><span data-stu-id="7dd34-119">Download sample</span></span>
-<span data-ttu-id="7dd34-120">Opisany w tym artykule przykład możesz pobrać [tutaj](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).</span><span class="sxs-lookup"><span data-stu-id="7dd34-120">You can download the sample described in this article from [here](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).</span></span>
+## <a name="download-sample"></a><span data-ttu-id="e0d00-119">Pobieranie przykładu</span><span class="sxs-lookup"><span data-stu-id="e0d00-119">Download sample</span></span>
+<span data-ttu-id="e0d00-120">Możesz pobrać przykładowy hello opisane w tym artykule [tutaj](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).</span><span class="sxs-lookup"><span data-stu-id="e0d00-120">You can download hello sample described in this article from [here](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).</span></span>
 
-## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="7dd34-121">Tworzenie i konfigurowanie projektu programu Visual Studio</span><span class="sxs-lookup"><span data-stu-id="7dd34-121">Create and configure a Visual Studio project</span></span>
+## <a name="create-and-configure-a-visual-studio-project"></a><span data-ttu-id="e0d00-121">Tworzenie i konfigurowanie projektu programu Visual Studio</span><span class="sxs-lookup"><span data-stu-id="e0d00-121">Create and configure a Visual Studio project</span></span>
 
-1. <span data-ttu-id="7dd34-122">Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="7dd34-122">Set up your development environment and populate the app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
-2. <span data-ttu-id="7dd34-123">Dodaj następujące elementy do węzła **appSettings** zdefiniowanego w pliku app.config:</span><span class="sxs-lookup"><span data-stu-id="7dd34-123">Add the following elements to **appSettings** defined in your app.config file:</span></span>
+1. <span data-ttu-id="e0d00-122">Konfigurowanie środowiska projektowego i wypełnić plik app.config hello o informacje dotyczące połączenia, zgodnie z opisem w [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md).</span><span class="sxs-lookup"><span data-stu-id="e0d00-122">Set up your development environment and populate hello app.config file with connection information, as described in [Media Services development with .NET](media-services-dotnet-how-to-use.md).</span></span> 
+2. <span data-ttu-id="e0d00-123">Dodaj następujące elementy zbyt hello**appSettings** zdefiniowane w pliku app.config:</span><span class="sxs-lookup"><span data-stu-id="e0d00-123">Add hello following elements too**appSettings** defined in your app.config file:</span></span>
 
-    <span data-ttu-id="7dd34-124"><add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/></span><span class="sxs-lookup"><span data-stu-id="7dd34-124"><add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/></span></span>
+    <span data-ttu-id="e0d00-124"><add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/></span><span class="sxs-lookup"><span data-stu-id="e0d00-124"><add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/></span></span>
 
-## <a name="net-code-example"></a><span data-ttu-id="7dd34-125">Przykład kodu platformy .NET</span><span class="sxs-lookup"><span data-stu-id="7dd34-125">.NET code example</span></span>
+## <a name="net-code-example"></a><span data-ttu-id="e0d00-125">Przykład kodu platformy .NET</span><span class="sxs-lookup"><span data-stu-id="e0d00-125">.NET code example</span></span>
 
-<span data-ttu-id="7dd34-126">Poniższy przykładowy kod przedstawia sposób tworzenia wspólny klucz zawartości i uzyskiwanie adresów URL pozyskiwania licencji PlayReady lub Widevine.</span><span class="sxs-lookup"><span data-stu-id="7dd34-126">The following code example shows how to create a common content key and get PlayReady or Widevine license acquisition URLs.</span></span> <span data-ttu-id="7dd34-127">Należy uzyskać następujących fragmentów informacji z usługi AMS i skonfigurowanie serwera lokalnego: **klucz zawartości**, **identyfikator klucza**, **adres URL pozyskiwania licencji**.</span><span class="sxs-lookup"><span data-stu-id="7dd34-127">You need to get the following pieces of information from AMS and configure your on-premises server: **content key**, **key id**, **license acquisition URL**.</span></span> <span data-ttu-id="7dd34-128">Po skonfigurowaniu serwera lokalnego można przesyłać strumieniowo z serwera przesyłania strumieniowego.</span><span class="sxs-lookup"><span data-stu-id="7dd34-128">Once you configure your on-premises server, you could stream from your own streaming server.</span></span> <span data-ttu-id="7dd34-129">Ponieważ punktami zaszyfrowanych strumienia AMS licencji serwera, odtwarzacza zażąda licencji od usługi AMS.</span><span class="sxs-lookup"><span data-stu-id="7dd34-129">Since the encrypted stream points to AMS license server, your player will request a license from AMS.</span></span> <span data-ttu-id="7dd34-130">Jeśli wybierzesz token uwierzytelniania serwera licencji usług AMS zostanie poprawnie zweryfikowany, token wysłany za pośrednictwem protokołu HTTPS i (jeśli jest to prawidłowa) dostarczania licencji do odtwarzacza.</span><span class="sxs-lookup"><span data-stu-id="7dd34-130">If you choose token authentication, the AMS license server will validate the token you sent through HTTPS and (if valid) will deliver the license back to your player.</span></span> <span data-ttu-id="7dd34-131">(Przykładowy kod przedstawia tylko tworzenie wspólny klucz zawartości i uzyskiwanie adresów URL pozyskiwania licencji PlayReady lub Widevine.</span><span class="sxs-lookup"><span data-stu-id="7dd34-131">(The code example only shows how to create a common content key and  get PlayReady or Widevine license acquisition URLs.</span></span> <span data-ttu-id="7dd34-132">Jeśli chcesz kluczy AES-128 dostarczania należy tworzenie klucza zawartości koperty i uzyskać adres URL pozyskiwania kluczy i [to](media-services-protect-with-aes128.md) artykule pokazano, jak to zrobić).</span><span class="sxs-lookup"><span data-stu-id="7dd34-132">If you want to delivery AES-128 keys, you need to create an envelope content key and get a key acquisition URL and [this](media-services-protect-with-aes128.md) article shows how to do it).</span></span>
+<span data-ttu-id="e0d00-126">Witaj poniższy przykład kodu pokazuje sposób toocreate wspólny klucz zawartości i uzyskiwanie adresów URL pozyskiwania licencji PlayReady lub Widevine.</span><span class="sxs-lookup"><span data-stu-id="e0d00-126">hello following code example shows how toocreate a common content key and get PlayReady or Widevine license acquisition URLs.</span></span> <span data-ttu-id="e0d00-127">Należy tooget hello następujące informacje z AMS i konfigurowanie serwera lokalnego: **klucz zawartości**, **identyfikator klucza**, **adres URL pozyskiwania licencji**.</span><span class="sxs-lookup"><span data-stu-id="e0d00-127">You need tooget hello following pieces of information from AMS and configure your on-premises server: **content key**, **key id**, **license acquisition URL**.</span></span> <span data-ttu-id="e0d00-128">Po skonfigurowaniu serwera lokalnego można przesyłać strumieniowo z serwera przesyłania strumieniowego.</span><span class="sxs-lookup"><span data-stu-id="e0d00-128">Once you configure your on-premises server, you could stream from your own streaming server.</span></span> <span data-ttu-id="e0d00-129">Od serwera licencji tooAMS punktów zaszyfrowanych strumienia hello odtwarzacza zażąda licencji od usługi AMS.</span><span class="sxs-lookup"><span data-stu-id="e0d00-129">Since hello encrypted stream points tooAMS license server, your player will request a license from AMS.</span></span> <span data-ttu-id="e0d00-130">Jeśli token uwierzytelniania, serwer licencji hello AMS zostanie przeprowadzona Weryfikacja hello token, który wysyłane za pośrednictwem protokołu HTTPS i (jeśli jest to prawidłowa) będzie dostarczać hello licencji wstecz tooyour player.</span><span class="sxs-lookup"><span data-stu-id="e0d00-130">If you choose token authentication, hello AMS license server will validate hello token you sent through HTTPS and (if valid) will deliver hello license back tooyour player.</span></span> <span data-ttu-id="e0d00-131">(hello przykładowy kod przedstawia tylko sposób toocreate wspólny klucz zawartości i uzyskiwanie adresów URL pozyskiwania licencji PlayReady lub Widevine.</span><span class="sxs-lookup"><span data-stu-id="e0d00-131">(hello code example only shows how toocreate a common content key and  get PlayReady or Widevine license acquisition URLs.</span></span> <span data-ttu-id="e0d00-132">Jeśli chcesz, aby klucze toodelivery AES-128, należy toocreate koperty klucz zawartości i pobrania adresu URL pozyskiwania kluczy i [to](media-services-protect-with-aes128.md) artykuł przedstawia sposób toodo go).</span><span class="sxs-lookup"><span data-stu-id="e0d00-132">If you want toodelivery AES-128 keys, you need toocreate an envelope content key and get a key acquisition URL and [this](media-services-protect-with-aes128.md) article shows how toodo it).</span></span>
 
     using System;
     using System.Collections.Generic;
@@ -58,7 +58,7 @@ ms.lasthandoff: 08/29/2017
     {
         class Program
         {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -85,7 +85,7 @@ ms.lasthandoff: 08/29/2017
 
                 IContentKey key = CreateCommonTypeContentKey();
 
-                // Print out the key ID and Key in base64 string format
+                // Print out hello key ID and Key in base64 string format
                 Console.WriteLine("Created key {0} with key value {1} ",
                     key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 08/29/2017
 
                 contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
                 contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
-                // Associate the content key authorization policy with the content key.
+                // Associate hello content key authorization policy with hello content key.
                 contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
                 contentKey = contentKey.UpdateAsync().Result;
             }
@@ -189,7 +189,7 @@ ms.lasthandoff: 08/29/2017
                 contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
                 contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 
-                // Associate the content key authorization policy with the content key
+                // Associate hello content key authorization policy with hello content key
                 contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
                 contentKey = contentKey.UpdateAsync().Result;
 
@@ -211,52 +211,52 @@ ms.lasthandoff: 08/29/2017
 
             static private string ConfigurePlayReadyLicenseTemplate()
             {
-                // The following code configures PlayReady License Template using .NET classes
-                // and returns the XML string.
+                // hello following code configures PlayReady License Template using .NET classes
+                // and returns hello XML string.
 
-                //The PlayReadyLicenseResponseTemplate class represents the template 
-                //for the response sent back to the end user. 
-                //It contains a field for a custom data string between the license server 
-                //and the application (may be useful for custom app logic) 
+                //hello PlayReadyLicenseResponseTemplate class represents hello template 
+                //for hello response sent back toohello end user. 
+                //It contains a field for a custom data string between hello license server 
+                //and hello application (may be useful for custom app logic) 
                 //as well as a list of one or more license templates.
 
                 PlayReadyLicenseResponseTemplate responseTemplate =
                     new PlayReadyLicenseResponseTemplate();
 
-                // The PlayReadyLicenseTemplate class represents a license template 
+                // hello PlayReadyLicenseTemplate class represents a license template 
                 // for creating PlayReady licenses
-                // to be returned to the end users. 
-                // It contains the data on the content key in the license 
-                // and any rights or restrictions to be 
-                // enforced by the PlayReady DRM runtime when using the content key.
+                // toobe returned toohello end users. 
+                // It contains hello data on hello content key in hello license 
+                // and any rights or restrictions toobe 
+                // enforced by hello PlayReady DRM runtime when using hello content key.
                 PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
 
-                // Configure whether the license is persistent 
-                // (saved in persistent storage on the client) 
-                // or non-persistent (only held in memory while the player is using the license).  
+                // Configure whether hello license is persistent 
+                // (saved in persistent storage on hello client) 
+                // or non-persistent (only held in memory while hello player is using hello license).  
                 licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
 
-                // AllowTestDevices controls whether test devices can use the license or not.  
-                // If true, the MinimumSecurityLevel property of the license
-                // is set to 150.  If false (the default), 
-                // the MinimumSecurityLevel property of the license is set to 2000.
+                // AllowTestDevices controls whether test devices can use hello license or not.  
+                // If true, hello MinimumSecurityLevel property of hello license
+                // is set too150.  If false (hello default), 
+                // hello MinimumSecurityLevel property of hello license is set too2000.
                 licenseTemplate.AllowTestDevices = true;
 
-                // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
-                // It grants the user the ability to playback the content subject to the zero or more restrictions 
-                // configured in the license and on the PlayRight itself (for playback specific policy). 
-                // Much of the policy on the PlayRight has to do with output restrictions 
-                // which control the types of outputs that the content can be played over and 
+                // You can also configure hello Play Right in hello PlayReady license by using hello PlayReadyPlayRight class. 
+                // It grants hello user hello ability tooplayback hello content subject toohello zero or more restrictions 
+                // configured in hello license and on hello PlayRight itself (for playback specific policy). 
+                // Much of hello policy on hello PlayRight has toodo with output restrictions 
+                // which control hello types of outputs that hello content can be played over and 
                 // any restrictions that must be put in place when using a given output.
-                // For example, if the DigitalVideoOnlyContentRestriction is enabled, 
-                //then the DRM runtime will only allow the video to be displayed over digital outputs 
-                //(analog video outputs won’t be allowed to pass the content).
+                // For example, if hello DigitalVideoOnlyContentRestriction is enabled, 
+                //then hello DRM runtime will only allow hello video toobe displayed over digital outputs 
+                //(analog video outputs won’t be allowed toopass hello content).
 
                 // IMPORTANT: These types of restrictions can be very powerful 
-                // but can also affect the consumer experience. 
-                // If the output protections are configured too restrictive, 
-                // the content might be unplayable on some clients. 
-                // For more information, see the PlayReady Compliance Rules document.
+                // but can also affect hello consumer experience. 
+                // If hello output protections are configured too restrictive, 
+                // hello content might be unplayable on some clients. 
+                // For more information, see hello PlayReady Compliance Rules document.
 
                 // For example:
                 //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
@@ -325,16 +325,16 @@ ms.lasthandoff: 08/29/2017
         }
     }
 
-## <a name="media-services-learning-paths"></a><span data-ttu-id="7dd34-133">Ścieżki szkoleniowe dotyczące usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="7dd34-133">Media Services learning paths</span></span>
+## <a name="media-services-learning-paths"></a><span data-ttu-id="e0d00-133">Ścieżki szkoleniowe dotyczące usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="e0d00-133">Media Services learning paths</span></span>
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a><span data-ttu-id="7dd34-134">Przekazywanie opinii</span><span class="sxs-lookup"><span data-stu-id="7dd34-134">Provide feedback</span></span>
+## <a name="provide-feedback"></a><span data-ttu-id="e0d00-134">Przekazywanie opinii</span><span class="sxs-lookup"><span data-stu-id="e0d00-134">Provide feedback</span></span>
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a><span data-ttu-id="7dd34-135">Zobacz też</span><span class="sxs-lookup"><span data-stu-id="7dd34-135">See also</span></span>
-[<span data-ttu-id="7dd34-136">Za pomocą PlayReady i Widevine dynamicznie Common Encryption</span><span class="sxs-lookup"><span data-stu-id="7dd34-136">Using PlayReady and/or Widevine Dynamic Common Encryption</span></span>](media-services-protect-with-drm.md)
+## <a name="see-also"></a><span data-ttu-id="e0d00-135">Zobacz też</span><span class="sxs-lookup"><span data-stu-id="e0d00-135">See also</span></span>
+[<span data-ttu-id="e0d00-136">Za pomocą PlayReady i Widevine dynamicznie Common Encryption</span><span class="sxs-lookup"><span data-stu-id="e0d00-136">Using PlayReady and/or Widevine Dynamic Common Encryption</span></span>](media-services-protect-with-drm.md)
 
-[<span data-ttu-id="7dd34-137">Za pomocą dynamicznego szyfrowania AES-128 i usługi dostarczania klucza</span><span class="sxs-lookup"><span data-stu-id="7dd34-137">Using AES-128 Dynamic Encryption and Key Delivery Service</span></span>](media-services-protect-with-aes128.md)
+[<span data-ttu-id="e0d00-137">Za pomocą dynamicznego szyfrowania AES-128 i usługi dostarczania klucza</span><span class="sxs-lookup"><span data-stu-id="e0d00-137">Using AES-128 Dynamic Encryption and Key Delivery Service</span></span>](media-services-protect-with-aes128.md)
 
-[<span data-ttu-id="7dd34-138">Korzystanie z partnerów w celu dostarczania licencji Widevine do usługi Azure Media Services</span><span class="sxs-lookup"><span data-stu-id="7dd34-138">Using partners to deliver Widevine licenses to Azure Media Services</span></span>](media-services-licenses-partner-integration.md)
+[<span data-ttu-id="e0d00-138">Przy użyciu partnerów toodeliver Widevine licencji tooAzure Media Services</span><span class="sxs-lookup"><span data-stu-id="e0d00-138">Using partners toodeliver Widevine licenses tooAzure Media Services</span></span>](media-services-licenses-partner-integration.md)
 

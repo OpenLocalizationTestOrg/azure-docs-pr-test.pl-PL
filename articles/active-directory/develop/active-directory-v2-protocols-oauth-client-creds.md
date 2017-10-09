@@ -1,6 +1,6 @@
 ---
-title: "Umożliwia dostęp do zasobów bezpiecznego bez interakcji z użytkownikiem v2.0 usługi Azure AD | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji sieci web przy użyciu usługi Azure AD implementacji protokołu uwierzytelniania OAuth 2.0."
+title: "aaaUse usługi Azure AD w wersji 2.0 tooaccess zabezpieczenia zasobów bez interakcji z użytkownikiem | Dokumentacja firmy Microsoft"
+description: "Tworzenie aplikacji sieci web przy użyciu usługi Azure AD hello implementacji protokołu uwierzytelniania hello OAuth 2.0."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,61 +15,61 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0003ec836d633a5466c48033adedac1108f27203
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# V2.0 usługi Azure Active Directory i że przepływ poświadczeń klienta OAuth 2.0
-Można użyć [przyznania poświadczeń klienta OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), nazywane czasem *bokami dwa OAuth*, aby uzyskać dostęp do zasobów hostowanych w sieci web przy użyciu tożsamości aplikacji. Ten typ grant często służy do interakcji do serwera, które muszą zostać uruchomione w tle, bez natychmiastowego interakcji z użytkownikiem. Często aplikacje tego typu są określane jako *demony* lub *kont usługi*.
+# Przepływ usługi Azure Active Directory w wersji 2.0 i hello OAuth 2.0 poświadczeń klienta
+Można użyć hello [przyznania poświadczeń klienta OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), nazywane czasem *bokami dwa OAuth*, tooaccess zasobów hostowanych w sieci web przy użyciu tożsamości hello aplikacji. Ten typ grant często służy do interakcji do serwera, które muszą zostać uruchomione w tle hello, bez natychmiastowego interakcji z użytkownikiem. Aplikacje tego typu są często określonego tooas *demony* lub *kont usługi*.
 
 > [!NOTE]
-> Punktu końcowego v2.0 nie obsługuje wszystkich scenariuszy Azure Active Directory i funkcji. Aby ustalić, czy należy używać punktu końcowego v2.0, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
+> punktu końcowego v2.0 Hello nie obsługuje wszystkich scenariuszy Azure Active Directory i funkcji. toodetermine, czy należy używać punktu końcowego v2.0 hello, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
 >
 >
 
-W bardziej typowego *bokami trzech OAuth*, aplikacja kliencka udzielono uprawnień do uzyskania dostępu do zasobu w imieniu określonego użytkownika. Uprawnienia delegowane przez użytkownika do aplikacji, zazwyczaj podczas [zgody](active-directory-v2-scopes.md) procesu. Jednak przepływu poświadczeń klienta, uprawnienia są przyznawane bezpośrednio do aplikacji. Użytkownik przedstawia aplikacji wymusza token do zasobu, zasobów, które aplikacja ma autoryzacji do wykonania akcji, a nie ma autoryzacji.
+W bardziej typowego hello *bokami trzech OAuth*, aplikacja kliencka jest tooaccess uprawnienia nadanego zasobu w imieniu określonego użytkownika. delegowane uprawnienia Hello z hello aplikacji toohello użytkowników, zazwyczaj podczas hello [zgody](active-directory-v2-scopes.md) procesu. Jednak hello przepływu poświadczeń klienta, uprawnienia są przyznawane bezpośrednio toohello samej aplikacji. Gdy aplikacja hello Wyświetla zasobów token tooa, zasobów hello wymusza hello aplikacja ma tooperform autoryzacji działanie, czy użytkownik hello nie ma autoryzacji.
 
 ## Diagram protokołu
-Przepływ poświadczeń klienta całego wygląda podobnie do następnego diagramu. Opisano poszczególne kroki w dalszej części tego artykułu.
+Przepływ poświadczeń klienta całego Hello wygląda podobnie toohello diagram dalej. Opisano każdy hello kroki opisane w dalszej części tego artykułu.
 
 ![Przepływ poświadczeń klienta](../../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
 ## Uzyskiwanie bezpośredniego autoryzacji
-Aplikacja odbiera zwykle bezpośredniego autoryzacji dostępu do zasobu w jeden z dwóch sposobów: przez listy kontroli dostępu (ACL) do danego zasobu, albo przez przypisanie uprawnień aplikacji w usłudze Azure Active Directory (Azure AD). Te dwie metody są najbardziej rozpowszechnione w usłudze Azure AD, i zaleca ich dla klientów i zasobów, które wykonują klienta przepływ poświadczeń. Zasób można jednak zezwolić klientom w inny sposób. Każdy serwer zasobów można wybrać metodę najbardziej przydatny dla swojej aplikacji.
+Zwykle aplikacja odbiera tooaccess bezpośredniego autoryzacji zasobu w jeden z dwóch sposobów: przez listy kontroli dostępu (ACL) na powitania zasobów, albo przez przypisanie uprawnień aplikacji w usłudze Azure Active Directory (Azure AD). Te dwie metody są hello najczęściej w usłudze Azure AD i firma Microsoft zaleca klientów i wykonać przepływ poświadczeń klienta hello zasobów. Zasób można wybrać tooauthorize swoich klientów w inny sposób, jednak. Każdy serwer zasobów można wybrać metodę hello, która ma sens hello większości jej stosowania.
 
 ### Listy kontroli dostępu
-Dostawca zasobów może wymuszać wyboru autoryzacji na podstawie listy identyfikatorów aplikacji wie i nieograniczony dostęp do określonego poziomu. Gdy zasób otrzymała token od punktu końcowego v2.0, można zdekodować token i wyodrębnić identyfikator aplikacji klienta z `appid` i `iss` oświadczeń. Następnie porównuje aplikacji z listy kontroli dostępu, który przechowuje. Szczegółowości ACL i metody mogą się znacznie różnić między zasobami.
+Dostawca zasobów może wymuszać wyboru autoryzacji na podstawie listy identyfikatorów aplikacji wie i nieograniczony dostęp do określonego poziomu. Gdy zasobów hello otrzymała token od punktu końcowego v2.0 hello, można zdekodować hello token i wyodrębniania powitania klienta identyfikator aplikacji hello `appid` i `iss` oświadczeń. Następnie porównuje aplikacji hello względem listy kontroli dostępu, który przechowuje. Witaj szczegółowości listy kontroli dostępu i — metoda może się znacznie różnić między zasobami.
 
-Jest typowych przypadkach użycia na potrzeby kontroli Uruchom testy dla aplikacji sieci web lub interfejs API sieci Web. Interfejs API sieci Web może udzielić tylko podzbioru pełnych uprawnień do określonego klienta. Aby uruchomić testy na trasie interfejsu API, należy utworzyć klienta testu, który uzyskuje tokenów z punktem końcowym v2.0, a następnie wysyła je do interfejsu API. Interfejs API następnie sprawdza listy ACL dla Identyfikatora aplikacji klient testowy dla pełnego dostępu do całej funkcji interfejsu API. Jeśli używasz tego rodzaju listy ACL, pamiętaj zweryfikować nie tylko wywołującego `appid` wartość. Również sprawdzić, czy `iss` wartość tokenu jest zaufany.
+Typowe przypadek użycia jest toouse toorun ACL testów dla aplikacji sieci web lub interfejs API sieci Web. Witaj interfejsu API sieci Web może udzielić tylko podzbioru pełnych uprawnień tooa określonego klienta. testy na trasie toorun na powitania interfejsu API, Utwórz klienta testu, który uzyskuje tokeny od punktu końcowego v2.0 hello, a następnie wysyła je toohello interfejsu API. Witaj interfejsu API, a następnie hello sprawdza listy ACL dla hello testu identyfikator aplikacji klienta dla pełnego dostępu do całej funkcji toohello interfejsu API. Jeśli używasz tego rodzaju listy ACL, należy toovalidate nie tylko hello obiektu wywołującego `appid` wartość. Zweryfikować tego hello `iss` wartość tokenu hello jest zaufany.
 
-Ten typ autoryzacji jest typowe dla demonów i kont usług, które wymagają dostępu do danych należących do użytkowników odbiorców, którzy mają osobistego konta Microsoft. Dla danych należących do organizacji firma Microsoft zaleca, możesz uzyskać wymagane zgody za pośrednictwem uprawnienia aplikacji.
+Ten typ autoryzacji jest typowe dla demonów i kont usług, które wymagają tooaccess danych należących do użytkowników odbiorców, którzy mają osobistego konta Microsoft. Dla danych należących do organizacji firma Microsoft zaleca uzyskanie autoryzacji niezbędne hello za pośrednictwem uprawnienia aplikacji.
 
 ### Uprawnienia aplikacji
-Zamiast przy użyciu list kontroli dostępu, możesz użyć interfejsów API do udostępnienia zestaw uprawnień aplikacji. Uprawnienia aplikacji uzyskuje do aplikacji przez administratora organizacji i może służyć tylko dostęp do danych należących do organizacji i jej pracowników. Na przykład program Microsoft Graph udostępnia kilka aplikacji uprawnienia do wykonaj następujące czynności:
+Zamiast przy użyciu list kontroli dostępu, możesz użyć interfejsów API tooexpose zestaw uprawnień aplikacji. Aplikacji uprawnienia aplikacji tooan przez administratora organizacji, a właścicielem może być używane tylko tooaccess danych organizacji i jej pracowników. Na przykład program Microsoft Graph udostępnia kilka następujących hello toodo uprawnienia aplikacji:
 
 * Odczytuj pocztę we wszystkich skrzynkach pocztowych
 * Odczytuj i zapisuj wiadomości e-mail we wszystkich skrzynkach pocztowych
 * Wysyłaj wiadomości e-mail jako dowolny użytkownik
 * Odczyt danych katalogu
 
-Aby uzyskać więcej informacji o uprawnieniach aplikacji, przejdź do [Microsoft Graph](https://graph.microsoft.io).
+Aby uzyskać więcej informacji na temat uprawnień aplikacji przejdź zbyt[Microsoft Graph](https://graph.microsoft.io).
 
-Aby użyć uprawnienia aplikacji w aplikacji, wykonaj czynności, które omówiono w kolejnych sekcjach.
+uprawnienia aplikacji toouse w Twojej aplikacji hello czynności, które omówiono w kolejnych sekcjach hello.
 
-#### Żądanie uprawnienia w portalu rejestracji aplikacji
-1. Przejdź do aplikacji w [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), lub [Utwórz aplikację](active-directory-v2-app-registration.md), jeśli nie jest jeszcze. Należy użyć co najmniej jeden klucz tajny aplikacji podczas tworzenia aplikacji.
-2. Zlokalizuj **bezpośrednie uprawnienia aplikacji** sekcji, a następnie Dodaj uprawnienia wymagane przez aplikację.
-3. **Zapisz** rejestracji aplikacji.
+#### Żądanie uprawnienia hello w portalu rejestracji aplikacji hello
+1. Przejdź tooyour aplikacji hello [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), lub [Utwórz aplikację](active-directory-v2-app-registration.md), jeśli nie jest jeszcze. Będziesz potrzebować toouse co najmniej jeden klucz tajny aplikacji podczas tworzenia aplikacji.
+2. Zlokalizuj hello **bezpośrednie uprawnienia aplikacji** sekcji, a następnie dodaj hello uprawnienia, które wymaga aplikacji.
+3. **Zapisz** hello rejestracji aplikacji.
 
-#### Zalecane: Zalogować użytkownika do aplikacji
-Zazwyczaj podczas kompilowania aplikacji korzystającej z aplikacji uprawnienia aplikacji wymaga strony lub widok, w którym administrator zatwierdzi uprawnienia aplikacji. Ta strona może być częścią aplikacji logowania przepływu, część ustawień aplikacji lub może być dedykowany przepływu "connect". W wielu przypadkach warto dla aplikacji pokazać to "Połącz" widoku tylko wtedy, gdy użytkownik jest zalogowany za pomocą służbowego konta Microsoft.
+#### Zalecane: Znak hello użytkownika w aplikacji tooyour
+Zazwyczaj podczas tworzenia aplikacji, która używa uprawnienia aplikacji hello aplikacja wymaga strony lub widok, w którym hello admin zatwierdzi uprawnienia aplikacji hello. Ta strona może być częścią aplikacji hello logowania przepływu, część ustawień aplikacji hello, lub może być dedykowany "Połącz" przepływu. W wielu przypadkach warto dla tooshow aplikacji hello to "Połącz" Wyświetl tylko wtedy, gdy użytkownik jest zalogowany za pomocą służbowego konta Microsoft.
 
-Jeśli logowania się użytkownika do aplikacji, można go zidentyfikować organizacji, do której należy użytkownik przed poprosić użytkownika o zatwierdzenie uprawnienia dostępu do aplikacji. Chociaż nie niezbędne, ułatwia tworzenie bardziej intuicyjne środowisko dla użytkowników. Aby zalogować się użytkownik, wykonaj naszych [samouczki protocol w wersji 2.0](active-directory-v2-protocols.md).
+Jeśli zarejestrujesz hello użytkownika w aplikacji tooyour można zidentyfikować hello organizacji użytkownika hello toowhich należy przed skontaktowaniem się tooapprove użytkownika hello uprawnienia aplikacji hello. Chociaż nie niezbędne, ułatwia tworzenie bardziej intuicyjne środowisko dla użytkowników. toosign hello użytkownika w wykonaj naszych [samouczki protocol w wersji 2.0](active-directory-v2-protocols.md).
 
-#### Zażądaj uprawnień od administratora katalogu
-Gdy wszystko jest gotowe zażądać uprawnień od administratora Twojej organizacji, można przekierować użytkownika do v2.0 *punktu końcowego zgody administratora*.
+#### Żądanie uprawnienia powitania od administratora katalogu
+Jeśli wszystko jest gotowe toorequest uprawnień z administratorem organizacji hello, można przekierowywać hello użytkownika toohello v2.0 *punktu końcowego zgody administratora*.
 
 ```
 // Line breaks are for legibility only.
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 ```
-// Pro tip: Try pasting the following request in a browser!
+// Pro tip: Try pasting hello following request in a browser!
 ```
 
 ```
@@ -90,15 +90,15 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parametr | Warunek | Opis |
 | --- | --- | --- |
-| Dzierżawy |Wymagane |Dzierżawca katalogu, który chcesz zażądać uprawnień. Może to być w formacie przyjaznej nazwy lub identyfikatora GUID. Jeśli nie wiesz, jakiego użytkownik należy do dzierżawy i chcesz umożliwić Zaloguj się przy użyciu dowolnej dzierżawy, użyj `common`. |
-| client_id |Wymagane |Identyfikator aplikacji, która [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisany do aplikacji. |
-| redirect_uri |Wymagane |Identyfikator URI przekierowania w miejscu odpowiedź do wysłania dla aplikacji do obsługi. Go musi dokładnie odpowiadać jeden przekierowania URI, który został zarejestrowany w portalu, z wyjątkiem tego, że musi być zakodowane w adresie URL, i może mieć segmenty ścieżki dodatkowe. |
-| state |Zalecane |Wartość, która znajduje się w żądaniu jest także zwracany w odpowiedzi tokenu. Można go ciąg ma zawartość. Stan jest używany do kodowania informacje o stanie użytkownika w aplikacji, przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, które były na. |
+| Dzierżawy |Wymagane |Dzierżawca katalogu Hello ma toorequest zgody. Może to być w formacie przyjaznej nazwy lub identyfikatora GUID. Jeśli nie wiadomo, które użytkownik hello dzierżawy należy tooand ma toolet ich Zaloguj się przy użyciu dowolnej dzierżawy, użyj `common`. |
+| client_id |Wymagane |hello tego IDENTYFIKATORA aplikacji Hello [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisane tooyour aplikacji. |
+| redirect_uri |Wymagane |Witaj przekierowania URI miejscu hello toobe odpowiedzi wysłanych toohandle Twojej aplikacji. Go musi dokładnie odpowiadać jeden hello przekierowania URI, który został zarejestrowany w portalu hello z tą różnicą, że musi być zakodowane w adresie URL, i może mieć segmenty ścieżki dodatkowe. |
+| state |Zalecane |Wartość, która znajduje się w żądaniu hello, który jest także zwracany w odpowiedzi tokenu hello. Można go ciąg ma zawartość. Stan Hello jest używany tooencode informacji na temat stanu hello użytkownika w aplikacji hello przed wystąpieniem hello żądania uwierzytelniania, takich jak strony hello lub widoku, które znajdowały się w. |
 
-W tym momencie usługi Azure AD wymusza, czy administrator dzierżawy może zalogować się do wykonania żądania. Administrator będzie musiał zatwierdzić wszystkie uprawnienia bezpośrednich zastosowań, które żądanej aplikacji w portalu rejestracji aplikacji.
+W tym momencie usługi Azure AD wymusza, czy administrator dzierżawy może zalogować się toocomplete hello żądania. Hello administrator zapyta tooapprove hello wszystkie uprawnienia bezpośredniego aplikacji, które żądanej aplikacji w portalu rejestracji aplikacji hello.
 
 ##### Odpowiedź oznaczająca Powodzenie
-Jeśli administrator zatwierdza uprawnienia dla aplikacji, odpowiedź oznaczająca Powodzenie wygląda następująco:
+Jeśli Witaj, Administratorze zatwierdza hello uprawnienia dla aplikacji, odpowiedź oznaczająca Powodzenie hello wygląda następująco:
 
 ```
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
@@ -106,12 +106,12 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parametr | Opis |
 | --- | --- | --- |
-| Dzierżawy |Katalogu dzierżawy, którym przyznano uprawnienia, które są wymagane, w formacie GUID aplikacji. |
-| state |Wartość, która znajduje się w żądaniu jest także zwracany w odpowiedzi tokenu. Można go ciąg ma zawartość. Stan jest używany do kodowania informacje o stanie użytkownika w aplikacji, przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, które były na. |
-| admin_consent |Ustaw **true**. |
+| Dzierżawy |Hello katalogu dzierżawy, którym przyznano uprawnienia aplikacji hello, który żądał, w formacie GUID. |
+| state |Wartość, która znajduje się w żądaniu hello, który jest także zwracany w odpowiedzi tokenu hello. Można go ciąg ma zawartość. Stan Hello jest używany tooencode informacji na temat stanu hello użytkownika w aplikacji hello przed wystąpieniem hello żądania uwierzytelniania, takich jak strony hello lub widoku, które znajdowały się w. |
+| admin_consent |Ustaw zbyt**true**. |
 
 ##### Odpowiedzi na błąd
-Jeśli administrator nie zatwierdzenia uprawnień dla aplikacji, nie powiodło się odpowiedzi wygląda następująco:
+Witaj, Administratorze nie zatwierdzenia hello uprawnienia dla aplikacji, hello nie powiodła się odpowiedzi wygląda następująco:
 
 ```
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
@@ -119,13 +119,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parametr | Opis |
 | --- | --- | --- |
-| error |Ciąg kodu błędu, który służy do klasyfikowania typy błędów, które można wykorzystać do reagowania na błędy. |
-| error_description |Komunikat o błędzie, które mogą pomóc Określ przyczynę błędu. |
+| error |Ciąg kodu błędu, których można używać typów tooclassify błędów i której można użyć tooreact tooerrors. |
+| error_description |Komunikat o błędzie, który ułatwia identyfikowanie hello główną przyczynę błędu. |
 
-Po otrzymaniu pomyślnej odpowiedzi z aplikacji inicjowania obsługi administracyjnej punktu końcowego, aplikację zyskały zażądała uprawnienia bezpośredniego stosowania. Teraz można żądać tokenu dla zasobu, który ma.
+Po otrzymaniu pomyślnej odpowiedzi z inicjowania obsługi administracyjnej punktu końcowego aplikacji hello, aplikację zyskały hello bezpośredniego stosowania uprawnienia, które go żądanie. Teraz można żądać tokenu hello zasobu, który ma.
 
 ## Uzyskaj token
-Po zostały nabyte niezbędne autoryzacji dla aplikacji, kontynuuj pobieranie tokenów dostępu do interfejsów API. Aby uzyskać token za pomocą klienta poświadczeń, Wyślij żądanie POST `/token` punktu końcowego v2.0:
+Po zostały nabyte hello niezbędne autoryzacji dla aplikacji, kontynuuj pobieranie tokenów dostępu do interfejsów API. tooget tokenu przy użyciu przyznania poświadczeń klienta hello, Wyślij toohello żądania POST `/token` punktu końcowego v2.0:
 
 ### Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
 
@@ -143,9 +143,9 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 | Parametr | Warunek | Opis |
 | --- | --- | --- |
-| client_id |Wymagane |Identyfikator aplikacji, która [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisany do aplikacji. |
-| Zakres |Wymagane |Wartość przekazana do `scope` parametr w tym żądaniu powinien być identyfikatora zasobów (URI Identyfikatora aplikacji), należy umieścić z zasobu `.default` sufiks. Na przykład program Microsoft Graph, wartość jest `https://graph.microsoft.com/.default`. Ta wartość informuje punktu końcowego v2.0, że wszystkie bezpośredniego stosowania uprawnień skonfigurowanych dla aplikacji, jego powinien wystawiać token dla skojarzone z zasobem, który ma być używany. |
-| client_secret |Wymagane |Klucz tajny aplikacji, generowany dla aplikacji w portalu rejestracji aplikacji. |
+| client_id |Wymagane |hello tego IDENTYFIKATORA aplikacji Hello [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisane tooyour aplikacji. |
+| Zakres |Wymagane |wartość Hello przekazana do hello `scope` parametr w tym żądaniu powinien być hello zasobów identyfikator aplikacji identyfikator URI zasobu hello ma, umieszczone z hello `.default` sufiks. Na przykład program Microsoft Graph hello wartość hello jest `https://graph.microsoft.com/.default`. Ta wartość informuje punktu końcowego v2.0 hello, czy wszystkie hello bezpośredniego stosowania uprawnień, które zostały skonfigurowane dla aplikacji, jego powinien wystawiać token dla hello skojarzone z żądanego zasobu hello toouse. |
+| client_secret |Wymagane |klucz tajny aplikacji, generowany dla aplikacji w portalu rejestracji aplikacji hello Hello. |
 | Typ grant_type |Wymagane |Musi być `client_credentials`. |
 
 ### W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
@@ -160,13 +160,13 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_id=97e0a5b7-d745-40b6-
 
 | Parametr | Warunek | Opis |
 | --- | --- | --- |
-| client_id |Wymagane |Identyfikator aplikacji, która [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisany do aplikacji. |
-| Zakres |Wymagane |Wartość przekazana do `scope` parametr w tym żądaniu powinien być identyfikatora zasobów (URI Identyfikatora aplikacji), należy umieścić z zasobu `.default` sufiks. Na przykład program Microsoft Graph, wartość jest `https://graph.microsoft.com/.default`. Ta wartość informuje punktu końcowego v2.0, że wszystkie bezpośredniego stosowania uprawnień skonfigurowanych dla aplikacji, jego powinien wystawiać token dla skojarzone z zasobem, który ma być używany. |
-| client_assertion_type |Wymagane |Wartość musi być`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Wymagane | (JSON Web Token) potwierdzenia, że musisz utworzyć i podpisać przy użyciu certyfikatu został zarejestrowany jako poświadczeń dla aplikacji. Przeczytaj informacje o [certyfikatu poświadczeń](active-directory-certificate-credentials.md) informacje na temat rejestracji certyfikatu i format potwierdzenia.|
+| client_id |Wymagane |hello tego IDENTYFIKATORA aplikacji Hello [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisane tooyour aplikacji. |
+| Zakres |Wymagane |wartość Hello przekazana do hello `scope` parametr w tym żądaniu powinien być hello zasobów identyfikator aplikacji identyfikator URI zasobu hello ma, umieszczone z hello `.default` sufiks. Na przykład program Microsoft Graph hello wartość hello jest `https://graph.microsoft.com/.default`. Ta wartość informuje punktu końcowego v2.0 hello, czy wszystkie hello bezpośredniego stosowania uprawnień, które zostały skonfigurowane dla aplikacji, jego powinien wystawiać token dla hello skojarzone z żądanego zasobu hello toouse. |
+| client_assertion_type |Wymagane |Witaj, wartość musi być`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Wymagane | Potwierdzeniem (JSON Web Token) czy potrzebujesz toocreate oraz znak hello certyfikatu można zarejestrowany jako poświadczeń dla aplikacji. Przeczytaj informacje o [certyfikatu poświadczeń](active-directory-certificate-credentials.md) toolearn jak tooregister Twojego certyfikatu i hello format hello potwierdzenia.|
 | Typ grant_type |Wymagane |Musi być `client_credentials`. |
 
-Należy zauważyć, że parametry są prawie takie same jak w przypadku żądania przez Wspólny klucz tajny, z wyjątkiem tego, że parametr client_secret zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
+Należy zauważyć, że parametry hello są prawie hello takie same jak przypadku hello hello żądania przez Wspólny klucz tajny z tą różnicą, że parametr client_secret hello zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
 
 ### Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie wygląda następująco:
@@ -181,9 +181,9 @@ Odpowiedź oznaczająca Powodzenie wygląda następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| ' access_token ' |Żądany dostęp token. Aplikacja może używać tego tokenu do uwierzytelniania do zabezpieczonych zasobów, takich jak interfejs API sieci Web. |
-| token_type |Wskazuje wartość typ tokenu. Jedynym typem, który obsługuje usługę Azure AD jest `bearer`. |
-| expires_in |Jak długo token dostępu jest nieprawidłowy (w sekundach). |
+| ' access_token ' |token dostępu do żądanego Hello. Aplikacja Hello można użyć tego toohello tokenu tooauthenticate zabezpieczonych zasobów, takich jak tooa interfejsu API sieci Web. |
+| token_type |Wskazuje wartość tokenu typu hello. Witaj tylko typ, który obsługuje usługę Azure AD `bearer`. |
+| expires_in |Jak długo hello token dostępu jest nieprawidłowy (w sekundach). |
 
 ### Odpowiedzi na błąd
 Odpowiedzi na błąd wygląda następująco:
@@ -191,7 +191,7 @@ Odpowiedzi na błąd wygląda następująco:
 ```
 {
   "error": "invalid_scope",
-  "error_description": "AADSTS70011: The provided value for the input parameter 'scope' is not valid. The scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
+  "error_description": "AADSTS70011: hello provided value for hello input parameter 'scope' is not valid. hello scope https://foo.microsoft.com/.default is not valid.\r\nTrace ID: 255d1aef-8c98-452f-ac51-23d051240864\r\nCorrelation ID: fb3d2015-bc17-4bb9-bb85-30c5cf1aaaa7\r\nTimestamp: 2016-01-09 02:02:12Z",
   "error_codes": [
     70011
   ],
@@ -203,15 +203,15 @@ Odpowiedzi na błąd wygląda następująco:
 
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, który służy do klasyfikowania typy błędów występujących i reagowanie na błędy. |
-| error_description |Komunikat o błędzie, które mogą ułatwić identyfikację przyczyny błędu uwierzytelniania. |
+| error |Ciąg kodu błędu, który można używać typów tooclassify o błędach i tooreact tooerrors. |
+| error_description |Komunikat o błędzie, które mogą ułatwić identyfikację hello głównej przyczyny błędu uwierzytelniania. |
 | error_codes |Lista specyficzne dla usługi STS kody błędów, które mogą ułatwić rozwiązanie diagnostyki. |
-| sygnatura czasowa |Czas, w którym wystąpił błąd. |
-| trace_id |Unikatowy identyfikator dla żądania, które mogą ułatwić rozwiązanie diagnostyki. |
-| correlation_id |Unikatowy identyfikator dla żądania, które mogą pomóc w diagnostyce między składnikami. |
+| sygnatura czasowa |czas Hello, w którym wystąpił błąd hello. |
+| trace_id |Unikatowy identyfikator dla żądania hello, które mogą ułatwić rozwiązanie diagnostyki. |
+| correlation_id |Unikatowy identyfikator dla żądania hello, które mogą pomóc w diagnostyce między składnikami. |
 
 ## Użyj tokenu
-Teraz, gdy zostały nabyte token, użyj tokenu, aby wysyłać żądania do zasobu. Po wygaśnięciu tokenu, powtórz żądanie `/token` punktu końcowego można uzyskać tokenu dostępu świeże.
+Teraz, gdy zostały nabyte token, należy użyć hello token toomake żądania toohello zasobu. Po wygaśnięciu tokenu hello Powtórz hello żądania toohello `/token` tooacquire punktu końcowego tokenu dostępu świeże.
 
 ```
 GET /v1.0/me/messages
@@ -220,7 +220,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ```
-// Pro tip: Try the following command! (Replace the token with your own.)
+// Pro tip: Try hello following command! (Replace hello token with your own.)
 ```
 
 ```
@@ -228,4 +228,4 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 ```
 
 ## Przykład kodu
-Aby zapoznać się przykładem aplikacji czy implementuje poświadczeń klienta przyznać za pośrednictwem administratora zgody punktu końcowego, zobacz nasze [przykładowy kod demon v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+toosee przykład aplikacji czy implementuje hello przyznania poświadczeń klienta przy użyciu hello punktu końcowego zgody administratora, zobacz nasze [przykładowy kod demon v2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

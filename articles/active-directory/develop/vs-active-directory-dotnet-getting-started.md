@@ -1,6 +1,6 @@
 ---
-title: "Rozpoczynanie pracy z usługą Azure AD w projektach Visual Studio MVC | Dokumentacja firmy Microsoft"
-description: "Jak rozpocząć pracę przy użyciu usługi Azure Active Directory w projektach MVC po nawiązywania połączenia lub utworzenie usługi Azure AD przy użyciu programu Visual Studio połączenia usługi"
+title: aaaGet Started with Azure AD w projektach Visual Studio MVC | Dokumentacja firmy Microsoft
+description: "Sposób uruchamiania przy użyciu usługi Azure Active Directory w projektach MVC po połączeniu tooor Tworzenie usługi Azure AD przy użyciu programu Visual Studio tooget połączone usługi"
 services: active-directory
 documentationcenter: 
 author: kraigb
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: c4d49cfc9887e422b3eaed2b96348c99eca48881
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 807824dd6e4e57e443f8a7322cf2e5326384316d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a><span data-ttu-id="f1cc2-103">Wprowadzenie do korzystania z usługi Azure Active Directory i programu Visual Studio połączone usługi (projektów MVC)</span><span class="sxs-lookup"><span data-stu-id="f1cc2-103">Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects)</span></span>
+# <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a><span data-ttu-id="b238a-103">Wprowadzenie do korzystania z usługi Azure Active Directory i programu Visual Studio połączone usługi (projektów MVC)</span><span class="sxs-lookup"><span data-stu-id="b238a-103">Getting Started with Azure Active Directory and Visual Studio connected services (MVC Projects)</span></span>
 > [!div class="op_single_selector"]
-> * [<span data-ttu-id="f1cc2-104">Wprowadzenie</span><span class="sxs-lookup"><span data-stu-id="f1cc2-104">Getting Started</span></span>](vs-active-directory-dotnet-getting-started.md)
-> * [<span data-ttu-id="f1cc2-105">Co się stało</span><span class="sxs-lookup"><span data-stu-id="f1cc2-105">What Happened</span></span>](vs-active-directory-dotnet-what-happened.md)
+> * [<span data-ttu-id="b238a-104">Wprowadzenie</span><span class="sxs-lookup"><span data-stu-id="b238a-104">Getting Started</span></span>](vs-active-directory-dotnet-getting-started.md)
+> * [<span data-ttu-id="b238a-105">Co się stało</span><span class="sxs-lookup"><span data-stu-id="b238a-105">What Happened</span></span>](vs-active-directory-dotnet-what-happened.md)
 > 
 > 
 
-## <a name="requiring-authentication-to-access-controllers"></a><span data-ttu-id="f1cc2-106">Wymaganie uwierzytelniania do kontrolerów dostępu</span><span class="sxs-lookup"><span data-stu-id="f1cc2-106">Requiring authentication to access controllers</span></span>
-<span data-ttu-id="f1cc2-107">Wszystkie kontrolery w projekcie zostały adorned z **autoryzacji** atrybutu.</span><span class="sxs-lookup"><span data-stu-id="f1cc2-107">All controllers in your project were adorned with the **Authorize** attribute.</span></span> <span data-ttu-id="f1cc2-108">Ten atrybut wymaga od użytkownika mają być uwierzytelniani przed uzyskaniem dostępu do tych kontrolerów.</span><span class="sxs-lookup"><span data-stu-id="f1cc2-108">This attribute requires the user to be authenticated before accessing these controllers.</span></span> <span data-ttu-id="f1cc2-109">Aby umożliwić kontrolerowi można uzyskać dostępu do anonimowo, Usuń ten atrybut z kontrolera.</span><span class="sxs-lookup"><span data-stu-id="f1cc2-109">To allow the controller to be accessed anonymously, remove this attribute from the controller.</span></span> <span data-ttu-id="f1cc2-110">Aby ustawić uprawnienia na poziomie bardziej szczegółowego, należy zastosować atrybut do każdej metody, która wymaga uwierzytelnienia, zamiast stosować go do klasy kontrolera.</span><span class="sxs-lookup"><span data-stu-id="f1cc2-110">If you want to set the permissions at a more granular level, apply the attribute to each method that requires authorization instead of applying it to the controller class.</span></span>
+## <a name="requiring-authentication-tooaccess-controllers"></a><span data-ttu-id="b238a-106">Wymaganie uwierzytelniania tooaccess kontrolerów</span><span class="sxs-lookup"><span data-stu-id="b238a-106">Requiring authentication tooaccess controllers</span></span>
+<span data-ttu-id="b238a-107">Wszystkie kontrolery w projekcie zostały adorned z hello **autoryzacji** atrybutu.</span><span class="sxs-lookup"><span data-stu-id="b238a-107">All controllers in your project were adorned with hello **Authorize** attribute.</span></span> <span data-ttu-id="b238a-108">Ten atrybut wymaga hello toobe użytkownik uwierzytelniony przed uzyskaniem dostępu do tych kontrolerów.</span><span class="sxs-lookup"><span data-stu-id="b238a-108">This attribute requires hello user toobe authenticated before accessing these controllers.</span></span> <span data-ttu-id="b238a-109">toobe kontrolera hello tooallow dostęp anonimowo, Usuń ten atrybut z hello kontrolera.</span><span class="sxs-lookup"><span data-stu-id="b238a-109">tooallow hello controller toobe accessed anonymously, remove this attribute from hello controller.</span></span> <span data-ttu-id="b238a-110">Uprawnienia hello tooset na bardziej szczegółowym poziomie, można zastosować hello atrybutu tooeach metodę, która wymaga autoryzacji zamiast stosować go toohello klasy kontrolera.</span><span class="sxs-lookup"><span data-stu-id="b238a-110">If you want tooset hello permissions at a more granular level, apply hello attribute tooeach method that requires authorization instead of applying it toohello controller class.</span></span>
 
-## <a name="adding-signin--signout-controls"></a><span data-ttu-id="f1cc2-111">Dodawanie SignIn / SignOut kontrolki</span><span class="sxs-lookup"><span data-stu-id="f1cc2-111">Adding SignIn / SignOut Controls</span></span>
-<span data-ttu-id="f1cc2-112">Aby dodać formanty SignIn/SignOut do widoku, można użyć **_LoginPartial.cshtml** widoku częściowego do dodawania funkcji do jednego z widoków.</span><span class="sxs-lookup"><span data-stu-id="f1cc2-112">To add the SignIn/SignOut controls to your view, you can use the **_LoginPartial.cshtml** partial view to add the functionality to one of your views.</span></span> <span data-ttu-id="f1cc2-113">Oto przykład funkcje dodane do standardowego **_Layout.cshtml** widoku.</span><span class="sxs-lookup"><span data-stu-id="f1cc2-113">Here is an example of the functionality added to the standard **_Layout.cshtml** view.</span></span> <span data-ttu-id="f1cc2-114">(Uwaga: ostatni element div z klasy pasek nawigacyjny zwinięte):</span><span class="sxs-lookup"><span data-stu-id="f1cc2-114">(Note the last element in the div with class navbar-collapse):</span></span>
+## <a name="adding-signin--signout-controls"></a><span data-ttu-id="b238a-111">Dodawanie SignIn / SignOut kontrolki</span><span class="sxs-lookup"><span data-stu-id="b238a-111">Adding SignIn / SignOut Controls</span></span>
+<span data-ttu-id="b238a-112">hello tooadd SignIn/SignOut kontrolki widoku tooyour, możesz użyć hello **_LoginPartial.cshtml** widoku częściowego tooadd hello funkcji tooone widoków.</span><span class="sxs-lookup"><span data-stu-id="b238a-112">tooadd hello SignIn/SignOut controls tooyour view, you can use hello **_LoginPartial.cshtml** partial view tooadd hello functionality tooone of your views.</span></span> <span data-ttu-id="b238a-113">Oto przykład hello funkcji toohello dodano standardu **_Layout.cshtml** widoku.</span><span class="sxs-lookup"><span data-stu-id="b238a-113">Here is an example of hello functionality added toohello standard **_Layout.cshtml** view.</span></span> <span data-ttu-id="b238a-114">(Uwaga hello ostatni element div hello zwinięte pasek nawigacyjny klasy):</span><span class="sxs-lookup"><span data-stu-id="b238a-114">(Note hello last element in hello div with class navbar-collapse):</span></span>
 
 <pre>
     &lt;!DOCTYPE html&gt; 
@@ -79,6 +79,6 @@ ms.lasthandoff: 08/29/2017
     &lt;/html&gt;
 </pre>
 
-## <a name="next-steps"></a><span data-ttu-id="f1cc2-115">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="f1cc2-115">Next steps</span></span>
-- [<span data-ttu-id="f1cc2-116">Dowiedz się więcej o usłudze Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="f1cc2-116">Learn more about Azure Active Directory</span></span>](https://azure.microsoft.com/services/active-directory/) 
+## <a name="next-steps"></a><span data-ttu-id="b238a-115">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="b238a-115">Next steps</span></span>
+- [<span data-ttu-id="b238a-116">Dowiedz się więcej o usłudze Azure Active Directory</span><span class="sxs-lookup"><span data-stu-id="b238a-116">Learn more about Azure Active Directory</span></span>](https://azure.microsoft.com/services/active-directory/) 
 

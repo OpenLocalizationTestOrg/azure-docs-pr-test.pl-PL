@@ -1,6 +1,6 @@
 ---
-title: "Określanie punktów końcowych usługi sieć szkieletowa usług | Dokumentacja firmy Microsoft"
-description: "Jak opisano zasobów punktu końcowego w manifestu usługi, oraz o sposobie konfigurowania punktów końcowych HTTPS"
+title: "punkty końcowe usługi sieć szkieletowa usług aaaSpecifying | Dokumentacja firmy Microsoft"
+description: "Jak toodescribe zasobów punktu końcowego w usłudze manifestu, w tym jak tooset się punktów końcowych HTTPS"
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: subramar
-ms.openlocfilehash: 08141edfbc8be9bf7bf303419e1e482d5f884860
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a4ebee353ce5cf86583673674246094f03f368be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="specify-resources-in-a-service-manifest"></a><span data-ttu-id="32361-103">Określanie zasobów w manifeście usługi</span><span class="sxs-lookup"><span data-stu-id="32361-103">Specify resources in a service manifest</span></span>
-## <a name="overview"></a><span data-ttu-id="32361-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="32361-104">Overview</span></span>
-<span data-ttu-id="32361-105">Manifest usługi umożliwia zasobów, które są używane przez usługę być zadeklarowany jako zmienione bez zmiany kodu skompilowanego.</span><span class="sxs-lookup"><span data-stu-id="32361-105">The service manifest allows resources that are used by the service to be declared/changed without changing the compiled code.</span></span> <span data-ttu-id="32361-106">Sieć szkieletowa usług Azure obsługuje konfigurację punktu końcowego zasobów dla usługi.</span><span class="sxs-lookup"><span data-stu-id="32361-106">Azure Service Fabric supports configuration of endpoint resources for the service.</span></span> <span data-ttu-id="32361-107">Dostęp do zasobów, które są określone w manifeście usługi można sterować za pośrednictwem SecurityGroup w manifeście aplikacji.</span><span class="sxs-lookup"><span data-stu-id="32361-107">The access to the resources that are specified in the service manifest can be controlled via the SecurityGroup in the application manifest.</span></span> <span data-ttu-id="32361-108">Deklaracja zasobów umożliwia można zmienić w czasie wdrażania, co oznacza, że usługa, nie trzeba wprowadzić nowy mechanizm konfiguracji tych zasobów.</span><span class="sxs-lookup"><span data-stu-id="32361-108">The declaration of resources allows these resources to be changed at deployment time, meaning the service doesn't need to introduce a new configuration mechanism.</span></span> <span data-ttu-id="32361-109">Definicja schematu dla pliku ServiceManifest.xml jest instalowany z zestawu SDK sieci szkieletowej usług i narzędzi do *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.</span><span class="sxs-lookup"><span data-stu-id="32361-109">The schema definition for the ServiceManifest.xml file is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.</span></span>
+# <a name="specify-resources-in-a-service-manifest"></a><span data-ttu-id="befa8-103">Określanie zasobów w manifeście usługi</span><span class="sxs-lookup"><span data-stu-id="befa8-103">Specify resources in a service manifest</span></span>
+## <a name="overview"></a><span data-ttu-id="befa8-104">Omówienie</span><span class="sxs-lookup"><span data-stu-id="befa8-104">Overview</span></span>
+<span data-ttu-id="befa8-105">manifest usługi Hello umożliwia zasobów używanych toobe usługi hello zadeklarowany zmienić bez konieczności zmieniania kodu hello skompilowany.</span><span class="sxs-lookup"><span data-stu-id="befa8-105">hello service manifest allows resources that are used by hello service toobe declared/changed without changing hello compiled code.</span></span> <span data-ttu-id="befa8-106">Sieć szkieletowa usług Azure obsługuje konfigurację punktu końcowego zasobów dla usługi hello.</span><span class="sxs-lookup"><span data-stu-id="befa8-106">Azure Service Fabric supports configuration of endpoint resources for hello service.</span></span> <span data-ttu-id="befa8-107">Witaj dostęp do toohello zasobów, które są określone w manifeście usługi hello można sterować za pośrednictwem hello SecurityGroup w manifeście aplikacji hello.</span><span class="sxs-lookup"><span data-stu-id="befa8-107">hello access toohello resources that are specified in hello service manifest can be controlled via hello SecurityGroup in hello application manifest.</span></span> <span data-ttu-id="befa8-108">Deklaracja Hello zasobów umożliwia toobe tych zasobów, zmieniony w czasie wdrażania, co oznacza, że usługa hello nie wymaga toointroduce mechanizm nowej konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="befa8-108">hello declaration of resources allows these resources toobe changed at deployment time, meaning hello service doesn't need toointroduce a new configuration mechanism.</span></span> <span data-ttu-id="befa8-109">Witaj definicji schematu dla pliku ServiceManifest.xml hello jest instalowany z hello zestawu SDK sieci szkieletowej usług i narzędzi zbyt*C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.</span><span class="sxs-lookup"><span data-stu-id="befa8-109">hello schema definition for hello ServiceManifest.xml file is installed with hello Service Fabric SDK and tools too*C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.</span></span>
 
-## <a name="endpoints"></a><span data-ttu-id="32361-110">Punkty końcowe</span><span class="sxs-lookup"><span data-stu-id="32361-110">Endpoints</span></span>
-<span data-ttu-id="32361-111">Zdefiniowane w manifeście usługi zasobu punktu końcowego sieci szkieletowej usług przypisuje porty z zakresu portów zastrzeżone aplikacji Jeśli port nie jest jawnie określony.</span><span class="sxs-lookup"><span data-stu-id="32361-111">When an endpoint resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly.</span></span> <span data-ttu-id="32361-112">Na przykład wyglądać w punkcie końcowym *ServiceEndpoint1* określony we fragmencie manifestu po tym akapitu.</span><span class="sxs-lookup"><span data-stu-id="32361-112">For example, look at the endpoint *ServiceEndpoint1* specified in the manifest snippet provided after this paragraph.</span></span> <span data-ttu-id="32361-113">Ponadto usługi także mogą żądać w zasobie określonego portu.</span><span class="sxs-lookup"><span data-stu-id="32361-113">Additionally, services can also request a specific port in a resource.</span></span> <span data-ttu-id="32361-114">Repliki usługi uruchomione w węzłach klastra różnych można przypisać różne numery portów, gdy repliki usługi uruchomionej na tym samym węźle Udostępnianie portów.</span><span class="sxs-lookup"><span data-stu-id="32361-114">Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of a service running on the same node share the port.</span></span> <span data-ttu-id="32361-115">Repliki usługi można następnie używać tych portów zgodnie z potrzebami replikacji i nasłuchuje żądań klientów.</span><span class="sxs-lookup"><span data-stu-id="32361-115">The service replicas can then use these ports as needed for replication and listening for client requests.</span></span>
+## <a name="endpoints"></a><span data-ttu-id="befa8-110">Punkty końcowe</span><span class="sxs-lookup"><span data-stu-id="befa8-110">Endpoints</span></span>
+<span data-ttu-id="befa8-111">Zdefiniowane w manifeście usługi hello zasobu punktu końcowego sieci szkieletowej usług przypisuje porty z zakresu portów aplikacji hello zastrzeżone, jeśli port nie jest jawnie określony.</span><span class="sxs-lookup"><span data-stu-id="befa8-111">When an endpoint resource is defined in hello service manifest, Service Fabric assigns ports from hello reserved application port range when a port isn't specified explicitly.</span></span> <span data-ttu-id="befa8-112">Na przykład wyglądać w punkcie końcowym hello *ServiceEndpoint1* określony we fragmencie manifestu powitania po tym akapitu.</span><span class="sxs-lookup"><span data-stu-id="befa8-112">For example, look at hello endpoint *ServiceEndpoint1* specified in hello manifest snippet provided after this paragraph.</span></span> <span data-ttu-id="befa8-113">Ponadto usługi także mogą żądać w zasobie określonego portu.</span><span class="sxs-lookup"><span data-stu-id="befa8-113">Additionally, services can also request a specific port in a resource.</span></span> <span data-ttu-id="befa8-114">Repliki usługi uruchomione w węzłach klastra różnych można przypisać różne numery portów, podczas repliki usługi uruchomionej na hello tego samego portu hello udziału węzła.</span><span class="sxs-lookup"><span data-stu-id="befa8-114">Service replicas running on different cluster nodes can be assigned different port numbers, while replicas of a service running on hello same node share hello port.</span></span> <span data-ttu-id="befa8-115">Witaj repliki usługi można użyć tych portów zgodnie z potrzebami dla replikacji i nasłuchuje żądań klientów.</span><span class="sxs-lookup"><span data-stu-id="befa8-115">hello service replicas can then use these ports as needed for replication and listening for client requests.</span></span>
 
 ```xml
 <Resources>
@@ -37,12 +37,12 @@ ms.lasthandoff: 08/29/2017
 </Resources>
 ```
 
-<span data-ttu-id="32361-116">Zapoznaj się [Konfigurowanie stanowych usług niezawodnej](service-fabric-reliable-services-configuration.md) aby przeczytać więcej informacji na temat odwołujące się do punktów końcowych z ustawień pakietu konfiguracji pliku (pliku settings.xml).</span><span class="sxs-lookup"><span data-stu-id="32361-116">Refer to [Configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md) to read more about referencing endpoints from the config package settings file (settings.xml).</span></span>
+<span data-ttu-id="befa8-116">Odwołuje się zbyt[Konfigurowanie stanowych usług niezawodnej](service-fabric-reliable-services-configuration.md) tooread więcej informacji na temat odwołujące się do punktów końcowych z pliku ustawień pakietu konfiguracji hello (settings.xml).</span><span class="sxs-lookup"><span data-stu-id="befa8-116">Refer too[Configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md) tooread more about referencing endpoints from hello config package settings file (settings.xml).</span></span>
 
-## <a name="example-specifying-an-http-endpoint-for-your-service"></a><span data-ttu-id="32361-117">Przykład: określenie punktu końcowego HTTP dla usługi</span><span class="sxs-lookup"><span data-stu-id="32361-117">Example: specifying an HTTP endpoint for your service</span></span>
-<span data-ttu-id="32361-118">Definiuje następujące manifestu usługi, jeden zasób punktu końcowego TCP i dwa zasoby punkt końcowy HTTP w &lt;zasobów&gt; elementu.</span><span class="sxs-lookup"><span data-stu-id="32361-118">The following service manifest defines one TCP endpoint resource and two HTTP endpoint resources in the &lt;Resources&gt; element.</span></span>
+## <a name="example-specifying-an-http-endpoint-for-your-service"></a><span data-ttu-id="befa8-117">Przykład: określenie punktu końcowego HTTP dla usługi</span><span class="sxs-lookup"><span data-stu-id="befa8-117">Example: specifying an HTTP endpoint for your service</span></span>
+<span data-ttu-id="befa8-118">Witaj następujące usługi manifest określa jeden zasób punktu końcowego TCP i dwa zasoby punkt końcowy HTTP w hello &lt;zasobów&gt; elementu.</span><span class="sxs-lookup"><span data-stu-id="befa8-118">hello following service manifest defines one TCP endpoint resource and two HTTP endpoint resources in hello &lt;Resources&gt; element.</span></span>
 
-<span data-ttu-id="32361-119">Punkty końcowe HTTP są automatycznie ACL czy przez sieć szkieletowa usług.</span><span class="sxs-lookup"><span data-stu-id="32361-119">HTTP endpoints are automatically ACL'd by Service Fabric.</span></span>
+<span data-ttu-id="befa8-119">Punkty końcowe HTTP są automatycznie ACL czy przez sieć szkieletowa usług.</span><span class="sxs-lookup"><span data-stu-id="befa8-119">HTTP endpoints are automatically ACL'd by Service Fabric.</span></span>
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -52,8 +52,8 @@ ms.lasthandoff: 08/29/2017
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
-    <!-- This is the name of your ServiceType.
-         This name must match the string used in the RegisterServiceType call in Program.cs. -->
+    <!-- This is hello name of your ServiceType.
+         This name must match hello string used in hello RegisterServiceType call in Program.cs. -->
     <StatefulServiceType ServiceTypeName="Stateful1Type" HasPersistedState="true" />
   </ServiceTypes>
 
@@ -66,37 +66,37 @@ ms.lasthandoff: 08/29/2017
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is hello contents of hello Config directoy under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port number on which to
+      <!-- This endpoint is used by hello communication listener tooobtain hello port number on which to
            listen. Note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
       <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
       <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
 
-      <!-- This endpoint is used by the replicator for replicating the state of your service.
-           This endpoint is configured through the ReplicatorSettings config section in the Settings.xml
-           file under the ConfigPackage. -->
+      <!-- This endpoint is used by hello replicator for replicating hello state of your service.
+           This endpoint is configured through hello ReplicatorSettings config section in hello Settings.xml
+           file under hello ConfigPackage. -->
       <Endpoint Name="ReplicatorEndpoint" />
     </Endpoints>
   </Resources>
 </ServiceManifest>
 ```
 
-## <a name="example-specifying-an-https-endpoint-for-your-service"></a><span data-ttu-id="32361-120">Przykład: Określanie punkt końcowy HTTPS dla usługi</span><span class="sxs-lookup"><span data-stu-id="32361-120">Example: specifying an HTTPS endpoint for your service</span></span>
-<span data-ttu-id="32361-121">Protokół HTTPS zapewnia uwierzytelnianie na serwerze i służy także do szyfrowania komunikacji klient serwer.</span><span class="sxs-lookup"><span data-stu-id="32361-121">The HTTPS protocol provides server authentication and is also used for encrypting client-server communication.</span></span> <span data-ttu-id="32361-122">Aby włączyć protokół HTTPS w usłudze Service Fabric, należy określić protokół w *zasoby -> punkty końcowe -> punktu końcowego* sekcji manifestu usługi, jak pokazano wcześniej dla punktu końcowego *ServiceEndpoint3*.</span><span class="sxs-lookup"><span data-stu-id="32361-122">To enable HTTPS on your Service Fabric service, specify the protocol in the *Resources -> Endpoints -> Endpoint* section of the service manifest, as shown earlier for the endpoint *ServiceEndpoint3*.</span></span>
+## <a name="example-specifying-an-https-endpoint-for-your-service"></a><span data-ttu-id="befa8-120">Przykład: Określanie punkt końcowy HTTPS dla usługi</span><span class="sxs-lookup"><span data-stu-id="befa8-120">Example: specifying an HTTPS endpoint for your service</span></span>
+<span data-ttu-id="befa8-121">Hello protokołu HTTPS zapewnia uwierzytelnianie na serwerze i jest używany także do szyfrowania komunikacji klient serwer.</span><span class="sxs-lookup"><span data-stu-id="befa8-121">hello HTTPS protocol provides server authentication and is also used for encrypting client-server communication.</span></span> <span data-ttu-id="befa8-122">tooenable HTTPS w usłudze Service Fabric należy określić protokół hello w hello *zasoby -> punkty końcowe -> punktu końcowego* sekcji hello manifestu usługi, jak pokazano wcześniej dla punktu końcowego hello *ServiceEndpoint3* .</span><span class="sxs-lookup"><span data-stu-id="befa8-122">tooenable HTTPS on your Service Fabric service, specify hello protocol in hello *Resources -> Endpoints -> Endpoint* section of hello service manifest, as shown earlier for hello endpoint *ServiceEndpoint3*.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="32361-123">Nie można zmienić protokołu usługi podczas uaktualniania aplikacji.</span><span class="sxs-lookup"><span data-stu-id="32361-123">A service’s protocol cannot be changed during application upgrade.</span></span> <span data-ttu-id="32361-124">Jeśli zostanie on zmieniony podczas uaktualniania, jest istotne zmiany.</span><span class="sxs-lookup"><span data-stu-id="32361-124">If it is changed during upgrade, it is a breaking change.</span></span>
+> <span data-ttu-id="befa8-123">Nie można zmienić protokołu usługi podczas uaktualniania aplikacji.</span><span class="sxs-lookup"><span data-stu-id="befa8-123">A service’s protocol cannot be changed during application upgrade.</span></span> <span data-ttu-id="befa8-124">Jeśli zostanie on zmieniony podczas uaktualniania, jest istotne zmiany.</span><span class="sxs-lookup"><span data-stu-id="befa8-124">If it is changed during upgrade, it is a breaking change.</span></span>
 > 
 > 
 
-<span data-ttu-id="32361-125">Oto przykład ApplicationManifest które należy ustawić dla protokołu HTTPS.</span><span class="sxs-lookup"><span data-stu-id="32361-125">Here is an example ApplicationManifest that you need to set for HTTPS.</span></span> <span data-ttu-id="32361-126">Należy podać odcisk palca dla certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="32361-126">The thumbprint for your certificate must be provided.</span></span> <span data-ttu-id="32361-127">EndpointRef jest odwołaniem do EndpointResource w ServiceManifest, dla którego ustawieniu protokołu HTTPS.</span><span class="sxs-lookup"><span data-stu-id="32361-127">The EndpointRef is a reference to EndpointResource in ServiceManifest, for which you set the HTTPS protocol.</span></span> <span data-ttu-id="32361-128">Można dodać więcej niż jeden EndpointCertificate.</span><span class="sxs-lookup"><span data-stu-id="32361-128">You can add more than one EndpointCertificate.</span></span>  
+<span data-ttu-id="befa8-125">Oto przykład ApplicationManifest muszą tooset dla protokołu HTTPS.</span><span class="sxs-lookup"><span data-stu-id="befa8-125">Here is an example ApplicationManifest that you need tooset for HTTPS.</span></span> <span data-ttu-id="befa8-126">należy podać Hello odcisku palca certyfikatu.</span><span class="sxs-lookup"><span data-stu-id="befa8-126">hello thumbprint for your certificate must be provided.</span></span> <span data-ttu-id="befa8-127">Witaj EndpointRef jest tooEndpointResource odwołania w ServiceManifest, dla której ustawiony hello protokołu HTTPS.</span><span class="sxs-lookup"><span data-stu-id="befa8-127">hello EndpointRef is a reference tooEndpointResource in ServiceManifest, for which you set hello HTTPS protocol.</span></span> <span data-ttu-id="befa8-128">Można dodać więcej niż jeden EndpointCertificate.</span><span class="sxs-lookup"><span data-stu-id="befa8-128">You can add more than one EndpointCertificate.</span></span>  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -110,8 +110,8 @@ ms.lasthandoff: 08/29/2017
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
-       should match the Name and Version attributes of the ServiceManifest element defined in the
+  <!-- Import hello ServiceManifest from hello ServicePackage. hello ServiceManifestName and ServiceManifestVersion
+       should match hello Name and Version attributes of hello ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Stateful1Pkg" ServiceManifestVersion="1.0.0" />
@@ -121,11 +121,11 @@ ms.lasthandoff: 08/29/2017
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- The section below creates instances of service types when an instance of this
+    <!-- hello section below creates instances of service types when an instance of this
          application type is created. You can also create one or more instances of service type by using the
          Service Fabric PowerShell module.
 
-         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+         hello attribute ServiceTypeName below must match hello name defined in hello imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
       <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_ ]">
         <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
@@ -138,13 +138,13 @@ ms.lasthandoff: 08/29/2017
 </ApplicationManifest>
 ```
 
-## <a name="overriding-endpoints-in-servicemanifestxml"></a><span data-ttu-id="32361-129">Zastępowanie punktów końcowych w pliku ServiceManifest.xml</span><span class="sxs-lookup"><span data-stu-id="32361-129">Overriding Endpoints in ServiceManifest.xml</span></span>
+## <a name="overriding-endpoints-in-servicemanifestxml"></a><span data-ttu-id="befa8-129">Zastępowanie punktów końcowych w pliku ServiceManifest.xml</span><span class="sxs-lookup"><span data-stu-id="befa8-129">Overriding Endpoints in ServiceManifest.xml</span></span>
 
-<span data-ttu-id="32361-130">W ApplicationManifest Dodaj sekcję ResourceOverrides, co będzie równorzędny ConfigOverrides sekcji.</span><span class="sxs-lookup"><span data-stu-id="32361-130">In the ApplicationManifest add a ResourceOverrides section which will be a sibling to ConfigOverrides section.</span></span> <span data-ttu-id="32361-131">W tej sekcji można określić zastąpienia dla sekcji punktów końcowych w sekcji zasobów określona w manifeście usługi.</span><span class="sxs-lookup"><span data-stu-id="32361-131">In this section you can specify the override for the Endpoints section in the resources section specified in the Service manifest.</span></span>
+<span data-ttu-id="befa8-130">W hello ApplicationManifest Dodaj sekcję ResourceOverrides, co będzie równorzędny tooConfigOverrides sekcji.</span><span class="sxs-lookup"><span data-stu-id="befa8-130">In hello ApplicationManifest add a ResourceOverrides section which will be a sibling tooConfigOverrides section.</span></span> <span data-ttu-id="befa8-131">W tej sekcji można określić hello zastąpienie hello punktów końcowych w sekcji hello zasobów określone w hello manifestu usługi.</span><span class="sxs-lookup"><span data-stu-id="befa8-131">In this section you can specify hello override for hello Endpoints section in hello resources section specified in hello Service manifest.</span></span>
 
-<span data-ttu-id="32361-132">Aby zastąpić punktu końcowego w ServiceManifest przy użyciu ApplicationParameters Zmień ApplicationManifest następujący:</span><span class="sxs-lookup"><span data-stu-id="32361-132">In order to override EndPoint in ServiceManifest using ApplicationParameters change the ApplicationManifest as following:</span></span>
+<span data-ttu-id="befa8-132">W kolejności toooverride punktu końcowego w ServiceManifest przy użyciu zmian ApplicationParameters hello ApplicationManifest jako następujące czynności:</span><span class="sxs-lookup"><span data-stu-id="befa8-132">In order toooverride EndPoint in ServiceManifest using ApplicationParameters change hello ApplicationManifest as following:</span></span>
 
-<span data-ttu-id="32361-133">W sekcji ServiceManifestImport dodania nowej sekcji "ResourceOverrides"</span><span class="sxs-lookup"><span data-stu-id="32361-133">In the ServiceManifestImport section add a new section "ResourceOverrides"</span></span>
+<span data-ttu-id="befa8-133">W sekcji ServiceManifestImport hello dodania nowej sekcji "ResourceOverrides"</span><span class="sxs-lookup"><span data-stu-id="befa8-133">In hello ServiceManifestImport section add a new section "ResourceOverrides"</span></span>
 
 ```xml
 <ServiceManifestImport>
@@ -162,7 +162,7 @@ ms.lasthandoff: 08/29/2017
   </ServiceManifestImport>
 ```
 
-<span data-ttu-id="32361-134">W parametrach dodać poniżej:</span><span class="sxs-lookup"><span data-stu-id="32361-134">In the Parameters add below:</span></span>
+<span data-ttu-id="befa8-134">W powitalne parametry dodać poniżej:</span><span class="sxs-lookup"><span data-stu-id="befa8-134">In hello Parameters add below:</span></span>
 
 ```xml
   <Parameters>
@@ -174,17 +174,17 @@ ms.lasthandoff: 08/29/2017
   </Parameters>
 ```
 
-<span data-ttu-id="32361-135">Podczas wdrażania aplikacji teraz można przekazać te wartości jako ApplicationParameters na przykład:</span><span class="sxs-lookup"><span data-stu-id="32361-135">While deploying the application now you can pass in these values as ApplicationParameters for example:</span></span>
+<span data-ttu-id="befa8-135">Podczas wdrażania aplikacji hello teraz można przekazać te wartości jako ApplicationParameters na przykład:</span><span class="sxs-lookup"><span data-stu-id="befa8-135">While deploying hello application now you can pass in these values as ApplicationParameters for example:</span></span>
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-<span data-ttu-id="32361-136">Uwaga: Jeśli wartości umożliwiają ApplicationParameters jest pusty możemy wróć do określonych w ServiceManifest odpowiedniego EndPointName wartość domyślna.</span><span class="sxs-lookup"><span data-stu-id="32361-136">Note: If the values provide for the ApplicationParameters is empty we go back to the default value provided in the ServiceManifest for the corresponding EndPointName.</span></span>
+<span data-ttu-id="befa8-136">Uwaga: Jeśli hello wartości umożliwiają hello ApplicationParameters jest pusty możemy wróć toohello domyślną wartość podana w hello ServiceManifest dla hello odpowiadającego EndPointName.</span><span class="sxs-lookup"><span data-stu-id="befa8-136">Note: If hello values provide for hello ApplicationParameters is empty we go back toohello default value provided in hello ServiceManifest for hello corresponding EndPointName.</span></span>
 
-<span data-ttu-id="32361-137">Na przykład:</span><span class="sxs-lookup"><span data-stu-id="32361-137">For example:</span></span>
+<span data-ttu-id="befa8-137">Na przykład:</span><span class="sxs-lookup"><span data-stu-id="befa8-137">For example:</span></span>
 
-<span data-ttu-id="32361-138">Jeśli w ServiceManifest określona</span><span class="sxs-lookup"><span data-stu-id="32361-138">If in the ServiceManifest you specified</span></span>
+<span data-ttu-id="befa8-138">Jeśli w hello ServiceManifest określonego</span><span class="sxs-lookup"><span data-stu-id="befa8-138">If in hello ServiceManifest you specified</span></span>
 
 ```xml
   <Resources>
@@ -194,6 +194,6 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
   </Resources>
 ```
 
-<span data-ttu-id="32361-139">I Port1 i Protocol1 wartości dla parametrów aplikacji ma wartość null lub pusty.</span><span class="sxs-lookup"><span data-stu-id="32361-139">And the Port1 and Protocol1 value for Application parameters is null or empty.</span></span> <span data-ttu-id="32361-140">Port jest nadal decyzji ServiceFabric.</span><span class="sxs-lookup"><span data-stu-id="32361-140">The port is still decided by ServiceFabric.</span></span> <span data-ttu-id="32361-141">I będzie protokołu tcp.</span><span class="sxs-lookup"><span data-stu-id="32361-141">And the Protocol will tcp.</span></span>
+<span data-ttu-id="befa8-139">Witaj Port1 i Protocol1 wartości parametrów aplikacji ma wartość null lub pusty.</span><span class="sxs-lookup"><span data-stu-id="befa8-139">And hello Port1 and Protocol1 value for Application parameters is null or empty.</span></span> <span data-ttu-id="befa8-140">Hello port jest nadal decyzji ServiceFabric.</span><span class="sxs-lookup"><span data-stu-id="befa8-140">hello port is still decided by ServiceFabric.</span></span> <span data-ttu-id="befa8-141">A hello protokołu tcp.</span><span class="sxs-lookup"><span data-stu-id="befa8-141">And hello Protocol will tcp.</span></span>
 
-<span data-ttu-id="32361-142">Załóżmy, że określasz niepoprawną wartość.</span><span class="sxs-lookup"><span data-stu-id="32361-142">Suppose you specify a wrong value.</span></span> <span data-ttu-id="32361-143">Podobnie jak Port podano wartość ciągu "Foo" zamiast int.  Nowe ServiceFabricApplication polecenia zakończy się niepowodzeniem z powodu błędu: parametr zastąpienie z atrybutem "ServiceEndpoint1" name "Port1" w sekcji "ResourceOverrides" jest nieprawidłowy.</span><span class="sxs-lookup"><span data-stu-id="32361-143">Like for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error : The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid.</span></span> <span data-ttu-id="32361-144">Określona wartość jest "Foo" i wymagane jest "int".</span><span class="sxs-lookup"><span data-stu-id="32361-144">The value specified is 'Foo' and required is 'int'.</span></span>
+<span data-ttu-id="befa8-142">Załóżmy, że określasz niepoprawną wartość.</span><span class="sxs-lookup"><span data-stu-id="befa8-142">Suppose you specify a wrong value.</span></span> <span data-ttu-id="befa8-143">Podobnie jak Port podano wartość ciągu "Foo" zamiast int.  Nowe ServiceFabricApplication polecenia zakończy się niepowodzeniem z powodu błędu: hello zastąpienie parametr z atrybutem "ServiceEndpoint1" name "Port1" w sekcji "ResourceOverrides" jest nieprawidłowy.</span><span class="sxs-lookup"><span data-stu-id="befa8-143">Like for Port you specified a string value "Foo" instead of an int.  New-ServiceFabricApplication command will fail with an error : hello override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid.</span></span> <span data-ttu-id="befa8-144">Określona wartość Hello jest "Foo" i wymagane jest "int".</span><span class="sxs-lookup"><span data-stu-id="befa8-144">hello value specified is 'Foo' and required is 'int'.</span></span>
