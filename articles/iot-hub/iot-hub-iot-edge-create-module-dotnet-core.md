@@ -1,6 +1,6 @@
 ---
-title: "Utwórz moduł Azure IoT krawędzi języku C# | Dokumentacja firmy Microsoft"
-description: "W tym samouczku ilustrację jak napisać cz modułu konwertera danych przy użyciu najnowszych pakietów NuGet krawędzi IoT Azure, programu Visual Studio Code i C#."
+title: "aaaCreate moduł Azure IoT krawędzi w języku C# | Dokumentacja firmy Microsoft"
+description: "W tym samouczku ilustrację, jak toowrite cz danych konwertera modułu przy użyciu hello najnowszych pakietów NuGet krawędzi IoT Azure, programu Visual Studio Code i C#."
 services: iot-hub
 author: jeffreyCline
 manager: timlt
@@ -12,57 +12,57 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: jcline
-ms.openlocfilehash: 7175ffc8de2c043593d61143b402484d33e4a8cc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b104609c05d1613e21acc7d7bed547f311179151
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-azure-iot-edge-module-with-cx23"></a><span data-ttu-id="e6d35-104">Utwórz moduł Azure IoT krawędzi z C & #x23;</span><span class="sxs-lookup"><span data-stu-id="e6d35-104">Create an Azure IoT Edge Module with C&#x23;</span></span>
+# <a name="create-an-azure-iot-edge-module-with-cx23"></a><span data-ttu-id="aa821-104">Utwórz moduł Azure IoT krawędzi z C & #x23;</span><span class="sxs-lookup"><span data-stu-id="aa821-104">Create an Azure IoT Edge Module with C&#x23;</span></span>
 
-<span data-ttu-id="e6d35-105">Jak utworzyć moduł, dla których są wyświetlane w tym samouczku `Azure IoT Edge` przy użyciu `Visual Studio Code` i `C#`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-105">This tutorial showcases how to create a module for `Azure IoT Edge` using `Visual Studio Code` and `C#`.</span></span>
+<span data-ttu-id="aa821-105">W tym samouczku ilustrację jak toocreate a modułu dla `Azure IoT Edge` przy użyciu `Visual Studio Code` i `C#`.</span><span class="sxs-lookup"><span data-stu-id="aa821-105">This tutorial showcases how toocreate a module for `Azure IoT Edge` using `Visual Studio Code` and `C#`.</span></span>
 
-<span data-ttu-id="e6d35-106">W tym samouczku będziemy przeprowadzenie konfiguracji środowiska i jak napisać [cz](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) modułu konwertera danych przy użyciu najnowszych `Azure IoT Edge NuGet` pakietów.</span><span class="sxs-lookup"><span data-stu-id="e6d35-106">In this tutorial, we walk through environment set-up and how to write a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using the latest `Azure IoT Edge NuGet` packages.</span></span> 
+<span data-ttu-id="aa821-106">W tym samouczku przeprowadzenie możemy konfiguracji środowiska i w jaki sposób toowrite [cz](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) danych konwertera modułu przy użyciu najnowszych hello `Azure IoT Edge NuGet` pakietów.</span><span class="sxs-lookup"><span data-stu-id="aa821-106">In this tutorial, we walk through environment set-up and how toowrite a [BLE](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) data converter module using hello latest `Azure IoT Edge NuGet` packages.</span></span> 
 
 >[!NOTE]
-<span data-ttu-id="e6d35-107">Ten samouczek używa `.NET Core SDK`, który obsługuje zgodności między platformami.</span><span class="sxs-lookup"><span data-stu-id="e6d35-107">This tutorial is using the `.NET Core SDK`, which supports cross-platform compatibility.</span></span> <span data-ttu-id="e6d35-108">Następujące samouczek jest przeznaczony przy użyciu `Windows 10` systemu operacyjnego.</span><span class="sxs-lookup"><span data-stu-id="e6d35-108">The following tutorial is written using the `Windows 10` operating system.</span></span> <span data-ttu-id="e6d35-109">Niektóre polecenia w tym samouczku mogą być różne w zależności od Twojego `development environment`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-109">Some of the commands in this tutorial may be different depending on your `development environment`.</span></span> 
+<span data-ttu-id="aa821-107">Ten samouczek używa hello `.NET Core SDK`, który obsługuje zgodności między platformami.</span><span class="sxs-lookup"><span data-stu-id="aa821-107">This tutorial is using hello `.NET Core SDK`, which supports cross-platform compatibility.</span></span> <span data-ttu-id="aa821-108">Witaj następujące samouczek jest przeznaczony przy użyciu hello `Windows 10` systemu operacyjnego.</span><span class="sxs-lookup"><span data-stu-id="aa821-108">hello following tutorial is written using hello `Windows 10` operating system.</span></span> <span data-ttu-id="aa821-109">Niektóre polecenia hello w tym samouczku mogą być różne w zależności od Twojego `development environment`.</span><span class="sxs-lookup"><span data-stu-id="aa821-109">Some of hello commands in this tutorial may be different depending on your `development environment`.</span></span> 
 
-## <a name="prerequisites"></a><span data-ttu-id="e6d35-110">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="e6d35-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="aa821-110">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="aa821-110">Prerequisites</span></span>
 
-<span data-ttu-id="e6d35-111">W tej sekcji możemy konfiguracji środowiska pod kątem `Azure IoT Edge` programowanie modułu.</span><span class="sxs-lookup"><span data-stu-id="e6d35-111">In this section, we set-up your environment for `Azure IoT Edge` module development.</span></span> <span data-ttu-id="e6d35-112">Dotyczy ona obu **64-bitowym systemie Windows** i **64-bitowego systemu Linux (8 Ubuntu/Debian)** systemów operacyjnych.</span><span class="sxs-lookup"><span data-stu-id="e6d35-112">It applies to both **64-bit Windows** and **64-bit Linux (Ubuntu/Debian 8)** operating systems.</span></span>
+<span data-ttu-id="aa821-111">W tej sekcji możemy konfiguracji środowiska pod kątem `Azure IoT Edge` programowanie modułu.</span><span class="sxs-lookup"><span data-stu-id="aa821-111">In this section, we set-up your environment for `Azure IoT Edge` module development.</span></span> <span data-ttu-id="aa821-112">Ma to zastosowanie tooboth **64-bitowym systemie Windows** i **64-bitowego systemu Linux (8 Ubuntu/Debian)** systemów operacyjnych.</span><span class="sxs-lookup"><span data-stu-id="aa821-112">It applies tooboth **64-bit Windows** and **64-bit Linux (Ubuntu/Debian 8)** operating systems.</span></span>
 
-<span data-ttu-id="e6d35-113">Następujące oprogramowanie jest wymagane:</span><span class="sxs-lookup"><span data-stu-id="e6d35-113">The following software is required:</span></span>
+<span data-ttu-id="aa821-113">wymagane jest Hello następującego oprogramowania:</span><span class="sxs-lookup"><span data-stu-id="aa821-113">hello following software is required:</span></span>
 
-- [<span data-ttu-id="e6d35-114">Klient Git</span><span class="sxs-lookup"><span data-stu-id="e6d35-114">Git Client</span></span>](https://git-scm.com/downloads)
-- [<span data-ttu-id="e6d35-115">Zestaw SDK dla platformy .NET Core</span><span class="sxs-lookup"><span data-stu-id="e6d35-115">.NET Core SDK</span></span>](https://www.microsoft.com/net/core#windowscmd)
-- [<span data-ttu-id="e6d35-116">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="e6d35-116">Visual Studio Code</span></span>](https://code.visualstudio.com/)
+- [<span data-ttu-id="aa821-114">Klient Git</span><span class="sxs-lookup"><span data-stu-id="aa821-114">Git Client</span></span>](https://git-scm.com/downloads)
+- [<span data-ttu-id="aa821-115">Zestaw SDK dla platformy .NET Core</span><span class="sxs-lookup"><span data-stu-id="aa821-115">.NET Core SDK</span></span>](https://www.microsoft.com/net/core#windowscmd)
+- [<span data-ttu-id="aa821-116">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="aa821-116">Visual Studio Code</span></span>](https://code.visualstudio.com/)
 
-<span data-ttu-id="e6d35-117">Nie trzeba sklonować repozytorium dla tego przykładu, jednak cały kod przykładowy omówione w tym samouczku znajduje się w następujących repozytorium:</span><span class="sxs-lookup"><span data-stu-id="e6d35-117">You do not need to clone the repo for this sample, however all of the sample code discussed in this tutorial is located in the following repository:</span></span>
+<span data-ttu-id="aa821-117">Nie trzeba tooclone hello repozytorium dla tego przykładu, jednak wszystkie hello przykładowy kod przedstawiony omówione w tym samouczku znajduje się w hello następujące repozytorium:</span><span class="sxs-lookup"><span data-stu-id="aa821-117">You do not need tooclone hello repo for this sample, however all of hello sample code discussed in this tutorial is located in hello following repository:</span></span>
 
-- <span data-ttu-id="e6d35-118">`git clone https://github.com/Azure-Samples/iot-edge-samples.git`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-118">`git clone https://github.com/Azure-Samples/iot-edge-samples.git`.</span></span>
+- <span data-ttu-id="aa821-118">`git clone https://github.com/Azure-Samples/iot-edge-samples.git`.</span><span class="sxs-lookup"><span data-stu-id="aa821-118">`git clone https://github.com/Azure-Samples/iot-edge-samples.git`.</span></span>
 - `cd iot-edge-samples/dotnetcore/simulated_ble`
 
-## <a name="getting-started"></a><span data-ttu-id="e6d35-119">Wprowadzenie</span><span class="sxs-lookup"><span data-stu-id="e6d35-119">Getting started</span></span>
+## <a name="getting-started"></a><span data-ttu-id="aa821-119">Wprowadzenie</span><span class="sxs-lookup"><span data-stu-id="aa821-119">Getting started</span></span>
 
-1. <span data-ttu-id="e6d35-120">Zainstaluj `.NET Core SDK`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-120">Install `.NET Core SDK`.</span></span>
-2. <span data-ttu-id="e6d35-121">Zainstaluj `Visual Studio Code` i `C# extension` z witryny Marketplace kodu programu Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="e6d35-121">Install `Visual Studio Code` and the `C# extension` from the Visual Studio Code Marketplace.</span></span>
+1. <span data-ttu-id="aa821-120">Zainstaluj `.NET Core SDK`.</span><span class="sxs-lookup"><span data-stu-id="aa821-120">Install `.NET Core SDK`.</span></span>
+2. <span data-ttu-id="aa821-121">Zainstaluj `Visual Studio Code` i hello `C# extension` z hello Visual Studio Marketplace kodu.</span><span class="sxs-lookup"><span data-stu-id="aa821-121">Install `Visual Studio Code` and hello `C# extension` from hello Visual Studio Code Marketplace.</span></span>
 
-<span data-ttu-id="e6d35-122">Wyświetlić [krótki samouczek wideo](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows) o tym, jak rozpocząć pracę przy użyciu `Visual Studio Code` i `.NET Core SDK`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-122">View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows) about how to get started using `Visual Studio Code` and the `.NET Core SDK`.</span></span>
+<span data-ttu-id="aa821-122">Wyświetlić [krótki samouczek wideo](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows) dotyczące sposobu uruchamiania przy użyciu tooget `Visual Studio Code` i hello `.NET Core SDK`.</span><span class="sxs-lookup"><span data-stu-id="aa821-122">View this [quick video tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows) about how tooget started using `Visual Studio Code` and hello `.NET Core SDK`.</span></span>
 
-## <a name="creating-the-azure-iot-edge-converter-module"></a><span data-ttu-id="e6d35-123">Tworzenie modułu konwertera krawędzi IoT Azure</span><span class="sxs-lookup"><span data-stu-id="e6d35-123">Creating the Azure IoT Edge converter module</span></span>
+## <a name="creating-hello-azure-iot-edge-converter-module"></a><span data-ttu-id="aa821-123">Tworzenie hello Azure IoT krawędzi konwertera modułu</span><span class="sxs-lookup"><span data-stu-id="aa821-123">Creating hello Azure IoT Edge converter module</span></span>
 
-1. <span data-ttu-id="e6d35-124">Zainicjuj nowy `.NET Core` klasy projektu biblioteki C#:</span><span class="sxs-lookup"><span data-stu-id="e6d35-124">Initialize a new `.NET Core` class library C# project:</span></span>
-    - <span data-ttu-id="e6d35-125">Otwórz okno wiersza polecenia (`Windows + R` -> `cmd` -> `enter`).</span><span class="sxs-lookup"><span data-stu-id="e6d35-125">Open a command prompt (`Windows + R` -> `cmd` -> `enter`).</span></span>
-    - <span data-ttu-id="e6d35-126">Przejdź do folderu, w którym chcesz utworzyć `C#` projektu.</span><span class="sxs-lookup"><span data-stu-id="e6d35-126">Navigate to the folder where you'd like to create the `C#` project.</span></span>
-    - <span data-ttu-id="e6d35-127">Typ **dotnet nowej biblioteki klas -o IoTEdgeConverterModule -f netstandard1.3**.</span><span class="sxs-lookup"><span data-stu-id="e6d35-127">Type **dotnet new classlib -o IoTEdgeConverterModule -f netstandard1.3**.</span></span> 
-    - <span data-ttu-id="e6d35-128">To polecenie tworzy pustą klasę o nazwie `Class1.cs` w katalogu projektów.</span><span class="sxs-lookup"><span data-stu-id="e6d35-128">This command creates an empty class called `Class1.cs` in your projects directory.</span></span>
-2. <span data-ttu-id="e6d35-129">Przejdź do folderu, w którym właśnie utworzyliśmy projektu biblioteki klas, wpisując **cd IoTEdgeConverterModule**.</span><span class="sxs-lookup"><span data-stu-id="e6d35-129">Navigate to the folder where we just created the class library project by typing **cd IoTEdgeConverterModule**.</span></span>
-3. <span data-ttu-id="e6d35-130">Otwórz projekt w `Visual Studio Code` , wpisując **kodu.**.</span><span class="sxs-lookup"><span data-stu-id="e6d35-130">Open the project in `Visual Studio Code` by typing **code .**.</span></span>
-4. <span data-ttu-id="e6d35-131">Po otwarciu projektu w `Visual Studio Code`, kliknij **IoTEdgeConverterModule.csproj** można otworzyć pliku, jak pokazano na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-131">Once the project is opened in `Visual Studio Code`, click on the **IoTEdgeConverterModule.csproj** to open the file as shown in the following image:</span></span>
+1. <span data-ttu-id="aa821-124">Zainicjuj nowy `.NET Core` klasy projektu biblioteki C#:</span><span class="sxs-lookup"><span data-stu-id="aa821-124">Initialize a new `.NET Core` class library C# project:</span></span>
+    - <span data-ttu-id="aa821-125">Otwórz okno wiersza polecenia (`Windows + R` -> `cmd` -> `enter`).</span><span class="sxs-lookup"><span data-stu-id="aa821-125">Open a command prompt (`Windows + R` -> `cmd` -> `enter`).</span></span>
+    - <span data-ttu-id="aa821-126">Przejdź do folderu toohello, gdzie ma toocreate hello `C#` projektu.</span><span class="sxs-lookup"><span data-stu-id="aa821-126">Navigate toohello folder where you'd like toocreate hello `C#` project.</span></span>
+    - <span data-ttu-id="aa821-127">Typ **dotnet nowej biblioteki klas -o IoTEdgeConverterModule -f netstandard1.3**.</span><span class="sxs-lookup"><span data-stu-id="aa821-127">Type **dotnet new classlib -o IoTEdgeConverterModule -f netstandard1.3**.</span></span> 
+    - <span data-ttu-id="aa821-128">To polecenie tworzy pustą klasę o nazwie `Class1.cs` w katalogu projektów.</span><span class="sxs-lookup"><span data-stu-id="aa821-128">This command creates an empty class called `Class1.cs` in your projects directory.</span></span>
+2. <span data-ttu-id="aa821-129">Przejdź do folderu toohello gdzie właśnie utworzyliśmy projektu biblioteki klas hello wpisując **cd IoTEdgeConverterModule**.</span><span class="sxs-lookup"><span data-stu-id="aa821-129">Navigate toohello folder where we just created hello class library project by typing **cd IoTEdgeConverterModule**.</span></span>
+3. <span data-ttu-id="aa821-130">Witaj Otwórz projekt w `Visual Studio Code` , wpisując **kodu.**.</span><span class="sxs-lookup"><span data-stu-id="aa821-130">Open hello project in `Visual Studio Code` by typing **code .**.</span></span>
+4. <span data-ttu-id="aa821-131">Po otwarciu projektu hello w `Visual Studio Code`, kliknij na powitania **IoTEdgeConverterModule.csproj** tooopen hello pliku, jak pokazano w powitania po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-131">Once hello project is opened in `Visual Studio Code`, click on hello **IoTEdgeConverterModule.csproj** tooopen hello file as shown in hello following image:</span></span>
 
     ![Okno edycji w usłudze Visual Studio Code](media/iot-hub-iot-edge-create-module/vscode-edit-csproj.png)
 
-5. <span data-ttu-id="e6d35-133">Wstaw `XML` pokazano poniższy fragment kodu od zamknięcia obiektu blob `PropertyGroup` znacznika i zamykania `Project` tagów; wiersz sześć w poprzednim obrazu i Zapisz plik naciskając `Ctrl`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-133">Insert the `XML` blob shown in the following code snippet between the closing `PropertyGroup` tag and the closing `Project` tag; line six in the preceding image and save the file by pressing `Ctrl` + `S`.</span></span>
+5. <span data-ttu-id="aa821-133">Wstaw hello `XML` pokazano hello następującego fragmentu kodu między hello zamknięcia obiektu blob `PropertyGroup` tagu i hello zamknięcia `Project` tagów; wiersz sześć w hello poprzedzających obrazu i Zapisz plik hello naciskając `Ctrl`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="aa821-133">Insert hello `XML` blob shown in hello following code snippet between hello closing `PropertyGroup` tag and hello closing `Project` tag; line six in hello preceding image and save hello file by pressing `Ctrl` + `S`.</span></span>
 
    ```xml
      <ItemGroup>
@@ -72,29 +72,29 @@ ms.lasthandoff: 08/03/2017
      </ItemGroup> 
    ```
 
-6. <span data-ttu-id="e6d35-134">Po zapisaniu `.csproj` pliku `Visual Studio Code` powinien monit o `unresolved dependencies` okna dialogowego, jak pokazano na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-134">Once you save the `.csproj` file, `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in the following image:</span></span> 
+6. <span data-ttu-id="aa821-134">Po zapisaniu hello `.csproj` pliku `Visual Studio Code` powinien monit o `unresolved dependencies` okna dialogowego w powitania po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-134">Once you save hello `.csproj` file, `Visual Studio Code` should prompt you with an `unresolved dependencies` dialog as seen in hello following image:</span></span> 
 
     ![Okno dialogowe programu Visual Studio Code przywracania zależności](media/iot-hub-iot-edge-create-module/vscode-restore.png)
 
-    <span data-ttu-id="e6d35-136">) kliknij `Restore` Aby przywrócić wszystkie odwołania w projektach `.csproj` w tym pliku `PackageReferences` dodaliśmy.</span><span class="sxs-lookup"><span data-stu-id="e6d35-136">a) Click `Restore` to restore all of the references in the projects `.csproj` file including the `PackageReferences` we have added.</span></span> 
+    <span data-ttu-id="aa821-136">) kliknij `Restore` toorestore odwołania do wszystkich hello w projektach hello `.csproj` pliku w tym hello `PackageReferences` dodaliśmy.</span><span class="sxs-lookup"><span data-stu-id="aa821-136">a) Click `Restore` toorestore all of hello references in hello projects `.csproj` file including hello `PackageReferences` we have added.</span></span> 
 
-    <span data-ttu-id="e6d35-137">(b) `Visual Studio Code` automatycznie tworzy `project.assets.json` pliku w projektach `obj` folderu.</span><span class="sxs-lookup"><span data-stu-id="e6d35-137">b) `Visual Studio Code` automatically creates the `project.assets.json` file in your projects `obj` folder.</span></span> <span data-ttu-id="e6d35-138">Ten plik zawiera informacje o zależności projektu, aby szybciej kolejnych operacji przywracania.</span><span class="sxs-lookup"><span data-stu-id="e6d35-138">This file contains information about your project's dependencies to make subsequent restores quicker.</span></span>
+    <span data-ttu-id="aa821-137">(b) `Visual Studio Code` automatycznie tworzy hello `project.assets.json` pliku w projektach `obj` folderu.</span><span class="sxs-lookup"><span data-stu-id="aa821-137">b) `Visual Studio Code` automatically creates hello `project.assets.json` file in your projects `obj` folder.</span></span> <span data-ttu-id="aa821-138">Ten plik zawiera informacje o projektu zależności toomake kolejnych operacji przywracania szybciej.</span><span class="sxs-lookup"><span data-stu-id="aa821-138">This file contains information about your project's dependencies toomake subsequent restores quicker.</span></span>
  
     >[!NOTE]
-    <span data-ttu-id="e6d35-139">`.NET Core Tools`znajdują się teraz na podstawie programu MSBuild.</span><span class="sxs-lookup"><span data-stu-id="e6d35-139">`.NET Core Tools` are now MSBuild-based.</span></span> <span data-ttu-id="e6d35-140">Co oznacza, że `.csproj` plik projektu jest tworzony zamiast `project.json`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-140">Which means a `.csproj` project file is created instead of a `project.json`.</span></span>
+    <span data-ttu-id="aa821-139">`.NET Core Tools`znajdują się teraz na podstawie programu MSBuild.</span><span class="sxs-lookup"><span data-stu-id="aa821-139">`.NET Core Tools` are now MSBuild-based.</span></span> <span data-ttu-id="aa821-140">Co oznacza, że `.csproj` plik projektu jest tworzony zamiast `project.json`.</span><span class="sxs-lookup"><span data-stu-id="aa821-140">Which means a `.csproj` project file is created instead of a `project.json`.</span></span>
 
-    - <span data-ttu-id="e6d35-141">Jeśli `Visual Studio Code` Monituj użytkownika o jest prawidłowy, możemy go ręcznie.</span><span class="sxs-lookup"><span data-stu-id="e6d35-141">If `Visual Studio Code` does not prompt you that is ok, we can do it manually.</span></span> <span data-ttu-id="e6d35-142">Otwórz `Visual Studio Code` zintegrowane okno terminalu, naciskając klawisz `Ctrl`  +  `backtick` kluczy lub przy użyciu menu `View`  ->  `Integrated Terminal`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-142">Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal`.</span></span>
-    - <span data-ttu-id="e6d35-143">W `Integrated Terminal` typ okna **przywracania dotnet**.</span><span class="sxs-lookup"><span data-stu-id="e6d35-143">In the `Integrated Terminal` window type **dotnet restore**.</span></span>
+    - <span data-ttu-id="aa821-141">Jeśli `Visual Studio Code` Monituj użytkownika o jest prawidłowy, możemy go ręcznie.</span><span class="sxs-lookup"><span data-stu-id="aa821-141">If `Visual Studio Code` does not prompt you that is ok, we can do it manually.</span></span> <span data-ttu-id="aa821-142">Otwórz hello `Visual Studio Code` zintegrowane okno terminalu przez naciśnięcie przycisku hello `Ctrl`  +  `backtick` kluczy lub za pomocą menu hello `View`  ->  `Integrated Terminal`.</span><span class="sxs-lookup"><span data-stu-id="aa821-142">Open hello `Visual Studio Code` integrated terminal window by pressing hello `Ctrl` + `backtick` keys or using hello menus `View` -> `Integrated Terminal`.</span></span>
+    - <span data-ttu-id="aa821-143">W hello `Integrated Terminal` typ okna **przywracania dotnet**.</span><span class="sxs-lookup"><span data-stu-id="aa821-143">In hello `Integrated Terminal` window type **dotnet restore**.</span></span>
     
-7. <span data-ttu-id="e6d35-144">Zmień nazwę `Class1.cs` pliku `BleConverterModule.cs`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-144">Rename the `Class1.cs` file to `BleConverterModule.cs`.</span></span> 
+7. <span data-ttu-id="aa821-144">Zmień nazwę hello `Class1.cs` pliku zbyt`BleConverterModule.cs`.</span><span class="sxs-lookup"><span data-stu-id="aa821-144">Rename hello `Class1.cs` file too`BleConverterModule.cs`.</span></span> 
 
-    <span data-ttu-id="e6d35-145">) Aby zmienić nazwę pliku najpierw kliknąć plik, naciśnij klawisz `F2` klucza.</span><span class="sxs-lookup"><span data-stu-id="e6d35-145">a) To rename the file first click on the file then press the `F2` key.</span></span>
+    <span data-ttu-id="aa821-145">) plik hello toorename najpierw kliknij plik hello a następnie naciśnij klawisz hello `F2` klucza.</span><span class="sxs-lookup"><span data-stu-id="aa821-145">a) toorename hello file first click on hello file then press hello `F2` key.</span></span>
     
-    <span data-ttu-id="e6d35-146">(b) wpisz nazwę nowego **BleConverterModule**, jak pokazano na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-146">b) Type in the new name **BleConverterModule**, as seen in the following image:</span></span>
+    <span data-ttu-id="aa821-146">(b) wpisz nazwę nowego hello **BleConverterModule**, jak pokazano w powitania po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-146">b) Type in hello new name **BleConverterModule**, as seen in hello following image:</span></span>
 
     ![Visual Studio Code zmiana nazwy klasy](media/iot-hub-iot-edge-create-module/vscode-rename.png)
 
-8. <span data-ttu-id="e6d35-148">Zastąp istniejący kod w `BleConverterModule.cs` plik, kopiując i wklejając następujący fragment kodu do Twojej `BleConverterModule.cs` pliku.</span><span class="sxs-lookup"><span data-stu-id="e6d35-148">Replace the existing code in the `BleConverterModule.cs` file by copying and pasting the following code snippet into your `BleConverterModule.cs` file.</span></span>
+8. <span data-ttu-id="aa821-148">Zastąp istniejący kod hello w hello `BleConverterModule.cs` pliku przez kopiowanie i wklejanie hello następującego fragmentu kodu w Twojej `BleConverterModule.cs` pliku.</span><span class="sxs-lookup"><span data-stu-id="aa821-148">Replace hello existing code in hello `BleConverterModule.cs` file by copying and pasting hello following code snippet into your `BleConverterModule.cs` file.</span></span>
 
    ```csharp
    using System;
@@ -151,13 +151,13 @@ ms.lasthandoff: 08/03/2017
    }
    ```
 
-9. <span data-ttu-id="e6d35-149">Zapisz plik, naciskając klawisz `Ctrl`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-149">Save the file by pressing `Ctrl` + `S`.</span></span>
+9. <span data-ttu-id="aa821-149">Zapisz plik hello naciskając `Ctrl`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="aa821-149">Save hello file by pressing `Ctrl` + `S`.</span></span>
 
-10. <span data-ttu-id="e6d35-150">Utwórz nowy plik o nazwie `Untitled-1` naciskając `Ctrl`  +  `N` kluczy, jak pokazano na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-150">Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys as seen in the following image:</span></span>
+10. <span data-ttu-id="aa821-150">Utwórz nowy plik o nazwie `Untitled-1` przez naciśnięcie przycisku hello `Ctrl`  +  `N` kluczy w powitania po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-150">Create a new file called `Untitled-1` by pressing hello `Ctrl` + `N` keys as seen in hello following image:</span></span>
 
     ![Visual Studio Code nowy plik.](media/iot-hub-iot-edge-create-module/vscode-new-file.png)
 
-11. <span data-ttu-id="e6d35-152">Do deserializacji `JSON` obiektu otrzymane od symulowane `BLE` urządzenie, skopiuj następujący kod do `Untitled-1` okna edytora pliku kodu.</span><span class="sxs-lookup"><span data-stu-id="e6d35-152">To deserialize the `JSON` object that we receive from the simulated `BLE` device, copy the following code into the `Untitled-1` file code editor window.</span></span> 
+11. <span data-ttu-id="aa821-152">Witaj toodeserialize `JSON` obiektu otrzymane od hello symulowane `BLE` urządzenia, po kodu na powitania hello kopiowania `Untitled-1` okna edytora kodu w pliku.</span><span class="sxs-lookup"><span data-stu-id="aa821-152">toodeserialize hello `JSON` object that we receive from hello simulated `BLE` device, copy hello following code into hello `Untitled-1` file code editor window.</span></span> 
 
    ```csharp
    using System;
@@ -173,14 +173,14 @@ ms.lasthandoff: 08/03/2017
    }
    ```
 
-12. <span data-ttu-id="e6d35-153">Zapisz plik jako `BleData.cs` naciskając `Ctrl`  +  `Shift`  +  `S` kluczy.</span><span class="sxs-lookup"><span data-stu-id="e6d35-153">Save the file as `BleData.cs` by pressing `Ctrl` + `Shift` + `S` keys.</span></span>
-    - <span data-ttu-id="e6d35-154">Na Zapisz jako okno dialogowe w `Save as Type` menu rozwijanego wybierz `C# (*.cs;*.csx)` jak pokazano na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-154">On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in the following image:</span></span>
+12. <span data-ttu-id="aa821-153">Zapisz plik hello jako `BleData.cs` naciskając `Ctrl`  +  `Shift`  +  `S` kluczy.</span><span class="sxs-lookup"><span data-stu-id="aa821-153">Save hello file as `BleData.cs` by pressing `Ctrl` + `Shift` + `S` keys.</span></span>
+    - <span data-ttu-id="aa821-154">Na powitania Zapisz jako okno dialogowe, w hello `Save as Type` menu rozwijanego wybierz `C# (*.cs;*.csx)` w powitania po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-154">On hello save as dialog box, in hello `Save as Type` dropdown menu, select `C# (*.cs;*.csx)` as seen in hello following image:</span></span>
 
     ![Visual Studio Code Zapisz jako okna dialogowego](media/iot-hub-iot-edge-create-module/vscode-save-as.png)
 
-13. <span data-ttu-id="e6d35-156">Utwórz nowy plik o nazwie `Untitled-1` naciskając `Ctrl`  +  `N` kluczy.</span><span class="sxs-lookup"><span data-stu-id="e6d35-156">Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.</span></span>
+13. <span data-ttu-id="aa821-156">Utwórz nowy plik o nazwie `Untitled-1` przez naciśnięcie przycisku hello `Ctrl`  +  `N` kluczy.</span><span class="sxs-lookup"><span data-stu-id="aa821-156">Create a new file called `Untitled-1` by pressing hello `Ctrl` + `N` keys.</span></span>
 
-14. <span data-ttu-id="e6d35-157">Skopiuj i wklej poniższy fragment kodu do `Untitled-1` pliku.</span><span class="sxs-lookup"><span data-stu-id="e6d35-157">Copy and paste the following code snippet into the `Untitled-1` file.</span></span> <span data-ttu-id="e6d35-158">Ta klasa jest `Azure IoT Edge` moduł, który używamy danych wyjściowych danych otrzymywanych z naszych `BleConverterModule`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-158">This class is a `Azure IoT Edge` module, which we use to output the data received from our `BleConverterModule`.</span></span>
+14. <span data-ttu-id="aa821-157">Skopiuj i Wklej hello następującego fragmentu kodu na powitania `Untitled-1` pliku.</span><span class="sxs-lookup"><span data-stu-id="aa821-157">Copy and paste hello following code snippet into hello `Untitled-1` file.</span></span> <span data-ttu-id="aa821-158">Ta klasa jest `Azure IoT Edge` moduł, który używamy toooutput hello danych otrzymywanych z naszych `BleConverterModule`.</span><span class="sxs-lookup"><span data-stu-id="aa821-158">This class is a `Azure IoT Edge` module, which we use toooutput hello data received from our `BleConverterModule`.</span></span>
 
    ```csharp
    using System;
@@ -233,12 +233,12 @@ ms.lasthandoff: 08/03/2017
    }
    ```
 
-15. <span data-ttu-id="e6d35-159">Zapisz plik jako `DotNetPrinterModule.cs` naciskając `Ctrl`  +  `Shift`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-159">Save the file as `DotNetPrinterModule.cs` by pressing `Ctrl` + `Shift` + `S`.</span></span>
-    - <span data-ttu-id="e6d35-160">Na Zapisz jako okno dialogowe w `Save as Type` menu rozwijanego wybierz `C# (*.cs;*.csx)`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-160">On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.</span></span>
+15. <span data-ttu-id="aa821-159">Zapisz plik hello jako `DotNetPrinterModule.cs` naciskając `Ctrl`  +  `Shift`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="aa821-159">Save hello file as `DotNetPrinterModule.cs` by pressing `Ctrl` + `Shift` + `S`.</span></span>
+    - <span data-ttu-id="aa821-160">Na powitania Zapisz jako okno dialogowe, w hello `Save as Type` menu rozwijanego wybierz `C# (*.cs;*.csx)`.</span><span class="sxs-lookup"><span data-stu-id="aa821-160">On hello save as dialog box, in hello `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.</span></span>
 
-16. <span data-ttu-id="e6d35-161">Utwórz nowy plik o nazwie `Untitled-1` naciskając `Ctrl`  +  `N` kluczy.</span><span class="sxs-lookup"><span data-stu-id="e6d35-161">Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.</span></span>
+16. <span data-ttu-id="aa821-161">Utwórz nowy plik o nazwie `Untitled-1` przez naciśnięcie przycisku hello `Ctrl`  +  `N` kluczy.</span><span class="sxs-lookup"><span data-stu-id="aa821-161">Create a new file called `Untitled-1` by pressing hello `Ctrl` + `N` keys.</span></span>
 
-17. <span data-ttu-id="e6d35-162">Do deserializacji `JSON` obiektu otrzymane od `BleConverterModule`, Kopiuj i wklej poniższy kod fragment do `Untitled-1` pliku.</span><span class="sxs-lookup"><span data-stu-id="e6d35-162">To deserialize the `JSON` object that we receive from the `BleConverterModule`, Copy and paste the following code snippet into the `Untitled-1` file.</span></span> 
+17. <span data-ttu-id="aa821-162">Witaj toodeserialize `JSON` obiektu otrzymane od hello `BleConverterModule`, kopiowania i wklejania hello następujące fragment kodu do hello `Untitled-1` pliku.</span><span class="sxs-lookup"><span data-stu-id="aa821-162">toodeserialize hello `JSON` object that we receive from hello `BleConverterModule`, Copy and paste hello following code snippet into hello `Untitled-1` file.</span></span> 
 
    ```csharp
    using System;
@@ -260,12 +260,12 @@ ms.lasthandoff: 08/03/2017
    }
    ```
 
-18. <span data-ttu-id="e6d35-163">Zapisz plik jako `BleConverterData.cs` naciskając `Ctrl`  +  `Shift`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-163">Save the file as `BleConverterData.cs` by pressing `Ctrl` + `Shift` + `S`.</span></span>
-    - <span data-ttu-id="e6d35-164">Na Zapisz jako okno dialogowe w `Save as Type` menu rozwijanego wybierz `C# (*.cs;*.csx)`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-164">On the save as dialog box, in the `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.</span></span>
+18. <span data-ttu-id="aa821-163">Zapisz plik hello jako `BleConverterData.cs` naciskając `Ctrl`  +  `Shift`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="aa821-163">Save hello file as `BleConverterData.cs` by pressing `Ctrl` + `Shift` + `S`.</span></span>
+    - <span data-ttu-id="aa821-164">Na powitania Zapisz jako okno dialogowe, w hello `Save as Type` menu rozwijanego wybierz `C# (*.cs;*.csx)`.</span><span class="sxs-lookup"><span data-stu-id="aa821-164">On hello save as dialog box, in hello `Save as Type` dropdown menu, select `C# (*.cs;*.csx)`.</span></span>
 
-19. <span data-ttu-id="e6d35-165">Utwórz nowy plik o nazwie `Untitled-1` naciskając `Ctrl`  +  `N` kluczy.</span><span class="sxs-lookup"><span data-stu-id="e6d35-165">Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.</span></span>
+19. <span data-ttu-id="aa821-165">Utwórz nowy plik o nazwie `Untitled-1` przez naciśnięcie przycisku hello `Ctrl`  +  `N` kluczy.</span><span class="sxs-lookup"><span data-stu-id="aa821-165">Create a new file called `Untitled-1` by pressing hello `Ctrl` + `N` keys.</span></span>
 
-20. <span data-ttu-id="e6d35-166">Skopiuj i wklej poniższy fragment kodu do `Untitled-1` pliku.</span><span class="sxs-lookup"><span data-stu-id="e6d35-166">Copy and paste the following code snippet into the `Untitled-1` file.</span></span>
+20. <span data-ttu-id="aa821-166">Skopiuj i Wklej hello następującego fragmentu kodu na powitania `Untitled-1` pliku.</span><span class="sxs-lookup"><span data-stu-id="aa821-166">Copy and paste hello following code snippet into hello `Untitled-1` file.</span></span>
 
    ```json
    {
@@ -328,10 +328,10 @@ ms.lasthandoff: 08/03/2017
    }
    ```
 
-21. <span data-ttu-id="e6d35-167">Zapisz plik jako `gw-config.json` naciskając `Ctrl`  +  `Shift`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-167">Save the file as `gw-config.json` by pressing `Ctrl` + `Shift` + `S`.</span></span>
-    - <span data-ttu-id="e6d35-168">Na Zapisz jako okno dialogowe w `Save as Type` menu rozwijanego wybierz `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-168">On the save as dialog box, in the `Save as Type` dropdown menu, select `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.</span></span>
+21. <span data-ttu-id="aa821-167">Zapisz plik hello jako `gw-config.json` naciskając `Ctrl`  +  `Shift`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="aa821-167">Save hello file as `gw-config.json` by pressing `Ctrl` + `Shift` + `S`.</span></span>
+    - <span data-ttu-id="aa821-168">Na powitania Zapisz jako okno dialogowe, w hello `Save as Type` menu rozwijanego wybierz `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.</span><span class="sxs-lookup"><span data-stu-id="aa821-168">On hello save as dialog box, in hello `Save as Type` dropdown menu, select `JSON (*.json;*.bowerrc;*.jshintrc;*.jscsrc;*.eslintrc;*.babelrc;*webmanifest)`.</span></span>
 
-22. <span data-ttu-id="e6d35-169">Aby umożliwić kopiowanie pliku konfiguracji do katalogu wyjściowego, należy zaktualizować `IoTEdgeConverterModule.csproj` przy użyciu następującego obiektu blob XML:</span><span class="sxs-lookup"><span data-stu-id="e6d35-169">To enable copying of the configuration file to the output directory, update the `IoTEdgeConverterModule.csproj` with the following XML blob:</span></span>
+22. <span data-ttu-id="aa821-169">Kopiowanie tooenable toohello pliku konfiguracji hello output katalogu, hello aktualizacji `IoTEdgeConverterModule.csproj` z hello następującego obiektu blob XML:</span><span class="sxs-lookup"><span data-stu-id="aa821-169">tooenable copying of hello configuration file toohello output directory, update hello `IoTEdgeConverterModule.csproj` with hello following XML blob:</span></span>
 
    ```xml
      <ItemGroup>
@@ -339,13 +339,13 @@ ms.lasthandoff: 08/03/2017
      </ItemGroup>
    ```
     
-   - <span data-ttu-id="e6d35-170">Zaktualizowany interfejs `IoTEdgeConverterModule.csproj` powinno wyglądać podobnie do poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-170">The updated `IoTEdgeConverterModule.csproj` should look like the following image:</span></span>
+   - <span data-ttu-id="aa821-170">Zaktualizowano Hello `IoTEdgeConverterModule.csproj` powinien wyglądać podobnie jak hello po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-170">hello updated `IoTEdgeConverterModule.csproj` should look like hello following image:</span></span>
 
     ![Visual Studio Code zaktualizować pliku .csproj](media/iot-hub-iot-edge-create-module/vscode-update-csproj.png)
 
-23. <span data-ttu-id="e6d35-172">Utwórz nowy plik o nazwie `Untitled-1` naciskając `Ctrl`  +  `N` kluczy.</span><span class="sxs-lookup"><span data-stu-id="e6d35-172">Create a new file called `Untitled-1` by pressing the `Ctrl` + `N` keys.</span></span>
+23. <span data-ttu-id="aa821-172">Utwórz nowy plik o nazwie `Untitled-1` przez naciśnięcie przycisku hello `Ctrl`  +  `N` kluczy.</span><span class="sxs-lookup"><span data-stu-id="aa821-172">Create a new file called `Untitled-1` by pressing hello `Ctrl` + `N` keys.</span></span>
 
-24. <span data-ttu-id="e6d35-173">Skopiuj i wklej poniższy fragment kodu do `Untitled-1` pliku.</span><span class="sxs-lookup"><span data-stu-id="e6d35-173">Copy and paste the following code snippet into the `Untitled-1` file.</span></span>
+24. <span data-ttu-id="aa821-173">Skopiuj i Wklej hello następującego fragmentu kodu na powitania `Untitled-1` pliku.</span><span class="sxs-lookup"><span data-stu-id="aa821-173">Copy and paste hello following code snippet into hello `Untitled-1` file.</span></span>
 
    ```powershell
    Copy-Item -Path $env:userprofile\.nuget\packages\microsoft.azure.devices.gateway.native.windows.x64\1.1.3\runtimes\win-x64\native\* -Destination .\bin\Debug\netstandard1.3
@@ -357,32 +357,32 @@ ms.lasthandoff: 08/03/2017
    Copy-Item -Path $env:userprofile\.nuget\packages\system.collections.specialized\4.3.0\lib\netstandard1.3\* -Destination .\bin\Debug\netstandard1.3
    ```
 
-25. <span data-ttu-id="e6d35-174">Zapisz plik jako `binplace.ps1` naciskając `Ctrl`  +  `Shift`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-174">Save the file as `binplace.ps1` by pressing `Ctrl` + `Shift` + `S`.</span></span>
-    - <span data-ttu-id="e6d35-175">Na Zapisz jako okno dialogowe w `Save as Type` menu rozwijanego wybierz `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.</span><span class="sxs-lookup"><span data-stu-id="e6d35-175">On the save as dialog box, in the `Save as Type` dropdown menu, select `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.</span></span>
+25. <span data-ttu-id="aa821-174">Zapisz plik hello jako `binplace.ps1` naciskając `Ctrl`  +  `Shift`  +  `S`.</span><span class="sxs-lookup"><span data-stu-id="aa821-174">Save hello file as `binplace.ps1` by pressing `Ctrl` + `Shift` + `S`.</span></span>
+    - <span data-ttu-id="aa821-175">Na powitania Zapisz jako okno dialogowe, w hello `Save as Type` menu rozwijanego wybierz `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.</span><span class="sxs-lookup"><span data-stu-id="aa821-175">On hello save as dialog box, in hello `Save as Type` dropdown menu, select `PowerShell (*.ps1;*.psm1;*.psd1;*.pssc;*.psrc)`.</span></span>
 
-26. <span data-ttu-id="e6d35-176">Tworzenie projektu przez naciśnięcie przycisku `Ctrl`  +  `Shift`  +  `B` kluczy.</span><span class="sxs-lookup"><span data-stu-id="e6d35-176">Build the project by pressing the `Ctrl` + `Shift` + `B` keys.</span></span> <span data-ttu-id="e6d35-177">Podczas kompilowania projektu po raz pierwszy, `Visual Studio Code` monituje o `No build task defined.` okna dialogowego, jak pokazano na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-177">When you build the project for the first time, `Visual Studio Code` prompts you with the `No build task defined.` dialog as seen in the following image:</span></span>
+26. <span data-ttu-id="aa821-176">Tworzenie hello projektu przez naciśnięcie przycisku hello `Ctrl`  +  `Shift`  +  `B` kluczy.</span><span class="sxs-lookup"><span data-stu-id="aa821-176">Build hello project by pressing hello `Ctrl` + `Shift` + `B` keys.</span></span> <span data-ttu-id="aa821-177">Podczas kompilowania projektu hello na powitania po raz pierwszy, `Visual Studio Code` monit hello `No build task defined.` okna dialogowego w powitania po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-177">When you build hello project for hello first time, `Visual Studio Code` prompts you with hello `No build task defined.` dialog as seen in hello following image:</span></span>
 
     ![Zadanie kompilacji programu Visual Studio Code okna dialogowego](media/iot-hub-iot-edge-create-module/vscode-build-task.png)
 
-    <span data-ttu-id="e6d35-179">) kliknij `Configure Build Task` przycisku.</span><span class="sxs-lookup"><span data-stu-id="e6d35-179">a) Click the `Configure Build Task` button.</span></span>
+    <span data-ttu-id="aa821-179">) kliknij hello `Configure Build Task` przycisku.</span><span class="sxs-lookup"><span data-stu-id="aa821-179">a) Click hello `Configure Build Task` button.</span></span>
 
-    <span data-ttu-id="e6d35-180">(b) w `Select a Task Runner` menu rozwijanego okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="e6d35-180">b) In the `Select a Task Runner` dialog dropdown menu.</span></span> <span data-ttu-id="e6d35-181">Wybierz `.NET Core` jak pokazano na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-181">Select `.NET Core` as seen in the following image:</span></span> 
+    <span data-ttu-id="aa821-180">(b) w hello `Select a Task Runner` menu rozwijanego okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="aa821-180">b) In hello `Select a Task Runner` dialog dropdown menu.</span></span> <span data-ttu-id="aa821-181">Wybierz `.NET Core` w powitania po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-181">Select `.NET Core` as seen in hello following image:</span></span> 
 
     ![Visual Studio Code wybierz Okno zadań](media/iot-hub-iot-edge-create-module/vscode-build-task-runner.png)
 
-    <span data-ttu-id="e6d35-183">Kliknięcie przycisku c) `.NET Core` tworzy element `tasks.json` plików w sieci `.vscode` katalogu i otwarcie pliku w `code editor` okna.</span><span class="sxs-lookup"><span data-stu-id="e6d35-183">c) Clicking the `.NET Core` item creates the `tasks.json` file in your `.vscode` directory and opens the file in the `code editor` window.</span></span> <span data-ttu-id="e6d35-184">Nie istnieje potrzeba do modyfikowania tego pliku, zamknij karcie.</span><span class="sxs-lookup"><span data-stu-id="e6d35-184">There is no need to modify this file, close the tab.</span></span>
+    <span data-ttu-id="aa821-183">hello c) kliknięcie przycisku `.NET Core` elementu tworzy hello `tasks.json` plików w sieci `.vscode` katalogu i otwiera plik w hello hello `code editor` okna.</span><span class="sxs-lookup"><span data-stu-id="aa821-183">c) Clicking hello `.NET Core` item creates hello `tasks.json` file in your `.vscode` directory and opens hello file in hello `code editor` window.</span></span> <span data-ttu-id="aa821-184">Nie jest toomodify nie konieczności ten plik, zamknij hello kartę.</span><span class="sxs-lookup"><span data-stu-id="aa821-184">There is no need toomodify this file, close hello tab.</span></span>
 
-27.  <span data-ttu-id="e6d35-185">Otwórz `Visual Studio Code` zintegrowane okno terminalu, naciskając klawisz `Ctrl`  +  `backtick` kluczy lub przy użyciu menu `View`  ->  `Integrated Terminal` i typ **.\binplace.ps1** do `PowerShell` wiersza polecenia.</span><span class="sxs-lookup"><span data-stu-id="e6d35-185">Open the `Visual Studio Code` integrated terminal window by pressing the `Ctrl` + `backtick` keys or using the menus `View` -> `Integrated Terminal` and type **.\binplace.ps1** into the `PowerShell` command prompt.</span></span> <span data-ttu-id="e6d35-186">To polecenie powoduje skopiowanie wszystkich naszych zależności do katalogu wyjściowego.</span><span class="sxs-lookup"><span data-stu-id="e6d35-186">This command copies all our dependencies to the output directory.</span></span>
+27.  <span data-ttu-id="aa821-185">Otwórz hello `Visual Studio Code` zintegrowane okno terminalu przez naciśnięcie przycisku hello `Ctrl`  +  `backtick` kluczy lub za pomocą menu hello `View`  ->  `Integrated Terminal` i typ **.\binplace.ps1**do hello `PowerShell` wiersza polecenia.</span><span class="sxs-lookup"><span data-stu-id="aa821-185">Open hello `Visual Studio Code` integrated terminal window by pressing hello `Ctrl` + `backtick` keys or using hello menus `View` -> `Integrated Terminal` and type **.\binplace.ps1** into hello `PowerShell` command prompt.</span></span> <span data-ttu-id="aa821-186">To polecenie powoduje skopiowanie wszystkich naszych zależności toohello katalogu wyjściowego.</span><span class="sxs-lookup"><span data-stu-id="aa821-186">This command copies all our dependencies toohello output directory.</span></span>
 
-28. <span data-ttu-id="e6d35-187">Przejdź do katalogu wyjściowego projekty w `Integrated Terminal` okna, wpisując **cd.\bin\Debug\netstandard1.3**.</span><span class="sxs-lookup"><span data-stu-id="e6d35-187">Navigate to the projects output directory in the `Integrated Terminal` window by typing **cd .\bin\Debug\netstandard1.3**.</span></span>
+28. <span data-ttu-id="aa821-187">Przejdź do katalogu wyjściowego projektów toohello w hello `Integrated Terminal` okna, wpisując **cd.\bin\Debug\netstandard1.3**.</span><span class="sxs-lookup"><span data-stu-id="aa821-187">Navigate toohello projects output directory in hello `Integrated Terminal` window by typing **cd .\bin\Debug\netstandard1.3**.</span></span>
 
-29. <span data-ttu-id="e6d35-188">Uruchom przykładowy projekt, wpisując **. \gw.exe gw — config.json** do `Integrated Terminal` okno.</span><span class="sxs-lookup"><span data-stu-id="e6d35-188">Run the sample project by typing **.\gw.exe gw-config.json** into the `Integrated Terminal` window prompt.</span></span> 
-    - <span data-ttu-id="e6d35-189">Jeśli zostały wykonane kroki ściśle w tym samouczku, teraz powinny być uruchomiono `Azure IoT Edge BLE Data Converter Module` przykładowy projekt, jak pokazano na poniższej ilustracji:</span><span class="sxs-lookup"><span data-stu-id="e6d35-189">If you have followed the steps in this tutorial closely, you should now be running the `Azure IoT Edge BLE Data Converter Module` sample project as seen in the following image:</span></span>
+29. <span data-ttu-id="aa821-188">Uruchom hello przykładowy projekt, wpisując **. \gw.exe gw — config.json** do hello `Integrated Terminal` okno.</span><span class="sxs-lookup"><span data-stu-id="aa821-188">Run hello sample project by typing **.\gw.exe gw-config.json** into hello `Integrated Terminal` window prompt.</span></span> 
+    - <span data-ttu-id="aa821-189">Jeśli zostały wykonane kroki hello ściśle w tym samouczku, użytkownik powinien teraz korzystać z hello `Azure IoT Edge BLE Data Converter Module` przykładowy projekt w powitania po obrazu:</span><span class="sxs-lookup"><span data-stu-id="aa821-189">If you have followed hello steps in this tutorial closely, you should now be running hello `Azure IoT Edge BLE Data Converter Module` sample project as seen in hello following image:</span></span>
     
         ![Przykład symulowane urządzenie działa w programie Visual Studio Code](media/iot-hub-iot-edge-create-module/vscode-run.png)
     
-    - <span data-ttu-id="e6d35-191">Jeśli chcesz zakończyć tę aplikację, naciśnij klawisz `<Enter>` klucza.</span><span class="sxs-lookup"><span data-stu-id="e6d35-191">If you want to terminate the application, press the `<Enter>` key.</span></span>
+    - <span data-ttu-id="aa821-191">Jeśli chcesz, aby aplikacja hello tooterminate, naciśnij klawisz hello `<Enter>` klucza.</span><span class="sxs-lookup"><span data-stu-id="aa821-191">If you want tooterminate hello application, press hello `<Enter>` key.</span></span>
 
 >[!IMPORTANT]
-<span data-ttu-id="e6d35-192">Nie zaleca się używania `Ctrl`  +  `C` zakończenie `IoT Edge` bramy aplikacji (czyli **gw.exe**).</span><span class="sxs-lookup"><span data-stu-id="e6d35-192">It is not recommended to use `Ctrl` + `C` to terminate the `IoT Edge` gateway application (that is, **gw.exe**).</span></span> <span data-ttu-id="e6d35-193">Ponieważ ta akcja może spowodować przerwanie wyjątkowo procesu.</span><span class="sxs-lookup"><span data-stu-id="e6d35-193">As this action may cause the process to terminate abnormally.</span></span>
+<span data-ttu-id="aa821-192">Nie zaleca się toouse `Ctrl`  +  `C` tooterminate hello `IoT Edge` bramy aplikacji (czyli **gw.exe**).</span><span class="sxs-lookup"><span data-stu-id="aa821-192">It is not recommended toouse `Ctrl` + `C` tooterminate hello `IoT Edge` gateway application (that is, **gw.exe**).</span></span> <span data-ttu-id="aa821-193">Ponieważ ta akcja może spowodować tooterminate procesu hello nieprawidłowo.</span><span class="sxs-lookup"><span data-stu-id="aa821-193">As this action may cause hello process tooterminate abnormally.</span></span>
 
