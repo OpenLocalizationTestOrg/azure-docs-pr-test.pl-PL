@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie systemem Windows klastrów platformy Hadoop w usłudze HDInsight przy użyciu portalu Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak do administrowania usługą usługi HDInsight. Tworzenie klastra usługi HDInsight, otwórz interakcyjne konsoli języka JavaScript, a konsoli poleceń usługi Hadoop."
+title: "aaaManage opartych na systemie Windows klastrów platformy Hadoop w usłudze HDInsight przy użyciu hello portalu Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak tooadminister usługi HDInsight. Tworzenie klastra HDInsight, otwórz hello interakcyjne konsoli języka JavaScript i otwórz hello Hadoop polecenia konsoli."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,89 +16,89 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: f69fa4f838b22ccbb25186c08cac9744bb31c6d1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: a237726b0e37a08005ce22e96581739e93edb050
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Zarządzanie systemem Windows klastrów platformy Hadoop w usłudze HDInsight przy użyciu portalu Azure
+# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-hello-azure-portal"></a>Zarządzanie oparte na systemie Windows klastrów platformy Hadoop w usłudze HDInsight przy użyciu hello portalu Azure
 
-Przy użyciu [portalu Azure][azure-portal], można utworzyć klastry z systemem Windows Hadoop w usłudze Azure HDInsight, Zmień hasło użytkownika Hadoop i dostępu do polecenia Hadoop, Włącz protokół RDP (Remote Desktop) Konsola w klastrze.
+Przy użyciu hello [portalu Azure][azure-portal], można utworzyć klastry z systemem Windows Hadoop w usłudze Azure HDInsight, Zmień hasło użytkownika Hadoop i Włącz protokół RDP (Remote Desktop) umożliwi dostęp hello Hadoop konsoli poleceń w klastrze hello.
 
-Informacje przedstawione w tym artykule dotyczą tylko klastrów usługi HDInsight opartych na okna. Aby uzyskać informacje na temat zarządzania opartych na systemie Linux klastrów, zobacz [klastrów zarządzania Hadoop w usłudze HDInsight przy użyciu portalu Azure](hdinsight-administer-use-portal-linux.md).
+Witaj informacje w tym artykule ma zastosowanie tylko na podstawie tooWindow klastrów usługi HDInsight. Aby uzyskać informacje na temat zarządzania opartych na systemie Linux klastrów, zobacz [klastrów zarządzania Hadoop w usłudze HDInsight przy użyciu hello portalu Azure](hdinsight-administer-use-portal-linux.md).
 
 > [!IMPORTANT]
-> Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
+> Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows).
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem korzystania z informacji zawartych w tym artykule należy dysponować następującymi elementami:
+Przed rozpoczęciem tego artykułu, musi mieć następujące hello:
 
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Konto usługi Azure Storage** -klastra usługi HDInsight używa kontenera magazynu obiektów Blob platformy Azure jako domyślny system plików. Aby uzyskać więcej informacji o sposobie magazynu obiektów Blob Azure zapewnia bezproblemową obsługę z klastrami usługi HDInsight, zobacz [Użyj magazynu obiektów Blob Azure z usługą HDInsight](hdinsight-hadoop-use-blob-storage.md). Aby uzyskać więcej informacji na temat tworzenia konta usługi Azure Storage, zobacz [jak utworzyć konto magazynu](../storage/common/storage-create-storage-account.md).
+* **Konto usługi Azure Storage** -klastra usługi HDInsight używa kontenera magazynu obiektów Blob platformy Azure jako hello domyślnego systemu plików. Aby uzyskać więcej informacji o sposobie magazynu obiektów Blob Azure zapewnia bezproblemową obsługę z klastrami usługi HDInsight, zobacz [Użyj magazynu obiektów Blob Azure z usługą HDInsight](hdinsight-hadoop-use-blob-storage.md). Aby uzyskać więcej informacji na temat tworzenia konta usługi Azure Storage, zobacz [jak tooCreate konta magazynu](../storage/common/storage-create-storage-account.md).
 
-## <a name="open-the-portal"></a>Otwórz Portal
-1. Zaloguj się do [https://portal.azure.com](https://portal.azure.com).
-2. Po otwarciu portalu, możesz:
+## <a name="open-hello-portal"></a>Otwórz Portal hello
+1. Zaloguj się za[https://portal.azure.com](https://portal.azure.com).
+2. Po otwarciu portalu hello można:
 
-   * Kliknij przycisk **nowy** z menu po lewej stronie do utworzenia nowego klastra:
+   * Kliknij przycisk **nowy** z toocreate menu po lewej stronie powitania nowego klastra:
 
        ![przycisk Nowy klaster usługi HDInsight](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
-   * Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie.
+   * Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie powitania.
 
        ![Przycisk klastra usługi HDInsight portalu Azure](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
 
-     Jeśli **HDInsight** nie są wyświetlane w menu po lewej stronie kliknij pozycję **Przeglądaj**.
+     Jeśli **HDInsight** nie są wyświetlane w menu po lewej stronie powitania kliknij pozycję **Przeglądaj**.
 
      ![Przycisk klastra przeglądania portalu Azure](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
 ## <a name="create-clusters"></a>Tworzenie klastrów
-Aby uzyskać instrukcje tworzenia przy użyciu portalu, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Instrukcje tworzenia hello przy użyciu hello portalu można znaleźć [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-HDInsight działa ze składnikami szeroki zakres Hadoop. Lista składników, które zostały zweryfikowane i obsługiwane, zobacz [jest wersję platformy Hadoop w usłudze Azure HDInsight](hdinsight-component-versioning.md). HDInsight można dostosować za pomocą jednej z następujących opcji:
+HDInsight działa ze składnikami szeroki zakres Hadoop. Lista hello hello składników, które zostały zweryfikowane i obsługiwane, [jest wersję platformy Hadoop w usłudze Azure HDInsight](hdinsight-component-versioning.md). HDInsight można dostosować za pomocą jednego z hello następujące opcje:
 
-* Za pomocą akcji skryptu umożliwiają uruchamianie niestandardowych skryptów, które można dostosować klastra, aby zainstalować składniki niestandardowe, takie jak Giraph lub Solr albo zmień konfigurację klastra. Aby uzyskać więcej informacji, zobacz [dostosować klastra usługi HDInsight przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster.md).
-* Użyj parametrów dostosowania klastra w programu Azure PowerShell lub zestawu .NET SDK usługi HDInsight podczas tworzenia klastra. Te zmiany w konfiguracji są następnie zachowywane przez okres istnienia klastra i nie dotyczy reimages węzła klastra, które platformy Azure okresowo przesyła konserwacji. Aby uzyskać więcej informacji na temat używania parametrów dostosowania klastra, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Niektóre składniki natywnego języka Java, takich jak Mahout i usuwania kaskadowego, można uruchomić w klastrze jako pliki JAR. Te pliki JAR można dystrybuować do magazynu obiektów Blob platformy Azure i przesłać do klastrów usługi HDInsight za pomocą mechanizmów przesyłanie zadań Hadoop. Aby uzyskać więcej informacji, zobacz [Hadoop przesyłania zadania programowo](hdinsight-submit-hadoop-jobs-programmatically.md).
+* Użyj akcji skryptu toorun niestandardowe skrypty, które można dostosować tooeither klastra zmianę konfiguracji klastra lub zainstalować składniki niestandardowe, takie jak Giraph lub Solr. Aby uzyskać więcej informacji, zobacz [dostosować klastra usługi HDInsight przy użyciu akcji skryptu](hdinsight-hadoop-customize-cluster.md).
+* Parametry hello klastra dostosowania hello zestawu .NET SDK usługi HDInsight lub programu PowerShell systemu Azure podczas tworzenia klastra. Te zmiany w konfiguracji są następnie zachowywane przez okres istnienia hello hello klastra i nie dotyczy reimages węzła klastra, które platformy Azure okresowo przesyła konserwacji. Aby uzyskać więcej informacji na temat używania parametrów dostosowania klastra hello, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Niektóre składniki natywnego języka Java, takich jak Mahout i usuwania kaskadowego, można uruchomić w klastrze hello jako pliki JAR. Te pliki JAR mogą być rozproszone tooAzure magazynu obiektów Blob i przesłać tooHDInsight klastrów za pomocą mechanizmów przesyłanie zadań Hadoop. Aby uzyskać więcej informacji, zobacz [Hadoop przesyłania zadania programowo](hdinsight-submit-hadoop-jobs-programmatically.md).
 
   > [!NOTE]
-  > Jeśli masz problemy z wdrożeniem pliki JAR do klastrów usługi HDInsight lub wywoływania pliki JAR w klastrach HDInsight, skontaktuj się z [Microsoft Support](https://azure.microsoft.com/support/options/).
+  > Jeśli masz problemy z wdrażanie klastrów tooHDInsight pliki JAR lub wywoływania pliki JAR w klastrach HDInsight, skontaktuj się z [Microsoft Support](https://azure.microsoft.com/support/options/).
   >
-  > Kaskadowe nie jest obsługiwany przez usługi HDInsight, a nie jest uprawniony do firmy Microsoft Support. Aby uzyskać listę obsługiwanych składników, zobacz [nowości w wersjach klastra dostarczanych z usługą HDInsight](hdinsight-component-versioning.md).
+  > Kaskadowe nie jest obsługiwany przez usługi HDInsight, a nie jest uprawniony do firmy Microsoft Support. Aby uzyskać listę obsługiwanych składników, zobacz [nowości w wersjach klastra hello dostarczanych z usługą HDInsight](hdinsight-component-versioning.md).
   >
   >
 
-Instalacja oprogramowania niestandardowych w klastrze za pomocą usługi Podłączanie pulpitu zdalnego nie jest obsługiwana. Należy unikać przechowywania plików na dyskach węzła głównego, jak będą utracone, jeśli potrzebujesz ponownie utworzyć klastry. Zalecane jest przechowywanie plików w magazynie obiektów Blob platformy Azure. Magazyn obiektów blob jest trwały.
+Instalacja oprogramowania niestandardowe na powitania klastra przy użyciu usługi Podłączanie pulpitu zdalnego nie jest obsługiwana. Należy unikać przechowywania plików na dyskach hello hello węzła głównego, jak będą utracone, jeśli potrzebujesz toore — Tworzenie klastrów hello. Zalecane jest przechowywanie plików w magazynie obiektów Blob platformy Azure. Magazyn obiektów blob jest trwały.
 
 ## <a name="list-and-show-clusters"></a>Lista i Pokaż klastrów
-1. Zaloguj się do [https://portal.azure.com](https://portal.azure.com).
-2. Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie.
-3. Kliknij nazwę klastra. Jeśli na liście klastra jest długa, można użyć filtrów w górnej części strony.
-4. Kliknij dwukrotnie klastra z listy, aby wyświetlić szczegóły.
+1. Zaloguj się za[https://portal.azure.com](https://portal.azure.com).
+2. Kliknij przycisk **klastrów usługi HDInsight** z menu po lewej stronie powitania.
+3. Kliknij nazwę klastra hello. Jeśli lista klastrów hello jest długa, można użyć filtru u góry hello hello strony.
+4. Kliknij dwukrotnie klastra z hello listy tooshow hello szczegóły.
 
     **Menu i essentials**:
 
     ![Essentials klastra usługi HDInsight portalu Azure](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 
-   * Aby dostosować menu, kliknij prawym przyciskiem myszy w dowolnym miejscu w menu, a następnie kliknij przycisk **Dostosuj**.
-   * **Ustawienia** i **wszystkie ustawienia**: Wyświetla **ustawienia** bloku dla klastra, co pozwala na dostęp do szczegółowych informacji dla klastra.
-   * **Pulpit nawigacyjny**, **pulpit nawigacyjny klastra** i **adresu URL: są to wszystkie sposoby dostęp do pulpitu nawigacyjnego klastra, który jest sieci Ambari Web w klastrach opartych na systemie Linux. -**Bezpiecznej powłoki **: Zawiera instrukcje, aby nawiązać połączenie z klastrem przy użyciu połączenia protokołu Secure Shell (SSH).
-   * **Skalowanie klastra**: umożliwia zmianę liczby węzłów procesu roboczego dla tego klastra.
-   * **Usuń**: usuwa klastra.
+   * toocustomize hello menu, kliknij prawym przyciskiem myszy na powitania menu, a następnie kliknij **Dostosuj**.
+   * **Ustawienia** i **wszystkie ustawienia**: Wyświetla hello **ustawienia** bloku hello klastra, dzięki czemu można tooaccess szczegółowe informacje o konfiguracji dla hello klastra.
+   * **Pulpit nawigacyjny**, **pulpit nawigacyjny klastra** i **adresu URL: są to wszystkie sposoby tooaccess hello klastra pulpitu nawigacyjnego, który jest sieci Ambari Web w klastrach opartych na systemie Linux. -**Bezpiecznej powłoki **: Pokazuje hello instrukcje tooconnect toohello klastra przy użyciu połączenia protokołu Secure Shell (SSH).
+   * **Skalowanie klastra**: umożliwia toochange hello liczba węzłów procesu roboczego dla tego klastra.
+   * **Usuń**: usuwa hello klastra.
    * **Szybki Start**: Wyświetla informacje, które pomogą Ci rozpocząć korzystanie z usługi HDInsight.
-   * ** Użytkownicy: Umożliwia ustawienie uprawnień dla *portalu zarządzania* klastra dla innych użytkowników w Twojej subskrypcji platformy Azure.
+   * ** Użytkownicy: Umożliwia uprawnienia tooset *portalu zarządzania* klastra dla innych użytkowników w Twojej subskrypcji platformy Azure.
 
      > [!IMPORTANT]
-     > To *tylko* dotyczy dostępu i uprawnienia do tego klastra w portalu Azure i nie ma wpływu na kto może nawiązać połączenia lub przesyłanie zadań do klastra usługi HDInsight.
+     > To *tylko* dotyczy klastra toothis dostępu i innych uprawnień w hello portalu Azure i nie ma wpływu na łączących z klastrem usługi HDInsight toohello tooor przesyłania zadania.
      >
      >
-   * **Tagi**: tagi umożliwiają skonfigurowanie pary klucz wartość do definiowania niestandardowych taksonomii usług w chmurze. Na przykład może utworzyć klucz o nazwie **projektu**, a następnie użyć wspólną wartość wszystkie usługi powiązane z określonego projektu.
-   * **Widoki Ambari**: linki sieci Web Ambari.
+   * **Tagi**: tagi Zezwalaj możesz tooset klucza i wartości pary toodefine niestandardowych taksonomii usług w chmurze. Na przykład może utworzyć klucz o nazwie **projektu**, a następnie użyć wspólną wartość wszystkie usługi powiązane z określonego projektu.
+   * **Widoki Ambari**: łączy tooAmbari sieci Web.
 
      > [!IMPORTANT]
-     > Aby zarządzać usług świadczonych przez klaster usługi HDInsight, należy użyć narzędzia Ambari Web lub interfejsu Ambari API REST. Aby uzyskać więcej informacji na temat używania narzędzia Ambari, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md).
+     > toomanage hello usługi świadczone przez hello klastra usługi HDInsight, należy użyć narzędzia Ambari Web lub hello interfejsu API REST Ambari. Aby uzyskać więcej informacji na temat używania narzędzia Ambari, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md).
      >
      >
 
@@ -109,13 +109,13 @@ Instalacja oprogramowania niestandardowych w klastrze za pomocą usługi Podłą
 
     ![Obciążenie klastra usługi HDInsight portalu Azure](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
-   * **Właściwości**: wyświetlanie właściwości klastra.
+   * **Właściwości**: Wyświetl hello właściwości klastra.
    * **Tożsamość usługi AAD klastra**:
-   * **Klucze magazynu Azure**: wyświetlić domyślne konto magazynu i klucza. Konto magazynu jest konfiguracji podczas procesu tworzenia klastra.
-   * **Klaster logowania**: Zmień klastra HTTP, nazwa użytkownika i hasło.
-   * **Zewnętrzne magazyny**: Wyświetl magazyny Hive i Oozie. Magazyny można skonfigurować tylko w trakcie procesu tworzenia klastra.
-   * **Skalowanie klastra**: Zwiększ i zmniejsza liczbę węzłów procesu roboczego w klastrze.
-   * **Pulpit zdalny**: Włącz i Wyłącz dostęp do usług pulpitu zdalnego (RDP) i skonfiguruj RDP username.  Nazwa użytkownika pulpitu zdalnego musi być inna niż nazwa użytkownika HTTP.
+   * **Klucze magazynu Azure**: Wyświetl hello domyślne konto magazynu i klucza. Konto magazynu Hello jest konfiguracji podczas procesu tworzenia klastra hello.
+   * **Klaster logowania**: Zmień nazwę użytkownika klastra HTTP hello i hasło.
+   * **Zewnętrzne magazyny**: Wyświetl hello Hive i Oozie magazyny. Magazyny Hello można skonfigurować tylko podczas procesu tworzenia klastra hello.
+   * **Skalowanie klastra**: Zwiększ i zmniejszenie hello liczba węzłów procesu roboczego w klastrze.
+   * **Pulpit zdalny**: Włącz i Wyłącz dostęp do usług pulpitu zdalnego (RDP) i skonfiguruj hello RDP username.  Nazwa użytkownika pulpitu zdalnego Hello musi być inna niż nazwa użytkownika hello HTTP.
    * **Partnera partner of Record**:
 
      > [!NOTE]
@@ -124,114 +124,114 @@ Instalacja oprogramowania niestandardowych w klastrze za pomocą usługi Podłą
      >
 6. Kliknij przycisk **właściwości**:
 
-    Sekcja właściwości zawiera następujące elementy:
+    Sekcja właściwości Hello wymieniono poniżej hello:
 
    * **Nazwa hosta**: Nazwa klastra.
    * **Adres URL klastra**.
    * **Stan**: obejmują zostało przerwane, zaakceptowane, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, operacyjne, uruchomione, błąd, usuwanie, usunięty, upłynął limit czasu, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, ClusterCustomization CertRolloverQueued, ResizeQueued,
-   * **Region**: Lokalizacja platformy Azure. Aby uzyskać listę obsługiwanych lokalizacji platformy Azure, zobacz **Region** lista rozwijana na [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
+   * **Region**: Lokalizacja platformy Azure. Aby uzyskać listę obsługiwanych lokalizacji platformy Azure, zobacz hello **Region** lista rozwijana na [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Dane utworzone**.
    * **System operacyjny**: albo **Windows** lub **Linux**.
    * **Typ**: Hadoop, HBase, Storm, Spark.
    * **Wersja**. Zobacz [wersji usługi HDInsight](hdinsight-component-versioning.md)
    * **Subskrypcja**: Nazwa subskrypcji.
    * **Identyfikator subskrypcji**.
-   * **Podstawowe źródło danych**. Konto magazynu obiektów Blob platformy Azure używana jako domyślnego systemu plików usługi Hadoop.
+   * **Podstawowe źródło danych**. Witaj konta magazynu obiektów Blob platformy Azure używana jako domyślna hello systemu plików usługi Hadoop.
    * **Warstwa cenowa węzłów procesu roboczego**.
    * **Warstwę cenową węzła HEAD**.
 
 ## <a name="delete-clusters"></a>Usuwanie klastrów
-Usunięcie klastra nie spowoduje usunięcia domyślne konto magazynu lub wszystkie połączone konta magazynu. Można ponownie utworzyć klastra przy użyciu tego samego konta magazynu i tym samym magazyny.
+Usunięcie klastra nie spowoduje usunięcia hello domyślne konto magazynu lub wszystkie połączone konta magazynu. Można ponownie utworzyć klaster hello przy użyciu hello tego samego konta magazynu i hello tego samego magazyny.
 
-1. Zaloguj się do [Portal][azure-portal].
-2. Kliknij przycisk **Przeglądaj wszystko** z menu po lewej stronie kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
-3. Kliknij przycisk **usunąć** z górnego menu, a następnie postępuj zgodnie z instrukcjami.
+1. Zaloguj się toohello [Portal][azure-portal].
+2. Kliknij przycisk **Przeglądaj wszystko** w menu po lewej stronie powitania kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
+3. Kliknij przycisk **usunąć** z hello menu u góry, a następnie wykonaj instrukcje hello.
 
 Zobacz też [Wstrzymaj/zamykania klastrów](#pauseshut-down-clusters).
 
 ## <a name="scale-clusters"></a>Skalowanie klastrów
-Skalowanie funkcji klastra umożliwia zmianę liczby węzłów procesu roboczego używane przez klaster, który jest uruchomiony w usłudze Azure HDInsight bez konieczności ponownego tworzenia klastra.
+Skalowanie funkcji klastra Hello umożliwia toochange hello liczba węzłów procesu roboczego, używane przez klaster działa w usłudze Azure HDInsight bez konieczności toore — Tworzenie klastra hello.
 
 > [!NOTE]
-> Tylko klastry usługi HDInsight w wersji 3.1.3 lub nowszym są obsługiwane. Jeśli masz pewności, jaka wersja klastra, można sprawdzić na stronie właściwości.  Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
+> Tylko klastry usługi HDInsight w wersji 3.1.3 lub nowszym są obsługiwane. Jeśli masz pewności, jaka wersja hello klastra, można sprawdzić hello stronę właściwości.  Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
 >
 >
 
-Wpływ zmianę liczby węzłów danych dla każdego typu obsługiwanych przez HDInsight klastra:
+wpływ Hello Zmienianie hello liczby węzłów danych dla każdego typu obsługiwanych przez HDInsight klastra:
 
 * Usługa Hadoop
 
-    Można bezproblemowo zwiększyć liczbę węzłów procesu roboczego w klastrze platformy Hadoop, który jest uruchomiony bez wpływu na wszystkie oczekujące lub uruchomione zadania. Również można przesłać nowe zadania, gdy operacja jest w toku. Błędy w operacji skalowania bezpiecznie obsługi tak, aby zawsze pozostanie w stanie funkcjonalności klastra.
+    Można zwiększyć bezproblemowo hello liczba węzłów procesu roboczego w klastrze platformy Hadoop, który jest uruchomiony bez wpływu na wszystkie oczekujące lub uruchomione zadania. W trakcie operacji hello również można przesłać nowe zadania. Błędy w operacji skalowania bezpiecznie obsługi tak, aby hello klastra zawsze pozostanie w stanie funkcjonalności.
 
-    Podczas skalowania klastra usługi Hadoop w dół dzięki zmniejszeniu liczby węzłów danych są ponownie uruchamiane niektóre z tych usług w klastrze. Powoduje to wszystkich uruchomionych i oczekujące zadania się niepowodzeniem po zakończeniu operacji skalowania. Można jednak Prześlij ponownie zadania po zakończeniu operacji.
+    Podczas skalowania klastra usługi Hadoop w dół dzięki zmniejszeniu liczby hello węzły danych są ponownie uruchamiane niektórych usług hello hello klastra. Powoduje to wszystkich uruchomionych i oczekujących zadań toofail na zakończenie hello hello operacji skalowania. Można jednak Prześlij ponownie hello zadania po zakończeniu operacji hello.
 * HBase
 
-    Można bezproblemowo dodać lub usunąć węzły do klastra HBase jest uruchomiona. Serwery regionalne automatycznie równoważy w ciągu kilku minut od zakończenia operacji skalowania. Można jednak również ręcznie saldo serwery regionalne logowanie do headnode klastra i uruchamiając następujące polecenia z poziomu okna wiersza polecenia:
+    Można bezproblemowo dodać lub usunąć klaster HBase tooyour węzłów, jest uruchomiona. Serwery regionalne automatycznie równoważy w ciągu kilku minut od zakończenia hello operacji skalowania. Można jednak również ręcznie saldo serwerów regionalnych hello logując się do headnode hello klastra i uruchomione hello poniższych poleceń z poziomu okna wiersza polecenia:
 
         >pushd %HBASE_HOME%\bin
         >hbase shell
         >balancer
 
-    Aby uzyskać więcej informacji dotyczących korzystania z powłoki HBase Zobacz]
+    Aby uzyskać więcej informacji na temat używania powłoki HBase hello Zobacz]
 * Storm
 
-    Bezproblemowo można dodawać i usuwać dane węzły do klastra Storm, jest uruchomiona. Jednak po pomyślnym zakończeniu operacji skalowania, konieczne będzie ponowne zrównoważenie topologii.
+    Można bezproblemowo dodać lub usunąć klaster Storm tooyour węzłów danych jest uruchomiona. Jednak po pomyślnym zakończeniu hello operacji skalowania, konieczne będzie toorebalance hello topologii.
 
     Ponowne równoważenie można zrobić na dwa sposoby:
 
   * STORM interfejsu użytkownika sieci web
   * Narzędzia interfejsu wiersza polecenia (CLI)
 
-    Zapoznaj się z [dokumentację Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) więcej szczegółów.
+    Zobacz toohello [dokumentację Apache Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) więcej szczegółów.
 
-    Interfejs użytkownika sieci web Storm jest dostępna w klastrze usługi HDInsight:
+    Witaj interfejsu użytkownika sieci web platformy Storm w klastrze jest dostępny hello HDInsight:
 
     ![Zrównoważ skali storm w usłudze HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
-    Oto przykład sposobu użycia polecenia interfejsu wiersza polecenia do ponowne zrównoważenie topologii Storm:
+    Poniżej przedstawiono przykładowy sposób hello toouse interfejsu wiersza polecenia polecenie topologii Storm hello toorebalance:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
+        ## Reconfigure hello topology "mytopology" toouse 5 worker processes,
+        ## hello spout "blue-spout" toouse 3 executors, and
+        ## hello bolt "yellow-bolt" toouse 10 executors
         $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-**Aby skalować klastrów**
+**klastry tooscale**
 
-1. Zaloguj się do [Portal][azure-portal].
-2. Kliknij przycisk **Przeglądaj wszystko** z menu po lewej stronie kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
-3. Kliknij przycisk **ustawienia** z menu u góry, a następnie kliknij przycisk **klaster w skali**.
-4. Wprowadź **węzłami liczba procesów roboczych**. Limit liczby węzłów klastra jest zależny od używanej subskrypcji platformy Azure. Możesz skontaktować się z pomocy dotyczącej rozliczeń w celu zwiększenia limitu.  Informacje o kosztach zostaną one zastosowane zmiany wprowadzone do liczby węzłów.
+1. Zaloguj się toohello [Portal][azure-portal].
+2. Kliknij przycisk **Przeglądaj wszystko** w menu po lewej stronie powitania kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
+3. Kliknij przycisk **ustawienia** z hello menu u góry, a następnie kliknij przycisk **klaster w skali**.
+4. Wprowadź **węzłami liczba procesów roboczych**. limit Hello hello liczby węzłów klastra jest zależny od używanej subskrypcji platformy Azure. Możesz skontaktować się rozliczeń limit hello tooincrease pomocy technicznej.  informacje o kosztach Hello zostaną one zastosowane hello zmiany toohello liczba węzłów.
 
     ![Skala Spark Storm bazy danych HBase w usłudze HDInsight Hadoop](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>Wstrzymaj/zamykania klastrów
-Większość zadań usługi Hadoop to zadania wsadowe, które są tylko od czasu do czasu uruchomienia. Większość klastrów platformy Hadoop istnieje duże okresach czasu, który nie jest używany klaster do przetwarzania. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany.
-Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ opłaty za klaster są wielokrotnie większe niż opłaty za magazyn, ze względów ekonomicznych warto usuwać klastry, gdy nie są używane.
+Większość zadań usługi Hadoop to zadania wsadowe, które są tylko od czasu do czasu uruchomienia. Większość klastrów platformy Hadoop, istnieje duże okresów czasu hello klastra nie jest używany do przetwarzania. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, więc można bezpiecznie usunąć klaster, gdy nie jest używany.
+Opłaty za klaster usługi HDInsight są naliczane nawet wtedy, gdy nie jest używany. Ponieważ hello opłaty za klaster hello są wielokrotnie większe niż hello opłaty za magazyn, warto gospodarczego toodelete klastrów, gdy nie są używane.
 
-Istnieje wiele sposobów zostanie proces:
+Istnieje wiele sposobów można program hello proces:
 
 * Użytkownik fabryki danych Azure. Zobacz [połączoną usługą usługi HDInsight Azure](../data-factory/data-factory-compute-linked-services.md) i [transformacji i analizy przy użyciu fabryki danych Azure](../data-factory/data-factory-data-transformation-activities.md) dla usługi HDInsight na żądanie i samodzielnie zdefiniowanym połączone usługi.
 * Za pomocą programu Azure PowerShell.  Zobacz [analizowanie danych opóźnienie transmitowane](hdinsight-analyze-flight-delay-data.md).
 * Za pomocą interfejsu wiersza polecenia platformy Azure. Zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu interfejsu wiersza polecenia Azure](hdinsight-administer-use-command-line.md).
 * Używanie zestawu SDK .NET usługi HDInsight. Zobacz [Hadoop przesyłania zadań](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-Aby uzyskać informacje o cenach, zobacz [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Aby usunąć klaster z portalu, zobacz [usuwać klastry](#delete-clusters)
+Aby hello uzyskać informacje o cenach, zobacz [cennik usługi HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). toodelete klastra z hello portalu, zobacz [usuwać klastry](#delete-clusters)
 
 ## <a name="change-cluster-username"></a>Zmiana nazwy użytkownika z klastra
-Klaster usługi HDInsight mogą być dwa konta użytkownika. Utworzono konto użytkownika klastra usługi HDInsight w trakcie procesu tworzenia. Można również utworzyć konto użytkownika RDP do uzyskiwania dostępu do klastra za pomocą protokołu RDP. Zobacz [Włącz pulpit zdalny](#connect-to-hdinsight-clusters-by-using-rdp).
+Klaster usługi HDInsight mogą być dwa konta użytkownika. podczas procesu tworzenia hello jest tworzony Hello konta użytkownika klastra usługi HDInsight. Można również utworzyć konto użytkownika RDP do uzyskiwania dostępu do klastra hello za pomocą protokołu RDP. Zobacz [Włącz pulpit zdalny](#connect-to-hdinsight-clusters-by-using-rdp).
 
-**Aby zmienić nazwę użytkownika klastra usługi HDInsight i hasło**
+**Nazwa użytkownika klastra usługi HDInsight hello toochange i hasło**
 
-1. Zaloguj się do [Portal][azure-portal].
-2. Kliknij przycisk **Przeglądaj wszystko** z menu po lewej stronie kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
-3. Kliknij przycisk **ustawienia** z menu u góry, a następnie kliknij przycisk **logowania do klastra**.
-4. Jeśli **logowania do klastra** została włączona, należy kliknąć opcję **wyłączyć**, a następnie kliknij przycisk **włączyć** przed zmianą nazwy użytkownika i hasła..
-5. Zmień **nazwa logowania klastra** i/lub **hasło logowania klastra**, a następnie kliknij przycisk **zapisać**.
+1. Zaloguj się toohello [Portal][azure-portal].
+2. Kliknij przycisk **Przeglądaj wszystko** w menu po lewej stronie powitania kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
+3. Kliknij przycisk **ustawienia** z hello menu u góry, a następnie kliknij przycisk **logowania do klastra**.
+4. Jeśli **logowania do klastra** została włączona, należy kliknąć opcję **wyłączyć**, a następnie kliknij przycisk **włączyć** przed zmianą hello nazwy użytkownika i hasła..
+5. Zmiany hello **nazwa logowania klastra** i/lub hello **hasło logowania klastra**, a następnie kliknij przycisk **zapisać**.
 
     ![HDInsight zmienić http klastra użytkownika nazwy użytkownika hasło](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ## <a name="grantrevoke-access"></a>Dostęp do przydzielenia/odwołania
-Klastry HDInsight są następujące usługi sieci web HTTP (wszystkie te usługi mają RESTful punkty końcowe):
+Klastry HDInsight są powitania po HTTP usługi sieci web (wszystkie te usługi mają RESTful punkty końcowe):
 
 * ODBC
 * JDBC
@@ -239,51 +239,51 @@ Klastry HDInsight są następujące usługi sieci web HTTP (wszystkie te usługi
 * Oozie
 * Templeton
 
-Domyślnie te usługi są przyznawane dostępu. Możesz można odwołać/Udziel dostępu w portalu Azure.
+Domyślnie te usługi są przyznawane dostępu. Możesz można odwołać/Udziel dostępu hello z hello portalu Azure.
 
 > [!NOTE]
-> Przez przyznawanie/odwoływanie dostępu, spowoduje zresetowanie klastra, nazwa użytkownika i hasło.
+> Przez przyznawanie/odwoływanie dostępu hello, spowoduje zresetowanie hello klastra nazwę i hasło użytkownika.
 >
 >
 
-**Do przydzielenia/odwołania dostępu do usług sieci web HTTP**
+**dostęp do usług sieci web toogrant/revoke HTTP**
 
-1. Zaloguj się do [Portal][azure-portal].
-2. Kliknij przycisk **Przeglądaj wszystko** z menu po lewej stronie kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
-3. Kliknij przycisk **ustawienia** z menu u góry, a następnie kliknij przycisk **logowania do klastra**.
-4. Jeśli **logowania do klastra** została włączona, należy kliknąć opcję **wyłączyć**, a następnie kliknij przycisk **włączyć** przed zmianą nazwy użytkownika i hasła..
-5. Aby uzyskać **nazwa użytkownika logowania klastra** i **hasło logowania klastra**, wprowadź nową nazwę użytkownika i hasło (odpowiednio) dla klastra.
+1. Zaloguj się toohello [Portal][azure-portal].
+2. Kliknij przycisk **Przeglądaj wszystko** w menu po lewej stronie powitania kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
+3. Kliknij przycisk **ustawienia** z hello menu u góry, a następnie kliknij przycisk **logowania do klastra**.
+4. Jeśli **logowania do klastra** została włączona, należy kliknąć opcję **wyłączyć**, a następnie kliknij przycisk **włączyć** przed zmianą hello nazwy użytkownika i hasła..
+5. Dla **nazwa użytkownika logowania klastra** i **hasło logowania klastra**, wprowadź hello nową nazwę użytkownika i hasło (odpowiednio) hello klastra.
 6. Kliknij przycisk **SAVE** (Zapisz).
 
     ![HDInsight sumy Usuń dostęp do usługi sieci web http](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
-## <a name="find-the-default-storage-account"></a>Znajdź domyślne konto magazynu
-Każdy klaster usługi HDInsight ma domyślne konto magazynu. Domyślne konto magazynu i kluczy dla klastra jest wyświetlana w obszarze **ustawienia**/**właściwości**/**klucze magazynu Azure**. Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
+## <a name="find-hello-default-storage-account"></a>Znajdź hello domyślne konto magazynu
+Każdy klaster usługi HDInsight ma domyślne konto magazynu. Witaj domyślne konto magazynu i kluczy dla klastra jest wyświetlana w obszarze **ustawienia**/**właściwości**/**klucze magazynu Azure**. Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
 
-## <a name="find-the-resource-group"></a>Znajdź grupę zasobów
-W trybie Azure Resource Manager każdego klastra usługi HDInsight jest tworzony z grupy zasobów platformy Azure. Grupy zasobów platformy Azure, do której należy klaster zostanie wyświetlony w:
+## <a name="find-hello-resource-group"></a>Znajdź hello grupy zasobów
+W trybie Azure Resource Manager hello każdego klastra usługi HDInsight jest tworzony z grupy zasobów platformy Azure. Grupa zasobów platformy Azure Hello klastra należy tooappears w:
 
-* Lista klastrów ma **grupy zasobów** kolumny.
+* Lista klastrów Hello ma **grupy zasobów** kolumny.
 * Klaster **podstawowych** kafelka.  
 
 Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
 
 ## <a name="open-hdinsight-query-console"></a>Otwórz konsolę usługi HDInsight zapytania
-Konsolę zapytania HDInsight obejmuje następujące funkcje:
+Hello konsoli zapytania HDInsight obejmuje hello następujące funkcje:
 
-* **Edytor hive**: interfejs sieci web graficznego interfejsu użytkownika A przesyłania zadań Hive.  Zobacz [uruchamianie zapytań Hive przy użyciu konsoli zapytania](hdinsight-hadoop-use-hive-query-console.md).
+* **Edytor hive**: interfejs sieci web graficznego interfejsu użytkownika A przesyłania zadań Hive.  Zobacz [uruchamianie zapytań Hive przy użyciu hello konsoli zapytania](hdinsight-hadoop-use-hive-query-console.md).
 
     ![Edytor portalu hive HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **Historia zadania**: Monitor Hadoop zadania.  
 
     ![HDInsight historii zadań portalu](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Kliknij przycisk **nazwa zapytania** wyświetlić szczegółowe informacje, łącznie z właściwości zadania **zapytanie dotyczące zadań**, i ** dane wyjściowe zadania. Możesz również pobrać zarówno kwerendy, jak i dane wyjściowe do stacji roboczej.
-* **Przeglądarka plików**: Przejrzyj domyślne konto usługi storage i połączone konta magazynu.
+    Kliknij przycisk **nazwa zapytania** właściwości zadania, w tym szczegóły hello tooshow **zapytanie dotyczące zadań**, i ** dane wyjściowe zadania. Możesz również pobrać zarówno hello zapytania, jak i stacji roboczej tooyour dane wyjściowe hello.
+* **Przeglądarka plików**: przeglądanie hello domyślne konto magazynu i hello połączone konta magazynu.
 
     ![HDInsight portalu pliku przeglądarki przeglądania](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-    Na zrzucie ekranu  **<Account>**  typ wskazuje element jest konto magazynu platformy Azure.  Kliknij nazwę konta, aby przeglądać pliki.
+    Na zrzucie ekranu pokazano hello hello  **<Account>**  typ wskazuje element hello jest konto magazynu platformy Azure.  Kliknij przycisk hello konta Nazwa toobrowse hello pliki.
 * **Interfejs użytkownika Hadoop**.
 
     ![Portal usługi HDInsight Hadoop interfejsu użytkownika](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
@@ -294,69 +294,69 @@ Konsolę zapytania HDInsight obejmuje następujące funkcje:
     ![Portal usługi HDInsight YARN interfejsu użytkownika](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>Uruchamianie zapytań Hive
-Do uruchomienia zadań Hive z portalu, kliknij przycisk **Edytor Hive** w konsoli usługi HDInsight zapytania. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
+tooran zadań Hive z hello portalu, kliknij przycisk **Edytor Hive** w hello zapytania HDInsight konsoli. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
 
 ## <a name="monitor-jobs"></a>Monitorowanie zadań
-Aby monitorować zadania z portalu, kliknij przycisk **historii zadań** w konsoli usługi HDInsight zapytania. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
+zadania toomonitor od hello portalu, kliknij przycisk **historii zadań** w hello zapytania HDInsight konsoli. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
 
 ## <a name="browse-files"></a>Przeglądanie plików
-Aby przeglądać pliki przechowywane w domyślne konto magazynu i kont magazynu połączone, kliknij przycisk **przeglądarka plików** w konsoli usługi HDInsight zapytania. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
+toobrowse pliki przechowywane w hello domyślne konto magazynu i hello połączone konta magazynu, kliknij przycisk **przeglądarka plików** w hello zapytania HDInsight konsoli. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
 
-Można również użyć **przeglądać systemu plików** narzędzie z **interfejsu użytkownika Hadoop** w konsoli usługi HDInsight.  Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
+Można również użyć hello **Przeglądaj system plików hello** narzędzie z hello **interfejsu użytkownika Hadoop** w konsoli usługi HDInsight hello.  Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
 
 ## <a name="monitor-cluster-usage"></a>Monitorowanie użycia klastra
-**Użycia** części bloku klastra usługi HDInsight przedstawia informacje na temat liczby rdzeni dostępne dla Twojej subskrypcji do użycia z usługą HDInsight, a także od liczby rdzeni przydzielone do tego klastra i sposób przydzielania dla węzłów w tym klastrze. Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
+Witaj **użycia** części bloku klastra usługi HDInsight hello Wyświetla informacje o hello liczba rdzeni tooyour dostępnych subskrypcji do użycia z usługą HDInsight, a także hello liczba rdzeni przydzielone toothis klastra i sposób ich przydzielone dla węzłów hello w tym klastrze. Zobacz [klastrów listy i Pokaż](#list-and-show-clusters).
 
 > [!IMPORTANT]
-> Aby monitorować usług świadczonych przez klaster usługi HDInsight, należy używać narzędzia Ambari Web lub interfejsu Ambari API REST. Aby uzyskać więcej informacji na temat używania narzędzia Ambari, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md)
+> toomonitor hello usługi świadczone przez hello klastra usługi HDInsight, należy użyć narzędzia Ambari Web lub hello interfejsu API REST Ambari. Aby uzyskać więcej informacji na temat używania narzędzia Ambari, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md)
 >
 >
 
 ## <a name="open-hadoop-ui"></a>Otwórz Hadoop interfejsu użytkownika
-Aby monitorować klastra, przeglądać systemu plików i sprawdź dzienniki, kliknij przycisk **interfejsu użytkownika Hadoop** w konsoli usługi HDInsight zapytania. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
+toomonitor hello klastra, system plików hello przeglądania i sprawdź dzienniki, kliknij przycisk **interfejsu użytkownika Hadoop** w hello zapytania HDInsight konsoli. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
 
 ## <a name="open-yarn-ui"></a>Otwórz Yarn interfejsu użytkownika
-Aby korzystać z interfejsu użytkownika Yarn, kliknij przycisk **interfejsie użytkownika Yarn** w konsoli usługi HDInsight zapytania. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
+toouse interfejs użytkownika Yarn, kliknij przycisk **interfejsie użytkownika Yarn** w hello zapytania HDInsight konsoli. Zobacz [konsoli Otwórz zapytanie HDInsight](#open-hdinsight-query-console).
 
-## <a name="connect-to-clusters-using-rdp"></a>Łączenie się z klastrami za pomocą protokołu RDP
-Poświadczenia podane podczas jego tworzenia klastra zapewniają dostęp do usługi w klastrze, ale nie do klastra za pośrednictwem pulpitu zdalnego. Dostęp do usług pulpitu zdalnego można włączyć podczas udostępniania klastra lub po zainicjowaniu obsługi klastra. Aby uzyskać instrukcje dotyczące włączania Pulpit zdalny podczas tworzenia, zobacz [HDInsight tworzenia klastra](hdinsight-hadoop-provision-linux-clusters.md).
+## <a name="connect-tooclusters-using-rdp"></a>Połącz tooclusters za pomocą protokołu RDP
+poświadczenia Hello klastra hello, podane podczas jego tworzenia Udostępnij toohello usług na powitania klastra, ale nie toohello samego klastra za pośrednictwem pulpitu zdalnego. Dostęp do usług pulpitu zdalnego można włączyć podczas udostępniania klastra lub po zainicjowaniu obsługi klastra. Instrukcje hello o włączenie pulpitu zdalnego podczas tworzenia sekcji [HDInsight tworzenia klastra](hdinsight-hadoop-provision-linux-clusters.md).
 
-**Aby włączyć Pulpit zdalny**
+**tooenable pulpitu zdalnego**
 
-1. Zaloguj się do [Portal][azure-portal].
-2. Kliknij przycisk **Przeglądaj wszystko** z menu po lewej stronie kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
-3. Kliknij przycisk **ustawienia** z menu u góry, a następnie kliknij przycisk **pulpitu zdalnego**.
+1. Zaloguj się toohello [Portal][azure-portal].
+2. Kliknij przycisk **Przeglądaj wszystko** w menu po lewej stronie powitania kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
+3. Kliknij przycisk **ustawienia** z hello menu u góry, a następnie kliknij przycisk **pulpitu zdalnego**.
 4. Wprowadź **wygasa**, **nazwa użytkownika pulpitu zdalnego** i **hasła pulpitu zdalnego**, a następnie kliknij przycisk **włączyć**.
 
     ![HDInsight Włączanie wyłączanie Konfigurowanie pulpitu zdalnego](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
-    Wartości domyślne dla wygasa jest tydzień.
+    Witaj wartości domyślne dla wygasa jest tydzień.
 
    > [!NOTE]
-   > Umożliwia także zestawu .NET SDK usługi HDInsight można włączyć pulpitu zdalnego w klastrze. Użyj **EnableRdp** metody dla obiekt klienta usługi HDInsight w następujący sposób: **klienta. EnableRdp (nazwa_klastra, lokalizacji, "rdpuser", "rdppassword" DateTime.Now.AddDays(6))**. Podobnie, aby wyłączyć pulpitu zdalnego w klastrze, można użyć **klienta. DisableRdp (clustername, lokalizacja)**. Aby uzyskać więcej informacji na temat tych metod, zobacz [odwołania do zestawu SDK .NET usługi HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Ma to zastosowanie tylko w przypadku klastrów usługi HDInsight w systemie Windows.
+   > Umożliwia także hello zestawu .NET SDK HDInsight tooenable pulpitu zdalnego w klastrze. Użyj hello **EnableRdp** metody dla obiektu klienta HDInsight hello w następujących sposób hello: **klienta. EnableRdp (nazwa_klastra, lokalizacji, "rdpuser", "rdppassword" DateTime.Now.AddDays(6))**. Podobnie, toodisable pulpitu zdalnego w klastrze hello, można użyć **klienta. DisableRdp (clustername, lokalizacja)**. Aby uzyskać więcej informacji na temat tych metod, zobacz [odwołania do zestawu SDK .NET usługi HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Ma to zastosowanie tylko w przypadku klastrów usługi HDInsight w systemie Windows.
    >
    >
 
-**Aby ustanowić połączenie z klastrem przy użyciu protokołu RDP**
+**tooconnect tooa klastra za pomocą protokołu RDP**
 
-1. Zaloguj się do [Portal][azure-portal].
-2. Kliknij przycisk **Przeglądaj wszystko** z menu po lewej stronie kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
-3. Kliknij przycisk **ustawienia** z menu u góry, a następnie kliknij przycisk **pulpitu zdalnego**.
-4. Kliknij przycisk **Connect** i postępuj zgodnie z instrukcjami. Jeśli połączenie jest wyłączona, należy włączyć ją najpierw. Upewnij się, przy użyciu podanej nazwy użytkownika pulpitu zdalnego i hasła.  Nie można użyć poświadczeń użytkownika klastra.
+1. Zaloguj się toohello [Portal][azure-portal].
+2. Kliknij przycisk **Przeglądaj wszystko** w menu po lewej stronie powitania kliknij **klastrów usługi HDInsight**, kliknij swoją nazwę klastra.
+3. Kliknij przycisk **ustawienia** z hello menu u góry, a następnie kliknij przycisk **pulpitu zdalnego**.
+4. Kliknij przycisk **Connect** i postępuj zgodnie z instrukcjami hello. Jeśli połączenie jest wyłączona, należy włączyć ją najpierw. Upewnij się, że przy użyciu nazwy użytkownika pulpitu zdalnego hello i hasła.  Nie można użyć poświadczeń użytkownika hello klastra.
 
 ## <a name="open-hadoop-command-line"></a>Otwórz wiersz polecenia usługi Hadoop
-Połącz się z klastrem przy użyciu pulpitu zdalnego i za pomocą wiersza polecenia platformy Hadoop, musisz najpierw włączyć Pulpit zdalny dostęp do klastra zgodnie z opisem w poprzedniej sekcji.
+tooconnect toohello klastra przy użyciu pulpitu zdalnego i wiersza polecenia platformy Hadoop hello używany, musi najpierw włączono klaster toohello dostęp do usług pulpitu zdalnego zgodnie z opisem w poprzedniej sekcji hello.
 
-**Aby otworzyć wiersz polecenia usługi Hadoop**
+**tooopen wiersza polecenia usługi Hadoop**
 
-1. Połącz z klastrem przy użyciu pulpitu zdalnego.
-2. Na pulpicie kliknij dwukrotnie **wiersza polecenia usługi Hadoop**.
+1. Połącz toohello klastra przy użyciu pulpitu zdalnego.
+2. Witaj pulpitu, kliknij dwukrotnie **wiersza polecenia usługi Hadoop**.
 
     ![HDI. HadoopCommandLine][image-hadoopcommandline]
 
     Aby uzyskać więcej informacji o poleceniach Hadoop, zobacz [Hadoop polecenia odwołanie](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html).
 
-W poprzednim zrzucie ekranu Nazwa folderu ma numer wersji usługi Hadoop, osadzonych. Numer wersji można zmienić w zależności od wersji składników Hadoop zainstalowany w klastrze. Zmienne środowiskowe Hadoop służy do odwoływania się do tych folderów. Na przykład:
+W hello poprzedni zrzut ekranu nazwy folderu hello ma numer wersji usługi Hadoop hello osadzonych. numer wersji Hello można zmienione na podstawie hello wersja składników Hadoop hello zainstalowany w klastrze hello. Można użyć Hadoop środowiska zmienne toorefer toothose folderów. Na przykład:
 
     cd %hadoop_home%
     cd %hive_home%
@@ -366,7 +366,7 @@ W poprzednim zrzucie ekranu Nazwa folderu ma numer wersji usługi Hadoop, osadzo
     cd %hcatalog_home%
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule uzyskanych sposób tworzenia klastra usługi HDInsight przy użyciu portalu i jak otworzyć narzędzia wiersza polecenia usługi Hadoop. Aby dowiedzieć się więcej, zobacz następujące artykuły:
+W tym artykule uzyskanych jak toocreate klastra usługi HDInsight przy użyciu hello portalu i jak tooopen hello narzędzia wiersza polecenia usługi Hadoop. toolearn więcej, zobacz następujące artykuły hello:
 
 * [Administrowanie HDInsight przy użyciu programu Azure PowerShell](hdinsight-administer-use-powershell.md)
 * [Administrowanie HDInsight przy użyciu interfejsu wiersza polecenia platformy Azure](hdinsight-administer-use-command-line.md)

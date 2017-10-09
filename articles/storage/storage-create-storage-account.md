@@ -1,6 +1,6 @@
 ---
-title: "Jak utworzyć lub usunąć konto magazynu oraz zarządzać nim w witrynie Azure Portal | Microsoft Docs"
-description: "Utwórz nowe konto magazynu, zarządzaj kluczami dostępu do konta lub usuń konto magazynu w witrynie Azure Portal. Więcej informacji na temat kont magazynu (warstwy Standardowa i Premium)."
+title: "aaaHow toocreate, zarządzania i usuwania konta magazynu w portalu Azure hello | Dokumentacja firmy Microsoft"
+description: "Utwórz nowe konto magazynu, zarządzanie kluczami dostępu do konta lub usuwania konta magazynu w hello portalu Azure. Więcej informacji na temat kont magazynu (warstwy Standardowa i Premium)."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: robinsh
-ms.openlocfilehash: 0a59bc29581b870d8aee07ed4e77df2be576361a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c11c6509e192170db4812f47c389fc1009b94daf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Informacje o kontach magazynu Azure
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/03/2017
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Omówienie
-Konto usługi Azure Storage zapewnia unikatową przestrzeń nazw do przechowywania i umożliwiania dostępu do obiektów danych usługi Azure Storage. Wszystkie obiekty w koncie magazynu są rozliczane wspólnie jako grupa. Domyślnie dane na Twoim koncie są dostępne tylko dla Ciebie, tj. właściciela konta.
+Konto usługi Azure storage zapewnia toostore unikatową przestrzeń nazw i dostęp do obiektów danych usługi Azure Storage. Wszystkie obiekty w koncie magazynu są rozliczane wspólnie jako grupa. Domyślnie dane hello na Twoim koncie są dostępne tooyou tylko właściciel konta hello.
 
 [!INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
@@ -35,14 +35,14 @@ Konto usługi Azure Storage zapewnia unikatową przestrzeń nazw do przechowywan
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
-> Kiedy tworzysz maszynę wirtualną platformy Azure, konto magazynu jest tworzone automatycznie w lokalizacji wdrożenia, jeśli jeszcze nie masz konta magazynu w tej lokalizacji. Dlatego też nie musisz wykonywać poniższych kroków, aby utworzyć konto magazynu dla dysków maszyny wirtualnej. Nazwa konta magazynu będzie opierać się na nazwie maszyny wirtualnej. Zobacz [dokumentację usługi Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/), aby uzyskać więcej szczegółów.
+> Podczas tworzenia maszyny wirtualnej platformy Azure, konto magazynu jest tworzony automatycznie w lokalizacji wdrożenia hello Jeśli nie masz już konto magazynu w tej lokalizacji. Dlatego nie jest konieczne toofollow hello kroki toocreate konto magazynu dla dysków maszyny wirtualnej. Nazwa konta magazynu Hello będzie opierać się na powitania nazwę maszyny wirtualnej. Zobacz hello [dokumentacji usługi Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/) więcej szczegółów.
 > 
 > 
 
 ## <a name="storage-account-endpoints"></a>Punkty końcowe konta usługi Storage
-Każdy obiekt, który jest przechowywany w usłudze Azure Storage, ma unikatowy adres URL. Nazwa konta magazynu tworzy poddomenę tego adresu. Kombinacja nazw poddomeny i domeny, która jest specyficzna dla poszczególnych usług, tworzy *punkt końcowy* konta magazynu.
+Każdy obiekt, który jest przechowywany w usłudze Azure Storage, ma unikatowy adres URL. Formularze nazwy konta magazynu Hello hello poddomenę tego adresu. Witaj kombinacja nazw poddomeny i domeny, co jest tooeach określonej usługi, formularzy *punktu końcowego* dla konta magazynu.
 
-Jeśli na przykład konto magazynu ma nazwę *mojekontomagazynu*, domyślnymi punktami końcowymi konta magazynu są:
+Na przykład, jeśli nosi nazwę konta magazynu *mojekontomagazynu*, a następnie hello domyślne punkty końcowe konta magazynu są:
 
 * Usługa Blob: http://*mojekontomagazynu*.blob.core.windows.net
 * Usługa Table service: http://*mojekontomagazynu*.table.core.windows.net
@@ -50,114 +50,114 @@ Jeśli na przykład konto magazynu ma nazwę *mojekontomagazynu*, domyślnymi pu
 * Usługa plików http://*mojekontomagazynu*.file.core.windows.net
 
 > [!NOTE]
-> Konto Magazynu obiektów Blob przedstawia tylko punkt końcowy usługi Blob.
+> Konto magazynu obiektów Blob przedstawia tylko punkt końcowy usługi Blob hello.
 > 
 > 
 
-Adres URL dostępu do obiektu w koncie magazynu jest tworzony przez dodanie lokalizacji obiektu na koncie magazynu do punktu końcowego. Przykładowo adres obiektu Blob może mieć następujący format: http://*mojekontomagazynu*.blob.core.windows.net/*mojkontener*/*mojblob*.
+adres URL Hello dla uzyskiwania dostępu do obiektu na koncie magazynu jest tworzony przez dodanie lokalizacji obiektu hello końcowego toohello konta magazynu hello. Przykładowo adres obiektu Blob może mieć następujący format: http://*mojekontomagazynu*.blob.core.windows.net/*mojkontener*/*mojblob*.
 
-Możesz również skonfigurować niestandardową nazwę domeny do użycia ze swoim kontem magazynu. Aby uzyskać więcej szczegółów na temat klasycznych kont magazynu, zobacz temat [Configure a custom domain Name for your Blob Storage Endpoint](storage-custom-domain-name.md) (Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego usługi Blob Storage). W przypadku kont magazynu usługi Resource Manager ta funkcja nie została jeszcze dodana do witryny [Azure Portal](https://portal.azure.com), ale można skonfigurować ją za pomocą programu PowerShell. Aby uzyskać więcej informacji, zobacz polecenie cmdlet [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx).  
+Można również skonfigurować toouse nazwy domeny niestandardowej z kontem magazynu. Aby uzyskać więcej szczegółów na temat klasycznych kont magazynu, zobacz temat [Configure a custom domain Name for your Blob Storage Endpoint](storage-custom-domain-name.md) (Konfigurowanie niestandardowej nazwy domeny dla punktu końcowego usługi Blob Storage). W przypadku kont magazynu Resource Manager, ta funkcja nie została dodana toohello [portalu Azure](https://portal.azure.com) jeszcze, ale można go skonfigurować przy użyciu programu PowerShell. Aby uzyskać więcej informacji, zobacz hello [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) polecenia cmdlet.  
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. W menu Centrum wybierz kolejno pozycje **Nowy** -> **Magazyn** -> **Konto magazynu**.
-3. Wprowadź nazwę konta magazynu. Zobacz [Punkty końcowe konta usługi Storage](#storage-account-endpoints), aby uzyskać szczegółowe informacje o tym, w jaki sposób nazwa konta magazynu będzie wykorzystywana do adresowania obiektów w usłudze Azure Storage.
+1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
+2. W menu Centrum hello wybierz **nowy** -> **magazynu** -> **konta magazynu**.
+3. Wprowadź nazwę konta magazynu. Zobacz [punkty końcowe konta magazynu](#storage-account-endpoints) dla szczegółowych informacji o jak nazwa konta magazynu hello będą używane tooaddress obiektów w usłudze Azure Storage.
    
    > [!NOTE]
    > Nazwy kont usługi Magazyn muszą mieć długość od 3 do 24 znaków i mogą zawierać tylko cyfry i małe litery.
    > 
-   > Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure. Witryna Azure Portal poinformuje, jeśli wybrana nazwa konta magazynu jest już w użyciu.
+   > Nazwa konta magazynu musi być unikatowa w obrębie platformy Azure. Hello Azure portal poinformuje, czy hello nazwy konta magazynu, którą wybierzesz jest już używany.
    > 
    > 
-4. Określ model wdrożenia do użycia: **z usługą Resource Manager** lub **Klasyczny**. **Z usługą Resource Manager** jest zalecanym modelem wdrożenia. Aby uzyskać więcej informacji, zobacz [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Omówienie wdrożenia z usługą Resource Manager oraz wdrożenia klasycznego).
+4. Określ toobe modelu wdrażania hello używane: **Resource Manager** lub **klasycznego**. **Menedżer zasobów** hello zaleca modelu wdrażania. Aby uzyskać więcej informacji, zobacz [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) (Omówienie wdrożenia z usługą Resource Manager oraz wdrożenia klasycznego).
    
    > [!NOTE]
-   > Konta magazynu obiektów Blob można tworzyć wyłącznie w modelu wdrożenia opartym na usłudze Resource Manager.
+   > Konta magazynu obiektów blob można tworzyć tylko przy użyciu modelu wdrażania usługi Resource Manager hello.
    > 
    > 
-5. Wybierz typ konta magazynu: **Ogólnego przeznaczenia** lub **Blob Storage**. **Ogólnego przeznaczenia** jest wartością domyślną.
+5. Wybierz typ konta magazynu hello: **ogólnego przeznaczenia** lub **magazynu obiektów Blob**. **Ogólnego przeznaczenia** jest domyślnym hello.
    
-    Jeśli wybrano typ **Ogólnego przeznaczenia**, określ warstwę wydajności: **Standardowe** lub **Premium**. Wartość domyślna to **Standardowe**. Szczegółowe informacje dotyczące kont magazynu (warstwy Standardowa i Premium) znajdują się w tematach [Wprowadzenie do usługi Microsoft Azure Storage](storage-introduction.md) i [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) (Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure).
+    Jeśli **ogólnego przeznaczenia** została wybrana, a następnie określ warstwę wydajności hello: **standardowe** lub **Premium**. Domyślnie Hello **standardowe**. Więcej szczegółów na kontach magazynu standard i premium, zobacz [tooMicrosoft wprowadzenie usługi Azure Storage](storage-introduction.md) i [magazyn w warstwie Premium: magazyn o wysokiej wydajności dla obciążeń maszyny wirtualnej Azure](storage-premium-storage.md).
    
-    Jeśli wybrano usługę **Blob Storage**, określ warstwę dostępu: **Gorąca** lub **Chłodna**. Wartość domyślna to **Gorąca**. Zobacz temat [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md) (Azure Blob Storage: warstwy Chłodna i Gorąca), aby uzyskać więcej szczegółów.
-6. Wybierz opcję replikacji dla konta magazynu: **LRS**, **GRS**, **RA-GRS** lub **ZRS**. Wartość domyślna to **RA-GRS**. Aby uzyskać więcej szczegółów na temat opcji replikacji usługi Azure Storage, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).
-7. Wybierz subskrypcję, w ramach której chcesz utworzyć nowe konto magazynu.
+    Jeśli **magazynu obiektów Blob** została wybrana, a następnie określ warstwę dostępu hello: **gorąca** lub **chłodnych**. Domyślnie Hello **gorąca**. Zobacz temat [Azure Blob Storage: Cool and Hot tiers](storage-blob-storage-tiers.md) (Azure Blob Storage: warstwy Chłodna i Gorąca), aby uzyskać więcej szczegółów.
+6. Wybierz opcję replikacji powitania dla konta magazynu hello: **LRS**, **GRS**, **RA-GRS**, lub **ZRS**. Domyślnie Hello **RA-GRS**. Aby uzyskać więcej szczegółów na temat opcji replikacji usługi Azure Storage, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).
+7. Wybierz subskrypcję hello, w której ma zostać toocreate hello nowe konto magazynu.
 8. Określ nową grupę zasobów lub wybierz istniejącą grupę zasobów. Więcej informacji na temat grup zasobów znajduje się w temacie [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-9. Wybierz lokalizację geograficzną dla swojego konta magazynu. Aby uzyskać więcej informacji na temat dostępności usług w poszczególnych regionach, zobacz temat [Regiony świadczenia usługi Azure](https://azure.microsoft.com/regions/#services).
-10. Kliknij pozycję **Utwórz**, aby utworzyć konto magazynu.
+9. Wybierz lokalizację geograficzną hello konta magazynu. Aby uzyskać więcej informacji na temat dostępności usług w poszczególnych regionach, zobacz temat [Regiony świadczenia usługi Azure](https://azure.microsoft.com/regions/#services).
+10. Kliknij przycisk **Utwórz** konta magazynu hello toocreate.
 
 ## <a name="manage-your-storage-account"></a>Zarządzanie kontem magazynu
 ### <a name="change-your-account-configuration"></a>Zmiana konfiguracji konta
-Po utworzeniu konta magazynu możesz zmodyfikować jego konfigurację, np. zmienić opcję replikacji używaną wobec konta lub zmienić warstwę dostępu do konta usługi Blob Storage. W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojego konta magazynu, znajdź i kliknij pozycję **Konfiguracja** w obszarze **USTAWIENIA**, aby wyświetlić i/lub zmienić konfigurację konta.
+Po utworzeniu konta magazynu, można zmodyfikować jego konfigurację, np. zmiana hello opcję replikacji używaną wobec konta hello lub zmieniania hello warstwy dostępu dla konta magazynu obiektów Blob. W hello [portalu Azure](https://portal.azure.com), przejdź do konta magazynu tooyour, Znajdź i kliknij przycisk **konfiguracji** w obszarze **ustawienia** tooview i/lub zmiana konfiguracji konta hello.
 
 > [!NOTE]
-> W zależności od warstwy wydajności wybranej podczas tworzenia konta magazynu niektóre opcje replikacji mogą być niedostępne.
+> W zależności od hello warstwy wydajności wybranej podczas tworzenia konta magazynu hello niektóre opcje replikacji mogą nie być dostępne.
 > 
 > 
 
-Zmiana opcji replikacji spowoduje zmianę cen. Aby uzyskać więcej informacji, zobacz stronę [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+Zmiana opcji replikacji hello spowoduje zmianę cen.. Aby uzyskać więcej informacji, zobacz stronę [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-W przypadku kont Magazynu obiektów Blob zmiana warstwy dostępu może spowodować naliczenie opłat za zmianę poza zmianą cennika. Zobacz [Blob storage accounts - Pricing and Billing](storage-blob-storage-tiers.md#pricing-and-billing) (Konta usługi Blob Storage — cennik i rozliczenia), aby uzyskać więcej szczegółów.
+Dla obiektów Blob, który może pociągnąć za sobą kont magazynu Zmiana warstwy dostępu hello opłat za hello zmianę dodatkowo toochanging cen. Zobacz hello [konta usługi Blob storage — cennik i rozliczenia](storage-blob-storage-tiers.md#pricing-and-billing) więcej szczegółów.
 
 ### <a name="manage-your-storage-access-keys"></a>Zarządzanie kluczami dostępu do magazynu
-Podczas tworzenia konta magazynu platforma Azure generuje dwa 512-bitowe klucze dostępu do magazynu, które są wykorzystywane do uwierzytelniania podczas uzyskiwania dostępu do konta magazynu. Zapewniając dwa klucze dostępu do magazynu, platforma Azure umożliwia ponowne generowanie kluczy bez zakłóceń w usłudze magazynu lub przerw w dostępie do tej usługi.
+Podczas tworzenia konta magazynu Azure generuje dwa klucze dostępu do magazynu 512-bitowe, które są używane do uwierzytelniania podczas uzyskiwania dostępu do konta magazynu hello. Zapewniając dwa klucze dostępu do magazynu Azure umożliwia tooregenerate hello kluczy bez przeszkód tooyour magazynu usługi i usługa toothat dostępu.
 
 > [!NOTE]
-> Nie zaleca się udostępniania kluczy dostępu do magazynu innym osobom. Aby zezwolić na dostęp do zasobów magazynu bez przekazywania kluczy dostępu, możesz użyć *sygnatury dostępu współdzielonego*. Sygnatura dostępu współdzielonego zapewnia dostęp do zasobów na koncie przez określony czas i z określonymi uprawnieniami. Zobacz [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji.
+> Nie zaleca się udostępniania kluczy dostępu do magazynu innym osobom. toopermit dostęp do zasobów toostorage bez przekazywania kluczy dostępu, można użyć *sygnatury dostępu współdzielonego*. Sygnatury dostępu współdzielonego zapewnia tooa dostępu do zasobów na koncie przez określony czas, który należy zdefiniować i uprawnieniami hello przez użytkownika. Zobacz [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji.
 > 
 > 
 <a id="view-and-copy-storage-access-keys"/></a>
 #### <a name="view-and-copy-storage-access-keys"></a>Wyświetlanie i kopiowanie kluczy dostępu do magazynu
-W witrynie [Azure Portal](https://portal.azure.com) przejdź do swojego konta magazynu, kliknij pozycję **Wszystkie ustawienia**, a następnie kliknij pozycję **Klucze dostępu**, aby wyświetlić, skopiować lub ponownie wygenerować klucze dostępu do konta. Blok **Klucze dostępu** zawiera również wstępnie skonfigurowane parametry połączenia wykorzystujące Twoje klucze podstawowe i pomocnicze, które możesz skopiować do wykorzystania w aplikacjach.
+W hello [portalu Azure](https://portal.azure.com)Przejdź tooyour konta magazynu, kliknij przycisk **wszystkie ustawienia** , a następnie kliknij przycisk **klucze dostępu** tooview, kopiowanie i ponowne generowanie kluczy dostępu do Twojego konta. Witaj **klucze dostępu** blok zawiera również wstępnie skonfigurowane parametry połączenia wykorzystujące Twoje klucze podstawowe i pomocnicze skopiowania toouse aplikacji.
 
 #### <a name="regenerate-storage-access-keys"></a>Ponowne generowanie kluczy dostępu do magazynu
-Zalecamy okresowe zmienienie kluczy dostępu do konta magazynu, aby zabezpieczyć połączenia z magazynem. Przydzielone są dwa klucze dostępu, więc możesz utrzymać łączność z kontem magazynu za pomocą jednego klucza dostępu, jednocześnie ponownie generując drugi klucz dostępu.
+Firma Microsoft zaleca zmianę kluczy dostępu hello magazynu tooyour okresowo konta zachowuje toohelp bezpiecznego połączenia z magazynem. Dwa klucze dostępu są przypisane, dzięki czemu można zachować konta magazynu toohello połączeń przy użyciu jednego klucza dostępu, jednocześnie ponownie generując hello drugi klucz dostępu.
 
 > [!WARNING]
-> Ponowne generowanie kluczy dostępu może mieć wpływ na usługi na platformie Azure oraz Twoje aplikacje, które są zależne od konta magazynu. Wszyscy klienci, którzy używają klucza dostępu do uzyskiwania dostępu do konta magazynu, muszą zostać poinformowani o potrzebie użycia nowego klucza.
+> Trwa ponowne generowanie kluczy dostępu może mieć wpływ na usługi platformy Azure, jak również własne aplikacje, które są zależne od konta magazynu hello. Wszystkich klientów, którzy używają konta magazynu hello hello dostępu tooaccess klucza musi być zaktualizowany toouse hello nowego klucza.
 > 
 > 
 
-**Usługi multimediów** — jeśli masz usługi multimediów, które są zależne od konta magazynu, musisz ponownie zsynchronizować klucze dostępu z usługą multimediów po ponownym wygenerowaniu kluczy.
+**Usługa Media services** — Jeśli masz usługi media services, które są zależne od konta magazynu, musisz ponownie zsynchronizować klucze dostępu hello z usługą multimediów po ponownym wygenerowaniu kluczy hello.
 
-**Aplikacje** — jeśli masz aplikacje sieci Web lub usługi w chmurze, które korzystają z konta magazynu, w przypadku ponownego generowania kluczy utracisz połączenia, chyba że wdrożysz klucze.
+**Aplikacje** — Jeśli masz aplikacje sieci web lub użyj tego konta magazynu hello usług w chmurze, utracisz połączenia hello ponownego generowania kluczy, chyba że wdrożysz klucze.
 
-**Eksploratory usługi Storage** — jeśli używasz dowolnej [aplikacji eksploratora magazynu](storage-explorers.md), prawdopodobnie zajdzie potrzeba zaktualizowania klucza magazynu używanego przez te aplikacje.
+**Eksploratory usługi Storage** — Jeśli używasz dowolnej [aplikacji Eksploratora magazynu](storage-explorers.md), prawdopodobnie zajdzie klucza magazynu hello tooupdate używane przez te aplikacje.
 
-Oto proces związany z rotacją kluczy dostępu do magazynu:
+Oto proces związany z rotacją kluczy dostępu do magazynu hello:
 
-1. Zaktualizuj parametry połączenia w kodzie aplikacji, wprowadzając odwołanie do pomocniczego klucza dostępu do konta magazynu.
-2. Ponownie wygeneruj podstawowy klucz dostępu do konta magazynu. W bloku **Klucze dostępu** kliknij opcję **Generuj ponownie klucz1**, a następnie kliknij przycisk **Tak**, aby potwierdzić wygenerowanie nowego klucza.
-3. Zaktualizuj parametry połączenia w kodzie, wprowadzając odwołanie do nowego podstawowego klucza dostępu.
-4. W ten sam sposób wygeneruj ponownie pomocniczy klucz dostępu.
+1. Zaktualizuj parametry połączenia hello w Twojej aplikacji kod tooreference hello pomocniczy klucz dostępu konta magazynu hello.
+2. Wygeneruj ponownie hello podstawowy klucz dostępu dla konta magazynu. Na powitania **klucze dostępu** bloku, kliknij przycisk **Generuj ponownie klucz1**, a następnie kliknij przycisk **tak** tooconfirm, które mają toogenerate nowy klucz.
+3. Zaktualizuj parametry połączenia hello w Twojej kodu tooreference hello nowego podstawowego klucza dostępu.
+4. Pomocniczy dostęp regenerate hello klucza w hello sam sposób.
 
 ## <a name="delete-a-storage-account"></a>Usuwanie konta magazynu
-Aby usunąć konto magazynu, z którego już nie korzystasz, przejdź do konta magazynu w witrynie [Azure Portal](https://portal.azure.com) i kliknij pozycję **Usuń**. Usunięcie konta magazynu powoduje usunięcie całego konta, w tym wszystkich danych na koncie.
+tooremove konta magazynu, które są już używane, przejdź toohello konta magazynu w hello [portalu Azure](https://portal.azure.com)i kliknij przycisk **usunąć**. Usunięcie konta magazynu powoduje usunięcie całego konta hello, w tym wszystkie dane na koncie hello.
 
 > [!WARNING]
-> Nie można przywrócić usuniętego konta magazynu ani odzyskać żadnej zawartości znajdującej się na koncie przed usunięciem. Zanim usuniesz konto, wykonaj kopię zapasową wszystkich danych, które chcesz zapisać. Dotyczy to również wszystkich zasobów na koncie — po usunięciu obiektu Blob, tabeli, kolejki lub pliku elementy te są trwale usuwane.
+> Jest nie jest możliwe toorestore usuniętego konta magazynu lub pobrać żadnej hello zawartość, która zawiera go przed usunięciem. Należy się tooback zapasową wszystkich danych, które mają toosave przed usunięciem konta hello. To również jest spełniony dla wszystkich zasobów na koncie hello — po usunięciu obiektu blob, tabeli, kolejki lub pliku spowoduje jego trwałe skasowanie.
 > 
 > 
 
-Aby usunąć konto magazynu powiązane z maszyną wirtualną platformy Azure, musisz najpierw upewnić się, że wszystkie dyski maszyny wirtualnej zostały usunięte. Jeśli nie usuniesz najpierw dysków maszyny wirtualnej, podczas próby usunięcia konta magazynu zobaczysz komunikat o błędzie podobny do poniższego:
+toodelete konta magazynu, który jest skojarzony z maszyny wirtualnej platformy Azure, musi najpierw upewnieniu się, że wszystkie dyski maszyny wirtualnej zostały usunięte. Jeśli najpierw nie usunąć dysków maszyny wirtualnej, następnie podczas próby toodelete konta magazynu zobaczysz komunikat o błędzie podobny do:
 
-    Failed to delete storage account <vm-storage-account-name>. Unable to delete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
+    Failed toodelete storage account <vm-storage-account-name>. Unable toodelete storage account <vm-storage-account-name>: 'Storage account <vm-storage-account-name> has some active image(s) and/or disk(s). Ensure these image(s) and/or disk(s) are removed before deleting this storage account.'.
 
-Jeśli konto magazynu korzysta z modelu wdrożenia klasycznego, można usunąć dysk maszyny wirtualnej, wykonując następujące kroki w witrynie [Azure Portal](https://manage.windowsazure.com):
+Jeśli hello konto magazynu używa klasycznego modelu wdrożenia hello, możesz usunąć dysk maszyny wirtualnej hello wykonaj następujące czynności w hello [portalu Azure](https://manage.windowsazure.com):
 
-1. Przejdź do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
-2. Przejdź do karty Virtual Machines.
-3. Kliknij kartę Dyski.
+1. Przejdź toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. Przejdź na kartę maszyn wirtualnych toohello.
+3. Kliknij kartę dyski hello.
 4. Wybierz dysk danych, a następnie kliknij polecenie Usuń dysk.
-5. Aby usunąć obrazy dysku, przejdź do karty Obrazy i usuń wszelkie obrazy przechowywane na koncie.
+5. toodelete obrazy dysku, przejdź na kartę obrazy toohello i usuń wszelkie obrazy, które są przechowywane na koncie hello.
 
-Zobacz [dokumentację maszyn wirtualnych Azure](http://azure.microsoft.com/documentation/services/virtual-machines/), aby uzyskać więcej informacji.
+Aby uzyskać więcej informacji, zobacz hello [dokumentację maszyn wirtualnych Azure](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
+* [Eksplorator magazynu Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatna, aplikacja autonomiczny firmy Microsoft, który umożliwia toowork wizualnie z danymi usługi Azure Storage w systemie Windows, macOS i Linux.
 * [Azure Blob Storage: warstwy Chłodna i Gorąca](storage-blob-storage-tiers.md)
 * [Replikacja usługi Azure Storage](storage-redundancy.md)
 * [Konfiguracja parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md)
-* [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
-* Odwiedź [Blog zespołu odpowiedzialnego za usługę Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/).
+* [Transfer danych za pomocą wiersza polecenia Azcopy hello](storage-use-azcopy.md)
+* Odwiedź hello [Blog zespołu usługi Magazyn Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
