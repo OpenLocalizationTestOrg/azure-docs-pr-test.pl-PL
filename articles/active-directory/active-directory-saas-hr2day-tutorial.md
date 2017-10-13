@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z HR2day przez Merces | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i HR2day przez Merces."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i HR2day przez Merces."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,243 +13,243 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 257233767e1fddbaf115878cb0455acf61b2f5f5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 77e2fcf9c306259286b15767f3a992510d6d79d8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Samouczek: Integracji Azure Active Directory z HR2day przez Merces
 
-Z tego samouczka, dowiesz się, jak toointegrate HR2day przez Merces w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie HR2day przez Merces z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD HR2day przez Merces zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD HR2day przez Merces zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooHR2day przez Merces.
-- Umożliwia użytkownikom tooautomatically uzyskać zalogowany tooHR2day przez Merces z konta usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji — Witaj portalu Azure.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do HR2day przez Merces.
+- Można umożliwić użytkownikom automatycznie pobrać zalogujesz się HR2day przy Merces z konta usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji--portalu Azure.
 
 Aby uzyskać więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z HR2day przez Merces należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z HR2day przez Merces, potrzebne są następujące elementy:
 
 - Subskrypcja usługi Azure AD.
 - HR2day przez Merces logowanie jednokrotne włączone subskrypcji.
 
 > [!NOTE]
-> Nie zaleca się, że przy użyciu hello tootest środowiska produkcyjnego kroków w tym samouczku.
+> Nie zaleca się używanie środowiska produkcyjnego do testowania czynności w tym samouczku.
 
-kroki hello tootest w tym samouczku, wykonaj te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, wykonaj te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Pobierz [miesięczna bezpłatna wersja próbna usługi Azure AD](https://azure.microsoft.com/pricing/free-trial/) Jeśli jeszcze nie masz.  
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello jest opisana w tym temacie składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz, który jest opisana w tym temacie składa się z dwóch głównych elementów:
 
-1. Dodawanie HR2day przez Merces z galerii hello.
+1. Dodawanie HR2day przez Merces z galerii.
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne.
 
-## <a name="add-hr2day-by-merces-from-hello-gallery"></a>Dodaj HR2day przez Merces z galerii hello
-tooconfigure hello integracji HR2day przez Merces do usługi Azure AD, Dodaj HR2day przez Merces hello galerii tooyour listy zarządzanych aplikacji SaaS.
+## <a name="add-hr2day-by-merces-from-the-gallery"></a>Dodaj HR2day przez Merces z galerii
+Aby skonfigurować integrację usługi Azure AD HR2day przez Merces, należy dodać HR2day przez Merces z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd HR2day przez Merces z galerii hello hello wykonaj następujące kroki:**
+**Aby dodać HR2day przez Merces z galerii, należy wykonać następujące czynności:**
 
-1. W hello [portalu Azure](https://portal.azure.com)na temat hello w lewym okienku nawigacji, wybierz hello **usługi Azure Active Directory** ikony. 
+1. W [portalu Azure](https://portal.azure.com), w okienku nawigacji po lewej stronie wybierz **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nowej aplikacji, wybierz opcję hello **nowej aplikacji** przycisk u góry hello hello okna dialogowego.
+3. Aby dodać nową aplikację, zaznacz **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **HR2day przez Merces**.
+4. W polu wyszukiwania wpisz **HR2day przez Merces**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_search.png)
 
-5. W panelu wyników hello, wybierz **HR2day przez Merces**, a następnie wybierz hello **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **HR2day przez Merces**, a następnie wybierz **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z HR2day przez Merces oparte na koncie użytkownika testu o nazwie "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow, który użytkownik odpowiednikiem hello w HR2day przez Merces jest tooa użytkownika w usłudze Azure AD. Innymi słowy należy tooestablish łącza między użytkownika usługi Azure AD i hello użytkownikowi w HR2day przez Merces.
+Do rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, komu użytkownika odpowiednika w HR2day przez Merces jest użytkownikiem w usłudze Azure AD. Innymi słowy należy ustanowić powiązanie użytkownika usługi Azure AD i danemu użytkownikowi w HR2day przez Merces.
 
-HR2day przez Merces, przypisywanie hello **nazwy użytkownika** w usłudze Azure AD za **Username** tooestablish hello relacji.
+HR2day przez Merces, przypisywanie **nazwy użytkownika** w usłudze Azure AD do **Username** ustanowienie relacji.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z HR2day przez Merces, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z HR2day przez Merces, należy wykonać poniższe bloki konstrukcyjne:
 
-1. [Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on): Włącz toouse Twojego użytkowników tej funkcji.
+1. [Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on): umożliwianie użytkownikom korzystać z tej funkcji.
 2. [Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user): Test usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. [Utwórz HR2day przez użytkownika testowego Merces](#creating-an-hr2day-by-merces-test-user): tworzenie odpowiednikiem Simona Britta w HR2day przez Merces, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. [Przypisz użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user): Włącz Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. [Test rejestracji jednokrotnej](#testing-single-sign-on): Sprawdź, czy konfiguracja hello działa.
+3. [Utwórz HR2day przez użytkownika testowego Merces](#creating-an-hr2day-by-merces-test-user): tworzenie odpowiednikiem Simona Britta w HR2day przez Merces połączonego z usługi Azure AD reprezentację użytkownika.
+4. [Przypisz użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user): Włącz Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. [Test rejestracji jednokrotnej](#testing-single-sign-on): Sprawdź, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne w sieci HR2day przez aplikację Merces.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i konfigurowanie rejestracji jednokrotnej w sieci HR2day przez aplikację Merces.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z HR2day przez Merces, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z HR2day przez Merces, należy wykonać następujące czynności:**
 
-1. W portalu Azure na powitania hello **HR2day przez Merces** strona integracji aplikacji, wybierz opcję **logowanie jednokrotne**.
+1. W portalu Azure na **HR2day przez Merces** strona integracji aplikacji, wybierz opcję **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. tooenable logowanie jednokrotne, w hello **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego**.
+2. Aby włączyć logowanie jednokrotne, w **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego**.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_samlbase.png)
 
-3. W hello **HR2day Merces domeny i adresy URL** sekcji, podjąć hello następujące kroki:
+3. W **HR2day Merces domeny i adresy URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_url.png)
 
-    a. W hello **adres URL logowania** wpisz adres URL przy użyciu hello następującego wzorca: `https://<tenantname>.force.com/<instancename>`.
+    a. W **adres URL logowania** wpisz adres URL przy użyciu następującego wzorca: `https://<tenantname>.force.com/<instancename>`.
 
-    b. W hello **identyfikator** wpisz adres URL przy użyciu hello następującego wzorca: `https://hr2day.force.com/<companyname>`.
+    b. W **identyfikator** wpisz adres URL przy użyciu następującego wzorca: `https://hr2day.force.com/<companyname>`.
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator. Skontaktuj się z pomocą hello [HR2day przez zespół pomocy technicznej klienta Merces](mailto:servicedesk@merces.nl) tooget tych wartości. 
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [HR2day przez zespół pomocy technicznej klienta Merces](mailto:servicedesk@merces.nl) uzyskać te wartości. 
  
 
 
-4. Na powitania **certyfikat podpisywania SAML** wybierz opcję **Certificate(Base64)**, a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** wybierz opcję **Certificate(Base64)**, a następnie zapisz plik certyfikatu na komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_certificate.png) 
 
-5. W tej sekcji opisano sposób tooenable użytkowników tooauthenticate tooHR2day przez Merces do swojego konta w usłudze Azure AD. One to robić przy użyciu Federacji opartego na powitania protokołu SAML.
+5. W tej sekcji opisano sposób umożliwić użytkownikom uwierzytelnianie na HR2day przez Merces do swojego konta w usłudze Azure AD. One to robić przy użyciu Federacji, która jest oparta na protokole SAML.
 
-    Twoje HR2day przez aplikację Merces oczekuje potwierdzenia SAML hello w określonym formacie, który wymaga tokenu SAML tooyour tooadd atrybutu niestandardowego mapowania. powitania po zrzut ekranu przedstawia przykład. 
+    Twoje HR2day przez aplikację Merces oczekuje potwierdzenia języka SAML w określonym formacie, który wymaga można dodać mapowanie atrybutów niestandardowych do Twojego tokenu SAML. Poniższy zrzut ekranu przedstawia przykład. 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2day_00.png)
     
     > [!NOTE] 
-    Aby można było skonfigurować potwierdzenia języka SAML hello, musisz skontaktować się z hello [HR2day przez zespół pomocy technicznej klienta Merces](mailto:servicedesk@merces.nl) i zażądać hello wartość hello atrybut identyfikator unikatowy dla dzierżawy. Należy to wartość toocomplete hello kroki opisane w następnej sekcji hello. 
+    Aby można było skonfigurować potwierdzenia języka SAML, należy skontaktować się [HR2day przez zespół pomocy technicznej klienta Merces](mailto:servicedesk@merces.nl) i zażądać wartość atrybutu Unikatowy identyfikator dla dzierżawy. Należy tę wartość, aby wykonać kroki opisane w następnej sekcji. 
 
-6. W hello **logowanie jednokrotne** okno dialogowe, w hello **atrybuty użytkownika** skonfiguruj atrybut tokenu SAML hello, jak pokazano w powitania po obrazu. Wykonaj następujące kroki hello.
+6. W **logowanie jednokrotne** okna dialogowego, **atrybuty użytkownika** skonfiguruj atrybut tokenu SAML, jak pokazano na poniższej ilustracji. Następnie należy wykonać następujące kroki.
     
       | Nazwa atrybutu    |   Wartość atrybutu |  
     | ------------------- | -------------------- |    
     | ATTR_LOGINCLAIM | sprzężenia ([poczty] "102938475Z", "@" |
     
-      a. Witaj tooopen **Dodawanie atrybutu** okno dialogowe, wybierz opcję **Dodaj atrybut**.
+      a. Aby otworzyć **Dodawanie atrybutu** okno dialogowe, wybierz opcję **Dodaj atrybut**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_04.png)
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_attribute_05.png)
 
-    b. W hello **nazwa** wpisz **ATTR_LOGINCLAIM**.
+    b. W **nazwa** wpisz **ATTR_LOGINCLAIM**.
 
-    c. Z hello **wartość** listy, wybierz **Join()**.
+    c. Z **wartość** listy, wybierz **Join()**.
 
-    d. Z hello **ciąg1** listy, wybierz **user.mail**.
+    d. Z **ciąg1** listy, wybierz **user.mail**.
 
-    e. Aby uzyskać **ciąg2**, hello unikatowego identyfikatora dostarczonego przez zespół HR2day.
+    e. Aby uzyskać **ciąg2**, wpisz unikatowy identyfikator, który jest świadczona przez Twojego zespołu HR2day.
 
-    f. W hello **separatora** wpisz  **@** .
+    f. W **separatora** wpisz  **@** .
     
     g. Wybierz **Ok**.
 
-7. Wybierz hello **zapisać** przycisku.
+7. Wybierz ikonę **Zapisz**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_general_400.png)
 
-8. W hello **HR2day przez konfigurację Merces** zaznacz **skonfigurować HR2day przez Merces** tooopen hello **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adres URL**, **SAML identyfikator jednostki**, i **SAML pojedynczy znak na adres URL usługi** z hello **krótki przewodnik** sekcji.
+8. W **HR2day przez konfigurację Merces** zaznacz **skonfigurować HR2day przez Merces** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL**, **SAML identyfikator jednostki**, i **SAML pojedynczy znak na adres URL usługi** z **krótkimi opisami** sekcji.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_configure.png) 
 
-9. tooconfigure logowania jednokrotnego dla twojej aplikacji, skontaktuj się z hello [HR2day przez zespół pomocy technicznej klienta Merces](mailTo:servicedesk@merces.nl). Dołącz hello pobrane **Certificate(Base64)** pliku tooyour wiadomości e-mail. Udostępniają hello **Sign-Out URL**, **identyfikator jednostki SAML**, i **SAML pojedynczy znak na adres URL usługi** tak, aby można je skonfigurować integracji logowania jednokrotnego.
+9. Aby skonfigurować logowanie Jednokrotne dla aplikacji, skontaktuj się z [HR2day przez zespół pomocy technicznej klienta Merces](mailTo:servicedesk@merces.nl). Dołącz pobrany **Certificate(Base64)** pliku do wiadomości e-mail. Udostępniają **Sign-Out URL**, **identyfikator jednostki SAML**, i **SAML pojedynczy znak na adres URL usługi** tak, aby można je skonfigurować integracji logowania jednokrotnego.
 
     > [!NOTE]
-    >Wspomina toohello Merces zespół, który wymaga tej integracji hello toobe identyfikator jednostki ustawiony za pomocą wzorca hello **https://hr2day.force.com/INSTANCENAME**.
+    >Wspomina do zespołu Merces, że integracja wymaga identyfikator jednostki można ustawić za pomocą wzorca **https://hr2day.force.com/INSTANCENAME**.
 
     > [!TIP]
-    >Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory** > **aplikacje dla przedsiębiorstw** sekcji, wybierz hello **rejestracji jednokrotnej** kartę. Witaj dostęp osadzone dokumentacji za pośrednictwem hello **konfiguracji** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w hello [usługi Azure AD osadzonych dokumentacji]( https://go.microsoft.com/fwlink/?linkid=845985).
+    >Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory** > **aplikacje dla przedsiębiorstw** zaznacz **rejestracji jednokrotnej** kartę. Dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzony w [usługi Azure AD osadzonych dokumentacji]( https://go.microsoft.com/fwlink/?linkid=845985).
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, hello wykonaj następujące kroki:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, należy wykonać następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, wybierz hello **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w okienku nawigacji po lewej stronie wybierz **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup**, a następnie wybierz **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie wybierz **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** wybierz pozycję **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okno dialogowe, wybierz opcję **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_03.png) 
 
-4. W hello **użytkownika** okno dialogowe, hello wykonaj następujące kroki:
+4. W **użytkownika** okna dialogowego należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-hr2day-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** wpisz **BrittaSimon**.
+    a. W **nazwa** wpisz **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** okno, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** wpisz **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło**, a następnie Zapisz hasło hello.
+    c. Wybierz **Pokaż hasło**, a następnie Zapisz hasło.
 
     d. Wybierz pozycję **Utwórz**.
  
 ### <a name="create-an-hr2day-by-merces-test-user"></a>Utwórz HR2day przez Merces użytkownika testowego
 
-Celem Hello w tej sekcji jest toocreate użytkownik wywołał Simona Britta w HR2day Merces. Użytkownicy hello tooadd na koncie hello HR2day pracować z hello [HR2day przez zespół pomocy technicznej klienta Merces](mailto:servicedesk@merces.nl). 
+Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w HR2day przez Merces. Aby dodać użytkowników w ramach konta HR2day, pracy z [HR2day przez zespół pomocy technicznej klienta Merces](mailto:servicedesk@merces.nl). 
 
 > [!NOTE]
-> Toocreate użytkownik ręcznie, należy skontaktować się z hello [HR2day przez zespół pomocy technicznej klienta Merces](mailto:servicedesk@merces.nl).
+> Jeśli trzeba ręcznie utworzyć użytkownika, skontaktuj się z [HR2day przez zespół pomocy technicznej klienta Merces](mailto:servicedesk@merces.nl).
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji zostanie włączone, przyznając jej tooHR2day dostępu przez Merces toouse Simona Britta Azure rejestracji jednokrotnej.
+W tej sekcji można włączyć Simona Britta do udostępnienia jej HR2day przez Merces za pomocą usługi Azure rejestracji jednokrotnej.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooHR2day Simona Britta przez Merces, hello wykonaj następujące kroki:**
+**Aby przypisać Simona Britta HR2day przez Merces, należy wykonać następujące czynności:**
 
-1. W hello Azure aplikacji hello portalu, otwórz wyświetlić, przejdź do widoku katalogu toohello, a następnie przejdź zbyt**aplikacje dla przedsiębiorstw**. Następnie wybierz pozycję **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, przejdź do widoku katalogu, a następnie przejdź do **aplikacje dla przedsiębiorstw**. Następnie wybierz pozycję **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **HR2day przez Merces**.
+2. Na liście aplikacji zaznacz **HR2day przez Merces**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-hr2day-tutorial/tutorial_hr2daybymerces_app.png) 
 
-3. W menu hello powitania po lewej stronie wybierz **użytkowników i grup**.
+3. W menu po lewej stronie wybierz **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
-4. Wybierz hello **Dodaj** przycisku. Następnie w hello **Dodaj przydziału** okno dialogowe, wybierz opcję **użytkowników i grup**.
+4. Wybierz **Dodaj** przycisku. Następnie w **Dodaj przydziału** okno dialogowe, wybierz opcję **użytkowników i grup**.
 
     ![Przypisz użytkownika][203]
 
-5. W hello **użytkowników i grup** okno dialogowe, w hello **użytkowników** listy, wybierz **Simona Britta**.
+5. W **użytkowników i grup** okna dialogowego, **użytkowników** listy, wybierz **Simona Britta**.
 
-6. Kliknij przycisk hello **wybierz** przycisku.
+6. Kliknij przycisk **wybierz** przycisku.
 
-7. W hello **Dodaj przydziału** okno dialogowe, wybierz opcję **przypisać**.
+7. W **Dodaj przydziału** okno dialogowe, wybierz opcję **przypisać**.
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-Witaj celem tej sekcji jest tootest konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.  
+Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.  
 
-Po wybraniu hello HR2day przez Kafelek Merces w panelu dostępu hello automatycznie pobrać zalogowano tooyour HR2day przez aplikację Merces.
+Po wybraniu HR2day przez Kafelek Merces w panelu dostępu, można automatycznie pobrać zalogowany HR2day Twojego przez aplikację Merces.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobu integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

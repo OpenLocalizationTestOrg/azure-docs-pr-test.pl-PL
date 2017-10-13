@@ -1,6 +1,6 @@
 ---
-title: "powiadomienia aaaConfigure i szablonów w usłudze Azure API Management wiadomości e-mail | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconfigure powiadomienia i szablonów w usłudze Azure API Management wiadomości e-mail."
+title: "Konfigurowanie powiadomień i szablonów w usłudze Azure API Management wiadomości e-mail | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak skonfigurować powiadomienia i szablonów w usłudze Azure API Management wiadomości e-mail."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,63 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: dc23289c25a1641992b73cb955099b3f207b6968
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3d8b74e32059cfc1a4c3a8fc7d3bd04676ee80c8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooconfigure-notifications-and-email-templates-in-azure-api-management"></a>Jak tooconfigure powiadomienia i szablonów w usłudze Azure API Management wiadomości e-mail
-Zarządzanie interfejsami API umożliwia określenie hello tooconfigure powiadomienia dla określonych zdarzeń i tooconfigure hello e-mail szablonów, które są używane toocommunicate z hello Administratorzy i deweloperzy wystąpienia interfejsu API zarządzania. W tym temacie pokazano, jak tooconfigure powiadomienia dla hello zdarzenia dostępne i zawiera omówienie konfigurowania hello szablonów wiadomości e-mail używany dla tych zdarzeń.
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>How to configure notifications and email templates in Azure API Management
+Zarządzanie interfejsami API pozwala, aby skonfigurować powiadomienia dla określonych zdarzeń i konfigurowania szablonów wiadomości e-mail, które są używane do komunikacji z Administratorzy i deweloperzy wystąpienia interfejsu API zarządzania. W tym temacie pokazano, jak skonfigurować powiadomienia o zdarzeniach dostępny i zawiera omówienie konfigurowania szablonów wiadomości e-mail używany dla tych zdarzeń.
 
 ## <a name="publisher-notifications"></a>Skonfigurować powiadomienia o wydawcy
-tooconfigure powiadomień, kliknij przycisk **portal wydawcy** w hello portalu Azure usługi Zarządzanie interfejsami API. Trwa toohello zarządzanie interfejsami API wydawcy portalu.
+Kliknij, aby skonfigurować powiadomienia **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API. Spowoduje to przejście do portalu wydawcy usługi API Management.
 
 ![Portal wydawcy][api-management-management-console]
 
 > [!NOTE] 
-> Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w hello [wprowadzenie do usługi Azure API Management] [ Get started with Azure API Management] samouczka.
+> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
 
-Kliknij przycisk **powiadomienia** z hello **zarządzanie interfejsami API** menu na powitania pozostałych tooview hello dostępnych powiadomień.
+Kliknij przycisk **powiadomienia** z **zarządzanie interfejsami API** menu po lewej stronie, aby wyświetlić dostępnych powiadomień.
 
 ![Wydawcy powiadomień][api-management-publisher-notifications]
 
-Witaj Poniższa lista zdarzeń można skonfigurować dla powiadomienia.
+Poniższa lista zdarzeń można skonfigurować dla powiadomienia.
 
-* **Żądania subskrypcji (wymaganie zatwierdzenia)** — Witaj adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać powiadomienia e-mail o żądaniach subskrypcji dla produktów interfejsu API, wymaganie zatwierdzenia.
-* **Nowe subskrypcje** — Witaj adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać powiadomienia e-mail o nowe subskrypcje produktu interfejsu API.
-* **Żądania galerii aplikacji** — Witaj adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać powiadomienia e-mail, gdy nowe aplikacje są przesłane toohello galerii aplikacji.
-* **UDW** — Witaj adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać wiadomości e-mail kopie z wszystkich wiadomości e-mail wysyłanych toodevelopers.
-* **Nowy problem lub komentarz** — Witaj adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać powiadomienia e-mail, gdy nowy problem lub komentarz jest przesyłane na powitania portalu dla deweloperów.
-* **Komunikat zamknięcia konta** — Witaj adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać powiadomienia pocztą e-mail, po zamknięciu konta.
-* **Limit przydziału subskrypcji o** — Witaj następujących adresatów wiadomości e-mail, a użytkownicy otrzymają powiadomienia e-mail, gdy użycie subskrypcji pobiera przydział toousage Zamknij.
+* **Żądania subskrypcji (wymaganie zatwierdzenia)** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail o żądaniach subskrypcji dla produktów interfejsu API, wymaganie zatwierdzenia.
+* **Nowe subskrypcje** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail o nowe subskrypcje produktu interfejsu API.
+* **Żądania galerii aplikacji** -adresatów wiadomości e-mail określonego i użytkowników będzie otrzymywał powiadomienia e-mail, gdy nowe aplikacje są przesyłane do galerii aplikacji.
+* **UDW** -adresatów wiadomości e-mail określonego i użytkownicy otrzymają wiadomość e-mail kopie wszystkich wiadomości e-mail wysyłanych do deweloperów.
+* **Nowy problem lub komentarz** — adresatów wiadomości e-mail określonego i użytkownicy będą otrzymywać powiadomienia e-mail, gdy nowy problem lub komentarz jest przesyłany w portalu dla deweloperów.
+* **Komunikat zamknięcia konta** -adresatów wiadomości e-mail określony i użytkownicy będą otrzymywać powiadomienia e-mail, po zamknięciu konta.
+* **Limit przydziału subskrypcji o** -następujących adresatów wiadomości e-mail i użytkowników będzie otrzymywał powiadomienia e-mail, gdy użycie subskrypcji pobiera możliwości wykorzystania przydziału użycia.
 
-Dla każdego zdarzenia można określić adresatów wiadomości e-mail przy użyciu pole tekstowe adresu e-mail hello lub użytkownicy mogą wybrać z listy.
+Dla każdego zdarzenia można określić adresatów wiadomości e-mail w polu tekstowym adres e-mail lub użytkownicy mogą wybrać z listy.
 
-toospecify hello e-mail adresy toobe powiadomienie, wprowadź je w polu tekstowym adres e-mail hello. Jeśli masz wiele adresów e-mail, oddzielając je przecinkami.
+Aby określić adresy e-mail, aby otrzymywać powiadomienia, wprowadź je w polu tekstowym adres e-mail. Jeśli masz wiele adresów e-mail, oddzielając je przecinkami.
 
 ![Adresatów powiadomień][api-management-email-addresses]
 
-toobe użytkowników hello toospecify powiadomienie, kliknij przycisk **Dodaj adresata**hello pole obok toobe użytkowników hello powiadomienie wyboru i kliknij przycisk **OK**.
+Aby określić należy powiadomić użytkowników, kliknij przycisk **Dodaj adresata**, zaznacz pole obok użytkowników, aby otrzymywać powiadomienia, a następnie kliknij przycisk **OK**.
 
 > [!NOTE] 
-> Tylko administratorzy są wyświetlane na liście hello.
+> Tylko administratorzy są wyświetlane na liście.
 
 
-Po skonfigurowaniu hello odbiorców powiadomień, kliknij przycisk **zapisać** tooapply hello zaktualizować odbiorców powiadomień.
+Po skonfigurowaniu odbiorców powiadomień, kliknij przycisk **zapisać** dotyczyć odbiorców powiadomień zaktualizowane.
 
 > [!NOTE] 
-> Jeśli opuścisz hello **wydawcy powiadomień** portal wydawcy hello kartę alerty, jeśli istnieją niezapisane zmiany.
+> Jeśli oddalisz się od **wydawcy powiadomień** kartę portalu wydawcy generuje alert, jeśli istnieją niezapisane zmiany.
 
 
 ## <a name="email-templates"></a>Konfigurowanie szablonów wiadomości e-mail
-Zarządzanie interfejsami API udostępnia szablony wiadomości e-mail dla hello wiadomości e-mail, które są wysyłane w toku hello zarządzania i korzystania z usługi hello. podano Hello następujące szablony wiadomości e-mail.
+Zarządzanie interfejsami API udostępnia szablony wiadomości e-mail dla wiadomości e-mail, które są wysyłane w ramach zarządzania i korzystania z usługi. Znajdują się następujące szablony wiadomości e-mail.
 
 * Zatwierdzone przesyłanie galerii aplikacji
 * Litera farewell Developer
 * Limit przydziału Developer zbliża się powiadomień
 * Zaproś użytkownika
-* Nowy komentarz dodany tooan problem
+* Nowy komentarz dodany do problemu
 * Nowy problem odebranych
 * Nowa subskrypcja aktywowany
 * Potwierdzenie odnowić subskrypcję
@@ -79,11 +79,11 @@ Zarządzanie interfejsami API udostępnia szablony wiadomości e-mail dla hello 
 
 Te szablony mogą być modyfikowane pożądane.
 
-tooview i skonfigurować hello szablonów wiadomości e-mail dla swojego wystąpienia usługi API Management, kliknij **powiadomienia** z hello **zarządzanie interfejsami API** menu na powitania po lewej, a następnie wybierz hello **szablony wiadomości E-mail**  kartę.
+Kliknij, aby wyświetlić i skonfigurować szablony wiadomości e-mail dla swojego wystąpienia usługi API Management **powiadomienia** z **zarządzanie interfejsami API** menu po lewej stronie, a następnie wybierz **szablony wiadomości E-mail**kartę.
 
 ![Szablony wiadomości e-mail][api-management-email-templates]
 
-tooview lub zmodyfikować szablon, wybierz ją z hello **szablony** listy rozwijanej.
+Aby wyświetlić lub zmodyfikować szablon, wybierz go z **szablony** listy rozwijanej.
 
 ![Lista szablonów wiadomości e-mail][api-management-email-templates-list]
 
@@ -91,14 +91,14 @@ Każdy szablon wiadomości e-mail ma podmiotu w postaci zwykłego tekstu i defin
 
 ![Edytor szablonu wiadomości e-mail][api-management-email-template]
 
-Witaj **parametry** lista zawiera listę parametrów, służący do hello tematu ani treści, będzie wartość zastąpionego Witaj wyznaczone, po wysłaniu wiadomości e-mail hello. tooinsert parametr, umieść kursor hello, której chcesz hello toogo parametru, a następnie kliknij hello Strzałka toohello po lewej stronie powitania parametru nazwy.
+**Parametry** lista zawiera listę parametrów, służący wstawione do tematu lub treści, zostanie zastąpiony wyznaczonej wartości, po wysłaniu wiadomości e-mail. Aby wstawić parametru, umieść kursor, który mają parametr, aby przejść, a następnie kliknij przycisk strzałki w lewo nazwę parametru.
 
-Kliknij przycisk **Podgląd** lub **wysłać teście** toosee jak hello poczty e-mail będzie wyglądać lub Wyślij testową wiadomość e-mail.
+Kliknij przycisk **Podgląd** lub **wysłać teście** aby zobaczyć, jak wiadomości e-mail będą wyglądać lub Wyślij testową wiadomość e-mail.
 
 > [!NOTE] 
-> Parametry Hello nie są zastępowane rzeczywistymi wartościami podczas przeglądania lub wysyłanie testu.
+> Parametry nie są zastępowane rzeczywistymi wartościami podczas przeglądania lub wysyłanie testu.
 
-toohello szablon wiadomości e-mail toosave hello zmiany, kliknij przycisk **Zapisz**, lub kliknij przycisk zmiany hello toocancel **anulować**.
+Aby zapisać zmiany szablonu wiadomości e-mail, kliknij polecenie **zapisać**, lub Anuluj zmiany kliknij **anulować**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
@@ -114,8 +114,8 @@ toohello szablon wiadomości e-mail toosave hello zmiany, kliknij przycisk **Zap
 [Configure publisher notifications]: #publisher-notifications
 [Configure email templates]: #email-templates
 
-[How toocreate and use groups]: api-management-howto-create-groups.md
-[How tooassociate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

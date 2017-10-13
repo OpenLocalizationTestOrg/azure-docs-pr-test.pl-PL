@@ -1,6 +1,6 @@
 ---
-title: "aaaMonitor urządzenia StorSimple | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak toouse hello wydajność We/Wy toomonitor usługi Menedżer StorSimple, wykorzystanie pojemności, przepływność sieci i wydajność urządzenia."
+title: "Monitorowanie urządzenia StorSimple | Dokumentacja firmy Microsoft"
+description: "Informacje dotyczące używania usługi Menedżer StorSimple do monitorowania wydajności operacji We/Wy, wykorzystanie pojemności, przepływność sieci i wydajność urządzenia."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,105 +14,105 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/16/2016
 ms.author: alkohli
-ms.openlocfilehash: c1f614a7f52728650bfadb3335435b8b5a17e6ae
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-storsimple-manager-service-toomonitor-your-storsimple-device"></a>Użyj toomonitor usługi Menedżer StorSimple hello urządzenia StorSimple
+# <a name="use-the-storsimple-manager-service-to-monitor-your-storsimple-device"></a>Użyj usługi Menedżer StorSimple do monitorowania urządzenia StorSimple
 ## <a name="overview"></a>Omówienie
-Urządzenia określonego toomonitor usługi Menedżer StorSimple hello można użyć w rozwiązaniu StorSimple. Można tworzyć niestandardowe wykresy na podstawie wydajności operacji We/Wy, wykorzystanie pojemności, przepływność sieci i metryki wydajności urządzenia. 
+Usługę Menedżer StorSimple służy do monitorowania określonych urządzeń w rozwiązaniu StorSimple. Można tworzyć niestandardowe wykresy na podstawie wydajności operacji We/Wy, wykorzystanie pojemności, przepływność sieci i metryki wydajności urządzenia. 
 
-Witaj tooview monitorowania informacje dotyczące określonego urządzenia w hello klasycznego portalu Azure, wybierz hello usługi Menedżer StorSimple. Kliknij przycisk hello **Monitor** , a następnie wybierz z listy hello urządzeń. Witaj **Monitor** strona zawiera hello następujących informacji.
+Aby wyświetlić dane monitorowania dla określonego urządzenia, w klasycznym portalu Azure, wybierz usługę Menedżer StorSimple. Kliknij przycisk **Monitor** , a następnie wybierz z listy urządzeń. **Monitor** strona zawiera następujące informacje.
 
 ## <a name="io-performance"></a>Wydajność We/Wy
-**Wydajność We/Wy** metryki śledzi powiązany numer toohello odczytu i zapisu między albo iSCSI hello interfejsy inicjatora na powitania serwera hosta i hello urządzenie lub urządzenia hello i w chmurze hello. To wydajność może być zmierzony dla określonego woluminu, określony wolumin kontenera lub wszystkie kontenery woluminów.
+**Wydajność We/Wy** śledzi metryk powiązanych z liczbą odczytu i zapisu między albo interfejsy inicjatora iSCSI na serwerze hosta i urządzenie lub urządzenia i chmury. To wydajność może być zmierzony dla określonego woluminu, określony wolumin kontenera lub wszystkie kontenery woluminów.
 
-Wykres Hello poniżej przedstawia hello we/wy dla urządzenia tooyour inicjatora hello wszystkie woluminy hello urządzenia produkcji. metryki Hello wykreślić są do odczytu i zapisu bajtów na sekundę, odczytu i operacji We/Wy na sekundę, zapisu i odczytu i zapisu opóźnienia.
+Poniższej tabeli przedstawiono we/wy dla inicjatora na urządzeniu dla wszystkich woluminów urządzenia produkcji. Metryki wykreślić są do odczytu i zapisu bajtów na sekundę, odczytu i operacji We/Wy na sekundę, zapisu i odczytu i zapisu opóźnienia.
 
-![Wydajność We/Wy z toodevice inicjatora](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
+![Wydajność We/Wy z inicjatora dla urządzenia](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_InitiatorTODevice_For_AllVolumesM.png)
 
-Dla hello jednym urządzeniu, operacje We/Wy hello są kreślone hello danych z hello urządzenia toohello chmury dla wszystkich hello kontenery woluminów. Na tym urządzeniu hello danych jest tylko w warstwie liniowej hello i nic nie ma rozrzucone toohello chmury. Nie ma żadnych wykonywane z chmury toohello urządzenia operacje odczytu i zapisu. W związku z tym hello szczytów wykresu hello są z interwałem wynoszącym 5 minut odpowiadający częstotliwość toohello jaką pulsu hello zaznaczono między hello urządzeń i usług hello. 
+Dla tego samego urządzenia operacje We/Wy są kreślone danych z urządzenia do chmury dla wszystkich kontenerów woluminu. Na tym urządzeniu dane są tylko w warstwie liniowej i nic nie ma rozrzucone do chmury. Nie ma żadnych operacje odczytu i zapisu występujących z urządzenia do chmury. W związku z tym pików na wykresie są co 5 minut umożliwiająca częstotliwość sprawdzania pulsu między urządzeniem i usługi. 
 
-![Wydajność We/Wy z toocloud urządzenia](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
+![Wydajność We/Wy z urządzenia do chmury](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainersM.png)
 
-Dla hello jednym urządzeniu, migawkę chmury została wykonana dla danych woluminu, zaczynając od 2:00 pm. To sprawia, że dane przepływające z hello urządzenia toohello chmury. Odczytuje i zapisuje zostały obsłużone chmury toohello tego czasu trwania. Witaj we/wy wykres pokazuje szczytu hello różnych metryk odpowiadającego toohello czas, kiedy hello migawki. 
+Dla tego samego urządzenia chmury migawki danych woluminu, zaczynając od 2:00 pm. To sprawia, że dane przepływające z urządzenia do chmury. Odczytuje i zapisuje zostały obsłużone do chmury w ten czas trwania. Wykres we/wy pokazuje szczytu w różnych metryk odpowiadający czas, kiedy migawki. 
 
-![Wydajność We/Wy urządzenia toocloud po migawka w chmurze](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainers2M.png)
+![Wydajność We/Wy urządzenia do chmury po migawka w chmurze](./media/storsimple-monitor-device/StorSimple_IO_Performance_For_DeviceTOCloud_For_AllVolumeContainers2M.png)
 
 ## <a name="capacity-utilization"></a>Użycie wydajności
-**Użycie wydajności** śledzi metryk powiązanych toohello ilość miejsca do magazynowania danych, używany przez hello woluminów, kontenery woluminów lub urządzenia. Możesz utworzyć raporty na podstawie wykorzystania pojemności hello podstawowego magazynu, magazynu w chmurze lub magazynie urządzenia. Wykorzystanie pojemności może być zmierzony przy określonego woluminu, określony wolumin kontenera lub wszystkie kontenery woluminów.
+**Użycie wydajności** śledzi metryki dotyczące ilości miejsca do magazynowania danych, używany przez woluminy, kontenery woluminów lub urządzenia. Możesz utworzyć raporty na podstawie wykorzystania pojemności magazynu podstawowego, magazynu w chmurze lub pamięć masową urządzenia. Wykorzystanie pojemności może być zmierzony przy określonego woluminu, określony wolumin kontenera lub wszystkie kontenery woluminów.
 
-Hello podstawowego, chmury i pojemności magazynu urządzenia można przedstawić w następujący sposób:
+Chmury podstawowej, a pojemność magazynu urządzenia można przedstawić w następujący sposób:
 
 ### <a name="primary-storage-capacity-utilization"></a>Podstawowe wykorzystanie pojemności
-Te na wykresach hello ilość danych zapisane woluminów tooStorSimple przed danych hello jest deduplikowany i skompresowane. Wykorzystanie magazynu podstawowego hello można wyświetlić wszystkich woluminów lub jednego woluminu.
+Te na wykresach ilość danych zapisywane woluminów StorSimple przed danych jest deduplikowany i skompresowane. Wykorzystanie magazynu głównej można wyświetlić wszystkich woluminów lub jednego woluminu.
 
-Po wyświetleniu hello magazynu głównego woluminu pojemności wykorzystania wykresy wszystkie woluminy w porównaniu z każdego hello poszczególnych woluminów i podsumowania danych podstawowych hello w obu przypadkach może być niezgodność między dwiema liczbami hello. Całkowita danych podstawowych Hello we wszystkich woluminach może nie sumują łączną sumę toohello hello danych podstawowych hello poszczególnych woluminów. Może to być spowodowane tooone hello następujące czynności:
+Podczas przeglądania wykresy wykorzystania pojemności magazynu głównego woluminu wszystkie woluminy w porównaniu z każdej z poszczególnych woluminów i sumowanie danych podstawowych w obu przypadkach, może być niezgodność między dwiema liczbami. Całkowita danych podstawowych we wszystkich woluminach nie można dodać do całkowitej ilości danych podstawowych poszczególnych woluminów. Może to być spowodowane jedną z następujących czynności:
 
-* **Dane uwzględnione dla wszystkich woluminów migawek**: ten problem występuje tylko wtedy, gdy używasz wersji wcześniejszych niż aktualizacja Update 3. Hello danych podstawowych pokazano wszystkie woluminy hello jest suma hello hello migawki danych i hello danych pierwotnych dla każdego woluminu. Hello danych podstawowych wyświetlany dla danego woluminu odpowiada tooonly hello ilość danych przydzielone w woluminie hello (i nie ma hello odpowiednie dane migawki woluminu).
+* **Dane uwzględnione dla wszystkich woluminów migawek**: ten problem występuje tylko wtedy, gdy używasz wersji wcześniejszych niż aktualizacja Update 3. Podstawowe dane wyświetlane dla wszystkich woluminów, które jest sumą danych podstawowych dla każdego woluminu i dane migawki. Podstawowe dane wyświetlane dla danego woluminu odpowiada tylko ilość danych przydzielone w woluminie (i nie ma odpowiednich danych migawek woluminu).
   
-    Ten można również wyjaśnić hello następujące równanie:
+    Można to również wyjaśnić przez następujące równanie:
   
     *Danych podstawowych (wszystkich woluminów) = Suma (danych podstawowych (woluminu i) + rozmiar danych migawki (woluminu i))*
   
-    *w przypadku gdy podstawowy danych (woluminu i) = rozmiar danych podstawowych przydzielone toovolume i*
+    *w przypadku gdy podstawowy danych (woluminu i) = rozmiar danych podstawowych przydzielone do woluminu i*
   
-    Usunięcie migawki hello za pośrednictwem usługi hello usunięcia hello odbywa się asynchronicznie w tle hello. Może upłynąć trochę czasu, zanim hello wolumin danych rozmiar toobe uaktualnić po hello usunięcia migawki. 
+    Usunięcie migawki za pomocą usługi usunięcie odbywa się asynchronicznie w tle. Może upłynąć trochę czasu, rozmiar danych woluminu, należy uaktualnić po usunięciu migawki. 
   
-    Jeśli uruchomioną aktualizacją 3 lub nowszym, dane migawki hello nie jest uwzględniony w hello woluminów danych. I użycie głównej hello jest obliczana w następujący sposób:
+    Jeśli uruchomiona aktualizacji 3 lub nowszym, dane migawki nie jest uwzględniony w danych woluminu. I podstawowego wykorzystania jest obliczana w następujący sposób:
   
     * Głównej danych (wszystkich woluminów) = Suma (danych podstawowych (woluminu i)
   
-    *w przypadku gdy podstawowy danych (woluminu i) = rozmiar danych podstawowych przydzielone toovolume i*
-* **Woluminy z monitorowaniem wyłączone objęte wszystkie woluminy**: Jeśli masz woluminów na urządzeniu, dla których monitorowanie jest wyłączone, hello danych monitorowania dla tych woluminów poszczególnych nie będą dostępne na wykresach hello. Jednak dane hello wszystkie woluminy na wykresie hello obejmują hello woluminów, których monitorowanie jest wyłączone. 
-* **Usunięte z uwzględnione wszystkie woluminy na żywo skojarzonych kopii zapasowych woluminów**: Jeśli woluminy zawierające dane migawki są usuwane, ale nadal istnieją migawki hello skojarzony, a następnie niezgodność może zostać wyświetlony.
-* **Usunięte woluminy uwzględnione dla wszystkich woluminów**: W niektórych przypadkach mogą istnieć starszych woluminów, nawet jeśli te zostały usunięte. efekt Hello usunięcia nie jest widoczny i hello urządzenia mogą być wyświetlane niższe dostępnej pojemności. Należy tooremove Microsoft Support toocontact tych woluminów.
+    *w przypadku gdy podstawowy danych (woluminu i) = rozmiar danych podstawowych przydzielone do woluminu i*
+* **Woluminy z monitorowaniem wyłączone objęte wszystkie woluminy**: Jeśli masz woluminów na urządzeniu, dla których monitorowanie jest wyłączone, dane monitorowania tych poszczególnych woluminów nie jest dostępny w wykresy. Jednak dane wszystkie woluminy na wykresie obejmują woluminów, których monitorowanie jest wyłączone. 
+* **Usunięte z uwzględnione wszystkie woluminy na żywo skojarzonych kopii zapasowych woluminów**: Jeśli woluminy zawierające dane migawki są usuwane, ale nadal istnieją skojarzone migawki, a następnie niezgodność może zostać wyświetlony.
+* **Usunięte woluminy uwzględnione dla wszystkich woluminów**: W niektórych przypadkach mogą istnieć starszych woluminów, nawet jeśli te zostały usunięte. Wpływ usunięcia nie jest widoczny i urządzenia mogą być wyświetlane niższe dostępnej pojemności. Należy skontaktować się z Microsoft Support do usunięcia tych woluminów.
 
-Witaj następujące na wykresach hello głównej wykorzystanie pojemności urządzenia StorSimple przed i po migawki chmury. Jak jest to po prostu danych woluminu, migawka w chmurze nie należy zmieniać hello podstawowego magazynu. Jak widać, hello wykres przedstawia różnicy w wykorzystanie pojemności głównej hello wyniku migawki chmury. Migawka w chmurze Hello rozpoczęty o godzinie około 2:00 pm na tym urządzeniu.
+Następujące na wykresach wykorzystanie pojemności magazynu głównego urządzenia StorSimple przed i po migawki chmury. Jak jest to po prostu danych woluminu, migawka w chmurze nie należy zmieniać magazynu głównego. Jak widać, wykres ten przedstawia różnicy w wykorzystania pojemności głównej wyniku migawki chmury. Migawka w chmurze rozpoczęty o godzinie około 2:00 pm na tym urządzeniu.
 
 ![Wykorzystanie pojemności głównej przed migawka w chmurze](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes2M.png)
 
 ![Wykorzystanie pojemności głównej po migawka w chmurze](./media/storsimple-monitor-device/StorSimple_PrimaryCapacityUtil_For_AllVolumes1M.png)
 
-Jeśli używasz Update 2 lub nowszy, można przerwać dół hello głównej wykorzystanie pojemności poszczególnych woluminów, wszystkie woluminy, wszystkie woluminy warstwowe i wszystkich woluminów przypiętych lokalnie jak pokazano poniżej. Dzielenie przez wszystkie lokalnie woluminów przypiętych pozwoli tooquickly upewnić się, ile warstwy lokalne powitania zużycia.
+Jeśli używasz Update 2 lub nowszym, można przerwać dół wykorzystania pojemności magazynu głównego poszczególnych woluminów, wszystkie woluminy, wszystkie woluminy warstwowe i wszystkich woluminów przypiętych lokalnie jak pokazano poniżej. Dzielenie przez wszystkich woluminów przypiętych lokalnie pozwoli szybko ustalić, ile warstwie lokalnej jest wykorzystane.
 
 ![Wykorzystanie pojemności głównej dla wszystkich woluminów przypiętych lokalnie](./media/storsimple-monitor-device/localvolumes.png)
 
 ### <a name="cloud-storage-capacity-utilization"></a>Wykorzystanie pojemność magazynu w chmurze
-Te na wykresach hello ilość używane magazynu w chmurze. Te dane są deduplikowane i skompresowane. Ta wartość obejmuje migawki w chmurze, które mogą zawierać dane, które nie jest uwzględniana w głównej woluminami i jest przechowywana na potrzeby przechowywania starszych lub wymagane. Można porównać hello podstawowego i chmury magazynu zużycie rysunki tooget pomysł hello danych zmniejszenie szybkości, mimo że numer hello nie będą dokładne. Witaj następujące na wykresach hello chmury wykorzystanie pojemności urządzenia StorSimple przed i po migawki chmury. Witaj migawka w chmurze rozpoczęty o godzinie około 2:00 pm na tym urządzeniu, aby zobaczyć wykorzystanie pojemności chmury hello zrzut na powitania sam czas zwiększenia z too4.04 5.73 MB, GB.
+Te na wykresach wielkość magazynu w chmurze używane. Te dane są deduplikowane i skompresowane. Ta wartość obejmuje migawki w chmurze, które mogą zawierać dane, które nie jest uwzględniana w głównej woluminami i jest przechowywana na potrzeby przechowywania starszych lub wymagane. Możesz porównać podstawową i chmury magazynu danych, aby poznać zmniejszenie szybkości danych, mimo że nie liczba będzie równa dokładnie. Wykorzystanie pojemność magazynu chmury urządzenia StorSimple przed i po chmurze migawki wykresach. Migawka w chmurze rozpoczęty o godzinie około 2:00 pm na tym urządzeniu, aby zobaczyć wykorzystanie pojemności chmury zrzut w tym samym czasie, zwiększenie z 5.73 MB, GB 4.04.
 
 ![Wykorzystanie pojemności chmury przed migawka w chmurze](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers2M.png)
 
 ![Wykorzystanie pojemności chmury po migawka w chmurze](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 ### <a name="device-storage-capacity-utilization"></a>Wykorzystanie pojemności urządzenia
-Te na wykresach hello łączne użycie hello urządzenia, które będzie większa niż wartość użycia magazynu podstawowego, ponieważ zawiera on liniowej warstwy dysków SSD hello. Ta warstwa zawiera ilość danych, które istnieje także w hello urządzenia innej warstwy. pojemność Hello w liniowej warstwy dysków SSD hello ponownym włączeniu tak, aby po nadejściu nowych danych starych danych hello jest warstwy dysków HDD przeniesionego toohello (po tym czasie jest deduplikowany i skompresowane), a następnie toohello chmury.
+Te na wykresach łączne użycie urządzenia, którego będzie użycie więcej niż podstawowy, ponieważ zawiera on liniowej warstwy dysków SSD. Ta warstwa zawiera ilość danych istnieje również na urządzenia do innej warstwy. Ponownym włączeniu pojemności w liniowej warstwy dysków SSD, dzięki czemu mają nowe dane, stare dane jest przenoszony do warstwy dysków HDD (po tym czasie jest deduplikowany i skompresowane), a następnie do chmury.
 
-Wraz z upływem czasu użycia głównej pojemności i wykorzystania pojemności urządzenia najprawdopodobniej zwiększy razem do momentu rozpoczęcia toobe hello danych warstwowej toohello chmury. W tym momencie wykorzystanie pojemności urządzenia hello prawdopodobnie rozpocznie się tooplateau, ale wykorzystanie pojemności głównej hello zwiększy miarę zapisywanych jest więcej danych.
+Wraz z upływem czasu użycia głównej pojemności i wykorzystania pojemności urządzenia najprawdopodobniej zwiększy razem do momentu rozpoczęcia dane do należeć do warstwy do chmury. W tym momencie prawdopodobnie rozpocznie wykorzystanie pojemności urządzenia Poziomowanie, ale wykorzystanie pojemności podstawowego spowoduje zwiększenie jako zapisywanych jest więcej danych.
 
-Witaj następujące na wykresach hello głównej wykorzystanie pojemności urządzenia StorSimple przed i po migawki chmury. Migawka w chmurze Hello rozpoczęty o godzinie 2:00 pm i wykorzystanie pojemności urządzenia hello uruchomiona, zmniejszając w tym czasie. wykorzystanie pojemności urządzenia Hello zakończył działanie z too7.48 11.58 GB GB. To wskazuje, że prawdopodobnie hello nieskompresowanych danych w liniowej warstwy dysków SSD hello został deduplikowane, skompresowane i przeniesione do warstwy dysków HDD hello. Należy pamiętać, że jeśli urządzenie hello już dużą ilość danych zarówno hello dysków SSD i warstwy dysków HDD, mogą nie być widoczne to zmniejszenie. W tym przykładzie hello urządzenie ma niewielką ilość danych.
+Następujące na wykresach wykorzystanie pojemności magazynu głównego urządzenia StorSimple przed i po migawki chmury. Migawka w chmurze zaczęła godzinie 2:00 a wykorzystanie pojemności urządzenia zmniejszenie o tej godzinie. Wykorzystanie pojemność magazynu urządzenia zakończył działanie z 11.58 GB 7.48 GB. To wskazuje, że prawdopodobnie nieskompresowanych danych w warstwie dysków SSD liniowej został deduplikowane, skompresowane i przeniesione do warstwy dysków HDD. Należy pamiętać, że jeśli urządzenie już dużej ilości danych w warstwach zarówno dysków SSD i HDD, mogą nie być widoczne to zmniejszenie. W tym przykładzie urządzenie ma niewielką ilość danych.
 
 ![Wykorzystanie pojemności urządzenia przed migawka w chmurze](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil2M.png)
 
 ![Wykorzystanie pojemności urządzenia po migawka w chmurze](./media/storsimple-monitor-device/StorSimple_DeviceCapacityUtil1M.png)
 
 ## <a name="network-throughput"></a>Przepustowość sieci
-**Przepustowość sieci** śledzi metryk powiązanych toohello ilość danych przetransferowanych z hello iSCSI initiator interfejsów sieciowych na serwerze hosta hello i hello urządzenia oraz między hello urządzenia i w chmurze hello. Ta metryka dla poszczególnych interfejsów sieciowych iSCSI hello można monitorować na urządzeniu.
+**Przepustowość sieci** śledzi metryki dotyczące ilość danych przesyłanych z interfejsów sieciowych inicjatora iSCSI na serwerze hosta, a urządzenie i między urządzeniem i chmurą. Ta metryka dla poszczególnych interfejsów sieciowych iSCSI można monitorować na urządzeniu.
 
-powitania po przepływność sieci hello Pokaż wykresy hello dane 0 a 4 danych, obu 1 GbE interfejsów na urządzeniu. W tym przypadku Data 0 został włączoną obsługę chmury 4 danych został włączony iSCSI. Widać zarówno hello ruchu przychodzącego i hello ruchu wychodzącego dla urządzenia StorSimple. Hello płaskiej wiersza na wykresie powitania od 15:24:00 jest ze względu na fakt toohello firma Microsoft zbiera dane o co 5 minut i należy ją ignorować. 
+Poniższych wykresach przepustowość sieci interfejsu dane 0 a 4 danych, obu 1 GbE interfejsów na urządzeniu. W tym przypadku Data 0 został włączoną obsługę chmury 4 danych został włączony iSCSI. Widać przychodzącego i wychodzącego ruchu sieciowego dla urządzenia StorSimple. Płaski wiersza na wykresie, począwszy od 15:24:00 jest ze względu na fakt, firma Microsoft zbiera dane o co 5 minut i należy ją ignorować. 
 
 ![Przepustowość sieci dla Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data0M.png)
 
 ![Przepustowość sieci dla Data4](./media/storsimple-monitor-device/StorSimple_NetworkThroughput_Data4M.png)
 
 ## <a name="device-performance"></a>Wydajność urządzenia
-**Wydajność urządzenia** śledzi metryki dotyczące wydajności toohello urządzenia. Witaj poniższym wykresie przedstawiono Statystyka wykorzystania procesora CPU hello urządzenia w środowisku produkcyjnym.
+**Wydajność urządzenia** śledzi metryki związane z wydajnością urządzenia. W poniższej tabeli przedstawiono Statystyka wykorzystania procesora CPU dla urządzenia w środowisku produkcyjnym.
 
 ![Użycie procesora CPU dla urządzenia](./media/storsimple-monitor-device/StorSimple_DeviceMonitor_DevicePerformance1M.png)
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak za[pulpit nawigacyjny urządzenia usługi Menedżer StorSimple hello](storsimple-device-dashboard.md).
-* Dowiedz się, jak za[Użyj hello tooadminister usługi Menedżer StorSimple, urządzenia StorSimple](storsimple-manager-service-administration.md).
+* Dowiedz się, jak [pulpit nawigacyjny urządzenia usługi Menedżer StorSimple](storsimple-device-dashboard.md).
+* Dowiedz się, jak [zarządzać urządzenia StorSimple przy użyciu usługi Menedżer StorSimple](storsimple-manager-service-administration.md).
 

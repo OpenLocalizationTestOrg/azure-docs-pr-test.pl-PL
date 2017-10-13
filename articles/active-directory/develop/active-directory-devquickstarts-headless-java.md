@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure wiersza polecenia języka AD Java wprowadzenie | Dokumentacja firmy Microsoft"
-description: "Jak toobuild Java polecenia aplikacji wiersza, który podpisuje użytkowników w tooaccess interfejsu API."
+title: Azure AD Java wiersza polecenia wprowadzenie | Dokumentacja firmy Microsoft
+description: "Jak utworzyć aplikację wiersza polecenia języka Java, która loguje użytkowników można uzyskać dostępu do interfejsu API."
 services: active-directory
 documentationcenter: java
 author: navyasric
@@ -15,51 +15,51 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 9ba1d1e794928a39ca1f091bd0e6eba57ce3d6aa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 91e4a7b2ac454465d5cce4948a4d5f0b542d2b55
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="using-java-command-line-app-tooaccess-an-api-with-azure-ad"></a>Przy użyciu tooAccess Java wiersza polecenia aplikacji interfejsu API w usłudze Azure AD
+# <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Dostęp do interfejsu API za pomocą usługi Azure AD za pomocą aplikacji Java wiersza polecenia
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Usługi Azure AD, ułatwia toooutsource proste i bezpośrednie zarządzanie tożsamościami aplikacji sieci web, zapewniając pojedyncze logowania i wylogowywania przy tylko kilku wierszy kodu.  W aplikacjach sieci web Java można to zrobić za pomocą implementacji hello społeczność ADAL4J firmy Microsoft.
+Usługi Azure AD umożliwia proste i bezpośrednie do zewnętrznej obsługi zarządzania tożsamościami aplikacji sieci web, zapewniając jednego logowania i wylogowywania przy tylko kilku wierszy kodu.  W aplikacjach sieci web Java można to zrobić za pomocą implementacji firmy Microsoft ADAL4J społeczność.
 
   W tym miejscu użyjemy ADAL4J do:
 
-* Użytkownik hello logowania do aplikacji hello przy użyciu usługi Azure AD jako dostawcy tożsamości hello.
-* Wyświetlane informacje o hello użytkownika.
-* Znak hello użytkownika poza aplikacją hello.
+* Zaloguj się użytkownika do aplikacji przy użyciu usługi Azure AD jako dostawcy tożsamości.
+* Wyświetlane informacje o użytkowniku.
+* Zaloguj użytkownika poza aplikacją.
 
-W kolejności toodo to, musisz:
+W tym celu należy:
 
 1. Rejestrowanie aplikacji w usłudze Azure AD
-2. Konfigurowanie biblioteki ADAL4J hello toouse aplikacji.
-3. Użyj hello ADAL4J biblioteki tooissue logowania i wylogowywania żądań tooAzure AD.
-4. Wydrukować dane dotyczące hello użytkownika.
+2. Konfigurowanie aplikacji do korzystania z biblioteki ADAL4J.
+3. Biblioteka ADAL4J służy do wysyłania żądań zalogowania się i wylogowania do usługi Azure AD.
+4. Wydrukować dane o użytkowniku.
 
-Rozpoczęto, tooget [pobrać szkielet aplikacji hello](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) lub [pobieranie próbki ukończyć powitalnych](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).  Należy również dzierżawa usługi Azure AD, w których tooregister aplikacji.  Jeśli nie masz już, [Dowiedz się, jak tooget jedną](active-directory-howto-tenant.md).
+Aby rozpocząć, [pobrać szkielet aplikacji](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) lub [Pobieranie ukończone próbki](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).  Należy również dzierżawa usługi Azure AD, w którym można zarejestrować aplikacji.  Jeśli nie masz już, [Dowiedz się, jak kupić](active-directory-howto-tenant.md).
 
 ## <a name="1--register-an-application-with-azure-ad"></a>1.  Rejestrowanie aplikacji w usłudze Azure AD
-tooenable tooauthenticate użytkowników aplikacji, musisz najpierw tooregister nową aplikację w dzierżawie.
+Aby włączyć swoją aplikację w celu uwierzytelniania użytkowników, musisz najpierw zarejestrować nową aplikację w dzierżawie.
 
-1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
-2. Na górnym pasku hello, kliknij na Twoim koncie, a w obszarze hello **katalogu** wybierz hello dzierżawy usługi Active Directory, którym chcesz tooregister aplikacji.
-3. Polecenie **więcej usług** w hello nawigacji po lewej stronie i wybierz polecenie **usługi Azure Active Directory**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. Na górnym pasku, kliknij na Twoim koncie i w obszarze **katalogu** wybierz dzierżawy usługi Active Directory, w którym chcesz zarejestrować aplikację.
+3. Polecenie **więcej usług** w nawigacji po lewej stronie i wybierz polecenie **usługi Azure Active Directory**.
 4. Polecenie **rejestracji aplikacji** i wybierz polecenie **Dodaj**.
-5. Postępuj zgodnie z monitami hello i utworzyć nową **aplikacji sieci Web i/lub WebAPI**.
-  * Witaj **nazwa** z hello aplikacji opisano użytkownikom tooend aplikacji
-  * Witaj **adres URL logowania** jest hello podstawowy adres URL aplikacji.  Domyślnie Hello szkielet `http://localhost:8080/adal4jsample/`.
-6. Po zakończeniu rejestracji usługi AAD przypisze aplikacji Unikatowy identyfikator aplikacji.  Ta wartość jest potrzebny w kolejnych sekcjach hello, dlatego skopiuj go na karcie aplikacji hello.
-7. Z hello **ustawienia** -> **właściwości** strony dla aplikacji, aktualizacji hello identyfikator URI aplikacji. Witaj **identyfikator URI aplikacji** to unikatowy identyfikator aplikacji.  Konwencja Hello jest toouse `https://<tenant-domain>/<app-name>`, np. `http://localhost:8080/adal4jsample/`.
+5. Postępuj zgodnie z monitami i utworzyć nową **aplikacji sieci Web i/lub WebAPI**.
+  * **Nazwa** aplikacji będzie opisywać aplikację dla użytkowników końcowych
+  * **Adres URL logowania** jest podstawowy adres URL aplikacji.  Domyślnie szkielet `http://localhost:8080/adal4jsample/`.
+6. Po zakończeniu rejestracji usługi AAD przypisze aplikacji Unikatowy identyfikator aplikacji.  Ta wartość jest potrzebny w kolejnych sekcjach, dlatego skopiuj go na karcie aplikacji.
+7. Z **ustawienia** -> **właściwości** strony dla aplikacji, zaktualizuj identyfikator URI aplikacji. **Identyfikator URI aplikacji** to unikatowy identyfikator aplikacji.  Konwencji jest użycie `https://<tenant-domain>/<app-name>`, np. `http://localhost:8080/adal4jsample/`.
 
-Raz w portalu hello aplikacji należy utworzyć **klucza** z hello **ustawienia** strony dla aplikacji i skopiuj go.  Będziesz potrzebować go za chwilę.
+Raz w portalu dla aplikacji należy utworzyć **klucza** z **ustawienia** strony dla aplikacji i skopiuj go.  Będziesz potrzebować go za chwilę.
 
-## <a name="2-set-up-your-app-toouse-adal4j-library-and-prerequisites-using-maven"></a>2. Konfigurowanie biblioteki ADAL4J toouse aplikacji, a za pomocą programu Maven wymagania wstępne
-W tym miejscu skonfigurujemy ADAL4J toouse hello protokołu uwierzytelniania OpenID Connect.  ADAL4J być używane tooissue żądań logowania i wylogowywania, zarządzanie sesji użytkownika hello i uzyskać informacje o użytkowniku hello, między innymi.
+## <a name="2-set-up-your-app-to-use-adal4j-library-and-prerequisites-using-maven"></a>2. Konfigurowanie aplikacji do użycia biblioteki ADAL4J i wymagania wstępne za pomocą programu Maven
+W tym miejscu skonfigurujemy ADAL4J do używania protokołu uwierzytelniania OpenID Connect.  ADAL4J będzie służyć do wysyłania żądań zalogowania się i wylogowania, zarządzania sesji użytkownika i uzyskać informacje o użytkowniku, między innymi.
 
-* W katalogu głównym projektu hello, otworzyć/utworzyć `pom.xml` i Znajdź hello `// TODO: provide dependencies for Maven` i Zastąp hello poniżej:
+* W katalogu głównym projektu otworzyć/utworzyć `pom.xml` i Znajdź `// TODO: provide dependencies for Maven` i zastąp go następującym łańcuchem:
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -181,10 +181,10 @@ W tym miejscu skonfigurujemy ADAL4J toouse hello protokołu uwierzytelniania Ope
 
 
 
-## <a name="3-create-hello-java-publicclient-file"></a>3. Utwórz plik Java PublicClient hello
-Jak wspomniano powyżej, użyjemy hello interfejsu API programu Graph tooget dane dotyczące hello zalogowanego użytkownika. Ta ułatwia nam toobe możemy utworzyć toorepresent pliku **obiektu katalogu** i hello toorepresent pojedynczego pliku **użytkownika** tak, aby hello wzorzec OO programu Java może służyć.
+## <a name="3-create-the-java-publicclient-file"></a>3. Utwórz plik Java PublicClient
+Jak wspomniano powyżej, firma Microsoft będzie przy użyciu interfejsu API programu Graph uzyskać dane o zalogowanego użytkownika. Dla tego celu ułatwienia firmie Microsoft możemy utworzyć zarówno plik, do reprezentowania **obiektu katalogu** i pojedynczego pliku do reprezentowania **użytkownika** tak, aby mógł być używany wzorzec OO Java.
 
-* Utwórz plik o nazwie `DirectoryObject.java` użyjemy toostore podstawowe dane o wszelkich DirectoryObject (można uważasz, że wolne toouse to później dla innych zapytań wykresu, możesz to zrobić). Użytkownik może wycinania/wklejania to poniżej:
+* Utwórz plik o nazwie `DirectoryObject.java` użyjemy do przechowywania danych podstawowych o wszelkich DirectoryObject (możesz później użycia innych zapytań wykresu, możesz to zrobić). Użytkownik może wycinania/wklejania to poniżej:
 
 ```Java
 import java.io.BufferedReader;
@@ -248,24 +248,24 @@ public class PublicClient {
 ```
 
 
-## <a name="compile-and-run-hello-sample"></a>Kompilowanie i uruchamianie przykładowych hello
-Zmień wstecz out tooyour główny katalog i uruchom hello następujące przykładowe hello toobuild polecenia możesz umieścić tylko ze sobą przy użyciu `maven`. Zostaną użyte hello `pom.xml` pliku zapisano zależności.
+## <a name="compile-and-run-the-sample"></a>Kompilowanie i uruchamianie próbki
+Zmień ponownie się do katalogu głównego i uruchom następujące polecenie, aby utworzyć przykład możesz umieścić tylko ze sobą przy użyciu `maven`. Zostaną użyte `pom.xml` pliku zapisano zależności.
 
 `$ mvn package`
 
-Po wykonaniu `adal4jsample.war` plików w sieci `/targets` katalogu. Może wdrożyć który w Twojej kontenera Tomcat i odwiedź adres URL hello 
+Po wykonaniu `adal4jsample.war` plików w sieci `/targets` katalogu. Można wdrożyć który w Twojej kontenera Tomcat i odwiedź adres URL 
 
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> Jest bardzo proste toodeploy WAR z hello najnowsze serwery Tomcat. Po prostu przejdź zbyt`http://localhost:8080/manager/` i wykonać instrukcje hello przekazywania Twojej '' adal4jsample.war "pliku. Autodeploy go zostanie automatycznie z hello właściwego punktu końcowego.
+> Jest bardzo łatwa do wdrożenia WAR z najnowsze serwery Tomcat. Po prostu przejdź do `http://localhost:8080/manager/` i postępuj zgodnie z instrukcjami na przekazywanie Twojej '' adal4jsample.war "pliku. Autodeploy go zostanie automatycznie z właściwego punktu końcowego.
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Gratulacje! Teraz masz pracy aplikacji Java, która ma hello możliwości tooauthenticate użytkowników, bezpiecznie wywoływać interfejsy API sieci Web przy użyciu protokołu OAuth 2.0, a uzyskać podstawowe informacje o użytkowniku hello.  Jeśli nie jest jeszcze teraz jest hello toopopulate czas dzierżawy z niektórych użytkowników.
+Gratulacje! Masz teraz pracy aplikacji Java, która umożliwia uwierzytelnianie użytkowników w bezpieczny sposób wywoływania interfejsów API sieci Web przy użyciu protokołu OAuth 2.0 i uzyskać podstawowe informacje o użytkowniku.  Jeśli nie jest jeszcze nadszedł czas do wypełnienia dzierżawy z niektórych użytkowników.
 
-Odwołania, hello ukończone próbka (bez wartości konfiguracji) [jest dostarczane jako zip w tym miejscu](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), lub można ją sklonować z serwisu GitHub:
+Próbka ukończone (bez wartości konfiguracji) [jest dostarczane jako zip w tym miejscu](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), lub można ją sklonować z serwisu GitHub:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 

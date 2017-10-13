@@ -1,6 +1,6 @@
 ---
-title: "aaaGetting uruchomiony z logowania w usłudze Azure AD i wylogowania, przy użyciu środowiska Node.js | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toobuild Node.js Express MVC sieci web aplikacji, która integruje się z usługą Azure AD dla logowania."
+title: "Wprowadzenie do korzystania z usługi Azure AD, logowania i wylogowywania, przy użyciu środowiska Node.js | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie tworzenia aplikacji sieci web Node.js Express MVC, która integruje się z usługą Azure AD dla logowania."
 services: active-directory
 documentationcenter: nodejs
 author: navyasric
@@ -15,53 +15,53 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 26481899c74741743b947bd891b65ff24ffc43c6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 13317b016f9ff3955f376b858645c42668b0de42
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="nodejs-web-app-sign-in-and-sign-out-with-azure-ad"></a>Aplikacja sieci web node.js logowania i wylogowywania z usługą Azure AD
 W tym miejscu możemy użyć usługi Passport:
 
-* Znak hello użytkownika w aplikacji toohello za pomocą usługi Azure Active Directory (Azure AD).
-* Wyświetl informacje o użytkowniku hello.
-* Znak hello użytkownika poza aplikacją hello.
+* Zalogować użytkownika do aplikacji w usłudze Azure Active Directory (Azure AD).
+* Wyświetl informacje o użytkowniku.
+* Zaloguj użytkownika poza aplikacją.
 
-Usługa Passport to uwierzytelniające oprogramowanie pośredniczące dla środowiska Node.js. Elastyczne i moduły, usługa Passport można było porzucić dyskretnie w tooany ekspresowe lub restify aplikacji sieci web. Kompleksowy zestaw strategii obsługuje uwierzytelniania przy użyciu nazwy użytkownika i hasła, Facebook i Twitter. Opracowaliśmy strategię dla usługi Microsoft Azure Active Directory. Firma Microsoft zainstalowaniu tego modułu, a następnie dodaj hello Microsoft Azure Active Directory `passport-azure-ad` wtyczki.
+Usługa Passport to uwierzytelniające oprogramowanie pośredniczące dla środowiska Node.js. Elastyczne i moduły, usługa Passport można dyskretnie usunięty każdym Express opartą na lub restify aplikacji sieci web. Kompleksowy zestaw strategii obsługuje uwierzytelniania przy użyciu nazwy użytkownika i hasła, Facebook i Twitter. Opracowaliśmy strategię dla usługi Microsoft Azure Active Directory. Firma Microsoft zainstalowaniu tego modułu, a następnie dodaj Microsoft Azure Active Directory `passport-azure-ad` wtyczki.
 
-toodo tego hello wykonaj następujące kroki:
+W tym celu należy wykonać następujące czynności:
 
 1. Rejestrowanie aplikacji.
-2. Konfigurowanie Twojej aplikacji hello toouse `passport-azure-ad` strategii.
-3. Użyj paszportu tooissue logowania i wylogowywania żądań tooAzure AD.
-4. Dane o użytkowniku hello wydruku.
+2. Konfigurowanie aplikacji do użycia `passport-azure-ad` strategii.
+3. Użyć programu Passport do wysyłania do usługi Azure AD żądań zalogowania się i wylogowania.
+4. Wydrukować dane o użytkowniku.
 
-Kod Hello w tym samouczku jest przechowywany [w serwisie GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  toofollow wzdłuż, możesz [pobrać szkielet aplikacji hello jako plik .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) lub klonowania hello szkielet:
+Kod używany w tym samouczku jest przechowywany [ w serwisie GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  Aby z niego skorzystać, można [pobrać szkielet aplikacji w pliku .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) lub sklonować szkielet:
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
-Aplikacja Hello ukończone znajduje się na końcu hello również w tym samouczku.
+Ukończona aplikacja znajduje się na końcu również w tym samouczku.
 
 ## <a name="step-1-register-an-app"></a>Krok 1: Rejestrowanie aplikacji
-1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W menu hello u góry strony hello hello wybierz konta. W obszarze hello **katalogu** wybierz hello dzierżawy usługi Active Directory, w którym ma tooregister aplikacji.
+2. W menu w górnej części strony wybierz konto. W obszarze **katalogu** wybierz dzierżawy usługi Active Directory, które chcesz zarejestrować aplikację.
 
-3. Wybierz **więcej usług** w hello menu na powitania po lewej stronie ekranu hello, a następnie wybierz **usługi Azure Active Directory**.
+3. Wybierz **więcej usług** w menu po lewej stronie ekranu, a następnie wybierz **usługi Azure Active Directory**.
 
 4. Wybierz **rejestracji aplikacji**, a następnie wybierz **Dodaj**.
 
-5. Wykonaj hello monity toocreate **aplikacji sieci Web** i/lub **WebAPI**.
-  * Witaj **nazwa** aplikacji hello opisuje toousers Twojej aplikacji.
+5. Postępuj zgodnie z monitami, aby utworzyć **aplikacji sieci Web** i/lub **WebAPI**.
+  * **Nazwa** aplikacji opisuje aplikacji dla użytkowników.
 
-  * Witaj **adres URL logowania** jest hello podstawowy adres URL aplikacji.  Hello szkielet przez domyślną jest "http://localhost: 3000/auth/openid/powrotu".
+  * **Adres URL logowania** jest podstawowy adres URL aplikacji.  Domyślnie szkielet "http://localhost: 3000/auth/openid/powrotu".
 
-6. Po zarejestrowaniu, usługi Azure AD przypisuje aplikacji identyfikatora aplikacji Potrzebujesz tej wartości w hello następujące sekcje, dlatego skopiuj go ze strony aplikacji hello.
-7. Z hello **ustawienia** -> **właściwości** strony dla aplikacji, aktualizacji hello identyfikator URI aplikacji. Witaj **identyfikator URI aplikacji** to unikatowy identyfikator aplikacji. Konwencja Hello jest toouse hello format `https://<tenant-domain>/<app-name>`, na przykład: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+6. Po zarejestrowaniu, usługi Azure AD przypisuje aplikacji identyfikatora aplikacji Potrzebujesz tej wartości w poniższych sekcjach, dlatego skopiuj go ze strony aplikacji.
+7. Z **ustawienia** -> **właściwości** strony dla aplikacji, zaktualizuj identyfikator URI aplikacji. **Identyfikator URI aplikacji** to unikatowy identyfikator aplikacji. Konwencji jest użycie formatu `https://<tenant-domain>/<app-name>`, na przykład: `https://contoso.onmicrosoft.com/my-first-aad-app`.
 
-## <a name="step-2-add-prerequisites-tooyour-directory"></a>Krok 2: Dodaj katalog tooyour wymagania wstępne
-1. Z wiersza polecenia hello, Zmień folder główny tooyour katalogów, jeśli nie masz już istnieje, a następnie hello uruchom następujące polecenia:
+## <a name="step-2-add-prerequisites-to-your-directory"></a>Krok 2: Dodawanie wymagań wstępnych do katalogu
+1. W wierszu polecenia Zmień katalog na folder główny, jeśli nie masz już istnieje, a następnie uruchom następujące polecenia:
 
     * `npm install express`
     * `npm install ejs`
@@ -75,20 +75,20 @@ Aplikacja Hello ukończone znajduje się na końcu hello również w tym samoucz
 2. Ponadto należy `passport-azure-ad`:
     * `npm install passport-azure-ad`
 
-Spowoduje to zainstalowanie bibliotek hello który `passport-azure-ad` zależy.
+Spowoduje to zainstalowanie bibliotek który `passport-azure-ad` zależy.
 
-## <a name="step-3-set-up-your-app-toouse-hello-passport-node-js-strategy"></a>Krok 3: Konfigurowanie strategii passport-node-js hello toouse aplikacji
-W tym miejscu możemy skonfigurować Express toouse hello protokołu uwierzytelniania OpenID Connect.  Usługa Passport jest używana toodo różne elementy, włącznie z żądaniami logowania i wylogowywania problem, zarządzanie sesji użytkownika hello i uzyskiwania informacji o hello użytkownika.
+## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>Krok 3: Konfigurowanie aplikacji do użycia strategii passport-node-js
+W tym miejscu możemy skonfigurować Express do używania protokołu uwierzytelniania OpenID Connect.  Usługa Passport umożliwia wykonywanie różnych czynności, włącznie z żądaniami logowania i wylogowywania problem, zarządzanie sesji użytkownika i uzyskać informacje o użytkowniku.
 
-1. toobegin, otwórz hello `config.js` o hello katalog główny projektu hello plików, a następnie wprowadź wartości konfiguracji aplikacji w hello `exports.creds` sekcji.
+1. Aby rozpocząć, otwórz `config.js` plików w katalogu głównym projektu, a następnie wprowadź wartości konfiguracji aplikacji w `exports.creds` sekcji.
 
-  * Witaj `clientID` jest hello **identyfikator aplikacji** jest przypisany tooyour aplikacji w portalu rejestracji hello.
+  * `clientID` Jest **identyfikator aplikacji** przypisany do aplikacji w portalu rejestracji.
 
-  * Witaj `returnURL` jest hello **identyfikator Uri przekierowania** wprowadzony w portalu hello.
+  * `returnURL` Jest **identyfikator Uri przekierowania** wprowadzony w portalu.
 
-  * Witaj `clientSecret` jest klucz tajny hello wygenerowane w portalu hello.
+  * `clientSecret` Jest klucz tajny, który wygenerował w portalu.
 
-2. Następnie otwórz folder hello `app.js` pliku w katalogu głównym hello hello projektu. Następnie dodaj następujące wywołanie tooinvoke hello hello `OIDCStrategy` strategii dołączoną `passport-azure-ad`.
+2. Następnie otwórz folder `app.js` w katalogu głównym projektu. Następnie dodaj następujące wywołanie do wywołania `OIDCStrategy` strategii dołączoną `passport-azure-ad`.
 
     ```JavaScript
     var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -100,10 +100,10 @@ W tym miejscu możemy skonfigurować Express toouse hello protokołu uwierzyteln
     });
     ```
 
-3. Po wykonaniu tej Użyj strategii hello możemy właśnie w odwołaniu toohandle naszych żądań logowania.
+3. Po wykonaniu tej Użyj strategii możemy właśnie w odwołaniu do obsługi żądań logowania naszych.
 
     ```JavaScript
-    // Use hello OIDCStrategy within Passport. (Section 2)
+    // Use the OIDCStrategy within Passport. (Section 2)
     //
     //   Strategies in passport require a `validate` function that accepts
     //   credentials (in this case, an OpenID identifier), and invokes a callback
@@ -140,22 +140,22 @@ W tym miejscu możemy skonfigurować Express toouse hello protokołu uwierzyteln
     }
     ));
     ```
-Usługa Passport używa podobnego wzorca do wszystkich swoich strategii (Twitter, Facebook itd.) zgodne ze wszyscy twórcy kodu strategii. Patrzeć strategii hello, możesz sprawdzić, czy jest przekazywana on funkcję, która ma token i gotowe jako parametry hello. Witaj strategia ponownie toous po jego działa. Następnie chcemy toostore hello użytkownika i token hello tymczasowym potrzebujemy nie tooask go ponownie.
+Usługa Passport używa podobnego wzorca do wszystkich swoich strategii (Twitter, Facebook itd.) zgodne ze wszyscy twórcy kodu strategii. Spojrzenie na strategii, możesz sprawdzić, czy możemy przekazać je funkcję, która ma token i gotowe jako parametry. Strategia zostanie zwrócona do nas po jego działa. Następnie chcemy przechować dane użytkownika i Zapisz token, więc nie należy zażądać go ponownie.
 
 > [!IMPORTANT]
-Witaj poprzedni kod obejmuje wszystkich użytkowników, wykonywanej tooauthenticate tooour serwera. Jest to nazywane rejestracji automatycznej. Zaleca się, że nie zezwala każdy uwierzytelniania serwera produkcyjnego tooa bez uprzedniego je zarejestrować za pośrednictwem procesu, który podjęciu decyzji o. Jest to zwykle wzorzec hello, które widać w aplikacjach komercyjnych, które pozwalają tooregister z usługą Facebook, ale następnie poprosić tooprovide dodatkowe informacje. Jeśli to nie zostały przykładowej aplikacji, być może wyodrębniono adres e-mail użytkownika hello z hello obiektu tokena, który został zwrócony, a następnie zadawane toofill użytkownika hello dodatkowych informacji. Ponieważ jest to serwer testowy, możemy dodać je toohello bazy danych w pamięci.
+Poprzedni kod obejmuje wszystkich użytkowników, która do uwierzytelniania serwera. Jest to nazywane rejestracji automatycznej. Zaleca się, że nie zezwala każdy uwierzytelnienia na serwerze produkcyjnym bez uprzedniego je zarejestrować za pośrednictwem procesu, który podjęciu decyzji o. Jest to zwykle wzorzec, które są widoczne w aplikacjach komercyjnych, dzięki której można zarejestrować w usłudze Facebook, ale następnie wyświetlony monit o podanie dodatkowych informacji. Jeśli to nie zostały przykładowej aplikacji, być może wyodrębniono adres e-mail użytkownika z obiektu tokena, który został zwrócony, a następnie monit użytkownika o podanie dodatkowych informacji. Ponieważ jest to serwer testowy, możemy dodać je do bazy danych w pamięci.
 
 
-4. Następnie możemy dodać metody hello, pozwalających nam tootrack hello zalogowanych użytkowników, co jest wymagane przez usługi Passport. Te metody obejmują serializację i deserializację informacji o użytkowniku hello.
+4. Następnie możemy dodać metody, które umożliwiają śledzenie zalogowanych użytkowników zgodnie z wymaganiami programu Passport. Te metody obejmują serializację i deserializację informacji użytkownika.
 
     ```JavaScript
 
             // Passport session setup. (Section 2)
 
-            //   toosupport persistent sign-in sessions, Passport needs toobe able to
-            //   serialize users into hello session and deserialize them out of hello session. Typically,
-            //   this is done simply by storing hello user ID when serializing and finding
-            //   hello user by ID when deserializing.
+            //   To support persistent sign-in sessions, Passport needs to be able to
+            //   serialize users into the session and deserialize them out of the session. Typically,
+            //   this is done simply by storing the user ID when serializing and finding
+            //   the user by ID when deserializing.
             passport.serializeUser(function(user, done) {
             done(null, user.email);
             });
@@ -166,7 +166,7 @@ Witaj poprzedni kod obejmuje wszystkich użytkowników, wykonywanej tooauthentic
             });
             });
 
-            // array toohold signed-in users
+            // array to hold signed-in users
             var users = [];
 
             var findByEmail = function(email, fn) {
@@ -181,7 +181,7 @@ Witaj poprzedni kod obejmuje wszystkich użytkowników, wykonywanej tooauthentic
             };
     ```
 
-5.  Następnie możemy dodać aparat Express hello hello kodu tooload. Tutaj używamy hello domyślne /views i zapewnia wzorzec /routes Express.
+5.  Następnie możemy dodać kod, aby załadować aparat Express. W tym miejscu użyjemy /views domyślne i zapewnia wzorzec /routes Express.
 
     ```JavaScript
 
@@ -196,7 +196,7 @@ Witaj poprzedni kod obejmuje wszystkich użytkowników, wykonywanej tooauthentic
           app.use(cookieParser());
           app.use(expressSession({ secret: 'keyboard cat', resave: true, saveUninitialized: false }));
           app.use(bodyParser.urlencoded({ extended : true }));
-          // Initialize Passport!  Also use passport.session() middleware, toosupport
+          // Initialize Passport!  Also use passport.session() middleware, to support
           // persistent login sessions (recommended).
           app.use(passport.initialize());
           app.use(passport.session());
@@ -206,7 +206,7 @@ Witaj poprzedni kod obejmuje wszystkich użytkowników, wykonywanej tooauthentic
 
     ```
 
-6. Ponadto możemy dodać hello kieruje tego Dostarcz hello rzeczywiste żądania rejestrowania toohello `passport-azure-ad` aparatu:
+6. Ponadto możemy dodać trasy, które przekazują rzeczywiste żądania rejestrowania do `passport-azure-ad` aparatu:
 
 
        ```JavaScript
@@ -214,23 +214,23 @@ Witaj poprzedni kod obejmuje wszystkich użytkowników, wykonywanej tooauthentic
         // Our Auth routes (section 3)
 
         // GET /auth/openid
-        //   Use passport.authenticate() as route middleware tooauthenticate the
-        //   request. hello first step in OpenID authentication involves redirecting
-        //   hello user tootheir OpenID provider. After authenticating, hello OpenID
-        //   provider redirects hello user back toothis application at
+        //   Use passport.authenticate() as route middleware to authenticate the
+        //   request. The first step in OpenID authentication involves redirecting
+        //   the user to their OpenID provider. After authenticating, the OpenID
+        //   provider redirects the user back to this application at
         //   /auth/openid/return.
         app.get('/auth/openid',
         passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
         function(req, res) {
-            log.info('Authentication was called in hello Sample');
+            log.info('Authentication was called in the Sample');
             res.redirect('/');
         });
 
             // GET /auth/openid/return
-            //   Use passport.authenticate() as route middleware tooauthenticate the
-            //   request. If authentication fails, hello user is redirected back toothe
-            //   sign-in page. Otherwise, hello primary route function is called,
-            //   which, in this example, redirects hello user toohello home page.
+            //   Use passport.authenticate() as route middleware to authenticate the
+            //   request. If authentication fails, the user is redirected back to the
+            //   sign-in page. Otherwise, the primary route function is called,
+            //   which, in this example, redirects the user to the home page.
             app.get('/auth/openid/return',
               passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
               function(req, res) {
@@ -239,10 +239,10 @@ Witaj poprzedni kod obejmuje wszystkich użytkowników, wykonywanej tooauthentic
               });
 
             // POST /auth/openid/return
-            //   Use passport.authenticate() as route middleware tooauthenticate the
-            //   request. If authentication fails, hello user is redirected back toothe
-            //   sign-in page. Otherwise, hello primary route function is called,
-            //   which, in this example, redirects hello user toohello home page.
+            //   Use passport.authenticate() as route middleware to authenticate the
+            //   request. If authentication fails, the user is redirected back to the
+            //   sign-in page. Otherwise, the primary route function is called,
+            //   which, in this example, redirects the user to the home page.
             app.post('/auth/openid/return',
               passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
               function(req, res) {
@@ -252,10 +252,10 @@ Witaj poprzedni kod obejmuje wszystkich użytkowników, wykonywanej tooauthentic
        ```
 
 
-## <a name="step-4-use-passport-tooissue-sign-in-and-sign-out-requests-tooazure-ad"></a>Krok 4: Użycie usługi Passport tooissue logowania i wylogowywania żądań tooAzure AD
-Aplikacja jest teraz prawidłowo skonfigurowana toocommunicate z punktem końcowym hello przy użyciu protokołu uwierzytelniania OpenID Connect hello.  `passport-azure-ad`ma podjąć obsługę wszystkich szczegółów hello obsługuje tworzenie komunikatów uwierzytelniania, sprawdzanie poprawności tokenów z usługi Azure AD i utrzymywanie sesji użytkownika. Wszystkie opcje, które pozostaje przyznawanie użytkownikom toosign sposób w i wylogowaniu i zbieranie dodatkowych informacji na temat hello zalogowanych użytkowników.
+## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>Krok 4: Użyj Passport do wysyłania żądań zalogowania się i wylogowania do usługi Azure AD
+Aplikacji jest teraz prawidłowo skonfigurowana do komunikowania się z punktem końcowym przy użyciu protokołu uwierzytelniania OpenID Connect.  `passport-azure-ad`ma podjąć obsługę wszystkich szczegółów obsługuje tworzenie komunikatów uwierzytelniania, sprawdzanie poprawności tokenów z usługi Azure AD i pozostawienie sesji użytkownika. Wszystkie punkty, które pozostaje przyznawanie użytkownikom możliwość zalogować się i wylogowywania i zbieranie dodatkowych informacji na temat zalogowanych użytkowników.
 
-1. Po pierwsze możemy dodać hello domyślną, logowania konta i wylogowania tooour `app.js` pliku:
+1. Po pierwsze Dodajmy domyślną, logowania, konta i wylogowania metody naszych `app.js` pliku:
 
     ```JavaScript
 
@@ -272,7 +272,7 @@ Aplikacja jest teraz prawidłowo skonfigurowana toocommunicate z punktem końcow
         app.get('/login',
           passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
           function(req, res) {
-            log.info('Login was called in hello Sample');
+            log.info('Login was called in the Sample');
             res.redirect('/');
         });
 
@@ -285,20 +285,20 @@ Aplikacja jest teraz prawidłowo skonfigurowana toocommunicate z punktem końcow
 
 2.  Przejrzyj te szczegółowo umożliwia:
 
-  * Witaj `/`trasa przekierowuje widoku index.ejs toohello przekazywanie hello użytkownika w żądaniu hello (jeśli istnieje).
-  * Witaj `/account` trasy najpierw *temu firma Microsoft są uwierzytelniani* (wdrożymy który w hello poniższy przykład), a następnie przekazuje hello użytkownika w żądaniu hello tak, aby firma Microsoft może uzyskać dodatkowe informacje o hello użytkownika.
-  * Witaj `/login` trasy wywołuje naszych uwierzytelniania azuread openidconnect z `passport-azuread`. Jeśli które się nie powiedzie, przekierowuje hello wstecz zbyt/dane logowania użytkownika.
-  * Witaj `/logout` trasy po prostu wywołuje hello logout.ejs (i trasę), które czyści plików cookie, a następnie zwraca hello tooindex.ejs wstecz użytkownika.
+  * `/`Trasa przekierowuje do widoku index.ejs przekazanie użytkownika w żądaniu (jeśli istnieje).
+  * `/account` Trasy najpierw *temu firma Microsoft są uwierzytelniani* (wdrożymy który w poniższym przykładzie) i następnie przekazuje użytkownika w żądaniu, dzięki czemu możemy uzyskać dodatkowe informacje o użytkowniku.
+  * `/login` Trasy wywołuje naszych uwierzytelniania azuread openidconnect z `passport-azuread`. Jeśli które się nie powiedzie, przekierowuje użytkownika do /login.
+  * `/logout` Po prostu wywołania logout.ejs (i trasę), które powoduje wyczyszczenie plików cookie, a następnie wróci użytkownika index.ejs trasy.
 
-3. Witaj ostatniej części `app.js`, Dodajmy hello **EnsureAuthenticated** metodę, która jest używana w `/account`, jak pokazano wcześniej.
+3. Ostatnia część `app.js`, Dodajmy **EnsureAuthenticated** metodę, która jest używana w `/account`, jak pokazano wcześniej.
 
     ```JavaScript
 
-        // Simple route middleware tooensure user is authenticated. (section 4)
+        // Simple route middleware to ensure user is authenticated. (section 4)
 
-        //   Use this route middleware on any resource that needs toobe protected. If
-        //   hello request is authenticated (typically via a persistent sign-in session),
-        //   hello request proceeds. Otherwise, hello user is redirected toothe
+        //   Use this route middleware on any resource that needs to be protected. If
+        //   the request is authenticated (typically via a persistent sign-in session),
+        //   the request proceeds. Otherwise, the user is redirected to the
         //   sign-in page.
         function ensureAuthenticated(req, res, next) {
           if (req.isAuthenticated()) { return next(); }
@@ -306,7 +306,7 @@ Aplikacja jest teraz prawidłowo skonfigurowana toocommunicate z punktem końcow
         }
     ```
 
-4. Na koniec Utwórz sam serwer hello w `app.js`:
+4. Na koniec Utwórz sam serwer w `app.js`:
 
 ```JavaScript
 
@@ -315,10 +315,10 @@ Aplikacja jest teraz prawidłowo skonfigurowana toocommunicate z punktem końcow
 ```
 
 
-## <a name="step-5-toodisplay-our-user-in-hello-website-create-hello-views-and-routes-in-express"></a>Krok 5: toodisplay naszych użytkowników w witrynie internetowej hello, tworzenie hello widoków i tras w Express
-Teraz `app.js` została ukończona. Firma Microsoft po prostu muszą tooadd hello tras i wyświetla te informacje hello Pokaż możemy pobrać toohello użytkownika, jak również obsługiwać hello `/logout` i `/login` tras, na których utworzyliśmy.
+## <a name="step-5-to-display-our-user-in-the-website-create-the-views-and-routes-in-express"></a>Krok 5: Aby wyświetlić naszych użytkowników w witrynie internetowej, tworzenie widoków i tras w Express
+Teraz `app.js` została ukończona. Należy dodać trasy i widoki, które zawierają informacje, możemy uzyskać dostęp do użytkownika, jak również obsługiwać `/logout` i `/login` tras, na których utworzyliśmy.
 
-1. Utwórz hello `/routes/index.js` trasy w katalogu głównym hello.
+1. Utwórz trasę `/routes/index.js` w obszarze katalogu głównego.
 
     ```JavaScript
                 /*
@@ -330,7 +330,7 @@ Teraz `app.js` została ukończona. Firma Microsoft po prostu muszą tooadd hell
                 };
     ```
 
-2. Utwórz hello `/routes/user.js` trasy w katalogu głównym hello.
+2. Utwórz trasę `/routes/user.js` w obszarze katalogu głównego.
 
                 ```JavaScript
                 /*
@@ -342,9 +342,9 @@ Teraz `app.js` została ukończona. Firma Microsoft po prostu muszą tooadd hell
                 };
                 ```
 
- Te przekazują hello żądania tooour widoków, w tym hello użytkownika, jeśli jest obecny.
+ Te przekazują żądania do naszych widoków, w tym użytkownika, jeśli jest obecny.
 
-3. Utwórz hello `/views/index.ejs` widoku w katalogu głównym hello. Jest to prosta strona, która wywołuje metody naszych zalogowania i wylogowania i pozwala nam informacje o koncie toograb. Należy zauważyć, że możemy użyć hello warunkowego `if (!user)` hello użytkownika są przekazywane w żądaniu hello jest dowód mamy zalogowanego użytkownika.
+3. Utwórz widok `/views/index.ejs` w katalogu głównym. Jest to prosta strona, która wywołuje metody naszych zalogowania i wylogowania i umożliwia firmie Microsoft w celu pobrania informacji o koncie. Powiadomienie, że możemy użyć spójnika `if (!user)` jako użytkownik, są przekazywane w żądaniu jest dowód mamy zalogowanego użytkownika.
 
     ```JavaScript
     <% if (!user) { %>
@@ -357,7 +357,7 @@ Teraz `app.js` została ukończona. Firma Microsoft po prostu muszą tooadd hell
     <% } %>
     ```
 
-4. Utwórz hello `/views/account.ejs` wyświetlać w katalogu głównym hello, co możemy wyświetlić dodatkowe informacje który `passport-azuread` umieścił w żądaniu użytkownika hello.
+4. Utwórz `/views/account.ejs` wyświetlać w katalogu głównym, co możemy wyświetlić dodatkowe informacje który `passport-azuread` umieścił w żądaniu użytkownika.
 
     ```Javascript
     <% if (!user) { %>
@@ -376,7 +376,7 @@ Teraz `app.js` została ukończona. Firma Microsoft po prostu muszą tooadd hell
     <% } %>
     ```
 
-5. Upewnijmy to wygląd dobrej przez dodanie układ. Utwórz hello "/ views/layout.ejs widok w obszarze hello katalogu głównego.
+5. Upewnijmy to wygląd dobrej przez dodanie układ. Utwórz ' / views/layout.ejs' widoku w katalogu głównym.
 
     ```HTML
 
@@ -404,15 +404,15 @@ Teraz `app.js` została ukończona. Firma Microsoft po prostu muszą tooadd hell
     ```
 
 ##<a name="next-steps"></a>Następne kroki
-Na koniec Skompiluj i uruchom aplikację. Uruchom `node app.js`, a następnie przejdź zbyt`http://localhost:3000`.
+Na koniec Skompiluj i uruchom aplikację. Uruchom `node app.js`, a następnie przejdź do `http://localhost:3000`.
 
-Zaloguj się za pomocą osobistego konta Microsoft lub konta służbowego i zwróć uwagę, jak tożsamość użytkownika hello jest widoczny w hello /account listy. Masz teraz zabezpieczone przy użyciu standardowych protokołach branżowych, uwierzytelniających użytkowników przy użyciu ich osobistych i pracy/służbowego konta aplikacji sieci web.
+Zaloguj się za pomocą osobistego konta Microsoft lub konta służbowego i zwróć uwagę, jak tożsamość użytkowników jest odzwierciedlone na liście /account. Masz teraz zabezpieczone przy użyciu standardowych protokołach branżowych, uwierzytelniających użytkowników przy użyciu ich osobistych i pracy/służbowego konta aplikacji sieci web.
 
-Odwołania, hello ukończone próbka (bez wartości konfiguracji) [jest dostępna jako plik .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Alternatywnie można ją sklonować z serwisu GitHub:
+Gotowa próbka (bez wartości konfiguracji) [jest dostępna w pliku .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Alternatywnie można ją sklonować z serwisu GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
-Możesz teraz przejść do bardziej zaawansowanych tematów. Może być tootry:
+Możesz teraz przejść do bardziej zaawansowanych tematów. Można spróbować:
 
 [Zabezpieczanie interfejsu API za pomocą usługi Azure AD w sieci Web](active-directory-devquickstarts-webapi-nodejs.md)
 

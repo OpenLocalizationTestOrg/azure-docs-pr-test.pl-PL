@@ -1,6 +1,6 @@
 ---
-title: "aaaManage zasobów danych w usłudze Azure Data Catalog | Dokumentacja firmy Microsoft"
-description: "Artykuł Hello prezentuje sposób widoczność toocontrol i własności zasobów danych zarejestrowane w wykazie danych Azure."
+title: "Zarządzać zasobami danych w usłudze Azure Data Catalog | Dokumentacja firmy Microsoft"
+description: "Artykuł prezentuje sposób kontrolowania widoczności i własności zasobów danych zarejestrowane w usłudze Azure Data Catalog."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,61 +15,61 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 48a634b92d7da19c32c9e551f295eec257f54f1d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Zarządzać zasobami danych w wykazie danych Azure
 ## <a name="introduction"></a>Wprowadzenie
-Azure Data Catalog jest przeznaczona dla źródła danych odnajdywania, dzięki czemu można łatwo odnaleźć i zrozumieć hello źródeł danych muszą tooperform analizy i podejmować decyzje. Te możliwości odnajdywania należy hello największy wpływ, gdy inni użytkownicy można odnaleźć i zrozumieć hello szerokiej gamy dostępnych źródeł danych. Z tych elementów na uwadze hello domyślne zachowanie usługi Data Catalog jest dla wszystkich zarejestrowanych danych źródeł toobe widoczne tooand wykrywalny przez wszystkich użytkowników wykazu.
+Azure Data Catalog jest przeznaczona dla źródła danych odnajdywania, dzięki czemu można łatwo odnaleźć i zrozumieć użycie źródeł danych, które należy wykonywać analizy i podejmować decyzje. Te możliwości odnajdywania należy największy wpływ, gdy inni użytkownicy mogą odnaleźć i zrozumieć szerokiej gamy dostępnych źródeł danych. Z tych elementów, pamiętając domyślne zachowanie usługi Data Catalog jest dla wszystkich źródeł danych zarejestrowanych były widoczne i wykrywalny przez wszystkich użytkowników w katalogu.
 
-Wykaz danych nie zapewnia dostępu toohello samych danych. Dostęp do danych jest kontrolowany przez właściciela hello hello źródła danych. Data Catalog można odnajdywania źródeł danych i wyświetlić metadane hello źródeł toohello powiązane, które są zarejestrowane w wykazie hello.
+Wykaz danych nie uzyskania dostępu do samych danych. Dostęp do danych jest kontrolowany przez właściciela źródła danych. Data Catalog można odnaleźć źródła danych i wyświetlać metadane dotyczące źródeł, które są zarejestrowane w wykazie.
 
-Może się zdarzyć, jednak gdzie źródeł danych tylko powinna być widoczna toospecific użytkowników lub toomembers określonych grup. W takich sytuacjach użytkownicy mogą przejąć na własność zasobów danych zarejestrowanych w wykazie hello i następnie ustawić widoczność hello hello zasobów, których są właścicielami.
+Mogą wystąpić sytuacje, jednak gdzie źródeł danych tylko powinny być widoczne, dla określonych użytkowników lub do członków określonych grup. W takich sytuacjach użytkownicy mogą przejąć na własność zasobów danych zarejestrowanych w wykazie i następnie ustawić widoczność zasobów, w których są właścicielami.
 
 > [!NOTE]
-> Hello funkcji opisanych w tym artykule jest dostępna tylko w hello Standard Edition usługi Azure Data Catalog. Witaj bezpłatna wersja nie udostępnia możliwości własności i ograniczanie widoczności zasobów danych.
+> Funkcje opisane w tym artykule jest dostępna tylko w Standard Edition usługi Azure Data Catalog. Bezpłatna wersja nie udostępnia możliwości posiadania i ograniczenie widoczność zasobów danych.
 >
 >
 
 ## <a name="manage-ownership-of-data-assets"></a>Zarządzanie własności zasobów danych
-Domyślnie nieposiadanej są zasobów danych, które są zarejestrowane w wykazie danych. Każdy użytkownik posiadający uprawnienia tooaccess hello katalogu mogą odnaleźć i Adnotuj tych zasobów. Użytkownicy mogą przejąć na własność zasobów danych go i następnie ograniczyć widoczność hello zasoby hello, w których są właścicielami.
+Domyślnie nieposiadanej są zasobów danych, które są zarejestrowane w wykazie danych. Każdy użytkownik z uprawnieniami, aby uzyskać dostęp do katalogu mogą odnaleźć i Adnotuj tych zasobów. Użytkownicy mogą przejąć na własność zasobów danych go i następnie ograniczyć widoczność zasobów, w których są właścicielami.
 
-Gdy zasobu danych w katalogu danych jest właścicielem, tylko użytkownicy, którzy są autoryzowane przez właścicieli hello mogą odnaleźć hello zasobów i wyświetlić jej metadane i tylko właściciele hello można usunąć zasobów hello z katalogu hello.
+Gdy zasobu danych w katalogu danych jest właścicielem, tylko użytkownicy uwierzytelnieni właściciele mogą odnaleźć zasobu i wyświetlić jej metadane, a tylko właściciele można usunąć elementu zawartości z katalogu.
 
 > [!NOTE]
-> Własność w wykazie danych ma wpływ na powitania metadane są przechowywane w katalogu hello. Własność nie przyznaje wszystkie uprawnienia na powitania źródła danych.
+> Własność w wykazie danych dotyczy tylko metadane są przechowywane w katalogu. Własność nie przyznaje wszystkie uprawnienia w źródle danych.
 >
 >
 
 ### <a name="take-ownership"></a>Przejmowanie na własność
-Użytkownicy mogą przejąć prawo własności zasobów danych, wybierając hello **Przejmij na własność** opcji w portalu wykazu danych hello. Żadne specjalne uprawnienia są wymagane tootake własności zasobów danych go. Każdy użytkownik może przejąć na własność zasobów danych go.
+Użytkownicy mogą przejąć prawo własności zasobów danych, wybierając **Przejmij na własność** opcji w portalu wykazu danych. Aby przejąć na własność zasobów danych nieposiadanej są wymagane żadne specjalne uprawnienia. Każdy użytkownik może przejąć na własność zasobów danych go.
 
 ### <a name="add-owners-and-co-owners"></a>Dodaj właścicieli i współwłaścicieli
 Jeśli ma już właściciela zasobów danych, innych użytkowników nie wystarczy przejąć na własność. Muszą zostać dodane jako współwłaściciele przez istniejące właściciela. Wszelkie właściciela można dodać dodatkowych użytkowników lub grup zabezpieczeń jako współwłaściciele.
 
 > [!NOTE]
-> Jego jest najlepszym toohave praktyki co najmniej dwóch osób jako właściciele dla żadnego należące do zasobów danych.
+> Jest najlepszym rozwiązaniem ma co najmniej dwóch osób jako właściciele żadnych zasobów należących do danych.
 >
 >
 
 ### <a name="remove-owners"></a>Usuń właścicieli
 Podobnie jak wszelkie właściciel zasobu może dodawać współwłaścicieli, wszelkie właściciel zasobu można usunąć wszelkie współwłaściciel.
 
-Właściciel zasobu, która usuwa go lub siebie jako właściciela nie może dłużej zarządzać hello zasobów. Jeśli właściciel zasobu hello usuwa go lub siebie jako właściciela, nie ma żadnych wspólnej właścicieli zasobów hello przywraca tooan bez właściciela stanu.
+Właściciel zasobu, która usuwa go lub siebie jako właściciela nie może dłużej zarządzać elementu zawartości. Jeśli właściciel zasobu usuwa go lub siebie jako właściciela, nie ma żadnych wspólnej właścicieli zasobu przekształcenia go do stanu.
 
 ## <a name="control-visibility"></a>Widoczność formantu
-Właścicieli zasobu danych można ustawić widoczność hello hello zasobów danych, których są właścicielami. widoczność toorestrict jako domyślny hello, w przypadku, gdy wszystkie usługi Data Catalog użytkownicy mogą odnajdować i widoku hello zasobów danych, właściciel zasobu hello przełączać hello ustawienie widoczności z **wszyscy** zbyt**właściciele i następujący użytkownicy** we właściwościach hello hello trwałego. Następnie można dodać właścicieli, konkretnych użytkowników i grup zabezpieczeń.
+Właściciele danych zasobów można kontrolować widoczność zasobów danych, w których są właścicielami. Aby ograniczyć widoczność jako domyślny, w której wszyscy użytkownicy wykazu danych może odnalezienia i wyświetlenia zasobów danych, właściciel zasobu może zmienić ustawienie widoczności z **wszyscy** do **właściciele i następujący użytkownicy** we właściwościach elementu zawartości. Następnie można dodać właścicieli, konkretnych użytkowników i grup zabezpieczeń.
 
 > [!NOTE]
-> Jeśli to możliwe, należy przydzielić uprawnienia własności i widoczność zasobów grup toosecurity i nie tooindividual użytkowników.
+> Jeśli to możliwe, uprawnienia własności i widoczności zasobu powinny być przypisane do grup zabezpieczeń, a nie do poszczególnych użytkowników.
 >
 >
 
 ## <a name="catalog-administrators"></a>Administratorzy katalogu
-Administratorzy katalogu danych są niejawnie współwłaściciele wszystkich zasobów w katalogu hello. Właściciele zawartości nie można usunąć widoczność administratorów, a administratorzy mogą zarządzać własności i widoczności dla wszystkich zasobów danych w katalogu hello.
+Administratorzy katalogu danych są niejawnie współwłaściciele wszystkich zasobów w katalogu. Właściciele zawartości nie można usunąć widoczność administratorów, a administratorzy mogą zarządzać własności i widoczności dla wszystkich zasobów danych w katalogu.
 
 ## <a name="summary"></a>Podsumowanie
-Hello Data Catalog crowdsourcing toometadata i dane zasobów odnajdowania modelu pozwala wszystkich toocontribute użytkownicy wykazu i odnajdywanie. Witaj Standard Edition usługi Data Catalog jest przeznaczona dla własności i zarządzania widoczność hello toolimit oraz korzystanie z zasobów określonych danych.
+Model crowdsourcingu w postaci usługi Data Catalog do odnajdywania zasobów metadane i dane zezwala wszystkim użytkownikom katalogu przyczyniają się do odnajdywania. Standard Edition Data Catalog jest przeznaczona dla własności i zarządzania, aby ograniczyć widoczność oraz korzystanie z zasobów określonych danych.

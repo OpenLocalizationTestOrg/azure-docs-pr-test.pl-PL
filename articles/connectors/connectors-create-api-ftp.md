@@ -1,6 +1,6 @@
 ---
-title: "aaaLearn jak toouse hello łącznik FTP w aplikacjach logiki | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Połącz tooFTP toomanage serwera plików. Można wykonywać różne akcje, takie jak przekazywanie, aktualizacji, Pobierz i usuwania plików na serwerze FTP."
+title: "Informacje o sposobie korzystania z łącznika FTP w aplikacjach logiki | Dokumentacja firmy Microsoft"
+description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Nawiązać połączenia z serwerem FTP można zarządzać plikami. Można wykonywać różne akcje, takie jak przekazywanie, aktualizacji, Pobierz i usuwania plików na serwerze FTP."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -15,80 +15,80 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a7020df2005ebb34fc569627ae0516b8528cc7a3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-ftp-connector"></a>Rozpoczynanie pracy z hello łącznik FTP
-Korzystanie ze toomonitor łącznika hello FTP, zarządzanie i utworzyć pliki na serwerze FTP. 
+# <a name="get-started-with-the-ftp-connector"></a>Rozpoczynanie pracy z łącznik FTP
+Użyj konektora serwera FTP do monitorowania, zarządzania i utworzyć pliki na serwerze FTP. 
 
-toouse [każdy łącznik](apis-list.md), należy najpierw toocreate aplikacji logiki. Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
+Aby użyć [każdy łącznik](apis-list.md), należy najpierw utworzyć aplikację logiki. Możesz rozpocząć pracę przez [teraz tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="connect-tooftp"></a>Połącz tooFTP
-Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw toocreate *połączenia* toohello usługi. A [połączenia](connectors-overview.md) udostępnia łączność między aplikacji logiki i innej usługi.  
+## <a name="connect-to-ftp"></a>Nawiązać połączenie FTP
+Zanim aplikację logiki można uzyskać dostęp do dowolnej usługi, należy najpierw utworzyć *połączenia* do usługi. A [połączenia](connectors-overview.md) udostępnia łączność między aplikacji logiki i innej usługi.  
 
-### <a name="create-a-connection-tooftp"></a>Tworzenie tooFTP połączenia
-> [!INCLUDE [Steps toocreate a connection tooFTP](../../includes/connectors-create-api-ftp.md)]
+### <a name="create-a-connection-to-ftp"></a>Utwórz połączenie FTP
+> [!INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
 > 
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Użyj wyzwalacz FTP
-Wyzwalacz jest zdarzenie, które mogą być zdefiniowane w aplikacji logiki hello toostart używane w przepływie pracy. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Wyzwalacz to zdarzenie służy do uruchomienia przepływu pracy zdefiniowanych w aplikacji logiki. [Dowiedz się więcej o wyzwalaczy](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!IMPORTANT]
-> Łącznik FTP Hello wymaga się, że serwer FTP, który jest dostępny z Internetu hello i jest skonfigurowany toooperate trybu PASYWNEGO. Ponadto łącznik hello FTP jest **nie jest zgodne z niejawnych FTPS (FTP za pośrednictwem protokołu SSL)**. Witaj łącznik FTP obsługuje tylko jawne FTPS (FTP za pośrednictwem protokołu SSL).  
+> Łącznik FTP wymaga, aby serwer FTP jest dostępny z Internetu, który jest skonfigurowany do pracy w trybie PASYWNYM. Ponadto łącznik FTP jest **nie jest zgodne z niejawnych FTPS (FTP za pośrednictwem protokołu SSL)**. Łącznik FTP obsługuje tylko jawne FTPS (FTP za pośrednictwem protokołu SSL).  
 > 
 > 
 
-W tym przykładzie I przedstawia sposób toouse hello **FTP - podczas dodawania lub modyfikowania pliku** wyzwolenia tooinitiate przepływu pracy aplikacji logiki, po dodaniu pliku lub zmodyfikowane na serwerze FTP. Przykład przedsiębiorstwa można użyć tego wyzwalacza toomonitor FTP folder nowych plików, które reprezentują zamówień od klientów.  Można następnie użyć akcji łącznik FTP takich jak **pobrać zawartość pliku** tooget zawartość hello hello kolejności dla dalszego przetwarzania i przechowywania w bazie danych zamówienia.
+W tym przykładzie, I opisano sposób użycia **FTP - podczas dodawania lub modyfikowania pliku** wyzwalacz tak, aby inicjować przepływ pracy aplikacji logiki, po dodaniu pliku lub zmodyfikowane na serwerze FTP. W przykładzie przedsiębiorstwa można użyć tego wyzwalacza do monitorowania folderu FTP dla nowych plików, które reprezentują zamówień od klientów.  Można następnie użyć akcji łącznik FTP takich jak **pobrać zawartość pliku** do uzyskania zawartości zlecenia dla dalszego przetwarzania i przechowywania w bazie danych zamówienia.
 
-1. Wprowadź *ftp* w polu wyszukiwania hello hello logiki aplikacji designer wybierz hello **FTP - podczas dodawania lub modyfikowania pliku** wyzwalacza   
+1. Wprowadź *ftp* w polu wyszukiwania w Projektancie aplikacji logiki wybiorą **FTP - podczas dodawania lub modyfikowania pliku** wyzwalacza   
    ![Obraz wyzwalacza FTP 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-   Witaj **podczas dodawania lub modyfikowania pliku** otwiera formantu  
+   **Podczas dodawania lub modyfikowania pliku** otwiera formantu  
    ![Wyzwalacz FTP — obraz 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-2. Wybierz hello **...**  znajdujący się po prawej stronie powitania hello formantu. Spowoduje to otwarcie formant wyboru hello folderu  
+2. Wybierz **...**  znajdujący się po prawej stronie formantu. Spowoduje to otwarcie formant wyboru folderu  
    ![Obraz wyzwalacza FTP 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. Wybierz hello  **>**  (Strzałka w prawo), a następnie przejdź do folderu hello toofind mają toomonitor dla nowych lub zmienionych plików. Wybierz hello folder — hello folder jest teraz wyświetlany na powitania **folderu** formantu.  
+3. Wybierz  **>**  (Strzałka w prawo) i przejdź do folderu, który chcesz monitorować nowe lub zmodyfikowane pliki. Wybierz folder i zwróć uwagę, folder zostanie wyświetlona w **folderu** formantu.  
    ![Obraz wyzwalacza FTP 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
 
-W tym momencie aplikację logiki została skonfigurowana z wyzwalaczy, które rozpocznie się uruchom hello innych wyzwalacze i akcje w przepływie pracy powitania po modyfikacji lub utworzone w określonym folderze FTP hello pliku. 
+W tym momencie aplikację logiki została skonfigurowana z wyzwalaczy, które rozpocznie wykonywania innych wyzwalacze i akcje w przepływie pracy zmodyfikowanie lub utworzony w folderze FTP określonego pliku. 
 
 > [!NOTE]
-> Dla logiki aplikacji toobe funkcjonalności musi ona zawierać przynajmniej jeden wyzwalacz i jedną akcję. Wykonaj kroki hello hello następnej sekcji tooadd akcji.  
+> Dla aplikacji logiki działała musi ona zawierać przynajmniej jeden wyzwalacz i jedną akcję. Wykonaj kroki opisane w następnej sekcji, aby dodać akcję.  
 > 
 > 
 
 ## <a name="use-a-ftp-action"></a>Za pomocą akcji FTP
-Akcja jest wykonywane przez przepływ pracy hello zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Akcja jest przeprowadzane przez przepływ pracy zdefiniowanych w aplikacji logiki operacji. [Dowiedz się więcej o akcjach](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
-Teraz, wyzwalacz został dodany, wykonaj te kroki tooadd akcję, która pobierze zawartość pliku nowe lub zmodyfikowane hello znalezione przez wyzwalacz hello hello.    
+Teraz, wyzwalacz został dodany, wykonaj następujące kroki, aby dodać akcję, która pobierze zawartość pliku nowe lub zmodyfikowane, znalezione przez wyzwalacz.    
 
-1. Wybierz **+ nowy krok** tooadd hello hello akcji tooget hello zawartość hello pliku na serwerze hello FTP  
-2. Wybierz hello **Dodaj akcję** łącza.  
+1. Wybierz **+ nowy krok** Aby dodać akcję do uzyskania zawartości pliku na serwerze FTP  
+2. Wybierz **Dodaj akcję** łącza.  
    ![Obraz akcji FTP 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
-3. Wprowadź *FTP* tooFTP związane z toosearch dla wszystkich akcji.
-4. Wybierz **FTP — pobranie zawartości pliku** jako hello tootake akcji, gdy nowe lub zmodyfikowane pliku znajduje się w folderze hello FTP.      
+3. Wprowadź *FTP* aby wyszukać wszystkie operacje dotyczące FTP.
+4. Wybierz **FTP — pobranie zawartości pliku** jako akcję wykonywaną, gdy nowe lub zmodyfikowane pliku znajduje się w folderze FTP.      
    ![Obraz akcji FTP 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-   Witaj **pobrać zawartość pliku** sterowania zostanie otwarta. **Uwaga**: użytkownik będzie zostanie wyświetlony monit o tooauthorize Twojego tooaccess aplikacji logiki konta serwera FTP, jeśli nie zostało zrobione to wcześniej.  
+   **Pobrać zawartość pliku** sterowania zostanie otwarta. **Uwaga**: pojawi się monit o autoryzowanie aplikację logiki, aby uzyskać dostęp do konta serwera FTP, jeśli nie zostało zrobione to wcześniej.  
    ![Obraz akcji FTP 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Wybierz hello **pliku** formantu (hello biały znak znajdujący się poniżej **pliku***). W tym miejscu można żadnego hello różne właściwości z pliku nowe lub zmodyfikowane hello na powitania serwera FTP.  
-6. Wybierz hello **plików zawartości** opcji.  
+5. Wybierz **pliku** formantu (biały znak znajdujący się poniżej **pliku***). W tym miejscu służy różnych właściwości z pliku nowe lub zmodyfikowane na serwerze FTP.  
+6. Wybierz **plików zawartości** opcji.  
    ![Obraz akcji FTP 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
-7. Formant Hello jest aktualizowany, wskazującą, że hello **FTP — pobranie zawartości pliku** akcji uzyskają hello *plików zawartości* hello pliku nowe lub zmodyfikowane na serwerze hello FTP.      
+7. Formant jest aktualizowany, co oznacza, że **FTP — pobranie zawartości pliku** akcji uzyskają *plików zawartości* pliku nowe lub zmodyfikowane na serwerze FTP.      
    ![Obraz akcji FTP 5](./media/connectors-create-api-ftp/ftp-action-5.png)     
-8. Zapisz swoją pracę, a następnie dodaj plik toohello FTP folderu tootest przepływ pracy.    
+8. Zapisz swoją pracę, a następnie dodaj plik do folderu FTP, aby przetestować przepływ pracy.    
 
-W tym momencie aplikacji logiki hello został skonfigurowany z toomonitor wyzwalacza folderu na serwerze FTP i hello inicjowania przepływu pracy, gdy znajdzie się nowy plik lub zmodyfikowany plik na serwerze hello FTP. 
+W tym momencie aplikacji logiki została skonfigurowana z wyzwalaczem monitorowania folderu na serwerze FTP i inicjowania przepływu pracy, gdy znajdzie się nowy plik lub zmodyfikowany plik na serwerze FTP. 
 
-Aplikacja logiki Hello również została skonfigurowana z akcji hello zawartość tooget hello nowych lub zmodyfikowanych plików.
+Aplikacja logiki również została skonfigurowana z akcją do uzyskania zawartości pliku nowe lub zmodyfikowane.
 
-Można teraz dodawać innej akcji, takich jak hello [SQL Server — Wstaw wiersz](connectors-create-api-sqlazure.md) akcji tooinsert hello zawartość hello nowych lub zmodyfikowanych plików do tabeli bazy danych SQL.  
+Można teraz dodawać innej akcji takich jak [SQL Server — Wstaw wiersz](connectors-create-api-sqlazure.md) akcji, aby wstawić zawartość pliku nowe lub zmodyfikowane do tabeli bazy danych SQL.  
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w hello swagger i zobacz też żadnych limitów w hello [szczegóły łącznika](/connectors/ftpconnector/). 
+Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Następne kroki
 [Tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md)

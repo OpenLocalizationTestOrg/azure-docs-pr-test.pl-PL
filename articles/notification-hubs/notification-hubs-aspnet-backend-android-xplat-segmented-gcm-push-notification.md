@@ -1,6 +1,6 @@
 ---
-title: "aaaNotification koncentratory fundamentalne wiadomości Samouczek — systemu Android"
-description: "Dowiedz się, jak toosend usługi centra powiadomień Azure Service Bus toouse fundamentalne urządzeń tooAndroid powiadomień wiadomości."
+title: "Centra powiadomień fundamentalne wiadomości samouczek - Android"
+description: "Dowiedz się, jak używać usługi Azure Service Bus Notification Hubs można wysłać powiadomienia o najważniejszych wiadomościach do urządzeń z systemem Android."
 services: notification-hubs
 documentationcenter: android
 author: ysxu
@@ -14,27 +14,27 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: e6eb41bec95c67d7dc059f560194966d04400494
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-notification-hubs-toosend-breaking-news"></a>Użyj usługi Notification Hubs toosend fundamentalne wiadomości
+# <a name="use-notification-hubs-to-send-breaking-news"></a>Wysyłanie najważniejszych wiadomości przy użyciu usługi Notification Hubs
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym temacie opisano sposób toouse usługi Azure Notification Hubs toobroadcast najważniejszych wiadomości powiadomienia tooan aplikacji systemu Android. Po zakończeniu będzie być może tooregister zakłócenia w kategorii wiadomości i odbierać tylko powiadomienia wypychane dla tych kategorii. Ten scenariusz jest wspólnego wzorca dla wielu aplikacji, w której powiadomienia mają toogroups toobe wysyłane użytkowników, które wcześniej zostały zadeklarowane zainteresowanie je, np. czytnik danych RSS, aplikacje wentylatory utworów muzycznych itp.
+W tym temacie przedstawiono sposób użycia usługi Azure Notification Hubs wysyłać powiadomienia o najważniejszych wiadomościach do aplikacji systemu Android. Po zakończeniu będzie można rejestrować zakłócenia w kategorii wiadomości i odbierać tylko powiadomienia wypychane dla tych kategorii. Ten scenariusz jest wspólnego wzorca dla wielu aplikacji, gdzie powiadomienia muszą być wysłane do grup użytkowników, które wcześniej zostały zadeklarowane zainteresowanie je, np. czytnik danych RSS, aplikacje wentylatory utworów muzycznych itp.
 
-Scenariusze emisji są włączone, umieszczając w niej co najmniej jeden *tagi* podczas tworzenia rejestracji w Centrum powiadomień hello. Gdy tooa tag wysyłane są powiadomienia, wszystkie urządzenia, które zostały zarejestrowane dla tagu hello będzie wysyłane powiadomienie hello. Ponieważ tagi są po prostu ciągów, nie mają toobe udostępnione wcześniej. Aby uzyskać więcej informacji na temat tagów, zobacz zbyt[routingu centra powiadomień i wyrażeń tagów](notification-hubs-tags-segment-push-message.md).
+Scenariusze emisji są włączone, umieszczając w niej co najmniej jeden *tagi* podczas tworzenia rejestracji w Centrum powiadomień. Gdy powiadomienia są wysyłane do tagu, wszystkie urządzenia, które zostały zarejestrowane dla tagu będą otrzymywać powiadomienia. Ponieważ tagi są po prostu ciągów, nie mają być przygotowana z wyprzedzeniem. Aby uzyskać więcej informacji na temat tagów, zapoznaj się [routingu centra powiadomień i wyrażeń tagów](notification-hubs-tags-segment-push-message.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-W tym temacie opiera się na aplikacji hello utworzony w [Rozpoczynanie pracy z usługą Notification Hubs][get-started]. Przed rozpoczęciem tego samouczka należy zostały już wykonane [Rozpoczynanie pracy z usługą Notification Hubs][get-started].
+W tym temacie opiera się na aplikacji utworzony w [Rozpoczynanie pracy z usługą Notification Hubs][get-started]. Przed rozpoczęciem tego samouczka należy zostały już wykonane [Rozpoczynanie pracy z usługą Notification Hubs][get-started].
 
-## <a name="add-category-selection-toohello-app"></a>Dodaj aplikację toohello wybór kategorii
-pierwszym krokiem Hello jest hello tooadd interfejsu użytkownika elementy tooyour istniejącego głównego działania umożliwiające hello użytkownika tooselect kategorii tooregister. Witaj kategorie wybrane przez użytkownika są przechowywane na urządzeniu hello. Po uruchomieniu aplikacji hello rejestracji urządzenia jest tworzony w Centrum powiadomień z kategorii hello wybrany jako znaczniki.
+## <a name="add-category-selection-to-the-app"></a>Dodaj wybrane kategorii do aplikacji
+Pierwszym krokiem jest dodanie elementów interfejsu użytkownika do z istniejących działanie główne, które umożliwiają użytkownikowi wybierz kategorie, aby zarejestrować. Kategorie wybrane przez użytkownika są przechowywane na urządzeniu. Po uruchomieniu aplikacji, rejestracji urządzenia jest tworzony w Centrum powiadomień z wybranych kategorii jako znaczniki.
 
-1. Otwórz plik res/layout/activity_main.xml i Zastąp zawartość hello hello następujący:
+1. Otwórz plik res/layout/activity_main.xml i Zastąp zawartość z następującymi:
    
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -83,7 +83,7 @@ pierwszym krokiem Hello jest hello tooadd interfejsu użytkownika elementy tooyo
                     android:onClick="subscribe"
                     android:text="@string/button_subscribe" />
         </LinearLayout>
-2. Otwórz plik res/values/strings.xml i Dodaj hello następujące wiersze:
+2. Otwórz plik res/values/strings.xml i dodaj następujące wiersze:
    
         <string name="button_subscribe">Subscribe</string>
         <string name="label_world">World</string>
@@ -96,7 +96,7 @@ pierwszym krokiem Hello jest hello tooadd interfejsu użytkownika elementy tooyo
     Układu graficznego main_activity.xml powinna wyglądać następująco:
    
     ![][A1]
-3. Teraz Utwórz klasę **powiadomienia** w hello same pakiety z **MainActivity** klasy.
+3. Teraz Utwórz klasę **powiadomienia** w pakiecie programu **MainActivity** klasy.
    
         import java.util.HashSet;
         import java.util.Set;
@@ -150,7 +150,7 @@ pierwszym krokiem Hello jest hello tooadd interfejsu użytkownika elementy tooyo
                             hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
                                 categories.toArray(new String[categories.size()]));
                         } catch (Exception e) {
-                            Log.e("MainActivity", "Failed tooregister - " + e.getMessage());
+                            Log.e("MainActivity", "Failed to register - " + e.getMessage());
                             return e;
                         }
                         return null;
@@ -167,13 +167,13 @@ pierwszym krokiem Hello jest hello tooadd interfejsu użytkownika elementy tooyo
    
         }
    
-    Ta klasa korzysta z hello Magazyn lokalny toostore hello kategorii wiadomości, czy to urządzenie ma tooreceive. Zawiera również metody tooregister dla tych kategorii.
+    Ta klasa używa lokalnego magazynu do przechowywania kategorii wiadomości, który to urządzenie musi odebrać. Zawiera również metody do rejestrowania dla tych kategorii.
 4. W Twojej **MainActivity** klasy Usuń prywatne pól dla **NotificationHub** i **GoogleCloudMessaging**, i Dodaj pole do **powiadomienia**:
    
         // private GoogleCloudMessaging gcm;
         // private NotificationHub hub;
         private Notifications notifications;
-5. Następnie w hello **onCreate** metody, Usuń inicjowanie hello hello **Centrum** pola i hello **registerWithNotificationHubs** — metoda. Następnie dodaj następujące wiersze, które inicjuje wystąpienie klasy hello hello **powiadomienia** klasy. 
+5. Następnie w **onCreate** metody, Usuń inicjowanie **Centrum** pola i **registerWithNotificationHubs** metody. Następnie dodaj następujące wiersze, które inicjuje wystąpienie klasy **powiadomienia** klasy. 
 
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -188,12 +188,12 @@ pierwszym krokiem Hello jest hello tooadd interfejsu użytkownika elementy tooyo
             notifications.subscribeToCategories(notifications.retrieveCategories());
         }
 
-    `HubName`i `HubListenConnectionString` już powinien być ustawiony z hello `<hub name>` i `<connection string with listen access>` symbole zastępcze z powiadomienia Centrum nazwy i hello parametrów połączenia dla *DefaultListenSharedAccessSignature* uzyskany wcześniej.
+    `HubName`i `HubListenConnectionString` już powinien być ustawiony z `<hub name>` i `<connection string with listen access>` symbole zastępcze nazwą Centrum powiadomień i parametry połączenia dla *DefaultListenSharedAccessSignature* uzyskany wcześniej.
 
-    > [AZURE.NOTE] Ponieważ poświadczenia, które są dystrybuowane wraz z aplikacji przez klienta nie są zazwyczaj bezpieczna, hello klucz dostępu do nasłuchiwania należy dystrybuować tylko z aplikacji klienta. Nasłuchiwanie umożliwia dostęp, nie można zmodyfikować tooregister Twojej aplikacji dla powiadomień, ale istniejące rejestracje i nie mogą być wysyłane powiadomienia. klucz pełny dostęp Hello jest używany w usłudze zabezpieczonych wewnętrznej bazy danych do wysyłania powiadomień i zmianę istniejącego rejestracji.
+    > [AZURE.NOTE] Ponieważ poświadczenia, które są dystrybuowane wraz z aplikacji przez klienta nie są zazwyczaj bezpieczna, klucz dostępu do nasłuchiwania należy dystrybuować tylko z aplikacji klienta. Nasłuchiwanie umożliwia dostęp, nie można zmodyfikować aplikację, aby zarejestrować dla powiadomień, ale istniejące rejestracje i nie mogą być wysyłane powiadomienia. Klucz pełny dostęp jest używany w usłudze zabezpieczonych wewnętrznej bazy danych do wysyłania powiadomień i zmianę istniejącego rejestracji.
 
 
-1. Następnie należy dodać importuje powitania po i `subscribe` hello toohandle metody subskrypcji przycisk kliknij zdarzenie:
+1. Następnie dodaj następujące instrukcje importu i `subscribe` można obsłużyć przycisk Subskrybuj kliknij zdarzenie:
    
         import android.widget.CheckBox;
         import java.util.HashSet;
@@ -224,24 +224,24 @@ pierwszym krokiem Hello jest hello tooadd interfejsu użytkownika elementy tooyo
             notifications.storeCategoriesAndSubscribe(categories);
         }
    
-    Ta metoda tworzy listę kategorii i używa hello **powiadomienia** klasy toostore hello listy w magazynie lokalnym hello i zarejestruj hello odpowiednie tagi w Centrum powiadomień. Zmiana kategorii rejestracji hello zostaje odtworzone w hello nowych kategorii.
+    Ta metoda tworzy listę kategorii i używa **powiadomienia** klasy przechowywania listy w magazynie lokalnym i rejestracji, odpowiednie znaczniki w Centrum powiadomień. Zmiana kategorii rejestracji zostaje odtworzone w nowej kategorii.
 
-Aplikacji jest teraz możliwe toostore zestaw kategorii w lokalnej pamięci masowej na powitania urządzenia i rejestruje hello Centrum powiadomień, gdy wybór kategorii hello hello zmiany wprowadzane przez użytkownika.
+Aplikacja jest teraz możliwość przechowywania zestawu kategorii w lokalnej pamięci masowej na urządzeniu i Zarejestruj w Centrum powiadomień, zawsze, gdy użytkownik zmieni się zaznaczenie kategorii.
 
 ## <a name="register-for-notifications"></a>Rejestrowanie się w celu powiadomienia
-Następujące kroki, zarejestruj się w Centrum powiadomień hello podczas uruchamiania przy użyciu hello kategorie, które były przechowywane w magazynie lokalnym.
+Następujące kroki, zarejestruj się w Centrum powiadomień przy uruchamianiu przy użyciu kategorii, które były przechowywane w magazynie lokalnym.
 
 > [!NOTE]
-> Ponieważ registrationId hello przypisane przez Google Cloud Messaging (GCM) można zmienić w dowolnym momencie, należy zarejestrować powiadomienia o często tooavoid powiadomień błędów. W tym przykładzie rejestruje powiadomienia o każdym uruchomieniu danej aplikacji hello. Dla aplikacji, które są uruchamiane często więcej niż raz dziennie, prawdopodobnie Jeśli możesz pominąć rejestrację toopreserve przepustowości od poprzedniej rejestracji hello upłynął krótszy niż doba.
+> Ponieważ registrationId przypisane przez Google Cloud Messaging (GCM) można zmienić w dowolnym momencie, należy zarejestrować powiadomień często uniknąć niepowodzeń powiadomień. W tym przykładzie rejestruje powiadomienia każdym uruchomieniu aplikacji. Dla aplikacji, które są uruchamiane często więcej niż raz dziennie, można prawdopodobnie pominąć rejestrację, aby zachować przepustowość, jeśli krótszy niż doba upłynął od czasu poprzedniej rejestracji.
 > 
 > 
 
-1. Dodaj następującego kodu na końcu hello hello hello **onCreate** metoda hello **MainActivity** klasy:
+1. Dodaj następujący kod na końcu **onCreate** metody w **MainActivity** klasy:
    
         notifications.subscribeToCategories(notifications.retrieveCategories());
    
-    Dzięki temu że każdym uruchomieniu aplikacji hello pobiera kategorie hello z magazynu lokalnego i żąda rejestracja dla tych kategorii. 
-2. Następnie zaktualizuj hello `onStart()` metody hello `MainActivity` klas w następujący sposób:
+    Dzięki temu przy każdym uruchomieniu aplikacji it pobiera kategorie z magazynu lokalnego i żąda rejestracja dla tych kategorii. 
+2. Następnie zaktualizuj `onStart()` metody `MainActivity` klas w następujący sposób:
    
     @Overridechronione {void onStart()
    
@@ -264,41 +264,41 @@ Następujące kroki, zarejestruj się w Centrum powiadomień hello podczas uruch
         sports.setChecked(categories.contains("sports"));
     }
    
-    Spowoduje to zaktualizowanie hello głównego działania na podstawie stanu hello zapisane wcześniej kategorii.
+    Spowoduje to zaktualizowanie głównego działania na podstawie kategorii uprzednio zapisanego stanu.
 
-Aplikacja Hello jest teraz ukończona i może przechowywać zestawu kategorii hello urządzenia magazynu lokalnego używane tooregister hello Centrum powiadomień przy każdym zmiany użytkowników hello hello wybór kategorii. Następnie zdefiniujemy wewnętrznej bazy danych, który może wysyłać kategorii powiadomienia toothis aplikacji.
+Aplikacja jest teraz ukończona i może przechowywać zestawu kategorii w magazynie lokalnym urządzenia używane do rejestrowania w Centrum powiadomień, zawsze, gdy użytkownik zmieni się zaznaczenie kategorii. Następnie zdefiniujemy wewnętrznej bazy danych, który może wysyłać powiadomienia kategorii do tej aplikacji.
 
 ## <a name="sending-tagged-notifications"></a>Wysyłanie powiadomień oznakowany
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-hello-app-and-generate-notifications"></a>Uruchamianie aplikacji hello i generować powiadomienia
-1. W programie Android Studio tworzenie aplikacji hello, a następnie uruchom go na urządzeniu lub emulatorze.
+## <a name="run-the-app-and-generate-notifications"></a>Uruchom aplikację i generować powiadomienia
+1. W programie Android Studio kompilowania aplikacji, a następnie uruchom go na urządzeniu lub emulatorze.
    
-    Należy pamiętać, że przełącza, aplikacja hello, które interfejs użytkownika zawiera zestaw, który umożliwia wybranie hello toosubscribe kategorii do.
+    Należy pamiętać, że aplikacja interfejsu użytkownika zawiera zestaw przełącza umożliwiające wybierz kategorie, aby subskrybować.
 2. Włącz co najmniej jeden przełącza kategorie, a następnie kliknij przycisk **Subskrybuj**.
    
-    Aplikacja Hello konwertuje kategorii hello wybrane tagi i żąda nowej rejestracji urządzenia hello wybrane tagów z Centrum powiadomień hello. Witaj zarejestrowanych kategorie są zwracane i wyświetlane w wyskakujące powiadomienie.
-3. Wyślij nowe powiadomienie, uruchamiając hello aplikacji konsoli .NET.  Alternatywnie możesz wysłać oznakowanych szablonu powiadomienia za pomocą karty debugowanie hello Centrum powiadomień w hello [klasycznego portalu Azure].
+    Konwertuje wybranych kategorii do tagów i żąda nowej rejestracji urządzeń dla wybranych tagów z Centrum powiadomień aplikacji. Zarejestrowany kategorie są zwracane i wyświetlane w wyskakujące powiadomienie.
+3. Wyślij nowe powiadomienie za pomocą aplikacji konsoli .NET.  Alternatywnie możesz wysłać oznakowanych szablonu powiadomienia za pomocą karty debugowanie w Centrum powiadomień [klasycznego portalu Azure].
    
-    Powiadomienia o kategoriach hello wybrane są wyświetlane jako wyskakujące powiadomienia.
+    Powiadomienia dotyczące wybranych kategorii są wyświetlane jako wyskakujące powiadomienia.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku opisano sposób toobroadcast krytyczne według kategorii wiadomości. Należy rozważyć wykonanie jednej hello następujące samouczki dotyczące innych zaawansowanych scenariuszy centra powiadomień:
+W tym samouczku opisano sposób emisji najważniejszych wiadomości według kategorii. Należy rozważyć wykonanie jednej z następujących samouczków, w których są wyróżniane innych zaawansowanych scenariuszy centra powiadomień:
 
-* [Użyj usługi Notification Hubs toobroadcast zlokalizowane najważniejszych wiadomości]
+* [Emisji zlokalizowanych najważniejszych wiadomości przy użyciu usługi Notification Hubs]
   
-    Dowiedz się, jak fundamentalne wysyłania tooenable aplikacji wiadomości powitania tooexpand zlokalizowane powiadomienia.
+    Dowiedz się, jak rozszerzyć aplikację wiadomości podziału, aby umożliwić wysyłanie powiadomień zlokalizowane.
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG
 
 <!-- URLs.-->
 [get-started]: notification-hubs-android-push-notification-google-gcm-get-started.md
-[Użyj usługi Notification Hubs toobroadcast zlokalizowane najważniejszych wiadomości]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Emisji zlokalizowanych najważniejszych wiadomości przy użyciu usługi Notification Hubs]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-toofor Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

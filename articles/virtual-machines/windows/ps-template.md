@@ -1,6 +1,6 @@
 ---
-title: aaaCreate systemu Windows maszyny Wirtualnej z szablonu na platformie Azure | Dokumentacja firmy Microsoft
-description: "Szablon usługi Resource Manager i programu PowerShell tooeasily tworzenia nowej maszyny Wirtualnej systemu Windows."
+title: Tworzenie maszyny Wirtualnej systemu Windows z szablonu na platformie Azure | Dokumentacja firmy Microsoft
+description: "Łatwe tworzenie nowej maszyny Wirtualnej systemu Windows przy użyciu szablonu usługi Resource Manager i programu PowerShell."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 630111482c7dc046091632e2ed458ac143325d59
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Utwórz maszynę wirtualną systemu Windows z szablonem usługi Resource Manager
 
-W tym artykule opisano sposób toodeploy usługi Azure Resource Manager szablonu przy użyciu programu PowerShell. tworzony szablon Hello wdraża jednej maszyny wirtualnej z systemem Windows Server w nowej sieci wirtualnej z pojedynczą podsiecią.
+W tym artykule przedstawiono sposób wdrażania szablonu usługi Azure Resource Manager przy użyciu programu PowerShell. Tworzony szablon wdraża jednej maszyny wirtualnej z systemem Windows Server w nowej sieci wirtualnej z pojedynczą podsiecią.
 
-Aby uzyskać szczegółowy opis hello zasobu maszyny wirtualnej, zobacz [maszyn wirtualnych w szablonie usługi Azure Resource Manager](template-description.md). Aby uzyskać więcej informacji o wszystkich zasobów hello w szablonie, zobacz [Przewodnik po szablonie usługi Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Aby uzyskać szczegółowy opis zasobu maszyny wirtualnej, zobacz [maszyn wirtualnych w szablonie usługi Azure Resource Manager](template-description.md). Aby uzyskać więcej informacji na temat wszystkich zasobów w szablonie, zobacz [Przewodnik po szablonie usługi Azure Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Należy go zająć około pięciu minut, którą toodo hello kroków w tym artykule.
+Wykonaj kroki opisane w tym artykule powinno zająć około pięciu minut.
 
 ## <a name="install-azure-powershell"></a>Instalowanie programu Azure PowerShell
 
-Zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](../../powershell-install-configure.md) uzyskać informacji na temat instalowania najnowszej wersji programu Azure PowerShell hello, wybierając subskrypcję i logowanie tooyour konta.
+Zobacz [How to install and configure Azure PowerShell](../../powershell-install-configure.md) (Jak zainstalować i skonfigurować program Azure PowerShell), aby uzyskać informacje na temat instalowania najnowszej wersji programu Azure PowerShell, wybierania subskrypcji i logowania się do konta.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -44,17 +44,17 @@ Wszystkie zasoby musi być wdrażana w [grupy zasobów](../../azure-resource-man
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. Utwórz grupę zasobów hello w lokalizacji hello. Ten przykład przedstawia tworzenie grupy zasobów o nazwie hello **myResourceGroup** w hello **zachodnie stany USA** lokalizacji:
+2. Utwórz grupę zasobów w wybranej lokalizacji. Ten przykład przedstawia tworzenie grupy zasobów o nazwie **myResourceGroup** w **zachodnie stany USA** lokalizacji:
 
     ```powershell   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
-## <a name="create-hello-files"></a>Tworzenie plików hello
+## <a name="create-the-files"></a>Tworzenie plików
 
-W tym kroku utworzysz plik szablonu, który wdraża hello zasobów i pliku parametrów, który dostarcza szablonu toohello wartości parametru. Możesz również utworzyć pliku autoryzacji, który jest używane tooperform operacji usługi Azure Resource Manager.
+W tym kroku utworzysz pliku szablonu, który wdraża zasobów i pliku parametrów, które dostarcza wartości parametru do szablonu. Możesz również utworzyć pliku autoryzacji, który służy do wykonywania operacji usługi Azure Resource Manager.
 
-1. Utwórz plik o nazwie *CreateVMTemplate.json* i Dodaj ten tooit kodu JSON:
+1. Utwórz plik o nazwie *CreateVMTemplate.json* i Dodaj ten kod JSON do niej:
 
     ```json
     {
@@ -159,7 +159,7 @@ W tym kroku utworzysz plik szablonu, który wdraża hello zasobów i pliku param
     }
     ```
 
-2. Utwórz plik o nazwie *parameters.JSON następującym kodem* i Dodaj ten tooit kodu JSON:
+2. Utwórz plik o nazwie *parameters.JSON następującym kodem* i Dodaj ten kod JSON do niej:
 
     ```json
     {
@@ -182,18 +182,18 @@ W tym kroku utworzysz plik szablonu, który wdraża hello zasobów i pliku param
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
-4. Przekaż konta magazynu toohello pliki hello:
+4. Przekazywanie plików do konta magazynu:
 
     ```powershell
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
     Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
     ```
 
-    Zmień hello — lokalizacja toohello ścieżki pliku przechowywania plików hello.
+    Zmiana - ścieżki do plików do lokalizacji, w którym są przechowywane pliki.
 
-## <a name="create-hello-resources"></a>Utwórz zasoby hello
+## <a name="create-the-resources"></a>Utworzenie zasobów
 
-Wdrażanie szablonu hello przy użyciu parametrów hello:
+Wdrażanie szablonu przy użyciu parametrów:
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
@@ -202,10 +202,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> Można także wdrożyć parametry z lokalnych plików i szablonów. toolearn więcej, zobacz [przy użyciu programu Azure PowerShell z usługą Azure Storage](../../storage/common/storage-powershell-guide-full.md).
+> Można także wdrożyć parametry z lokalnych plików i szablonów. Aby dowiedzieć się więcej, zobacz [przy użyciu programu Azure PowerShell z usługą Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli wystąpiły problemy z wdrażaniem hello, może potrwać przyjrzeć się [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-- Dowiedz się, jak toocreate i zarządzanie nimi maszynę wirtualną w [tworzenia i zarządzania maszynami wirtualnymi systemu Windows za pomocą modułu Azure PowerShell hello](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Jeśli wystąpiły problemy dotyczące wdrożenia, może potrwać przyjrzeć się [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
+- Informacje o sposobie tworzenia i zarządzania nimi maszynę wirtualną w [tworzenia i zarządzania maszynami wirtualnymi systemu Windows za pomocą modułu Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaControl routingu i wirtualnych urządzeń w usłudze Azure - szablonu | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocontrol routingu i wirtualnych urządzeń przy użyciu szablonu usługi Azure Resource Manager."
+title: "Kontrolowanie routingu i wirtualnych urządzeń w usłudze Azure - szablonu | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie kontrolowania routingu i wirtualnych urządzeń przy użyciu szablonu usługi Azure Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.openlocfilehash: 781340593541784d2d9772d310c041ad4a5c3101
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Tworzenie trasy zdefiniowane przez użytkownika (przez) przy użyciu szablonu
 
@@ -31,14 +31,14 @@ ms.lasthandoff: 10/06/2017
 > * [Interfejs wiersza polecenia (klasyczny)](virtual-network-create-udr-classic-cli.md)
 
 > [!IMPORTANT]
-> Przed rozpoczęciem pracy z zasobów platformy Azure, jest ważne toounderstand, że Azure ma obecnie dwa modele wdrażania: usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-resource-manager/resource-manager-deployment-model.md). Hello dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty hello u góry hello tego artykułu. W tym artykule omówiono modelu wdrażania usługi Resource Manager hello. 
+> Przed rozpoczęciem pracy z zasobami platformy Azure należy pamiętać, że ma ona obecnie dwa modele wdrażania: za pomocą usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-resource-manager/resource-manager-deployment-model.md). Dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty w górnej części artykułu. W tym artykule opisano model wdrażania usługi Resource Manager. 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
 ## <a name="udr-resources-in-a-template-file"></a>PRZEZ zasobów w pliku szablonu
-Można wyświetlić i pobrać hello [przykładowy szablon](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
+Można wyświetlić i pobrać [przykładowy szablon](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR).
 
-Witaj w tej części opisano hello definicji hello przez frontonu w hello **azuredeploy-vnet-nsg-udr.json** pliku dla scenariusza hello:
+W poniższej sekcji przedstawiono definicję frontonu przez w **azuredeploy-vnet-nsg-udr.json** pliku dla tego scenariusza:
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/routeTables",
@@ -59,7 +59,7 @@ Witaj w tej części opisano hello definicji hello przez frontonu w hello **azur
         }
       ]
 
-tooassociate hello przez toohello frontonu podsieci, masz toochange hello podsieci definicji szablonu hello i identyfikator odwołania hello Użyj hello przez.
+Aby skojarzyć przez podsieci frontonu, masz definicji podsieci w szablonie, a następnie użyj identyfikatora odwołania dla przez.
 
     "subnets": [
         "name": "[parameters('frontEndSubnetName')]",
@@ -73,9 +73,9 @@ tooassociate hello przez toohello frontonu podsieci, masz toochange hello podsie
           }
         },
 
-Zwróć uwagę, hello wykonywana w ramach hello zaplecza NSG hello zaplecza podsieci i w szablonie hello takie same.
+Zwróć uwagę, same wykonywana w ramach grupy NSG zaplecza i podsieć zaplecza w szablonie.
 
-Należy również tooensure tego hello **FW1** maszyna wirtualna ma przekazywania właściwość włączone na powitania karty Sieciowej, która będzie używana tooreceive i przekazywania pakietów IP hello. sekcja Hello poniżej przedstawia definicję hello hello kart interfejsu Sieciowego dla FW1 w pliku azuredeploy-nsg-udr.json hello, oparta na scenariuszu hello powyżej.
+Należy również upewnić się, że **FW1** maszyna wirtualna ma adres IP przekazywania właściwości włączony na karcie Sieciowej, która będzie służyć do pobierania i przekazywać pakiety. Poniższa sekcja przedstawia definicję karty interfejsu sieciowego dla FW1 w pliku azuredeploy-nsg-udr.json, oparta na scenariuszu powyżej.
 
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Network/networkInterfaces",
@@ -111,17 +111,17 @@ Należy również tooensure tego hello **FW1** maszyna wirtualna ma przekazywani
       "count": "[parameters('fwCount')]"
     }
 
-## <a name="deploy-hello-template-by-using-click-toodeploy"></a>Wdrażanie szablonu hello przy użyciu kliknij toodeploy
-Hello przykładowy szablon dostępne w publicznych repozytorium hello używa parametru plik zawierający hello domyślne wartości używane toogenerate hello scenariusz opisany powyżej. toodeploy przy użyciu tego szablonu kliknij toodeploy, postępuj zgodnie z [to łącze](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), kliknij przycisk **wdrażanie tooAzure**, Zastąp hello domyślne wartości parametrów w razie potrzeby i wykonaj te instrukcje hello hello portalu.
+## <a name="deploy-the-template-by-using-click-to-deploy"></a>Wdrażanie szablonu przy użyciu metody „kliknij, aby wdrożyć”
+Przykładowy szablon dostępny w repozytorium publicznym korzysta z pliku parametrów zawierającego wartości domyślne używane do generowania scenariusza opisanego powyżej. Aby wdrożyć ten szablon przy użyciu metody „kliknij, aby wdrożyć”, kliknij [ten link](https://github.com/telmosampaio/azure-templates/tree/master/IaaS-NSG-UDR), kliknij przycisk **Deploy to Azure** (Wdróż na platformie Azure), w razie potrzeby zastąp wartości domyślne parametrów i postępuj zgodnie z instrukcjami podanymi w portalu.
 
-1. Jeśli nie znasz programu Azure PowerShell, zobacz [jak tooInstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i wykonaj instrukcje hello wszystkich toohello sposób hello kończyć toosign na platformie Azure i wyboru subskrypcji.
-2. Uruchom następujące polecenie toocreate hello grupę zasobów:
+1. Jeśli nie znasz programu Azure PowerShell, zapoznaj się z artykułem [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) i postępuj zgodnie z instrukcjami aż do momentu logowania się w programie Azure i wyboru subskrypcji.
+2. Uruchom poniższe polecenie, aby utworzyć grupę zasobów:
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location westus
     ```
 
-3. Witaj uruchom następujące polecenie toodeploy hello szablonu:
+3. Uruchom następujące polecenie, aby wdrożyć szablon:
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name DeployUDR -ResourceGroupName TestRG `
@@ -171,22 +171,22 @@ Hello przykładowy szablon dostępne w publicznych repozytorium hello używa par
 
         ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
-## <a name="deploy-hello-template-by-using-hello-azure-cli"></a>Wdrażanie szablonu hello przy użyciu hello wiersza polecenia platformy Azure
+## <a name="deploy-the-template-by-using-the-azure-cli"></a>Wdrażanie szablonu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-toodeploy hello szablonu ARM przy użyciu hello Azure CLI, pełną hello następujące kroki:
+Aby wdrożyć szablon ARM przy użyciu wiersza polecenia platformy Azure, wykonaj następujące kroki:
 
-1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](../cli-install-nodejs.md) i wykonaj instrukcje hello zapasowej punktu toohello, gdzie należy wybrać konto platformy Azure i subskrypcji.
-2. Uruchom powitania po trybie Menedżera tooResource tooswitch polecenia:
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+2. Uruchom następujące polecenie, aby włączyć tryb Resource Manager:
 
     ```azurecli
     azure config mode arm
     ```
 
-    Oto hello oczekiwane dane wyjściowe polecenia hello powyżej:
+    Oto oczekiwane dane wyjściowe po wprowadzeniu powyższego polecenia:
 
         info:    New mode is arm
 
-3. W przeglądarce Przejdź zbyt**https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, skopiuj zawartość pliku json hello hello i wkleić do nowego pliku w sieci komputer. W tym scenariuszu może kopiować wartości hello poniżej tooa plik o nazwie **c:\udr\azuredeploy.parameters.json**.
+3. W przeglądarce przejdź do **https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json**, a następnie skopiuj zawartość pliku json i wkleić do nowego pliku w sieci komputer. W tym scenariuszu może być skopiowanie wartości poniżej w pliku o nazwie **c:\udr\azuredeploy.parameters.json**.
 
     ```json
         {
@@ -206,7 +206,7 @@ toodeploy hello szablonu ARM przy użyciu hello Azure CLI, pełną hello następ
         }
     ```
 
-4. Uruchom następujące polecenie toodeploy hello nowej sieci wirtualnej przy użyciu hello szablon i parametr plików pobranego i zmodyfikowanego hello:
+4. Uruchom następujące polecenie, aby wdrożyć nową sieć wirtualną przy użyciu szablonu i parametr plików pobranego i zmodyfikowanego:
 
     ```azurecli
     azure group create -n TestRG -l westus --template-uri 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' -e 'c:\udr\azuredeploy.parameters.json'
@@ -229,7 +229,7 @@ toodeploy hello szablonu ARM przy użyciu hello Azure CLI, pełną hello następ
         data:    
         info:    group create command OK
 
-5. Hello uruchom następujące polecenie tooview hello zasobów utworzone w hello nową grupę zasobów:
+5. Uruchom następujące polecenie, aby wyświetlić zasoby utworzone w nowej grupy zasobów:
 
     ```azurecli
     azure group show TestRG
@@ -239,7 +239,7 @@ toodeploy hello szablonu ARM przy użyciu hello Azure CLI, pełną hello następ
 
             info:    Executing command group show
             info:    Listing resource groups
-            info:    Listing resources for hello group
+            info:    Listing resources for the group
             data:    Id:                  /subscriptions/[Subscription Id]/resourceGroups/TestRG
             data:    Name:                TestRG
             data:    Location:            westus
@@ -404,5 +404,5 @@ toodeploy hello szablonu ARM przy użyciu hello Azure CLI, pełną hello następ
             info:    group show command OK
 
 > [!TIP]
-> Jeśli nie są wyświetlane wszystkie zasoby hello, uruchom hello `azure group deployment show` hello tooensure polecenia udostępniania stanu wdrożenia hello jest *Succeded*.
+> Jeśli nie ma wszystkich zasobów, uruchom `azure group deployment show` polecenie, aby upewnić się, stan inicjowania wdrożenia jest *Succeded*.
 > 

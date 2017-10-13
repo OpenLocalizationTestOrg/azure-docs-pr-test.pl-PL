@@ -1,6 +1,6 @@
 ---
-title: aaaSQL testowanie odzyskiwania po awarii bazy danych | Dokumentacja firmy Microsoft
-description: "Uczyć się wskazówki i najlepsze rozwiązania dotyczące korzystania z bazy danych SQL Azure tooperform awaryjnego odzyskiwania ćwiczenia toohelp Zachowaj toofailures odporność aplikacji krytycznym znaczeniu dla firmy misji i awarie."
+title: Testowanie odzyskiwania po awarii bazy danych SQL | Dokumentacja firmy Microsoft
+description: "Dowiedz się, wskazówki i najlepsze rozwiązania dotyczące korzystania z bazy danych SQL Azure przeprowadzić testowanie odzyskiwania po awarii, aby chronić Twoje misji krytycznych aplikacji LOB odporność na awarie i awarie."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
-ms.openlocfilehash: bf17857a19fdebddf0d4f55e4db3a1b33efb4e8e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Wykonywanie wyszczególniania odzyskiwania po awarii
-Zalecane jest okresowo wykonywać weryfikacji aplikacja jest gotowa do przepływu pracy odzyskiwania. Weryfikowanie, czy zachowanie aplikacji hello i zagadnień dotyczących danych utraty i/lub hello przerw w działaniu obejmuje czy tryb failover jest dobrym rozwiązaniem engineering. Również jest wymagane przez większość standardy branżowe w ramach certyfikacji ciągłości biznesowej.
+Zalecane jest okresowo wykonywać weryfikacji aplikacja jest gotowa do przepływu pracy odzyskiwania. Weryfikowanie zachowanie aplikacji oraz wpływ utraty danych i/lub przerw w działaniu obejmuje czy tryb failover jest dobrym rozwiązaniem engineering. Również jest wymagane przez większość standardy branżowe w ramach certyfikacji ciągłości biznesowej.
 
 Obejmuje wykonywania wyszczególniania odzyskiwania po awarii:
 
@@ -30,37 +30,37 @@ Obejmuje wykonywania wyszczególniania odzyskiwania po awarii:
 * Odzyskiwanie
 * Sprawdź poprawność odzyskiwania post integralności aplikacji
 
-W zależności od tego, jak możesz [przeznaczony dla ciągłość prowadzenia działalności biznesowej aplikacji](sql-database-business-continuity.md), hello przepływu pracy tooexecute hello Przechodzenie do szczegółów mogą się różnić. Poniżej opisano najważniejsze wskazówki hello przeprowadzenie wyszczególniania odzyskiwania po awarii, w kontekście hello bazy danych SQL Azure.
+W zależności od tego, jak możesz [przeznaczony dla ciągłość prowadzenia działalności biznesowej aplikacji](sql-database-business-continuity.md), przepływu pracy można wykonać drążenie może się różnić. Poniżej opisano najważniejsze wskazówki przeprowadzenie wyszczególniania odzyskiwania po awarii, w kontekście bazy danych SQL Azure.
 
 ## <a name="geo-restore"></a>Przywracanie geograficzne
-tooprevent hello utracie danych podczas przeprowadzania wyszczególniania odzyskiwania po awarii, zaleca się przeprowadzania hello Przechodzenie do szczegółów, tworząc kopię hello środowiska produkcyjnego i używa go przy użyciu środowiska testowego aplikacji hello tooverify przepływu pracy awaryjnej.
+Aby zapobiec utracie danych podczas przeprowadzania wyszczególniania odzyskiwania po awarii, zaleca się przeprowadzania Przechodzenie do szczegółów, tworząc kopię w środowisku produkcyjnym i użycie go do sprawdzenia przepływu pracy awaryjnej aplikacji przy użyciu środowiska testowego.
 
 #### <a name="outage-simulation"></a>Symulacji awarii
-toosimulate hello awarii, można usunąć ani zmienić nazwy hello źródłowej bazy danych. Powoduje to błędów łączności aplikacji.
+Aby symulować awarii, można usunąć lub zmienić nazwy źródłowej bazy danych. Powoduje to błędów łączności aplikacji.
 
 #### <a name="recovery"></a>Odzyskiwanie
-* Wykonać przywracaniem geograficznym hello hello bazy danych na innym serwerze, zgodnie z opisem [tutaj](sql-database-disaster-recovery.md).
-* Zmień hello aplikacji konfiguracji tooconnect toohello odzyskanej bazy danych i wykonaj hello [skonfigurować bazę danych po odzyskaniu](sql-database-disaster-recovery.md) przewodnik toocomplete hello odzyskiwania.
+* Wykonać geograficznie przywracania bazy danych na innym serwerze, zgodnie z opisem [tutaj](sql-database-disaster-recovery.md).
+* Zmień konfigurację aplikacji, aby nawiązać połączenie odzyskanej bazy danych i postępuj zgodnie z [skonfigurować bazę danych po odzyskaniu](sql-database-disaster-recovery.md) przewodniku, aby zakończyć odzyskiwanie.
 
 #### <a name="validation"></a>Walidacja
-* Zakończenie hello Przechodzenie do szczegółów weryfikując aplikacji hello integralności post odzyskiwania (w tym parametry połączenia, logowania, podstawowych funkcji testowania lub innych operacji sprawdzania poprawności część procedur signoffs standardowej aplikacji).
+* Zakończ Drąż weryfikowanie odzyskiwania post integralności aplikacji (w tym parametry połączenia, logowania, podstawowych funkcji testowania lub innych operacji sprawdzania poprawności część procedur signoffs standardowej aplikacji).
 
 ## <a name="geo-replication"></a>Replikacja geograficzna
-Dla bazy danych, która jest chroniony za pomocą Przechodzenie do szczegółów — replikacja geograficzna hello wykonywania obejmuje planowany tryb failover toohello dodatkowej bazy danych. Hello planowany tryb failover zapewnia, że hello głównej i pomocniczej bazy danych hello pozostają zsynchronizowane podczas przełączania ról hello. W odróżnieniu od hello nieplanowanego trybu failover, ta operacja nie powoduje utraty danych, więc hello Przechodzenie do szczegółów mogą być wykonywane w środowisku produkcyjnym hello.
+Dla bazy danych, który jest chroniony za pomocą — replikacja geograficzna wykonywania Przechodzenie do szczegółów obejmuje planowany tryb failover na dodatkowej bazy danych. Planowany tryb failover zapewnia, że podstawowej i pomocniczej bazy danych pozostają zsynchronizowane podczas przełączania ról. Inaczej niż w przypadku nieplanowanego trybu failover ta operacja nie powoduje utraty danych, więc Drąż mogą być wykonywane w środowisku produkcyjnym.
 
 #### <a name="outage-simulation"></a>Symulacji awarii
-toosimulate hello awarii, można wyłączyć aplikacji sieci web hello lub maszyny wirtualnej podłączone toohello w bazie danych. W efekcie hello połączeniami dla klientów sieci web hello.
+Aby symulować awarii, można wyłączyć maszyny wirtualnej, połączony z bazą danych lub aplikacji sieci web. W efekcie awarie połączenia dla klientów sieci web.
 
 #### <a name="recovery"></a>Odzyskiwanie
-* Upewnij się, że konfiguracja aplikacji hello w hello DR region punktów toohello była dodatkowej która staje się hello pełni dostępny nową podstawową.
-* Wykonaj [planowanego trybu failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) toomake hello pomocniczej bazy danych nowego podstawowego
-* Wykonaj hello [skonfigurować bazę danych po odzyskaniu](sql-database-disaster-recovery.md) przewodnik toocomplete hello odzyskiwania.
+* Upewnij się, Konfiguracja aplikacji w regionie DR wskazuje była dodatkowej, która staje się dostępny w pełni nową podstawową.
+* Wykonaj [planowanego trybu failover](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) dokonanie pomocniczej bazie danych nowego podstawowego
+* Postępuj zgodnie z [skonfigurować bazę danych po odzyskaniu](sql-database-disaster-recovery.md) przewodniku, aby zakończyć odzyskiwanie.
 
 #### <a name="validation"></a>Walidacja
-* Zakończenie hello Przechodzenie do szczegółów weryfikując aplikacji hello integralności post odzyskiwania (w tym parametry połączenia, logowania, podstawowych funkcji testowania lub innych operacji sprawdzania poprawności część procedur signoffs standardowej aplikacji).
+* Zakończ Drąż weryfikowanie odzyskiwania post integralności aplikacji (w tym parametry połączenia, logowania, podstawowych funkcji testowania lub innych operacji sprawdzania poprawności część procedur signoffs standardowej aplikacji).
 
 ## <a name="next-steps"></a>Następne kroki
-* toolearn o scenariuszach ciągłości biznesowej, zobacz [ciągłości scenariuszy](sql-database-business-continuity.md)
-* toolearn o bazy danych SQL Azure automatycznego tworzenia kopii zapasowych, zobacz [bazy danych SQL automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md)
-* toolearn o za pomocą kopie zapasowe automatycznego odzyskiwania, zobacz [przywrócić bazę danych z kopii zapasowych hello inicjowane przez usługę](sql-database-recovery-using-backups.md)
-* toolearn o szybsze opcje odzyskiwania, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md)  
+* Aby dowiedzieć się więcej o scenariuszach ciągłości biznesowej, zobacz [ciągłości scenariuszy](sql-database-business-continuity.md)
+* Aby dowiedzieć się więcej na temat usługi Azure SQL bazy danych automatycznego tworzenia kopii zapasowych, zobacz [bazy danych SQL automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md)
+* Aby dowiedzieć się więcej o używaniu kopie zapasowe automatycznego odzyskiwania, zobacz [przywrócić bazę danych z kopii zapasowych inicjowane przez usługę](sql-database-recovery-using-backups.md)
+* Informacje na temat opcji odzyskiwania szybsze, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md)  

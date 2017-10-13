@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate elastycznej zadania przy użyciu programu PowerShell i zarządzać nimi | Dokumentacja firmy Microsoft"
-description: "PowerShell używane toomanage pule bazy danych SQL Azure"
+title: "Tworzenie i zarządzanie nimi przy użyciu programu PowerShell zadania elastyczne | Dokumentacja firmy Microsoft"
+description: "Umożliwia Zarządzanie pulami bazy danych SQL Azure PowerShell"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f6c18aecfa7e8c0b102a3b7cd2f266f5542ae400
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b4c97e8f51581f9a3f7c5a8d8e82562255fe7b48
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Tworzenie i zarządzanie nimi zadania elastycznej bazy danych SQL przy użyciu programu PowerShell (wersja zapoznawcza)
 
-Witaj interfejsów API środowiska PowerShell dla **zadania elastycznej bazy danych** (w wersji zapoznawczej), umożliwiają definiowanie grupę baz danych, które wykona skryptów. W tym artykule przedstawiono sposób toocreate i zarządzanie nimi **zadania elastycznej bazy danych** przy użyciu poleceń cmdlet programu PowerShell. Zobacz [omówienie zadania elastyczne](sql-database-elastic-jobs-overview.md). 
+Interfejsy API środowiska PowerShell dla **zadania elastycznej bazy danych** (w wersji zapoznawczej), umożliwiają definiowanie grupę baz danych, które wykona skryptów. W tym artykule przedstawiono sposób tworzenia i zarządzania nimi **zadania elastycznej bazy danych** przy użyciu poleceń cmdlet programu PowerShell. Zobacz [omówienie zadania elastyczne](sql-database-elastic-jobs-overview.md). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Subskrypcja platformy Azure. Bezpłatnej wersji próbnej, zobacz [bezpłatna miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
-* Zestaw baz danych utworzonych z hello narzędzi elastycznej bazy danych. Zobacz [wprowadzenie do narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md).
-* Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+* Zestaw baz danych utworzonych przy użyciu narzędzi elastycznej bazy danych. Zobacz [wprowadzenie do narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md).
+* Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz artykuł [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell).
 * **Zadania elastyczne bazy danych** pakietu programu PowerShell: zobacz [zadania instalowania elastycznej bazy danych](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Wybierz subskrypcję platformy Azure
-tooselect hello subskrypcji należy identyfikator subskrypcji (**- SubscriptionId**) lub nazwę subskrypcji (**— Nazwa subskrypcji**). Jeśli masz wiele subskrypcji możesz uruchomić hello **Get-AzureRmSubscription** polecenia cmdlet i skopiuj hello potrzeby informacji o subskrypcji z hello zestawu wyników. Po uzyskaniu informacji o subskrypcji, uruchom następujące polecenie commandlet tooset hello tej subskrypcji jako domyślny hello, a mianowicie hello cel dla tworzenia zadania i zarządzać nimi:
+Aby wybrać subskrypcję należy identyfikator subskrypcji (**- SubscriptionId**) lub nazwę subskrypcji (**— Nazwa subskrypcji**). Jeśli masz wiele subskrypcji możesz uruchomić **Get-AzureRmSubscription** polecenia cmdlet i skopiuj ustawić informacji o subskrypcji żądanego wyniku. Po uzyskaniu informacji o subskrypcji, uruchom następujące polecenia można ustawić jako domyślny, a mianowicie docelowych do tworzenia i zarządzania zadaniami tej subskrypcji:
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
-Witaj [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) jest zalecane w przypadku użycia toodevelop i wykonywanie skryptów programu PowerShell przed hello zadania elastycznej bazy danych.
+[PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) jest zalecane w przypadku użycia w celu opracowywania i wykonywanie skryptów programu PowerShell dla zadania elastycznej bazy danych.
 
 ## <a name="elastic-database-jobs-objects"></a>Obiekty zadania elastycznej bazy danych
-Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello z **zadania elastycznej bazy danych** wraz z jego opis i odpowiednich interfejsów API programu PowerShell.
+W poniższej tabeli wymieniono się wszystkie typy obiektów z **zadania elastycznej bazy danych** wraz z jego opis i odpowiednich interfejsów API programu PowerShell.
 
 <table style="width:100%">
   <tr>
@@ -48,14 +48,14 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
   </tr>
   <tr>
     <td>Poświadczenie</td>
-    <td>Toouse nazwy użytkownika i hasła podczas łączenia toodatabases dla wykonywania skryptów lub aplikacji DACPACs. <p>Witaj hasło jest szyfrowane przed wysłaniem tooand przechowywania w hello zadania elastyczne bazy danych w bazie danych.  hasło Hello jest odszyfrowywany przez hello zadania elastyczne bazy danych usługi za pomocą poświadczeń hello utworzone i załadowane z hello skrypt instalacji.</td>
+    <td>Nazwa użytkownika i hasło do użycia podczas nawiązywania połączenia bazy danych dla wykonywania skryptów lub aplikacji DACPACs. <p>Hasło jest szyfrowane przed wysłaniem do i przechowywania w bazie danych zadania elastyczne bazy danych.  Hasło jest odszyfrowywany przez usługę zadania elastyczne bazy danych za pomocą poświadczeń utworzone i załadowane w skrypcie instalacji.</td>
     <td><p>Get-AzureSqlJobCredential</p>
     <p>Nowe AzureSqlJobCredential</p><p>Zestaw AzureSqlJobCredential</p></td></td>
   </tr>
 
   <tr>
     <td>Skrypt</td>
-    <td>Toobe skryptu języka Transact-SQL używane do wykonywania różnych bazach danych.  skrypt Hello powinna być idempotentności toobe utworzone, ponieważ usługa hello ponowi wykonanie skryptu powitania po awarii.
+    <td>Skrypt języka Transact-SQL do użycia dla wykonania dla baz danych.  Skrypt należy utworzone za idempotentności, ponieważ usługa ponowi wykonanie skryptu po awarii.
     </td>
     <td>
     <p>Get-AzureSqlJobContent</p>
@@ -67,7 +67,7 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
 
   <tr>
     <td>DACPAC</td>
-    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">Aplikacji warstwy danych </a> pakietu toobe zastosowany do wszystkich baz danych.
+    <td><a href="https://msdn.microsoft.com/library/ee210546.aspx">Aplikacji warstwy danych </a> pakietu, które mają być stosowane dla baz danych.
 
     </td>
     <td>
@@ -78,7 +78,7 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
   </tr>
   <tr>
     <td>Docelowej bazy danych</td>
-    <td>Bazy danych i serwera nazw tooan wskazujące bazę danych SQL Azure.
+    <td>Nazwa bazy danych i serwera wskazujące bazę danych SQL Azure.
 
     </td>
     <td>
@@ -88,7 +88,7 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
   </tr>
   <tr>
     <td>Identyfikator niezależnego fragmentu mapy docelowego</td>
-    <td>Kombinacja docelowej bazy danych i toobe poświadczenia używane toodetermine informacje przechowywane w mapie niezależnego fragmentu elastycznej bazy danych.
+    <td>Kombinacja docelowej bazy danych i poświadczeń ma być używany do określenia informacji przechowywanych w mapie niezależnego fragmentu elastycznej bazy danych.
     </td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
@@ -98,7 +98,7 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
   </tr>
 <tr>
     <td>Docelowy kolekcji niestandardowej</td>
-    <td>Zdefiniowaną grupę toocollectively baz danych użycia dla wykonania.</td>
+    <td>Zdefiniowane grupy baz danych do zbiorczo użycia dla wykonania.</td>
     <td>
     <p>Get-AzureSqlJobTarget</p>
     <p>Nowe AzureSqlJobTarget</p>
@@ -116,7 +116,7 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
 <tr>
     <td>Zadanie</td>
     <td>
-    <p>Definicja parametrów dla zadania, które mogą być używane tootrigger wykonanie lub toofulfill harmonogram.</p>
+    <p>Definicja parametrów zadania, które mogą być używane do wyzwolenia wykonywania lub do zrealizowania planu.</p>
     </td>
     <td>
     <p>Get-AzureSqlJob</p>
@@ -128,7 +128,7 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
 <tr>
     <td>Wykonanie zadania</td>
     <td>
-    <p>Kontener toofulfill niezbędnych zadań wykonywania skryptu lub zastosowania docelowego tooa DACPAC, przy użyciu poświadczeń dla połączenia z bazą danych z błędami obsługiwane zasady wykonywania tooan zgodnie.</p>
+    <p>Kontener zadania niezbędne do spełnienia wykonywania skryptu albo stosowania DACPAC do obiektu docelowego przy użyciu poświadczeń dla połączenia z bazą danych z błędami obsługiwane zgodnie z zasadami wykonywania.</p>
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
@@ -140,8 +140,8 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
 <tr>
     <td>Wykonywanie zadań zadania</td>
     <td>
-    <p>Pojedynczą jednostkę pracy toofulfill zadania.</p>
-    <p>Jeśli zadanie nie jest możliwe toosuccessfully wykonania, będą rejestrowane hello Wynikowy komunikat o wyjątku i nowe zadanie dopasowania zostanie utworzona i wykonywane w określonych toohello zgodnie zasad wykonywania.</p></p>
+    <p>Pojedynczą jednostkę pracy do wykonania zadania.</p>
+    <p>Jeśli zadanie nie będzie mógł pomyślnie wykonać, będą rejestrowane Wynikowy komunikat o wyjątku i nowe zadanie zgodne, zostanie utworzona i wykonywane zgodnie z zasadami wykonywania określonej.</p></p>
     </td>
     <td>
     <p>Get-AzureSqlJobExecution</p>
@@ -166,7 +166,7 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
 <tr>
     <td>Harmonogram</td>
     <td>
-    <p>Czas na podstawie specyfikacji wykonywania tootake miejsce reoccurring interwał lub na jeden raz.</p>
+    <p>Czas na podstawie specyfikacji wykonywania odbywać się w przedziale reoccurring lub w danym momencie.</p>
     </td>
     <td>
     <p>Get-AzureSqlJobSchedule</p>
@@ -178,7 +178,7 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
 <tr>
     <td>Wyzwala zadanie</td>
     <td>
-    <p>Mapowanie między zadania i harmonogram wykonywania zadania tootrigger zgodnie z harmonogramem toohello.</p>
+    <p>Mapowanie między zadania i harmonogramu wykonywania wyzwalacza zadania zgodnie z harmonogramem.</p>
     </td>
     <td>
     <p>Nowe AzureSqlJobTrigger</p>
@@ -188,50 +188,50 @@ Witaj następujących tabela zawiera listę się wszystkie typy obiektów hello 
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>Obsługiwane zadania elastycznej bazy danych grupy typów
-zadanie Hello wykonuje skrypty języka Transact-SQL (T-SQL) lub aplikacji DACPACs między grupą baz danych. Gdy zadanie jest przesłanych toobe wykonywane przez grupę baz danych, zadania hello "rozwija" hello na zadań podrzędnych, gdzie pełniących hello zażądał miało zostać wykonane w pojedynczej bazy danych w grupie hello. 
+To zadanie wykonuje skrypty języka Transact-SQL (T-SQL) lub aplikacji DACPACs między grupą baz danych. Po przesłaniu zadania do wykonania między grupą baz danych przez zadanie "rozszerza" do zadania podrzędne gdzie pełniących żądanego wykonanie jednej bazy danych w grupie. 
 
 Istnieją dwa typy grup, które możesz utworzyć: 
 
-* [Mapa niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md) grupy: zadania po przesłanych tootarget mapy niezależnego fragmentu zadania hello odpytuje hello niezależnego fragmentu mapy toodetermine jej bieżącego zestawu odłamków, a następnie zadania dla każdego niezależnego fragmentu tworzy podrzędnych, hello niezależnego fragmentu mapy.
-* Niestandardowe grupy zbierania: niestandardowy zdefiniowany zestaw baz danych. Gdy zadanie jest przeznaczony dla kolekcji niestandardowych, tworzy podrzędnych zadania dla każdej bazy danych obecnie w kolekcji niestandardowej hello.
+* [Mapa niezależnego fragmentu](sql-database-elastic-scale-shard-map-management.md) grupy: przesyłanej zadania docelową mapę niezależnego fragmentu zadanie odpytuje mapy niezależnego fragmentu określenie jego bieżącego zestawu odłamków, a następnie zadania dla każdego niezależnego fragmentu tworzy podrzędnego, na mapie niezależnego fragmentu.
+* Niestandardowe grupy zbierania: niestandardowy zdefiniowany zestaw baz danych. Gdy zadanie jest przeznaczony dla kolekcji niestandardowych, tworzy podrzędnych zadania dla każdej bazy danych obecnie w kolekcji niestandardowej.
 
-## <a name="tooset-hello-elastic-database-jobs-connection"></a>Witaj tooset połączenia zadania elastycznej bazy danych
-Połączenie musi toobe Konfigurowanie toohello zadań *bazy danych kontroli* hello toousing poprzedniego zadania interfejsów API. Uruchomienie tego polecenia cmdlet wyzwala toopop okna poświadczeń, się Żądanie hello nazwy użytkownika i hasła utworzonego podczas instalacji zadania elastycznej bazy danych. Wszystkie przykłady w tym temacie założono, że pierwsza została już wykonana.
+## <a name="to-set-the-elastic-database-jobs-connection"></a>Aby ustawić elastycznej bazy danych zadania połączeń
+Połączenie musi być ustawiona na zadania *bazy danych kontroli* przed użyciem zadania interfejsów API. Uruchomienie tego polecenia cmdlet wyzwala okno poświadczeń przeskoczyć do góry żądania nazwy użytkownika i hasła utworzonego podczas instalacji zadania elastycznej bazy danych. Wszystkie przykłady w tym temacie założono, że pierwsza została już wykonana.
 
-Otwórz połączenie toohello elastycznej bazy danych zadań:
+Otwórz połączenie zadania elastycznej bazy danych:
 
     Use-AzureSqlJobConnection -CurrentAzureSubscription 
 
-## <a name="encrypted-credentials-within-hello-elastic-database-jobs"></a>Zaszyfrowane poświadczenia w ramach hello zadania elastycznej bazy danych
-Poświadczenia bazy danych można wstawiać do zadań hello *bazy danych kontroli* jego hasłem, szyfrowane. Jest toostore niezbędne poświadczenia tooenable zadania toobe wykonane w późniejszym czasie (przy użyciu harmonogramy zadań).
+## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Zaszyfrowane poświadczenia w ramach zadania elastycznej bazy danych
+Poświadczenia bazy danych można wstawiać do zadania *bazy danych kontroli* jego hasłem, szyfrowane. Należy zapisać poświadczenia na potrzeby uruchomienia zadania do wykonania w późniejszym czasie (przy użyciu harmonogramy zadań).
 
-Szyfrowanie działa za pośrednictwem utworzone jako część hello skrypt instalacji certyfikatu. Tworzy skrypt instalacji Hello i przekazywanie certyfikatu hello na powitania usługi w chmurze Azure do odszyfrowywania hello przechowywane hasła szyfrowane. Usługi w chmurze Azure Hello później przechowuje hello klucza publicznego w ramach zadania hello *bazy danych kontroli* co pozwala hello interfejsu API programu PowerShell lub klasycznego portalu Azure tooencrypt interfejsu podanego hasła bez konieczności hello certyfikatu toobe zainstalowane lokalnie.
+Szyfrowanie działa za pośrednictwem utworzone jako część skrypt instalacji certyfikatu. Skrypt instalacji tworzy i wysyła certyfikat do usługi w chmurze Azure do odszyfrowywania przechowywane hasła szyfrowane. Usługi w chmurze Azure później przechowuje klucz publiczny w ramach zadania *bazy danych kontroli* co pozwala interfejsu API programu PowerShell lub klasycznego portalu Azure do zaszyfrowania podanego hasła bez konieczności certyfikatu lokalnie zainstalowana.
 
-Witaj poświadczenie hasła są szyfrowane i bezpieczne od użytkowników z obiektami zadania bazy danych tooElastic dostęp tylko do odczytu. Ale istnieje możliwość przez złośliwego użytkownika mającego dostęp do odczytu zapisu tooElastic zadań baz danych obiektów tooextract hasła. Poświadczenia są zaprojektowane toobe ponownie wykorzystać w odniesieniu do wykonania zadania. Poświadczenia są przekazywane tootarget baz danych podczas ustanawiania połączenia. Obecnie nie istnieją żadne ograniczenia dotyczące hello docelowymi bazami danych używane dla każdego poświadczenia, złośliwy użytkownik może dodać element docelowy bazy danych dla bazy danych pod kontrolą hello złośliwy użytkownik. Użytkownik Hello później można uruchomić zadania przeznaczonych dla tej bazy danych toogain hello poświadczeń hasła.
+Hasła poświadczenia są szyfrowane i bezpieczne od użytkowników z dostępem tylko do odczytu do obiektów zadania elastycznej bazy danych. Ale istnieje możliwość, że złośliwy użytkownik z dostępem do odczytu i zapisu do obiektów zadania elastyczne bazy danych można wyodrębnić hasła. Poświadczenia są przeznaczone do ponownie wykorzystać w odniesieniu do wykonania zadania. Poświadczenia są przekazywane do docelowej bazy danych podczas ustanawiania połączenia. Obecnie nie istnieją żadne ograniczenia dotyczące z docelowymi bazami danych używane dla każdego poświadczenia, złośliwy użytkownik może dodać element docelowy bazy danych dla bazy danych pod kontrolą złośliwy użytkownik. Użytkownik może następnie uruchomić zadanie przeznaczonych dla tej bazy danych, aby uzyskać poświadczenia: hasło.
 
 Najlepsze rozwiązania dotyczące zadania elastycznej bazy danych obejmują:
 
-* Ogranicz użycie hello interfejsów API tootrusted osób.
-* Poświadczenia powinny mieć hello co najmniej zadanie hello tooperform niezbędne uprawnienia.  Więcej informacji, można wyświetlić w ramach tego [autoryzacji i uprawnienia](https://msdn.microsoft.com/library/bb669084.aspx) artykuł w witrynie MSDN programu SQL Server.
+* Ogranicz użycie interfejsów API do zaufanych osób.
+* Poświadczenia ma co najmniej uprawnienia niezbędne do wykonania zadanie.  Więcej informacji, można wyświetlić w ramach tego [autoryzacji i uprawnienia](https://msdn.microsoft.com/library/bb669084.aspx) artykuł w witrynie MSDN programu SQL Server.
 
-### <a name="toocreate-an-encrypted-credential-for-job-execution-across-databases"></a>toocreate zaszyfrowane poświadczenia do wykonywania zadań dla baz danych
-toocreate nową szyfrowane poświadczeń, hello [ **polecenia cmdlet Get-Credential** ](https://technet.microsoft.com/library/hh849815.aspx) monit o podanie nazwy użytkownika i hasło, które mogą zostać przekazane toohello [ **AzureSqlJobCredential nowy polecenia cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Aby utworzyć zaszyfrowany poświadczeń do wykonywania zadań dla baz danych
+Aby utworzyć nowe poświadczenie zaszyfrowane, [ **polecenia cmdlet Get-Credential** ](https://technet.microsoft.com/library/hh849815.aspx) monit o podanie nazwy użytkownika i hasło, które mogą zostać przekazane do [ **polecenia cmdlet New-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential
     $credential = New-AzureSqlJobCredential -Credential $databaseCredential -CredentialName $credentialName
     Write-Output $credential
 
-### <a name="tooupdate-credentials"></a>poświadczenia tooupdate
-Po zmianie hasła, należy użyć hello [ **polecenia cmdlet Set-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential) i zestaw hello **CredentialName** parametru.
+### <a name="to-update-credentials"></a>Aby zaktualizować poświadczenia
+Po zmianie hasła, użyj [ **polecenia cmdlet Set-AzureSqlJobCredential** ](/powershell/module/elasticdatabasejobs/set-azuresqljobcredential) i ustaw **CredentialName** parametru.
 
     $credentialName = "{Credential Name}"
     Set-AzureSqlJobCredential -CredentialName $credentialName -Credential $credential 
 
-## <a name="toodefine-an-elastic-database-shard-map-target"></a>toodefine obiektu docelowego mapy niezależnego fragmentu elastycznej bazy danych
-tooexecute zadania dla wszystkich baz danych w zestawie niezależnego fragmentu (utworzone za pomocą [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md)), użyj mapy niezależnego fragmentu jako hello docelowej bazy danych. W tym przykładzie wymaga podzielonej aplikacji utworzony za pomocą biblioteki klienta elastycznej bazy danych hello. Zobacz [wprowadzenie próbki narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md).
+## <a name="to-define-an-elastic-database-shard-map-target"></a>Aby określić obiekt docelowy mapy niezależnego fragmentu elastycznej bazy danych
+Do wykonania zadania wszystkich baz danych w zestawie niezależnego fragmentu (utworzone za pomocą [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md)), użyć mapy niezależnego fragmentu jako element docelowy bazy danych. W tym przykładzie wymaga podzielonej aplikacji utworzony za pomocą biblioteki klienta elastycznej bazy danych. Zobacz [wprowadzenie próbki narzędzi elastycznej bazy danych](sql-database-elastic-scale-get-started.md).
 
-Hello niezależnego fragmentu Mapa menedżera z bazy danych musi być ustawiona jako docelowej bazy danych, a opcja hello mapy określonych niezależnego fragmentu musi być określona jako miejsce docelowe.
+Bazy danych Menedżera mapy niezależnego fragmentu musi być ustawiona jako docelowej bazy danych, a opcja mapy określonych niezależnego fragmentu musi być określona jako miejsce docelowe.
 
     $shardMapCredentialName = "{Credential Name}"
     $shardMapDatabaseName = "{ShardMapDatabaseName}" #example: ElasticScaleStarterKit_ShardMapManagerDb
@@ -242,9 +242,9 @@ Hello niezależnego fragmentu Mapa menedżera z bazy danych musi być ustawiona 
     Write-Output $shardMapTarget
 
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>Tworzenie skryptu T-SQL do wykonania dla baz danych
-Podczas tworzenia skryptów T-SQL do wykonania, zdecydowanie zaleca się toobuild je toobe [idempotentności](https://en.wikipedia.org/wiki/Idempotence) i odporne na błędy. Zadania elastyczne bazy danych ponowi wykonanie skryptu zawsze, gdy wykonanie napotka błąd, niezależnie od klasyfikacji hello hello awarii.
+Podczas tworzenia skryptów T-SQL do wykonania, zdecydowanie zaleca się tworzenie [idempotentności](https://en.wikipedia.org/wiki/Idempotence) i odporne na błędy. Zadania elastyczne bazy danych ponowi wykonanie skryptu zawsze, gdy wykonanie napotka błąd, niezależnie od klasyfikacji błędu.
 
-Użyj hello [ **polecenia cmdlet New-AzureSqlJobContent** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent) toocreate i zapisać skrypt do wykonania i ustaw hello **- ContentName** i **- CommandText**parametrów.
+Użyj [ **polecenia cmdlet New-AzureSqlJobContent** ](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent) Aby utworzyć i zapisać skrypt do wykonania i zestaw **- ContentName** i **- CommandText** Parametry.
 
     $scriptName = "Create a TestTable"
 
@@ -264,21 +264,21 @@ Użyj hello [ **polecenia cmdlet New-AzureSqlJobContent** ](/powershell/module/e
     Write-Output $script
 
 ### <a name="create-a-new-script-from-a-file"></a>Utwórz nowy skrypt z pliku
-Jeśli hello skryptu T-SQL jest zdefiniowany w pliku, należy użyć tego skryptu hello tooimport:
+Jeśli skryptu T-SQL jest zdefiniowany w pliku, służy do importowania skrypt:
 
     $scriptName = "My Script Imported from a File"
-    $scriptPath = "{Path tooSQL File}"
+    $scriptPath = "{Path to SQL File}"
     $scriptCommandText = Get-Content -Path $scriptPath
     $script = New-AzureSqlJobContent -ContentName $scriptName -CommandText $scriptCommandText
     Write-Output $script
 
-### <a name="tooupdate-a-t-sql-script-for-execution-across-databases"></a>skrypt tooupdate T-SQL do wykonania dla baz danych
-Tej aktualizacji skrypt programu PowerShell hello tekst polecenia T-SQL dla istniejącego skryptu.
+### <a name="to-update-a-t-sql-script-for-execution-across-databases"></a>Aby zaktualizować skryptu T-SQL do wykonania dla baz danych
+Ten skrypt programu PowerShell aktualizuje tekst polecenia T-SQL dla istniejącego skryptu.
 
-Następujące zmienne tooreflect hello hello zestaw żądaną zestaw toobe definicji skryptu:
+Ustaw następujące zmienne, aby odzwierciedlić definicji żądaną skryptu należy ustawić wartość:
 
     $scriptName = "Create a TestTable"
-    $scriptUpdateComment = "Adding AdditionalInformation column tooTestTable"
+    $scriptUpdateComment = "Adding AdditionalInformation column to TestTable"
     $scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable')
     BEGIN
@@ -299,13 +299,13 @@ Następujące zmienne tooreflect hello hello zestaw żądaną zestaw toobe defin
     INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test');
     GO"
 
-### <a name="tooupdate-hello-definition-tooan-existing-script"></a>tooupdate hello definicji tooan istniejącego skryptu
+### <a name="to-update-the-definition-to-an-existing-script"></a>Aby zaktualizować definicję do istniejącego skryptu
     Set-AzureSqlJobContentDefinition -ContentName $scriptName -CommandText $scriptCommandText -Comment $scriptUpdateComment 
 
-## <a name="toocreate-a-job-tooexecute-a-script-across-a-shard-map"></a>toocreate tooexecute zadania skryptu w mapie niezależnego fragmentu
+## <a name="to-create-a-job-to-execute-a-script-across-a-shard-map"></a>Aby utworzyć zadanie do wykonania skryptu w mapie niezależnego fragmentu
 Ten skrypt programu PowerShell uruchamia zadania do wykonania skryptu w każdej niezależnego fragmentu w mapie niezależnego fragmentu elastycznego skalowania.
 
-Następujące zmienne tooreflect hello hello zestaw żądaną skryptu i obiekt docelowy:
+Ustaw następujące zmienne, aby odzwierciedlić żądaną skryptu i obiekt docelowy:
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -317,30 +317,30 @@ Następujące zmienne tooreflect hello hello zestaw żądaną skryptu i obiekt d
     $job = New-AzureSqlJob -ContentName $scriptName -CredentialName $credentialName -JobName $jobName -TargetId $shardMapTarget.TargetId
     Write-Output $job
 
-## <a name="tooexecute-a-job"></a>tooexecute zadania
+## <a name="to-execute-a-job"></a>Do wykonania zadania
 Ten skrypt programu PowerShell jest wykonywany istniejącego zadania:
 
-Aktualizacja hello następującej zmiennej tooreflect hello żądanego zadania nazwa toohave wykonane:
+Aktualizacja następującej zmiennej w celu odzwierciedlenia nazwa żądanego zadania zostały wykonane:
 
     $jobName = "{Job Name}"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName 
     Write-Output $jobExecution
 
-## <a name="tooretrieve-hello-state-of-a-single-job-execution"></a>Stan hello tooretrieve wykonywania pojedyncze zadanie
-Użyj hello [ **polecenia cmdlet Get-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/get-azuresqljobexecution) i zestaw hello **JobExecutionId** parametru tooview hello stan wykonywania zadania.
+## <a name="to-retrieve-the-state-of-a-single-job-execution"></a>Aby pobrać stan realizacji pojedyncze zadanie
+Użyj [ **polecenia cmdlet Get-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/get-azuresqljobexecution) i ustaw **JobExecutionId** parametr, aby wyświetlić stan wykonywania zadania.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecution = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId
     Write-Output $jobExecution
 
-Użyj hello sam **Get-AzureSqlJobExecution** polecenia cmdlet z hello **właściwość IncludeChildren** parametru tooview hello stan wykonania zadania podrzędne, czyli hello określonym stanie dla każdego wykonywania zadania w odniesieniu do każdego celem zadania hello bazy danych.
+Używać tego samego **Get-AzureSqlJobExecution** polecenia cmdlet z **właściwość IncludeChildren** parametr, aby wyświetlić stan wykonania zadania podrzędne, czyli określonym stanie dla każdego wykonywania zadania dla każdej bazy danych Celem tego zadania.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
     Write-Output $jobExecutions 
 
-## <a name="tooview-hello-state-across-multiple-job-executions"></a>Stan hello tooview między wieloma wykonania zadania
-Witaj [ **polecenia cmdlet Get-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) ma wiele parametrów opcjonalnych, które mogą być używane toodisplay wielu wykonania zadania, filtrowane przez hello podane parametry. Hello poniżej przedstawiono niektóre hello możliwości toouse Get-AzureSqlJobExecution:
+## <a name="to-view-the-state-across-multiple-job-executions"></a>Aby wyświetlić stan między wieloma wykonania zadania
+[ **Polecenia cmdlet Get-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) ma wiele parametry opcjonalne, które mogą służyć do wyświetlania wielu wykonania zadania, filtrować za pomocą podanych parametrów. Poniżej przedstawiono niektóre możliwe sposoby używania Get-AzureSqlJobExecution:
 
 Pobierz wszystkie aktywne najwyższego poziomu zadanie wykonaniami:
 
@@ -375,7 +375,7 @@ Pobieranie wszystkich zadań przeznaczonych dla określonej kolekcji niestandard
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
 
-Pobrać listy hello zadanie wykonania zadania w ramach wykonania określonego zadania:
+Pobieranie listy zadanie wykonania zadania w ramach wykonania określonego zadania:
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
@@ -383,14 +383,14 @@ Pobrać listy hello zadanie wykonania zadania w ramach wykonania określonego za
 
 Pobieranie szczegółów wykonywania zadań zadania:
 
-Witaj następującego skryptu programu PowerShell może być używane tooview hello szczegóły zadania wykonywania zadań, które jest szczególnie przydatne w przypadku debugowania awarii wykonywania.
+Poniższy skrypt programu PowerShell może służyć do wyświetlania szczegółów zadania wykonywania zadania, które jest szczególnie przydatne w przypadku debugowania awarii wykonywania.
 
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
 
-## <a name="tooretrieve-failures-within-job-task-executions"></a>wykonania zadań tooretrieve błędów w ramach zadania
-Witaj **obiektu JobTaskExecution** zawiera właściwość dla cyklu życia hello zadania hello wraz z właściwością wiadomości. Jeśli wykonanie zadania zadania nie powiodło się, będzie można ustawić właściwości cyklu życia hello zbyt** i zostanie ustawiona właściwość wiadomości powitania toohello Wynikowy komunikat o wyjątku i jego stosu. Jeśli zadanie nie powiodło się, jest ważne tooview hello szczegóły zadania, których nie powiodła się dla danego zadania.
+## <a name="to-retrieve-failures-within-job-task-executions"></a>Można pobrać błędów w ramach zadania wykonania zadania
+**Obiektu JobTaskExecution** zawiera właściwość dla cyklu życia zadania wraz z właściwością wiadomości. Jeżeli wykonanie zadania zadania nie powiodło się, zostanie ustawiona właściwość cyklu życia do ** i będzie można ustawić właściwości wiadomości Wynikowy komunikat o wyjątku i jego stosu. Jeśli zadanie nie powiodło się, jest ważne wyświetlić szczegóły zadania, których nie powiodła się dla danego zadania.
 
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
@@ -402,8 +402,8 @@ Witaj **obiektu JobTaskExecution** zawiera właściwość dla cyklu życia hello
             }
         }
 
-## <a name="toowait-for-a-job-execution-toocomplete"></a>toowait dla toocomplete wykonania zadania
-Hello następującego skryptu programu PowerShell może być używane toowait dla toocomplete zadań zadania:
+## <a name="to-wait-for-a-job-execution-to-complete"></a>Oczekiwanie na ukończenie wykonywania zadania
+Poniższy skrypt programu PowerShell można czekać na ukończenie zadania zadania:
 
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId 
@@ -413,14 +413,14 @@ Zadania elastyczne bazy danych obsługuje tworzenie zasad wykonywania niestandar
 
 Zasady wykonywania obecnie umożliwiają definiowanie:
 
-* Name: Identyfikator hello zasad wykonywania.
+* Nazwa: Identyfikator zasad wykonywania.
 * Limit czasu zadania: Całkowity czas przed zadania zostaną anulowane przez zadania elastyczne bazy danych.
-* Interwał ponawiania prób początkowej: Interwał toowait przed ponowną próbą wykonania pierwszej.
-* Maksymalny interwał ponawiania: Limit toouse interwałów ponów próbę.
-* Współczynnik wycofywania interwału ponawiania: Współczynnik używany toocalculate hello dalej interwał między ponownymi próbami.  Witaj używana jest następująca formuła: (początkowej interwał ponawiania próby) * Math.Pow — ((interwał wycofywania współczynnik) (liczba prób) - 2). 
-* Maksymalna liczba prób: hello maksymalna liczba ponawiania prób tooperform w ramach danego zadania.
+* Początkowa interwału ponawiania prób: Interwał oczekiwania przed pierwszym ponów próbę.
+* Maksymalny interwał ponawiania: Zakończenia interwałów ponawiania do użycia.
+* Ponów próbę współczynnik wycofywania interwał: Współczynnik używane do obliczania następnego interwał między ponownymi próbami.  Używana jest następująca formuła: (początkowej interwał ponawiania próby) * Math.Pow — ((interwał wycofywania współczynnik) (liczba prób) - 2). 
+* Maksymalna liczba prób: Maksymalną liczbę ponownych prób do wykonania w ramach danego zadania.
 
-domyślne zasady wykonywania Hello używa hello następujące wartości:
+Domyślne zasady wykonywania korzysta z następujących wartości:
 
 * Nazwa: Domyślne zasady wykonywania
 * Limit czasu zadania: 1 tydzień
@@ -429,7 +429,7 @@ domyślne zasady wykonywania Hello używa hello następujące wartości:
 * Spróbuj ponownie współczynnik interwał: 2
 * Maksymalna liczba prób: 2 147 483 647
 
-Tworzenie zasad wykonywania hello potrzeby:
+Tworzenie zasad wykonywania żądanego:
 
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 10
@@ -442,7 +442,7 @@ Tworzenie zasad wykonywania hello potrzeby:
     Write-Output $executionPolicy
 
 ### <a name="update-a-custom-execution-policy"></a>Aktualizacja zasad wykonywania niestandardowych
-Aktualizacja hello potrzeby tooupdate zasad wykonywania:
+Aktualizacja zasad wykonywania żądanej aktualizacji:
 
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 15
@@ -454,65 +454,65 @@ Aktualizacja hello potrzeby tooupdate zasad wykonywania:
     Write-Output $updatedExecutionPolicy
 
 ## <a name="cancel-a-job"></a>Anulowanie zadania
-Zadania elastyczne bazy danych obsługuje żądania anulowania zadań.  Jeśli zadania elastyczne bazy danych wykryje żądanie anulowania aktualnie wykonywanego zadania, podejmie toostop hello zadania.
+Zadania elastyczne bazy danych obsługuje żądania anulowania zadań.  Jeśli zadania elastyczne bazy danych wykryje żądanie anulowania aktualnie wykonywanego zadania, spróbuje zatrzymać zadanie.
 
 Istnieją dwa różne sposoby, że zadania elastyczne bazy danych można wykonać anulowania:
 
-1. Anuluj aktualnie wykonywanych zadań: wykrycie anulowania aktualnie uruchomionej zadania anulowania będą podejmowane w hello aktualnie wykonywanych aspekt hello zadań.  Na przykład: w przypadku długo działające kwerendy obecnie wykonywana jest próba anulowania, nastąpi próba toocancel hello zapytania.
-2. Anulowanie zadań ponownych prób: w przypadku anulowania wykrycia przez wątek kontroli hello przed uruchomieniu zadania do wykonania, wątek kontroli hello będzie uniknąć uruchamiania zadań hello i zadeklarować żądania hello jak anulowane.
+1. Anuluj aktualnie wykonywanych zadań: wykrycie anulowania aktualnie uruchomionej zadania anulowania będą podejmowane w aspekcie aktualnie wykonywanego zadania.  Na przykład: w przypadku długo działające kwerendy obecnie wykonywana jest próba anulowania, nastąpi próba anulować wykonywanie zapytania.
+2. Anulowanie zadań ponownych prób: w przypadku anulowania wykrycia przez wątek kontroli przed uruchomieniu zadania do wykonania, wątku formant będzie uniknąć uruchamiania zadania i zadeklarować żądania jako anulowane.
 
-Jeśli żądanie anulowania zadań dla zadania nadrzędnego, żądanie anulowania hello będą honorowane dla zadania nadrzędnego hello i wszystkich jego zadań podrzędnych.
+Jeśli żądanie anulowania zadań dla zadania nadrzędnego, żądanie anulowania będą honorowane dla zadania nadrzędnego i wszystkich jego zadań podrzędnych.
 
-toosubmit żądanie anulowania, użyj hello [ **polecenie cmdlet Stop-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) i zestaw hello **JobExecutionId** parametru.
+Aby przesłać żądanie anulowania, użyj [ **polecenie cmdlet Stop-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) i ustaw **JobExecutionId** parametru.
 
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
 
-## <a name="toodelete-a-job-and-job-history-asynchronously"></a>toodelete zadania i Historia zadania asynchronicznego
-Zadania elastyczne bazy danych obsługuje asynchroniczne usuwania. Zadanie może być oznaczony do usunięcia, a hello system spowoduje usunięcie hello zadania i jego historii zadań po zakończeniu wszystkich zadań wykonaniami hello zadania. Witaj systemu nie będzie automatycznie anulowania wykonaniami aktywnego zadania.  
+## <a name="to-delete-a-job-and-job-history-asynchronously"></a>Aby usunąć zadania i Historia zadania asynchronicznego
+Zadania elastyczne bazy danych obsługuje asynchroniczne usuwania. Zadanie może być oznaczony do usunięcia, a system spowoduje usunięcie zadania i jego historii zadań po zakończeniu wszystkich wykonania zadań dla zadania. System nie zostanie automatycznie anulowania wykonaniami aktywnego zadania.  
 
-Wywołanie [ **Stop-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) toocancel wykonaniami aktywnego zadania.
+Wywołanie [ **Stop-AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/stop-azuresqljobexecution) anulować wykonaniami aktywnego zadania.
 
-Usuwanie zadania tootrigger, użyj hello [ **polecenia cmdlet Remove-AzureSqlJob** ](/powershell/module/elasticdatabasejobs/remove-azuresqljob) i zestaw hello **JobName** parametru.
+Aby wyzwolić usunięcia zadania, należy użyć [ **polecenia cmdlet Remove-AzureSqlJob** ](/powershell/module/elasticdatabasejobs/remove-azuresqljob) i ustaw **JobName** parametru.
 
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
 
-## <a name="toocreate-a-custom-database-target"></a>toocreate obiektu docelowego w niestandardowej bazie danych
-Można określić cele w niestandardowej bazie danych bezpośrednie wykonywanie lub dołączania w ramach grupy niestandardowej bazie danych. Na przykład ponieważ **pule elastyczne** są nie jest jeszcze bezpośrednio obsługiwane przy użyciu interfejsów API środowiska PowerShell, można utworzyć obiekt docelowy w niestandardowej bazie danych oraz miejsca docelowego do kolekcji niestandardowej bazy danych, które obejmuje wszystkie hello bazy danych w puli hello.
+## <a name="to-create-a-custom-database-target"></a>Aby utworzyć cel w niestandardowej bazie danych
+Można określić cele w niestandardowej bazie danych bezpośrednie wykonywanie lub dołączania w ramach grupy niestandardowej bazie danych. Na przykład ponieważ **pule elastyczne** są nie jest jeszcze bezpośrednio obsługiwane przy użyciu interfejsów API środowiska PowerShell, można utworzyć obiekt docelowy w niestandardowej bazie danych oraz miejsca docelowego do kolekcji niestandardowej bazy danych, które obejmuje wszystkie bazy danych w puli.
 
-Ustaw hello następujące zmienne tooreflect hello potrzeby bazy danych:
+Ustaw następujące zmienne, aby odzwierciedlić informacje o żądanej bazy danych:
 
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName 
 
-## <a name="toocreate-a-custom-database-collection-target"></a>toocreate docelowej kolekcji niestandardowej bazy danych
-Użyj hello [ **AzureSqlJobTarget nowy** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) toodefine polecenia cmdlet w niestandardowej bazie danych kolekcji docelowej tooenable wykonywania przez wiele obiektów docelowych określonych w bazie danych. Po utworzeniu grupy bazy danych może być skojarzony z docelowym kolekcji niestandardowej hello baz danych.
+## <a name="to-create-a-custom-database-collection-target"></a>Aby utworzyć cel kolekcji niestandardowej bazy danych
+Użyj [ **AzureSqlJobTarget nowy** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) polecenia cmdlet, aby zdefiniować cel kolekcji niestandardowej bazy danych, aby umożliwiają wykonanie między wiele elementów docelowych określonych w bazie danych. Po utworzeniu grupy bazy danych może być skojarzony z elementem docelowym kolekcji niestandardowej bazy danych.
 
-Ustaw powitania po konfiguracji docelowej żądanej kolekcji niestandardowych zmiennych tooreflect hello:
+Ustaw następujące zmienne w celu uwzględnienia konfiguracji docelowej żądanej kolekcji niestandardowych:
 
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName 
 
-### <a name="tooadd-databases-tooa-custom-database-collection-target"></a>tooadd baz danych tooa w niestandardowej bazie danych kolekcji docelowej
-tooadd bazy danych tooa określonej kolekcji niestandardowych Użyj hello [ **AzureSqlJobChildTarget Dodaj** ](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget) polecenia cmdlet.
+### <a name="to-add-databases-to-a-custom-database-collection-target"></a>Aby dodać bazy danych do docelowej kolekcji niestandardowej bazy danych
+Aby dodać bazy danych do użycia określonej kolekcji niestandardowych [ **AzureSqlJobChildTarget Dodaj** ](/powershell/module/elasticdatabasejobs/add-azuresqljobchildtarget) polecenia cmdlet.
 
     $databaseServerName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 
 
-#### <a name="review-hello-databases-within-a-custom-database-collection-target"></a>Przejrzyj hello bazy danych, w docelowej kolekcji niestandardowej bazy danych
-Użyj hello [ **Get-AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) polecenia cmdlet tooretrieve hello podrzędnej bazy danych, w docelowej kolekcji niestandardowej bazie danych. 
+#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Przejrzyj baz danych w docelowej kolekcji niestandardowej bazy danych
+Użyj [ **Get-AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) polecenia cmdlet, aby pobrać podrzędnej bazy danych w docelowej kolekcji niestandardowej bazie danych. 
 
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
     Write-Output $childTargets
 
-### <a name="create-a-job-tooexecute-a-script-across-a-custom-database-collection-target"></a>Utwórz skrypt tooexecute zadania w docelowej kolekcji niestandardowej bazy danych
-Użyj hello [ **AzureSqlJob nowy** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) toocreate polecenia cmdlet zadania przed grupę baz danych, wynika z docelowej kolekcji niestandardowej bazie danych. Zadania elastyczne bazy danych będzie rozszerzać hello zadania do wielu zadań podrzędnych każdego odpowiednia baza danych tooa skojarzone z hello w niestandardowej bazie danych kolekcji docelowych i upewnij się, że hello skrypt zostanie wykonany w każdej bazie danych. Ponownie ważne jest, że skrypty są odporne tooretries toobe idempotentności.
+### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Utwórz zadanie do wykonania skryptu w docelowej kolekcji niestandardowej bazy danych
+Użyj [ **AzureSqlJob nowy** ](/powershell/module/elasticdatabasejobs/new-azuresqljob) polecenia cmdlet można utworzyć zadania w odniesieniu do grupy baz danych, wynika z docelowej kolekcji niestandardowej bazy danych. Zadania elastyczne bazy danych będzie rozszerzyć zadanie do wielu zadań podrzędnych, odpowiadający każdej bazy danych skojarzony z elementem docelowym kolekcji niestandardowej bazy danych i upewnij się, że skrypt zostanie wykonany w każdej bazie danych. Ponownie ważne jest, że skrypty są idempotentności pozwala uzyskać odporność na ponownych prób.
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -523,13 +523,13 @@ Użyj hello [ **AzureSqlJob nowy** ](/powershell/module/elasticdatabasejobs/new-
     Write-Output $job
 
 ## <a name="data-collection-across-databases"></a>Zbieranie danych dla baz danych
-Można użyć zadania tooexecute kwerendy między grupą baz danych i wysyłania hello wyniki tooa określonej tabeli. Witaj tabeli może być badana po hello fakt toosee hello wyniki zapytania w każdej bazie danych. Zapewnia metody asynchronicznej tooexecute kwerendy przez wiele baz danych. Nieudanych prób są obsługiwane automatycznie za pomocą ponownych prób.
+Zadania umożliwia wykonywanie zapytań przez grupę baz danych i wysyłać wyniki do określonej tabeli. Tabela może być badana po fakcie, aby zobaczyć wyniki zapytania w każdej bazie danych. Zapewnia to metodę asynchroniczną, można wykonać kwerendy przez wiele baz danych. Nieudanych prób są obsługiwane automatycznie za pomocą ponownych prób.
 
-Hello określonej lokalizacji docelowej tabeli zostaną utworzone automatycznie, jeśli jeszcze nie istnieje. nową tabelę Hello zgodny schemat hello hello zwrócił zestaw wyników. Jeśli skrypt zwraca wiele zestawów wyników, zadania elastycznej bazy danych wysyła hello pierwszy toohello tabeli docelowej.
+Jeśli jeszcze nie istnieje w określonej lokalizacji docelowej tabeli zostanie automatycznie utworzona. Nowa tabela zgodny schemat zestaw wyników zwrócony. Jeśli skrypt zwraca wiele zestawów wyników, zadania elastycznej bazy danych wysyła pierwszy do tabeli docelowej.
 
-Witaj następujący skrypt programu PowerShell wykonuje skrypt i zbiera jej wyników do określonej tabeli. Ten skrypt zakłada, że skryptu T-SQL została utworzona który wyprowadza pojedynczy zestaw wyników i utworzono element docelowy kolekcji niestandardowej bazie danych.
+Poniższy skrypt programu PowerShell wykonuje skrypt i zbiera jej wyników do określonej tabeli. Ten skrypt zakłada, że skryptu T-SQL została utworzona który wyprowadza pojedynczy zestaw wyników i utworzono element docelowy kolekcji niestandardowej bazie danych.
 
-Ten skrypt używa hello [ **Get-AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) polecenia cmdlet. Ustawianie parametrów hello skryptu, poświadczeń i wykonywanie obiekt docelowy:
+Ten skrypt używa [ **Get-AzureSqlJobTarget** ](/powershell/module/elasticdatabasejobs/new-azuresqljobtarget) polecenia cmdlet. Ustaw parametry skryptu, poświadczeń i wykonywanie obiekt docelowy:
 
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
@@ -542,8 +542,8 @@ Ten skrypt używa hello [ **Get-AzureSqlJobTarget** ](/powershell/module/elastic
     $destinationTableName = "{Destination Table Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
 
-### <a name="toocreate-and-start-a-job-for-data-collection-scenarios"></a>toocreate, a następnie Rozpocznij zadania dla scenariuszy zbierania danych
-Ten skrypt używa hello [ **Start AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution) polecenia cmdlet.
+### <a name="to-create-and-start-a-job-for-data-collection-scenarios"></a>Aby utworzyć i uruchomić zadanie scenariusze zbierania danych
+Ten skrypt używa [ **Start AzureSqlJobExecution** ](/powershell/module/elasticdatabasejobs/start-azuresqljobexecution) polecenia cmdlet.
 
     $job = New-AzureSqlJob -JobName $jobName 
     -CredentialName $executionCredentialName 
@@ -558,8 +558,8 @@ Ten skrypt używa hello [ **Start AzureSqlJobExecution** ](/powershell/module/el
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
 
-## <a name="tooschedule-a-job-execution-trigger"></a>tooschedule wyzwalacz wykonania zadania
-Witaj następującego skryptu programu PowerShell może być używane toocreate za pomocą harmonogramu cyklicznego. Ten skrypt używa przedział minuty, ale [ **AzureSqlJobSchedule nowy** ](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule) obsługuje również parametry - DayInterval, - HourInterval i - MonthInterval, - WeekInterval. Można utworzyć harmonogramy, które są wykonywane tylko raz przekazywanie przez - jednorazowe.
+## <a name="to-schedule-a-job-execution-trigger"></a>Aby zaplanować zadanie wykonywania wyzwalacza
+Poniższy skrypt programu PowerShell, można utworzyć za pomocą harmonogramu cyklicznego. Ten skrypt używa przedział minuty, ale [ **AzureSqlJobSchedule nowy** ](/powershell/module/elasticdatabasejobs/new-azuresqljobschedule) obsługuje również parametry - DayInterval, - HourInterval i - MonthInterval, - WeekInterval. Można utworzyć harmonogramy, które są wykonywane tylko raz przekazywanie przez - jednorazowe.
 
 Utwórz nowy harmonogram:
 
@@ -572,10 +572,10 @@ Utwórz nowy harmonogram:
     -StartTime $startTime 
     Write-Output $schedule
 
-### <a name="tootrigger-a-job-executed-on-a-time-schedule"></a>tootrigger zadania wykonywane zgodnie z harmonogramem czasu
-Wyzwalacz zadania mogą być zdefiniowane toohave zgodnie z zadania wykonywane harmonogram tooa. Witaj następującego skryptu programu PowerShell może być używane toocreate wyzwalacza zadania.
+### <a name="to-trigger-a-job-executed-on-a-time-schedule"></a>Do wyzwalania zadania wykonywane zgodnie z harmonogramem czasu
+Wyzwalacz zadania można definiować zadania wykonywane zgodnie z harmonogramem. Poniższy skrypt programu PowerShell, można utworzyć wyzwalacza zadania.
 
-Użyj [AzureSqlJobTrigger nowy](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger) i zestaw hello następujące zmienne toocorrespond toohello żądanego zadania i harmonogramu:
+Użyj [AzureSqlJobTrigger nowy](/powershell/module/elasticdatabasejobs/new-azuresqljobtrigger) i ustaw następujące zmienne odpowiadają żądanego zadania i harmonogramu:
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -584,8 +584,8 @@ Użyj [AzureSqlJobTrigger nowy](/powershell/module/elasticdatabasejobs/new-azure
     -JobName $jobName
     Write-Output $jobTrigger
 
-### <a name="tooremove-a-scheduled-association-toostop-job-from-executing-on-schedule"></a>tooremove skojarzenia zaplanowane zadanie toostop wykonywanie zgodnie z harmonogramem
-można usunąć toodiscontinue pojawiał wykonywania zadań za pomocą wyzwalacza zadania hello wyzwalacza zadania. Usuwanie zadania toostop wyzwalacz zadania wykonywane zgodnie z harmonogramem tooa przy użyciu hello [ **polecenia cmdlet Remove-AzureSqlJobTrigger**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger).
+### <a name="to-remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Aby usunąć skojarzenie zaplanowane zatrzymania zadania wykonywanie zgodnie z harmonogramem
+Aby przerwać pojawiał wykonywania zadań za pomocą wyzwalacza zadania, można usunąć wyzwalacza zadania. Usuń wyzwalacz zadania zatrzymania zadania z wykonywana zgodnie z harmonogramem przy użyciu [ **polecenia cmdlet Remove-AzureSqlJobTrigger**](/powershell/module/elasticdatabasejobs/remove-azuresqljobtrigger).
 
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
@@ -593,38 +593,38 @@ można usunąć toodiscontinue pojawiał wykonywania zadań za pomocą wyzwalacz
     -ScheduleName $scheduleName 
     -JobName $jobName
 
-### <a name="retrieve-job-triggers-bound-tooa-time-schedule"></a>Pobieranie zadania wyzwalaczy tooa powiązania harmonogramu
-Witaj następującego skryptu programu PowerShell można tooobtain używane i wyświetlić hello zadania wyzwalaczy zarejestrowanych tooa określonego harmonogramu.
+### <a name="retrieve-job-triggers-bound-to-a-time-schedule"></a>Pobrać wyzwalaczy zadania powiązane z harmonogramu
+Poniższy skrypt programu PowerShell mogą być używane do wyświetlić wyzwalacze zadania zarejestrowany z harmonogramem określonym czasie.
 
     $scheduleName = "{Schedule Name}"
     $jobTriggers = Get-AzureSqlJobTrigger -ScheduleName $scheduleName
     Write-Output $jobTriggers
 
-### <a name="tooretrieve-job-triggers-bound-tooa-job"></a>powiązane tooa wyzwalaczy zadanie tooretrieve
-Użyj [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger) tooobtain i wyświetlić harmonogramy zawierający zarejestrowanych zadania.
+### <a name="to-retrieve-job-triggers-bound-to-a-job"></a>Można pobrać zadania wyzwalaczy powiązany z zadaniem
+Użyj [Get-AzureSqlJobTrigger](/powershell/module/elasticdatabasejobs/get-azuresqljobtrigger) do wyświetlenia harmonogramy zawierający zarejestrowane zadania.
 
     $jobName = "{Job Name}"
     $jobTriggers = Get-AzureSqlJobTrigger -JobName $jobName
     Write-Output $jobTriggers
 
-## <a name="toocreate-a-data-tier-application-dacpac-for-execution-across-databases"></a>toocreate aplikacji warstwy danych (DACPAC) do wykonania dla baz danych
-Zobacz toocreate DACPAC [aplikacji warstwy danych](https://msdn.microsoft.com/library/ee210546.aspx). toodeploy DACPAC, użyj hello [polecenia cmdlet New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). Witaj DACPAC musi być dostępny toohello usługi. Jest zalecana tooupload utworzony tooAzure DACPAC magazynu i Utwórz [sygnatura dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md) dla hello DACPAC.
+## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>Aby utworzyć aplikację warstwy danych (DACPAC) do wykonania dla baz danych
+Aby utworzyć DACPAC, zobacz [aplikacji warstwy danych](https://msdn.microsoft.com/library/ee210546.aspx). Aby wdrożyć DACPAC, należy użyć [polecenia cmdlet New-AzureSqlJobContent](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent). DACPAC muszą być dostępne dla usługi. Zaleca się wysłanie utworzony DACPAC do magazynu Azure i utworzyć [sygnatura dostępu współdzielonego](../storage/common/storage-dotnet-shared-access-signature-part-1.md) dla DACPAC.
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"
     $dacpac = New-AzureSqlJobContent -DacpacUri $dacpacUri -ContentName $dacpacName 
     Write-Output $dacpac
 
-### <a name="tooupdate-a-data-tier-application-dacpac-for-execution-across-databases"></a>tooupdate aplikacji warstwy danych (DACPAC) do wykonania dla baz danych
-Istniejące DACPACs zarejestrowanych w ramach zadania elastyczne bazy danych może być toonew toopoint zaktualizowanych identyfikatorów URI. Użyj hello [ **polecenia cmdlet Set-AzureSqlJobContentDefinition** ](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition) tooupdate hello DACPAC URI na istniejącym zarejestrowany DACPAC:
+### <a name="to-update-a-data-tier-application-dacpac-for-execution-across-databases"></a>Do aktualizacji aplikacji warstwy danych (DACPAC) do wykonania dla baz danych
+Istniejących DACPACs zarejestrowanych w ramach zadania elastyczne bazy danych może zostać zaktualizowana, aby wskazywały nowy identyfikator URI. Użyj [ **polecenia cmdlet Set-AzureSqlJobContentDefinition** ](/powershell/module/elasticdatabasejobs/set-azuresqljobcontentdefinition) można zaktualizować identyfikatora URI DACPAC na istniejącym zarejestrowany DACPAC:
 
     $dacpacName = "{Dacpac Name}"
     $newDacpacUri = "{Uri}"
     $updatedDacpac = Set-AzureSqlJobDacpacDefinition -ContentName $dacpacName -DacpacUri $newDacpacUri
     Write-Output $updatedDacpac
 
-## <a name="toocreate-a-job-tooapply-a-data-tier-application-dacpac-across-databases"></a>toocreate tooapply zadania aplikacji warstwy danych (DACPAC) dla baz danych
-Po utworzeniu DACPAC w ramach zadania elastyczne bazy danych, zadania mogą być tworzone tooapply hello DACPAC między grupą baz danych. Hello następującego skryptu programu PowerShell może być używane toocreate zadania DACPAC przez niestandardowy zbiór baz danych:
+## <a name="to-create-a-job-to-apply-a-data-tier-application-dacpac-across-databases"></a>Aby utworzyć zadanie, aby zastosować aplikacji warstwy danych (DACPAC) dla baz danych
+Po utworzeniu DACPAC w ramach zadania elastyczne bazy danych można utworzyć zadania do stosowania DACPAC na grupę baz danych. Poniższy skrypt programu PowerShell można utworzyć zadania DACPAC przez niestandardowy zbiór baz danych:
 
     $jobName = "{Job Name}"
     $dacpacName = "{Dacpac Name}"

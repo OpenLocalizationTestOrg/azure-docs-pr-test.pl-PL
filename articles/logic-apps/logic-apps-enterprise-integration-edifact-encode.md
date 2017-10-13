@@ -1,6 +1,6 @@
 ---
-title: "komunikaty EDIFACT aaaEncode — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Sprawdź poprawność EDI i generowanie kodu XML za pomocą kodera wiadomości EDIFACT w hello pakiet integracyjny dla przedsiębiorstw dla usługi Azure Logic Apps"
+title: "Kodowanie wiadomości EDIFACT - Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Sprawdź poprawność EDI i generowanie kodu XML za pomocą kodera wiadomości EDIFACT w pakiet integracyjny dla przedsiębiorstw dla usługi Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: b3799dbd2492adef597022d017cf28f5ceb1085c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="encode-edifact-messages-for-azure-logic-apps-with-hello-enterprise-integration-pack"></a>Kodowanie wiadomości EDIFACT dla usługi Azure Logic Apps z hello pakiet integracyjny dla przedsiębiorstw
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Kodowanie wiadomości EDIFACT dla usługi Azure Logic Apps z pakiet integracyjny dla przedsiębiorstw
 
-Łącznik wiadomość hello kodowania EDIFACT zweryfikować EDI i właściwości specyficzne dla partnera, generowanie dokumentu XML dla każdego zestawu transakcji, a żądania potwierdzenia technicznych i funkcjonalności potwierdzenia.
-toouse tego łącznika, należy dodać tooan łącznika hello istniejących wyzwalacza w aplikacji logiki.
+Łącznik EDIFACT kodowania komunikatu weryfikacji EDI i właściwości specyficzne dla partnera, generowanie dokumentu XML dla każdego zestawu transakcji, a żądania potwierdzenia technicznych i funkcjonalności potwierdzenia.
+Aby użyć tego łącznika, należy dodać łącznika do istniejącego wyzwalacza w aplikacji logiki.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Oto hello elementy, które należy:
+Oto elementy, które są potrzebne:
 
 * Konto platformy Azure; można utworzyć [bezpłatne konto](https://azure.microsoft.com/free)
-* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure. Musi mieć łącznika integracji konta toouse hello EDIFACT kodowania komunikatu. 
+* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure. Musi mieć konto integracji do używania łącznika EDIFACT kodowania komunikatu. 
 * Co najmniej dwa [partnerów](logic-apps-enterprise-integration-partners.md) które już zostały zdefiniowane w ramach konta integracji
 * [Umowy EDIFACT](logic-apps-enterprise-integration-edifact.md) jest już zdefiniowany w ramach konta integracji
 
@@ -38,13 +38,13 @@ Oto hello elementy, które należy:
 
 1. [Tworzenie aplikacji logiki](logic-apps-create-a-logic-app.md).
 
-2. Hello EDIFACT kodowania komunikatu łącznika nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W hello projektanta aplikacji logiki dodać wyzwalacz, a następnie dodaj aplikację logiki tooyour akcji.
+2. Kodowanie EDIFACT łącznika komunikatu nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W Projektancie aplikacji logiki dodać wyzwalacza, a następnie dodać do aplikacji logiki akcję.
 
-3.  W polu wyszukiwania hello wprowadź "EDIFACT" jako filtr. Wybierz opcję **kodowania komunikatu EDIFACT przez Nazwa umowy** lub **Koduj tooEDIFACT komunikatu przez tożsamości**.
+3.  W polu wyszukiwania wprowadź "EDIFACT" jako filtr. Wybierz opcję **kodowania komunikatu EDIFACT przez Nazwa umowy** lub **Koduj EDIFACT komunikat przez tożsamości**.
    
     ![Wyszukiwanie EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 
-3. Jeśli wszystkie połączenia nie został wcześniej utworzyć konta integracji tooyour, zostanie wyświetlony monit toocreate teraz tego połączenia. Nazwa połączenia, a następnie wybierz hello integracji konta, które ma tooconnect.
+3. Jeśli wcześniej nie utworzono wszystkie połączenia z kontem integracji, zostanie wyświetlony monit o utworzyć teraz tego połączenia. Nazwa połączenia, a następnie wybierz konta integracji, na którym chcesz się połączyć.
 
     ![Tworzenie połączenia konta integracji](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage1.png)  
 
@@ -53,9 +53,9 @@ Oto hello elementy, które należy:
     | Właściwość | Szczegóły |
     | --- | --- |
     | Nazwa połączenia * |Wprowadź dowolną nazwę połączenia. |
-    | Konta integracji * |Wprowadź nazwę konta integracji. Upewnij się, że integracja aplikacji logiki i konta znajdują się w hello tej samej lokalizacji platformy Azure. |
+    | Konta integracji * |Wprowadź nazwę konta integracji. Upewnij się, że integracja aplikacji logiki i konta znajdują się w tej samej lokalizacji platformy Azure. |
 
-5.  Gdy wszystko będzie gotowe, szczegóły połączenia powinien wyglądać podobnie przykład toothis. Wybierz toofinish Tworzenie połączenia **Utwórz**.
+5.  Gdy wszystko będzie gotowe, szczegóły połączenia powinien wyglądać podobnie do tego przykładu. Aby zakończyć tworzenie połączenia, wybierz **Utwórz**.
 
     ![Szczegóły połączenia konta integracji](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
 
@@ -65,37 +65,37 @@ Oto hello elementy, które należy:
 
 #### <a name="encode-edifact-message-by-agreement-name"></a>Kodowanie komunikatu EDIFACT przez Nazwa umowy
 
-Jeśli wybrano opcję tooencode EDIFACT wiadomości przez nazwę umowy, otwórz hello **umowy nazwa EDIFACT** listy, wprowadź lub wybierz nazwę umowy EDIFACT. Wprowadź tooencode wiadomości XML hello.
+Jeśli wybrano opcję kodowanie wiadomości EDIFACT według nazwy umowy, otwórz **umowy nazwa EDIFACT** listy, wprowadź lub wybierz nazwę umowy EDIFACT. Wprowadź komunikat XML do kodowania.
 
-![Wprowadź nazwę umowy EDIFACT i tooencode wiadomości XML](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
+![Wprowadź nazwę umowy EDIFACT i wiadomości XML do kodowania](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage6.png)
 
 #### <a name="encode-edifact-message-by-identities"></a>Kodowanie komunikatu EDIFACT przez tożsamości
 
-Jeśli wybierzesz tooencode EDIFACT wiadomości przez tożsamości, wprowadź identyfikator nadawcy hello, Kwalifikator nadawcy identyfikator odbiornika i odbiornika kwalifikator zgodnie z konfiguracją umowy EDIFACT. Wybierz hello tooencode wiadomości XML.
+Jeśli wybierzesz kodowanie wiadomości EDIFACT przez tożsamości, wprowadź identyfikator nadawcy, Kwalifikator nadawcy, odbiorcy identyfikator i kwalifikator odbiornika zgodnie z konfiguracją umowy EDIFACT. Wybierz wiadomości XML do kodowania.
 
-![Podaj tożsamości dla nadawcy i odbiorcy, wybierz tooencode wiadomości XML](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
+![Podaj tożsamości dla nadawcy i odbiorcy, wybierz wiadomości XML do kodowania](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage7.png)
 
 ## <a name="edifact-encode-details"></a>Szczegóły EDIFACT kodowania
 
-Łącznik kodowania EDIFACT Hello wykonuje te zadania: 
+Łącznik kodowania EDIFACT wykonuje te zadania: 
 
-* Rozwiąż umowy hello przez dopasowanie kwalifikator nadawcy hello & Identyfikator kwalifikator odbiornik i identyfikator
-* Serializuje hello EDI wymiany danych, konwertowanie wiadomości w formacie XML w EDI zestawy transakcji w hello wymiany.
+* Rozwiązać przez dopasowanie kwalifikator nadawcy & identyfikator i odbiornika kwalifikator identyfikator umowy
+* Serializuje wymiany EDI, konwertowanie wiadomości w formacie XML w EDI zestawy transakcji w wymiany.
 * Stosuje zestaw transakcji nagłówka i przyczepy segmentów
 * Generuje numer formantu wymiany, numer kontroli grupy i numer kontroli zestawu transakcji, każdy wychodzący wymiany
-* Zastępuje separatorów hello ładunek danych
+* Zastępuje separatorów w danych ładunku
 * Sprawdza poprawność właściwości specyficzne dla partnerów i EDI
-  * Sprawdzanie poprawności schematu elementów dane zestawu transakcji hello schematem wiadomość hello.
+  * Sprawdzanie poprawności schematu elementów dane zestawu transakcji względem schematu wiadomości.
   * EDI Weryfikacja w przypadku elementów dane zestawu transakcji.
   * Rozszerzonej weryfikacji w przypadku elementów dane zestawu transakcji
 * Generuje dokument XML dla każdego zestawu transakcji.
 * Żądania potwierdzenia techniczne i/lub funkcjonalne (jeśli jest skonfigurowane).
-  * Jako potwierdzenie technicznych wiadomości powitania CONTRL wskazuje otrzymania wymiany.
-  * Jako funkcjonalności potwierdzenie wiadomości powitania CONTRL wskazuje akceptacji lub odrzucenia wymiany hello odebrane, grupy lub wiadomości z listą błędów lub nieobsługiwanych funkcji
+  * Jako potwierdzenie technicznych komunikat CONTRL oznacza otrzymania wymiany.
+  * Jako potwierdzenie funkcjonalności komunikat CONTRL oznacza akceptacji lub odrzucenia wymiany stwierdzono, grupy lub wiadomości z listą błędów lub nieobsługiwanych funkcji
 
 ## <a name="view-swagger-file"></a>Plik struktury Swagger widoku
-Szczegóły programu Swagger hello tooview hello EDIFACT łącznika, zobacz [EDIFACT](/connectors/edifact/).
+Aby wyświetlić szczegóły Swagger EDIFACT łącznika, zobacz [EDIFACT](/connectors/edifact/).
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o hello pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
+[Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
 

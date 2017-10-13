@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate pierwszej maszyny Wirtualnej w laboratorium w usłudze Azure DevTest Labs | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate Twojego pierwszego maszynę wirtualną w laboratorium w usłudze Azure DevTest Labs"
+title: "Tworzenie pierwszej maszyny Wirtualnej w laboratorium w usłudze Azure DevTest Labs | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć pierwszy maszynę wirtualną w laboratorium w usłudze Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: tarcher
-ms.openlocfilehash: 4c3257efca9be6fdd190eaac1db731464e07fcfd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: aa6b60b799e1e98815cf288d5612f98cd77cc00e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Tworzenie pierwszej maszyny Wirtualnej w laboratorium w usłudze Azure DevTest Labs
 
-Gdy początkowo dostęp DevTest Labs i zechcesz toocreate pierwszej maszyny Wirtualnej, możesz będzie prawdopodobnie to zrobić za pomocą wstępnie załadowane [obrazu z witryny marketplace podstawowej](devtest-lab-configure-marketplace-images.md). Później również będziesz w stanie toochoose z [niestandardowego obrazu oraz formułę](devtest-lab-add-vm.md) podczas tworzenia więcej maszyn wirtualnych. 
+Przy pierwszym dostępu DevTest Labs i chcesz utworzyć pierwszy maszyny Wirtualnej, możesz będzie prawdopodobnie to zrobić za pomocą wstępnie załadowane [obrazu z witryny marketplace podstawowej](devtest-lab-configure-marketplace-images.md). Później również będzie można wybrać [niestandardowego obrazu oraz formułę](devtest-lab-add-vm.md) podczas tworzenia więcej maszyn wirtualnych. 
 
-Ten samouczek przedstawia przy użyciu hello Azure tooadd portalu pierwszy laboratorium tooa maszyny Wirtualnej w usłudze DevTest Labs.
+Ten samouczek przeprowadzi Cię przez dodawanie pierwszej maszyny Wirtualnej do laboratorium w usłudze DevTest Labs przy użyciu portalu Azure.
 
-## <a name="steps-tooadd-your-first-vm-tooa-lab-in-azure-devtest-labs"></a>Kroki tooadd pierwszy laboratorium tooa maszyny Wirtualnej w usłudze Azure DevTest Labs
-1. Zaloguj się toohello [portalu Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy hello.
-1. Z listy hello labs wybierz laboratorium hello, w której ma zostać hello toocreate maszyny Wirtualnej.  
-1. W laboratorium hello **omówienie** bloku, wybierz opcję **+ Dodaj**.  
+## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Kroki, aby dodać pierwszy maszyny Wirtualnej do laboratorium w usłudze Azure DevTest Labs
+1. Zaloguj się w witrynie [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Wybierz **więcej usług**, a następnie wybierz **DevTest Labs** z listy.
+1. Z listy labs wybierz laboratorium, w którym chcesz utworzyć maszynę Wirtualną.  
+1. W laboratorium **omówienie** bloku, wybierz opcję **+ Dodaj**.  
 
     ![Dodawanie przycisku maszyny Wirtualnej](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Na powitania **wybierz podstawowej** bloku, wybierz obraz marketplace hello maszyny Wirtualnej.
-1. Na powitania **maszyny wirtualnej** bloku, wprowadź nazwę dla nowej maszyny wirtualnej hello w hello **nazwę maszyny wirtualnej** pola tekstowego.
+1. Na **wybierz podstawowej** bloku, wybierz pozycję marketplace obrazu dla maszyny Wirtualnej.
+1. Na **maszyny wirtualnej** bloku, wprowadź nazwę dla nowej maszyny wirtualnej w **nazwę maszyny wirtualnej** pola tekstowego.
 
     ![Bloku maszyny Wirtualnej laboratorium](./media/devtest-lab-add-vm/devtestlab-lab-add-first-vm.png)
 
-1. Wprowadź **nazwy użytkownika** udzieleniu uprawnień administratora na maszynie wirtualnej hello.  
-1. Wprowadź hasło w polu tekstowym hello etykietą **wpisz wartość**.
-1. Witaj **typu dysku maszyny wirtualnej** Określa, który typ dysku magazynu jest dozwolony dla hello maszyn wirtualnych w laboratorium hello.
-1. Wybierz **rozmiar maszyny wirtualnej** i wybierz jedną z hello wstępnie zdefiniowane elementy, które określić hello rdzeni procesora, rozmiar pamięci RAM i rozmiar dysku twardego hello hello toocreate maszyny Wirtualnej.
-1. Wybierz **artefakty** — z listy hello artefaktów — wybierz i skonfiguruj artefakty hello, które mają tooadd toohello podstawowy obraz.
-    **Uwaga:** nowe Labs tooDevTest lub konfigurowanie artefaktów, zobacz toohello [Dodawanie istniejących tooa artefaktu maszyny Wirtualnej](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) sekcji, a następnie wróć tutaj po zakończeniu.
-1. Wybierz **Utwórz** tooadd hello określony laboratorium toohello maszyny Wirtualnej.
+1. Wprowadź **nazwy użytkownika** udzieleniu uprawnień administratora na maszynie wirtualnej.  
+1. Wprowadź hasło w polu tekstowym etykietą **wpisz wartość**.
+1. **Typu dysku maszyny wirtualnej** Określa, który typ dysku magazynu jest dozwolony dla maszyn wirtualnych w laboratorium.
+1. Wybierz **rozmiar maszyny wirtualnej** i wybierz jedną z wstępnie zdefiniowane elementy, które Określ rdzeni procesora, rozmiar pamięci RAM i rozmiar dysku twardego maszyny wirtualnej do utworzenia.
+1. Wybierz **artefakty** a — z listy artefakty — wybierz i skonfiguruj artefaktów, które chcesz dodać do obrazu podstawowego.
+    **Uwaga:** Jeśli nowych użytkowników programu DevTest Labs lub konfigurowanie artefaktów, zapoznaj się [Dodaj istniejący artefakt do maszyny Wirtualnej](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) sekcji, a następnie wróć tutaj po zakończeniu.
+1. Wybierz **Utwórz** dodać określoną maszynę Wirtualną do laboratorium.
 
-   Blok laboratorium Hello Wyświetla stan hello tworzenie hello VM - najpierw jako **tworzenie**, następnie jako **systemem** po hello maszyna wirtualna została uruchomiona.
+   Blok laboratorium Wyświetla stan tworzenia maszyny Wirtualnej — najpierw jako **tworzenie**, następnie jako **systemem** po uruchomieniu maszyny Wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
-* Raz hello maszyna wirtualna została utworzona, można połączyć toohello maszyny Wirtualnej, wybierając **Connect** w bloku hello maszyny Wirtualnej.
-* Zapoznaj się z [Dodawanie maszyny Wirtualnej laboratorium tooa](devtest-lab-add-vm.md) na pełniejsze informacje dotyczące dodawania kolejnych maszyn wirtualnych w laboratorium.
-* Eksploruj hello [galerię szablonów DevTest Labs Azure Resource Manager — Szybki Start](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).
+* Po utworzeniu maszyny Wirtualnej można Połącz się z maszyną Wirtualną, wybierając **Connect** w bloku maszyny Wirtualnej.
+* Zapoznaj się z [dodać maszyny Wirtualnej do laboratorium](devtest-lab-add-vm.md) na pełniejsze informacje dotyczące dodawania kolejnych maszyn wirtualnych w laboratorium.
+* Eksploruj [galerię szablonów DevTest Labs Azure Resource Manager — Szybki Start](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

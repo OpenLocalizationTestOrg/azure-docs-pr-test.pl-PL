@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.openlocfilehash: 14b363c934a018ce72be97d1a0b74a6c2210656e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d49ad2ff584f42c0e4732a5cff60d23cdf631512
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Rozszerzenie Developer Analytics: języki, platformy i integracje
 Poniższe elementy to znane implementacje usługi [Application Insights](app-insights-overview.md), w tym niektóre innych firm.
@@ -26,9 +26,9 @@ Poniższe elementy to znane implementacje usługi [Application Insights](app-ins
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Strony sieci Web w języku JavaScript](app-insights-javascript.md)
+* [Node.JS](app-insights-nodejs.md)
 
 ## <a name="languages---community-supported"></a>Języki — obsługiwane przez społeczności
-* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -82,4 +82,4 @@ Poniższe elementy to znane implementacje usługi [Application Insights](app-ins
 * [Stream Analytics](app-insights-export-power-bi.md)
 
 ## <a name="projects"></a> Tworzenie własnych zestawów SDK
-Jeśli nie ma jeszcze zestawu SDK dla języka lub platformy, prawdopodobnie chcesz toobuild jeden? Spójrz na powitania kod hello istniejące zestawy SDK na liście hello [projekt zestawu SDK usługi Application Insights w serwisie GitHub](https://github.com/Microsoft/AppInsights-Home).
+Jeśli brakuje zestawu SDK dla potrzebnego języka lub platformy, może zechcesz taki utworzyć? Przejrzyj kod istniejących zestawów SDK wymienionych w [projekcie zestawu SDK usługi Application Insights SDK w witrynie GitHub](https://github.com/Microsoft/AppInsights-Home).

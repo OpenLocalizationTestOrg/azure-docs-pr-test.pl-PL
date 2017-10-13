@@ -1,6 +1,6 @@
 ## <a name="java-sample-code-repositories"></a>Repozytoria kodu przykładowej Java
 
-Oto lista naszych repozytoriów próbki dla biblioteki klienta magazynu Azure w języku Java hello.
+Oto lista naszych repozytoriów próbki dla biblioteki klienta magazynu Azure w języku Java.
 
 * [Pobieranie pracy z magazynem — Zarządzanie konta magazynu w języku Java](https://azure.microsoft.com/resources/samples/storage-java-manage-storage-accounts/)
 * [Wprowadzenie do korzystania z usługi Azure Blob w języku Java](https://azure.microsoft.com/resources/samples/storage-blob-java-getting-started/)

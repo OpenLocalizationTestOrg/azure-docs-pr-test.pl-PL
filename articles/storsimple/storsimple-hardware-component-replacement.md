@@ -1,6 +1,6 @@
 ---
-title: "wymiana składników sprzętowych aaaStorSimple | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak toosafely zastąpienie hello PCMs, baterii, moduły kontrolera, EBOD kontrolerów, dysków i obudowy urządzenia StorSimple."
+title: "Wymiana składników sprzętowych StorSimple | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób bezpieczne zastąpienie PCMs, baterii, moduły kontrolera, EBOD kontrolerów, dysków i obudowy urządzenia StorSimple."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -15,28 +15,28 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 472d9dc1c31b61550fe079cc9b9419510487db3d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Zamień na urządzeniu z serii StorSimple 8000 składnik sprzętowy
 
 ## <a name="overview"></a>Omówienie
-Zastąpienie składnika samouczki Hello opisano hello składników sprzętowych programu Microsoft Azure StorSimple 8000 serii urządzenia i hello kroki niezbędne tooremove i zastąp je. W tym artykule opisano hello bezpieczeństwa ikony, zawiera wskaźniki toohello szczegółowe samouczki i list hello składników, które są wymienne.
+Zastąpienie składnika samouczki opisano składniki sprzętowe urządzenia Microsoft Azure StorSimple 8000 serii i kroki niezbędne do usunięcia i zastąp je. W tym artykule opisano ikony bezpieczeństwa, udostępnia wskaźniki do szczegółowe samouczki oraz listy składników, które są wymienne.
 
 > [!IMPORTANT]
-> Przed podjęciem próby wykonania tooremove lub zamienić dowolny składnik StorSimple, upewnij się, że przeglądu hello [bezpieczeństwa ikona konwencje](#safety-icon-conventions) i innych [środki ostrożności](storsimple-safety.md).
+> Przed próbą należy usunąć lub zamienić dowolny składnik StorSimple, upewnij się, należy przejrzeć [bezpieczeństwa ikona konwencje](#safety-icon-conventions) i innych [środki ostrożności](storsimple-safety.md).
 > 
 > 
 
 ### <a name="safety-icon-conventions"></a>Konwencje ikona bezpieczeństwa
-Witaj poniższej tabeli opisano hello ikon bezpieczeństwa, używanych w tych samouczkach. Zwrócić szczególną uwagę toothese bezpieczeństwa ikony, jak przechodzić przez tooremove kroki hello i Zastąp składniki.
+W poniższej tabeli opisano ikon bezpieczeństwa, używanych w tych samouczkach. Zwracać szczególną uwagę na następujące ikony bezpieczeństwa podczas wykonywania kroków w celu usunięty i zastąpiony składniki.
 
 | Ikona | Tekst | Dodatkowe informacje |
 |:--- |:--- |:--- |
-| ![Ikona ostrzeżenia](./media/storsimple-hardware-component-replacement/Warning.png) |**ZAGROŻENIA!** |Wskazuje niebezpiecznych sytuacji, który nie uniknąć spowoduje śmierci lub poważnej szkody. Ten wyraz sygnału jest najbardziej skrajne sytuacjach ograniczone toohello. |
+| ![Ikona ostrzeżenia](./media/storsimple-hardware-component-replacement/Warning.png) |**ZAGROŻENIA!** |Wskazuje niebezpiecznych sytuacji, który nie uniknąć spowoduje śmierci lub poważnej szkody. Ten wyraz sygnału jest ograniczona do najbardziej skrajne sytuacji. |
 | ![Ikona ostrzeżenia](./media/storsimple-hardware-component-replacement/Warning.png) |**OSTRZEŻENIE!** |Wskazuje niebezpiecznych sytuację, w której, jeśli nie jest to uniknąć, może spowodować śmierci lub poważnej szkody. |
 | ![Ikonę ostrzeżenia](./media/storsimple-hardware-component-replacement/Caution.png) |**UWAGA!** |Wskazuje sytuację zagrożenia co, jeśli nie jest to uniknąć, może spowodować szkody drobne lub średniego. |
 | ![Ikona powiadomienia](./media/storsimple-hardware-component-replacement/NoticeIcon.png) |**UWAGA:** |Wskazuje informacje uznawane za ważne, ale nie zagrożenia związane z. |
@@ -47,60 +47,60 @@ Witaj poniższej tabeli opisano hello ikon bezpieczeństwa, używanych w tych sa
 | ![Ikona zagrożenie wskazówki](./media/storsimple-hardware-component-replacement/TipHazard.png) |**Porada zagrożenia** | |
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
-Zapoznaj się z hello bezpieczeństwa informacji na temat ikony bezpieczeństwa i urządzenia używane w tym samouczku. Przejdź za[bezpiecznie zainstalowania i obsługi urządzenia StorSimple](storsimple-safety.md) pełne informacje. Należy się hello tooreview [środki ostrożności](storsimple-safety.md#handling-precautions) przed obsługi urządzenia StorSimple. 
+Zapoznaj się z bezpieczeństwa informacje używane w tym samouczku ikony urządzenia i bezpieczeństwa. Przejdź do [bezpiecznie zainstalowania i obsługi urządzenia StorSimple](storsimple-safety.md) pełne informacje. Należy przejrzeć [środki ostrożności](storsimple-safety.md#handling-precautions) przed obsługi urządzenia StorSimple. 
 
-Przed podjęciem próby tooreplace składnika, należy wziąć pod uwagę hello następujących informacji.
+Przed przystąpieniem do zastąpienia składnika, należy wziąć pod uwagę następujące informacje.
 
 ![Ikona ostrzeżenia](./media/storsimple-hardware-component-replacement/Warning.png) ![ikona uderzenia elektrycznego](./media/storsimple-hardware-component-replacement/Electric.png) **ostrzeżenie!** 
 
 * Tła samodzielnie prawidłowo przy użyciu elektrostatyczne lub antistatic mat podczas obsługi modułów i składniki urządzenia StorSimple.
-* Nie touch żadnych obwodu. Podczas obsługi składników, które mogą być narażone obwody hello Użyj podane dojść i przewodników.
+* Nie touch żadnych obwodu. Podczas obsługi składników, które mogą być narażone obwody za pomocą dostarczonego dojść i przewodniki.
 
 ![Ikona ostrzeżenia](./media/storsimple-hardware-component-replacement/Warning.png) ![ikony](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **POWIADOMIEŃ:**
 
-Podczas zastępowania modułu, **nigdy nie należy pozostawiać pustego bay hello tyłu obudowy hello**. Uzyskaj zastąpienia lub pusty moduł przed usunięciem hello problem części.
+Podczas zastępowania modułu, **nigdy nie należy pozostawiać pustego bay tyłu obudowa**. Uzyskaj zastąpienia lub pusty moduł przed usunięciem części problem.
 
 ## <a name="hardware-component-replacement-procedures"></a>Procedury wymiany składników sprzętu
-Urządzenie serii StorSimple 8000 składa się z kilku wtyczki w hello podstawowej i/lub EBOD obudowy. Hello 8100 ma jednej obudowie głównej hello 8600 jest urządzeniem podwójną obudowa z głównej obudowy i obudowy EBOD.
+Urządzenie serii StorSimple 8000 składa się z kilku wtyczki w podstawowej i/lub EBOD obudowy. 8100 ma jednej obudowie głównej 8600 jest urządzeniem podwójną obudowa z głównej obudowy i obudowy EBOD.
 
-hello następujące tabele przedstawiono składniki sprzętowe głównego Hello w urządzeniu. Kliknij łącze hello w hello **procedury wymiany** toohello toogo kolumny skojarzone samouczka.
+Składniki sprzętowe głównego w urządzeniu podsumowano w poniższych tabelach. Kliknij łącze w **procedury wymiany** kolumny, aby przejść do skojarzonego samouczka.
 
 | Składniki | # Obecnie | Moduł wtyczki? | Procedury wymiany |
 |:--- |:--- |:--- |:--- |
-| Podstawa montażowa |1 |Nie |[Zastąp podstawę hello na urządzeniu StorSimple](storsimple-chassis-replacement.md) |
+| Podstawa montażowa |1 |Nie |[Zastąp podstawę na urządzeniu StorSimple](storsimple-chassis-replacement.md) |
 | Podstawowy kontrolerów |2 |Tak |[Zastąp modułu kontroler na urządzeniu StorSimple](storsimple-controller-replacement.md) |
 | 764W zasilania i chłodzenia modułów (PCMs) |2 |Tak |[Zamień na urządzeniu StorSimple zasilania i chłodzenia modułu](storsimple-power-cooling-module-replacement.md) |
-| Kopia zapasowa baterii |2 |Tak |[Zastąp hello modułu baterii kopii zapasowych w urządzeniu StorSimple](storsimple-battery-replacement.md) |
+| Kopia zapasowa baterii |2 |Tak |[Zastąpienie modułu baterii kopii zapasowych w urządzeniu StorSimple](storsimple-battery-replacement.md) |
 | Stacje dysków |12 |Tak |[Zamień na dysku w urządzeniu StorSimple](storsimple-disk-drive-replacement.md) |
 
-**Tabela 1** składniki sprzętowe w obudowie głównej hello
+**Tabela 1** składniki sprzętowe w obudowie podstawowego
 
-obudowy głównej Hello i obudowy EBOD hello różnią się w ich modułów we/wy. Ponadto hello PCMs mają różne moc. PCMs Hello w obudowie głównej hello 764 W, są w hello obudowa EBOD 580 W. PCMs hello w głównej hello obudowa również zawierać modułu baterii kopii zapasowej.
+Podstawowy obudowy i obudowy EBOD różnią się w ich modułów we/wy. Ponadto PCMs mają różne moc. PCMs w obudowie głównej są 764 W, a w obudowie EBOD 580 W. PCMs w obudowie podstawowy również zawierać modułu baterii kopii zapasowej.
 
 | Składniki | # Obecnie | Moduł wtyczki? | Procedury wymiany |
 |:--- |:--- |:--- |:--- |
-| Podstawa montażowa |1 |Nie |[Zastąp podstawę hello na urządzeniu StorSimple](storsimple-chassis-replacement.md) |
+| Podstawa montażowa |1 |Nie |[Zastąp podstawę na urządzeniu StorSimple](storsimple-chassis-replacement.md) |
 | Kontrolery EBOD |2 |Tak |[Zastąp kontrolera EBOD na urządzeniu StorSimple](storsimple-ebod-controller-replacement.md) |
 | 580W zasilania i chłodzenia modułów (PCMs) |2 |Tak |[Zamień na urządzeniu StorSimple zasilania i chłodzenia modułu](storsimple-power-cooling-module-replacement.md) |
 | Stacje dysków |12 |Tak |[Zamień na dysku w urządzeniu StorSimple](storsimple-disk-drive-replacement.md) |
 
-**Tabela 2** składniki sprzętowe w hello obudowa EBOD
+**Tabela 2** składniki sprzętowe w obudowie EBOD
 
-wtyczki Hello na urządzeniu hello są wyróżnione na powitania po diagramy front i tylne. Można użyć lokalizacji hello toodetermine diagramy te hello na różnych wtyczki Jeśli zastępczy jest wymagana. Hello front diagram pokazuje hello dysków oraz hello tylnej diagramów hello EBOD obudowy i obudowy głównej hello Pokaż hello wtyczki.
+Wtyczki na urządzeniu są wyróżniane w przód następujące i diagramy tylnej. Diagramy te można określić lokalizacji różnych wtyczki, jeśli wymagana jest zastępczy. Front diagram zawiera dysków oraz tylnej diagramy obudowa EBOD i Pokaż obudowa głównej moduły dodatków plug-in.
 
 ![Frontplane urządzenia z dyskami](./media/storsimple-hardware-component-replacement/IC741028.png)
 
-**Rysunek 1** Front hello urządzenia
+**Rysunek 1** Front urządzenia
 
 | Etykieta | Opis |
 |:--- |:--- |
 | 0 - 11 |Stacje dysków (łącznie z 12) |
 
-Zarówno hello obudowa podstawowego, jak i obudowy EBOD hello ma dysk nośnika modułów. Podstawa montażowa Hello przechowuje dwanaście 3,5" dyski w formacie 3 na 4.
+Zarówno obudowa podstawowego, jak i obudowy EBOD ma dysk nośnika modułów. Obudowy przechowuje dwanaście 3,5" dyski w formacie 3 na 4.
 
 ![Płyty montażowej urządzenia podstawowego obudowy modułów](./media/storsimple-hardware-component-replacement/IC740994.png)
 
-**Rysunek 2** obu hello obudowa podstawowego
+**Rysunek 2** obu obudowa podstawowego
 
 | Etykieta | Opis |
 |:--- |:--- |
@@ -111,7 +111,7 @@ Zarówno hello obudowa podstawowego, jak i obudowy EBOD hello ma dysk nośnika m
 
 ![Montażowa urządzenia EBOD obudowa wtyczki](./media/storsimple-hardware-component-replacement/IC769599.png)
 
-**Rysunek 3** obu hello obudowa EBOD
+**Rysunek 3** obu obudowa EBOD
 
 | Etykieta | Opis |
 |:--- |:--- |
@@ -121,9 +121,9 @@ Zarówno hello obudowa podstawowego, jak i obudowy EBOD hello ma dysk nośnika m
 | 4 |EBOD kontrolera 1 |
 
 ## <a name="field-replaceable-units"></a>Pole jednostki
-Witaj następujące pola jednostki FRU (FRU) są dostępne dla urządzenia StorSimple:
+Następujące pola replaceable liczby jednostek (FRU) są dostępne dla urządzenia StorSimple:
 
-* Podstawa montażowa (w tym panelu Operacje zintegrowane hello)
+* Podstawa montażowa (w tym panelu Operacje zintegrowane)
 * 764 W AC PCM
 * 580 W AC PCM
 * Dysk twardy z modułem operatora dysku
@@ -132,8 +132,8 @@ Witaj następujące pola jednostki FRU (FRU) są dostępne dla urządzenia StorS
 * Moduł kopii zapasowej baterii
 * Instalowanie zestawu kolei stojak
 
-Sprawdź [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) tooorder żadnego z tych jednostek zastąpienia.
+Sprawdź [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) żadnego z tych jednostek zastąpienie porządkowania.
 
 ## <a name="next-steps"></a>Następne kroki
-Przejrzyj wszystkie [bezpieczeństwa informacji](storsimple-safety.md) przed podjęciem próby tooreplace składnik sprzętowy StorSimple.
+Przejrzyj wszystkie [bezpieczeństwa informacji](storsimple-safety.md) przed przystąpieniem do zastąpienia składnik sprzętowy StorSimple.
 

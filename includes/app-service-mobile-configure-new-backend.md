@@ -1,17 +1,17 @@
 
-1. Kliknij przycisk hello **usługi aplikacji** przycisk Wybierz użytkownika zaplecza aplikacji mobilnej, wybierz **szybkiego startu**, a następnie wybierz platformę klienta (systemy iOS, Android, Xamarin, Cordova).
+1. Kliknij przycisk **App Services**, wybierz zaplecze funkcji Mobile Apps, wybierz pozycję **Szybki start**, a następnie wybierz platformę klienta (iOS, Android, Xamarin, Cordova).
 
     ![Witryna Azure Portal z wyróżnioną pozycją Mobile Apps — szybki start][quickstart]
 
-2. Jeśli nie skonfigurowano połączenia z bazą danych, utwórz go, wykonując następujące hello:
+2. Jeśli nie skonfigurowano połączenia z bazą danych, utwórz je w następujący sposób:
 
-    ![Portal Azure Mobile Apps Connect toodatabase][connect]
+    ![Witryna Azure Portal z opcją połączenia funkcji Mobile Apps z bazą danych][connect]
 
     a. Utwórz nową bazę danych SQL i serwer.
 
     ![Witryna Azure Portal z opcją tworzenia nowej bazy danych i serwera funkcji Mobile Apps][server]
 
-    b. Poczekaj, aż hello połączenie danych został utworzony pomyślnie.
+    b. Poczekaj na pomyślne utworzenie połączenia danych.
 
     ![Powiadomienie witryny Azure Portal o pomyślnym utworzeniu połączenia danych][notification]
 
@@ -21,11 +21,11 @@
 
 3. W obszarze **2. Utwórz tabelę interfejsu API** wybierz dla języka Node.js opcję **Język zaplecza**. 
  
-4. Zaakceptuj potwierdzenie hello, a następnie wybierz **Utwórz tabelę TodoItem**.  
+4. Zaakceptuj potwierdzenie i wybierz pozycję **Utwórz tabelę TodoItem**.  
     Ta akcja spowoduje utworzenie nowej tabeli elementów do wykonania w bazie danych. 
 
     >[!IMPORTANT]
-    > Przełączenie istniejącej tooNode.js zaplecza spowoduje zastąpienie całej zawartości. Zamiast tego zobacz zaplecze .NET toocreate [działać z serwerem hello zaplecza .NET SDK dla aplikacji mobilnych][instructions].
+    > Przełączenie istniejącego zaplecza na język Node.js spowoduje zastąpienie całej zawartości. Aby w zamian utworzyć zaplecze .NET, zobacz [Work with the .NET back-end server SDK for Mobile Apps (Praca z zestawem SDK serwera zaplecza .NET SDK dla funkcji Mobile Apps)][instructions].
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

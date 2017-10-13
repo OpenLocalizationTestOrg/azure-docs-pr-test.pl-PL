@@ -1,6 +1,6 @@
 ---
-title: "aaaManage DNS strefy w usłudze Azure DNS - Azure CLI 1.0 | Dokumentacja firmy Microsoft"
-description: "Możesz zarządzać stref DNS przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 1.0. W tym artykule przedstawiono sposób tooupdate, usunąć i utworzyć strefy DNS w usłudze Azure DNS."
+title: "Zarządzanie strefami DNS w usłudze Azure DNS - Azure CLI 1.0 | Dokumentacja firmy Microsoft"
+description: "Możesz zarządzać stref DNS przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 1.0. W tym artykule pokazano, jak aktualizowanie, usuwanie i tworzenie stref DNS w usłudze Azure DNS."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: gwallace
-ms.openlocfilehash: cb9790cc46626ef7f38a43edb57511104fe6057e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 588c87749f049eff5b9e0729f6769c8367ba41e4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-dns-zones-in-azure-dns-using-hello-azure-cli-10"></a>Jak toomanage strefy DNS w usłudze Azure DNS przy użyciu hello Azure CLI w wersji 1.0
+# <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-10"></a>Jak zarządzać stref DNS w usłudze Azure DNS przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
@@ -27,14 +27,14 @@ ms.lasthandoff: 10/06/2017
 > * [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-dnszones-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-dnszones-cli.md)
 
-Ten przewodnik przedstawia, jak toomanage serwery DNS strefy za pomocą wieloplatformowych hello Azure CLI 1.0, która jest dostępna dla systemu Windows, Mac i Linux. Można również zarządzać stref DNS przy użyciu [programu Azure PowerShell](dns-operations-dnszones.md) lub hello portalu Azure.
+W tym przewodniku pokazano, jak zarządzać stref DNS przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure i platform, która jest dostępna dla systemu Windows, Mac i Linux. Można również zarządzać stref DNS przy użyciu [programu Azure PowerShell](dns-operations-dnszones.md) lub w portalu Azure.
 
-## <a name="cli-versions-toocomplete-hello-task"></a>Zadanie hello toocomplete wersje interfejsu wiersza polecenia
+## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
 
-Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące wersje interfejsu wiersza polecenia:
+Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
 
-* [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md) — nasze interfejsu wiersza polecenia dla hello classic i zasobów zarządzania modele wdrażania.
-* [Azure CLI 2.0](dns-operations-dnszones-cli.md) -naszej nowej generacji interfejsu wiersza polecenia dla modelu wdrażania zarządzania zasobów hello.
+* [Interfejs wiersza polecenia platformy Azure 1.0](dns-operations-dnszones-cli-nodejs.md) — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami.
+* [Interfejs wiersza polecenia platformy Azure 2.0](dns-operations-dnszones-cli.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami.
 
 ## <a name="introduction"></a>Wprowadzenie
 
@@ -44,7 +44,7 @@ Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące w
 
 ## <a name="getting-help"></a>Uzyskiwanie pomocy
 
-Wszystkie polecenia 1.0 interfejsu wiersza polecenia dotyczące tooAzure DNS rozpoczynać `azure network dns`. Pomoc jest dostępna dla każdego polecenia za pomocą hello `--help` opcji (forma krótka `-h`).  Na przykład:
+Wszystkie polecenia interfejsu wiersza polecenia 1.0 odnoszących się do usługi Azure DNS rozpoczynać `azure network dns`. Pomoc jest dostępna dla każdego polecenia za pomocą `--help` opcji (forma krótka `-h`).  Na przykład:
 
 ```azurecli
 azure network dns -h
@@ -54,17 +54,17 @@ azure network dns zone create -h
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-Strefa DNS jest tworzony przy użyciu hello `azure network dns zone create` polecenia. Aby uzyskać pomoc, zobacz `azure network dns zone create -h`.
+Do tworzenia strefy DNS służy polecenie `azure network dns zone create`. Aby uzyskać pomoc, zobacz `azure network dns zone create -h`.
 
-Witaj poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w hello grupy zasobów o nazwie *MyResourceGroup*:
+Poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów o nazwie *MyResourceGroup*:
 
 ```azurecli
 azure network dns zone create MyResourceGroup contoso.com
 ```
 
-### <a name="toocreate-a-dns-zone-with-tags"></a>toocreate strefy DNS przy użyciu tagów
+### <a name="to-create-a-dns-zone-with-tags"></a>Aby utworzyć strefę DNS za pomocą tagów
 
-Hello poniższy przykład przedstawia sposób toocreate DNS strefy przy użyciu dwóch [znaczniki usługi Azure Resource Manager](dns-zones-records.md#tags), *project = demo* i *env = test*, za pomocą hello `--tags` parametr (forma krótka `-t`):
+Poniższy przykład przedstawia sposób tworzenia strefy DNS przy użyciu dwóch [znaczniki usługi Azure Resource Manager](dns-zones-records.md#tags), *projektu = demo* i *env = test*, za pomocą `--tags` parametr (forma krótka `-t`):
 
 ```azurecli
 azure network dns zone create MyResourceGroup contoso.com -t "project=demo";"env=test"
@@ -72,19 +72,19 @@ azure network dns zone create MyResourceGroup contoso.com -t "project=demo";"env
 
 ## <a name="get-a-dns-zone"></a>Pobierz strefę DNS
 
-Użyj tooretrieve strefę DNS `azure network dns zone show`. Aby uzyskać pomoc, zobacz `azure network dns zone show -h`.
+Aby uzyskać dostęp do strefy DNS, należy użyć `azure network dns zone show`. Aby uzyskać pomoc, zobacz `azure network dns zone show -h`.
 
-Witaj poniższy przykład zwraca strefę DNS hello *contoso.com* i skojarzonych danych z grupy zasobów *MyResourceGroup*. 
+Poniższy przykład zwraca strefę DNS *contoso.com* i skojarzonych danych z grupy zasobów *MyResourceGroup*. 
 
 ```azurecli
 azure network dns zone show MyResourceGroup contoso.com
 ```
 
-Poniższy przykład Hello jest hello odpowiedzi.
+Odpowiedzią jest poniższy przykład.
 
 ```
 info:    Executing command network dns zone show
-+ Looking up hello dns zone "contoso.com"
++ Looking up the dns zone "contoso.com"
 data:    Id                              : /subscriptions/.../contoso.com
 data:    Name                            : contoso.com
 data:    Type                            : Microsoft.Network/dnszones
@@ -100,20 +100,20 @@ data:    Tags                            : project=demo;env=test
 info:    network dns zone show command OK
 ```
 
-Należy pamiętać, że rekordy DNS nie są zwracane przez `azure network dns zone show`. toolist rekordy DNS, użyj `azure network dns record-set list`.
+Należy pamiętać, że rekordy DNS nie są zwracane przez `azure network dns zone show`. Aby wyświetlić listę rekordów DNS, użyj `azure network dns record-set list`.
 
 
 ## <a name="list-dns-zones"></a>Lista stref DNS
 
-tooenumerate stref DNS, użyj `azure network dns zone list`. Aby uzyskać pomoc, zobacz `azure network dns zone list -h`.
+Aby wyliczyć stref DNS, należy użyć `azure network dns zone list`. Aby uzyskać pomoc, zobacz `azure network dns zone list -h`.
 
-Określanie grupy zasobów hello wyświetla tylko tych stref w grupie zasobów hello:
+Określenie grupy zasobów zawiera tylko tych stref w grupie zasobów:
 
 ```azurecli
 azure network dns zone list MyResourceGroup
 ```
 
-Pominięcie hello grupa zasobów zawiera listę wszystkich stref w subskrypcji hello:
+Pominięcie grupa zasobów zawiera listę wszystkich stref w subskrypcji:
 
 ```azurecli
 azure network dns zone list 
@@ -121,11 +121,11 @@ azure network dns zone list
 
 ## <a name="update-a-dns-zone"></a>Zaktualizuj strefę DNS
 
-Zmiany tooa zasobów strefy DNS będzie możliwe przy użyciu `azure network dns zone set`. Aby uzyskać pomoc, zobacz `azure network dns zone set -h`.
+Można wprowadzać zmiany do zasobu strefy DNS przy użyciu `azure network dns zone set`. Aby uzyskać pomoc, zobacz `azure network dns zone set -h`.
 
-To polecenie nie powoduje aktualizacji hello zestawów rekordów DNS w strefie hello (zobacz [jak rekordy DNS tooManage](dns-operations-recordsets-cli-nodejs.md)). Jest tylko tooupdate używanych właściwości zasobu strefy hello, sama. Te właściwości są obecnie ograniczone toohello [usługi Azure Resource Manager "tagi"](dns-zones-records.md#tags) hello strefy zasobu.
+To polecenie nie powoduje aktualizacji zestawów rekordów DNS w strefie (zobacz [jak rekordy DNS zarządzanie](dns-operations-recordsets-cli-nodejs.md)). Jest używane wyłącznie do właściwości zasobu strefy samej aktualizacji. Te właściwości są obecnie ograniczone do [usługi Azure Resource Manager "tagi"](dns-zones-records.md#tags) dla zasobu strefy.
 
-Witaj poniższy przykład przedstawia sposób tooupdate hello znaczniki strefy DNS. znaczniki istniejących Hello są zastępowane przez hello wybrana.
+Poniższy przykład przedstawia sposób aktualizowania elementów tag w strefie DNS. Istniejące znaczniki zostały zastąpione przez określona wartość.
 
 ```azurecli
 azure network dns zone set MyResourceGroup contoso.com -t "team=support"
@@ -136,13 +136,13 @@ azure network dns zone set MyResourceGroup contoso.com -t "team=support"
 Można usunąć strefy DNS przy użyciu `azure network dns zone delete`. Aby uzyskać pomoc, zobacz `azure network dns zone delete -h`.
 
 > [!NOTE]
-> Usunięcie strefy DNS powoduje usunięcie wszystkich rekordów DNS w strefie hello. Tej operacji nie można cofnąć. Strefa DNS hello jest używany, usługi przy użyciu strefy hello zakończy się niepowodzeniem po usunięciu hello strefy.
+> Usunięcie strefy DNS powoduje usunięcie wszystkich rekordów DNS w strefie. Tej operacji nie można cofnąć. Strefa DNS jest używana, usług za pomocą strefie zakończy się niepowodzeniem po usunięciu strefy.
 >
->Zobacz tooprotect przed usunięciem strefy przypadkowemu [jak tooprotect DNS strefy i rejestruje](dns-protect-zones-recordsets.md).
+>Aby chronić przed usunięciem strefy przypadkowe, zobacz [jak chronić strefy DNS i rekordy](dns-protect-zones-recordsets.md).
 
-To polecenie wyświetla monit o potwierdzenie. opcjonalne Hello `--quiet` przełącznika (forma krótka `-q`) pomija tego wiersza.
+To polecenie wyświetla monit o potwierdzenie. Opcjonalny `--quiet` przełącznika (forma krótka `-q`) powoduje pominięcie tego wiersza.
 
-Witaj poniższy przykład przedstawia sposób toodelete hello strefy *contoso.com* z grupy zasobów *MyResourceGroup*.
+Poniższy przykład przedstawia sposób usunięcia strefy *contoso.com* z grupy zasobów *MyResourceGroup*.
 
 ```azurecli
 azure network dns zone delete MyResourceGroup contoso.com
@@ -150,7 +150,7 @@ azure network dns zone delete MyResourceGroup contoso.com
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak za[zarządzać zestawów rekordów i rekordami](dns-getstarted-create-recordset-cli-nodejs.md) w strefie DNS.
+Dowiedz się, jak [zarządzać zestawów rekordów i rekordami](dns-getstarted-create-recordset-cli-nodejs.md) w strefie DNS.
 
-Dowiedz się, jak za[delegować tooAzure Twojego domeny DNS](dns-domain-delegation.md).
+Dowiedz się, jak [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd odwołanie do zestawu danych tooyour Azure czas serii Insights środowiska | Dokumentacja firmy Microsoft"
-description: "W tym samouczku Dodaj odwołanie do zestawu danych tooyour Insights serii czasu środowiska"
+title: "Dodawanie zestawu danych referencyjnych do środowiska usługi Azure Time Series Insights | Microsoft Docs"
+description: "W tym samouczku omówiono dodawanie zestawu danych referencyjnych do środowiska usługi Time Series Insights"
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -8,43 +8,43 @@ author: venkatgct
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 05e626ed81a22f2a8710b23a931ccd17c0f38ca5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 574f3c5b3a889733f47d729c795ec39009f2ef4a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-hello-ibiza-portal"></a>Tworzenie zestawu danych odwołania dla danego środowiska Insights serii czasu za pomocą portalu Ibiza hello
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>Tworzenie zestawu danych referencyjnych dla środowiska usługi Time Series Insights przy użyciu portalu Ibiza
 
-Odwołanie do zestawu danych jest kolekcją elementów, które zostały rozszerzone przy użyciu hello zdarzenia ze źródła zdarzenia. Aparat transferu danych przychodzących usługi Time Series Insights łączy zdarzenie ze źródła zdarzenia z elementem w zestawie danych referencyjnych. To rozszerzone zdarzenie jest następnie dostępne dla zapytania. Tego sprzężenia jest oparta na powitania kluczy zdefiniowane w zestawie danych odwołania.
+Zestaw danych referencyjnych jest kolekcją elementów, które zostały rozszerzone o zdarzenia ze źródła zdarzenia użytkownika. Aparat transferu danych przychodzących usługi Time Series Insights łączy zdarzenie ze źródła zdarzenia z elementem w zestawie danych referencyjnych. To rozszerzone zdarzenie jest następnie dostępne dla zapytania. To połączenie jest oparte na kluczach zdefiniowanych w zestawie danych referencyjnych.
 
-## <a name="steps-tooadd-a-reference-data-set-tooyour-environment"></a>Kroki tooadd środowisku tooyour odwołanie do zestawu danych
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>Kroki mające na celu dodanie zestawu danych referencyjnych do środowiska
 
-1. Zaloguj się toohello [portalu Ibiza](https://portal.azure.com).
-2. Kliknij przycisk "Wszystkie zasoby" hello menu po lewej stronie portalu Ibiza hello hello.
+1. Zaloguj się w [portalu Ibiza](https://portal.azure.com).
+2. W menu po lewej stronie w portalu Ibiza kliknij pozycję „Wszystkie zasoby”.
 3. Wybierz środowisko usługi Time Series Insights.
 
-    ![Utworzenie zestawu danych odwołania Insights serii czasu hello](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
+    ![Tworzenie zestawu danych referencyjnych usługi Time Series Insights](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
 
 4. Wybierz opcję „Zestawy danych referencyjnych”, kliknij przycisk „+ Dodaj”.
 
-    ![Utworzenie zestawu danych hello czasu serii Insights odwołanie - szczegóły](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
+    ![Tworzenie zestawu danych referencyjnych usługi Time Series Insights — szczegóły](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
-5. Określ nazwę zestawu danych odwołania hello hello.
-6. Określ nazwę klucza hello i jego typu. Ta nazwa i typ jest używane toopick hello prawidłowe właściwości ze zdarzenia hello w źródle zdarzeń. Na przykład jeśli podasz nazwę klucza jako "DeviceId" i typu "String" hello czasu Insights serii wejściowych aparat wyszukuje właściwości o nazwie hello "DeviceId" typu "String" hello zdarzenia przychodzącego. Musisz podać więcej niż jednego klucza toojoin ze zdarzeniem hello. Właściwość Hello musi odpowiadać nazwie jest rozróżniana wielkość liter.
+5. Określ nazwę zestawu danych referencyjnych.
+6. Określ nazwę klucza i jego typ. Ta nazwa i typ są używane do pobierania odpowiedniej właściwości ze zdarzenia w źródle zdarzenia. Na przykład, jeśli jako nazwę klucza podasz „DeviceId”, a typ określisz jako „String”, aparat transferu danych przychodzących usługi Time Series Insights będzie szukać w przychodzącym zdarzeniu właściwości o nazwie „DeviceId” i typie „String”. Na potrzeby połączenia ze zdarzeniem można określić więcej niż jeden klucz. W nazwie właściwości rozróżniana jest wielkość liter.
 
-     ![Utworzenie zestawu danych hello czasu serii Insights odwołanie - szczegóły](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
+     ![Tworzenie zestawu danych referencyjnych usługi Time Series Insights — szczegóły](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
 
 7. Kliknij przycisk „Utwórz”.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Zarządzanie danymi referencyjnymi](time-series-insights-manage-reference-data-csharp.md) na drodze programowej.
-* Aby hello pełną dokumentację interfejsu API, zobacz [odwołania API danych](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) dokumentu.
+* Aby uzyskać pełną dokumentację interfejsu API, zobacz dokument [Interfejs API danych referencyjnych](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).

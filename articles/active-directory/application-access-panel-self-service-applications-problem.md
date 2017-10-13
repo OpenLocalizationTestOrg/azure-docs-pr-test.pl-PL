@@ -1,6 +1,6 @@
 ---
-title: "za pomocą dostępu do aplikacji Sklep internetowy aaaProblem | Dokumentacja firmy Microsoft"
-description: "Rozwiązywanie problemów z dostępem powiązanych aplikacji usługi tooself problemów"
+title: "Problem za pomocą dostępu do aplikacji Sklep internetowy | Dokumentacja firmy Microsoft"
+description: "Rozwiązywanie problemów związanych z dostępem do aplikacji Sklep internetowy do"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,74 +14,74 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 2487be1df191a4e7fd0bcc0ebbe4ea62fae0fd5d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 217726709a1fdb02275de5a76a1352ea9c350600
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="problem-using-self-service-application-access"></a>Problem za pomocą dostępu do aplikacji Sklep internetowy
 
-Dostęp do aplikacji Sklep internetowy jest doskonałym sposobem tooallow użytkowników tooself — odnajdywanie aplikacji, opcjonalnie zezwolić na dostęp tooapprove grupy biznesowej hello toothose aplikacji. Możesz zezwolić hello biznesowa grupy toomanage hello poświadczeń przypisanych użytkowników toothose jednokrotnego hasła w aplikacji bezpośrednio w ich panele dostępu.
+Dostęp do aplikacji Sklep internetowy jest to dobry sposób, aby zezwolić użytkownikom na własnym odnajdywanie aplikacji, opcjonalnie zezwolić grupie biznesowej, aby zatwierdzić dostęp do tych aplikacji. Możesz zezwolić grupie biznesowej do zarządzania poświadczeniami przypisane do tych użytkowników do prawej jednokrotnego hasła w aplikacji z ich paneli dostępu.
 
-Zanim użytkownicy mogą odnajdować własnym aplikacji z ich panel dostępu, należy tooenable **dostęp do aplikacji Sklep internetowy** tooany aplikacji, że chcesz tooself użytkowników tooallow — odnajdywania i zażądać dostępu do.
+Zanim użytkownicy mogą odnajdować własnym aplikacji z ich panel dostępu, należy włączyć **dostęp do aplikacji Sklep internetowy** do dowolnych aplikacji, które chcesz zezwolić użytkownikom na własnym odnajdywania i żądania dostępu do.
 
-## <a name="general-issues-toocheck-first"></a>Ogólne problemy toocheck najpierw
+## <a name="general-issues-to-check-first"></a>Ogólne problemy, aby sprawdzić w pierwszej kolejności
 
--   Upewnij się, że poprawnie skonfigurowano dostęp do aplikacji Sklep internetowy. Zobacz "Jak tooconfigure samoobsługi aplikacji dostępu".
+-   Upewnij się, że poprawnie skonfigurowano dostęp do aplikacji Sklep internetowy. Zobacz sekcję "Jak skonfigurować dostęp do aplikacji Sklep internetowy".
 
--   Upewnij się, że została hello użytkownikowi lub grupie dostęp do aplikacji Sklep internetowy toorequest włączone.
+-   Upewnij się, że włączono użytkownika lub grupy, aby zażądać dostępu do aplikacji Sklep internetowy.
 
--   Upewnij się, że hello odwiedzania hello odpowiednie miejsce dostępu do aplikacji Sklep internetowy. Użytkownicy mogą przechodzić tootheir [panelu dostępu aplikacji](https://myapps.microsoft.com/) i kliknij przycisk hello **+ Dodaj** przycisk toofind hello aplikacji toowhich włączono samoobsługi dostępu.
+-   Upewnij się, że użytkownik jest odwiedzający odpowiednie miejsce dostępu do aplikacji Sklep internetowy. Użytkownicy mogą przechodzić do ich [panelu dostępu aplikacji](https://myapps.microsoft.com/) i kliknij przycisk **+ Dodaj** przycisk, aby znaleźć aplikacji, dla których włączono samoobsługi dostępu.
 
--   Jeśli dostęp do aplikacji Sklep internetowy niedawno został skonfigurowany, ponów toosign i wylogowywanie do panelu dostępu użytkownika hello po kilku minutach toosee Jeśli pojawiły hello zmian samoobsługi dostępu.
+-   Jeśli dostęp do aplikacji Sklep internetowy niedawno została skonfigurowana, spróbuj logowanie i wylogowywanie ponownie do panelu dostępu użytkownika po kilku minutach się jeśli zmian dostępu samoobsługi pojawiły się w temacie.
 
-## <a name="how-tooconfigure-self-service-application-access"></a>Jak uzyskać dostęp do aplikacji Sklep internetowy tooconfigure
+## <a name="how-to-configure-self-service-application-access"></a>Jak skonfigurować dostęp do aplikacji Sklep internetowy
 
-tooenable samoobsługi aplikacji dostępu tooan aplikacji, wykonaj poniższe kroki hello:
+Aby włączyć samoobsługowe aplikacji dostęp do aplikacji, wykonaj następujące czynności:
 
-1.  Otwórz hello [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz hello **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie powitania hello.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
 
-3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr hello a wybierz hello **usługi Azure Active Directory** elementu.
+3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
-4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie powitania w usłudze Azure Active Directory.
+4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** w menu nawigacji po lewej stronie usługi Azure Active Directory.
 
-5.  Kliknij przycisk **wszystkie aplikacje** tooview listę wszystkich aplikacji.
+5.  Kliknij przycisk **wszystkie aplikacje** Aby wyświetlić listę wszystkich aplikacji.
 
-  * Jeśli nie ma aplikacji hello mają być wyświetlane tutaj, użyj hello **filtru** kontroli u góry hello hello **listę wszystkich aplikacji** i zestaw hello **Pokaż** opcję zbyt **Wszystkie aplikacje.**
+  * Jeśli nie ma aplikacji ma tutaj będą wyświetlane, użyj **filtru** kontroli nad **listę wszystkich aplikacji** i ustaw **Pokaż** opcji w celu **wszystkich aplikacji.**
 
-6.  Wybierz aplikację hello tooenable samoobsługi dostępu toofrom hello listy.
+6.  Wybierz aplikację, aby umożliwić samoobsługi dostęp do z listy.
 
-7.  Po załadowaniu aplikacji hello, kliknij przycisk **samoobsługi** z menu nawigacji po lewej stronie powitania aplikacji.
+7.  Po załadowaniu aplikacji, kliknij przycisk **samoobsługi** z menu nawigacji po lewej stronie aplikacji.
 
-8.  tooenable dostęp do aplikacji Sklep internetowy dla tej aplikacji, Włącz hello **użytkownicy aplikacji toothis dostępu toorequest?** Przełącz zbyt**tak.**
+8.  Aby włączyć dostęp do aplikacji Sklep internetowy dla tej aplikacji, należy włączyć **Zezwalaj użytkownikom na żądanie dostępu do tej aplikacji?** Przełącz, aby **tak.**
 
-9.  Następnie tooselect hello grupy toowhich użytkowników, którzy żądają dostępu do aplikacji toothis powinny zostać dodane, kliknij przycisk Dalej etykiety toohello hello selektora **toowhich grupy należy przypisać użytkownicy dodani?** i wybierz grupę.
+9.  Następnie wybierz grupę, do których użytkownicy, którzy żądają dostępu do tej aplikacji można dodać, kliknij przycisk wyboru obok etykiety **do grupy, do której ma zostać dodany przypisanych użytkowników?** i wybierz grupę.
 
-10. **Opcjonalnie:** w razie potrzeby toorequire zatwierdzenia firm przed użytkownicy mogą uzyskiwać dostęp, należy ustawić hello **wymagają zatwierdzenia przed udzieleniem im dostępu do aplikacji toothis?** Przełącz zbyt**tak**.
+10. **Opcjonalnie:** aby wymagają zatwierdzenia biznesowych, przed użytkownicy mają dostęp, ustaw **wymagają zatwierdzenia przed udzieleniem im dostępu do tej aplikacji?** Przełącz, aby **tak**.
 
-11. **Opcjonalnie: dla aplikacji za pomocą hasła jednokrotnego na tylko** w razie potrzeby tooallow tych firm osób zatwierdzających toospecify hello haseł, które są wysyłane toothis aplikacji dla zatwierdzonych użytkowników ustawić hello **tooset osób zatwierdzających Zezwalaj hasła użytkownika dla tej aplikacji?**  Przełącz zbyt**tak**.
+11. **Opcjonalnie: dla aplikacji za pomocą hasła jednokrotnego na tylko** Jeśli chcesz umożliwić tych osób zatwierdzających firm określić hasła, które są wysyłane do tej aplikacji dla zatwierdzonych użytkowników, ustawić **Zezwalaj osób zatwierdzających można ustawić hasła użytkownika dla tej aplikacji?** Przełącz, aby **tak**.
 
-12. **Opcjonalnie:** toospecify hello biznesowe osoby zatwierdzające mogą tooapprove dostępu toothis aplikacji, kliknij przycisk Dalej etykiety toohello hello selektora **użytkowników, którzy mają tooapprove dostępu toothis aplikacji?** tooselect w górę too10 biznesowe poszczególnych osób zatwierdzających.
+12. **Opcjonalnie:** do określenia osób zatwierdzających biznesowych, którzy mogą zatwierdzić dostęp do tej aplikacji, kliknij przycisk wyboru obok etykiety **kto może zatwierdzić dostęp do tej aplikacji?** wybrać maksymalnie 10 firm poszczególnych osób zatwierdzających.
 
  >[!NOTE]
  > Grupy nie są obsługiwane.
  >
  >
 
-13. **Opcjonalnie:** **dla aplikacji, które ujawnia ról**, jeśli chcesz, aby tooassign roli tooa zatwierdzonych użytkowników samoobsługi, kliknij przycisk Dalej toohello selektora hello **toowhich roli należy przypisać użytkowników na tym aplikacji?**  tooselect hello roli toowhich powinien być przypisany tych użytkowników.
+13. **Opcjonalnie:** **dla aplikacji, które ujawnia ról**, jeśli chcesz przypisać do roli użytkowników samoobsługi zatwierdzone, kliknij selektor **do roli należy użytkowników można przypisać w tej aplikacji?** wybierz rolę, do której można przypisać tych użytkowników.
 
-14. Kliknij przycisk hello **zapisać** przycisk u góry hello hello toofinish bloku.
+14. Kliknij przycisk **zapisać** na górze bloku, aby zakończyć.
 
-Po zakończeniu konfiguracji samoobsługi aplikacji, użytkownicy mogą przechodzić tootheir [panelu dostępu aplikacji](https://myapps.microsoft.com/) i kliknij przycisk hello **+ Dodaj** przycisk toofind hello aplikacji toowhich włączono Dostęp z samoobsługi. Osób zatwierdzających firm również wyświetlone powiadomienie w ich [panelu dostępu aplikacji](https://myapps.microsoft.com/). Można włączyć wiadomość e-mail z informacją, gdy użytkownik zażąda dostępu tooan aplikację, która wymaga zatwierdzenia. 
+Po zakończeniu konfiguracji samoobsługi aplikacji, użytkownicy mogą przechodzić do ich [panelu dostępu aplikacji](https://myapps.microsoft.com/) i kliknij przycisk **+ Dodaj** przycisk, aby znaleźć aplikacji, dla których włączono samoobsługi dostępu. Osób zatwierdzających firm również wyświetlone powiadomienie w ich [panelu dostępu aplikacji](https://myapps.microsoft.com/). Można włączyć wiadomość e-mail z informacją, gdy użytkownik żąda dostępu do aplikacji, która wymaga zatwierdzenia. 
 
-Te zatwierdzenia obsługuje pojedynczy przepływów pracy, co oznacza, że możesz określić wiele osób zatwierdzających, wszelkie jedna osoba zatwierdzająca może zatwierdzić dostęp toohello aplikacji.
+Te zatwierdzenia obsługuje pojedynczy przepływów pracy, co oznacza, że jeśli określisz wiele osób zatwierdzających żadnych jedna osoba zatwierdzająca może zatwierdzić dostęp do aplikacji.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-hello-issue"></a>Jeśli te kroki rozwiązywania problemów nie rozwiąże problemu hello 
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Jeśli te kroki rozwiązywania problemów nie rozwiąże problemu 
 
-Otwórz bilet pomocy technicznej z następujących informacji, jeśli jest dostępna hello:
+Otwórz bilet pomocy technicznej następujące informacje, jeśli są dostępne:
 
 -   Identyfikator błędu korelacji
 

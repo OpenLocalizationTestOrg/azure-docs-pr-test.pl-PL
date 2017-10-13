@@ -1,6 +1,6 @@
 ---
-title: "aaaAbout urządzenia sieci VPN między lokalizacjami połączenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "W tym artykule omówiono urządzenia sieci VPN i parametry protokołu IPsec dla połączeń obejmujących wiele lokalizacji usługi S2S VPN Gateway. Tooconfiguration instrukcje i przykłady zostały podane linki."
+title: "Informacje na temat urządzeń sieci VPN | Microsoft Docs"
+description: "W tym artykule omówiono urządzenia sieci VPN i parametry protokołu IPsec dla połączeń obejmujących wiele lokalizacji usługi S2S VPN Gateway. Zamieszczono linki do przykładów i instrukcji konfigurowania."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,27 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
-ms.openlocfilehash: 8b84afbf93d807342ecd56ab369d5909a13343e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7b7e5f0f089cc87c9e63eee1fd3d29b7a2c0d49f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Informacje na temat urządzeń sieci VPN i parametrów protokołu IPsec/IKE dla połączeń bramy VPN typu lokacja-lokacja
 
-Urządzenia sieci VPN jest wymagane tooconfigure połączenia sieci VPN między lokalizacjami lokacja-lokacja (S2S) przy użyciu bramy sieci VPN. Połączenia lokacja-lokacja może być używane toocreate hybrydowego lub w dowolnym momencie bezpiecznych połączeń między sieci lokalnej i sieci wirtualne. Ten artykuł zawiera listę zweryfikowanych urządzeń sieci VPN oraz listę parametrów protokołu IPsec/IKE dla bram sieci VPN.
+Urządzenie sieci VPN jest niezbędne do skonfigurowania połączenia sieci VPN typu lokacja-lokacja obejmującego wiele lokalizacji (S2S) przy użyciu bramy sieci VPN. Połączeń typu lokacja-lokacja można używać do tworzenia rozwiązań hybrydowych oraz bezpiecznych połączeń między sieciami lokalnymi i wirtualnymi. Ten artykuł zawiera listę zweryfikowanych urządzeń sieci VPN oraz listę parametrów protokołu IPsec/IKE dla bram sieci VPN.
 
 > [!IMPORTANT]
-> Jeśli występują problemy z połączeniem między lokalnymi urządzeniami sieci VPN i bramy sieci VPN, należy zapoznać się zbyt[znane problemy ze zgodnością urządzenia](#known).
->
+> Jeśli występują problemy z połączeniem między lokalnymi urządzeniami sieci VPN i bramami sieci VPN, zapoznaj się z sekcją [Znane problemy dotyczące zgodności urządzeń](#known).
 >
 
-### <a name="items-toonote-when-viewing-hello-tables"></a>Elementy toonote podczas wyświetlania hello tabel:
+### <a name="items-to-note-when-viewing-the-tables"></a>Kwestie, które należy wziąć pod uwagę podczas przeglądania tabeli:
 
-* Nastąpiła zmiana terminologii w zakresie bram Azure VPN Gateway. Tylko hello nazwy zostały zmienione. Nie nastąpiła żadna zmiana funkcjonalności.
+* Nastąpiła zmiana terminologii w zakresie bram Azure VPN Gateway. Zmianie uległy tylko nazwy. Nie nastąpiła żadna zmiana funkcjonalności.
   * Routing statyczny = PolicyBased
   * Routing dynamiczny = RouteBased
-* Specyfikacje dla bramy sieci VPN wysokowydajną i Brama sieci VPN z siecią typu RouteBased hello są takie same, chyba że określono inaczej. Na przykład urządzenia sieci VPN hello zweryfikowane, zgodnych z bramy sieci VPN z siecią typu RouteBased również są zgodne z hello bramy sieci VPN wysokowydajnej.
+* Specyfikacje dotyczące bramy VPN typu HighPerformance i bramy VPN typu RouteBased są takie same, o ile nie określono inaczej. Na przykład zweryfikowane urządzenia sieci VPN, które są zgodne z bramami sieci VPN typu RouteBased, są również zgodne z bramą sieci VPN typu HighPerformance.
 
 ## <a name="devicetable"></a>Zweryfikowane urządzenia sieci VPN i przewodniki konfiguracji urządzenia
 
@@ -43,9 +42,9 @@ Urządzenia sieci VPN jest wymagane tooconfigure połączenia sieci VPN między 
 > Podczas konfigurowania połączenia typu lokacja-lokacja wymagane jest użycie publicznego adresu IPv4 dla urządzenia sieci VPN.
 >
 
-We współpracy z dostawcami urządzeń zweryfikowaliśmy szereg standardowych urządzeń sieci VPN. Wszystkie urządzenia hello w hello rodziny urządzeń w następującej listy hello powinien współpracować z bramy sieci VPN. Zobacz [o ustawienia bramy sieci VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype) na użytek (PolicyBased lub RouteBased) hello rozwiązanie bramy sieci VPN, ma tooconfigure wpisz hello toounderstand sieci VPN.
+We współpracy z dostawcami urządzeń zweryfikowaliśmy szereg standardowych urządzeń sieci VPN. Wszystkie urządzenia z rodzin znajdujących się na poniższej liście powinny współpracować z bramami sieci VPN. Zobacz [Informacje na temat ustawień usługi VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype), aby poznać zasady użycia typu sieci VPN (PolicyBased lub RouteBased) dla rozwiązania usługi VPN Gateway, które chcesz skonfigurować.
 
-toohelp skonfigurować urządzenie sieci VPN, zapoznaj się toohello łącza, które odpowiadają tooappropriate rodziny. Witaj łącza tooconfiguration instrukcje znajdują się w sposób optymalny. W celu uzyskania pomocy technicznej w zakresie urządzenia sieci VPN należy skontaktować się z jego producentem.
+Aby łatwiej skonfigurować urządzenie sieci VPN, zapoznaj się z linkami odpowiadającymi ich poszczególnym rodzinom. Linki do instrukcji konfiguracji zostały podane na zasadzie największej staranności. W celu uzyskania pomocy technicznej w zakresie urządzenia sieci VPN należy skontaktować się z jego producentem.
 
 |**Dostawca**          |**Rodzina urządzeń**     |**Minimalna wersja systemu operacyjnego** |**Instrukcje dotyczące konfiguracji typu PolicyBased** |**Instrukcje dotyczące konfiguracji typu RouteBased** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -55,9 +54,9 @@ toohelp skonfigurować urządzenie sieci VPN, zapoznaj się toohello łącza, kt
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall z serii X |Barracuda Firewall 6.5 |[Przewodnik po konfiguracji](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Niezgodne |
 | Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[Przewodnik po konfiguracji](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Niezgodne |
 | Check Point |Security Gateway |R77.30 |[Przewodnik po konfiguracji](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Przewodnik po konfiguracji](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco              |ASA       |8.3 |[Przykłady konfiguracji](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Niezgodne |
+| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Przykłady konfiguracji](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Przewodnik po konfiguracji*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Przykłady konfiguracji](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Przykłady konfiguracji](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Przykłady konfiguracji](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Przykłady konfiguracji*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Przykłady konfiguracji](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Przykłady konfiguracji**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 lub nowsze |[Przewodnik po konfiguracji](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Niezgodne |
 | F5 |Seria BIG-IP |12.0 |[Przewodnik po konfiguracji](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Przewodnik po konfiguracji](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |  |[Przewodnik po konfiguracji](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
@@ -68,25 +67,28 @@ toohelp skonfigurować urządzenie sieci VPN, zapoznaj się toohello łącza, kt
 | Juniper |SSG |ScreenOS 6.2 |[Przykłady konfiguracji](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Przykłady konfiguracji](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |Routing and Remote Access Service |Windows Server 2012 |Niezgodne |[Przykłady konfiguracji](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG |Mission Control Security Gateway |Nie dotyczy |[Przewodnik po konfiguracji](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Niezgodne |
-| Openswan |Openswan |2.6.32 |(Wkrótce) |Niezgodne |
 | Palo Alto Networks |Wszystkie urządzenia z systemem PAN-OS |PAN-OS<br>PolicyBased: wersja 6.1.5 lub nowsza<br>RouteBased: 7.1.4 |[Przewodnik po konfiguracji](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Przewodnik po konfiguracji](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| SonicWall |Seria TZ, seria NSA<br>Seria SuperMassive<br>Seria E-Class NSA |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[Przewodnik po konfiguracji dla platformy SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Przewodnik po konfiguracji dla platformy SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Przewodnik po konfiguracji dla platformy SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[Przewodnik po konfiguracji dla platformy SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
+| SonicWall |Seria TZ, seria NSA<br>Seria SuperMassive<br>Seria E-Class NSA |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Nieobsługiwane|[Przewodnik po konfiguracji](https://www.sonicwall.com/en-us/support/knowledge-base/170505320011694) |
 | WatchGuard |Wszystkie |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Przewodnik po konfiguracji](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Przewodnik po konfiguracji](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
-(*) Routery z serii ISR 7200 obsługują tylko sieci VPN typu PolicyBased.
+> [!NOTE]
+>
+> (*) Produkt Cisco ASA w wersji 8.4 i nowszych ma obsługę protokołu IKEv2 i może łączyć się z bramą Azure VPN Gateway za pomocą zasad IPsec/IKE z opcją „UsePolicyBasedTrafficSelectors”. Zapoznaj się z tym [artykułem z instrukcjami](vpn-gateway-connect-multiple-policybased-rm-ps.md).
+>
+> (**) Routery z serii ISR 7200 obsługują tylko sieci VPN oparte na zasadach.
 
 ## <a name="additionaldevices"></a>Niezweryfikowane urządzenia sieci VPN
 
-Jeśli nie widzisz urządzenia wymienione w tabeli urządzenia VPN zweryfikowane hello urządzenia mogą pracować z połączenia lokacja-lokacja. Dodatkową pomoc oraz instrukcje dotyczące konfiguracji można uzyskać, kontaktując się z producentem urządzenia.
+Jeśli urządzenie nie zostało ujęte w tabeli zweryfikowanych urządzeń sieci VPN, być może będzie działało w ramach połączenia typu lokacja-lokacja. Dodatkową pomoc oraz instrukcje dotyczące konfiguracji można uzyskać, kontaktując się z producentem urządzenia.
 
 ## <a name="editing"></a>Edytowanie przykładów konfiguracji urządzenia
 
-Po pobraniu próbki konfiguracji urządzenia sieci VPN hello pod warunkiem, będą potrzebne tooreplace niektóre hello wartości tooreflect hello ustawienia do środowiska.
+Po pobraniu dostarczonej przykładowej konfiguracji urządzenia sieci VPN należy zastąpić niektóre z wartości w celu odzwierciedlenia ustawień własnego środowiska.
 
-### <a name="tooedit-a-sample"></a>tooedit próbki:
+### <a name="to-edit-a-sample"></a>Aby edytować przykładową konfigurację:
 
-1. Przykład Witaj Otwórz za pomocą Notatnika.
-2. Wyszukaj i Zamień wszystkie <*tekst*> ciągów o wartości hello, które odnoszą się tooyour środowiska. Należy się tooinclude < i >. Jeśli określono nazwę, nazwę hello, którą wybierzesz powinny być unikatowe. Jeśli polecenie nie działa, zapoznaj się z dokumentacją producenta urządzenia.
+1. Otwórz przykładową konfigurację za pomocą Notatnika.
+2. Wyszukaj i zamień wszystkie ciągi <*text*> z wartościami, które odnoszą się do używanego środowiska. Nie zapomnij o nawiasach < i >. Podczas określenia nazwy należy zwrócić uwagę na to, aby była ona unikatowa. Jeśli polecenie nie działa, zapoznaj się z dokumentacją producenta urządzenia.
 
 | **Przykładowy tekst** | **Zmień na** |
 | --- | --- |
@@ -99,17 +101,18 @@ Po pobraniu próbki konfiguracji urządzenia sieci VPN hello pod warunkiem, będ
 | &lt;SP_AzureNetworkSubnetMask&gt; |Określ maskę podsieci. Przykład: 255.255.0.0 |
 | &lt;SP_OnPremisesNetworkIpRange&gt; |Określ zakres lokalny. Przykład: 10.2.1.0 |
 | &lt;SP_OnPremisesNetworkSubnetMask&gt; |Określ lokalną maskę podsieci. Przykład: 255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |Ta sieć wirtualna tooyour określonych informacji i znajduje się w portalu zarządzania hello jako **adresu IP bramy**. |
-| &lt;SP_PresharedKey&gt; |Te informacje są tooyour określonej sieci wirtualnej i znajduje się w hello portalu zarządzania, jak zarządzać klucza. |
+| &lt;SP_AzureGatewayIpAddress&gt; |Te informacje dotyczące konkretnej sieci wirtualnej znajdują się w portalu zarządzania usługą, w obszarze **Adres IP bramy**. |
+| &lt;SP_PresharedKey&gt; |Te informacje dotyczące konkretnej sieci wirtualnej znajdują się w portalu zarządzania usługą, w obszarze Zarządzaj kluczem. |
 
 ## <a name="ipsec"></a>Parametry protokołu IPsec/IKE
 
-> [!NOTE]
-> Chociaż wartości hello wymienione w poniższej tabeli hello obecnie są obsługiwane przez bramę sieci VPN hello, nie jest brak mechanizm toospecify, lub wybierz określona kombinacja parametrów lub algorytmów z hello bramy sieci VPN. Należy określić wszystkie ograniczenia z hello lokalnego urządzenia sieci VPN. Ponadto należy określić ograniczenie wartości **MSS** wynoszące **1350**.
-> 
+> [!IMPORTANT]
+> 1. Tabele poniżej zawierają kombinacje algorytmów i parametrów używanych przez bramy Azure VPN Gateway w konfiguracji domyślnej. W przypadku bram VPN Gateway opartych na trasach, utworzonych za pomocą modelu wdrażania z użyciem zarządzania zasobami platformy Azure, można określić niestandardowe zasady dla każdego pojedynczego połączenia. Zapoznaj się z artykułem [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Konfigurowanie zasad IPsec/IKE) w celu uzyskania szczegółowych instrukcji.
+>
+> 2. Dodatkowo musisz określić ograniczenie wartości TCP **MSS** na **1350**. Jeśli natomiast Twoje urządzenia sieci VPN nie obsługują ograniczania wartości MSS, możesz zamiast tego ustawić wartość **MTU** w interfejsie tunelu na **1400**.
 >
 
-W hello następujących tabel:
+W poniższych tabelach:
 
 * SA — skojarzenia zabezpieczeń
 * Protokół IKE — faza 1 jest również określany jako „Tryb główny”
@@ -139,7 +142,7 @@ W hello następujących tabel:
 
 ### <a name ="RouteBasedOffers"></a>Oferty skojarzeń zabezpieczeń protokołu IPsec połączenia VPN typu RouteBased (skojarzenia zabezpieczeń trybu szybkiego protokołu IKE)
 
-Witaj poniższej tabeli wymieniono oferty skojarzeń zabezpieczeń IPsec (trybu szybkiego IKE). Oferty są wymienione hello kolejności preferencji tej oferty hello jest przedstawiony lub akceptowane.
+W poniższej tabeli znajduje się lista ofert skojarzeń zabezpieczeń protokołu IPsec (tryb szybki protokołu IKE). Oferty są wymienione w kolejności preferencji, w jakiej oferta jest przedstawiona lub zaakceptowana.
 
 #### <a name="azure-gateway-as-initiator"></a>Brama Azure jako inicjator
 
@@ -183,20 +186,20 @@ Witaj poniższej tabeli wymieniono oferty skojarzeń zabezpieczeń IPsec (trybu 
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* Wartość NULL szyfrowania ESP protokołu IPsec możesz określić z bramami sieci VPN typu RouteBased i HighPerformance. Szyfrowanie oparte na wartości null nie zapewnia ochrony toodata podczas przesyłania i należy używać tylko w przypadku maksymalną przepustowość i minimum opóźnienie jest wymagana. Klienci mogą wybrać toouse to w scenariuszach komunikacji do wirtualnymi i podczas szyfrowania jest stosowana w innym miejscu w rozwiązaniu hello.
-* Dla łączności między lokalizacjami za pośrednictwem hello Internet za pomocą ustawienia bramy sieci VPN platformy Azure domyślnej hello szyfrowania i algorytmów wyznaczania wartości skrótu wymienionych w tabelach hello powyżej tooensure zabezpieczeń, krytyczne komunikacji.
+* Wartość NULL szyfrowania ESP protokołu IPsec możesz określić z bramami sieci VPN typu RouteBased i HighPerformance. Szyfrowanie oparte na wartości null nie zapewnia ochrony danych w trakcie ich przesyłania i powinno być używane wyłącznie w przypadku, gdy wymagana jest maksymalna przepływność i minimalne opóźnienia. Klienci mogą skorzystać z tej możliwości w kontekście scenariuszy komunikacji między sieciami wirtualnymi lub w przypadku, gdy szyfrowanie jest stosowane w innym obszarze rozwiązania.
+* Chcąc korzystać z łączności przez Internet obejmującej wiele lokalizacji, należy użyć ustawień domyślnych usługi Azure VPN Gateway z szyfrowaniem i algorytmami skrótu wymienionymi w tabelach powyżej w celu zapewnienia bezpieczeństwa komunikacji o krytycznym znaczeniu.
 
 ## <a name="known"></a>Znane problemy dotyczące zgodności urządzeń
 
 > [!IMPORTANT]
-> Są one hello znane problemy ze zgodnością między urządzeniami sieci VPN innych firm i bram sieci VPN platformy Azure. Hello Azure zespołu jest aktywnie z dostawcami hello tooaddress hello problemy wymienione w tym miejscu. Po hello problemy zostaną rozwiązane, ta strona będzie aktualizowana hello najbardziej aktualne informacje. Sprawdzaj ją okresowo.
+> Opisano tu znane problemy ze zgodnością między urządzeniami sieci VPN innych firm i bramami sieci VPN platformy Azure. Zespołu platformy Azure aktywnie współpracuje z dostawcami w celu rozwiązania opisanych poniżej problemów. Po rozwiązaniu problemów ta strona zostanie zaktualizowana o najbardziej aktualne informacje. Sprawdzaj ją okresowo.
 >
 >
 
 ### <a name="feb-16-2017"></a>16 lutego 2017 r.
 
-**Urządzenia sieci Palo Alto z too7.1.4 wcześniejszych wersji** dla platformy Azure sieci VPN opartej na trasach: Jeśli za pomocą urządzenia sieci VPN z sieci Palo Alto too7.1.4 wcześniejszych wersji systemu operacyjnego PRZESUWANIE i występują łączności wystawia tooAzure bramy sieci VPN opartej na trasach wykonaj następujące kroki hello:
+**Urządzenia Palo Alto Networks z systemem w wersjach wcześniejszych niż 7.1.4** w przypadku sieci VPN na platformie Azure opartych na trasie: Jeśli korzystasz z urządzeń VPN firmy Palo Alto Networks z systemem PAN-OS w wersji wcześniejszej niż 7.1.4 i napotykasz problemy z połączeniem z bramami sieci VPN platformy Azure opartymi na trasie, wykonaj następujące czynności:
 
-1. Sprawdź wersję oprogramowania układowego hello urządzenia Palo Alto sieci. Jeśli danej wersji systemu operacyjnego PRZESUWANIE jest starsza niż 7.1.4, Uaktualnij too7.1.4.
-2. Na urządzeniu sieci Palo Alto hello, zmień hello Faza 2 SA (lub skojarzenia zabezpieczeń trybu szybkiego) too28 okres istnienia, 800 sekund (8 godzin) podczas łączenia toohello bramy sieci VPN platformy Azure.
-3. Jeśli nadal występują problemy z łącznością, należy otworzyć żądania obsługi z hello portalu Azure.
+1. Sprawdź wersję oprogramowania układowego urządzenia Palo Alto Networks. Jeśli system PAN-OS jest w wersji wcześniejszej niż 7.1.4, przeprowadź uaktualnienie do wersji 7.1.4.
+2. Na urządzeniu Palo Alto Networks zmień okres istnienia Phase 2 SA (lub Quick Mode SA) na 28 800 sekund (8 godzin) podczas nawiązywania połączenia z bramą VPN platformy Azure.
+3. Jeśli nadal masz problemy z łącznością, otwórz żądanie obsługi w witrynie Azure Portal.

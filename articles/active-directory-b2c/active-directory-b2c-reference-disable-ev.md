@@ -1,6 +1,6 @@
 ---
 title: "Usługi Azure Active Directory B2C: Weryfikacja adresu E-mail, podczas tworzenia konta użytkownika wyłączyć | Dokumentacja firmy Microsoft"
-description: "Temat prezentacja jak toodisable e-mail weryfikacji podczas tworzenia konta w usłudze Azure Active Directory B2C konsumenta"
+description: "Temat pokazująca, jak wyłączyć Weryfikacja adresu e-mail, podczas tworzenia konta w usłudze Azure Active Directory B2C konsumenta"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
-ms.openlocfilehash: a8a42eddcb577725f04d70e1b1ebbebf10b5937c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d8e44a8aade60d21734477d60bccc2bd5194436e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Usługa Azure Active Directory B2C: Weryfikacja adresu e-mail Wyłącz podczas tworzenia konta użytkownika
-Po włączeniu usługi Azure Active Directory (Azure AD) B2C umożliwia a konsumenta hello toosign możliwości dla aplikacji, zapewniając adres e-mail i tworzenia konta lokalnego. Usługa Azure AD B2C zapewnia prawidłowe adresy e-mail, wymagając tooverify konsumentów ich podczas procesu tworzenia konta hello. Również uniemożliwia złośliwego zautomatyzowany proces generowania fałszywych kont dla aplikacji hello.
+Po włączeniu usługi Azure Active Directory (Azure AD) B2C umożliwia konsumenta zalogowania się do aplikacji, zapewniając adres e-mail i tworzenia konta lokalnego. Usługa Azure AD B2C zapewnia prawidłowe adresy e-mail, wymagając od użytkowników w celu weryfikacji w procesie rejestracji. Również uniemożliwia złośliwego zautomatyzowany proces generowania fałszywych kont dla aplikacji.
 
-Niektórzy deweloperzy aplikacji preferowane jest Weryfikacja adresu e-mail tooskip podczas procesu tworzenia konta hello i zamiast tego ma użytkowników weryfikacji adresu e-mail hello później. toosupport to usługi Azure AD B2C może być skonfigurowany toodisable Weryfikacja adresu e-mail. Należy utworzyć płynniejszy procesu tworzenia konta i zapewnia deweloperom hello elastyczność toodifferentiate hello konsumentów, które sprawdzeniu swój adres e-mail z tych klientów, które nie mają.
+Niektórzy deweloperzy aplikacji preferowane może pominąć weryfikacji wiadomości e-mail w procesie rejestracji, a zamiast tego konsumentów później zweryfikować adres e-mail. Aby to obsłużyć, można skonfigurować usługi Azure AD B2C wyłączyć Weryfikacja adresu e-mail. Należy utworzyć płynniejszy procesu tworzenia konta i zapewnia elastyczność do odróżnienia konsumentów, które sprawdzeniu swój adres e-mail z tych klientów, które nie mają.
 
-Zasady rejestracji mają domyślnie włączona Weryfikacja adresu e-mail. Użyj hello następujące kroki tooturn go wyłączyć:
+Zasady rejestracji mają domyślnie włączona Weryfikacja adresu e-mail. Aby ją wyłączyć, wykonaj następujące kroki:
 
-1. [Wykonaj te bloku funkcji toohello B2C toonavigate kroki na powitania portalu Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+1. [Wykonaj następujące kroki, aby przejść do bloku funkcji B2C w portalu Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 2. Kliknij przycisk **zasady rejestracji** lub **zasad rejestracji i logowania** w zależności od konfiguracji dla rejestracji.
-3. Kliknij przycisk tooopen Twojego zasady (na przykład "B2C_1_SiUp") go. Kliknij przycisk **Edytuj** u góry bloku hello hello.
+3. Kliknij zasady (na przykład "B2C_1_SiUp"), aby go otworzyć. Kliknij przycisk **Edytuj** w górnej części bloku.
 4. Kliknij przycisk **dostosowywania interfejsu użytkownika strony**.
 5. Kliknij przycisk **stronę tworzenia konta lokalnego konta**.
-6. Kliknij przycisk **adres E-mail** w hello **nazwa** kolumnie hello **atrybuty rejestracji** sekcji.
-7. Przełącz hello **Żądaj weryfikacji** opcję zbyt**nr**.
-8. Kliknij przycisk **OK** u dołu hello aż hello **edytować zasady** bloku.
-9. Kliknij przycisk **zapisać** u góry bloku hello hello. Gotowe!
+6. Kliknij przycisk **adres E-mail** w **nazwa** kolumnie **atrybuty rejestracji** sekcji.
+7. Przełącz **Żądaj weryfikacji** opcji w celu **nr**.
+8. Kliknij przycisk **OK** u dołu, aż dojdziesz **edytować zasady** bloku.
+9. Kliknij przycisk **zapisać** w górnej części bloku. Gotowe!
 
 > [!NOTE]
-> Wyłączanie Weryfikacja adresu e-mail w procesie rejestracji hello może prowadzić toospam. Jeśli wyłączysz domyślny hello, zaleca się dodawania systemu weryfikacji.
+> Wyłączanie Weryfikacja adresu e-mail w procesie rejestracji może prowadzić do wysyłania spamu. Jeśli wyłączysz domyślny, zaleca się dodawania systemu weryfikacji.
 > 
 > 
 
-Jesteśmy zawsze toofeedback otwarte i sugestie! Jeśli masz trudności w tym temacie lub mają zalecenia dotyczące poprawy tej zawartości, prosimy o wyrażenie opinii u dołu hello hello strony. Funkcja żądań, dodaj ich zbyt[UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Firma Microsoft zawsze są otwarte na opinie i sugestie! Jeśli masz trudności w tym temacie lub mają zalecenia dotyczące poprawy tej zawartości, prosimy o wyrażenie opinii na dole strony. Funkcja żądań, dodaj je do [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

@@ -1,5 +1,5 @@
 ---
-title: aaaGet wprowadzenie Harmonogram systemu Azure w portalu Azure | Dokumentacja firmy Microsoft
+title: "Rozpoczynanie pracy z usługą Azure Scheduler w witrynie Azure Portal | Microsoft Docs"
 description: "Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure"
 services: scheduler
 documentationcenter: .NET
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 58255c0ad19da65932f8b1d36cb8fef1ff6e651b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Rozpoczynanie pracy z usługą Azure Scheduler w portalu Azure
-Jest łatwy toocreate zaplanowane zadania w harmonogramie Azure. W przypadku tego samouczka, dowiesz się, jak toocreate zadania. Są w nim zawarte także informacje na temat możliwości monitorowania oraz zarządzania, jakie oferuje usługa Scheduler.
+Azure Scheduler umożliwia łatwe tworzenie zaplanowanych zadań. Niniejszy samouczek zawiera informacje na temat tworzenia zadania. Są w nim zawarte także informacje na temat możliwości monitorowania oraz zarządzania, jakie oferuje usługa Scheduler.
 
 ## <a name="create-a-job"></a>Tworzenie zadania
-1. Zaloguj się za[portalu Azure](https://portal.azure.com/).  
-2. Kliknij przycisk **+ nowy** > typ *harmonogramu* w polu wyszukiwania hello > Wybierz **harmonogramu** w wynikach > kliknij **Utwórz**.
+1. Zaloguj się w [portalu Azure](https://portal.azure.com/).  
+2. Kliknij przycisk **+ Nowy** > wpisz w polu wyszukiwania *Harmonogram* > wybierz z wyników **Harmonogram** > kliknij **Utwórz**.
    
     ![][marketplace-create]
-3. Utwórzmy zadanie, które spowoduje przesłanie żądania GET do witryny http://www.microsoft.com/. W hello **zadania harmonogramu** ekranu, wprowadź hello następujących informacji:
+3. Utwórzmy zadanie, które spowoduje przesłanie żądania GET do witryny http://www.microsoft.com/. Na ekranie **Zadanie usługi Scheduler** wprowadź następujące informacje:
    
    1. **Nazwa:** `getmicrosoft`  
    2. **Subskrypcja:** subskrypcja usługi Azure użytkownika   
    3. **Kolekcja zadań:** wybierz istniejącą kolekcję zadań lub kliknij przycisk **Utwórz nową** > wprowadź nazwę.
-4. Następnie w **ustawienia akcji**, zdefiniuj hello następujące wartości:
+4. Następnie określ w obszarze **Ustawienia akcji** następujące wartości:
    
    1. **Typ akcji:** ` HTTP`  
    2. **Metoda:** `GET`  
    3. **Adres URL:** ` http://www.microsoft.com`  
       
       ![][action-settings]
-5. Ostatnią czynnością jest zdefiniowanie harmonogramu. Witaj zadania można określić jako zadanie wykonywane, ale umożliwia pobranie harmonogram cyklu:
+5. Ostatnią czynnością jest zdefiniowanie harmonogramu. To zadanie można ustawić jako jednorazowe, my skorzystamy jednak z możliwości wybrania harmonogramu cyklu:
    
    1. **Cykl**: `Recurring`
    2. **Uruchom**: dzisiejsza data
@@ -51,7 +51,7 @@ Jest łatwy toocreate zaplanowane zadania w harmonogramie Azure. W przypadku teg
 6. Kliknij przycisk **Utwórz**
 
 ## <a name="manage-and-monitor-jobs"></a>Zarządzanie i monitorowanie zadań
-Po utworzeniu zadania zostanie wyświetlona hello pulpitu nawigacyjnego Azure głównego. Kliknij zadanie hello i nowy zostanie otwarte okno z hello następujące karty:
+Utworzone zadanie zostaje wyświetlone na głównym pulpicie nawigacyjnym Azure. Kliknij zadanie. Zostanie otwarte nowe okno z następującymi kartami:
 
 1. Właściwości  
 2. Ustawienia akcji  
@@ -62,34 +62,34 @@ Po utworzeniu zadania zostanie wyświetlona hello pulpitu nawigacyjnego Azure g�
    ![][job-overview]
 
 ### <a name="properties"></a>Właściwości
-Te właściwości tylko do odczytu opisują metadanych zarządzania hello hello harmonogram zadania.
+Te właściwości tylko do odczytu opisują metadane dotyczące zarządzania odnoszące się do zadania usługi Scheduler.
 
    ![][job-properties]
 
 ### <a name="action-settings"></a>Ustawienia akcji
-Kliknięcie zadania w hello **zadania** ekran umożliwia tooconfigure zadania. Dzięki temu można skonfigurować ustawienia zaawansowane, jeśli nie możesz skonfigurować je w hello szybkie — tworzenie kreatora.
+Kliknięcie zadania na ekranie **Zadania** umożliwia jego konfigurowanie. Dzięki temu można skonfigurować ustawienia zaawansowane, które nie zostały skonfigurowane za pomocą kreatora szybkiego tworzenia.
 
-Dla wszystkich typów akcji może zmienić zasady ponawiania hello i hello akcji błędu.
+W przypadku wszystkich typów akcji istnieje możliwość zmiany zasad ponawiania i akcji błędu.
 
-Dla typów akcji zadania HTTP i HTTPS mogą ulec zmianie tooany metody hello dozwolone zlecenie HTTP. Mogą również dodać, usunąć lub zmienić informacje uwierzytelniania podstawowego lub hello nagłówków.
+Dla typów akcji zadań HTTP i HTTPS można zmienić metodę na dowolne dozwolone zlecenie HTTP. Można również dodawać, usuwać lub zmieniać nagłówki i podstawowe informacje uwierzytelnienia.
 
-Dla typów akcji kolejki magazynu możesz zmienić hello konta magazynu, nazwę kolejki tokenu sygnatury dostępu Współdzielonego i treść.
+W przypadku typów akcji kolejki magazynu można zmienić konto magazynu, nazwę kolejki, token SAS oraz treść.
 
-Dla typów akcji magistrali usług możesz zmienić hello przestrzeni nazw, ścieżki tematu/kolejki, ustawienia uwierzytelniania, typem transportu, właściwości wiadomości i treści wiadomości.
+W przypadku typów akcji magistrali usług można zmieniać przestrzenie nazw, ścieżki tematu/kolejki, ustawienia uwierzytelniania, typ transportu, właściwości wiadomości oraz treść wiadomości.
 
    ![][job-action-settings]
 
 ### <a name="schedule"></a>Harmonogram
-Dzięki temu można skonfigurować harmonogram hello, jeśli chcesz toochange hello harmonogram, który został utworzony w hello szybkie — tworzenie kreatora.
+Tu można ponownie skonfigurować harmonogram utworzony z użyciem kreatora szybkiego tworzenia i wprowadzić w nim zmiany.
 
-Jest to toobuild możliwości [harmonogramy złożone i zaawansowane cyklu w zadanie](scheduler-advanced-complexity.md)
+Zapewnia to możliwość tworzenia [złożonych harmonogramów i zaawansowanych cykli w ramach zadania](scheduler-advanced-complexity.md)
 
-Możesz zmienić hello Data rozpoczęcia i czas, w przypadku harmonogramu powtarzającego i hello Data zakończenia i czasu (Jeśli zadanie hello jest cykliczny.)
+Możesz zmienić datę i godzinę rozpoczęcia, harmonogram cyklu oraz datę i godzinę zakończenia (jeśli zadanie ma charakter cykliczny).
 
    ![][job-schedule]
 
 ### <a name="history"></a>Historia
-Witaj **historii** karcie są wyświetlane wybrane metryki dla każdego wykonania zadania w systemie hello hello wybranego zadania. Te metryki Podaj wartości w czasie rzeczywistym dotyczące kondycji hello użytkownika harmonogramu:
+Na karcie **Historia** są wyświetlane wybrane metryki odnoszące się do każdego wykonania wybranego zadania w systemie. Metryki te przedstawiają wartości dotyczące stanu harmonogramu w czasie rzeczywistym:
 
 1. Stan  
 2. Szczegóły  
@@ -100,12 +100,12 @@ Witaj **historii** karcie są wyświetlane wybrane metryki dla każdego wykonani
    
    ![][job-history]
 
-Możesz kliknąć opcję wykonywania tooview jego **szczegóły historii**, tym hello całej odpowiedzi dla każdego wykonania. To okno dialogowe umożliwia również toocopy hello odpowiedzi toohello Schowka.
+Możesz kliknąć przebieg, aby wyświetlić odnoszące się do niego dane z sekcji **Szczegóły historii**, łącznie z całością odpowiedzi dla każdego wykonania. To okno dialogowe umożliwia także skopiowanie odpowiedzi do schowka.
 
    ![][job-history-details]
 
 ### <a name="users"></a>Użytkownicy
-Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla usługi Azure Scheduler. toolearn jak hello toouse kartę Użytkownicy, można znaleźć zbyt[kontroli dostępu](../active-directory/role-based-access-control-configure.md)
+Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla usługi Azure Scheduler. Aby uzyskać informacje o sposobie korzystania z karty Użytkownicy, należy zapoznać się z tematem [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md) (Kontrola dostępu na podstawie ról na platformie Azure).
 
 ## <a name="see-also"></a>Zobacz też
  [Co to jest usługa Scheduler?](scheduler-intro.md)
@@ -114,7 +114,7 @@ Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platform
 
  [Plany i rozliczenia w usłudze Azure Scheduler](scheduler-plans-billing.md)
 
- [Jak planuje toobuild złożone i zaawansowane cyklu z Harmonogram systemu Azure](scheduler-advanced-complexity.md)
+ [Tworzenie złożonych harmonogramów i zaawansowanych cykli z użyciem usługi Azure Scheduler](scheduler-advanced-complexity.md)
 
  [Dokumentacja interfejsu API REST usługi Scheduler](https://msdn.microsoft.com/library/mt629143)
 

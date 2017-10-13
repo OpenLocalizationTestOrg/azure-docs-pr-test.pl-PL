@@ -1,26 +1,26 @@
 ---
-title: "aaaAzure Mobile Apps dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse Mobile Apps w usłudze Azure App Service toobuild i hosta macierzystego z systemem iOS, Android i Windows aplikacji lub wieloplatformowych aplikacji za pomocą platformy Xamarin lub Cordova."
-services: app-service\mobile
-author: carolz
+title: "Dokumentacja usługi Azure Mobile Apps — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak używać usługi Mobile Apps w usłudze Azure App Service, aby tworzyć i hostować natywne aplikacje dla systemów iOS, Android lub Windows albo aplikacje międzyplatformowe korzystające z technologii Xamarin lub Cordova."
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 09b103b274c66f515d9a34bbdcb54cf0ff3a035a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d602d833286d1906a2e9bd38d3e99d737146310b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-apps-documentation"></a>Dokumentacja usługi Mobile Apps
 
-Dowiedz się, jak toouse Mobile Apps w usłudze Azure App Service toobuild natywnej dla systemu iOS, Android i Windows aplikacji lub wieloplatformowych aplikacji za pomocą platformy Xamarin lub Cordova. Samouczki, wideo, dokumentacji zestawu SDK klienta i przedstawiają sposób toobuild i hosta hello wewnętrznej bazy danych dla dowolnej aplikacji mobilnej.
+Dowiedz się, jak używać usługi Mobile Apps w usłudze Azure App Service, aby tworzyć natywne aplikacje dla systemów iOS, Android lub Windows albo aplikacje międzyplatformowe korzystające z technologii Xamarin lub Cordova. Samouczki, filmy wideo, dokumentacja zestawu SDK klienta i inne materiały przedstawiające tworzenie i hostowanie zaplecza dla dowolnej aplikacji mobilnej.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -142,7 +142,7 @@ Dowiedz się, jak toouse Mobile Apps w usłudze Azure App Service toobuild natyw
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do tworzenia aplikacji systemu xamarin.Android</h3>
+                        <h3>Wprowadzenie do tworzenia aplikacji Xamarin.Android</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@ Dowiedz się, jak toouse Mobile Apps w usłudze Azure App Service toobuild natyw
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do tworzenia aplikacji systemu xamarin.Forms</h3>
+                        <h3>Wprowadzenie do tworzenia aplikacji Xamarin.Forms</h3>
                     </div>
                 </div>
             </div>

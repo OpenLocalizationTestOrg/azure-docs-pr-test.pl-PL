@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate Hadoop klaster z zapewnienia bezpiecznego transferu kont magazynu w usłudze Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate klastrów usługi HDInsight z zapewnienia bezpiecznego transferu włączone konta magazynu platformy Azure."
+title: "Tworzenie klastra usługi Hadoop z kontami magazynu z bezpiecznym transferem w usłudze Azure HDInsight | Microsoft Docs"
+description: "Dowiedz się, jak tworzyć klastry usługi HDInsight z kontami magazynu platformy Azure z bezpiecznym transferem."
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,secure transfer,azure storage account
 services: hdinsight
 documentationcenter: 
@@ -16,43 +16,43 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/21/2017
 ms.author: jgao
-ms.openlocfilehash: 0acb8814ad0d5d5b5652d930b2e3da90f9d7978d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Tworzenie klastra usługi Hadoop z kontami magazynu z bezpiecznym transferem w usłudze Azure HDInsight
 
-Witaj [bezpieczny transfer wymagane](../storage/common/storage-require-secure-transfer.md) funkcji zwiększa bezpieczeństwo hello konta magazynu Azure, wymuszając wszystkich żądań tooyour konta za pośrednictwem bezpiecznego połączenia. Ten schemat wasbs funkcji i hello są obsługiwane tylko przez wersja klastra usługi HDInsight 3,6 lub nowszej. 
+Funkcja [Wymagany bezpieczny transfer](../storage/common/storage-require-secure-transfer.md) poprawia bezpieczeństwo konta usługi Azure Storage poprzez wymuszanie kierowania wszystkich zapytań do konta przez zabezpieczone połączenie. Funkcja ta oraz schemat wasbs są obsługiwane tylko w klastrze usługi HDInsight w wersji 3.6 lub nowszym. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Przed rozpoczęciem tego samouczka potrzebna będzie:
 
-* **Subskrypcja platformy Azure**: toocreate bezpłatne konto próbne jeden miesiąc, przejdź zbyt[azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **Konto usługi Azure Storage z włączonym bezpiecznym transferem**. Witaj instrukcje, zobacz [Utwórz konto magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account) i [wymaga zapewnienia bezpiecznego transferu](../storage/common/storage-require-secure-transfer.md).
-* **Kontener obiektów Blob na koncie magazynu hello**. 
+* **Subskrypcja platformy Azure**: aby utworzyć bezpłatne konto próbne na jeden miesiąc, przejdź do [azure.microsoft.com/free](https://azure.microsoft.com/free).
+* **Konto usługi Azure Storage z włączonym bezpiecznym transferem**. Aby uzyskać instrukcje, zobacz [Tworzenie konta magazynu](../storage/common/storage-create-storage-account.md#create-a-storage-account) oraz [Wymaganie bezpiecznego transferu](../storage/common/storage-require-secure-transfer.md).
+* **Kontener obiektów blob na koncie magazynu**. 
 ## <a name="create-cluster"></a>Tworzenie klastra
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 
-W tej sekcji tworzysz klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Szablon Hello znajduje się w [Gibhub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości hello używane w tym samouczku, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+W tej sekcji tworzysz klaster Hadoop w usłudze HDInsight przy użyciu [szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Szablon znajduje się w witrynie [Gibhub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Znajomość szablonów usługi Resource Manager nie jest wymagana do korzystania z tego samouczka. Inne metody tworzenia klastrów i opis właściwości używanych w tym samouczku znajdziesz w artykule [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Kliknij przycisk hello toosign obrazu w tooAzure i otwórz hello szablonu usługi Resource Manager w hello portalu Azure. 
+1. Kliknij poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon usługi Resource Manager w witrynie Azure Portal. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy tooAzure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-existing-default-storage-account%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-2. Wykonaj hello instrukcje toocreate hello klastra z hello następujące specyfikacje: 
+2. Postępuj zgodnie z instrukcjami, aby utworzyć klaster o następujących specyfikacjach: 
 
-    - Określ wersję usługi HDInsight na 3.6.  Wersja domyślna Hello jest 3.5. Wymagana jest wersja 3.6 lub nowsza.
+    - Określ wersję usługi HDInsight na 3.6.  Domyślna wersja to 3.5. Wymagana jest wersja 3.6 lub nowsza.
     - Określ konto magazynu z włączonym bezpiecznym transferem.
-    - Krótka nazwa używana dla konta magazynu hello.
-    - Zarówno hello konta magazynu i kontener obiektów blob hello musi zostać utworzony wcześniej. 
+    - Użyj krótkiej nazwy konta magazynu.
+    - Konto magazynu i kontener obiektów blob należy utworzyć wcześniej. 
 
-    Witaj instrukcje, zobacz [Utwórz klaster](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
+    Aby uzyskać instrukcje, zobacz [Tworzenie klastra](./hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster). 
 
-Jeśli używasz tooprovide akcji skryptu w plikach konfiguracji, należy użyć wasbs w hello następujące ustawienia:
+Jeśli użyjesz akcji skryptu do udostępnienia własnych plików konfiguracyjnych, musisz użyć rozwiązania wasbs w następujących ustawieniach:
 
 - fs.defaultFS (lokacja podstawowa)
 - spark.eventLog.dir 
@@ -60,36 +60,36 @@ Jeśli używasz tooprovide akcji skryptu w plikach konfiguracji, należy użyć 
 
 ## <a name="add-additional-storage-accounts"></a>Dodawanie kolejnych kont magazynu
 
-Istnieje kilka opcji tooadd dodatkowe zapewnienia bezpiecznego transferu włączone kont magazynu:
+Dostępnych jest kilka opcji dodawania kolejnych kont magazynu z bezpiecznym transferem:
 
-- Szablon usługi Azure Resource Manager hello w ostatniej sekcji hello zmodyfikować.
-- Tworzenie klastra przy użyciu hello [portalu Azure](https://portal.azure.com) i określ połączonym koncie magazynu.
-- Użyj skryptu akcji tooadd dodatkowe zapewnienia bezpiecznego transferu włączyć magazyn kont tooan istniejącym klastrze usługi HDInsight.  Aby uzyskać więcej informacji, zobacz [dodać dodatkowy magazyn kont tooHDInsight](hdinsight-hadoop-add-storage.md).
+- Zmodyfikuj szablon usługi Azure Resource Manager w ostatniej sekcji.
+- Utwórz klaster przy użyciu witryny [Azure Portal](https://portal.azure.com) i określ połączone konto magazynu.
+- Użyj akcji skryptu, aby dodać kolejne konta magazynu z bezpiecznym transferem do istniejącego klastra usługi HDInsight.  Aby uzyskać więcej informacji, zobacz [Dodawanie kolejnych kont magazynu do usługi HDInsight](hdinsight-hadoop-add-storage.md).
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku uzyskanych jak toocreate klastra usługi HDInsight, a następnie włączyć bezpieczny transfer toohello kont magazynu.
+W tym samouczku zawarto informacje dotyczące tworzenia klastra usługi HDInsight oraz włączania bezpiecznego transferu na kontach magazynu.
 
-toolearn więcej informacji na temat analizowania danych z usługą HDInsight, zobacz następujące artykuły hello:
+Aby dowiedzieć się więcej na temat analizowania danych za pomocą usługi HDInsight, zobacz następujące artykuły:
 
-* toolearn więcej informacji o korzystaniu z programu Hive z usługą HDInsight, w tym, jak tooperform Hive zapytań z programu Visual Studio, zobacz [używanie Hive z usługą HDInsight][hdinsight-use-hive].
-* toolearn temat Pig, języka używany tootransform danych, zobacz [Use Pig z usługą HDInsight][hdinsight-use-pig].
-* toolearn o MapReduce, sposób programy toowrite, które przetwarzają dane w usłudze Hadoop, zobacz [Użyj MapReduce z usługą HDInsight][hdinsight-use-mapreduce].
-* toolearn o za pomocą hello narzędzi HDInsight Visual Studio tooanalyze danych w usłudze HDInsight, zobacz [rozpocząć korzystanie z narzędzi Visual Studio Hadoop dla usługi HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Aby dowiedzieć się więcej o korzystaniu z programu Hive z usługą HDInsight, w tym poznać sposoby wykonywania zapytań Hive z programu Visual Studio, zobacz artykuł [Korzystanie z programu Hive z usługą HDInsight][hdinsight-use-hive].
+* Aby dowiedzieć się więcej na temat języka Pig, używanego do przekształcania danych, zobacz [Korzystanie z języka Pig z usługą HDInsight][hdinsight-use-pig].
+* Aby dowiedzieć się więcej o MapReduce, sposobie pisania programów przetwarzających dane w usłudze Hadoop, zobacz [Używanie MapReduce z usługą HDInsight][hdinsight-use-mapreduce].
+* Aby dowiedzieć się więcej o używaniu narzędzi HDInsight Tools for Visual Studio do analizowania danych w usłudze HDInsight, zobacz [Wprowadzenie do używania narzędzi Visual Studio Hadoop dla usługi HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-więcej informacji na temat sposobu HDInsight przechowuje dane toolearn lub tooget danych do usługi HDInsight, zobacz temat hello następujące artykuły:
+Aby dowiedzieć się więcej o sposobie przechowywania danych przez usługę HDInsight lub sposobie przesyłania danych do usługi HDInsight, zobacz następujące artykuły:
 
 * Aby uzyskać informacje o sposobie używania usługi Azure Storage przez usługę HDInsight, zobacz [Używanie usługi Azure Storage z usługą HDInsight](hdinsight-hadoop-use-blob-storage.md).
-* Aby uzyskać informacje na temat tooupload tooHDInsight danych, zobacz [przekazywanie danych tooHDInsight][hdinsight-upload-data].
+* Aby uzyskać informacje na temat przekazywania danych do usługi HDInsight, zobacz [Przekazywanie danych do usługi HDInsight][hdinsight-upload-data].
 
-toolearn więcej informacji na temat tworzenia i zarządzania nią klastra usługi HDInsight, zobacz następujące artykuły hello:
+Aby dowiedzieć się więcej o tworzeniu klastra usługi HDInsight i zarządzaniu nim, zobacz następujące artykuły:
 
-* toolearn o zarządzaniu klaster usługi HDInsight opartej na systemie Linux, zobacz [Zarządzanie klastrami usługi HDInsight przy użyciu narzędzia Ambari](hdinsight-hadoop-manage-ambari.md).
-* toolearn więcej informacji na temat opcji hello można wybrać podczas tworzenia klastra usługi HDInsight, zobacz [tworzenia HDInsight w systemie Linux przy użyciu niestandardowych opcji](hdinsight-hadoop-provision-linux-clusters.md).
-* Jeśli zapoznali się z systemem Linux i usługę Hadoop, ale mają tooknow szczegóły dotyczące usługi Hadoop na powitania HDInsight, zobacz [pracy z usługą HDInsight w systemie Linux](hdinsight-hadoop-linux-information.md). Artykuł zawiera następujące informacje:
+* Aby uzyskać więcej informacji na temat zarządzania opartym na systemie Linux klastrem usługi HDInsight, zobacz [Zarządzanie klastrami usługi HDInsight za pomocą narzędzia Ambari](hdinsight-hadoop-manage-ambari.md).
+* Aby dowiedzieć się więcej na temat opcji, które można wybrać podczas tworzenia klastra usługi HDInsight, zobacz [Tworzenie klastra usługi HDInsight w systemie Linux przy użyciu niestandardowych opcji](hdinsight-hadoop-provision-linux-clusters.md).
+* Jeśli znasz system Linux i usługę Hadoop, ale chcesz poznać szczegóły dotyczące usługi Hadoop w usłudze HDInsight, zobacz [Praca z usługą HDInsight w systemie Linux](hdinsight-hadoop-linux-information.md). Artykuł zawiera następujące informacje:
   
-  * Adresy URL dla usług uruchamianych w klastrze hello, takich jak Ambari i WebHCat
-  * Witaj lokalizację plików usługi Hadoop oraz przykłady hello lokalnego systemu plików
-  * Użyj Hello z usługi Azure Storage (WASB) zamiast systemu plików HDFS jako hello domyślnego magazynu danych
+  * Adresy URL dla usług uruchamianych w klastrze, takich jak Ambari i WebHCat
+  * Lokalizacja plików usługi Hadoop oraz przykłady lokalnego systemu plików
+  * Korzystanie z usługi Azure Storage (WASB) zamiast systemu plików HDFS jako domyślnego magazynu danych
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 

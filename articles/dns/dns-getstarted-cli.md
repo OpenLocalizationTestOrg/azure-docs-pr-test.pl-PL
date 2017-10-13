@@ -1,6 +1,6 @@
 ---
-title: "wprowadzenie do usługi Azure DNS za pomocą usługi Azure CLI 2.0 aaaGet | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate DNS strefy i rejestrowanie w usłudze Azure DNS. To jest toocreate przewodnik krok po kroku i zarządzanie pierwszą strefę DNS i rekordów przy użyciu hello Azure CLI 2.0."
+title: "Rozpoczynanie pracy z usługą Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure 2.0 | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć strefę i rekord DNS w usłudze Azure DNS. W tym szczegółowym przewodniku pokazano, jak po raz pierwszy utworzyć strefę i rekord DNS przy użyciu interfejsu wiersza polecenia platformy Azure 2.0."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.openlocfilehash: 8a894941e9910d5cc35394a1be9dbca9792613f2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Rozpoczynanie pracy z usługą Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure 2.0
 
@@ -29,15 +29,15 @@ ms.lasthandoff: 10/06/2017
 > * [Interfejs wiersza polecenia platformy Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-getstarted-cli.md)
 
-W tym artykule przedstawiono toocreate kroki hello pierwszy strefy DNS i przy użyciu rekordu hello 2.0 interfejsu wiersza polecenia platformy Azure i platform, która jest dostępna dla systemu Windows, Mac i Linux. Można również wykonywać następujące czynności, za pomocą hello portalu Azure lub programu Azure PowerShell.
+W tym artykule przedstawiono procedurę tworzenia po raz pierwszy strefy i rekordu DNS przy użyciu wieloplatformowego interfejsu wiersza polecenia platformy Azure 2.0, który jest dostępny dla systemów Windows, Mac i Linux. Te kroki można również wykonać przy użyciu witryny Azure Portal lub programu Azure PowerShell.
 
-Strefa DNS jest rekordy DNS hello toohost używane dla określonej domeny. toostart hosting domeny w usłudze Azure DNS należy toocreate strefy DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Na koniec toopublish serwery DNS strefy toohello Internet, należy serwery nazw hello tooconfigure hello domeny. Poniżej opisano każdy z tych kroków.
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby na koniec opublikować strefę DNS w Internecie, należy skonfigurować serwery nazw dla domeny. Poniżej opisano każdy z tych kroków.
 
-W poniższych instrukcjach przyjęto został już zainstalowany i zalogowany tooAzure 2.0 interfejsu wiersza polecenia. Aby uzyskać pomoc, zobacz [jak toomanage DNS strefy używa interfejsu wiersza polecenia platformy Azure w wersji 2.0](dns-operations-dnszones-cli.md).
+W tych instrukcjach założono, że już zainstalowano interfejs wiersza polecenia platformy Azure 2.0 i zalogowano się do niego. Aby uzyskać pomoc, zobacz [How to manage DNS zones using Azure CLI 2.0](dns-operations-dnszones-cli.md) (Jak zarządzać strefami systemu DNS przy użyciu interfejsu wiersza polecenia platformy Azure 2.0).
 
-## <a name="create-hello-resource-group"></a>Utwórz grupę zasobów hello
+## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
 
-Przed utworzeniem hello strefę DNS, grupy zasobów jest utworzyć strefę DNS hello toocontain. Oto Hello hello polecenia.
+Przed utworzeniem strefy DNS należy utworzyć dla niej grupę zasobów. Poniżej przedstawiono polecenia.
 
 ```azurecli
 az group create --name MyResourceGroup --location "West US"
@@ -45,9 +45,9 @@ az group create --name MyResourceGroup --location "West US"
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-Strefa DNS jest tworzony przy użyciu hello `az network dns zone create` polecenia. toosee pomocy dla tego polecenia, wpisz `az network dns zone create -h`.
+Do tworzenia strefy DNS służy polecenie `az network dns zone create`. Aby wyświetlić pomoc dla tego polecenia, wpisz `az network dns zone create -h`.
 
-Witaj poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów hello *MyResourceGroup*. Użyj toocreate przykład hello strefy DNS, podstawiając hello własne wartości.
+Poniższy przykład obejmuje tworzenie strefy DNS o nazwie *contoso.com* w grupie zasobów o nazwie *MyResourceGroup*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.com
@@ -56,20 +56,20 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## <a name="create-a-dns-record"></a>Tworzenie rekordu DNS
 
-toocreate rekord DNS, użyj hello `az network dns record-set [record type] add-record` polecenia. Aby uzyskać pomoc, na przykład dotyczącą rekordów A, zobacz `azure network dns record-set A add-record -h`.
+Aby utworzyć rekord DNS, użyj polecenia `az network dns record-set [record type] add-record`. Aby uzyskać pomoc, na przykład dotyczącą rekordów A, zobacz `azure network dns record-set A add-record -h`.
 
-Witaj poniższy przykład tworzy rekord z hello nazwie względnej "www" w strefie DNS "contoso.com" w grupie zasobów "MyResourceGroup" hello. Hello pełni kwalifikowana nazwa zestawu rekordów hello jest "www.contoso.com". Typ rekordu Hello jest "A", o adresie IP "1.2.3.4", a używana jest domyślna TTL 3600 sekund (1 godzina).
+W poniższym przykładzie tworzony jest rekord o nazwie względnej „www” w strefie DNS „contoso.com” w grupie zasobów „MyResourceGroup”. W pełni kwalifikowaną nazwą zestawu rekordów jest „www.contoso.com”. Typ rekordu to „A” z adresem IP „1.2.3.4”, a jako domyślny czas wygaśnięcia używana jest wartość 3600 sekund (1 godzina).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
 
-Dla innych typów rekordów do zestawów rekordów z więcej niż jeden rekord dla alternatywne wartości TTL i toomodify istniejące rekordy, zobacz [przy użyciu zestawów rekordów i rekordami DNS Zarządzanie hello Azure CLI 2.0](dns-operations-recordsets-cli.md).
+Aby uzyskać informacje o innych typach rekordów, zestawach rekordów zawierających więcej niż jeden rekord, alternatywnych wartościach czasu wygaśnięcia oraz sposobie modyfikowania istniejących rekordów, zobacz [Manage DNS records and record sets using the Azure CLI 2.0](dns-operations-recordsets-cli.md) (Zarządzanie rekordami i zestawami rekordów DNS przy użyciu interfejsu wiersza polecenia platformy Azure 2.0).
 
 
 ## <a name="view-records"></a>Wyświetlanie rekordów
 
-toolist hello rekordów DNS w strefie, użyj:
+Aby wyświetlić listę rekordów DNS w strefie, należy użyć:
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -78,9 +78,9 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## <a name="update-name-servers"></a>Aktualizowanie serwerów nazw
 
-Gdy użytkownik stwierdzi, że Twoje strefy DNS i rekordy są skonfigurowane poprawnie należy tooconfigure domenę toouse hello Azure DNS nazwy serwerów nazw. Dzięki temu innym użytkownikom w hello Internet toofind rekordów DNS.
+Po poprawnym skonfigurowaniu strefy i rekordów DNS należy skonfigurować nazwę domeny w celu użycia serwerów nazw usługi Azure DNS. Umożliwi to innym użytkownikom w Internecie znalezienie Twoich rekordów DNS.
 
-Witaj serwerów nazw dla strefy są podane przez hello `az network dns zone show` polecenia. toosee hello nazw serwerów nazw użyj dane wyjściowe JSON, jak pokazano w hello poniższy przykład.
+Serwery nazw dla strefy można wyświetlić za pomocą polecenia `az network dns zone show`. Aby wyświetlić nazwy serwerów nazw, należy użyć danych wyjściowych JSON, jak pokazano w poniższym przykładzie.
 
 ```azurecli
 az network dns zone show -g MyResourceGroup -n contoso.com -o json
@@ -104,11 +104,11 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-Te serwery nazw powinien mieć skonfigurowaną rejestratora nazw domen hello (którego go zakupiono hello nazwa domeny). Rejestrator zaoferuje tooset opcji hello hello serwery nazw dla domeny hello. Aby uzyskać więcej informacji, zobacz [delegować tooAzure Twojego domeny DNS](dns-domain-delegation.md).
+Te serwery nazw powinny zostać skonfigurowane u rejestratora nazw domen (w miejscu zakupu nazwy domeny). Rejestrator zaoferuje opcję skonfigurowania serwerów nazw na potrzeby domeny. Aby uzyskać więcej informacji, zobacz [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md).
 
 ## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
  
-toodelete wszystkie zasoby są tworzone w tym artykule, wykonaj powitania po kroku:
+Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
 
 ```azurecli
 az group delete --name MyResourceGroup
@@ -116,8 +116,8 @@ az group delete --name MyResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-toolearn więcej informacji na temat usługi Azure DNS, zobacz [Omówienie usługi Azure DNS](dns-overview.md).
+Aby dowiedzieć się więcej na temat usługi Azure DNS, zobacz [Omówienie usługi Azure DNS](dns-overview.md).
 
-toolearn więcej na temat zarządzania strefami DNS w usłudze Azure DNS, zobacz [stref DNS zarządzania w usłudze Azure DNS za pomocą usługi Azure CLI 2.0](dns-operations-dnszones-cli.md).
+Aby dowiedzieć się więcej na temat zarządzania strefami DNS w usłudze Azure DNS, zobacz [Manage DNS zones in Azure DNS using Azure CLI 2.0](dns-operations-dnszones-cli.md) (Zarządzanie strefami DNS w usłudze Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure 2.0).
 
-toolearn więcej informacji o zarządzaniu rekordy DNS w usłudze Azure DNS, zobacz [zestawami rekordów i rekordami DNS zarządzania w usłudze Azure DNS za pomocą usługi Azure CLI 2.0](dns-operations-recordsets-cli.md).
+Aby dowiedzieć się więcej na temat zarządzania rekordami DNS w usłudze Azure DNS, zobacz [Manage DNS records and record sets in Azure DNS using Azure CLI 2.0](dns-operations-recordsets-cli.md) (Zarządzanie rekordami i zestawami rekordów DNS w usłudze Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure 2.0).

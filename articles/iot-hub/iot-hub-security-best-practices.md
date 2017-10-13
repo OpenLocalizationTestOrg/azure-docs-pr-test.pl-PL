@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure IoT najlepsze rozwiązania w zakresie zabezpieczeń | Dokumentacja firmy Microsoft"
+title: "Usługa Azure IoT najlepszych rozwiązań dotyczących zabezpieczeń | Dokumentacja firmy Microsoft"
 description: "IoT najlepsze rozwiązania dotyczące zabezpieczania infrastruktury IoT. Zawiera zalecenia dla deweloperów, procedur wdrażających rozwiązania i operatory rozwiązania."
 services: iot-hub
 documentationcenter: 
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: yurid
-ms.openlocfilehash: 5c71affbf861882e655b824ae7d3bd23f3421d3d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d922cd972528882a921c8b5a4c5af251fd3e61a4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
 ## <a name="see-also"></a>Zobacz też
-Zobacz toolearn więcej informacji na temat zabezpieczania rozwiązania IoT:
+Aby dowiedzieć się więcej na temat zabezpieczania rozwiązania IoT, zobacz:
 
 * [Architektura zabezpieczeń IoT][lnk-security-architecture]
 * [Zabezpieczanie wdrożenia IoT][lnk-security-deployment]
 
-toofurther Poznaj możliwości hello Centrum IoT, zobacz:
+Aby dokładniej analizować możliwości Centrum IoT, zobacz:
 
 * [Symuluje urządzenia Azure IoT krawędzi][lnk-iotedge]
 

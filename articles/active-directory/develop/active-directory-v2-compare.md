@@ -1,6 +1,6 @@
 ---
-title: "aaaWhat różni się w punktu końcowego v2.0 usługi Azure AD hello? | Microsoft Docs"
-description: "Porównanie hello oryginalnego usługi Azure AD i punkty końcowe v2.0 hello."
+title: "Co to jest różna w punktu końcowego v2.0 usługi Azure AD? | Microsoft Docs"
+description: "Porównanie oryginalnego usługi Azure AD i punkty końcowe w wersji 2.0."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,51 +15,51 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e7ed196f9053fc21db799cd6bc513ba5c2b92885
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="whats-different-about-hello-v20-endpoint"></a>Czym się różni punktu końcowego v2.0 hello?
-Jeśli zaznajomieni z usługą Azure Active Directory lub mieć zintegrowanych aplikacji z usługą Azure AD w przeszłości hello, może być pewne różnice w hello punktu końcowego v2.0, nie oczekuje.  Ten dokument uwidacznia różnic zrozumienie.
+# <a name="whats-different-about-the-v20-endpoint"></a>Czym się różni punktu końcowego v2.0?
+Jeśli zaznajomieni z usługą Azure Active Directory lub mieć zintegrowanych aplikacji z usługą Azure AD w ciągu ostatnich, może być pewne różnice w punkcie końcowym v2.0, nie oczekuje.  Ten dokument uwidacznia różnic zrozumienie.
 
 > [!NOTE]
-> Nie wszystkie usługi Azure Active Directory scenariuszy i funkcji obsługiwanych przez hello punktu końcowego v2.0.  toodetermine, jeśli powinien używać punktu końcowego v2.0 hello, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
+> Nie wszystkie usługi Azure Active Directory scenariuszy i funkcji obsługiwanych przez punktu końcowego v2.0.  Aby ustalić, czy należy używać punktu końcowego v2.0, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
 >
 
 ## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Konta Microsoft i konta usługi Azure AD
-punktu końcowego v2.0 Hello pozwalają deweloperom toowrite aplikacje, które akceptują logowanie z konta Microsoft Accounts i usługi Azure AD przy użyciu punktu końcowego uwierzytelniania pojedynczego.  Dzięki temu hello toowrite możliwości aplikacji całkowicie konta niezwiązane z żadnym; może być ignorujących typu hello hello loguje użytkownika przy użyciu konta.  Oczywiście możesz *można* uświadomić aplikacji hello typ konta używane w określonej sesji, ale nie masz.
+Punktu końcowego v2.0 umożliwiają deweloperom pisanie aplikacji, które akceptują logowanie z konta Microsoft Accounts i usługi Azure AD przy użyciu punktu końcowego uwierzytelniania pojedynczego.  Daje to możliwość zapisywania aplikacji całkowicie konta niezwiązane z żadnym; może być ignorujących typu konta, które użytkownik loguje się przy użyciu.  Oczywiście możesz *można* uświadomić aplikacji typu konta używane w określonej sesji, ale nie masz.
 
-Na przykład jeśli aplikacja hello [Microsoft Graph](https://graph.microsoft.io), niektóre dodatkowe funkcje i dane będą dostępne tooenterprise użytkowników, takich jak ich witryn programu SharePoint lub dane katalogu.  Nawet w przypadku wielu akcji takich jak [odczytywanie poczty użytkownika](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), dokładnie można pisać kod hello hello takie same dla konta Microsoft Accounts i usługi Azure AD.  
+Na przykład jeśli aplikacja wymaga [Microsoft Graph](https://graph.microsoft.io), niektóre dodatkowe funkcje i dane będą dostępne dla użytkowników przedsiębiorstwa, takich jak witryny programu SharePoint lub dane katalogu.  Nawet w przypadku wielu akcji takich jak [odczytywanie poczty użytkownika](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), kodu mogą być zapisywane dokładnie takie same dla konta Microsoft Accounts i usługi Azure AD.  
 
-Integrowanie aplikacji z Accounts Microsoft i kontami usługi Azure AD jest teraz jeden prosty proces.  Można użyć jednego zestawu punktów końcowych, jednej biblioteki i jednej aplikacji rejestracji toogain dostępu tooboth hello konsumenckie i korporacyjne względem.  więcej informacji o toolearn hello punktu końcowego v2.0, zapoznaj się z [hello omówienie](active-directory-appmodel-v2-overview.md).
+Integrowanie aplikacji z Accounts Microsoft i kontami usługi Azure AD jest teraz jeden prosty proces.  Można użyć jednego zestawu punktów końcowych, jednej biblioteki i rejestracji jednej aplikacji do uzyskiwania dostępu do względem zarówno konsumenta, jak i enterprise.  Aby dowiedzieć się więcej na temat punktu końcowego v2.0, zapoznaj się [przeglądu](active-directory-appmodel-v2-overview.md).
 
 ## <a name="new-app-registration-portal"></a>Nowy portal rejestracji aplikacji
-tooregister aplikacji, która współdziała z punktu końcowego v2.0 hello, należy użyć nowego portalu rejestracji aplikacji: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  To jest portal hello, gdzie można uzyskać identyfikator aplikacji, dostosowanie wyglądu hello stronę logowania w aplikacji i inne.  Tooaccess hello portal wystarczy konta Microsoft, jej — osobistych lub pracy/służbowe konto.
+Aby zarejestrować aplikację, która współdziała z punktem końcowym v2.0, należy użyć nowego portalu rejestracji aplikacji: [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  To jest portal, gdzie można uzyskać identyfikator aplikacji, dostosować wygląd strony logowania aplikacji i inne.  Wszystkie informacje wymagane do dostępu do portalu to konto Microsoft, jej — osobistych lub pracy/służbowe konto.
 
 ## <a name="one-app-id-for-all-platforms"></a>Identyfikator jedną aplikację dla wszystkich platform
-Jeśli używano usługi Azure Active Directory, prawdopodobnie została zarejestrowana kilka różnych aplikacji dla jednego projektu.  Na przykład, jeśli utworzono zarówno witrynę sieci Web i aplikacji systemu iOS, trzeba było tooregister je oddzielnie, za pomocą dwóch różnych identyfikatorów aplikacji. portal rejestracji aplikacji Hello Azure AD wymuszone można toomake tej różnicy podczas rejestracji:
+Jeśli używano usługi Azure Active Directory, prawdopodobnie została zarejestrowana kilka różnych aplikacji dla jednego projektu.  Na przykład jeśli utworzono zarówno witrynę sieci Web i aplikacji systemu iOS, trzeba było zarejestrować je oddzielnie, za pomocą dwóch różnych identyfikatorów aplikacji. Portal rejestracji aplikacji usługi Azure AD wymuszone można utworzyć tej różnicy podczas rejestracji:
 
 ![Rejestracja aplikacji starego interfejsu użytkownika](../../media/active-directory-v2-flows/old_app_registration.PNG)
 
-Podobnie jeśli masz witrynę sieci Web i zaplecza, interfejs api sieci web może zarejestrowano jako osobnych aplikacji w usłudze Azure AD.  Lub jeśli masz aplikację systemu iOS i Android — aplikacja również może być zarejestrowany dwóch różnych aplikacji.  Zarejestrowanie każdego składnika aplikacji doprowadziły toosome nieoczekiwane zachowania dla deweloperów i klientów:
+Podobnie jeśli masz witrynę sieci Web i zaplecza, interfejs api sieci web może zarejestrowano jako osobnych aplikacji w usłudze Azure AD.  Lub jeśli masz aplikację systemu iOS i Android — aplikacja również może być zarejestrowany dwóch różnych aplikacji.  Zarejestrowanie każdego składnika aplikacji doprowadziło do niektórych nieoczekiwane zachowania dla deweloperów i klientów:
 
-* Poszczególne składniki znajdowały się jako osobne aplikację w dzierżawie usługi Azure Active Directory hello każdego klienta.
-* Administrator dzierżawy próba tooapply zasad do zarządzania dostępem do lub usuwanie aplikacji zostałyby toodo tak dla każdego składnika aplikacji hello.
-* Gdy klienci zgodę tooan aplikacji, każdy składnik zostanie wyświetlony na ekranie zgody hello jako różnych aplikacji.
+* Poszczególne składniki znajdowały się jako osobne aplikację w dzierżawie usługi Azure Active Directory każdego klienta.
+* Administrator dzierżawy próbowano zastosować zasady do zarządzania dostępem do lub usuwanie aplikacji, zostałyby zrobić dla każdego składnika aplikacji.
+* Gdy klienci zgodę na aplikacji, każdy składnik zostanie wyświetlony na ekranie zgodę jako różnych aplikacji.
 
-Z punktem końcowym v2.0 hello może teraz rejestrować wszystkie składniki projektu jako rejestracja jednej aplikacji i użycie jednego identyfikatora aplikacji dla całego projektu.  Możesz dodać kilka tooa "platformy" każdego projektu i podaj hello odpowiednie dane dla każdej platformy, które można dodać.  Oczywiście można utworzyć dowolną liczbę aplikacji, w zależności od wymagań, ale dla większości przypadków hello tylko jeden identyfikator aplikacji powinna być konieczne.
+Z punktem końcowym v2.0 może teraz rejestrować wszystkie składniki projektu jako rejestracja jednej aplikacji i użycie jednego identyfikatora aplikacji dla całego projektu.  Można dodać kilka "platformy" do każdego projektu i podaj odpowiednie dane dla każdej platformy, które można dodać.  Oczywiście można utworzyć dowolną liczbę aplikacji, w zależności od wymagań, ale w większości przypadków tylko jeden identyfikator aplikacji może być konieczne.
 
-Naszym celem jest ten będzie prowadzić tooa więcej uproszczone zarządzanie aplikacjami i środowisko programistyczne czy utworzyć więcej skonsolidowanego widoku pojedynczego projektu, który może działać na.
+Naszym celem jest, że spowoduje to prowadzić do bardziej uproszczone zarządzanie aplikacjami i środowisko programistyczne i utworzyć więcej skonsolidowanego widoku pojedynczego projektu, który może działać na.
 
 ## <a name="scopes-not-resources"></a>Zakresy, nie zasobów
-W usłudze Azure Active Directory, aplikacja może zachowywać się jak **zasobów**, lub odbiorcy tokenów.  Zasób można zdefiniować wiele **zakresy** lub **oAuth2Permissions** siebie, dzięki czemu aplikacje klienckie toorequest tokenów toothat zasobów dla zestawu zakresów.  Należy wziąć pod uwagę hello Azure AD Graph API, na przykład zasób:
+W usłudze Azure Active Directory, aplikacja może zachowywać się jak **zasobów**, lub odbiorcy tokenów.  Zasób można zdefiniować wiele **zakresy** lub **oAuth2Permissions** siebie, umożliwiając klienckim aplikacje do żądania tokenów do tego zasobu dla zestawu zakresów.  Należy wziąć pod uwagę interfejsu API Azure AD Graph, na przykład zasobu:
 
 * Identyfikator zasobu lub `AppID URI`:`https://graph.windows.net/`
 * Zakresy, lub `OAuth2Permissions`: `Directory.Read`, `Directory.Write`itp.  
 
-Wszystko to jest spełniony dla punktu końcowego v2.0 hello hello.  Aplikacja nadal może działać jako zasób, Zdefiniuj zakresy oraz być identyfikowany przez identyfikator URI.  Aplikacje klienckie nadal mogą żądać zakresy toothose dostępu.  Jednak sposób hello, w którym klient żąda uprawnienia została zmieniona.  W ciągu ostatnich hello OAuth 2.0 autoryzować tooAzure żądania, które AD może sprawdzono, takich jak:
+Wszystko to jest spełniony dla punktu końcowego v2.0.  Aplikacja nadal może działać jako zasób, Zdefiniuj zakresy oraz być identyfikowany przez identyfikator URI.  Aplikacje klienckie nadal może zażądać dostępu do tych zakresów.  Jednak sposób, w którym klient żąda uprawnienia została zmieniona.  W przeszłości autoryzacji OAuth 2.0 żądania do usługi Azure AD mogą sprawdzono, takich jak:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -68,7 +68,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-gdzie hello **zasobów** parametru wskazanych żąda autoryzacji dla aplikacji klienckich hello zasobów.  Usługi Azure AD obliczana hello uprawnień wymaganych przez aplikacji hello na podstawie konfiguracji statycznej w hello portalu Azure i odpowiednio wystawionych tokenów.  Teraz hello tego samego protokołu OAuth 2.0 autoryzować żądania prawdopodobnie:
+gdzie **zasobów** parametru wskazane, którego zasobu Aplikacja kliencka żąda autoryzacji dla.  Usługi Azure AD obliczana uprawnień wymaganych przez aplikację na podstawie konfiguracji statycznej w portalu Azure i w związku z tym wystawionych tokenów.  Teraz tym samym OAuth 2.0 autoryzować żądania prawdopodobnie:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -77,20 +77,20 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-gdzie hello **zakres** parametr wskazuje żąda autoryzacji dla aplikacji hello zasobów i uprawnienia. Witaj żądanego zasobu jest nadal bardzo obecne w żądaniu hello — po prostu ujęty w każdej wartości hello hello parametru zakresu.  Za pomocą parametru zakresu hello w ten sposób umożliwia toobe punktu końcowego v2.0 hello bardziej zgodne ze specyfikacją hello OAuth 2.0 i bardziej dokładnie wyrównana z typowe rozwiązania z branży.  Umożliwia również aplikacji tooperform [przyrostowe zgody](#incremental-and-dynamic-consent), który jest opisany w następnej sekcji hello.
+gdzie **zakres** parametr wskazuje zasobów i uprawnienia aplikacji żąda autoryzacji dla. Żądany zasób jest nadal bardzo znajduje się w żądaniu — po prostu ujęty w wartości parametru zakresu.  Za pomocą parametru zakresu w ten sposób umożliwia punktu końcowego v2.0 za więcej zgodny ze specyfikacją OAuth 2.0 i bardziej dokładnie wyrównana z typowe rozwiązania z branży.  Umożliwia również aplikacji do wykonywania [przyrostowe zgody](#incremental-and-dynamic-consent), który jest opisany w następnej sekcji.
 
 ## <a name="incremental-and-dynamic-consent"></a>Zgody przyrostowych i dynamicznych
-Aplikacje zarejestrowane w toospecify usługi Azure AD wcześniej wymagane ich wymaganych uprawnień OAuth 2.0 w hello portalu Azure w czasie tworzenia aplikacji:
+Aplikacje są zarejestrowane w usłudze Azure AD wcześniej konieczne jest określenie ich wymaganych uprawnień OAuth 2.0 w portalu Azure w czasie tworzenia aplikacji:
 
 ![Uprawnienia rejestracji interfejsu użytkownika](../../media/active-directory-v2-flows/app_reg_permissions.PNG)
 
-wymagana jest aplikacja zostały skonfigurowane uprawnienia Hello **statycznie**.  Dozwolone konfiguracji tooexist aplikacji hello w hello portalu Azure, i przechowywane kodu hello nieuprzywilejowany i proste, przedstawiono kilka problemów dla deweloperów:
+Uprawnienia aplikacji wymagane są skonfigurowane **statycznie**.  Dozwolone konfiguracji aplikacji istnieje w portalu Azure, i przechowywane kod nieuprzywilejowany i proste, przedstawiono kilka problemów dla deweloperów:
 
-* Aplikacja ma tooknow wszystkie uprawnienia hello kiedykolwiek wymagałoby w czasie tworzenia aplikacji.  Dodanie uprawnień w czasie było trudne procesu.
-* Aplikacja ma tooknow wszystkie zasoby hello kiedykolwiek dostęp do góry.  Był trudny toocreate aplikacje, które można uzyskać dostępu do dowolnej liczby zasobów.
-* Aplikacja ma toorequest wszystkie uprawnienia hello, które kiedykolwiek wymagałoby od użytkownika hello pierwszego logowania.  W niektórych przypadkach doprowadziło to tooa bardzo długą listę uprawnień, które nie zaleca się użytkowników końcowych z zatwierdzanie dostępu aplikacji hello na początkowej logowania.
+* Aplikacja ma wiedzieć, wszystkie uprawnienia, które kiedykolwiek wymagałoby w czasie tworzenia aplikacji.  Dodanie uprawnień w czasie było trudne procesu.
+* Aplikacja ma wiedzieć, wszystkie zasoby, które kiedykolwiek dostęp do wcześniejsze.  Był trudny do tworzenia aplikacji, które można uzyskać dostępu do dowolnej liczby zasobów.
+* Aplikację nastąpiło żądanie wszystkie uprawnienia, które kiedykolwiek wymagałoby od jego pierwszego logowania.  W niektórych przypadkach to doprowadziło do bardzo długą listę uprawnień, które nie zaleca się użytkowników końcowych z zatwierdzanie dostępu do aplikacji na początkowej logowania.
 
-Z punktem końcowym v2.0 hello, można określić uprawnienia hello potrzeb aplikacji **dynamicznie**, w czasie wykonywania, podczas normalnego użytkowania aplikacji.  toodo tak, można określić hello zakresów potrzeb aplikacji na dowolnym etapie w czasie przez włączenie ich w hello `scope` parametr żądania autoryzacji:
+Z punktem końcowym v2.0, można określić uprawnienia potrzeb aplikacji **dynamicznie**, w czasie wykonywania, podczas normalnego użytkowania aplikacji.  Aby to zrobić, można określić zakresy Twoja aplikacja powinna na dowolnym etapie w czasie przez włączenie ich w `scope` parametr żądania autoryzacji:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -99,29 +99,29 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Witaj powyżej prosi o uprawnienie dla tooread aplikacji hello użytkownika usługi Azure AD directory danych, a także katalog tootheir danych zapisu.  Jeśli użytkownik hello zgodził toothose uprawnienia w przeszłości hello dla tej konkretnej aplikacji, wystarczy wprowadzić swoje poświadczenia, a zalogować się do aplikacji hello.  Hello użytkownik zgodził nie tooany tych uprawnień, punktu końcowego v2.0 hello poprosi użytkownika hello zgody toothose uprawnienia.  toolearn więcej, możesz przeczytać na [uprawnień, zgody i zakresy](active-directory-v2-scopes.md).
+Powyżej uprawnienia żądań aplikacji na odczytywanie danych katalogu użytkownika usługi Azure AD, a także zapisać danych do ich katalogu.  Jeśli użytkownik zgodził się tych uprawnień w przeszłości dla tej konkretnej aplikacji, wystarczy wprowadzić swoje poświadczenia, a zalogować się do aplikacji.  Jeśli użytkownik zgodził się nie do dowolnego z tych uprawnień, punktu końcowego v2.0 będzie monitować użytkownika o zgodę na te uprawnienia.  Aby dowiedzieć się więcej, można znaleźć na [uprawnień, zgody i zakresy](active-directory-v2-scopes.md).
 
-Możliwość aplikacji uprawnienia toorequest dynamicznie za pośrednictwem hello `scope` parametru zapewnia pełną kontrolę nad środowiskiem użytkownika.  Jeśli chcesz, możesz toofrontload Twojej zgody środowisko i poproś o wszystkie uprawnienia w jednym żądaniu początkowej autoryzacji.  Jeśli aplikacja wymaga dużej liczby uprawnień, można też toogather te uprawnienia od użytkownika hello przyrostowo, jak próbują toouse określonych funkcji aplikacji w czasie.
+Dzięki czemu aplikacja może zażądać uprawnień dynamicznie za pośrednictwem `scope` parametru zapewnia pełną kontrolę nad środowiskiem użytkownika.  Jeśli chcesz, możesz frontload Twojej zgody środowisko i poproś o wszystkie uprawnienia w jednym żądaniu początkowej autoryzacji.  Lub jeśli aplikacja wymaga dużej liczby uprawnień, można zebrać te uprawnienia od użytkownika przyrostowo, jak próbują określonych funkcji aplikacji w czasie.
 
 ## <a name="well-known-scopes"></a>Dobrze znane zakresów
 #### <a name="offline-access"></a>Dostęp w trybie offline
-Aplikacje przy użyciu punktu końcowego v2.0 hello może wymagać hello stosowania nowe uprawnienie dobrze znane aplikacje — hello `offline_access` zakresu.  Wszystkie aplikacje należy toorequest to uprawnienie, jeśli potrzebna jest tooaccess zasobów w imieniu hello użytkownika przez dłuższy okres czasu, nawet jeśli hello użytkownika może nie być aktywnie używających aplikacji hello.  Witaj `offline_access` zakres będzie pojawiał się toohello użytkownika w zgody okna jako "Dostęp do danych w trybie offline", które hello użytkownik musi zaakceptować.  Żądania hello `offline_access` uprawnień umożliwi tooreceive aplikacji sieci web refresh_tokens OAuth 2.0 z punktu końcowego v2.0 hello.  Refresh_tokens są długotrwałe i może zostać wymienione na nowe access_tokens OAuth 2.0 przez dłuższy czas dostępu.  
+Aplikacje przy użyciu punktu końcowego v2.0 może wymagać użycia nowego uprawnienia dobrze znanego dla aplikacji - `offline_access` zakresu.  Wszystkie aplikacje, należy poprosić to uprawnienie, jeśli muszą uzyskać dostęp do zasobów w imieniu użytkownika przez dłuższy okres czasu, nawet jeśli użytkownik może nie być aktywnie używających aplikacji.  `offline_access` Zakres będzie widoczna dla użytkowników w oknach dialogowych zgodę jako "Dostęp do danych w trybie offline", który użytkownik musi wyrazić zgodę na.  Żądanie `offline_access` uprawnień spowoduje włączenie aplikacji sieci web do odbierania refresh_tokens OAuth 2.0 z punktem końcowym v2.0.  Refresh_tokens są długotrwałe i może zostać wymienione na nowe access_tokens OAuth 2.0 przez dłuższy czas dostępu.  
 
-Jeśli aplikacja nie żąda hello `offline_access` zakresu, nie będą otrzymywali refresh_tokens.  Oznacza to, że gdy zrealizować authorization_code w przepływu kodu autoryzacji hello OAuth 2.0, tylko otrzymasz Wstecz ' access_token ' hello `/token` punktu końcowego.  Tego ' access_token ' pozostanie ważny krótkim czasie (zazwyczaj jedna godzina), ale ostatecznie wygaśnie.  W tym punkcie w czasie, aplikacji, należy tooredirect hello użytkownika wstecz toohello `/authorize` tooretrieve punktu końcowego authorization_code nowe.  Podczas tego przekierowania hello użytkownik może lub może nie wymagają poświadczeń tooenter ponownie lub ponownie zgody toopermissions, w zależności od typu hello hello aplikacji.
+Jeśli aplikacja nie żąda `offline_access` zakresu, nie będą otrzymywali refresh_tokens.  Oznacza to, że podczas zrealizować authorization_code przepływu kodu autoryzacji protokołu OAuth 2.0, otrzymasz tylko ponownie ' access_token ' z `/token` punktu końcowego.  Tego ' access_token ' pozostanie ważny krótkim czasie (zazwyczaj jedna godzina), ale ostatecznie wygaśnie.  W tym punktu w czasie, aplikacja będzie musiał przekieruje użytkownika z powrotem do `/authorize` punkt końcowy do pobierania nowych authorization_code.  Podczas tego przekierowania, użytkownik może lub nie trzeba ponownie wprowadzić swoje poświadczenia lub ponownie wyrażenia zgody na uprawnienia, w zależności od typu aplikacji.
 
-więcej informacji na temat protokołu OAuth 2.0, refresh_tokens i access_tokens, wyewidencjonowanie hello toolearn [referencyjne protokołu v2.0](active-directory-v2-protocols.md).
+Aby dowiedzieć się więcej na temat protokołu OAuth 2.0, refresh_tokens i access_tokens, zapoznaj się [referencyjne protokołu v2.0](active-directory-v2-protocols.md).
 
 #### <a name="openid-profile-and-email"></a>OpenID, profil a poczty e-mail
-W przeszłości hello najprostsze przepływ protokołu OpenID Connect logowania w usłudze Azure Active Directory zapewni szereg informacji o użytkowniku hello w żądaniu wynikowy hello.  Hello oświadczeń w żądaniu może zawierać hello użytkownika nazwę, preferowaną nazwy użytkownika, adres e-mail, identyfikator obiektu i więcej.
+W przeszłości najprostsze przepływ protokołu OpenID Connect logowania w usłudze Azure Active Directory zapewni szereg informacji o użytkowniku w żądaniu wynikowy.  Oświadczenia w żądaniu mogą obejmować użytkownika nazwę, username preferowany adres e-mail, identyfikator obiektu i więcej.
 
-Możemy teraz Ograniczanie informacji hello tego hello `openid` zakresu zapewnia dostęp do aplikacji.  zakres "openid" Hello będzie tylko umożliwiają toosign aplikacji hello użytkownika w i wyświetlony identyfikator specyficzny dla aplikacji hello użytkownika.  Jeśli chcesz tooobtain dane osobowe lub informacje o użytkowniku hello w aplikacji, aplikacji należy toorequest dodatkowych uprawnień od hello użytkownika.  Wprowadzamy dwa nowe zakresy — Witaj `email` i `profile` zakresy — które umożliwiają toodo tak.
+Firma Microsoft są teraz Ograniczanie informacji który `openid` zakresu zapewnia dostęp do aplikacji.  Zakres "openid" będzie tylko umożliwić aplikacji logowania użytkownika w i wyświetlony identyfikator specyficzny dla aplikacji dla użytkownika.  Jeśli chcesz uzyskać dane osobowe lub informacje o użytkowniku w aplikacji, aplikacji należy zażądać dodatkowych uprawnień od użytkownika.  Wprowadzamy dwa nowe zakresy — `email` i `profile` zakresy — które umożliwiają zrobić.
 
-Witaj `email` zakres jest bardzo prosta — umożliwia aplikacji dostęp toohello użytkownika podstawowego adresu e-mail za pośrednictwem hello `email` oświadczeń w żądaniu hello.  Witaj `profile` zakresu zapewnia tooall dostępu do Twojej aplikacji inne podstawowe informacje dotyczące użytkownika hello — ich nazwy, preferowane username identyfikator obiektu i tak dalej.
+`email` Zakres jest bardzo prosta — umożliwia dostęp aplikacji do użytkownika podstawowego adresu e-mail za pośrednictwem `email` oświadczeń w żądaniu.  `profile` Zakresu daje aplikacji dostęp do wszystkich innych podstawowe informacje o użytkowniku — ich nazwy, preferowane username identyfikator obiektu i tak dalej.
 
-Dzięki temu można toocode aplikacji w sposób minimalnego ujawnienie — tylko poproś użytkownika hello zestawu hello informacji, że aplikacja wymaga toodo swojego zadania.  Aby uzyskać więcej informacji o tych zakresów, można znaleźć zbyt[hello dokumentacja zakresu v2.0](active-directory-v2-scopes.md).
+Dzięki temu można kod aplikacji w sposób minimalnego ujawnienie — tylko poproś użytkownika dla zestawu danych, czy aplikacja wymaga, aby rozpocząć tworzenie.  Aby uzyskać więcej informacji o tych zakresów, zapoznaj się [dokumentacja zakresu v2.0](active-directory-v2-scopes.md).
 
 ## <a name="token-claims"></a>Token oświadczeń
-Witaj oświadczeń z tokenów wystawionych przez punktu końcowego v2.0 hello nie będzie identyczne tootokens wystawiony przez punkty końcowe hello ogólnie dostępna usługa Azure AD — migracja toohello nowej usługi aplikacji nie powinna przyjęto założenie, że danego oświadczenia będą istnieć w id_tokens lub access_tokens. toolearn o określonych oświadczeń hello emitowanych w tokenów w wersji 2.0, zobacz hello [odwołania do tokenu v2.0](active-directory-v2-tokens.md).
+Oświadczeń z tokenów wystawionych przez punkt końcowy w wersji 2.0 nie będą takie same jak tokeny wystawione przez ogólnie dostępna punkty końcowe usługi Azure AD — migracja do nowej usługi aplikacji nie należy zakładać danego oświadczenia będą istnieć w id_tokens lub access_tokens. Informacje na temat określonych emitowanych w wersji 2.0 tokeny oświadczeń, zobacz [odwołania do tokenu v2.0](active-directory-v2-tokens.md).
 
 ## <a name="limitations"></a>Ograniczenia
-Istnieje kilka ograniczeń toobe uwagę podczas korzystania z punktu v2.0 hello.  Zobacz toohello [v2.0 ograniczenia doc](active-directory-v2-limitations.md) toosee w przypadku spełnienia jednego z tych ograniczeń tooyour danego scenariusza.
+Istnieje kilka ograniczeń pod uwagę podczas korzystania z punktem w wersji 2.0.  Zapoznaj się z [v2.0 ograniczenia doc](active-directory-v2-limitations.md) aby zobaczyć, jeśli dowolny z tych ograniczeń dotyczy Twojego scenariusza.

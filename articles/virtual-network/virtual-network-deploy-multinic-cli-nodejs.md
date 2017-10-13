@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate Maszynę wirtualną z wieloma kartami sieciowymi — 1.0 interfejsu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate maszyny Wirtualnej z wielu kart sieciowych przy użyciu hello Azure CLI w wersji 1.0."
+title: "Utwórz maszynę Wirtualną z wieloma kartami sieciowymi — 1.0 interfejsu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć Maszynę wirtualną z wieloma kartami sieciowymi przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,32 +16,32 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07c660b632bcdc004365a6f910ecf8a5c13cbc6d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b95bcb38664718bf25ec6981c803415790c6da3d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="create-a-vm-with-multiple-nics-using-hello-azure-cli-10"></a>Utwórz maszynę Wirtualną z wieloma kartami sieciowymi przy użyciu hello Azure CLI w wersji 1.0
+# <a name="create-a-vm-with-multiple-nics-using-the-azure-cli-10"></a>Utwórz maszynę Wirtualną z wieloma kartami sieciowymi przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [virtual-network-deploy-multinic-arm-selectors-include.md](../../includes/virtual-network-deploy-multinic-arm-selectors-include.md)]
 
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md).  W tym artykule omówiono przy użyciu modelu wdrażania Menedżera zasobów hello, który firma Microsoft zaleca dla większości nowych wdrożeń zamiast hello [klasycznego modelu wdrażania](virtual-network-deploy-multinic-classic-cli.md).
+> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md).  Ten artykuł dotyczy używania modelu wdrażania usługi Resource Manager zalecanego przez firmę Microsoft w przypadku większości nowych wdrożeń zamiast [klasycznego modelu wdrażania](virtual-network-deploy-multinic-classic-cli.md).
 >
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Witaj następujące kroki Użyj grupy zasobów o nazwie *IaaSStory* hello serwerów sieci WEB oraz grupę zasobów o nazwie *IaaSStory zaplecza* dla serwerów hello bazy danych. Można wykonać tego zadania przy użyciu hello Azure CLI 1.0 (w tym artykule) lub hello [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). Witaj wartości "" hello zmiennych w hello czynności, które wykonują Utwórz zasoby przy użyciu ustawień z hello scenariusza. Zmień wartości hello, zgodnie z potrzebami, dla danego środowiska.
+Poniższe kroki Użyj grupy zasobów o nazwie *IaaSStory* dla serwerów sieci WEB i grupy zasobów o nazwie *IaaSStory zaplecza* dla serwerów baz danych. Można wykonać tego zadania przy użyciu programu Azure CLI 1.0 (w tym artykule) lub [Azure CLI 2.0](virtual-network-deploy-static-pip-arm-cli.md). Wartości "" dla zmiennych w kolejnych krokach tworzenie zasobów przy użyciu ustawień z tego scenariusza. Zmień wartości, zgodnie z potrzebami, dla danego środowiska.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed utworzeniem hello serwerów bazy danych, należy toocreate hello *IaaSStory* grupy zasobów z wszystkie niezbędne zasoby hello w tym scenariuszu. ukończenie tych zasobów, toocreate hello następujące kroki:
+Przed utworzeniem serwerów bazy danych, należy utworzyć *IaaSStory* grupy zasobów z wszystkie niezbędne zasoby dotyczące tego scenariusza. Aby utworzyć tych zasobów, wykonaj następujące kroki:
 
-1. Przejdź za[strony szablonu hello](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Na stronie szablon hello toohello po prawej **nadrzędnej grupy zasobów**, kliknij przycisk **wdrażanie tooAzure**.
-3. W razie potrzeby zmień wartości parametrów hello, a następnie wykonaj kroki hello w grupie zasobów hello toodeploy portalu Azure w wersji zapoznawczej hello.
+1. Przejdź do [strony szablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. Na stronie szablonu z prawej strony **grupy zasobów nadrzędnej**, kliknij przycisk **wdrażanie na platformie Azure**.
+3. W razie potrzeby zmień wartości parametrów, a następnie wykonaj kroki w portalu Azure w wersji zapoznawczej, aby wdrożyć grupę zasobów.
 
 > [!IMPORTANT]
 > Upewnij się, że nazwy konta magazynu są unikatowe. Nie może mieć nazwy konta magazynu zduplikowanych na platformie Azure.
@@ -49,17 +49,17 @@ Przed utworzeniem hello serwerów bazy danych, należy toocreate hello *IaaSStor
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="create-hello-back-end-vms"></a>Tworzenie hello zaplecza maszyn wirtualnych
-Hello zaplecza maszyny wirtualne są zależne od utworzenia hello hello następujące zasoby:
+## <a name="create-the-back-end-vms"></a>Tworzenie maszyn wirtualnych zaplecza
+Maszyny wirtualne zaplecza są zależne od utworzenie następujących zasobów:
 
-* **Konto magazynu dla dysków z danymi**. W celu poprawy wydajności hello dysków z danymi na serwerach bazy danych hello użyje półprzewodnikowych (SSD) dysku technologii, która wymaga konta magazynu w warstwie premium. Upewnij się, że hello wdrożyć magazyn w warstwie premium toosupport lokalizacji platformy Azure.
+* **Konto magazynu dla dysków z danymi**. W celu poprawy wydajności dysków danych na serwerach bazy danych będzie używać półprzewodnikowych (SSD) dysku technologii, która wymaga konta magazynu w warstwie premium. Upewnij się, lokalizacja platformy Azure, można wdrożyć na obsługuje usługi premium storage.
 * **Karty sieciowe**. Każda maszyna wirtualna będzie mieć dwie karty sieciowe, jeden dla dostępu do bazy danych, a drugi do zarządzania.
-* **Zestaw dostępności**. Wszystkie serwery baz danych zostanie dodany zestaw dostępności pojedynczego tooa, tooensure co najmniej jeden z maszyn wirtualnych hello jest uruchomiona podczas konserwacji.
+* **Zestaw dostępności**. Wszystkie serwery baz danych zostanie dodany do jednej dostępności ustawić, aby upewnić się, że co najmniej jeden z maszynami wirtualnymi i systemem podczas konserwacji.
 
 ### <a name="step-1---start-your-script"></a>Krok 1 — Uruchom skrypt
-Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Wykonaj kroki hello poniżej toochange hello skryptu toowork w danym środowisku.
+Możesz pobrać skrypt pełna bash używany [tutaj](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-cli.sh). Wykonaj poniższe kroki, aby zmienić skryptu do pracy w środowisku.
 
-1. Zmień hello wartości zmiennych hello poniżej oparte na istniejącej grupie zasobów wdrożone powyżej w [wymagania wstępne](#Prerequisites).
+1. Zmienianie wartości zmiennych poniżej oparte na istniejącej grupie zasobów wdrożone powyżej w [wymagania wstępne](#Prerequisites).
 
     ```azurecli
     existingRGName="IaaSStory"
@@ -68,7 +68,7 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
     backendSubnetName="BackEnd"
     remoteAccessNSGName="NSG-RemoteAccess"
     ```
-2. Zmień hello wartości zmiennych hello poniżej na podstawie wartości hello ma toouse wdrożenia wewnętrznej bazy danych.
+2. Zmienianie wartości zmiennych poniżej na podstawie wartości, który ma być używany dla danego wdrożenia wewnętrznej bazy danych.
 
     ```azurecli
     backendRGName="IaaSStory-Backend"
@@ -90,7 +90,7 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
     numberOfVMs=2
     ```
 
-3. Pobierz identyfikator hello hello `BackEnd` podsieci, w której zostanie utworzona hello maszyn wirtualnych. Toodo to konieczne, ponieważ hello kart sieciowych skojarzonych toobe toothis podsieci znajdują się w innej grupie zasobów.
+3. Pobierz identyfikator `BackEnd` podsieci, w której zostanie utworzona maszyn wirtualnych. Należy to zrobić, ponieważ karty sieciowe do skojarzenia z tym podsieci znajdują się w innej grupie zasobów.
 
     ```azurecli
     subnetId="$(azure network vnet subnet show --resource-group $existingRGName \
@@ -100,10 +100,10 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
     ```
 
    > [!TIP]
-   > Witaj pierwsze polecenie powyżej używa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) i [ciągu manipulowania](http://tldp.org/LDP/abs/html/string-manipulation.html) (w szczególności podciąg usunięcie).
+   > Pierwsze polecenie powyżej używa [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) i [ciągu manipulowania](http://tldp.org/LDP/abs/html/string-manipulation.html) (w szczególności podciąg usunięcie).
    >
 
-4. Pobierz identyfikator hello hello `NSG-RemoteAccess` NSG. Toodo to konieczne, ponieważ hello toobe kart sieciowych skojarzonych toothis NSG znajdują się w innej grupie zasobów.
+4. Pobierz identyfikator `NSG-RemoteAccess` NSG. Należy to zrobić, ponieważ karty sieciowe do skojarzenia z tym NSG znajdują się w innej grupie zasobów.
 
     ```azurecli
     nsgId="$(azure network nsg show --resource-group $existingRGName \
@@ -113,13 +113,13 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>Krok 2 — Tworzenie niezbędne zasoby dla maszyn wirtualnych
 
-1. Utwórz nową grupę zasobów dla wszystkich zasobów w wewnętrznej bazie danych. Użycie hello powiadomienia hello `$backendRGName` zmiennej dla hello Nazwa grupy zasobów, i `$location` dla hello region platformy Azure.
+1. Utwórz nową grupę zasobów dla wszystkich zasobów w wewnętrznej bazie danych. Zwróć uwagę na `$backendRGName` zmiennej dla nazwy grupy zasobów i `$location` dla regionu platformy Azure.
 
     ```azurecli
     azure group create $backendRGName $location
     ```
 
-2. Utwórz konto magazynu w warstwie premium dla hello systemu operacyjnego i toobe dysków danych używany przez Twoje maszyn wirtualnych.
+2. Utwórz konto magazynu premium dysków systemu operacyjnego i danych ma być używany przez Twoje maszyn wirtualnych.
 
     ```azurecli
     azure storage account create $prmStorageAccountName \
@@ -128,7 +128,7 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
         --type PLRS
     ```
 
-3. Utwórz zbiór dostępności dla hello maszyn wirtualnych.
+3. Utwórz zbiór dostępności dla maszyn wirtualnych.
 
     ```azurecli
     azure availset create --resource-group $backendRGName \
@@ -136,9 +136,9 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
         --name $avSetName
     ```
 
-### <a name="step-3---create-hello-nics-and-back-end-vms"></a>Krok 3 — Tworzenie hello karty sieciowe i zaplecza maszyny wirtualne
+### <a name="step-3---create-the-nics-and-back-end-vms"></a>Krok 3 — Tworzenie kart sieciowych i zaplecza maszyny wirtualne
 
-1. Uruchom toocreate pętli wielu maszyn wirtualnych, oparte na powitania `numberOfVMs` zmiennych.
+1. Uruchom pętli do utworzenia wielu maszyn wirtualnych, na podstawie `numberOfVMs` zmiennych.
 
     ```azurecli
     for ((suffixNumber=1;suffixNumber<=numberOfVMs;suffixNumber++));
@@ -158,7 +158,7 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
         --subnet-id $subnetId
     ```
 
-3. Dla każdej maszyny Wirtualnej Utwórz kartę Sieciową dla dostępu zdalnego. Powiadomienie hello `--network-security-group` parametru tooassociate używane hello kart tooan NSG.
+3. Dla każdej maszyny Wirtualnej Utwórz kartę Sieciową dla dostępu zdalnego. Powiadomienie `--network-security-group` parametru używanego do kojarzenia kartę Sieciową do grupy NSG.
 
     ```azurecli
     nic2Name=$nicNamePrefix$suffixNumber-RA
@@ -172,7 +172,7 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
         --network-security-group-id $nsgId
     ```
 
-4. Utwórz hello maszyny Wirtualnej.
+4. Tworzenie maszyny Wirtualnej.
 
     ```azurecli
     azure vm create --resource-group $backendRGName \
@@ -191,7 +191,7 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
         --admin-password $password
     ```
 
-5. Dla każdej maszyny Wirtualnej, należy utworzyć z hello dwóch dysków i koniec hello pętli `done` polecenia.
+5. Dla każdej maszyny Wirtualnej, Utwórz dwa dyski danych, a za `done` polecenia.
 
     ```azurecli
     azure vm disk attach-new --resource-group $backendRGName \
@@ -212,10 +212,10 @@ Możesz pobrać hello pełna bash skryptu używanego [tutaj](https://raw.githubu
         done
     ```
 
-### <a name="step-4---run-hello-script"></a>Krok 4 — uruchamianie skryptu hello
-Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, ponownie uruchom hello skryptu toocreate hello końcowy maszyn wirtualnych bazy danych z wieloma kartami sieciowymi.
+### <a name="step-4---run-the-script"></a>Krok 4 — Uruchom skrypt
+Pobrane i zmienić skryptu na podstawie Twoich potrzeb, należy uruchomić skrypt w celu utworzenia wewnętrznej bazy danych maszyn wirtualnych z wieloma kartami sieciowymi.
 
-1. Zapisz skrypt i uruchom go z Twojego **Bash** terminala. Zobaczysz hello początkowej danych wyjściowych, jak pokazano poniżej.
+1. Zapisz skrypt i uruchom go z Twojego **Bash** terminala. Zobaczysz początkowej danych wyjściowych, jak pokazano poniżej.
    
         info:    Executing command group create
         info:    Getting resource group IaaSStory-Backend
@@ -232,13 +232,13 @@ Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, ponownie uruchom h
         info:    Creating storage account
         info:    storage account create command OK
         info:    Executing command availset create
-        info:    Looking up hello availability set "ASDB"
+        info:    Looking up the availability set "ASDB"
         info:    Creating availability set "ASDB"
         info:    availset create command OK
         info:    Executing command network nic create
-        info:    Looking up hello network interface "NICDB1-DA"
+        info:    Looking up the network interface "NICDB1-DA"
         info:    Creating network interface "NICDB1-DA"
-        info:    Looking up hello network interface "NICDB1-DA"
+        info:    Looking up the network interface "NICDB1-DA"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-DA
         data:    Name                            : NICDB1-DA
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -254,9 +254,9 @@ Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, ponownie uruchom h
         data:
         info:    network nic create command OK
         info:    Executing command network nic create
-        info:    Looking up hello network interface "NICDB1-RA"
+        info:    Looking up the network interface "NICDB1-RA"
         info:    Creating network interface "NICDB1-RA"
-        info:    Looking up hello network interface "NICDB1-RA"
+        info:    Looking up the network interface "NICDB1-RA"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB1-RA
         data:    Name                            : NICDB1-RA
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -273,34 +273,34 @@ Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, ponownie uruchom h
         data:
         info:    network nic create command OK
         info:    Executing command vm create
-        info:    Looking up hello VM "DB1"
-        info:    Using hello VM Size "Standard_DS3"
-        info:    hello [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up hello storage account wtestvnetstorageprm
-        info:    Looking up hello availability set "ASDB"
+        info:    Looking up the VM "DB1"
+        info:    Using the VM Size "Standard_DS3"
+        info:    The [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up the storage account wtestvnetstorageprm
+        info:    Looking up the availability set "ASDB"
         info:    Found an Availability set "ASDB"
-        info:    Looking up hello NIC "NICDB1-DA"
-        info:    Looking up hello NIC "NICDB1-RA"
+        info:    Looking up the NIC "NICDB1-DA"
+        info:    Looking up the NIC "NICDB1-RA"
         info:    Creating VM "DB1"
-2. Po kilku minutach zakończy się wykonanie hello i zostanie wyświetlony rest hello hello danych wyjściowych, jak pokazano poniżej.
+2. Po kilku minutach zakończy wykonywanie i będzie zobaczyć pozostałą część danych wyjściowych, jak pokazano poniżej.
    
         info:    vm create command OK
         info:    Executing command vm disk attach-new
-        info:    Looking up hello VM "DB1"
-        info:    Looking up hello storage account wtestvnetstorageprm
+        info:    Looking up the VM "DB1"
+        info:    Looking up the storage account wtestvnetstorageprm
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-1.vhd
         info:    Updating VM "DB1"
         info:    vm disk attach-new command OK
         info:    Executing command vm disk attach-new
-        info:    Looking up hello VM "DB1"
-        info:    Looking up hello storage account wtestvnetstorageprm
+        info:    Looking up the VM "DB1"
+        info:    Looking up the storage account wtestvnetstorageprm
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk1-2.vhd
         info:    Updating VM "DB1"
         info:    vm disk attach-new command OK
         info:    Executing command network nic create
-        info:    Looking up hello network interface "NICDB2-DA"
+        info:    Looking up the network interface "NICDB2-DA"
         info:    Creating network interface "NICDB2-DA"
-        info:    Looking up hello network interface "NICDB2-DA"
+        info:    Looking up the network interface "NICDB2-DA"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-DA
         data:    Name                            : NICDB2-DA
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -316,9 +316,9 @@ Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, ponownie uruchom h
         data:
         info:    network nic create command OK
         info:    Executing command network nic create
-        info:    Looking up hello network interface "NICDB2-RA"
+        info:    Looking up the network interface "NICDB2-RA"
         info:    Creating network interface "NICDB2-RA"
-        info:    Looking up hello network interface "NICDB2-RA"
+        info:    Looking up the network interface "NICDB2-RA"
         data:    Id                              : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend/providers/Microsoft.Network/networkInterfaces/NICDB2-RA
         data:    Name                            : NICDB2-RA
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -335,25 +335,25 @@ Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, ponownie uruchom h
         data:
         info:    network nic create command OK
         info:    Executing command vm create
-        info:    Looking up hello VM "DB2"
-        info:    Using hello VM Size "Standard_DS3"
-        info:    hello [OS, Data] Disk or image configuration requires storage account
-        info:    Looking up hello storage account wtestvnetstorageprm
-        info:    Looking up hello availability set "ASDB"
+        info:    Looking up the VM "DB2"
+        info:    Using the VM Size "Standard_DS3"
+        info:    The [OS, Data] Disk or image configuration requires storage account
+        info:    Looking up the storage account wtestvnetstorageprm
+        info:    Looking up the availability set "ASDB"
         info:    Found an Availability set "ASDB"
-        info:    Looking up hello NIC "NICDB2-DA"
-        info:    Looking up hello NIC "NICDB2-RA"
+        info:    Looking up the NIC "NICDB2-DA"
+        info:    Looking up the NIC "NICDB2-RA"
         info:    Creating VM "DB2"
         info:    vm create command OK
         info:    Executing command vm disk attach-new
-        info:    Looking up hello VM "DB2"
-        info:    Looking up hello storage account wtestvnetstorageprm
+        info:    Looking up the VM "DB2"
+        info:    Looking up the storage account wtestvnetstorageprm
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-1.vhd
         info:    Updating VM "DB2"
         info:    vm disk attach-new command OK
         info:    Executing command vm disk attach-new
-        info:    Looking up hello VM "DB2"
-        info:    Looking up hello storage account wtestvnetstorageprm
+        info:    Looking up the VM "DB2"
+        info:    Looking up the storage account wtestvnetstorageprm
         info:    New data disk location: https://wtestvnetstorageprm.blob.core.windows.net/vhds/datadisk2-2.vhd
         info:    Updating VM "DB2"
         info:    vm disk attach-new command OK

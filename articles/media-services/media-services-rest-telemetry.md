@@ -1,6 +1,6 @@
 ---
-title: "aaaConfiguring telemetrii usługi Azure Media Services z REST | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak toouse hello telemetrii usługi Azure Media Services przy użyciu interfejsu API REST."
+title: "Konfigurowanie usługi Azure Media Services dane telemetryczne z POZOSTAŁĄ | Dokumentacja firmy Microsoft"
+description: "W tym artykule przedstawiono sposób użycia telemetrii usługi Azure Media Services przy użyciu interfejsu API REST..."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d0b6798c49be756fcebecf2e1e6ea497edd27cf0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurowanie usługi Azure Media Services telemetrii REST
 
-W tym temacie opisano ogólne kroki, które może wykonać podczas konfigurowania hello telemetrii usługi Azure Media Services (AMS) przy użyciu interfejsu API REST. 
+W tym temacie opisano ogólne kroki, które może wykonać podczas konfigurowania telemetrii usługi Azure Media Services (AMS) przy użyciu interfejsu API REST. 
 
 >[!NOTE]
->Witaj szczegółowe wyjaśnienie, co jest AMS telemetrii i w jaki sposób tooconsume, zobacz hello [omówienie](media-services-telemetry-overview.md) tematu.
+>Aby uzyskać szczegółowy opis co to jest AMS telemetrii oraz sposób pobrać go, zobacz [omówienie](media-services-telemetry-overview.md) tematu.
 
-w tym temacie opisano kroki Hello są:
+Czynności opisane w tym temacie są następujące:
 
-- Pobieranie hello konta magazynu skojarzone z kontem usługi Media Services
-- Pobieranie punktów końcowych powiadomienia hello
+- Uzyskiwanie konta magazynu skojarzone z kontem usługi Media Services
+- Pobieranie punktów końcowych powiadomienia
 - Tworzenie punktu końcowego powiadomienia do monitorowania. 
 
-    toocreate punktu końcowego powiadomienia Ustaw hello EndPointType tooAzureTable (2) i tabeli endPontAddress zestaw toohello magazynu (na przykład https://telemetryvalidationstore.table.core.windows.net/).
+    Aby utworzyć punkt końcowy powiadomienia, ustaw EndPointType AzureTable (2) i endPontAddress ustawić tabeli magazynu (na przykład https://telemetryvalidationstore.table.core.windows.net/).
   
-- Pobierz hello konfiguracje monitorowania
+- Uzyskiwanie konfiguracji monitorowania
 
-    Utwórz ustawienia konfiguracji monitorowania hello usług można mają toomonitor. Nie więcej niż jednego ustawienia konfiguracji monitorowania jest dozwolone. 
+    Tworzenie konfiguracji monitorowania ustawienia usługi, które chcesz monitorować. Nie więcej niż jednego ustawienia konfiguracji monitorowania jest dozwolone. 
 
 - Dodawanie konfiguracji monitorowania
 
 
  
-## <a name="get-hello-storage-account-associated-with-a-media-services-account"></a>Pobierz hello konta magazynu skojarzone z kontem usługi Media Services
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Pobierz konta magazynu skojarzone z kontem usługi Media Services
 
 ###<a name="request"></a>Żądanie
 
@@ -71,7 +71,7 @@ w tym temacie opisano kroki Hello są:
     
     {"d":{"results":[{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.StorageAccount"},"Name":"telemetryvalidationstore","IsDefault":true,"BytesUsed":null}]}}
 
-## <a name="get-hello-notification-endpoints"></a>Pobierz hello punktów końcowych powiadomienia
+## <a name="get-the-notification-endpoints"></a>Pobierz punktów końcowych powiadomienia
 
 ###<a name="request"></a>Żądanie
 
@@ -125,7 +125,7 @@ w tym temacie opisano kroki Hello są:
     }
 
 >[!NOTE]
->Nie zapomnij konta magazynu tooyour wartość toochange hello "https://telemetryvalidationstore.table.core.windows.net".
+>Należy pamiętać zmienić wartość "https://telemetryvalidationstore.table.core.windows.net" do konta magazynu.
 
 ###<a name="response"></a>Odpowiedź
 
@@ -146,7 +146,7 @@ w tym temacie opisano kroki Hello są:
     
     {"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.NotificationEndPoint"},"Id":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Name":"monitoring","Created":"\/Date(1449033042667)\/","EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/","EndPointType":2}}
  
-## <a name="get-hello-monitoring-configurations"></a>Pobierz hello konfiguracje monitorowania
+## <a name="get-the-monitoring-configurations"></a>Uzyskiwanie konfiguracji monitorowania
 
 ### <a name="request"></a>Żądanie
 

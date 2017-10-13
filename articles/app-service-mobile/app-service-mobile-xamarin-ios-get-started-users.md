@@ -1,6 +1,6 @@
 ---
-title: "aaaGet uruchomiony przy użyciu uwierzytelniania dla aplikacji mobilnych w systemu Xamarin iOS"
-description: "Dowiedz się, jak toouse Mobile Apps tooauthenticate użytkowników aplikacji platformy Xamarin iOS za pomocą różnych dostawców tożsamości, obejmującej AAD, Google, Facebook, Twitter i firmy Microsoft."
+title: Wprowadzenie do uwierzytelniania dla aplikacji mobilnych w systemu Xamarin iOS
+description: "Dowiedz się, jak używać Mobile Apps do uwierzytelniania użytkowników aplikacji platformy Xamarin iOS za pomocą różnych dostawców tożsamości, obejmującej AAD, Google, Facebook, Twitter i Microsoft."
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,56 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: glenga
-ms.openlocfilehash: 6458e9651b03df61c86b88b11953792e04bfa5b2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 454b2df5a9bf8cfba93befea54370957ab044d95
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="add-authentication-tooyour-xamarinios-app"></a>Dodaj aplikację platformy Xamarin.iOS tooyour uwierzytelniania
+# <a name="add-authentication-to-your-xamarinios-app"></a>Dodawanie uwierzytelniania do aplikacji platformy Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-W tym temacie opisano sposób tooauthenticate użytkowników aplikację usługi Mobile aplikacji z poziomu aplikacji klienta. W tym samouczku możesz dodać uwierzytelniania toohello Xamarin.iOS projekt szybkiego startu przy użyciu dostawcy tożsamości, która jest obsługiwana przez usługę App Service. Po pomyślnie trwa uwierzytelnieniu i autoryzacji w aplikacji mobilnej, jest wyświetlana wartość Identyfikatora użytkownika hello i będą mogli tooaccess ograniczone tabeli danych.
+W tym temacie przedstawiono, jak uwierzytelniać użytkowników aplikacji usługi Mobile aplikacji z poziomu aplikacji klienta. W tym samouczku Dodawanie uwierzytelniania do projektu szybkiego startu platformy Xamarin.iOS przy użyciu dostawcy tożsamości, która jest obsługiwana przez usługę App Service. Po pomyślnie trwa uwierzytelnieniu i autoryzacji w aplikacji mobilnej, jest wyświetlana wartość Identyfikatora użytkownika i będzie można uzyskać dostęp do danych tabeli ograniczone.
 
-Najpierw musisz zakończyć samouczek hello [tworzenie aplikacji platformy Xamarin.iOS]. Jeśli nie używasz hello pobrany Projekt serwera szybki start, należy dodać projekt tooyour hello uwierzytelniania rozszerzenie pakietu. Aby uzyskać więcej informacji na temat pakietów rozszerzenia serwera, zobacz [pracować z serwera wewnętrznej bazy danych hello .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Najpierw musisz zakończyć samouczka [tworzenie aplikacji platformy Xamarin.iOS]. Jeśli nie używasz szybki start pobrany Projekt serwera, należy dodać pakietu rozszerzenia uwierzytelniania do projektu. Aby uzyskać więcej informacji na temat pakietów rozszerzenia serwera, zobacz [pracować z serwera wewnętrznej bazy danych .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Zarejestrować aplikację do uwierzytelniania i konfigurowanie usługi aplikacji
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="add-your-app-toohello-allowed-external-redirect-urls"></a>Dodaj adresy URL przekierowania zewnętrznych dozwolone Twojej aplikacji toohello
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>Dodaj aplikację do dozwolonych przekierowania zewnętrzne adresy URL
 
-Bezpieczne uwierzytelnianie wymaga Zdefiniuj nowy schemat adresu URL dla aplikacji. Po zakończeniu procesu uwierzytelniania hello dzięki temu hello uwierzytelniania systemu tooredirect wstecz tooyour aplikacji. W tym samouczku używamy schemat adresu URL hello _appname_ w ciągu. Można jednak użyć dowolnego wybranego schematu URL. Powinna być unikatowa tooyour aplikacji mobilnej. Przekierowanie hello tooenable na powitania po stronie serwera:
+Bezpieczne uwierzytelnianie wymaga Zdefiniuj nowy schemat adresu URL dla aplikacji. Dzięki temu system uwierzytelniania przekierować z powrotem do aplikacji po zakończeniu procesu uwierzytelniania. W tym samouczku używamy schemat adresu URL _appname_ w ciągu. Można jednak użyć dowolnego wybranego schematu URL. Powinien być unikatowy w aplikacji mobilnej. Aby włączyć przekierowywanie po stronie serwera:
 
-1. W hello [portalu Azure] wybierz usługę aplikacji.
+1. W [portalu Azure] wybierz usługę aplikacji.
 
-2. Kliknij przycisk hello **uwierzytelniania / autoryzacji** opcji menu.
+2. Kliknij przycisk **uwierzytelniania / autoryzacji** opcji menu.
 
-3. W hello **dozwolone zewnętrznych adresów URL przekierowań**, wprowadź `url_scheme_of_your_app://easyauth.callback`.  Witaj **url_scheme_of_your_app** w tym ciągu jest hello schemat adresu URL aplikacji mobilnej.  Musi on być zgodny normalne Specyfikacja adresu URL dla protokołu (Użyj litery i tylko cyfry i rozpoczyna się od litery).  Należy zanotuj ciąg hello, który możesz wybrać, ponieważ będzie potrzebny tooadjust kodu aplikacji mobilnej przy użyciu hello schemat adresu URL w kilku miejscach.
+3. W **dozwolone zewnętrznych adresów URL przekierowań**, wprowadź `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** w tym ciągu jest schemat adresu URL dla aplikacji mobilnej.  Musi on być zgodny normalne Specyfikacja adresu URL dla protokołu (Użyj litery i tylko cyfry i rozpoczyna się od litery).  Należy zanotuj ciąg, który wybrany jako trzeba będzie dostosować kodu aplikacji mobilnej przy użyciu schemat adresu URL w kilku miejscach.
 
 4. Kliknij przycisk **OK**.
 
 5. Kliknij pozycję **Zapisz**.
 
-## <a name="restrict-permissions-tooauthenticated-users"></a>Ogranicz uprawnienia tooauthenticated użytkowników
+## <a name="restrict-permissions-to-authenticated-users"></a>Ogranicz uprawnienia dla uwierzytelnionych użytkowników
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. W programie Visual Studio lub Xamarin Studio Uruchom projekt klienta hello na urządzenia lub emulatora. Upewnij się, że wystąpił nieobsługiwany wyjątek przy użyciu kodu stanu 401 (bez autoryzacji) jest wywoływane po uruchomieniu aplikacji hello. Błąd Hello jest rejestrowane toohello konsoli hello debugera. Dlatego w programie Visual Studio hello awarii w oknie danych wyjściowych hello powinna zostać wyświetlona.
+&nbsp;&nbsp;4. W programie Visual Studio lub Xamarin Studio uruchamianie projektu klienta na urządzenia lub emulatora. Upewnij się, że wystąpił nieobsługiwany wyjątek przy użyciu kodu stanu 401 (bez autoryzacji) jest wywoływane po uruchomieniu aplikacji. Niepowodzenie jest rejestrowane w konsoli debugera. Dlatego w programie Visual Studio powinna zostać wyświetlona awarii w oknie danych wyjściowych.
 
-&nbsp;&nbsp;Ten błąd nieautoryzowanego wynika z faktu, aplikacja hello prób tooaccess zaplecza aplikacji mobilnej jako nieuwierzytelniony użytkownik. Witaj *TodoItem* tabeli teraz wymaga uwierzytelniania.
+&nbsp;&nbsp;Tego błędu nieautoryzowanego odbywa się, ponieważ aplikacja próbuje uzyskać dostęp jako użytkownik nieuwierzytelniony zaplecza aplikacji mobilnej. *TodoItem* tabeli teraz wymaga uwierzytelniania.
 
-Następnie zaktualizuje powitania klienta aplikacji toorequest zasobów z zaplecza aplikacji mobilnej hello z uwierzytelnionego użytkownika.
+Następnie możesz zaktualizuje aplikacji klienckiej żądania zasobów z zaplecza aplikacji mobilnej z uwierzytelnionego użytkownika.
 
-## <a name="add-authentication-toohello-app"></a>Dodaj aplikację toohello uwierzytelniania
-W tej sekcji należy zmodyfikować przed wyświetleniem danych toodisplay aplikacji hello ekran logowania. Po uruchomieniu aplikacji hello nie nie będą łączyć się tooyour usługi aplikacji i nie zawiera żadnych danych. Po powitania po raz pierwszy użytkownik hello wykonuje hello gestu odświeżania, zostanie wyświetlony ekran logowania hello; Po pojawi się lista zadań do wykonania w hello pomyślnego logowania.
+## <a name="add-authentication-to-the-app"></a>Dodawanie uwierzytelniania do aplikacji
+W tej sekcji należy zmodyfikować aplikację, aby wyświetlić ekran logowania przed wyświetleniem danych. Po uruchomieniu aplikacji, nie nie łączy się z usługą aplikacji i nie zawiera żadnych danych. Po raz pierwszy użytkownik wykonuje gestu odświeżania, pojawi się ekran logowania. Po pomyślnym logowaniu pojawi się lista zadań do wykonania.
 
-1. W hello projektu klienta, otwórz plik hello **QSTodoService.cs** i dodaj następujące hello za pomocą instrukcji i `MobileServiceUser` z toohello akcesor QSTodoService klasy:
+1. W projekcie klienta, otwórz plik **QSTodoService.cs** i dodaj następującą instrukcję using i `MobileServiceUser` z metody dostępu do klasy QSTodoService:
  
         using UIKit;
        
         // Logged in user
         private MobileServiceUser user;
         public MobileServiceUser User { get { return user; } }
-2. Dodaj nową metodę o nazwie **Uwierzytelnij** za**QSTodoService** z powitania po definicji:
+2. Dodaj nową metodę o nazwie **Uwierzytelnij** do **QSTodoService** z następującej definicji:
 
         public async Task Authenticate(UIViewController view)
         {
@@ -78,9 +78,9 @@ W tej sekcji należy zmodyfikować przed wyświetleniem danych toodisplay aplika
             }
         }
 
-    >[AZURE.NOTE] Jeśli używasz dostawcy tożsamości innych niż Facebook, zmień wartość hello przekazano zbyt**LoginAsync** powyżej tooone następującego hello: _MicrosoftAccount_, _Twitter_, _Google_, lub _WindowsAzureActiveDirectory_.
+    >[AZURE.NOTE] Jeśli używasz dostawcy tożsamości innych niż Facebook, zmień wartość przekazana do **LoginAsync** powyżej do jednej z następujących czynności: _MicrosoftAccount_, _Twitter_, _Google_, lub _WindowsAzureActiveDirectory_.
 
-3. Otwórz **QSTodoListViewController.cs**. Zmodyfikuj definicję metody hello **ViewDidLoad** usuwanie hello wywołanie za**RefreshAsync()** niemal zakończenia hello:
+3. Otwórz **QSTodoListViewController.cs**. Zmodyfikować definicję metody **ViewDidLoad** usuwanie wywołanie **RefreshAsync()** w pobliżu elementu end:
    
         public override async void ViewDidLoad ()
         {
@@ -93,10 +93,10 @@ W tej sekcji należy zmodyfikować przed wyświetleniem danych toodisplay aplika
                 await RefreshAsync();
             }
    
-            // Comment out hello call tooRefreshAsync
+            // Comment out the call to RefreshAsync
             // await RefreshAsync();
         }
-4. Zmodyfikuj metodę hello **RefreshAsync** tooauthenticate Jeśli hello **użytkownika** właściwość ma wartość null. Dodaj następującego kodu u góry hello definicję metody hello hello:
+4. Zmodyfikuj metodę **RefreshAsync** uwierzytelniać **użytkownika** właściwość ma wartość null. Dodaj następujący kod w górnej części definicja metody:
    
         // start of RefreshAsync method
         if (todoService.User == null) {
@@ -107,7 +107,7 @@ W tej sekcji należy zmodyfikować przed wyświetleniem danych toodisplay aplika
             }
         }
         // rest of RefreshAsync method
-5. Otwórz **AppDelegate.cs**, Dodaj hello następujące metody:
+5. Otwórz **AppDelegate.cs**, dodaj następującą metodę:
 
         public static Func<NSUrl, bool> ResumeWithURL;
 
@@ -115,10 +115,10 @@ W tej sekcji należy zmodyfikować przed wyświetleniem danych toodisplay aplika
         {
             return ResumeWithURL != null && ResumeWithURL(url);
         }
-6. Otwórz **Info.plist** pliku, przejdź do zbyt**typy adresu URL** w hello **zaawansowane** sekcji. Teraz skonfigurować hello **identyfikator** i hello **Schematy adresów URL** typ adresu URL i kliknij przycisk **Dodawanie adresu URL typu**. **Schematy adresów URL** powinny być takie same hello jako Twoje {url_scheme_of_your_app}.
-7. W programie Visual Studio lub Xamarin Studio połączone tooyour Xamarin hosta kompilacji na komputerze Mac Uruchom projekt klienta hello przeznaczonych dla określonego urządzenia lub emulatora. Sprawdź, czy, aplikacja hello nie wyświetla żadnych danych.
+6. Otwórz **Info.plist** pliku, przejdź do **typy adresu URL** w **zaawansowane** sekcji. Teraz skonfigurować **identyfikator** i **Schematy adresów URL** typ adresu URL i kliknij przycisk **Dodawanie adresu URL typu**. **Schematy adresów URL** powinna być taka sama jak Twoje {url_scheme_of_your_app}.
+7. W programie Visual Studio lub Xamarin Studio połączony z hostem Xamarin kompilacji na komputerze Mac, uruchamianie projektu klienta przeznaczonych dla określonego urządzenia lub emulatora. Sprawdź, czy aplikacja nie wyświetla żadnych danych.
    
-    Wykonaj hello odświeżania gestu przez ściąganie hello listę elementów, które spowoduje, że tooappear ekranu logowania hello w dół. Po pomyślnie zostały wprowadzone prawidłowe poświadczenia, aplikacji hello zostaną wyświetlone powitalne Lista zadań do wykonania i można udostępnić dane toohello aktualizacji.
+    Wykonuje gestu odświeżania ściąganie w dół listę elementów, co spowoduje wyświetlenie ekranu logowania. Po pomyślnie zostały wprowadzone prawidłowe poświadczenia, aplikacja będzie wyświetlana lista zadań do wykonania i mogą wysyłać aktualizacje do danych.
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

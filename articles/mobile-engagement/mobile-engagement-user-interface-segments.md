@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement interfejsu użytkownika — segmenty"
-description: "Dowiedz się, jak toocreate i zarządzanie segmentami wzorców użycia tooidentify użytkowników przy użyciu usługi Azure Mobile Engagement"
+title: "Interfejs użytkownika usługi Azure Mobile Engagement — segmenty"
+description: "Dowiedz się, jak utworzyć i zarządzanie segmentami użytkowników w celu identyfikowania wzorców użycia za pomocą usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bb214c45d05ebfbf243978658a7e331d4a7c6e0e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocreate-and-manage-segments-of-users-tooidentify-usage-patterns"></a>Jak toocreate i zarządzanie segmentami wzorców użycia tooidentify użytkowników
-W tym artykule opisano hello **segmentów** kartę hello **Mobile Engagement** portalu. Użyj hello **Mobile Engagement** toomonitor portalu i zarządzania aplikacjami mobilnymi.
+# <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Tworzenie i zarządzanie segmentami użytkowników w celu identyfikowania wzorców użycia
+W tym artykule opisano **segmentów** karcie **Mobile Engagement** portalu. Możesz użyć **Mobile Engagement** portalu do monitorowania i zarządzania aplikacjami mobilnymi.
 
-sekcja segmentów Hello hello interfejsu użytkownika umożliwia toowork na segmentacji użytkowników na podstawie inaczej hello i analiz, można uzyskać z aplikacji hello przez użytkownika, który można również uzyskać dostęp za pośrednictwem hello segmentów interfejsu API. Segmenty najpierw są obliczane 24 godziny po ich tworzenia i są one przeliczane co 24 godziny na podstawie najnowszych informacji analytics hello. Po obliczeniu segment on wyświetla "Dzień tooday historii" wykres każdego dnia.
+Sekcja segmentów interfejsu użytkownika umożliwia pracę na podzielenie na podstawie inaczej i analizy, który można uzyskać z aplikacji i można również uzyskać dostęp za pośrednictwem interfejsu API segmentów użytkowników. Segmenty najpierw są obliczane 24 godziny po ich tworzenia i są one przeliczane co 24 godziny na podstawie najnowszych informacji analizy. Po obliczeniu segment on wyświetla "Od dnia na dzień historii" wykres każdego dnia.
 
 > [!NOTE]
-> Wiele sekcji hello **Mobile Engagement** interfejsu użytkownika portalu zawierają hello **Pokaż Pomoc** przycisku. Naciśnij ten przycisk tooget więcej informacje kontekstowe dotyczące sekcji.
+> Wiele sekcji **Mobile Engagement** zawierają interfejsu użytkownika portalu **Pokaż Pomoc** przycisku. Naciśnij ten przycisk, aby uzyskać dodatkowe informacje kontekstowe o sekcji.
 > 
 > 
 
 ## <a name="create-segments"></a>Tworzyć segmenty
-Można utworzyć na podstawie kryteriów too10 określonego okresu się too60 dni w hello segment przeszłości z sekcji analytics hello. Na przykład można utworzyć segment oparte na osoby hello wyświetlanie określonych stron lub wyszukiwane określonej zawartości w Twojej aplikacji w ramach hello ostatnich 10 dni. Te informacje są dostępne w sekcji analytics hello. Tak, można go użyć toocreate segment, a następnie ponowne skonfigurowanie tootarget powiadomień wypychanych ten podzestaw użytkowników tooget ich toocome wstecz toohello aplikacji. 
+Można utworzyć na podstawie kryteriów maksymalnie 10 w danym okresie się do 60 dni w przeszłości z sekcji analytics segment. Na przykład można utworzyć segment oparte na osoby, które mają wyświetlać określonych stron lub wyszukiwane określonej zawartości w Twojej aplikacji w ciągu ostatnich 10 dni. Te informacje są dostępne w sekcji analytics. Tak można go utworzyć segment, a następnie ponowne skonfigurowanie powiadomienie wypychane pod kątem tego podzbioru użytkowników można uzyskać je, aby wrócić do aplikacji. 
 
 > [!NOTE]
-> Po obliczeniu segmentu nie może być edytowany; można tylko sklonować (skopiowanych) lub zniszczony (usunięty). W ramach hello można sklonować segmentu tej samej aplikacji (z hello tego samego AppID), i można go również sklonować do innych aplikacji (z różnych AppID). 
+> Po obliczeniu segmentu nie może być edytowany; można tylko sklonować (skopiowanych) lub zniszczony (usunięty). W tej samej aplikacji (z tej samej AppID) można sklonować segmentu i można sklonować również do innych aplikacji (z różnych AppID). 
 
  ![segments1][35] 
 
 ## <a name="examples-segments"></a>Przykłady segmentów
  ![segments2][36]
 
-Segmenty pozwalają użytkownikom końcowym hello toosegment aplikacji.
-Segmentacji użytkowników jest ważne strategii marketingowej. Usługa Azure Mobile Engagement pozwala tooget danych historycznych i tworzyć segmenty niestandardowych. To narzędzie zaawansowane umożliwia toolearn o obsługi klientów w aplikacji. Można łatwo analizować segmentów i używać segmentów jako miejsca docelowe wypychania.
-Typowe przypadek użycia jest mają toosend tooencourage powiadomień wypychanych toorate Twojego użytkownicy końcowi aplikacji w sklepie hello. Zamiast wysyłania tooall powiadomienie użytkowników końcowych, możesz utworzyć segment, który określa tylko w przypadku użytkowników, którzy używanych aplikacji codziennie dla hello ostatniego miesiąca i miały dużą interfejs użytkownika. Podczas wysyłania powiadomień wypychanych mniej, wysokiej docelowej, możesz uzyskać lepsze ROI.
+Segmenty umożliwiają segmentu użytkowników końcowych w aplikacji.
+Segmentacji użytkowników jest ważne strategii marketingowej. Usługa Azure Mobile Engagement pozwala na pobieranie danych historycznych i tworzyć segmenty niestandardowych. To narzędzie zaawansowane umożliwia więcej informacji na temat obsługi klientów w aplikacji. Można łatwo analizować segmentów i używać segmentów jako miejsca docelowe wypychania.
+Typowe przypadek użycia jest chcesz wysłać powiadomienie do zachęcić użytkowników końcowych do klasyfikowania aplikacji w magazynie wypychania. Zamiast wysyła powiadomienie do wszystkich użytkowników końcowych, można utworzyć segment, który określa tylko użytkownicy użyty aplikacji codziennie w ciągu ostatniego miesiąca i miały dużą interfejs użytkownika. Podczas wysyłania powiadomień wypychanych mniej, wysokiej docelowej, możesz uzyskać lepsze ROI.
 
  ![segments3][37]
 
-### <a name="segments-you-can-create-based-on-hello-major-azure-mobile-engagement-elements"></a>Segmentów, które można tworzyć oparte na powitania główne elementy usługi Azure Mobile Engagement:
-* Zdarzenie: utworzyć segment tego cele jednego określonego zdarzenia aplikacji hello, który wystąpił więcej niż dwa razy w tygodniu. 
-* Sesji: utworzenia segment użytkowników, którzy używali aplikacji hello więcej niż 5 razy w ostatnim tygodniu.
+### <a name="segments-you-can-create-based-on-the-major-azure-mobile-engagement-elements"></a>Segmentów, które można tworzyć oparte na elementy główne usługi Azure Mobile Engagement:
+* Zdarzenie: utworzyć segment tego cele jednego określonego zdarzenia aplikacji przypada więcej niż dwa razy w tygodniu. 
+* Sesji: utworzenia segment użytkowników, którzy używali aplikacji więcej niż 5 razy w ostatnim tygodniu.
 * Działania: Utwórz segment użytkowników, którzy używali jedną stronę lub zawartość większa lub mniejsza niż 10 czas ostatniego miesiąca.
 * Zadania: Utwórz segment użytkowników, które zostały wykonane zadania więcej niż dwa razy dziennie.
-* Awarii: segmentem wszyscy użytkownicy hello, które miały awarii więcej niż 10 razy w ostatnim tygodniu. (Ten segment Przeprosiny lub nawet papieru wartościowego można push)!
-* Błąd: segmentem wszyscy użytkownicy hello, które miały błąd więcej niż 100 razy ostatnich 3 dni.
-* Informacje o aplikacji: utworzyć segment przeznaczonego dla niestandardowych informacji o aplikacji, które wystąpiły podczas hello ostatnich dni 25.
+* Awarii: segmentem wszystkich użytkowników, których awarii więcej niż 10 razy w ostatnim tygodniu. (Ten segment Przeprosiny lub nawet papieru wartościowego można push)!
+* Błąd: segmentem wszystkich użytkowników, których wystąpił błąd więcej niż 100 razy ostatnich 3 dni.
+* Informacje o aplikacji: utworzyć segment przeznaczonego dla niestandardowych informacji o aplikacji, które wystąpiły w ciągu ostatnich 25 dni.
   
   ![segments4][38]
 
-toouse segmentu w optymalny sposób, musisz przeprowadzić dostosowane integracji hello zestawu SDK w aplikacji z planem znakowania tagów "Informacje o aplikacji".
-Następnie przejdź toohello strona główna interfejsu hello, wybierz aplikacji hello i kliknij w sekcji "Segmentów" hello.
+Aby użyć segmentu w optymalny sposób, musisz przeprowadzić dostosowane integracji zestawu SDK w aplikacji z planem znakowania tagów "Informacje o aplikacji".
+Następnie przejdź do strony głównej interfejsu, wybierz aplikację i kliknij w sekcji "Segmentów".
 
-1. Wybierz sekcję "Segmentów" hello.
-2. Kliknij przycisk "Nowy segment" hello przycisk toocreate nowy segment.
+1. Wybierz sekcję "Segmentów".
+2. Kliknij przycisk "nowy segment" przycisk, aby utworzyć nowy segment.
 
 ## <a name="real-life-example-create-a-simple-segment-based-on-session-information"></a>Rzeczywiste życia przykład: Tworzenie prostego segmentu, na podstawie informacji "Session"
-Utwórz segment wszystkim użytkownikom końcowym hello, którzy używali aplikacji co najmniej 50 razy w ostatnim tygodniu hello. Z tego miejsca Znajdź tylko hello użytkownicy końcowi, którzy poświęcony co najmniej 30 sekund w aplikacji na sesję. Wyświetli wszystkim użytkownikom końcowym hello mających pozytywne doświadczenia w aplikacji. Następnie segmentu hello utworzone może być używane toopush tooask użytkownicy końcowi toothese powiadomienia ich przechowywania aplikacji w hello toorate.
+Segmentem wszystkich użytkowników końcowych, którzy używali aplikacji w co najmniej 50 razy w ciągu ostatniego tygodnia. Z tego miejsca Znajdź tylko użytkownicy końcowi, którzy poświęcony co najmniej 30 sekund w aplikacji na sesję. Będzie to wyświetlenie wszystkich użytkowników końcowych, którzy mają pozytywne doświadczenia w aplikacji. Następnie segmentu utworzone może zostać wykorzystane do zmuszenia powiadomienie dla tych użytkowników końcowych, aby zadać je, aby oceniać aplikację w magazynie.
 
  ![segments5][39]
 
-1. Nadaj nazwę segmentu w kolejności toofind ją szybko liście hello "Segment".
-2. Powitania kliknij przycisk "Utwórz".
+1. Nadaj nazwę segmentu, aby szybko znaleźć na liście "Segmentu".
+2. Kliknij przycisk "Utwórz".
    
    ![segments6][40]
 
@@ -78,34 +78,34 @@ Wybierz sesji.
 
  ![segments7][41]
 
-1. Wybierz okres hello "W ostatnim tygodniu".
+1. Wybierz okres "Ostatniego tygodnia".
 2. Kliknij przycisk Dalej.
    
    ![segments8][42]
-3. Witaj wybierz Operator, który jest odpowiedni liście hello: =; ≥, ≤.
-4. Wprowadź hello liczba ma.
-5. Wybierz wystąpienie ma hello. 
+3. Wybierz Operator, który jest odpowiedni na liście: =; ≥, ≤.
+4. Wprowadź liczbę, ma.
+5. Wybierz wystąpienie ma. 
 6. Kliknij przycisk Dalej.
-   W tym przykładzie jest ustawiona, tak że over hello ostatniego tygodnia, dopasowanie użytkowników, którzy zostały wykonane co najmniej 50 sesji.
+   W tym przykładzie jest ustawiona, więc w ostatnim tygodniu pasujących użytkowników, których dokonano co najmniej 50 sesji.
    
    ![segments9][43]
 
-Witaj segmentacji sesji można hello długości sesji jako kryterium.
+W przypadku segmentacji sesji można długości sesji jako kryterium.
 
-1. Wybierz hello operatora z listy hello.
-2. Podaj hello długości sesji.
+1. Wybierz Operator, z listy.
+2. Podaj długości sesji.
 3. Kliknij przycisk Dalej.
-   W tym przykładzie mówi to, że na wszystkich hello sesji, które zostały podzielone na powitania wystąpienia sekcji, wybierz tylko hello użytkowników, którzy poświęcony ponad 30 sekund na sesję.
+   W tym przykładzie mówi czy przez wszystkie sesje który zostały podzielone w sekcji wystąpienie, wybierz użytkowników, które poświęcony ponad 30 sekund na sesję.
    
    ![segments10][44]
 
-Nazwa kryterium w kolejności tooretrieve w hello ukończyć Lejkowy, a następnie kliknij przycisk Zakończ.
+Nazwa kryterium Aby pobrać go w pełną lejka, a następnie kliknij przycisk Zakończ.
 
  ![segments11][45]
 
-Jeśli ukończono konfigurowanie kryterium, zostanie wyświetlony na powitania segmentów lejka.
+Jeśli ukończono konfigurowanie kryterium, pojawi się w segmencie lejka.
 Ponieważ segment jest oparta na dane analityczne, segmentów są obliczane raz dziennie.
-W tym przykładzie 47,7% całkowitej użytkownicy końcowi hello dopasowane hello kryterium. Powinny one być hello użytkowników, którzy miały dobrej środowisko i będzie można prawdopodobnie tooprovide klasyfikacji wyższej, jeśli wypychanie ich powiadomienie prośbą toorate hello aplikacji w sklepie hello.
+W tym przykładzie 47,7% całkowitej użytkownicy końcowi zgodny z kryterium. Powinny one być użytkowników, którzy miały dobrej środowisko i będzie może zapewnić wyższy klasyfikacji, jeśli wypychanie ich powiadomienie z prośbą do klasyfikowania aplikacji w sklepie.
 
 ## <a name="see-also"></a>Zobacz też
 * [Pojęcia][Link 6]

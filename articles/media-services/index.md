@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji usług Media — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toosecurely przesyłania strumieniowego na żądanie lub na żywo emisji jakości wideo za pomocą usługi Media Services to platforma chmury extensible. Samouczki, dokumentacja interfejsu API i inne materiały."
+title: "Dokumentacja usługi Azure Media Services — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak za pomocą usługi Media Services — rozszerzalnej platformy w chmurze — zapewnić bezpieczne przesyłanie strumieniowe materiałów wideo w jakości odpowiedniej do emisji na żywo lub na żądanie. Samouczki, dokumentacja interfejsu API i inne materiały."
 services: media-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c36b7dbf14434e7aadc38f2c74ca7d3830a1bd3f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-services-documentation"></a>Dokumentacja usługi Media Services
 
-Dowiedz się, jak toostream emisji jakości wideo z usługi Media Services to platforma chmury extensible. Samouczki, odwołania do interfejsu API i dokumentacji opisano, jak toosecurely dostarczania na żądanie i na żywo strumieni wideo lub audio, które toomillions użytkowników.
+Dowiedz się, jak za pomocą usługi Media Services — rozszerzalnej platformy w chmurze — zapewnić przesyłanie strumieniowe materiałów wideo w jakości odpowiedniej do emisji. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób zapewnienia bezpiecznej transmisji strumieniowej materiałów wideo lub audio na żywo lub na żądanie, którą można skalować na potrzeby milionów użytkowników.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak toostream emisji jakości wideo z usługi Media Services to pl
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do usługi Azure Media Services przy użyciu hello portalu Azure</h3>
+                        <h3>Rozpoczynanie pracy z usługą Azure Media Services przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Dowiedz się, jak toostream emisji jakości wideo z usługi Media Services to pl
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Tworzenie konta usługi Azure Media Services przy użyciu hello portalu Azure</h3>
+                        <h3>Tworzenie konta usługi Azure Media Services przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Dowiedz się, jak toostream emisji jakości wideo z usługi Media Services to pl
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Pobierz wprowadzenie rozprowadzają zawartości przy użyciu hello portalu Azure</h3>
+                        <h3>Wprowadzenie do dostarczania zawartości przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>

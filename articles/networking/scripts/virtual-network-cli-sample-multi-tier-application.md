@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure interfejsu wiersza polecenia skryptu przykładowe — tworzenie sieci dla aplikacji wielowarstwowych | Dokumentacja firmy Microsoft"
+title: "Azure CLI skrypt przykładowy — tworzenie sieci dla aplikacji wielowarstwowych | Dokumentacja firmy Microsoft"
 description: "Azure CLI skrypt przykładowy — tworzenie sieci wirtualnej dla aplikacji wielowarstwowych."
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,15 +15,15 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: deeb3f459499cebd1b8ded6a299eb759d49cf08d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: de65d820f2d9eea49b58185c81d815675fd76740
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Tworzenie sieci dla aplikacji wielowarstwowych
 
-Ten przykładowy skrypt tworzy sieć wirtualną z podsieci frontonu i zaplecza. Podsieci frontonu toohello ruchu jest ograniczony tooHTTP i SSH, podczas toohello ruchu podsieci wewnętrznej jest ograniczona tooMySQL, port 3306. Po uruchamianie skryptu hello masz dwie maszyny wirtualne, w każdej podsieci, którą można wdrożyć serwera sieci web i MySQL oprogramowania.
+Ten przykładowy skrypt tworzy sieć wirtualną z podsieci frontonu i zaplecza. Ruch do podsieci frontonu jest ograniczona do HTTP i SSH, gdy ruch do podsieci wewnętrznej jest ograniczony do MySQL, port 3306. Po uruchomieniu skryptu, masz dwie maszyny wirtualne, w każdej podsieci, którą można wdrożyć serwera sieci web i MySQL oprogramowania.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -33,11 +33,11 @@ Ten przykładowy skrypt tworzy sieć wirtualną z podsieci frontonu i zaplecza. 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "Virtual network for multi-tier application")]
+[!code-azurecli-interactive[główne](../../../cli_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.sh  "sieci wirtualnej dla aplikacji wielowarstwowych")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Hello uruchom następujące polecenie, grupy zasobów hello tooremove, maszyny Wirtualnej i wszystkich powiązanych zasobów.
+Uruchom następujące polecenie, aby usunąć grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby.
 
 ```azurecli
 az group delete --name MyResourceGroup --yes
@@ -45,22 +45,22 @@ az group delete --name MyResourceGroup --yes
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa powitania po toocreate poleceń, grupy zasobów, sieci wirtualnej i grup zabezpieczeń sieci. Każde polecenie w dokumentacji konkretnego toocommand łącza tabeli hello.
+Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, sieć wirtualną i grup zabezpieczeń sieci. Każde polecenie w tabeli łącza do dokumentacji specyficzne dla polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
 | [Tworzenie grupy az](/cli/azure/group#create) | Tworzy grupę zasobów, w którym przechowywane są wszystkie zasoby. |
 | [Tworzenie sieci wirtualnej sieci az](/cli/azure/network/vnet#create) | Tworzy sieć wirtualna platformy Azure i podsieci frontonu. |
 | [Utwórz podsieć sieci az](/cli/azure/network/vnet/subnet#create) | Tworzy podsieć zaplecza. |
-| [Tworzenie sieci az publicznego ip](/cli/azure/network/public-ip#create) | Tworzy publicznego adresu IP adres tooaccess hello maszyny Wirtualnej na podstawie hello Internet. |
-| [Utwórz az kart interfejsu sieciowego](/cli/azure/network/nic#create) | Tworzy interfejsy sieci wirtualnej i dołącza je podsieci sieci wirtualnej toohello frontonu i zaplecza. |
-| [Tworzenie grupy nsg sieci az](/cli/azure/network/nsg#create) | Tworzy grupy zabezpieczeń sieci (NSG), które są skojarzone toohello podsieci frontonu i zaplecza. |
-| [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) |Tworzy reguły NSG, które zezwala lub blokuje określone porty toospecific podsieci. |
-| [Tworzenie maszyny wirtualnej az](/cli/azure/vm#create) | Tworzy maszyny wirtualne i dołącza tooeach karty Sieciowej maszyny Wirtualnej. To polecenie określa również toouse obrazu maszyny wirtualnej hello i poświadczenia administracyjne. |
+| [Tworzenie sieci az publicznego ip](/cli/azure/network/public-ip#create) | Tworzy publiczny adres IP na dostęp do maszyny Wirtualnej z Internetu. |
+| [Utwórz az kart interfejsu sieciowego](/cli/azure/network/nic#create) | Tworzy interfejsy sieci wirtualnej i dołącza je do podsieci sieci wirtualnej frontonu i zaplecza. |
+| [Tworzenie grupy nsg sieci az](/cli/azure/network/nsg#create) | Tworzy sieciowej grupy zabezpieczeń (NSG), które są skojarzone z podsieci frontonu i zaplecza. |
+| [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) |Tworzy reguły NSG, które zezwala lub blokuje określone porty do określonych podsieci. |
+| [Tworzenie maszyny wirtualnej az](/cli/azure/vm#create) | Tworzy maszyny wirtualne i dołącza karty Sieciowej na każdej maszynie Wirtualnej. To polecenie określa również obraz maszyny wirtualnej do użycia i poświadczenia administracyjne. |
 | [Usuwanie grupy az](/cli/azure/group#delete) | Usuwa grupę zasobów i wszystkie zasoby, które zawiera. |
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na powitania wiersza polecenia platformy Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](/cli/azure/overview).
+Aby uzyskać więcej informacji dotyczących interfejsu wiersza polecenia Azure, zobacz [dokumentacji interfejsu wiersza polecenia Azure](/cli/azure/overview).
 
-Dodatkowe przykłady skryptów sieci interfejsu wiersza polecenia można znaleźć w hello [Azure Przegląd dokumentacji](../cli-samples.md)
+Dodatkowe przykłady skryptów sieci interfejsu wiersza polecenia można znaleźć w [Azure Przegląd dokumentacji](../cli-samples.md)

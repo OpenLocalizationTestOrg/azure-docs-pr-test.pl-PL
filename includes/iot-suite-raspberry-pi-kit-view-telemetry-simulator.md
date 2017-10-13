@@ -1,31 +1,31 @@
-## <a name="view-hello-telemetry"></a>Dane telemetryczne wyświetleń hello
+## <a name="view-the-telemetry"></a>Widok telemetrii
 
-Hello Pi malina teraz wysyła dane telemetryczne toohello zdalnego rozwiązanie monitorowania. Można wyświetlić dane telemetryczne hello na pulpicie nawigacyjnym rozwiązania hello. Można również wysłać wiadomości tooyour Pi malina z pulpitu nawigacyjnego rozwiązania hello.
+Pi malina teraz wysyła dane telemetryczne do zdalnego rozwiązanie monitorowania. Można wyświetlić dane telemetryczne na pulpicie nawigacyjnym rozwiązania. Można również wysyłać wiadomości do Twojej Pi malina z poziomu pulpitu nawigacyjnego rozwiązania.
 
-- Przejdź toohello pulpit nawigacyjny rozwiązania.
-- Wybierz swoje urządzenie w hello **tooView urządzenia** listy rozwijanej.
-- dane telemetryczne Hello z hello Pi malina wyświetla na pulpicie nawigacyjnym hello.
+- Przejdź do pulpitu nawigacyjnego rozwiązania.
+- Wybierz urządzenie w **urządzenia do widoku** listy rozwijanej.
+- Dane telemetryczne z Pi malina wyświetla na pulpicie nawigacyjnym.
 
-![Wyświetl dane telemetryczne z hello Pi malina][img-telemetry-display]
+![Wyświetl dane telemetryczne z Pi malina][img-telemetry-display]
 
-## <a name="act-on-hello-device"></a>Działania na urządzeniu hello
+## <a name="act-on-the-device"></a>Działania na urządzeniu
 
-Z pulpitu nawigacyjnego rozwiązania hello można wywoływać metod w Twojej Pi malina. Gdy hello Pi malina łączy toohello zdalnego rozwiązanie monitorowania, wysyła informacje o metodach hello, który go obsługuje.
+Na pulpicie nawigacyjnym rozwiązania można wywoływać metod w Twojej Pi malina. Gdy Pi malina łączy się zdalnego rozwiązanie monitorowania, wysyła informacje o metodach obsługiwanych.
 
-- Na pulpicie nawigacyjnym rozwiązania hello, kliknij przycisk **urządzeń** toovisit hello **urządzeń** strony. Wybierz użytkownika Pi malina hello **listę urządzeń**. Następnie wybierz pozycję **metody**:
+- Na pulpicie nawigacyjnym rozwiązania kliknij **urządzeń** do odwiedzenia **urządzeń** strony. Wybierz użytkownika malinowe Pi w **listę urządzeń**. Następnie wybierz pozycję **metody**:
 
     ![Lista urządzeń na pulpicie nawigacyjnym][img-list-devices]
 
-- Na powitania **wywołania metody** wybierz pozycję **LightBlink** w hello **metody** listy rozwijanej.
+- Na **wywołania metody** wybierz pozycję **LightBlink** w **metody** listy rozwijanej.
 
-- Wybierz **InvokeMethod**. Symulator Hello drukuje wiadomość hello konsoli na powitania malina Pi. Aplikacja Hello na powitania Pi malina wysyła pulpit nawigacyjny potwierdzenia wstecz toohello rozwiązania:
+- Wybierz **InvokeMethod**. Symulator wyświetla komunikat w konsoli za pośrednictwem malina Pi. Aplikacja na Pi malina wysyła potwierdzenie z powrotem do pulpitu nawigacyjnego rozwiązania:
 
     ![Pokaż historię — metoda][img-method-history]
 
-- Możesz przełączyć hello LED włączać i wyłączać za pomocą hello **ChangeLightStatus** metody z **LightStatusValue** ustawić także**1** dla na lub **0** dla off.
+- Możesz przełączyć LED włączać i wyłączać za pomocą **ChangeLightStatus** metody z **LightStatusValue** ustawioną **1** dla na lub **0** dla off.
 
 > [!WARNING]
-> Pozostawienie zdalne monitorowanie działającej na koncie Azure hello są rozliczane na powitania jego uruchomieniu. Aby uzyskać więcej informacji o zmniejszenie zużycia podczas hello zdalne monitorowanie uruchamia rozwiązania, zobacz [Konfigurowanie pakiet IoT Azure wstępnie rozwiązań dla celów demonstracyjnych][lnk-demo-config]. Usuń hello wstępnie skonfigurowane rozwiązanie z konta platformy Azure po zakończeniu korzystania z niego.
+> Pozostawienie zdalnego monitorowania działającej na koncie Azure są rozliczane dla przy uruchomieniu. Aby uzyskać więcej informacji na temat zmniejszenie zużycia podczas wykonywania zdalnego rozwiązanie monitorowania, zobacz [Konfigurowanie pakiet IoT Azure wstępnie rozwiązań dla celów demonstracyjnych][lnk-demo-config]. Usuwanie wstępnie skonfigurowane rozwiązanie z konta platformy Azure po zakończeniu korzystania z niego.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png

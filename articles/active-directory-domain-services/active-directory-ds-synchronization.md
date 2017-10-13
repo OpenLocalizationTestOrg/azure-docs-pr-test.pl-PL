@@ -14,69 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 9be25b61823a6b031906f3576395782e73831fc4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synchronizacja w domenie zarządzanej usług domenowych Azure AD
-Hello poniższym diagramie przedstawiono sposób działania synchronizacji w w usługach domenowych Azure AD domen zarządzanych.
+Na poniższym diagramie przedstawiono, jak działa synchronizacji w w usługach domenowych Azure AD w domenach zarządzanych.
 
 ![Topologia synchronizacji w usługach domenowych Azure AD](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
-## <a name="synchronization-from-your-on-premises-directory-tooyour-azure-ad-tenant"></a>Synchronizacja z dzierżawą lokalnego katalogu tooyour usługi Azure AD
-Synchronizacja programu Azure AD Connect jest używane toosynchronize kont użytkowników, członkostwa w grupach i dzierżawy tooyour usługi Azure AD skrótów poświadczeń. Atrybuty użytkownika konta, takich jak hello UPN i lokalnymi identyfikatora SID (identyfikator zabezpieczeń) są synchronizowane. Jeśli używasz usług domenowych Azure AD skrótów starszych poświadczeń wymaganych do uwierzytelniania NTLM i Kerberos są również tooyour zsynchronizowanej dzierżawy usługi Azure AD.
+## <a name="synchronization-from-your-on-premises-directory-to-your-azure-ad-tenant"></a>Synchronizacja z katalogu lokalnego do dzierżawy usługi Azure AD
+Synchronizacja programu Azure AD Connect umożliwia synchronizowanie kont użytkowników, członkostw i skróty poświadczeń do dzierżawy usługi Azure AD. Atrybuty użytkownika konta, takie jak nazwa UPN i lokalnymi identyfikatora SID (identyfikator zabezpieczeń) są synchronizowane. Jeśli korzystasz z usług domenowych Azure AD, do dzierżawy usługi Azure AD synchronizowane są również skrótów starszych poświadczeń wymaganych do uwierzytelniania NTLM i Kerberos.
 
-Jeśli skonfigurujesz zapisu zmiany zachodzące w katalogu usługi Azure AD są synchronizowane wstecz tooyour lokalnej usługi Active Directory. Na przykład w przypadku zmiany hasła przy użyciu funkcji zmiany hasła samoobsługi usługi Azure AD, zmiany hasła hello jest aktualizowany w lokalnej domeny usługi AD.
+Jeśli skonfigurujesz zapisu są synchronizowane lokalnej usługi Active Directory zmiany zachodzące w katalogu usługi Azure AD. Na przykład w przypadku zmiany hasła przy użyciu funkcji zmiany hasła samoobsługi usługi Azure AD, zmiany hasła jest aktualizowany w lokalnej domeny usługi AD.
 
 > [!NOTE]
-> Zawsze używaj hello najnowszą wersję programu Azure AD Connect tooensure masz poprawek dla wszystkich znanych błędów.
+> Zawsze używać najnowszej wersji programu Azure AD Connect, aby upewnić się, że poprawki dla wszystkich znanych błędów.
 >
 >
 
-## <a name="synchronization-from-your-azure-ad-tenant-tooyour-managed-domain"></a>Domeny zarządzane synchronizacji z Twojej tooyour dzierżawy usługi Azure AD
-Konta użytkowników, członkostwa w grupach i skrótów poświadczeń są synchronizowane z Twojej tooyour dzierżawy usługi Azure AD domeny zarządzanej usług domenowych Azure AD. Ten proces synchronizacji odbywa się automatycznie. Nie trzeba tooconfigure, monitorowanie i zarządzanie ten proces synchronizacji. Po zakończeniu hello jednorazowego wstępnej synchronizacji katalogu on zwykle trwa około 20 minut, aby zmiany wprowadzone w usłudze Azure AD toobe odzwierciedlone w domeny zarządzanej. Ten interwał synchronizacji stosuje zmiany toopassword lub zmienia tooattributes wprowadzone w usłudze Azure AD.
+## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Synchronizacja z dzierżawy usługi Azure AD do domeny zarządzanej
+Konta użytkowników, członkostwa w grupach i skrótów poświadczeń są synchronizowane z dzierżawy usługi Azure AD do domeny zarządzanej usług domenowych Azure AD. Ten proces synchronizacji odbywa się automatycznie. Nie ma potrzeby konfigurowania, monitorowania lub zarządzania tym procesem synchronizacji. Po zakończeniu jednorazowe wstępna synchronizacja katalogu zwykle trwa około 20 minut, aby zmiany wprowadzone w usłudze Azure AD zostaną odzwierciedlone w domeny zarządzanej. Ten interwał synchronizacji ma zastosowanie do zmiany hasła lub zmiany atrybutów wprowadzone w usłudze Azure AD.
 
-proces synchronizacji Hello jest również jednorazowe-way/jednokierunkowe charakter. Domeny zarządzanej jest przede wszystkim tylko do odczytu z wyjątkiem wszystkich niestandardowych jednostkach organizacyjnych, należy utworzyć. W związku z tym nie można wprowadzić zmiany atrybutów toouser, hasła lub członkostwa w grupach w ramach domeny zarządzanej hello. W związku z tym jest nie odwrotnej synchronizacja zmian z Twojej domeny zarządzanej tooyour wstecz dzierżawy usługi Azure AD.
+Proces synchronizacji jest również jednorazowe-way/jednokierunkowe charakter. Domeny zarządzanej jest przede wszystkim tylko do odczytu z wyjątkiem wszystkich niestandardowych jednostkach organizacyjnych, należy utworzyć. W związku z tym nie można wprowadzić zmian atrybutów użytkowników, hasła użytkownika lub członkostwa w grupach w ramach domeny zarządzanej. W związku z tym jest nie odwrotnej synchronizacja zmian z domeny zarządzanej do dzierżawy usługi Azure AD.
 
 ## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Synchronizacja w środowisku wielu lasów lokalnych
-Organizacje często mają dość złożone lokalnymi infrastruktury tożsamości, składające się z wielu lasów kont. Azure AD Connect obsługuje synchronizacji użytkowników, grup i skrótów poświadczeń z dzierżawy tooyour usługi Azure AD w środowisku wielu lasów.
+Organizacje często mają dość złożone lokalnymi infrastruktury tożsamości, składające się z wielu lasów kont. Azure AD Connect obsługuje synchronizacji użytkowników, grup i skrótów poświadczeń w środowisku wielu lasów w dzierżawie usługi Azure AD.
 
-Z kolei dzierżawy usługi Azure AD jest znacznie prostsza i płaskiej przestrzeni nazw. tooenable użytkowników tooreliably uzyskiwać dostęp do aplikacji zabezpieczonej przez usługi Azure AD, rozwiązywanie konfliktów UPN między kontami użytkowników w różnych lasach. Twoje posiada domeny zarządzanej usług domenowych Azure AD Zamknij dzierżawy usługi Azure AD tooyour wynik. W związku z tym Zobacz płaska struktura jednostek organizacyjnych w domenie zarządzanej. Wszyscy użytkownicy i grupy są przechowywane w kontenerze "AADDC użytkownicy" hello, niezależnie od hello lokalnej domeny i lasu, z której zostały zsynchronizowane w. Skonfigurowane hierarchiczna jednostki Organizacyjnej struktury lokalnymi. Jednak domeny zarządzanej nadal ma prosty płaska struktura jednostki Organizacyjnej.
+Z kolei dzierżawy usługi Azure AD jest znacznie prostsza i płaskiej przestrzeni nazw. Aby umożliwić użytkownikom niezawodny dostęp do aplikacji zabezpieczonej przez usługi Azure AD, należy rozwiązać konflikty UPN między kontami użytkowników w różnych lasach. Twoje posiada domeny zarządzanej usług domenowych Azure AD Zamknij podobieństwa do dzierżawy usługi Azure AD. W związku z tym Zobacz płaska struktura jednostek organizacyjnych w domenie zarządzanej. Wszyscy użytkownicy i grupy są przechowywane w kontenerze "AADDC użytkownicy", niezależnie od tego, czy lokalnej domenie lub lesie, w którym zostały zsynchronizowane w. Skonfigurowane hierarchiczna jednostki Organizacyjnej struktury lokalnymi. Jednak domeny zarządzanej nadal ma prosty płaska struktura jednostki Organizacyjnej.
 
-## <a name="exclusions---what-isnt-synchronized-tooyour-managed-domain"></a>Wykluczenia — co nie jest zsynchronizowany tooyour domeny zarządzanej
-Hello następujących obiektów i atrybutów nie są zsynchronizowane tooyour dzierżawy usługi Azure AD lub domeny zarządzanej tooyour:
+## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Wykluczenia — co nie jest zsynchronizowany do domeny zarządzanej
+Następujące obiektów i atrybutów nie są zsynchronizowane z dzierżawą usługi Azure AD lub do domeny zarządzanej:
 
-* **Wykluczone atrybutów:** można wybrać tooexclude niektóre atrybuty synchronizowanie dzierżawy usługi Azure AD tooyour z domeny lokalnej za pomocą usługi Azure AD Connect. Te atrybuty wykluczone nie są dostępne w Twojej domeny zarządzanej.
-* **Zasady grupy:** skonfigurowane w domenie lokalnych zasad grupy nie są zsynchronizowane tooyour domeny zarządzanej.
-* **Udział SYSVOL:** podobnie hello hello udziału SYSVOL w domenie lokalnej nie są zsynchronizowane tooyour domeny zarządzanej.
-* **Obiekty komputerów:** obiektów komputera dla komputerów tooyour dołączonego do lokalnej domeny nie są zsynchronizowane tooyour domeny zarządzanej. Te komputery nie relacji zaufania z domeną zarządzanych i należeć tylko tooyour lokalnej domeny. W domenie zarządzanej możesz znaleźć obiekty komputerów tylko przez komputery mają jawnie przyłączonych do domeny toohello zarządzane domeny.
-* **Atrybuty SidHistory dla użytkowników i grup:** hello głównego użytkownika i identyfikatory SID z domeny lokalnej grupy podstawowej są zsynchronizowane tooyour domeny zarządzanej. Istniejące atrybuty SidHistory dla użytkowników i grup nie są synchronizowane z lokalnej domeny zarządzanej tooyour domeny.
-* **Struktury jednostek (OU) w organizacji:** jednostek organizacyjnych zdefiniowanych w domenie lokalnej nie Synchronizuj tooyour domeny zarządzanej. Istnieją dwa wbudowane jednostek organizacyjnych w domenie zarządzanej. Domyślnie domeny zarządzanej ma prosty struktury jednostek organizacyjnych. Można jednak wybrać zbyt[Tworzenie niestandardowej jednostki Organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md).
+* **Wykluczone atrybutów:** można wykluczyć określone atrybuty synchronizowanie do dzierżawy usługi Azure AD z domeny lokalnej za pomocą usługi Azure AD Connect. Te atrybuty wykluczone nie są dostępne w Twojej domeny zarządzanej.
+* **Zasady grupy:** skonfigurowane w domenie lokalnych zasad grupy nie są synchronizowane z domeny zarządzanej.
+* **Udział SYSVOL:** podobnie zawartość udziału SYSVOL w domenie lokalnej nie są synchronizowane z domeny zarządzanej.
+* **Obiekty komputerów:** obiektów komputera dla komputerów do domeny lokalnej nie są zsynchronizowane z domeny zarządzanej. Te komputery nie mieć relację zaufania z domeną zarządzanych i należeć do Twojej domeny lokalnej. Domeny zarządzanej możesz znaleźć obiektów komputerów wyłącznie dla komputerów, które możesz mieć jawnie przyłączonych do domeny zarządzanej.
+* **Atrybuty SidHistory dla użytkowników i grup:** głównego użytkownika i identyfikatory SID z domeny lokalnej grupy podstawowej są synchronizowane z domeny zarządzanej. Jednak istniejące atrybuty SidHistory dla użytkowników i grup nie są synchronizowane z lokalnej domeny do domeny zarządzanej.
+* **Struktury jednostek (OU) w organizacji:** jednostek organizacyjnych zdefiniowanych w domenie lokalnej nie Synchronizuj do domeny zarządzanej. Istnieją dwa wbudowane jednostek organizacyjnych w domenie zarządzanej. Domyślnie domeny zarządzanej ma prosty struktury jednostek organizacyjnych. Można jednak wybrać opcję [Tworzenie niestandardowej jednostki Organizacyjnej w domenie zarządzanej](active-directory-ds-admin-guide-create-ou.md).
 
-## <a name="how-specific-attributes-are-synchronized-tooyour-managed-domain"></a>Jak określone atrybuty są synchronizowane tooyour domeny zarządzanej
-Witaj w poniższej tabeli przedstawiono niektóre typowe atrybuty i w tym artykule opisano, jak są one zsynchronizowane tooyour domeny zarządzanej.
+## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Jak określone atrybuty są synchronizowane z domeny zarządzanej
+Poniższa tabela zawiera niektóre typowe atrybuty oraz w tym artykule opisano, jak są synchronizowane z domeny zarządzanej.
 
 | Atrybut w domeny zarządzanej | Element źródłowy | Uwagi |
 |:--- |:--- |:--- |
-| NAZWY UPN |Atrybut nazwy UPN użytkownika w dzierżawie usługi Azure AD |Atrybut nazwy głównej użytkownika Hello z dzierżawy usługi Azure AD są synchronizowane zgodnie z domeny tooyour zarządzane. W związku z tym hello najbardziej niezawodnym sposobem toosign w domenie zarządzanej tooyour korzysta z nazwy UPN. |
-| sAMAccountName |MailNickname użytkownika atrybut w dzierżawie usługi Azure AD lub generowane automatycznie |Atrybut SAMAccountName Hello są uzyskiwane z atrybutu mailNickname hello w dzierżawie usługi Azure AD. Jeśli wiele kont użytkowników powitalne tego samego atrybutu mailNickname, hello SAMAccountName jest generowane automatycznie. Jeśli hello mailNickname lub prefiks nazwy UPN użytkownika jest dłuższa niż 20 znaków, hello SAMAccountName jest generowane automatycznie toosatisfy hello 20 limit znaków na atrybuty SAMAccountName. |
+| NAZWY UPN |Atrybut nazwy UPN użytkownika w dzierżawie usługi Azure AD |Atrybut nazwy głównej użytkownika z dzierżawy usługi Azure AD są synchronizowane, ponieważ jest do domeny zarządzanej. W związku z tym najbardziej niezawodnym sposobem Zaloguj się do domeny zarządzanej korzysta z głównej nazwy użytkownika. |
+| sAMAccountName |MailNickname użytkownika atrybut w dzierżawie usługi Azure AD lub generowane automatycznie |Atrybut SAMAccountName pochodzi z atrybutem mailNickname w dzierżawie usługi Azure AD. Jeśli wiele kont użytkowników mają taki sam atrybut mailNickname, SAMAccountName został wygenerowany automatycznie. Jeśli mailNickname lub prefiks nazwy UPN użytkownika jest dłuższa niż 20 znaków, SAMAccountName został wygenerowany automatycznie do zaspokojenia atrybuty SAMAccountName limit 20 znaków. |
 | Hasła |Hasło użytkownika z dzierżawy usługi Azure AD |Skrótów poświadczeń wymaganych do uwierzytelniania NTLM lub Kerberos (nazywanych również dodatkowe poświadczenia) są synchronizowane z dzierżawy usługi Azure AD. Jeśli dzierżawy usługi Azure AD jest zsynchronizowanej dzierżawy, te poświadczenia pochodzą z domeny lokalnej. |
-| Podstawowy użytkownik/identyfikator SID grupy |Wygenerowany automatycznie |Hello podstawowy identyfikator SID dla konta użytkownika/grupy jest generowany automatycznie domeny zarządzanej. Ten atrybut nie pasuje do hello podstawowego użytkownika/grupy identyfikator SID obiektu hello w lokalnej domeny usługi AD. Ta niezgodność jest ponieważ domeny zarządzanej hello ma inną przestrzeń nazw identyfikatora SID niż domeny lokalnej. |
-| Historii identyfikatora SID dla użytkowników i grup |Podstawowy użytkownik lokalny i identyfikator SID grupy |Witaj SidHistory dla użytkowników i grup w domenie zarządzanej ustawiono atrybut toomatch hello odpowiedniego użytkownika podstawowego lub identyfikator SID grupy w domenie lokalnej. Ta funkcja pomaga upewnij przyrostu i shift z lokalnej aplikacji toohello domeny zarządzanej łatwiejsze, ponieważ nie ma potrzeby listy ACL toore zasobów. |
+| Podstawowy użytkownik/identyfikator SID grupy |Wygenerowany automatycznie |Podstawowy identyfikator SID dla konta użytkownika/grupy jest generowany automatycznie domeny zarządzanej. Ten atrybut jest niezgodna z podstawowy identyfikator SID obiektu w katalogu lokalnym użytkownika/grupy domeny AD. Ta niezgodność jest ponieważ domeny zarządzanej ma inną przestrzeń nazw identyfikatora SID niż domeny lokalnej. |
+| Historii identyfikatora SID dla użytkowników i grup |Podstawowy użytkownik lokalny i identyfikator SID grupy |Atrybut SidHistory dla użytkowników i grup w domenie zarządzanej ustawiono odpowiadające odpowiedniego użytkownika podstawowego lub identyfikator SID w domenie lokalnej grupy. Ta funkcja pomaga ułatwić przyrostu i shift aplikacji lokalnych do domeny zarządzanej, ponieważ nie trzeba ponownie ACL zasobów. |
 
 > [!NOTE]
-> **Zaloguj się toohello domeny zarządzanej przy użyciu formatu UPN hello:** atrybut SAMAccountName hello mogą być generowane automatycznie dla niektórych kont użytkowników w domenie zarządzanej. Jeśli wielu użytkowników ma hello tego samego atrybutu mailNickname lub użytkownicy mają zbyt długo UPN prefiksy, hello SAMAccountName dla tych użytkowników może zostać wygenerowany automatycznie. W związku z tym hello SAMAccountName format (na przykład "CONTOSO100\joeuser") nie jest zawsze toosign niezawodnym sposobem, w domenie toohello. SAMAccountName automatycznie generowanej użytkowników może różnić się od prefiksu ich nazwy UPN. Użyj formatu nazwy UPN hello (na przykład "joeuser@contoso100.com") toosign w toohello zarządzane niezawodnie domeny.
+> **Zaloguj się do domeny zarządzanej przy użyciu formatu UPN:** atrybut SAMAccountName mogą być generowane automatycznie dla niektórych kont użytkowników w domenie zarządzanej. Jeśli wielu użytkowników mają taki sam atrybut mailNickname, użytkownicy muszą prefiksy UPN zbyt długo SAMAccountName dla tych użytkowników może być generowane automatycznie. W związku z tym format SAMAccountName (na przykład "CONTOSO100\joeuser") nie zawsze jest to niezawodny sposób, aby zalogować się do domeny. SAMAccountName automatycznie generowanej użytkowników może różnić się od prefiksu ich nazwy UPN. Użyj formatu nazwy UPN (na przykład "joeuser@contoso100.com") do logowania do domeny zarządzanej niezawodnie.
 >
 >
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mapowanie atrybutu dla kont użytkowników
-Hello w poniższej tabeli przedstawiono sposób określonych atrybutów dla obiektów użytkowników w dzierżawie usługi Azure AD są zsynchronizowane toocorresponding atrybutów w domeny zarządzanej.
+W poniższej tabeli przedstawiono sposób określonych atrybutów użytkownika obiektów w dzierżawie usługi Azure AD są synchronizowane z odpowiednich atrybutów w domeny zarządzanej.
 
 | Atrybut użytkownika w dzierżawie usługi Azure AD | Atrybut użytkownika w domenie zarządzanej |
 |:--- |:--- |
-| AccountEnabled |kontroli konta użytkownika (zestawów lub czyści hello ACCOUNT_DISABLED-bitowy) |
+| AccountEnabled |kontroli konta użytkownika (ustawia lub czyści ACCOUNT_DISABLED-bitowy) |
 | city |l |
 | Kraju |co |
 | Dział |Dział |
@@ -90,7 +90,7 @@ Hello w poniższej tabeli przedstawiono sposób określonych atrybutów dla obie
 | Telefon komórkowy |Telefon komórkowy |
 | Identyfikator obiektu |atrybut msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |historii SID |
-| passwordPolicies |kontroli konta użytkownika (zestawów lub czyści hello DONT_EXPIRE_PASSWORD-bitowy) |
+| passwordPolicies |kontroli konta użytkownika (ustawia lub czyści DONT_EXPIRE_PASSWORD-bitowy) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | KodPocztowy |KodPocztowy |
 | preferredLanguage |preferredLanguage |
@@ -101,7 +101,7 @@ Hello w poniższej tabeli przedstawiono sposób określonych atrybutów dla obie
 | userPrincipalName |userPrincipalName |
 
 ### <a name="attribute-mapping-for-groups"></a>Mapowanie atrybutu dla grup
-Hello w poniższej tabeli przedstawiono atrybutów określonych dla grupy obiektów w dzierżawie usługi Azure AD są zsynchronizowane toocorresponding atrybutów w domeny zarządzanej.
+W poniższej tabeli przedstawiono sposób określonych atrybutów grupy obiektów w dzierżawie usługi Azure AD są synchronizowane z odpowiednich atrybutów w domeny zarządzanej.
 
 | Grupa atrybutów w dzierżawie usługi Azure AD | Atrybut grupy w domenie zarządzanej |
 |:--- |:--- |
@@ -113,8 +113,8 @@ Hello w poniższej tabeli przedstawiono atrybutów określonych dla grupy obiekt
 | onPremiseSecurityIdentifier |historii SID |
 | Securityenabled musi |GroupType |
 
-## <a name="objects-that-are-not-synchronized-tooyour-azure-ad-tenant-from-your-managed-domain"></a>Obiekty, które nie są zsynchronizowane dzierżawy usługi Azure AD tooyour z domeny zarządzanej
-Zgodnie z opisem w poprzedniej sekcji tego artykułu, nie istnieje żadne synchronizacji z Twojej domeny zarządzanej tooyour wstecz dzierżawy usługi Azure AD. Można wybrać zbyt[Tworzenie niestandardowej jednostki organizacyjnej (OU)](active-directory-ds-admin-guide-create-ou.md) w domenie zarządzanej. Ponadto można utworzyć jednostek organizacyjnych, użytkownicy, grupy lub konta usług w ramach tych niestandardowych jednostek organizacyjnych. Brak utworzonych w ramach jednostkami organizacyjnymi niestandardowych obiektów hello są synchronizowane wstecz tooyour dzierżawy usługi Azure AD. Te obiekty są dostępne do użycia tylko w obrębie domeny zarządzanej. W związku z tym te obiekty nie są widoczne, przy użyciu poleceń cmdlet programu PowerShell usługi Azure AD, Azure AD Graph API lub interfejs użytkownika zarządzania hello Azure AD.
+## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>Obiekty, które nie są zsynchronizowane z dzierżawą usługi Azure AD z domeny zarządzanej
+Zgodnie z opisem w poprzedniej sekcji tego artykułu, nie istnieje żadne synchronizacji z domeny zarządzanej do dzierżawy usługi Azure AD. Można wybrać opcję [Tworzenie niestandardowej jednostki organizacyjnej (OU)](active-directory-ds-admin-guide-create-ou.md) w domenie zarządzanej. Ponadto można utworzyć jednostek organizacyjnych, użytkownicy, grupy lub konta usług w ramach tych niestandardowych jednostek organizacyjnych. Brak obiektów utworzonych w ramach jednostkami organizacyjnymi niestandardowe są synchronizowane z powrotem dzierżawy usługi Azure AD. Te obiekty są dostępne do użycia tylko w obrębie domeny zarządzanej. W związku z tym te obiekty nie są widoczne, przy użyciu poleceń cmdlet programu PowerShell usługi Azure AD, Azure AD Graph API lub interfejs użytkownika zarządzania usługi Azure AD.
 
 ## <a name="related-content"></a>Powiązana zawartość
 * [Funkcje — usługi domenowe Azure AD](active-directory-ds-features.md)

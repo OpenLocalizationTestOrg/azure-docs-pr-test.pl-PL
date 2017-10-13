@@ -1,6 +1,6 @@
 ---
-title: aaaOverview magazynu tabel Azure | Dokumentacja firmy Microsoft
-description: "Przechowywanie danych strukturalnych w chmurze hello przy użyciu magazynu tabel Azure, Magazyn danych NoSQL."
+title: "Omówienie usługi Azure Table Storage | Microsoft Docs"
+description: "Przechowywanie danych strukturalnych w chmurze za pomocą Magazynu tabel Azure, magazyn danych NoSQL."
 services: cosmos-db
 documentationcenter: .net
 author: mimig1
@@ -14,29 +14,29 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/23/2017
 ms.author: mimig
-ms.openlocfilehash: 8643cc666f000e078644981381a086e1ccc44067
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9099e90c402185b371495379db943d64fb82cdb8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-table-storage-overview"></a>Omówienie usługi Azure Table Storage
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-Magazyn tabel Azure to usługa, która przechowuje strukturalne NoSQL przechowywania danych w chmurze hello, zapewniając kluczy/atrybutów bez schematu. Magazyn tabel nie korzysta ze schematów, dlatego jest łatwe tooadapt dane jako hello wymagają aplikacji. Uzyskiwanie dostępu do magazynu tooTable danych jest szybki i ekonomiczny dla wielu typów aplikacji i jest zwykle tańszy niż tradycyjne bazy SQL dla podobnych ilości danych.
+Azure Table Storage to usługa, która przechowuje dane NoSQL ze strukturą w chmurze, udostępniając magazyn par klucz-atrybut z projektem bez schematu. Ponieważ Magazyn tabel nie ma schematu, łatwo zaadaptować dane do rozwijających się potrzeb aplikacji. Dla większości aplikacji dostęp do danych w usłudze Table Storage jest szybki i ekonomiczny, jest też zazwyczaj tańszy od tradycyjnego rozwiązania SQL dla podobnych ilości danych.
 
-Używając tabeli magazynu toostore elastycznych zestawów danych takich jak dane użytkownika dla aplikacji sieci web, książki adresowe, informacje o urządzeniu lub inne rodzaje metadanych, których wymaga Twoja usługa. W tabeli można przechowywać dowolną liczbę jednostek, a konto magazynu może zawierać dowolną liczbę tabel w górę toohello limitu pojemności konta magazynu hello.
+Usługa Table Storage umożliwia przechowywanie elastycznych zestawów danych, takich jak dane użytkowników dla aplikacji sieci Web, książki adresowe, informacje o urządzeniach i inne typy metadanych, których wymaga Twoja usługa. W tabeli można przechowywać dowolną liczbę jednostek, a konto magazynu może zawierać dowolną liczbę tabel w granicach pojemności konta magazynu.
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Eksplorator magazynu Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatna, aplikacja autonomiczny firmy Microsoft, który umożliwia toowork wizualnie z danymi usługi Azure Storage w systemie Windows, macOS i Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest bezpłatną aplikacją autonomiczną oferowaną przez firmę Microsoft, która umożliwia wizualną pracę z danymi w usłudze Azure Storage w systemach Windows, macOS i Linux.
 
 * [Rozpoczynanie pracy z usługą Azure Table Storage na platformie .NET](table-storage-how-to-use-dotnet.md)
 
-* Widok hello dokumentację referencyjną usługi tabel, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
+* Przejrzyj dokumentację referencyjną usługi Table service, aby uzyskać szczegółowe informacje o dostępnych interfejsach API:
 
     * [Dokumentacja biblioteki klienta usługi Storage dla programu .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 

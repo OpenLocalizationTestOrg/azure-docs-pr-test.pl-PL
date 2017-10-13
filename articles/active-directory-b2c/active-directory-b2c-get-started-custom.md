@@ -1,6 +1,6 @@
 ---
 title: "Usługa Azure Active Directory B2C: Wprowadzenie do zasad niestandardowych | Dokumentacja firmy Microsoft"
-description: "Jak tooget wprowadzenie do zasad niestandardowych usługi Azure Active Directory B2C"
+description: "Jak rozpocząć pracę z niestandardowych zasad usługi Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
 author: rojasja
@@ -14,79 +14,79 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
-ms.openlocfilehash: 5ee133806395cddf18682769a6cad149889d82d1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Usługa Azure Active Directory B2C: Wprowadzenie do zasad niestandardowych
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Po wykonaniu kroków hello w tym artykule zasad niestandardowych będzie obsługiwać "konta lokalnego" rejestracji lub logowania za pomocą adresu e-mail i hasło. Zostanie również przygotować swoje środowisko do dodawania dostawcy tożsamości (takich jak Facebook lub Azure Active Directory). Firma Microsoft zachęca toocomplete te kroki przed przeczytaniem o innych zastosowań hello Azure Active Directory (Azure AD) B2C tożsamości środowiska Framework.
+Po wykonaniu kroków w tym artykule zasad niestandardowych będzie obsługiwać "konta lokalnego" rejestracji lub logowania za pomocą adresu e-mail i hasło. Zostanie również przygotować swoje środowisko do dodawania dostawcy tożsamości (takich jak Facebook lub Azure Active Directory). Firma Microsoft zachęca do wykonania tych czynności przed informacji o innych celów struktury obsługi tożsamości usługi Azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed kontynuowaniem upewnij się, że masz dzierżawę usługi Azure AD B2C, który jest kontenerem dla wszystkich użytkowników, aplikacji, zasad i. Jeśli nie masz już, należy za[tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md). Firma Microsoft zachęca wszystkich deweloperów hello toocomplete wskazówki dotyczące wbudowanych zasad usługi Azure AD B2C i konfigurowanie aplikacji przy użyciu wbudowanych zasad przed kontynuowaniem. Aplikacje będą działać z obydwu typach zasad po wprowadzeniu zmiany pośredniej toohello zasad nazwa tooinvoke hello zasady niestandardowe.
+Przed kontynuowaniem upewnij się, że masz dzierżawę usługi Azure AD B2C, który jest kontenerem dla wszystkich użytkowników, aplikacji, zasad i. Jeśli nie masz już, musisz [tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md). Zdecydowanie zaleca wszystkich deweloperów ukończenie wskazówki dotyczące wbudowanych zasad usługi Azure AD B2C i konfigurowanie aplikacji przy użyciu wbudowanych zasad przed kontynuowaniem. Aplikacje będą działać z obydwu typach zasad po wprowadzeniu zmiany pośredniej do nazwy zasad do wywołania zasady niestandardowe.
 
 >[!NOTE]
->Edytowanie zasad niestandardowych tooaccess należy dzierżawy połączonego tooyour ważnej subskrypcji platformy Azure. Jeśli nie zostało to jeszcze [połączone z tooan dzierżawy usługi Azure AD B2C subskrypcji platformy Azure](active-directory-b2c-how-to-enable-billing.md) lub subskrypcji platformy Azure jest wyłączona, przycisk Framework obsługi tożsamości hello nie będzie dostępny.
+>Aby uzyskać dostęp do edycji zasad niestandardowych, należy ważnej subskrypcji platformy Azure powiązany dzierżawy. Jeśli nie zostało to jeszcze [połączone z subskrypcją platformy Azure Twojej dzierżawy usługi Azure AD B2C](active-directory-b2c-how-to-enable-billing.md) lub subskrypcji platformy Azure jest wyłączona, przycisk Identity Framework środowisko nie będzie dostępny.
 
-## <a name="add-signing-and-encryption-keys-tooyour-b2c-tenant-for-use-by-custom-policies"></a>Dodaj podpisywania i szyfrowania dzierżawy tooyour B2C klucze do użytku przez zasady niestandardowe
+## <a name="add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies"></a>Dodaj klucze podpisywania i szyfrowania dla Twojej dzierżawy B2C do użytku przez zasady niestandardowe
 
-1. Otwórz hello **Framework obsługi tożsamości** bloku w ustawieniach dzierżawy usługi Azure AD B2C.
-2. Wybierz **zasad kluczy** klawiszy hello tooview dostępnych w dzierżawie.
+1. Otwórz **Framework obsługi tożsamości** bloku w ustawieniach dzierżawy usługi Azure AD B2C.
+2. Wybierz **zasad kluczy** Aby wyświetlić dostępne w Twojej dzierżawie kluczy.
 3. Utwórz B2C_1A_TokenSigningKeyContainer, jeśli nie istnieje:<br>
     a. Wybierz pozycję **Dodaj**. <br>
     b. Wybierz **Generowanie**.<br>
     c. Aby uzyskać **nazwa**, użyj `TokenSigningKeyContainer`. <br> 
-    Prefiks Hello `B2C_1A_` mogą być dodawane automatycznie.<br>
+    Prefiks `B2C_1A_` mogą być dodawane automatycznie.<br>
     d. Aby uzyskać **typ klucza**, użyj **RSA**.<br>
-    e. Aby uzyskać **dat**, użyj wartości domyślnych hello. <br>
+    e. Aby uzyskać **dat**, użyj wartości domyślnych. <br>
     f. Aby uzyskać **użycie klucza**, użyj **podpisu**.<br>
     g. Wybierz pozycję **Utwórz**.<br>
 4. Utwórz B2C_1A_TokenEncryptionKeyContainer, jeśli nie istnieje:<br>
  a. Wybierz pozycję **Dodaj**.<br>
  b. Wybierz **Generowanie**.<br>
  c. Aby uzyskać **nazwa**, użyj `TokenEncryptionKeyContainer`. <br>
-   Prefiks Hello `B2C_1A`_ mogą być dodawane automatycznie.<br>
+   Prefiks `B2C_1A`_ mogą być dodawane automatycznie.<br>
  d. Aby uzyskać **typ klucza**, użyj **RSA**.<br>
- e. Aby uzyskać **dat**, użyj wartości domyślnych hello.<br>
+ e. Aby uzyskać **dat**, użyj wartości domyślnych.<br>
  f. Aby uzyskać **użycie klucza**, użyj **szyfrowania**.<br>
  g. Wybierz pozycję **Utwórz**.<br>
 5. Utwórz B2C_1A_FacebookSecret. <br>
-Jeśli masz już klucz tajny aplikacji Facebook, dodaj go jako zasady tooyour klucza dzierżawy. W przeciwnym razie należy utworzyć hello klucza o wartości symbolu zastępczego, aby zasad przeszedł pomyślnie weryfikacji.<br>
+Jeśli masz już klucz tajny aplikacji Facebook, dodaj go jako klucz zasad dla Twojej dzierżawy. W przeciwnym razie należy utworzyć klucz o wartości symbolu zastępczego, aby zasad przeszedł pomyślnie weryfikacji.<br>
  a. Wybierz pozycję **Dodaj**.<br>
  b. Aby uzyskać **opcje**, użyj **ręcznego**.<br>
  c. Aby uzyskać **nazwa**, użyj `FacebookSecret`. <br>
- Prefiks Hello `B2C_1A_` mogą być dodawane automatycznie.<br>
- d. W hello **klucz tajny** wprowadź FacebookSecret Twojego z developers.facebook.com lub `0` jako symbol zastępczy. *To nie jest identyfikatorem aplikacji usługi Facebook* <br>
+ Prefiks `B2C_1A_` mogą być dodawane automatycznie.<br>
+ d. W **klucz tajny** wprowadź FacebookSecret Twojego z developers.facebook.com lub `0` jako symbol zastępczy. *To nie jest identyfikatorem aplikacji usługi Facebook* <br>
  e. Aby uzyskać **użycie klucza**, użyj **podpisu**. <br>
  f. Wybierz **Utwórz** i potwierdzić tworzenie.
 
 ## <a name="register-identity-experience-framework-applications"></a>Rejestrowanie aplikacji w ramach obsługi tożsamości
 
-Usługa Azure AD B2C wymaga tooregister dwóch dodatkowych aplikacji, które są używane przez hello aparat toosign się i zaloguj się użytkownicy.
+Usługa Azure AD B2C wymaga zarejestrować dwa dodatkowe aplikacje, które są używane przez aparat zarejestrować się i zaloguj się użytkownicy.
 
 >[!NOTE]
->Należy utworzyć dwie aplikacje tego włączyć logowanie przy użyciu kont lokalnych: IdentityExperienceFramework (aplikacji sieci web) i ProxyIdentityExperienceFramework (aplikacji natywnej) z delegowane uprawnienia na powitania IdentityExperienceFramework aplikacji. Konta lokalne istnieje tylko w dzierżawie. Użytkownicy konto z tooaccess kombinacja adresu i hasła unikatowego adresu e-mail zarejestrowany dzierżawy aplikacji.
+>Należy utworzyć dwie aplikacje tego włączyć logowanie przy użyciu kont lokalnych: IdentityExperienceFramework (aplikacji sieci web) i ProxyIdentityExperienceFramework (aplikacji natywnej) z delegowane uprawnienia z aplikacji IdentityExperienceFramework. Konta lokalne istnieje tylko w dzierżawie. Użytkownicy konto z kombinacja adresu i hasła unikatowego adresu e-mail dostępu do Twojej aplikacji zarejestrowany dzierżawy.
 
-### <a name="create-hello-identityexperienceframework-application"></a>Tworzenie aplikacji IdentityExperienceFramework hello
+### <a name="create-the-identityexperienceframework-application"></a>Tworzenie aplikacji IdentityExperienceFramework
 
-1. W hello [portalu Azure](https://portal.azure.com), przejdź do hello [kontekstu dzierżawy usługi Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md).
-2. Otwórz hello **usługi Azure Active Directory** bloku (nie hello **usługi Azure AD B2C** bloku). Może być konieczne tooselect **więcej usług** toofind go.
+1. W [portalu Azure](https://portal.azure.com), przejdź do [kontekstu dzierżawy usługi Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md).
+2. Otwórz **usługi Azure Active Directory** bloku (nie **usługi Azure AD B2C** bloku). Może być konieczne wybranie **więcej usług** go znaleźć.
 3. Wybierz **rejestracji aplikacji**.
 4. Wybierz **nowej rejestracji aplikacji**.
    * Aby uzyskać **nazwa**, użyj `IdentityExperienceFramework`.
    * Aby uzyskać **typu aplikacji**, użyj **aplikacji/interfejs API sieci Web**.
    * Dla **adres URL logowania**, użyj `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, gdzie `yourtenant` oznacza nazwę domeny dzierżawy usługi Azure AD B2C.
 5. Wybierz pozycję **Utwórz**.
-6. Po utworzeniu, wybierz aplikację hello nowo utworzony **IdentityExperienceFramework**.<br>
+6. Po utworzeniu, wybierz nowo utworzonej aplikacji **IdentityExperienceFramework**.<br>
    * Wybierz **właściwości**.<br>
-   * Skopiuj identyfikator aplikacji hello i zapisz je.
+   * Skopiuj identyfikator aplikacji i zapisz je.
 
-### <a name="create-hello-proxyidentityexperienceframework-application"></a>Tworzenie aplikacji ProxyIdentityExperienceFramework hello
+### <a name="create-the-proxyidentityexperienceframework-application"></a>Tworzenie aplikacji ProxyIdentityExperienceFramework
 
 1. Wybierz **rejestracji aplikacji**.
 1. Wybierz **nowej rejestracji aplikacji**.
@@ -94,44 +94,44 @@ Usługa Azure AD B2C wymaga tooregister dwóch dodatkowych aplikacji, które są
    * Dla **typu aplikacji**, użyj **natywnego**.
    * Dla **identyfikator URI przekierowania**, użyj `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, gdzie `yourtenant` jest dzierżawy usługi Azure AD B2C.
 1. Wybierz pozycję **Utwórz**.
-1. Po utworzeniu, wybierz aplikację hello **ProxyIdentityExperienceFramework**.<br>
+1. Po utworzeniu, wybierz aplikację **ProxyIdentityExperienceFramework**.<br>
    * Wybierz **właściwości**. <br>
-   * Skopiuj identyfikator aplikacji hello i zapisz je.
+   * Skopiuj identyfikator aplikacji i zapisz je.
 1. Wybierz **wymagane uprawnienia**.
 1. Wybierz pozycję **Dodaj**.
 1. Wybierz **wybierz interfejs API**.
-1. Wyszukaj nazwę hello IdentityExperienceFramework. Wybierz **IdentityExperienceFramework** w hello wyniki, a następnie kliknij przycisk **wybierz**.
-1. Zaznacz pole wyboru hello obok zbyt**IdentityExperienceFramework dostępu**, a następnie kliknij przycisk **wybierz**.
+1. Wyszukaj nazwę IdentityExperienceFramework. Wybierz **IdentityExperienceFramework** wyników, a następnie kliknij polecenie **wybierz**.
+1. Zaznacz pole wyboru obok pozycji **IdentityExperienceFramework dostępu**, a następnie kliknij przycisk **wybierz**.
 1. Wybierz **gotowe**.
 1. Wybierz **udzielanie uprawnień**, a następnie potwierdź wybierając **tak**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Pobierz pakiet starter i modyfikowania zasad
 
-Zasady niestandardowe są zestaw plików XML, które wymagają dzierżawy usługi Azure AD B2C tooyour toobe przekazany. Firma Microsoft udostępnia tooget pakiety startowe mimo to szybko. Każdy pakiet starter w hello następujące listy zawiera hello najmniejszą liczbę profilów technicznych i podróże użytkownika wymagane opisane scenariusze hello tooachieve:
- * LocalAccounts. Umożliwia użycie hello tylko kont lokalnych.
- * SocialAccounts. Umożliwia korzystanie hello tylko kont społecznościowych (lub federacyjnych).
- * **SocialAndLocalAccounts**. Przewodnik hello korzystamy z tego pliku.
+Zasady niestandardowe są zestawem plików XML, które muszą zostać przekazana do dzierżawy usługi Azure AD B2C. Udostępniamy pakiety startowe umożliwiające szybkie przejście. Każdy pakiet początkowy na poniższej liście zawiera najmniejszą liczbę profilów technicznych i podróże użytkownika wymagane do osiągnięcia scenariuszy opisanych:
+ * LocalAccounts. Umożliwia używanie tylko kont lokalnych.
+ * SocialAccounts. Umożliwia używanie tylko kont społecznościowych (lub federacyjnych).
+ * **SocialAndLocalAccounts**. Możemy użyć tego pliku dla przewodnika.
  * SocialAndLocalAccountsWithMFA. Włącza się tu opcje społecznych, lokalne i uwierzytelniania wieloskładnikowego.
 
 Każdy pakiet początkowy zawiera:
 
-* Witaj [pliku podstawowego](active-directory-b2c-overview-custom.md#policy-files) hello zasad. Kilka zmian są wymagane toohello podstawowej.
-* Witaj [plik rozszerzenia](active-directory-b2c-overview-custom.md#policy-files) hello zasad.  Ten plik jest, gdzie większość zmiany konfiguracji zostały wprowadzone.
+* [Pliku podstawowego](active-directory-b2c-overview-custom.md#policy-files) zasad. Kilka zmian są wymagane do podstawy.
+* [Plik rozszerzenia](active-directory-b2c-overview-custom.md#policy-files) zasad.  Ten plik jest, gdzie większość zmiany konfiguracji zostały wprowadzone.
 * [Jednostki uzależnionej plików firm](active-directory-b2c-overview-custom.md#policy-files) są pliki specyficzne dla zadania o nazwie przez aplikację.
 
 >[!NOTE]
->Jeśli w edytorze XML obsługuje sprawdzanie poprawności, sprawdź pliki hello względem schematu TrustFrameworkPolicy_0.3.0.0.xsd XML hello, który znajduje się w katalogu głównym hello hello początkowego pakietu. Sprawdzanie poprawności schematu XML identyfikuje błędy przed przesłaniem.
+>Jeśli edytora XML obsługuje sprawdzanie poprawności, sprawdź pliki względem schematu TrustFrameworkPolicy_0.3.0.0.xsd XML, który znajduje się w katalogu głównym pakietu starter. Sprawdzanie poprawności schematu XML identyfikuje błędy przed przesłaniem.
 
  Rozpocznijmy:
 
-1. Pobierz active-directory-b2c-custom-policy-starterpack z usługi GitHub. [Pobierz plik zip hello](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) lub uruchom
+1. Pobierz active-directory-b2c-custom-policy-starterpack z usługi GitHub. [Pobierz plik zip](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) lub uruchom
 
     ```console
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
-2. Otwórz hello SocialAndLocalAccounts folder.  plik podstawowy Hello (TrustFrameworkBase.xml) w tym folderze zawartość wymagane dla kont lokalnych i społecznego/firmowej. zawartość społecznościowych Hello nie zakłóca hello kroki pobierania kont lokalnych w i uruchomiony.
+2. Otwórz SocialAndLocalAccounts folder.  Plik podstawowy (TrustFrameworkBase.xml) w tym folderze zawartość wymagane dla kont lokalnych i społecznego/firmowej. Zawartości społecznościowej nie koliduje z kroków do pobierania kont lokalnych w i uruchamiania.
 3. Otwórz TrustFrameworkBase.xml. Jeśli potrzebujesz edytora XML [spróbuj Visual Studio Code](https://code.visualstudio.com/download), lekkie edytora i platform.
-4. W katalogu głównym hello `TrustFrameworkPolicy` element, hello aktualizacji `TenantId` i `PublicPolicyUri` atrybuty, zastępując `yourtenant.onmicrosoft.com` hello nazwę domeny dzierżawy usługi Azure AD B2C:
+4. W folderze głównym `TrustFrameworkPolicy` element, aktualizacja `TenantId` i `PublicPolicyUri` atrybuty, zastępując `yourtenant.onmicrosoft.com` o nazwę domeny dzierżawy usługi Azure AD B2C:
    ```xml
     <TrustFrameworkPolicy
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -143,54 +143,54 @@ Każdy pakiet początkowy zawiera:
     PublicPolicyUri="http://yourtenant.onmicrosoft.com">
     ```
    >[!NOTE]
-   >`PolicyId`to nazwa zasady hello widoczny w portalu hello i nazwa hello za pomocą którego ten plik zasad jest używany przez inne pliki zasad.
+   >`PolicyId`jest widoczny w portalu nazwę zasady i nazwy za pomocą którego ten plik zasad jest używany przez inne pliki zasad.
 
-5. Zapisz plik hello.
-6. Otwórz TrustFrameworkExtensions.xml. Zmiany hello tego samego dwóch zastępując `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C. Upewnij się, hello same zastąpienie w hello `<TenantId>` elementu dla wszystkich trzech zmian. Zapisz plik hello.
-7. Otwórz SignUpOrSignIn.xml. Zmiany hello tego samego zastępując `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C w trzech miejscach. Zapisz plik hello.
-8. Resetowania hasła hello otwarte i profilu edytowanie plików. Zmiany hello tego samego zastępując `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C w trzech miejscach w każdym pliku. Zapisywanie plików hello.
+5. Zapisz plik.
+6. Otwórz TrustFrameworkExtensions.xml. Wprowadzenie identycznych zmian dwóch zastępując `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C. Należy tego samego zastąpienia w `<TenantId>` elementu dla wszystkich trzech zmian. Zapisz plik.
+7. Otwórz SignUpOrSignIn.xml. Wprowadzenie identycznych zmian przez zastąpienie `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C w trzech miejscach. Zapisz plik.
+8. Otwórz resetowania hasła i edytować pliki profilu. Wprowadzenie identycznych zmian przez zastąpienie `yourtenant.onmicrosoft.com` z dzierżawą usługi Azure AD B2C w trzech miejscach w każdym pliku. Zapisz plik.
 
-### <a name="add-hello-application-ids-tooyour-custom-policy"></a>Dodaj zasady niestandardowe tooyour identyfikatory aplikacji hello
-Dodawanie pliku rozszerzeń toohello identyfikatory aplikacji hello (`TrustFrameworkExtensions.xml`):
+### <a name="add-the-application-ids-to-your-custom-policy"></a>Dodaj identyfikatory aplikacji do zasad niestandardowych
+Dodaj identyfikatory aplikacji do pliku rozszerzenia (`TrustFrameworkExtensions.xml`):
 
-1. W hello rozszerzenia plików (TrustFrameworkExtensions.xml), Znajdź hello element `<TechnicalProfile Id="login-NonInteractive">`.
-2. Zastąp oba wystąpienia `IdentityExperienceFrameworkAppId` z Identyfikatorem aplikacji hello hello aplikacji Framework obsługi tożsamości, utworzony wcześniej. Oto przykład:
+1. W pliku rozszerzenia (TrustFrameworkExtensions.xml), Znajdź element `<TechnicalProfile Id="login-NonInteractive">`.
+2. Zastąp oba wystąpienia `IdentityExperienceFrameworkAppId` z identyfikator aplikacji Framework obsługi tożsamości, który został utworzony wcześniej. Oto przykład:
 
    ```xml
    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
    ```
-3. Zastąp oba wystąpienia `ProxyIdentityExperienceFrameworkAppId` z Identyfikatorem aplikacji hello hello Framework obsługi tożsamości serwera Proxy aplikacji, utworzony wcześniej.
+3. Zastąp oba wystąpienia `ProxyIdentityExperienceFrameworkAppId` z identyfikator aplikacji Framework obsługi tożsamości serwera Proxy, który został utworzony wcześniej.
 4. Zapisz plik rozszerzenia.
 
-## <a name="upload-hello-policies-tooyour-tenant"></a>Przekaż hello zasady tooyour dzierżawy
+## <a name="upload-the-policies-to-your-tenant"></a>Przekaż zasady dla Twojej dzierżawy
 
-1. W hello [portalu Azure](https://portal.azure.com), przejdź do hello [kontekstu dzierżawy usługi Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)i otwórz hello **usługi Azure AD B2C** bloku.
+1. W [portalu Azure](https://portal.azure.com), przejdź do [kontekstu dzierżawy usługi Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), a następnie otwórz **usługi Azure AD B2C** bloku.
 2. Wybierz **Framework obsługi tożsamości**.
 3. Wybierz **przekazywać zasady**.
 
     >[!WARNING]
-    >pliki zasad niestandardowych Hello, należy przekazać hello w następującej kolejności:
+    >Pliki zasad niestandardowych, należy przekazać w następującej kolejności:
 
 1. Przekaż TrustFrameworkBase.xml.
 2. Przekaż TrustFrameworkExtensions.xml.
 3. Przekaż SignUpOrSignin.xml.
 4. Przekazywanie plików zasad.
 
-Po przekazaniu pliku hello nazwę pliku zasad hello jest poprzedzony przez `B2C_1A_`.
+Po przekazaniu pliku, nazwa pliku zasad jest poprzedzony przez `B2C_1A_`.
 
-## <a name="test-hello-custom-policy-by-using-run-now"></a>Testowanie zasad niestandardowych hello przy użyciu Uruchom teraz
+## <a name="test-the-custom-policy-by-using-run-now"></a>Testowanie zasad niestandardowych przy użyciu Uruchom teraz
 
-1. Otwórz **ustawienia usługi Azure AD B2C** i przejść za**Framework obsługi tożsamości**.
+1. Otwórz **ustawienia usługi Azure AD B2C** i przejdź do **Framework obsługi tożsamości**.
 
    >[!NOTE]
-   >**Uruchom teraz** wymaga co najmniej jedną aplikację toobe preregistered hello dzierżawcy. Aplikacji musi być zarejestrowana w dzierżawie powitalnych B2C, przy użyciu hello **aplikacji** zaznaczenia menu w usłudze Azure AD B2C lub za pomocą tooinvoke Framework obsługi tożsamości hello zarówno wbudowanych i niestandardowych zasad. Wymagany jest tylko jedna rejestracja na aplikację.<br><br>
-   toolearn tooregister aplikacji, zobacz temat hello Azure AD B2C [wprowadzenie](active-directory-b2c-get-started.md) artykułu lub hello [Rejestracja aplikacji](active-directory-b2c-app-registration.md) artykułu.  
+   >**Uruchom teraz** wymaga co najmniej jednej aplikacji można preregistered dla dzierżawcy. Aplikacje muszą być zarejestrowane w dzierżawy B2C, za pomocą **aplikacji** zaznaczenia menu w usłudze Azure AD B2C lub przy użyciu tożsamości Framework środowisko do wywołania zarówno wbudowanych i niestandardowych zasad. Wymagany jest tylko jedna rejestracja na aplikację.<br><br>
+   Aby dowiedzieć się, jak zarejestrować aplikacji, zapoznaj się z usługi Azure AD B2C [wprowadzenie](active-directory-b2c-get-started.md) artykułu lub [Rejestracja aplikacji](active-directory-b2c-app-registration.md) artykułu.  
 
-2. Otwórz B2C_1A_signup_signin, hello jednostki uzależnionej zasady niestandardowe strony (RP), który został przekazany. Wybierz **Uruchom teraz**.
+2. Otwórz B2C_1A_signup_signin, jednostki uzależnionej zasady niestandardowe strony (RP), który został przekazany. Wybierz **Uruchom teraz**.
 
-3. Powinno być możliwe toosign przy użyciu adresu e-mail.
+3. Należy zalogowanie przy użyciu adresu e-mail.
 
-4. Zaloguj się przy użyciu hello, tego samego konta tooconfirm, czy masz hello prawidłowej konfiguracji.
+4. Zaloguj się przy użyciu tego samego konta, aby upewnić się, że masz prawidłowej konfiguracji.
 
 >[!NOTE]
 >Częstą przyczyną niepowodzenia logowania jest nieprawidłowo skonfigurowana aplikacji IdentityExperienceFramework.
@@ -199,21 +199,21 @@ Po przekazaniu pliku hello nazwę pliku zasad hello jest poprzedzony przez `B2C_
 ## <a name="next-steps"></a>Następne kroki
 
 ### <a name="add-facebook-as-an-identity-provider"></a>Dodaj funkcję dostawcy tożsamości usługi Facebook
-tooset się Facebook:
+Aby zdefiniować usługi Facebook
 1. [Konfigurowanie aplikacji usługi Facebook w developers.facebook.com](active-directory-b2c-setup-fb-app.md).
-2. [Dodaj dzierżawy tooyour tajny usługi Azure AD B2C aplikacji usługi Facebook hello](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies).
-3. W pliku zasad TrustFrameworkExtensions hello, zastąp wartość hello `client_id` identyfikator aplikacji Facebook hello:
+2. [Dodaj klucz tajny aplikacji Facebook dla Twojej dzierżawy usługi Azure AD B2C](#add-signing-and-encryption-keys-to-your-b2c-tenant-for-use-by-custom-policies).
+3. W pliku zasad TrustFrameworkExtensions Zastąp wartość `client_id` identyfikator aplikacji Facebook:
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">
      <Metadata>
-     <!--Replace hello value of client_id in this technical profile with hello Facebook app ID"-->
+     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
        <Item Key="client_id">00000000000000</Item>
    ```
-4. Przekaż hello TrustFrameworkExtensions.xml zasad pliku tooyour dzierżawy.
-5. Test przy użyciu **Uruchom teraz** lub za pomocą zasad hello bezpośrednio w zarejestrowany aplikacji.
+4. Przekaż plik zasad TrustFrameworkExtensions.xml dzierżawcy.
+5. Test przy użyciu **Uruchom teraz** lub za pomocą zasad bezpośrednio w zarejestrowany aplikacji.
 
 ### <a name="add-azure-active-directory-as-an-identity-provider"></a>Dodaj funkcję dostawcy tożsamości usługi Azure Active Directory
-Hello pliku podstawowego użyty w tym przewodniku Rozpoczęto pobieranie zawiera niektóre hello zawartość, która należy do dodawania innych dostawców tożsamości. Aby uzyskać informacje na temat konfigurowania logowania, zobacz hello [usługi Azure Active Directory B2C: Zaloguj się przy użyciu konta usługi Azure AD](active-directory-b2c-setup-aad-custom.md) artykułu.
+Użyty w tym przewodniku Rozpoczęto pobieranie pliku podstawowego zawiera niektóre zawartość, która należy do dodawania innych dostawców tożsamości. Aby uzyskać informacje na temat konfigurowania logowania, zobacz [usługi Azure Active Directory B2C: Zaloguj się przy użyciu konta usługi Azure AD](active-directory-b2c-setup-aad-custom.md) artykułu.
 
-Omówienie zasad niestandardowych w usłudze Azure AD B2C, które używają hello Framework obsługi tożsamości, zobacz hello [usługi Azure Active Directory B2C: zasady niestandardowe](active-directory-b2c-overview-custom.md) artykułu. 
+Omówienie zasad niestandardowych w usłudze Azure AD B2C, które używają Framework obsługi tożsamości, zobacz [usługi Azure Active Directory B2C: zasady niestandardowe](active-directory-b2c-overview-custom.md) artykułu. 

@@ -1,6 +1,6 @@
 ---
-title: "Jak tooconfigure routing (równorzędna) dla obwodu usługi ExpressRoute: Azure: klasyczny | Dokumentacja firmy Microsoft"
-description: "W tym artykule przedstawiono kroki hello do tworzenia i inicjowania obsługi administracyjnej hello prywatny, publiczny oraz obwodu ExpressRoute komunikacji równorzędnej firmy Microsoft. Ten artykuł zawiera także sposób toocheck hello stanu, aktualizowania lub usuwania komunikacji równorzędnych dla obwodu."
+title: "Jak skonfigurować obwód (równorzędna) dla usługi routingu: Azure: klasyczny | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera instrukcje tworzenia i inicjowania obsługi komunikacji równorzędnej prywatnej, publicznej i firmy Microsoft obwodu usługi ExpressRoute. W tym artykule opisano również, jak aktualizować i usuwać komunikację równoległą dla obwodu oraz sprawdzać jej stan."
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: dc5bcc4b86c3bc965a88281b6c2a660f3bc58eb1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 37713db70f3ae837edafc997b78b16b121d0a885
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute (klasyczne)
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/06/2017
 > * [PowerShell (klasyczny)](expressroute-howto-routing-classic.md)
 > 
 
-W tym artykule przedstawiono hello kroki toocreate i zarządzaj nimi konfiguracji routingu dla obwodu usługi ExpressRoute, przy użyciu programu PowerShell i hello klasycznego modelu wdrażania. Poniższe kroki Hello wyświetli również, jak toocheck hello stanu, zaktualizować, lub usuń i anulowanie zastrzeżenia komunikacji równorzędnych dla obwodu usługi ExpressRoute.
+W tym artykule przedstawiono kroki, aby utworzyć i zarządzać konfiguracją routingu dla obwodu usługi ExpressRoute, przy użyciu programu PowerShell i klasycznym modelu wdrażania. W poniższych krokach opisano również, jak sprawdzać stan komunikacji równorzędnej, aktualizować ją, usuwać i wstrzymywać jej obsługę administracyjną dla obwodu usługi ExpressRoute.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -42,52 +42,52 @@ W tym artykule przedstawiono hello kroki toocreate i zarządzaj nimi konfiguracj
 
 
 ## <a name="configuration-prerequisites"></a>Wymagania wstępne dotyczące konfiguracji
-* Konieczne będzie hello najnowszą wersję hello poleceń cmdlet programu PowerShell Azure usługi zarządzania (ko). Aby uzyskać więcej informacji, zobacz [wprowadzenie do poleceń cmdlet programu Azure PowerShell](/powershell/azure/overview).  
-* Upewnij się, że użytkownik przejrzał hello [wymagania wstępne](expressroute-prerequisites.md) strony, hello [wymagania dotyczące routingu](expressroute-routing.md) strony i hello [przepływy pracy](expressroute-workflows.md) strona przed rozpoczęciem konfigurowania.
-* Musisz mieć aktywny obwód usługi ExpressRoute. Wykonaj instrukcje hello zbyt[utworzyć obwodu usługi ExpressRoute](expressroute-howto-circuit-classic.md) i mieć obwodu hello włączane przez dostawcą połączenia, aby kontynuować. Witaj obwodu ExpressRoute musi być w stanie zainicjowane i włączone dla Ciebie toobe toorun stanie hello poleceń cmdlet opisane poniżej.
+* Konieczne będzie najnowszą wersję poleceń cmdlet programu PowerShell Azure usługi zarządzania (ko). Aby uzyskać więcej informacji, zobacz [wprowadzenie do poleceń cmdlet programu Azure PowerShell](/powershell/azure/overview).  
+* Pamiętaj, aby przed rozpoczęciem konfiguracji przejrzeć strony z [wymaganiami wstępnymi](expressroute-prerequisites.md), [wymaganiami routingu](expressroute-routing.md) oraz [przepływami pracy](expressroute-workflows.md).
+* Musisz mieć aktywny obwód usługi ExpressRoute. Postępuj zgodnie z instrukcjami, aby [utworzyć obwodu usługi ExpressRoute](expressroute-howto-circuit-classic.md) i mieć obwodu włączane przez dostawcą połączenia, aby kontynuować. Obwód usługi ExpressRoute musi być zainicjowany i włączony, aby można było uruchamiać polecenia cmdlet opisane poniżej.
 
 > [!IMPORTANT]
-> Te instrukcje mają zastosowanie tylko toocircuits utworzone za pomocą dostawcy usług oferty usług łączności warstwy 2. Jeśli korzystasz z usług dostawcy oferującego zarządzane usługi warstwy 3 (zwykle IPVPN, np. MPLS), dostawca połączenia skonfiguruje routing i będzie nim zarządzać.
+> Te instrukcje dotyczą tylko obwodów utworzonych przy pomocy dostawców oferujących usługi łączności warstwy 2. Jeśli korzystasz z usług dostawcy oferującego zarządzane usługi warstwy 3 (zwykle IPVPN, np. MPLS), dostawca połączenia skonfiguruje routing i będzie nim zarządzać.
 > 
 > 
 
-Można skonfigurować jedną komunikację równorzędną, dwie lub trzy (prywatną Azure, publiczną Azure i Microsoft) dla obwodu usługi ExpressRoute. Możesz skonfigurować komunikację równorzędną w dowolnej kolejności. Jednak należy się upewnić, czy zakończyć hello konfiguracji komunikacji równorzędnej każdego z nich w czasie.
+Można skonfigurować jedną komunikację równorzędną, dwie lub trzy (prywatną Azure, publiczną Azure i Microsoft) dla obwodu usługi ExpressRoute. Możesz skonfigurować komunikację równorzędną w dowolnej kolejności. Musisz jednak pamiętać, aby kończyć konfiguracje poszczególnych komunikacji równorzędnych pojedynczo.
 
 
-### <a name="log-in-tooyour-azure-account-and-select-a-subscription"></a>Zaloguj się za tooyour konto platformy Azure i wybierz subskrypcję
-1. Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i Połącz konto tooyour. Użyj powitania po toohelp przykład, gdy nawiązujesz połączenie:
+### <a name="log-in-to-your-azure-account-and-select-a-subscription"></a>Zaloguj się do konta platformy Azure i wybierz subskrypcję
+1. Otwórz konsolę programu PowerShell z podwyższonym poziomem uprawnień i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
 
         Login-AzureRmAccount
 
-2. Sprawdź subskrypcje hello hello konta.
+2. Sprawdź subskrypcje dostępne na koncie.
 
         Get-AzureRmSubscription
 
-3. Jeśli masz więcej niż jedną subskrypcję, wybierz subskrypcję hello, które mają toouse.
+3. Jeśli masz więcej niż jedną subskrypcję, wybierz tę, której chcesz użyć.
 
         Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 
-4. Następnie należy użyć następującego polecenia cmdlet tooadd hello tooPowerShell Twojej subskrypcji platformy Azure dla hello klasycznego modelu wdrażania.
+4. Następnie użyj następującego polecenia cmdlet można dodać subskrypcji platformy Azure do środowiska PowerShell dla klasycznym modelu wdrażania.
 
         Add-AzureAccount
 
 
 ## <a name="azure-private-peering"></a>Prywatna komunikacja równorzędna Azure
-Ta sekcja zawiera instrukcje jak toocreate, get, aktualizowania i usuwania hello konfiguracji platformy Azure prywatnej komunikacji równorzędnej dla obwodu usługi ExpressRoute. 
+Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji prywatnej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute. 
 
-### <a name="toocreate-azure-private-peering"></a>toocreate Azure prywatnej komunikacji równorzędnej
-1. **Zaimportuj moduł programu PowerShell hello w przypadku połączeń ExpressRoute.**
+### <a name="to-create-azure-private-peering"></a>Aby utworzyć prywatną komunikację równorzędną
+1. **Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.**
    
-    Moduły hello Azure i ExpressRoute należy zaimportować do sesji programu PowerShell hello w kolejności toostart za pomocą poleceń cmdlet usługi ExpressRoute hello. Witaj uruchom następujące polecenia tooimport hello Azure i ExpressRoute moduły do sesji programu PowerShell hello.  
+    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell.  
    
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 2. **Utworzyć obwodu usługi ExpressRoute.**
    
-    Wykonaj hello instrukcje toocreate [obwodu ExpressRoute](expressroute-howto-circuit-classic.md) i udostępniane przez dostawcę łączności hello. Jeśli dostawca połączenia udostępnia usługi warstwy 3 zarządzane, możesz poprosić tooenable dostawcy sieci łączności Azure prywatnej komunikacji równorzędnej dla Ciebie. W takim przypadku nie trzeba instrukcje toofollow wymienionych w kolejnych sekcjach hello. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu, wykonaj poniższe instrukcje hello. 
-3. **Sprawdź hello tooensure obwodu ExpressRoute, który jego obsługa została zainicjowana.**
+    Wypełnij instrukcje, aby utworzyć [obwód usługi ExpressRoute](expressroute-howto-circuit-classic.md), który zostanie zainicjowany przez dostawcę połączenia. Jeśli dostawca połączenia oferuje zarządzane usługi warstwy 3, możesz poprosić go o włączenie prywatnej komunikacji równorzędnej Azure. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu postępuj zgodnie z poniższymi instrukcjami. 
+3. **Sprawdź obwodu ExpressRoute, aby upewnić się, że jego obsługa została zainicjowana.**
    
-    Jeśli hello obwodu ExpressRoute jest udostępniane i również włączone, należy najpierw zaznaczyć toosee. Zobacz poniższy przykład hello.
+    Musisz najpierw sprawdzić, czy obwód usługi ExpressRoute jest zainicjowany i włączony. Zobacz przykład poniżej.
    
         PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    
@@ -100,25 +100,25 @@ Ta sekcja zawiera instrukcje jak toocreate, get, aktualizowania i usuwania hello
         Sku                              : Standard
         Status                           : Enabled
    
-    Upewnij się, że obwód hello to obsługiwane administracyjnie i włączone. W przeciwnym razie skontaktować się z Twojego tooget dostawcy łączności z obwodu toohello wymagany stan i stan.
+    Upewnij się, że obwód jest pokazywana jako obsługiwane administracyjnie i włączone. W przeciwnym razie należy współpracować z dostawcą połączenia, aby uzyskać wymagany stan i Stan obwodu.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
-4. **Skonfiguruj prywatnej komunikacji równorzędnej platformy Azure dla hello obwodu.**
+4. **Skonfiguruj prywatnej komunikacji równorzędnej platformy Azure dla obwodu.**
    
-    Upewnij się, że masz następujące elementy, przed przystąpieniem do następnych kroków hello hello:
+    Zanim przejdziesz do następnych kroków, upewnij się, czy masz następujące elementy:
    
-   * / 30 podsieci dla linku podstawowego hello. Nie może ona być częścią żadnej przestrzeni adresowej zarezerwowanej dla sieci wirtualnych.
-   * / 30 podsieci hello dodatkowej łącza. Nie może ona być częścią żadnej przestrzeni adresowej zarezerwowanej dla sieci wirtualnych.
-   * Nieprawidłowa tooestablish identyfikator sieci VLAN komunikacji równorzędnej. Upewnij się, że nie inne komunikację równorzędną w obwodzie hello używa hello tego samego identyfikatora sieci VLAN.
+   * Podsieć /30 dla połączenia podstawowego. Nie może ona być częścią żadnej przestrzeni adresowej zarezerwowanej dla sieci wirtualnych.
+   * Podsieć /30 dla połączenia dodatkowego. Nie może ona być częścią żadnej przestrzeni adresowej zarezerwowanej dla sieci wirtualnych.
+   * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN.
    * Numer AS do komunikacji równorzędnej. Możesz używać 2-bajtowych i 4-bajtowych numerów AS. Możesz użyć prywatnego numeru AS dla tej komunikacji równorzędnej. Pamiętaj, aby nie używać numeru 65515.
-   * Skrót MD5 po wybraniu toouse jeden. **Jest to opcjonalne**.
+   * Skrót MD5, jeśli zdecydujesz się go użyć. **Jest to opcjonalne**.
      
-    Można uruchomić następujące polecenie cmdlet tooconfigure prywatnej komunikacji równorzędnej platformy Azure dla obwodu hello.
+    Możesz uruchomić następujące polecenie cmdlet, aby skonfigurować prywatną komunikację równorzędną Azure dla obwodu.
      
         Nowe AzureBGPPeering - AccessType prywatny - bindingTemplate "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" - PeerAsn 1234 - VlanId 100
      
-    Można zastosować poniższe polecenie cmdlet hello, jeśli wybierzesz toouse skrótu MD5.
+    Możesz użyć poniższego polecenia cmdlet, jeśli zdecydujesz się używać skrótu MD5.
      
         Nowe AzureBGPPeering - AccessType prywatny - bindingTemplate "***" - PrimaryPeerSubnet "10.0.0.0/30" - SecondaryPeerSubnet "10.0.0.4/30" - PeerAsn 1234 - VlanId 100 - SharedKey "A1B2C3D4"
      
@@ -127,8 +127,8 @@ Ta sekcja zawiera instrukcje jak toocreate, get, aktualizowania i usuwania hello
      > 
      > 
 
-### <a name="tooview-azure-private-peering-details"></a>tooview Azure prywatnej komunikacji równorzędnej szczegóły
-Można pobrać szczegółów konfiguracji przy użyciu następującego polecenia cmdlet hello
+### <a name="to-view-azure-private-peering-details"></a>Aby wyświetlić szczegóły dotyczące prywatnej komunikacji równorzędnej Azure
+Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego polecenia cmdlet.
 
     Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
@@ -146,16 +146,16 @@ Można pobrać szczegółów konfiguracji przy użyciu następującego polecenia
     VlanId                         : 100
 
 
-### <a name="tooupdate-azure-private-peering-configuration"></a>tooupdate konfiguracji komunikacji równorzędnej prywatnej platformy Azure
-Można aktualizować dowolną część konfiguracji hello za pomocą następującego polecenia cmdlet hello. W poniższym przykładzie hello hello identyfikator sieci VLAN obwodu hello jest aktualizowana z 100 too500.
+### <a name="to-update-azure-private-peering-configuration"></a>Aby zaktualizować konfigurację prywatnej komunikacji równorzędnej Azure
+Możesz zaktualizować dowolną część konfiguracji za pomocą następującego polecenia cmdlet. W poniższym przykładzie identyfikator sieci VLAN obwodu jest aktualizowany ze 100 do 500.
 
     Set-AzureBGPPeering -AccessType Private -ServiceKey "*********************************" -PrimaryPeerSubnet "10.0.0.0/30" -SecondaryPeerSubnet "10.0.0.4/30" -PeerAsn 1234 -VlanId 500 -SharedKey "A1B2C3D4"
 
-### <a name="toodelete-azure-private-peering"></a>toodelete Azure prywatnej komunikacji równorzędnej
-Można usunąć konfiguracji komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet hello.
+### <a name="to-delete-azure-private-peering"></a>Aby usunąć prywatną komunikację równorzędną Azure
+Możesz usunąć konfigurację komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet.
 
 > [!WARNING]
-> Należy się upewnić, że wszystkie sieci wirtualne są odłączone od hello obwodu usługi expressroute, przed uruchomieniem tego polecenia cmdlet. 
+> Przed uruchomieniem tego polecenia cmdlet upewnij się, że wszystkie sieci wirtualne zostały odłączone od obwodu usługi ExpressRoute. 
 > 
 > 
 
@@ -163,21 +163,21 @@ Można usunąć konfiguracji komunikacji równorzędnej, uruchamiając następuj
 
 
 ## <a name="azure-public-peering"></a>Publiczna komunikacja równorzędna Azure
-Ta sekcja zawiera instrukcje jak toocreate, get, aktualizować i usuwać hello Azure publicznej konfiguracji komunikacji równorzędnej dla obwodu usługi ExpressRoute.
+Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji publicznej komunikacji równorzędnej Azure dla obwodu usługi ExpressRoute.
 
-### <a name="toocreate-azure-public-peering"></a>toocreate Azure publicznej komunikacji równorzędnej
-1. **Zaimportuj moduł programu PowerShell hello w przypadku połączeń ExpressRoute.**
+### <a name="to-create-azure-public-peering"></a>Aby utworzyć publiczną komunikację równorzędną Azure
+1. **Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.**
    
-    Moduły hello Azure i ExpressRoute należy zaimportować do sesji programu PowerShell hello w kolejności toostart za pomocą poleceń cmdlet usługi ExpressRoute hello. Witaj uruchom następujące polecenia tooimport hello Azure i ExpressRoute moduły do sesji programu PowerShell hello. 
+    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell. 
    
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 2. **Tworzenie obwodu usługi ExpressRoute**
    
-    Wykonaj hello instrukcje toocreate [obwodu ExpressRoute](expressroute-howto-circuit-classic.md) i udostępniane przez dostawcę łączności hello. Jeśli dostawca połączenia oferuje zarządzanych usług warstwy 3, możesz poprosić użytkownika tooenable dostawcy łączności publicznej komunikacji równorzędnej dla Ciebie Azure. W takim przypadku nie trzeba instrukcje toofollow wymienionych w kolejnych sekcjach hello. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu, wykonaj poniższe instrukcje hello.
-3. **Sprawdź tooensure obwodu ExpressRoute, który jego obsługa została zainicjowana**
+    Wypełnij instrukcje, aby utworzyć [obwód usługi ExpressRoute](expressroute-howto-circuit-classic.md), który zostanie zainicjowany przez dostawcę połączenia. Jeśli dostawca połączenia oferuje zarządzane usługi warstwy 3, możesz poprosić go o włączenie publicznej komunikacji równorzędnej Azure. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu postępuj zgodnie z poniższymi instrukcjami.
+3. **Sprawdź obwodu ExpressRoute, aby upewnić się, że jego obsługa została zainicjowana**
    
-    Jeśli hello obwodu ExpressRoute jest udostępniane i również włączone, należy najpierw zaznaczyć toosee. Zobacz poniższy przykład hello.
+    Musisz najpierw sprawdzić, czy obwód usługi ExpressRoute jest zainicjowany i włączony. Zobacz przykład poniżej.
    
         PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    
@@ -190,25 +190,25 @@ Ta sekcja zawiera instrukcje jak toocreate, get, aktualizować i usuwać hello A
         Sku                              : Standard
         Status                           : Enabled
    
-    Upewnij się, że obwód hello to obsługiwane administracyjnie i włączone. W przeciwnym razie skontaktować się z Twojego tooget dostawcy łączności z obwodu toohello wymagany stan i stan.
+    Upewnij się, że obwód jest pokazywana jako obsługiwane administracyjnie i włączone. W przeciwnym razie należy współpracować z dostawcą połączenia, aby uzyskać wymagany stan i Stan obwodu.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
-4. **Skonfiguruj publicznej komunikacji równorzędnej platformy Azure dla obwodu hello**
+4. **Skonfiguruj publicznej komunikacji równorzędnej platformy Azure dla obwodu**
    
-    Upewnij się, że masz hello następujących informacji przed przejściem dalej.
+    Zanim przejdziesz dalej, upewnij się, że masz poniższe informacje.
    
-   * / 30 podsieci dla linku podstawowego hello. Musi to być prawidłowy publiczny prefiks IPv4.
-   * / 30 podsieci hello dodatkowej łącza. Musi to być prawidłowy publiczny prefiks IPv4.
-   * Nieprawidłowa tooestablish identyfikator sieci VLAN komunikacji równorzędnej. Upewnij się, że nie inne komunikację równorzędną w obwodzie hello używa hello tego samego identyfikatora sieci VLAN.
+   * Podsieć /30 dla połączenia podstawowego. Musi to być prawidłowy publiczny prefiks IPv4.
+   * Podsieć /30 dla połączenia dodatkowego. Musi to być prawidłowy publiczny prefiks IPv4.
+   * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN.
    * Numer AS do komunikacji równorzędnej. Możesz używać 2-bajtowych i 4-bajtowych numerów AS.
-   * Skrót MD5 po wybraniu toouse jeden. **Jest to opcjonalne**.
+   * Skrót MD5, jeśli zdecydujesz się go użyć. **Jest to opcjonalne**.
      
-    Możesz uruchomić następujące polecenie cmdlet tooconfigure publicznej komunikacji równorzędnej platformy Azure dla obwodu hello
+    Możesz uruchomić następujące polecenie cmdlet, aby skonfigurować publiczną komunikację równorzędną Azure dla obwodu.
      
         Nowe AzureBGPPeering - AccessType publicznego - bindingTemplate "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - PeerAsn 1234 - VlanId 200
      
-    Jeśli wybierzesz toouse skrótu MD5 służy hello poniższe polecenie cmdlet
+    Możesz użyć poniższego polecenia cmdlet, jeśli zdecydujesz się używać skrótu MD5.
      
         Nowe AzureBGPPeering - AccessType publicznego - bindingTemplate "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - PeerAsn 1234 - VlanId 200 - SharedKey "A1B2C3D4"
      
@@ -217,8 +217,8 @@ Ta sekcja zawiera instrukcje jak toocreate, get, aktualizować i usuwać hello A
      > 
      > 
 
-### <a name="tooview-azure-public-peering-details"></a>tooview Azure publicznej komunikacji równorzędnej szczegóły
-Można pobrać szczegółów konfiguracji przy użyciu następującego polecenia cmdlet hello
+### <a name="to-view-azure-public-peering-details"></a>Aby wyświetlić szczegóły dotyczące publicznej komunikacji równorzędnej Azure
+Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego polecenia cmdlet.
 
     Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 
@@ -236,34 +236,34 @@ Można pobrać szczegółów konfiguracji przy użyciu następującego polecenia
     VlanId                         : 200
 
 
-### <a name="tooupdate-azure-public-peering-configuration"></a>tooupdate Azure publicznej konfiguracji komunikacji równorzędnej
-Można zaktualizować dowolną część konfiguracji hello za pomocą następującego polecenia cmdlet hello
+### <a name="to-update-azure-public-peering-configuration"></a>Aby zaktualizować konfigurację publicznej komunikacji równorzędnej Azure
+Możesz zaktualizować dowolną część konfiguracji za pomocą następującego polecenia cmdlet.
 
     Set-AzureBGPPeering -AccessType Public -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -PeerAsn 1234 -VlanId 600 -SharedKey "A1B2C3D4"
 
-Identyfikator sieci VLAN obwodu hello Hello jest aktualizowana z 200 too600 w hello powyżej przykładzie.
+W przykładzie powyżej identyfikator sieci VLAN obwodu jest aktualizowany z 200 do 600.
 
-### <a name="toodelete-azure-public-peering"></a>toodelete Azure publicznej komunikacji równorzędnej
-Można usunąć konfiguracji komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet hello
+### <a name="to-delete-azure-public-peering"></a>Aby usunąć publiczną komunikację równorzędną Azure
+Możesz usunąć konfigurację komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet.
 
     Remove-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 
 ## <a name="microsoft-peering"></a>Komunikacja równorzędna firmy Microsoft
-Ta sekcja zawiera instrukcje jak toocreate, get, aktualizować i usuwać hello konfiguracji komunikacji równorzędnej firmy Microsoft dla obwodu usługi ExpressRoute. 
+Ta sekcja zawiera instrukcje dotyczące tworzenia, pobierania, aktualizowania i usuwania konfiguracji komunikacji równorzędnej Microsoft dla obwodu usługi ExpressRoute. 
 
-### <a name="toocreate-microsoft-peering"></a>toocreate komunikacji równorzędnej firmy Microsoft
-1. **Zaimportuj moduł programu PowerShell hello w przypadku połączeń ExpressRoute.**
+### <a name="to-create-microsoft-peering"></a>Aby utworzyć komunikację równorzędną Microsoft
+1. **Zaimportuj moduł programu PowerShell dla usługi ExpressRoute.**
    
-    Moduły hello Azure i ExpressRoute należy zaimportować do sesji programu PowerShell hello w kolejności toostart za pomocą poleceń cmdlet usługi ExpressRoute hello. Witaj uruchom następujące polecenia tooimport hello Azure i ExpressRoute moduły do sesji programu PowerShell hello.  
+    Aby rozpocząć korzystanie z poleceń cmdlet usługi ExpressRoute, należy zaimportować moduły Azure i usługi ExpressRoute w sesji programu PowerShell. Uruchom następujące polecenia, aby zaimportować moduły Azure i usługi ExpressRoute do sesji programu PowerShell.  
    
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
         Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 2. **Tworzenie obwodu usługi ExpressRoute**
    
-    Wykonaj hello instrukcje toocreate [obwodu ExpressRoute](expressroute-howto-circuit-classic.md) i udostępniane przez dostawcę łączności hello. Jeśli dostawca połączenia udostępnia usługi warstwy 3 zarządzane, możesz poprosić tooenable dostawcy sieci łączności Azure prywatnej komunikacji równorzędnej dla Ciebie. W takim przypadku nie trzeba instrukcje toofollow wymienionych w kolejnych sekcjach hello. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu, wykonaj poniższe instrukcje hello.
-3. **Sprawdź tooensure obwodu ExpressRoute, który jego obsługa została zainicjowana**
+    Wypełnij instrukcje, aby utworzyć [obwód usługi ExpressRoute](expressroute-howto-circuit-classic.md), który zostanie zainicjowany przez dostawcę połączenia. Jeśli dostawca połączenia oferuje zarządzane usługi warstwy 3, możesz poprosić go o włączenie prywatnej komunikacji równorzędnej Azure. W takiej sytuacji nie trzeba będzie wykonywać instrukcji wymienionych w następnych sekcjach. Jednak jeśli dostawca połączenia nie zarządza routingiem, po utworzeniu obwodu postępuj zgodnie z poniższymi instrukcjami.
+3. **Sprawdź obwodu ExpressRoute, aby upewnić się, że jego obsługa została zainicjowana**
    
-    Jeśli hello obwodu usługi expressroute, jest w stanie obsługiwane administracyjnie i włączone, należy najpierw zaznaczyć toosee.
+    Musisz najpierw sprawdzić, czy obwodu ExpressRoute jest w stanie obsługiwane administracyjnie i włączone.
    
         PS C:\> Get-AzureDedicatedCircuit -ServiceKey "*********************************"
    
@@ -276,29 +276,29 @@ Ta sekcja zawiera instrukcje jak toocreate, get, aktualizować i usuwać hello k
         Sku                              : Standard
         Status                           : Enabled
    
-    Upewnij się, że obwód hello to obsługiwane administracyjnie i włączone. W przeciwnym razie skontaktować się z Twojego tooget dostawcy łączności z obwodu toohello wymagany stan i stan.
+    Upewnij się, że obwód jest pokazywana jako obsługiwane administracyjnie i włączone. W przeciwnym razie należy współpracować z dostawcą połączenia, aby uzyskać wymagany stan i Stan obwodu.
    
         ServiceProviderProvisioningState : Provisioned
         Status                           : Enabled
-4. **Konfigurowanie komunikacji równorzędnej dla obwodu hello firmy Microsoft**
+4. **Konfigurowanie komunikacji równorzędnej dla obwodu firmy Microsoft**
    
-    Upewnij się, że masz hello następujących informacji, aby kontynuować.
+    Zanim przejdziesz dalej, upewnij się, że masz poniższe informacje.
    
-   * / 30 podsieci dla linku podstawowego hello. Musi to być prawidłowy publiczny prefiks IPv4, którego jesteś właścicielem, zarejestrowany w RIR/IRR.
-   * / 30 podsieci hello dodatkowej łącza. Musi to być prawidłowy publiczny prefiks IPv4, którego jesteś właścicielem, zarejestrowany w RIR/IRR.
-   * Nieprawidłowa tooestablish identyfikator sieci VLAN komunikacji równorzędnej. Upewnij się, że nie inne komunikację równorzędną w obwodzie hello używa hello tego samego identyfikatora sieci VLAN.
+   * Podsieć /30 dla połączenia podstawowego. Musi to być prawidłowy publiczny prefiks IPv4, którego jesteś właścicielem, zarejestrowany w RIR/IRR.
+   * Podsieć /30 dla połączenia dodatkowego. Musi to być prawidłowy publiczny prefiks IPv4, którego jesteś właścicielem, zarejestrowany w RIR/IRR.
+   * Prawidłowy identyfikator sieci VLAN do ustanowienia tej komunikacji równorzędnej jest włączony. Upewnij się, że żadna inna komunikacja równorzędna w obwodzie nie używa tego samego identyfikatora VLAN.
    * Numer AS do komunikacji równorzędnej. Możesz używać 2-bajtowych i 4-bajtowych numerów AS.
-   * Anonsowane prefiksy: należy podać listę wszystkich prefiksów planujesz tooadvertise hello sesji BGP. Akceptowane są tylko prefiksy publicznych adresów IP. Jeśli planujesz toosend zestaw prefiksy, możesz wysłać listy rozdzielanej przecinkami. Tymi prefiksami musi być zarejestrowany tooyou w rejestrze RIR / IRR.
-   * Odbiorca ASN: Jeśli są anonsowania prefiksów, które nie są toohello zarejestrowanych komunikacji równorzędnej jako numer, można określić hello jako numer toowhich, które są zarejestrowane. **Jest to opcjonalne**.
-   * Nazwa rejestru routingu: Można określić hello RIR / IRR, względem których hello jako liczbę i prefiksy są rejestrowane.
-   * Skrót MD5, jeśli wybierzesz toouse jeden. **Jest to opcjonalne.**
+   * Anonsowane prefiksy: musisz podać listę wszystkich prefiksów, które planujesz anonsować za pośrednictwem sesji BGP. Akceptowane są tylko prefiksy publicznych adresów IP. Jeśli zamierzasz wysłać zestaw prefiksów, możesz wysłać listę oddzielaną przecinkami. Prefiksy te muszą być zarejestrowane na Ciebie w RIR/IRR.
+   * Numer ASN klienta: jeśli anonsujesz prefiksy, które nie są rejestrowane do numeru AS komunikacji równorzędnej, możesz określić numer AS, do którego są rejestrowane. **Jest to opcjonalne**.
+   * Nazwa rejestru routingu: możesz określić RIR/IRR, względem którego rejestrowany jest numer AS i prefiksy.
+   * Skrót MD5, jeśli zdecydujesz się go użyć. **Jest to opcjonalne.**
      
-    Możesz uruchomić następujące polecenie cmdlet tooconfigure Microsoft pering dla obwodu hello
+    Można uruchomić następujące polecenie cmdlet, aby skonfigurować pering firmy Microsoft dla obwodu
      
         Nowe AzureBGPPeering - AccessType Microsoft - bindingTemplate "***" - PrimaryPeerSubnet "131.107.0.0/30" - SecondaryPeerSubnet "131.107.0.4/30" - VlanId 300 - PeerAsn 1234 - CustomerAsn 2245 - AdvertisedPublicPrefixes " 123.0.0.0/30 "- RoutingRegistryName"ARIN"- SharedKey"A1B2C3D4"
 
-### <a name="tooview-microsoft-peering-details"></a>Szczegóły komunikacji równorzędnej tooview firmy Microsoft
-Można pobrać szczegółów konfiguracji przy użyciu następującego polecenia cmdlet hello.
+### <a name="to-view-microsoft-peering-details"></a>Aby wyświetlić szczegóły dotyczące komunikacji równorzędnej firmy Microsoft
+Możesz pobrać szczegóły dotyczące konfiguracji przy użyciu następującego polecenia cmdlet.
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
@@ -316,18 +316,18 @@ Można pobrać szczegółów konfiguracji przy użyciu następującego polecenia
     VlanId                         : 300
 
 
-### <a name="tooupdate-microsoft-peering-configuration"></a>konfiguracji komunikacji równorzędnej tooupdate firmy Microsoft
-Można aktualizować dowolną część konfiguracji hello za pomocą następującego polecenia cmdlet hello.
+### <a name="to-update-microsoft-peering-configuration"></a>Aby zaktualizować konfigurację komunikacji równorzędnej firmy Microsoft
+Możesz zaktualizować dowolną część konfiguracji za pomocą następującego polecenia cmdlet.
 
     Set-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
-### <a name="toodelete-microsoft-peering"></a>toodelete komunikacji równorzędnej firmy Microsoft
-Można usunąć konfiguracji komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet hello.
+### <a name="to-delete-microsoft-peering"></a>Aby usunąć komunikację równorzędną firmy Microsoft
+Możesz usunąć konfigurację komunikacji równorzędnej, uruchamiając następujące polecenie cmdlet.
 
     Remove-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 ## <a name="next-steps"></a>Następne kroki
-Następnie [połączyć sieć wirtualną tooan obwodu ExpressRoute](expressroute-howto-linkvnet-classic.md).
+Następnie [połączyć sieć wirtualną z obwodem usługi ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
 * Aby uzyskać więcej informacji o przepływach pracy, zobacz [przepływy pracy usługi ExpressRoute](expressroute-workflows.md).
 * Aby uzyskać więcej informacji o komunikacji równorzędnej obwodu, zobacz artykuł [ExpressRoute circuits and routing domains](expressroute-circuit-peerings.md) (Obwody i domeny routingu usługi ExpressRoute).

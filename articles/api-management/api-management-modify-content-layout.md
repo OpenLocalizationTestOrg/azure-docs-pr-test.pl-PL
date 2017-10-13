@@ -1,6 +1,6 @@
 ---
-title: "zawartość strony aaaModify w portalu dla deweloperów hello w usłudze Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooedit strony zawartości w portalu dla deweloperów hello w usłudze Azure API Management."
+title: "Modyfikowanie zawartości stron w portalu deweloperów w usłudze Azure API Management | Microsoft Docs"
+description: "Dowiedz się, jak edytować zawartość stron w portalu deweloperów w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-ms.openlocfilehash: fd5a854e900d9512518643e593b1b59a0952621f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="modify-hello-content-and-layout-of-pages-on-hello-developer-portal-in-azure-api-management"></a>Modyfikowanie hello zawartość i układ strony w portalu dla deweloperów hello w usłudze Azure API Management
-Istnieją trzy podstawowe sposoby toocustomize hello portalu dla deweloperów usługi Azure API Management:
+# <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modyfikowanie zawartości i układu stron w portalu deweloperów w usłudze Azure API Management
+Istnieją trzy podstawowe sposoby dostosowywania portalu deweloperów w usłudze Azure API Management:
 
-* [Edytuj zawartość hello strony statyczne i elementy układ strony] [ modify-content-layout] (co omówiono w tym przewodniku)
-* [Aktualizuj style hello używany do elementów strony w portalu dla deweloperów hello][customize-styles]
-* [Modyfikowanie szablonów hello używany dla stron wygenerowanych przez hello portal] [ portal-templates] (Dokumentacja interfejsu API, produktów, uwierzytelnianie użytkowników, itp.)
+* [Edycja zawartości stron statycznych i elementów układu strony][modify-content-layout] (opisana w tym przewodniku)
+* [Aktualizacja stylów używanych dla elementów strony w portalu deweloperów][customize-styles]
+* [Zmodyfikowanie szablonów używanych dla stron wygenerowanych przez portal][portal-templates] (np. dokumentacji interfejsu API, produktów, uwierzytelniania użytkowników itp.)
 
 ## <a name="page-structure"> </a>Struktura stron portalu deweloperów
 
-portalu dla deweloperów Hello jest oparta na system zarządzania zawartością. Układ Hello każdej strony jest tworzona na podstawie zestawu elementów strony małe znany jako elementy widget:
+Portal deweloperów jest oparty na systemie zarządzania zawartością. Układ każdej strony jest tworzony przez zestaw małych elementów nazywanych widżetami:
 
 ![Struktura stron portalu deweloperów][api-management-customization-widget-structure]
 
 Wszystkie widżety można edytować. 
-* Witaj core zawartość określonego tooeach pojedynczej strony znajdują się w widżet "Zawartość" hello. Edycji strony oznacza edycji hello zawartość tego elementu widget.
-* Wszystkie elementy na stronie układu znajdują się hello pozostałych widżetów. Elementy widget toothese zmiany zostaną zastosowane tooall stron. Będą one określonej tooas "elementy widget układu".
+* Podstawowa zawartość poszczególnych stron znajduje się w widżecie „Zawartość”. Edycja strony polega na edytowaniu zawartości tego widżetu.
+* Wszystkie elementy układu strony są zawarte w pozostałych widżetach. Zmiany wprowadzone w tych widżetach zostaną zastosowane do wszystkich stron. Będą one nazywane „widżetami układu”.
 
-Na stronie codziennych tylko edycji jedną zwykle modyfikuje hello widget zawartości, który będzie miał inną zawartość dla każdej strony.
+W ramach codziennej edycji stron zwykle modyfikowany jest tylko widżet Zawartość mający różną zawartość w przypadku poszczególnych stron.
 
-## <a name="modify-layout-widget"></a>Modyfikowanie hello zawartość elementu widget układu
+## <a name="modify-layout-widget"> </a>Modyfikowanie zawartości widżetu układu
 
-Zawartość w portalu dla deweloperów hello jest modyfikowana za pośrednictwem portalu wydawcy hello, która jest dostępna z hello portalu Azure. tooreach, kliknij przycisk **wydawcy portalu** z paska narzędzi usługi hello wystąpienia interfejsu API zarządzania.
+Zawartość portalu dla deweloperów jest modyfikowana przy użyciu portalu wydawcy dostępnego za pośrednictwem klasycznej witryny Azure Portal. Aby przejść do niego, kliknij pozycję **Portal wydawcy** na pasku narzędzi wystąpienia usługi API Management.
 
-![Portal wydawcy][api-management-management-console]
+![Publisher portal][api-management-management-console]
 
-tooedit hello zawartość tego elementu widget, kliknij przycisk **elementy widget** z hello **portalu dla deweloperów** menu po lewej stronie powitania. Dla tego przykładu umożliwia modyfikowanie zawartości hello hello widżetu nagłówka. Wybierz hello **nagłówka** widżet z listy hello.
+Aby edytować zawartość tego widżetu, kliknij pozycję **Widżety** w menu **Portal deweloperów** po lewej stronie. W ramach tego przykładu zmodyfikujemy zawartość widżetu Nagłówek. Wybierz z listy widżet **Nagłówek**.
 
 ![Widżety — nagłówek][api-management-widgets-header]
 
-Witaj zawartość nagłówka hello jest edytowalny z wewnątrz hello **treści** pola. Zmień tekst hello zgodnie z potrzebami, a następnie kliknij przycisk **zapisać** u dołu hello hello strony.
+Zawartość nagłówka można edytować w polu **Treść**. Zmień tekst tak, jak chcesz, a następnie kliknij przycisk **Zapisz** u dołu strony.
 
-Teraz powinno być możliwe toosee hello nowego nagłówka na każdej stronie w portalu dla deweloperów hello.
+Teraz nowy nagłówek powinien być widoczny na każdej stronie portalu dla deweloperów.
 
-> portalu dla deweloperów hello tooopen znajduje się w portalu wydawcy hello, kliknij przycisk **portalu dla deweloperów** w górnym pasku hello.
+> Aby otworzyć portal dla deweloperów w portalu wydawcy, kliknij przycisk **Portal dla deweloperów** na górnym pasku.
 > 
 > 
 
-## <a name="edit-page-contents"></a>Edytować hello zawartości strony
+## <a name="edit-page-contents"> </a>Edytowanie zawartości strony
 
-toosee hello lista wszystkich istniejących stron zawartości, kliknij przycisk **zawartości** z hello **portalu dla deweloperów** menu w portalu wydawcy hello.
+Aby wyświetlić listę wszystkich istniejących stron zawartości, kliknij pozycję **Zawartość** w menu **Portal dla deweloperów** w portalu wydawcy.
 
 ![Zarządzanie zawartością][api-management-customization-manage-content]
 
-Kliknij przycisk hello **powitalnej** strony tooedit wyświetlanych na stronie głównej portalu dla deweloperów hello hello. Wprowadź zmiany hello, przeglądać je w razie potrzeby, a następnie kliknij przycisk **opublikować teraz** toomake je tooeveryone widoczne.
+Kliknij stronę **Zapraszamy**, aby edytować zawartość strony głównej portalu dla deweloperów. Wprowadź żądane zmiany, w razie potrzeby wyświetl ich podgląd, a następnie kliknij opcję **Publikuj teraz**, aby stały się widoczne dla wszystkich użytkowników.
 
-> Strona główna Hello używa specjalnego układu umożliwiająca toodisplay transparentu u góry hello. Transparent to nie jest edytowalny z hello **zawartości** sekcji. Kliknij tooedit tym transparent **elementy widget** z hello **portalu dla deweloperów** menu, wybierz **strony głównej** z hello **bieżącej warstwy** listy rozwijanej listy, a następnie otwórz hello **transparent** elementu pod hello **umieszczony sekcji**. Zawartość tego elementu widget Hello są edytowalne podobnie jak inne strony.
+> Strona główna używa specjalnego układu, który umożliwia wyświetlanie transparentu u góry. Transparentu nie można edytować w sekcji **Zawartość**. Aby edytować ten transparent, kliknij opcję **Widżety** w menu **Portal dla deweloperów**, wybierz opcję **Strona główna** z listy rozwijanej **Bieżąca warstwa**, a następnie otwórz element **Transparent** w obszarze **Wyróżniona sekcja**. Zawartość tego widżetu można edytować podobnie jak dowolnej innej strony.
 > 
 > 
 
 ## <a name="next-steps"> </a>Następne kroki
-* [Aktualizuj style hello używany do elementów strony w portalu dla deweloperów hello][customize-styles]
-* [Modyfikowanie szablonów hello używany dla stron wygenerowanych przez hello portal] [ portal-templates] (Dokumentacja interfejsu API, produktów, uwierzytelnianie użytkowników, itp.)
+* [Aktualizacja stylów używanych dla elementów strony w portalu deweloperów][customize-styles]
+* [Zmodyfikowanie szablonów używanych dla stron wygenerowanych przez portal][portal-templates] (np. dokumentacji interfejsu API, produktów, uwierzytelniania użytkowników itp.)
 
 [Structure of developer portal pages]: #page-structure
-[Modifying hello contents of a layout widget]: #modify-layout-widget
-[Edit hello contents of a page]: #edit-page-contents
+[Modifying the contents of a layout widget]: #modify-layout-widget
+[Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
 [modify-content-layout]: api-management-modify-content-layout.md

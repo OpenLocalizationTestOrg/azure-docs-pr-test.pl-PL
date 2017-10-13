@@ -1,6 +1,6 @@
 ---
-title: Indeks wyszukiwania Azure aaaQuery | Dokumentacja firmy Microsoft
-description: "Konstruowanie zapytania wyszukiwania w usłudze Azure search i Użyj wyszukiwania parametrów toofilter i sortowanie wyników wyszukiwania."
+title: "Tworzenie zapytań względem indeksu usługi Azure Search | Microsoft Docs"
+description: "Konstruowanie zapytania wyszukiwania w usłudze Azure Search oraz filtrowanie i sortowanie wyników wyszukiwania za pomocą parametrów wyszukiwania."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: 4a5ffffe179695fc09446760e21a738dd36c29b9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="query-your-azure-search-index"></a>Tworzenie zapytań względem indeksu usługi Azure Search
 > [!div class="op_single_selector"]
@@ -28,42 +28,42 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Podczas przesyłania tooAzure żądania wyszukiwania wyszukiwania, istnieje wiele parametrów, które można określić obok hello rzeczywistymi słowami wpisywanymi w polu wyszukiwania hello aplikacji. Te parametry zapytań zapewniają tooachieve lepszą kontrolę nad hello [obsługi wyszukiwania pełnotekstowego](search-lucene-query-architecture.md).
+W ramach przesyłania żądań wyszukiwania do usługi Azure Search dostępnych jest szereg parametrów, które można określić, aby użyć ich razem z rzeczywistymi słowami wpisywanymi w polu wyszukiwania w aplikacji. Te parametry zapytań zapewniają lepszą kontrolę nad [wyszukiwaniem pełnotekstowym](search-lucene-query-architecture.md).
 
-Poniżej znajduje się lista zawiera krótkie opisy typowych zastosowań parametrów zapytań hello w usłudze Azure Search. Aby uzyskać pełne parametrów zapytań i ich zachowania, zobacz hello szczegółowe stron hello [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) i [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
+Poniższa lista zawiera krótkie opisy typowych zastosowań parametrów zapytań w usłudze Azure Search. Aby uzyskać pełne, szczegółowe informacje na temat parametrów zapytań i ich działania, zobacz strony dotyczące [interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) i [zestawu .NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
 
 ## <a name="types-of-queries"></a>Typy zapytań
-Usługa Azure Search udostępnia wiele opcji toocreate niezwykle wydajnych zapytań. Witaj dwie główne typy zapytań, które będą używane są `search` i `filter`. A `search` zapytania wyszukiwania dla jednego lub większej liczby terminów we wszystkich *wyszukiwanie* pól w indeksie i działa w sposób hello można oczekiwać aparat wyszukiwania, takie jak Google czy Bing toowork. Zapytanie `filter` ocenia wyrażenie logiczne w odniesieniu do wszystkich pól *z możliwością filtrowania* w indeksie. W odróżnieniu od `search` zapytań, `filter` uwzględniania Pełna zawartość pól, co oznacza, że są one z uwzględnieniem wielkości liter dla pól ciągów hello.
+Usługa Azure Search udostępnia wiele opcji tworzenia niezwykle wydajnych zapytań. Dwa najczęściej używane typy zapytań to `search` i `filter`. Zapytanie `search` umożliwia wyszukanie jednego lub większej liczby terminów we wszystkich polach *z możliwością wyszukiwania* w indeksie. Działa ono podobnie jak wyszukiwarki takie jak Google czy Bing. Zapytanie `filter` ocenia wyrażenie logiczne w odniesieniu do wszystkich pól *z możliwością filtrowania* w indeksie. W przeciwieństwie do zapytań `search` w zapytaniach `filter` jest uwzględniania pełna zawartość pól, co oznacza, że w przypadku pól ciągów jest ważna wielkości liter.
 
-Wyszukiwań i filtrów można używać razem lub oddzielnie. Jeśli używane razem, hello filtr jest stosowany pierwszy toohello całego indeksu, a następnie hello wyszukiwanie jest wykonywane na wynikach hello hello filtru. Filtry można w związku z tym wydajności kwerendy tooimprove technika przydatne, ponieważ pozwala ono zawęzić zestaw hello dokumentów hello tooprocess potrzeb zapytania wyszukiwania.
+Wyszukiwań i filtrów można używać razem lub oddzielnie. W przypadku połączenia tych zapytań najpierw jest stosowany filtr do całego indeksu, a wyszukiwanie jest wykonywane na wynikach filtrowania. Z tego względu filtrowanie może być przydatne, jeśli chcemy poprawić wydajność zapytań, ponieważ pozwala ono zawęzić zestaw dokumentów przetwarzany przez zapytanie wyszukiwania.
 
-Witaj składni wyrażeń filtrów jest podzbiorem hello [języka filtru OData](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). W przypadku zapytań wyszukiwania można użyć albo hello [składni uproszczonej](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) lub hello [składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) opisano poniżej.
+Elementy składni wyrażeń filtrów należą do podzbioru [języka filtru OData](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). W przypadku zapytań wyszukiwania można używać [składni uproszczonej](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) lub [składni zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search). Informacje na ten temat zostały podane poniżej.
 
 ### <a name="simple-query-syntax"></a>Prosta składnia zapytań
-Witaj [prosta składnia zapytań](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) jest hello domyślnym językiem zapytań używanym w usłudze Azure Search. Witaj prosta składnia zapytań obsługuje szereg typowych operatorów wyszukiwania, w tym hello AND, OR, NOT, frazy sufiks i pierwszeństwo operatorów.
+[Prosta składnia zapytań](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) jest domyślnym językiem zapytań używanym w usłudze Azure Search. Prosta składnia zapytań obsługuje szereg typowych operatorów wyszukiwania, na przykład AND, OR, NOT, a także frazy, sufiksy i pierwszeństwo operatorów.
 
 ### <a name="lucene-query-syntax"></a>Składnia zapytań Lucene
-Witaj [składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) pozwala hello toouse popularnego i języka zapytań obszerne jako część [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+[Składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) pozwala korzystać z popularnego i wszechstronnego języka zapytań biblioteki [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
 
-Przy użyciu tej składni pozwala tooeasily osiągnięcia hello następujące możliwości: [zapytania należące do zakresu pola](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields), [Wyszukiwanie rozmyte](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy), [wyszukiwanie w sąsiedztwie](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity), [ promowanie](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost), [wyszukiwanie za pomocą wyrażeń regularnych](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex), [wyszukiwania symboli wieloznacznych](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard), [podstawy składni](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), i [zapytania korzystające z Operatory logiczne](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_boolean).
+Używanie tej składni pozwala łatwo korzystać z następujących funkcji: [zapytania należące do zakresu pola](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields), [wyszukiwanie rozmyte](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy), [wyszukiwanie w sąsiedztwie](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity), [promowanie terminów](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost), [wyszukiwanie za pomocą wyrażeń regularnych](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex), [wyszukiwanie za pomocą symboli wieloznacznych](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard), [podstawy składni](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax) oraz [zapytania korzystające z operatorów logicznych](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_boolean).
 
 ## <a name="ordering-results"></a>Porządkowanie wyników
-Podczas odbierania wyników zapytania wyszukiwania, możesz poprosić o Azure Search udostępnia wyniki hello uporządkowanych według wartości w określonym polu. Domyślnie usługa Azure Search porządkuje wyniki wyszukiwania hello oparte na powitania rangę wyniku wyszukiwania poszczególnych dokumentów, pochodzącej z [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
+Usługa Azure Search udostępnia możliwość przekazania wyników zapytania wyszukiwania uporządkowanych według wartości w określonym polu. Domyślnie usługa Azure Search porządkuje wyniki w oparciu o rangę wyniku wyszukiwania poszczególnych dokumentów, który jest określany na podstawie wagi [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Jeśli chcesz, aby wyniki uporządkowane według wartości innej niż wynik wyszukiwania hello tooreturn usługi Azure Search, można użyć hello `orderby` parametru wyszukiwania. Możesz określić wartość hello hello `orderby` parametru tooinclude pola nazwy i wywołuje toohello [ `geo.distance()` funkcja](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) dla wartości geoprzestrzennych. Każde wyrażenie może następować `asc` tooindicate wyniki mają być sortowane w kolejności rosnącej i `desc` tooindicate wyniki mają być sortowane w kolejności malejącej. Witaj domyślne stosowana kolejność rosnąca.
+Jeśli chcesz, aby usługa Azure Search zwracała wyniki uporządkowane według wartości innej niż wynik wyszukiwania, możesz użyć parametru wyszukiwania `orderby`. Można określić wartość parametru `orderby`, dołączając nazwy pól i wywołania funkcji [`geo.distance()`](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) w przypadku wartości geoprzestrzennych. Po każdym wyrażeniu można umieścić element `asc` w celu wskazania, że wyniki mają być sortowane w kolejności rosnącej, lub element `desc`, jeśli wyniki mają być sortowane w kolejności malejącej. Domyślnie jest stosowana kolejność rosnąca.
 
 ## <a name="paging"></a>Stronicowanie
-Usługa wyszukiwanie Azure umożliwia łatwe tooimplement stronicowania wyników wyszukiwania. Za pomocą hello `top` i `skip` parametry, można sprawnie wysyłać żądania wyszukiwania, które umożliwiają tooreceive hello całego zbioru wyników w postaci zarządzanych, uporządkowanych podzbiorów, co pozwala łatwo stosować dobre wyszukiwania rozwiązań interfejsu użytkownika. Podczas odbierania z mniejszymi podzbiorami wyników, można także odbierać hello liczbę dokumentów w hello całego zbioru wyników wyszukiwania.
+Usługa Azure Search ułatwia implementowanie stronicowania wyników wyszukiwania. Przy użyciu parametrów `top` i `skip` można sprawnie wysyłać żądania wyszukiwania, które umożliwiają uzyskanie całego zbioru wyników w postaci zarządzanych, uporządkowanych podzbiorów, co pozwala łatwo stosować dobre praktyki dotyczące obsługi interfejsu użytkownika wyszukiwania. Razem z mniejszymi podzbiorami wyników można również odbierać liczbę dokumentów w całym zbiorze wyników wyszukiwania.
 
-Dowiedz się więcej o stronicowaniu wyników wyszukiwania w artykule hello [jak wyniki wyszukiwania toopage w usłudze Azure Search](search-pagination-page-layout.md).
+Więcej informacji o stronicowaniu wyników wyszukiwania można znaleźć w artykule [How to page search results in Azure Search](search-pagination-page-layout.md) (Sposoby stronicowania wyników wyszukiwania w usłudze Azure Search).
 
 ## <a name="hit-highlighting"></a>Wyróżnianie trafień
-W usłudze Azure Search akcentowania hello dokładne części wyników spełniających zapytania wyszukiwania hello łatwej przy użyciu hello `highlight`, `highlightPreTag`, i `highlightPostTag` parametrów. Można określić, które *wyszukiwanie* pola powinny mieć wyróżniony, a także określenie hello dokładny ciąg tagów tooappend toohello początek i koniec hello dopasowany tekst tej usługi Azure Search zwraca dopasowany tekst.
+Dostępne w usłudze Azure Search parametry `highlight`, `highlightPreTag` i `highlightPostTag` umożliwiają łatwe wyróżnianie tej części wyników, która dokładnie odpowiada zapytaniu wyszukiwania. Można wskazać, w których polach *z możliwością wyszukiwania* ma zostać wyróżniony dopasowany tekst, a także dokładnie określić tagi ciągów, które mają zostać dodane na początku i na końcu dopasowanego tekstu zwracanego przez usługę Azure Search.
 
 ## <a name="try-out-query-syntax"></a>Wypróbowywanie składni zapytania
 
-różnice składni toounderstand najlepsze sposób Hello jest przesyłanie zapytań i przeglądając wyniki.
+Najlepszym sposobem na zrozumienie różnic w składni jest przesłanie zapytań i przejrzenie wyników.
 
-+ Użyj [Eksplorator wyszukiwania](search-explorer.md) w hello portalu Azure. Wdrażając [indeksu próbki hello](search-get-started-portal.md), tworzenie zapytań względem indeksu hello minut przy użyciu narzędzi w portalu hello.
++ Użyj [Eksploratora wyszukiwania](search-explorer.md) w witrynie Azure Portal. Jeśli wdrożysz [przykładowy indeks](search-get-started-portal.md), będziesz w stanie wykonywać zapytania o indeks w ciągu minut, używając narzędzi w portalu.
 
-+ Użyj [Fiddler](search-fiddler.md) lub że zostały przekazane usługi wyszukiwania tooyour Chrome Postman toosubmit zapytania tooan indeks. Zarówno narzędzia obsługują końcowego HTTP tooan wywołań REST. 
++ Użyj narzędzia [Fiddler](search-fiddler.md) lub Chrome Postman do przesyłania zapytań do indeksu przekazanego do usługi wyszukiwania. Oba narzędzia obsługują wywołania REST do punktu końcowego HTTP. 

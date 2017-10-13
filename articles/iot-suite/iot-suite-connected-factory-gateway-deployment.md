@@ -1,6 +1,6 @@
 ---
-title: "aaaDeploy pakietu IoT Azure połączenia bramy fabryki | Dokumentacja firmy Microsoft"
-description: "Sposób toodeploy bramę Windows lub Linux toohello łączności tooenable połączenia fabryki wstępnie skonfigurowane rozwiązanie."
+title: "Wdrażanie bramy połączonych fabryki pakiet IoT Azure | Dokumentacja firmy Microsoft"
+description: "Jak wdrożyć bramę Windows lub Linux, aby umożliwić łączność z połączonych fabryki wstępnie skonfigurowane rozwiązanie."
 services: 
 suite: iot-suite
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
-ms.openlocfilehash: 72436dec60eda0de20143f362fe740b0c4412f36
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b0e6ae705911d7c18643c77b7fe08fdffffa5eb1
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="deploy-a-gateway-on-windows-or-linux-for-hello-connected-factory-preconfigured-solution"></a>Wdrożyć bramę Windows lub Linux hello połączone fabryki wstępnie rozwiązania
+# <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Wdrożyć bramę Windows lub Linux dla połączonych fabryki wstępnie skonfigurowane rozwiązanie
 
-Witaj oprogramowania wymagane toodeploy w bramie hello połączone fabryki wstępnie skonfigurowane rozwiązanie zawiera dwa składniki:
+Oprogramowanie wymagane do wdrożenia bramy dla połączonych fabryki wstępnie skonfigurowane rozwiązanie zawiera dwa składniki:
 
-* Witaj *OPC Proxy* ustanawia tooIoT połączenia koncentratora. Witaj *OPC Proxy* następnie czeka na polecenia i kontroli wiadomości z hello zintegrowane OPC przeglądarki, która jest uruchamiana w portalu rozwiązania połączonych fabryki hello.
-* Witaj *wydawcy OPC* łączy tooexisting lokalnymi OPC UA serwery i przekazuje komunikaty telemetrii od nich tooIoT koncentratora.
+* *OPC Proxy* nawiąże połączenie z Centrum IoT. *OPC Proxy* następnie czeka na polecenia i kontroli wiadomości z zintegrowane przeglądarki OPC, która jest uruchamiana w portalu rozwiązania połączonych fabryki.
+* *Wydawcy OPC* łączy się z istniejącymi lokalnymi serwerami OPC UA i przekazuje komunikaty dane telemetryczne z nich do Centrum IoT.
 
 Oba te składniki są open source i są dostępne jako źródło w serwisie GitHub i jak kontenery Docker:
 
@@ -34,137 +34,137 @@ Oba te składniki są open source i są dostępne jako źródło w serwisie GitH
 | [Wydawca OPC][lnk-publisher-github] | [Wydawca OPC][lnk-publisher-docker] |
 | [Serwer Proxy OPC][lnk-proxy-github] | [Serwer Proxy OPC][lnk-proxy-docker] |
 
-Nie publicznych adresów IP, lub luk w zaporze bramy hello są wymagane dla obu składnika. Hello OPC serwera Proxy i wydawcy OPC używają tylko ruchu wychodzącego porty 443, 5671 i 8883.
+Nie publicznych adresów IP, lub luk w zaporze bramy są wymagane dla obu składnika. OPC serwera Proxy i wydawcy OPC należy używać tylko ruchu wychodzącego porty 443, 5671 i 8883.
 
-Hello kroki opisane w tym artykule opisano sposób toodeploy a bramy przy użyciu rozwiązania Docker albo [Windows](#windows-deployment) lub [Linux](#linux-deployment). Brama Hello umożliwia łączność toohello połączone fabryki wstępnie skonfigurowane rozwiązanie.
+Kroki opisane w tym artykule opisano, jak wdrożyć bramę przy użyciu rozwiązania Docker na albo [Windows](#windows-deployment) lub [Linux](#linux-deployment). Brama umożliwia łączność z połączonych fabryki wstępnie skonfigurowane rozwiązanie.
 
 > [!NOTE]
-> oprogramowanie bramy Hello działającą w kontenerze Docker hello jest [Azure IoT krawędzi].
+> Oprogramowanie bramy działającą w kontenerze Docker jest [Azure IoT krawędzi].
 
 ## <a name="windows-deployment"></a>Wdrażanie systemu Windows
 
 > [!NOTE]
-> Jeśli nie masz jeszcze urządzenie bramy, firma Microsoft zaleca się, że kupić komercyjnych bramy w jednym z naszych partnerów. Odwiedź hello [katalogu urządzenia Azure IoT] lista bramy urządzeń zgodnych z hello połączone fabryki rozwiązania. Postępuj zgodnie z instrukcjami hello z tooset urządzenia hello zapasowej hello bramy. Można również użyć hello następujące instrukcje toomanually ustawić jedną z istniejących bram.
+> Jeśli nie masz jeszcze urządzenie bramy, firma Microsoft zaleca się, że kupić komercyjnych bramy w jednym z naszych partnerów. Odwiedź stronę [katalogu urządzenia Azure IoT] lista bramy urządzeń zgodnych z rozwiązania połączonych fabryki. Postępuj zgodnie z instrukcjami, które pochodzą z urządzeniem, aby skonfigurować bramę. Alternatywnie użyj poniższych instrukcji, aby ręcznie skonfigurować jedną z istniejących bram.
 
 ### <a name="install-docker"></a>Zainstaluj Docker
 
-Zainstaluj [Docker dla systemu Windows] na urządzenie bramy z systemem Windows. Podczas instalacji systemu Windows Docker wybrać dysk na tooshare maszyny z hosta z Docker. następujące zrzut ekranu przedstawia udostępniania hello D dysku w systemie Windows Hello:
+Zainstaluj [Docker dla systemu Windows] na urządzenie bramy z systemem Windows. Podczas instalacji systemu Windows Docker należy wybrać dysk na komputerze hosta, aby udostępnić Docker. Poniższy zrzut ekranu przedstawia udostępniania dysku D w systemie Windows:
 
 ![Zainstaluj Docker][img-install-docker]
 
-Następnie utwórz folder o nazwie **docker** w katalogu głównym hello hello udostępnionego dysku.
-Ten krok można również wykonać po zainstalowaniu docker z hello **ustawienia** menu.
+Następnie utwórz folder o nazwie **docker** w folderze głównym dysku udostępnionego.
+Ten krok można również wykonać po zainstalowaniu docker z **ustawienia** menu.
 
-### <a name="configure-hello-gateway"></a>Konfigurowanie bramy hello
+### <a name="configure-the-gateway"></a>Konfigurowanie bramy
 
-1. Należy hello **iothubowner** parametry połączenia pakietu IoT Azure połączone wdrożenia bramy hello toocomplete wdrożenie fabryki. W hello [portalu Azure], przejdź tooyour Centrum IoT w grupie zasobów hello utworzone podczas wdrażania rozwiązania fabryki hello połączony. Kliknij przycisk **zasady dostępu współużytkowanego** tooaccess hello **iothubowner** ciąg połączenia:
+1. Należy **iothubowner** parametry połączenia pakietu IoT Azure połączone fabryki wdrożenia do ukończenia wdrożenia bramy. W [portalu Azure], przejdź do Centrum IoT w grupie zasobów utworzone podczas wdrażania rozwiązania fabryka połączenia. Kliknij przycisk **zasady dostępu współużytkowanego** dostępu **iothubowner** ciąg połączenia:
 
-    ![Znajdź hello parametry połączenia Centrum IoT][img-hub-connection]
+    ![Znajdź parametry połączenia Centrum IoT][img-hub-connection]
 
-    Kopiuj hello **parametry połączenia — klucz podstawowy** wartość.
+    Kopiuj **parametry połączenia — klucz podstawowy** wartość.
 
-1. Konfigurowanie bramy hello Centrum IoT, uruchamiając Witaj dwie bramy modułów **po** z wiersza polecenia, używając:
+1. Konfigurowanie bramy Centrum IoT, uruchamiając modułów dwa bramy **po** z wiersza polecenia, używając:
 
     `docker run -it --rm -h <ApplicationName> -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
-    * **&lt;ApplicationName&gt; ** jest nazwa hello toogive tooyour OPC UA wydawcy w formacie hello **wydawcy.&lt; nazwę FQDN&gt;**. Na przykład, jeśli jest nazywany siecią fabryki **myfactorynetwork.com**, hello **ApplicationName** wartość jest **publisher.myfactorynetwork.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt; ** jest hello **iothubowner** skopiowany w poprzednim kroku hello parametry połączenia. Ten ciąg połączenia jest używana tylko w tym kroku, nie będzie potrzebny w hello następujące kroki:
+    * **&lt;ApplicationName&gt;**  to nazwa, która ma zostać przypisany do użytkownika wydawcy UA OPC w formacie **wydawcy.&lt; nazwę FQDN&gt;**. Na przykład, jeśli jest nazywany siecią fabryki **myfactorynetwork.com**, **ApplicationName** wartość jest **publisher.myfactorynetwork.com**.
+    * **&lt;IoTHubOwnerConnectionString&gt;**  jest **iothubowner** ciąg połączenia został skopiowany w poprzednim kroku. Ten ciąg połączenia jest używana tylko w tym kroku, nie będzie potrzebny w poniższych krokach:
 
-    Używasz hello mapowane D:\\docker folder (hello `-v` argument) nowsze toopersist Witaj dwie certyfikatów X.509, korzystających z modułów bramy hello.
+    Użyj zamapowanych D:\\docker folder ( `-v` argument) później, aby utrwalić dwóch certyfikatów X.509, korzystających z modułów bramy.
 
-### <a name="run-hello-gateway"></a>Uruchom hello bramy
+### <a name="run-the-gateway"></a>Uruchom bramę
 
-1. Uruchom ponownie bramę hello przy użyciu następującego polecenia hello:
+1. Uruchom ponownie bramę przy użyciu następujących poleceń:
 
     `docker run -it --rm -h <ApplicationName> --expose 62222 -p 62222:62222 -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v //D/docker:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v //D/docker:/shared -v //D/docker:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. Ze względów bezpieczeństwa certyfikatów X.509 hello dwa utrwalone w hello D:\\docker folder zawiera hello klucza prywatnego. Ogranicz dostęp toothis folderu toohello poświadczeń (zazwyczaj **Administratorzy**) Użyj kontenera Docker hello toorun. Kliknij prawym przyciskiem myszy hello D:\\docker folderu, wybierz **właściwości**, następnie **zabezpieczeń**, a następnie **Edytuj**. Nadaj **Administratorzy** Pełna kontrola i usunąć inne osoby:
+1. Ze względów bezpieczeństwa dwóch certyfikatów X.509 utrwalone w D:\\docker folder zawiera klucz prywatny. Ograniczanie dostępu do tego folderu do poświadczeń (zazwyczaj **Administratorzy**) używane do uruchamiania w kontenerze Docker. Kliknij prawym przyciskiem myszy D:\\docker folderu, wybierz **właściwości**, następnie **zabezpieczeń**, a następnie **Edytuj**. Nadaj **Administratorzy** Pełna kontrola i usunąć inne osoby:
 
-    ![Udziel uprawnień tooDocker udziału][img-docker-share]
+    ![Udzielanie uprawnień do udziału Docker][img-docker-share]
 
-1. Sprawdź łączność sieciową. W wierszu polecenia wprowadź polecenie hello `ping publisher.<your fully qualified domain name>` tooping bramy. Jeśli hello docelowy jest nieosiągalny, Dodaj adres IP hello i nazwę pliku hosts toohello bramy dla bramy. Witaj plik hosts znajduje się w hello **Windows\\System32\\sterowniki\\itp** folderu.
+1. Sprawdź łączność sieciową. W wierszu polecenia wpisz polecenie `ping publisher.<your fully qualified domain name>` na polecenie ping bramy. Jeśli docelowy jest nieosiągalny, Dodaj adres IP i nazwę bramy w pliku hosts na bramie. Plik hosts znajduje się w **Windows\\System32\\sterowniki\\itp** folderu.
 
-1. Następnie spróbuj wydawcą toohello tooconnect przy użyciu lokalnego klienta OPC UA uruchomionych na powitania bramy. Witaj OPC UA punkt końcowy adres URL jest `opc.tcp://publisher.<your fully qualified domain name>:62222`. Jeśli nie masz OPC Agent użytkownika klienta, możesz pobrać i użyć [open source OPC Agent użytkownika klienta].
+1. Następnie próby połączenia z wydawcą zostało nawiązane przy użyciu lokalnego klienta OPC UA uruchomione w bramie. Adres URL punktu końcowego OPC UA `opc.tcp://publisher.<your fully qualified domain name>:62222`. Jeśli nie masz OPC Agent użytkownika klienta, możesz pobrać i użyć [open source OPC Agent użytkownika klienta].
 
-1. Jeśli te testy lokalnego została ukończona pomyślnie, przejdziesz toohello **połączyć własny serwer UA OPC** w hello połączonych fabryki rozwiązanie portalu. Wprowadź adres URL punktu końcowego wydawcy hello (`tcp://publisher.<your fully qualified domain name>:62222`) i kliknij przycisk **Connect**. Zostanie wyświetlone ostrzeżenie, certyfikatu, a następnie kliknij **Kontynuuj.** Obok wystąpi błąd hello tego wydawcy nie ufaj hello Agent użytkownika klienta sieci Web. tooresolve ten błąd, hello kopiowania **Agent użytkownika klienta sieci Web** certyfikatu z hello **D:\\docker\\certyfikatów odrzucił\\certyfikaty** folderu toohello **D:\\docker\\aplikacji UA\\certyfikaty** folderu na powitania bramy. Nie trzeba toorestart hello bramy. Powtórz ten krok. Teraz możesz połączyć toohello bramy z chmury hello i są gotowe tooadd OPC UA serwerów toohello rozwiązania.
+1. Jeśli te testy lokalnego została ukończona pomyślnie, przejdź do **połączyć własny serwer UA OPC** w portalu rozwiązania fabryka połączenia. Wprowadź adres URL punktu końcowego wydawcy (`tcp://publisher.<your fully qualified domain name>:62222`) i kliknij przycisk **Connect**. Zostanie wyświetlone ostrzeżenie, certyfikatu, a następnie kliknij **Kontynuuj.** Następnie występuje błąd wydawcy nie ufaj Agent użytkownika klienta sieci Web. Aby rozwiązać ten problem, skopiuj **Agent użytkownika klienta sieci Web** certyfikat od **D:\\docker\\certyfikatów odrzucił\\certyfikaty** folder **D: \\docker\\aplikacji UA\\certyfikaty** folderu w bramie. Nie trzeba ponownie uruchomić bramy. Powtórz ten krok. Teraz można podłączyć do bramy z chmury, a wszystko będzie gotowe dodać serwery OPC UA do rozwiązania.
 
 ### <a name="add-your-opc-ua-servers"></a>Dodaj serwery OPC UA
 
-1. Przeglądaj toohello **połączyć własny serwer UA OPC** w hello połączonych fabryki rozwiązanie portalu. Wykonaj te same czynności, jak w powyższej sekcji tooestablish hello zaufanie między hello połączonych fabryki portalu i hello serwera OPC UA powitalne. Ten krok pozwala ustanowić wzajemnego zaufania certyfikatów hello z hello połączony fabryki portalu i hello OPC UA serwera i tworzy połączenie.
+1. Przejdź do **połączyć własny serwer UA OPC** w portalu rozwiązania fabryka połączenia. Wykonaj te same czynności, jak w poprzedniej sekcji, aby ustanowić zaufanie między portalem fabryki połączonych i OPC UA serwera. Ten krok określa wzajemnego zaufania certyfikatów z portalu fabryki połączonych i serwer OPC UA i tworzy połączenie.
 
-1. Przeglądaj hello OPC UA węzły drzewa OPC UA serwera, kliknij prawym przyciskiem myszy hello OPC węzłów, a następnie wybierz **publikowania**. Dla publikacji toowork w ten sposób hello OPC UA serwera i wydawcy hello musi znajdować się na powitania tej samej sieci. Innymi słowy, jeśli hello w pełni kwalifikowana nazwa domeny wydawcy hello jest **publisher.mydomain.com** nazwę FQDN hello hello OPC UA serwer musi być, na przykład **myopcuaserver.mydomain.com**. Ustawienia są różne, należy ręcznie dodać węzły toohello publishesnodes.json pliku w hello **D:\\docker** folderu. Hello publishesnodes.json plik jest automatycznie generowany na powitania najpierw pomyślne publikowania OPC węzła.
+1. Przeglądanie drzewa węzłów OPC UA OPC UA serwera, kliknij prawym przyciskiem myszy węzły OPC, a następnie wybierz **publikowania**. Do publikowania działają w ten sposób, serwer OPC UA i wydawcy musi być w tej samej sieci. Innymi słowy Jeśli jest w pełni kwalifikowaną nazwę wydawcy **publisher.mydomain.com** w pełni kwalifikowaną nazwę serwera OPC UA musi być, na przykład **myopcuaserver.mydomain.com**. Jeśli ustawienia są różne, można ręcznie dodać węzłów do znaleziono w pliku publishesnodes.json **D:\\docker** folderu. Plik publishesnodes.json jest generowana automatycznie na pierwszym pomyślnym publikowania OPC węzła.
 
-1. Dane telemetryczne teraz wypływających z urządzeniem bramy hello. Można wyświetlić dane telemetryczne hello w hello **lokalizacje fabryki** widok portalu połączonych fabryki hello w obszarze **nowa fabryka**.
+1. Dane telemetryczne teraz wypływających z urządzeniem bramy. Można wyświetlić dane telemetryczne w **lokalizacje fabryki** widok portalu fabryki połączonych w obszarze **nowa fabryka**.
 
 ## <a name="linux-deployment"></a>Wdrożenie systemu Linux
 
 > [!NOTE]
-> Jeśli nie masz jeszcze urządzenie bramy, firma Microsoft zaleca się, że kupić komercyjnych bramy w jednym z naszych partnerów. Odwiedź hello [katalogu urządzenia Azure IoT] lista bramy urządzeń zgodnych z hello połączone fabryki rozwiązania. Postępuj zgodnie z instrukcjami hello z tooset urządzenia hello zapasowej hello bramy. Można również użyć hello następujące instrukcje toomanually ustawić jedną z istniejących bram.
+> Jeśli nie masz jeszcze urządzenie bramy, firma Microsoft zaleca się, że kupić komercyjnych bramy w jednym z naszych partnerów. Odwiedź stronę [katalogu urządzenia Azure IoT] lista bramy urządzeń zgodnych z rozwiązania połączonych fabryki. Postępuj zgodnie z instrukcjami, które pochodzą z urządzeniem, aby skonfigurować bramę. Alternatywnie użyj poniższych instrukcji, aby ręcznie skonfigurować jedną z istniejących bram.
 
 [Zainstaluj Docker] na urządzeniu z systemem Linux bramy.
 
-### <a name="configure-hello-gateway"></a>Konfigurowanie bramy hello
+### <a name="configure-the-gateway"></a>Konfigurowanie bramy
 
-1. Należy hello **iothubowner** parametry połączenia pakietu IoT Azure połączone wdrożenia bramy hello toocomplete wdrożenie fabryki. W hello [portalu Azure], przejdź tooyour Centrum IoT w grupie zasobów hello utworzone podczas wdrażania rozwiązania fabryki hello połączony. Kliknij przycisk **zasady dostępu współużytkowanego** tooaccess hello **iothubowner** ciąg połączenia:
+1. Należy **iothubowner** parametry połączenia pakietu IoT Azure połączone fabryki wdrożenia do ukończenia wdrożenia bramy. W [portalu Azure], przejdź do Centrum IoT w grupie zasobów utworzone podczas wdrażania rozwiązania fabryka połączenia. Kliknij przycisk **zasady dostępu współużytkowanego** dostępu **iothubowner** ciąg połączenia:
 
-    ![Znajdź hello parametry połączenia Centrum IoT][img-hub-connection]
+    ![Znajdź parametry połączenia Centrum IoT][img-hub-connection]
 
-    Kopiuj hello **parametry połączenia — klucz podstawowy** wartość.
+    Kopiuj **parametry połączenia — klucz podstawowy** wartość.
 
-1. Konfigurowanie bramy hello Centrum IoT, uruchamiając Witaj dwie bramy modułów **po** z powłoki z:
+1. Konfigurowanie bramy Centrum IoT, uruchamiając modułów dwa bramy **po** z powłoki z:
 
     `sudo docker run -it --rm -h <ApplicationName> -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/ -v /shared:/root/.dotnet/corefx/cryptography/x509stores microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName> "<IoTHubOwnerConnectionString>"`
 
     `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
-    * **&lt;ApplicationName&gt; ** jest nazwą hello hello OPC UA aplikacji hello bramy tworzy w formacie hello **wydawcy.&lt; nazwę FQDN&gt;**. Na przykład **publisher.microsoft.com**.
-    * **&lt;IoTHubOwnerConnectionString&gt; ** jest hello **iothubowner** skopiowany w poprzednim kroku hello parametry połączenia. Ten ciąg połączenia jest używana tylko w tym kroku, nie będzie potrzebny w hello następujące kroki:
+    * **&lt;ApplicationName&gt;**  jest nazwą aplikacji OPC UA bramy tworzy w formacie **wydawcy.&lt; nazwę FQDN&gt;**. Na przykład **publisher.microsoft.com**.
+    * **&lt;IoTHubOwnerConnectionString&gt;**  jest **iothubowner** ciąg połączenia został skopiowany w poprzednim kroku. Ten ciąg połączenia jest używana tylko w tym kroku, nie będzie potrzebny w poniższych krokach:
 
-    Użyj hello **/ shared** folder (hello `-v` argument) nowszego toopersist Witaj dwie certyfikatów X.509, korzystających z modułów bramy hello.
+    Możesz użyć **/ shared** folder ( `-v` argument) później, aby utrwalić dwóch certyfikatów X.509, korzystających z modułów bramy.
 
-### <a name="run-hello-gateway"></a>Uruchom hello bramy
+### <a name="run-the-gateway"></a>Uruchom bramę
 
-1. Uruchom ponownie bramę hello przy użyciu następującego polecenia hello:
+1. Uruchom ponownie bramę przy użyciu następujących poleceń:
 
     `sudo docker run -it -h <ApplicationName> --expose 62222 -p 62222:62222 –-rm -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/Logs -v /shared:/build/src/GatewayApp.NetCore/bin/Debug/netcoreapp1.0/publish/CertificateStores -v /shared:/shared -v /shared:/root/.dotnet/corefx/cryptography/x509stores -e _GW_PNFP="/shared/publishednodes.JSON" microsoft/iot-gateway-opc-ua:1.0.0 <ApplicationName>`
 
     `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. Ze względów bezpieczeństwa certyfikatów X.509 hello dwa utrwalone w hello **/ shared** folder zawiera hello klucza prywatnego. Użyj toorun limit dostępu toothis folderu toohello poświadczenia hello kontenera Docker. tooset hello uprawnienia dla **głównego** , użyj hello `chmod` powłoki poleceń w folderze hello.
+1. Ze względów bezpieczeństwa dwóch certyfikatów X.509 utrwalone w **/ shared** folder zawiera klucz prywatny. Ograniczanie dostępu do tego folderu poświadczeń, których używasz do wykonywania kontenera Docker. Aby ustawić uprawnienia dla **głównego** , użyj `chmod` powłoki polecenia w folderze.
 
-1. Sprawdź łączność sieciową. Z powłoki, wprowadź polecenie hello `ping publisher.<your fully qualified domain name>` tooping bramy. Jeśli hello docelowy jest nieosiągalny, Dodaj adres IP hello i nazwę pliku hosts tooyour bramy dla bramy. Witaj plik hosts znajduje się w hello **/itp** folderu.
+1. Sprawdź łączność sieciową. Z powłoki, wprowadź polecenie `ping publisher.<your fully qualified domain name>` na polecenie ping bramy. Jeśli docelowy jest nieosiągalny, Dodaj adres IP i nazwę bramy w pliku hostów na bramie. Plik hosts znajduje się w **/itp** folderu.
 
-1. Następnie spróbuj wydawcą toohello tooconnect przy użyciu lokalnego klienta OPC UA uruchomionych na powitania bramy. Witaj OPC UA punkt końcowy adres URL jest `opc.tcp://publisher.<your fully qualified domain name>:62222`. Jeśli nie masz OPC Agent użytkownika klienta, możesz pobrać i użyć [open source OPC Agent użytkownika klienta].
+1. Następnie próby połączenia z wydawcą zostało nawiązane przy użyciu lokalnego klienta OPC UA uruchomione w bramie. Adres URL punktu końcowego OPC UA `opc.tcp://publisher.<your fully qualified domain name>:62222`. Jeśli nie masz OPC Agent użytkownika klienta, możesz pobrać i użyć [open source OPC Agent użytkownika klienta].
 
-1. Jeśli te testy lokalnego została ukończona pomyślnie, przejdziesz toohello **połączyć własny serwer UA OPC** w hello połączonych fabryki rozwiązanie portalu. Wprowadź adres URL punktu końcowego wydawcy hello (`tcp://publisher.<your fully qualified domain name>:62222`) i kliknij przycisk **Connect**. Zostanie wyświetlone ostrzeżenie, certyfikatu, a następnie kliknij **Kontynuuj.** Obok wystąpi błąd hello tego wydawcy nie ufaj hello Agent użytkownika klienta sieci Web. tooresolve ten błąd, hello kopiowania **Agent użytkownika klienta sieci Web** certyfikatu z hello **/udostępnione/odrzucone certyfikatów/certyfikaty** toohello folderu **/shared/UA aplikacji/certyfikaty** folder na powitania bramy. Nie trzeba toorestart hello bramy. Powtórz ten krok. Teraz możesz połączyć toohello bramy z chmury hello i są gotowe tooadd OPC UA serwerów toohello rozwiązania.
+1. Jeśli te testy lokalnego została ukończona pomyślnie, przejdź do **połączyć własny serwer UA OPC** w portalu rozwiązania fabryka połączenia. Wprowadź adres URL punktu końcowego wydawcy (`tcp://publisher.<your fully qualified domain name>:62222`) i kliknij przycisk **Connect**. Zostanie wyświetlone ostrzeżenie, certyfikatu, a następnie kliknij **Kontynuuj.** Następnie występuje błąd wydawcy nie ufaj Agent użytkownika klienta sieci Web. Aby rozwiązać ten problem, skopiuj **Agent użytkownika klienta sieci Web** certyfikat od **/udostępnione/odrzucone certyfikatów/certyfikaty** folder **/shared/UA aplikacji/certyfikaty** folderu na brama. Nie trzeba ponownie uruchomić bramy. Powtórz ten krok. Teraz można podłączyć do bramy z chmury, a wszystko będzie gotowe dodać serwery OPC UA do rozwiązania.
 
 ### <a name="add-your-opc-ua-servers"></a>Dodaj serwery OPC UA
 
-1. Przeglądaj toohello **połączyć własny serwer UA OPC** w hello połączonych fabryki rozwiązanie portalu. Wykonaj te same czynności, jak w powyższej sekcji tooestablish hello zaufanie między hello połączonych fabryki portalu i hello serwera OPC UA powitalne. Ten krok pozwala ustanowić wzajemnego zaufania certyfikatów hello z hello połączony fabryki portalu i hello OPC UA serwera i tworzy połączenie.
+1. Przejdź do **połączyć własny serwer UA OPC** w portalu rozwiązania fabryka połączenia. Wykonaj te same czynności, jak w poprzedniej sekcji, aby ustanowić zaufanie między portalem fabryki połączonych i OPC UA serwera. Ten krok określa wzajemnego zaufania certyfikatów z portalu fabryki połączonych i serwer OPC UA i tworzy połączenie.
 
-1. Przeglądaj hello OPC UA węzły drzewa OPC UA serwera, kliknij prawym przyciskiem myszy hello OPC węzłów, a następnie wybierz **publikowania**. Dla publikacji toowork w ten sposób hello OPC UA serwera i wydawcy hello musi znajdować się na powitania tej samej sieci. Innymi słowy, jeśli hello w pełni kwalifikowana nazwa domeny wydawcy hello jest **publisher.mydomain.com** nazwę FQDN hello hello OPC UA serwer musi być, na przykład **myopcuaserver.mydomain.com**. Ustawienia są różne, należy ręcznie dodać węzły toohello publishesnodes.json pliku w hello **/ shared** folderu. Hello publishesnodes.json jest generowana automatycznie na powitania najpierw pomyślne publikowania OPC węzła.
+1. Przeglądanie drzewa węzłów OPC UA OPC UA serwera, kliknij prawym przyciskiem myszy węzły OPC, a następnie wybierz **publikowania**. Do publikowania działają w ten sposób, serwer OPC UA i wydawcy musi być w tej samej sieci. Innymi słowy Jeśli jest w pełni kwalifikowaną nazwę wydawcy **publisher.mydomain.com** w pełni kwalifikowaną nazwę serwera OPC UA musi być, na przykład **myopcuaserver.mydomain.com**. Jeśli ustawienia są różne, można ręcznie dodać węzłów do znaleziono w pliku publishesnodes.json **/ shared** folderu. Publishesnodes.json jest generowana automatycznie na pierwszym pomyślnym publikowania OPC węzła.
 
-1. Dane telemetryczne teraz wypływających z urządzeniem bramy hello. Można wyświetlić dane telemetryczne hello w hello **lokalizacje fabryki** widok portalu połączonych fabryki hello w obszarze **nowa fabryka**.
+1. Dane telemetryczne teraz wypływających z urządzeniem bramy. Można wyświetlić dane telemetryczne w **lokalizacje fabryki** widok portalu fabryki połączonych w obszarze **nowa fabryka**.
 
 ## <a name="next-steps"></a>Następne kroki
 
-toolearn więcej informacji na temat architektury hello fabryki połączonych hello wstępnie skonfigurowane rozwiązanie, zobacz [połączonych fabryki wstępnie skonfigurowane rozwiązanie wskazówki][lnk-walkthrough].
+Aby dowiedzieć się więcej o architekturze połączonych fabryki wstępnie skonfigurowane rozwiązanie, zobacz [połączonych fabryki wstępnie skonfigurowane rozwiązanie wskazówki][lnk-walkthrough].
 
 [img-install-docker]: ./media/iot-suite-connected-factory-gateway-deployment/image1.png
 [img-hub-connection]: ./media/iot-suite-connected-factory-gateway-deployment/image2.png
 [img-docker-share]: ./media/iot-suite-connected-factory-gateway-deployment/image3.png
 
 [Docker dla systemu Windows]: https://www.docker.com/docker-windows
-[Wykaz urządzenia IoT Azure]: https://catalog.azureiotsuite.com/?q=opc
-[Witryna Azure Portal]: http://portal.azure.com/
+[katalogu urządzenia Azure IoT]: https://catalog.azureiotsuite.com/?q=opc
+[portalu Azure]: http://portal.azure.com/
 [open source OPC Agent użytkownika klienta]: https://github.com/OPCFoundation/UA-.NETStandardLibrary/tree/master/SampleApplications/Samples/Client.Net4
 [Zainstaluj Docker]: https://www.docker.com/community-edition#/download
 [lnk-walkthrough]: iot-suite-connected-factory-sample-walkthrough.md
-[Azure IoT Edge]: https://github.com/Azure/iot-edge
+[Azure IoT krawędzi]: https://github.com/Azure/iot-edge
 
 [lnk-publisher-github]: https://github.com/Azure/iot-edge-opc-publisher
 [lnk-publisher-docker]: https://hub.docker.com/r/microsoft/iot-gateway-opc-ua

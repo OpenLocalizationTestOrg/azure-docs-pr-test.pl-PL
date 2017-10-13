@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure SQL Data Warehouse — często zadawane pytania | Dokumentacja firmy Microsoft"
+title: "Magazyn danych Azure SQL — często zadawane pytania | Dokumentacja firmy Microsoft"
 description: "W tym artykule wymieniono się często zadawane pytania dotyczące usługi Azure SQL Data Warehouse z klientów i deweloperów"
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 3/1/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 09fd3f65d9507b09fcb8f477742c7d020add2755
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4c00710ecc0c91f8407eca81b78176075fcbd6ad
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse często zadawane pytania
 
@@ -31,7 +31,7 @@ A. Magazynu danych SQL oferuje kilka rozwiązań do ochrony danych, takich jak f
 
 Q. Gdzie mogę znaleźć się, jakie normy prawnych lub biznesowych jest SQL magazynu danych zgodne z?
 
-A. Odwiedź hello [Compliance Microsoft] strony dla różnych ofert zgodności przez produktów, takich jak SOC i ISO. Najpierw wybierz przez tytuł zgodności, a następnie rozwiń węzeł Azure hello firmy Microsoft w zakresie chmury usługi część hello prawej strony toosee strony hello usług są usług platformy Azure są zgodne.
+A. Odwiedź stronę [Compliance Microsoft] strony dla różnych ofert zgodności przez produktów, takich jak SOC i ISO. Najpierw wybierz przez tytuł zgodności, a następnie rozwiń węzeł Azure w sekcji firmy Microsoft w zakresie chmury usług w prawej strony, aby sprawdzić, jakie usługi są Azure usługi są zgodne.
 
 Q. Czy można połączyć usługi Power BI?
 
@@ -43,7 +43,7 @@ A. Zobacz nasze bieżące [limity pojemności] strony.
 
 Q. Dlaczego moja skali/wstrzymanie/wznowienie trwa tak długo?
 
-A. Różne czynniki mogą mieć wpływ hello czasu dla operacji zarządzania obliczeń. Typowy przypadek długotrwałe operacje jest transakcyjna wycofywania. Po zainicjowaniu operacji skalowania lub Wstrzymaj wszystkie sesje przychodzące są blokowane, a zostały opróżnione zapytania. W systemie hello tooleave kolejności stabilna transakcje musi wycofana, przed rozpoczęciem operacji. Witaj większą liczbą hello i większy rozmiar dziennika hello transakcji, hello dłużej hello operacji zostanie zablokowany, przywracanie hello systemu tooa stabilności.
+A. Różne czynniki mogą mieć wpływ czasu dla operacji zarządzania obliczeń. Typowy przypadek długotrwałe operacje jest transakcyjna wycofywania. Po zainicjowaniu operacji skalowania lub Wstrzymaj wszystkie sesje przychodzące są blokowane, a zostały opróżnione zapytania. Aby opuścić system stabilna, transakcje muszą wycofana, przed rozpoczęciem operacji. Większa liczba i większa rozmiaru dziennika transakcji, zostanie zablokowany im dłuższy operacji przywracania systemu do stabilności.
 
 ## <a name="user-support"></a>Obsługa użytkowników
 
@@ -73,7 +73,7 @@ A. Podczas gdy magazyn danych SQL obsługuje wiele funkcji, niektóre nie są ob
 
 Q. Obsługuje projektów bazy danych w programie Visual Studio.
 
-A. Obecnie nie obsługujemy projektów baz danych w programie Visual Studio dla usługi SQL Data Warehouse. Jeśli chcesz toocast tooget głos tej funkcji, można znaleźć w naszych User Voice [projektów bazy danych funkcji żądania].
+A. Obecnie nie obsługujemy projektów baz danych w programie Visual Studio dla usługi SQL Data Warehouse. Jeśli chcesz oddanych głosów można pobrać tej funkcji, można znaleźć w naszych User Voice [projektów bazy danych funkcji żądania].
 
 Q. Magazyn danych SQL obsługuje interfejsy API REST?
 
@@ -84,23 +84,23 @@ A. Tak. Większość funkcji REST, które mogą być używane z bazą danych SQL
 
 Q. Jakie sterowniki klienta są obsługiwane?
 
-A. Obsługa sterowników dla magazynu danych można znaleźć na powitania [parametry połączenia] strony
+A. Obsługa sterowników dla magazynu danych można znaleźć w [parametry połączenia] strony
 
 Pytanie: jakie formaty plików są obsługiwane przez aparat PolyBase z magazynu danych SQL?
 
 Odpowiedź: Orc, RC Parquet i płaskiej tekstu rozdzielanego
 
-Pytanie: jakie można podłączyć toofrom SQL DW przy użyciu programu PolyBase? 
+Pytanie: jakie mogą I łączyć się z magazynu danych SQL przy użyciu programu PolyBase? 
 
 Odpowiedź: [usługi Azure Data Lake Store] i [obiektów blob magazynu Azure]
 
-Pytanie: jest przekazywanie obliczeń możliwe podczas łączenia tooAzure magazynu obiektów blob lub ADLS? 
+Pytanie: jest przekazywanie obliczeń możliwe podczas nawiązywania połączenia obiektach blob magazynu Azure lub ADLS? 
 
-Odpowiedź: nie PolyBase magazynu danych SQL współdziała hello składników magazynu. 
+Odpowiedź: nie PolyBase magazynu danych SQL interakcja składników magazynu. 
 
-Pytanie: czy można podłączyć tooHDI?
+Pytanie: czy można podłączyć do HDI?
 
-Odpowiedź: HDI służy ADLS lub WASB hello systemu plików HDFS warstwy. Jeśli masz jako warstwa systemu plików HDFS można załadować danych do magazynu danych SQL. Jednak nie można wygenerować wystąpienia HDI toohello obliczeń przekazywanie. 
+Odpowiedź: HDI służy ADLS lub WASB warstwy systemu plików HDFS. Jeśli masz jako warstwa systemu plików HDFS można załadować danych do magazynu danych SQL. Jednak nie można wygenerować obliczeń przekazywanie do wystąpienia HDI. 
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej informacji na magazyn danych SQL jako całość, zobacz nasze [omówienie] strony.

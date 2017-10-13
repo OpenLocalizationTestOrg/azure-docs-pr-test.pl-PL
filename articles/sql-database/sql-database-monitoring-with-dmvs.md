@@ -1,6 +1,6 @@
 ---
-title: "aaaMonitoring Azure SQL bazy danych przy użyciu dynamicznych widoków zarządzania | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toodetect i zdiagnozować typowe problemy z wydajnością przy użyciu toomonitor widoków dynamicznego zarządzania Microsoft Azure SQL Database."
+title: "Monitorowanie bazy danych Azure SQL przy użyciu dynamicznych widoków zarządzania | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak wykrywanie i diagnozowanie typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania do monitorowania programu Microsoft Azure SQL Database."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 43d5fe2dd9a38d031e9334f6ad49fce5866e3bec
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d9b007d29e06e672db71b4a8415673f258c3fd89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitorowanie usługi Azure SQL Database przy użyciu dynamicznych widoków zarządzania
-Baza danych SQL Azure Microsoft umożliwia podzbiór dynamicznego zarządzania widokach toodiagnose wydajności problemów, które mogą być spowodowane przez zablokowane lub długotrwałe zapytań, wąskich gardeł w zasobach, plany zapytań niska i tak dalej. Ten temat zawiera informacje na temat toodetect typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania.
+Baza danych SQL Azure Microsoft umożliwia podzbiór dynamicznych widoków zarządzania do diagnozowania problemów z wydajnością, które mogą być spowodowane przez zablokowane lub długotrwałe zapytań, wąskich gardeł w zasobach, plany zapytań niska i tak dalej. Ten temat zawiera informacje na temat sposobu wykryć typowych problemów z wydajnością przy użyciu dynamicznych widoków zarządzania.
 
 Baza danych SQL obsługuje częściowo dynamicznych widoków zarządzania trzy kategorie:
 
@@ -34,27 +34,27 @@ Baza danych SQL obsługuje częściowo dynamicznych widoków zarządzania trzy k
 Aby uzyskać szczegółowe informacje o dynamicznych widoków zarządzania, zobacz [dynamicznych widoków zarządzania i funkcji (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) w dokumentacji SQL Server — książki Online.
 
 ## <a name="permissions"></a>Uprawnienia
-W bazie danych SQL, zapytanie widoku dynamicznego zarządzania wymaga **stan bazy danych WIDOKU** uprawnienia. Witaj **stan bazy danych WIDOKU** uprawnienia zwraca informacje o wszystkich obiektów w bieżącej bazie danych hello.
-Witaj toogrant **stan bazy danych WIDOKU** uprawnienia tooa określonej bazy danych użytkownika, uruchom następujące zapytanie hello:
+W bazie danych SQL, zapytanie widoku dynamicznego zarządzania wymaga **stan bazy danych WIDOKU** uprawnienia. **Stan bazy danych WIDOKU** uprawnienia zwraca informacje o wszystkich obiektów w bieżącej bazie danych.
+Aby przyznać **stan WIDOKU bazy danych** uprawnienia do użytkownika określonej bazy danych, uruchom następujące zapytanie:
 
-```GRANT VIEW DATABASE STATE toodatabase_user; ```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 W wystąpieniu programu SQL Server, lokalną dynamicznych widoków zarządzania zwraca informacje o stanie serwera. W bazie danych SQL zwracają informacje dotyczące bieżącej logicznej bazy danych tylko.
 
 ## <a name="calculating-database-size"></a>Obliczanie rozmiaru bazy danych
-Witaj następujące zapytanie zwraca hello rozmiar bazy danych (w MB):
+Następujące zapytanie zwraca rozmiar bazy danych (w MB):
 
 ```
--- Calculates hello size of hello database.
+-- Calculates the size of the database.
 SELECT SUM(reserved_page_count)*8.0/1024
 FROM sys.dm_db_partition_stats;
 GO
 ```
 
-Witaj następujące zapytanie zwraca rozmiar hello pojedyncze obiekty (w MB) w bazie danych:
+Następujące zapytanie zwraca rozmiar poszczególnych obiektów (w MB) w bazie danych:
 
 ```
--- Calculates hello size of individual database objects.
+-- Calculates the size of individual database objects.
 SELECT sys.objects.name, SUM(reserved_page_count) * 8.0 / 1024
 FROM sys.dm_db_partition_stats, sys.objects
 WHERE sys.dm_db_partition_stats.object_id = sys.objects.object_id
@@ -63,8 +63,8 @@ GO
 ```
 
 ## <a name="monitoring-connections"></a>Monitorowanie połączeń
-Można użyć hello [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) wyświetlić tooretrieve informacji dotyczących hello połączeń ustanowionych tooa określonej bazy danych SQL Azure serwera i hello szczegóły każdego połączenia. Ponadto hello [widoku sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) widok jest przydatne podczas pobierania informacji o wszystkich aktywnych sesji użytkowników i zadań wewnętrznych.
-Witaj następujące zapytanie pobiera informacje o bieżącym połączeniu hello:
+Można użyć [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) widoku można pobrać informacji dotyczących połączeń ustanowionych na określonym serwerze bazy danych SQL Azure i szczegóły każdego połączenia. Ponadto [widoku sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) widok jest przydatne podczas pobierania informacji o wszystkich aktywnych sesji użytkowników i zadań wewnętrznych.
+Następujące zapytanie pobiera informacje o bieżącym połączeniem:
 
 ```
 SELECT
@@ -80,15 +80,15 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Podczas wykonywania hello **sys.dm_exec_requests** i **widoków widoku sys.dm_exec_sessions**, jeśli masz **stan WIDOKU bazy danych** uprawnień w bazie danych hello, zostanie wyświetlony, wykonywanie wszystkich sesje na powitania bazy danych. w przeciwnym razie zostanie wyświetlony tylko hello bieżącej sesji.
+> Podczas wykonywania **sys.dm_exec_requests** i **widoków widoku sys.dm_exec_sessions**, jeśli masz **stan WIDOKU bazy danych** uprawnień w bazie danych, zostanie wyświetlony, wszystkie wykonywania Sesje w bazie danych. w przeciwnym razie zostanie wyświetlony w bieżącej sesji.
 > 
 > 
 
 ## <a name="monitoring-query-performance"></a>Monitorowanie wydajności kwerendy
-Wolno lub czas uruchamiania zapytań może wykorzystać zasoby systemowe znaczące. W tej sekcji przedstawiono sposób dynamicznego zarządzania toouse widoków toodetect kilka typowych problemów wydajności zapytania. Hello jest odwołanie do starszej, ale nadal przydatne przy rozwiązywaniu problemów, [Rozwiązywanie problemów z wydajnością programu SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artykułu w serwisie Microsoft TechNet.
+Wolno lub czas uruchamiania zapytań może wykorzystać zasoby systemowe znaczące. W tej sekcji przedstawiono sposób użycia dynamicznych widoków zarządzania do wykrywania kilka typowych problemów wydajności zapytania. Starsze, ale nadal przydatne informacje dotyczące rozwiązywania problemów, jest [Rozwiązywanie problemów z wydajnością programu SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) artykułu w serwisie Microsoft TechNet.
 
 ### <a name="finding-top-n-queries"></a>Znajdowanie zapytania pierwszych N
-Witaj poniższy przykład zwraca informacje na temat hello najważniejszych zapytań pięć uszeregowane według Średni czas procesora CPU. W tym przykładzie agreguje hello zapytania zapytanie skrótu, zgodnie z tootheir tak, aby zapytania logicznie równoważne są pogrupowane według ich wykorzystania zasobów zbiorczą.
+Poniższy przykład zwraca informacje o najważniejszych zapytań pięć uszeregowane według Średni czas procesora CPU. W tym przykładzie agreguje zapytania zgodnie z ich skrótu zapytania, aby zapytania logicznie równoważne są pogrupowane według ich wykorzystania zasobów zbiorczą.
 
 ```
 SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -108,10 +108,10 @@ ORDER BY 2 DESC;
 ```
 
 ### <a name="monitoring-blocked-queries"></a>Monitorowanie zablokowanych zapytań
-Wolne lub długotrwałe zapytania można współtworzyć tooexcessive zużycia zasobów i być skutkiem hello zablokowanych zapytań. Witaj Przyczyna blokady hello może być niewłaściwy projekt aplikacji, zły plany zapytań hello braku przydatne indeksy i tak dalej. Można użyć hello sys.dm_tran_locks widoku tooget informacji na temat hello bieżące działanie blokady w bazie danych SQL Azure. Na przykład kodu, zobacz [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) w dokumentacji SQL Server — książki Online.
+Wolne lub długotrwałe zapytania może przyczynić się do nadmiernego wykorzystania zasobów i być skutkiem zablokowanych zapytań. Przyczyna blokady może być niewłaściwy projekt aplikacji, plany zapytania, brak przydatne indeksy i tak dalej. Widok sys.dm_tran_locks można użyć, aby uzyskać informacje dotyczące bieżącego działania blokady w bazie danych SQL Azure. Na przykład kodu, zobacz [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) w dokumentacji SQL Server — książki Online.
 
 ### <a name="monitoring-query-plans"></a>Monitorowanie plany zapytań
-Plan zapytania nieefektywne także może zwiększyć użycie procesora CPU. Witaj poniższym przykładzie użyto hello [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) wyświetlić toodetermine które zapytanie używa hello najbardziej zbiorczą procesora CPU.
+Plan zapytania nieefektywne także może zwiększyć użycie procesora CPU. W poniższym przykładzie użyto [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) widoku, aby określić, które zapytanie używa najbardziej zbiorczą procesora CPU.
 
 ```
 SELECT
@@ -134,5 +134,5 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
 ## <a name="see-also"></a>Zobacz też
-[Wprowadzenie tooSQL bazy danych](sql-database-technical-overview.md)
+[Wprowadzenie do bazy danych SQL](sql-database-technical-overview.md)
 

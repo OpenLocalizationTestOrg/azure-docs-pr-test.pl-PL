@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Druva | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Druva."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Druva."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,125 +14,125 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: a1c36c06d6d005e0aa363fbf34efe630e4cca1ad
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Samouczek: Integracji Azure Active Directory z Druva
 
-Z tego samouczka, dowiesz się, jak toointegrate Druva w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Druva z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Druva zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD Druva zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooDruva.
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooDruva (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Druva.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Druva (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z Druva należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Druva, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Druva logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Druva z galerii hello
+1. Dodawanie Druva z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-druva-from-hello-gallery"></a>Dodawanie Druva z galerii hello
-tooconfigure hello integracji Druva do usługi Azure AD, należy tooadd Druva z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-druva-from-the-gallery"></a>Dodawanie Druva z galerii
+Aby skonfigurować integrację usługi Azure AD Druva, należy dodać Druva z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Druva z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Druva z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![przycisk usługi Azure Active Directory Hello][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa Hello][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Nowy przycisk aplikacji Hello][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania hello wpisz **Druva**, wybierz pozycję **Druva** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+4. W polu wyszukiwania wpisz **Druva**, wybierz pozycję **Druva** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Druva hello listy wyników](./media/active-directory-saas-druva-tutorial/tutorial_druva_addfromgallery.png)
+    ![Druva na liście wyników](./media/active-directory-saas-druva-tutorial/tutorial_druva_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Druva w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Druva jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Druva musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Druva jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Druva musi się.
 
-W Druva, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W Druva, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Druva, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Druva, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Druva](#create-a-druva-test-user)**  -toohave odpowiednikiem Simona Britta w Druva, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Druva](#create-a-druva-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Druva połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Druva.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Druva.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Druva, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Druva, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Druva** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Druva** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. Na powitania **Druva domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **Druva domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
-    W hello **adres URL logowania** pole tekstowe, wprowadź adres URL hello:`https://cloud.druva.com/home`
+    W **adres URL logowania** tekstowym, wpisz adres URL:`https://cloud.druva.com/home`
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
-    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Aplikacja Druva oczekuje potwierdzenia SAML hello w określonym formacie wymaga tooyour mapowań atrybutów niestandardowych tooadd **atrybuty tokenu SAML** konfiguracji. 
+5. Aplikacja Druva oczekuje potwierdzenia języka SAML w określonym formacie, musisz dodać mapowania atrybutu niestandardowego do Twojej **atrybuty tokenu SAML** konfiguracji. 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. W hello **atrybuty użytkownika** sekcji na powitania **logowanie jednokrotne** okna dialogowego, Konfigurowanie atrybutu tokenu SAML, jak pokazano w hello poprzedzających obrazu i wykonywanie hello następujące kroki:
+6. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na powyższej ilustracji i wykonaj następujące czynności:
 
     | Nazwa atrybutu      | Wartość atrybutu      |
     | ------------------- | -------------------- |
-    | zsynchronizowana\_uwierzytelniania\_tokenu |Wprowadź wartość tokenu wygenerowanego hello |
+    | zsynchronizowana\_uwierzytelniania\_tokenu |Wprowadź wartość tokenu w wygenerowanym |
     
-    a. Kliknij przycisk **Dodaj atrybut** tooopen hello **Dodawanie atrybutu** okna dialogowego.
+    a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_attribute_04.png)
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_attribute_05.png)
     
-    b. W hello **nazwa** pole tekstowe, nazwa atrybutu hello typu wyświetlany dla danego wiersza.
+    b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
 
-    c. Z hello **wartość** listy wartości atrybutu hello typ wyświetlanego dla tego wiersza. tłumaczy wartość tokenu wygenerowanego Hello później w samouczku.
+    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza. Wartość tokenu wygenerowanego znajduje się w dalszej części samouczka.
     
     d. Kliknij przycisk **OK**.    
 
@@ -140,85 +140,85 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. Na powitania **konfiguracji Druva** kliknij **skonfigurować Druva** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+8. Na **konfiguracji Druva** , kliknij przycisk **skonfigurować Druva** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. W oknie przeglądarki innej witryny sieci web Zaloguj się w witrynie firmy Druva tooyour jako administrator.
+9. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy Druva.
 
-10. Przejdź za**Zarządzaj \> ustawienia**.
+10. Przejdź do **zarządzanie \> ustawienia**.
 
     ![Ustawienia](./media/active-directory-saas-druva-tutorial/ic795091.png "ustawienia")
 
-11. W oknie dialogowym Ustawienia rejestracji jednokrotnej hello wykonaj następujące kroki hello:
+11. W oknie dialogowym Ustawienia rejestracji jednokrotnej wykonaj następujące czynności:
 
     ![Single Sign-On ustawienia](./media/active-directory-saas-druva-tutorial/ic795092.png "Single Sign-On ustawienia")
     
-    a. Wklej **SAML pojedynczy znak na adres URL usługi** wartość, która została skopiowana z hello portalu Azure do hello **adres URL logowania dostawcy identyfikator** pola tekstowego.
+    a. Wklej **SAML pojedynczy znak na adres URL usługi** wartość, która została skopiowana z portalu Azure do **adres URL logowania dostawcy identyfikator** pola tekstowego.
     
-    b. Wklej **Sign-Out URL** wartość, która została skopiowana z hello portalu Azure do hello **adres URL wylogowania dostawcy identyfikator** pola tekstowego.
+    b. Wklej **Sign-Out URL** wartość, która została skopiowana z portalu Azure do **adres URL wylogowania dostawcy identyfikator** pola tekstowego.
     
-     c. Otwieranie certyfikatu zakodowanego base-64 w Notatniku hello kopiowania zawartości go do Schowka, a następnie wklej go toohello **certyfikat dostawcy identyfikator** pole tekstowe
+     c. Otwórz w Notatniku certyfikatu zakodowanego base-64, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikat dostawcy identyfikator** pole tekstowe
      
-     d. Witaj tooopen **ustawienia** kliknij przycisk **zapisać**.
+     d. Aby otworzyć **ustawienia** kliknij przycisk **zapisać**.
 
-12. Na powitania **ustawienia** kliknij przycisk **generowania tokenu rejestracji Jednokrotnej**.
+12. Na **ustawienia** kliknij przycisk **generowania tokenu rejestracji Jednokrotnej**.
 
     ![Ustawienia](./media/active-directory-saas-druva-tutorial/ic795093.png "ustawienia")
 
-13. Na powitania **pojedynczego logowania jednokrotnego tokenu uwierzytelniania** okna dialogowego, wykonaj następujące kroki hello:
+13. Na **pojedynczego logowania jednokrotnego tokenu uwierzytelniania** okna dialogowego, wykonaj następujące czynności:
 
     ![Token rejestracji Jednokrotnej](./media/active-directory-saas-druva-tutorial/ic795094.png "tokenu rejestracji Jednokrotnej")
     
-    a. Kliknij przycisk **kopiowania**, wklej skopiowane wartość hello **wartość** textbox w hello **Dodawanie atrybutu** sekcji.
+    a. Kliknij przycisk **kopiowania**, wklej skopiowane wartości w **wartość** textbox w **Dodawanie atrybutu** sekcji.
     
     b. Kliknij przycisk **Zamknij**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
    ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W portalu Azure, w okienku po lewej stronie powitania hello kliknij hello **usługi Azure Active Directory** przycisku.
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-druva-tutorial/create_aaduser_01.png)
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-druva-tutorial/create_aaduser_01.png)
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-druva-tutorial/create_aaduser_02.png)
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-druva-tutorial/create_aaduser_02.png)
 
-3. Witaj tooopen **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** u góry hello hello **wszyscy użytkownicy** okno dialogowe.
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-    ![przycisk Dodaj Hello](./media/active-directory-saas-druva-tutorial/create_aaduser_03.png)
+    ![Przycisk Dodaj](./media/active-directory-saas-druva-tutorial/create_aaduser_03.png)
 
-4. W hello **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-druva-tutorial/create_aaduser_04.png)
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-druva-tutorial/create_aaduser_04.png)
 
-    a. W hello **nazwa** wpisz **BrittaSimon**.
+    a. W **nazwa** wpisz **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole typu hello adres e-mail użytkownika Simona Britta.
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz hello **Pokaż hasło** pole wyboru, a następnie zapisz hello wartość, która jest wyświetlana w hello **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-druva-test-user"></a>Tworzenie użytkownika testowego Druva
 
-W przypadku użytkowników usługi Azure AD toolog kolejności tooenable w tooDruva muszą mieć przydzielone do Druva. W przypadku hello Druva Inicjowanie obsługi to zadanie ręczne.
+Aby umożliwić użytkownikom zalogować się do Druva usługi Azure AD, musi być przygotowana do Druva. W przypadku Druva Inicjowanie obsługi to zadanie ręczne.
 
-**tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:**
+**Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:**
 
-1. Zaloguj się za tooyour **Druva** witryny firmy jako administrator.
+1. Zaloguj się do Twojego **Druva** witryny firmy jako administrator.
 
-2. Przejdź za**Zarządzaj \> użytkowników**.
+2. Przejdź do **zarządzanie \> użytkowników**.
    
    ![Zarządzaj użytkownikami](./media/active-directory-saas-druva-tutorial/ic795097.png "Zarządzanie użytkownikami")
 
@@ -226,44 +226,44 @@ W przypadku użytkowników usługi Azure AD toolog kolejności tooenable w tooDr
    
    ![Zarządzaj użytkownikami](./media/active-directory-saas-druva-tutorial/ic795098.png "Zarządzanie użytkownikami")
 
-4. W oknie dialogowym Tworzenie nowego użytkownika hello wykonaj następujące kroki hello:
+4. W oknie dialogowym Tworzenie nowego użytkownika wykonaj następujące czynności:
    
    ![Utwórz NewUser](./media/active-directory-saas-druva-tutorial/ic795099.png "utworzyć NewUser")
    
-   a. W hello **adres E-mail** pole tekstowe, wprowadź adres e-mail użytkownika, takie jak hello  **brittasimon@contoso.com** .
+   a. W **adres E-mail** pole tekstowe, wprowadź adres e-mail użytkownika, takich jak  **brittasimon@contoso.com** .
    
-   b. W hello **nazwa** pole tekstowe, wprowadź nazwę użytkownika, takie jak hello **BrittaSimon**.
+   b. W **nazwa** pole tekstowe, wprowadź nazwę użytkownika, takich jak **BrittaSimon**.
    
    c. Kliknij przycisk **Utwórz użytkownika**.
 
 >[!NOTE]
->Możesz użyć innych Druva użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Druva tooprovision kont użytkowników usługi Azure AD.
+>Możesz użyć innych Druva użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Druva do udostępnienia konta użytkownika usługi Azure AD.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooDruva.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Druva.
 
-![Przypisanie roli użytkownika hello][200] 
+![Przypisanie roli użytkownika][200] 
 
-**tooassign tooDruva Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta Druva, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Druva**.
+2. Na liście aplikacji zaznacz **Druva**.
 
-    ![łącze Druva Hello na liście aplikacji hello](./media/active-directory-saas-druva-tutorial/tutorial_druva_app.png)  
+    ![Łącze Druva na liście aplikacji](./media/active-directory-saas-druva-tutorial/tutorial_druva_app.png)  
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![łącze "Użytkownicy i grupy" Hello][202]
+    ![Łącze "Użytkownicy i grupy"][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Okienko Dodaj przypisania Hello][203]
+    ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -271,14 +271,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Druva hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Druva aplikacji.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+Po kliknięciu kafelka Druva w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Druva.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

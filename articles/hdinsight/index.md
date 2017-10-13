@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacja dotycząca usługi HDInsight — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Poznaj platformę Hadoop w usłudze HDInsight. Dokumentacji przedstawiono toouse Hadoop, Spark, HBase, serwer R i więcej tooprocess analizowanie i Uzyskaj wgląd w dane big data."
+title: "Dokumentacja usługi Azure HDInsight — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Poznaj platformę Hadoop w usłudze HDInsight. Dokumentacja przedstawiająca sposób użycia platform Hadoop, Spark, HBase i R-Server oraz innych technologii w celu przetwarzania i analizowania danych big data oraz uzyskiwania wglądu w nie."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 592c31863df2e90886c9e9596b1a24edea79e990
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Dokumentacja usługi Azure HDInsight
 
-Dowiedz się, jak toouse Hadoop w hello chmury na HDInsight tooanalyze przesyłania strumieniowego lub historycznych danych. Samouczki i dokumentacji opisano sposób klastrów toocreate przetwarzania i analizy danych big data i opracowywania rozwiązań z platformy Hadoop, Spark, HBase, serwer R, Storm i inne technologie w ekosystemie Hadoop hello.
+Informacje o sposobie używania usługi Hadoop w chmurze w usłudze HDInsight w celu analizowania danych przesyłanych strumieniowo lub danych historycznych. Samouczki i inne dokumenty przedstawiające sposób tworzenia klastrów, przetwarzania i analizowania danych big data oraz opracowywania rozwiązań korzystających z platform Hadoop, Spark, HBase, R-Server i Storm, a także innych technologii udostępnianych w ekosystemie usługi Hadoop.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,6 +125,24 @@ Dowiedz się, jak toouse Hadoop w hello chmury na HDInsight tooanalyze przesyła
                     </div>
                     <div class="cardText">
                         <h3>Rozpoczynanie pracy z usługą HDInsight przy użyciu klastra Apache Storm</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<li>
+        <a href="https://github.com/hdinsight/hdinsight-dev-guide/blob/master/HDInsight%20Developer%20Guide.pdf">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Przewodnik dla deweloperów usługi HDInsight</h3>
                     </div>
                 </div>
             </div>

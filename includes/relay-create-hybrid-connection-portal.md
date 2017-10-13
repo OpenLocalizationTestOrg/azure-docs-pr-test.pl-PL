@@ -1,16 +1,16 @@
 Upewnij się, że masz już utworzoną przestrzeń nazw usługi Relay, tak jak opisano to [tutaj][namespace-how-to].
 
-1. Zaloguj się na toohello [portalu Azure](https://portal.azure.com).
-2. W okienku nawigacji po lewej stronie powitania hello portalu kliknij **przekazywania**.
-3. Wybierz obszar nazw hello, w którym chcesz toocreate hello połączenia hybrydowego. W tym przypadku jest to przestrzeń **mynewns**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+2. W lewym okienku nawigacji portalu kliknij pozycję **Relay**.
+3. Wybierz przestrzeń nazw, w której chcesz utworzyć połączenie hybrydowe. W tym przypadku jest to przestrzeń **mynewns**.
    
     ![Tworzenie połączenia hybrydowego](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
-4. W hello **przestrzeni nazw przekazywania** bloku, wybierz opcję **połączeń hybrydowych**, następnie kliknij przycisk **+ połączenia hybrydowego**.
+4. W bloku **Przestrzeń nazw usługi Relay** wybierz pozycję **Połączenia hybrydowe**, a następnie kliknij pozycję **+ Połączenie hybrydowe**.
    
     ![Wybieranie połączenia hybrydowego](./media/relay-create-hybrid-connection-portal/create-hc-2.png)
-5. Wprowadź hello **nazwa połączenia hybrydowe** i pozostaw hello innych wartości domyślnych.
+5. Wprowadź wartość pola **Nazwa połączenia hybrydowego**, a pozostałe wartości pozostaw domyślne.
    
     ![Wybieranie nowych kolejek](./media/relay-create-hybrid-connection-portal/create-hc-3.png)
-6. U dołu hello hello bloku, kliknij przycisk **Utwórz**.
+6. W dolnej części bloku kliknij pozycję **Utwórz**.
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 

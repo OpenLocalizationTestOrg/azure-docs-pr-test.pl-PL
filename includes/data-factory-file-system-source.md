@@ -1,6 +1,6 @@
-W przypadku działania kopiowania, gdy źródłem jest typu **FileSystemSource**, hello następujące właściwości są dostępne w sekcji typeProperties:
+W przypadku działania kopiowania, gdy źródłem jest typu **FileSystemSource**, w sekcji typeProperties dostępne są następujące właściwości:
 
 | Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
-| Cykliczne |Wskazuje, czy hello są odczytywane dane rekursywnie z podfolderach hello lub tylko hello określonego folderu. |Wartość true, False (ustawienie domyślne) |Nie |
+| Cykliczne |Wskazuje, czy dane są odczytywane rekursywnie z folderów sub lub tylko określonego folderu. |Wartość true, False (ustawienie domyślne) |Nie |
 

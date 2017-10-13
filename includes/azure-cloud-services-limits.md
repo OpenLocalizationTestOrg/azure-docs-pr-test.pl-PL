@@ -5,5 +5,5 @@
 | [Wejściowe punkty końcowe](http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint) dla wdrożenia |25 |25 |
 | [Wewnętrznych punktów końcowych](http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint) dla wdrożenia |25 |25 |
 
-<sup>1</sup>każdej usługi w chmurze z rolami sieć Web/proces roboczy może mieć dwa wdrożenia, co w środowisku produkcyjnym i jeden dla przemieszczania. Należy również zauważyć, liczba toohello różne role (Konfiguracja) i nie hello liczba wystąpień dla każdej roli (skalowanie) odwołuje się ten limit.
+<sup>1</sup>każdej usługi w chmurze z rolami sieć Web/proces roboczy może mieć dwa wdrożenia, co w środowisku produkcyjnym i jeden dla przemieszczania. Należy również zauważyć, że ten limit odwołuje się do liczby unikatowych ról (Konfiguracja) i nie liczba wystąpień dla każdej roli (skalowanie).
 

@@ -1,36 +1,36 @@
 
 
 ## <a name="multi-and-single-instance-vms"></a>Obsługa wielu i jednego wystąpienia maszyny wirtualne
-Wielu klientów systemem Azure liczba go krytycznych, czy można zaplanować podczas ich maszyny wirtualne przechodzą zaplanowanej konserwacji powodu przestoju toohello — około 15 minut — występuje podczas konserwacji. Podczas zaplanowanej konserwacji odbierania elastycznie maszyn wirtualnych, można użyć formantu toohelp zestawów dostępności.
+Wielu klientów systemem Azure liczba go krytycznych, czy można zaplanować podczas ich maszyny wirtualne przechodzą zaplanowanej konserwacji z powodu przestoju — około 15 minut — występuje podczas konserwacji. Zestawy dostępności można użyć ułatwiające kontrolę podczas zaplanowanej konserwacji odbierania elastycznie maszyn wirtualnych.
 
-Istnieją dwie możliwe konfiguracje dla maszyn wirtualnych działających na platformie Azure. Maszyny wirtualne albo są skonfigurowane jako jednym czy wielu wystąpieniach. W przypadku maszyn wirtualnych w zestawie dostępności, następnie są skonfigurowane z opcją wielu wystąpień. Należy pamiętać, nawet pojedynczy maszyn wirtualnych można wdrożyć w zestawie dostępności, dzięki czemu są one traktowane jako mająca wiele wystąpień. Jeśli maszyny wirtualne nie są dostępne w zestawie dostępności, następnie są skonfigurowane z opcją jednego wystąpienia.  Szczegółowe informacje dotyczące zestawów dostępności, zobacz [hello Zarządzaj dostępność maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lub [hello Zarządzaj dostępności dla maszyn wirtualnych systemu Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Istnieją dwie możliwe konfiguracje dla maszyn wirtualnych działających na platformie Azure. Maszyny wirtualne albo są skonfigurowane jako jednym czy wielu wystąpieniach. W przypadku maszyn wirtualnych w zestawie dostępności, następnie są skonfigurowane z opcją wielu wystąpień. Należy pamiętać, nawet pojedynczy maszyn wirtualnych można wdrożyć w zestawie dostępności, dzięki czemu są one traktowane jako mająca wiele wystąpień. Jeśli maszyny wirtualne nie są dostępne w zestawie dostępności, następnie są skonfigurowane z opcją jednego wystąpienia.  Aby uzyskać szczegółowe informacje na zestawów dostępności, zobacz [Zarządzaj dostępnością maszyn wirtualnych z systemem Windows](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) lub [Zarządzaj dostępnością maszyn wirtualnych z systemem Linux](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Zaplanowanej konserwacji aktualizuje wystąpienia toosingle i wielu wystąpień maszyn wirtualnych stanie oddzielnie. Przy ponownej konfiguracji sieci maszyn wirtualnych toobe jednego wystąpienia (jeśli są one wielu wystąpień) lub wielu wystąpieniach toobe (jeśli są one jednego wystąpienia) można kontrolować, po ich maszyn wirtualnych komunikatu hello planowanych konserwacji. Zobacz [zaplanowanej konserwacji dla maszyn wirtualnych systemu Linux Azure](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [zaplanowanej konserwacji dla maszyn wirtualnych Azure Windows](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) szczegółowe informacje o zaplanowanej konserwacji dla maszyn wirtualnych platformy Azure.
+Aktualizacje zaplanowanej konserwacji do maszyn wirtualnych z jednego wystąpienia i wielu wystąpień nastąpić oddzielnie. Ponowne skonfigurowanie maszyn wirtualnych można jednego wystąpienia (jeśli są one wielu wystąpień) lub wielu wystąpień (jeśli są one jednego wystąpienia), można kontrolować, po ich maszyn wirtualnych komunikatu zaplanowanej konserwacji. Zobacz [zaplanowanej konserwacji dla maszyn wirtualnych systemu Linux Azure](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) lub [zaplanowanej konserwacji dla maszyn wirtualnych Azure Windows](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) szczegółowe informacje o zaplanowanej konserwacji dla maszyn wirtualnych platformy Azure.
 
 ## <a name="for-multi-instance-configuration"></a>Mająca wiele wystąpień konfiguracji
-Możesz wybrać czas hello zaplanowanej konserwacji ma wpływ na maszyn wirtualnych wdrożonych w konfiguracji zestawu dostępności przez usunięcie tych maszyn wirtualnych z zestawów dostępności.
+Można wybrać podczas zaplanowanej konserwacji ma wpływ na maszyn wirtualnych wdrożonych w konfiguracji zestawu dostępności przez usunięcie tych maszyn wirtualnych z zestawów dostępności.
 
-1. Zostanie wysłana wiadomość e-mail tooyou siedmiu dni przed hello planowanych konserwacji tooyour maszyn wirtualnych w konfiguracji wielu wystąpień. Hello subskrypcji identyfikatorów i nazw hello wpływ na wiele wystąpień w maszynach wirtualnych są uwzględniane w hello treść wiadomości e-mail hello.
-2. Te siedem dni, można wybrać hello swoich wystąpień są aktualizowane przez usunięcie wielu wystąpień maszyn wirtualnych w tym regionie z ich zestawu dostępności. Ta zmiana w konfiguracji powoduje ponowne uruchomienie komputera, jako hello maszyny wirtualnej jest przenoszona z jednego hosta fizycznego, przeznaczony dla konserwacji, tooanother hosta fizycznego, który nie jest przeznaczone do obsługi.
-3. Możesz usunąć hello maszyny Wirtualnej z jego zestawem dostępności w hello portalu Azure.
+1. Zostanie wysłana wiadomość e-mail do Ciebie siedmiu dni przed zaplanowanej konserwacji do maszyn wirtualnych w konfiguracji wielu wystąpień. Identyfikatory subskrypcji oraz nazwy odpowiednich maszyn wirtualnych w wielu wystąpieniach znajdują się w treści wiadomości e-mail.
+2. Podczas tych siedem dni można wybrać podczas swoich wystąpień są aktualizowane przez usunięcie wielu wystąpień maszyn wirtualnych w tym regionie z ich zestawu dostępności. Ta zmiana w konfiguracji powoduje ponowne uruchomienie komputera, jako maszyna wirtualna jest przenoszona z jednego hosta fizycznego, przeznaczony dla konserwacji do innego hosta fizycznego, który nie jest przeznaczone do obsługi.
+3. Należy usunąć maszynę Wirtualną z jego zestawem dostępności w portalu Azure.
 
-   1. W portalu hello wybierz hello tooremove maszyny Wirtualnej z hello zestawu dostępności.  
+   1. W portalu wybierz maszynę Wirtualną, aby usunąć z zestawu dostępności.  
 
    2. W obszarze **ustawienia**, kliknij przycisk **zestawu dostępności**.
 
       ![Wybór zestawu dostępności](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
 
-   3. W funkcji dostępność hello ustawić menu rozwijane, wybierz opcję "Nie jest częścią zestawu dostępności."
+   3. W zestawie dostępności menu rozwijane, wybierz opcję "Nie jest częścią zestawu dostępności."
 
       ![Usuń ze zbioru](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
 
-   4. U góry hello kliknij **zapisać**. Kliknij przycisk **tak** tooacknowledge, który ta akcja powoduje ponowne uruchomienie hello maszyny Wirtualnej.
+   4. U góry, kliknij przycisk **zapisać**. Kliknij przycisk **tak** potwierdzić, że ta akcja ponownego uruchomienia maszyny Wirtualnej.
 
    >[!TIP]
-   >Wystąpienie toomulti hello maszyny Wirtualnej można zmienić później, wybierając jedną z wymienionych hello zestawów dostępności.
+   >Do wielu wystąpień maszyny Wirtualnej można zmienić później, wybierając jedną z zestawów dostępności wymienionych.
 
-4. Maszyny wirtualne, usuwane z zestawów dostępności hostów przeniesionego wystąpienia tooSingle i nie są aktualizowane podczas hello planowanych konserwacji tooAvailability Ustaw konfiguracje.
-5. Po zakończeniu hello aktualizacji tooAvailability ustawić maszyn wirtualnych (zgodnie z tooschedule opisane w hello oryginalnej wiadomości e-mail), należy dodać hello maszyn wirtualnych do ich zestawów dostępności. Staje się częścią zestawu dostępności jako występująca ponownie konfiguruje hello maszyn wirtualnych i powoduje ponowne uruchomienie komputera. Zwykle po wykonaniu wszystkich aktualizacji wielu wystąpień w środowisku Azure całego hello następuje konserwacji jednego wystąpienia.
+4. Usuwane z zestawów dostępności maszyn wirtualnych zostaną przeniesione do jednego wystąpienia hostów i nie są aktualizowane podczas zaplanowanej konserwacji do konfiguracji ustawić dostępności.
+5. Po zakończeniu aktualizacji do maszyn wirtualnych dostępności Ustaw (zgodnie z harmonogramem opisane w oryginalnej wiadomości e-mail), należy dodać maszyn wirtualnych do ich zestawów dostępności. Staje się częścią zestawu dostępności jako występująca ponownie konfiguruje maszyn wirtualnych i powoduje ponowne uruchomienie komputera. Zwykle po wykonaniu wszystkich aktualizacji wielu wystąpień w całego środowiska Azure następuje konserwacji jednego wystąpienia.
 
 Usuwanie maszyny Wirtualnej z zestawu dostępności może być również uzyskany przy użyciu programu Azure PowerShell:
 
@@ -39,17 +39,17 @@ Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureA
 ```
 
 ## <a name="for-single-instance-configuration"></a>Dla jednego wystąpienia konfiguracji
-Możesz wybrać czas hello zaplanowanej konserwacji ma wpływ na możesz maszyn wirtualnych w konfiguracji jednego wystąpienia przez dodanie tych maszyn wirtualnych do zestawów dostępności.
+Można wybrać podczas zaplanowanej konserwacji ma wpływ na możesz maszyn wirtualnych w konfiguracji jednego wystąpienia przez dodanie tych maszyn wirtualnych do zestawów dostępności.
 
 Krok po kroku
 
-1. Zostanie wysłana wiadomość e-mail tooyou siedmiu dni przed hello planowanych konserwacji tooVMs w konfiguracji jednego wystąpienia. Hello identyfikatorów subskrypcji, a nazwy maszyn wirtualnych z jednego wystąpienia hello, których to dotyczy znajdują się w treści hello hello poczty e-mail.
-2. Te siedem dni, można wybrać hello wystąpienia przez dodanie sieci maszyn wirtualnych z jednego wystąpienia tooan dostępności jest uruchamiany ponownie ustawiony w tym samym regionie. Ta zmiana w konfiguracji powoduje ponowne uruchomienie komputera, jako hello maszyny wirtualnej jest przenoszona z jednego hosta fizycznego, przeznaczony dla konserwacji, tooanother hosta fizycznego, który nie jest przeznaczone do obsługi.
-3. Postępuj zgodnie z instrukcjami tutaj tooadd istniejących maszyn wirtualnych do zestawów dostępności za pomocą hello portalu Azure i programu Azure PowerShell. (Zobacz przykład programu Azure PowerShell hello, który obejmuje następujące kroki.)
-4. Gdy te maszyny wirtualne są konfigurowane jako występująca, są wykluczone z hello planowanych konserwacji wystąpienia tooSingle maszyn wirtualnych.
-5. Po zakończeniu hello jednym wystąpieniu maszyny Wirtualnej aktualizacji (zgodnie z tooschedule w hello oryginalnej wiadomości e-mail), można zwrócić wystąpienia toosingle hello maszyn wirtualnych przez usunięcie hello maszyn wirtualnych z ich zestawów dostępności.
+1. Zostanie wysłana wiadomość e-mail do Ciebie siedmiu dni przed zaplanowanej konserwacji do maszyn wirtualnych w konfiguracji jednego wystąpienia. Identyfikatory subskrypcji oraz nazwy odpowiednich maszyn wirtualnych w jednym wystąpieniu znajdują się w treści wiadomości e-mail.
+2. Podczas tych siedem dni można wybrać podczas rozruchu wystąpienia przez dodanie jednego wystąpienia maszyn wirtualnych do zestawem dostępności w tym samym regionie. Ta zmiana w konfiguracji powoduje ponowne uruchomienie komputera, jako maszyna wirtualna jest przenoszona z jednego hosta fizycznego, przeznaczony dla konserwacji do innego hosta fizycznego, który nie jest przeznaczone do obsługi.
+3. Wykonaj instrukcje tutaj, aby dodać istniejące maszyny wirtualne do zestawów dostępności za pomocą portalu Azure i programu Azure PowerShell. (Zobacz przykład programu Azure PowerShell, który obejmuje następujące kroki).
+4. Gdy te maszyny wirtualne są konfigurowane jako mająca wiele wystąpień, do maszyn wirtualnych z jednego wystąpienia są wyłączone z zaplanowanej konserwacji.
+5. Po zakończeniu aktualizacji wirtualna jednego wystąpienia (zgodnie z harmonogramem w oryginalnej wiadomości e-mail), można powrócić do jednego wystąpienia maszyn wirtualnych i przez usunięcie maszyn wirtualnych z ich zestawów dostępności.
 
-Dodawanie tooan maszyna wirtualna również zestaw dostępności można osiągnąć za pomocą programu Azure PowerShell:
+Dodawanie maszyny Wirtualnej do także zestaw danych o dostępności można osiągnąć za pomocą programu Azure PowerShell:
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaEnabling zakończenia tooend protokół SSL dla bramy aplikacji Azure | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera omówienie tooend zakończenia bramy aplikacji hello obsługi protokołu SSL."
+title: "Włączanie kompleksowej usługi SSL w usłudze Azure Application Gateway | Microsoft Docs"
+description: "Ta strona zawiera omówienie kompleksowej obsługi protokołu SSL w usłudze Application Gateway."
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -15,33 +15,33 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: amsriva
-ms.openlocfilehash: c5cb398a1e7d9a08662a3120baad98edb5575917
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-end-tooend-ssl-with-application-gateway"></a>Przegląd końcowy tooend SSL z bramy aplikacji
+# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Omówienie kompleksowej usługi SSL z usługą Application Gateway
 
-Brama aplikacji w obsługuje kończenia żądań SSL na powitania bramy, po zwykle przepływu ruchu, który niezaszyfrowanej toohello serwerów wewnętrznej bazy danych. Ta funkcja umożliwia unburdened z kosztownych koszty szyfrowania i odszyfrowywania toobe serwerów sieci web. Jednak w przypadku niektórych klientów serwerów wewnętrznej bazy danych toohello niezaszyfrowane komunikacja nie jest dopuszczalne opcją. Niezaszyfrowane komunikacji może być ze względu na wymagania toosecurity, wymagania dotyczące zgodności, lub aplikacja hello mogą tylko zaakceptować bezpiecznego połączenia. Dla takich aplikacji bramy aplikacji obsługuje zakończenia tooend protokołu SSL szyfrowania.
+Usługa Application Gateway obsługuje przerywanie połączenia SSL na bramie, po którym ruch na ogół płynie niezaszyfrowany do serwerów zaplecza. Ta funkcja umożliwia odciążenie serwerów sieci Web z nadmiaru kosztownych operacji szyfrowania i odszyfrowywania. Jednak dla niektórych klientów nieszyfrowana komunikacja z serwerami zaplecza jest opcją niemożliwą do zaakceptowania. Nieszyfrowana komunikacja może być spowodowana przez wymagania dotyczące zabezpieczeń lub zgodności albo aplikacja może akceptować jedynie bezpieczne połączenia. Na potrzeby takich aplikacji brama aplikacji obsługuje kompleksowe szyfrowanie SSL.
 
 ## <a name="overview"></a>Omówienie
 
-Tooend końcowych SSL pozwala toosecurely przesyłać szyfrowane, gdy nadal korzystanie z zalet funkcji równoważenia obciążenia warstwy 7 hello bramę aplikacji zawiera poufne dane toohello wewnętrznej bazy danych. Niektóre z tych funkcji są koligacji na podstawie plików cookie sesji, na podstawie adresu URL routingu, pomocy technicznej dla routingu na podstawie witryn lub możliwości tooinject X - przekazywane-* nagłówków.
+Kompleksowa usługa SSL pozwala na bezpieczne przesyłanie zaszyfrowanych danych poufnych do zaplecza, umożliwiając jednocześnie korzystanie z funkcji równoważenia obciążenia warstwy 7, które oferuje usługa Application Gateway. Do tych funkcji należą koligacja sesji oparta na plikach cookie, routing oparty na adresach URL, obsługa routingu opartego na witrynach lub możliwość iniekcji nagłówków X-Forwarded-*.
 
-Przy zastosowaniu trybu komunikacji SSL tooend zakończenia, brama aplikacji w kończy hello sesji SSL na powitania bramy i odszyfrowuje ruchu użytkowników. Stosuje następnie hello skonfigurowane reguły tooselect odpowiednie zaplecza puli wystąpienia tooroute ruchu. Brama aplikacji w następnie inicjuje nowy serwer wewnętrznej bazy danych toohello połączenia SSL i ponownie szyfruje dane przy użyciu certyfikatu klucza publicznego serwera wewnętrznej bazy danych hello przed przesłaniem hello żądania toohello wewnętrznej bazy danych. Tooend zakończenia, który jest włączony protokół SSL, ustawiając ustawienia protokołu w tooHTTPS BackendHTTPSetting, który jest następnie stosowany tooa puli wewnętrznej bazy danych. Każdy serwer wewnętrznej bazy danych w puli zaplecza hello z tooend zakończenia, który włączony protokół SSL musi mieć certyfikat tooallow bezpiecznej komunikacji.
+Po skonfigurowaniu kompleksowego trybu komunikacji SSL usługa Application Gateway kończy sesje SSL na bramie i odszyfrowuje ruch użytkownika. Następnie stosuje skonfigurowane reguły, aby wybrać odpowiednie wystąpienie puli serwerów zaplecza w celu skierowania do nich ruchu. Następnie usługa Application Gateway inicjuje nowe połączenie SSL z serwerem zaplecza i ponownie szyfruje dane przy użyciu certyfikatu klucza publicznego serwera zaplecza przed przekazaniem żądania do zaplecza. Kompleksową usługę SSL można włączyć, konfigurując dla ustawienia protokołu BackendHTTPSetting wartość HTTPS, co jest następnie stosowane do puli zaplecza. Każdy serwer zaplecza w puli zaplecza z włączoną kompleksową usługą SSL należy skonfigurować przy użyciu certyfikatu, aby umożliwić bezpieczną komunikację.
 
-![Scenariusz ssl tooend zakończenia][1]
+![Scenariusz kompleksowej usługi SSL][1]
 
-W tym przykładzie żądań przy użyciu TLS1.2 są serwerami routingiem toobackend w Pool1 przy użyciu tooend końcowych SSL.
+W tym przykładzie żądania używające protokołu TLS 1.2 są kierowane do serwerów zaplecza w puli Pula1 za pomocą kompleksowej usługi SSL.
 
-## <a name="end-tooend-ssl-and-whitelisting-of-certificates"></a>Zakończenie tooend SSL i certyfikatów niedozwolonych
+## <a name="end-to-end-ssl-and-whitelisting-of-certificates"></a>Kompleksowa usługa SSL i lista dozwolonych certyfikatów
 
-Brama aplikacji w komunikuje się tylko z zaplecza znane są wystąpienia białej swój certyfikat z bramy aplikacji hello. niedozwolonych tooenable certyfikaty, należy przekazać klucza publicznego hello bramy aplikacji toohello certyfikaty serwera wewnętrznej bazy danych (nie hello certyfikatu głównego). Następnie dozwolone są tylko połączenia tooknown i białej zapleczy. Witaj pozostałych zapleczy powoduje błąd bramy. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty mają białej toobe z bramy aplikacji hello zgodnie z opisem w poprzednich krokach przed ich użyciem hello.
+Usługa Application Gateway komunikuje się tylko ze znanymi wystąpieniami zaplecza, których certyfikaty znajdują się na liście dozwolonych certyfikatów tej usługi. Aby włączyć listę dozwolonych certyfikatów, należy przekazać klucz publiczny certyfikatów serwera zaplecza do usługi Application Gateway (nie certyfikat główny). W takim przypadku możliwe będą tylko połączenia do znanych zapleczy, które znajdują się na liście dozwolonych. Połączenia do pozostałych zapleczy zakończą się błędem bramy. Certyfikaty z podpisem własnym są przeznaczone tylko do celów testowych i nie są zalecane dla obciążeń w środowisku produkcyjnym. Takie certyfikaty także muszą zostać umieszczone na liście dozwolonych usługi Application Gateway, jak opisano w poprzednich krokach, zanim będzie można ich użyć.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zapoznawanie tooend końcowych SSL, przejdź zbyt[włączyć tooend końcowych SSL na bramie aplikacji](application-gateway-end-to-end-ssl-powershell.md) toocreate bramy aplikacji przy użyciu kończyć tooend protokołu SSL.
+Po zapoznaniu się z kompleksową usługą SSL zapoznaj się z informacjami dotyczącymi [włączania kompleksowej usługi SSL w bramie aplikacji](application-gateway-end-to-end-ssl-powershell.md), aby utworzyć bramę aplikacji korzystającą z kompleksowej usługi SSL.
 
 <!--Image references-->
 

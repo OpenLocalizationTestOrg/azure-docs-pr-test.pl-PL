@@ -1,6 +1,6 @@
 ---
-title: "Zarządzanie usługami hello toouse aaaHow interfejsu API (Python) — Przewodnik po funkcji"
-description: "Dowiedz się, jak tooprogrammatically wykonywać typowe zadania zarządzania usługi w języku Python."
+title: "Sposób użycia interfejsu API (Python) — Przewodnik po funkcji zarządzania usługami"
+description: "Dowiedz się, jak programowo wykonywać typowe zadania zarządzania dla usługi w języku Python."
 services: cloud-services
 documentationcenter: python
 author: lmazuel
@@ -14,48 +14,48 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: b59622203470e1586484cec4033515edb39ca4d1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-toouse-service-management-from-python"></a>Jak toouse zarządzania usługami w języku Python
-Ten przewodnik przedstawia, jak tooprogrammatically wykonywać typowe zadania zarządzania usługi w języku Python. Witaj **ServiceManagementService** klasy w hello [zestaw Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) obsługuje dostęp programistyczny toomuch hello usług związanych z zarządzaniem funkcji, które są dostępne w hello [Klasycznego portalu azure] [ management-portal] (takich jak **tworzenie, aktualizowanie i usuwanie usługi w chmurze, wdrożeń, dane usługi zarządzania i maszyn wirtualnych**). Ta funkcja może być przydatne do tworzenia aplikacji, które muszą dostęp programistyczny tooservice zarządzania.
+# <a name="how-to-use-service-management-from-python"></a>Jak używać usługi zarządzania w języku Python
+Ten przewodnik przedstawia, jak programowo wykonywać typowe zadania zarządzania dla usługi w języku Python. **ServiceManagementService** klasy w [zestaw Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) obsługuje dostęp programistyczny umożliwiający wiele usług związanych z zarządzaniem funkcji dostępnych w [klasycznego portalu Azure] [ management-portal] (takich jak **tworzenie, aktualizowanie i usuwanie usługi w chmurze, wdrożeń, dane usługi zarządzania i maszyn wirtualnych**). Ta funkcja może być przydatne do tworzenia aplikacji, które muszą dostęp programistyczny umożliwiający zarządzanie usługą.
 
 ## <a name="WhatIs"></a>Co to jest usługa zarządzania
-Witaj interfejs API zarządzania usługami zapewnia dostęp programistyczny toomuch hello funkcji zarządzania usługi dostępne za pośrednictwem hello [klasycznego portalu Azure][management-portal]. Witaj zestaw Azure SDK for Python umożliwia toomanage usługi w chmurze i kont magazynu.
+Interfejs API zarządzania usługami zapewnia dostęp programistyczny umożliwiający wiele funkcji zarządzania usługi dostępne za pośrednictwem [klasycznego portalu Azure][management-portal]. Zestaw Azure SDK for Python umożliwia zarządzanie usługi w chmurze i kont magazynu.
 
-toouse hello interfejs API zarządzania usługami, należy za[tworzenia konta platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+Aby użyć interfejs API zarządzania usługami, musisz [tworzenia konta platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"></a>Pojęcia
-Hello zestaw Azure SDK for Python opakowuje hello [interfejs API zarządzania usługami Azure][svc-mgmt-rest-api], która jest interfejs API REST. Wszystkie operacje interfejsu API są realizowane poprzez protokół SSL z wzajemnym uwierzytelnieniem certyfikatami X.509 v3. Usługa zarządzania Hello mogą być używane z wewnątrz w usłudze działającej na platformie Azure lub bezpośrednio za pośrednictwem hello Internetu z poziomu dowolnej aplikacji, który można wysłać żądania HTTPS i odbierania odpowiedzi protokołu HTTPS.
+Zestaw Azure SDK for Python opakowuje [interfejs API zarządzania usługami Azure][svc-mgmt-rest-api], która jest interfejs API REST. Wszystkie operacje interfejsu API są realizowane poprzez protokół SSL z wzajemnym uwierzytelnieniem certyfikatami X.509 v3. Dostęp do usługi zarządzania można uzyskać poprzez usługę uruchomioną w systemie Azure lub bezpośrednio przez Internet z dowolnej aplikacji, która potrafi przesłać żądanie HTTPS i odbierać odpowiedzi HTTPS.
 
 ## <a name="Installation"></a>Instalacji
-Wszystkie funkcje hello opisane w tym artykule są dostępne w hello `azure-servicemanagement-legacy` pakiet, który można zainstalować przy użyciu narzędzia pip. Aby uzyskać więcej informacji na temat instalacji (na przykład w przypadku nowych tooPython), zobacz ten artykuł: [instalowanie Python i hello Azure SDK](../python-how-to-install.md)
+Wszystkie funkcje opisane w tym artykule są dostępne w `azure-servicemanagement-legacy` pakiet, który można zainstalować przy użyciu narzędzia pip. Aby uzyskać więcej informacji na temat instalacji (na przykład jeśli jesteś nowym użytkownikiem Python), zobacz ten artykuł: [instalowanie Python i zestawu Azure SDK](../python-how-to-install.md)
 
-## <a name="Connect"></a>Porady: łączenie tooservice zarządzania
-Zarządzanie usługami toohello tooconnect punktu końcowego, należy identyfikator subskrypcji platformy Azure i prawidłowy certyfikat zarządzania. Możesz uzyskać identyfikator subskrypcji za pośrednictwem hello [klasycznego portalu Azure][management-portal].
+## <a name="Connect"></a>Jak: nawiązać połączenia z usługi zarządzania
+Aby połączyć się z punktem końcowym usługi zarządzania, należy identyfikator subskrypcji platformy Azure i prawidłowy certyfikat zarządzania. Możesz uzyskać identyfikator subskrypcji za pośrednictwem [klasycznego portalu Azure][management-portal].
 
 > [!NOTE]
-> Jest teraz możliwe toouse certyfikaty utworzone za pomocą biblioteki OpenSSL uruchomionej w systemie Windows.  Wymaga to Python 2.7.4 lub nowszym. Zaleca się użytkowników toouse biblioteki OpenSSL zamiast PFX, ponieważ obsługę PFX certyfikatów prawdopodobnie zostaną usunięte w przyszłości hello.
+> Obecnie istnieje możliwość używania certyfikatów utworzone za pomocą biblioteki OpenSSL uruchomionej w systemie Windows.  Wymaga to Python 2.7.4 lub nowszym. Firma Microsoft zaleca użytkownikom używanie biblioteki OpenSSL zamiast PFX, ponieważ obsługa PFX certyfikatów prawdopodobnie zostaną usunięte w przyszłości.
 >
 >
 
 ### <a name="management-certificates-on-windowsmaclinux-openssl"></a>Certyfikaty zarządzania na systemem Windows lub Mac/Linux (OpenSSL)
-Można użyć [OpenSSL](http://www.openssl.org/) toocreate certyfikat zarządzania.  Faktycznie wymagane dwa certyfikaty toocreate, jeden dla serwera hello ( `.cer` plików) i jeden dla powitania klienta ( `.pem` pliku). Witaj toocreate `.pem` plików, należy wykonać:
+Można użyć [OpenSSL](http://www.openssl.org/) można utworzyć certyfikat zarządzania.  Rzeczywiście, należy utworzyć dwa certyfikaty, jeden dla serwera ( `.cer` plików) i jeden dla klienta ( `.pem` pliku). Aby utworzyć `.pem` plików, należy wykonać:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
-Witaj toocreate `.cer` certyfikatów, należy wykonać:
+Aby utworzyć `.cer` certyfikatów, należy wykonać:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-Aby uzyskać więcej informacji o certyfikatach Azure, zobacz [Omówienie certyfikatów dla usług w chmurze Azure](cloud-services-certs-create.md). Pełny opis parametrów biblioteki OpenSSL, zobacz dokumentację hello w [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Aby uzyskać więcej informacji o certyfikatach Azure, zobacz [Omówienie certyfikatów dla usług w chmurze Azure](cloud-services-certs-create.md). Pełny opis parametrów biblioteki OpenSSL, zobacz dokumentację w [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Po utworzeniu tych plików należy tooupload hello `.cer` pliku tooAzure za pomocą akcji "Przekaż" hello karty "Ustawienia" hello hello [klasycznego portalu Azure][management-portal], i wymagają toomake należy wziąć pod uwagę w którym zapisano hello `.pem` pliku.
+Po utworzeniu tych plików, należy przekazać `.cer` plików na platformie Azure przy użyciu akcji "Przekazywanie" kartę "Ustawienia" [klasycznego portalu Azure][management-portal], i zwróć uwagę na którym zapisano `.pem` pliku.
 
-Po uzyskaniu identyfikator subskrypcji utworzony certyfikat i przekazać hello `.cer` tooAzure plików, można połączyć punkt końcowy zarządzania platformy Azure toohello przekazując hello identyfikator subskrypcji i toohello ścieżka hello `.pem` pliku zbyt**ServiceManagementService**:
+Po uzyskaniu identyfikator subskrypcji utworzony certyfikat i przekazać `.cer` plików na platformie Azure, można połączyć z punktem końcowym zarządzania platformy Azure przy przekazywanie identyfikator subskrypcji i ścieżkę do `.pem` pliku **ServiceManagementService**:
 
     from azure import *
     from azure.servicemanagement import *
@@ -65,18 +65,18 @@ Po uzyskaniu identyfikator subskrypcji utworzony certyfikat i przekazać hello `
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-W hello poprzedzających przykład `sms` jest **ServiceManagementService** obiektu. Witaj **ServiceManagementService** klasy jest toomanage klasy podstawowej używane hello usług platformy Azure.
+W powyższym przykładzie `sms` jest **ServiceManagementService** obiektu. **ServiceManagementService** klasa jest klasą podstawowy używany do zarządzania usługami Azure.
 
 ### <a name="management-certificates-on-windows-makecert"></a>Certyfikaty zarządzania w systemie Windows (MakeCert)
-Można utworzyć certyfikat zarządzania z podpisem własnym na przy użyciu maszyny `makecert.exe`.  Otwórz **wiersz polecenia programu Visual Studio** jako **administratora** i użyj hello następujące polecenie, zastępując *AzureCertificate* o nazwie certyfikatu hello chcesz toouse.
+Można utworzyć certyfikat zarządzania z podpisem własnym na przy użyciu maszyny `makecert.exe`.  Otwórz **wiersz polecenia programu Visual Studio** jako **administratora** i należy użyć następującego polecenia, zastępując *AzureCertificate* o nazwie certyfikat, chcesz użyć.
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-polecenie Hello tworzy hello `.cer` pliku i instaluje je w hello **osobistych** magazynu certyfikatów. Aby uzyskać więcej informacji, zobacz [Omówienie certyfikatów dla usług w chmurze Azure](cloud-services-certs-create.md).
+Polecenie tworzy `.cer` pliku i instaluje je w **osobistych** magazynu certyfikatów. Aby uzyskać więcej informacji, zobacz [Omówienie certyfikatów dla usług w chmurze Azure](cloud-services-certs-create.md).
 
-Po utworzeniu certyfikatu hello należy tooupload hello `.cer` pliku tooAzure za pomocą akcji "Przekaż" hello karty "Ustawienia" hello hello [klasycznego portalu Azure][management-portal].
+Po utworzeniu certyfikatu należy przekazać `.cer` plików na platformie Azure przy użyciu akcji "Przekazywanie" kartę "Ustawienia" [klasycznego portalu Azure][management-portal].
 
-Po uzyskaniu identyfikator subskrypcji utworzony certyfikat i przekazać hello `.cer` tooAzure plików, można połączyć punkt końcowy zarządzania platformy Azure toohello przekazując hello identyfikator subskrypcji i lokalizacji hello hello certyfikatu w Twojej **Osobistych** magazyn certyfikatów za**ServiceManagementService** (ponownie, Zastąp *AzureCertificate* o nazwie hello certyfikatu):
+Po uzyskaniu identyfikator subskrypcji utworzony certyfikat i przekazać `.cer` plików na platformie Azure, można połączyć z punktem końcowym zarządzania platformy Azure przy przekazywanie identyfikator subskrypcji i lokalizacji certyfikatu w Twojej **osobistych** magazyn certyfikatów **ServiceManagementService** (ponownie, Zastąp *AzureCertificate* o nazwie certyfikatu):
 
     from azure import *
     from azure.servicemanagement import *
@@ -86,10 +86,10 @@ Po uzyskaniu identyfikator subskrypcji utworzony certyfikat i przekazać hello `
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-W hello poprzedzających przykład `sms` jest **ServiceManagementService** obiektu. Witaj **ServiceManagementService** klasy jest toomanage klasy podstawowej używane hello usług platformy Azure.
+W powyższym przykładzie `sms` jest **ServiceManagementService** obiektu. **ServiceManagementService** klasa jest klasą podstawowy używany do zarządzania usługami Azure.
 
 ## <a name="ListAvailableLocations"></a>Jak: wyświetlić listę dostępnych lokalizacji
-toolist hello lokalizacje, które są dostępne do obsługi usługi, użyj hello **listy\_lokalizacje** metody:
+Aby wyświetlić lokalizacje, które są dostępne dla usług hostingu, użyj **listy\_lokalizacje** metody:
 
     from azure import *
     from azure.servicemanagement import *
@@ -100,7 +100,7 @@ toolist hello lokalizacje, które są dostępne do obsługi usługi, użyj hello
     for location in result:
         print(location.name)
 
-Podczas tworzenia usługi w chmurze lub Usługa magazynu należy tooprovide prawidłową lokalizację. Witaj **listy\_lokalizacje** metoda zawsze zwraca aktualną listę hello aktualnie dostępnych lokalizacji. Opracowywania tego tekstu hello dostępne lokalizacje to:
+Podczas tworzenia usługi w chmurze lub Usługa magazynu, musisz podać prawidłową lokalizację. **Listy\_lokalizacje** metoda zawsze zwraca aktualną listę dostępnych lokalizacji. Opracowywania tego tekstu, są dostępne lokalizacje:
 
 * Europa Zachodnia
 * Europa Północna
@@ -118,7 +118,7 @@ Podczas tworzenia usługi w chmurze lub Usługa magazynu należy tooprovide praw
 * Australia Południowo-Wschodnia
 
 ## <a name="CreateCloudService"></a>Porady: Tworzenie usługi w chmurze
-Podczas tworzenia aplikacji i uruchom go na platformie Azure, hello kod i konfiguracja łącznie są nazywane Azure [usługi w chmurze] [ cloud service] (nazywane *usługi hostowanej* w wcześniej Zwalnia Azure). Hello **utworzyć\_hostowanej\_usługi** metoda pozwala toocreate nową usługę hostowaną przez podanie nazwy usługi hostowanej (który musi być unikatowa na platformie Azure), etykiety (automatycznie zakodowanego toobase64) Opis i lokalizację.
+Podczas tworzenia aplikacji i uruchom go na platformie Azure, kod i konfiguracja łącznie są nazywane Azure [usługi w chmurze] [ cloud service] (nazywane *usługi hostowanej* we wcześniejszych wersjach platformy Azure). **Utworzyć\_hostowane\_usługi** metoda pozwala utworzyć nową usługę hostowaną, podając nazwę usługi hostowanej (który musi być unikatowa na platformie Azure), etykiety (automatycznie zakodowane w formacie base64), opis oraz lokalizację.
 
     from azure import *
     from azure.servicemanagement import *
@@ -132,7 +132,7 @@ Podczas tworzenia aplikacji i uruchom go na platformie Azure, hello kod i konfig
 
     sms.create_hosted_service(name, label, desc, location)
 
-Możesz wyświetlić listę wszystkich usług hostowanych hello subskrypcji z hello **listy\_hostowane\_usług** metody:
+Można wyświetlić listę wszystkich usług hostowanych dla Twojej subskrypcji z **listy\_hostowanej\_usług** metody:
 
     result = sms.list_hosted_services()
 
@@ -142,7 +142,7 @@ Możesz wyświetlić listę wszystkich usług hostowanych hello subskrypcji z he
         print('Location: ' + hosted_service.hosted_service_properties.location)
         print('')
 
-Jeśli chcesz tooget informacji na temat określonej usługi hostowanej, możesz to zrobić przez przekazanie toohello nazwę usługi hostowanej hello **uzyskać\_hostowane\_usługi\_właściwości** — metoda:
+Jeśli chcesz uzyskać informacje o określonej usługi hostowanej, możesz to zrobić przez przekazanie nazwa usługi hostowanej **uzyskać\_hostowanej\_usługi\_właściwości** metody:
 
     hosted_service = sms.get_hosted_service_properties('myhostedservice')
 
@@ -150,17 +150,17 @@ Jeśli chcesz tooget informacji na temat określonej usługi hostowanej, możesz
     print('Management URL: ' + hosted_service.url)
     print('Location: ' + hosted_service.hosted_service_properties.location)
 
-Po utworzeniu usługi w chmurze, można wdrożyć usługę toohello kodu przy hello **utworzyć\_wdrożenia** metody.
+Po utworzeniu usługi w chmurze, można wdrożyć kodu do usługi z **utworzyć\_wdrożenia** metody.
 
 ## <a name="DeleteCloudService"></a>Porady: usuwanie usługi w chmurze
-Usługi w chmurze można usunąć przez przekazanie toohello nazwa usługi hello **usunąć\_hostowanej\_usługi** — metoda:
+Można usunąć usługi w chmurze, przekazując nazwy usługi na **usunąć\_hostowane\_usługi** metody:
 
     sms.delete_hosted_service('myhostedservice')
 
-Przed usunięciem usługi muszą zostać usunięte wszystkie wdrożenia hello usługi. (Zobacz [porady: usuwanie wdrożenia](#DeleteDeployment) Aby uzyskać więcej informacji.)
+Przed usunięciem usługi należy najpierw usunąć wszystkie wdrożenia dla usługi. (Zobacz [porady: usuwanie wdrożenia](#DeleteDeployment) Aby uzyskać więcej informacji.)
 
 ## <a name="DeleteDeployment"></a>Porady: usuwanie wdrożenia
-toodelete wdrożenia, użyj hello **usunąć\_wdrożenia** metody. Witaj poniższy przykład przedstawia sposób toodelete wdrożenia o nazwie `v1`.
+Aby usunąć wdrożenia, użyj **usunąć\_wdrożenia** metody. Poniższy przykład pokazuje, jak usunąć wdrożenie o nazwie `v1`.
 
     from azure import *
     from azure.servicemanagement import *
@@ -170,7 +170,7 @@ toodelete wdrożenia, użyj hello **usunąć\_wdrożenia** metody. Witaj poniżs
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"></a>Porady: Tworzenie usługi magazynu
-A [usługi magazynu](../storage/common/storage-create-storage-account.md) zapewnia dostęp tooAzure [obiekty BLOB](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabel](../cosmos-db/table-storage-how-to-use-python.md), i [kolejek](../storage/queues/storage-python-how-to-use-queue-storage.md). toocreate usługi magazynu, należy nazwę usługi hello (od 3 do 24 małych liter i unikatowa na platformie Azure), opis etykiety (w górę too100 znaków, automatycznie zakodowanego toobase64) i lokalizację. Witaj poniższy przykład pokazuje, jak toocreate magazynu usługi, określając lokalizację.
+A [usługi magazynu](../storage/common/storage-create-storage-account.md) zapewnia dostęp do usługi Azure [obiekty BLOB](../storage/blobs/storage-python-how-to-use-blob-storage.md), [tabel](../cosmos-db/table-storage-how-to-use-python.md), i [kolejek](../storage/queues/storage-python-how-to-use-queue-storage.md). Aby utworzyć usługę magazynu, należy nazwę usługi (od 3 do 24 małych liter i unikatowa na platformie Azure), opis, etykiety (maksymalnie 100 znaków, automatycznie zakodowane w formacie base64) i lokalizację. Poniższy przykład przedstawia sposób tworzenia usługi magazynu, określając lokalizację.
 
     from azure import *
     from azure.servicemanagement import *
@@ -187,9 +187,9 @@ A [usługi magazynu](../storage/common/storage-create-storage-account.md) zapewn
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-Należy zwrócić uwagę w hello poprzedzających przykładzie stan hello hello **utworzyć\_magazynu\_konta** operacji mogą być pobierane przez przekazanie hello wynik zwracany przez **utworzyć\_magazynu \_konta** toohello **uzyskać\_operacji\_stan** metody.  
+Uwaga w poprzednim przykładzie który stan **utworzyć\_magazynu\_konta** operacji mogą być pobierane przez przekazanie wynik zwracany przez **utworzyć\_magazynu\_konta** do **uzyskać\_operacji\_stan** — metoda.  
 
-Można wyświetlić listę kont magazynu oraz ich właściwości z hello **listy\_magazynu\_kont** metody:
+Można wyświetlić listę kont magazynu oraz ich właściwości z **listy\_magazynu\_kont** metody:
 
     from azure import *
     from azure.servicemanagement import *
@@ -203,7 +203,7 @@ Można wyświetlić listę kont magazynu oraz ich właściwości z hello **listy
         print('')
 
 ## <a name="DeleteStorageService"></a>Porady: usuwanie usługi magazynu
-Usługa Magazyn można usunąć przez przekazanie toohello nazwa usługi magazynu hello **usunąć\_magazynu\_konta** metody. Usunięcie usługi magazynu powoduje usunięcie wszystkich danych przechowywanych w usłudze hello (obiekty BLOB, tabel i kolejek).
+Usługa magazynu można usunąć, przekazując nazwy usługi magazynu do **usunąć\_magazynu\_konta** metody. Usunięcie usługi magazynu powoduje usunięcie wszystkich danych przechowywanych w usłudze (obiekty BLOB, tabel i kolejek).
 
     from azure import *
     from azure.servicemanagement import *
@@ -213,7 +213,7 @@ Usługa Magazyn można usunąć przez przekazanie toohello nazwa usługi magazyn
     sms.delete_storage_account('mystorageaccount')
 
 ## <a name="ListOperatingSystems"></a>Jak: wyświetlić listę dostępnych systemów operacyjnych
-systemy operacyjne hello toolist, które są dostępne do obsługi usługi, użyj hello **listy\_działających\_systemów** metody:
+Aby wyświetlić listę systemów operacyjnych, które są dostępne dla usług hostingu, użyj **listy\_operacyjnego\_systemów** metody:
 
     from azure import *
     from azure.servicemanagement import *
@@ -227,7 +227,7 @@ systemy operacyjne hello toolist, które są dostępne do obsługi usługi, uży
         print('Family: ' + os.family_label)
         print('Active: ' + str(os.is_active))
 
-Alternatywnie można użyć hello **listy\_operacyjnego\_systemu\_rodzin** metodę, która grup systemów operacyjnych hello rodziny:
+Alternatywnie można użyć **listy\_operacyjnego\_systemu\_rodzin** metodę, która grupuje rodziny systemów operacyjnych:
 
     result = sms.list_operating_system_families()
 
@@ -240,7 +240,7 @@ Alternatywnie można użyć hello **listy\_operacyjnego\_systemu\_rodzin** metod
         print('')
 
 ## <a name="CreateVMImage"></a>Porady: Tworzenie obrazu systemu operacyjnego
-tooadd systemu operacyjnego obrazu toohello repozytorium obrazów, użyj hello **dodać\_os\_obrazu** metody:
+Aby dodać obraz systemu operacyjnego do repozytorium obrazów, użyj **dodać\_os\_obrazu** metody:
 
     from azure import *
     from azure.servicemanagement import *
@@ -257,7 +257,7 @@ tooadd systemu operacyjnego obrazu toohello repozytorium obrazów, użyj hello *
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-obrazy systemu operacyjnego hello toolist, które są dostępne, użyj hello **listy\_os\_obrazów** metody. Zawiera wszystkie obrazy platformy i obrazów użytkowników:
+Aby wyświetlić listę dostępnych obrazów systemu operacyjnego, należy użyć **listy\_os\_obrazów** metody. Zawiera wszystkie obrazy platformy i obrazów użytkowników:
 
     result = sms.list_os_images()
 
@@ -272,7 +272,7 @@ obrazy systemu operacyjnego hello toolist, które są dostępne, użyj hello **l
         print('')
 
 ## <a name="DeleteVMImage"></a>Porady: usuwanie obrazu systemu operacyjnego
-toodelete obrazu użytkownika, użyj hello **usunąć\_os\_obrazu** metody:
+Aby usunąć obrazu użytkownika, użyj **usunąć\_systemu operacyjnego\_obrazu** metody:
 
     from azure import *
     from azure.servicemanagement import *
@@ -285,7 +285,7 @@ toodelete obrazu użytkownika, użyj hello **usunąć\_os\_obrazu** metody:
     print('Operation status: ' + operation_result.status)
 
 ## <a name="CreateVM"></a>Porady: tworzenie maszyny wirtualnej
-toocreate maszyny wirtualnej, należy najpierw toocreate [usługi w chmurze](#CreateCloudService).  Następnie utwórz hello wdrożenia maszyny wirtualnej przy użyciu hello **utworzyć\_wirtualnego\_maszyny\_wdrożenia** — metoda:
+Aby utworzyć maszynę wirtualną, należy najpierw utworzyć [usługi w chmurze](#CreateCloudService).  Następnie utworzyć przy użyciu wdrożenia maszyny wirtualnej **utworzyć\_wirtualnego\_maszyny\_wdrożenia** metody:
 
     from azure import *
     from azure.servicemanagement import *
@@ -295,7 +295,7 @@ toocreate maszyny wirtualnej, należy najpierw toocreate [usługi w chmurze](#Cr
     name = 'myvm'
     location = 'West US'
 
-    #Set hello location
+    #Set the location
     sms.create_hosted_service(service_name=name,
         label=name,
         location=location)
@@ -303,7 +303,7 @@ toocreate maszyny wirtualnej, należy najpierw toocreate [usługi w chmurze](#Cr
     # Name of an os image as returned by list_os_images
     image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
 
-    # Destination storage account container/blob where hello VM disk
+    # Destination storage account container/blob where the VM disk
     # will be created
     media_link = 'url_to_target_storage_blob_for_vm_hd'
 
@@ -323,7 +323,7 @@ toocreate maszyny wirtualnej, należy najpierw toocreate [usługi w chmurze](#Cr
         role_size='Small')
 
 ## <a name="DeleteVM"></a>Porady: usuwanie maszyny wirtualnej
-toodelete maszyny wirtualnej, należy najpierw usunąć hello wdrożenia przy użyciu hello **usunąć\_wdrożenia** metody:
+Aby usunąć maszynę wirtualną, należy najpierw usunąć wdrożenia przy użyciu **usunąć\_wdrożenia** metody:
 
     from azure import *
     from azure.servicemanagement import *
@@ -333,19 +333,19 @@ toodelete maszyny wirtualnej, należy najpierw usunąć hello wdrożenia przy u�
     sms.delete_deployment(service_name='myvm',
         deployment_name='myvm')
 
-następnie można usunąć usługi w chmurze Hello przy użyciu hello **usunąć\_hostowanej\_usługi** metody:
+Następnie można usunąć usługi w chmurze przy użyciu **usunąć\_hostowane\_usługi** metody:
 
     sms.delete_hosted_service(service_name='myvm')
 
 ## <a name="how-to-create-a-virtual-machine-from-a-captured-virtual-machine-image"></a>Porady: Tworzenie maszyny wirtualnej z obrazu przechwyconych maszyny wirtualnej
-toocapture obrazu maszyny Wirtualnej, należy najpierw wywołać hello **przechwytywania\_wirtualna\_obrazu** metody:
+Aby przechwycić obraz maszyny Wirtualnej, należy najpierw wywołać **przechwytywania\_wirtualna\_obrazu** metody:
 
     from azure import *
     from azure.servicemanagement import *
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
-    # replace hello below three parameters with actual values
+    # replace the below three parameters with actual values
     hosted_service_name = 'hs1'
     deployment_name = 'dep1'
     vm_name = 'vm1'
@@ -365,11 +365,11 @@ toocapture obrazu maszyny Wirtualnej, należy najpierw wywołać hello **przechw
             image
         )
 
-Następnie toomake się, że pomyślnie zostały przechwycony obraz powitania, użyj hello **listy\_wirtualna\_obrazów** interfejsu api i upewnij się, że obraz jest wyświetlana w wynikach hello:
+Następnie, aby upewnić się, że pomyślnie przechwyceniu obrazu, należy użyć **listy\_wirtualna\_obrazów** interfejsu api i upewnij się, że obraz jest wyświetlana w wynikach:
 
     images = sms.list_vm_images()
 
-toofinally utworzyć hello maszyny wirtualnej za pomocą przechwycony obraz powitania, użyj hello **utworzyć\_wirtualnego\_maszyny\_wdrożenia** jak wcześniej, ale tym razem przekazywanie hello vm_image_name zamiast niego
+Aby na koniec utwórz maszynę wirtualną przy użyciu przechwyconego obrazu, należy użyć **utworzyć\_wirtualnego\_maszyny\_wdrożenia** jak wcześniej, ale tym razem przekazywanie vm_image_name zamiast tego
 
     from azure import *
     from azure.servicemanagement import *
@@ -379,7 +379,7 @@ toofinally utworzyć hello maszyny wirtualnej za pomocą przechwycony obraz powi
     name = 'myvm'
     location = 'West US'
 
-    #Set hello location
+    #Set the location
     sms.create_hosted_service(service_name=name,
         label=name,
         location=location)
@@ -394,18 +394,18 @@ toofinally utworzyć hello maszyny wirtualnej za pomocą przechwycony obraz powi
         role_size='Small',
         vm_image_name = image_name)
 
-więcej informacji o toolearn, toocapture maszyny wirtualnej systemu Linux, zobacz temat [jak tooCapture maszyny wirtualnej systemu Linux.](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Aby dowiedzieć się więcej o sposobie przechwytywania maszyny wirtualnej systemu Linux, zobacz [Przechwytywanie maszyny wirtualnej systemu Linux.](../virtual-machines/linux/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-więcej informacji o toolearn, toocapture maszyny wirtualnej systemu Windows, zobacz temat [jak tooCapture maszyny wirtualnej systemu Windows.](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Aby dowiedzieć się więcej o sposobie przechwytywania maszyny wirtualnej systemu Windows, temacie [jak przechwycić maszynę wirtualną systemu Windows.](../virtual-machines/windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="What's Next"> </a>Następne kroki
-Teraz, kiedy znasz już podstawy hello zarządzania usługami, można uzyskać dostępu do hello [kompletne API dokumentacji dla hello Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) i wykonać złożone zadania łatwo toomanage aplikacji python.
+Teraz, kiedy znasz już podstawy usługi zarządzania, należy uzyskać dostęp [kompletne API dokumentacji dla zestawu Azure SDK Python](http://azure-sdk-for-python.readthedocs.org/) i wykonać złożone zadania łatwe do zarządzania aplikacją python.
 
-Aby uzyskać więcej informacji, zobacz hello [Centrum deweloperów języka Python](/develop/python/).
+Więcej informacji możesz znaleźć w [Centrum deweloperów języka Python](/develop/python/).
 
 [What is Service Management]: #WhatIs
 [Concepts]: #Concepts
-[How to: Connect tooservice management]: #Connect
+[How to: Connect to service management]: #Connect
 [How to: List available locations]: #ListAvailableLocations
 [How to: Create a cloud service]: #CreateCloudService
 [How to: Delete a cloud service]: #DeleteCloudService

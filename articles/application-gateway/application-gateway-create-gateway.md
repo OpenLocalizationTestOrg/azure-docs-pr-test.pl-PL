@@ -1,9 +1,9 @@
 ---
-title: "aaaCreate, uruchomić lub usunąć bramę aplikacji | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera instrukcje toocreate, skonfigurować, uruchomić i usunąć bramę aplikacji Azure"
+title: Tworzenie, uruchamianie i usuwanie bramy aplikacji | Microsoft Docs
+description: "Ta strona zawiera instrukcje dotyczące tworzenia, konfigurowania, uruchamiania i usuwania bramy aplikacji na platformie Azure"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: 3efef5b49880c9efdafad8b88d4bce5b749b82af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: davidmu
+ms.openlocfilehash: 7fb54e96d20d34f453b7b016094b84504348335b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Tworzenie, uruchamianie i usuwanie bramy aplikacji przy użyciu programu PowerShell 
 
@@ -30,47 +30,47 @@ ms.lasthandoff: 10/06/2017
 > * [Szablon usługi Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
 > * [Interfejs wiersza polecenia platformy Azure](application-gateway-create-gateway-cli.md)
 
-Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Zapewnia on trybu failover, wydajności routingu żądań HTTP między różnymi serwerami, czy znajdują się w chmurze hello lub lokalnie. Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn. odwiedź toofind pełną listę obsługiwanych funkcji [omówienie bramy aplikacji](application-gateway-introduction.md)
+Usługa Azure Application Gateway to moduł równoważenia obciążenia warstwy 7. Udostępnia tryb failover, oparty na wydajności routing żądań HTTP między różnymi serwerami — w chmurze i lokalnymi. Usługa Application Gateway zapewnia wiele funkcji kontrolera dostarczania aplikacji (ADC, Application Delivery Controller), w tym między innymi równoważenie obciążenia HTTP, koligację sesji na podstawie plików cookie, odciążanie protokołu Secure Sockets Layer (SSL), niestandardowe sondy kondycji i obsługę wielu witryn. Aby uzyskać pełną listę obsługiwanych funkcji, odwiedź stronę [Application Gateway — omówienie](application-gateway-introduction.md)
 
-W tym artykule przedstawiono toocreate kroki hello, skonfiguruj start i usunąć bramę aplikacji.
+W tym artykule przedstawiono kroki umożliwiające tworzenie, konfigurowanie, uruchamianie i usuwanie bramy aplikacji.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-1. Zainstaluj najnowszą wersję hello hello Azure poleceń cmdlet programu PowerShell, za pomocą hello Instalatora platformy sieci Web. Można pobrać i zainstalować najnowszą wersję hello z hello **programu Windows PowerShell** sekcji hello [pliki do pobrania](https://azure.microsoft.com/downloads/).
-2. Jeśli masz istniejącą sieć wirtualną, wybierz istniejącą podsieć pusty albo utwórz nową podsieć w istniejącej sieci wirtualnej wyłącznie do użytku przez bramę aplikacji hello. Nie można wdrożyć hello aplikacji bramy tooa innej sieci wirtualnej niż hello zasobów ma toodeploy za bramy aplikacji hello chyba że używana jest sieć wirtualną komunikacji równorzędnej. toolearn więcej odwiedź [równorzędna sieci wirtualnej](../virtual-network/virtual-network-peering-overview.md)
-3. Sprawdź, czy masz działającą sieć wirtualną z prawidłową podsiecią. Upewnij się, że nie maszyny wirtualne lub wdrożenia chmury z hello podsieci. Brama aplikacji Hello należy samodzielnie w podsieci sieci wirtualnej.
-4. Skonfigurowanie bramy aplikacji hello toouse serwerów Hello musi istnieć lub mieć przypisane ich punkty końcowe utworzone w sieci wirtualnej hello lub z publicznego adresu IP/VIP.
+1. Zainstaluj najnowszą wersję poleceń cmdlet programu Azure PowerShell za pomocą Instalatora platformy sieci Web. Najnowszą wersję można pobrać i zainstalować z sekcji **Windows PowerShell** strony [Pliki do pobrania](https://azure.microsoft.com/downloads/).
+2. Jeśli masz istniejącą sieć wirtualną, wybierz istniejącą pustą podsieć lub utwórz nową podsieć w istniejącej sieci wirtualnej wyłącznie do użytku przez tę bramę aplikacji. Nie można wdrożyć bramy aplikacji do innej sieci wirtualnej niż sieć wirtualna zasobów, które zamierzasz wdrożyć za bramą aplikacji, chyba że są używane wirtualne sieci równorzędne. Aby dowiedzieć się więcej, odwiedź stronę [Wirtualne sieci równorzędne](../virtual-network/virtual-network-peering-overview.md)
+3. Sprawdź, czy masz działającą sieć wirtualną z prawidłową podsiecią. Upewnij się, że z podsieci nie korzystają żadne maszyny wirtualne ani wdrożenia w chmurze. Brama aplikacji musi znajdować się w podsieci sieci wirtualnej.
+4. Serwery konfigurowane do używania bramy aplikacji muszą być umieszczone w sieci wirtualnej lub z przypisanym adresem IP/VIP lub mieć w niej utworzone punkty końcowe.
 
-## <a name="what-is-required-toocreate-an-application-gateway"></a>Co to jest wymagana toocreate bramę aplikacji?
+## <a name="what-is-required-to-create-an-application-gateway"></a>Co jest wymagane do utworzenia bramy aplikacji?
 
-Jeśli używasz hello `New-AzureApplicationGateway` bramy aplikacji hello toocreate polecenia, konfiguracja nie jest ustawiona na tym etapie i hello nowo utworzony zasób są skonfigurowane przy użyciu XML lub obiekt konfiguracji.
+W momencie użycia polecenia `New-AzureApplicationGateway` w celu utworzenia bramy aplikacji nic nie jest jeszcze skonfigurowane i nowo utworzony zasób musi zostać skonfigurowany przy użyciu kodu XML lub obiektu konfiguracji.
 
-Witaj wartości są następujące:
+Potrzebne wartości:
 
-* **Pula serwerów zaplecza:** hello listę adresów IP serwerów wewnętrznych hello. wymienionych na liście adresów IP Hello albo powinny należeć toohello podsieć sieci wirtualnej lub powinny być publicznego adresu IP/VIP.
-* **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są wiązanej tooa puli i są stosowane tooall serwery w puli hello.
-* **Port frontonu:** ten port jest port publiczny hello, która jest otwarta w bramie aplikacji hello. Ruch trafienia tego portu, a następnie pobiera przekierowanie tooone serwerami zaplecza hello.
-* **Odbiornik:** odbiornika hello ma port frontonu, protokół (Http lub Https, te wartości jest rozróżniana wielkość liter), a hello nazwa certyfikatu SSL (jeśli odciążania Konfigurowanie protokołu SSL).
-* **Reguła:** reguła hello wiąże odbiornika hello i hello puli serwerów zaplecza i określa, jaki ruch hello puli serwera zaplecza ukierunkowanej toowhen trafienia w szczególności odbiornika.
+* **Pula serwerów zaplecza:** lista adresów IP serwerów zaplecza. Adresy IP na liście powinny należeć do podsieci sieci wirtualnej lub być publicznymi bądź wirtualnymi adresami IP.
+* **Ustawienia puli serwerów zaplecza:** każda pula ma ustawienia, takie jak port, protokół i koligacja oparta na plikach cookie. Te ustawienia są powiązane z pulą i są stosowane do wszystkich serwerów w tej puli.
+* **Port frontonu:** port publiczny, który jest otwierany w bramie aplikacji. Ruch trafia do tego portu, a następnie jest przekierowywany do jednego z serwerów zaplecza.
+* **Odbiornik:** odbiornik ma port frontonu, protokół (Http lub Https, z uwzględnieniem wielkości liter) oraz nazwę certyfikatu SSL (w przypadku konfigurowania odciążania protokołu SSL).
+* **Reguła:** reguła wiąże odbiornik z pulą serwerów zaplecza i umożliwia zdefiniowanie, do której puli serwerów zaplecza ma być przekierowywany ruch w przypadku trafienia do określonego odbiornika.
 
 ## <a name="create-an-application-gateway"></a>Tworzenie bramy aplikacji
 
-toocreate bramę aplikacji:
+Aby utworzyć bramę aplikacji:
 
 1. Utwórz zasób bramy aplikacji.
 2. Utwórz konfiguracyjny plik XML lub obiekt konfiguracji.
-3. Zatwierdź toohello konfiguracji hello nowo utworzony zasób bramy aplikacji.
+3. Przekaż konfigurację aplikacji do nowo utworzonego zasobu bramy aplikacji.
 
 > [!NOTE]
-> Jeśli potrzebujesz tooconfigure sondowania niestandardowych dla bramy aplikacji, zobacz [Utwórz bramę aplikacji z niestandardowego sond przy użyciu programu PowerShell](application-gateway-create-probe-classic-ps.md). Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat [sond niestandardowych i monitorowania kondycji](application-gateway-probe-overview.md).
+> Jeśli musisz skonfigurować niestandardową sondę bramy aplikacji, zobacz artykuł [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md) (Tworzenie bramy aplikacji z sondami niestandardowymi przy użyciu programu PowerShell). Aby dowiedzieć się więcej, zapoznaj się z informacjami na temat [sond niestandardowych i monitorowania kondycji](application-gateway-probe-overview.md).
 
 ![Przykładowy scenariusz][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Tworzenie zasobu bramy aplikacji
 
-toocreate hello bramy, użyj hello `New-AzureApplicationGateway` polecenia cmdlet, zastępując wartości hello własne. Karta hello bramy nie rozpoczyna się w tym momencie. Karta rozpoczyna się od w kolejnym kroku hello bramy została pomyślnie uruchomiona.
+Aby utworzyć bramę, użyj polecenia cmdlet `New-AzureApplicationGateway`, zastępując wartości własnymi. Opłaty za bramę nie są jeszcze naliczane. Rozliczanie zaczyna się na późniejszym etapie, po pomyślnym uruchomieniu bramy.
 
-Witaj poniższy przykład tworzy bramę aplikacji przy użyciu sieci wirtualnej o nazwie "testvnet1" i podsieć o nazwie "podsieć 1":
+W poniższym przykładzie utworzono bramę aplikacji przy użyciu sieci wirtualnej „testvnet1” i podsieci „subnet-1”:
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -78,7 +78,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 Parametry *Description* (opis), *InstanceCount* (Liczba wystąpień) i *GatewaySize* (Rozmiar bramy) są opcjonalne.
 
-toovalidate, który hello bramy został utworzony, można użyć hello `Get-AzureApplicationGateway` polecenia cmdlet.
+Aby sprawdzić, czy brama została utworzona, możesz użyć polecenia cmdlet `Get-AzureApplicationGateway`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -97,21 +97,21 @@ DnsName       :
 ```
 
 > [!NOTE]
-> Witaj wartości domyślnej dla *InstanceCount* 2, maksymalna wartość 10. Witaj wartości domyślnej dla *GatewaySize* to średni. Do wyboru są wartości Small (Mała), Medium (Średnia) i Large (Duża).
+> Wartość domyślna parametru *InstanceCount* to 2, a wartość maksymalna — 10. Wartość domyślna parametru *GatewaySize* to Medium (Średnia). Do wyboru są wartości Small (Mała), Medium (Średnia) i Large (Duża).
 
-*VirtualIPs* i *DnsName* są wyświetlane jako puste, ponieważ brama hello nie została jeszcze uruchomiona. Są one tworzone po hello brama jest w hello stanu działania.
+Parametry *VirtualIPs* (Wirtualne adresy IP) i *DnsName* (Nazwa serwera DNS) są wyświetlane jako puste, ponieważ brama nie została jeszcze uruchomiona. Zostaną utworzone, gdy brama zacznie działać.
 
-## <a name="configure-hello-application-gateway"></a>Brama aplikacji hello
+## <a name="configure-the-application-gateway"></a>Konfigurowanie bramy aplikacji
 
-Brama aplikacji hello można skonfigurować za pomocą XML lub obiekt konfiguracji.
+Bramę aplikacji możesz skonfigurować za pomocą pliku XML lub obiektu konfiguracji.
 
-### <a name="configure-hello-application-gateway-by-using-xml"></a>Konfigurowanie bramy aplikacji hello za pomocą XML
+### <a name="configure-the-application-gateway-by-using-xml"></a>Konfigurowanie bramy aplikacji za pomocą pliku XML
 
-W hello poniższy przykład użyj tooconfigure pliku XML wszystkie ustawienia bramy aplikacji i je zatwierdzić zasobu bramy toohello aplikacji.  
+W poniższym przykładzie używany jest plik XML, aby skonfigurować wszystkie ustawienia bramy aplikacji i zatwierdzić je w zasobie bramy aplikacji.  
 
 #### <a name="step-1"></a>Krok 1
 
-Skopiuj powitania po tooNotepad tekstu.
+Skopiuj poniższy tekst do Notatnika.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,12 +158,12 @@ Skopiuj powitania po tooNotepad tekstu.
 </ApplicationGatewayConfiguration>
 ```
 
-Edytuj wartości hello między nawiasami hello hello elementów konfiguracji. Zapisz plik hello z rozszerzeniem .xml.
+Edytuj zawarte w nawiasach wartości elementów konfiguracji. Zapisz plik z rozszerzeniem .xml.
 
 > [!IMPORTANT]
-> Element protokołu Hello Http lub Https jest rozróżniana wielkość liter.
+> W elemencie Http lub Https jest rozróżniana wielkość liter.
 
-Witaj poniższy przykład pokazuje, jak toouse konfiguracji pliku tooset się bramy aplikacji hello. obciążenia przykład Hello równoważy ruchu HTTP na port publiczny 80 i wysyła ruch sieciowy tooback-end port 80 między dwoma adresami IP.
+Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu pliku konfiguracyjnego. W tym przykładzie równoważone jest obciążenie ruchu HTTP na publicznym porcie 80, a ruch sieciowy jest rozsyłany do portu 80 zaplecza między dwoma adresami IP.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -212,24 +212,24 @@ Witaj poniższy przykład pokazuje, jak toouse konfiguracji pliku tooset się br
 
 #### <a name="step-2"></a>Krok 2
 
-Następnie ustaw hello bramy aplikacji. Użyj hello `Set-AzureApplicationGatewayConfig` polecenie cmdlet z pliku XML konfiguracji.
+Następnym etapem jest skonfigurowanie bramy aplikacji. Użyj polecenia cmdlet `Set-AzureApplicationGatewayConfig` z plikiem konfiguracyjnym XML.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-### <a name="configure-hello-application-gateway-by-using-a-configuration-object"></a>Konfigurowanie bramy aplikacji hello za pomocą obiektu konfiguracji
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Skonfiguruj bramę aplikacji za pomocą obiektu konfiguracji.
 
-Witaj poniższy przykład pokazuje, jak tooconfigure hello bramy aplikacji przy użyciu obiektów konfiguracji. Wszystkie elementy konfiguracji należy skonfigurować osobno i następnie dodany obiekt konfiguracji bramy aplikacji tooan. Po utworzeniu obiektu konfiguracji hello używasz hello `Set-AzureApplicationGateway` polecenia toocommit hello konfiguracji toohello wcześniej utworzony zasób bramy aplikacji.
+Poniższy przykład przedstawia sposób konfigurowania bramy aplikacji przy użyciu obiektów konfiguracji. Wszystkie elementy konfiguracji muszą być skonfigurowane indywidualnie, a następnie dodane do obiektu konfiguracji bramy aplikacji. Po utworzeniu obiektu konfiguracji użyte zostanie polecenie cmdlet `Set-AzureApplicationGateway`, aby zatwierdzić konfigurację we wcześniej utworzonym zasobie bramy aplikacji.
 
 > [!NOTE]
-> Przed przypisaniem obiekt konfiguracji tooeach wartości, należy toodeclare obiektem jakiego rodzaju PowerShell korzysta z magazynu. Witaj pierwszego wiersza toocreate hello poszczególne elementy definiuje, jakie `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` są używane.
+> Przed przypisaniem wartości do poszczególnych obiektów konfiguracji trzeba zadeklarować rodzaj obiektu używanego przez program PowerShell jako magazyn. Pierwszy krok procesu tworzenia elementów polega na zdefiniowaniu elementów `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` do użycia.
 
 #### <a name="step-1"></a>Krok 1
 
 Utwórz wszystkie poszczególne elementy konfiguracji.
 
-Utwórz hello IP frontonu, jak pokazano w hello poniższy przykład.
+Utwórz adres IP frontonu, jak pokazano w poniższym przykładzie.
 
 ```powershell
 $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
@@ -238,7 +238,7 @@ $fip.Type = "Private"
 $fip.StaticIPAddress = "10.0.0.5"
 ```
 
-Utworzyć hello portów frontonu, jak pokazano w hello poniższy przykład.
+Utwórz port frontonu, jak pokazano w poniższym przykładzie.
 
 ```powershell
 $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
@@ -246,9 +246,9 @@ $fep.Name = "fep1"
 $fep.Port = 80
 ```
 
-Utwórz hello puli serwerów zaplecza.
+Utwórz pulę serwerów zaplecza.
 
-Zdefiniuj hello adresów IP, które są dodawane do puli serwerów zaplecza toohello, jak pokazano w następnym przykładzie hello.
+Zdefiniuj adresy IP, które zostaną dodane do puli serwerów zaplecza, jak pokazano w następnym przykładzie.
 
 ```powershell
 $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -256,7 +256,7 @@ $servers.Add("10.0.0.1")
 $servers.Add("10.0.0.2")
 ```
 
-Użyj hello $server tooadd hello wartości toohello puli zaplecza dla obiektu ($pool).
+Użyj obiektu $server, aby dodać wartości do obiektu puli zaplecza ($pool).
 
 ```powershell
 $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
@@ -264,7 +264,7 @@ $pool.BackendServers = $servers
 $pool.Name = "pool1"
 ```
 
-Utwórz ustawienie puli serwera zaplecza hello.
+Utwórz ustawienie puli serwerów zaplecza.
 
 ```powershell
 $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
@@ -274,7 +274,7 @@ $setting.Port = 80
 $setting.Protocol = "http"
 ```
 
-Utwórz odbiornik hello.
+Utwórz odbiornik.
 
 ```powershell
 $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
@@ -285,7 +285,7 @@ $listener.Protocol = "http"
 $listener.SslCert = ""
 ```
 
-Utwórz regułę hello.
+Utwórz regułę.
 
 ```powershell
 $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
@@ -298,9 +298,9 @@ $rule.BackendAddressPool = "pool1"
 
 #### <a name="step-2"></a>Krok 2
 
-Przypisz wszystkich konfiguracji poszczególnych elementów tooan aplikacji konfiguracji obiektu bramy ($appgwconfig).
+Przypisz wszystkie poszczególne elementy konfiguracji do obiektu konfiguracji bramy aplikacji ($appgwconfig).
 
-Dodaj hello konfiguracji IP frontonu w toohello.
+Dodaj do konfiguracji adres IP frontonu.
 
 ```powershell
 $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
@@ -308,34 +308,34 @@ $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.L
 $appgwconfig.FrontendIPConfigurations.Add($fip)
 ```
 
-Dodaj konfigurację toohello portów frontonu hello.
+Dodaj do konfiguracji port frontonu.
 
 ```powershell
 $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
 $appgwconfig.FrontendPorts.Add($fep)
 ```
-Dodaj powitania serwera zaplecza puli toohello konfiguracji.
+Dodaj do konfiguracji pulę serwerów zaplecza.
 
 ```powershell
 $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
 $appgwconfig.BackendAddressPools.Add($pool)
 ```
 
-Dodawanie konfiguracji toohello hello puli zaplecza.
+Dodaj do konfiguracji ustawienia puli serwerów zaplecza.
 
 ```powershell
 $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
 $appgwconfig.BackendHttpSettingsList.Add($setting)
 ```
 
-Dodaj konfigurację toohello odbiornika hello.
+Dodaj do konfiguracji odbiornik.
 
 ```powershell
 $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
 $appgwconfig.HttpListeners.Add($listener)
 ```
 
-Dodaj konfigurację toohello reguły hello.
+Dodaj do konfiguracji regułę.
 
 ```powershell
 $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
@@ -343,28 +343,28 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>Krok 3
-Zatwierdź zasobu bramy aplikacji hello konfiguracji obiektu toohello przy użyciu `Set-AzureApplicationGatewayConfig`.
+Przekaż obiekt konfiguracji do zasobu bramy aplikacji za pomocą polecenia cmdlet `Set-AzureApplicationGatewayConfig`.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
-## <a name="start-hello-gateway"></a>Uruchom hello bramy
+## <a name="start-the-gateway"></a>Uruchamianie bramy
 
-Po skonfigurowaniu bramy hello Użyj hello `Start-AzureApplicationGateway` bramy hello toostart polecenia cmdlet. Rozliczeń dla bramy aplikacji rozpocznie się po pomyślnym uruchomieniu hello bramy.
+Po skonfigurowaniu bramy użyj polecenia cmdlet `Start-AzureApplicationGateway`, aby uruchomić bramę. Naliczanie opłat za bramę aplikacji rozpocznie się po pomyślnym uruchomieniu bramy.
 
 > [!NOTE]
-> Witaj `Start-AzureApplicationGateway` polecenie cmdlet może potrwać toofinish too15 20 minut.
+> Wykonanie polecenia cmdlet `Start-AzureApplicationGateway` może zająć do 15–20 minut.
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="verify-hello-gateway-status"></a>Sprawdź stan bramy hello
+## <a name="verify-the-gateway-status"></a>Sprawdzanie stanu bramy
 
-Użyj hello `Get-AzureApplicationGateway` polecenia cmdlet toocheck hello stan hello bramy. Jeśli `Start-AzureApplicationGateway` zakończyło się pomyślnie w poprzednim kroku hello *stanu* powinna być uruchomiona, i *Vip* i *DnsName* powinny mieć prawidłowe wpisy.
+Użyj polecenia cmdlet `Get-AzureApplicationGateway`, aby sprawdzić stan bramy. Jeśli polecenie cmdlet `Start-AzureApplicationGateway` zostało pomyślnie wykonane w poprzednim kroku, atrybut *State* (Stan) powinien mieć wartość Running (Uruchomiono), a atrybuty *Vip* (Wirtualny adres IP) i *DnsName* (Nazwa serwera DNS) powinny zawierać prawidłowe wpisy.
 
-Witaj poniższy przykład przedstawia bramę aplikacji, która jest włączone, uaktywnione i gotowe tootake ruchu przeznaczony dla `http://<generated-dns-name>.cloudapp.net`.
+W poniższym przykładzie pokazano bramę aplikacji, która jest włączona, działająca i gotowa do przyjmowania ruchu skierowanego na adres `http://<generated-dns-name>.cloudapp.net`.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -384,15 +384,15 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-hello-application-gateway"></a>Usuń bramę aplikacji hello
+## <a name="delete-the-application-gateway"></a>Usuwanie bramy aplikacji
 
-Brama aplikacji hello toodelete:
+Aby usunąć bramę aplikacji:
 
-1. Użyj hello `Stop-AzureApplicationGateway` bramy hello toostop polecenia cmdlet.
-2. Użyj hello `Remove-AzureApplicationGateway` bramy hello tooremove polecenia cmdlet.
-3. Sprawdź tej bramy hello został usunięty przy użyciu hello `Get-AzureApplicationGateway` polecenia cmdlet.
+1. Użyj polecenia cmdlet `Stop-AzureApplicationGateway`, aby zatrzymać bramę.
+2. Użyj polecenia cmdlet `Remove-AzureApplicationGateway`, aby usunąć bramę.
+3. Aby sprawdzić, czy brama została usunięta, użyj polecenia cmdlet `Get-AzureApplicationGateway`.
 
-Witaj poniższy przykład przedstawia hello `Stop-AzureApplicationGateway` polecenia cmdlet na powitania pierwszy wiersz, następuje hello danych wyjściowych.
+W poniższym przykładzie pierwszy wiersz zawiera polecenie cmdlet `Stop-AzureApplicationGateway`, a kolejne wiersze zawierają dane wyjściowe.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -406,7 +406,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Po bramy aplikacji hello jest w stanie zatrzymania, użyj hello `Remove-AzureApplicationGateway` usługi hello tooremove polecenia cmdlet.
+Po zatrzymaniu bramy aplikacji użyj polecenia cmdlet `Remove-AzureApplicationGateway`, aby usunąć usługę.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -420,7 +420,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-tooverify, który hello usługi zostały usunięte, możesz użyć hello `Get-AzureApplicationGateway` polecenia cmdlet. Ten krok nie jest wymagany.
+Aby sprawdzić, czy usługa została usunięta, możesz użyć polecenia cmdlet `Get-AzureApplicationGateway`. Ten krok nie jest wymagany.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -429,15 +429,15 @@ Get-AzureApplicationGateway AppGwTest
 ```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-Get-AzureApplicationGateway : ResourceNotFound: hello gateway does not exist.
+Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 .....
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli tooconfigure odciążanie protokołu SSL, zobacz [skonfigurować bramę aplikacji dla odciążania SSL](application-gateway-ssl.md).
+Jeśli chcesz skonfigurować odciążanie protokołu SSL, zobacz artykuł [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Konfigurowanie bramy aplikacji na potrzeby odciążania protokołu SSL).
 
-Jeśli chcesz tooconfigure toouse bramy aplikacji z wewnętrznego modułu równoważenia obciążenia, zobacz [Utwórz bramę aplikacji z wewnętrznego modułu równoważenia obciążenia (ILB)](application-gateway-ilb.md).
+Jeśli chcesz skonfigurować bramę aplikacji do użycia z wewnętrznym modułem równoważenia obciążenia, zobacz artykuł [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md) (Tworzenie bramy aplikacji przy użyciu wewnętrznego modułu równoważenia obciążenia).
 
 Więcej ogólnych informacji na temat opcji równoważenia obciążenia możesz znaleźć w następujących artykułach:
 

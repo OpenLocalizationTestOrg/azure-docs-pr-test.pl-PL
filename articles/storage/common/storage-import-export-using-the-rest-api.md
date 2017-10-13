@@ -1,6 +1,6 @@
 ---
-title: "Witaj aaaUsing interfejsu API REST usługi Import/Eksport Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, gdzie toofind zasoby przy użyciu hello Import/Eksport Azure usługi interfejsu API REST, w tym zarówno tooand jak materiałów referencyjnych."
+title: "Przy użyciu interfejsu API REST usługi Import/Eksport Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, gdzie można znaleźć zasobów dla za pomocą usługi Import/Eksport Azure interfejsu API REST, w tym zarówno instrukcje, jak i odwołanie do materiałów."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: fc7e1007ad632cf6f771c2545644f8de43c8f181
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="using-hello-azure-importexport-service-rest-api"></a>Przy użyciu interfejsu API REST usługi Import/Eksport Azure hello
+# <a name="using-the-azure-importexport-service-rest-api"></a>Korzystanie z interfejsu API REST usługi Azure Import/Export
 
-Hello usługi Import/Eksport Microsoft Azure udostępnia interfejs API REST tooenable programowe kontrolę nad zadania importu/eksportu. Można użyć tooperform interfejsu API REST hello wszystkie hello importu/eksportu operacje, które można wykonywać za pomocą hello [portalu Azure](https://portal.azure.com/). Ponadto można użyć tooperform interfejsu API REST hello niektóre szczegółowe operacji, takich jak badania hello procentu ukończenia zadania, który nie jest obecnie dostępna w hello klasycznego portalu Azure.
+Usługa Import/Eksport Microsoft Azure udostępnia interfejs API REST umożliwiające sterowanie programowe zadań importu i eksportu. Służy do wykonywania operacji importu/eksportu, które można wykonać za pomocą interfejsu API REST [portalu Azure](https://portal.azure.com/). Ponadto można użyć interfejsu API REST wykonywania pewnych operacji szczegółowych, takich jak badania procent zakończenia zadania, która nie jest obecnie dostępna w klasycznym portalu Azure.
 
-Zobacz [przy użyciu hello Import/Eksport Microsoft Azure service tooTransfer danych tooBlob magazynu](../storage-import-export-service.md) Omówienie usługi Import/Eksport hello i samouczek, który demonstruje sposób toouse hello toocreate portalu klasycznego i zarządzanie nimi importu i wyeksportować zadań.
+Zobacz [za pomocą usługi Import/Eksport Microsoft Azure przesyłanie danych do magazynu obiektów Blob](../storage-import-export-service.md) Omówienie usługi Import/Eksport i samouczek, który demonstruje sposób tworzenia i zarządzania importowanie i eksportowanie zadań za pomocą portalu klasycznego.
 
 ## <a name="service-endpoints"></a>Punkty końcowe usługi
 
-Hello usługi Import/Eksport Azure jest dostawcą zasobów dla usługi Azure Resource Manager i zawiera zestaw interfejsów API REST na powitania po końcowy HTTPS w celu zarządzania zadaniami importu/eksportu:
+Import/Eksport Azure dostawcy zasobów usługi Azure Resource Manager i usługi zawiera zestaw interfejsów API REST na następujący punkt końcowy HTTPS zarządzania zadania importu/eksportu:
 
 ```
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
@@ -36,7 +36,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ## <a name="versioning"></a>Przechowywanie wersji
 
-Żądania toohello usługi Import/Eksport musi określać hello `api-version` parametru i ustaw jej wartość zbyt`2016-11-01`.
+Należy określić żądań do usługi Import/Eksport `api-version` parametru i ustaw dla niego wartość `2016-11-01`.
 
 ## <a name="importexport-service-operations"></a>Import/Eksport operacji usługi
 

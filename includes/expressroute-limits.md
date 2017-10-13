@@ -1,5 +1,5 @@
 #### <a name="expressroute-limits"></a>Limity usługi ExpressRoute
-Witaj następujące ograniczenia mają zastosowanie tooExpressRoute zasobów dla subskrypcji.
+Następujące ograniczenia mają zastosowanie do zasobów usługi ExpressRoute dla subskrypcji.
 
 | Zasób | Limit domyślny |
 | --- | --- |

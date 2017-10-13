@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Thoughtworks Mingle | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Thoughtworks Mingle."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Thoughtworks Mingle."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,174 +14,174 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: c17f8e13d2db3de7d228d9b27128d134f98d6cdf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 268ae5affb88a718f68c08daa94fe7aba4a99c11
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Samouczek: Integracji Azure Active Directory z Thoughtworks Mingle
 
-Z tego samouczka, dowiesz się, jak toointegrate Thoughtworks Mingle w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Thoughtworks Mingle w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie Thoughtworks Mingle z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie Thoughtworks Mingle z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooThoughtworks Mingle
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooThoughtworks Mingle (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Thoughtworks Mingle
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Thoughtworks Mingle (logowanie jednokrotne) z konta usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z Thoughtworks Mingle należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Thoughtworks Mingle, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Thoughtworks Mingle logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Thoughtworks Mingle z galerii hello
+1. Dodawanie Thoughtworks Mingle z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-thoughtworks-mingle-from-hello-gallery"></a>Dodawanie Thoughtworks Mingle z galerii hello
-tooconfigure hello integracji Thoughtworks Mingle do usługi Azure AD, należy tooadd Thoughtworks Mingle z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>Dodawanie Thoughtworks Mingle z galerii
+Aby skonfigurować integrację Thoughtworks Mingle do usługi Azure AD, należy dodać Thoughtworks Mingle z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Thoughtworks Mingle z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Thoughtworks Mingle z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![przycisk usługi Azure Active Directory Hello][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa Hello][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Nowy przycisk aplikacji Hello][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania hello wpisz **Thoughtworks Mingle**, wybierz pozycję **Thoughtworks Mingle** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+4. W polu wyszukiwania wpisz **Thoughtworks Mingle**, wybierz pozycję **Thoughtworks Mingle** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Thoughtworks Mingle hello listy wyników](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
+    ![Thoughtworks Mingle na liście wyników](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Thoughtworks Mingle w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Thoughtworks Mingle jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Thoughtworks Mingle musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Thoughtworks Mingle jest dla użytkownika, w usłudze Azure AD. Innymi słowy łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Thoughtworks Mingle musi się.
 
-W Thoughtworks Mingle, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W Thoughtworks Mingle, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Thoughtworks Mingle, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Thoughtworks Mingle, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Thoughtworks Mingle](#create-a-thoughtworks-mingle-test-user)**  -toohave odpowiednikiem Simona Britta w Thoughtworks Mingle, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Thoughtworks Mingle](#create-a-thoughtworks-mingle-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Thoughtworks Mingle połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Thoughtworks Mingle.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Thoughtworks Mingle.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Thoughtworks Mingle, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Thoughtworks Mingle, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Thoughtworks Mingle** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Thoughtworks Mingle** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_samlbase.png)
 
-3. Na powitania **Thoughtworks Mingle domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **Thoughtworks Mingle domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Adresy URL i domeny Mingle Thoughtworks pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_url.png)
 
-    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.mingle.thoughtworks.com`
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.mingle.thoughtworks.com`
 
     > [!NOTE] 
-    > wartość Hello nie jest prawdziwe. Wartość hello aktualizacji z hello rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Mingle Thoughtworks](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) tooget hello wartość. 
+    > Wartość nie jest prawdziwe. Zaktualizuj tę wartość z adresem URL logowania rzeczywistych. Skontaktuj się z [zespołem pomocy technicznej klienta Mingle Thoughtworks](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) można uzyskać wartość. 
  
-4. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
-    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
 
 5. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_general_400.png)
 
-6. Zaloguj się za tooyour **Thoughtworks Mingle** witryny firmy jako administrator.
+6. Zaloguj się do Twojego **Thoughtworks Mingle** witryny firmy jako administrator.
 
-7. Kliknij przycisk hello **Admin** , a następnie kliknij **konfiguracji logowania jednokrotnego**.
+7. Kliknij przycisk **Admin** , a następnie kliknij **konfiguracji logowania jednokrotnego**.
    
     ![Karta Admin](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785157.png "konfiguracji logowania jednokrotnego")
 
-8. W hello **konfiguracji logowania jednokrotnego** sekcji, wykonaj następujące kroki hello:
+8. W **konfiguracji logowania jednokrotnego** sekcji, wykonaj następujące czynności:
    
     ![Konfiguracja rejestracji Jednokrotnej](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785158.png "konfiguracji logowania jednokrotnego")
     
-    a. Plik metadanych hello tooupload, kliknij przycisk **wybierz plik**. 
+    a. Aby przekazać plik metadanych, kliknij przycisk **wybierz plik**. 
 
     b. Kliknij przycisk **zapisać zmiany**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
-    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_01.png) 
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
-    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_02.png) 
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
-    ![przycisk Dodaj Hello](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_03.png) 
+    ![Przycisk Dodaj](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
-    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_04.png) 
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-thoughtworks-mingle-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-thoughtworks-mingle-test-user"></a>Tworzenie użytkownika testowego Thoughtworks Mingle
 
-Dla usługi Azure AD użytkownicy toobe stanie toosign w muszą być elastycznie toohello Thoughtworks Mingle aplikacji przy użyciu nazwy użytkowników usługi Azure Active Directory. W przypadku hello Thoughtworks Mingle Inicjowanie obsługi to zadanie ręczne.
+Dla użytkowników usługi Azure AD można było się zalogować muszą mieć przydzielone do Thoughtworks Mingle aplikacji, przy użyciu nazwy użytkowników usługi Azure Active Directory. W przypadku Thoughtworks Mingle Inicjowanie obsługi to zadanie ręczne.
 
-**tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:**
+**Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:**
 
-1. Zaloguj się za tooyour Thoughtworks Mingle witryny firmy jako administrator.
+1. Zaloguj się do witryny firmy Thoughtworks Mingle jako administrator.
 
 2. Kliknij przycisk **profilu**.
    
     ![Pierwszy projekt](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785160.png "pierwszego projektu")
 
-3. Kliknij przycisk hello **Admin** , a następnie kliknij pozycję **użytkowników**.
+3. Kliknij przycisk **Admin** , a następnie kliknij pozycję **użytkowników**.
    
     ![Użytkownicy](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785161.png "użytkowników")
 
@@ -189,45 +189,45 @@ Dla usługi Azure AD użytkownicy toobe stanie toosign w muszą być elastycznie
    
     ![Nowy użytkownik](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785162.png "nowego użytkownika")
 
-5. Na powitania **nowego użytkownika** okna dialogowego wykonaj hello następujące kroki:
+5. Na **nowego użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
    
     ![Okno dialogowe nowego użytkownika](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785163.png "nowego użytkownika")  
  
-    a. Hello typu **nazwy logowania**, **Nazwa wyświetlana**, **hasła wybierz**, **Potwierdź hasło** prawidłowy Azure AD konta tooprovision do hello związanych z pól tekstowych. 
+    a. Typ **nazwy logowania**, **Nazwa wyświetlana**, **hasła wybierz**, **Potwierdź hasło** prawidłowy Azure AD konta chcesz udostępnić do powiązanych pól tekstowych. 
 
     b. Jako **typ użytkownika**, wybierz pozycję **pełnej**.
 
     c. Kliknij przycisk **utworzyć ten profil**.
 
 >[!NOTE]
->Możesz użyć innych Thoughtworks Mingle użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Thoughtworks Mingle tooprovision kont użytkowników usługi AAD.
+>Możesz użyć innych Thoughtworks Mingle użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Thoughtworks Mingle do kont użytkowników usługi AAD.
 > 
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooThoughtworks Mingle.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do Thoughtworks Mingle.
 
-![Przypisanie roli użytkownika hello][200] 
+![Przypisanie roli użytkownika][200] 
 
-**tooassign tooThoughtworks Simona Britta Mingle, wykonaj następujące kroki hello:**
+**Aby przypisać Simona Britta Thoughtworks Mingle, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Thoughtworks Mingle**.
+2. Na liście aplikacji zaznacz **Thoughtworks Mingle**.
 
-    ![Witaj Thoughtworks Mingle łącza na liście aplikacji hello](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
+    ![Łącze Thoughtworks Mingle na liście aplikacji](./media/active-directory-saas-thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![łącze "Użytkownicy i grupy" Hello][202] 
+    ![Łącze "Użytkownicy i grupy"][202] 
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Okienko Dodaj przypisania Hello][203]
+    ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -235,13 +235,13 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.
+Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Thoughtworks Mingle hello w hello Panel dostępu, należy pobrać zalogowane automatycznie tooyour Thoughtworks Mingle aplikacji.
+Po kliknięciu kafelka Thoughtworks Mingle w panelu dostępu użytkownik powinien uzyskać automatycznie zalogowane Thoughtworks Mingle aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

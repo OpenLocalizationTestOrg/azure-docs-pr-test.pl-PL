@@ -1,5 +1,5 @@
 ---
-title: "aaaResources związane z opracowywaniem hurtowni danych na platformie Azure | Dokumentacja firmy Microsoft"
+title: Zasoby na potrzeby tworzenia magazynu danych na platformie Azure | Dokumentacja firmy Microsoft
 description: "Pojęcia dotyczące programowania, decyzji projektowych i zalecenia dotyczące technik programowania dla usługi SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: develop
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 67e3a6a3e2664919c3445ea5d5eba251054de020
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Decyzje dotyczące projektu i technik programowania dla usługi SQL Data Warehouse
-Zapoznaj się z za pośrednictwem tych artykułach programowanie toobetter zrozumienie kluczowych decyzji projektowych, zalecenia i technik programowania dla usługi SQL Data Warehouse.
+Zapoznaj się za pośrednictwem tych artykułach programowanie, aby lepiej zrozumieć kluczowych decyzji projektowych, zalecenia i technik programowania dla usługi SQL Data Warehouse.
 
 ## <a name="key-design-decisions"></a>Kluczowych decyzji projektowych
-Witaj następujące artykuły omówiono niektóre hello podstawowych pojęć i decyzje dotyczące projektu do tworzenia aplikacji hello magazynu danych rozproszonych za pomocą usługi SQL Data Warehouse będzie toounderstand:
+Następujące artykuły omówiono niektóre z podstawowych pojęć i decyzje dotyczące projektu, które mają być zrozumiały dla rozwoju magazynu danych rozproszonych za pomocą usługi SQL Data Warehouse:
 
 * [połączenia][connections]
 * [Współbieżność][concurrency]
@@ -50,7 +50,7 @@ Te artykuły wyróżnianie określonych technik programowania, wskazówki i zale
 * [Przypisanie zmiennej][variable assignment]
 
 ## <a name="next-steps"></a>Następne kroki
-Gdy nastąpiło za pośrednictwem artykuły programowanie hello zapoznaj się za pośrednictwem hello [odwołania Transact-SQL] [ Transact-SQL reference] strony, aby uzyskać więcej informacji na powitania obsługiwana składnia SQL Data Warehouse.
+Po nastąpiło za pośrednictwem artykuły programowanie zapoznaj się za pośrednictwem [odwołania Transact-SQL] [ Transact-SQL reference] strony, aby uzyskać więcej informacji na obsługiwana składnia SQL Data Warehouse.
 
 <!--Image references-->
 

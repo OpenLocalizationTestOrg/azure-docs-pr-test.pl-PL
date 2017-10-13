@@ -6,7 +6,7 @@
 | Redis replik pamięci podręcznej (w celu zapewnienia wysokiej dostępności) |1 |
 | Odłamków w pamięci podręcznej premium z klastra |10 |
 
-Pamięć podręczna Redis Azure ogranicza i rozmiary są różne dla każdej warstwy cenowej. Zobacz hello toosee ceny warstw i ich skojarzonych rozmiary [cennik usługi Azure Redis pamięci podręcznej](https://azure.microsoft.com/pricing/details/cache/).
+Pamięć podręczna Redis Azure ogranicza i rozmiary są różne dla każdej warstwy cenowej. Aby wyświetlić warstwy cenowe i ich skojarzonych rozmiarów, zobacz [cennik usługi Azure Redis pamięci podręcznej](https://azure.microsoft.com/pricing/details/cache/).
 
 Aby uzyskać więcej informacji na ograniczenia konfiguracji pamięci podręcznej Redis Azure, zobacz [Redis domyślna konfiguracja serwera](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
 

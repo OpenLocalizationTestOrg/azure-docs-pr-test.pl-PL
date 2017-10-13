@@ -1,5 +1,5 @@
 ---
-title: "przestrzeń nazw usługi Azure Event Hubs i włączyć funkcję przechwytywania przy użyciu szablonu aaaCreate | Dokumentacja firmy Microsoft"
+title: "Tworzenie przestrzeni nazw usługi Azure Event Hubs i włączanie funkcji przechwytywania przy użyciu szablonu | Microsoft Docs"
 description: "Tworzenie przestrzeni nazw usługi Azure Event Hubs z jednym centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager"
 services: event-hubs
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.openlocfilehash: a43b4e8d690ae825047e8a9d609bfda89cf2a06f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager
 
-W tym artykule opisano, jak toouse szablonu usługi Azure Resource Manager tworzącą centra zdarzeń w przestrzeni nazw z wystąpieniem koncentratora jedno zdarzenie, a także umożliwia hello [funkcja przechwytywania](event-hubs-capture-overview.md) na powitania Centrum zdarzeń. Witaj artykule opisano sposób toodefine zasobów, do których są wdrażane i jak toodefine parametrów, które są określone, podczas wdrażania hello jest wykonywana. Można użyć tego szablonu własnych wdrożeniach lub dostosować go toomeet wymagań.
+W tym artykule przedstawiono sposób używania szablonu usługi Azure Resource Manager umożliwiającego utworzenie przestrzeni nazw usługi Event Hubs z jednym wystąpieniem centrum zdarzeń oraz włączenie [funkcji przechwytywania](event-hubs-capture-overview.md) w tym centrum zdarzeń. W tym artykule opisano, jak wskazać wdrażane zasoby oraz jak podać parametry realizacji wdrożenia. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
-Artykuł przedstawia sposób toospecify przechwytywania zdarzeń w obiektach blob magazynu Azure lub usługi Azure Data Lake Store oparte na powitania docelowym.
+W tym artykule pokazano też, jak przechwytywać zdarzenia w obiektach Azure Storage Blob lub w magazynie Azure Data Lake Store zależnie od wybranej lokalizacji docelowej.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Aby uzyskać więcej informacji na temat praktycznych rozwiązań i wzorców dotyczących konwencji nazewnictwa zasobów platformy Azure, zobacz [Azure Resources Naming Conventions (Konwencje nazewnictwa zasobów platformy Azure)][Azure Resources naming conventions].
 
-Dla szablonów pełną hello kliknij hello następującego łącza GitHub:
+Aby uzyskać pełne szablony, kliknij poniższe linki witryny GitHub:
 
-- [Centrum i włączyć funkcję przechwytywania tooStorage szablonu zdarzenia][Event Hub and enable Capture tooStorage template] 
-- [Centrum i włączyć funkcję przechwytywania tooAzure usługi Data Lake Store szablonu zdarzenia][Event Hub and enable Capture tooAzure Data Lake Store template]
+- [Centrum zdarzeń i włączanie funkcji przechwytywania w szablonie magazynu][Event Hub and enable Capture to Storage template] 
+- [Centrum zdarzeń i włączanie funkcji przechwytywania w szablonie usługi Azure Data Lake Store][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
-> toocheck hello najnowsze szablonów, odwiedź stronę hello [szablonów Szybki Start Azure] [ Azure Quickstart Templates] galerii i wyszukaj usługi Event Hubs.
+> Aby sprawdzić najnowsze szablony, odwiedź galerię [Szablony szybkiego startu platformy Azure][Azure Quickstart Templates] i wyszukaj hasło Event Hubs.
 > 
 > 
 
@@ -44,51 +44,51 @@ Dla szablonów pełną hello kliknij hello następującego łącza GitHub:
 
 Ten szablon umożliwia wdrożenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń oraz włączenie [funkcji przechwytywania usługi Event Hubs](event-hubs-capture-overview.md).
 
-[Centra zdarzeń](event-hubs-what-is-event-hubs.md) jest zdarzeniem przetwarzania używanej tooprovide zdarzenia i dane telemetryczne wejściowych tooAzure w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością. Zdarzenie koncentratory przechwytywania umożliwia tooautomatically należy dostarczyć hello przesyłanie strumieniowe danych w magazynie obiektów Blob tooAzure centra zdarzeń lub usługi Azure Data Lake Store, w ramach określonego rozmiaru czasowych lub wybrane.
+[Event Hubs](event-hubs-what-is-event-hubs.md) to usługa służąca do przetwarzania zdarzeń, która dostarcza zdarzenia i dane telemetryczne do platformy Azure w bardzo dużej skali, z małymi opóźnieniami i wysoką niezawodnością. Funkcja przechwytywania usługi Event Hubs pozwala automatycznie dostarczać strumień danych usługi Event Hubs do usługi Azure Blob Storage lub Azure Data Lake Store w wyznaczonym okresie lub przy określonym interwale rozmiaru.
 
-Kliknij powitania po tooenable przycisku przechwytywania centra zdarzeń do usługi Azure Storage:
+Kliknij poniższy przycisk, aby włączyć funkcję przechwytywania usługi Event Hubs w usłudze Azure Storage:
 
-[![Wdrażanie tooAzure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
-Kliknij powitania po tooenable przycisku przechwytywania centra zdarzeń do usługi Azure Data Lake Store:
+Kliknij poniższy przycisk, aby włączyć funkcję przechwytywania usługi Event Hubs w usłudze Azure Data Lake Store:
 
-[![Wdrażanie tooAzure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametry
 
-Usługi Azure Resource Manager Zdefiniuj parametry dla wartości ma toospecify po wdrożeniu hello szablonu. Szablon Hello obejmuje sekcję o nazwie `Parameters` zawiera wszystkie wartości parametru hello. Należy zdefiniować parametr dla tych wartości, które różnią się na podstawie hello projektu, który jest wdrażany lub opartych na środowisku hello, który jest wdrażany z. Definiuje parametry dla wartości, które zawsze hello takie same. Każda wartość parametru jest używany w hello szablonu toodefine hello zasoby, które zostały wdrożone.
+Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcję o nazwie `Parameters` obejmującą wszystkie wartości parametrów. Parametr powinien obejmować wartości, które różnią się w zależności od wdrażanego projektu lub środowiska, w którym odbywa się wdrożenie. Nie należy definiować parametrów dla wartości, które pozostają niezmienione. Każda wartość parametru używana w szablonie definiuje wdrażane zasoby.
 
-Szablon Hello definiuje hello następujące parametry.
+Szablon zawiera definicje następujących parametrów.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-Nazwa Hello hello [przestrzeni nazw usługi Event Hubs](event-hubs-create.md) toocreate.
+Nazwa tworzonej [przestrzeni nazw usługi Event Hubs](event-hubs-create.md).
 
 ```json
 "eventHubNamespaceName":{  
      "type":"string",
      "metadata":{  
-         "description":"Name of hello EventHub namespace"
+         "description":"Name of the EventHub namespace"
       }
 }
 ```
 
 ### <a name="eventhubname"></a>eventHubName
 
-Nazwa Hello hello Centrum zdarzeń utworzonych w hello [przestrzeni nazw usługi Event Hubs](event-hubs-create.md).
+Nazwa centrum zdarzeń utworzonego w [przestrzeni nazw usługi Event Hubs](event-hubs-create.md).
 
 ```json
 "eventHubName":{  
     "type":"string",
     "metadata":{  
-        "description":"Name of hello event hub"
+        "description":"Name of the event hub"
     }
 }
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
 
-Witaj liczba dni wiadomości powitania tooretain w Centrum zdarzeń hello. 
+Liczba dni przechowywania komunikatów w centrum zdarzeń. 
 
 ```json
 "messageRetentionInDays":{
@@ -97,14 +97,14 @@ Witaj liczba dni wiadomości powitania tooretain w Centrum zdarzeń hello.
     "minValue":"1",
     "maxValue":"7",
     "metadata":{
-       "description":"How long tooretain hello data in event hub"
+       "description":"How long to retain the data in event hub"
      }
  }
 ```
 
 ### <a name="partitioncount"></a>partitionCount
 
-Liczba Hello toocreate partycji w Centrum zdarzeń hello.
+Liczba partycji w utworzonym centrum zdarzeń.
 
 ```json
 "partitionCount":{
@@ -120,7 +120,7 @@ Liczba Hello toocreate partycji w Centrum zdarzeń hello.
 
 ### <a name="captureenabled"></a>captureEnabled
 
-Włącz przechwytywanie na powitania Centrum zdarzeń.
+Włączanie funkcji przechwytywania w centrum zdarzeń.
 
 ```json
 "captureEnabled":{
@@ -130,13 +130,13 @@ Włącz przechwytywanie na powitania Centrum zdarzeń.
     "false",
     "true"],
     "metadata":{
-        "description":"Enable or disable hello Capture for your event hub"
+        "description":"Enable or disable the Capture for your event hub"
     }
  }
 ```
 ### <a name="captureencodingformat"></a>captureEncodingFormat
 
-Określ dane zdarzeń hello tooserialize format kodowania Hello.
+Format kodowania na potrzeby serializowania danych zdarzeń.
 
 ```json
 "captureEncodingFormat":{
@@ -145,14 +145,14 @@ Określ dane zdarzeń hello tooserialize format kodowania Hello.
     "allowedValues":[
     "Avro"],
     "metadata":{
-        "description":"hello encoding format in which Capture serializes hello EventData"
+        "description":"The encoding format in which Capture serializes the EventData"
     }
 }
 ```
 
 ### <a name="capturetime"></a>captureTime
 
-Interwał czasu Hello, w którym przechwytywania centra zdarzeń rozpoczyna się przechwytywanie danych hello.
+Przedział czasu, w którym funkcja przechwytywania usługi Event Hubs pobiera dane.
 
 ```json
 "captureTime":{
@@ -161,13 +161,13 @@ Interwał czasu Hello, w którym przechwytywania centra zdarzeń rozpoczyna się
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"hello time window in seconds for hello capture"
+         "description":"the time window in seconds for the capture"
     }
 }
 ```
 
 ### <a name="capturesize"></a>captureSize
-rozmiar interwału powitania jaką przechwytywania uruchamia przechwytywanie danych hello.
+Przedział rozmiaru, w którym funkcja przechwytywania pobiera dane.
 
 ```json
 "captureSize":{
@@ -176,14 +176,14 @@ rozmiar interwału powitania jaką przechwytywania uruchamia przechwytywanie dan
     "minValue":10485760,
     "maxValue":524288000,
     "metadata":{
-        "description":"hello size window in bytes for capture"
+        "description":"The size window in bytes for capture"
     }
 }
 ```
 
 ###<a name="capturenameformat"></a>captureNameFormat
 
-format nazwy Hello używane przez pliki Avro hello toowrite przechwytywania centrów zdarzeń. Format nazwy funkcji przechwytywania musi zawierać pola `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` i `{Second}`. Mogą one być uporządkowane w dowolnej kolejności z ogranicznikami lub bez nich.
+Format nazwy używany przez funkcję przechwytywania usługi Event Hubs podczas zapisywania plików systemu Avro. Format nazwy funkcji przechwytywania musi zawierać pola `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` i `{Second}`. Mogą one być uporządkowane w dowolnej kolejności z ogranicznikami lub bez nich.
  
 ```json
 "captureNameFormat": {
@@ -193,56 +193,56 @@ format nazwy Hello używane przez pliki Avro hello toowrite przechwytywania cent
         "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
       }
     }
-  }
+  
 ```
 
 ### <a name="apiversion"></a>apiVersion
 
-Wersja Hello interfejsu API hello szablonu.
+Wersja interfejsu API szablonu.
 
 ```json
  "apiVersion":{  
     "type":"string",
-    "defaultValue":"2015-08-01",
+    "defaultValue":"2017-04-01",
     "metadata":{  
-        "description":"ApiVersion used by hello template"
+        "description":"ApiVersion used by the template"
     }
  }
 ```
 
-Użyj hello następujące parametry, jeżeli wybierz magazyn Azure jako lokalizacja docelowa.
+Poniżej przedstawiono parametry, których należy użyć w przypadku wybrania usługi Azure Storage jako lokalizacji docelowej.
 
 ### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
 
-Przechwytywanie wymaga się, że konto usługi Azure Storage zasobów tooenable identyfikator Przechwytywanie tooyour żądanego konta magazynu.
+Przechwytywanie danych na odpowiednim koncie usługi Storage wymaga identyfikatora zasobu konta usługi Azure Storage.
 
 ```json
  "destinationStorageAccountResourceId":{
     "type":"string",
     "metadata":{
-        "description":"Your existing Storage account resource ID where you want hello blobs be captured"
+        "description":"Your existing Storage account resource ID where you want the blobs be captured"
     }
  }
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
 
-Witaj kontenera obiektów blob, w którym toocapture danych zdarzenia.
+Kontener obiektów blob, w którym będą przechwytywane dane zdarzeń.
 
 ```json
  "blobContainerName":{
     "type":"string",
     "metadata":{
-        "description":"Your existing storage container in which you want hello blobs captured"
+        "description":"Your existing storage container in which you want the blobs captured"
     }
 }
 ```
 
-Użyj hello następujące parametry, jeżeli wybierzesz Azure Data Lake Store jako lokalizacja docelowa. Należy ustawić uprawnienia w ścieżce usługi Data Lake Store, w której ma zostać tooCapture hello zdarzeń. Zobacz uprawnienia tooset [w tym artykule](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
+Poniżej przedstawiono parametry, których należy użyć w przypadku wybrania usługi Azure Data Lake Store jako lokalizacji docelowej. Należy ustawić uprawnienia w ścieżce usługi Data Lake Store, w której ma zostać przechwycone zdarzenie. Informacje o tym, jak ustawić uprawnienia, można znaleźć w [tym artykule](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
 
 ###<a name="subscriptionid"></a>subscriptionId
 
-Identyfikator subskrypcji dla przestrzeni nazw usługi Event Hubs hello i usługi Azure Data Lake Store. Oba te zasoby muszą znajdować się pod hello tego samego identyfikatora subskrypcji.
+Identyfikator subskrypcji dla przestrzeni nazw usługi Event Hubs i usługi Azure Data Lake Store. Oba te zasoby muszą korzystać z tego samego identyfikatora subskrypcji.
 
 ```json
 "subscriptionId": {
@@ -255,7 +255,7 @@ Identyfikator subskrypcji dla przestrzeni nazw usługi Event Hubs hello i usług
 
 ###<a name="datalakeaccountname"></a>dataLakeAccountName
 
-nazwę usługi Azure Data Lake Store Hello hello przechwycić zdarzeń.
+Nazwa usługi Azure Data Lake Store na potrzeby przechwytywanych zdarzeń.
 
 ```json
 "dataLakeAccountName": {
@@ -268,7 +268,7 @@ nazwę usługi Azure Data Lake Store Hello hello przechwycić zdarzeń.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Ścieżka folderu docelowego Hello hello przechwycić zdarzeń.
+Ścieżka folderu docelowego dla przechwytywanych zdarzeń. Jest to folder w usłudze Data Lake Store, do którego będą wypychane przechwycone zdarzenia. Aby ustawić uprawnienia dla tego folderu, zapoznaj się z artykułem [Przechwytywanie danych z usługi Event Hubs przy użyciu usługi Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture)
 
 ```json
 "dataLakeFolderPath": {
@@ -279,9 +279,9 @@ nazwę usługi Azure Data Lake Store Hello hello przechwycić zdarzeń.
 }
 ```
 
-## <a name="resources-toodeploy-for-azure-storage-as-destination-toocaptured-events"></a>Toodeploy zasobów usługi Azure Storage jako miejsce docelowe toocaptured zdarzenia
+## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Zasoby do wdrożenia w usłudze Azure Storage jako lokalizacja docelowa przechwytywanych zdarzeń
 
-Tworzy nazw typu **EventHubs**, z Centrum zdarzeń jednej, a także umożliwia przechwytywanie tooAzure magazynu obiektów Blob.
+Tworzy przestrzeń nazw typu **EventHubs** z jednym centrum zdarzeń oraz włącza funkcję przechwytywania w usłudze Azure Blob Storage.
 
 ```json
 "resources":[  
@@ -294,48 +294,60 @@ Tworzy nazw typu **EventHubs**, z Centrum zdarzeń jednej, a także umożliwia p
             "name":"Standard",
             "tier":"Standard"
          },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]",
-                  "MessageRetentionInDays":"[parameters('messageRetentionInDays')]",
-                  "PartitionCount":"[parameters('partitionCount')]",
-                  "CaptureDescription":{
-                        "enabled":"[parameters('captureEnabled')]",
-                        "encoding":"[parameters('captureEncodingFormat')]",
-                        "intervalInSeconds":"[parameters('captureTime')]",
-                        "sizeLimitInBytes":"[parameters('captureSize')]",
-                        "destination":{
-                            "name":"EventHubCapture.AzureBlockBlob",
-                            "properties":{
-                                "StorageAccountResourceId":"[parameters('destinationStorageAccountResourceId')]",
-                                "BlobContainer":"[parameters('blobContainerName')]"
-                            }
-                        } 
-                  }
-
-               }
-
+         "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('eventHubNamespaceName')]",
+      "type": "Microsoft.EventHub/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "isAutoInflateEnabled": "true",
+        "maximumThroughputUnits": "7"
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('eventHubName')]",
+          "type": "EventHubs",
+          "dependsOn": [
+            "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
+          ],
+          "properties": {
+            "messageRetentionInDays": "[parameters('messageRetentionInDays')]",
+            "partitionCount": "[parameters('partitionCount')]",
+            "captureDescription": {
+              "enabled": "true",
+              "encoding": "[parameters('captureEncodingFormat')]",
+              "intervalInSeconds": "[parameters('captureTime')]",
+              "sizeLimitInBytes": "[parameters('captureSize')]",
+              "destination": {
+                "name": "EventHubArchive.AzureBlockBlob",
+                "properties": {
+                  "storageAccountResourceId": "[parameters('destinationStorageAccountResourceId')]",
+                  "blobContainer": "[parameters('blobContainerName')]",
+                  "archiveNameFormat": "[parameters('captureNameFormat')]"
+                }
+              }
             }
-         ]
-      }
-   ]
+          }
+
+        }
+      ]
+    }
+  ]
 ```
 
-## <a name="resources-toodeploy-for-azure-data-lake-store-as-destination"></a>Toodeploy zasobów dla usługi Azure Data Lake Store jako miejsce docelowe
+## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Zasoby do wdrożenia w usłudze Azure Data Lake Store jako lokalizacja docelowa
 
-Tworzy nazw typu **EventHubs**, z Centrum zdarzeń jednej, a także umożliwia przechwytywanie tooAzure Data Lake Store.
+Tworzy przestrzeń nazw typu **EventHubs** z jednym centrum zdarzeń oraz włącza funkcję przechwytywania w usłudze Azure Data Lake Store.
 
 ```json
  "resources": [
         {
-            "apiVersion": "2015-08-01",
+            "apiVersion": "2017-04-01",
             "name": "[parameters('namespaceName')]",
             "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
@@ -345,7 +357,7 @@ Tworzy nazw typu **EventHubs**, z Centrum zdarzeń jednej, a także umożliwia p
             },
             "resources": [
                 {
-                    "apiVersion": "2015-08-01",
+                    "apiVersion": "2017-04-01",
                     "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
@@ -353,18 +365,18 @@ Tworzy nazw typu **EventHubs**, z Centrum zdarzeń jednej, a także umożliwia p
                     ],
                     "properties": {
                         "path": "[parameters('eventHubName')]",
-                        "ArchiveDescription": {
+                        "captureDescription": {
                             "enabled": "true",
                             "encoding": "[parameters('archiveEncodingFormat')]",
-                            "intervalInSeconds": "[parameters('archiveTime')]",
-                            "sizeLimitInBytes": "[parameters('archiveSize')]",
+                            "intervalInSeconds": "[parameters('captureTime')]",
+                            "sizeLimitInBytes": "[parameters('captureSize')]",
                             "destination": {
                                 "name": "EventHubArchive.AzureDataLake",
                                 "properties": {
                                     "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
                                     "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
                                     "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
-                                    "ArchiveNameFormat": "[parameters('archiveNameFormat')]"
+                                    "ArchiveNameFormat": "[parameters('captureNameFormat')]"
                                 }
                             }
                         }
@@ -375,19 +387,19 @@ Tworzy nazw typu **EventHubs**, z Centrum zdarzeń jednej, a także umożliwia p
     ]
 ```
 
-## <a name="commands-toorun-deployment"></a>Polecenia toorun wdrożenia
+## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
 
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
 
-Wdrażanie sieci tooenable szablonu przechwytywania centra zdarzeń w magazynie Azure:
+Wdróż szablon, aby włączyć funkcję przechwytywania usługi Event Hubs w usłudze Azure Storage:
  
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
-Wdrażanie sieci tooenable szablonu przechwytywania centra zdarzeń do usługi Azure Data Lake Store:
+Wdróż szablon, aby włączyć funkcję przechwytywania usługi Event Hubs w usłudze Azure Data Lake Store:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json
@@ -413,9 +425,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 ## <a name="next-steps"></a>Następne kroki
 
-Można również skonfigurować przechwytywania centra zdarzeń za pomocą hello [portalu Azure](https://portal.azure.com). Aby uzyskać więcej informacji, zobacz [włączyć przechwytywania centra zdarzeń przy użyciu hello portalu Azure](event-hubs-capture-enable-through-portal.md).
+Funkcję przechwytywania usługi Event Hubs można również skonfigurować za pośrednictwem witryny [Azure Portal](https://portal.azure.com). Aby uzyskać więcej informacji, zobacz [Enable Event Hubs Capture using the Azure portal (Włączanie funkcji przechwytywania usługi Event Hubs przy użyciu witryny Azure Portal)](event-hubs-capture-enable-through-portal.md).
 
-Więcej informacji na temat usługi Event Hubs można poznać, przechodząc na stronę hello następującego łącza:
+Następujące linki pozwalają dowiedzieć się więcej na temat usługi Event Hubs:
 
 * [Omówienie usługi Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Tworzenie centrum zdarzeń](event-hubs-create.md)
@@ -424,5 +436,5 @@ Więcej informacji na temat usługi Event Hubs można poznać, przechodząc na s
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-[Event hub and enable Capture tooStorage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
-[Event hub and enable Capture tooAzure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls
+[Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
+[Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

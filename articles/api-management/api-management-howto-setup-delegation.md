@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toodelegate użytkownika rejestracji i produktu subskrypcji"
-description: "Dowiedz się, jak toodelegate użytkownika rejestracji i produktu subskrypcji tooa innej firmy w usłudze Azure API Management."
+title: "Jak delegować subskrypcji użytkownika rejestracji i produktu"
+description: "Dowiedz się, jak delegować rejestracji i produktu subskrypcji użytkownika do innej firmy w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,122 +14,122 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 406648db2d2f37c4dcda466294726d331cc0551b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toodelegate-user-registration-and-product-subscription"></a>Jak toodelegate użytkownika rejestracji i produktu subskrypcji
-Delegowanie pozwala toouse istniejącej witryny sieci Web do obsługi tooproducts logowania — w/tworzenia konta i subskrypcji dewelopera jako przeciwieństwie toousing hello wbudowanej funkcji w portalu dla deweloperów hello. To umożliwia dane użytkowników hello tooown witryny sieci Web i sprawdzania poprawności hello tych kroków w niestandardowy sposób.
+# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Jak delegować subskrypcji użytkownika rejestracji i produktu
+Delegowanie umożliwia przy użyciu istniejącej witryny sieci Web do obsługi projektanta logowania — w/tworzenia konta i subskrypcji do produktów, a nie za pomocą wbudowanej funkcji w portalu dla deweloperów. Dzięki temu witryny sieci Web do własnych danych użytkownika i przeprowadzania weryfikacji tych kroków w niestandardowy sposób.
 
 ## <a name="delegate-signin-up"></a>Developer delegowanie logowania i rejestrowania
-toodelegate developer tooyour logowania i rejestrowania istniejącej witryny sieci Web w swojej witrynie, który działa jako punkt wejścia dla takiego żądania inicjowanych z poziomu portalu dla deweloperów usługi API Management hello hello konieczne będzie toocreate punktu końcowego specjalne delegowania.
+Delegować developer logowania i rejestrowania do istniejącej witryny sieci Web należy utworzyć delegowanie specjalne punkt końcowy w swojej witrynie, który działa jako punkt wejścia dla takiego żądania inicjowanych z poziomu portalu dla deweloperów zarządzanie interfejsami API.
 
-Hello końcowego przepływ pracy będzie wyglądać następująco:
+Końcowe przepływ pracy będzie wyglądać następująco:
 
-1. Deweloper kliknie łącze logowania lub zapisywania hello na powitania portalu dla deweloperów zarządzanie interfejsami API
-2. Przeglądarka jest punkt końcowy delegowania toohello przekierowane
-3. Punkt końcowy delegowania w zamian przekierowuje tooor przedstawia interfejsu użytkownika pytaniem, czy użytkownik toosign w lub zapisywania
-4. W przypadku powodzenia hello użytkownik jest przekierowane toohello wstecz zarządzanie interfejsami API developer strony portalu uruchomienia z
+1. Deweloper kliknięć łącze logowania lub tworzenia konta w portalu dla deweloperów zarządzanie interfejsami API
+2. Przeglądarka jest przekierowywany do punktu końcowego delegowania
+3. Punkt końcowy delegowania w zamian przekierowuje do lub przedstawia prośba użytkownika logowania lub zapisywania do interfejsu użytkownika
+4. W przypadku powodzenia zostanie przekierowany użytkownik w wróć do strony portalu deweloperów zarządzanie interfejsami API uruchomienia z
 
-toobegin, umożliwia pierwszy Konfiguracja interfejsu API zarządzania tooroute żądań za pośrednictwem punktu końcowego delegowania. W portalu wydawcy zarządzanie interfejsami API hello, kliknij polecenie **zabezpieczeń** , a następnie kliknij przycisk hello **delegowania** kartę. Kliknij przycisk tooenable wyboru hello "Delegate logowania & rejestracji".
+Aby rozpocząć, umożliwia pierwszy zarządzanie interfejsami API konfiguracji do rozsyłania żądań za pośrednictwem punktu końcowego delegowania. W portalu wydawcy interfejsu API zarządzania kliknij polecenie **zabezpieczeń** , a następnie kliknij przycisk **delegowania** kartę. Kliknij pole wyboru, aby włączyć "Delegate logowania & rejestracji".
 
 ![Strony delegowania][api-management-delegation-signin-up]
 
-* Zdecyduj, co hello adres URL punktu końcowego specjalne delegowania zostanie i wprowadź go w hello **adres URL punktu końcowego delegowania** pola. 
-* W ramach hello **klucz uwierzytelniania delegowania** polu Wprowadź hasło, które będzie używane toocompute tooyou podpisu podane dla tooensure weryfikacji, który hello żądania jest rzeczywiście pochodzi z usługi Azure API Management. Możesz kliknąć hello **Generowanie** toohave przycisk interfejsu API zarządzania losowego generowania klucza dla Ciebie.
+* Zdecyduj, co adres URL punktu końcowego specjalne delegowania zostanie i wprowadź go w **adres URL punktu końcowego delegowania** pola. 
+* W ramach **klucz uwierzytelniania delegowania** pola wprowadź klucz tajny, który będzie używany do obliczenia podpisu dostarczone do weryfikacji upewnić się, czy żądanie jest rzeczywiście pochodzi z usługi Azure API Management. Możesz kliknąć **Generowanie** przycisk, aby mieć interfejsu API zarządzania losowego generowania klucza.
 
-Teraz należy toocreate hello **punktu końcowego delegowania**. Tooperform ma wiele akcji:
+Teraz musisz utworzyć **punktu końcowego delegowania**. Musi przeprowadzić szereg akcji:
 
-1. Otrzyma żądanie w hello następującej postaci:
+1. Otrzyma żądanie w następującym formacie:
    
    > *http://www.yourwebsite.com/apimdelegation?Operation=SignIn&returnUrl= {adres URL strony źródła} & soli = {ciąg} & sig = {ciąg}*
    > 
    > 
    
-    Parametry zapytania w przypadku logowania / tworzenia konta hello:
+    Parametry zapytania w przypadku logowania / tworzenia konta:
    
    * **Operacja**: Określa jaki typ żądania delegowania jest — może być tylko **SignIn** w takim przypadku
-   * **returnUrl**: hello adres URL strony hello gdzie hello użytkownik kliknął link logowania lub zapisywania
+   * **returnUrl**: adres URL strony, gdy użytkownik kliknął Link logowania lub zapisywania
    * **ziarna**: specjalne ciąg zaburzający używane do obliczania skrótu zabezpieczeń
-   * **SIG**: obliczona zabezpieczeń toobe wyznaczania wartości skrótu, używany do porównania tooyour własnych obliczoną wartość mieszania
-2. Sprawdź, czy Żądanie hello pochodzi z usługi Azure API Management (opcjonalne, lecz zdecydowanie zalecane dla zabezpieczeń)
+   * **SIG**: skrót obliczona zabezpieczeń do użycia w porównaniu do własnych obliczoną wartość mieszania
+2. Sprawdź, czy żądanie jest pochodzi z usługi Azure API Management (opcjonalne, lecz zdecydowanie zalecane dla zabezpieczeń)
    
-   * Obliczeniowe skrótu HMAC SHA512 ciągu oparte na powitania **returnUrl** i **soli** parametry zapytania ([przykładowy kod podany poniżej]):
+   * Obliczeniowe skrótu HMAC SHA512 ciągu na podstawie **returnUrl** i **soli** parametry zapytania ([przykładowy kod podany poniżej]):
      
      > Metoda HMAC (**soli** + "\n" + **returnUrl**)
      > 
      > 
-   * Porównaj wartości toohello obliczonego powyżej skrótu hello hello **sig** parametr zapytania. Jeśli skróty dwóch hello są zgodne, przesuń w następnym kroku toohello, w przeciwnym razie odmowy żądania hello.
-3. Sprawdź, czy otrzymują żądanie logowania w/logowania — w górę: hello **operacji** parametru zapytania zostanie ustawiona zbyt "**SignIn**".
-4. Obecny użytkownik hello przy użyciu interfejsu użytkownika w toosign lub zapisywania
-5. Jeśli użytkownik hello jest zarejestrowanie się masz toocreate odpowiadającego mu konta dla nich w usłudze API Management. [Utwórz użytkownika] z hello interfejsu API REST zarządzania interfejsu API. Po tej czynności upewnij się, ustaw toohello identyfikator użytkownika hello, takie same, który znajduje się w magazynie użytkownika lub identyfikator tooan, który użytkownik może przechowywać ścieżkę.
-6. Gdy hello pomyślnego uwierzytelnienia użytkownika:
+   * Porównanie obliczonego powyżej skrót z wartością **sig** parametr zapytania. Jeśli dwa skróty są zgodne, przejdź do następnego kroku, odrzuciła żądanie, w przeciwnym razie wartość.
+3. Sprawdź, czy otrzymują żądanie logowania w/logowania — w górę: **operacji** parametru zapytania zostanie ustawiony na "**rejestrowanie**".
+4. Interfejs użytkownika do logowania lub zapisywania do zaoferowania użytkownikowi
+5. Jeśli użytkownik jest zarejestrowanie się należy utworzyć odpowiednie konta dla nich w usłudze API Management. [Utwórz użytkownika] przy użyciu interfejsu API REST zarządzania interfejsu API. Po tej czynności upewnij się, Ustaw identyfikator użytkownika, takie same, który znajduje się w magazynie użytkownika lub identyfikator, który użytkownik może przechowywać ścieżkę.
+6. Po pomyślnym uwierzytelnieniu użytkownika:
    
-   * [żądania tokenu (rejestracji jednokrotnej SSO) single-sign-on] za pośrednictwem hello interfejsu API REST zarządzania interfejsu API
-   * Dołącz returnUrl toohello parametru zapytania URL logowania jednokrotnego otrzymany z powyższego wywołania hello interfejsu API:
+   * [żądania tokenu (rejestracji jednokrotnej SSO) single-sign-on] za pośrednictwem interfejsu API REST zarządzania interfejsu API
+   * Dołącz returnUrl parametru zapytania do adresu URL logowania jednokrotnego otrzymane od wywołania interfejsu API powyżej:
      
      > https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url np. 
      > 
      > 
-   * adres URL utworzony przekierowania hello użytkownika toohello powyżej
+   * przekierowuje użytkownika do utworzonych powyższy adres URL
 
-W dodatku toohello **SignIn** operacji, można również wykonywać Zarządzanie kontami po poprzednich kroków hello i przy użyciu jednej z hello następujące operacje.
+Oprócz **SignIn** operacji, można również wykonywać Zarządzanie kontami przez wykonanie poprzednich kroków i przy użyciu jednej z następujących czynności.
 
 * **Element ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
 
-Należy podać następujące parametry zapytania dla operacji zarządzania kontem hello.
+Należy podać następujące parametry zapytania dla operacji zarządzania kontem.
 
 * **Operacja**: Określa typ żądania delegowania jest (Element ChangePassword, ChangeProfile lub CloseAccount)
-* **Identyfikator userId**: identyfikator użytkownika hello hello toomanage konta
+* **Identyfikator userId**: identyfikator użytkownika konta do zarządzania
 * **ziarna**: specjalne ciąg zaburzający używane do obliczania skrótu zabezpieczeń
-* **SIG**: obliczona zabezpieczeń toobe wyznaczania wartości skrótu, używany do porównania tooyour własnych obliczoną wartość mieszania
+* **SIG**: skrót obliczona zabezpieczeń do użycia w porównaniu do własnych obliczoną wartość mieszania
 
 ## <a name="delegate-product-subscription"></a>Delegowanie subskrypcji produktu
-Delegowanie subskrypcji produktu działa podobnie toodelegating użytkownika logowania/w górę. Witaj końcowego przepływu pracy, należy w następujący sposób:
+Delegowanie subskrypcji produktu działa podobnie do delegowania użytkownika logowania/w górę. Końcowe przepływu pracy, należy w następujący sposób:
 
-1. Deweloper wybiera produktu w portalu dla deweloperów usługi API Management hello i kliknie przycisk Subskrybuj hello
-2. Przeglądarka jest punkt końcowy delegowania toohello przekierowane
-3. Punkt końcowy delegowania wykonuje kroki subskrypcji produktu wymagane — to jest uruchomiony tooyou i może pociągać za sobą przekierowania toorequest strony tooanother informacji dotyczących rozliczeń, prosząc dodatkowych pytań lub hello informacje są przechowywane po prostu i nie wymaga żadnych działań użytkownika
+1. Deweloper wybiera produktu w portalu dla deweloperów usługi API Management i kliknie przycisk Subskrybuj
+2. Przeglądarka jest przekierowywany do punktu końcowego delegowania
+3. Punkt końcowy delegowania wykonuje kroki subskrypcji produktu wymagane — to zależy od użytkownika i może spowodować przekierowanie do innej strony do żądania informacji dotyczących rozliczeń, prosząc dodatkowych pytań lub po prostu przechowywanie informacji i nie wymaga żadnych działań użytkownika
 
-Funkcje hello tooenable, na powitania **delegowania** kliknij **delegować subskrypcji produktu**.
+Aby włączyć funkcję, na **delegowania** kliknij **delegować subskrypcji produktu**.
 
-Następnie upewnij się, że punkt końcowy delegowania hello wykonuje hello następujące akcje:
+Następnie upewnij się, że punkt końcowy delegowania wykonuje następujące czynności:
 
-1. Otrzyma żądanie w hello następującej postaci:
+1. Otrzyma żądanie w następującym formacie:
    
-   > *{Operacja} http://www.yourwebsite.com/apimdelegation?Operation= & productId = {toosubscribe produktu do} & userId = {użytkownika zgłaszającego żądanie} & ziarna = {ciąg} & sig = {ciąg}*
+   > *{Operacja} http://www.yourwebsite.com/apimdelegation?Operation= & productId = {produktu do subskrybowania} & userId = {użytkownika zgłaszającego żądanie} & ziarna = {ciąg} & sig = {ciąg}*
    > 
    > 
    
-    Parametry zapytania w przypadku subskrypcji produktu hello:
+    Parametry zapytania w przypadku subskrypcji produktu:
    
-   * **Operacja**: Określa, jakiego typu żądanie delegowania jest. Dla subskrypcji produktu żądań hello prawidłowe opcje to:
-     * "Subskrypcji": toosubscribe żądania hello tooa użytkownika danego produktu o podany identyfikator (patrz poniżej)
-     * "Anuluj subskrypcję": toounsubscribe żądań użytkowników z produktu
-     * "Odnowić": toorenew requst subskrypcją (np. może być wygasa)
-   * **productId**: toosubscribe do żądany identyfikator hello hello produktu hello użytkownika
-   * **Identyfikator userId**: hello identyfikator hello użytkownika, dla którego hello żądań
+   * **Operacja**: Określa, jakiego typu żądanie delegowania jest. Dla subskrypcji produktu żądania prawidłowe opcje to:
+     * "Subskrypcji": żądanie do subskrybowania użytkownika do danego produktu z podany identyfikator (patrz poniżej)
+     * "Anuluj subskrypcję": żądanie anulowania subskrypcji użytkownika z produktu
+     * "Odnowić": requst odnowienia subskrypcji (np. może być wygasa)
+   * **productId**: identyfikator produktu użytkownik zażądał do subskrybowania
+   * **Identyfikator userId**: identyfikator użytkownika, dla którego żądań
    * **ziarna**: specjalne ciąg zaburzający używane do obliczania skrótu zabezpieczeń
-   * **SIG**: obliczona zabezpieczeń toobe wyznaczania wartości skrótu, używany do porównania tooyour własnych obliczoną wartość mieszania
-2. Sprawdź, czy Żądanie hello pochodzi z usługi Azure API Management (opcjonalne, lecz zdecydowanie zalecane dla zabezpieczeń)
+   * **SIG**: skrót obliczona zabezpieczeń do użycia w porównaniu do własnych obliczoną wartość mieszania
+2. Sprawdź, czy żądanie jest pochodzi z usługi Azure API Management (opcjonalne, lecz zdecydowanie zalecane dla zabezpieczeń)
    
-   * Obliczeniowe SHA512 HMAC ciągu oparte na powitania **productId**, **userId** i **soli** parametry zapytania:
+   * Obliczeniowe SHA512 HMAC ciągu na podstawie **productId**, **userId** i **soli** parametry zapytania:
      
      > Metoda HMAC (**soli** + "\n" + **productId** + "\n" + **userId**)
      > 
      > 
-   * Porównaj wartości toohello obliczonego powyżej skrótu hello hello **sig** parametr zapytania. Jeśli skróty dwóch hello są zgodne, przesuń w następnym kroku toohello, w przeciwnym razie odmowy żądania hello.
-3. Przetwarzania żadnych subskrypcji produktu oparty na typie hello operacji w **operacji** -np. rozliczeń, dalsze pytania itp.
-4. W subskrypcji pomyślnie hello użytkownika toohello produktu na Twojej stronie, subskrypcja hello użytkownika toohello interfejsu API produktów do zarządzania przez [hello wywołania interfejsu API REST dla subskrypcji produktu].
+   * Porównanie obliczonego powyżej skrót z wartością **sig** parametr zapytania. Jeśli dwa skróty są zgodne, przejdź do następnego kroku, odrzuciła żądanie, w przeciwnym razie wartość.
+3. Przetwarzania żadnych subskrypcji produktów na podstawie typu żądanej w operacji **operacji** -np. rozliczeń, dalsze pytania itp.
+4. W subskrypcji pomyślnie użytkownikowi produktu na Twojej stronie, subskrypcja użytkownikowi produktu interfejsu API zarządzania przez [wywołanie interfejsu API REST dla subskrypcji produktu].
 
 ## <a name="delegate-example-code"></a> Przykładowy kod
-Pokaż przykłady te kodu jak tootake hello *klucz sprawdzania poprawności delegowania*, który wynosi hello delegowania ekranie powitania wydawcy portalu, toocreate HMAC, który jest następnie używany toovalidate hello podpisu, co dowodzi hello ważności hello przekazany returnUrl. Witaj, sam kod działa hello productId i userId nieznaczne modyfikacji.
+Te przykłady pokazują, jak wykonać *klucz sprawdzania poprawności delegowania*, znajduje w ekranie delegowania portalu wydawcy, można utworzyć HMAC, który jest następnie używany do sprawdzania poprawności podpisu, potwierdzania ważności returnUrl przekazany . Ten sam kod działa w przypadku productId i userId nieznaczne modyfikacji.
 
-**C# kodu toogenerate skrót returnUrl**
+**Kod C# do generowania skrótu returnUrl**
 
 ```c#
 using System.Security.Cryptography;
@@ -141,12 +141,12 @@ string signature;
 using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 {
     signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
-    // change too(salt + "\n" + productId + "\n" + userId) when delegating product subscription
-    // compare signature toosig query parameter
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
 }
 ```
 
-**Skrót toogenerate kodu NodeJS returnUrl**
+**Umożliwia generowanie skrótów returnUrl kodu NodeJS**
 
 ```
 var crypto = require('crypto');
@@ -157,14 +157,14 @@ var salt = 'salt query parameter';
 
 var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
 var digest = hmac.update(salt + '\n' + returnUrl).digest();
-// change too(salt + "\n" + productId + "\n" + userId) when delegating product subscription
-// compare signature toosig query parameter
+// change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+// compare signature to sig query parameter
 
 var signature = digest.toString('base64');
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na delegowania Zobacz powitania po wideo.
+Aby uzyskać więcej informacji na delegowania zobacz poniższe wideo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 
@@ -174,7 +174,7 @@ Aby uzyskać więcej informacji na delegowania Zobacz powitania po wideo.
 [Delegating product subscription]: #delegate-product-subscription
 [żądania tokenu (rejestracji jednokrotnej SSO) single-sign-on]: http://go.microsoft.com/fwlink/?LinkId=507409
 [Utwórz użytkownika]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
-[hello wywołania interfejsu API REST dla subskrypcji produktu]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[wywołanie interfejsu API REST dla subskrypcji produktu]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [przykładowy kod podany poniżej]: #delegate-example-code
 

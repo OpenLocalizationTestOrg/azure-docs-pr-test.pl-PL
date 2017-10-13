@@ -1,4 +1,4 @@
-### <a name="create-a-new-logical-sql-server-in-hello-azure-portal"></a>Utwórz nowy serwer logiczny SQL w hello portalu Azure
+### <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Tworzenie nowego serwera logicznego SQL w witrynie Azure Portal
 
 1. Kliknij pozycję **Nowy**, wyszukaj **serwer logiczny**, a następnie naciśnij klawisz **ENTER**.
 
@@ -7,37 +7,37 @@
 
     ![wybieranie serwera logicznego](./media/sql-data-warehouse-create-logical-server/select-logical-server.png)
   
-3. Kliknij przycisk **Utwórz** tooopen hello nowy blok programu SQL Server (serwer logiczny).
+3. Kliknij pozycję **Utwórz**, aby otworzyć nowy blok SQL Server (serwer logiczny).
 
    <kbd>![Otwórz blok serwera logicznego](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd> ![blok serwera logicznego](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)</kbd>
   
-3. W polu tekstowym Nazwa serwera bloku hello programu SQL Server (serwer logiczny) Podaj prawidłową nazwę dla nowego serwera logicznego hello. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
+3. W polu tekstowym nazwy serwera w bloku SQL Server (serwer logiczny) podaj prawidłową nazwę nowego serwera logicznego. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
     
     ![nazwa nowego serwera](./media/sql-data-warehouse-create-logical-server/new-name-logical-server.png)
 
     > [!IMPORTANT]
-    > Witaj pełni kwalifikowaną nazwę dla nowego serwera będą < your_server_name >. database.windows.net.
+    > W pełni kwalifikowana nazwa nowego serwera to <Twoja_nazwa_serwera>.database.windows.net.
     >
     
-4. W polu tekstowym powitania serwera admin logowania Podaj nazwę użytkownika logowania uwierzytelniania SQL powitania dla tego serwera. Tę nazwę logowania jest określany jako powitania serwera głównego identyfikatora logowania. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
+4. W polu tekstowym Identyfikator logowania administratora serwera podaj nazwę użytkownika na potrzeby logowania w celu uwierzytelniania SQL dla tego serwera. Ta nazwa logowania jest nazywana główną nazwą logowania serwera. Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
     
     ![identyfikator logowania administratora SQL](./media/sql-data-warehouse-create-logical-server/sql-admin-login.png)
-5. W hello **hasło** i **Potwierdź hasło** pola tekstowe, podaj hasło dla konta głównego identyfikatora logowania serwera hello. Zielony znacznik wyboru wskazuje, czy podane hasło jest poprawne.
+5. W polach tekstowych **Hasło** i **Potwierdź hasło** podaj hasło do głównego konta logowania serwera. Zielony znacznik wyboru wskazuje, czy podane hasło jest poprawne.
     
     ![Hasło administratora SQL](./media/sql-data-warehouse-create-logical-server/sql-admin-password.png)
-6. Wybierz subskrypcję, w której masz uprawnienia toocreate obiektów.
+6. Wybierz subskrypcję, w której masz uprawnienia do tworzenia obiektów.
 
     ![subskrypcja](./media/sql-data-warehouse-create-logical-server/subscription.png)
-7. W polu tekstowym grupy zasobów hello wybierz **Utwórz nowy** , a następnie w polu tekstowym grupy zasobów hello, podaj prawidłową nazwę dla nowej grupy zasobów hello, (umożliwia także istniejącą grupę zasobów, jeśli został już utworzony dla siebie). Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
+7. W polu tekstowym Grupa zasobów wybierz opcję **Utwórz nową**, a następnie w polu tekstowym Grupa zasobów podaj prawidłową nazwę nowej grupy (możesz także użyć istniejącej grupy zasobów, jeśli masz już taką utworzoną na własne potrzeby). Zielony znacznik wyboru wskazuje, czy podana nazwa jest poprawna.
 
     ![nowa grupa zasobów](./media/sql-data-warehouse-create-logical-server/new-resource-group.png)
 
-8. W hello **lokalizacji** pole tekstowe, wybierz danych Centrum lokalizacji odpowiednie tooyour — takie jak "Australia Wschodnia".
+8. W polu tekstowym **Lokalizacja** wybierz centrum danych odpowiednie dla danej lokalizacji — np. „Australia Wschodnia”.
     
     ![lokalizacja serwera](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > Witaj wyboru **Zezwalaj usługom platformy azure tooaccess serwera** nie można zmienić tego bloku. Można zmienić to ustawienie na powitania serwera zapory bloku. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do zabezpieczeń](../articles/sql-database/sql-database-manage-servers-portal.md).
+    > W tym bloku nie można zmienić pola wyboru dla opcji **Zezwalaj usługom platformy Azure na dostęp do serwera**. To ustawienie można zmienić w bloku zapory serwera. Aby uzyskać więcej informacji, zobacz artykuł [Wprowadzenie do zabezpieczeń](../articles/sql-database/sql-database-manage-servers-portal.md).
     >
     
 9. Kliknij przycisk **Utwórz**.

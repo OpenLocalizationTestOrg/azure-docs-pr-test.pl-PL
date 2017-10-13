@@ -1,6 +1,6 @@
 ---
-title: "kolejność wdrożenia aaaSet zasobów platformy Azure | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób wdrożenia tooset jednego zasobu jako zależny od innego zasobu podczas wdrażania tooensure zasobów w odpowiedniej kolejności hello."
+title: "Ustawić kolejność wdrażania zasobów platformy Azure | Dokumentacja firmy Microsoft"
+description: "Zawiera opis sposobu ustawiania jeden zasób zależny od innego zasobu podczas wdrażania, aby upewnić się, że zasoby są wdrażane w odpowiedniej kolejności."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2f658f4c85236966c46b34a65aafb8426c92806c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="define-hello-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Zdefiniuj kolejność hello wdrażania zasobów w szablonach usługi Azure Resource Manager
-Dla danego zasobu może być inne zasoby, które muszą istnieć przed wdrożeniem hello zasobów. Na przykład serwer SQL musi istnieć przed podjęciem próby wykonania toodeploy bazy danych SQL. Należy zdefiniować tę relację oznaczając jednego zasobu jako zależne hello innego zasobu. Definiowanie zależności z hello **dependsOn** elementu, lub za pomocą hello **odwołania** funkcji. 
+# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Zdefiniuj kolejność wdrażania zasobów w szablonach usługi Azure Resource Manager
+Dla danego zasobu może być inne zasoby, które muszą istnieć przed wdrożeniem zasobu. Na przykład serwer SQL musi istnieć przed podjęciem próby wdrożenia bazy danych SQL. Ta relacja należy zdefiniować oznaczając jednego zasobu jako zależny od innego zasobu. Definiowanie zależności z **dependsOn** elementu, lub za pomocą **odwołania** funkcji. 
 
-Menedżer zasobów ocenia hello zależności między zasobami i wdraża je w porządku zależnych. Jeśli zasoby nie są zależne od siebie, Menedżer zasobów wdraża je równolegle. Wystarczy toodefine zależności zasobów, które są wdrażane w hello tego samego szablonu. 
+Menedżer zasobów ocenia zależności między zasobami i wdraża je w porządku zależnych. Jeśli zasoby nie są zależne od siebie, Menedżer zasobów wdraża je równolegle. Wystarczy Definiowanie zależności dla zasobów, które zostały wdrożone w tym samym szablonie. 
 
 ## <a name="dependson"></a>dependsOn
-W szablonie hello dependsOn element umożliwia toodefine jeden zasób, w zależności od jednego lub więcej zasobów. Wartość może być rozdzielana przecinkami lista nazw zasobów. 
+W szablonie dependsOn element umożliwia zdefiniowanie jednego zasobu jako zależną na jeden lub więcej zasobów. Wartość może być rozdzielana przecinkami lista nazw zasobów. 
 
-Witaj poniższy przykład przedstawia zestaw skali maszyny wirtualnej, która zależy od usługi równoważenia obciążenia, sieć wirtualną i pętli, które tworzy wiele kont magazynu. Poniższy przykład hello te inne zasoby nie są wyświetlane, ale powinny tooexist w innym miejscu w szablonie hello.
+W poniższym przykładzie przedstawiono zestaw skali maszyny wirtualnej, która zależy od usługi równoważenia obciążenia, sieć wirtualną i pętli, które tworzy wiele kont magazynu. Te inne zasoby nie są wyświetlane w poniższym przykładzie, ale musi istnieć w innym miejscu w szablonie.
 
 ```json
 {
@@ -48,9 +48,9 @@ Witaj poniższy przykład przedstawia zestaw skali maszyny wirtualnej, która za
 }
 ```
 
-Zawiera zależność hello poprzedzających przykład, hello zasobów, które są tworzone przez pętlę kopiowania o nazwie **storageLoop**. Na przykład zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
+W powyższym przykładzie zależności znajduje się na zasoby, które są tworzone przez pętlę kopiowania o nazwie **storageLoop**. Na przykład zobacz [utworzyć wiele wystąpień zasobów usługi Azure Resource Manager](resource-group-create-multiple.md).
 
-Podczas definiowania zależności, mogą obejmować hello zasobów dostawcy przestrzeń nazw i zasobów typu tooavoid niejednoznaczności. Na przykład tooclarify, które usługa równoważenia obciążenia i sieć wirtualna, która może być hello nazwy takie same jak inne zasoby, hello Użyj następującego formatu:
+Podczas definiowania zależności, mogą obejmować przestrzeń nazw dostawcy zasobów i typu zasobu, aby uniknąć niejednoznaczności. Na przykład aby wyjaśnić, usługi równoważenia obciążenia i sieci wirtualnej, która może mieć tej samej nazwy jak inne zasoby, użyj następującego formatu:
 
 ```json
 "dependsOn": [
@@ -59,14 +59,14 @@ Podczas definiowania zależności, mogą obejmować hello zasobów dostawcy prze
 ]
 ``` 
 
-Może być odchylona toouse dependsOn toomap relacje między zasobami, jest ważne toounderstand Dlaczego podczas jej wykonywania. Na przykład toodocument jak zasoby są połączone ze sobą, dependsOn nie jest hello podejście. Nie można wykonać zapytania, które zasoby zostały zdefiniowane w elemencie dependsOn powitania po wdrożeniu. Za pomocą dependsOn, możesz potencjalnie wpływ czas wdrażania, ponieważ Menedżer zasobów nie wdraża równoległych dwa zasoby, które mają zależności. Zamiast tego użyj toodocument relacje między zasobami, [łączenia zasobów](/rest/api/resources/resourcelinks).
+Gdy może żądać na potrzeby mapowania relacje między zasobami dependsOn, ważne jest zrozumienie, dlaczego podczas jej wykonywania. Na przykład do dokumentów, jak zasoby są połączone ze sobą, dependsOn nie jest to prawy rozwiązanie. Nie można wykonać zapytania, które zasoby zostały zdefiniowane w elemencie dependsOn po wdrożeniu. Za pomocą dependsOn, możesz potencjalnie wpływ czas wdrażania, ponieważ Menedżer zasobów nie wdraża równoległych dwa zasoby, które mają zależności. Relacje między zasobami dokumentu, zamiast tego użyć [łączenia zasobów](/rest/api/resources/resourcelinks).
 
 ## <a name="child-resources"></a>Zasoby podrzędne
-Właściwość zasobów Hello pozwala toospecify podrzędne zasoby, które są powiązane toohello zasobów definiowanego. Zasoby podrzędne może być tylko zdefiniowanych głębokości pięciu poziomów. Należy utworzyć toonote niejawne zależności nie będący między zasobu podrzędnego i zasobu nadrzędnego hello. Jeśli konieczne hello wdrożyć po zasobu nadrzędnego hello toobe zasobów podrzędnych, musi jawnie określać tej zależności z hello dependsOn właściwości. 
+Właściwość zasobów pozwala określ zasoby podrzędne, które odnoszą się do zasobu został określony. Zasoby podrzędne może być tylko zdefiniowanych głębokości pięciu poziomów. Należy pamiętać nie utworzono niejawne zależności między zasobu podrzędnego i zasobu nadrzędnego. Jeśli potrzebujesz zasobu podrzędnego do wdrożenia po zasobu nadrzędnego musi jawnie określać tej zależności z właściwością dependsOn. 
 
-Każdy zasób nadrzędnego akceptuje tylko niektóre typy zasobów jako zasoby podrzędne. zaakceptowane Hello typów zasobów są określone w hello [schematu szablonu](https://github.com/Azure/azure-resource-manager-schemas) hello zasobu nadrzędnego. Witaj Nazwa typu zasobu podrzędnego obejmuje hello Nazwa typu zasobu nadrzędnego hello, takich jak **Microsoft.Web/sites/config** i **Microsoft.Web/sites/extensions** są zasobami podrzędnymi zarówno hello  **Microsoft.Web/sites**.
+Każdy zasób nadrzędnego akceptuje tylko niektóre typy zasobów jako zasoby podrzędne. Typy zasobów akceptowane są określone w [schematu szablonu](https://github.com/Azure/azure-resource-manager-schemas) zasobu nadrzędnego. Nazwa typu zasobu podrzędnego zawiera nazwę typu zasobu nadrzędnego, takich jak **Microsoft.Web/sites/config** i **Microsoft.Web/sites/extensions** są oba zasoby podrzędne o **Microsoft.Web/sites**.
 
-Witaj poniższy przykład przedstawia programu SQL server i bazy danych SQL. Zwróć uwagę, zdefiniowania jawne zależności między hello SQL database i programu SQL server, nawet jeśli hello bazy danych jest elementem podrzędnym powitania serwera.
+W poniższym przykładzie pokazano, SQL server i bazy danych SQL. Zwróć uwagę zdefiniowania jawne zależności między bazy danych SQL i programu SQL server, nawet, jeśli baza danych jest elementem podrzędnym serwera.
 
 ```json
 "resources": [
@@ -107,13 +107,13 @@ Witaj poniższy przykład przedstawia programu SQL server i bazy danych SQL. Zwr
 ```
 
 ## <a name="reference-function"></a>Odwołanie do funkcji
-Witaj [odwołania funkcji](resource-group-template-functions-resource.md#reference) umożliwia tooderive wyrażenie jego wartość z innych pary nazw i wartości JSON lub zasobów środowiska uruchomieniowego. Wyrażenia odwołania niejawnie deklaruje, że jeden zasób jest zależny od innego. format Ogólne Hello jest:
+[Odwołania funkcja](resource-group-template-functions-resource.md#reference) umożliwia wyrażenie ma być wartość z innych pary nazw i wartości JSON lub zasobów środowiska uruchomieniowego. Wyrażenia odwołania niejawnie deklaruje, że jeden zasób jest zależny od innego. Ogólny format to:
 
 ```json
 reference('resourceName').propertyPath
 ```
 
-W hello poniższy przykład punktu końcowego usługi CDN jawnie zależy od hello profilu CDN i niejawnie zależy od aplikacji sieci web.
+W poniższym przykładzie punktu końcowego usługi CDN jawnie zależy od profilu CDN i niejawnie zależy od aplikacji sieci web.
 
 ```json
 {
@@ -130,32 +130,32 @@ W hello poniższy przykład punktu końcowego usługi CDN jawnie zależy od hell
     }
 ```
 
-Można używać tego elementu albo hello zależności toospecify element dependsOn, ale nie ma potrzeby toouse zarówno dla hello tego samego zasobu zależnego. Jeśli to możliwe, należy użyć tooavoid niejawne odwołanie Dodawanie niepotrzebnych zależności.
+Aby określić zależności można użyć tego elementu lub dependsOn element, ale nie trzeba używać obu zasobów zależnych. Jeśli to możliwe, użyj niejawne odwołanie, aby uniknąć, dodawanie niepotrzebnych zależności.
 
-toolearn więcej, zobacz [odwołania funkcja](resource-group-template-functions-resource.md#reference).
+Aby dowiedzieć się więcej, zobacz [odwołania funkcja](resource-group-template-functions-resource.md#reference).
 
 ## <a name="recommendations-for-setting-dependencies"></a>Zalecenia dotyczące ustawiania zależności
 
-Podczas podejmowania decyzji o jakie tooset zależności, użyj hello następujące wytyczne:
+Podczas podejmowania decyzji o zależności, które można ustawić, skorzystaj z poniższych wskazówek:
 
 * Jak to możliwe, należy ustawić jako kilka zależności.
 * Ustaw zasobu podrzędnego jako zależy od jego zasobu nadrzędnego.
-* Użyj hello **odwołania** funkcji tooset niejawne zależności między zasobami, które wymagają tooshare właściwości. Nie dodawaj jawne zależności (**dependsOn**) podczas niejawnego zależności został już zdefiniowany. Takie podejście zmniejsza ryzyko hello niepotrzebnych zależności. 
-* Ustaw zależność zasobu nie może być **utworzony** bez funkcji z innego zasobu. Nie należy ustawiać zależność, jeśli zasoby hello komunikować się tylko po wdrożeniu.
-* Let zależności cascade bez jawnie ich ustawienia. Na przykład maszyny wirtualnej zależy od interfejsu sieci wirtualnej, a interfejs sieci wirtualnej hello jest zależna od sieci wirtualnej i publiczne adresy IP. W związku z tym hello maszyny wirtualnej jest wdrożone po wszystkich trzech zasoby, ale nie ustawiaj jawnie hello maszyny wirtualnej jako zależne od wszystkich trzech zasobów. Takie podejście wyjaśnia, kolejność zależności hello i umożliwia łatwiejsze szablonu hello toochange później.
-* Jeśli wartość można określić przed wdrożeniem, spróbuj wdrażanie zasobów hello bez zależności. Na przykład jeśli wartość konfiguracji musi hello nazwę innego zasobu, może być konieczne nie zależności. W tych wskazówkach nie zawsze działa, ponieważ niektóre zasoby Sprawdź istnienie hello hello innego zasobu. Jeśli wystąpi błąd, należy dodać zależności. 
+* Użyj **odwołania** funkcji, aby ustawić niejawne zależności między zasobami, które należy udostępnić właściwości. Nie dodawaj jawne zależności (**dependsOn**) podczas niejawnego zależności został już zdefiniowany. Takie podejście zmniejsza ryzyko niepotrzebnych zależności. 
+* Ustaw zależność zasobu nie może być **utworzony** bez funkcji z innego zasobu. Nie należy ustawiać zależność, jeśli zasoby komunikować się tylko po wdrożeniu.
+* Let zależności cascade bez jawnie ich ustawienia. Na przykład na komputerze wirtualnym zależy od interfejsu sieci wirtualnej, a interfejs sieci wirtualnej jest zależny od sieci wirtualnej i publiczne adresy IP. W związku z tym maszyny wirtualnej jest wdrożone po wszystkich trzech zasoby, ale nie ustawiaj jawnie maszynę wirtualną jako zależne od wszystkich trzech zasobów. Takie podejście wyjaśnia, kolejność zależności i ułatwia później zmienić szablonu.
+* Jeśli wartość można określić przed wdrożeniem, spróbuj wdrażanie zasobu bez zależności. Na przykład jeśli wartość konfiguracji wymaga innego zasobu, może być konieczne nie zależności. W tych wskazówkach nie zawsze działa, ponieważ niektóre zasoby sprawdzenia istnienia innego zasobu. Jeśli wystąpi błąd, należy dodać zależności. 
 
-Menedżer zasobów identyfikuje zależności cykliczne podczas walidacji szablonu. Jeśli zostanie wyświetlony komunikat o błędzie informujący, że istnieje zależność cykliczną, ocenić toosee Twojego szablonu, czy wszystkie zależności nie są wymagane i może zostać usunięta. Jeśli usuwanie zależności nie działa, można uniknąć zależności cykliczne przez przeniesienie niektórych operacji wdrażania do zasobów podrzędne, które są wdrażane po hello zasoby, które mają hello zależność cykliczną. Załóżmy na przykład wdrażasz dwóch maszyn wirtualnych, ale należy ustawić na każdej z nich, która odwołuje się toohello innych właściwości. Można je wdrożyć w hello w następującej kolejności:
+Menedżer zasobów identyfikuje zależności cykliczne podczas walidacji szablonu. Jeśli zostanie wyświetlony komunikat o błędzie informujący, że istnieje zależność cykliczną, ocenić szablonu czy wszelkie zależności nie są wymagane i mogą zostać usunięte. Jeśli usuwanie zależności nie działa, można uniknąć zależności cykliczne przez przeniesienie niektórych operacji rozmieszczania w zasoby podrzędne, które są wdrażane po zasoby, które mają zależność cykliczną. Załóżmy na przykład wdrażasz dwóch maszyn wirtualnych, ale należy ustawić na każdej z nich, która odwołuje się do innych właściwości. Można je wdrożyć w następującej kolejności:
 
 1. vm1
 2. maszyny vm2
-3. Rozszerzenie na vm1 zależy od vm1 i maszyny vm2. rozszerzenie Hello ustawia wartości vm1, który otrzymuje od maszyny vm2.
-4. Rozszerzenie maszyny vm2 zależy od vm1 i maszyny vm2. rozszerzenie Hello ustawia wartości maszyny vm2, który otrzymuje od vm1.
+3. Rozszerzenie na vm1 zależy od vm1 i maszyny vm2. Rozszerzenie ustawia wartości vm1, który otrzymuje od maszyny vm2.
+4. Rozszerzenie maszyny vm2 zależy od vm1 i maszyny vm2. Rozszerzenie ustawia wartości maszyny vm2, który otrzymuje od vm1.
 
-Uzyskać informacje o ocenie hello kolejność wdrażania i rozwiązywaniu problemów z błędami zależności, zobacz [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](resource-manager-common-deployment-errors.md).
+Informacje o ocenie kolejność wdrażania i rozwiązywaniu problemów z błędami zależności, zobacz [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
 ## <a name="next-steps"></a>Następne kroki
-* toolearn dotyczące rozwiązywania problemów z zależności podczas wdrażania, zobacz [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](resource-manager-common-deployment-errors.md).
-* toolearn o tworzeniu szablonów usługi Azure Resource Manager, zobacz [tworzenia szablonów](resource-group-authoring-templates.md). 
-* Aby uzyskać listę dostępnych funkcji hello w szablonie, zobacz [szablonu funkcji](resource-group-template-functions.md).
+* Aby uzyskać informacje dotyczące rozwiązywania problemów zależności podczas wdrażania, zobacz [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](resource-manager-common-deployment-errors.md).
+* Aby dowiedzieć się więcej na temat tworzenia szablonów usługi Azure Resource Manager, zobacz [tworzenia szablonów](resource-group-authoring-templates.md). 
+* Aby uzyskać listę dostępnych funkcji w szablonie, zobacz [szablonu funkcji](resource-group-template-functions.md).
 

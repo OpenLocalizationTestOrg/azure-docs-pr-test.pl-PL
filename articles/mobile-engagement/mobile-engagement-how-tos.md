@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Mobile Engagement interfejsu użytkownika — osiągnąć How"
+title: "Interfejs użytkownika usługi Azure Mobile Engagement - Reach porady"
 description: "Przegląd interfejsu użytkownika dla usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4b6dafd09d894214d4c386f5c6f157a77671606f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 33a0a9d0c399cb7f0a791c4c16dde2e2d62364ca
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooget-started-using-and-managing-pushes-tooreach-out-tooyour-end-users"></a>Jak tooget uruchomiony przy użyciu i zarządzanie wypchnięcia tooreach tooyour użytkowników końcowych
-Po hello zestawu SDK jest w pełni zintegrowany aplikacji, możesz rozpocząć pracę z sekcją hello hello Reach hello interfejsu użytkownika tooPush powiadomienia toohello użytkowników aplikacji.  
+# <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Jak rozpocząć pracę przy użyciu i zarządzanie wypchnięcia dotrzeć do użytkowników końcowych
+Po użyciu zestawu SDK jest w pełni zintegrowana w swojej aplikacji, możesz rozpocząć pracę przy użyciu sekcji Reach interfejsu użytkownika powiadomień wypychanych do użytkowników aplikacji.  
 
 ## <a name="do-your-first-push-notification-campaign"></a>Czy pierwszy kampanię powiadomień wypychanych
-* Upewnij się, że zasięg jest zintegrowana z aplikacji za pomocą hello zestawu SDK. 
+* Upewnij się, że zasięg jest zintegrowana z aplikacji przy użyciu zestawu SDK. 
 * Wybierz aplikację
 
 ![First1][1]
 
-* Przejdź do sekcji "Reach" i kliknij przycisk "nowy anons" toohello
+* Przejdź do sekcji "Reach" i kliknij przycisk "nowy anons"
 
 ![First2][2]
 
@@ -37,19 +37,19 @@ Po hello zestawu SDK jest w pełni zintegrowany aplikacji, możesz rozpocząć p
   
 ![First3][3]
 
-* Wybierz sposób hello powiadomienie ma zostać dostarczony, w aplikacji tylko
+* Wybierz sposób powiadomienie ma zostać dostarczony, w aplikacji tylko
 
 ![First4][4]
 
-* Utwórz wiadomość hello, które chcesz toopush
+* Tworzenie wiadomości, którą chcesz dystrybuować
 
 ![First5][5]
 
-* Tytuł mogą zapisywać na powitania powiadomienia (opcjonalnie).
+* Tytuł mogą zapisywać na powiadomienia (opcjonalnie).
 * Zapisanie zawartości wiadomości wypychanych.
-* Możesz przekazać obraz. Należy pamiętać, że rozmiar hello hello pliku nie może przekraczać 32 768 bajtów.
-* Masz również tooselect możliwości hello dalsze opcje, ale dla zespołu hello tego samouczka, należy sprawdzić, które później.
-* Wybierz typ zawartości hello tylko jako powiadomienie
+* Możesz przekazać obraz. Należy pamiętać, że rozmiar pliku nie może przekraczać 32 768 bajtów.
+* Istnieje również możliwość wybrania dalsze opcje, ale dla zespołu w tym samouczku, należy sprawdzić, które później.
+* Wybierz typ zawartości tylko jako powiadomienie
 
 ![First6][6]
 
@@ -61,58 +61,58 @@ Po hello zestawu SDK jest w pełni zintegrowany aplikacji, możesz rozpocząć p
 ![Test1][8]
 
 * Zarejestruj urządzenie.
-* Kliknij przycisk wyboru hello hello urządzenia ma toopush.
-* Kliknij na powitania "Test" przycisk toosend hello wypychania toohello urządzenia.
+* Kliknij pole wyboru urządzenia, które chcesz dystrybuować.
+* Kliknij przycisk "Test", aby wysłać powiadomienia wypychanego na urządzeniu.
 
 ![Test2][9]
 
-* Aktywuj hello kampanii
+* Aktywowania kampanii
 
 ![test3][10]
 
-* Teraz, po utworzeniu kampanii wystarczy tooactivate dla toobe powiadomień hello wypychana tooyour użytkowników.
+* Teraz, po utworzeniu kampanii wystarczy aktywować go w celu powiadomienia, aby zostać przeniesiony do użytkowników.
 
 ## <a name="send-personalized-pushes"></a>Wysyłanie spersonalizowanych Wypchnięć
-* W tym przykładzie tworzy wypychania, w którym kod niestandardowy rabatów jest wprowadzany do powiadomień wypychanych hello.
+* W tym przykładzie tworzy wypychania, w którym kod niestandardowy rabatów jest wprowadzany do powiadomień wypychanych.
 
 ![Personalize1][11]
 
-Personalizacja działa przez zastąpienie znacznika przez z tagu informacje o aplikacji tak, będziesz mieć toomake się, że użytkownik hello ma hello odpowiednie informacje o aplikacji najpierw zdefiniowane. W tym hello przykład docelowych użytkownicy będą mieć tag informacje o aplikacji o nazwie rebate_code zdefiniowane.
-Jak widać powyżej zawartości powiadomienia wypychanego hello obejmuje $ znacznika hello {rebate_code}, która oznacza, że jego toobe zastępuje hello rzeczywistej zawartości tagu informacje o aplikacji hello.
+Personalizacja działa przez zastąpienie znacznika przez z tagu informacje o aplikacji tak, będzie konieczne upewnij się, że użytkownik ma odpowiednie app-info najpierw zdefiniowane. W tym przykładzie docelowe użytkownicy będą mieć tag informacje o aplikacji o nazwie rebate_code zdefiniowane.
+Jak widać powyżej zawartości powiadomienia wypychanego obejmuje $ znacznika {rebate_code}, które będzie wskazywać, że ma zostać zastąpione przez rzeczywistej zawartości tagu informacje o aplikacji.
 
 > [!WARNING]
-> Tag informacje o aplikacji hello nie jest zdefiniowany dla użytkownika hello, hello użytkownika nie będą otrzymywać hello wypychania.
+> Tag informacje o aplikacji nie jest zdefiniowany dla użytkownika, użytkownik nie będą otrzymywać powiadomienia wypychanego.
 
 * wynik
 
 ![Personalize2][12]
 
-### <a name="you-can-further-personalize-hello-text-your-notification"></a>Można dodatkowo spersonalizować tekst hello powiadomienia
+### <a name="you-can-further-personalize-the-text-your-notification"></a>Można dodatkowo spersonalizować tekst powiadomienia
 ![Personalize3][13]
 
-* W tym tytuł hello powiadomień hello
-* I hello treści wiadomości powitania.
-* Wybierz typ hello anonsu (tekstu, widoku lub widok sieci Web)
+* W tym tytuł powiadomienia
+* I treści wiadomości.
+* Wybierz typ anonsu (tekstu, widoku lub widok sieci Web)
 
 ![Personalize4][14]
 
-### <a name="hello-body-of-an-announcement-may-also-be-personalized-with"></a>Witaj treść powiadomienia mogą również można spersonalizować z:
-* adres URL akcji Hello, powinien ma hello toocustomize strona początkowa
-* Tytuł Hello
-* Treść wiadomości powitania Hello.
+### <a name="the-body-of-an-announcement-may-also-be-personalized-with"></a>Treść anonsu może być również spersonalizowanych z:
+* Adres URL akcji powinna chcesz dostosować strony docelowej
+* Tytuł,
+* Treść wiadomości.
 
 ## <a name="differentiate-your-push-notification-in-or-out-of-app"></a>Rozróżnianie Your Push Notification (w lub poza aplikacją)
-* Wybierz typ hello powiadomień wypychanych, wybierz aplikację, przejdź do sekcji "Reach" toohello, wybierz lub utworzysz kampanii wypychania i przejdź do sekcji "Powiadomienia" toohello.
-* Kliknij na "dostarczanie tryb" hello ma.
-* Polecenie powitalne "Ograniczanie działania" wyboru Jeśli chcesz, aby powiadomienia hello występuje na określonych działaniami (ekranami).
+* Wybierz typ powiadomienia push, wybierz aplikację, przejdź do sekcji "Osiągnąć", wybierz lub utworzysz kampanii wypychania i przejdź do sekcji "Powiadomienia".
+* Kliknij na "dostarczanie tryb".
+* Kliknij pole wyboru "Ogranicz działania", jeśli chcesz, aby powiadomienia występuje na określonych działaniami (ekranami).
 
 ![Differentiate1][15]
 
 ### <a name="out-of-app-only-delivery-mode"></a>Dostawy "Tylko poza aplikacją"
 ![Differentiate2][16]
 
-"Tylko poza aplikacją" tryb dostarczania zapewnia powiadomienie wypychane po zamknięciu aplikacji hello. To powiadomienie wypychane standardowe hello.
-Po wybraniu "tylko poza aplikacją", musi już podano hello certyfikatów z hello platforma, która tworzy aplikację na (APN lub GCM).
+"Tylko poza aplikacją" dostawy zapewnia powiadomień wypychanych, gdy aplikacja zostanie zamknięta. To powiadomienie wypychane standardowa.
+Po wybraniu "tylko poza aplikacją", musi już podano certyfikatów od platformy, która tworzy aplikację na (APN lub GCM).
 
 ### <a name="see-also"></a>Zobacz też
 * [Certyfikatów Apple Push Notification Service —](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), [Google Cloud Messaging — certyfikat](http://developer.android.com/google/gcm/index.html) 
@@ -120,75 +120,75 @@ Po wybraniu "tylko poza aplikacją", musi już podano hello certyfikatów z hell
 ### <a name="in-app-only-delivery-mode"></a>"w aplikacji tylko" dostawy
 ![Differentiate3][17]
 
-Dostawy "W aplikacji tylko" zapewnia powiadomień wypychanych, gdy aplikacja hello jest uruchomiona.
-Dla tego powiadomienia nie trzeba toogo za pośrednictwem hello APNS i GCM systemu.
-Możesz użyć tooreach system dostarczania w aplikacji hello użytkowników końcowych.
-Można w pełni dostosować hello powiadomień i zdecydować, w którym działanie (ekran) hello powiadomienie będzie wyświetlane.
+"W aplikacji tylko" dostawy zawiera powiadomień wypychanych, gdy aplikacja jest uruchomiona.
+Dla tego powiadomienia nie musisz przejść za pomocą systemu APNS i usługi GCM.
+System dostarczania w aplikacji można użyć do użytkowników końcowych.
+Można w pełni dostosować powiadomienia i zdecydować, w którym działanie (ekran) powiadomienia będą wyświetlane.
 
 ### <a name="anytime-delivery-mode"></a>"W każdej chwili" dostawy
-Można wybrać dostawy "W każdej chwili", zapewnia, że użytkownik końcowy czy hello tooreach lub nie jest uruchomiona aplikacja.
-Po wybraniu opcji "W każdej chwili" musi już podano hello certyfikatów z hello platforma, która tworzy aplikację (APN lub GCM). 
+Można wybrać dostawy "W każdej chwili", zapewnia, że do osiągnięcia użytkownika końcowego, czy aplikacja jest uruchomiona lub nie.
+Po wybraniu opcji "W każdej chwili" musi już podano certyfikatów od platformy, która tworzy aplikację (APN lub GCM). 
 
 ## <a name="schedule-a-push-campaign"></a>Harmonogram kampanii wypychania
-### <a name="plan-toostart-a-campaign"></a>Planowanie tooStart kampanii
+### <a name="plan-to-start-a-campaign"></a>Zamierzasz uruchomić kampanii
 ![Shedule1][18]
 
-Jest on hello 21 marca i masz toomake anons i być to planowane dla hello 22 marca o północy. Nie masz toostay przed toodo interfejsu hello wypychanej! Można zaplanować z wyprzedzeniem hello dokładne minutę będą wysyłane powiadomienia.
+Jest 21 marca z i możesz mieć anons, aby i być to planowane dla 22 z marca o północy. Nie masz pozostanie przed interfejs w celu wypychania! Można zaplanować z wyprzedzeniem dokładne minutę, który będą wysyłane powiadomienia.
 
-* Usuń zaznaczenie Witaj, "None" wyboru i wybierz czas rozpoczęcia 
-* Wybierz hello daty i czasu hello ma toostart hello wypychania kampanii.
+* Usuń zaznaczenie "None" wyboru i wybierz czas rozpoczęcia 
+* Wybierz datę i godzinę, o których chcesz uruchomić kampanii wypychania.
 
-### <a name="plan-tooend-a-campaign"></a>Planowanie tooend kampanii
+### <a name="plan-to-end-a-campaign"></a>Planowanie zakończenia kampanii
 ![Shedule2][19]
 
-Ma toostop Twojego kampanii na powitania 25 marca godzinie 3:00, ale wiesz, że użytkownik nie będzie toodo go.
-Nie masz toostay przed toopush interfejsu Witaj! Można zaplanować z wyprzedzeniem hello dokładne minutę kampania zostanie zatrzymana.
+Ma kampanii można zatrzymać na 25 z marca godzinie 3:00, ale wiesz, że użytkownik nie będzie to zrobić.
+Nie masz pozostanie przed interfejs służący do wypychania! Można zaplanować z wyprzedzeniem dokładne minutę kampania zostanie zatrzymana.
 
-* Kliknij na powitania "None" wyboru lub wybierz czas zakończenia
-* Wybierz hello daty i czasu hello ma toofinish hello wypychania kampanii.
+* Kliknij na "Brak" wyboru lub wybierz czas zakończenia
+* Wybierz datę i godzinę, o których chcesz zakończyć kampanię wypychania.
 
 ### <a name="end-a-campaign-manually"></a>Ręcznie zakończenia kampanii
 ![Shedule3][20]
 
-Domyślnie program hello "None" są zaznaczone pola wyboru.
-To oznacza, że hello kampania rozpocznie się zaraz po aktywowaniu w hello osiągnąć sekcji i zakończenia, gdy przestanie na powitania osiągną sekcji.
+Domyślnie "None" są zaznaczone pola wyboru.
+Oznacza to, że kampania rozpocznie się natychmiast Aktywuj ją w sekcji reach i zakończy się, gdy przestanie w sekcji reach.
 
 > [!NOTE]
-> Kampanie utworzone bez daty zakończenia przechowywania wypychania hello lokalnie na urządzeniu hello i pokazać hello następnym otwarciu aplikacji hello nawet wtedy, gdy kończy się ręcznie hello kampanii.
+> Kampanie utworzone bez daty zakończenia przechowywania naciśnięcie lokalnie na urządzeniu i pokazać przy następnym otwarciu aplikacji, nawet jeśli ręcznie zakończenia kampanii.
 
 ## <a name="enhance-a-push-notification-with-a-text-view"></a>Ulepszanie powiadomienie wypychane z widoku tekstu
 ### <a name="what-is-a-text-view"></a>Co to jest widoku tekstu?
 ![TextView1][21]
 
-Widok tekstu jest okno podręczne z zawartością tekstu. Są one wyświetlane po hello użytkownik końcowy kliknie powiadomienie wypychane hello.
-Widok tekstu umożliwia toopresent więcej zawartości tooyour użytkownika końcowego. Dotyczy to również hello możliwości toopresent tooaction wywołanie, takich jak przeskakiwanie tooa strony aplikacji, przekierowywanie magazynu tooa, otwarcie strony sieci web, wysyłanie wiadomości e-mail, uruchamianie wyszukiwania z lokalizacją geograficzną itp...
+Widok tekstu jest okno podręczne z zawartością tekstu. Są one wyświetlane po użytkownik końcowy kliknie powiadomienie wypychane.
+Widok tekstu umożliwia prezentowanie więcej zawartości do użytkownika końcowego. Dotyczy to również możliwość przedstawienia wywołanie akcji, takich jak przechodzenie do strony aplikacji, przekierowanie do sklepu, otwarcie strony sieci web, wysyłanie wiadomości e-mail, rozpoczynania wyszukiwania z lokalizacją geograficzną itp...
 
 ### <a name="example-text-view"></a>Przykład: Wyświetlanie tekstu
-* Utworzyć kampanię powiadomień wypychanych w sekcji "Osiągnąć" hello i nadaj nazwę kampanii
+* W sekcji "Reach" utworzyć kampanię powiadomień wypychanych i nadaj nazwę kampanii
 
 ![TextView2][22]
 
-* Wpisz wiadomość hello, która będzie wyświetlana na hello powiadomień.
-* Wybierz powiadomienia typ zawartości "tekst" hello
+* Wpisz komunikat, który będzie wyświetlany na powiadomienia.
+* Wybierz typ zawartości "text" anonsu
 
 ![TextView3][23]
 
 > [!NOTE]
 > Po naciśnięciu widoku tekstu, zawsze pochodzi z powiadomienie najpierw. 
 
-* Zdefiniuj tekst hello (po dokonaniu wyboru hello tekst anons zawartości, pojawi się podsekcja hello, umożliwiając toodefine hello tekst, który ma toobe wyświetlane.)
+* Zdefiniuj tekst (po dokonaniu wyboru anons zawartości tekstowej, pojawi się podsekcja możliwość definiowania tekst, który ma być wyświetlana.)
 
 ![TextView4][24]
 
-* Wpisz tytuł hello, który będzie wyświetlany u góry hello wiadomość hello.
-* Zapisanie zawartości głównego hello hello widoku tekstu.
-* Zapisu hello zawartości, który będzie wyświetlany na przycisku akcji hello (przycisku akcji umożliwia toomake aplikacji hello określonej akcji, takich jak otwieranie stron aplikacji hello, przekierowywanie tooan sklepu lub dowolnych źródeł, które można podać).
-* Zawartość hello zapisu, który będzie wyświetlany na przycisku zakończenia hello (klikając przycisk Zakończ hello widoku tekstu hello zniknie.)
-* Utworzyć kampanię powiadomień wypychanych i pojawi się na liście kampanii hello.
+* Wpisz tytuł, który będzie wyświetlany w górnej części wiadomości.
+* Wpisz głównego zawartość widoku tekstu.
+* Zapisu zawartości, który będzie wyświetlany na przycisku akcji (przycisku akcji umożliwia aplikacji, aby wprowadzić określonej akcji, takich jak otwieranie stron aplikacji, przekierowanie do sklepu z aplikacjami lub dowolnych źródeł, które można podać).
+* Zapisu zawartości, który będzie wyświetlany na przycisku zakończenia (klikając przycisk Zakończ, widoku tekstu znikną.)
+* Utworzyć kampanię powiadomień wypychanych i pojawi się na liście kampanii.
 
 ![TextView5][25]
 
-* Aktywuj wypychania powiadomień kampanii toosend hello tekst widoku tooyour użytkowników.
+* Aktywować kampanię powiadomień wypychanych do wysyłania widoku tekstu dla użytkowników.
 
 ![TextView6][26]
 
@@ -196,51 +196,51 @@ Widok tekstu umożliwia toopresent więcej zawartości tooyour użytkownika koń
 
 ![TextView7][27]
 
-* Witaj użytkownik otrzymuje powiadomienie hello i kliknij go.
-* Widok tekstu Hello jest wyświetlany jako wyskakujących zezwalanie hello użytkownika toointeract z nim.
+* Użytkownik otrzymuje powiadomienie i kliknij go.
+* Wyświetl tekst jest wyświetlany jako okno podręczne, co pozwala na interakcję z nią.
 
 ## <a name="enhance-a-push-notification-with-a-web-view"></a>Ulepszanie powiadomienie wypychane z widoku sieci Web
 ### <a name="what-is-a-web-view"></a>Co to jest widok sieci Web?
 ![WebView1][28]
 
-Widok sieci web jest okno podręczne z zawartością sieci web. Są one wyświetlane, gdy hello użytkownik końcowy kliknie powiadomienie wypychane hello.
-Widok sieci web umożliwia toohave poszerzyć interakcję z hello przez użytkownika końcowego.
-Dotyczy to również hello możliwości toopresent tooaction wywołanie, takich jak przekierowanie tooApp magazynu, otwarcie strony sieci web, wysyłanie wiadomości e-mail, uruchamianie wyszukiwania z lokalizacją geograficzną itp...
+Widok sieci web jest okno podręczne z zawartością sieci web. Są one wyświetlane, gdy użytkownik końcowy kliknie powiadomienie wypychane.
+Widok sieci Web pozwala poszerzyć interakcję z użytkownikami końcowymi.
+Dotyczy to również możliwość przedstawienia wywołanie akcji, takich jak przekierowanie do sklepu z aplikacjami, otwarcie strony sieci web, wysyłanie wiadomości e-mail, rozpoczynania wyszukiwania lokalizacją geograficzną, itp...
 
 ### <a name="example-web-view"></a>Przykład: Widoku sieci Web
-* Utworzyć kampanię powiadomień wypychanych w sekcji "Osiągnąć" hello i nadaj nazwę kampanii.
+* Utworzyć kampanię powiadomień wypychanych w sekcji "Reach" i nadaj nazwę kampanii.
 
 ![WebView2][29]
 
-* Wpisz wiadomość hello, która będzie wyświetlana na hello powiadomień.
-* Wybierz hello anonsu typu zawartości jako "web".
+* Wpisz komunikat, który będzie wyświetlany na powiadomienia.
+* Wybierz typ zawartości anonsu jako "web".
 
 ![WebView3][30]
 
 ### <a name="about-announcement-types"></a>O typach anonsu:
-* Tylko powiadomienie: jest proste powiadomień w wersji standard. Co oznacza, że jeśli użytkownik go kliknie, bez dodatkowego widoku będą wyświetlane, ale tylko hello akcji skojarzonych tooit nastąpi.
-* Tekst anonsu: to powiadomienie, które angażujący toohave użytkownika hello przyjrzeć się widoku tekstu.
-* Sieci Web anonsu: to powiadomienie, które angażujący toohave użytkownika hello przyjrzeć się widok sieci web.
-  Wybierz hello zawartość "Anonsu Web".
+* Tylko powiadomienie: jest proste powiadomień w wersji standard. Oznacza to, że jeśli użytkownik go kliknie, bez dodatkowego widoku będą wyświetlane, ale zostanie przeprowadzona tylko akcję skojarzoną do niego.
+* Tekst anonsu: to powiadomienie, które angażujący użytkownikowi przyjrzeć widoku tekstu.
+* Sieci Web anonsu: to powiadomienie, które angażujący użytkownikowi przyjrzeć widoku sieci web.
+  Wybierz zawartość "Anonsu Web".
 
 > [!NOTE]
 > Po naciśnięciu widoku sieci web, zawsze pochodzi z powiadomienie najpierw.
 
-* Zdefiniuj zawartość sieci web hello (po dokonaniu wyboru hello sieci web anonsu zawartości, pojawi się podsekcji hello, umożliwiając toodefine hello zawartości sieci web widoku ma toobe wyświetlane.)
+* Zdefiniuj zawartość sieci web (po dokonaniu wyboru zawartości sieci web anonsu, pojawi się podsekcję możliwość definiowania zawartość widoku sieci web, które mają być wyświetlane.)
 
 ![WebView4][31]
 
-* Wpisz tytuł hello, który będzie wyświetlany u góry hello wiadomość hello (opcjonalnie).
+* Wpisz tytuł, który będzie wyświetlany w górnej części komunikatu (opcjonalnie).
 * Wpisz tutaj swój kod HTML.
-* Kliknij źródło hello edition tooswitch przycisk trybu edycji i zobacz, jak wygląda.
-* Zapisu hello zawartości, który będzie wyświetlany na przycisku akcji hello (przycisku akcji umożliwia toomake aplikacji hello określonej akcji, takich jak otwieranie stron aplikacji hello, przekierowywanie tooa magazynu lub dowolny rodzaj źródeł, które można podać).
-* Zawartość hello zapisu, który będzie wyświetlany na przycisku zakończenia hello (przez kliknięcie przycisku zakończenia hello, widoku sieci web hello zniknie).
+* Kliknij źródło edycji przycisk Tryb przełącznika edition i zobacz, jak wygląda.
+* Zapisu zawartości, który będzie wyświetlany na przycisku akcji (przycisku akcji umożliwia aplikacji, aby wprowadzić określonej akcji, takich jak otwieranie stron aplikacji, przekierowanie do sklepu lub dowolny rodzaj źródeł, które można podać).
+* Zapisu zawartości, który będzie wyświetlany na przycisku zakończenia (klikając przycisk Zakończ, widoku sieci web zostanie usunięty).
 * wynik
 
 ![WebView5][32]
 
-* Użytkownik Hello hello powiadomienie i kliknij go.
-* Widok tekstu Hello jest wyświetlany jako wyskakujących zezwalanie hello użytkownika toointeract z nim.
+* Użytkownik otrzyma powiadomienie i kliknij go.
+* Wyświetl tekst jest wyświetlany jako okno podręczne, co pozwala na interakcję z nią.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-how-tos/First1.png

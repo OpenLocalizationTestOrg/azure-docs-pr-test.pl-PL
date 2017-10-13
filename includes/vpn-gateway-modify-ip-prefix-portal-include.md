@@ -1,47 +1,47 @@
-### <a name="noconnection"></a>prefiksy adresów brama IP toomodify sieci lokalnej — Brak połączenia bramy
+### <a name="noconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — brak połączenia bramy
 
-#### <a name="tooadd-additional-address-prefixes"></a>tooadd dodatkowe prefiksy adresów:
+#### <a name="to-add-additional-address-prefixes"></a>Aby dodać dodatkowe prefiksy adresów:
 
-1. Na powitania zasobu bramy sieci lokalnej w hello **ustawienia** kliknij **konfiguracji**.
-2. Dodawanie przestrzeni adresów IP hello w hello *Dodaj dodatkowy zakres adresów* pole.
-3. Kliknij przycisk **zapisać** toosave ustawień.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. Dodawanie przestrzeni adresów IP w *Dodaj dodatkowy zakres adresów* pole.
+3. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-#### <a name="tooremove-address-prefixes"></a>tooremove prefiksy adresów:
+#### <a name="to-remove-address-prefixes"></a>Aby usunąć prefiksy adresów:
 
-1. Na powitania zasobu bramy sieci lokalnej w hello **ustawienia** kliknij **konfiguracji**.
-2. Kliknij przycisk hello **"..."** na powitania wiersz zawierający prefiks hello ma tooremove.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. Kliknij przycisk **"..."** na wiersz zawierający prefiks chcesz usunąć.
 3. Kliknij przycisk **Usuń**.
-4. Kliknij przycisk **zapisać** toosave ustawień.
+4. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-### <a name="withconnection"></a>toomodify sieci lokalnej bramy prefiksów adresów IP - istniejące połączenie z bramą
+### <a name="withconnection"></a>Aby zmodyfikować prefiksy adresów IP bramy sieci lokalnej — istniejące połączenie bramy
 
-Połączenie bramy i mają tooadd lub usunąć prefiksy adresów IP hello zawarte w bramie sieci lokalnej, należy najpierw hello toodo następujące kroki w kolejności. Spowoduje to pewien przestój połączenia sieci VPN. Podczas modyfikowania prefiksów adresów IP, nie potrzebujesz bramy sieci VPN hello toodelete. Wystarczy tooremove hello połączenia.
+Jeśli istnieje już połączenie bramy i chcesz dodać lub usunąć prefiksy adresów IP zawarte w bramie Twojej sieci lokalnej, wykonaj kolejno następujące kroki. Spowoduje to pewien przestój połączenia sieci VPN. W przypadku modyfikowania prefiksów adresów IP nie musisz usuwać bramy sieci VPN. Musisz usunąć tylko połączenie.
 
-#### <a name="1-remove-hello-connection"></a>1. Usuń połączenie hello.
+#### <a name="1-remove-the-connection"></a>1. Usuń połączenie.
 
-1. Na powitania zasobu bramy sieci lokalnej w hello **ustawienia** kliknij **połączenia**.
-2. Kliknij przycisk hello **...**  hello wiersza dla każdego połączenia, następnie kliknij przycisk **usunąć**.
-3. Kliknij przycisk **zapisać** toosave ustawień.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **połączenia**.
+2. Kliknij przycisk **...**  wiersza dla każdego połączenia, następnie kliknij przycisk **usunąć**.
+3. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-#### <a name="2-modify-hello-address-prefixes"></a>2. Zmodyfikuj prefiksy adresów hello.
+#### <a name="2-modify-the-address-prefixes"></a>2. Zmodyfikuj prefiksy adresów.
 
-tooadd dodatkowe prefiksy adresów:
+Aby dodać dodatkowe prefiksy adresów:
 
-1. Na powitania zasobu bramy sieci lokalnej w hello **ustawienia** kliknij **konfiguracji**.
-2. Dodawanie przestrzeni adresów IP hello.
-3. Kliknij przycisk **zapisać** toosave ustawień.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. Dodawanie przestrzeni adresów IP.
+3. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-tooremove prefiksy adresów:
+Aby usunąć prefiksy adresów:
 
-1. Na powitania zasobu bramy sieci lokalnej w hello **ustawienia** kliknij **konfiguracji**.
-2. Kliknij przycisk hello **...**  na powitania wiersz zawierający prefiks hello ma tooremove.
+1. Dla zasobu bramy sieci lokalnej w **ustawienia** kliknij **konfiguracji**.
+2. Kliknij przycisk **...**  na wiersz zawierający prefiks do usunięcia.
 3. Kliknij przycisk **Usuń**.
-4. Kliknij przycisk **zapisać** toosave ustawień.
+4. Kliknij przycisk **zapisać** Aby zapisać ustawienia.
 
-#### <a name="3-recreate-hello-connection"></a>3. Utwórz ponownie połączenie hello.
+#### <a name="3-recreate-the-connection"></a>3. Utwórz ponownie połączenie.
 
-1. Przejdź toohello Brama sieci wirtualnej sieci wirtualnej. (Nie hello bramy sieci lokalnej.)
-2. Na powitania Brama sieci wirtualnej w hello **ustawienia** kliknij **połączenia**.
-3. Kliknij przycisk hello **+ Dodaj** tooopen hello **Dodaj połączenie** bloku.
+1. Przejdź do bramy sieci wirtualnej sieci wirtualnej. (Nie bramy sieci lokalnej.)
+2. W bramie sieci wirtualnej w **ustawienia** kliknij **połączenia**.
+3. Kliknij przycisk **+ Dodaj** otworzyć **Dodaj połączenie** bloku.
 4. Utwórz ponownie połączenie.
-5. Kliknij przycisk **OK** toocreate hello połączenia.
+5. Kliknij przycisk **OK** do utworzenia połączenia.

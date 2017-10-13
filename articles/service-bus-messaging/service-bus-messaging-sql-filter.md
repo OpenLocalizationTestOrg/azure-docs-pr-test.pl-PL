@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure odwołania do składni SQLFilter magistrali usług | Dokumentacja firmy Microsoft"
+title: "Odwołania do składni Azure Service Bus SQLFilter | Dokumentacja firmy Microsoft"
 description: "Szczegółowe informacje o SQLFilter gramatyki."
 services: service-bus-messaging
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.openlocfilehash: ea49d42e343a6b324eb34c7831ff6be2855346e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3aaec8f9b6a3bbcf814f771405c3b589de6f7ae0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sqlfilter-syntax"></a>Składnia SQLFilter
 
-A *SqlFilter* jest wystąpieniem hello [klasy SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)i reprezentuje wyrażenie filtru oparty na języku SQL, który jest porównywany [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). SqlFilter obsługuje standardu hello SQL 92.  
+A *SqlFilter* jest wystąpieniem [klasy SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)i reprezentuje wyrażenie filtru oparty na języku SQL, który jest porównywany [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). SqlFilter obsługuje standardu SQL 92.  
   
  Ten temat zawiera szczegółowe informacje o SqlFilter gramatyki.  
   
@@ -59,11 +59,11 @@ A *SqlFilter* jest wystąpieniem hello [klasy SqlFilter](/dotnet/api/microsoft.s
   
 ## <a name="arguments"></a>Argumenty  
   
--   `<scope>`opcjonalny ciąg wskazujący zakres hello hello jest `<property_name>`. Prawidłowe wartości to `sys` lub `user`. Witaj `sys` wartość wskazuje zakres systemu gdzie `<property_name>` jest nazwą właściwości publicznej o hello [BrokeredMessage klasy](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Wskazuje zakres użytkowników gdzie `<property_name>` jest kluczem elementu hello [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) słownika. `user`zakres jest hello domyślny zakres, jeśli `<scope>` nie jest określona.  
+-   `<scope>`opcjonalny ciąg wskazujący zakres jest `<property_name>`. Prawidłowe wartości to `sys` lub `user`. `sys` Wartość wskazuje zakres systemu gdzie `<property_name>` jest nazwą właściwości publicznej [BrokeredMessage klasy](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Wskazuje zakres użytkowników gdzie `<property_name>` jest kluczem elementu [klasy BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) słownika. `user`zakres jest zakres domyślny, jeśli `<scope>` nie jest określona.  
   
 ## <a name="remarks"></a>Uwagi
 
-Próba tooaccess właściwość nieistniejącą systemu jest wystąpił błąd podczas próby tooaccess do nieistniejącej użytkownika właściwości nie jest błąd. Zamiast tego właściwości użytkownika nieistniejącą wewnętrznie jest szacowana jako nieznaną wartość. Nieznana wartość jest traktowana specjalnie podczas obliczania operatora.  
+Próba dostępu do właściwości systemu nieistniejącą jest wystąpił błąd podczas próby dostępu do właściwości nie istnieje użytkownik nie jest błąd. Zamiast tego właściwości użytkownika nieistniejącą wewnętrznie jest szacowana jako nieznaną wartość. Nieznana wartość jest traktowana specjalnie podczas obliczania operatora.  
   
 ## <a name="propertyname"></a>Property_Name  
   
@@ -79,7 +79,7 @@ Próba tooaccess właściwość nieistniejącą systemu jest wystąpił błąd p
   
 ### <a name="arguments"></a>Argumenty  
 
- `<regular_identifier>`jest reprezentowany przez hello ciąg następujących wyrażenie regularne:  
+ `<regular_identifier>`ciąg jest reprezentowana przez następującym wyrażeniem regularnym:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -93,7 +93,7 @@ Ta gramatyka oznacza dowolny ciąg, który rozpoczyna się od litery i następuj
   
 A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.  
   
-`<delimited_identifier>`jest dowolny ciąg ujęty w lewo i prawo nawiasy kwadratowe ([]). Zamykający nawias kwadratowy jest reprezentowany jako dwa nawiasy kwadratowe prawo. Witaj poniżej przedstawiono przykłady `<delimited_identifier>`:  
+`<delimited_identifier>`jest dowolny ciąg ujęty w lewo i prawo nawiasy kwadratowe ([]). Zamykający nawias kwadratowy jest reprezentowany jako dwa nawiasy kwadratowe prawo. Poniżej przedstawiono przykłady `<delimited_identifier>`:  
   
 ```  
 [Property With Space]  
@@ -101,7 +101,7 @@ A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.
   
 ```  
   
-`<quoted_identifier>`jest dowolny ciąg, który jest ujęta w znaki podwójnego cudzysłowu. Podwójny cudzysłów w identyfikatorze jest reprezentowany jako podwójnego cudzysłowu. Nie zaleca się, że toouse identyfikatorów ponieważ można łatwo pomylić z stałą typu string. Jeśli to możliwe za pomocą rozdzielanej identyfikatora. Witaj poniżej przedstawiono przykład `<quoted_identifier>`:  
+`<quoted_identifier>`jest dowolny ciąg, który jest ujęta w znaki podwójnego cudzysłowu. Podwójny cudzysłów w identyfikatorze jest reprezentowany jako podwójnego cudzysłowu. Nie zaleca się użyć identyfikatory w cudzysłowach, ponieważ można łatwo pomylić z stałą typu string. Jeśli to możliwe za pomocą rozdzielanej identyfikatora. Poniżej przedstawiono przykład `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -116,7 +116,7 @@ A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.
   
 ### <a name="remarks"></a>Uwagi
   
-`<pattern>`musi być wyrażeniem, której wartość jest szacowana jako ciąg. Jest używana jako wzorzec dla hello LIKE operator.      Nazwa może zawierać powitania po symboli wieloznacznych:  
+`<pattern>`musi być wyrażeniem, której wartość jest szacowana jako ciąg. Jest używana jako wzorzec dla LIKE operator.      Może zawierać następujące znaki symboli wieloznacznych:  
   
 -   `%`: Dowolny ciąg zawierający zero lub więcej znaków.  
   
@@ -131,7 +131,7 @@ A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.
   
 ### <a name="remarks"></a>Uwagi  
 
-`<escape_char>`musi być wyrażeniem, której wartość jest szacowana jako ciąg o długości 1. Jest używany jako znak ucieczki dla hello LIKE operator.  
+`<escape_char>`musi być wyrażeniem, której wartość jest szacowana jako ciąg o długości 1. Jest używany jako znak ucieczki dla LIKE operator.  
   
  Na przykład `property LIKE 'ABC\%' ESCAPE '\'` odpowiada `ABC%` zamiast ciąg, który rozpoczyna się od `ABC`.  
   
@@ -144,7 +144,7 @@ A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.
   
 ### <a name="arguments"></a>Argumenty  
   
--   `<integer_constant>`to ciąg liczb, które nie są ujęte w cudzysłów i nie zawierają miejsc dziesiętnych. Witaj wartości są przechowywane jako `System.Int64` wewnętrznie, i wykonaj hello sam zakresu.  
+-   `<integer_constant>`to ciąg liczb, które nie są ujęte w cudzysłów i nie zawierają miejsc dziesiętnych. Wartości są przechowywane jako `System.Int64` wewnętrznie i postępuj zgodnie z tego samego zakresu.  
   
      Są to przykłady stałych długa:  
   
@@ -153,18 +153,18 @@ A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.
     2  
     ```  
   
--   `<decimal_constant>`to ciąg liczb, które nie są ujęte w cudzysłowy i zawierać separatorem dziesiętnym. Witaj wartości są przechowywane jako `System.Double` wewnętrznie i wykonaj hello tego samego zakresu/dokładności.  
+-   `<decimal_constant>`to ciąg liczb, które nie są ujęte w cudzysłowy i zawierać separatorem dziesiętnym. Wartości są przechowywane jako `System.Double` wewnętrznie i postępuj zgodnie z tego samego zakresu/dokładności.  
   
-     W przyszłych wersjach tego numeru mogą być przechowywane w różnych typu toosupport dokładne numer semantyki danych, nie będą miały hello fakt hello podstawowy typ danych jest `System.Double` dla `<decimal_constant>`.  
+     W przyszłych wersjach, ta liczba może być przechowywany w na inny typ danych do obsługi dokładne semantyki numer, nie należy polegać na fakcie odpowiadającego — typ danych jest `System.Double` dla `<decimal_constant>`.  
   
-     Witaj poniżej przedstawiono przykłady dziesiętną stałe:  
+     Poniżej przedstawiono przykłady dziesiętną stałe:  
   
     ```  
     1894.1204  
     2.0  
     ```  
   
--   `<approximate_number_constant>`jest numer napisanych w notacji naukowej. Witaj wartości są przechowywane jako `System.Double` wewnętrznie i wykonaj hello tego samego zakresu/dokładności. Witaj poniżej przedstawiono przykłady przybliżona number — stałe:  
+-   `<approximate_number_constant>`jest numer napisanych w notacji naukowej. Wartości są przechowywane jako `System.Double` wewnętrznie i postępuj zgodnie z tego samego zakresu/dokładności. Poniżej przedstawiono przykłady przybliżona number — stałe:  
   
     ```  
     101.5E5  
@@ -180,7 +180,7 @@ A `<regular_identifier>` nie może być zastrzeżonym słowem kluczowym.
   
 ### <a name="remarks"></a>Uwagi  
 
-Stałe typu logicznego są reprezentowane przez słowa kluczowe hello **TRUE** lub **FALSE**. Witaj wartości są przechowywane jako `System.Boolean`.  
+Stałe typu logicznego są reprezentowane przez słowa kluczowe **TRUE** lub **FALSE**. Wartości są przechowywane jako `System.Boolean`.  
   
 ## <a name="stringconstant"></a>string_constant  
   
@@ -202,13 +202,13 @@ Stałe typu String są ujęte w apostrofy i zawierać żadnych prawidłowych zna
   
 ### <a name="remarks"></a>Uwagi
   
-Witaj `newid()` funkcja zwraca **System.Guid** generowane przez hello `System.Guid.NewGuid()` metody.  
+`newid()` Funkcja zwraca **System.Guid** generowane przez `System.Guid.NewGuid()` metody.  
   
-Witaj `property(name)` funkcja zwraca wartość hello odwołuje się właściwość hello `name`. Witaj `name` wartość może być prawidłowym wyrażeniem, która zwraca wartość typu ciąg.  
+`property(name)` Funkcja zwraca wartość właściwości odwołuje się `name`. `name` Wartość może być prawidłowym wyrażeniem, która zwraca wartość typu ciąg.  
   
 ## <a name="considerations"></a>Zagadnienia do rozważenia
   
-Należy wziąć pod uwagę następujące hello [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantyka:  
+Należy rozważyć [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantyka:  
   
 -   Nazwy właściwości jest rozróżniana wielkość liter.  
   
@@ -216,33 +216,33 @@ Należy wziąć pod uwagę następujące hello [SqlFilter](/dotnet/api/microsoft
   
 -   Właściwości systemu są właściwości publiczne w [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) wystąpień.  
   
-    Należy wziąć pod uwagę następujące hello `IS [NOT] NULL` semantyka:  
+    Należy rozważyć `IS [NOT] NULL` semantyka:  
   
-    -   `property IS NULL`jest szacowana jako `true` albo hello właściwość nie istnieje lub hello wartość właściwości jest `null`.  
+    -   `property IS NULL`jest szacowana jako `true` Jeśli właściwość nie istnieje lub jest wartość właściwości `null`.  
   
 ### <a name="property-evaluation-semantics"></a>Semantyka oceny właściwości  
   
--   Tooevaluate próba zgłasza właściwości systemu nieistniejącą [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) wyjątku.  
+-   Próba oszacować właściwości nieistniejącego systemu powoduje [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) wyjątku.  
   
 -   Właściwość, która nie istnieje wewnętrznie jest szacowana jako **nieznany**.  
   
  Nieznany oceny w operatory arytmetyczne:  
   
--   Operatorów binarnych, jeśli hello albo po lewej i/lub po prawej stronie argumentów jest szacowana jako **nieznany**, a następnie wynik hello jest **nieznany**.  
+-   Dla operatorów binarnych, jeśli po lewej lub prawej stronie argumentów jest szacowana jako **nieznany**, a następnie wynik jest **nieznany**.  
   
--   Dla operatory jednoargumentowe, jeśli argument jest szacowana jako **nieznany**, a następnie wynik hello jest **nieznany**.  
+-   Dla operatory jednoargumentowe, jeśli argument jest szacowana jako **nieznany**, a następnie wynik jest **nieznany**.  
   
  Nieznany oceny w operatory binarne porównania:  
   
--   Jeśli hello albo po lewej i/lub po prawej stronie argumentów jest szacowana jako **nieznany**, a następnie wynik hello jest **nieznany**.  
+-   Jeśli po lewej lub prawej stronie argumentów jest oceniana jako **nieznany**, a następnie wynik jest **nieznany**.  
   
  Nieznany oceny w `[NOT] LIKE`:  
   
--   Jeśli wszystkie operand jest szacowana jako **nieznany**, wynik hello jest **nieznany**.  
+-   Jeśli wszystkie operand jest szacowana jako **nieznany**, to znajdują się **nieznany**.  
   
  Nieznany oceny w `[NOT] IN`:  
   
--   Jeśli hello lewej strony jest szacowana jako **nieznany**, a następnie wynik hello jest **nieznany**.  
+-   Jeśli lewy operand jest szacowana jako **nieznany**, a następnie wynik jest **nieznany**.  
   
  Nieznany oceny w **i** operator:  
   
@@ -274,9 +274,9 @@ Należy wziąć pod uwagę następujące hello [SqlFilter](/dotnet/api/microsoft
   
 ### <a name="operator-binding-semantics"></a>Semantyka powiązania — operator
   
--   Operatory porównania, takich jak `>`, `>=`, `<`, `<=`, `!=`, i `=` wykonaj hello sama semantykę jako operator hello C# powiązania danych typu promocji i niejawne konwersje.  
+-   Operatory porównania, takich jak `>`, `>=`, `<`, `<=`, `!=`, i `=` postępuj zgodnie z tej samej semantyki jako operator C# powiązanie w promocji typu danych i niejawne konwersje.  
   
--   Operatory arytmetyczne, takie jak `+`, `-`, `*`, `/`, i `%` wykonaj hello sama semantykę jako operator hello C# powiązania danych typu promocji i niejawne konwersje.
+-   Operatory arytmetyczne, takie jak `+`, `-`, `*`, `/`, i `%` postępuj zgodnie z tej samej semantyki jako operator C# powiązanie w promocji typu danych i niejawne konwersje.
 
 ## <a name="next-steps"></a>Następne kroki
 

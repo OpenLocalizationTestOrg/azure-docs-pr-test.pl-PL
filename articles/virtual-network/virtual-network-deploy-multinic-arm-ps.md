@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate Maszynę wirtualną z wieloma kartami sieciowymi — programu Azure PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate maszyny Wirtualnej z wielu kart sieciowych przy użyciu programu PowerShell."
+title: "Utwórz maszynę Wirtualną z wieloma kartami sieciowymi — programu Azure PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć Maszynę wirtualną z wieloma kartami sieciowymi przy użyciu programu PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 507a413510da3ee69aefed324977ee40e442268b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f3a11afd8fbd6a5e6b94cf1ebee7ea20665421bd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-powershell"></a>Utwórz maszynę Wirtualną z wieloma kartami sieciowymi przy użyciu programu PowerShell
 
@@ -34,19 +34,19 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md).  W tym artykule omówiono przy użyciu modelu wdrażania Menedżera zasobów hello, który firma Microsoft zaleca dla większości nowych wdrożeń zamiast hello [klasycznego modelu wdrażania](virtual-network-deploy-multinic-classic-ps.md).
+> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md).  Ten artykuł dotyczy używania modelu wdrażania usługi Resource Manager zalecanego przez firmę Microsoft w przypadku większości nowych wdrożeń zamiast [klasycznego modelu wdrażania](virtual-network-deploy-multinic-classic-ps.md).
 >
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Witaj następujące kroki Użyj grupy zasobów o nazwie *IaaSStory* hello serwerów sieci WEB oraz grupę zasobów o nazwie *IaaSStory zaplecza* dla serwerów hello bazy danych.
+Poniższe kroki Użyj grupy zasobów o nazwie *IaaSStory* dla serwerów sieci WEB i grupy zasobów o nazwie *IaaSStory zaplecza* dla serwerów baz danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Przed utworzeniem hello serwerów bazy danych, należy toocreate hello *IaaSStory* grupy zasobów z wszystkie niezbędne zasoby hello w tym scenariuszu. ukończenie tych zasobów, toocreate hello następujące kroki:
+Przed utworzeniem serwerów bazy danych, należy utworzyć *IaaSStory* grupy zasobów z wszystkie niezbędne zasoby dotyczące tego scenariusza. Aby utworzyć tych zasobów, wykonaj następujące kroki:
 
-1. Przejdź za[strony szablonu hello](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Na stronie szablon hello toohello po prawej **nadrzędnej grupy zasobów**, kliknij przycisk **wdrażanie tooAzure**.
-3. W razie potrzeby zmień wartości parametrów hello, a następnie wykonaj kroki hello w grupie zasobów hello toodeploy portalu Azure w wersji zapoznawczej hello.
+1. Przejdź do [strony szablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. Na stronie szablonu z prawej strony **grupy zasobów nadrzędnej**, kliknij przycisk **wdrażanie na platformie Azure**.
+3. W razie potrzeby zmień wartości parametrów, a następnie wykonaj kroki w portalu Azure w wersji zapoznawczej, aby wdrożyć grupę zasobów.
 
 > [!IMPORTANT]
 > Upewnij się, że nazwy konta magazynu są unikatowe. Nie może mieć nazwy konta magazynu zduplikowanych na platformie Azure.
@@ -54,17 +54,17 @@ Przed utworzeniem hello serwerów bazy danych, należy toocreate hello *IaaSStor
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-hello-back-end-vms"></a>Tworzenie hello zaplecza maszyn wirtualnych
-Hello zaplecza maszyny wirtualne są zależne od utworzenia hello hello następujące zasoby:
+## <a name="create-the-back-end-vms"></a>Tworzenie maszyn wirtualnych zaplecza
+Maszyny wirtualne zaplecza są zależne od utworzenie następujących zasobów:
 
-* **Konto magazynu dla dysków z danymi**. W celu poprawy wydajności hello dysków z danymi na serwerach bazy danych hello użyje półprzewodnikowych (SSD) dysku technologii, która wymaga konta magazynu w warstwie premium. Upewnij się, że hello wdrożyć magazyn w warstwie premium toosupport lokalizacji platformy Azure.
+* **Konto magazynu dla dysków z danymi**. W celu poprawy wydajności dysków danych na serwerach bazy danych będzie używać półprzewodnikowych (SSD) dysku technologii, która wymaga konta magazynu w warstwie premium. Upewnij się, lokalizacja platformy Azure, można wdrożyć na obsługuje usługi premium storage.
 * **Karty sieciowe**. Każda maszyna wirtualna będzie mieć dwie karty sieciowe, jeden dla dostępu do bazy danych, a drugi do zarządzania.
-* **Zestaw dostępności**. Wszystkie serwery baz danych zostanie dodany zestaw dostępności pojedynczego tooa, tooensure co najmniej jeden z maszyn wirtualnych hello jest uruchomiona podczas konserwacji.  
+* **Zestaw dostępności**. Wszystkie serwery baz danych zostanie dodany do jednej dostępności ustawić, aby upewnić się, że co najmniej jeden z maszynami wirtualnymi i systemem podczas konserwacji.  
 
 ### <a name="step-1---start-your-script"></a>Krok 1 — Uruchom skrypt
-Możesz pobrać hello używane pełne skrypt programu PowerShell [tutaj](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Wykonaj kroki hello poniżej toochange hello skryptu toowork w danym środowisku.
+Możesz pobrać pełną skrypt programu PowerShell używane [tutaj](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Wykonaj poniższe kroki, aby zmienić skryptu do pracy w środowisku.
 
-1. Zmień hello wartości zmiennych hello poniżej oparte na istniejącej grupie zasobów wdrożone powyżej w [wymagania wstępne](#Prerequisites).
+1. Zmienianie wartości zmiennych poniżej oparte na istniejącej grupie zasobów wdrożone powyżej w [wymagania wstępne](#Prerequisites).
 
     ```powershell
     $existingRGName        = "IaaSStory"
@@ -75,7 +75,7 @@ Możesz pobrać hello używane pełne skrypt programu PowerShell [tutaj](https:/
     $stdStorageAccountName = "wtestvnetstoragestd"
     ```
 
-2. Zmień hello wartości zmiennych hello poniżej na podstawie wartości hello ma toouse wdrożenia wewnętrznej bazy danych.
+2. Zmienianie wartości zmiennych poniżej na podstawie wartości, który ma być używany dla danego wdrożenia wewnętrznej bazy danych.
 
     ```powershell
     $backendRGName         = "IaaSStory-Backend"
@@ -94,7 +94,7 @@ Możesz pobrać hello używane pełne skrypt programu PowerShell [tutaj](https:/
     $ipAddressPrefix       = "192.168.2."
     $numberOfVMs           = 2
     ```
-3. Pobrać hello istniejące zasoby potrzebne do wdrożenia.
+3. Pobrać istniejących zasobów niezbędnych do wdrożenia.
 
     ```powershell
     $vnet                  = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
@@ -104,14 +104,14 @@ Możesz pobrać hello używane pełne skrypt programu PowerShell [tutaj](https:/
     ```
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>Krok 2 — Tworzenie niezbędne zasoby dla maszyn wirtualnych
-Potrzebujesz toocreate nową grupę zasobów, konto magazynu dla dysków z danymi hello, oraz zbiór dostępności dla wszystkich maszyn wirtualnych. Możesz też konieczne poświadczeń konta administratora lokalnego powitania dla każdej maszyny Wirtualnej. wykonanie tych zasobów, toocreate hello następujące kroki.
+Należy utworzyć nową grupę zasobów, konto magazynu dla dysków z danymi i zbiór dostępności dla wszystkich maszyn wirtualnych. Możesz też konieczne poświadczeń konta administratora lokalnego dla każdej maszyny Wirtualnej. Aby utworzyć tych zasobów, należy wykonać następujące kroki.
 
 1. Utwórz nową grupę zasobów.
 
     ```powershell
     New-AzureRmResourceGroup -Name $backendRGName -Location $location
     ```
-2. Utwórz nowe konto magazynu premium w grupie zasobów hello utworzone powyżej.
+2. Utwórz nowe konto magazynu premium w grupie zasobów utworzone powyżej.
 
     ```powershell
     $prmStorageAccount = New-AzureRmStorageAccount -Name $prmStorageAccountName `
@@ -122,22 +122,22 @@ Potrzebujesz toocreate nową grupę zasobów, konto magazynu dla dysków z danym
     ```powershell
     $avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
     ```
-4. Pobierz administratora lokalnego hello toobe poświadczenia konta używane dla każdej maszyny Wirtualnej.
+4. Uzyskiwanie poświadczeń konta używanego do każdej maszyny Wirtualnej administratora lokalnego.
 
     ```powershell
-    $cred = Get-Credential -Message "Type hello name and password for hello local administrator account."
+    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
     ```
 
-### <a name="step-3---create-hello-nics-and-back-end-vms"></a>Krok 3 — Tworzenie hello karty sieciowe i zaplecza maszyny wirtualne
-Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello niezbędne karty sieciowe i maszyn wirtualnych w pętli hello. toocreate hello kart sieciowych i maszyn wirtualnych, należy wykonać hello następujące kroki.
+### <a name="step-3---create-the-nics-and-back-end-vms"></a>Krok 3 — Tworzenie kart sieciowych i zaplecza maszyny wirtualne
+Należy użyć pętli można utworzyć dowolną liczbę maszyn wirtualnych, jak i utworzyć niezbędne karty sieciowe i maszyn wirtualnych w pętli. Aby utworzyć karty sieciowe i maszyn wirtualnych, należy wykonać następujące kroki.
 
-1. Uruchom `for` hello toorepeat pętli polecenia toocreate Maszynę wirtualną i dwie karty sieciowe, jak tyle razy, na podstawie hello wartości hello `$numberOfVMs` zmiennej.
+1. Uruchom `for` pętli powtórzeń poleceń, aby utworzyć Maszynę wirtualną i dwie karty sieciowe jako tyle razy, ile to konieczne, na podstawie wartości z `$numberOfVMs` zmiennej.
    
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
     ```
 
-2. Utwórz hello używanego przez kartę Sieciową dla dostępu do bazy danych.
+2. Utwórz kartę Sieciową, używane do dostępu do bazy danych.
 
     ```powershell
     $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
@@ -146,7 +146,7 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
     -Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress1
     ```
 
-3. Utwórz hello używanego przez kartę Sieciową dla dostępu zdalnego. Zwróć uwagę, jak ta karta NIC ma tooit grupy NSG skojarzonej.
+3. Tworzenie kart używane dla dostępu zdalnego. Zwróć uwagę, jak ta karta NIC ma grupy NSG skojarzonej do niego.
 
     ```powershell
     $nic2Name = $nicNamePrefix + $suffixNumber + "-RA"
@@ -163,7 +163,7 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
     ```
 
-5. Utwórz dwa dyski danych dla maszyny Wirtualnej. Zwróć uwagę, czy hello dysków z danymi w utworzone wcześniej konto magazynu w warstwie premium hello.
+5. Utwórz dwa dyski danych dla maszyny Wirtualnej. Zwróć uwagę, czy dyski danych w ramach konta magazynu premium utworzony wcześniej.
 
     ```powershell
     $dataDisk1Name = $vmName + "-" + $osDiskPrefix + "-1"
@@ -177,21 +177,21 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
     -VhdUri $data2VhdUri -CreateOption empty -Lun 1
     ```
 
-6. Skonfiguruj hello systemu operacyjnego i obraz toobe używany dla hello maszyny Wirtualnej.
+6. Konfigurowanie systemu operacyjnego i obrazu do użycia dla maszyny Wirtualnej.
 
     ```powershell
     $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
     $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
     ```
 
-7. Dodaj Witaj dwie karty sieciowe utworzone powyżej toohello `vmConfig` obiektu.
+7. Dwie karty sieciowe utworzone powyżej, aby dodać `vmConfig` obiektu.
 
     ```powershell
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic2.Id
     ```
 
-8. Utwórz dysk systemu operacyjnego hello a hello maszyny Wirtualnej. Powiadomienie hello `}` końcowy hello `for` pętli.
+8. Utwórz dysk systemu operacyjnego i tworzenie maszyny Wirtualnej. Powiadomienie `}` końcowy `for` pętli.
 
     ```powershell
     $osDiskName = $vmName + "-" + $osDiskSuffix
@@ -201,10 +201,10 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
     }
     ```
 
-### <a name="step-4---run-hello-script"></a>Krok 4 — uruchamianie skryptu hello
-Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, runt on skryptu bazy toocreate hello wewnętrznej bazy danych maszyn wirtualnych z wieloma kartami sieciowymi.
+### <a name="step-4---run-the-script"></a>Krok 4 — Uruchom skrypt
+Pobrane i zmienić skryptu na podstawie Twoich potrzeb, runt on skryptu w celu tworzenia wewnętrznej bazy danych maszyn wirtualnych z wieloma kartami sieciowymi.
 
-1. Zapisz skrypt i uruchom go z hello **PowerShell** wiersza polecenia lub **PowerShell ISE**. Witaj początkowej danych wyjściowych, zostanie wyświetlony w następujący sposób:
+1. Zapisz skrypt i uruchom go z **PowerShell** wiersza polecenia lub **PowerShell ISE**. Początkowe dane wyjściowe, zostanie wyświetlony w następujący sposób:
 
         ResourceGroupName : IaaSStory-Backend
         Location          : westus
@@ -217,7 +217,7 @@ Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, runt on skryptu ba
 
         ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
 
-2. Po kilku minutach wypełniania hello wiersz poświadczenia i kliknij przycisk **OK**. Witaj danych wyjściowych poniżej reprezentuje jednej maszyny Wirtualnej. Cały proces hello powiadomienia trwało toocomplete 8 minut.
+2. Po kilku minutach wypełnić wiersz poświadczenia i kliknij przycisk **OK**. Danych wyjściowych poniżej reprezentuje jednej maszyny Wirtualnej. Powiadomienie cały proces trwało 8 minut.
 
         ResourceGroupName            :
         Id                           :

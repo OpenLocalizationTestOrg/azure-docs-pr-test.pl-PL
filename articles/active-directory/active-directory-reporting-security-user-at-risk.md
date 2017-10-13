@@ -1,6 +1,6 @@
 ---
-title: "aaaUsers oflagowane zagrożenia zabezpieczeń raportu w portalu usługi Azure Active Directory hello | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat użytkowników hello oflagowane zagrożenia zabezpieczeń raportu w portalu usługi Azure Active Directory hello"
+title: "Raport o zabezpieczeniach dotyczący użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory | Microsoft Docs"
+description: "Dowiedz się więcej o raporcie o zabezpieczeniach dotyczącym użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -13,59 +13,59 @@ ms.workload: identity
 ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5077cd61d6119745a85ed712623904633a151331
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 04f15384a7cd0fa03300acdf159d371569ecf9fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="users-flagged-for-risk-security-report-in-hello-azure-active-directory-portal"></a>Użytkownicy oflagowani zagrożenia zabezpieczeń raportu w portalu usługi Azure Active Directory hello
+# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Raport o zabezpieczeniach dotyczący użytkowników oflagowanych w związku z ryzykiem w portalu usługi Azure Active Directory
 
-Z raportami zabezpieczeń hello w hello Azure Active Directory (Azure AD) możesz uzyskać wgląd w prawdopodobieństwo hello kont użytkowników z naruszonymi zabezpieczeniami w danym środowisku. 
+Dzięki raportom o zabezpieczeniach w usłudze Azure Active Directory (Azure AD) możesz uzyskać wgląd w prawdopodobieństwo naruszenia bezpieczeństwa kont użytkowników w środowisku. 
 
-Usługa Azure Active Directory wykryje podejrzanych działań, które są powiązane tooyour kont użytkowników. Dla każdej wykrytej akcji jest tworzony wpis nazywany *zdarzeniem o podwyższonym ryzyku*. Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usłudze Azure Active Directory](active-directory-identity-protection-risk-events.md). 
+Usługa Azure Active Directory wykrywa podejrzane akcje powiązane z kontami użytkowników. Dla każdej wykrytej akcji jest tworzony wpis nazywany *zdarzeniem o podwyższonym ryzyku*. Aby uzyskać więcej informacji, zobacz [Zdarzenia o podwyższonym ryzyku w usłudze Azure Active Directory](active-directory-identity-protection-risk-events.md). 
 
-Witaj wykrył, że zdarzenia o podwyższonym ryzyku są używane toocalculate:
+Za pomocą wykrytych zdarzeń o podwyższonym ryzyku obliczane są:
 
-- **Ryzykowne logowania** -ryzykowne logowanie jest wskaźnik prób logowania, które mogły zostać wykonane przez osobę, która nie jest właścicielem uzasadnionych hello konta użytkownika. Aby uzyskać więcej informacji, zobacz [Ryzykowne logowania](active-directory-identityprotection.md#risky-sign-ins). 
+- **Ryzykowne logowania** — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. Aby uzyskać więcej informacji, zobacz [Ryzykowne logowania](active-directory-identityprotection.md#risky-sign-ins). 
 
 - **Użytkownicy oflagowani w związku z ryzykiem** — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. Aby uzyskać więcej informacji, zobacz [Użytkownicy oflagowani w związku z ryzykiem](active-directory-identityprotection.md#users-flagged-for-risk).  
 
-W portalu Azure hello, można znaleźć zabezpieczeń hello raport dotyczący hello **usługi Azure Active Directory** bloku w hello **zabezpieczeń** sekcji.  
+W witrynie Azure Portal raporty dotyczące zabezpieczeń można znaleźć w bloku **Azure Active Directory** w sekcji **Zabezpieczenia**.  
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/10.png)
 
 
 
-## <a name="what-azure-ad-license-do-you-need-tooaccess-a-security-report"></a>Jakie licencji usługi Azure AD potrzebujesz tooaccess raport zabezpieczeń?  
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu zabezpieczeń?  
 
 Wszystkie wersje usługi Azure Active Directory zapewniają dostęp do raportów użytkowników oflagowanych w związku z ryzykiem.  
-Jednak hello poziom szczegółowości raportu różni się między wersjami hello: 
+Jednak poziom szczegółowości raportu zależy od wersji: 
 
-- W hello **wersje usługi Azure Active Directory wolnego i Basic**, otrzymasz listę użytkowników z ustawioną flagą ryzyka. 
+- W **usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa** masz już dostęp do listy użytkowników oflagowanych w związku z ryzykiem. 
 
-- Witaj **Azure Active Directory Premium 1** edition rozszerza tego modelu, należy również włączyć tooexamine niektóre hello podstawowy zdarzenia ryzyka, które zostały wykryte dla każdego raportu. 
+- Wersja **Azure Active Directory Premium 1** rozszerza ten model, umożliwiając również badanie niektórych podstawowych zdarzeń związanych z ryzykiem, które uwzględniono w poszczególnych raportach. 
 
-- Hello **Azure Active Directory Premium 2** edition zapewnia hello bardziej szczegółowe informacje o wszystkich zdarzeniach ryzyka podstawowej i umożliwia tooconfigure zasady zabezpieczeń, które automatycznie odpowiadać tooconfigured ryzyka poziomy.
+- Wersja **Azure Active Directory Premium 2** oferuje najbardziej szczegółowe informacje na temat wszystkich zdarzeń o podwyższonym ryzyku i umożliwia konfigurowanie zasad zabezpieczeń, które automatycznie reagują na wystąpienie skonfigurowanych poziomów ryzyka.
 
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory — wersja Bezpłatna i Podstawowa
 
-Użytkownicy Hello oflagowane ryzyka raportu w wersji bezpłatnej i podstawowa usługi Azure Active Directory hello udostępnia listę kont użytkowników, które zostały naruszone. 
+Raport dotyczący użytkowników oflagowanych w związku z ryzykiem w usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa zapewnia listę kont użytkowników, których bezpieczeństwo mogło zostać naruszone. 
 
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/03.png)
 
-Wybór użytkownika zostanie otwarty blok danych użytkownikowi hello.
-Dla użytkowników, którzy są narażeni na ataki można sprawdzić hello użytkownika logowania historii i zresetuj hasło hello, jeśli to konieczne.
+Wybranie użytkownika powoduje otwarcie bloku z danymi tego użytkownika.
+W przypadku narażonego użytkownika można przejrzeć jego historię logowania i w razie potrzeby zresetować hasło.
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/46.png)
 
 
 To okno dialogowe oferuje opcję:
 
-- Pobierz raport hello
+- Pobierania raportu
 
 - Wyszukiwania użytkowników
 
@@ -74,34 +74,34 @@ To okno dialogowe oferuje opcję:
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory — wersje Premium
 
-Użytkownicy Hello oflagowane ryzyka raportu w wersji premium hello Azure Active Directory umożliwia:
+Raport dotyczący użytkowników oflagowanych w związku z ryzykiem w usłudze Azure Active Directory w wersjach Premium zawiera następujące elementy:
 
 - [Lista kont użytkowników](active-directory-identityprotection.md#users-flagged-for-risk), których bezpieczeństwo mogło zostać naruszone 
 
-- Zagregowane informacje o hello [ryzyka typów zdarzeń](active-directory-identity-protection-risk-events.md) zostały wykryte
+- Zagregowane informacje o wykrytych [typach zdarzeń o podwyższonym ryzyku](active-directory-identity-protection-risk-events.md)
 
-- Opcja toodownload hello raportu
+- Opcja pobrania raportu
 
-- Opcja tooconfigure [zasady korygowania ryzyka użytkownika](active-directory-identityprotection.md#user-risk-security-policy)  
+- Opcja skonfigurowania [zasad podejmowania działań naprawczych dotyczących ryzyka związanego z użytkownikiem](active-directory-identityprotection.md#user-risk-security-policy)  
 
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/71.png)
 
 Po wybraniu użytkownika jest dla niego wyświetlany szczegółowy widok raportu, który umożliwia wykonanie następujących czynności:
 
-- Wyświetl wszystkie sesje logowania hello otwarte
+- Otwieranie widoku wszystkich logowań.
 
-- Resetowanie hasła użytkownika hello
+- Resetowanie hasła użytkownika.
 
 - Odrzucanie wszystkich zdarzeń.
 
-- Zbadaj zdarzenia zgłoszone ryzyka dla hello użytkownika. 
+- Badanie zgłoszonych zdarzeń o podwyższonym ryzyku dla użytkownika. 
 
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
-tooinvestigate zdarzenia ryzyka, wybierz jeden z hello listy tooopen hello **szczegóły** bloku dla tego zdarzenia ryzyka. Na powitania **szczegóły** bloku masz hello opcja tooeither [ręcznie zamknąć zdarzenie ryzyka](active-directory-identityprotection.md#closing-risk-events-manually) lub ponownym uaktywnieniem zdarzeń ryzyka ręcznie zamknięty. 
+Aby zbadać zdarzenia o podwyższonym ryzyku, wybierz zdarzenie z listy w celu otwarcia bloku **Szczegóły** dla tego zdarzenia o podwyższonym ryzyku. W bloku **Szczegóły** jest opcja [ręcznego zamknięcia zdarzenia o podwyższonym ryzyku](active-directory-identityprotection.md#closing-risk-events-manually) lub ponownego aktywowania ręcznie zamkniętego zdarzenia o podwyższonym ryzyku. 
 
 
 ![Ryzykowne logowania](./media/active-directory-reporting-security-user-at-risk/325.png)

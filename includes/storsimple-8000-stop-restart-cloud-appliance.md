@@ -1,9 +1,9 @@
-#### <a name="toostop-and-start-a-cloud-appliance"></a>toostop i rozpocząć urządzenia chmury
+#### <a name="to-stop-and-start-a-cloud-appliance"></a>Aby zatrzymać i uruchomić urządzenie w chmurze
 
-1. toostop urządzenia chmury, przejdź toohello maszyny Wirtualnej dla urządzenia chmury.
+1. Aby zatrzymać urządzenie w chmurze, przejdź do maszyny wirtualnej dla swojego urządzenia w chmurze.
     ![Maszyna wirtualna urządzenia StorSimple w chmurze](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart1.png)
 
-2. Na pasku poleceń hello, kliknij **zatrzymać**.
+2. Na pasku polecenia kliknij pozycję **Stop**.
 
     ![Maszyna wirtualna urządzenia StorSimple w chmurze](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart2.png)
 
@@ -11,27 +11,27 @@
 
     ![Maszyna wirtualna urządzenia StorSimple w chmurze](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
-4. Po zatrzymaniu maszyny wirtualnej następuje cofnięcie jej przydziału. Gdy urządzenia chmury hello jest zatrzymywana, jego stan jest **Deallocating**. Po wyłączeniu urządzenia chmury hello jego stan jest **zatrzymane (cofnięciu przydziału)**.
+4. Po zatrzymaniu maszyny wirtualnej następuje cofnięcie jej przydziału. Gdy urządzenie w chmurze jest zatrzymywane, jego stan to **Cofanie przydziału**. Po zatrzymaniu urządzenia w chmurze jego stan to **Zatrzymane (cofnięty przydział)**.
 
     ![Maszyna wirtualna urządzenia StorSimple w chmurze](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 
-5. Po zatrzymaniu maszyny Wirtualnej, kliknij przycisk **Start** (przycisk jest dostępny) hello toostart maszyny Wirtualnej. Po uruchomieniu urządzenia chmury hello, jego stan jest **uruchomiono**.
+5. Po zatrzymaniu maszyny wirtualnej kliknij przycisk **Uruchom** (przycisk staje się dostępny), aby uruchomić maszynę wirtualną. Po uruchomieniu urządzenia w chmurze jego stan to **Uruchomione**.
 
     ![Maszyna wirtualna urządzenia StorSimple w chmurze](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart5.png)
 
-Użyj następującego polecenia cmdlet toostop hello i uruchomić urządzenia chmury.
+Użyj poniższych poleceń cmdlet do zatrzymywania i uruchamiania urządzenia w chmurze.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-#### <a name="toorestart-a-cloud-appliance"></a>toorestart urządzenia chmury
+#### <a name="to-restart-a-cloud-appliance"></a>Aby uruchomić ponownie urządzenie w chmurze
 
-toorestart urządzenia chmury, przejdź toohello maszyny Wirtualnej dla urządzenia chmury. Na pasku poleceń hello, kliknij **ponownego uruchomienia**. Po wyświetleniu monitu Potwierdź hello ponownego uruchomienia komputera. Gdy urządzenia chmury hello jest gotowy do możesz toouse, jego stan jest **systemem**.
+Aby uruchomić ponownie urządzenie w chmurze, przejdź do maszyny wirtualnej dla swojego urządzenia w chmurze. Na pasku poleceń kliknij pozycję **Uruchom ponownie**. Po wyświetleniu monitu potwierdź ponowne uruchomienie. Gdy urządzenie w chmurze jest gotowe do użycia, jego stan to **Uruchomione**.
 
 ![Maszyna wirtualna urządzenia StorSimple w chmurze](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart6.png)
 
-Użyj następującego polecenia cmdlet toorestart urządzenia chmury hello.
+Użyj poniższego polecenia cmdlet, aby ponownie uruchomić urządzenie w chmurze.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 

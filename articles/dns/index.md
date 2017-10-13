@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure DNS dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toomanage rekordami DNS przy użyciu systemu nazw domen platformy Azure. Dokumentacja pokazuje sposób tooset Konfigurowanie i zarządzanie nim strefy DNS i rekordów dla nazwy domeny."
+title: "Dokumentacja usługi Azure DNS — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Informacje o sposobie zarządzania rekordami DNS przy użyciu usługi Azure Domain Name System. Dokumentacja przedstawiająca sposób konfigurowania stref DNS i rekordów nazw domen."
 services: dns
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 64804b1d6cbfefdeab3f9a79bca26848e37e64f3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a138c9ea62ffa599529081cf792bc81663069bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dns-documentation"></a>Dokumentacja usługi DNS
 
-Dowiedz się, jak toomanage rekordami DNS przy użyciu systemu nazw domen Azure hosting usług. Samouczki, odwołania do interfejsu API i dokumentacji przedstawia sposób tooset Konfigurowanie i zarządzanie nim strefy DNS i rekordów dla nazwy domeny.
+Informacje o sposobie zarządzania rekordami DNS przy użyciu usługi hostingu Azure Domain Name System. Samouczki, dokumentacja interfejsu API oraz inne dokumenty przedstawiające sposób konfigurowania stref DNS i rekordów nazw domen oraz zarządzania nimi.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -52,7 +52,7 @@ Dowiedz się, jak toomanage rekordami DNS przy użyciu systemu nazw domen Azure 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do usługi Azure DNS przy użyciu hello portalu Azure</h3>
+                        <h3>Rozpoczynanie pracy z usługą Azure DNS przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Dowiedz się, jak toomanage rekordami DNS przy użyciu systemu nazw domen Azure 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do usługi Azure DNS przy użyciu hello wiersza polecenia platformy Azure</h3>
+                        <h3>Rozpoczynanie pracy z usługą Azure DNS przy użyciu interfejsu wiersza polecenia platformy Azure</h3>
                     </div>
                 </div>
             </div>

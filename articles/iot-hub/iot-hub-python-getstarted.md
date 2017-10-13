@@ -1,6 +1,6 @@
 ---
-title: "aaaGet pracę z Centrum IoT Azure (Python) | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak urządzenia chmury toosend wiadomości tooAzure Centrum IoT przy użyciu IoT zestawy SDK dla języka Python. Utworzyć symulowane urządzenie i tooregister aplikacji usługi, urządzenia, wysyłania wiadomości i odczytywać wiadomości z Centrum IoT."
+title: "Rozpoczynanie pracy z usługą Azure IoT Hub (Python) | Microsoft Docs"
+description: "Dowiedz się, jak wysyłać komunikaty urządzenie-chmura do usługi Azure IoT Hub za pomocą zestawów SDK usługi IoT dla języka Python. Utwórz symulowane aplikacje urządzenia i usługi, aby zarejestrować urządzenie, wysyłać wiadomości i odczytywać wiadomości z usługi IoT Hub."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,56 +13,56 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: dkshir
 ms.custom: na
-ms.openlocfilehash: aa23e792fb144202e121274723bcfaeae0c04723
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7ebbac4464d793717f68a4cb7905c53d1f5c051a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-your-simulated-device-tooyour-iot-hub-using-python"></a>Połącz z Centrum IoT tooyour symulowane urządzenie przy użyciu języka Python
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Podłączanie symulowanego urządzenia do usługi IoT Hub za pomocą języka Python
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-Na końcu hello tego samouczka masz dwie aplikacje Python:
+Na koniec tego samouczka będziesz mieć dwie aplikacje Python:
 
-* **CreateDeviceIdentity.py**, co powoduje tożsamości urządzenia i skojarzony klucz tooconnect aplikacji symulowane urządzenie.
-* **SimulatedDevice.py**, który łączy z tożsamości urządzenia hello utworzony wcześniej tooyour Centrum IoT i okresowo wysyła dane telemetryczne wiadomości przy użyciu protokołu MQTT hello.
+* **CreateDeviceIdentity.py**, która tworzy tożsamość urządzenia i skojarzony klucz zabezpieczeń w celu podłączenia symulowanej aplikacji urządzenia.
+* **SimulatedDevice.py**, która łączy się z usługą IoT Hub przy użyciu utworzonej wcześniej tożsamości urządzenia i okresowo wysyła komunikat telemetrii przy użyciu protokołu MQTT.
 
 > [!NOTE]
-> Artykuł Hello [Azure IoT SDK] [ lnk-hub-sdks] zawiera informacje o hello Azure IoT SDK, której można toobuild toorun zarówno aplikacje na urządzeniach i z zaplecza rozwiązania.
+> Artykuł [Azure IoT SDKs][lnk-hub-sdks] (Zestawy SDK usług Azure IoT) zawiera informacje dotyczące zestawów SDK usług Azure IoT, przy użyciu których można tworzyć aplikacje zarówno do uruchamiania na urządzaniach, jak i w zapleczu rozwiązania.
 > 
 > 
 
-toocomplete tego samouczka należy hello następujące:
+Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* [Środowisko Python 2.x lub 3.x][lnk-python-download]. Upewnij się, że toouse hello 32-bitowy lub 64-bitowej instalacji co jest wymagane przez konfigurację. Po wyświetleniu monitu podczas instalacji hello, upewnij się, że zmienna środowiskowa specyficzne dla platformy tooyour tooadd języka Python. Jeśli używasz języka Python 2.x, może być konieczne zbyt[instalacji lub uaktualnienia *pip*, hello Python pakietu systemu zarządzania][lnk-install-pip].
-* Jeśli używasz systemu operacyjnego Windows, następnie [pakietu redystrybucyjnego Visual C++] [ lnk-visual-c-redist] tooallow hello stosowania natywnych bibliotek DLL z języka Python.
-* [Środowisko Node.js 4.0 lub nowsze][lnk-node-download]. Upewnij się, że toouse hello 32-bitowy lub 64-bitowej instalacji co jest wymagane przez konfigurację. Jest to wymagane tooinstall hello [narzędzia Explorer Centrum IoT][lnk-iot-hub-explorer].
+* [Środowisko Python 2.x lub 3.x][lnk-python-download]. Upewnij się, że używasz 32-bitowej lub 64-bitowej instalacji zgodnie z wymaganiami konfiguracji. Po wyświetleniu monitu podczas instalacji upewnij się, że język Python został dodany do zmiennej środowiskowej specyficznej dla platformy. Jeśli używasz środowiska Python 2.x, może być konieczne [zainstalowanie lub uaktualnienie systemu zarządzania pakietami języka Python — *pip*][lnk-install-pip].
+* [Pakiet redystrybucyjny języka Visual C++][lnk-visual-c-redist] (jeśli używasz systemu operacyjnego Windows) umożliwiający korzystanie z natywnych bibliotek DLL języka Python.
+* [Środowisko Node.js 4.0 lub nowsze][lnk-node-download]. Upewnij się, że używasz 32-bitowej lub 64-bitowej instalacji zgodnie z wymaganiami konfiguracji. Jest to niezbędne do zainstalowania [narzędzia IoT Hub Explorer][lnk-iot-hub-explorer].
 * Aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć [bezpłatne konto][lnk-free-trial] w zaledwie kilka minut.
 
 > [!NOTE]
-> Witaj *pip* pakietami `azure-iothub-service-client` i `azure-iothub-device-client` są obecnie dostępne tylko dla systemu operacyjnego Windows. Linux/Mac OS można znaleźć w sekcjach systemu Linux i specyficznych dla komputerów Mac OS toohello na powitania [przygotowywanie środowiska projektowego dla języka Python] [ lnk-python-devbox] post.
+> Pakiety *pip* dla składników `azure-iothub-service-client` i `azure-iothub-device-client` są obecnie dostępne tylko w przypadku systemu operacyjnego Windows. W przypadku systemu operacyjnego Linux lub Mac OS zapoznaj się z sekcją poświęconą danemu systemowi w poście [Prepare your development environment for Python][lnk-python-devbox] (Przygotowanie środowiska projektowego dla języka Python).
 > 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Utworzono centrum IoT. Użyj hello nazwy hosta Centrum IoT i hello parametry połączenia Centrum IoT w hello pozostałej części tego samouczka.
+Utworzono centrum IoT. Użyj tej nazwy hosta usługi IoT Hub oraz jej parametrów połączenia w pozostałej części tego samouczka.
 
 > [!NOTE]
-> Można również łatwo utworzyć Centrum IoT w wierszu polecenia, używając hello Python lub Node.js na podstawie wiersza polecenia platformy Azure. Artykuł Hello [tworzenia Centrum IoT przy użyciu hello Azure CLI 2.0] [ lnk-azure-cli-hub] pokazuje sposób hello toodo Szybkie kroki. 
+> Centrum IoT można również łatwo utworzyć w wierszu polecenia, korzystając z interfejsu wiersza polecenia platformy Azure opartego na środowisku Python lub Node.js. Szybkie kroki wykonania tego zadania zawiera artykuł [Create an IoT hub using the Azure CLI 2.0][lnk-azure-cli-hub] (Tworzenie centrum IoT za pomocą interfejsu wiersza polecenia platformy Azure 2.0). 
 > 
 
 ## <a name="create-a-device-identity"></a>Tworzenie tożsamości urządzenia
-Ta sekcja zawiera hello kroki toocreate aplikacji konsoli języka Python, który tworzy tożsamość urządzenia w rejestrze tożsamości hello Centrum IoT. Urządzenie można połączyć tylko tooIoT koncentratora, jeśli zawiera on wpis w rejestrze tożsamości hello. Aby uzyskać więcej informacji, zobacz hello **rejestru tożsamości** sekcji hello [Centrum IoT — przewodnik dewelopera][lnk-devguide-identity]. Po uruchomieniu tej aplikacji konsoli, generuje on unikatowy identyfikator urządzenia i tooIoT Centrum wiadomości klucz urządzenia można użyć tooidentify się podczas wysyłania urządzenia do chmury.
+W tej sekcji znajdują się kroki umożliwiające utworzenie aplikacji konsoli języka Python, która tworzy tożsamość urządzenia w rejestrze tożsamości w centrum IoT. Urządzenie może nawiązać połączenie z usługą IoT Hub tylko wtedy, jeśli ma wpis w rejestrze tożsamości. Więcej informacji znajduje się w sekcji **Identity registry** (Rejestr tożsamości) artykułu [IoT Hub developer guide][lnk-devguide-identity] (Usługa IoT Hub — przewodnik dewelopera). Po uruchomieniu ta aplikacja konsoli generuje unikatowy identyfikator urządzenia i klucz, których urządzenie może użyć do zidentyfikowania się podczas wysyłania komunikatów do chmury do usługi IoT Hub.
 
-1. Otwórz wiersz polecenia i zainstaluj hello **Azure IoT Hub usługi SDK dla języka Python**. Zamknij wiersz polecenia powitania po zainstalowaniu hello zestawu SDK.
+1. Otwórz wiersz polecenia i zainstaluj **zestaw SDK usługi Azure IoT Hub dla języka Python**. Zamknij wiersz polecenia po zainstalowaniu zestawu SDK.
 
     ```
     pip install azure-iothub-service-client
     ```
 
-2. Utwórz plik języka Python o nazwie **CreateDeviceIdentity.py**. Otwórz go w [Python Edytor/IDE w wybranym][lnk-python-ide-list], na przykład Witaj domyślne [BEZCZYNNY][lnk-idle].
+2. Utwórz plik języka Python o nazwie **CreateDeviceIdentity.py**. Otwórz go w [edytorze języka Python lub w wybranym środowisku IDE][lnk-python-ide-list], na przykład w domyślnym środowisku [IDLE][lnk-idle].
 
-3. Dodaj następujące moduły hello wymagane tooimport kodu z zestawu SDK usług hello hello:
+3. Dodaj następujący kod umożliwiający zaimportowanie wymaganych modułów z zestawu SDK usługi:
 
     ```python
     import sys
@@ -70,7 +70,7 @@ Ta sekcja zawiera hello kroki toocreate aplikacji konsoli języka Python, który
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceStatus, IoTHubError
     ```
-2. Dodaj powitania po kod, zastępując symbol zastępczy hello `[IoTHub Connection String]` z hello ciąg połączenia dla Centrum IoT hello utworzony w poprzedniej sekcji hello. Można użyć dowolnej nazwy jako hello `DEVICE_ID`.
+2. Dodaj następujący kod, zastępując symbol zastępczy `[IoTHub Connection String]` parametrami połączenia centrum IoT utworzonego w poprzedniej sekcji. Jako identyfikatora `DEVICE_ID` można użyć dowolnej nazwy.
    
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -78,7 +78,7 @@ Ta sekcja zawiera hello kroki toocreate aplikacji konsoli języka Python, który
     ```
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-3. Dodaj hello następujących funkcji tooprint niektóre informacje o urządzeniu hello.
+3. Dodaj następującą funkcję umożliwiającą wydrukowanie niektórych informacji o urządzeniu.
 
     ```python
     def print_device_info(title, iothub_device):
@@ -94,7 +94,7 @@ Ta sekcja zawiera hello kroki toocreate aplikacji konsoli języka Python, który
         print ( "iothubDevice.authMethod                  = {0}".format(iothub_device.authMethod) )
         print ( "" )
     ```
-3. Dodaj powitania po funkcja toocreate hello identyfikacji urządzenia przy użyciu hello rejestru Menedżera. 
+3. Dodaj następującą funkcję umożliwiającą utworzenie identyfikacji urządzenia przy użyciu Menedżera rejestru. 
 
     ```python
     def iothub_createdevice():
@@ -110,45 +110,45 @@ Ta sekcja zawiera hello kroki toocreate aplikacji konsoli języka Python, który
         except KeyboardInterrupt:
             print ( "iothub_createdevice stopped" )
     ```
-4. Ponadto funkcja main hello należy dodać następujący i Zapisz plik hello.
+4. Na końcu dodaj funkcję main w przedstawiony sposób i zapisz plik.
 
     ```python
     if __name__ == '__main__':
         print ( "" )
         print ( "Python {0}".format(sys.version) )
-        print ( "Creating device using hello Azure IoT Hub Service SDK for Python" )
+        print ( "Creating device using the Azure IoT Hub Service SDK for Python" )
         print ( "" )
         print ( "    Connection string = {0}".format(CONNECTION_STRING) )
         print ( "    Device ID         = {0}".format(DEVICE_ID) )
 
         iothub_createdevice()
     ```
-5. W wierszu polecenia hello Uruchom hello **CreateDeviceIdentity.py** w następujący sposób:
+5. W wierszu polecenia uruchom plik **CreateDeviceIdentity.py** w następujący sposób:
 
     ```python
     python CreateDeviceIdentity.py
     ```
-6. Powinny pojawić się symulowane urządzenie hello pobierania utworzony. Zanotuj hello **deviceId** i hello **primaryKey** tego urządzenia. Należy te wartości później podczas tworzenia aplikacji, która łączy tooIoT koncentratora jako urządzenie.
+6. Powinno zostać wyświetlone utworzone symulowane urządzenie. Zanotuj wartości parametrów **deviceId** i **primaryKey** tego urządzenia. Te wartości będą potrzebne później podczas tworzenia aplikacji, która łączy się z usługą IoT Hub jako urządzenie.
 
     ![Pomyślne utworzenie urządzenia][1]
 
 > [!NOTE]
-> Witaj w rejestrze tożsamości Centrum IoT przechowuje dane tylko Centrum IoT toohello bezpiecznego dostępu tooenable tożsamości urządzenia. Urządzenie toouse identyfikatorów i klucze są przechowywane jako poświadczeń zabezpieczeń i flagi włączone/wyłączone, której można toodisable dostępu dla poszczególnych urządzeń. Jeśli aplikacja wymaga toostore inne metadane specyficzne dla urządzenia, należy go użyć magazynu specyficzne dla aplikacji. Aby uzyskać więcej informacji, zobacz hello [Centrum IoT — przewodnik dewelopera][lnk-devguide-identity].
+> Rejestr tożsamości usługi IoT Hub przechowuje tożsamości urządzenia tylko po to, aby umożliwić bezpieczny dostęp do centrum IoT. Przechowuje identyfikatory i klucze urządzeń, które będą używane jako poświadczenia zabezpieczeń, oraz flagę włączone/wyłączone, która umożliwia wyłączenie dostępu do poszczególnych urządzeń. Jeśli aplikacja wymaga przechowywania innych metadanych dla określonego urządzenia, powinna korzystać z magazynu określonego dla aplikacji. Więcej informacji znajduje się w temacie [IoT Hub developer guide][lnk-devguide-identity] (Usługa IoT Hub — przewodnik dewelopera).
 > 
 > 
 
 
 ## <a name="create-a-simulated-device-app"></a>Tworzenie aplikacji symulowanego urządzenia
-Ta sekcja zawiera hello kroki toocreate aplikację konsoli języka Python, symuluje urządzenia i wysyła Centrum IoT tooyour wiadomości urządzenia do chmury.
+Ta sekcja zawiera instrukcje dotyczące tworzenia aplikacji konsoli języka Python, która symuluje urządzenie i wysyła do centrum IoT komunikaty z urządzenia do chmury.
 
-1. Otwórz nowy wiersz polecenia i zainstalować hello Azure IoT Hub urządzenia SDK dla języka Python w następujący sposób. Zamknij wiersz polecenia powitania po zakończeniu instalacji hello.
+1. Otwórz nowy wiersz polecenia i zainstaluj zestaw SDK urządzenia usługi Azure IoT Hub dla języka Python w następujący sposób. Po ukończeniu instalacji zamknij wiersz polecenia.
 
     ```
     pip install azure-iothub-device-client
     ```
 2. Utwórz plik o nazwie **SimulatedDevice.py**. Otwórz ten plik w edytorze języka Python lub w wybranym środowisku IDE (na przykład w środowisku IDLE).
 
-3. Dodaj hello następujące moduły hello wymagane tooimport kodu z urządzenia hello zestawu SDK.
+3. Dodaj następujący kod umożliwiający zaimportowanie wymaganych modułów z zestawu SDK urządzenia.
 
     ```python
     import random
@@ -158,10 +158,10 @@ Ta sekcja zawiera hello kroki toocreate aplikację konsoli języka Python, symul
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
     from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError, DeviceMethodReturnValue
     ```
-4. Dodaj następujący hello kodu i Zastąp symbol zastępczy hello `[IoTHub Device Connection String]` z hello parametry połączenia dla danego urządzenia. ciąg połączenia urządzenia Hello jest zwykle w formacie hello `HostName=<hostName>;DeviceId=<deviceId>;SharedAccessKey=<primaryKey>`. Użyj hello **deviceId** i **primaryKey** urządzenia hello utworzony w hello poprzedniej sekcji tooreplace hello `<deviceId>` i `<primaryKey>` odpowiednio. Zastąp symbol zastępczy `<hostName>` nazwą hosta centrum IoT. Zwykle jest to wartość `<IoT hub name>.azure-devices.net`.
+4. Dodaj następujący kod i zastąp symbol zastępczy `[IoTHub Device Connection String]` parametrami połączenia dla urządzenia. Parametry połączenia urządzenia mają zazwyczaj format `HostName=<hostName>;DeviceId=<deviceId>;SharedAccessKey=<primaryKey>`. Zastąp symbole zastępcze `<deviceId>` i `<primaryKey>` odpowiednio wartościami parametrów **deviceId** i **primaryKey** urządzenia utworzonego w poprzedniej sekcji. Zastąp symbol zastępczy `<hostName>` nazwą hosta centrum IoT. Zwykle jest to wartość `<IoT hub name>.azure-devices.net`.
 
     ```python
-    # String containing Hostname, Device Id & Device Key in hello format
+    # String containing Hostname, Device Id & Device Key in the format
     CONNECTION_STRING = "[IoTHub Device Connection String]"
     # choose HTTP, AMQP or MQTT as transport protocol
     PROTOCOL = IoTHubTransportProvider.MQTT
@@ -170,7 +170,7 @@ Ta sekcja zawiera hello kroki toocreate aplikację konsoli języka Python, symul
     SEND_CALLBACKS = 0
     MSG_TXT = "{\"deviceId\": \"MyFirstPythonDevice\",\"windSpeed\": %.2f}"    
     ```
-5. Dodaj powitania po toodefine kod potwierdzenia wysyłania wywołania zwrotnego. 
+5. Dodaj następujący kod, aby zdefiniować wywołanie zwrotne potwierdzenia wysyłania. 
 
     ```python
     def send_confirmation_callback(message, result, user_context):
@@ -184,25 +184,25 @@ Ta sekcja zawiera hello kroki toocreate aplikację konsoli języka Python, symul
         SEND_CALLBACKS += 1
         print ( "    Total calls confirmed: %d" % SEND_CALLBACKS )
     ```
-6. Dodaj powitania od klienta urządzenia hello tooinitialize kodu.
+6. Dodaj następujący kod, aby zainicjować klienta urządzenia.
 
     ```python
     def iothub_client_init():
         # prepare iothub client
         client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
-        # set hello time until a message times out
+        # set the time until a message times out
         client.set_option("messageTimeout", MESSAGE_TIMEOUT)
         client.set_option("logtrace", 0)
         return client
     ```
-7. Dodaj następujący hello funkcji tooformat i wysłać wiadomość z Centrum IoT tooyour symulowane urządzenie.
+7. Dodaj następującą funkcję umożliwiającą sformatowanie i wysłanie komunikatu z symulowanego urządzenia do centrum IoT.
 
     ```python
     def iothub_client_telemetry_sample_run():
 
         try:
             client = iothub_client_init()
-            print ( "IoT Hub device sending periodic messages, press Ctrl-C tooexit" )
+            print ( "IoT Hub device sending periodic messages, press Ctrl-C to exit" )
             message_counter = 0
 
             while True:
@@ -221,7 +221,7 @@ Ta sekcja zawiera hello kroki toocreate aplikację konsoli języka Python, symul
                 prop_map.add("Property", prop_text)
 
                 client.send_event_async(message, send_confirmation_callback, message_counter)
-                print ( "IoTHubClient.send_event_async accepted message [%d] for transmission tooIoT Hub." % message_counter )
+                print ( "IoTHubClient.send_event_async accepted message [%d] for transmission to IoT Hub." % message_counter )
 
                 status = client.get_send_status()
                 print ( "Send status: %s" % status )
@@ -238,61 +238,61 @@ Ta sekcja zawiera hello kroki toocreate aplikację konsoli języka Python, symul
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
     ```
-8. Na koniec należy dodać hello funkcja main. 
+8. Na koniec dodaj funkcję main. 
 
     ```python
     if __name__ == '__main__':
-        print ( "Simulating a device using hello Azure IoT Hub Device SDK for Python" )
+        print ( "Simulating a device using the Azure IoT Hub Device SDK for Python" )
         print ( "    Protocol %s" % PROTOCOL )
         print ( "    Connection string=%s" % CONNECTION_STRING )
 
         iothub_client_telemetry_sample_run()
     ```
-9. Zapisz i zamknij hello **SimulatedDevice.py** pliku. Użytkownik jest teraz gotowy toorun tej aplikacji.
+9. Zapisz i zamknij plik **SimulatedDevice.py**. Teraz można przystąpić do uruchomienia tej aplikacji.
 
 > [!NOTE]
-> rzeczy tookeep proste, w tym samouczku nie implementuje wszystkie zasady ponawiania. W kodzie produkcyjnym, należy zaimplementować zasady ponawiania (na przykład wykładniczego wycofywania), zgodnie z sugestią podaną w artykuł w witrynie MSDN hello [obsługi błędów przejściowych][lnk-transient-faults].
+> Dla uproszczenia ten samouczek nie zawiera opisu wdrożenia żadnych zasad ponawiania. W kodzie produkcyjnym należy wdrożyć zasady ponawiania (np. wycofywanie wykładnicze) zgodnie z sugestią w artykule z witryny MSDN [Transient Fault Handling][lnk-transient-faults] (Obsługa przejściowych błędów).
 > 
 > 
 
 ## <a name="receive-messages-from-your-simulated-device"></a>Odbieranie komunikatów z symulowanego urządzenia
-komunikaty telemetrii tooreceive z urządzenia, należy toouse [usługi Event Hubs][lnk-event-hubs-overview]-zgodne punktu końcowego udostępnianych przez hello Centrum IoT, która odczytuje wiadomości powitania od urządzenia do chmury. Witaj odczytu [Rozpoczynanie pracy z usługą Event Hubs] [ lnk-eventhubs-tutorial] samouczka, aby uzyskać informacje dotyczące sposobu tooprocess wiadomości z centrów zdarzeń dla punktu końcowego Centrum zdarzeń zgodnych Centrum IoT. Usługi Event Hubs nie obsługuje telemetrii w języku Python jeszcze, więc możesz utworzyć [Node.js](iot-hub-node-node-getstarted.md#D2C_node) lub [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) Konsola oparta na usłudze Event Hubs komunikaty urządzenia do chmury hello tooread aplikacji z Centrum IoT. Ten samouczek pokazuje, jak używasz hello [narzędzia Explorer Centrum IoT] [ lnk-iot-hub-explorer] tooread komunikaty te urządzenia.
+Do odbierania komunikatów telemetrycznych z urządzenia należy użyć [usługi Event Hubs][lnk-event-hubs-overview] — zgodnego punktu końcowego udostępnianego przez usługę IoT Hub, który odczytuje komunikaty wysyłane z urządzenia do chmury. Przeczytaj samouczek [Get Started with Event Hubs][lnk-eventhubs-tutorial] (Usługa Event Hubs — wprowadzenie), aby uzyskać informacje dotyczące sposobu przetwarzania komunikatów z usługi Event Hubs przeznaczonych dla zgodnego z centrum zdarzeń punktu końcowego centrum IoT. Usługa Event Hubs nie obsługuje jeszcze telemetrii w języku Python, można więc utworzyć aplikację konsoli środowiska [Node.js](iot-hub-node-node-getstarted.md#D2C_node) lub [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) opartą na usłudze Event Hubs, która umożliwi odczytywanie komunikatów wysyłanych z urządzenia do chmury pochodzących z usługi IoT Hub. W tym samouczku pokazano, jak skorzystać z [narzędzia IoT Hub Explorer][lnk-iot-hub-explorer] do odczytywania tych komunikatów urządzeń.
 
-1. Otwórz wiersz polecenia i zainstaluj hello Explorer Centrum IoT. 
+1. Otwórz wiersz polecenia i zainstaluj narzędzie IoT Hub Explorer. 
 
     ```
     npm install -g iothub-explorer
     ```
 
-2. Uruchom następujące polecenie w wierszu polecenia hello hello, monitorowanie toobegin hello wiadomości urządzenia do chmury z urządzenia. Użyj parametrów połączenia Centrum IoT w symbolu zastępczego powitania po `--login`.
+2. Uruchom następujące polecenie w wierszu polecenia, aby rozpocząć monitorowanie z urządzenia komunikatów wysyłanych z urządzenia do chmury. Użyj parametrów połączenia z Twojego centrum IoT w miejsce symbolu zastępczego po `--login`.
 
     ```
     iothub-explorer monitor-events MyFirstPythonDevice --login "[IoTHub connection string]"
     ```
 
-3. Otwórz nowy wiersz polecenia i przejdź toohello katalog zawierający hello **SimulatedDevice.py** pliku.
+3. Otwórz nowy wiersz polecenia i przejdź do katalogu zawierającego plik **SimulatedDevice.py**.
 
-4. Uruchom hello **SimulatedDevice.py** pliku, który okresowo wysyła Centrum IoT tooyour danych telemetrycznych. 
+4. Uruchom plik **SimulatedDevice.py**, który okresowo wysyła dane telemetryczne do Twojego centrum IoT. 
    
     ```
     python SimulatedDevice.py
     ```
-5. Obserwować wiadomości powitania urządzenia na wiersz polecenia hello systemem hello Explorer Centrum IoT z poprzedniej sekcji hello. 
+5. W wierszu polecenia z uruchomionym w poprzedniej sekcji narzędziem IoT Hub Explorer obserwuj komunikaty z urządzenia. 
 
     ![Komunikaty środowiska Python przesyłane z urządzenia do chmury][2]
 
 ## <a name="next-steps"></a>Następne kroki
-W tym samouczku został skonfigurowany nowego centrum IoT w portalu Azure hello i w rejestrze tożsamości Centrum IoT hello zostanie utworzona tożsamość urządzenia. Użyto tego urządzenia tożsamości tooenable hello symulowane urządzenie aplikacji toosend wiadomości urządzenia do chmury toohello Centrum IoT. Możesz obserwować hello komunikatów odebranych przez Centrum IoT hello za pomocą narzędzia Eksplorator Centrum IoT hello hello. 
+W tym samouczku opisano konfigurowanie nowego centrum IoT Hub w witrynie Azure Portal, a następnie tworzenie tożsamości urządzenia w rejestrze tożsamości centrum. Tożsamość urządzenia została użyta, aby włączyć w aplikacji symulowanego urządzenia funkcję wysyłania komunikatów z urządzenia do chmury do centrum IoT Hub. Z pomocą narzędzia IoT Hub Explorer obserwowano komunikaty odbierane przez centrum IoT. 
 
-tooexplore hello zestaw SDK Python użycia Centrum IoT Azure szczegółowo, odwiedź stronę [tym repozytorium Git Centrum][lnk-python-github]. tooreview hello komunikatów możliwości hello Azure IoT Hub usługi SDK dla języka Python, możesz pobrać i uruchomić [iothub_messaging_sample.py][lnk-messaging-sample]. Na symulacyjnych po stronie urządzenia przy użyciu hello Azure IoT Hub urządzenia SDK dla języka Python, możesz pobrać i uruchomić hello [iothub_client_sample.py][lnk-client-sample].
+Aby szczegółowo przeanalizować możliwości użycia zestawu SDK języka Python dla usługi Azure IoT Hub, odwiedź [to repozytorium GitHub][lnk-python-github]. Aby przejrzeć możliwości obsługi wiadomości zestawu SDK usługi Azure IoT Hub dla języka Python, możesz pobrać i uruchomić plik [iothub_messaging_sample.py][lnk-messaging-sample]. Aby zapoznać się z możliwościami symulacji ze strony urządzenia przy użyciu zestawu SDK urządzenia usługi Azure IoT Hub dla języka Python, możesz pobrać i uruchomić plik [iothub_client_sample.py][lnk-client-sample].
 
-toocontinue wprowadzenie do korzystania z Centrum IoT i tooexplore innych scenariuszach IoT, zobacz:
+Aby kontynuować wprowadzenie do usługi IoT Hub i zapoznać się z innymi scenariuszami IoT, zobacz:
 
 * [Łączenie urządzenia][lnk-connect-device]
 * [Wprowadzenie do zarządzania urządzeniami][lnk-device-management]
 * [Getting started with Azure IoT Edge][lnk-iot-edge] (Rozpoczynanie pracy z usługą Azure IoT Edge)
 
-toolearn tooextend IoT rozwiązanie i procesu urządzenia do chmury wiadomości na dużą skalę, zobacz temat hello [przetwarzania komunikatów urządzenia do chmury] [ lnk-process-d2c-tutorial] samouczka.
+Aby dowiedzieć się, jak rozszerzyć rozwiązanie IoT i przetwarzać komunikaty z urządzenia do chmury na dużą skalę, zobacz samouczek [Przetwarzanie komunikatów przesyłanych z urządzeń do chmury][lnk-process-d2c-tutorial].
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->

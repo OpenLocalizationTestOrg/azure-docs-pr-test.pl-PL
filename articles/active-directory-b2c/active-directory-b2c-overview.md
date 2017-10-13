@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.openlocfilehash: abfd742e710458de3193dc5051de7818a112376c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 44d5d31d49c375c802a67511d1f962df20656559
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: Skup się na swojej aplikacji — pozwól nam zająć się rejestrowaniem i logowaniem
 
-Usługa Azure AD B2C to chmurowe rozwiązanie do zarządzania tożsamościami dla Twoich aplikacji sieci Web i aplikacji mobilnych. Jest usługa globalnego wysokiej dostępności, która może obsłużyć toohundreds milionów tożsamości. Oparta na bezpiecznej platformie klasy korporacyjnej usługa Azure AD B2C chroni Twoje aplikacje, procesy biznesowe i użytkowników.
+Usługa Azure AD B2C to chmurowe rozwiązanie do zarządzania tożsamościami dla Twoich aplikacji sieci Web i aplikacji mobilnych. Stanowi globalną usługę o wysokiej dostępności, która może obsłużyć setki milionów tożsamości. Oparta na bezpiecznej platformie klasy korporacyjnej usługa Azure AD B2C chroni Twoje aplikacje, procesy biznesowe i użytkowników.
 
-Z minimalną konfiguracją usługi Azure AD B2C umożliwia tooauthenticate Twojej aplikacji:
+Wymagając minimalnej konfiguracji, usługa Azure AD B2C umożliwia Twojej aplikacji uwierzytelnianie następujących obiektów:
 
 * **Konta społecznościowe** (np. Facebook, Google i LinkedIn)
 * **Konta przedsiębiorstwa** (za pomocą standardowych protokołów uwierzytelniania OpenID Connect lub SAML)
@@ -32,7 +32,7 @@ Z minimalną konfiguracją usługi Azure AD B2C umożliwia tooauthenticate Twoje
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Najpierw należy utworzyć własną dzierżawę za pomocą hello czynności opisane w temacie [tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md).
+W pierwszej kolejności utwórz własną dzierżawę, wykonując kroki opisane w temacie [Tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md).
 
 Następnie wybierz scenariusz tworzenia aplikacji:
 
@@ -45,38 +45,38 @@ Następnie wybierz scenariusz tworzenia aplikacji:
 
 ## <a name="whats-new"></a>Co nowego
 
-Zaglądaj tu często toolearn o nadchodzących zmianach toohello Azure Active Directory B2C. Tweetujemy również o wszystkich aktualizacjach, używając konta @AzureAD.
+Zaglądaj tu często, aby dowiadywać się o nadchodzących zmianach w usłudze Azure Active Directory B2C. Tweetujemy również o wszystkich aktualizacjach, używając konta @AzureAD.
 
-* Ponadto, za "Wbudowane zasady" (ogólnej dostępności) hello ["Zasady niestandardowe"](active-directory-b2c-overview-custom.md) funkcja jest teraz dostępna w publicznej wersji zapoznawczej.  Zasady niestandardowe są przeznaczone dla specjalistów tożsamości, które wymagają kontroli nad hello skład ich obsługi tożsamości.
-* Witaj [Token dostępu](https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview) funkcja jest teraz dostępna w publicznej wersji zapoznawczej.
+* Oprócz „zasad wbudowanych” (ogólna dostępność) w publicznej wersji zapoznawczej jest teraz dostępna funkcja [„zasad niestandardowych”](active-directory-b2c-overview-custom.md).  Zasady niestandardowe są przeznaczone dla specjalistów ds. tożsamości, którzy potrzebują kontroli nad strukturą środowiska obsługi tożsamości.
+* Funkcja [tokenu dostępu](https://azure.microsoft.com/en-us/blog/azure-ad-b2c-access-tokens-now-in-public-preview) jest teraz dostępna w publicznej wersji zapoznawczej.
 * Ogłoszono [ogólną dostępność europejskich katalogów usługi Azure AD B2C](https://azure.microsoft.com/en-us/blog/azuread-b2c-ga-eu/).
 * Zapoznaj się z naszą rosnącą biblioteką [przykładów kodu w usłudze GitHub](https://github.com/Azure-Samples?q=b2c)!
 
-## <a name="how-tooarticles"></a>Jak tooarticles
+## <a name="how-to-articles"></a>Instrukcje
 
-Dowiedz się, jak toouse określonych funkcji usługi Azure Active Directory B2C:
+Informacje o sposobie korzystania z określonych funkcji usługi Azure Active Directory B2C:
 
 * Skonfiguruj swoje konta [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [konto Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) i [LinkedIn](active-directory-b2c-setup-li-app.md) do użycia w aplikacjach użytkownika.
-* [Atrybuty niestandardowe toocollect informacje o użytkownikach](active-directory-b2c-reference-custom-attr.md).
+* [Wykorzystaj niestandardowe atrybuty do zbierania informacji o użytkownikach](active-directory-b2c-reference-custom-attr.md).
 * [Włącz funkcję Multi-Factor Authentication platformy Azure w aplikacjach użytkownika](active-directory-b2c-reference-mfa.md).
 * [Skonfiguruj funkcję samodzielnego resetowania hasła przez użytkowników](active-directory-b2c-reference-sspr.md).
-* [Dostosowywanie hello wygląd i działanie tworzenia konta, zaloguj się w i innych stron dla użytkownika](active-directory-b2c-reference-ui-customization.md) obsługiwanych przez usługi Azure Active Directory B2C.
-* [Użyj hello Azure Active Directory interfejsu API programu Graph tooprogrammatically tworzenia, odczytu, aktualizacji i usuwania użytkowników](active-directory-b2c-devquickstarts-graph-dotnet.md) w dzierżawie usługi Azure Active Directory B2C.
+* [Dostosuj wygląd i obsługę funkcji rejestrowania i logowania oraz innych stron dla użytkownika](active-directory-b2c-reference-ui-customization.md) obsługiwanych przez usługę Azure Active Directory B2C.
+* [Skorzystaj z interfejsu API Azure Active Directory programu Graph do programowego tworzenia, odczytywania, aktualizowania i usuwania użytkowników](active-directory-b2c-devquickstarts-graph-dotnet.md) w swojej dzierżawie usługi Azure Active Directory B2C.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Łącza te są przydatne do eksplorowania usługi hello:
+Poniższe linki pozwalają szczegółowo eksplorować usługę:
 
-* Zobacz hello [informacje o cenach usługi Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+* Zobacz [Informacje o cenach usługi Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 * Przejrzyj nasze [przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) dla usługi Azure Active Directory B2C. 
-* Uzyskaj pomoc na stronie Stack Overflow przy użyciu hello [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c) tagu.
-* Przekaż nam swoje uwagi za pomocą [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c), chcemy toohear je!
-* Przejrzyj hello [odwołanie do usługi Azure AD B2C protokołu](active-directory-b2c-reference-protocols.md).
-* Przejrzyj hello [Azure AD B2C odwołania do tokenu](active-directory-b2c-reference-tokens.md).
-* Witaj odczytu [Azure Active Directory B2C — często zadawane pytania](active-directory-b2c-faqs.md).
+* Uzyskaj pomoc na stronie Stack Overflow, korzystając z tagu [azure-ad-b2c](http://stackoverflow.com/questions/tagged/azure-ad-b2c).
+* Przekazuj nam swoje przemyślenia za pomocą funkcji [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c) — chcemy je poznać.
+* Zapoznaj się z [dokumentacją protokołu usługi Azure AD B2C](active-directory-b2c-reference-protocols.md).
+* Zapoznaj się z [dokumentacją tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md).
+* Przeczytaj temat [Azure Active Directory B2C — często zadawane pytania](active-directory-b2c-faqs.md).
 * [Żądania pomocy technicznej dotyczące plików dla usługi Azure Active Directory B2C](active-directory-b2c-support.md).
 
 ## <a name="get-security-updates-for-our-products"></a>Pobierz aktualizacje zabezpieczeń naszych produktów
 
-Firma Microsoft zachęca tooget powiadomień o występujących incydentach zabezpieczeń poprzez wizytę [tę stronę](https://technet.microsoft.com/security/dd252948) i subskrypcji tooSecurity doradczych alertów.
+Firma Microsoft zachęca do przekazywania powiadomień o występujących incydentach zabezpieczeń poprzez wizytę na [tej stronie](https://technet.microsoft.com/security/dd252948) i subskrybowanie Doradczych alertów zabezpieczeń.
 

@@ -1,5 +1,5 @@
 ---
-title: "używana przez typ routingu Azure Traffic Manager geograficznego hierarchii aaaCountry/Region | Dokumentacja firmy Microsoft"
+title: "Używana przez typ routingu Azure Traffic Manager geograficznego hierarchii Kraj/Region | Dokumentacja firmy Microsoft"
 description: "W tym artykule wymieniono używana przez typ routingu Azure Traffic Manager geograficznego hierarchii Kraj/Region"
 services: traffic-manager
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: d09fc896951fa1086822d69316468e7a98861591
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Używane przez usługę Azure Traffic Manager dla metody routingu ruchu geograficznego hierarchii Kraj/Region
 
-W tym artykule wymieniono hello krajów i regionów używane przez hello **Geographic** ruchu metody routingu w usłudze Azure Traffic Manager. Możesz również uzyskać te informacje programowo przez wywołanie metody [interfejsu API REST usługi Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+W tym artykule wymieniono innych krajów i regionów używane przez **Geographic** ruchu metody routingu w usłudze Azure Traffic Manager. Możesz również uzyskać te informacje programowo przez wywołanie metody [interfejsu API REST usługi Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(World)
 
@@ -384,7 +384,7 @@ W tym artykule wymieniono hello krajów i regionów używane przez hello **Geogr
 
             - US-Wy(Wyoming)
 
-        - VC (Saint Vincent i Grenadyny hello)
+        - VC (Saint Vincent i Grenadyny)
 
         - VG (Brytyjskie Wyspy Dziewicze)
 

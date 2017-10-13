@@ -1,6 +1,6 @@
 ---
 title: "Zabezpieczenia klastra usługi sieć szkieletowa: role klient | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano Witaj dwie role klienta i uprawnienia hello dostarczone toohello ról."
+description: "W tym artykule opisano dwa klienta role i uprawnienia do ról."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 4a4a9f93e91ea816005b730bebbcb317f8bab255
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 85935e60bba4b27972282700e2e9c9a22b403bdb
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Kontrola dostępu oparta na rolach dla klientów sieci szkieletowej usług
-Sieć szkieletowa usług Azure obsługuje dwa typy kontroli różny dostęp dla klientów, które są połączone tooa klastra sieci szkieletowej usług: administratora i użytkownika. Kontrola dostępu umożliwia hello klastra administrator toolimit dostępu toocertain klastra operacje dla różnych grup użytkowników, co klaster hello bardziej bezpieczne.  
+Sieć szkieletowa usług Azure obsługuje dwa typy kontroli różny dostęp dla klientów, które są podłączone do klastra usługi sieć szkieletowa: administratora i użytkownika. Kontrola dostępu umożliwia administratora klastrów, aby ograniczyć dostęp do pewnych operacji klastra dla różnych grup użytkowników, co klaster bardziej bezpieczne.  
 
-**Administratorzy** mają pełny dostęp toomanagement możliwości (w tym możliwości odczytu/zapisu). Domyślnie **użytkowników** może zawierać tylko możliwości toomanagement dostęp do odczytu (na przykład możliwość wykonywania kwerend), a hello możliwości tooresolve aplikacji i usług.
+**Administratorzy** mają pełny dostęp do funkcji zarządzania (w tym możliwości odczytu/zapisu). Domyślnie **użytkowników** może zawierać tylko do odczytu możliwości zarządzania (na przykład możliwość wykonywania kwerend) i możliwość usuwania aplikacji i usług.
 
-Witaj dwie role klient (administratora i klient) określa się w czasie hello tworzenia klastra, podając oddzielne certyfikaty dla każdego. Zobacz [zabezpieczeń klastra sieci szkieletowej usług](service-fabric-cluster-security.md) szczegółowe informacje na temat konfigurowania bezpiecznej klastra sieci szkieletowej usług.
+Role dwóch klienta (administratora i klient) określa się podczas tworzenia klastra, podając oddzielne certyfikaty dla każdego. Zobacz [zabezpieczeń klastra sieci szkieletowej usług](service-fabric-cluster-security.md) szczegółowe informacje na temat konfigurowania bezpiecznej klastra sieci szkieletowej usług.
 
 ## <a name="default-access-control-settings"></a>Domyślne ustawienia kontroli dostępu
-Typ kontroli dostępu administratora Hello ma pełny dostęp tooall powitania klienta fabricclient z rolą interfejsów API. Może wykonywać wszystkie odczyty i zapisy na klaster sieci szkieletowej usług hello, w tym hello następujące operacje:
+Typ kontroli dostępu administratora ma pełny dostęp do wszystkich interfejsów API klienta fabricclient z rolą. Może wykonywać wszystkie odczyty i zapisy na klaster sieci szkieletowej usług, w tym następujące operacje:
 
 ### <a name="application-and-service-operations"></a>Operacje usług i aplikacji
 * **CreateService**: Tworzenie usługi                             
@@ -41,7 +41,7 @@ Typ kontroli dostępu administratora Hello ma pełny dostęp tooall powitania kl
 * **UpgradeApplication**: uruchomienie lub przerywania uaktualnienia aplikacji                             
 * **UnprovisionApplicationType**: aplikacji typu wstrzymania obsługi administracyjnej.                             
 * **MoveNextUpgradeDomain**: wznawianie uaktualniania aplikacji z domeną jawne aktualizacji                             
-* **ReportUpgradeHealth**: wznawianie uaktualniania aplikacji z hello Bieżący postęp uaktualniania                             
+* **ReportUpgradeHealth**: wznawianie uaktualniania aplikacji z Bieżący postęp uaktualniania                             
 * **ReportHealth**: raportowania kondycji                             
 * **PredeployPackageToNode**: przedwdrożeniowe interfejsu API                            
 * **CodePackageControl**: ponowne uruchamianie pakiety kodu                             
@@ -55,7 +55,7 @@ Typ kontroli dostępu administratora Hello ma pełny dostęp tooall powitania kl
 * **UpgradeFabric**: uruchomienie uaktualnienia klastra                             
 * **UnprovisionFabric**: MSI i/lub klastra manifestu wstrzymania obsługi administracyjnej                         
 * **MoveNextFabricUpgradeDomain**: wznawianie uaktualniania klastra z domeną jawne aktualizacji                             
-* **ReportFabricUpgradeHealth**: wznawianie uaktualniania klastra z hello Bieżący postęp uaktualniania                             
+* **ReportFabricUpgradeHealth**: wznawianie uaktualniania klastra z Bieżący postęp uaktualniania                             
 * **StartInfrastructureTask**: Uruchamianie zadań infrastruktury                             
 * **FinishInfrastructureTask**: Kończenie zadań infrastruktury                             
 * **InvokeInfrastructureCommand**: infrastruktury zadań zarządzania poleceń                              
@@ -66,20 +66,20 @@ Typ kontroli dostępu administratora Hello ma pełny dostęp tooall powitania kl
 * **GetNodeDeactivationStatus**: Sprawdzanie stanu dezaktywację.                             
 * **NodeStateRemoved**: raportowania stanu węzła usunięte                             
 * **ReportFault**: raportowanie błędów                             
-* **Operację FileContent**: obraz transfer plików klienta magazynu (toocluster zewnętrznych)                             
-* **FileDownload**: obraz magazynu klienta pliku pobierania inicjowania (toocluster zewnętrznych)                             
+* **Operację FileContent**: obraz transfer plików klienta magazynu (zewnętrzne do klastra)                             
+* **FileDownload**: obrazu (zewnętrznych do klastra) inicjowanie pobierania pliku klienta magazynu                             
 * **InternalList**: obraz magazynu klienta pliku listy operacji (wewnętrzny)                             
 * **Usuń**: Operacja usuwania klienta magazynu obrazu                              
 * **Przekaż**: operacja przekazywania klienta magazynu obrazu                             
 * **NodeControl**: uruchamianie, zatrzymywanie i ponowne uruchamianie węzłów                             
-* **MoveReplicaControl**: przenoszenie replik z jednego węzła tooanother                             
+* **MoveReplicaControl**: przenoszenie replik z jednego węzła do innego                             
 
 ### <a name="miscellaneous-operations"></a>Inne operacje
 * **Polecenie ping**: klient polecenia ping                             
 * **Zapytanie**: wszystkie zapytania dozwolone
 * **NameExists**: sprawdza istnienie identyfikatora URI nazewnictwa                             
 
-Typ kontroli dostępu użytkownika Hello jest domyślnie ograniczony toohello następujące operacje: 
+Typ kontroli dostępu użytkowników jest domyślnie ograniczony do następujących czynności: 
 
 * **EnumerateSubnames**: nazewnictwa URI — wyliczenie                             
 * **EnumerateProperties**: nazw właściwości — wyliczenie                             
@@ -96,10 +96,10 @@ Typ kontroli dostępu użytkownika Hello jest domyślnie ograniczony toohello na
 * **Funkcji resetpartitionload modułu**: resetowanie obciążenia dla jednostki trybu failover                             
 * **Toggleverboseserviceplacementhealthreporting modułu**: przełączanie raportowania kondycji umieszczania pełne usługi                             
 
-Kontrola dostępu administratora Hello ma również toohello dostępu powyższej operacji.
+Kontrola dostępu administratora ma też dostęp do poprzedniej operacji.
 
 ## <a name="changing-default-settings-for-client-roles"></a>Zmiana ustawień domyślnych dla ról klienta
-W pliku manifestu klastra hello musisz podać klienta toohello możliwości administratora w razie potrzeby. Można zmienić wartości domyślne hello toohello przechodzi **ustawienia sieci szkieletowej** opcję podczas [Tworzenie klastra](service-fabric-cluster-creation-via-portal.md)i zapewnianie hello poprzedzające ustawienia hello **nazwa**, **admin**, **użytkownika**, i **wartość** pól.
+W pliku manifestu klastra musisz podać możliwości administratora do klienta w razie potrzeby. Ustawienia domyślne można zmienić, przechodząc do **ustawienia sieci szkieletowej** opcję podczas [Tworzenie klastra](service-fabric-cluster-creation-via-portal.md)i zapewnianie poprzedniego ustawienia w **nazwa**,  **Administrator**, **użytkownika**, i **wartość** pól.
 
 ## <a name="next-steps"></a>Następne kroki
 [Zabezpieczenia klastra sieci szkieletowej usług](service-fabric-cluster-security.md)

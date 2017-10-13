@@ -14,13 +14,13 @@
 ## [Odnajdywanie źródeł danych](data-catalog-how-to-discover.md)
 ## [Annotate data sources (Dodawanie adnotacji do źródeł danych)](data-catalog-how-to-annotate.md)
 ## [Dokumentowanie źródeł danych](data-catalog-how-to-documentation.md)
-## [Połączenia źródeł toodata](data-catalog-how-to-connect.md)
+## [Łączenie ze źródłami danych](data-catalog-how-to-connect.md)
 ## [Praca z dużymi źródłami danych](data-catalog-how-to-big-data.md)
 ## [Źródła danych profilu danych](data-catalog-how-to-data-profile.md)
 ## [Zarządzanie zasobami danych](data-catalog-how-to-manage.md)
 ## [Zapisywanie wyszukiwań i przypinanie zasobów danych](data-catalog-how-to-save-pin.md)
-## [Skonfigurować słownik biznesowy hello](data-catalog-how-to-business-glossary.md)
-## [Bezpieczny dostęp toodata katalogu](data-catalog-how-to-secure-catalog.md)
+## [Konfigurowanie słownika biznesowego](data-catalog-how-to-business-glossary.md)
+## [Secure access to data catalog (Zabezpieczony dostęp do katalogu danych)](data-catalog-how-to-secure-catalog.md)
 ## [View related data assets (Wyświetlanie powiązanych zasobów danych)](data-catalog-how-to-view-related-data-assets.md) 
 
 # Dokumentacja

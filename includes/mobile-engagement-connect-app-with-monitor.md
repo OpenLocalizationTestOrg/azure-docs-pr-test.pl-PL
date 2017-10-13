@@ -1,11 +1,11 @@
-W tej sekcji przedstawiono, jak tooconnect z zapleczem usługi Mobile Engagement toohello aplikacji za pomocą usługi Mobile Engagement hello użytkownika w czasie rzeczywistym funkcji monitorowania. 
+W tej sekcji opisano sposób łączenia aplikacji z zapleczem usługi Mobile Engagement przy użyciu funkcji monitorowania w czasie rzeczywistym usługi Mobile Engagement. 
 
-1. W Twojej **usługi Azure Mobile Engagement** konto, upewnij się, że wybrana aplikacja hello ma toomonitor i zarządzanie nimi w hello **Mobile Engagement** portalu. Przejdź tooyour portalu Mobile Engagement, klikając hello **Engage** u dołu hello. 
+1. Na koncie usługi **Azure Mobile Engagement** wybierz aplikację, którą chcesz monitorować i zarządzać w portalu usługi **Mobile Engagement**. Przejdź do portalu usługi Mobile Engagement, klikając przycisk **Engage** (Włącz) u dołu. 
    
      ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-2. Nastąpi przejście do portalu Mobile Engagement hello. Jeśli karta Monitor hello nie jest zaznaczona, kliknij polecenie hello **Monitor**.
-3. Hello monitor jest gotowy tooshow możesz dowolnego urządzenia w czasie rzeczywistym, która zostanie uruchomiona aplikacja.
-4. Uruchom aplikację. Powinny pojawić się jedna sesja w monitorze hello, jeśli Integracja jest prawidłowa, co oznacza, że aplikacja jest teraz połączona z zapleczem usługi Mobile Engagement toohello i wysyła tooit danych.  
+2. Nastąpi przejście do portalu usługi Mobile Engagement. Jeśli karta Monitor (Monitorowanie) nie jest wybrana, kliknij opcję **Monitor** (Monitorowanie).
+3. Na karcie Monitor (Monitorowanie) zostanie w czasie rzeczywistym wyświetlone dowolne urządzenie, na którym zostanie uruchomiona aplikacja.
+4. Uruchom aplikację. Jeśli integracja jest prawidłowa, widoczna będzie jedna sesja. Oznacza to, że aplikacja jest teraz połączona z zapleczem usługi Mobile Engagement i wysyła do niej dane.  
    
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 

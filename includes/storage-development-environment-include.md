@@ -1,64 +1,64 @@
 ## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego
-Następnie skonfiguruj środowiska deweloperskiego w Visual Studio, wszystko jest gotowe tootry przykłady kodu hello w tym przewodniku.
+Następnie skonfiguruj środowisko projektowe w programie Visual Studio, aby przygotować się do wypróbowania przykładów kodu zawartych w tym przewodniku.
 
 ### <a name="create-a-windows-console-application-project"></a>Utwórz projekt aplikacji konsoli dla systemu Windows
-W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. Hello następujące kroki pokazują, jak toocreate aplikacji konsoli w programie Visual Studio 2017, jednak hello kroki są podobne w innych wersjach programu Visual Studio.
+W programie Visual Studio utwórz nową aplikację konsoli dla systemu Windows. Poniższe kroki pokazują, jak utworzyć aplikację konsoli w programie Visual Studio 2017, jednak kroki w innych wersjach programu Visual Studio są podobne.
 
 1. Wybierz kolejno pozycje **Plik** > **Nowy** > **Projekt**
 2. Wybierz kolejno pozycje **Zainstalowane** > **Szablony** > **Visual C#** > **Klasyczny pulpit systemu Windows**
 3. Wybierz pozycję **Aplikacja konsoli (.NET Framework)**
-4. Wprowadź nazwę aplikacji w hello **Name:** pola
+4. Wprowadź nazwę aplikacji w polu **Nazwa:**
 5. Kliknij przycisk **OK**
 
 ![Okno dialogowe tworzenia projektu w programie Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
-Wszystkie przykłady kodu, w tym samouczku można dodać toohello `Main()` metody Aplikacja konsoli `Program.cs` pliku.
+Wszystkie przykłady kodu w tym samouczku można dodać do metody `Main()` w pliku `Program.cs` aplikacji konsolowej.
 
-Można użyć hello biblioteki klienta magazynu Azure w dowolnego typu aplikacji .NET, w tym chmury Azure usługi lub aplikacji sieci web oraz aplikacje komputerów stacjonarnych i przenośnych. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
+Biblioteki klienta usługi Azure Storage można używać w aplikacjach .NET dowolnego typu , m.in. usługach w chmurze lub aplikacjach sieci Web platformy Azure, aplikacjach pulpitu i aplikacjach mobilnych. W tym przewodniku dla uproszczenia przedstawiono aplikację konsolową.
 
-### <a name="use-nuget-tooinstall-hello-required-packages"></a>Korzystanie z pakietów hello wymagane tooinstall NuGet
-Istnieją dwa pakiety tooreference toocomplete Twojego projektu musi w tym samouczku:
+### <a name="use-nuget-to-install-the-required-packages"></a>Użycie pakietu NuGet w celu zainstalowania wymaganych pakietów
+Istnieją dwa pakiety, które trzeba przywołać w projekcie, aby ukończyć ten samouczek:
 
-* [Biblioteka klienta usługi Microsoft Azure Storage dla platformy .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): ten pakiet zapewnia dostęp programistyczny toodata zasobów na koncie magazynu.
+* [Biblioteka klienta usługi Storage platformy Microsoft Azure dla środowiska .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): ten pakiet zapewnia dostęp programowy do zasobów danych na koncie magazynu.
 * [Biblioteka programu Microsoft Azure Configuration Manager dla środowiska .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): ten pakiet zawiera klasę do analizowania parametrów połączenia w pliku konfiguracji, niezależnie od tego, gdzie została uruchomiona aplikacja.
 
-Możesz użyć NuGet tooobtain oba pakiety. Wykonaj następujące kroki:
+Pakiet NuGet służy do pobrania obu pakietów. Wykonaj następujące kroki:
 
 1. Kliknij projekt prawym przyciskiem myszy w **Eksploratorze rozwiązań** i wybierz polecenie **Zarządzaj pakietami NuGet**.
-2. Wyszukaj w trybie online "Windowsazure.Storage", a następnie kliknij przycisk **zainstalować** tooinstall hello biblioteki klienta usługi Storage oraz jej zależności.
-3. Wyszukaj w trybie online "WindowsAzure.ConfigurationManager", a następnie kliknij przycisk **zainstalować** tooinstall hello Azure Configuration Manager.
+2. Wyszukaj w trybie online ciąg „WindowsAzure.Storage”, a następnie kliknij przycisk **Zainstaluj**, aby zainstalować Bibliotekę klienta usługi Storage oraz jej zależności.
+3. Wyszukaj w trybie online ciąg „WindowsAzure.ConfigurationManager” i kliknij przycisk **Zainstaluj**, aby zainstalować program Azure Configuration Manager.
 
 > [!NOTE]
-> Pakiet biblioteki klienta usługi Storage Hello znajduje się również w hello [zestawu Azure SDK dla platformy .NET](https://azure.microsoft.com/downloads/). Firma Microsoft zaleca jednak również zainstalować hello biblioteki klienta usługi Storage z posiadanie najnowszej wersji biblioteki klienta hello hello tooensure NuGet.
+> Pakiet Biblioteki klienta usługi Storage znajduje się również w [zestawie SDK Azure dla środowiska .NET](https://azure.microsoft.com/downloads/). Firma Microsoft zaleca jednak również zainstalowanie Biblioteki klienta usługi Storage z pakietu NuGet, aby zagwarantować posiadanie najnowszej wersji biblioteki klienta.
 > 
-> zależności ODataLib Hello w hello biblioteki klienta usługi Storage dla platformy .NET są rozwiązywane przez pakiety ODataLib hello jest dostępne na NuGet, a nie z usługi danych WCF. Hello biblioteki ODataLib można pobrać bezpośrednio lub odwołuje się projekt kodu za pośrednictwem pakietu NuGet. Witaj określone pakiety ODataLib używane przez hello biblioteki klienta usługi Storage są [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), i [przestrzennym](http://nuget.org/packages/System.Spatial/). Te biblioteki są używane przez klasy magazynu tabel Azure hello, są one wymaganymi zależnościami do programowania za pomocą hello biblioteki klienta usługi Storage.
+> Zależności ODataLib w Bibliotece klienta usługi Storage dla platformy .NET są rozwiązywane za pomocą pakietów ODataLib dostępnych w usłudze NuGet, a nie za pośrednictwem usług WCF Data Services. Biblioteki ODataLib można pobrać bezpośrednio lub użyć odwołań w projekcie kodu za pośrednictwem pakietu NuGet. Określone pakiety ODataLib używane przez Bibliotekę klienta usługi Storage to [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) i [Spatial](http://nuget.org/packages/System.Spatial/). Ze względu na to, że biblioteki te są używane przez klasy usługi Azure Table Storage, są one wymaganymi zależnościami do programowania za pomocą Biblioteki klienta usługi Storage.
 > 
 > 
 
 ### <a name="determine-your-target-environment"></a>Określanie środowiska docelowego
-Masz dwie opcje środowiska uruchamiania hello przykłady w tym przewodniku:
+W przypadku uruchamiania przykładów w tym przewodniku istnieją dwie opcje środowiska:
 
-* Można uruchomić kod dla konta usługi Azure Storage w chmurze hello. 
-* Można uruchomić kod dla emulatora magazynu Azure hello. emulator magazynu Hello jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze hello. Witaj emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Witaj emulator używa dobrze znanego konta i klucz. Aby uzyskać więcej informacji, zobacz [hello Użyj emulatora magazynu Azure do programowania i testowania](../articles/storage/common/storage-use-emulator.md)
+* Można uruchomić kod dla konta usługi Azure Storage w chmurze. 
+* Można uruchomić kod dla emulatora usługi Azure Storage. Emulator magazynu jest lokalnym środowiskiem, które emuluje konto usługi Azure Storage w chmurze. Emulator jest bezpłatną opcją do testowania i debugowania kodu, gdy aplikacja jest w fazie projektowania. Emulator używa dobrze znanego konta i klucza. Więcej informacji można znaleźć w temacie [Use the Azure Storage Emulator for Development and Testing](../articles/storage/common/storage-use-emulator.md) (Używanie emulatora usługi Azure Storage do programowania i testowania)
 
-Jeśli ma być przeznaczona dla konta magazynu w chmurze hello, skopiuj hello podstawowy klucz dostępu dla konta magazynu z hello portalu Azure. Aby uzyskać więcej informacji, zobacz temat [View and copy storage access keys](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Wyświetlanie i kopiowanie kluczy dostępu kopiowania).
+Jeśli obiektem docelowym jest konto magazynu w chmurze, skopiuj podstawowy klucz dostępu dla konta magazynu z witryny Azure Portal. Aby uzyskać więcej informacji, zobacz temat [View and copy storage access keys](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Wyświetlanie i kopiowanie kluczy dostępu kopiowania).
 
 > [!NOTE]
-> Możesz zastosować tooavoid emulatora magazynu hello ponoszenia kosztów związanych z usługą Azure Storage. Jednak jeśli tootarget konto usługi Azure storage w chmurze hello, koszty związane z wykonaniem tego samouczka będą nieznaczny.
+> Na obiekt docelowy można wybrać emulator magazynu, aby uniknąć ponoszenia kosztów związanych z usługą Azure Storage. Jednak jeśli wybranym obiektem docelowym będzie konto usługi Azure Storage w chmurze, koszty związane z wykonaniem instrukcji w tym samouczku będą niewielkie.
 > 
 > 
 
 ### <a name="configure-your-storage-connection-string"></a>Konfigurowanie parametrów połączenia magazynu
-Hello biblioteki klienta magazynu Azure dla platformy .NET obsługuje korzystanie z punktów końcowych tooconfigure magazynu połączenia ciągu i poświadczeń do uzyskiwania dostępu do usług magazynu. Witaj najlepsze sposób toomaintain parametry połączenia magazynu jest w pliku konfiguracji. 
+Biblioteka klienta usługi Storage platformy Azure dla środowiska .NET obsługuje korzystanie z parametrów połączenia magazynu w celu konfiguracji punktów końcowych i poświadczeń w celu uzyskania dostępu do usług Storage. Najlepiej przechowywać parametry połączenia magazynu w pliku konfiguracji. 
 
-Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz [skonfigurować tooAzure parametry połączenia magazynu](../articles/storage/common/storage-configure-connection-string.md).
+Aby uzyskać więcej informacji dotyczących parametrów połączenia, zobacz temat [Configure a Connection String to Azure Storage](../articles/storage/common/storage-configure-connection-string.md) (Konfigurowania parametrów połączenia z usługą Azure Storage).
 
 > [!NOTE]
-> Klucz konta magazynu jest podobny toohello hasła głównego konta magazynu. Zawsze należy uważać tooprotect klucz konta magazynu. Unikaj dystrybucję tooother użytkowników, kodować je lub zapisać go w pliku tekstowego, który jest dostępny tooothers. Wygeneruj ponownie klucz za pośrednictwem hello portalu Azure, jeśli uważasz, że mogą zostać naruszone.
+> Klucz konta magazynu jest podobny do hasła głównego konta magazynu. Zawsze chroń klucz konta magazynu. Nie udostępniaj go innym użytkownikom, nie koduj go trwale ani nie zapisuj w zwykłym pliku tekstowym, do którego mają dostęp inne osoby. Wygeneruj ponownie klucz za pośrednictwem witryny Azure Portal, jeśli uważasz, że jego zabezpieczenia mogły zostać naruszone.
 > 
 > 
 
-tooconfigure Twojego parametry połączenia, otwórz hello `app.config` plików w Eksploratorze rozwiązań w programie Visual Studio. Dodaj zawartość hello hello `<appSettings>` widocznego poniżej. Zastąp `account-name` hello nazwą konta magazynu i `account-key` kluczem dostępu do konta:
+Aby skonfigurować parametry połączenia, otwórz plik `app.config` z Eksploratora rozwiązań w programie Visual Studio. Dodaj zawartość elementu `<appSettings>` widocznego poniżej. Zastąp ciąg `account-name` nazwą konta magazynu, a ciąg `account-key` kluczem dostępu do konta:
 
 ```xml
 <configuration>
@@ -77,7 +77,7 @@ Na przykład ustawienie konfiguracji może wyglądać mniej więcej tak:
 <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
 ```
 
-emulator magazynu hello tootarget, można użyć skrótu klawiaturowego, który mapuje toohello dobrze znaną nazwę konta i klucz. W takim przypadku ustawienie parametrów połączenia wygląda następująco:
+Jeśli obiektem docelowym ma być emulator magazynu, możesz użyć skrótu klawiaturowego, który mapuje dobrze znaną nazwę konta i klucz. W takim przypadku ustawienie parametrów połączenia wygląda następująco:
 
 ```xml
 <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />

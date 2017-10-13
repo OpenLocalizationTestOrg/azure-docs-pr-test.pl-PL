@@ -1,6 +1,6 @@
 ---
-title: "aaaUse istniejących tooplayback odtwarzacze zawartości - Azure | Dokumentacja firmy Microsoft"
-description: "Ten temat zawiera listę istniejących odtwarzaczy, możesz za pomocą tooplayback zawartości."
+title: "Korzystanie z istniejących odtwarzaczy do odtwarzania zawartości - Azure | Dokumentacja firmy Microsoft"
+description: "Ten temat zawiera listę istniejących odtwarzacze czy służy do odtwarzania zawartości."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: juliako
-ms.openlocfilehash: 54817345a19a9d3b18f1e7b352c3342043a569b2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 48f373b013b1192c353352b801876d706d91dd28
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="playing-your-content-with-existing-players"></a>Odtwarzanie zawartości z istniejących graczy
-Usługa Azure Media Services obsługuje wiele popularnych formatach przesyłania strumieniowego, takie jak Smooth Streaming, HTTP transmisji strumieniowej na żywo i MPEG-Dash. Ten temat kieruje użytkownika tooexisting odtwarzaczy, których można używać tootest strumienie.
+Usługa Azure Media Services obsługuje wiele popularnych formatach przesyłania strumieniowego, takie jak Smooth Streaming, HTTP transmisji strumieniowej na żywo i MPEG-Dash. W tym temacie punktów do istniejących odtwarzaczy, których można użyć do testowania strumienie.
 
-### <a name="hello-azure-portal-media-services-content-player"></a>Odtwarzacz zawartości Hello portalu Azure Media Services
-Witaj **Azure** portal udostępnia odtwarzacz zawartości możesz za pomocą tootest wideo.
+### <a name="the-azure-portal-media-services-content-player"></a>Azure portalu odtwarzacz zawartości Media Services
+**Azure** portal udostępnia odtwarzacz zawartości, który służy do testowania pliku wideo.
 
-Witaj, kliknij polecenie potrzeby wideo (Upewnij się, że został on [opublikowane](media-services-portal-publish.md)) i kliknij przycisk hello **odtwarzania** u dołu hello hello portalu.
+Kliknij wybrany film wideo (Upewnij się, że został on [opublikowane](media-services-portal-publish.md)) i kliknij przycisk **odtwarzanie** przycisk w dolnej części portalu.
 
 Zagadnienia do rozważenia:
 
-* Witaj **ODTWARZACZ zawartości MEDIA SERVICES** odtwarza z domyślnego hello punktu końcowego przesyłania strumieniowego. Jeśli chcesz tooplay z punktu końcowego przesyłania strumieniowego innych niż domyślne, należy użyć innego odtwarzacza Na przykład [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* **Odtwarzacz zawartości MEDIA SERVICES** odtwarza z domyślnego punktu końcowego przesyłania strumieniowego. Do odtwarzania z punktu końcowego przesyłania strumieniowego innego niż domyślny należy użyć innego odtwarzacza Na przykład [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ![AMSPlayer][AMSPlayer]
 
 ### <a name="azure-media-player"></a>Azure Media Player
-Użyj [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) tooplayback zawartości (Wyczyść lub protected) w jednym z następujących formatów hello:
+Użyj [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) do odtwarzania zawartości (Wyczyść lub protected) w jednym z następujących formatów:
 
 * Smooth Streaming
 * MPEG DASH
@@ -59,13 +59,13 @@ Użyj [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.h
 [http://dashif.org](http://dashif.org)
 
 ### <a name="other"></a>Inne
-tootest HLS adresów URL można również użyć:
+W celu przetestowania adresów URL HLS, można również użyć:
 
 * **Safari** na urządzeniu z systemem iOS lub
 * **Odtwarzacz HLS 3ivx** w systemie Windows.
 
 ## <a name="developing-video-players"></a>Tworzenie odtwarzaczy wideo
-Aby uzyskać informacje o toodevelop własne odtwarzaczy, zobacz temat [opracowywanie odtwarzaczy wideo](media-services-develop-video-players.md)
+Aby uzyskać informacje dotyczące sposobu tworzenia własnych odtwarzaczy, zobacz [opracowywanie odtwarzaczy wideo](media-services-develop-video-players.md)
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

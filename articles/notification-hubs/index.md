@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji centra powiadomień — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toosend powiadomienia wypychane z dowolnym urządzeniem przenośnym tooany wewnętrznej bazy danych z usługą Notification Hubs. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+title: "Dokumentacja usługi Azure Notification Hubs — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak wysyłać powiadomienia wypychane z dowolnego zaplecza na dowolne urządzenie mobilne za pomocą usługi Notification Hubs. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 050c70c32f50eb495cd53a6bfa5549d6ae189d89
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="notification-hubs-documentation"></a>Dokumentacja usługi Notification Hubs
 
-Dowiedz się, jak toouse centra powiadomień w wielu platform, skalowalnej — powiadomienie wypychane aparat szybko wysyłania miliony komunikatów. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób tooset się i wysyłania powiadomień wypychanych z dowolnym urządzeniem przenośnym tooany wewnętrznej bazy danych. 
+Dowiedz się, jak używać usługi Notification Hubs, skalowalnego aparatu obsługującego powiadomienia wypychane na wielu platformach, aby szybko wysyłać miliony wiadomości. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować i wysyłać powiadomienia wypychane z dowolnego zaplecza na dowolne urządzenie mobilne. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak toouse centra powiadomień w wielu platform, skalowalnej — p
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie pracy wysyłania tooAndroid powiadomień wypychanych (FCM) przy użyciu usługi Azure Notification Hubs</h3>
+                        <h3>Rozpoczynanie wysyłania powiadomień wypychanych do urządzeń z systemem Android (FCM) przy użyciu usługi Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Dowiedz się, jak toouse centra powiadomień w wielu platform, skalowalnej — p
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do wysyłania powiadomień tooChrome aplikacji za pomocą usługi Azure Notification Hubs wypychania</h3>
+                        <h3>Rozpoczynanie wysyłania powiadomień wypychanych do aplikacji Chrome przy użyciu usługi Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@ Dowiedz się, jak toouse centra powiadomień w wielu platform, skalowalnej — p
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie pracy wysyłania tooiOS powiadomień wypychanych przy użyciu usługi Azure Notification Hubs</h3>
+                        <h3>Rozpoczynanie wysyłania powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs</h3>
                     </div>
                 </div>
             </div>

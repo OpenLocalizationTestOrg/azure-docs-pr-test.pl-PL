@@ -1,5 +1,5 @@
 ---
-title: "aaaOverview i porównanie Azure na żądanie koderów nośnika | Dokumentacja firmy Microsoft"
+title: "Omówienie i porównanie Azure na żądanie nośnika koderów | Dokumentacja firmy Microsoft"
 description: "Ten temat zawiera omówienie i porównanie Azure na żądanie koderów nośnika."
 services: media-services
 documentationcenter: 
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: juliako
-ms.openlocfilehash: 24a3e0a16162b1bebfcde290b6baf2dd8dbfff17
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 538a6ab60168735c2626a93cdeedd8d4999a6efc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Omówienie i porównanie Azure na żądanie nośnika koderów
 ## <a name="encoding-overview"></a>Omówienie kodowania
-Azure Media Services udostępnia wiele opcji hello kodowania nośnika w chmurze hello.
+Azure Media Services udostępnia wiele opcji kodowania nośnika w chmurze.
 
-Podczas uruchamiania z programem Media Services, jest ważne toounderstand hello różnica między koderów-dekoderów i plik formatu.
-Kodery-dekodery hello oprogramowania, które implementuje algorytmy kompresji i dekompresji hello formatów plików są kontenery zawierających hello skompresowane wideo.
+Podczas uruchamiania z programem Media Services, należy zrozumieć różnicę między formatami koderów-dekoderów i plików.
+Kodery-dekodery to oprogramowanie, które implementuje algorytmy kompresji i dekompresji formatów plików są kontenery zawierających skompresowane wideo.
 
-Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, co pozwala toodeliver Twojego o adaptacyjnej szybkości bitowej MP4 lub Smooth Streaming zakodowane zawartości w formatach transmisji strumieniowej obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) bez konieczności toore pakietów w tych formatach transmisji strumieniowej.
+Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, co pozwala na dostarczanie zawartości o adaptacyjnej szybkości bitowej MP4 lub Smooth Streaming zakodowane w formatach transmisji strumieniowej obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) bez konieczności ponownego tworzenia pakietów w tych formatach.
 
 >[!NOTE]
->Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego w brzmieniu konta tooyour hello **zatrzymane** stanu. przesyłanie strumieniowe zawartości i podejmij korzyści z dynamicznego tworzenia pakietów i dynamicznego szyfrowania toostart hello punktu końcowego przesyłania strumieniowego, z którego mają zostać toostream zawartość ma toobe w hello **systemem** stanu. Zaletą tootake [dynamicznego tworzenia pakietów](media-services-dynamic-packaging-overview.md), należy toodo hello poniżej:
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. Aby móc korzystać z [dynamicznego tworzenia pakietów](media-services-dynamic-packaging-overview.md), należy wykonać następujące czynności:
 >
->Ponadto kodowanie pliku źródłowego do zestawu plików MP4 lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów (kroki kodowania hello przedstawiono w dalszej części tego samouczka).
+>Ponadto kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów (kroki kodowania przedstawiono w dalszej części tego samouczka).
 
-Usługa Media Services obsługuje następujące hello na koderów żądanie, które zostały opisane w tym artykule:
+Usługa Media Services obsługuje następujące na koderów żądanie, które zostały opisane w tym artykule:
 
 * [Usługa Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 * [Przepływ pracy usługi Media Encoder w warstwie Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Ten artykuł zawiera krótki przegląd na żądanie koderów nośnika i zapewnia tooarticles łącza, które zapewniają bardziej szczegółowe informacje. Witaj temat zawiera również porównania koderów hello.
+W tym artykule zawiera krótki przegląd na żądanie koderów nośnika i łącza do artykułów, które zapewniają bardziej szczegółowe informacje. Temat zawiera również porównania koderów.
 
 >[!NOTE]
->Domyślnie wszystkie konta usługi Media Services może mieć aktywne zadania kodowania w czasie. Jednostki kodowania, które pozwalają toohave może zarezerwować wielu zadań kodowania uruchomione jednocześnie, po jednej dla każdego kodowania jednostka zarezerwowanego zakupu. Aby uzyskać informacje, zobacz [skalowania jednostki kodowania](media-services-scale-media-processing-overview.md).
+>Domyślnie wszystkie konta usługi Media Services może mieć aktywne zadania kodowania w czasie. Istnieje możliwość rezerwowania jednostki kodowania, które umożliwiają wielu zadań kodowania uruchomione jednocześnie, po jednej dla każdego kodowania jednostka zarezerwowanego zakupu. Aby uzyskać informacje, zobacz [skalowania jednostki kodowania](media-services-scale-media-processing-overview.md).
 
 ## <a name="media-encoder-standard"></a>Usługa Media Encoder Standard
-### <a name="how-toouse"></a>Jak toouse
-[Jak tooencode przy użyciu Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+### <a name="how-to-use"></a>Jak stosować
+[Sposób kodowania przy użyciu Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 
 ### <a name="formats"></a>Formaty
 [Koderów-dekoderów i formaty](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Ustawienia
-Media Encoder Standard została skonfigurowana przy użyciu jednego ustawień kodera hello opisane [tutaj](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard została skonfigurowana przy użyciu jednego ustawień kodera opisane [tutaj](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Wejście i wyjście metadanych
-Hello metadanych wejściowych koderów opisano [tutaj](media-services-input-metadata-schema.md).
+Opisano metadanych wejściowych koderów [tutaj](media-services-input-metadata-schema.md).
 
-Hello koderów dane wyjściowe metadanych opisano [tutaj](media-services-output-metadata-schema.md).
+Opisano metadanych dane wyjściowe koderów [tutaj](media-services-output-metadata-schema.md).
 
 ### <a name="generate-thumbnails"></a>Generowanie miniatur
-Aby uzyskać informacje, zobacz [jak miniatur toogenerate przy użyciu standardu Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
+Aby uzyskać informacje, zobacz [sposób generowania miniatur przy użyciu standardu Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
 
 ### <a name="trim-videos-clipping"></a>TRIM wideo (wycinka)
-Aby uzyskać informacje, zobacz [jak tootrim pliki wideo przy użyciu standardu Media Encoder Standard](media-services-advanced-encoding-with-mes.md#trim_video).
+Aby uzyskać informacje, zobacz [jak przyciąć wideo przy użyciu standardu Media Encoder Standard](media-services-advanced-encoding-with-mes.md#trim_video).
 
 ### <a name="create-overlays"></a>Utwórz nakładki
-Aby uzyskać informacje, zobacz [jak nakładki toocreate przy użyciu standardu Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
+Aby uzyskać informacje, zobacz [tworzenie nakładki przy użyciu standardu Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
 ### <a name="see-also"></a>Zobacz też
-[blog usługi Media Services Hello](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
+[Blog usługi Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Przepływ pracy usługi Media Encoder w warstwie Premium
 ### <a name="overview"></a>Omówienie
 [Wprowadzenie do kodowania w Azure Media Services w wersji Premium](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
-### <a name="how-toouse"></a>Jak toouse
-Media Encoder Premium w przepływie pracy jest skonfigurowana przy użyciu złożonych przepływów pracy. Pliki przepływu pracy może zostać utworzony i zaktualizować przy użyciu hello [projektanta przepływów pracy](media-services-workflow-designer.md) narzędzia.
+### <a name="how-to-use"></a>Jak stosować
+Media Encoder Premium w przepływie pracy jest skonfigurowana przy użyciu złożonych przepływów pracy. Pliki przepływu pracy może zostać utworzony i zaktualizować przy użyciu [projektanta przepływów pracy](media-services-workflow-designer.md) narzędzia.
 
-[Jak tooUse Premium kodowania w usłudze Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
+[Jak używać kodowania w Azure Media Services w wersji Premium](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>Znane problemy
-Jeśli wejściowy plik wideo nie zawiera kodowane, hello wyjściowe zasobów nadal będzie zawierać pusty plik TTML.
+Jeśli wejściowy plik wideo nie zawiera kodowane się, dane wyjściowe zasobów będzie nadal zawierać pusty plik TTML.
 
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services

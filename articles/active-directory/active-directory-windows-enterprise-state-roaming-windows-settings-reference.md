@@ -1,6 +1,6 @@
 ---
-title: "informacje dotyczące ustawień roamingu aaaWindows 10 | Dokumentacja firmy Microsoft"
-description: "Pełną listę wszystkich ustawień hello, które będą przekazywane lub kopii zapasowej w systemie Windows 10."
+title: "Windows 10 informacje dotyczące ustawień roamingu | Dokumentacja firmy Microsoft"
+description: "Pełną listę ustawień, które będą przekazywane lub kopii zapasowej w systemie Windows 10."
 services: active-directory
 keywords: "roaming stanu przedsiębiorstwa chmury systemu windows"
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 381e2220b698bb0e477c207984ff96c03ed132ca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Informacje dotyczące ustawień roamingu w systemie Windows 10
-Witaj poniżej znajduje się pełna lista wszystkich ustawień hello, które będą przekazywane lub kopii zapasowej w systemie Windows 10. 
+Poniżej znajduje się pełna lista wszystkich ustawień, które będą przekazywane lub kopii zapasowej w systemie Windows 10. 
 
 ## <a name="devices-and-endpoints"></a>Punktów końcowych i urządzeń
-Witaj w poniższej tabeli podsumowanie hello urządzeń i typy kont, które są obsługiwane przez synchronizacji hello kopii zapasowej, zobacz i przywrócić framework w systemie Windows 10.
+Poniższej tabeli przedstawiono podsumowanie urządzeń i typy kont, które są obsługiwane przez synchronizacji, kopia zapasowa i przywracanie framework w systemie Windows 10.
 
 | Typ konta i działania | Pulpitu | Komórkowy |
 | --- | --- | --- |
@@ -35,10 +35,10 @@ Witaj w poniższej tabeli podsumowanie hello urządzeń i typy kont, które są 
 | Konto Microsoft: kopia zapasowa i przywracanie |Nie |Tak |
 
 ## <a name="what-is-backup"></a>Co to jest kopia zapasowa?
-Ustawienia systemu Windows są zazwyczaj synchronizacji domyślnie, ale niektóre ustawienia są tylko kopię zapasową, takich jak hello listę zainstalowanych aplikacji na urządzeniu. Kopia zapasowa jest dla urządzeń przenośnych, a obecnie nie jest dostępna tylko dla użytkowników roamingu stanu przedsiębiorstwa. Kopia zapasowa przy użyciu konta Microsoft i przechowuje hello ustawień i danych aplikacji w usłudze OneDrive. Jeśli użytkownik wyłączy synchronizacji na urządzeniu hello przy użyciu aplikacji ustawienia hello, zwykle synchronizuje dane aplikacji staje się kopii zapasowej tylko. Dane kopii zapasowej można uzyskać tylko za pośrednictwem operacji przywracania hello podczas hello pierwszego uruchomienia systemu, nowego urządzenia. Kopie zapasowe można wyłączyć za pomocą ustawień urządzenia hello i i można z niego usunięte za pomocą konta usługi OneDrive użytkownika hello.
+Ustawienia systemu Windows są zazwyczaj synchronizacji domyślnie, ale niektóre ustawienia są tylko kopię zapasową, takich jak lista zainstalowanych aplikacji na urządzeniu. Kopia zapasowa jest dla urządzeń przenośnych, a obecnie nie jest dostępna tylko dla użytkowników roamingu stanu przedsiębiorstwa. Kopia zapasowa przy użyciu konta Microsoft i przechowuje ustawienia i dane aplikacji w usłudze OneDrive. Jeśli użytkownik wyłączy synchronizacji na urządzeniu przy użyciu aplikacji ustawienia, zwykle synchronizuje dane aplikacji staje się kopii zapasowej tylko. Dane kopii zapasowej można uzyskać tylko za pośrednictwem operacji przywracania podczas środowisko pierwszego uruchomienia nowego urządzenia. Kopii zapasowych można wyłączyć za pomocą ustawień urządzenia i i można z niego usunięte za pomocą konta usługi OneDrive.
 
 ## <a name="windows-settings-overview"></a>Ustawienia systemu Windows — omówienie
-Witaj następujące grupy ustawienia są dostępne dla użytkowników końcowych tooenable/wyłącza ustawienia synchronizacji na urządzeniach z systemem Windows 10.
+Następujące grupy ustawienia są dostępne dla użytkowników końcowych włączyć lub wyłączyć synchronizację ustawień na urządzeniach z systemem Windows 10.
 
 * Motywu: tło pulpitu użytkownika kafelka, pozycja paska zadań, itp. 
 * Ustawień programu Internet Explorer: Historia przeglądania wpisane adresy URL, Ulubione itp. 
@@ -54,10 +54,10 @@ Synchronizowanie grupy (Ulubione, odczytywanie listy) ustawienie przeglądarki E
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
 
 ## <a name="windows-settings-details"></a>Szczegóły ustawień systemu Windows
-W poniższej tabeli hello, innych pozycji w kolumnie Grupa ustawienia hello odwołuje się toosettings, które mogą być wyłączone przechodząc tooSettings > kont > Synchronizuj swoje ustawienia > Ustawienia inne okna. 
+W poniższej tabeli, innych pozycji w kolumnie Grupa ustawienia odwołuje się do ustawień, które można wyłączyć, przechodząc do ustawienia > konta > Synchronizuj swoje ustawienia > Ustawienia inne okna. 
 
-Wewnętrzny pozycji w kolumnie Grupa ustawienia hello znajdują się toosettings i aplikacje, które można wyłączyć tylko synchronizowanie w samej aplikacji hello lub wyłączając synchronizacji dla hello wszystkich danych z urządzenia przy użyciu zarządzania urządzeniami przenośnymi (MDM) lub ustawień zasad grupy.
-Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć tooa grupy.
+Wewnętrzny pozycje w kolumnie grupa ustawień odnoszą się do ustawień i aplikacji, które można wyłączyć tylko synchronizowanie w aplikacji lub wyłączenie synchronizacji dla wszystkich danych z urządzenia przy użyciu zarządzania urządzeniami przenośnymi (MDM) lub ustawień zasad grupy.
+Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć do grupy.
 
 | Ustawienia | Pulpitu | Komórkowy | Grupa |
 | --- | --- | --- | --- |
@@ -85,16 +85,16 @@ Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć 
 | **Personalizacja pulpitu**: Pokaz slajdów tapety |Synchronizacji |X |Motyw |
 | **Personalizacja pulpitu**: ustawienia paska zadań (pozycja, automatyczne ukrywanie itp.) |Synchronizacji |X |Motyw |
 | **Personalizacja pulpitu**: start układu ekranu |X |kopia zapasowa | |
-| **Urządzenia**: podłączona zbyt drukarkami udostępnionymi|X |X |inne |
+| **Urządzenia**: nawiązaniu połączenia z drukarkami udostępnionymi |X |X |inne |
 | **Przeglądarka Edge**: odczytywanie listy |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Przeglądarka Edge**: Ulubione |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Przeglądarka Edge**: top witryn <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Przeglądarka Edge**: wpisane adresy URL <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Przeglądarka Edge**: ustawienia paska ulubionych <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
-| **Przeglądarka Edge**: Pokaż przycisk Strona główna hello <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
+| **Przeglądarka Edge**: Pokaż przycisk Strona główna <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Przeglądarka Edge**: Blokuj wyskakujące okienka <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
-| **Przeglądarka Edge**: pytaj jakie toodo z każdego pobrania <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
-| **Przeglądarka Edge**: oferują hasła toosave <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
+| **Przeglądarka Edge**: pytaj mnie, co należy zrobić z każdego pobrania <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
+| **Przeglądarka Edge**: oferują na zapisywanie haseł <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Przeglądarka Edge**: wysyłanie żądania nie Śledź żądań <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Przeglądarka Edge**: wpisy formularza <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
 | **Przeglądarka Edge**: Pokaż sugestie dotyczące wyszukiwania i lokacji, podczas pisania <sup> [[1]](#footnote-1)</sup> |Synchronizacji |Synchronizacji |wewnętrzny |
@@ -127,7 +127,7 @@ Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć 
 | **Język**: CHS QWERTY — klucz przełącznika C/E, shift |Synchronizacji |X |Język |
 | **Język**: CHS QWERTY — klucz przełącznika C/E, Ctrl |Synchronizacji |X |Język |
 | **Język**: WUBI CHS — tryb wprowadzania pojedynczy znak |Synchronizacji |X |Język |
-| **Język**: WUBI CHS — Pokaż hello pozostałych kodowania kandydata hello |Synchronizacji |X |Język |
+| **Język**: WUBI CHS — Pokaż pozostałych kodowania kandydata |Synchronizacji |X |Język |
 | **Język**: CHS WUBI - sygnał dźwiękowy kodowania 4 jest nieprawidłowy |Synchronizacji |X |Język |
 | **Język**: Bopomofo (CHT) — obejmują CJK Ext A |Synchronizacji |X |Język |
 | **Język**: japońskiego edytora IME - predykcyjnej pisania i niestandardowych słów |Synchronizacji |Synchronizacji |Język |
@@ -139,11 +139,11 @@ Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć 
 | **Zablokuj ekran**: wszystkie blokady ekranu |X |X | |
 | **Program Lupa**: Włączanie/wyłączanie (przełącznik główny) |X |X |Ułatwienia dostępu |
 | **Program Lupa**: Włącz odwracanie kolorów lub Wyłącz (domyślnie wyłączone) |Synchronizacji |X |Ułatwienia dostępu |
-| **Program Lupa**: śledzenie — Śledź hello klawiaturę |Synchronizacji |X |Ułatwienia dostępu |
-| **Program Lupa**: śledzenie — Śledź hello kursor myszy |Synchronizacji |X |Ułatwienia dostępu |
+| **Program Lupa**: śledzenie — wykonaj fokus klawiatury |Synchronizacji |X |Ułatwienia dostępu |
+| **Program Lupa**: śledzenie — Śledź kursor myszy |Synchronizacji |X |Ułatwienia dostępu |
 | **Program Lupa**: start podczas logowania (domyślnie wyłączone) |Synchronizacji |X |Ułatwienia dostępu |
-| **Mysz**: zmiana rozmiaru hello kursora myszy |Synchronizacji |X |inne |
-| **Mysz**: zmiana koloru hello kursora myszy |Synchronizacji |X |inne |
+| **Mysz**: Zmień rozmiar kursora myszy |Synchronizacji |X |inne |
+| **Mysz**: zmiana koloru kursora myszy |Synchronizacji |X |inne |
 | **Mysz**: wszystkie inne ustawienia |X |X | |
 | **Narrator**: szybkiego uruchamiania |Synchronizacji |X |Ułatwienia dostępu |
 | **Narrator**: użytkownicy mogą zmieniać Narrator, mówiąc wysokości |Synchronizacji |X |Ułatwienia dostępu |
@@ -153,8 +153,8 @@ Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć 
 | **Narrator**: ma wstawiania kursora po Narrator (na domyślne) |Synchronizacji |X |Ułatwienia dostępu |
 | **Narrator**: Włącz visual wyróżnianie Narrator kursora (na domyślne) |Synchronizacji |X |Ułatwienia dostępu |
 | **Narrator**: odtwarzanie dźwięku wskaźników (na domyślne) |Synchronizacji |X |Ułatwienia dostępu |
-| **Narrator**: aktywowania kluczy hello touch klawiatury, gdy Podnieś palca (domyślnie wyłączone) |Synchronizacji |X |Ułatwienia dostępu |
-| **Łatwość dostępu**: Ustaw grubość hello hello migający kursor. |Synchronizacji |X |Ułatwienia dostępu |
+| **Narrator**: aktywowanie klawiszy touch podczas podnoszenia palca (domyślnie wyłączone) |Synchronizacji |X |Ułatwienia dostępu |
+| **Łatwość dostępu**: ustawianie grubości migający kursor |Synchronizacji |X |Ułatwienia dostępu |
 | **Łatwość dostępu**: Usuń obrazy tła (domyślnie wyłączone) |Synchronizacji |X |Ułatwienia dostępu |
 | **Zasilania i uśpienia**: wszystkie ustawienia |X |X | |
 | **Rozpocząć personalizacji ekranu**: akcent kolorów (tylko telefon) |X |Synchronizacji |Motyw |
@@ -163,8 +163,8 @@ Ustawienia, które nie są przekazywane lub synchronizacji nie będą należeć 
 | **Wpisywanie**: zaznacz pisowni |Synchronizacji |kopia zapasowa |Język |
 | **Wpisywanie**: Pokaż sugestie tekstu podczas pisania |Synchronizacji |kopia zapasowa |Język |
 | **Wpisywanie**: dodają spację po wybraniu sugestię tekstu |Synchronizacji |kopia zapasowa |Język |
-| **Wpisywanie**: Dodaj okres, po po dwukrotnym naciśnięciu hello spacja |Synchronizacji |kopia zapasowa |Język |
-| **Wpisywanie**: wielką hello pierwszą literę każdego zdania |Synchronizacji |kopia zapasowa |Język |
+| **Wpisywanie**: Dodaj okres, po po dwukrotnym naciśnięciu spacji |Synchronizacji |kopia zapasowa |Język |
+| **Wpisywanie**: Wielka litera na początku każdego zdania |Synchronizacji |kopia zapasowa |Język |
 | **Wpisywanie**: Użyj wielkie litery, gdy po dwukrotnym naciśnięciu klawisza shift |Synchronizacji |kopia zapasowa |Język |
 | **Wpisywanie**: odtwarzać dźwięki klucza podczas pisania |Synchronizacji |kopia zapasowa |Język |
 | **Wpisywanie**: dane personalizacji touch klawiatury |Synchronizacji |kopia zapasowa |Język |

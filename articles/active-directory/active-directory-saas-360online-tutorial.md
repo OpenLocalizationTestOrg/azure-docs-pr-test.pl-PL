@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z 360 Online | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i 360 Online."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i 360 Online."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 413e4e2c41336f99e1999857c788c5dac15be4c4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 629c7db04b0f9c880da6dfa8eac7fe14ecd8a215
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Samouczek: Integracji Azure Active Directory z 360 Online
 
-Z tego samouczka, dowiesz się, jak toointegrate 360 w trybie Online w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie 360 Online z usługą Azure Active Directory (Azure AD).
 
-Integrowanie 360 Online z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie 360 Online z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp too360 Online
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane too360 Online (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do 360 Online
+- Umożliwia użytkownikom automatycznie pobrać zalogowane 360 online (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z 360 Online należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z 360 Online, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - 360 Online jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie 360 Online z galerii hello
+1. Dodawanie 360 Online z poziomu galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-360-online-from-hello-gallery"></a>Dodawanie 360 Online z galerii hello
-tooconfigure hello integracji 360 Online z usługą Azure AD, należy tooadd 360 Online z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-360-online-from-the-gallery"></a>Dodawanie 360 Online z poziomu galerii
+Aby skonfigurować integrację usługi Azure AD 360 Online, należy dodać 360 Online z poziomu galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd 360 Online z galerii hello wykonaj hello następujące kroki:**
+**Aby dodać 360 Online z poziomu galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **360 Online**.
+4. W polu wyszukiwania wpisz **360 Online**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-360online-tutorial/tutorial_360online_search.png)
 
-5. W panelu wyników hello, wybierz **360 Online**, a następnie kliknij przycisk **Dodaj** przycisk tooadd hello aplikacji.
+5. W panelu wyników wybierz **360 Online**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-360online-tutorial/tutorial_360online_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z 360 Online na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w 360 Online jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w 360 Online musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w 360 Online jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w 360 Online musi się.
 
-W trybie Online 360, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W trybie Online 360, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z 360 Online, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z 360 Online, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Online 360](#creating-a-360-online-test-user)**  -toohave odpowiednikiem Simona Britta w 360 Online, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Online 360](#creating-a-360-online-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta 360 Online, połączony do usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne 360 aplikacji Online.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne 360 aplikacji Online.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z 360 Online, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z 360 Online, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **360 Online** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **360 Online** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-360online-tutorial/tutorial_360online_samlbase.png)
 
-3. Na powitania **360 domeny w trybie Online i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **360 domeny w trybie Online i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-360online-tutorial/tutorial_360online_url.png)
 
-    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<company name>.public360online.com`
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<company name>.public360online.com`
 
     > [!NOTE] 
-    > wartość Hello nie jest prawdziwe. Wartość hello aktualizacji z hello rzeczywisty adres URL logowania. Skontaktuj się z [360 zespołem pomocy technicznej Online klienta](mailto:360online@software-innovation.com) tooget hello wartość. 
+    > Wartość nie jest prawdziwe. Zaktualizuj tę wartość z adresem URL logowania rzeczywistych. Skontaktuj się z [360 zespołem pomocy technicznej Online klienta](mailto:360online@software-innovation.com) można uzyskać wartość. 
  
-4. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-360online-tutorial/tutorial_360online_certificate.png) 
 
@@ -123,64 +123,64 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-360online-tutorial/tutorial_general_400.png)
 
-6. tooconfigure rejestracji jednokrotnej w **360 Online** strony, należy pobrać hello toosend **XML metadanych** za[360 Online obsługuje zespołu](mailto:360online@software-innovation.com). 
+6. Skonfigurować logowanie jednokrotne w **360 Online** stronie, musisz wysłać pobrany **XML metadanych** do [360 Online obsługuje zespołu](mailto:360online@software-innovation.com). 
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-360online-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-360online-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-360online-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-360online-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-360-online-test-user"></a>Tworzenie użytkownika testowego Online 360
 
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w 360 Online. należy toocontact [360 Online obsługuje zespołu](mailto:360online@software-innovation.com).
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w 360 Online. musisz skontaktować się z [360 Online obsługuje zespołu](mailto:360online@software-innovation.com).
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu too360 w trybie Online.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do 360 Online.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign Simona Britta too360 Online, wykonaj następujące kroki hello:**
+**Aby przypisać Simona Britta 360 Online, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **360 Online**.
+2. Na liście aplikacji zaznacz **360 Online**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-360online-tutorial/tutorial_360online_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -188,7 +188,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -196,13 +196,13 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.
+Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu hello 360 Online kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour 360 aplikacji Online. 
+Po kliknięciu kafelka Online 360 w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do 360 aplikacji Online. 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

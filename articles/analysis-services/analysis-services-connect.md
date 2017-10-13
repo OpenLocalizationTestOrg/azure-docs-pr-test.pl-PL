@@ -1,6 +1,6 @@
 ---
-title: "tooAzure aaaConnect usług Analysis Services | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconnect tooand pobrać dane z serwera usług Analysis Services na platformie Azure."
+title: "Łączenie się z usługami Azure Analysis | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak nawiązać połączenie i Pobierz dane z serwerem usług Analysis Services na platformie Azure."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.openlocfilehash: 5df94492feb48034f156b72e83e1009683988fc8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: deb3ef28d20decef01826450bd6091f87dd069de
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="connect-tooan-azure-analysis-services-server"></a>Połączyć z serwerem usług Azure Analysis Services tooan
+# <a name="connect-to-an-azure-analysis-services-server"></a>Połącz się z serwerem usług Azure Analysis Services
 
-W tym artykule opisano serwer łączący tooa za pomocą modelowania danych i zarządzania aplikacji, takich jak SQL Server Management Studio (SSMS) lub SQL Server Data Tools (SSDT). Lub z klientem raportowanie aplikacji, takich jak program Microsoft Excel, Power BI Desktop lub niestandardowych aplikacji. Usługi Analysis Services tooAzure połączeń używać protokołu HTTPS.
+W tym artykule opisano łączenia się z serwerem za pomocą modelowania danych i zarządzania aplikacji, takich jak SQL Server Management Studio (SSMS) lub SQL Server Data Tools (SSDT). Lub z klientem raportowanie aplikacji, takich jak program Microsoft Excel, Power BI Desktop lub niestandardowych aplikacji. Połączenia do usług Azure Analysis Services używają protokołu HTTPS.
 
 ## <a name="client-libraries"></a>Biblioteki klienckie
-[Pobierz najnowsze bibliotek klienckich hello](analysis-services-data-providers.md)
+[Pobierz najnowsze biblioteki klienta](analysis-services-data-providers.md)
 
-Wszystkie połączenia serwera tooa, niezależnie od tego typu, wymagają zaktualizowanej AMO, ADOMD.NET i OLEDB biblioteki tooconnect tooand interfejsu klienta z serwerem usług Analysis Services. Dla narzędzia SSMS, narzędzi SSDT Excel 2016 i usługi Power BI bibliotek klienckich najnowsze hello są zainstalowane lub zaktualizowane wersje miesięcznych. Jednak w niektórych przypadkach jest aplikacja nie może mieć hello najnowsza wersja. Na przykład podczas aktualizacji opóźnienie zasad lub aktualizacji usługi Office 365 są na powitania kanału opóźnieniem.
+Wszystkie połączenia z serwerem, niezależnie od tego typu, wymagają zaktualizowanej biblioteki AMO, ADOMD.NET i OLEDB klienta do nawiązania połączenia i łączyć się z serwerem usług Analysis Services. Dla narzędzia SSMS, narzędzi SSDT Excel 2016 i usługi Power BI najnowsze biblioteki klienta są zainstalowane lub zaktualizowane wersje miesięcznych. Jednak w niektórych przypadkach jest aplikacji nie może mieć r. Na przykład gdy opóźnienie zasady aktualizacji lub aktualizacji usługi Office 365 są w kanale opóźnieniem.
 
 ## <a name="server-name"></a>Nazwa serwera
 
-Podczas tworzenia serwera usług Analysis Services na platformie Azure, należy określić unikatowy region nazwy i hello której serwer hello jest toobe utworzony. Podczas określania nazwy serwera hello na połączenie, jest schemat nazewnictwa powitania serwera:
+Podczas tworzenia serwera usług Analysis Services na platformie Azure, należy określić unikatową nazwę i regionu, w którym można utworzyć serwera. Podczas określania nazwy serwera na połączenie, jest schemat nazewnictwa serwera:
 
 ```
 <protocol>://<region>/<servername>
 ```
- Gdy protokół jest ciągiem **asazure**, region jest hello identyfikatora Uri, której utworzono powitania serwera (na przykład westus.asazure.windows.net) i servername jest nazwą powitania serwera unikatowy w obrębie regionu hello.
+ Gdy protokół jest ciągiem **asazure**, region jest identyfikatorem Uri, gdy serwer został utworzony (na przykład westus.asazure.windows.net) i servername jest nazwą serwera unikatowy w obrębie regionu.
 
-### <a name="get-hello-server-name"></a>Pobierz nazwę serwera hello
-W **portalu Azure** > serwera > **omówienie** > **nazwy serwera**, nazwa całego serwera hello kopii. Inni użytkownicy w organizacji za łączenia toothis serwera, można udostępniać tę nazwę serwera z nimi. Podczas określania nazwy serwera, należy użyć hello pełną ścieżkę.
+### <a name="get-the-server-name"></a>Pobierz nazwę serwera
+W **portalu Azure** > serwera > **omówienie** > **nazwy serwera**, skopiuj nazwę całego serwera. Jeśli innym użytkownikom w organizacji są zbyt połączenie do tego serwera, można udostępniać tę nazwę serwera z nimi. Podczas określania nazwy serwera, należy użyć pełną ścieżkę.
 
 ![Pobieranie nazwy serwera z systemu Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 
 ## <a name="connection-string"></a>Parametry połączenia
 
-Podczas nawiązywania połączenia tooAzure Analysis Services przy użyciu hello tabelaryczny Model obiektów, użyj hello następujące formaty ciągu połączenia:
+Podczas nawiązywania połączenia przy użyciu modelu tabelarycznego obiektu usług Azure Analysis Services, użyj ciągu połączenia w następujących formatach:
 
 ###### <a name="integrated-azure-active-directory-authentication"></a>Zintegrowane uwierzytelnianie usługi Azure Active Directory
-Uwierzytelnianie zintegrowane przejmuje hello pamięci podręcznej poświadczeń usługi Azure Active Directory. Jeśli jest dostępna. Jeśli nie jest wyświetlane okno logowania do platformy Azure hello.
+Uwierzytelnianie zintegrowane przejmuje pamięci podręcznej poświadczeń usługi Azure Active Directory, jeśli jest dostępna. Jeśli nie jest wyświetlane okno logowania do platformy Azure.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;"
@@ -64,7 +64,7 @@ Uwierzytelnianie zintegrowane przejmuje hello pamięci podręcznej poświadczeń
 ```
 
 ###### <a name="windows-authentication-integrated-security"></a>Uwierzytelnianie systemu Windows (zintegrowane zabezpieczenia)
-Użyj konta systemu Windows hello systemem hello bieżącego procesu.
+Użyj konta systemu Windows uruchomiona bieżącego procesu.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>; Integrated Security=SSPI;Persist Security Info=True;"
@@ -73,7 +73,7 @@ Użyj konta systemu Windows hello systemem hello bieżącego procesu.
 
 
 ## <a name="connect-using-an-odc-file"></a>Połącz, używając pliku odc
-W starszych wersjach programu Excel użytkownicy mogą łączyć tooan usług Azure Analysis Services serwera przy użyciu pliku połączenia danych pakietu Office (odc). toolearn więcej, zobacz [Tworzenie pliku połączenia danych pakietu Office (odc)](analysis-services-odc.md).
+W starszych wersjach programu Excel użytkownicy mogą łączyć się z serwerem usług Azure Analysis Services przy użyciu pliku połączenia danych pakietu Office (odc). Aby dowiedzieć się więcej, zobacz [Tworzenie pliku połączenia danych pakietu Office (odc)](analysis-services-odc.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

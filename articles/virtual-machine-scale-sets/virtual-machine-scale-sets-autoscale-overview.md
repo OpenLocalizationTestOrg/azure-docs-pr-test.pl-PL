@@ -1,6 +1,6 @@
 ---
-title: "aaaAutomatic skalowania maszyn wirtualnych i skalowanie zestawów | Dokumentacja firmy Microsoft"
-description: "Informacje o używaniu diagnostyki i maszyny wirtualne skalowania automatycznego skalowania zasobów tooautomatically w zestawie skalowania."
+title: "Automatyczne skalowanie i maszyny wirtualnej skalowanie zestawów | Dokumentacja firmy Microsoft"
+description: "Informacje o używaniu diagnostyki i skalowania automatycznego zasobów do automatycznego skalowania maszyn wirtualnych w zestawie skalowania."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: Thraka
@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: adegeo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25f54b693e3c991577238242008c262023ed479c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-automatic-scaling-and-virtual-machine-scale-sets"></a>Jak toouse automatyczne skalowanie i zestawy skalowania maszyny wirtualnej
-Automatyczne skalowanie maszyn wirtualnych w zestawie skalowania jest tworzenie hello lub usunięcia maszyn w hello Ustaw jako potrzebne toomatch wymagania dotyczące wydajności. Wraz z rozwojem hello ilość pracy, aplikacja może wymagać dodatkowych zasobów tooenable on tooeffectively wykonywania zadań.
+# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Jak używać automatyczne skalowanie i zestawy skalowania maszyny wirtualnej
+Automatyczne skalowanie maszyn wirtualnych w zestawie skalowania jest utworzenia lub usunięcia maszyn w zestawie, zgodnie z potrzebami, aby dopasować wymagania dotyczące wydajności. Wraz z rozwojem działalności, aplikacja może wymagać dodatkowych zasobów, aby umożliwić skutecznie wykonywania zadań.
 
-Automatyczne skalowanie jest zautomatyzowany proces czy pomaga upraszczają zarządzanie. Przez zmniejszenie nakładów pracy, nie należy monitorować wydajność systemu toocontinually lub zdecydować, jak toomanage zasobów. Skalowanie jest procesem elastycznej. Więcej zasobów do dodania jako hello wzrostu obciążenia. I jako spadku żądanie zasoby mogą zostać usunięte toominimize kosztów i Obsługa poziomów wydajności.
+Automatyczne skalowanie jest zautomatyzowany proces czy pomaga upraszczają zarządzanie. Przez zmniejszenie nakładów pracy, nie trzeba było stale monitorowania wydajności systemu lub zdecydować, jak zarządzać zasobami. Skalowanie jest procesem elastycznej. Miarę wzrostu obciążenia można dodać więcej zasobów. I jak żądanie zmniejsza, można usunąć zasoby, aby zminimalizować koszty i Obsługa poziomów wydajności.
 
-Skonfiguruj automatyczne skalowanie w skali skonfigurowane przy użyciu usługi Azure Resource Manager szablonu programu Azure PowerShell, interfejsu wiersza polecenia Azure albo hello portalu Azure.
+Skonfiguruj automatyczne skalowanie w skali skonfigurowane przy użyciu szablonu usługi Azure Resource Manager, programu Azure PowerShell, interfejsu wiersza polecenia Azure lub portalu Azure.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Ustawianie skalowania przy użyciu szablonów usługi Resource Manager
-Zamiast wdrażania i zarządzania nimi każdego zasobu aplikacji oddzielnie, należy użyć szablonu, który wdraża wszystkie zasoby w jednej, skoordynowanej operacji. W szablonie hello są zdefiniowane zasoby aplikacji i parametrów wdrożenia są określone dla różnych środowisk. Szablon Hello składa się z kodu JSON i wyrażeń, że możesz użyć wartości tooconstruct dla danego wdrożenia. toolearn, obejrzyj [szablonów Authoring Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Zamiast wdrażania i zarządzania nimi każdego zasobu aplikacji oddzielnie, należy użyć szablonu, który wdraża wszystkie zasoby w jednej, skoordynowanej operacji. W szablonie są zdefiniowane zasoby aplikacji i parametrów wdrożenia są określone dla różnych środowisk. Szablon składa się z kodu JSON i wyrażeń, które służy do tworzenia wartości na potrzeby wdrożenia. Aby dowiedzieć się więcej, zobacz [szablonów Authoring Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-W szablonie hello należy określić element pojemności hello:
+W szablonie należy określić pojemność elementu:
 
 ```json
 "sku": {
@@ -42,14 +42,14 @@ W szablonie hello należy określić element pojemności hello:
 },
 ```
 
-Pojemność identyfikuje hello liczbę maszyn wirtualnych w zestawie hello. Możesz ręcznie zmienić hello pojemności poprzez wdrożenie szablonu, podając inną wartość. Jeśli wdrażasz szablon tooonly zmiany hello pojemności może zawierać tylko element SKU hello o pojemności hello zaktualizowane.
+Pojemność określa liczbę maszyn wirtualnych w zestawie. Wydajność można zmienić ręcznie przez wdrożenie szablonu, podając inną wartość. Jeśli wdrażasz szablon można zmienić tylko pojemność może zawierać tylko element SKU o pojemności zaktualizowane.
 
-Witaj pojemność zestawu skalowania można automatycznie dostosować przy użyciu kombinacji hello **autoscaleSettings** zasobów i hello rozszerzenie diagnostyki.
+Pojemność zestawu skalowania można automatycznie dostosowywany przy użyciu kombinacji **autoscaleSettings** zasobu i rozszerzenia diagnostyki.
 
-### <a name="configure-hello-azure-diagnostics-extension"></a>Skonfiguruj rozszerzenie Azure Diagnostics hello
-Automatyczne skalowanie jest możliwe tylko w przypadku pomyślnego nawiązania na każdej maszynie wirtualnej w zestawie skalowania hello kolekcji metryki. Witaj rozszerzenia diagnostyki Azure udostępnia możliwości monitorowania i diagnostyki hello, które zaspokoi potrzeby zbierania miar hello hello automatycznego skalowania zasobu. Rozszerzenie hello można zainstalować jako część hello szablonu usługi Resource Manager.
+### <a name="configure-the-azure-diagnostics-extension"></a>Skonfiguruj rozszerzenie diagnostyki Azure
+Automatyczne skalowanie jest możliwe tylko jeśli kolekcji metryki zakończy się pomyślnie na każdej maszynie wirtualnej w zestawie skalowania. Rozszerzenia diagnostyki Azure oferuje możliwości monitorowania i diagnostyki, które zaspokoi potrzeby kolekcji metryki automatycznego skalowania zasobu. W ramach szablonu usługi Resource Manager można zainstalować rozszerzenia.
 
-Ten przykład przedstawia hello zmienne, które są używane w hello szablonu tooconfigure hello diagnostyki rozszerzenia:
+W tym przykładzie przedstawiono zmienne, które są używane w szablonie, aby skonfigurować rozszerzenie diagnostyki:
 
 ```json
 "diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
@@ -61,9 +61,9 @@ Ten przykład przedstawia hello zmienne, które są używane w hello szablonu to
 "wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
 ```
 
-Parametry są udostępniane po wdrożeniu hello szablonu. W tym przykładzie, nazwa hello hello konta magazynu (w którym są przechowywane dane) i hello podano nazwę zestawu skali hello (w którym dane są zbierane). Również w tym przykładzie systemu Windows Server, zbierane są tylko hello licznika wydajności liczba wątków. Witaj wszystkich dostępnych liczników wydajności w systemie Windows lub Linux mogą być używane toocollect informacje diagnostyczne i może być uwzględniony w konfiguracji rozszerzenia hello.
+Parametry są podane podczas wdrażania szablonu. W tym przykładzie podano nazwę konta magazynu (w którym są przechowywane dane) i nazwy zestawu skali (w którym dane są zbierane). Również w tym przykładzie systemu Windows Server zbieranych licznika wydajności liczba wątków. Wszystkie liczniki wydajności dostępne w systemie Windows lub Linux może służyć do zbierania informacji diagnostycznych i może być uwzględniony w konfiguracji rozszerzenia.
 
-W tym przykładzie przedstawiono definicję hello rozszerzenia hello w szablonie hello:
+W tym przykładzie przedstawiono definicję rozszerzenia w szablonie:
 
 ```json
 "extensionProfile": {
@@ -90,14 +90,14 @@ W tym przykładzie przedstawiono definicję hello rozszerzenia hello w szablonie
 }
 ```
 
-Po uruchomieniu rozszerzenia diagnostyki hello hello danych są przechowywane i zebrane w tabeli, hello konta magazynu, który określisz. W hello **WADPerformanceCounters** tabeli, możesz znaleźć hello zebranych danych:
+Po uruchomieniu rozszerzenia diagnostyki, dane są przechowywane i zbierane w tabeli, w ramach konta magazynu, który określisz. W **WADPerformanceCounters** tabeli, możesz znaleźć zebranych danych:
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
-### <a name="configure-hello-autoscalesettings-resource"></a>Konfigurowanie zasobów autoScaleSettings hello
-Witaj autoscaleSettings zasobów używane są informacje hello z hello diagnostyki rozszerzenia toodecide czy tooincrease lub zmniejszenia hello liczba maszyn wirtualnych w skali hello zestawu.
+### <a name="configure-the-autoscalesettings-resource"></a>Konfigurowanie zasobów autoScaleSettings
+Zasób autoscaleSettings używa tych informacji z rozszerzenia diagnostyki umożliwia określenie, czy można zwiększyć lub zmniejszyć liczbę maszyn wirtualnych w zestawie skalowania.
 
-W tym przykładzie przedstawiono konfigurację hello hello zasobu w szablonie hello:
+W tym przykładzie pokazano konfigurację zasobu w szablonie:
 
 ```json
 {
@@ -166,34 +166,34 @@ W tym przykładzie przedstawiono konfigurację hello hello zasobu w szablonie he
 }
 ```
 
-W powyższym przykładzie hello dwie reguły są tworzone dla Definiowanie hello automatycznych akcji skalowania. Pierwsza reguła Hello definiuje hello akcji skalowania w poziomie i hello drugą regułę definiuje hello skali w akcji. Te wartości są dostępne w zasadach hello:
+W powyższym przykładzie dwie reguły są tworzone dla Definiowanie automatycznych akcji skalowania. Pierwsza reguła definiuje akcji skalowania w poziomie, a drugą regułę definiuje akcji skalowania w. Te wartości są dostępne w zasadach:
 
 | Reguła | Opis |
 | ---- | ----------- |
-| metricName        | Ta wartość jest hello taki sam jak licznika wydajności hello zdefiniowaną w zmiennej wadperfcounter hello hello diagnostyki rozszerzenia. W powyższym przykładzie hello licznik liczby wątków hello jest używany.    |
-| metricResourceUri | Ta wartość jest identyfikator zasobu hello zestaw skali maszyny wirtualnej hello. Ten identyfikator zawiera hello nazwę grupy zasobów hello, hello Nazwa dostawcy zasobów hello i nazwę hello tooscale zestaw skalowania hello. |
-| Ziarnem czasu         | Ta wartość jest szczegółowości hello hello metryk, które są zbierane. W hello poprzedzających przykładzie dane są zbierane w odstępach jednej minuty. Ta wartość jest używana z timeWindow. |
-| Statystyka         | Ta wartość określa, jak metryki hello są połączone tooaccommodate hello automatyczne skalowanie akcji. Witaj możliwe wartości to: średnia, Min, Max. |
-| timeWindow        | Ta wartość jest hello zakres czasu, w którym są zbierane dane wystąpienia. Musi być od 5 minut do 12 godzin. |
-| timeAggregation   | Ta wartość określa, jak powinny być połączone hello dane, które są zbierane wraz z upływem czasu. Witaj domyślna wartość to średnia. Witaj możliwe wartości to: średnia, co najmniej, maksimum, ostatnich, łączna liczba, liczba. |
-| Operator          | Ta wartość jest hello operator, który jest używany toocompare hello metryki danych i hello próg. Witaj możliwe wartości to: równa, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual. |
-| Próg         | Ta wartość jest wartość hello wyzwala hello akcji skalowania. Można tooprovide się wystarczające różnicę wartości progowe hello hello **skalowalnego w poziomie** i **w skali** akcje. Jeśli ustawisz hello takie same wartości dla obu akcje systemu hello oszacowano stałej zmiany, które uniemożliwiają wdrożenie akcji skalowania. Na przykład ustawienie obu wątków too600 w hello poprzedzających przykład nie działa. |
-| Kierunek         | Ta wartość określa akcji hello, wykonywaną, gdy uzyskuje się hello wartość progową. Witaj możliwe wartości to zwiększyć lub zmniejszyć. |
-| type              | Ta wartość jest typu hello akcji, która powinna się odbyć i musi być ustawione tooChangeCount. |
-| wartość             | Ta wartość jest liczbą hello maszyn wirtualnych, które są dodawane tooor usunięte z hello zestaw skali. Ta wartość musi wynosić 1 lub większą. |
-| cooldown          | Ta wartość jest hello ilość czasu toowait od momentu ostatniej akcji skalowania hello, zanim nastąpi hello następnej akcji. Ta wartość musi należeć do zakresu od minutę i jeden tydzień. |
+| metricName        | Ta wartość jest taka sama jak licznika wydajności, które zdefiniowano w zmiennej wadperfcounter rozszerzenia diagnostyki. W powyższym przykładzie wątku licznik jest używany.    |
+| metricResourceUri | Ta wartość jest identyfikator zasobu zestawu skali maszyny wirtualnej. Ten identyfikator zawiera nazwę grupy zasobów, nazwę dostawcy zasobów i nazwę zestaw skalowania skalowania. |
+| Ziarnem czasu         | Ta wartość jest stopień szczegółowości metryki, które są zbierane. W powyższym przykładzie dane są zbierane w odstępach jednej minuty. Ta wartość jest używana z timeWindow. |
+| Statystyka         | Ta wartość określa, jak metryki połączone pomieścić automatycznych akcji skalowania. Możliwe wartości to: średnia, Min, Max. |
+| timeWindow        | Ta wartość jest przedział czasu, w którym są zbierane dane wystąpienia. Musi być od 5 minut do 12 godzin. |
+| timeAggregation   | Ta wartość określa, jak powinny być połączone dane, które są zbierane wraz z upływem czasu. Wartość domyślna to średnia. Możliwe wartości to: średnia, co najmniej, maksimum, ostatnich, łączna liczba, liczba. |
+| Operator          | Ta wartość jest operator, który służy do porównywania danych metryki i wartość progową. Możliwe wartości to: równa, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual. |
+| Próg         | Ta wartość jest wartością wyzwala akcji skalowania. Pamiętaj zapewnić wystarczającą różnicę wartości progowych dla **skalowalnego w poziomie** i **w skali** akcje. Jeśli ustawisz takie same wartości dla obu akcje systemu oszacowano stałej zmiany, które uniemożliwiają wdrożenie akcji skalowania. Na przykład ustawienie zarówno do 600 wątków w poprzednim przykładzie nie działa. |
+| Kierunek         | Ta wartość Określa akcję wykonywaną, gdy uzyskuje się wartość progową. Możliwe wartości to zwiększyć lub zmniejszyć. |
+| type              | Ta wartość jest typu akcji, która powinna się odbyć i musi mieć ustawioną ChangeCount. |
+| wartość             | Ta wartość jest liczba maszyn wirtualnych, które zostały dodane do lub usunięte z zestawu skalowania. Ta wartość musi wynosić 1 lub większą. |
+| cooldown          | Ta wartość jest czas oczekiwania od momentu ostatniej akcji skalowania, zanim nastąpi następnej akcji. Ta wartość musi należeć do zakresu od minutę i jeden tydzień. |
 
-W zależności od hello licznika wydajności używasz, niektóre elementy hello w konfiguracji szablonu hello są używane inaczej. W hello poprzedzających przykład licznika wydajności hello to liczba wątków, wartość progowa hello jest 650 dla akcji skalowania w poziomie oraz wartości progowej hello jest 550 hello skali w akcji. Jeśli używasz licznika, takie jak czas procesora (%), wartość progowa hello jest ustawiona toohello wartości procentowej użycia Procesora, która określa akcji skalowania.
+W zależności od licznika wydajności są używane, niektórych elementów w konfiguracji szablonu są używane w inny sposób. W powyższym przykładzie licznika wydajności to liczba wątków, wartość progowa jest 650 dla akcji skalowania w poziomie, a wartość progowa jest 550 dla akcji skalowania w. Użycie licznika, takie jak czas procesora (%), wartość progowa jest równa wartości procentowej użycia procesora CPU, która określa akcji skalowania.
 
-Po wyzwoleniu akcji skalowania, takich jak wysokie obciążenie, zwiększa się na podstawie wartości hello w szablonie hello pojemności hello hello zestawu. Na przykład w skali ustawić gdzie pojemności hello jest ustawiony too3, a wartość akcji skalowania hello jest ustawiony too1:
+Po wyzwoleniu akcji skalowania, takich jak wysokie obciążenie, zwiększa się na podstawie wartości w szablonie pojemność zestawu. Na przykład w skali zestawu, którego pojemność ustawiono 3 i wartość akcji skalowania jest równa 1:
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
 
-Gdy hello bieżącego obciążenia przyczyny hello wątku średnia liczba toogo powyżej progu hello 650:
+Gdy bieżącego obciążenia powoduje, że liczba wątków średni przejść powyżej wartości progowej 650:
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
 
-A **skalowalnego w poziomie** akcji zostanie wywołany, że przyczyny hello pojemności toobe zestaw hello zwiększonego o jeden:
+A **skalowalnego w poziomie** wyzwoleniu powodujący stanie można zwiększyć o jeden zestaw akcji:
 
 ```json
 "sku": {
@@ -203,50 +203,50 @@ A **skalowalnego w poziomie** akcji zostanie wywołany, że przyczyny hello poje
 },
 ```
 
-wynik Hello jest jest dodać toohello zestaw skali maszyny wirtualnej:
+Wynik jest, że maszyna wirtualna została dodana do zestawu skalowania:
 
 ![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
 
-Po upływie cooldown pięć minut Jeśli hello średnią liczbę wątków na maszynach hello pozostaje ponad 600 inną maszynę jest dodawana toohello zestawu. Jeśli liczba wątków średni hello pozostaje poniżej 550, hello pojemność zestawu skalowania hello zostanie zmniejszona o jeden, a maszyna zostanie usunięta z hello zestawu.
+Po upływie cooldown pięć minut Jeśli średnia liczba wątków na maszynach pozostaje ponad 600 innej maszyny jest dodane do zestawu. Jeśli liczba wątków średni pozostaje poniżej 550, pojemność zestawu skalowania, zostanie zmniejszona jedną i maszynie jest usuwane z zestawu.
 
 ## <a name="set-up-scaling-using-azure-powershell"></a>Ustawianie skalowania przy użyciu programu Azure PowerShell
 
-Przyjrzyj się przy użyciu programu PowerShell tooset się Skalowanie automatyczne, przykłady toosee [Azure PowerShell Monitor szybki start przykłady](../monitoring-and-diagnostics/insights-powershell-samples.md).
+Aby wyświetlić przykłady przy użyciu programu PowerShell, aby skonfigurować funkcję skalowania automatycznego, obejrzyj [Azure PowerShell Monitor szybki start przykłady](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## <a name="set-up-scaling-using-azure-cli"></a>Ustawianie skalowania przy użyciu wiersza polecenia platformy Azure
 
-Przyjrzyj się przy użyciu interfejsu wiersza polecenia Azure tooset się Skalowanie automatyczne, przykłady toosee [Azure Monitor i platform interfejsu wiersza polecenia Szybki start przykłady](../monitoring-and-diagnostics/insights-cli-samples.md).
+Aby wyświetlić przykłady przy użyciu wiersza polecenia platformy Azure, aby skonfigurować funkcję skalowania automatycznego, obejrzyj [Azure Monitor i platform interfejsu wiersza polecenia Szybki start przykłady](../monitoring-and-diagnostics/insights-cli-samples.md).
 
-## <a name="set-up-scaling-using-hello-azure-portal"></a>Ustawianie skalowania za pomocą hello portalu Azure
+## <a name="set-up-scaling-using-the-azure-portal"></a>Ustawianie skalowania przy użyciu portalu Azure
 
-przykład użycia toosee hello Azure portalu tooset się Skalowanie automatyczne, poszukać w [tworzenia zestawu skalowania maszyn wirtualnych przy użyciu portalu Azure hello](virtual-machine-scale-sets-portal-create.md).
+Aby zapoznać się z przykładem przy użyciu portalu Azure, aby skonfigurować funkcję skalowania automatycznego, obejrzyj [tworzenia zestawu skalowania maszyn wirtualnych przy użyciu portalu Azure](virtual-machine-scale-sets-portal-create.md).
 
 ## <a name="investigate-scaling-actions"></a>Zbadaj akcji skalowania
 
 * **Witryna Azure Portal**  
-Obecnie można uzyskać ograniczone informacje przy użyciu portalu hello.
+Obecnie można uzyskać ograniczone informacje za pomocą portalu.
 
 * **Eksplorator zasobów Azure**  
-To narzędzie jest hello najlepsze do eksplorowania hello bieżącego stanu sieci zestawu skali. Tej ścieżki i powinna zostać wyświetlona zestawu widok wystąpienia hello skali hello utworzony:  
+To narzędzie jest najlepsze dla eksploracji bieżącego stanu sieci zestawu skali. Tej ścieżki i powinien zostać wyświetlony widok wystąpienia zestawu skali utworzony:  
 **Subskrypcje > {subskrypcji} > resourceGroups > {grupie zasobów} > dostawców > Microsoft.Compute > virtualMachineScaleSets > {zestawie skali} > maszyn wirtualnych**
 
 * **Azure PowerShell**  
-Użyj tego polecenia tooget niektóre informacje:
+Użyj tego polecenia, aby uzyskać pewne informacje:
 
   ```powershell
   Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
   Get-Autoscalesetting -ResourceGroup rainvmss -DetailedOutput
   ```
 
-* Łączenie maszyny wirtualnej jumpbox toohello, podobnie jak inne maszyny, a następnie można zdalnie przejść hello maszyn wirtualnych w hello skali zestaw toomonitor poszczególnych procesów.
+* Połączenie z maszyną wirtualną jumpbox podobnie jak inne maszyny, a następnie zdalny dostęp maszyny wirtualne w skali ustawioną monitorowania poszczególnych procesów.
 
 ## <a name="next-steps"></a>Następne kroki
-* Przyjrzyj się [automatycznie skalować maszyny w zestawie skalowania maszyn wirtualnych](virtual-machine-scale-sets-windows-autoscale.md) toosee przykładem toocreate skali konfiguracji przy użyciu automatycznego skalowania skonfigurowane.
+* Przyjrzyj się [automatycznie skalować maszyny w zestawie skalowania maszyn wirtualnych](virtual-machine-scale-sets-windows-autoscale.md) Aby wyświetlić przykład sposobu tworzenia skali ustawiony za pomocą automatyczne skalowanie skonfigurowane.
 
 * Znajdź przykłady Azure Monitor funkcje w [Azure PowerShell Monitor szybki start — przykłady](../monitoring-and-diagnostics/insights-powershell-samples.md)
 
-* Dowiedz się więcej o funkcji powiadomień w [Użyj skalowania automatycznego akcje toosend poczty e-mail i elementu webhook powiadomień o alertach w monitorze Azure](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
+* Dowiedz się więcej o funkcji powiadomień w [użyć akcji skalowania automatycznego do wysyłania wiadomości e-mail i elementu webhook powiadomień o alertach w monitorze Azure](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
 
-* Dowiedz się więcej o zbyt[dzienniki inspekcji użycia w monitorze Azure, toosend poczty e-mail i elementu webhook powiadomień o alertach](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* Więcej informacji na temat sposobu [dzienników inspekcji używany do wysyłania wiadomości e-mail i elementu webhook powiadomień o alertach w monitorze Azure](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 
 * Dowiedz się więcej o [zaawansowanych scenariuszy skalowania automatycznego](virtual-machine-scale-sets-advanced-autoscale.md).

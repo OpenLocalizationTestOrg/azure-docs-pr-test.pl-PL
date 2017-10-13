@@ -1,6 +1,6 @@
 ---
-title: aaaAzure powiadomienia Push Secure koncentratory
-description: "Dowiedz się, jak bezpieczne toosend powiadomień wypychanych na platformie Azure. Przykłady kodu napisane w języku C# za pomocą hello interfejsu API platformy .NET."
+title: Azure Notification Hubs bezpiecznego Push
+description: "Dowiedz się, jak wysyłać powiadomienia wypychane bezpiecznej platformie Azure. Przykłady kodu napisane w języku C# z użyciem interfejsu API programu .NET."
 documentationcenter: windows
 author: ysxu
 manager: erikre
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: b6fe16c96d28d75ff698278409fb012472ba6396
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9c626ec1534c4899588150a58c0da57b9d963f6f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure Notification Hubs bezpiecznego Push
 > [!div class="op_single_selector"]
@@ -29,36 +29,36 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Omówienie
-Obsługa powiadomień wypychanych w Microsoft Azure umożliwia tooaccess infrastruktury wypychania łatwy w użyciu, wieloplatformową skalowalnych w poziomie, który jest znacznie ułatwione hello stosowania powiadomienia wypychane zarówno konsumenckie i korporacyjne aplikacji dla urządzeń przenośnych platform.
+Obsługa powiadomień wypychanych w Microsoft Azure pozwala uzyskiwać dostęp do infrastruktury wypychania łatwy w użyciu, wieloplatformową skalowalnych w poziomie, co znacznie upraszcza implementacji powiadomienia wypychane dla aplikacji zarówno konsumenckie i korporacyjne dla platform urządzeń przenośnych.
 
-Czasami ze względu na ograniczenia tooregulatory lub zabezpieczeń, aplikacja może być tooinclude coś w hello powiadomienie, które nie są przesyłane za pośrednictwem infrastruktury powiadomień wypychanych standardowe hello. W tym samouczku opisano, jak tooachieve hello tego samego środowiska poprzez wysłanie poufnych informacji za pośrednictwem bezpiecznego połączenia uwierzytelnionego między powitania klienta urządzenia i aplikacji hello wewnętrznej bazy danych.
+Z powodu przepisami ograniczeń dotyczących zabezpieczeń, czasami aplikacji może mają zostać uwzględnione coś w powiadomienie, które nie są przesyłane za pośrednictwem infrastruktury powiadomień wypychanych standardowa. Ten przewodnik opisuje sposób do osiągnięcia w tym samym środowisku, wysyłając informacje poufne za pośrednictwem bezpiecznego uwierzytelnionego połączenia od urządzeń klienckich i zaplecza aplikacji.
 
-Na wysokim poziomie przepływu hello jest następujący:
+Na wysokim poziomie przepływ wygląda następująco:
 
-1. Witaj zaplecze aplikacji:
+1. Zaplecza aplikacji:
    * Magazyny bezpiecznego ładunku w wewnętrznej bazie danych.
-   * Wysyła identyfikator hello tego urządzenia toohello powiadomienie (nie bezpiecznego informacje są wysyłane).
-2. Aplikacja Hello na urządzeniu hello podczas odbierania powiadomień hello:
-   * urządzenie Hello kontaktuje się hello zaplecza żądania hello bezpiecznego ładunku.
-   * Aplikacja Hello można wyświetlić ładunku hello jako powiadomienie na urządzeniu hello.
+   * Wysyła identyfikator tego powiadomienia do urządzenia (nie informacji o są wysyłane).
+2. Aplikacją na urządzeniu, podczas odbierania powiadomienia:
+   * Urządzenie kontaktuje się z zaplecza żąda bezpiecznego ładunku.
+   * Aplikację można wyświetlić ładunku jako powiadomienie na urządzeniu.
 
-Jest ważne toonote, że w hello poprzedzających przepływu (i w tym samouczku) przyjęto założenie, urządzenia hello po zalogowaniu użytkownika hello przechowuje token uwierzytelniania w magazynie lokalnym. Gwarantuje to całkowicie sprawnie, jak urządzenia hello mogą pobierać ładunku bezpiecznego hello powiadomienia za pomocą tego tokenu. Jeśli aplikacja nie przechowuje tokeny uwierzytelniania na urządzeniu hello lub tokeny te mogą wygasnąć, hello aplikacji urządzenia po otrzymaniu powiadomienia hello powinien być wyświetlany ogólny powiadomienie aplikacji hello toolaunch użytkownika hello monitowania. Aplikacja Hello następnie uwierzytelnia użytkownika hello i zawiera ładunek powiadomienia hello.
+Należy pamiętać, że w poprzednim przepływu (i w tym samouczku) przyjęto założenie, że urządzenia są przechowywane token uwierzytelniania w magazynie lokalnym, po zalogowaniu się użytkownika. Gwarantuje to całkowicie nie zakłóca pracy, jak urządzenia mogą pobierać ładunku bezpiecznego powiadomienia za pomocą tego tokenu. Jeśli aplikacja nie przechowuje tokeny uwierzytelniania na urządzeniu lub tokeny te mogą wygasnąć, aplikacji urządzenia, po otrzymaniu powiadomienia powinien być wyświetlany ogólny powiadomienie monitowania użytkownika do uruchomienia aplikacji. Następnie aplikacja uwierzytelnia użytkownika i zawiera ładunek powiadomienia.
 
-W tym samouczku Secure wypychania przedstawiono sposób toosend powiadomienie wypychane bezpieczny sposób. Samouczek Hello opiera się na powitania [Powiadom użytkowników](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) samouczku, dlatego należy wykonać kroki hello w tym samouczku najpierw.
+W tym samouczku Secure wypychania pokazano, jak bezpiecznie wysyłać powiadomienia wypychane. Samouczek opiera się na [Powiadom użytkowników](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) samouczku, dlatego należy wykonać kroki tego samouczka najpierw.
 
 > [!NOTE]
 > Ten samouczek zakłada, że utworzony i skonfigurowany Centrum powiadomień, zgodnie z opisem w [wprowadzenie do korzystania z usługi Notification Hubs (w Sklepie Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-> Należy również zauważyć, że program Windows Phone 8.1 wymaga poświadczeń systemu Windows (nie Windows Phone) i czy zadania w tle nie działają na Windows Phone 8.0 lub Silverlight 8.1. Dla aplikacji ze Sklepu Windows można otrzymywać powiadomienia za pośrednictwem zadania w tle, tylko wtedy, gdy aplikacja hello jest włączona na ekranie blokady (kliknij pole wyboru hello w hello Appmanifest).
+> Należy również zauważyć, że program Windows Phone 8.1 wymaga poświadczeń systemu Windows (nie Windows Phone) i czy zadania w tle nie działają na Windows Phone 8.0 lub Silverlight 8.1. Dla aplikacji ze Sklepu Windows można otrzymywać powiadomienia za pośrednictwem zadania w tle, tylko wtedy, gdy aplikacja jest włączona na ekranie blokady (kliknij pole wyboru w Appmanifest).
 > 
 > 
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-hello-windows-phone-project"></a>Modyfikowanie hello projektu Windows Phone
-1. W hello **NotifyUserWindowsPhone** projekt, Dodaj hello następującego kodu tooApp.xaml.cs tooregister hello wypychania zadanie wykonywane w tle. Dodaj następujące wiersz kodu na końcu hello hello hello `OnLaunched()` metody:
+## <a name="modify-the-windows-phone-project"></a>Modyfikowanie projektu Windows Phone
+1. W **NotifyUserWindowsPhone** projekt, Dodaj następujący kod do pliku App.xaml.cs zarejestrować zadania w tle wypychania. Dodaj następujący wiersz kodu na końcu `OnLaunched()` metody:
    
         RegisterBackgroundTask();
-2. Nadal w pliku App.xaml.cs Dodaj następujące kod bezpośrednio po hello hello `OnLaunched()` metody:
+2. W pliku App.xaml.cs Dodaj następujący kod bezpośrednio po `OnLaunched()` metody:
    
         private async void RegisterBackgroundTask()
         {
@@ -73,21 +73,21 @@ W tym samouczku Secure wypychania przedstawiono sposób toosend powiadomienie wy
                 BackgroundTaskRegistration task = builder.Register();
             }
         }
-3. Dodaj następujące hello `using` instrukcji u góry hello plik App.xaml.cs hello:
+3. Dodaj następujące `using` instrukcje w górnej części pliku App.xaml.cs:
    
         using Windows.Networking.PushNotifications;
         using Windows.ApplicationModel.Background;
-4. Z hello **pliku** menu programu Visual Studio kliknij **Zapisz wszystko**.
+4. W menu **Plik** programu Visual Studio kliknij polecenie **Zapisz wszystko**.
 
-## <a name="create-hello-push-background-component"></a>Utwórz hello Push składnika tła
-Witaj następnym krokiem jest toocreate hello wypychania tła składnika.
+## <a name="create-the-push-background-component"></a>Tworzenie składnika tła wypychania
+Następnym krokiem jest utworzyć składnika tła wypychania.
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł najwyższego poziomu hello hello rozwiązania (**SecurePush rozwiązania** w tym przypadku), następnie kliknij przycisk **Dodaj**, następnie kliknij przycisk **nowy projekt**.
-2. Rozwiń węzeł **aplikacji ze sklepu**, następnie kliknij przycisk **aplikacji Windows Phone**, następnie kliknij przycisk **składnika środowiska wykonawczego systemu Windows (Windows Phone)**. Nazwa projektu hello **PushBackgroundComponent**, a następnie kliknij przycisk **OK** toocreate hello projektu.
+1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy węzeł najwyższego poziomu rozwiązania (**SecurePush rozwiązania** w tym przypadku), następnie kliknij przycisk **Dodaj**, następnie kliknij przycisk **nowy projekt**.
+2. Rozwiń węzeł **aplikacji ze sklepu**, następnie kliknij przycisk **aplikacji Windows Phone**, następnie kliknij przycisk **składnika środowiska wykonawczego systemu Windows (Windows Phone)**. Nazwij projekt **PushBackgroundComponent**, a następnie kliknij przycisk **OK** Aby utworzyć projekt.
    
     ![][12]
-3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy hello **PushBackgroundComponent (Windows Phone 8.1)** projektu, a następnie kliknij przycisk **Dodaj**, następnie kliknij przycisk **klasy**. Nazwa nowej klasy hello **PushBackgroundTask.cs**. Kliknij przycisk **Dodaj** toogenerate hello klasy.
-4. Zastąp całą zawartość hello hello **PushBackgroundComponent** definicję przestrzeni nazw z powitania po kod, zastępując symbolu zastępczego hello `{back-end endpoint}` z punktem końcowym zaplecza hello uzyskane podczas wdrażania programu zaplecza:
+3. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **PushBackgroundComponent (Windows Phone 8.1)** projektu, a następnie kliknij przycisk **Dodaj**, następnie kliknij przycisk **klasy**. Nazwa nowej klasy **PushBackgroundTask.cs**. Kliknij przycisk **Dodaj** do generowania klasy.
+4. Zastąp całą zawartość **PushBackgroundComponent** definicję przestrzeni nazw następującym kodem, zastępując symbol zastępczy `{back-end endpoint}` z punktem końcowym zaplecza uzyskane podczas wdrażania sieci wewnętrznej:
    
         public sealed class Notification
             {
@@ -102,7 +102,7 @@ Witaj następnym krokiem jest toocreate hello wypychania tła składnika.
    
                 async void IBackgroundTask.Run(IBackgroundTaskInstance taskInstance)
                 {
-                    // Store hello content received from hello notification so it can be retrieved from hello UI.
+                    // Store the content received from the notification so it can be retrieved from the UI.
                     RawNotification raw = (RawNotification)taskInstance.TriggerDetails;
                     var notificationId = raw.Content;
    
@@ -131,12 +131,12 @@ Witaj następnym krokiem jest toocreate hello wypychania tła składnika.
                     ToastNotificationManager.CreateToastNotifier().Show(toast);
                 }
             }
-5. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy hello **PushBackgroundComponent (Windows Phone 8.1)** projektu, a następnie kliknij przycisk **Zarządzaj pakietami NuGet**.
-6. Na powitania po lewej stronie, kliknij przycisk **Online**.
-7. W hello **wyszukiwania** wpisz **klienta Http**.
-8. Kliknij na liście wyników hello **bibliotek klienta HTTP Microsoft**, a następnie kliknij przycisk **zainstalować**. Ukończenie instalacji hello.
-9. Po powrocie do hello NuGet **wyszukiwania** wpisz **Json.net**. Zainstaluj hello **Json.NET** pakietu, a następnie zamknij hello okna Menedżera pakietów NuGet.
-10. Dodaj następujące hello `using` instrukcji u góry hello hello **PushBackgroundTask.cs** pliku:
+5. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **PushBackgroundComponent (Windows Phone 8.1)** projektu, a następnie kliknij przycisk **Zarządzaj pakietami NuGet**.
+6. Po lewej stronie kliknij **Online**.
+7. W **wyszukiwania** wpisz **klienta Http**.
+8. Na liście wyników kliknij **bibliotek klienta HTTP Microsoft**, a następnie kliknij przycisk **zainstalować**. Ukończ instalację.
+9. W polu **wyszukiwania** wpisz **Json.net**. Zainstaluj **Json.NET** pakietu, a następnie zamknij okno Menedżera pakietów NuGet.
+10. Dodaj następujące `using` instrukcje w górnej części **PushBackgroundTask.cs** pliku:
     
         using Windows.ApplicationModel.Background;
         using Windows.Networking.PushNotifications;
@@ -146,24 +146,24 @@ Witaj następnym krokiem jest toocreate hello wypychania tła składnika.
         using Newtonsoft.Json;
         using Windows.UI.Notifications;
         using Windows.Data.Xml.Dom;
-11. W Eksploratorze rozwiązań w hello **NotifyUserWindowsPhone (Windows Phone 8.1)** projektu, kliknij prawym przyciskiem myszy **odwołania**, następnie kliknij przycisk **Dodawanie odwołania...** . W oknie dialogowym Menedżera odwołań hello hello pole wyboru obok zbyt**PushBackgroundComponent**, a następnie kliknij przycisk **OK**.
-12. W Eksploratorze rozwiązań kliknij dwukrotnie **Package.appxmanifest** w hello **NotifyUserWindowsPhone (Windows Phone 8.1)** projektu. W obszarze **powiadomienia**ustaw **wyskakujące funkcją** za**tak**.
+11. W Eksploratorze rozwiązań w **NotifyUserWindowsPhone (Windows Phone 8.1)** projektu, kliknij prawym przyciskiem myszy **odwołania**, następnie kliknij przycisk **Dodawanie odwołania...** . W oknie dialogowym Menedżer odwołania, zaznacz pole wyboru obok pozycji **PushBackgroundComponent**, a następnie kliknij przycisk **OK**.
+12. W Eksploratorze rozwiązań kliknij dwukrotnie **Package.appxmanifest** w **NotifyUserWindowsPhone (Windows Phone 8.1)** projektu. W obszarze **powiadomienia**ustaw **wyskakujące funkcją** do **tak**.
     
     ![][3]
-13. Nadal **Package.appxmanifest**, kliknij przycisk hello **deklaracje** menu u góry hello. W hello **dostępne deklaracje** listy rozwijanej, kliknij przycisk **zadania w tle**, a następnie kliknij przycisk **Dodaj**.
+13. Nadal **Package.appxmanifest**, kliknij przycisk **deklaracje** menu u góry. W **dostępne deklaracje** listy rozwijanej, kliknij przycisk **zadania w tle**, a następnie kliknij przycisk **Dodaj**.
 14. W **Package.appxmanifest**w obszarze **właściwości**, sprawdź **powiadomienie wypychane**.
-15. W **Package.appxmanifest**w obszarze **ustawień aplikacji**, typ **PushBackgroundComponent.PushBackgroundTask** w hello **punktu wejścia** pole.
+15. W **Package.appxmanifest**w obszarze **ustawień aplikacji**, typ **PushBackgroundComponent.PushBackgroundTask** w **punktu wejścia** pola.
     
     ![][13]
-16. Z hello **pliku** menu, kliknij przycisk **Zapisz wszystko**.
+16. W menu **Plik** kliknij polecenie **Zapisz wszystko**.
 
-## <a name="run-hello-application"></a>Uruchom hello aplikacji
-toorun hello aplikacji, hello następujące:
+## <a name="run-the-application"></a>Uruchamianie aplikacji
+Aby uruchomić aplikację, wykonaj następujące czynności:
 
-1. W programie Visual Studio, uruchom hello **AppBackend** aplikacji interfejsu API sieci Web. Zostanie wyświetlona strona sieci web ASP.NET.
-2. W programie Visual Studio, uruchom hello **NotifyUserWindowsPhone (Windows Phone 8.1)** aplikacji Windows Phone. Witaj Windows Phone emulator działa i aplikacji hello jest ładowana automatycznie.
-3. W hello **NotifyUserWindowsPhone** aplikacji interfejsu użytkownika, wprowadź nazwę użytkownika i hasło. Mogą to być dowolny ciąg, ale muszą one być hello tę samą wartość.
-4. W hello **NotifyUserWindowsPhone** aplikacji interfejsu użytkownika, kliknij przycisk **zalogować się i Zarejestruj**. Następnie kliknij przycisk **wysyłania wypychania**.
+1. W programie Visual Studio, uruchom **AppBackend** aplikacji interfejsu API sieci Web. Zostanie wyświetlona strona sieci web ASP.NET.
+2. W programie Visual Studio, uruchom **NotifyUserWindowsPhone (Windows Phone 8.1)** aplikacji Windows Phone. Windows Phone emulator działa i automatycznie załadowanie aplikacji.
+3. W **NotifyUserWindowsPhone** aplikacji interfejsu użytkownika, wprowadź nazwę użytkownika i hasło. Mogą to być dowolny ciąg, ale muszą one mieć taką samą wartość.
+4. W **NotifyUserWindowsPhone** aplikacji interfejsu użytkownika, kliknij przycisk **zalogować się i Zarejestruj**. Następnie kliknij przycisk **wysyłania wypychania**.
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png

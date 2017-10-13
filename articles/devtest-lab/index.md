@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Devtest Labs dokumentacji — samouczki | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooquickly tworzenie środowisk testowych aplikacji przy użyciu artefakty wielokrotnego użytku. Samouczki, wideo i innych opisano sposób toocreate, zarządzania i zabezpieczyć labs."
+title: "Dokumentacja usługi Azure DevTest Labs — samouczki | Microsoft Docs"
+description: "Dowiedz się, jak szybko tworzyć środowiska testowe aplikacji przy użyciu artefaktów z możliwością ponownego użycia. W samouczkach, klipach wideo i innych zasobach pokazano, jak tworzyć i zabezpieczać laboratoria oraz jak nimi zarządzać."
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: b403eeda791425bc8f74ee4430224479e39d727c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 92aab190dfba196d48feacbfcc81a0097102b810
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="devtest-labs-documentation"></a>Dokumentacja usługi DevTest Labs
 
-Dowiedz się, jak tooquickly Devtest Labs toouse tworzenie środowisk testowych aplikacji przy użyciu artefakty wielokrotnego użytku. Samouczki, wideo i innych dokumentacji opisano sposób toocreate, zarządzać i zabezpieczenie labs i Dodaj i zarządzanie nimi artefaktów.
+Dowiedz się, jak szybko tworzyć środowiska testowe aplikacji w usłudze Devtest Labs przy użyciu artefaktów z możliwością ponownego użycia. W samouczkach, klipach wideo i innych dokumentach pokazano, jak tworzyć i zabezpieczać laboratoria oraz jak nimi zarządzać, a także jak dodawać artefakty i zarządzać nimi.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak tooquickly Devtest Labs toouse tworzenie środowisk testowych 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do usługi Azure DevTest Labs przy użyciu hello portalu Azure</h3>
+                        <h3>Rozpoczynanie pracy z usługą Azure DevTest Labs przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>

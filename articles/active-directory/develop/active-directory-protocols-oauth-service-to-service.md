@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure tooService usługi AD uwierzytelniania przy użyciu OAuth2.0 | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak tooimplement wiadomości toouse HTTP usługi tooservice uwierzytelnianie przy użyciu przepływ przyznania poświadczeń hello OAuth2.0 klienta."
+title: "Azure AD do usługi uwierzytelniania przy użyciu OAuth2.0 | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano sposób użycia wiadomości HTTP do zaimplementowania usług uwierzytelniania za pomocą przepływ przyznania poświadczeń klienta OAuth2.0."
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,50 +15,50 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f4bfd4ea8a7de1929c7dcf7ad65a156edff74f71
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cc30a54cd56c0cb03a67f86e4552398baa764e58
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# Usługa tooservice wywołania przy użyciu poświadczeń klienta (wspólny klucz tajny lub certyfikatu)
-usługi sieci web pozwala na powitania przepływu OAuth 2.0 klienta poświadczenia Grant (*poufne klienta*) toouse własne poświadczenia zamiast personifikacji użytkownika, tooauthenticate podczas wywoływania innego usługi sieci web. W tym scenariuszu klient hello jest zwykle usługi sieci web warstwy środkowej, usługa demona lub witryny sieci web. Wyższy poziom gwarancji usługi Azure AD umożliwia także hello wywoływania usługi toouse certyfikatu (zamiast wspólny klucz tajny) jako poświadczenie.
+# Usługi w celu wywołania usługi przy użyciu poświadczeń klienta (wspólny klucz tajny lub certyfikatu)
+OAuth 2.0 klienta poświadczenia Grant Flow pozwala usługi sieci web (*poufne klienta*) korzystać własne poświadczenia zamiast personifikacji użytkownika, do uwierzytelniania podczas wywoływania metody innej usługi sieci web. W tym scenariuszu klient jest zwykle usługi sieci web warstwy środkowej, usługa demona lub witryny sieci web. Wyższy poziom gwarancji usługi Azure AD umożliwia wywołanie usługi do korzystania z certyfikatu (zamiast wspólny klucz tajny) jako poświadczenie.
 
 ## Diagram przepływu przyznania poświadczeń klienta
-Witaj poniższym diagramie wyjaśniono, jak powitania klienta poświadczenia umożliwiają działania przepływu w usłudze Azure Active Directory (Azure AD).
+Poniższy diagram wyjaśniono, jak poświadczenia klienta umożliwiają działania przepływu w usłudze Azure Active Directory (Azure AD).
 
 ![Przepływ przyznania poświadczeń klienta OAuth2.0](media/active-directory-protocols-oauth-service-to-service/active-directory-protocols-oauth-client-credentials-grant-flow.jpg)
 
-1. Aplikacja kliencka Hello uwierzytelnia punkt końcowy wystawiania tokenu usługi Azure AD toohello i żądania tokenu dostępu.
-2. Hello Azure AD wydawania tokenów punktu końcowego problemów hello tokenu dostępu.
-3. token dostępu Hello jest używane tooauthenticate toohello zabezpieczonych zasobów.
-4. Dane z hello zabezpieczonych zasobów jest zwracana toohello aplikacji sieci web.
+1. Aplikacja kliencka uwierzytelnianie z punktem końcowym wystawiania tokenu usługi Azure AD i żądania tokenu dostępu.
+2. Punkt końcowy wystawiania tokenu usługi Azure AD wystawia token dostępu.
+3. Token dostępu jest używany do uwierzytelniania zabezpieczonych zasobów.
+4. Dane z zabezpieczonych zasobów jest zwracana do aplikacji sieci web.
 
-## Zarejestruj hello usług w usłudze Azure AD
-Zarejestruj zarówno hello wywoływania usługi i hello odbieranie usługi w usłudze Azure Active Directory (Azure AD). Aby uzyskać szczegółowe instrukcje, zobacz [Integrowanie aplikacji z usługą Azure Active Directory](active-directory-integrating-applications.md).
+## Zarejestruj usługi w usłudze Azure AD
+Zarejestruj zarówno wywoływania usługi i odbieranie w usłudze Azure Active Directory (Azure AD). Aby uzyskać szczegółowe instrukcje, zobacz [Integrowanie aplikacji z usługą Azure Active Directory](active-directory-integrating-applications.md).
 
 ## Żądanie tokenu dostępu
-toorequest tokenu dostępu, użyj punktu końcowego HTTP POST toohello specyficznego dla dzierżawy usługi Azure AD.
+Żądanie tokenu dostępu, użyj HTTP POST do specyficznego dla dzierżawy usługi Azure AD punktu końcowego.
 
 ```
 https://login.microsoftonline.com/<tenant id>/oauth2/token
 ```
 
 ## Żądanie tokenu dostępu do usługi
-Istnieją dwa przypadki, w zależności od tego, czy aplikacja kliencka hello wybierze toobe zabezpieczone przez Wspólny klucz tajny lub certyfikatu.
+Istnieją dwa przypadki, w zależności od tego, czy aplikacja kliencka zdecydował się były zabezpieczone przez Wspólny klucz tajny lub certyfikatu.
 
 ### Najpierw przypadek: żądanie tokenu dostępu z wspólny klucz tajny
-Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawiera hello następujące parametry:
+Korzystając z wspólny klucz tajny, żądania tokenu dostępu do usługi zawiera następujące parametry:
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| Typ grant_type |Wymagane |Określa Żądanie hello przyznać typu. W przepływie przyznania poświadczeń klienta, wartość hello musi być **client_credentials**. |
-| client_id |Wymagane |Określa identyfikator klienta usługi Azure AD hello hello wywoływania usługi sieci web. wywoływanie identyfikator klienta aplikacji, w hello hello toofind [portalu Azure](https://portal.azure.com), kliknij przycisk **usługi Active Directory**, Przełącz katalogu, kliknij przycisk aplikacji hello. Hello client_id jest hello *identyfikator aplikacji* |
-| client_secret |Wymagane |Wprowadź klucz, w zarejestrowany dla hello wywoływania usługi lub demon aplikacji sieci web w usłudze Azure AD. toocreate klucz w hello portalu Azure, kliknij przycisk **usługi Active Directory**przełącznika katalogu, kliknij aplikacji hello, kliknij przycisk **ustawienia**, kliknij przycisk **klucze**, i Dodaj klucz.|
-| Zasobów |Wymagane |Wprowadź hello identyfikator URI aplikacji hello odbieranie usługi sieci web. Witaj toofind identyfikator URI aplikacji w hello portalu Azure, kliknij przycisk **usługi Active Directory**przełącznika katalogu, kliknij przycisk hello aplikacji usługi, a następnie kliknij **ustawienia** i **właściwości** |
+| Typ grant_type |Wymagane |Określa typ żądanej przydziału. W przepływie przyznania poświadczeń klienta, wartość musi być **client_credentials**. |
+| client_id |Wymagane |Określa identyfikator klienta usługi Azure AD wywoływania usługi sieci web. Aby znaleźć identyfikator klienta aplikacji wywołującej, w [portalu Azure](https://portal.azure.com), kliknij przycisk **usługi Active Directory**, Przełącz katalogu, kliknij żądaną aplikację. Jest client_id *identyfikator aplikacji* |
+| client_secret |Wymagane |Wprowadź klucz, w zarejestrowany wywoływania aplikacji sieci web usługi lub demon w usłudze Azure AD. Aby utworzyć klucz, w portalu Azure, kliknij przycisk **usługi Active Directory**, Przełącz katalogu, kliknij aplikację, kliknij przycisk **ustawienia**, kliknij przycisk **klucze**, i Dodaj klucz.|
+| Zasobów |Wymagane |Wprowadź identyfikator URI aplikacji na odbieranie usługi sieci web. Aby znaleźć identyfikator URI aplikacji w portalu Azure, kliknij przycisk **usługi Active Directory**przełącznika katalogu, kliknij aplikację usługi, a następnie kliknij przycisk **ustawienia** i **właściwości** |
 
 #### Przykład
-Witaj następujące POST protokołu HTTP żądania tokenu dostępu dla usługi sieci web https://service.contoso.com/ hello. Witaj `client_id` identyfikuje usługi sieci web hello żądań hello tokenu dostępu.
+Następujące POST protokołu HTTP żądania tokenu dostępu dla usługi sieci web https://service.contoso.com/. `client_id` Identyfikuje żądania tokenu dostępu usługi sieci web.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -69,20 +69,20 @@ grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&cli
 ```
 
 ### W drugim przypadku: żądanie tokenu dostępu przy użyciu certyfikatu
-Żądanie tokenu dostępu do usługi przy użyciu certyfikatu zawiera hello następujące parametry:
+Żądanie tokenu dostępu do usługi przy użyciu certyfikatu zawiera następujące parametry:
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| Typ grant_type |Wymagane |Określa hello żądany typ odpowiedzi. W przepływie przyznania poświadczeń klienta, wartość hello musi być **client_credentials**. |
-| client_id |Wymagane |Określa identyfikator klienta usługi Azure AD hello hello wywoływania usługi sieci web. wywoływanie identyfikator klienta aplikacji, w hello hello toofind [portalu Azure](https://portal.azure.com), kliknij przycisk **usługi Active Directory**, Przełącz katalogu, kliknij przycisk aplikacji hello. Hello client_id jest hello *identyfikator aplikacji* |
-| client_assertion_type |Wymagane |Witaj, wartość musi być`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Wymagane | Potwierdzeniem (JSON Web Token) czy potrzebujesz toocreate oraz znak hello certyfikatu można zarejestrowany jako poświadczeń dla aplikacji. Przeczytaj informacje o [certyfikatu poświadczeń](active-directory-certificate-credentials.md) toolearn jak tooregister Twojego certyfikatu i hello format hello potwierdzenia.|
-| Zasobów | Wymagane |Wprowadź hello identyfikator URI aplikacji hello odbieranie usługi sieci web. Witaj toofind identyfikator URI aplikacji w hello portalu Azure, kliknij przycisk **usługi Active Directory**kliknij katalog hello, kliknij przycisk aplikacji hello, a następnie kliknij przycisk **Konfiguruj**. |
+| Typ grant_type |Wymagane |Określa typ żądanych odpowiedzi. W przepływie przyznania poświadczeń klienta, wartość musi być **client_credentials**. |
+| client_id |Wymagane |Określa identyfikator klienta usługi Azure AD wywoływania usługi sieci web. Aby znaleźć identyfikator klienta aplikacji wywołującej, w [portalu Azure](https://portal.azure.com), kliknij przycisk **usługi Active Directory**, Przełącz katalogu, kliknij żądaną aplikację. Jest client_id *identyfikator aplikacji* |
+| client_assertion_type |Wymagane |Wartość musi być`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Wymagane | (JSON Web Token) potwierdzenia, że musisz utworzyć i podpisać przy użyciu certyfikatu został zarejestrowany jako poświadczeń dla aplikacji. Przeczytaj informacje o [certyfikatu poświadczeń](active-directory-certificate-credentials.md) informacje na temat rejestracji certyfikatu i format potwierdzenia.|
+| Zasobów | Wymagane |Wprowadź identyfikator URI aplikacji na odbieranie usługi sieci web. Aby znaleźć identyfikator URI aplikacji w portalu Azure, kliknij przycisk **usługi Active Directory**kliknij katalog, kliknij aplikację, a następnie kliknij przycisk **Konfiguruj**. |
 
-Należy zauważyć, że parametry hello są prawie hello takie same jak przypadku hello hello żądania przez Wspólny klucz tajny z tą różnicą, że parametr client_secret hello zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
+Należy zauważyć, że parametry są prawie takie same jak w przypadku żądania przez Wspólny klucz tajny, z wyjątkiem tego, że parametr client_secret zostało zastąpione przez dwa parametry: client_assertion_type i client_assertion.
 
 #### Przykład
-powitania po POST protokołu HTTP żądania tokenu dostępu dla usługi sieci web https://service.contoso.com/ hello przy użyciu certyfikatu. Witaj `client_id` identyfikuje usługi sieci web hello żądań hello tokenu dostępu.
+Następujące POST protokołu HTTP żądania tokenu dostępu dla usługi sieci web https://service.contoso.com/ przy użyciu certyfikatu. `client_id` Identyfikuje żądania tokenu dostępu usługi sieci web.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1
@@ -94,19 +94,19 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 
 ### Odpowiedzi tokenu dostępu do usługi
 
-Odpowiedź sukcesu zawiera odpowiedzi JSON OAuth 2.0 z hello następujące parametry:
+Odpowiedź sukcesu zawiera odpowiedź JSON OAuth 2.0 z następującymi parametrami:
 
 | Parametr | Opis |
 | --- | --- |
-| ' access_token ' |token dostępu do żądanego Hello. Witaj wywoływania usługi sieci web można użyć tego toohello tokenu tooauthenticate odbieranie usługi sieci web. |
-| token_type |Wskazuje wartość tokenu typu hello. Witaj tylko typ, który obsługuje usługę Azure AD **elementu nośnego**. Aby uzyskać więcej informacji na temat tokenów elementu nośnego, zobacz hello [OAuth 2.0 autoryzacji Framework: użycie tokenu elementu nośnego (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| expires_in |Jak długo hello token dostępu jest nieprawidłowy (w sekundach). |
-| expires_on |Witaj czas wygaśnięcia tokenu dostępu hello. Data Hello jest reprezentowany jako hello liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia hello. Ta wartość jest używane toodetermine hello okres istnienia pamięci podręcznej tokenów. |
-| not_before |czas Hello, z których hello nadaje się tokenu dostępu. Data Hello jest reprezentowany jako hello liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu ważności tokenu hello.|
-| Zasobów |Witaj identyfikator URI aplikacji hello odbieranie usługi sieci web. |
+| ' access_token ' |Żądany dostęp token. Wywołanie usługi sieci web umożliwia ten token uwierzytelniania przyjęcia usługi sieci web. |
+| token_type |Wskazuje wartość typ tokenu. Jedynym typem, który obsługuje usługę Azure AD jest **elementu nośnego**. Aby uzyskać więcej informacji dotyczących tokenów elementu nośnego, zobacz [OAuth 2.0 autoryzacji Framework: użycie tokenu elementu nośnego (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| expires_in |Jak długo token dostępu jest nieprawidłowy (w sekundach). |
+| expires_on |Czas wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu wygaśnięcia. Ta wartość jest używana do określenia okres istnienia pamięci podręcznej tokenów. |
+| not_before |Czas, w którym nadaje się tokenu dostępu. Data jest reprezentowana jako liczbę sekund z rokiem 1970-01-01T0:0:0Z UTC czasu ważności tokenu.|
+| Zasobów |Identyfikator URI aplikacji odbierającej usługi sieci web. |
 
 #### Przykład odpowiedzi
-Witaj poniższy przykład przedstawia Powodzenie odpowiedzi tooa żądanie usługi sieci web tooa tokenu dostępu.
+W poniższym przykładzie przedstawiono Powodzenie odpowiedzi na żądanie tokenu dostępu do usługi sieci web.
 
 ```
 {
@@ -120,4 +120,4 @@ Witaj poniższy przykład przedstawia Powodzenie odpowiedzi tooa żądanie usłu
 
 ## Zobacz też
 * [OAuth 2.0 w usłudze Azure AD](active-directory-protocols-oauth-code.md)
-* [Przykład w języku C# hello wywołania tooservice usługi z wspólny klucz tajny](https://github.com/Azure-Samples/active-directory-dotnet-daemon) i [próbki w języku C# hello wywołania tooservice usługi przy użyciu certyfikatu](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+* [Przykład w języku C# wywołania usług z wspólny klucz tajny](https://github.com/Azure-Samples/active-directory-dotnet-daemon) i [próbki w języku C# wywołania usług przy użyciu certyfikatu](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

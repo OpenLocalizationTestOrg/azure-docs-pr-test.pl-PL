@@ -1,6 +1,6 @@
 ---
-title: "Śledzenie schematy B2B aaaCustom monitorowania - Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Utwórz schematy śledzenia niestandardowych toomonitor B2B wiadomości transakcji na koncie integracji Azure."
+title: "Śledzenie niestandardowych schematów B2B monitorowania - Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Utwórz schematy śledzenia niestandardowych do monitorowania wiadomości B2B transakcji na koncie Azure integracji."
 author: padmavc
 manager: anneta
 editor: 
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cf26a43d89f0414a2a8c5ef59d804235afeb5d6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b71a4938dde2a71f1ce29403af7aa9101358d64c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="enable-tracking-toomonitor-your-complete-workflow-end-to-end"></a>Włącz śledzenie toomonitor ukończenia przepływu pracy, end-to-end
-Są wbudowane, śledzenie, możesz włączyć dla różnych części przepływu pracy business-to-business, takie jak śledzenie AS2 lub X12 wiadomości. Podczas tworzenia przepływów pracy, które zawiera aplikację logiki, BizTalk Server, SQL Server lub inną warstwę, można włączyć śledzenie niestandardowej, która zapisuje zdarzenia z hello początek toohello koniec przepływu pracy. 
+# <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Włącz śledzenie w celu monitorowania ukończenia przepływu pracy, end-to-end
+Są wbudowane, śledzenie, możesz włączyć dla różnych części przepływu pracy business-to-business, takie jak śledzenie AS2 lub X12 wiadomości. Podczas tworzenia przepływów pracy zawiera aplikację logiki, BizTalk Server, SQL Server lub inną warstwę, można włączyć śledzenie niestandardowej, która zapisuje zdarzenia od początku do końca przepływu pracy, a następnie. 
 
-Ten temat zawiera kod niestandardowy, który można użyć w warstwach hello poza aplikację logiki. 
+Ten temat zawiera kod niestandardowy, który można użyć w warstwach poza aplikację logiki. 
 
 ## <a name="custom-tracking-schema"></a>Schemat niestandardowy śledzenia
 ````java
@@ -63,19 +63,19 @@ Ten temat zawiera kod niestandardowy, który można użyć w warstwach hello poz
 
 | Właściwość | Typ | Opis |
 | --- | --- | --- |
-| Źródłowa |   | Typ źródła hello Uruchom. Dozwolone wartości to **Microsoft.Logic/workflows** i **niestandardowych**. (Wymagane) |
-| Element źródłowy |   | Jeśli typ źródła hello jest **Microsoft.Logic/workflows**, informacje o źródle hello musi toofollow tego schematu. Jeśli typ źródła hello jest **niestandardowe**, schemat hello jest JToken. (Wymagane) |
+| Źródłowa |   | Typ działania źródłowego. Dozwolone wartości to **Microsoft.Logic/workflows** i **niestandardowych**. (Wymagane) |
+| Element źródłowy |   | Jeśli typ źródła jest **Microsoft.Logic/workflows**, informacje o źródle musi wykonać tego schematu. Jeśli typ źródła jest **niestandardowe**, schemat jest JToken. (Wymagane) |
 | systemId | Ciąg | Identyfikator logiki aplikacji systemu. (Wymagane) |
 | przebiegu | Ciąg | Uruchom identyfikatora aplikacji logiki (Wymagane) |
-| operationName | Ciąg | Nazwa operacji hello (na przykład, akcji lub wyzwalacz). (Wymagane) |
-| repeatItemScopeName | Ciąg | Powtórz nazwa elementu, jeśli akcja hello znajduje się wewnątrz `foreach` / `until` pętli. (Wymagane) |
-| repeatItemIndex | Liczba całkowita | Czy hello akcji znajduje się wewnątrz `foreach` / `until` pętli. Wskazuje indeks elementu powtarzanego hello. (Wymagane) |
-| trackingId | Ciąg | Identyfikator śledzenia wiadomości powitania toocorrelate. (Opcjonalnie) |
-| correlationId | Ciąg | Identyfikator korelacji wiadomości powitania toocorrelate. (Opcjonalnie) |
-| ClientRequestId | Ciąg | Klienta można umieścić w nim toocorrelate wiadomości. (Opcjonalnie) |
-| eventLevel |   | Poziom hello zdarzeń. (Wymagane) |
-| eventTime |   | Godzina zdarzenia hello w formacie UTC RRRR-MM-DDTHH:MM:SS.00000Z. (Wymagane) |
-| recordType |   | Typ hello ścieżki. Dozwolone wartości to **niestandardowych**. (Wymagane) |
+| operationName | Ciąg | Nazwa operacji (na przykład, akcji lub wyzwalacz). (Wymagane) |
+| repeatItemScopeName | Ciąg | Powtórz nazwy elementu, jeśli akcja jest wewnątrz `foreach` / `until` pętli. (Wymagane) |
+| repeatItemIndex | Liczba całkowita | Czy akcja jest wewnątrz `foreach` / `until` pętli. Wskazuje indeks elementu powtarzanego. (Wymagane) |
+| trackingId | Ciąg | Identyfikator, aby skorelować komunikaty śledzenia. (Opcjonalnie) |
+| correlationId | Ciąg | Identyfikator korelacji służące do skorelowania wiadomości. (Opcjonalnie) |
+| ClientRequestId | Ciąg | Klienta można umieścić w nim służące do skorelowania wiadomości. (Opcjonalnie) |
+| eventLevel |   | Poziom zdarzenia. (Wymagane) |
+| eventTime |   | Godzina zdarzenia w formacie UTC RRRR-MM-DDTHH:MM:SS.00000Z. (Wymagane) |
+| recordType |   | Typ rekordu śledzenia. Dozwolone wartości to **niestandardowych**. (Wymagane) |
 | rekord |   | Typ niestandardowy rekord. Dozwolony format to JToken. (Wymagane) |
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Schematy śledzenia protokołu B2B
@@ -85,5 +85,5 @@ Aby uzyskać informacji na temat protokołu B2B śledzenia schematów zobacz:
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [monitorowanie wiadomości B2B](logic-apps-monitor-b2b-message.md).   
-* Dowiedz się więcej o [śledzenie wiadomości B2B w portalu usługi Operations Management Suite hello](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
-* Dowiedz się więcej o hello [pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md).
+* Dowiedz się więcej o [śledzenie wiadomości B2B w portalu usługi Operations Management Suite](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Dowiedz się więcej o [pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md).

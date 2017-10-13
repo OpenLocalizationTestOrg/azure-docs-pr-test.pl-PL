@@ -1,6 +1,6 @@
 ---
-title: "aaaUse obrazów klientów systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
-description: "Jak toouse subskrypcji programu Visual Studio korzysta toodeploy systemu Windows 7, Windows 8 lub Windows 10 w usłudze Azure scenariusze tworzenia/testowania"
+title: "Używać obrazów klientów systemu Windows na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Jak używać korzyści z subskrypcji programu Visual Studio do wdrażania systemu Windows 7, Windows 8 lub Windows 10 w usłudze Azure scenariusze tworzenia/testowania"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2017
 ms.author: iainfou
-ms.openlocfilehash: 4ac7c3d9872673030f4ea0f0ab38625dd9d9c1b5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 207a6562965b4913416bd4dbf3eb132b42938dc9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Używanie klienta systemu Windows na platformie Azure scenariusze tworzenia/testowania
-Można użyć systemu Windows 7, Windows 8 lub Windows 10 w usłudze Azure scenariusze tworzenia/testowania, pod warunkiem, że masz odpowiednie subskrypcji programu Visual Studio (dawniej MSDN). W tym artykule opisano hello kwalifikujących się wymagania dotyczące uruchamiania klienta systemu Windows Azure i użyj hello obrazów w galerii Azure.
+Można użyć systemu Windows 7, Windows 8 lub Windows 10 w usłudze Azure scenariusze tworzenia/testowania, pod warunkiem, że masz odpowiednie subskrypcji programu Visual Studio (dawniej MSDN). W tym artykule opisano wymagania kwalifikuje uruchomionej klienta systemu Windows Azure i używanie obrazów w galerii Azure.
 
 ## <a name="subscription-eligibility"></a>Uprawnienia subskrypcji
-Aktywnych subskrybentów usługi Visual Studio (osoby, które zostały nabyte licencji subskrypcji programu Visual Studio) można użyć klienta systemu Windows do projektowania i testowania. Klient systemu Windows może być używany na własnego sprzętu i Azure maszyny wirtualne działające w dowolny typ subskrypcji platformy Azure. Klient systemu Windows nie może być wdrożony tooor używane na platformie Azure do użytku produkcyjnego normalnym lub używane przez różne osoby, których nie ma aktywnych subskrybentów usługi Visual Studio.
+Aktywnych subskrybentów usługi Visual Studio (osoby, które zostały nabyte licencji subskrypcji programu Visual Studio) można użyć klienta systemu Windows do projektowania i testowania. Klient systemu Windows może być używany na własnego sprzętu i Azure maszyny wirtualne działające w dowolny typ subskrypcji platformy Azure. Klienta systemu Windows może nie być wdrożone na używane na platformie Azure do użytku produkcyjnego normalne lub używane przez różne osoby, których nie ma aktywnych subskrybentów usługi Visual Studio.
 
-Dla wygody użytkownika firma Microsoft udostępnione niektórych obrazów systemu Windows 10 z galerii Azure hello w [oferuje kwalifikujących się tworzenie/testowanie](#eligible-offers). Subskrybentów usługi Visual Studio w obrębie dowolnego typu oferty może również [odpowiednio przygotować i utworzyć](prepare-for-upload-vhd-image.md) 64-bitowego obrazu systemu Windows 7, Windows 8 lub Windows 10, a następnie [przekazać tooAzure](upload-generalized-managed.md). Użyj Hello pozostaje toodev i testowanie ograniczone przez aktywnych subskrybentów usługi Visual Studio.
+Dla wygody użytkownika firma Microsoft udostępnione niektórych obrazów systemu Windows 10 z galerii Azure w ramach [oferuje kwalifikujących się tworzenie/testowanie](#eligible-offers). Subskrybentów usługi Visual Studio w obrębie dowolnego typu oferty może również [odpowiednio przygotować i utworzyć](prepare-for-upload-vhd-image.md) 64-bitowego obrazu systemu Windows 7, Windows 8 lub Windows 10, a następnie [przekazać Azure](upload-generalized-managed.md). Użycie pozostaje ograniczone do: tworzenie i testowanie przez aktywnych subskrybentów usługi Visual Studio.
 
 ## <a name="eligible-offers"></a>Kwalifikujące się oferty
-powitania po tabeli Szczegóły hello oferują identyfikatory kwalifikujących się toodeploy systemu Windows 10 za pomocą hello galerii Azure. obrazy Hello systemu Windows 10 są tylko widoczne toohello po oferty. Subskrybentów usługi Visual Studio kto należy toorun klienta systemu Windows w typie inną ofertę wymagają zbyt[odpowiednio przygotować i Utwórz](prepare-for-upload-vhd-image.md) 64-bitowego obrazu systemu Windows 7, Windows 8 lub Windows 10 i [następnie przekaż tooAzure](upload-generalized-managed.md).
+W poniższej tabeli przedstawiono oferta identyfikatorów, które kwalifikują się do wdrażania systemu Windows 10 za pomocą galerii Azure. Obrazy systemu Windows 10 są widoczne tylko dla następujących ofert. Visual Studio subskrybentów, którzy muszą uruchomić klienta systemu Windows w typie inną ofertę wymagają [odpowiednio przygotować i utworzyć](prepare-for-upload-vhd-image.md) 64-bitowego obrazu systemu Windows 7, Windows 8 lub Windows 10 i [następnie przekazać do usługi Azure](upload-generalized-managed.md).
 
 | Nazwa oferty | Numer oferty | Obrazy dostępne klienta |
 |:--- |:---:|:---:|
@@ -43,17 +43,17 @@ powitania po tabeli Szczegóły hello oferują identyfikatory kwalifikujących s
 | [Enterprise: tworzenie i testowanie](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Sprawdź subskrypcji platformy Azure
-Jeśli nie znasz Identyfikatora oferty, możesz go uzyskać za pośrednictwem hello portalu Azure w jeden z tych dwóch sposobów:  
+Jeśli nie znasz Identyfikatora oferty, możesz go uzyskać za pośrednictwem portalu Azure w jeden z tych dwóch sposobów:  
 
-- W bloku "Subskrypcji" hello:
+- W bloku "Subskrypcji":
 
-  ![Szczegóły identyfikator oferty z hello portalu Azure](./media/client-images/offer-id-azure-portal.png) 
+  ![Szczegóły identyfikator oferty w portalu Azure](./media/client-images/offer-id-azure-portal.png) 
 
-- Lub kliknij przycisk **rozliczeń** a następnie kliknij przycisk Twojego identyfikatora subskrypcji. Identyfikator oferty Hello jest wyświetlany w bloku rozliczenia hello.
+- Lub kliknij przycisk **rozliczeń** a następnie kliknij przycisk Twojego identyfikatora subskrypcji. Identyfikator oferty jest wyświetlany w bloku rozliczenia.
 
-Można również wyświetlić identyfikator oferty hello hello [kartę "Subskrypcji"](http://account.windowsazure.com/Subscriptions) portalu konta usługi Azure hello:
+Można również wyświetlić identyfikator oferty z [kartę "Subskrypcji"](http://account.windowsazure.com/Subscriptions) w portalu konta usługi Azure:
 
-![Szczegóły identyfikator oferty w portalu konta usługi Azure hello](./media/client-images/offer-id-azure-account-portal.png) 
+![Szczegóły identyfikator oferty w portalu konta usługi Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Następne kroki
 Teraz można wdrożyć maszyn wirtualnych przy użyciu [PowerShell](quick-create-powershell.md), [szablonów Resource Manager](ps-template.md), lub [programu Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).

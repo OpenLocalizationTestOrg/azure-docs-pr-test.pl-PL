@@ -1,5 +1,5 @@
 ---
-title: aaaAzure Mobile Engagement Windows Phone Silverlight SDK informacje o wersji | Dokumentacja firmy Microsoft
+title: "Informacje o wersji Silverlight SDK usługi Azure Mobile Engagement Windows Phone | Dokumentacja firmy Microsoft"
 description: "Azure Mobile Engagement — Windows Phone Silverlight SDK informacje o wersji"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: f9af6ca91295dbecfa4c51fe4b3bad6626fa5999
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-release-notes"></a>Windows Phone Silverlight SDK informacje o wersji
 ##<a name="331-11032016"></a>3.3.1 (11/03/2016)
-Część hello *MicrosoftAzure.MobileEngagement* pakietu Nuget **v3.4.1**
+Część *MicrosoftAzure.MobileEngagement* pakietu Nuget **v3.4.1**
 
 * Ulepszenia.
 
 ## <a name="330-04192016"></a>3.3.0 (04/19/2016)
-Część hello *MicrosoftAzure.MobileEngagement* pakietu Nuget **v3.4.0**
+Część *MicrosoftAzure.MobileEngagement* pakietu Nuget **v3.4.0**
 
-* Dodano dzienniki konsoli tooenable/disable/filter "TestLogLevel" interfejsu API emitowane przez hello zestawu SDK.
+* Dzienniki konsoli dodano "TestLogLevel" interfejsu API do filtru Włącz/Wyłącz emitowane przez zestaw SDK.
 
 ## <a name="320-01222016"></a>3.2.0 (01/22/2016)
-Część hello *MicrosoftAzure.MobileEngagement* pakietu Nuget **v3.3.0**
+Część *MicrosoftAzure.MobileEngagement* pakietu Nuget **v3.3.0**
 
 * Schematy niestandardowych, ms-appx i ms-appdata dostępne na adresy URL akcji.
 * Ulepszenia.
 
 ## <a name="310-11202015"></a>3.1.0 (11/20/2015)
-Część hello *MicrosoftAzure.MobileEngagement* pakietu Nuget **v3.2.0**
+Część *MicrosoftAzure.MobileEngagement* pakietu Nuget **v3.2.0**
 
-* Stałe awarii podczas żądania tylko po zainicjowaniu hello hello identyfikator urządzenia.
+* Stałe awarii podczas żądania identyfikator urządzenia tylko po zainicjowaniu.
 * Ulepszenia dzienniki konsoli.
 
 ## <a name="300-04032015"></a>3.0.0 (04/03/2015)

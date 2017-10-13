@@ -2,20 +2,21 @@
 ## [Co to jest Azure Analysis Services?](analysis-services-overview.md)
 ## [Obsługiwane źródła danych](analysis-services-datasource.md)
 ## [Uwierzytelnianie i uprawnienia użytkownika](analysis-services-manage-users.md)
-## [Łączenie tooon lokalnych źródeł danych](analysis-services-gateway.md)
+## [Łączenie się z lokalnymi źródłami danych](analysis-services-gateway.md)
 ## [Poziom zgodności](analysis-services-compat-level.md)
 ## [Wysoka dostępność](analysis-services-bcdr.md)
 
 # Rozpoczynanie pracy
 ## [Tworzenie serwera w witrynie Azure Portal](analysis-services-create-server.md)
-## [Tworzenie serwera za pomocą programu PowerShell](analysis-services-create-powershell.md)
+## [Tworzenie serwera za pomocą programu Azure PowerShell](analysis-services-create-powershell.md)
 ## [Wdrażanie modelu z programu Visual Studio](analysis-services-deploy.md)
 ## [Create a model in Azure portal (preview) (Tworzenie modelu w wersji zapoznawczej witryny Azure Portal)](analysis-services-create-model-portal.md)
 
-# Jak zbyt
+# Porady 
 ## [Zarządzanie serwerem](analysis-services-manage.md)
 ## [Zarządzanie użytkownikami bazy danych](analysis-services-database-users.md)
 ## [Zarządzanie administratorami serwerów](analysis-services-server-admins.md)
+## [Monitorowanie metryk serwera](analysis-services-monitor.md)
 ## [Instalowanie i konfigurowanie bramy danych lokalnych](analysis-services-gateway-install.md)
 ## [Pobieranie bibliotek klienckich](analysis-services-data-providers.md)
 ## [Tworzenie kopii zapasowej i przywracanie](analysis-services-backup.md)
@@ -42,14 +43,14 @@
 ### [Lekcja uzupełniająca — niewyrównane hierarchie](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # Dokumentacja
-## [Program PowerShell](analysis-services-powershell.md)
+## [Azure PowerShell](analysis-services-powershell.md)
 ## [REST](/rest/api/analysisservices)
 ## [DAX](https://msdn.microsoft.com/library/gg413422.aspx)
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Język TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
 # Zasoby
-## [Przykłady kodu usługi Analysis Services w repozytorium GitHub](https://github.com/Microsoft/Analysis-Services)
+## [Przykłady](analysis-services-samples.md)
 ## [Blog zespołu usługi Analysis Services](https://blogs.msdn.microsoft.com/analysisservices/)
 ## [Forum usługi Azure Analysis Services](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)

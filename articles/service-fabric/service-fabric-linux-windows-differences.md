@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure sieci szkieletowej usług różnice między systemami Linux i Windows | Dokumentacja firmy Microsoft"
-description: "Różnice między hello Azure Service Fabric w wersji zapoznawczej w systemie Linux i sieci szkieletowej usług Azure w systemie Windows."
+title: "Różnice w usłudze Azure Service Fabric w systemie Linux i Windows | Microsoft Docs"
+description: "Różnice między usługą Azure Service Fabric w systemie Linux a usługą Azure Service Fabric w systemie Windows."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,35 +12,27 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
-ms.openlocfilehash: 7a16a440dfc8d9006e274f46951be1562e6f10d9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Różnice między usługą Service Fabric w systemie Linux (wersja zapoznawcza) i w systemie Windows (wersja ogólnie dostępna)
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Różnice między usługą Service Fabric w systemach Linux i Windows
 
-Ponieważ usługa Service Fabric w systemie Linux jest w wersji zapoznawczej, pewne funkcje, które są obsługiwane w systemie Windows, nie są jeszcze obsługiwane w systemie Linux. Po pewnym czasie zestawy funkcji hello będzie na parzystości, gdy sieć szkieletowa usług w systemie Linux stanie się ogólnie dostępna. Różnica między funkcjami będzie się zmniejszać wraz z udostępnianiem kolejnych wersji. Hello następujące różnice między dostępne wersje najnowszych hello (to znaczy między wersja 5.6 w systemach Windows i w wersji 5.5 w systemie Linux): 
+Pewne funkcje, które są obsługiwane w systemie Windows, nie są jeszcze obsługiwane w systemie Linux. Po pewnym czasie zestawy funkcji będą działać w obydwu systemach i w każdej nowej wersji ta różnica między funkcjami będzie się zmniejszać. Oto różnice między najnowszymi dostępnymi wersjami (wersją 6.0 w systemie Windows i wersją 6.0 w systemie Linux): 
 
-* Niezawodne kolekcje (i niezawodne usługi stanowe) 
-* Zwrotny serwer proxy 
-* Autonomiczny instalator 
-* Weryfikacja schematu XML dla plików manifestu 
-* Przekierowywanie konsoli 
-* Witaj błędów Analysis Service (FAS)
-* Narzędzie Docker Compose oraz sterowniki woluminów i rejestrowania dla kontenerów 
-* Nadzór nad zasobami dla kontenerów i usług 
-* Usługa DNS
-* Obsługa usługi Azure Active Directory
-* Polecenia interfejsu wiersza polecenia będące odpowiednikami niektórych poleceń programu PowerShell 
-* Tylko podzestaw poleceń programu Powershell, mogą być uruchamiane na klaster systemu Linux (jak rozwinięty w następnej sekcji hello).
+* Wszystkie modele programowania są w wersji zapoznawczej (Java/C# — Reliable Actors, Reliable Stateless Services i Reliable Stateful Services)
+* Usługa Envoy (ReverseProxy) jest dostępna w wersji zapoznawczej w systemie Linux
+* Autonomiczny instalator dla systemu Linux nie jest dostępny w systemie Linux
+* Przekierowywanie konsoli (nieobsługiwane w klastrach produkcyjnych w systemie Linux ani Windows)
+* Usługa analizy błędów w systemie Linux
+* Usługa DNS dla usług Service Fabric (usługa DNS jest obsługiwana dla kontenerów w systemie Linux)
+* Odpowiedniki poleceń interfejsu wiersza polecenia dla niektórych poleceń programu PowerShell (lista znajduje się poniżej — większość z nich ma zastosowanie tylko do klastrów autonomicznych)
 
->[!NOTE]
->Przekierowywanie konsoli nie jest obsługiwane w klastrach produkcyjnych, nawet w systemie Windows.
-
-Narzędzia programistyczne używane w systemie Windows różnią się także od tych używanych w systemie Linux. W systemie Windows można korzystać z narzędzi VisualStudio, Powershell, VSTS i ETW, a w systemie Linux z narzędzi Yeoman, Eclipse, Jenkins i LTTng.
+Narzędzia programistyczne używane w systemie Windows różnią się także od tych używanych w systemie Linux. W systemie Windows można korzystać z narzędzi Visual Studio, PowerShell, VSTS i ETW, a w systemie Linux z narzędzi Yeoman, Eclipse, Jenkins i LTTng.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Polecenia cmdlet programu PowerShell, które nie działają względem klastra usługi Service Fabric z systemem Linux
 
@@ -66,7 +58,6 @@ Narzędzia programistyczne używane w systemie Windows różnią się także od 
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus
@@ -106,4 +97,4 @@ Narzędzia programistyczne używane w systemie Windows różnią się także od 
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md) (Tworzenie i wdrażanie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu programu Yeoman)
 * [Create and deploy your first Service Fabric Java application on Linux using Service Fabric Plugin for Eclipse](service-fabric-get-started-eclipse.md) (Tworzenie i wdrażanie pierwszej aplikacji Java usługi Service Fabric w systemie Linux przy użyciu wtyczki usługi Service Fabric dla środowiska Eclipse)
 * [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md) (Tworzenie pierwszej aplikacji CSharp w systemie Linux)
-* [Użyj aplikacji hello toomanage usługi sieci szkieletowej interfejsu wiersza polecenia](service-fabric-application-lifecycle-sfctl.md)
+* [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md) (Zarządzanie aplikacjami przy użyciu interfejsu wiersza polecenia usługi Service Fabric)

@@ -1,6 +1,6 @@
 ---
-title: "aaaUse toobuild MongoDB interfejsów API aplikacji bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
-description: "Samouczek, która tworzy bazy danych online przy użyciu hello interfejsów API usługi Azure rozwiązania Cosmos bazy danych dla bazy danych MongoDB."
+title: "Tworzenie aplikacji bazy danych rozwiązania Cosmos Azure przy użyciu interfejsów API bazy danych MongoDB | Dokumentacja firmy Microsoft"
+description: "Samouczek, która tworzy bazy danych online za pomocą interfejsów API usługi Azure rozwiązania Cosmos bazy danych dla bazy danych MongoDB."
 keywords: "Przykłady bazy danych mongodb"
 services: cosmos-db
 author: AndrewHoh
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
-ms.openlocfilehash: 09be4362fe3aac02e0163325f958210be9598383
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 433d2e585c884a10e7e923a0b27c179a95410d01
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Tworzenie bazy danych Azure rozwiązania Cosmos: interfejs API dla aplikacji bazy danych MongoDB przy użyciu środowiska Node.js
 > [!div class="op_single_selector"]
@@ -32,16 +32,16 @@ ms.lasthandoff: 10/06/2017
 >  
 >
 
-W tym przykładzie przedstawiono sposób toobuild bazy danych Azure rozwiązania Cosmos: interfejs API dla aplikacji konsoli bazy danych MongoDB przy użyciu środowiska Node.js.
+W tym przykładzie przedstawiono sposób tworzenia bazy danych Azure rozwiązania Cosmos: interfejs API dla aplikacji konsoli bazy danych MongoDB przy użyciu środowiska Node.js.
 
-toouse musi w tym przykładzie:
+Aby użyć tego przykładu, należy:
 
 * [Utwórz](create-mongodb-dotnet.md#create-account) bazy danych Azure rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB.
 * Pobieranie Twojej bazy danych MongoDB [ciąg połączenia](connect-mongodb-account.md) informacji.
 
-## <a name="create-hello-app"></a>Tworzenie aplikacji hello
+## <a name="create-the-app"></a>Tworzenie aplikacji
 
-1. Utwórz *app.js* plik i skopiuj i wklej poniższy kod hello.
+1. Utwórz *app.js* pliku skopiuj i Wklej kod poniżej.
 
     ```nodejs
     var MongoClient = require('mongodb').MongoClient;
@@ -66,7 +66,7 @@ toouse musi w tym przykładzie:
             "address": { "country": "USA", "state": "WA", "city": "Seattle" }
         }, function(err, result) {
         assert.equal(err, null);
-        console.log("Inserted a document into hello families collection.");
+        console.log("Inserted a document into the families collection.");
         callback();
     });
     };
@@ -122,7 +122,7 @@ toouse musi w tym przykładzie:
     });
     ```
 
-2. Zmodyfikuj następujące zmienne w hello hello *app.js* plik na ustawienia konta (Dowiedz się jak toofind Twojego [parametry połączenia](connect-mongodb-account.md)):
+2. Zmodyfikuj następujące zmienne w *app.js* plik na ustawienia konta (Znajdowanie użytkownika [ciąg połączenia](connect-mongodb-account.md)):
    
     ```nodejs
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
@@ -131,4 +131,4 @@ toouse musi w tym przykładzie:
 3. Otwórz swój ulubiony terminal, uruchom **npm zainstalować bazy danych mongodb — Zapisz**, następnie uruchom aplikację w usłudze **węzła app.js**
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak za[Użyj MongoChef](mongodb-mongochef.md) Twojego Azure DB rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB.
+* Dowiedz się, jak [Użyj MongoChef](mongodb-mongochef.md) Twojego Azure DB rozwiązania Cosmos: interfejsu API dla konta bazy danych MongoDB.

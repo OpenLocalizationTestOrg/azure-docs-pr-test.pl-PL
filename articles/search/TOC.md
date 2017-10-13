@@ -29,8 +29,8 @@
 
 ## Programowanie
 ### [Wersje interfejsu API](search-api-versions.md)
-### [Uaktualnij hello zestawu SDK](search-dotnet-sdk-migration.md)
-### [Uaktualnij hello interfejsu API REST](search-api-migration.md)
+### [Uaktualnianie zestawu SDK](search-dotnet-sdk-migration.md)
+### [Uaktualnianie interfejsu API REST](search-api-migration.md)
 ### [Modelowanie złożonych typów danych](search-howto-complex-data-types.md)
 ### [Handle concurrent updates (Obsługa równoczesnych aktualizacji)](search-howto-concurrency.md)
 ### [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=search)
@@ -38,7 +38,7 @@
 ## Zarządzanie
 ### Administrowanie usługą Azure Search
 #### [Witryna Azure Portal](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### Program [Azure PowerShell](search-manage-powershell.md) platformy Azure
 ### [Monitorowanie użycia i statystyk](search-monitor-usage.md)
 ### [Analiza ruchu wyszukiwania](search-traffic-analytics.md)
 ### [Wydajność i optymalizacja](search-performance-optimization.md)
@@ -50,7 +50,7 @@
 ### [Indeksator usługi Azure Cosmos DB](search-howto-index-documentdb.md)
 ### [Indeksowanie obiektów blob CSV](search-howto-index-csv-blobs.md)
 ### [Indeksowanie obiektów blob JSON](search-howto-index-json-blobs.md)
-### [Skonfiguruj indeksator tooSQL połączenia serwera na maszynie Wirtualnej Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Konfigurowanie połączeń indeksatora z programem SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mapowania pól w indeksatorach](search-indexer-field-mappings.md)
 ##  Wyszukiwanie
 ### [Jak działa wyszukiwanie pełnotekstowe](search-lucene-query-architecture.md)
@@ -59,7 +59,8 @@
 #### [Składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Przykłady zapytań składni Lucene](search-query-lucene-examples.md)
 #### [Składnia wyrażenia filtru](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Wyszukiwanie niestandardowe
+### Analizatory w usłudze Azure Search
+#### [Omówienie](search-analyzers.md)
 #### [Analizatory języków](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Analizatory niestandardowe](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Stronicowanie wyników](search-pagination-page-layout.md)

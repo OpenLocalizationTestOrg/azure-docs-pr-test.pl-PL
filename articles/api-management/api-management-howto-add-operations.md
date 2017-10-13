@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooadd tooan operacje interfejsu API w usłudze Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooadd tooan operacje interfejsu API w usłudze Azure API Management."
+title: "Jak dodać operacje do interfejsu API w usłudze Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak dodać operacje do interfejsu API w usłudze Azure API Management."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,124 +14,124 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: d57fa59a2b0ceb392cde23150a0cbb326e52d27d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooadd-operations-tooan-api-in-azure-api-management"></a>Jak tooadd tooan operacje interfejsu API w usłudze Azure API Management
-Przed użyciem interfejsu API w usłudze API Management operacji musi zostać dodany. Ten przewodnik przedstawia jak tooadd i konfigurowania różnych typów tooan operacje interfejsu API w usłudze API Management.
+# <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Jak dodać operacje do interfejsu API w usłudze Azure API Management
+Przed użyciem interfejsu API w usłudze API Management operacji musi zostać dodany. W tym przewodniku pokazano, jak dodać i skonfigurować różne rodzaje operacji interfejsu API w usłudze API Management.
 
 ## <a name="add-operation"></a>Dodać operację
-Operacje są dodawane i tooan interfejsu API w portalu wydawcy hello. tooaccess hello wydawcy portalu, kliknij przycisk **portal wydawcy** w hello portalu Azure usługi Zarządzanie interfejsami API.
+Działania są dodawane i skonfigurowane do interfejsu API w portalu wydawcy. Aby uzyskać dostęp do portalu wydawcy, kliknij przycisk **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API.
 
 ![Portal wydawcy][api-management-management-console]
 
-> Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w hello [wprowadzenie do usługi Azure API Management] [ Get started with Azure API Management] samouczka.
+> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
 > 
 > 
 
-Wybierz hello żądana interfejsu API w portalu wydawcy hello i wybierz opcję hello **operacji** kartę. 
+Wybierz żądaną interfejsu API w portalu wydawcy, a następnie wybierz **operacji** kartę. 
 
 ![Operacje][api-management-operations]
 
-Kliknij przycisk **operacji dodawania** tooadd nowej operacji. Witaj **nowej operacji** będą wyświetlane i hello **podpisu** będzie domyślnie wybierany kartę.
+Kliknij przycisk **operacji dodawania** można dodać nowej operacji. **Nowej operacji** będą wyświetlane i **podpisu** będzie domyślnie wybierany kartę.
 
 ![Operacja dodania][api-management-add-operation]
 
-Określ hello **zlecenie HTTP** wybierając z listy rozwijanej hello.
+Określ **zlecenie HTTP** wybierając z listy rozwijanej.
 
 ![Metoda HTTP][api-management-http-method]
 
 <a name="url-template"></a>
 
-Zdefiniuj szablon adresu URL hello wpisując fragmentu adresu URL składające się z jednego lub więcej segmentów ścieżki adresu URL i zero lub więcej parametrów ciągu zapytania. Szablon adresu URL Hello, dołączany toohello podstawowy adres URL hello interfejsu API, identyfikuje jednej operacji HTTP. Może zawierać jeden lub więcej o nazwie części zmiennych, które są identyfikowane za pomocą nawiasów klamrowych. Części te zmienne są nazywane parametrów szablonu i są dynamicznie przypisywane wartości wyodrębniony z adresu URL żądania hello, gdy trwa przetwarzanie żądania hello przez platformę interfejsu API zarządzania hello.
+Zdefiniuj szablon adresu URL, wpisz w fragmentu adresu URL składające się z jednego lub więcej segmentów ścieżki adresu URL i zero lub więcej parametrów ciągu zapytania. Szablon adresu URL, dołączone do podstawowego adresu URL interfejsu API, identyfikuje jednej operacji HTTP. Może zawierać jeden lub więcej o nazwie części zmiennych, które są identyfikowane za pomocą nawiasów klamrowych. Części te zmienne są nazywane parametrów szablonu i są dynamicznie przypisywane wartości wyodrębnione z adresu URL żądania, gdy żądanie jest przetwarzane przez interfejs API zarządzania platformy.
 
-> Szablon adresu URL Hello mogą obejmować wzorców symboli wieloznacznych. Na przykład określenie `/*` przekazuj wszystkie żądania dotyczące toohello metody powrót tego HTTP zakończy się usługi.
+> Szablon adresu URL może zawierać wzorców symboli wieloznacznych. Na przykład określenie `/*` przekazuj wszystkie żądania dla tej metody HTTP na spód zakończy się usługi.
 
 ![Szablon adresu URL][api-management-url-template]
 
 <a name="rewrite-url-template"></a>
 
-W razie potrzeby można określić hello **szablonu ponowne zapisywanie adresów URL**. Dzięki temu można toouse hello standardowy szablon adresu URL do przetwarzania przychodzących żądań na powitania frontonu, podczas wywoływania hello zaplecza za pośrednictwem adresu URL przekonwertowanego zgodnie z toohello ponownego zapisywania szablonu. Parametry szablonu z szablonu adresu URL hello powinien być używany w szablonie ponownego zapisywania hello. Witaj poniższy przykład przedstawia sposób zawartości typu zakodowane jako segment ścieżki w hello usługi sieci web z poprzedniego przykładu hello można podać jako parametr zapytania w hello interfejsu API opublikowane za pośrednictwem hello platformy zarządzania interfejsu API przy użyciu szablonów URL hello.
+W razie potrzeby można określić **szablonu ponowne zapisywanie adresów URL**. Dzięki temu można użyć standardowego szablonu adresu URL do przetwarzania przychodzących żądań na frontonu, podczas wywoływania zaplecza za pośrednictwem przekonwertowanego adresu URL zgodnie z szablonu ponownego zapisywania. Parametry szablonu z szablonu adres URL powinien być używany w szablonie ponownego zapisywania. W poniższym przykładzie pokazano, jak zawartości typu zakodowane jako segment ścieżki w usłudze sieci web z poprzedniego przykładu można podać jako parametr zapytania w interfejsie API opublikowane za pośrednictwem platformy interfejsu API zarządzania za pomocą szablonów adresu URL.
 
 ![Ponowne zapisywanie adresów URL szablonu][api-management-url-template-rewrite]
 
-Operacja toohello wywołań zostanie użyty hello format `/customers?customerid=ALFKI` i będzie to zbyt mapować`/Customers('ALFKI')` po wywołaniu hello usługi zaplecza.
+Obiekty wywołujące do operacji zostanie użyty format `/customers?customerid=ALFKI` i to zostaną zmapowane do `/Customers('ALFKI')` po wywołaniu usługi zaplecza.
 
-**Wyświetl** nazwy i **opis** Podaj opis operacji hello i są używane tooprovide dokumentacji deweloperzy toohello przy użyciu tego interfejsu API w portalu dla deweloperów hello.
+**Wyświetl** nazwy i **opis** Podaj opis operacji i służą do zapewniania dokumentacji dla deweloperów przy użyciu tego interfejsu API w portalu dla deweloperów.
 
 ![Opis][api-management-description]
 
-Opis operacji Hello można określić jako zwykły tekst lub HTML w hello **opis** pola tekstowego.
+Opis operacji można określić jako zwykły tekst lub HTML w **opis** pola tekstowego.
 
 ## <a name="operation-caching"></a>Buforowanie operacji
-Buforowanie odpowiedzi zmniejsza opóźnienia postrzegane przez konsumentów hello interfejsu API, obniża zużycie przepustowości i hello zmniejsza obciążenie wdrażanie usługi sieci web HTTP hello hello interfejsu API. 
+Buforowanie odpowiedzi zmniejsza opóźnienia postrzegane przez konsumentów interfejsu API, obniża zużycie przepustowości i zmniejsza obciążenie HTTP sieci web usługi implementacja interfejsu API. 
 
-tooeasily i szybko włączyć buforowanie dla operacji hello, wybierz hello **buforowanie** i sprawdź hello **włączyć** wyboru.
+Aby łatwo i szybko włączyć buforowanie dla operacji, zaznacz **buforowanie** i sprawdź **włączyć** wyboru.
 
 ![Buforowanie][api-management-caching-tab]
 
-**Czas trwania** określa okres czasu, podczas których hello odpowiedź operacji pozostaje w pamięci podręcznej hello hello. Hello wartość domyślna wynosi 3600 sekund lub 1 godzina.
+**Czas trwania** określa okres czasu, w którym odpowiedzi operacji pozostaje w pamięci podręcznej. Wartość domyślna to 3600 sekund lub 1 godzina.
 
-Buforowanie kluczy są używane toodifferentiate między odpowiedzi, aby odpowiedź hello odpowiadającego klucz pamięci podręcznej różnych tooeach otrzyma własną oddzielne wartość w pamięci podręcznej. Opcjonalnie wprowadź parametrów ciągu zapytania określonego i/lub toobe nagłówki HTTP używany w obliczeniu wartości klucza pamięci podręcznej na powitania **różne parametry ciągu zapytania** i **Vary przez nagłówki** odpowiednio pola tekstowe. Gdy żaden nie jest adres URL określony, pełną żądania i hello następujące wartości nagłówka HTTP są używane podczas generowania klucza pamięci podręcznej: **Akceptuj** i **Accept-Charset**.
+Pamięć podręczna klucze są używane w celu rozróżnienia odpowiedzi, tak aby odpowiedzi odpowiadającą kluczowi każdego innego pamięci podręcznej zostanie uzyskać własną oddzielne wartość w pamięci podręcznej. Opcjonalnie wprowadź parametrów ciągu zapytania określonego i/lub nagłówków HTTP, które ma być używana podczas obliczania wartości klucza pamięci podręcznej w **różne parametry ciągu zapytania** i **Vary przez nagłówki** odpowiednio pola tekstowe. Gdy żaden nie jest adres URL określony, pełną żądania i służą następujące wartości nagłówka HTTP podczas generowania klucza pamięci podręcznej: **Akceptuj** i **Accept-Charset**.
 
-> Aby uzyskać więcej informacji o pamięci podręcznej i buforowania zasady, zobacz [jak wynikiem Azure API Management operacji toocache][How toocache operation results in Azure API Management].
+> Aby uzyskać więcej informacji o pamięci podręcznej i buforowania zasady, zobacz [jak pamięci podręcznej operacji wyniki w usłudze Azure API Management][How to cache operation results in Azure API Management].
 > 
 > 
 
 ## <a name="request-parameters"></a>Parametry żądania
-Parametry operacji są zarządzane na powitania karta Parametry. Parametry określone w hello **szablon adresu URL** na powitania **podpisu** kartę są automatycznie dodawane i można zmienić, edytując hello szablon adresu URL. Dodatkowe parametry, można wprowadzić ręcznie.
+Parametry operacji są zarządzane na karcie Parametry. Parametry określone w **szablon adresu URL** na **podpisu** kartę są automatycznie dodawane i można zmienić, edytując szablon adresu URL. Dodatkowe parametry, można wprowadzić ręcznie.
 
-tooadd nowy parametr zapytania, kliknij przycisk **dodać parametru zapytania** , a następnie wprowadź hello następujących informacji:
+Aby dodać nowy parametr zapytania, kliknij przycisk **dodać parametru zapytania** i wprowadź następujące informacje:
 
 * **Nazwa** — Nazwa parametru.
-* **Opis elementu** -krótki opis parametru hello (opcjonalnie).
-* **Typ** — wybrany hello rozwijanej Typ parametru.
-* **Wartości** -wartości, które można przypisać parametru toothis. Jedna z wartości hello może być oznaczony jako domyślny (opcjonalnie).
-* **Wymagane** -był parametru hello zaznaczając pole wyboru hello jest wymagany. 
+* **Opis elementu** -krótki opis parametru (opcjonalnie).
+* **Typ** — typ parametru, wybrane w polu listy rozwijanej.
+* **Wartości** -wartości, które mogą być przypisane do tego parametru. Jedna z wartości może być oznaczony jako domyślny (opcjonalnie).
+* **Wymagane** — określ parametr obowiązkowy, zaznaczając pole wyboru. 
 
 ![Parametry żądania][api-management-request-parameters]
 
 ## <a name="request-body"></a>Treść żądania
-Jeśli zezwala na operację hello (np. PUT, POST) i wymaga treści może podać przykład go we wszystkich hello obsługiwane formaty reprezentacja (np. json, XML). 
+Jeśli zezwala na operację (np. PUT, POST) i wymaga treści może podać przykład go we wszystkich obsługiwanych reprezentacja formaty (np. json, XML). 
 
-> Treść żądania Hello jest używany tylko w celach dokumentacji i nie jest weryfikowany.
+> Treść żądania jest używana tylko w celach dokumentacji i nie jest weryfikowany.
 > 
 > 
 
-tooenter treści żądania, Przełącz toohello **treści** kartę.
+Aby wprowadzić treści żądania, przełącz się do **treści** kartę.
 
-Kliknij przycisk **dodać reprezentacja**, wpisz nazwę odpowiedniego typu zawartości (np. application/json), wybierz je w listy rozwijanej hello i Wklej hello potrzeby przykład treści żądania w wybranym formacie hello w polu tekstowym hello. 
+Kliknij przycisk **dodać reprezentacja**, zacznij pisać nazwa żądanego typu zawartości (np. application/json), wybierz je w listy rozwijanej i Wklej przykład treści żądania żądaną w wybranym formacie w polu tekstowym. 
 
 ![Treść żądania][api-management-request-body]
 
-W dodatkowych toorepresentations, można także określić opcjonalny opis w hello **opis** pola tekstowego.
+W dodatkowego do oświadczenia, można także określić opcjonalny opis w **opis** pola tekstowego.
 
 ## <a name="responses"></a>Odpowiedzi
-Należy dobrze przykłady tooprovide odpowiedzi dla wszystkich kodów stanu, które może powodować hello operacji. Każdy kod stanu może mieć więcej niż jeden przykład treści odpowiedzi, po jednej dla każdego z hello obsługiwane typy zawartości. 
+Jest dobrą praktyką jest zawierają przykłady odpowiedzi dla wszystkich kodów stanu, które wywołują może wykonać operację. Każdy kod stanu może mieć więcej niż jeden przykład treści odpowiedzi, po jednej dla każdej z obsługiwanych typów zawartości. 
 
-tooadd odpowiedzi, kliknij przycisk **Dodaj** i zacznij pisać kod stanu hello potrzebne. Taki stan hello przykładowy kod jest **200 OK**. Gdy kod hello jest wyświetlany w listy rozwijanej hello, zaznacz go i hello kod odpowiedzi jest utworzony i dodany tooyour operacji.
+Aby dodać odpowiedzi, kliknij przycisk **Dodaj** i zacznij pisać kod żądany stan. W tym przykładzie jest kod stanu **200 OK**. Po wyświetleniu kod w listy rozwijanej wybierz go, a kod odpowiedzi jest tworzony i dodawany do operacji.
 
 ![Kod odpowiedzi][api-management-response-code]
 
-Kliknij przycisk **dodać reprezentacja**zacznij wpisywać ciąg hello nazwa żądanego typu zawartości (np. application/json), a następnie wybierz pozycję w hello listy rozwijanej.
+Kliknij przycisk **dodać reprezentacja**, zacznij wpisywać nazwę odpowiedniego typu zawartości (np. application/json), a następnie wybierz na liście rozwijanej.
 
 ![Typ zawartości treści][api-management-response-body-content-type]
 
-Wklej przykład treści odpowiedzi Witaj w wybranym formacie hello w polu tekstowym hello. 
+Wklej przykład treści odpowiedzi w wybranym formacie w polu tekstowym. 
 
 ![Treść odpowiedzi][api-management-response-body]
 
-W razie potrzeby dodaj opcjonalny opis w hello **opis** pola tekstowego.
+W razie potrzeby dodaj opcjonalny opis w **opis** pola tekstowego.
 
-Po skonfigurowaniu operacji powitania kliknij **zapisać**.
+Po skonfigurowaniu operacji, kliknij przycisk **zapisać**.
 
 ## <a name="next-steps"> </a>Następne kroki
-Po dodaniu interfejsu API tooan operacji hello, hello następnym krokiem jest tooassociate hello interfejsu API z produktem i opublikować go, dzięki czemu deweloperzy mogą wywoływać operacjach.
+Po dodaniu działania do interfejsu API, następnym krokiem jest skojarzenia interfejsu API z produktem i opublikuj go, dzięki czemu deweloperzy mogą wywoływać operacjach.
 
-* [Jak toocreate i opublikuj produktu][How toocreate and publish a product]
+* [Jak utworzyć i opublikować produktu][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
@@ -166,6 +166,6 @@ Po dodaniu interfejsu API tooan operacji hello, hello następnym krokiem jest to
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How toocreate and publish a product]: api-management-howto-add-products.md
-[How toocache operation results in Azure API Management]: api-management-howto-cache.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to cache operation results in Azure API Management]: api-management-howto-cache.md

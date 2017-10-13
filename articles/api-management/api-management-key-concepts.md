@@ -1,5 +1,5 @@
 ---
-title: "Zarządzanie interfejsami API aaaAzure omówienie i klucz pojęcia | Dokumentacja firmy Microsoft"
+title: "Przegląd i kluczowe pojęcia usługi Azure API Management | Microsoft Docs"
 description: "Poznaj interfejsy API, produkty, role, grupy i inne ważne pojęcia dotyczące usługi API Management."
 services: api-management
 documentationcenter: 
@@ -14,27 +14,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: a77b24b4632d868afa15bd6cf88060982046cb38
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-api-management"></a>Co to jest API Management?
-Zarządzanie interfejsami API pomaga organizacjom publikowania interfejsów API tooexternal, partnera i deweloperzy wewnętrznej toounlock hello potencjalne swoich danych i usług. Firm wszędzie są wyszukiwania tooextend operacje jako platforma digital, tworzenie nowych kanałów, znajdowanie nowych klientów i kierowania głębiej interakcji użytkowników z istniejących. Zarządzanie interfejsami API udostępnia hello podstawowe umiejętności tooensure pomyślnie program interfejsu API za pomocą zaangażowania deweloperów, informacje biznesowe, analytics, zabezpieczeń i ochrony.
+Usługa API Management pomaga organizacjom publikować interfejsy API dla deweloperów zewnętrznych, partnerskich i wewnętrznych, aby w pełni wykorzystać potencjał danych i usług. Firmy na całym świecie dążą do rozszerzenia operacji w postaci platformy cyfrowej, tworząc nowe kanały, znajdując nowych klientów i nakłaniając obecnych do głębszego zaangażowania. Usługa API Management zapewnia podstawowe możliwości, które pozwalają na pomyślne programowanie interfejsów API przez zaangażowanych deweloperów, a także udostępnia wgląd w kwestie biznesowe, analizy, zabezpieczenia i ochronę.
 
-Obejrzyj powitania po wideo Omówienie usługi Azure API Management i Dowiedz się, jak tooadd zarządzanie interfejsami API toouse wiele tooyour funkcje interfejsu API, łącznie z kontrolą dostępu szybkości ograniczenie, monitorowanie, rejestrowanie zdarzeń i buforowanie odpowiedzi z minimalnym nakładu pracy.
+Obejrzyj poniższy film przedstawiający przegląd usługi Azure API Management i dowiedz się, jak używać usługi API Management, aby przy minimalnym nakładzie pracy dodać do interfejsu API wiele funkcji obejmujących kontrolę dostępu, ograniczanie liczby wywołań, monitorowanie, rejestrowanie zdarzeń i buforowanie odpowiedzi.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
-toouse zarządzanie interfejsami API Administratorzy tworzyć interfejsy API. Każdy interfejs API składa się z co najmniej jedną operację, i każdego interfejsu API można dodać tooone lub więcej produktów. toouse interfejsu API, deweloperzy subskrypcji tooa produktu, który zawiera ten interfejs API, a następnie można wywołać operacji hello interfejsu API, zasad użytkowania tooany podmiotu, które mogą obowiązywać.
+Aby użyć usługi API Management, administratorzy tworzą interfejsy API. Każdy interfejs API składa się z co najmniej jednej operacji i można go dodać do co najmniej jednego produktu. Aby użyć interfejsu API, deweloperzy subskrybują produkt, który zawiera ten interfejs API, a następnie wywołują operację interfejsu API, która podlega obowiązującym dla niej zasadom użycia.
 
 Ten temat zawiera przegląd najważniejszych założeń usługi API Management.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji, zobacz hello [oparte na chmurze zarządzanie interfejsami API: wykorzystanie hello zasilania interfejsów API](http://j.mp/ms-apim-whitepaper) oficjalny dokument PDF. Ten wprowadzający oficjalny dokument dotyczący usługi API Management opracowany przez firmę CITO Research obejmuje następujące tematy: 
+> Aby uzyskać więcej informacji, zobacz oficjalny dokument PDF [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) (Oparta na chmurze usługa API Management: wykorzystanie możliwości interfejsów API). Ten wprowadzający oficjalny dokument dotyczący usługi API Management opracowany przez firmę CITO Research obejmuje następujące tematy: 
 > 
 > * Typowe wymagania i wyzwania związane z interfejsem API
 > * Rozdzielanie interfejsów API i prezentowanie fasad
@@ -48,61 +48,61 @@ Ten temat zawiera przegląd najważniejszych założeń usługi API Management.
 > 
 
 ## <a name="apis"> </a>Interfejsy API i operacje
-Interfejsy API są foundation hello wystąpienia usługi Zarządzanie interfejsami API. Każdy interfejs API reprezentuje zestaw toodevelopers dostępne operacje. Każdy interfejs API zawiera usługi zaplecza toohello odwołania, który implementuje interfejs API hello, oraz jego operacji mapowanie toohello działania wykonywane przez usługę wewnętrzną hello. Operacje usługi API Management są wysoce konfigurowalne, pozwalają na kontrolę mapowania adresu URL, parametrów zapytania i ścieżki, zawartości żądania i odpowiedzi oraz buforowanie odpowiedzi operacji. Limit szybkości, przydziały i zasady ograniczeń IP można również implementowana na poziomie poszczególnych działań lub hello interfejsu API.
+Interfejsy API są podstawą wystąpienia usługi API Management. Każdy interfejs API reprezentuje zestaw operacji dostępnych dla deweloperów. Każdy interfejs API zawiera odwołanie do usługi zaplecza, która implementuje interfejs API, oraz mapę odwzorowań operacji interfejsu API na operacje zaimplementowane w usłudze zaplecza. Operacje usługi API Management są wysoce konfigurowalne, pozwalają na kontrolę mapowania adresu URL, parametrów zapytania i ścieżki, zawartości żądania i odpowiedzi oraz buforowanie odpowiedzi operacji. Ograniczenia liczby wywołań, przydziały i zasady ograniczeń adresów IP mogą być implementowane zarówno na poziomie interfejsu API, jak i na poziomie poszczególnych operacji.
 
-Aby uzyskać więcej informacji, zobacz [jak toocreate interfejsów API] [ How toocreate APIs] i [jak tooadd tooan operacje interfejsu API][How tooadd operations tooan API].
+Aby uzyskać więcej informacji, zobacz [How to create APIs][How to create APIs] (Jak utworzyć interfejsy API) i [How to add operations to an API][How to add operations to an API] (Jak dodać operacje do interfejsu API).
 
 ## <a name="products"> </a> Produkty
-Produkty są jak interfejsy API są udostępniane toodevelopers. Produkty w usłudze API Management mają co najmniej jeden interfejs API oraz skonfigurowany tytuł, opis i warunki użytkowania. Produkty mogą być **otwarte** lub **chronione**. Produkty chronione muszą być subskrybowanego toobefore mogą być używane, otwartej produktów może być używany bez subskrypcji. Kiedy produkt jest gotowy do użycia przez deweloperów, można go opublikować. Po jest publikowany, można wyświetlić (i w hello przypadku produktów chronionych subskrybuje) przez deweloperów. Zatwierdzenie subskrypcji jest skonfigurowana na poziomie produktu hello i można wymagają zatwierdzenia przez administratora lub można automatycznie zatwierdzone.
+Produkty stanowią sposób udostępniania interfejsów API deweloperom. Produkty w usłudze API Management mają co najmniej jeden interfejs API oraz skonfigurowany tytuł, opis i warunki użytkowania. Produkty mogą być **otwarte** lub **chronione**. Produkty chronione trzeba subskrybować przed użyciem, a produkty otwarte mogą być używane bez subskrypcji. Kiedy produkt jest gotowy do użycia przez deweloperów, można go opublikować. Po opublikowaniu produktu deweloperzy mogą go wyświetlać (a w przypadku produktów chronionych również subskrybować). Zatwierdzenie subskrypcji jest konfigurowane na poziomie produktu i może wymagać zatwierdzenia przez administratora lub odbywać się automatycznie.
 
-Grupy są używane toomanage widoczność hello toodevelopers produktów. Produkty Udziel toogroups widoczność i deweloperzy mogą wyświetlać i subskrybować toohello produktów, które są widoczne toohello grup, w których one należą. 
+Grupy służą do zarządzania widocznością produktów dla deweloperów. Widoczność produktów jest przydzielana według grup, a deweloperzy mogą wyświetlać i subskrybować produkty, które są widoczne dla grup, do których należą. 
 
-Aby uzyskać więcej informacji, zobacz [jak toocreate i opublikuj produktu] [ How toocreate and publish a product] i hello następujących wideo.
+Aby uzyskać więcej informacji, zobacz [How to create and publish a product][How to create and publish a product] (Jak utworzyć i opublikować produkt) oraz następujący film.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
 > 
 
 ## <a name="groups"> </a> Grupy
-Grupy są używane toomanage widoczność hello toodevelopers produktów. Zarządzanie interfejsami API ma hello następujące grupy systemu niezmienialny.
+Grupy służą do zarządzania widocznością produktów dla deweloperów. Usługa API Management ma następujące niezmienne grupy systemowe.
 
-* **Administratorzy** — do tej grupy należą administratorzy subskrypcji platformy Azure. Administratorzy Zarządzanie wystąpieniami usługi Zarządzanie interfejsami API, tworzenie hello interfejsów API, operacje i produktów, które są używane przez deweloperów.
-* **Deweloperzy** — do tej grupy należą uwierzytelnieni użytkownicy portalu dla deweloperów. Deweloperzy są hello klientów, którzy tworzyć aplikacje przy użyciu swoje interfejsy API. Deweloperzy otrzymują dostęp do portalu dla deweloperów toohello i tworzenia aplikacji wywołujących hello operacje interfejsu API.
-* **Goście** -nieuwierzytelnionych użytkowników portalu deweloperów, na przykład potencjalni klienci odwiedzający hello portalu dla deweloperów programu spadek wystąpienia interfejsu API zarządzania do tej grupy. Może zostać przydzielony niektórych dostęp tylko do odczytu, takich jak tooview możliwości hello interfejsów API, ale nie połączeń telefonicznych z nimi.
+* **Administratorzy** — do tej grupy należą administratorzy subskrypcji platformy Azure. Administratorzy zarządzają wystąpieniami usługi API Management, tworząc interfejsy API, operacje i produkty, które są używane przez deweloperów.
+* **Deweloperzy** — do tej grupy należą uwierzytelnieni użytkownicy portalu dla deweloperów. Deweloperzy to klienci, którzy tworzą aplikacje przy użyciu interfejsów API. Deweloperzy otrzymują dostęp do portalu dla deweloperów i tworzą aplikacje, które wywołują operacje interfejsów API.
+* **Goście** — do tej grupy należą nieuwierzytelnieni użytkownicy portalu dla deweloperów, tacy jak potencjalni klienci odwiedzający portal dla deweloperów wystąpienia usługi API Management. Mogą mieć przyznany pewien zakres dostępu tylko do odczytu, czyli np. możliwość wyświetlania interfejsów API, ale nie ich wywoływania.
 
-Dodanie toothese systemu grup, Administratorzy mogą tworzyć niestandardowe grupy lub [korzystać z zewnętrznej grupy w skojarzonych dzierżaw usługi Azure Active Directory](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Niestandardowe zewnętrznych grup można używać razem grup systemu w zapewniając wgląd w deweloperzy i uzyskują dostęp do tooAPI produktów. Na przykład można utworzyć jedną grupę niestandardowych dla deweloperów powiązane z konkretną organizacji partnera i zezwolić im dostępu toohello interfejsy API z produktu, zawierający tylko odpowiednich interfejsów API. Użytkownik może należeć do więcej niż jednej grupy.
+Oprócz tych grup systemowych administratorzy mogą tworzyć niestandardowe grupy lub [wykorzystać zewnętrzne grupy w skojarzonych dzierżawach usługi Azure Active Directory](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Niestandardowe i zewnętrzne grupy mogą być używane razem z grupami systemowymi, zapewniając deweloperom widoczność produktów interfejsu API i dostęp do nich. Można na przykład utworzyć jedną grupę niestandardową dla deweloperów powiązanych z konkretną organizacją partnera i zezwolić im na dostęp do interfejsów API z produktów zawierających tylko odpowiednie interfejsy API. Użytkownik może należeć do więcej niż jednej grupy.
 
-Aby uzyskać więcej informacji, zobacz [jak toocreate i używania grup][How toocreate and use groups].
+Aby uzyskać więcej informacji, zobacz [How to create and use groups][How to create and use groups] (Jak utworzyć grupy i używać ich).
 
 ## <a name="developers"> </a> Deweloperzy
-Deweloperzy reprezentują hello kont użytkowników w wystąpieniu usługi Zarządzanie interfejsami API. Deweloperzy mogą być tworzone lub zaproszenie toojoin przez administratorów lub można założyć z hello [portalu dla deweloperów][Developer portal]. Każdy deweloper jest członkiem co najmniej jedną grupę, a może mieć subskrypcji toohello produktów, które przyznać widoczność toothose grup.
+Deweloperzy reprezentują konta użytkowników w wystąpieniu usługi API Management. Konta deweloperów mogą być tworzone lub dołączane na zaproszenie administratorów. Ponadto deweloperzy mogą się zarejestrować w [Portalu dla deweloperów][Developer portal]. Każdy deweloper jest członkiem jednej lub wielu grup i może subskrybować produkty, które mają przyznaną widoczność w tych grupach.
 
-Deweloperzy subskrypcji produktu tooa otrzymują klucza podstawowego i pomocniczego hello hello produktu. Ten klucz jest używany podczas wykonywania wywołań do interfejsów API hello produktu.
+Kiedy deweloperzy subskrybują produkt, otrzymują klucz podstawowy i pomocniczy produktu. Ten klucz jest używany podczas wywołań interfejsów API produktu.
 
-Aby uzyskać więcej informacji, zobacz [jak deweloperzy toocreate lub zaproszenia] [ How toocreate or invite developers] i [jak tooassociate grup z deweloperami][How tooassociate groups with developers].
+Aby uzyskać więcej informacji, zobacz [How to create or invite developers][How to create or invite developers] (Jak utworzyć i zaprosić deweloperów) i [How to associate groups with developers][How to associate groups with developers] (Jak skojarzyć grupy z deweloperami).
 
 ## <a name="policies"> </a> Zasady
-Zasady są zaawansowanych możliwości zarządzania interfejsu API, które umożliwia zachowanie hello toochange hello interfejsu API za pomocą konfiguracji hello wydawcy. Zasady są zbiór instrukcji, które są wykonywane sekwencyjnie na powitania żądania lub odpowiedzi interfejsu API. Popularne instrukcje zawierają Konwersja formatu od szybkości tooJSON i wywołanie XML ograniczanie toorestrict hello ilość przychodzących od dewelopera i wiele innych zasad są dostępne.
+Zasady są zaawansowaną możliwością usługi API Management, która pozwala wydawcy zmieniać zachowanie interfejsu API za pomocą konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Popularne instrukcje obejmują konwersję z formatu XML do JSON i ograniczanie szybkości połączenia, aby ograniczyć liczbę wywołań przychodzących od dewelopera. Ponadto dostępnych jest wiele innych zasad.
 
-Wyrażenie zasad może służyć jako wartości atrybutu lub tekst w żadnym z zasad interfejsu API zarządzania hello, chyba że zasady hello Określa, w przeciwnym razie wartość. Niektóre zasady, takie jak hello [sterowania przepływem](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) i [zmiennej zestaw](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) zasady są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz [zaawansowane zasady](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies), [wyrażenie zasad](https://msdn.microsoft.com/library/azure/dn910913.aspx), i hello Obejrzyj klip wideo.
+Wyrażenia zasad mogą służyć jako wartości atrybutów lub wartości tekstowe w dowolnej z zasad usługi API Management, o ile w zasadach nie określono inaczej. Niektóre zasady, np. [Przepływ sterowania](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) i [Ustawianie zmiennej](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable), są oparte na wyrażeniach zasad. Aby uzyskać więcej informacji, zobacz tematy [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) (Zaawansowane zasady) i [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx) (Wyrażenia zasad) oraz obejrzyj następujący film.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
 > 
 > 
 
-Pełna lista zasad usługi API Management znajduje się w artykule [Policy reference][Policy reference] (Dokumentacja zasad). Aby uzyskać więcej informacji na temat korzystania z zasad i konfigurowania ich, zobacz [API Management policies][API Management policies] (Zasady usługi API Management). Samouczek dotyczący tworzenia produktu z zasadami dotyczącymi ograniczania liczby wywołań i przydziałów znajduje się w artykule [Jak utworzyć i skonfigurować zaawansowane ustawienia produktów][How create and configure advanced product settings]. Aby uzyskać demonstrację Zobacz powitania po wideo.
+Pełna lista zasad usługi API Management znajduje się w artykule [Policy reference][Policy reference] (Dokumentacja zasad). Aby uzyskać więcej informacji na temat korzystania z zasad i konfigurowania ich, zobacz [API Management policies][API Management policies] (Zasady usługi API Management). Samouczek dotyczący tworzenia produktu z zasadami dotyczącymi ograniczania liczby wywołań i przydziałów znajduje się w artykule [Jak utworzyć i skonfigurować zaawansowane ustawienia produktów][How create and configure advanced product settings]. Demonstracja jest pokazana w następującym filmie.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
 > 
 
 ## <a name="developer-portal"> </a> Portal dla deweloperów
-portalu dla deweloperów Hello jest gdzie deweloperzy mogą więcej informacji na temat interfejsów API, widok i wywołania operacji oraz subskrybować tooproducts. Potencjalni klienci mogą odwiedzać hello portalu dla deweloperów, Wyświetlanie interfejsów API i operacje i zarejestruj. adres URL Hello swojego portalu dla deweloperów znajduje się na pulpicie nawigacyjnym hello w hello portalu klasycznego Azure dla swojego wystąpienia usługi Zarządzanie interfejsami API.
+Portal dla deweloperów jest miejscem, gdzie deweloperzy mogą poznawać interfejsy API, wyświetlać i wywoływać operacje oraz subskrybować produkty. Potencjalni klienci mogą odwiedzić portal dla deweloperów, wyświetlić interfejsy API i operacje oraz zarejestrować się. Adres URL do portalu dla deweloperów znajduje się na pulpicie nawigacyjnym w klasycznym portalu Azure danego wystąpienia usługi API Management.
 
-Hello wyglądu i działania portalu deweloperów można dostosować, dodając niestandardowe zawartości, Dostosowywanie stylów i dodawanie znakowanie.
+Wygląd swojego portalu dla deweloperów możesz dostosować, dodając niestandardową zawartość, dostosowując style i dodając znak marki.
 
-## <a name="api-management-and-hello-api-economy"></a>Zarządzanie interfejsami API i hello gospodarka interfejsu API
-więcej informacji na temat interfejsu API zarządzania, obejrzyj hello poniższych prezentacja z konferencji hello Microsoft Ignite 2015 toolearn.
+## <a name="api-management-and-the-api-economy"></a>Usługa API Management i ekonomia interfejsów API
+Aby dowiedzieć się więcej na temat usługi API Management, obejrzyj następującą prezentację z konferencji Microsoft Ignite 2015.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
 > 
@@ -115,13 +115,13 @@ więcej informacji na temat interfejsu API zarządzania, obejrzyj hello poniższ
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How toocreate APIs]: api-management-howto-create-apis.md
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How toocreate and publish a product]: api-management-howto-add-products.md
-[How toocreate and use groups]: api-management-howto-create-groups.md
-[How tooassociate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 [How create and configure advanced product settings]: api-management-howto-product-with-rules.md
-[How toocreate or invite developers]: api-management-howto-create-or-invite-developers.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
 [Policy reference]: api-management-policy-reference.md
 [API Management policies]: api-management-howto-policies.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

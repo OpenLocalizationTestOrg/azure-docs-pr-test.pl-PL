@@ -1,6 +1,6 @@
 ---
-title: "aaaQuery danych z systemu plików HDFS zgodnego magazynu Azure - Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooquery danych z magazynu Azure i usługi Azure Data Lake Store toostore wyniki analiz."
+title: "Wykonywanie zapytań dla danych z usługi Azure Storage zgodnej z systemem plików HDFS — Azure HDInsight | Microsoft Docs"
+description: "Dowiedz się, jak wykonywać zapytania dla danych z usług Azure Storage i Azure Data Lake Store w celu zapisania wyników analiz."
 keywords: blob storage,hdfs,structured data,unstructured data,data lake store,Hadoop input,Hadoop output, hadoop storage, hdfs input,hdfs output,hdfs storage,wasb azure
 services: hdinsight,storage
 documentationcenter: 
@@ -17,24 +17,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
 ms.author: jgao
-ms.openlocfilehash: 1032d60424b65e3c0c54a25c7c15970b017a788f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a44c2b363f7ebb593b9a9c5bd9e0d4fc3b4c31bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Korzystanie z usługi Azure Storage w połączeniu z klastrami usługi Azure HDInsight
 
-dane tooanalyze w klastrze usługi HDInsight, dane można przechowywać hello w usłudze Azure Storage i Azure Data Lake Store. Obie te opcje magazynu Włącz toosafely usunąć klastrów usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
+Aby analizować dane w klastrze usługi HDInsight, możesz zapisać dane w usłudze Azure Storage, usłudze Azure Data Lake Store lub obu tych usługach. Obie opcje magazynowania pozwalają bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
 
-Platforma Hadoop obsługuje pojęcie domyślnego systemu plików hello. system plików domyślne Hello wyznacza domyślny schemat i urząd. Można także używane tooresolve ścieżek względnych. Podczas procesu tworzenia klastra usługi HDInsight hello można określić kontenera obiektów blob w magazynie Azure jako domyślny system plików hello, lub z HDInsight 3.5, można wybrać magazyn Azure lub usługi Azure Data Lake Store jako system plików domyślne hello kilka wyjątków. Aby hello możliwość wykorzystania usługi Data Lake Store jako domyślny hello i magazynu połączone, zobacz [dostępność dla klastra usługi HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availabilities-for-hdinsight-clusters).
+Platforma Hadoop obsługuje pojęcie domyślnego systemu plików. Domyślny system plików wyznacza domyślny schemat i element authority. Może również służyć do rozpoznawania ścieżek względnych. W trakcie procesu tworzenia klastra usługi HDInsight jako domyślny system plików można wskazać kontener obiektów blob w usłudze Azure Storage. Dla wersji 3.5 usługi HDInsight jako domyślny system plików można wybrać usługę Azure Storage lub Azure Data Lake Store — z wyjątkiem kilku przypadków. Aby uzyskać informacje dotyczące możliwości obsługi podczas korzystania z usługi Data Lake Store zarówno jako domyślnego, jak i połączonego magazynu, zobacz artykuł [Availabilities for HDInsight cluster](./hdinsight-hadoop-use-data-lake-store.md#availabilities-for-hdinsight-clusters) (Dostępność dla klastra usługi HDInsight).
 
-W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami usługi HDInsight. toolearn Data Lake Store współpracuje z klastrami HDInsight, zobacz [użycia usługi Azure Data Lake Store z usługą Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). Więcej informacji dotyczących tworzenia klastra usługi HDInsight można znaleźć w artykule [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów platformy Hadoop w usłudze HDInsight).
+W tym artykule omówiono współdziałanie usługi Azure Storage z klastrami usługi HDInsight. Aby dowiedzieć się, jak działa usługa Data Lake Store z klastrami usługi HDInsight, zobacz artykuł [Use Azure Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md) (Korzystanie z usługi Azure Data Lake Store przy użyciu klastrów usługi Azure HDInsight). Więcej informacji dotyczących tworzenia klastra usługi HDInsight można znaleźć w artykule [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Tworzenie klastrów platformy Hadoop w usłudze HDInsight).
 
-Usługa Azure Storage to niezawodne rozwiązanie ogólnego przeznaczenia, które bezproblemowo integruje się z usługą HDInsight. HDInsight można użyć kontenera obiektów blob w magazynie Azure jako hello domyślnego systemu plików dla klastra hello. Za pomocą interfejsu systemu (HDFS) DFS Hadoop hello pełny zestaw składników usługi HDInsight może operować bezpośrednio na danych strukturalnych lub bez struktury przechowywanych jako obiekty BLOB.
+Usługa Azure Storage to niezawodne rozwiązanie ogólnego przeznaczenia, które bezproblemowo integruje się z usługą HDInsight. Usługa HDInsight może używać kontenera obiektów blob w usłudze Azure Storage jako domyślnego systemu plików dla klastra. Korzystając z interfejsu rozproszonego systemu plików Hadoop (HDFS), pełny zestaw składników usługi HDInsight może operować bezpośrednio na danych ze strukturą lub bez niej przechowywanych jako obiekty blob.
 
 > [!WARNING]
-> Podczas tworzenia konta usługi Azure Storage jest dostępnych kilka opcji. Witaj w poniższej tabeli podano informacje, na jakie opcje są obsługiwane z usługą HDInsight:
+> Podczas tworzenia konta usługi Azure Storage jest dostępnych kilka opcji. W poniższej tabeli zawarto informacje na temat opcji obsługiwanych z usługą HDInsight:
 > 
 > | Typ konta magazynu | Warstwa magazynu | Obsługiwane z usługą HDInsight |
 > | ------- | ------- | ------- |
@@ -43,79 +43,79 @@ Usługa Azure Storage to niezawodne rozwiązanie ogólnego przeznaczenia, które
 > | Konto magazynu obiektów blob | Gorąca | Nie |
 > | &nbsp; | Chłodna | Nie |
 
-Nie zaleca się użycie hello domyślnego kontenera obiektów blob do przechowywania danych biznesowych. Usunięcie domyślnego kontenera obiektów blob powitania po każdym tooreduce Użyj przestrzeni magazynowej jest dobrym rozwiązaniem. Uwaga kontenera domyślnego hello zawierającym węzły aplikacji i systemu dzienników. Upewnij się, że tooretrieve hello dzienniki przed usunięciem hello kontenera.
+Używanie domyślnego kontenera obiektów blob do przechowywania danych firmowych nie jest zalecane. Dobrym rozwiązaniem jest usunięcie domyślnego kontenera obiektów blob po każdym użyciu, aby obniżyć koszty magazynowania. Należy pamiętać, że domyślny kontener zawiera dzienniki aplikacji i systemu. Koniecznie pobierz dzienniki przed usunięciem kontenera.
 
 Udostępnianie jednego kontenera obiektów blob dla wielu klastrów nie jest obsługiwane.
 
 ## <a name="hdinsight-storage-architecture"></a>Architektura magazynu usługi HDInsight
-powitania po diagram zawiera abstrakcyjny widok architektury magazynu usługi HDInsight przy użyciu usługi Azure Storage hello:
+Na poniższym diagramie przedstawiono schemat architektury magazynu usługi HDInsight dotyczący korzystania z usługi Azure Storage:
 
-![Klastry Hadoop Użyj hello interfejsu API systemu plików HDFS tooaccess i przechowywania danych strukturalnych i bez struktury w magazynie obiektów Blob. ] (./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architektura magazynu usługi HDInsight")
+![Klastry Hadoop używają interfejsu API systemu plików HDFS w celu dostępu do danych strukturalnych i bez struktury oraz przechowywania ich w usłudze Blob Storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "Architektura usługi DHInsight Storage")
 
-Usługa HDInsight zapewnia dostęp do systemu plików toohello rozproszonych, który jest lokalnie dołączony toohello węzłów obliczeniowych. W tym systemie plików jest możliwy za pomocą hello w pełni kwalifikowana identyfikatora URI, na przykład:
+Usługa HDInsight zapewnia dostęp do rozproszonego systemu plików, który jest lokalnie dołączony do węzłów obliczeniowych. Dostęp do tego systemu plików można uzyskać przy użyciu w pełni kwalifikowanego identyfikatora URI, na przykład:
 
     hdfs://<namenodehost>/<path>
 
-Ponadto HDInsight umożliwia tooaccess danych przechowywanych w usłudze Azure Storage. Składnia Hello jest następująca:
+Ponadto usługa HDInsight zapewnia możliwość dostępu do danych przechowywanych w usłudze Azure Storage. Składnia jest następująca:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Poniżej przedstawiono kilka zagadnień dotyczących korzystania z konta usługi Azure Storage w połączeniu z klastrami usługi HDInsight.
 
-* **Kontenery na kontach magazynu hello, które są połączone tooa klastra:** ponieważ hello nazwę konta i klucz są skojarzone z klastrem hello podczas tworzenia, masz pełny dostęp do toohello obiektów blob w tych kontenerach.
+* **Kontenery w ramach kont magazynu, które są podłączone do klastra:** ponieważ nazwa konta i klucz są kojarzone z klastrem podczas tworzenia, masz pełny dostęp do obiektów blob w tych kontenerach.
 
-* **Publiczne kontenery lub publiczne obiekty BLOB na kontach magazynu, które nie są połączone klastra tooa:** masz uprawnienia tylko do odczytu toohello BLOB w kontenerach hello.
+* **Publiczne kontenery lub publiczne obiekty blob na kontach magazynu, które NIE są podłączone do klastra:** masz uprawnienia tylko do odczytu obiektów blob w kontenerach.
   
   > [!NOTE]
-  > Kontenery publiczne pozwalają tooget listę wszystkich obiektów blob, które są dostępne w danym kontenerze oraz pobranie metadanych kontenera. Publiczne obiekty BLOB umożliwiają tooaccess hello blob jedynie osobom znającym dokładny adres URL hello. Aby uzyskać więcej informacji, zobacz <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">ograniczanie dostępu toocontainers i obiekty BLOB</a>.
+  > Kontenery publiczne pozwalają na pobranie listy wszystkich obiektów blob, które są dostępne w danym kontenerze, oraz pobranie metadanych kontenera. Publiczne obiekty blob umożliwiają dostęp do obiektów blob jedynie osobom znającym dokładny adres URL. Aby uzyskać więcej informacji, zobacz artykuł <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restrict access to containers and blobs</a> (Ograniczanie dostępu do kontenerów i obiektów blob).
   > 
   > 
-* **Prywatne kontenery na kontach magazynu, które nie są połączone w klaster tooa:** nie masz dostępu do obiektów blob hello w kontenerach hello chyba że zdefiniujesz konto magazynu hello podczas przesyłania zadań WebHCat hello. Wyjaśnienie jest zawarte w dalszej części tego artykułu.
+* **Prywatne kontenery na kontach magazynu, które NIE są podłączone do klastra:** nie masz dostępu do obiektów blob w kontenerach, chyba że zdefiniujesz konto magazynu podczas przesyłania zadań WebHCat. Wyjaśnienie jest zawarte w dalszej części tego artykułu.
 
-Witaj kontach magazynu, które są definiowane w procesie tworzenia hello i ich kluczy są przechowywane w %HADOOP_HOME%/conf/core-site.xml w węzłach klastra hello. domyślne zachowanie Hello HDInsight jest kont magazynu hello toouse zdefiniowanych w pliku core-site.xml hello. To ustawienie możesz zmodyfikować przy użyciu narzędzia [Ambari](./hdinsight-hadoop-manage-ambari.md)
+Konta magazynu definiowane w procesie tworzenia oraz ich klucze są przechowywane w pliku %HADOOP_HOME%/conf/core-site.xml w węzłach klastra. Domyślne działanie usługi HDInsight polega na korzystaniu z kont magazynu zdefiniowanych w pliku core-site.xml. To ustawienie możesz zmodyfikować przy użyciu narzędzia [Ambari](./hdinsight-hadoop-manage-ambari.md)
 
 Wiele zadań WebHCat, w tym Hive, MapReduce, przesyłanie strumieniowe Hadoop, a także Pig, może przenosić ze sobą opis kont magazynu i metadane. (W przypadku technologii Pig obecnie działa to z kontami magazynu, ale nie dla metadanych). Aby uzyskać więcej informacji, zobacz [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx) (Używanie klastra usługi HDInsight z alternatywnymi kontami magazynu i magazynami metadanych).
 
-Obiekty blob mogą być używane z danymi ze strukturą i bez niej. Kontenery obiektów blob przechowują dane jako pary klucz/wartość, bez hierarchii katalogów. Jednak hello znaku ukośnika (/) może być używana w hello toomake nazwa klucza wydaje się tak, jakby plik był przechowywany w ramach struktury katalogów. Na przykład klucz obiektu blob może mieć postać *input/log1.txt*. Nie rzeczywiste *wejściowych* katalog istnieje, ale powodu obecności toohello hello znaku ukośnika w nazwie klucza hello, ma wygląd hello ścieżki do pliku.
+Obiekty blob mogą być używane z danymi ze strukturą i bez niej. Kontenery obiektów blob przechowują dane jako pary klucz/wartość, bez hierarchii katalogów. Jednak wewnątrz nazwy klucza można użyć znaku ukośnika (/), co sprawi, że będzie wyglądała, jakby plik był przechowywany w ramach struktury katalogów. Na przykład klucz obiektu blob może mieć postać *input/log1.txt*. Katalog *input* w rzeczywistości nie istnieje, ale z powodu obecności znaku ukośnika w nazwie klucza, klucz ma wygląd ścieżki do pliku.
 
 ## <a id="benefits"></a>Korzyści z usługi Azure Storage
-Witaj DOROZUMIANE skuteczność została osłabiona przez hello sposób tworzenia klastrów obliczeniowych hello zasobów konta magazynu zamknij toohello wewnątrz hello regionu Azure, w którym hello szybkie sieci zapewniają koszt wydajności nie wspólnie lokalizowania klastrów obliczeniowych i zasobów magazynowania efektywne dla węzłów obliczeniowych hello tooaccess hello danych wewnątrz magazynu Azure.
+Wynikowy koszt wydajności związany z brakiem łączenia klastrów obliczeniowych i zasobów magazynu jest zmniejszany przez sposób tworzenia klastrów obliczeniowych w pobliżu zasobów konta magazynu w obrębie regionu świadczenia usługi Azure, gdzie szybkie sieci zapewniają wydajny dostęp węzłów obliczeniowych do danych wewnątrz usługi Azure Storage.
 
-Istnieje kilka korzyści związanych z przechowywaniem danych hello w magazynie Azure zamiast systemu plików HDFS:
+Przechowywanie danych w usłudze Azure Storage zamiast w systemie plików HDFS ma wiele zalet:
 
-* **Udostępnianie i ponowne użycie danych:** hello dane w systemie plików HDFS znajdują się wewnątrz klastra obliczeniowego hello. Tylko aplikacji hello, które mają dostęp toohello obliczeń klaster może używać hello danych przy użyciu interfejsów API systemu plików HDFS. Witaj dane w magazynie Azure są dostępne za pośrednictwem interfejsów API systemu plików HDFS hello lub hello [interfejsów API REST magazynu obiektów Blob][blob-storage-restAPI]. W związku z tym większy zestaw narzędzi i aplikacji (w tym inne klastry HDInsight) można tooproduce używane i wykorzystują dane hello.
-* **Archiwizacja danych:** przechowywanie danych w magazynie Azure umożliwia hello klastrów usługi HDInsight używane do obliczeń toobe bezpiecznie usunąć bez utraty danych użytkownika.
-* **Koszt magazynowania danych:** przechowywania danych w systemie plików DFS długoterminowej hello jest droższe niż przechowywanie danych hello w magazynie Azure, ponieważ hello koszt klastra obliczeniowego jest wyższy niż koszt hello magazynu Azure. Ponadto ponieważ hello danych nie ma toobe ponownie załadowana każdej generacji klastra obliczeniowego, oszczędzamy również koszty ładowania danych.
-* **Elastyczne skalowalnego w poziomie:** Chociaż system plików HDFS zapewnia system plików skalowalnych w poziomie, skala hello jest określany przez hello liczbę węzłów tworzonych dla klastra. Zmiana skali hello może stać się procesem bardziej skomplikowane niż polegania na elastyczne hello możliwościami skalowania, które można uzyskać automatycznie w magazynie Azure.
-* **Replikacja geograficzna:** usługę Azure Storage można replikować geograficznie. Chociaż zapewnia to odzyskiwanie geograficzne i nadmiarowość danych, lokalizacji zreplikowanych geograficznie trybu failover toohello poważnie wpływa na wydajność i może pociągnąć za sobą dodatkowe koszty. Dlatego zalecamy toochoose hello — replikacja geograficzna rozsądny sposób i tylko wtedy, gdy wartość hello hello danych uzasadnia ponoszenie dodatkowych kosztów hello.
+* **Udostępnianie i ponowne użycie danych:** dane w systemie plików HDFS znajdują się wewnątrz klastra obliczeniowego. Tylko te aplikacje, które mają dostęp do klastra obliczeniowego mogą używać danych za pomocą interfejsów API systemu plików HDFS. Dane w usłudze Azure Storage są dostępne za pośrednictwem interfejsów API systemu plików HDFS lub za pomocą [interfejsów API REST usługi Blob Storage][blob-storage-restAPI]. W związku z tym większy zestaw narzędzi i aplikacji (w tym inne klastry HDInsight) może służyć do tworzenia i wykorzystywania danych.
+* **Archiwizacja danych:** przechowywanie danych w usłudze Azure Storage pozwala bezpiecznie usuwać klastry usługi HDInsight używane do obliczeń bez utraty danych użytkownika.
+* **Koszt magazynowania danych:** długoterminowe przechowywanie danych w systemie plików DFS jest droższe niż przechowywanie danych w usłudze Azure Storage, ponieważ koszt klastra obliczeniowego jest wyższy niż koszt usługi Azure Storage. Ponadto ponieważ nie trzeba ponownie ładować danych przy każdej generacji klastra obliczeniowego, oszczędzamy również koszty ładowania danych.
+* **Elastyczne skalowanie w poziomie:** chociaż system plików HDFS zapewnia skalowanie w poziomie, skala jest wyznaczana przez liczbę węzłów tworzonych dla klastra. Zmiana skali może stać się procesem bardziej skomplikowanym w porównaniu z elastycznymi możliwościami skalowania, które można uzyskać automatycznie w usłudze Azure Storage.
+* **Replikacja geograficzna:** usługę Azure Storage można replikować geograficznie. Chociaż zapewnia to odzyskiwanie geograficzne i nadmiarowość danych, praca w trybie failover w przypadku lokalizacji zreplikowanych geograficznie poważnie wpływa na wydajność i może pociągać za sobą dodatkowe koszty. Dlatego zalecamy, aby wybierać replikację geograficzną w rozsądny sposób i tylko wtedy, gdy wartość danych uzasadnia ponoszenie dodatkowych kosztów.
 
-Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, że nie naprawdę chcesz toostore w magazynie Azure. W tym przypadku można wybrać toostore hello danych w hello lokalnego systemu plików HDFS. W rzeczywistości HDInsight używa systemu plików DFS dla wielu wyników pośrednich w zadaniach Hive i innych procesach.
+Niektóre zadania i pakiety MapReduce mogą tworzyć wyniki pośrednie, których nie potrzeba przechowywać w usłudze Azure Storage. W takim przypadku można zdecydować się na przechowywanie danych w lokalnym systemie plików HDFS. W rzeczywistości HDInsight używa systemu plików DFS dla wielu wyników pośrednich w zadaniach Hive i innych procesach.
 
 > [!NOTE]
-> Większość poleceń systemu plików HDFS (na przykład <b>ls</b>, <b>copyFromLocal</b> i <b>mkdir</b>) nadal działa zgodnie z oczekiwaniami. Tylko hello poleceń, które są określone toohello natywnych implementacji systemu plików HDFS (czyli tooas określonego systemu plików DFS), takich jak <b>fschk</b> i <b>dfsadmin</b>, Pokaż inaczej w magazynie Azure.
+> Większość poleceń systemu plików HDFS (na przykład <b>ls</b>, <b>copyFromLocal</b> i <b>mkdir</b>) nadal działa zgodnie z oczekiwaniami. Tylko polecenia specyficzne dla natywnych implementacji systemu plików HDFS (określanych jako systemy plików DFS), takie jak <b>fschk</b> i <b>dfsadmin</b>, będą działać inaczej w usłudze Azure Storage.
 > 
 > 
 
 ## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów blob
-toouse obiektów blob, należy najpierw utworzyć [konta magazynu Azure][azure-storage-create]. W ramach tego możesz określić region platformy Azure, gdzie hello konto magazynu jest tworzone. Witaj klaster i konto magazynu hello musi być obsługiwana przez hello tego samego regionu. Hello Hive potrzeby magazynu metadanych serwera SQL w bazie danych i Oozie potrzeby magazynu metadanych programu SQL Server, bazy danych, również muszą znajdować się w hello tego samego regionu.
+Aby użyć obiektów blob, należy najpierw utworzyć [konto usługi Azure Storage][azure-storage-create]. W ramach tego procesu należy wskazać region świadczenia usługi Azure, w którym zostanie utworzone konto magazynu. Klaster i konto magazynu muszą być hostowane w tym samym regionie. Baza danych SQL Server na potrzeby magazynu metadanych Hive i baza danych SQL Server na potrzeby magazynu metadanych Oozie również muszą znajdować się w tym samym regionie.
 
-Wszędzie tam, gdzie go umieszczono, każdy utworzony obiekt blob należy tooa kontenera na koncie magazynu Azure. Ten kontener może być istniejącym obiektem blob utworzonym poza usługą HDInsight lub może być kontenerem, który jest tworzony dla klastra usługi HDInsight.
+Wszędzie tam, gdzie go umieszczono, każdy utworzony obiekt blob należy do kontenera na koncie usługi Azure Storage. Ten kontener może być istniejącym obiektem blob utworzonym poza usługą HDInsight lub może być kontenerem, który jest tworzony dla klastra usługi HDInsight.
 
-Witaj domyślnego kontenera obiektów Blob przechowuje informacje specyficzne dla klastra, takie jak dzienniki i historię zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Może to spowodować uszkodzenie historii zadań. Zalecane jest toouse innego kontenera dla każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast hello domyślne konto magazynu. Aby uzyskać więcej informacji na temat konfigurowania połączonych kont magazynu, zobacz artykuł [Tworzenie klastrów usługi HDInsight][hdinsight-creation]. Jednak po usunięciu oryginalnego klastra usługi HDInsight hello można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase faktycznie można zachować schemat tabeli HBase hello i danych przez utworzenie nowego klastra HBase przy użyciu hello domyślnego kontenera obiektów blob używanego przez klaster HBase, który został usunięty.
+Domyślny kontener obiektów blob przechowuje informacje dotyczące klastra, takie jak dzienniki i historia zadań. Nie należy współużytkować domyślnego kontenera obiektów blob dla wielu klastrów usługi HDInsight. Może to spowodować uszkodzenie historii zadań. Zalecane jest stosowanie różnych kontenerów do każdego klastra i umieszczanie udostępnionych danych w połączonym koncie magazynu określonym we wdrożeniu wszystkich odpowiednich klastrów zamiast domyślnego konta magazynu. Aby uzyskać więcej informacji na temat konfigurowania połączonych kont magazynu, zobacz artykuł [Tworzenie klastrów usługi HDInsight][hdinsight-creation]. Jednak po usunięciu oryginalnego klastra usługi HDInsight można ponownie użyć domyślnego kontenera magazynu. W przypadku klastrów HBase można zachować schemat tabeli HBase i dane przez utworzenie nowego klastra HBase przy użyciu domyślnego kontenera obiektów blob, używanego przez klaster HBase, który został usunięty.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-### <a name="use-hello-azure-portal"></a>Użyj hello portalu Azure
-Podczas tworzenia klastra usługi HDInsight z hello portalu, masz szczegóły konta magazynu tooprovide hello hello opcje (jak pokazano poniżej). Można również określić, czy mają konta dodatkowego magazynu skojarzone z hello klastra i jeśli tak, wybierz z usługi Data Lake Store lub innego obiektu blob magazynu Azure jako hello dodatkowego magazynu.
+### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+Podczas tworzenia klastra usługi HDInsight za pomocą witryny Portal masz do wyboru dwa sposoby podania szczegółów konta magazynu, które przedstawiono poniżej. Możesz także określić, czy chcesz skojarzyć dodatkowe konto magazynu z klastrem, a jeśli tak, możesz wybrać usługę Data Lake Store lub inną usługę Azure Storage Blob jako magazyn dodatkowy.
 
 ![HDInsight, hadoop, tworzenie źródła danych](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 > [!WARNING]
-> Przy użyciu konta, dodatkowe miejsce do magazynowania w innej lokalizacji niż hello klastra usługi HDInsight nie jest obsługiwane.
+> Korzystanie z dodatkowego konta magazynu w innej lokalizacji niż klaster usługi HDInsight nie jest obsługiwane.
 
 
 ### <a name="use-azure-powershell"></a>Korzystanie z programu Azure PowerShell
-Jeśli użytkownik [zainstalowaniu i skonfigurowaniu programu Azure PowerShell][powershell-install], można użyć poniższych z hello Azure PowerShell monitu toocreate konto magazynu i kontener hello:
+Po [zainstalowaniu i skonfigurowaniu programu Azure PowerShell][powershell-install] można użyć następujących poleceń w wierszu polecenia programu Azure PowerShell, aby utworzyć konto magazynu i kontener:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -144,52 +144,52 @@ Jeśli użytkownik [zainstalowaniu i skonfigurowaniu programu Azure PowerShell][
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-Jeśli masz [zainstalowany i skonfigurowany hello Azure CLI](../cli-install-nodejs.md), hello następujące polecenie, mogą być używane tooa konto magazynu i kontener.
+Jeśli masz [zainstalowany i skonfigurowany interfejs wiersza polecenia platformy Azure](../cli-install-nodejs.md), możesz zastosować następujące polecenie do konta magazynu i kontenera.
 
     azure storage account create <storageaccountname> --type LRS
 
 > [!NOTE]
-> Witaj `--type` parametr wskazuje sposób replikacji konta magazynu hello. Aby uzyskać więcej informacji, zobacz artykuł [Azure Storage Replication](../storage/storage-redundancy.md) (Replikacja usługi Azure Storage). Nie używaj magazynu strefowo nadmiarowego, ponieważ nie obsługuje on stronicowych obiektów blob, plików, tabel ani kolejek.
+> Parametr `--type` wskazuje sposób replikacji konta magazynu. Aby uzyskać więcej informacji, zobacz artykuł [Azure Storage Replication](../storage/storage-redundancy.md) (Replikacja usługi Azure Storage). Nie używaj magazynu strefowo nadmiarowego, ponieważ nie obsługuje on stronicowych obiektów blob, plików, tabel ani kolejek.
 > 
 > 
 
-Jesteś toospecify zostanie wyświetlony monit o hello region geograficzny w utworzeniu konta magazynu hello. Należy utworzyć konta magazynu hello w hello tym samym regionie, w którym planujesz utworzenie klastra usługi HDInsight.
+Pojawi się monit o region geograficzny, w którym zostanie utworzone konto magazynu. Należy utworzyć konto magazynu w tym samym regionie, w którym planujesz utworzenie klastra usługi HDInsight.
 
-Po utworzeniu konta magazynu hello Użyj hello następujące klucze konta magazynu hello tooretrieve polecenia:
+Po utworzeniu konta magazynu użyj następującego polecenia w celu uzyskania kluczy do konta magazynu:
 
     azure storage account keys list <storageaccountname>
 
-toocreate kontener hello Użyj następującego polecenia:
+Aby utworzyć kontener, użyj następującego polecenia:
 
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ## <a name="address-files-in-azure-storage"></a>Adresowanie plików w usłudze Azure Storage
-schemat identyfikatora URI Hello dla uzyskiwania dostępu do plików w magazynie Azure z usługi HDInsight to:
+Schemat identyfikatora URI do uzyskiwania dostępu do plików w usłudze Azure Storage z usługi HDInsight to:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-Witaj schemat identyfikatora URI zapewnia nieszyfrowany dostęp (z hello *wasb:* prefiks) oraz szyfrowany dostęp SSL (z *wasbs*). Firma Microsoft zaleca używanie *wasbs* wszędzie tam, gdzie to możliwe, nawet wtedy, gdy podczas uzyskiwania dostępu do danych, które znajdują się wewnątrz hello tego samego regionu w systemie Azure.
+Schemat identyfikatora URI zapewnia nieszyfrowany dostęp (z prefiksem *wasb:*) oraz szyfrowany dostęp SSL (z prefiksem *wasbs*). Zalecamy używanie prefiksu *wasbs* wszędzie tam, gdzie to możliwe, nawet w przypadku uzyskiwania dostępu do danych, które znajdują się wewnątrz tego samego regionu w systemie Azure.
 
-Witaj &lt;BlobStorageContainerName&gt; identyfikuje nazwę hello hello kontenera obiektów blob w magazynie Azure.
-Witaj &lt;StorageAccountName&gt; identyfikuje nazwę konta usługi Azure Storage hello. Wymagana jest w pełni kwalifikowana nazwa domeny (FQDN).
+&lt;BlobStorageContainerName&gt; identyfikuje nazwę kontenera obiektów blob w usłudze Azure Storage.
+&lt;StorageAccountName&gt; identyfikuje nazwę konta Azure Storage. Wymagana jest w pełni kwalifikowana nazwa domeny (FQDN).
 
-Jeśli żadna &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&gt; został określony, domyślny system plików hello jest używany. Dla plików hello na powitania domyślnego systemu plików można użyć ścieżkę względną lub ścieżką bezwzględną. Na przykład Witaj *hadoop-mapreduce-examples.jar* dostarczanego z klastrami usługi HDInsight może być określony tooby przy użyciu jednej z następujących hello:
+Jeśli żadna z nazw &lt;BlobStorageContainerName&gt; ani &lt;StorageAccountName&gt; nie zostanie określona, używany jest domyślny system plików. W przypadku plików w domyślnym systemie plików można używać ścieżki względnej lub bezwzględnej. Na przykład do pliku *hadoop-mapreduce-examples.jar* dostarczanego z klastrami usługi HDInsight można odwoływać się w jeden z następujących sposobów:
 
     wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
     wasb:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
-> Nazwa pliku Hello jest <i>hadoop-examples.jar</i> w klastrach usługi HDInsight w wersji 2.1 i 1.6.
+> Nazwa pliku to <i>hadoop-examples.jar</i> w klastrach usługi HDInsight w wersji 2.1 i 1.6.
 > 
 > 
 
-Witaj &lt;ścieżki&gt; jest hello pliku lub katalogu systemu plików HDFS nazwą ścieżki. Ponieważ kontenery w usłudze Azure Storage przechowują po prostu pary klucz-wartość, nie istnieje prawdziwy hierarchiczny system plików. Znak ukośnika (/) wewnątrz klucza obiektu blob jest interpretowany jako separator katalogu. Na przykład nazwą obiektu blob powitania dla *hadoop-mapreduce-examples.jar* jest:
+&lt;path&gt; jest nazwą ścieżki do pliku lub katalogu w systemie plików HDFS. Ponieważ kontenery w usłudze Azure Storage przechowują po prostu pary klucz-wartość, nie istnieje prawdziwy hierarchiczny system plików. Znak ukośnika (/) wewnątrz klucza obiektu blob jest interpretowany jako separator katalogu. Na przykład nazwą obiektu blob dla pliku *hadoop-mapreduce-examples.jar* jest:
 
     example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
-> Podczas pracy z obiektami blob poza usługą HDInsight, większość narzędzi nie rozpoznaje formatu WASB hello i zamiast tego oczekuje podstawowego formatu ścieżki, takie jak `example/jars/hadoop-mapreduce-examples.jar`.
+> Podczas pracy z obiektami blob poza usługą HDInsight, większość narzędzi nie rozpoznaje formatu WASB i zamiast tego oczekuje podstawowego formatu ścieżki, takiego jak `example/jars/hadoop-mapreduce-examples.jar`.
 > 
 > 
 
@@ -198,28 +198,28 @@ Witaj &lt;ścieżki&gt; jest hello pliku lub katalogu systemu plików HDFS nazw�
 
 ### <a name="access-blobs-using-azure-powershell"></a> Korzystanie z programu Azure PowerShell
 > [!NOTE]
-> Witaj polecenia w tej sekcji stanowią podstawowy przykład przy użyciu programu PowerShell tooaccess dane przechowywane w obiektach blob. Na przykład obszerniejszy dostosowany do pracy z usługą HDInsight, zobacz hello [narzędzi HDInsight Tools](https://github.com/Blackmist/hdinsight-tools).
+> Polecenia w tej sekcji stanowią podstawowy przykład użycia programu PowerShell w celu dostępu do danych przechowywanych w obiektach blob. Obszerniejszy przykład dostosowany do pracy z usługą HDInsight znajdziesz w artykule [HDInsight Tools](https://github.com/Blackmist/hdinsight-tools) (Narzędzia usługi HDInsight).
 > 
 > 
 
-Użyj następującego polecenia cmdlet związanych z obiektami blob hello toolist hello:
+Użyj następującego polecenia, aby wyświetlić listę poleceń cmdlet związanych z obiektami blob:
 
     Get-Command *blob*
 
 ![Lista poleceń cmdlet programu PowerShell związanych z obiektami blob.][img-hdi-powershell-blobcommands]
 
 #### <a name="upload-files"></a>Przekazywanie plików
-Zobacz [przekazywanie danych tooHDInsight][hdinsight-upload-data].
+Zobacz [Przekazywanie danych do usługi HDInsight][hdinsight-upload-data].
 
 #### <a name="download-files"></a>Pobieranie plików
-Witaj poniższy skrypt pobiera bloku folderu bieżącego toohello obiektu blob. Przed uruchamianie skryptu hello Zmień folder tooa katalogu hello, w którym masz uprawnienia do zapisu.
+Następujący skrypt pobiera blokowy obiekt blob do bieżącego folderu. Przed uruchomieniem skryptu zmień katalog na folder, w którym masz uprawnienia do zapisu.
 
     $resourceGroupName = "<AzureResourceGroupName>"
-    $storageAccountName = "<AzureStorageAccountName>"   # hello storage account used for hello default file system specified at creation.
-    $containerName = "<BlobStorageContainerName>"  # hello default file system container has hello same name as hello cluster.
-    $blob = "example/data/sample.log" # hello name of hello blob toobe downloaded.
+    $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
+    $containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
+    $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
-    # Use Add-AzureAccount if you haven't connected tooyour Azure subscription
+    # Use Add-AzureAccount if you haven't connected to your Azure subscription
     Login-AzureRmAccount 
     Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
 
@@ -227,17 +227,17 @@ Witaj poniższy skrypt pobiera bloku folderu bieżącego toohello obiektu blob. 
     $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
-    Write-Host "Download hello blob ..." -ForegroundColor Green
+    Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
 
-    Write-Host "List hello downloaded file ..." -ForegroundColor Green
+    Write-Host "List the downloaded file ..." -ForegroundColor Green
     cat "./$blob"
 
-Jeśli nazwa grupy zasobów hello i nazwa klastra hello, można użyć hello następującego kodu:
+Po podaniu nazwy grupy zasobów i nazwy klastra możesz użyć następującego kodu:
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $clusterName = "<HDInsightClusterName>"
-    $blob = "example/data/sample.log" # hello name of hello blob toobe downloaded.
+    $blob = "example/data/sample.log" # The name of the blob to be downloaded.
 
     $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
@@ -245,7 +245,7 @@ Jeśli nazwa grupy zasobów hello i nazwa klastra hello, można użyć hello nas
     $defaultStorageContainer = $cluster.DefaultStorageContainer
     $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
 
-    Write-Host "Download hello blob ..." -ForegroundColor Green
+    Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
 
@@ -256,7 +256,7 @@ Jeśli nazwa grupy zasobów hello i nazwa klastra hello, można użyć hello nas
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
 #### <a name="run-hive-queries-using-an-undefined-storage-account"></a>Uruchamianie zapytań Hive przy użyciu niezdefiniowanego konta magazynu
-Ten przykład przedstawia, jak toolist folderu z konta magazynu, który nie jest zdefiniowany podczas hello procesu tworzenia.
+Ten przykład przedstawia sposób wyświetlania zawartości folderu z konta magazynu, które nie zostało zdefiniowane podczas procesu tworzenia.
 $clusterName = "<HDInsightClusterName>"
 
     $undefinedStorageAccount = "<UnboundedStorageAccountUnderTheSameSubscription>"
@@ -272,44 +272,44 @@ $clusterName = "<HDInsightClusterName>"
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
-Użyj powitania po toolist hello związanych z obiektami blob poleceń:
+Użyj następującego polecenia, aby wyświetlić listę poleceń związanych z obiektami blob:
 
     azure storage blob
 
-**Przykład użycia interfejsu wiersza polecenia Azure tooupload pliku**
+**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby przekazać plik**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Przykład użycia interfejsu wiersza polecenia Azure toodownload pliku**
+**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby pobrać plik**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Przykład użycia interfejsu wiersza polecenia Azure toodelete pliku**
+**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby usunąć plik**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Przykład użycia interfejsu wiersza polecenia Azure toolist plików**
+**Przykład użycia interfejsu wiersza polecenia platformy Azure, aby wyświetlić listę plików**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ## <a name="use-additional-storage-accounts"></a>Używanie dodatkowych kont magazynu
 
-Podczas tworzenia klastra usługi HDInsight, możesz określić hello konto Azure Storage, które chcesz tooassociate z nim. Ponadto toothis konta magazynu, można dodać dodatkowe konta magazynu z hello sam subskrypcji platformy Azure lub różnych subskrypcji Azure, podczas procesu tworzenia hello lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania kolejnych kont magazynu, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Podczas tworzenia klastra usługi HDInsight należy wskazać konto usługi Azure Storage, które ma zostać skojarzone z tym klastrem. Oprócz tego konta magazynu można dodać dodatkowe konta magazynu z tej samej subskrypcji platformy Azure lub różnych subskrypcji platformy Azure podczas procesu tworzenia lub po utworzeniu klastra. Aby uzyskać instrukcje dotyczące dodawania kolejnych kont magazynu, zobacz [Tworzenie klastrów usługi HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]
-> Przy użyciu konta, dodatkowe miejsce do magazynowania w innej lokalizacji niż hello klastra usługi HDInsight nie jest obsługiwane.
+> Korzystanie z dodatkowego konta magazynu w innej lokalizacji niż klaster usługi HDInsight nie jest obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule należy przedstawiono sposób toouse zgodnego systemem plików HDFS magazynu platformy Azure z usługą HDInsight. Dzięki temu można toobuild skalowalnych, długoterminowych, archiwizacji rozwiązań do pozyskiwania danych i użyj HDInsight toounlock hello informacji wewnątrz hello przechowywane strukturalnych i danych bez struktury.
+W tym artykule przedstawiono sposób korzystania z magazynu Azure zgodnego z systemem plików HDFS w połączeniu z usługą HDInsight. Podane tu informacje umożliwiają tworzenie skalowalnych, długoterminowych rozwiązań do pozyskiwania danych archiwalnych i używanie usługi HDInsight w celu efektywnego wykorzystywania informacji przechowywanych w postaci danych ze strukturą i bez niej.
 
 Aby uzyskać więcej informacji, zobacz:
 
 * [Wprowadzenie do usługi Azure HDInsight][hdinsight-get-started]
 * [Wprowadzenie do usługi Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
-* [Przekazywanie danych tooHDInsight][hdinsight-upload-data]
+* [Przekazywanie danych do usługi HDInsight][hdinsight-upload-data]
 * [Korzystanie z programu Hive z usługą HDInsight][hdinsight-use-hive]
 * [Korzystanie z języka Pig z usługą HDInsight][hdinsight-use-pig]
-* [Korzystanie z usługą HDInsight toodata dostępu toorestrict sygnatury dostępu współdzielonego magazynu Azure][hdinsight-use-sas]
+* [Use Azure Storage Shared Access Signatures to restrict access to data with HDInsight][hdinsight-use-sas] (Używanie sygnatur dostępu współdzielonego do usługi Azure Storage, aby ograniczyć dostęp do danych za pomocą usługi HDInsight)
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: /powershell/azureps-cmdlets-docs

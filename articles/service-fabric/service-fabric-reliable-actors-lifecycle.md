@@ -1,5 +1,5 @@
 ---
-title: "aaaOverview życia na podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
+title: "Przegląd cyklu życia na podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
 description: "Wyjaśniono niezawodnego aktora sieci szkieletowej usługi cyklu życia, wyrzucanie elementów bezużytecznych i ręcznego usuwania złośliwych użytkowników i ich stan"
 services: service-fabric
 documentationcenter: .net
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
-ms.openlocfilehash: a7926e372449048f0a579c2c58573754a4a82363
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 75b7b77a0bef2051599a4f61183109cfb2ffff3b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cykl życia aktora, automatyczne wyrzucanie elementów bezużytecznych i ręcznego usuwania
-Aktor jest uaktywniany hello po raz pierwszy tooany metody jest nawiązane połączenie. Aktor jest dezaktywowany (zebranych przez środowisko uruchomieniowe podmiotów hello pamięci), jeśli nie jest on używany przez można skonfigurować czas. Aktor i stanu można również zostaną usunięte ręcznie w dowolnym momencie.
+Aktor jest uaktywniany przy pierwszym uruchomieniu połączenie jest nawiązywane w przypadku dowolnej metody. Aktor jest dezaktywowany (odzyskiwanie zebranych przez środowisko uruchomieniowe złośliwych użytkowników), jeśli nie jest on używany przez można skonfigurować czas. Aktor i stanu można również zostaną usunięte ręcznie w dowolnym momencie.
 
 ## <a name="actor-activation"></a>Aktywacja aktora
-Po uaktywnieniu aktora występuje hello następujące czynności:
+Po uaktywnieniu aktora są następujące operacje:
 
 * Wywołanie jest dostępna dla aktora i jeszcze nie została active, nowe aktora zostanie utworzona.
-* stanu aktora Hello jest ładowana, jeśli jest zachowanie stanu.
-* Witaj `OnActivateAsync` (C#) lub `onActivateAsync` wywołanie metody (Java) (która może zostać zastąpiona w celu wykonania aktora hello).
-* Witaj aktora teraz jest traktowane jako aktywne.
+* Stanu aktora jest ładowana, jeśli jest zachowanie stanu.
+* `OnActivateAsync` (C#) lub `onActivateAsync` wywołanie metody (Java) (która może zostać zastąpiona w celu wykonania aktora).
+* Aktor teraz jest traktowane jako aktywne.
 
 ## <a name="actor-deactivation"></a>Dezaktywacja aktora
-Po dezaktywacji aktora hello rejestrowany:
+Gdy aktora jest dezaktywowany, są następujące operacje:
 
-* Gdy aktora nie jest używany przez niektóre czas, zostanie ono usunięte z tabeli aktywnych uczestników hello.
-* Witaj `OnDeactivateAsync` (C#) lub `onDeactivateAsync` wywołanie metody (Java) (która może zostać zastąpiona w celu wykonania aktora hello). Czyści wszystkie czasomierze hello na powitania aktora. Aktora operacji, takich jak stan, jaki zmiany nie powinna być wywoływana z tej metody.
+* Gdy aktora nie jest używany przez niektóre czas, zostanie ono usunięte z tabeli aktywnych złośliwych użytkowników.
+* `OnDeactivateAsync` (C#) lub `onDeactivateAsync` wywołanie metody (Java) (która może zostać zastąpiona w celu wykonania aktora). Czyści wszystkie czasomierze aktora. Aktora operacji, takich jak stan, jaki zmiany nie powinna być wywoływana z tej metody.
 
 > [!TIP]
-> Witaj środowisko uruchomieniowe sieci szkieletowej podmiotów emituje niektóre [zdarzenia związane z tooactor Aktywacja i dezaktywacja](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Są one przydatne w Diagnostyka i monitorowanie wydajności.
+> Środowisko uruchomieniowe sieci szkieletowej podmiotów emituje niektóre [zdarzenia związane z aktorem Aktywacja i dezaktywacja](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Są one przydatne w Diagnostyka i monitorowanie wydajności.
 >
 >
 
 ### <a name="actor-garbage-collection"></a>Aktora wyrzucanie elementów bezużytecznych
-Po dezaktywacji aktora obiektu aktora toohello odwołania są wydawane i może być bezużytecznych zwykle hello środowisko uruchomieniowe języka wspólnego (CLR) lub moduł zbierający elementy bezużyteczne programu java (JVM). maszyny wirtualnej. Wyrzucanie elementów bezużytecznych tylko czyści hello obiektu aktora. robi **nie** usunąć stan przechowywane w Menedżerze stanu aktora hello. uaktywnieniu aktora hello czas następnego Hello, tworzony jest nowy obiekt aktora i jej przywróceniu.
+Gdy aktora jest dezaktywowana, odwołania do obiektu aktora są wydawane i może być bezużytecznych zwykle przez środowisko uruchomieniowe języka wspólnego (CLR) lub moduł zbierający elementy bezużyteczne programu java (JVM). maszyny wirtualnej. Wyrzucanie elementów bezużytecznych tylko czyści obiektu aktora. robi **nie** usunąć stan przechowywane w Menedżerze stanu aktora. Przy następnym aktora jest aktywna, tworzony jest nowy obiekt aktora i jej przywróceniu.
 
-Co to jest traktowana jako "jest używane" hello w celu dezaktywacji i wyrzucanie elementów bezużytecznych?
+Co to jest traktowana jako "jest używane" na potrzeby dezaktywacji i wyrzucanie elementów bezużytecznych?
 
 * Odbieranie wywołania
-* `IRemindable.ReceiveReminderAsync`Metoda wywoływana (ma zastosowanie tylko wtedy, gdy aktora hello używa przypomnienia)
+* `IRemindable.ReceiveReminderAsync`Metoda wywoływana (ma zastosowanie tylko wtedy, gdy aktor używa przypomnienia)
 
 > [!NOTE]
-> Jeśli aktora hello używa czasomierze i jej wywołanie zwrotne czasomierza jest wywoływana, nie **nie** liczby jako "jest używane".
+> Jeśli aktora używa czasomierze i jej wywołanie zwrotne czasomierza jest wywoływana, nie **nie** liczby jako "jest używane".
 >
 >
 
-Przed możemy przejść do szczegółów hello dezaktywację, jest ważne toodefine hello następujące warunki:
+Przed możemy przejść do szczegółów dezaktywację, należy zdefiniować następujące warunki:
 
-* *Interwał skanowania*. Jest to interwał powitania, w których hello podmiotów środowiska uruchomieniowego skanuje jego tabeli aktywnych uczestników osób, które można dezaktywować i w ramach odzyskiwania pamięci. Witaj wartość domyślna to to 1 minuta.
-* *Limit czasu bezczynności*. Jest to hello ilość czasu, że aktora wymaga tooremain nieużywane (bezczynny), zanim można dezaktywować i w ramach odzyskiwania pamięci. Witaj wartość domyślna to wynosi 60 min.
+* *Interwał skanowania*. Jest to interwał, jaką środowiska uruchomieniowego podmiotów skanowania tabeli aktywnych uczestników osób, które można dezaktywować i w ramach odzyskiwania pamięci. Wartość domyślna to to 1 minuta.
+* *Limit czasu bezczynności*. Jest to czas, który musi pozostać nieużywane aktora (bezczynny), zanim można dezaktywować i w ramach odzyskiwania pamięci. Wartość domyślna to wynosi 60 min.
 
-Zazwyczaj nie trzeba toochange tych wartości domyślnych. Jednak w razie potrzeby kolejnymi interwałami można zmienić za pomocą `ActorServiceSettings` podczas rejestrowania programu [usługi aktora](service-fabric-reliable-actors-platform.md):
+Zazwyczaj nie trzeba zmieniać tych wartości domyślnych. Jednak w razie potrzeby kolejnymi interwałami można zmienić za pomocą `ActorServiceSettings` podczas rejestrowania programu [usługi aktora](service-fabric-reliable-actors-platform.md):
 
 ```csharp
 public class Program
@@ -93,29 +93,29 @@ public class Program
     }
 }
 ```
-Dla każdego aktywnego aktora środowiska uruchomieniowego aktora hello przechowuje informacje o hello ilość czasu, który był bezczynny (tj. nie jest używany). środowisko uruchomieniowe aktora Hello sprawdza wszystkich podmiotów hello co `ScanIntervalInSeconds` toosee Jeśli pamięci może być zbierane i pobiera ją, jeśli był bezczynny `IdleTimeoutInSeconds`.
+Dla każdego aktywnego aktora środowiska uruchomieniowego aktora przechowuje informacje o czas, który był bezczynny (tj. nie jest używany). Środowisko uruchomieniowe aktora sprawdza każdego podmiotów co `ScanIntervalInSeconds` aby zobaczyć, czy może być odzyskiwanie zbierane i pobiera ją, jeśli był bezczynny `IdleTimeoutInSeconds`.
 
-W dowolnym momencie aktora jest używany, jego czas bezczynności jest too0 resetowania. Po tym aktora hello może być bezużytecznych tylko wtedy, gdy ponownie pozostanie bezczynny `IdleTimeoutInSeconds`. Odwołaj się, że aktora jest uznawany za toohave zostały użyte, jeśli wykonywane jest metody interfejsu aktora lub wywołania zwrotnego monitu aktora. Aktor jest **nie** uznawane za toohave zostały użyte, jeśli jej wywołanie zwrotne czasomierza jest wykonywana.
+W dowolnym momencie aktora jest używany, jego czas bezczynności jest resetowany do 0. Następnie aktora może być bezużytecznych tylko wtedy, gdy ponownie pozostanie bezczynny `IdleTimeoutInSeconds`. Odwołaj, że zostały użyte, jeśli wykonywane jest metody interfejsu aktora lub wywołania zwrotnego monitu aktora jest uznawany za aktora. Aktor jest **nie** uznaje użyte, jeśli jej wywołanie zwrotne czasomierza jest wykonywane.
 
-Witaj Poniższy diagram przedstawia hello cyklem życia tooillustrate pojedynczego aktora te pojęcia.
+Na poniższym diagramie przedstawiono cyklem życia pojedynczego aktora w celu zilustrowania koncepcji te.
 
 ![Przykład czas bezczynności][1]
 
-przykład Witaj zawiera wpływ hello wywołania metody aktora, przypomnienia i czasomierze hello okres istnienia tego aktora. następujące kwestie dotyczące przykład Witaj Hello są warto zauważyć:
+W przykładzie wpływ wywołania metody aktora, przypomnienia i czasomierze na okres istnienia tego aktora. Są następujące kwestie dotyczące przykładzie warto zauważyć:
 
-* ScanInterval IdleTimeout są ustawione i too5 i 10 odpowiednio. (Jednostek niezależnie od tego, ponieważ naszym celem jest tylko koncepcji hello tooillustrate.)
-* skanowanie Hello osób toobe bezużytecznych odbywa się na T = 0, 5, 10, 15, 20, 25, zgodnie z definicją interwał skanowania powitania 5.
-* Okresowe czasomierza wyzwala T = 4, 8, 12, 16, 20, 24, i wykonuje jej wywołanie zwrotne. Nie ma ona wpływu hello bezczynności hello aktora.
-* Wywołanie metody aktora w T = 7 resetuje hello too0 czas bezczynności i wybrano opcję opóźnienia hello wyrzucanie elementów bezużytecznych z hello aktora.
-* Wykonuje wywołanie zwrotne monitu aktora w T = 14 i dalsze opóźnienia hello wyrzucanie elementów bezużytecznych hello aktora.
-* Podczas skanowania kolekcji garbage hello na T = 25 czas bezczynności aktora hello finally przekracza limit czasu bezczynności hello 10, a aktora hello jest bezużytecznych.
+* ScanInterval i IdleTimeout są ustawiane odpowiednio 5 i 10. (Jednostek niezależnie od tego, ponieważ naszym celem jest tylko w celu zilustrowania koncepcji.)
+* Skanowanie pod kątem uczestników jako bezużytecznych odbywa się na T = 0, 5, 10, 15, 20, 25, zgodnie z definicją interwał skanowania 5.
+* Okresowe czasomierza wyzwala T = 4, 8, 12, 16, 20, 24, i wykonuje jej wywołanie zwrotne. Nie wpływa na czas bezczynności aktora.
+* Wywołanie metody aktora w T = 7 resetuje czas bezczynności, po 0 i wybrano opcję opóźnienia wyrzucanie elementów bezużytecznych aktora.
+* Wywołanie zwrotne monitu aktora jest wykonywana co T = 14 i dalsze opóźnienia wyrzucanie elementów bezużytecznych aktora.
+* Podczas skanowania kolekcji pamięci na T = 25 czas bezczynności aktora finally przekracza limit czasu bezczynności 10 i aktora jest bezużytecznych.
 
-Aktor nigdy nie będą bezużytecznych podczas wykonywania jednej z metod, niezależnie od tego, ile czas podczas wykonywania tej metody. Jak wspomniano wcześniej, hello wykonywanie metod interfejsu aktora i wywołania zwrotne monitu zapobiega wyrzucanie elementów bezużytecznych resetując too0 czas bezczynności hello aktora. wykonywanie Hello wywołania zwrotne czasomierza nie powoduje resetowania hello too0 czasu bezczynności. Jednak hello wyrzucanie elementów bezużytecznych z aktorem hello została odroczona, dopóki nie zakończy się wywołanie zwrotne czasomierza hello wykonywania.
+Aktor nigdy nie będą bezużytecznych podczas wykonywania jednej z metod, niezależnie od tego, ile czas podczas wykonywania tej metody. Jak wspomniano wcześniej, wykonywanie metod interfejsu aktora i wywołania zwrotne monitu zapobiega wyrzucanie elementów bezużytecznych resetując czas bezczynności aktora na 0. Wykonywanie wywołań zwrotnych czasomierza nie powoduje resetowania czas bezczynności na 0. Wyrzucanie elementów bezużytecznych aktora jest jednak opóźnione aż do zakończenia wykonywania wywołanie zwrotne czasomierza.
 
 ## <a name="deleting-actors-and-their-state"></a>Usuwanie złośliwych użytkowników i ich stan
-Wyrzucanie elementów bezużytecznych dezaktywowane podmiotów tylko czyści hello aktora obiektu, ale nie powoduje usunięcia danych przechowywanych w Menedżerze stanu aktora. Aktor jest ponowna aktywacja, jego dane się ponownie tooit dostępne za pośrednictwem hello Menedżer stanów. W przypadku gdy podmiotów przechowywania danych w Menedżerze stanu i są dezaktywowane, ale nigdy aktywowany ponownie może być konieczne tooclean zapasowej danych.
+Wyrzucanie elementów bezużytecznych dezaktywowane podmiotów tylko czyści obiektu aktora, ale nie powoduje usunięcia danych przechowywanych w Menedżerze stanu aktora. Aktor jest ponowna aktywacja, jego dane ponownie się dostępne za pośrednictwem Menedżera stanu. W przypadku gdy podmiotów przechowywania danych w Menedżerze stanu i są dezaktywowane ale nigdy aktywowany ponownie może być konieczne wyczyścić swoje dane.
 
-Witaj [usługi aktora](service-fabric-reliable-actors-platform.md) udostępnia funkcję usuwania złośliwych użytkowników z zdalnego procesu wywołującego:
+[Usługi aktora](service-fabric-reliable-actors-platform.md) udostępnia funkcję usuwania złośliwych użytkowników z zdalnego procesu wywołującego:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -134,7 +134,7 @@ ActorService myActorServiceProxy = ActorServiceProxy.create(
 myActorServiceProxy.deleteActorAsync(actorToDelete);
 ```
 
-Usuwanie aktora ma następujące skutki w zależności od tego, czy jest obecnie aktywna aktora hello hello:
+Usuwanie aktora ma następujące skutki w zależności od tego, czy aktora jest obecnie aktywna:
 
 * **Aktywne aktora**
   * Aktora zostanie usunięty z listy active złośliwych użytkowników, a jest nieaktywne.
@@ -142,7 +142,7 @@ Usuwanie aktora ma następujące skutki w zależności od tego, czy jest obecnie
 * **Nieaktywne aktora**
   * Jego stan jest trwale usunięte.
 
-Należy pamiętać, że nie można wywołać aktora usunąć na samym sobie z jednego z jego metody aktora, ponieważ aktora hello nie można usunąć podczas wykonywania w kontekście wywołań aktora, w których hello środowiska uruchomieniowego uzyskał blokady wokół hello aktora wywołania tooenforce jednowątkowe dostępu.
+Należy pamiętać, że nie można wywołać aktora usunąć na samym sobie z jednego z jego metody aktora, ponieważ aktora nie można usunąć podczas wykonywania w kontekście wywołań aktora, w którym środowiska uruchomieniowego uzyskał blokady wokół wymuszenia dostępu jednowątkowe wywołanie aktora.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Czasomierze aktora i przypomnieniami](service-fabric-reliable-actors-timers-reminders.md)

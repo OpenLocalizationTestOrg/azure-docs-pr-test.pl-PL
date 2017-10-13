@@ -1,6 +1,6 @@
 ---
-title: Przygotowanie docelowego (fizycznych tooAzure) | Dokumentacja firmy Microsoft
-description: "W tym artykule opisano sposób tooprepare toostart Twojego środowiska platformy Azure, replikowania serwerów fizycznych z systemem Windows lub Linux tooAzure."
+title: Przygotowanie docelowego (fizycznych do platformy Azure) | Dokumentacja firmy Microsoft
+description: "W tym artykule opisano sposób przygotowania środowiska Azure, aby uruchomić replikowania serwerów fizycznych z systemem Windows lub Linux na platformie Azure."
 services: site-recovery
 documentationcenter: 
 author: bsiva
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 5/31/2017
 ms.author: bsiva
-ms.openlocfilehash: 126fb86133e1a00f5669410943565c4cd78e4369
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: aa7a32ace8354f615a8b8cc137f6bdf48fbadf48
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="prepare-target-vmware-tooazure"></a>Przygotowanie docelowego (VMware tooAzure)
+# <a name="prepare-target-vmware-to-azure"></a>Przygotowanie docelowego (VMware do platformy Azure)
 > [!div class="op_single_selector"]
-> * [VMware tooAzure](./site-recovery-prepare-target-vmware-to-azure.md)
-> * [TooAzure fizycznych](./site-recovery-prepare-target-physical-to-azure.md)
+> * [Z programu VMware do platformy Azure](./site-recovery-prepare-target-vmware-to-azure.md)
+> * [Fizycznych do platformy Azure](./site-recovery-prepare-target-physical-to-azure.md)
 
-W tym artykule opisano sposób tooprepare toostart Twojego środowiska platformy Azure, replikowania serwerów fizycznych (x 64) systemem Windows lub Linux na platformie Azure.
+W tym artykule opisano sposób przygotowania środowiska Azure do rozpoczęcia replikacji serwery fizyczne (x 64) z systemu Windows lub Linux na platformie Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Artykuł Hello założono hello poniżej:
-- Utworzono tooprotect magazynu usług odzyskiwania serwerów fizycznych. Można utworzyć magazyn usług odzyskiwania na podstawie hello [portalu Azure](http://portal.azure.com "portalu Azure").
-- Masz [konfiguracji środowiska lokalnego](./site-recovery-set-up-physical-to-azure.md) tooreplicate tooAzure serwerów fizycznych.
+Artykuł założono następujące czynności:
+- Utworzono magazyn usług odzyskiwania, aby chronić serwery fizyczne. Można utworzyć magazyn usług odzyskiwania z [portalu Azure](http://portal.azure.com "portalu Azure").
+- Masz [konfiguracji środowiska lokalnego](./site-recovery-set-up-physical-to-azure.md) do replikowania serwerów fizycznych do platformy Azure.
 
 ## <a name="prepare-target"></a>Przygotowanie docelowego
 
-Po zakończeniu hello **cel ochrony krok 1** i **krok 2: przygotowanie źródła**, nastąpi za**krok 3: docelowy**
+Po zakończeniu **cel ochrony krok 1** i **krok 2: przygotowanie źródła**, zostają przeniesieni do **krok 3: docelowy**
 
 ![Przygotowanie docelowego](./media/site-recovery-prepare-target-physical-to-azure/prepare-target-physical-to-azure.png)
 
-1. **Subskrypcja:** z hello menu rozwijane, wybierz hello subskrypcji, które mają tooreplicate serwerach fizycznych.
-2. **Model wdrażania:** hello wybierz model wdrażania (Classic lub Resource Manager)
+1. **Subskrypcja:** z menu rozwijanego Wybierz subskrypcję, która ma zostać zreplikowana na serwerach fizycznych.
+2. **Model wdrażania:** wybierz model wdrażania (Classic lub Resource Manager)
 
-Oparte na powitania wybrany model wdrażania, weryfikacji jest uruchamiane tooensure, który ma co najmniej jedno konto magazynu zgodny i siecią wirtualną tooreplicate subskrypcji docelowej hello i pracy awaryjnej serwerach fizycznych.
+Oparte na modelu wdrażania wybranego, uruchomieniu aby upewnić się, że użytkownik ma co najmniej jedno konto magazynu zgodny i sieć wirtualną w docelowej subskrypcji replikacji i trybu failover serwerów fizycznych do weryfikacji.
 
-Po hello operacji sprawdzania poprawności zakończy się pomyślnie, kliknij przycisk OK toogo toohello następnego kroku.
+Po operacji sprawdzania poprawności zakończy się pomyślnie, kliknij przycisk OK, aby przejść do następnego kroku.
 
-Jeśli nie masz zgodne konto magazynu Resource Manager lub sieci wirtualnej lub chcesz tooadd więcej, możesz to zrobić, klikając hello **+ konto magazynu** lub **+ sieć** przyciski na początku hello hello blok.
+Jeśli nie masz zgodne konto magazynu Resource Manager lub sieci wirtualnej, lub czy chcesz dodać więcej, możesz to zrobić, klikając **+ konto magazynu** lub **+ sieć** przycisków w górnej części bloku.
 
 ## <a name="next-steps"></a>Następne kroki
 [Konfigurowanie ustawień replikacji](./site-recovery-setup-replication-settings-vmware.md).

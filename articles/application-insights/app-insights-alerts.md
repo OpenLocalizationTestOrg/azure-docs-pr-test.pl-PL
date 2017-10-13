@@ -1,5 +1,5 @@
 ---
-title: "aaaSet alertów w usłudze Azure Application Insights | Dokumentacja firmy Microsoft"
+title: "Ustawianie alertów w usłudze Azure Application Insights | Dokumentacja firmy Microsoft"
 description: "Bądź na bieżąco o wydłużają czas odpowiedzi, wyjątków i innych wydajności lub zmiany użycia w aplikacji sieci web."
 services: application-insights
 documentationcenter: 
@@ -13,86 +13,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: e160cb173e68fda2e6d97f29da342c46b7ac4f19
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c8386ffc5d68260eeb75edf7efb77db1163dcef8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="set-alerts-in-application-insights"></a>Ustawianie alertów w usłudze Application Insights
-[Azure Application Insights] [ start] może generować alerty toochanges w metryki wydajności i użycia w aplikacji sieci web. 
+[Azure Application Insights] [ start] alertów na zmiany w metryki wydajności i użycia w aplikacji sieci web. 
 
-Usługa Application Insights monitoruje aplikację na żywo na [różnymi platformami] [ platforms] toohelp diagnozowanie problemów z wydajnością i poznania wzorców użycia.
+Usługa Application Insights monitoruje aplikację na żywo na [różnymi platformami] [ platforms] ułatwiających diagnozowanie problemów z wydajnością i poznania wzorców użycia.
 
 Istnieją trzy typy alertów:
 
 * **Alerty metryki** informujące o tym, kiedy metrykę przecina wartość progową dla niektórych okres — takie jak czas reakcji, liczby wyjątków, użycie procesora CPU lub wyświetleń strony. 
-* [**Testów sieci Web** ] [ availability] informujące o tym, w których witryna cieszy niedostępna na powitania internet lub wolno odpowiadać. [Dowiedz się więcej][availability].
-* [**Proaktywna Diagnostyka** ](app-insights-proactive-diagnostics.md) zostaną skonfigurowane automatycznie toonotify o wydajności nietypowe wzorce.
+* [**Testów sieci Web** ] [ availability] informujące o tym, kiedy ta lokacja jest niedostępny w Internecie lub odpowiada powoli. [Dowiedz się więcej][availability].
+* [**Proaktywna Diagnostyka** ](app-insights-proactive-diagnostics.md) zostaną skonfigurowane automatycznie Pragniemy poinformować Cię o wydajności nietypowe wzorce.
 
 Możemy skupić się na metryki alertów w tym artykule.
 
 ## <a name="set-a-metric-alert"></a>Ustaw metryki alertu
-Otwórz hello reguły alertów bloku, a następnie użyj hello przycisk Dodaj. 
+Otwarcie bloku reguły alertów, a następnie za pomocą przycisku Dodaj. 
 
-![W bloku reguły alertów hello wybierz opcję Dodaj alertu. Ustaw aplikacji hello toomeasure zasobów, podaj nazwę dla alertu hello i wybierz metrykę.](./media/app-insights-alerts/01-set-metric.png)
+![W bloku reguły alertów wybierz opcję Dodaj alertu. Ustaw aplikację jako zasób do mierzenia, podaj nazwę alertu i wybierz metrykę.](./media/app-insights-alerts/01-set-metric.png)
 
-* Ustaw zasób hello przed hello inne właściwości. **Wybierz zasób hello "(składniki)"** Jeśli chcesz otrzymywać alerty tooset metryki wydajności i użycia.
-* Nazwa Hello nadawana toohello alert musi być unikatowa w ramach grupy zasobów hello (nie tylko aplikacji).
-* Być dokładne toonote hello jednostki, w których użytkownik jest proszony wartość progowa hello tooenter.
-* Po zaznaczeniu pola hello "E-mail właścicieli...", alerty są wysyłane przez tooeveryone poczty e-mail, kto ma dostęp toothis zasobów grupy. tooexpand to zbiór osoby, dodaj je toohello [grupy zasobów lub subskrypcji](app-insights-resources-roles-access-control.md) (nie hello zasobów).
-* Jeśli określisz "Dodatkowe wiadomości e-mail" alerty są wysyłane toothose konkretnych osób lub grup (czy zaznaczono pole "e-mail właścicieli..." hello). 
-* Ustaw [adresu elementu webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) Jeśli zdefiniowano aplikacji sieci web, który odpowiada tooalerts. Jest to zarówno po aktywowaniu hello alert i po jej usunięciu. (Ale należy pamiętać, że w chwili obecnej, parametry zapytania nie są przekazywane jako właściwości elementu webhook).
-* Można wyłączyć lub włączyć hello alertu: wyświetlanie przycisków hello u góry bloku hello hello.
+* Ustaw zasób przed inne właściwości. **Wybierz zasób "(składniki)"** Aby ustawić alertów dla metryki wydajności i użycia.
+* Nazwa nadana alert musi być unikatowa w obrębie grupy zasobów (nie tylko aplikacji).
+* Należy zachować ostrożność, należy pamiętać, jednostki, w których użytkownik jest proszony o wprowadź wartość progu.
+* Po zaznaczeniu pola "E-mail właścicieli...", alerty są wysyłane pocztą e-mail do każdego, kto ma dostęp do tej grupy zasobów. Aby rozszerzyć ten zestaw osoby, dodaj je do [grupy zasobów lub subskrypcji](app-insights-resources-roles-access-control.md) (nie zasób).
+* Jeśli określisz "Dodatkowe wiadomości e-mail" alerty są wysyłane do tych osób lub grup (czy zaznaczono pole "wiadomości e-mail właścicieli..."). 
+* Ustaw [adresu elementu webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) Jeśli zdefiniowano aplikacji sieci web, która odpowiada na alerty. Jest to zarówno gdy alert jest aktywny, jak i po jej usunięciu. (Ale należy pamiętać, że w chwili obecnej, parametry zapytania nie są przekazywane jako właściwości elementu webhook).
+* Można wyłączyć lub włączyć alert: wyświetlanie przycisków w górnej części bloku.
 
-*Nie widzę Alert przycisku Dodaj hello.* 
+*Przycisk Dodaj alertu nie jest widoczny.* 
 
-* Używasz konta organizacyjnego? Można ustawić alerty, właścicielem lub współautorem zasobu aplikacji toothis dostępu. Spójrz na powitania bloku kontroli dostępu. [Więcej informacji na temat kontroli dostępu][roles].
+* Używasz konta organizacyjnego? Można ustawić alerty, jeśli masz właścicielem lub współautorem dostęp do tego zasobu aplikacji. Spójrz na blok kontroli dostępu. [Więcej informacji na temat kontroli dostępu][roles].
 
 > [!NOTE]
-> W bloku alerty hello, widać, że istnieje już zestaw alertu: [proaktywna Diagnostyka](app-insights-proactive-failure-diagnostics.md). alert automatycznego Hello monitoruje jednego określonego metryki, częstość niepowodzeń. O ile zdecydujesz toodisable hello aktywnego alertu nie jest potrzebny tooset alertu na częstość niepowodzeń żądań. 
+> W bloku alerty widać, że istnieje już zestaw alertu: [proaktywna Diagnostyka](app-insights-proactive-failure-diagnostics.md). Alert automatycznego monitoruje jednego określonego metryki, częstość niepowodzeń. Jeśli zdecydujesz się Wyłącz alert aktywny, nie trzeba ustawiać własne alert częstość niepowodzeń żądań. 
 > 
 > 
 
 ## <a name="see-your-alerts"></a>Zobacz alerty
 Otrzymasz wiadomość e-mail, gdy stan alertu zmiany między stanem nieaktywnym i aktywnym. 
 
-bieżący stan każdego alertu Hello jest wyświetlany w bloku reguły alertów hello.
+Bieżący stan poszczególnych alertów jest wyświetlany w bloku reguł alertów.
 
-Brak podsumowanie ostatnią aktywność w alertach hello listy rozwijanej:
+Brak podsumowanie ostatnią aktywność w alertach listy rozwijanej:
 
 ![Alerty z listy rozwijanej](./media/app-insights-alerts/010-alert-drop.png)
 
-Witaj historię zmian stanu znajduje się w hello dziennik aktywności:
+Historię zmian stanu znajduje się w dzienniku aktywności:
 
-![W bloku omówienie hello kliknij pozycję Ustawienia, dzienniki inspekcji](./media/app-insights-alerts/09-alerts.png)
+![W bloku Przegląd kliknij pozycję Ustawienia, dzienniki inspekcji](./media/app-insights-alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Jak działają alerty
-* Alert ma trzy stany: "Nigdy aktywowany", "Aktywny" i "Rozwiązany". Oznacza, że aktywowanego hello została wartość true, gdy ostatniej oceny określony warunek.
-* Powiadomienie jest generowany, gdy alert zmieni stan. (Jeśli hello warunku alertu został już wartość true, podczas tworzenia alertu hello, mogą różnić się powiadomienie do momentu warunku hello przechodzi false.)
-* Każde powiadomienie generuje wiadomość e-mail, zaznaczone pole wiadomości powitania, czy podany adres e-mail. Można również sprawdzić w listy rozwijanej hello powiadomienia.
+* Alert ma trzy stany: "Nigdy aktywowany", "Aktywny" i "Rozwiązany". Aktywowany oznacza, że określony warunek był ma wartość true, ostatniej oceny.
+* Powiadomienie jest generowany, gdy alert zmieni stan. (Jeśli stan alertu został już wartość true, podczas tworzenia alertu, można otrzymać powiadomienie do momentu warunek przechodzi false.)
+* Każde powiadomienie generuje wiadomość e-mail, jeśli zaznaczono pole wiadomości e-mail lub podane adresy e-mail. Można też przyjrzeć się na liście rozwijanej powiadomienia.
 * Alert jest obliczane zawsze, gdy dociera metrykę, ale nie w inny sposób.
-* Ocena Hello agreguje Metryka hello za pośrednictwem hello poprzedzający okres i porównuje go po toohello próg toodetermine hello nowy stan.
-* Możesz wybrać okres Hello Określa interwał powitania, w którym są agregowane metryki. Nie wpływa na częstotliwość hello alertu jest obliczane: to zależy od częstotliwości hello odbioru metryki.
-* Jeśli żadne dane dla określonej metryki przez pewien czas, hello przerwa ma efekty różnych na ocenę alertów i na wykresach hello w Eksploratorze metryk. W Eksploratorze metryk Jeśli występuje bez danych przez czas dłuższy niż interwał próbkowania hello wykresu, wykres hello pokazuje wartość 0. Ale alertu opartego na powitania tego samego Metryka to nie jest ponownie oceniane i hello jego stan pozostaje niezmieniona. 
+* Obliczanie agreguje Metryka w poprzednim okresie i porównywany do progu, aby określić nowy stan.
+* Okresu, w którym możesz wybrać Określa interwał, w którym są agregowane metryki. Nie wpływa na częstotliwość oceny alertu: to zależy od częstotliwości odbioru metryki.
+* Jeśli żadne dane dla określonej metryki przez pewien czas, przerwa ma efekty różnych na ocenę alertów i na wykresach w Eksploratorze metryk. W Eksploratorze metryk Jeśli występuje bez danych przez czas dłuższy niż interwał próbkowania wykresu, wykres zawiera wartość 0. Ale alertu opartego na tej samej Metryka nie jest ponownie oceniane, i stan alertów pozostaje niezmieniona. 
   
-    Po odebraniu ostatecznie danych, wykresu hello Przechodzi wstecz tooa wartość inną niż zero. oblicza Hello alertu na podstawie danych hello dostępne dla określonego okresu hello. Hello nowego punktu danych w przypadku hello tylko jeden dostępny w okresie hello, hello agregacji jest oparty tylko na punktu danych.
-* Alert można często migotać między Stanami alertów i działa prawidłowo, nawet w przypadku ustawienia długiego okresu. Może to nastąpić, jeśli wartość metryki hello jest przesuwany wokół hello próg. Próg hello jest nie histerezy: hello przejścia tooalert odbywa się na powitania samą wartość jak hello toohealthy przejścia.
+    Po odebraniu ostatecznie danych, wykres Przechodzi wstecz na wartość inną niż zero. Oblicza alertu na podstawie danych dostępnych w okresie określona. Jeśli nowy punkt danych jest tylko jeden dostępny w okresie, agregacji jest oparty tylko na punktu danych.
+* Alert można często migotać między Stanami alertów i działa prawidłowo, nawet w przypadku ustawienia długiego okresu. Może to nastąpić, jeśli wartość metryki znajduje się wokół wartość progową. Brak nie histerezy przez wartość progową: przejście do alertu odbywa się na taką samą wartość jak przejście do dobrej kondycji.
 
-## <a name="what-are-good-alerts-tooset"></a>Co to są dobrym alerty tooset?
-To zależy od aplikacji. toostart, ma ona najlepszych nie tooset zbyt wiele miar. Należy poświęcić trochę czasu spojrzenie na wykresach metryki uruchomionej aplikacji tooget działanie dla jak działa normalnie. Takie rozwiązanie pomaga znaleźć tooimprove sposobów jego wydajności. Następnie skonfiguruj tootell alerty można po przejściu metryki hello poza strefą normalne hello. 
+## <a name="what-are-good-alerts-to-set"></a>Co to są dobrym alerty można ustawić?
+To zależy od aplikacji. Do uruchomienia z najlepiej nie ustawiono zbyt wiele miar. Należy poświęcić trochę czasu spojrzenie na wykresach metryki uruchomionej aplikacji, aby uzyskać pewne pojęcie o jak działa normalnie. Takie rozwiązanie pomaga znaleźć sposób, aby zwiększyć jej wydajność. Następnie skonfiguruj alerty informujące o tym, kiedy metryki wykraczać poza normalne strefy. 
 
 Alerty popularnych obejmują:
 
-* [Metryki przeglądarki][client], szczególnie przeglądarki **czas ładowania strony**, są odpowiednie dla aplikacji sieci web. Jeśli Twoja strona zawiera wiele skryptów, należy szukać **wyjątki przeglądarki**. W kolejności tooget te metryki i alerty, masz tooset [monitorowania strony sieci web][client].
-* **Czas odpowiedzi serwera** po stronie serwera na powitania aplikacji sieci web. A także Konfigurowanie alertów, śledzić tej metryki toosee Jeśli nieproporcjonalnie zależy to żądanie wysokiej szybkości przetwarzania: odmiany może wskazywać, że aplikacja działa poza zasobów. 
-* **Wyjątki serwera** -toosee ich niektóre masz toodo [dodatkowe ustawienia](app-insights-asp-net-exceptions.md).
+* [Metryki przeglądarki][client], szczególnie przeglądarki **czas ładowania strony**, są odpowiednie dla aplikacji sieci web. Jeśli Twoja strona zawiera wiele skryptów, należy szukać **wyjątki przeglądarki**. Aby uzyskać te metryki i alerty, musisz skonfigurować [monitorowania strony sieci web][client].
+* **Czas odpowiedzi serwera** dla aplikacji sieci web po stronie serwera. A także Konfigurowanie alertów, śledzić tej metryki, aby zobaczyć, czy nieproporcjonalnie zależy szybkości przetwarzania żądań wysokiej: odmiany może wskazywać, że aplikacja działa poza zasobów. 
+* **Wyjątki serwera** — do zapoznania się z nimi, musisz wykonać niektóre [dodatkowe ustawienia](app-insights-asp-net-exceptions.md).
 
-Pamiętaj, że [diagnostyki szybkość niepowodzenia aktywnego](app-insights-proactive-failure-diagnostics.md) automatycznie hello monitor współczynnika jaką aplikacji odpowiada toorequests z kodami awarii. 
+Pamiętaj, że [diagnostyki szybkość niepowodzenia aktywnego](app-insights-proactive-failure-diagnostics.md) automatycznie monitorowanie szybkości, jaką aplikacji odpowiada na żądania z kodami awarii. 
 
 ## <a name="automation"></a>Automatyzacja
-* [Użyj programu PowerShell tooautomate Konfigurowanie alertów](app-insights-powershell-alerts.md)
-* [Użyj tooalerts odpowiada tooautomate elementów webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Za pomocą programu PowerShell można zautomatyzować konfigurowanie alertów](app-insights-powershell-alerts.md)
+* [Można zautomatyzować, reagowanie na alerty za pomocą elementów webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
 ## <a name="video"></a>Połączenia wideo
 

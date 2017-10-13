@@ -1,5 +1,5 @@
 ---
-title: "aaaCreate subskrypcję tematu Azure Service Bus i reguł, przy użyciu szablonu usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
+title: "Utwórz subskrypcję tematu Azure Service Bus i reguł, przy użyciu szablonu usługi Azure Resource Manager | Dokumentacja firmy Microsoft"
 description: "Tworzenie przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły przy użyciu szablonu usługi Azure Resource Manager"
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.openlocfilehash: dbc46da8491aee4d0c73bd4db90c696008920df4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35e67d86b42358c4ce28b41beae1ee8e1896e939
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Tworzenie przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły przy użyciu szablonu usługi Azure Resource Manager
 
-W tym artykule opisano, jak toouse szablonu usługi Azure Resource Manager tworzącą przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły (filtru). Dowiesz się, jak toodefine zasobów, do których są wdrażane i jak parametry toodefine, które są określone, podczas wdrażania hello jest wykonywana. Można użyć tego szablonu własnych wdrożeniach lub dostosować go toomeet wymagań
+W tym artykule pokazano, jak użyć szablonu usługi Azure Resource Manager, który tworzy przestrzeń nazw usługi Service Bus z tematu, subskrypcji i reguły (filtru). Dowiesz się, jak do definiowania zasobów, do których są wdrażane i sposób definiowania parametrów, które są określone, gdy wdrożenie jest wykonywane. Można użyć tego szablonu na potrzeby własnych wdrożeń lub dostosować go do konkretnych potrzeb.
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Tworzenie szablonów usługi Azure Resource Manager][Authoring Azure Resource Manager templates].
 
 Aby uzyskać więcej informacji dotyczących rozwiązań i wzorców w konwencji nazewnictwa zasobów platformy Azure, zobacz [konwencje nazewnictwa dla zasobów platformy Azure zalecane][Recommended naming conventions for Azure resources].
 
-Hello pełną szablonu, zobacz hello [przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły] [ Service Bus namespace with topic, subscription, and rule] szablonu.
+Zakończenie szablonu, zobacz [przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły] [ Service Bus namespace with topic, subscription, and rule] szablonu.
 
 > [!NOTE]
-> Hello następujące szablony usługi Azure Resource Manager są dostępne do pobrania i wdrożenia.
+> Następujące szablony usługi Azure Resource Manager są dostępne do pobrania i wdrożenia.
 > 
 > * [Tworzenie przestrzeni nazw usługi Service Bus z regułą kolejki i autoryzacji](service-bus-resource-manager-namespace-auth-rule.md)
 > * [Tworzenie przestrzeni nazw usługi Service Bus z kolejki](service-bus-resource-manager-namespace-queue.md)
 > * [Tworzenie przestrzeni nazw usługi Service Bus](service-bus-resource-manager-namespace.md)
 > * [Tworzenie przestrzeni nazw usługi Service Bus z tematów i subskrypcji](service-bus-resource-manager-namespace-topic.md)
 > 
-> toocheck hello najnowsze szablonów, odwiedź stronę hello [szablonów Szybki Start Azure] [ Azure Quickstart Templates] galerii i wyszukiwania dla usługi Service Bus.
+> Aby sprawdzić najnowsze szablony, odwiedź stronę [szablonów Szybki Start Azure] [ Azure Quickstart Templates] galerii i wyszukiwania dla usługi Service Bus.
 > 
 > 
 
@@ -46,24 +46,24 @@ Hello pełną szablonu, zobacz hello [przestrzeni nazw usługi Service Bus z tem
 
 W przypadku tego szablonu można wdrożyć przestrzeni nazw usługi Service Bus z tematu, subskrypcji i reguły (filtru).
 
-[Tematy usługi Service Bus i subskrypcje](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) Podaj jeden do wielu formę komunikacji w *publikowania/subskrypcji* wzorca. Korzystając z tematów i subskrypcji, składniki aplikacji rozproszonej nie komunikują się bezpośrednio ze sobą, lecz wymieniają komunikaty za pośrednictwem temat, który działa jako pośrednik. Tooa subskrypcja tematu przypomina wirtualną kolejkę, która odbiera kopie komunikatów wysłanych toohello tematu. Filtr subskrypcji umożliwia toospecify wysyłane wiadomości, które tooa tematu powinny pojawić się w ramach subskrypcji określonego tematu.
+[Tematy usługi Service Bus i subskrypcje](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) Podaj jeden do wielu formę komunikacji w *publikowania/subskrypcji* wzorca. Korzystając z tematów i subskrypcji, składniki aplikacji rozproszonej nie komunikują się bezpośrednio ze sobą, lecz wymieniają komunikaty za pośrednictwem temat, który działa jako pośrednik. Subskrypcja tematu przypomina wirtualną kolejkę, która odbiera kopie komunikatów wysłanych do tematu. Filtr subskrypcji umożliwia określenie, które komunikaty wysyłane do tematu są wyświetlane w subskrypcji określonego tematu.
 
 ## <a name="what-are-rules-filters"></a>Co to są reguły (filtry)?
 
-W wielu scenariuszach wiadomości, które mają określone parametry muszą być przetwarzane na różne sposoby. tooenable, można skonfigurować subskrypcje toofind wiadomości, które zostały określone właściwości, a następnie wykonaj modyfikacje toothose właściwości. Mimo że subskrypcje usługi Service Bus, zobacz wszystkich wiadomości wysłanych toohello temacie, można kopiować tylko podzbiór tych kolejki subskrypcji wirtualnego toohello wiadomości. Jest to realizowane przy użyciu filtrów subskrypcji. toolearn więcej informacji na temat reguł (filtry), zobacz [reguł i akcje](service-bus-queues-topics-subscriptions.md#rules-and-actions).
+W wielu scenariuszach wiadomości, które mają określone parametry muszą być przetwarzane na różne sposoby. Aby je włączyć, można skonfigurować subskrypcje, aby znaleźć wiadomości, które zostały określone właściwości, a następnie wykonaj zmiany w tych właściwości. Mimo że subskrypcje usługi Service Bus, zobacz wszystkich wiadomości wysłanych do tematu, można kopiować tylko podzbiór tych wiadomości do kolejki subskrypcji wirtualnego. Jest to realizowane przy użyciu filtrów subskrypcji. Aby dowiedzieć się więcej na temat reguł (filtry), zobacz [reguł i akcje](service-bus-queues-topics-subscriptions.md#rules-and-actions).
 
-toorun automatycznie hello wdrożenia, kliknij powitania po przycisku:
+Aby automatycznie uruchomić wdrożenie, kliknij poniższy przycisk:
 
-[![Wdrażanie tooAzure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametry
 
-Z usługi Azure Resource Manager, należy zdefiniować parametrów dla wartości ma toospecify po wdrożeniu hello szablonu. Szablon Hello obejmuje sekcję o nazwie `Parameters` zawiera wszystkie wartości parametru hello. Należy zdefiniować parametr dla tych wartości, które różnią się na podstawie hello projektu, który jest wdrażany lub opartych na środowisku hello, który jest wdrażany z. Definiuje parametry dla wartości, które zawsze hello takie same. Każda wartość parametru jest używany w hello szablonu toodefine hello zasoby, które zostały wdrożone.
+Z usługi Azure Resource Manager, należy zdefiniować parametrów dla wartości, które chcesz określić podczas wdrażania szablonu. Szablon zawiera sekcję o nazwie `Parameters` obejmującą wszystkie wartości parametrów. Parametr powinien obejmować wartości, które różnią się w zależności od wdrażanego projektu lub środowiska, w którym odbywa się wdrożenie. Nie należy definiować parametrów dla wartości, które pozostają niezmienione. Każda wartość parametru używana w szablonie definiuje wdrażane zasoby.
 
-Szablon Hello definiuje hello następujące parametry:
+Szablon definiuje następujące parametry:
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Nazwa Hello toocreate przestrzeni nazw usługi Service Bus hello.
+Nazwa przestrzeni nazw usługi Service Bus do utworzenia.
 
 ```json
 "serviceBusNamespaceName": {
@@ -72,7 +72,7 @@ Nazwa Hello toocreate przestrzeni nazw usługi Service Bus hello.
 ```
 
 ### <a name="servicebustopicname"></a>serviceBusTopicName
-Nazwa Hello tematu hello utworzone w przestrzeni nazw usługi Service Bus hello.
+Nazwa tematu utworzone w przestrzeni nazw usługi Service Bus.
 
 ```json
 "serviceBusTopicName": {
@@ -81,7 +81,7 @@ Nazwa Hello tematu hello utworzone w przestrzeni nazw usługi Service Bus hello.
 ```
 
 ### <a name="servicebussubscriptionname"></a>serviceBusSubscriptionName
-Nazwa Hello subskrypcji hello utworzone w przestrzeni nazw usługi Service Bus hello.
+Nazwa subskrypcji utworzone w przestrzeni nazw usługi Service Bus.
 
 ```json
 "serviceBusSubscriptionName": {
@@ -89,7 +89,7 @@ Nazwa Hello subskrypcji hello utworzone w przestrzeni nazw usługi Service Bus h
 }
 ```
 ### <a name="servicebusrulename"></a>serviceBusRuleName
-Nazwa Hello rule(filter) hello utworzone w przestrzeni nazw usługi Service Bus hello.
+Nazwa rule(filter) utworzone w przestrzeni nazw usługi Service Bus.
 
 ```json
    "serviceBusRuleName": {
@@ -97,14 +97,14 @@ Nazwa Hello rule(filter) hello utworzone w przestrzeni nazw usługi Service Bus 
   }
 ```
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-wersja interfejsu API usługi Service Bus Hello hello szablonu.
+Wersja interfejsu API usługi Service Bus szablonu.
 
 ```json
 "serviceBusApiVersion": {
 "type": "string"
 }
 ```
-## <a name="resources-toodeploy"></a>Toodeploy zasobów
+## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
 Tworzy standardowe przestrzeni nazw usługi Service Bus typu **wiadomości**, z tematów i subskrypcji i zasadami.
 
 ```json
@@ -156,7 +156,7 @@ Tworzy standardowe przestrzeni nazw usługi Service Bus typu **wiadomości**, z 
     }]
 ```
 
-## <a name="commands-toorun-deployment"></a>Polecenia toorun wdrożenia
+## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
@@ -172,17 +172,17 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Po utworzeniu i wdrożeniu zasobów przy użyciu usługi Azure Resource Manager, Dowiedz się, jak toomanage tych zasobów, przeglądając następujące artykuły:
+Po utworzeniu i wdrożeniu zasobów przy użyciu usługi Azure Resource Manager, Dowiedz się, jak nimi zarządzać, przeglądając następujące artykuły:
 
 * [Zarządzanie usługi Azure Service Bus](service-bus-management-libraries.md)
 * [Zarządzanie usługi Service Bus przy użyciu programu PowerShell](service-bus-manage-with-ps.md)
-* [Zarządzanie zasobami usługi Service Bus za pomocą hello Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Zarządzanie zasobami usługi Service Bus za pomocą Eksploratora magistrali usług](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
 [Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-[Using hello Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+[Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Recommended naming conventions for Azure resources]: ../guidance/guidance-naming-conventions.md
 [Service Bus namespace with topic, subscription, and rule]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-topic-subscription-rule/
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

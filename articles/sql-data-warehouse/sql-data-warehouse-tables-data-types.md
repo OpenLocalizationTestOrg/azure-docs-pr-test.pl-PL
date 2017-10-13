@@ -1,6 +1,6 @@
 ---
-title: "aaaData typy wskazówki - Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Zalecenia dotyczące danych toodefine typy, które są zgodne z usługi SQL Data Warehouse."
+title: "Typy danych wskazówki - Azure SQL Data Warehouse | Dokumentacja firmy Microsoft"
+description: "Zalecenia dotyczące Definiowanie typów danych, które są zgodne z usługą Magazyn danych SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -15,29 +15,29 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/02/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: a2f7a394feb73d273b25101735b00eb12db2b292
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>Wskazówki dotyczące definiowania typów danych w przypadku tabel w usłudze SQL Data Warehouse
-Użyj tych zaleceń toodefine tabeli typów danych, które są zgodne z usługą Magazyn danych SQL. Ponadto toocompatibility, minimalizując hello rozmiar typów danych zwiększa wydajność zapytań.
+Zalecenia te umożliwiają definiowanie typów danych tabeli, które są zgodne z usługą Magazyn danych SQL. Oprócz zgodności minimalizując rozmiar typów danych o poprawia wydajność kwerend.
 
-Magazyn danych SQL obsługuje hello najczęściej używane typy danych. Aby uzyskać listę hello obsługiwane typy danych, zobacz [typy danych](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) w instrukcji CREATE TABLE hello. 
+Magazyn danych SQL obsługuje najczęściej używane typy danych. Aby uzyskać listę obsługiwanych typów danych, zobacz [typy danych](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) w instrukcji CREATE TABLE. 
 
 
 ## <a name="minimize-row-length"></a>Minimalizowanie długość wiersza
-Minimalizowanie hello rozmiar typów danych skraca hello długość wiersza, która prowadzi toobetter wydajności zapytania. Użyj hello najmniejszą typ danych, który działa w przypadku danych. 
+Minimalizowanie rozmiar typów danych o skraca długość wiersza, co prowadzi do poprawy wydajności zapytania. Użyj najmniejszą typu danych, który działa danych. 
 
-- Unikaj definiowania kolumn znakowych o długości dużych domyślne. Na przykład jeśli wartość najdłuższym hello 25 znaków, następnie zdefiniuj kolumny jako VARCHAR(25). 
+- Unikaj definiowania kolumn znakowych o długości dużych domyślne. Na przykład jeśli wartość najdłuższym 25 znaków, następnie zdefiniuj kolumny jako VARCHAR(25). 
 - Unikaj używania [NVARCHAR] [ NVARCHAR] potrzebne tylko VARCHAR.
 - Jeśli to możliwe, zamiast VARCHAR(MAX) lub NVARCHAR(MAX), albo użyć NVARCHAR(4000) lub VARCHAR(8000).
 
-Jeśli używasz programu Polybase tooload tabel, długość hello zdefiniowane hello wiersza tabeli nie może przekraczać 1 MB. Jeśli wiersz o zmiennej długości danych przekracza 1 MB, można załadować wiersza hello za pomocą narzędzia BCP, ale nie przy użyciu programu PolyBase.
+Jeśli używasz programu Polybase można załadować tabel, określona długość wiersza tabeli nie może przekraczać 1 MB. Jeśli wiersz o zmiennej długości danych przekracza 1 MB, można załadować wiersza za pomocą narzędzia BCP, ale nie przy użyciu programu PolyBase.
 
 ## <a name="identify-unsupported-data-types"></a>Zidentyfikuj nieobsługiwane typy danych
-W przypadku migracji z innej bazy danych SQL bazy danych, może wystąpić typy danych, które nie są obsługiwane w usłudze SQL Data Warehouse. Użyj typów danych toodiscover nieobsługiwany tego zapytania w istniejącego schematu SQL.
+W przypadku migracji z innej bazy danych SQL bazy danych, może wystąpić typy danych, które nie są obsługiwane w usłudze SQL Data Warehouse. Skorzystaj z tej kwerendy, aby odnaleźć nieobsługiwane typy danych w istniejącej schematu SQL.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -51,7 +51,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="unsupported-data-types"></a>Użyj obejścia nieobsługiwane typy danych
 
-Witaj Poniższa lista zawiera hello typy danych, które nie obsługuje usługi SQL Data Warehouse i zapewnia rozwiązań alternatywnych, których można użyć zamiast hello nieobsługiwane typy danych.
+Na poniższej liście przedstawiono typy danych nie obsługuje usługi SQL Data Warehouse, a udostępnia opis rozwiązań alternatywnych, których można użyć zamiast nieobsługiwane typy danych.
 
 | Nieobsługiwany typ danych | Obejście problemu |
 | --- | --- |
@@ -62,15 +62,15 @@ Witaj Poniższa lista zawiera hello typy danych, które nie obsługuje usługi S
 | [tekst][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Podziel kolumnę na kilka jednoznacznie kolumn. |
-| [Tabela][table] |Konwertuj tootemporary tabel. |
-| [Znacznik czasu][timestamp] |Zmian kodu toouse [datetime2] [ datetime2] i `CURRENT_TIMESTAMP` funkcji.  Obsługiwane są tylko stałe jako domyślne, w związku z tym current_timestamp nie może być zdefiniowana jako ograniczenie domyślne. Jeśli potrzebujesz toomigrate wartości wersji wierszy z kolumny typu znacznik czasu, użyj [BINARNE][BINARY](8) lub [VARBINARY][BINARY](8) dla nie wartość NULL lub Wiersz wersji wartości NULL. |
+| [Tabela][table] |Konwertuj do tabel tymczasowych. |
+| [Znacznik czasu][timestamp] |Zmian kodu w celu użycia [datetime2] [ datetime2] i `CURRENT_TIMESTAMP` funkcji.  Obsługiwane są tylko stałe jako domyślne, w związku z tym current_timestamp nie może być zdefiniowana jako ograniczenie domyślne. Jeśli trzeba migrować wartości wersji wierszy z typu kolumny znaczników czasu, użyj [BINARNE][BINARY](8) lub [VARBINARY][BINARY](8) dla nie wartość NULL lub Wiersz wersji wartości NULL. |
 | [XML][xml] |[varchar][varchar] |
-| [Typ zdefiniowany przez użytkownika][user defined types] |Przekonwertować typu danych natywnych toohello Wstecz, gdy jest to możliwe. |
+| [Typ zdefiniowany przez użytkownika][user defined types] |Przekonwertować typu danych natywnych, gdy jest to możliwe. |
 | wartości domyślne | Wartości domyślne obsługuje literały i tylko stałe.  Inne niż deterministyczne wyrażenia lub funkcje, takie jak `GETDATE()` lub `CURRENT_TIMESTAMP`, nie są obsługiwane. |
 
 
 ## <a name="next-steps"></a>Następne kroki
-toolearn więcej, zobacz:
+Aby dowiedzieć się więcej, zobacz:
 
 - [Najlepsze rozwiązania magazynu danych SQL][SQL Data Warehouse Best Practices]
 - [Przegląd tabeli][Overview]

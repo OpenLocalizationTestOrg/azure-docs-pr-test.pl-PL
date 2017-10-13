@@ -1,6 +1,6 @@
 ---
-title: "Replikacja serwerów fizycznych replikowanie tooAzure z usługą Azure Site Recovery aaaEnable | Dokumentacja firmy Microsoft"
-description: "Zawiera podsumowanie kroków hello tooenable tooAzure replikacji są wymagane dla serwerów fizycznych za pomocą usługi Azure Site Recovery hello"
+title: "Włącz replikację serwerów fizycznych replikację do platformy Azure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
+description: "Zawiera podsumowanie kroków należy włączyć replikację serwerów fizycznych do platformy Azure przy użyciu usługi Azure Site Recovery"
 documentationcenter: 
 author: rayne-wiselman
 manager: carmonm
@@ -13,57 +13,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: dde4b1463023d2ccefa498f72bb51e57d60ac0d8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 42f35c53eec06a346281fd90c97aecfd2269307d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-10-enable-replication-for-physical-servers-tooazure"></a>Krok 10: Włącz replikację tooAzure serwerów fizycznych
+# <a name="step-10-enable-replication-for-physical-servers-to-azure"></a>Krok 10: Włączanie replikacji dla serwerów fizycznych do platformy Azure
 
 
-W tym artykule opisano sposób replikacja tooenable lokalnego systemu Windows i Linux tooAzure serwerów fizycznych, przy użyciu hello [usługi Azure Site Recovery](site-recovery-overview.md) w hello portalu Azure.
+W tym artykule opisano sposób włączania replikacji lokalnych serwerów fizycznych systemu Windows i Linux na platformie Azure, przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md) w portalu Azure.
 
-Opublikuj komentarze i pytania u dołu hello w tym artykule, albo na powitania [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Opublikuj komentarze i pytania w dolnej części tego artykułu lub na [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-- Serwery muszą mieć hello [zainstalowanie składnika usługi Mobility](physical-walkthrough-install-mobility.md).
-- Maszyna wirtualna jest gotowy do instalacji w trybie wypychania, serwer przetwarzania hello automatycznie instaluje usługi mobilności hello po włączeniu replikacji.
-- Po włączeniu maszyny do replikacji konta użytkownika platformy Azure wymaga określonych [uprawnienia](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) tooensure którego stanie toouse magazynu Azure, a Tworzenie maszyn wirtualnych platformy Azure.
-- Podczas dodawania lub modyfikowania adresów IP dla serwerów, może upłynąć górę too15 minut lub dłużej dla efektu tootake zmiany i ich tooappear w portalu hello.
+- Serwery muszą mieć [zainstalowanie składnika usługi Mobility](physical-walkthrough-install-mobility.md).
+- Jeśli maszyna wirtualna jest gotowy do instalacji w trybie wypychania, serwer przetwarzania automatycznie instaluje usługi mobilności, po włączeniu replikacji.
+- Po włączeniu maszyny do replikacji konta użytkownika platformy Azure wymaga określonych [uprawnienia](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) aby upewnić się, możesz użyć usługi Azure storage i Tworzenie maszyn wirtualnych platformy Azure.
+- Podczas dodawania lub modyfikowania adresów IP dla serwerów, może potrwać do 15 minut lub dłużej aby zmiany zaczęły obowiązywać, a były widoczne w portalu.
 
 
 ## <a name="exclude-disks-from-replication"></a>Wykluczanie dysków z replikacji
 
-Domyślnie wszystkie dyski na komputerze są replikowane. Dyski można wykluczyć z replikacji. Na przykład nie ma dysków tooreplicate przy użyciu danych tymczasowych lub dane, które odświeżył każdym komputerze lub ponownym uruchomieniem aplikacji (na przykład pagefile.sys lub tempdb serwera SQL). [Dowiedz się więcej](site-recovery-exclude-disk.md)
+Domyślnie wszystkie dyski na komputerze są replikowane. Dyski można wykluczyć z replikacji. Na przykład nie może być mają być replikowane dyski danych tymczasowych lub dane, które odświeżył każdym komputerze lub ponownym uruchomieniem aplikacji (na przykład pagefile.sys lub tempdb serwera SQL). [Dowiedz się więcej](site-recovery-exclude-disk.md)
 
 ## <a name="replicate-servers"></a>Replikacja serwerów
 
 1. Kliknij kolejno pozycje **Krok 2. Replikowanie aplikacji** > **Źródło**.
-2. W **źródła**, wybierz pozycję powitania serwera konfiguracji.
+2. W **źródła**, wybierz serwer konfiguracji.
 3. W **komputera typu**, wybierz pozycję **maszyn fizycznych**.
-4. Wybierz serwer przetwarzania hello. Jeśli nie utworzono żadnych serwerów dodatkowych procesów będzie powitania serwera konfiguracji. Następnie kliknij przycisk **OK**.
-5. W **docelowego**, wybierz subskrypcję hello i hello grupy zasobów, w której ma zostać hello toocreate przejścia w tryb failover maszyn wirtualnych. Wybierz model wdrożenia hello, która ma toouse na platformie Azure (Zarządzanie zasobu lub classic) hello przejścia w tryb failover maszyn wirtualnych.
-6. Wybierz konto magazynu Azure hello, które chcesz toouse do replikacji danych. Jeśli nie chcesz toouse konta, które zostały już skonfigurowane, można utworzyć nowy.
-7. Wybierz hello **sieć platformy Azure** i **podsieci** połączyć toowhich maszynach wirtualnych Azure po pracy awaryjnej. Wybierz **Konfiguruj teraz dla wybranych maszyn** tooapply hello sieci ustawienie tooall maszyn wybranych do ochrony. Wybierz **później skonfigurować** hello tooselect sieć platformy Azure dla poszczególnych komputerów. Jeśli nie chcesz toouse istniejącej sieci, można go utworzyć.
+4. Wybierz serwer przetwarzania. Jeśli nie utworzono żadnych serwerów dodatkowych procesów będzie serwera konfiguracji. Następnie kliknij przycisk **OK**.
+5. W **docelowego**, wybierz subskrypcji i grupy zasobów, w którym chcesz utworzyć nieudane przez maszyny wirtualne. Wybierz model wdrażania, który ma być używany na platformie Azure (Zarządzanie zasobu lub classic) dla w trybie Failover maszyny wirtualne.
+6. Wybierz konto magazynu Azure, którego chcesz użyć do replikacji danych. Jeśli nie chcesz użyć konta, które zostały już skonfigurowane, można utworzyć nowy.
+7. Wybierz **sieć platformy Azure** i **podsieci** nawiązać którego maszynach wirtualnych Azure po pracy awaryjnej. Wybierz opcję **Konfiguruj teraz dla wybranych maszyn**, aby zastosować ustawienia sieci do wszystkich maszyn wybranych do ochrony. Wybierz opcję **Konfiguruj później**, aby wybrać sieć platformy Azure dla poszczególnych maszyn. Jeśli nie chcesz użyć istniejącej sieci, można go utworzyć.
 
     ![Włączanie replikacji](./media/physical-walkthrough-enable-replication/targetsettings.png)
 
-8. W **maszyn fizycznych**, kliknij przycisk **+ komputera fizycznego** , a następnie wprowadź hello **nazwa** i **adres IP**. Wybierz system operacyjny hello maszyny hello ma tooreplicate. Trwa kilka minut, aż maszyny są odnajdywane i wyświetlane na liście hello.
-9. W **właściwości** > **skonfigurować właściwości**, wybierz pozycję hello konta, które będą używane przez hello procesu serwera tooautomatically Zainstaluj hello usługi mobilności na maszynie hello.
-10. Domyślnie wszystkie dyski są replikowane. Kliknij przycisk **wszystkie dyski** i wyczyść wszystkie dyski, które nie mają tooreplicate. Następnie kliknij przycisk **OK**. Później można ustawić dodatkowe właściwości maszyny Wirtualnej.
+8. W **maszyn fizycznych**, kliknij przycisk **+ komputera fizycznego** , a następnie wprowadź **nazwa** i **adres IP**. Wybierz system operacyjny maszyny, które mają być replikowane. Trwa kilka minut, aż maszyny są odnajdywane i wyświetlane na liście.
+9. W **właściwości** > **skonfigurować właściwości**, wybierz konto, które będzie używane przez serwer przetwarzania Aby automatycznie zainstalować usługi mobilności na maszynie.
+10. Domyślnie wszystkie dyski są replikowane. Kliknij przycisk **wszystkie dyski** i wyczyść wszystkie dyski, które nie mają być replikowane. Następnie kliknij przycisk **OK**. Później można ustawić dodatkowe właściwości maszyny Wirtualnej.
 
     ![Włączanie replikacji](./media/physical-walkthrough-enable-replication/enable-replication6.png)
-11. W **ustawienia replikacji** > **Konfigurowanie ustawień replikacji**, sprawdź, że hello poprawne wybrano zasady replikacji. Jeśli zmodyfikujesz zasady, zmiany zostaną zastosowane tooreplicating maszyny i toonew maszyny.
-12. Włącz **spójności wielu maszyn wirtualnych** toogather maszyny do grupy replikacji, i określ nazwę grupy hello. Następnie kliknij przycisk **OK**. Należy pamiętać, że:
+11. W **ustawienia replikacji** > **Konfigurowanie ustawień replikacji**, sprawdź, czy jest wybrane zasady replikacji poprawne. Jeśli zmodyfikujesz zasady, zmiany zostaną zastosowane do replikowania maszyny i nowych maszyn.
+12. Włącz **spójności wielu maszyn wirtualnych** Jeśli chcesz zebrać maszyn w grupie replikacji i określ nazwę grupy. Następnie kliknij przycisk **OK**. Należy pamiętać, że:
 
     * Komputery w grupach replikacji replikowane wspólnie i udostępnione punkty odzyskiwania spójna w razie awarii i spójności aplikacji podczas ich w tryb failover.
-    * Zaleca się, że użytkownik zbiera serwerów fizycznych, aby odzwierciedlały obciążeń. Włączenie spójności wielu maszyn wirtualnych może wpłynąć na wydajność obciążenia, a powinien być używany tylko przez hello są uruchomione maszyny tego samego obciążenia i wymagana jest spójność.
+    * Zaleca się, że użytkownik zbiera serwerów fizycznych, aby odzwierciedlały obciążeń. Włączenie spójności wielu maszyn wirtualnych może wpłynąć na wydajność obciążeń i należy używać tylko w przypadku maszyn działają te same obciążenia i wymagana jest spójność.
 
-13. Kliknij przycisk **włączyć replikację**. Możesz śledzić postępy hello **Włącz ochronę** zadania w **ustawienia** > **zadania** > **zadania usługi Site Recovery**. Po hello **zakończenia ochrony** zadania działa hello maszyna jest gotowa do pracy awaryjnej.
+13. Kliknij przycisk **włączyć replikację**. Możesz śledzić postęp **Włącz ochronę** zadania w **ustawienia** > **zadania** > **zadania usługi Site Recovery**. Po uruchomieniu zadania **Sfinalizuj ochronę** maszyna jest gotowa do przejścia w tryb failover.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do zbyt[krok 11: testować tryb failover](physical-walkthrough-test-failover.md)
+Przejdź do [krok 11: testować tryb failover](physical-walkthrough-test-failover.md)

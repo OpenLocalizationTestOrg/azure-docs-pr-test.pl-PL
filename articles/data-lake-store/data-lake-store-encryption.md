@@ -1,5 +1,5 @@
 ---
-title: "aaaEncryption w usłudze Azure Data Lake Store | Dokumentacja firmy Microsoft"
+title: "Szyfrowanie w usłudze Azure Data Lake Store | Microsoft Docs"
 description: "Omówienie sposobu działania szyfrowania i wymiany kluczy w usłudze Azure Data Lake Store"
 services: data-lake-store
 documentationcenter: 
@@ -14,127 +14,127 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 4/14/2017
 ms.author: yagupta
-ms.openlocfilehash: a9f3a2dce8232deba93005594d1e6a21e9c0cbee
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 20444d368c568ee716ff242e33323b91ffd198eb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Szyfrowanie danych w usłudze Azure Data Lake Store
 
-Szyfrowanie w usłudze Azure Data Lake Store pomaga chronić dane, implementować zasady bezpieczeństwa w przedsiębiorstwie i spełniać prawne wymagania dotyczące zgodności. Ten artykuł zawiera omówienie projektowania hello i omówiono niektóre aspekty techniczne hello implementacji.
+Szyfrowanie w usłudze Azure Data Lake Store pomaga chronić dane, implementować zasady bezpieczeństwa w przedsiębiorstwie i spełniać prawne wymagania dotyczące zgodności. Ten artykuł zawiera omówienie projektu i niektórych technicznych aspektów implementacji.
 
 Usługa Data Lake Store obsługuje szyfrowanie danych zarówno magazynowanych, jak i przesyłanych. W przypadku danych magazynowanych usługa Data Lake Store obsługuje domyślnie włączone szyfrowanie przezroczyste. Poniżej przedstawiono bardziej szczegółowe wyjaśnienie tych terminów:
 
-* **Na domyślnie**: podczas tworzenia nowego konta usługi Data Lake Store hello domyślne ustawienie włącza szyfrowanie. Później dane przechowywane w usłudze Data Lake Store jest zawsze zaszyfrowane wcześniejsze toostoring na nośniku trwałe. Jest to zachowanie hello wszystkich danych i nie można zmienić po utworzeniu konta.
-* **Przezroczysty**: Data Lake Store automatycznie szyfruje toopersisting wcześniejszych danych i odszyfrowuje tooretrieval wcześniejszych danych. szyfrowanie Hello jest skonfigurowany i zarządzane na powitania poziom usługi Data Lake Store przez administratora. Nie są zmienione dane toohello dostęp do interfejsów API. W związku z tym z powodu szyfrowania nie ma konieczności wprowadzania żadnych zmian w aplikacjach i usługach, które współdziałają z usługą Data Lake Store.
+* **Domyślnie włączone**: po utworzeniu nowego konta usługi Data Lake Store domyślne ustawienie włącza szyfrowanie. Dzięki temu dane przechowywane w usłudze Data Lake Store są zawsze szyfrowane jeszcze przed zapisaniem na nośniku trwałym. Takie działanie dotyczy wszystkich danych i nie można go zmienić po utworzeniu konta.
+* **Przezroczyste**: usługa Data Lake Store automatycznie szyfruje dane przed utrwaleniem i odszyfrowuje przed pobraniem. Szyfrowanie jest konfigurowane i zarządzane na poziomie usługi Data Lake Store przez administratora. W interfejsach API dostępu do danych nie są wprowadzane żadne zmiany. W związku z tym z powodu szyfrowania nie ma konieczności wprowadzania żadnych zmian w aplikacjach i usługach, które współdziałają z usługą Data Lake Store.
 
-Dane przesyłane (inaczej dane w ruchu) również są zawsze szyfrowane w usłudze Data Lake Store. Ponadto tooencrypting danych przed toostoring toopersistent nośnika hello zawsze ochrona danych podczas przesyłania przy użyciu protokołu HTTPS. HTTPS jest hello tylko protokół, który jest obsługiwany w przypadku powitalne interfejsy Data Lake magazynu REST. Witaj poniższym diagramie przedstawiono sposób dane szyfrowane staje się w usłudze Data Lake Store:
+Dane przesyłane (inaczej dane w ruchu) również są zawsze szyfrowane w usłudze Data Lake Store. Oprócz tego, że dane są szyfrowane przed zapisaniem na nośniku trwałym, są również zawsze zabezpieczane podczas przesyłania przy użyciu protokołu HTTPS. Protokół HTTPS jest jedynym protokołem obsługiwanym przez interfejsy REST usługi Data Lake Store. Na poniższym diagramie przedstawiono sposób szyfrowania danych w usłudze Data Lake Store:
 
 ![Diagram szyfrowania danych w usłudze Data Lake Store](./media/data-lake-store-encryption/fig1.png)
 
 
 ## <a name="set-up-encryption-with-data-lake-store"></a>Konfigurowanie szyfrowania przy użyciu usługi Data Lake Store
 
-Szyfrowanie w usłudze Data Lake Store konfiguruje się podczas tworzenia konta i zawsze jest domyślnie włączone. Możesz zarządzać kluczami hello, samodzielnie, lub zezwolić toomanage usługi Data Lake Store je automatycznie (jest to domyślny hello).
+Szyfrowanie w usłudze Data Lake Store konfiguruje się podczas tworzenia konta i zawsze jest domyślnie włączone. Kluczami możesz zarządzać samodzielnie lub zezwolić na to usłudze Data Lake Store (jest to opcja domyślna).
 
 Aby uzyskać więcej informacji, zobacz [Wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ## <a name="how-encryption-works-in-data-lake-store"></a>Jak działa szyfrowanie w usłudze Data Lake Store
 
-Witaj następujące informacje dotyczą sposobu toomanage główny szyfrowania kluczy, a także opisano hello trzy różne typy klawisze, których można używać szyfrowania danych dla usługi Data Lake Store.
+W poniższej sekcji omówiono sposób zarządzania głównymi kluczami szyfrowania oraz opisano trzy różne typy kluczy, których można używać na potrzeby szyfrowania danych w usłudze Data Lake Store.
 
 ### <a name="master-encryption-keys"></a>Główne klucze szyfrowania
 
-Usługa Data Lake Store udostępnia dwa tryby zarządzania głównymi kluczami szyfrowania. Teraz załóżmy, że klucz główny szyfrowania hello jest hello klucz najwyższego poziomu. Klucz główny szyfrowania toohello dostępu jest wymagany toodecrypt wszystkie dane przechowywane w usłudze Data Lake Store.
+Usługa Data Lake Store udostępnia dwa tryby zarządzania głównymi kluczami szyfrowania. Na razie załóżmy, że główny klucz szyfrowania jest kluczem najwyższego poziomu. Aby móc odszyfrować dowolne dane przechowywane w usłudze Data Lake Store, wymagany jest dostęp do głównego klucza szyfrowania.
 
-Hello dwa tryby zarządzania klucz główny szyfrowania hello są następujące:
+Oto dwa tryby zarządzania głównym kluczem szyfrowania:
 
 *   Klucze zarządzane przez usługę
 *   Klucze zarządzane przez klienta
 
-W obu trybach klucz główny szyfrowania hello jest chroniona przez zapisanie go w usłudze Azure Key Vault. Key Vault jest usługą pełni zarządzany i wysokim poziomie zabezpieczeń na platformie Azure, które mogą być używane toosafeguard kluczy kryptograficznych. Aby uzyskać więcej informacji, zobacz [Key Vault](https://azure.microsoft.com/services/key-vault).
+W obu trybach główny klucz szyfrowania jest zabezpieczony dzięki przechowywaniu go w usłudze Azure Key Vault. Key Vault to w pełni zarządzana, wysoce bezpieczna usługa platformy Azure, która może służyć do ochrony kluczy kryptograficznych. Aby uzyskać więcej informacji, zobacz [Key Vault](https://azure.microsoft.com/services/key-vault).
 
-Oto krótkie porównanie możliwości oferowane przez dwa tryby hello Zarządzanie hello MEKs.
+Oto krótkie porównanie możliwości oferowanych przez dwa tryby zarządzania głównymi kluczami szyfrowania.
 
 |  | Klucze zarządzane przez usługę | Klucze zarządzane przez klienta |
 | --- | --- | --- |
-|W jaki sposób przechowywane są dane?|Zawsze zaszyfrowane toobeing wcześniejsze przechowywane.|Zawsze zaszyfrowane toobeing wcześniejsze przechowywane.|
-|Gdzie są przechowywane hello klucza szyfrowania|Usługa Key Vault|Usługa Key Vault|
-|Wszystkie klucze przechowywane w hello wyczyść szyfrowania znajdują się poza Key Vault? |Nie|Nie|
-|Witaj MEK można pobrać przez usługi Key Vault?|Nie. Po hello MEK jest przechowywany w magazynie kluczy można można używać tylko do szyfrowania i odszyfrowywania.|Nie. Po hello MEK jest przechowywany w magazynie kluczy można można używać tylko do szyfrowania i odszyfrowywania.|
-|Kto jest właścicielem wystąpienia usługi Key Vault hello i hello MEK?|Witaj usługi Data Lake Store|Jesteś właścicielem hello wystąpienia usługi Key Vault, która należy do subskrypcji platformy Azure. Hello MEK w magazynie kluczy mogą być zarządzane przez oprogramowania lub sprzętu.|
-|Możesz cofnąć dostęp toohello MEK dla hello usługi Data Lake Store|Nie|Tak. Zarządzanie listami kontroli dostępu w magazynie klucz i Usuń tożsamość usługi toohello wpisów kontroli dostępu dla hello usługi Data Lake Store.|
-|Można trwale usunąć hello MEK?|Nie|Tak. Po usunięciu hello MEK z magazynu kluczy danych hello w hello konta usługi Data Lake Store nie można odszyfrować wszystkim osobom hello usługą Data Lake Store. <br><br> Jeśli jawnie kopii zapasowej poprzedniego toodeleting MEK hello go z magazynu kluczy, hello MEK można przywrócić, a następnie można odzyskać dane hello. Jednak jeśli nie kopii zapasowej poprzedniego toodeleting MEK hello go z magazynu kluczy, hello w hello konta usługi Data Lake Store może nigdy nie można odszyfrować danych później.|
+|W jaki sposób przechowywane są dane?|Są zawsze szyfrowane przed zapisaniem.|Są zawsze szyfrowane przed zapisaniem.|
+|Gdzie jest przechowywany główny klucz szyfrowania?|Usługa Key Vault|Usługa Key Vault|
+|Czy jakiekolwiek klucze szyfrowania są przechowywane poza usługą Key Vault? |Nie|Nie|
+|Czy można pobrać główny klucz szyfrowania za pomocą usługi Key Vault?|Nie. Po umieszczeniu głównego klucza szyfrowania w usłudze Key Vault można go używać tylko do szyfrowania i odszyfrowywania.|Nie. Po umieszczeniu głównego klucza szyfrowania w usłudze Key Vault można go używać tylko do szyfrowania i odszyfrowywania.|
+|Kto jest właścicielem wystąpienia usługi Key Vault i głównego klucza szyfrowania?|Usługa Data Lake Store|Ty jesteś właścicielem wystąpienia usługi Key Vault, które znajduje się w Twojej subskrypcji platformy Azure. Głównym kluczem szyfrowania w usłudze Key Vault można zarządzać programowo lub sprzętowo.|
+|Czy można odwołać dostęp usługi Data Lake Store do głównego klucza szyfrowania?|Nie|Tak. Możesz zarządzać listami kontroli dostępu w usłudze Key Vault i usuwać pozycje kontroli dostępu dla tożsamości usługi w ramach usługi Data Lake Store.|
+|Czy można trwale usunąć główny klucz szyfrowania?|Nie|Tak. Jeśli usuniesz główny klucz szyfrowania z usługi Key Vault, dane na koncie usługi Data Lake Store nie będą mogły być odszyfrowane przez nikogo, łącznie z usługą Data Lake Store. <br><br> Jeśli przed usunięciem głównego klucza szyfrowania z usługi Key Vault jawnie utworzono jego kopię zapasową, to można go przywrócić i odzyskać dane. Jednak jeśli przed usunięciem głównego klucza szyfrowania z usługi Key Vault nie utworzono jego kopii zapasowej, dane na koncie usługi Data Lake Store nigdy już nie będą mogły być odszyfrowane.|
 
 
-Jako uzupełnienie tej różnicy, który zarządza hello MEK i hello Key Vault wystąpienia w której się znajduje, hello reszty projektu hello jest hello takie same dla obu trybów.
+Poza różnicą dotyczącą sposobu zarządzania głównym kluczem szyfrowania i wystąpieniem usługi Key Vault, w którym ten klucz się znajduje, pozostałe elementy projektu są takie same dla obu trybów.
 
-Po wybraniu trybu hello hello kluczy szyfrowania głównego jest ważne tooremember hello poniżej:
+Podczas wybierania trybu głównych kluczy szyfrowania należy pamiętać o następujących kwestiach:
 
-*   Można wybrać, czy klient toouse zarządzanych kluczy lub kluczy usługi zarządzania podczas obsługi administracyjnej konto usługi Data Lake Store.
-*   Po udostępnieniu konto usługi Data Lake Store, nie można zmienić trybu hello.
+*   Podczas aprowizacji konta usługi Data Lake Store można wybrać między kluczami zarządzanymi przez klienta i kluczami zarządzanymi przez usługę.
+*   Po aprowizacji konta usługi Data Lake Store nie można zmienić trybu.
 
 ### <a name="encryption-and-decryption-of-data"></a>Szyfrowanie i odszyfrowywanie danych
 
-Istnieją trzy typy kluczy, które są używane w projekcie hello szyfrowania danych. Witaj w poniższej tabeli przedstawiono podsumowanie:
+W projekcie szyfrowania danych używane są trzy typy kluczy. Poniższa tabela zawiera podsumowanie:
 
 | Klucz                   | Skrót | Skojarzony z | Lokalizacja magazynu                             | Typ       | Uwagi                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Główny klucz szyfrowania | GKS          | Konto usługi Data Lake Store | Usługa Key Vault                              | Asymetryczny | Może nim zarządzać usługa Data Lake Store lub można to robić samodzielnie.                                                              |
-| Klucz szyfrowania danych   | KSD          | Konto usługi Data Lake Store | Magazyn trwały zarządzany przez usługę Data Lake Store | Symetryczny  | Witaj klucza szyfrowania danych jest szyfrowany za hello MEK. Witaj, zaszyfrowanego klucza szyfrowania danych jest co to są przechowywane na nośnikach trwałych. |
-| Klucz szyfrowania bloków  | KSB          | Blok danych | Brak                                         | Symetryczny  | Witaj BEK jest pochodną hello klucza szyfrowania danych i hello bloku danych.                                                      |
+| Klucz szyfrowania danych   | KSD          | Konto usługi Data Lake Store | Magazyn trwały zarządzany przez usługę Data Lake Store | Symetryczny  | Klucz szyfrowania danych jest szyfrowany przy użyciu głównego klucza szyfrowania. Na nośniku trwałym jest zapisywany zaszyfrowany klucz szyfrowania danych. |
+| Klucz szyfrowania bloków  | KSB          | Blok danych | Brak                                         | Symetryczny  | Klucz szyfrowania bloków jest tworzony na podstawie klucza szyfrowania danych i bloku danych.                                                      |
 
-powitania po diagram ilustruje te pojęcia:
+Poniższy diagram przedstawia te koncepcje:
 
 ![Klucze używane do szyfrowania danych](./media/data-lake-store-encryption/fig2.png)
 
-#### <a name="pseudo-algorithm-when-a-file-is-toobe-decrypted"></a>Pseudo algorytmu, gdy plik jest odszyfrowywany toobe:
-1.  Sprawdź, czy hello klucza szyfrowania danych dla konta usługi Data Lake Store hello jest buforowany i gotowa do użycia.
-    - Jeśli nie, odczytać hello zaszyfrowany klucz szyfrowania danych z magazynu trwałego i wysłać go odszyfrować toobe magazynu tooKey. Pamięć podręczna hello odszyfrować klucza szyfrowania danych w pamięci. Jest teraz gotowy toouse.
-2.  Dla każdego bloku danych w pliku hello:
-    - Odczyt hello zaszyfrowanego bloku danych z magazynu trwałego.
-    - Generowanie hello BEK z hello klucza szyfrowania danych i hello zaszyfrowanego bloku danych.
-    - Użyj hello BEK toodecrypt danych.
+#### <a name="pseudo-algorithm-when-a-file-is-to-be-decrypted"></a>Pseudoalgorytm stosowany w przypadku odszyfrowywania pliku:
+1.  Sprawdź, czy klucz szyfrowania danych dla konta usługi Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
+    - Jeśli nie, odczytaj zaszyfrowany klucz szyfrowania danych z magazynu trwałego i prześlij go do usługi Key Vault w celu odszyfrowania. Odszyfrowany klucz szyfrowania danych zapisz w pamięci podręcznej. Jest on teraz gotowy do użycia.
+2.  Dotyczy każdego bloku danych w pliku:
+    - Odczytaj zaszyfrowany blok danych z magazynu trwałego.
+    - Wygeneruj klucz szyfrowania bloków na podstawie klucza szyfrowania danych i zaszyfrowanego bloku danych.
+    - Użyj klucza szyfrowania bloków w celu odszyfrowania danych.
 
 
-#### <a name="pseudo-algorithm-when-a-block-of-data-is-toobe-encrypted"></a>Algorytm pseudo toobe szyfrowane po bloku danych:
-1.  Sprawdź, czy hello klucza szyfrowania danych dla konta usługi Data Lake Store hello jest buforowany i gotowa do użycia.
-    - Jeśli nie, odczytać hello zaszyfrowany klucz szyfrowania danych z magazynu trwałego i wysłać go odszyfrować toobe magazynu tooKey. Pamięć podręczna hello odszyfrować klucza szyfrowania danych w pamięci. Jest teraz gotowy toouse.
-2.  Generuj unikatowy BEK hello bloku danych z hello klucza szyfrowania danych.
-3.  Szyfrowanie hello bloku danych z hello BEK, przy użyciu szyfrowania AES 256.
-4.  Blok zaszyfrowanych danych hello magazynu danych na magazynu trwałego.
+#### <a name="pseudo-algorithm-when-a-block-of-data-is-to-be-encrypted"></a>Pseudoalgorytm stosowany w przypadku szyfrowania bloku danych:
+1.  Sprawdź, czy klucz szyfrowania danych dla konta usługi Data Lake Store jest zapisany w pamięci podręcznej i gotowy do użycia.
+    - Jeśli nie, odczytaj zaszyfrowany klucz szyfrowania danych z magazynu trwałego i prześlij go do usługi Key Vault w celu odszyfrowania. Odszyfrowany klucz szyfrowania danych zapisz w pamięci podręcznej. Jest on teraz gotowy do użycia.
+2.  Wygeneruj unikatowy klucz szyfrowania bloków dla bloku danych na podstawie klucza szyfrowania danych.
+3.  Zaszyfruj blok danych przy użyciu klucza szyfrowania bloków, korzystając z algorytmu AES-256.
+4.  Zapisz zaszyfrowany blok danych w magazynie trwałym.
 
 > [!NOTE] 
-> Ze względu na wydajność wyczyść klucza szyfrowania danych w hello hello są buforowane w pamięci przez krótki czas i natychmiastowe jest później usunięte. Na nośniku trwałe zawsze znajduje się szyfrowane przez hello MEK.
+> Ze względów wydajności klucz szyfrowania danych w formie niezaszyfrowanej jest przez krótki czas buforowany w pamięci, a następnie natychmiast usuwany. Na nośniku trwałym klucz szyfrowania danych jest zawsze przechowywany w postaci zaszyfrowanej przez główny klucz szyfrowania.
 
 ## <a name="key-rotation"></a>Wymiana kluczy
 
-Korzystając z kluczy zarządzany przez klienta, można obracać hello MEK. toolearn tooset konto usługi Data Lake Store z kluczami zarządzany przez klienta, zobacz temat [wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+W przypadku korzystania z kluczy zarządzanych przez klienta można wymienić główny klucz szyfrowania. Aby dowiedzieć się, jak skonfigurować konto usługi Data Lake Store korzystające z kluczy zarządzanych przez klienta, zobacz [Wprowadzenie](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Po skonfigurowaniu konta usługi Data Lake Store hello wybrano toouse własnych kluczy. Nie można zmienić tej opcji, po utworzeniu konta hello. Witaj następujących krokach założono używasz klucze zarządzany przez klienta (oznacza to, że wybrano własnych kluczy z usługi Key Vault).
+Podczas konfigurowania konta usługi Data Lake Store wybrano opcję użycia własnych kluczy. Po utworzeniu konta ta opcja nie może zostać zmieniona. W poniższych krokach przyjęto, że używasz kluczy zarządzanych przez klienta (tzn. wybrano własne klucze z usługi Key Vault).
 
-Należy pamiętać, że jeśli używasz hello domyślne opcje szyfrowania danych są zawsze szyfrowane przy użyciu kluczy zarządzanych przez usługi Data Lake Store. W przypadku tej opcji nie masz hello możliwości toorotate kluczy, ponieważ są one zarządzane przez usługi Data Lake Store.
+Pamiętaj, że jeśli użyjesz domyślnych opcji szyfrowania, dane będą zawsze szyfrowane za pomocą kluczy zarządzanych przez usługę Data Lake Store. W przypadku tej opcji nie ma możliwości wymiany kluczy, ponieważ są one zarządzane przez usługę Data Lake Store.
 
-### <a name="how-toorotate-hello-mek-in-data-lake-store"></a>Jak toorotate hello MEK w usłudze Data Lake Store
+### <a name="how-to-rotate-the-mek-in-data-lake-store"></a>Jak wymienić główny klucz szyfrowania w usłudze Data Lake Store
 
-1. Zaloguj się toohello [portalu Azure](https://portal.azure.com/).
-2. Przeglądaj toohello Key Vault wystąpienie, które są przechowywane klucze skojarzone z kontem usługi Data Lake Store. Wybierz pozycję **Klucze**.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Przejdź do wystąpienia usługi Key Vault, w którym są przechowywane klucze skojarzone z Twoim kontem usługi Data Lake Store. Wybierz pozycję **Klucze**.
 
     ![Zrzut ekranu usługi Key Vault](./media/data-lake-store-encryption/keyvault.png)
 
-3.  Wybierz klucz hello skojarzony z Twoim kontem usługi Data Lake Store i utworzyć nową wersję tego klucza. Należy pamiętać, że Data Lake Store aktualnie obsługuje tylko rotacją kluczy tooa nowa wersja klucza. Nie obsługuje on obracania tooa inny klucz.
+3.  Wybierz klucz skojarzony z kontem usługi Data Lake Store i utwórz nową wersję tego klucza. Pamiętaj, że usługa Data Lake Store obecnie obsługuje wymianę tylko na nową wersję klucza. Wymiana na inny klucz nie jest obsługiwana.
 
    ![Zrzut ekranu okna Klucze z wyróżnionym przyciskiem Nowa wersja](./media/data-lake-store-encryption/keynewversion.png)
 
-4.  Konto magazynu Data Lake Store toohello Przeglądaj i wybierz **szyfrowania**.
+4.  Przejdź do konta magazynu usługi Data Lake Store i wybierz pozycję **Szyfrowanie**.
 
     ![Zrzut ekranu okna konta magazynu usługi Data Lake Store z wyróżnioną pozycją Szyfrowanie](./media/data-lake-store-encryption/select-encryption.png)
 
-5.  Komunikat informuje, czy dostępna jest nowa wersja klucza hello klucza. Kliknij przycisk **Obróć klucza** tooupdate hello klucza toohello nowej wersji.
+5.  Zostanie wyświetlony komunikat informujący o dostępności nowej wersji klucza. Kliknij pozycję **Wymień klucz**, aby zaktualizować klucz do nowej wersji.
 
     ![Zrzut ekranu okna usługi Data Lake Store z komunikatem i wyróżnioną pozycją Wymień klucz](./media/data-lake-store-encryption/rotatekey.png)
 
-Ta operacja powinno zająć mniej niż dwóch minut, i nie ma bez przestojów oczekiwanego powodu tookey obrotu. Po zakończeniu operacji hello hello nowej wersji klucza hello jest używany.
+Ta operacja powinna zająć mniej niż dwie minuty i nie powinna powodować żadnego przestoju. Po zakończeniu operacji jest używana nowa wersja klucza.

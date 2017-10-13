@@ -1,6 +1,6 @@
 ---
-title: aaaAzure AD w wersji 2.0 aplikacji uniwersalnej systemu Windows | Dokumentacja firmy Microsoft
-description: "Jak toobuild aplikacji uniwersalnych systemu Windows który loguje się użytkowników z obu Account firmy Microsoft i konta firmowego lub szkolnego."
+title: "Uniwersalnych aplikacji systemu Windows w wersji 2.0 usługi Azure AD | Dokumentacja firmy Microsoft"
+description: "Sposób tworzenia aplikacji uniwersalnych systemu Windows, która zaloguje się użytkowników przy użyciu obu Account firmy Microsoft i konta służbowego."
 services: active-directory
 documentationcenter: 
 author: jmprieur
@@ -15,21 +15,21 @@ ms.devlang: dotnet
 ms.date: 02/20/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 49b26c74fa5a76664c3229256c9bd128563b830c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 369802f1a42b8720aa730d5ac7e5576ed20eeddf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="add-sign-in-tooa-windows-universal-app-using-hello-v20-endpoint"></a>Dodaj tooa logowania aplikacji uniwersalnych systemu Windows przy użyciu punktu końcowego v2.0 hello
-  Witaj samouczek szybki start dla aplikacji uniwersalnych systemu Windows nie jest jeszcze gotowa... Sprawdź ponownie wkrótce & poszukać aktualizacje z @AzureAD w serwisie Twitter.
+# <a name="add-sign-in-to-a-windows-universal-app-using-the-v20-endpoint"></a>Dodaj logowanie do aplikacji uniwersalnych systemu Windows przy użyciu punktu końcowego v2.0
+  Samouczek szybki start dla aplikacji uniwersalnych systemu Windows nie jest jeszcze gotowa... Sprawdź ponownie wkrótce & poszukać aktualizacje z @AzureAD w serwisie Twitter.
 
 > [!NOTE]
-> Nie wszystkie usługi Azure Active Directory scenariuszy i funkcji obsługiwanych przez hello punktu końcowego v2.0.  toodetermine, jeśli powinien używać punktu końcowego v2.0 hello, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
+> Nie wszystkie usługi Azure Active Directory scenariuszy i funkcji obsługiwanych przez punktu końcowego v2.0.  Aby ustalić, czy należy używać punktu końcowego v2.0, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
     ## Get security updates for our products
 
-Firma Microsoft zachęca tooget powiadomień o występujących incydentach zabezpieczeń poprzez wizytę [tę stronę](https://technet.microsoft.com/security/dd252948) i subskrypcji tooSecurity doradczych alertów.
+Firma Microsoft zachęca do przekazywania powiadomień o występujących incydentach zabezpieczeń poprzez wizytę na [tej stronie](https://technet.microsoft.com/security/dd252948) i subskrybowanie Doradczych alertów zabezpieczeń.
 

@@ -1,8 +1,8 @@
 ---
-title: "aaaGet korzystania z dostępu warunkowego w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+title: "Rozpoczynanie pracy z dostępu warunkowego w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
 description: "Testowanie dostępu warunkowego za pomocą warunku lokalizacji."
 services: active-directory
-keywords: "tooapps dostępu warunkowego, dostępu warunkowego z usługą Azure AD, bezpieczny dostęp do zasobów toocompany, zasady dostępu warunkowego"
+keywords: "dostęp warunkowy do aplikacji, dostęp warunkowy przy użyciu usługi Azure AD, bezpieczny dostęp do zasobów firmy, zasady dostępu warunkowego"
 documentationcenter: 
 author: MarkusVi
 manager: femila
@@ -15,35 +15,35 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4521f5a34f5882e026f5e58a7127d8c55cba2f0b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cd53e8be32d1e98aaf9f72177895871dba69df86
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>Rozpoczynanie pracy z dostępu warunkowego w usłudze Azure Active Directory
 
-Dostęp warunkowy jest możliwość usługi Azure Active Directory, umożliwiającą możesz toodefine warunki na jakich autoryzowani użytkownicy mają dostęp do Twojej aplikacji. 
+Dostęp warunkowy jest możliwość usługi Azure Active Directory, który umożliwia zdefiniowanie warunków, w których autoryzowani użytkownicy mają dostęp do Twojej aplikacji. 
 
 Ten temat zawiera instrukcje dotyczące testowania dostępu warunkowego na podstawie warunku lokalizacji w danym środowisku.  
 
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-Jednym z typowych wymagań w wielu organizacjach jest tooonly wymusić uwierzytelnianie wieloskładnikowe dla tooapps dostępu, który nie jest wykonywane z hello firmowego intranetu. Z usługą Azure Active Directory można łatwo realizację tego celu, konfigurując zasady dostępu warunkowego na podstawie lokalizacji. W tym temacie przedstawiono szczegółowe instrukcje dotyczące konfigurowania pokrewnych zasad. Witaj wykorzystanie zasad [zaufanych adresów IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) toodistinguish między próbami dostępu z firmowej hello na wszystkich innych lokalizacji w intranecie i.
+Jednym z typowych wymagań w wielu organizacjach jest wymagane tylko uwierzytelnianie wieloskładnikowe dla dostępu do aplikacji, która nie jest wykonywane od firmowego intranetu. Z usługą Azure Active Directory można łatwo realizację tego celu, konfigurując zasady dostępu warunkowego na podstawie lokalizacji. W tym temacie przedstawiono szczegółowe instrukcje dotyczące konfigurowania pokrewnych zasad. Wykorzystanie zasad [zaufanych adresów IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) odróżnienie z firmowej prób dostępu do wszystkich innych lokalizacji w intranecie i.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Hello scenariusz opisany w tym temacie przyjęto założenie, że znasz hello pojęcia opisane w [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+Scenariusz opisany w tym temacie założono, że znasz pojęcia opisane w [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-tootest tego scenariusza należy:
+Do przetestowania tego scenariusza, należy:
 
 - Tworzenie użytkownika testowego 
 
-- Przypisz użytkownika testowego toohello licencji Azure AD Premium
+- Przypisywanie licencji usługi Azure AD Premium do użytkownika testowego
 
-- Konfigurowanie zarządzanych aplikacji i przypisz użytkownika tooit użytkownika testowego
+- Konfigurowanie zarządzanych aplikacji i przypisać użytkownika testowego
 
 - Skonfiguruj listę zaufanych adresów IP
 
@@ -52,29 +52,29 @@ Aby uzyskać więcej informacji na temat zaufanych adresów IP, zobacz [zaufanyc
 
 ## <a name="policy-configuration-steps"></a>Kroki konfiguracji zasad
 
-**tooconfigure zasady dostępu warunkowego, czy:**
+**Aby skonfigurować zasady dostępu warunkowego, należy wykonać:**
 
-1. W portalu Azure na lewy pasek nawigacyjny hello hello kliknij **usługi Azure Active Directory**. 
+1. W portalu Azure na lewy pasek nawigacyjny, kliknij przycisk **usługi Azure Active Directory**. 
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/01.png)
 
-2. Na powitania **usługi Azure Active Directory** bloku w hello **Zarządzaj** kliknij **dostępu warunkowego**.
+2. Na **usługi Azure Active Directory** bloku, w **Zarządzaj** kliknij **dostępu warunkowego**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/02.png)
  
-3. Na powitania **dostępu warunkowego** bloku, tooopen hello **nowy** bloku na powitania narzędzi u góry hello kliknij **Dodaj**.
+3. Na **dostępu warunkowego** bloku, aby otworzyć **nowy** bloku na pasku narzędzi u góry, kliknij przycisk **Dodaj**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/03.png)
 
-4. Na powitania **nowy** bloku w hello **nazwa** tekstowym, wpisz nazwę zasady.
+4. Na **nowy** bloku, w **nazwa** tekstowym, wpisz nazwę zasady.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/04.png)
 
-5. W hello **przypisania** kliknij **użytkowników i grup**.
+5. W **przypisania** kliknij **użytkowników i grup**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/05.png)
 
-6. Na powitania **użytkowników i grup** blok, wykonaj następujące kroki hello:
+6. Na **użytkowników i grup** blok, wykonaj następujące czynności:
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/06.png)
 
@@ -82,15 +82,15 @@ Aby uzyskać więcej informacji na temat zaufanych adresów IP, zobacz [zaufanyc
 
     b. Kliknij pozycję **Wybierz**.
 
-    c. Na powitania **wybierz** bloku, wybierz użytkownika testowego, a następnie kliknij przycisk **wybierz**.
+    c. Na **wybierz** bloku, wybierz użytkownika testowego, a następnie kliknij przycisk **wybierz**.
 
-    d. Na powitania **użytkowników i grup** bloku, kliknij przycisk **gotowe**.
+    d. Na **użytkowników i grup** bloku, kliknij przycisk **gotowe**.
 
-7. Na powitania **nowy** bloku, tooopen hello **aplikacji w chmurze** bloku w hello **przypisania** kliknij **aplikacji w chmurze**.
+7. Na **nowy** bloku, aby otworzyć **aplikacji w chmurze** bloku, w **przypisania** kliknij **aplikacji w chmurze**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/07.png)
 
-8. Na powitania **aplikacji w chmurze** blok, wykonaj następujące kroki hello:
+8. Na **aplikacji w chmurze** blok, wykonaj następujące czynności:
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/08.png)
 
@@ -98,19 +98,19 @@ Aby uzyskać więcej informacji na temat zaufanych adresów IP, zobacz [zaufanyc
 
     b. Kliknij pozycję **Wybierz**.
 
-    c. Na powitania **wybierz** bloku, wybierz aplikacji w chmurze, a następnie kliknij przycisk **wybierz**.
+    c. Na **wybierz** bloku, wybierz aplikacji w chmurze, a następnie kliknij przycisk **wybierz**.
 
-    d. Na powitania **aplikacji w chmurze** bloku, kliknij przycisk **gotowe**.
+    d. Na **aplikacji w chmurze** bloku, kliknij przycisk **gotowe**.
 
-9. Na powitania **nowy** bloku, tooopen hello **warunki** bloku w hello **przypisania** kliknij **warunki**.
+9. Na **nowy** bloku, aby otworzyć **warunki** bloku, w **przypisania** kliknij **warunki**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/09.png)
 
-10. Na powitania **warunki** bloku, tooopen hello **lokalizacje** bloku, kliknij przycisk **lokalizacje**.
+10. Na **warunki** bloku, aby otworzyć **lokalizacje** bloku, kliknij przycisk **lokalizacje**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/10.png)
 
-11. Na powitania **lokalizacje** blok, wykonaj następujące kroki hello:
+11. Na **lokalizacje** blok, wykonaj następujące czynności:
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/11.png)
 
@@ -124,13 +124,13 @@ Aby uzyskać więcej informacji na temat zaufanych adresów IP, zobacz [zaufanyc
 
     d. Kliknij przycisk **Gotowe**.
 
-12. Na powitania **warunki** bloku, kliknij przycisk **gotowe**.
+12. Na **warunki** bloku, kliknij przycisk **gotowe**.
 
-13. Na powitania **nowy** bloku, tooopen hello **Grant** bloku w hello **formanty** kliknij **Grant**.
+13. Na **nowy** bloku, aby otworzyć **Grant** bloku, w **formanty** kliknij **Grant**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/13.png)
 
-14. Na powitania **Grant** blok, wykonaj następujące kroki hello:
+14. Na **Grant** blok, wykonaj następujące czynności:
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/14.png)
 
@@ -138,16 +138,16 @@ Aby uzyskać więcej informacji na temat zaufanych adresów IP, zobacz [zaufanyc
 
     b. Kliknij pozycję **Wybierz**.
 
-15. Na powitania **nowy** bloku, w obszarze **Włącz zasady**, kliknij przycisk **na**.
+15. Na **nowy** bloku, w obszarze **Włącz zasady**, kliknij przycisk **na**.
 
     ![Dostęp warunkowy](./media/active-directory-conditional-access-azure-portal-get-started/15.png)
 
-16. Na powitania **nowy** bloku, kliknij przycisk **Utwórz**.
+16. Na **nowy** bloku, kliknij przycisk **Utwórz**.
 
 
-## <a name="testing-hello-policy"></a>Zasady testowania hello
+## <a name="testing-the-policy"></a>Testowanie zasad
 
-tootest zasad, powinien uzyskiwać dostęp aplikacji z urządzenia który: 
+Do testowania zasad, powinien dostęp aplikacji z urządzenia, które: 
 
 1. Ma adres IP, który mieści się w sieci skonfigurowanych zaufanych adresów IP 
 
@@ -158,5 +158,5 @@ Uwierzytelnianie wieloskładnikowe powinny być wymagana tylko podczas próby po
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz toolearn więcej informacji na temat dostępu warunkowego, zobacz [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
+Jeśli chcesz dowiedzieć się więcej na temat dostępu warunkowego, zobacz [dostępu warunkowego w usłudze Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 

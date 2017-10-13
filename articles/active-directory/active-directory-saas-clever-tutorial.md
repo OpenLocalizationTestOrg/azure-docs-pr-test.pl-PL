@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Clever | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Clever."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Clever."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,118 +14,118 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 24430e1e6c750efa5787561aa151201b1fe7d428
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 84082ff567e37d7fff80be9e089c67cfab911861
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Samouczek: Integracji Azure Active Directory z Clever
 
-Z tego samouczka, dowiesz się, jak toointegrate Clever w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Clever z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Clever zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD Clever zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooClever.
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooClever (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Clever.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Clever (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z Clever należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Clever, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Inteligentne logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Clever z galerii hello
+1. Dodawanie Clever z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-clever-from-hello-gallery"></a>Dodawanie Clever z galerii hello
-tooconfigure hello integracji Clever do usługi Azure AD, należy tooadd Clever z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-clever-from-the-gallery"></a>Dodawanie Clever z galerii
+Aby skonfigurować integrację usługi Azure AD Clever, należy dodać Clever z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Clever z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Clever z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![przycisk usługi Azure Active Directory Hello][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa Hello][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Nowy przycisk aplikacji Hello][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania hello wpisz **Clever**, wybierz pozycję **Clever** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+4. W polu wyszukiwania wpisz **Clever**, wybierz pozycję **Clever** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Inteligentne hello listy wyników](./media/active-directory-saas-clever-tutorial/tutorial_clever_addfromgallery.png)
+    ![Inteligentne z listy wyników](./media/active-directory-saas-clever-tutorial/tutorial_clever_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Clever w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Clever jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Clever musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Clever jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Clever musi się.
 
-W Clever, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W Clever, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Clever, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Clever, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego inteligentne](#create-a-clever-test-user)**  -toohave odpowiednikiem Simona Britta w Clever, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego inteligentne](#create-a-clever-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Clever połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne w inteligentne aplikacji.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w inteligentne aplikacji.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Clever, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Clever, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Clever** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Clever** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-clever-tutorial/tutorial_clever_samlbase.png)
 
-3. Na powitania **inteligentne domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **inteligentne domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Inteligentne domeny i adresów URL jednym informacje logowania jednokrotnego](./media/active-directory-saas-clever-tutorial/tutorial_clever_url.png)
 
-    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://clever.com/in/<companyname>`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://clever.com/in/<companyname>`
 
-    b. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://clever.com/<companyname>`
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://clever.com/<companyname>`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator. Skontaktuj się z [zespołem pomocy technicznej klienta inteligentne](https://clever.com/about/contact/) tooget tych wartości.
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta inteligentne](https://clever.com/about/contact/) uzyskać te wartości.
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
-    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-clever-tutorial/tutorial_clever_certificate.png)
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-clever-tutorial/tutorial_clever_certificate.png)
 
-5. Inteligentne aplikacji Hello oczekuje potwierdzenia SAML hello w określonym formacie wymaga tooyour mapowań atrybutów niestandardowych tooadd **atrybuty tokenu SAML** konfiguracji.
+5. Inteligentne aplikacji oczekuje potwierdzenia języka SAML w określonym formacie, musisz dodać mapowania atrybutu niestandardowego do Twojej **atrybuty tokenu SAML** konfiguracji.
 
-    powitania po zrzut ekranu przedstawia przykład tego.
+    Poniższy zrzut ekranu przedstawia przykład tego.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-clever-tutorial/tutorial_clever_07.png) 
 
-6. W hello **atrybuty użytkownika** sekcji na powitania **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano w powyższy obraz powitania i wykonywać hello następujące kroki:
+6. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano na ilustracji powyżej i wykonaj następujące czynności:
     
     | Nazwa atrybutu  | Wartość atrybutu |
     | --------------- | -------------------- |    
@@ -133,17 +133,17 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
     | Imię  | User.givenName |
     | nazwisko  | User.surname |    
 
-    a. Kliknij przycisk **Dodaj atrybut** tooopen hello **Dodawanie atrybutu** okna dialogowego.
+    a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-clever-tutorial/tutorial_attribute_04.png)
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-clever-tutorial/tutorial_attribute_05.png)
     
-    b. W hello **nazwa** pole tekstowe, nazwa atrybutu hello typu wyświetlany dla danego wiersza.
+    b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
 
-    c. Z hello **wartość** listy wartości atrybutu hello typ wyświetlanego dla tego wiersza.
+    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
 
-    d. Pozostaw hello **Namespace** puste pole tekstowe.
+    d. Pozostaw **Namespace** puste pole tekstowe.
     
     d. Kliknij przycisk **OK**.     
 
@@ -151,117 +151,117 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-clever-tutorial/tutorial_general_400.png)
 
-8. Witaj toogenerate **metadanych** adres url, wykonaj następujące kroki hello:
+8. Aby wygenerować **metadanych** adres url, wykonaj następujące czynności:
 
     a. Kliknij przycisk **rejestracji aplikacji**.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-clever-tutorial/tutorial_clever_appregistrations.png)
    
-    b. Kliknij przycisk **punkty końcowe** tooopen **punkty końcowe** okno dialogowe.  
+    b. Kliknij przycisk **punkty końcowe** otworzyć **punkty końcowe** okno dialogowe.  
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpointicon.png)
 
-    c. Kliknij przycisk toocopy przycisku Kopiuj hello **dokument METADANYCH usług FEDERACYJNYCH** adresu url i wklej go do Notatnika.
+    c. Kliknij przycisk Kopiuj, aby skopiować **dokument METADANYCH usług FEDERACYJNYCH** adresu url i wklej go do Notatnika.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-clever-tutorial/tutorial_clever_endpoint.png)
      
-    d. Teraz przejdź strony właściwości toohello **Clever** i kopiowania hello **identyfikator aplikacji** przy użyciu **kopiowania** przycisk i wklej go do Notatnika.
+    d. Teraz przejdź do strony właściwości **Clever** i skopiuj **identyfikator aplikacji** przy użyciu **kopiowania** przycisk i wklej go do Notatnika.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-clever-tutorial/tutorial_clever_appid.png)
 
-    e. Generowanie hello **adres URL metadanych** przy użyciu hello następującego wzorca:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
+    e. Generowanie **adres URL metadanych** przy użyciu następującego wzorca:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
 
-9. W oknie przeglądarki innej witryny sieci web Zaloguj się w witrynie firmy inteligentne tooyour jako administrator.
+9. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy inteligentne.
 
-10. Witaj pasku narzędzi, kliknij przycisk **błyskawicznych logowania**.
+10. Na pasku narzędzi, kliknij przycisk **błyskawicznych logowania**.
 
     ![Logowania błyskawicznych](./media/active-directory-saas-clever-tutorial/ic798984.png "błyskawicznych logowania")
 
-11. Na powitania **błyskawicznych logowania** wykonaj hello następujące kroki:
+11. Na **błyskawicznych logowania** wykonaj następujące czynności:
       
       ![Logowania błyskawicznych](./media/active-directory-saas-clever-tutorial/ic798985.png "błyskawicznych logowania")
       
-      a. Typ hello **adres URL logowania**.
+      a. Typ **adres URL logowania**.
       
       >[!NOTE]
-      >Witaj **adres URL logowania** jest niestandardowa wartość. Skontaktuj się z [zespołem pomocy technicznej klienta inteligentne](https://clever.com/about/contact/) tooget tej wartości.
+      >**Adres URL logowania** jest niestandardowa wartość. Skontaktuj się z [zespołem pomocy technicznej klienta inteligentne](https://clever.com/about/contact/) aby zyskać tę wartość.
       
       b. Jako **systemu tożsamości**, wybierz pozycję **usług AD FS**.
 
-      c. Typ hello **adres URL metadanych** w hello **adres URL metadanych** pola tekstowego.
+      c. Typ **adres URL metadanych** w **adres URL metadanych** pola tekstowego.
       
       d. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
    ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W portalu Azure, w okienku po lewej stronie powitania hello kliknij hello **usługi Azure Active Directory** przycisku.
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-clever-tutorial/create_aaduser_01.png)
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-clever-tutorial/create_aaduser_01.png)
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-clever-tutorial/create_aaduser_02.png)
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-clever-tutorial/create_aaduser_02.png)
 
-3. Witaj tooopen **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** u góry hello hello **wszyscy użytkownicy** okno dialogowe.
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-    ![przycisk Dodaj Hello](./media/active-directory-saas-clever-tutorial/create_aaduser_03.png)
+    ![Przycisk Dodaj](./media/active-directory-saas-clever-tutorial/create_aaduser_03.png)
 
-4. W hello **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-clever-tutorial/create_aaduser_04.png)
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-clever-tutorial/create_aaduser_04.png)
 
-    a. W hello **nazwa** wpisz **BrittaSimon**.
+    a. W **nazwa** wpisz **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole typu hello adres e-mail użytkownika Simona Britta.
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz hello **Pokaż hasło** pole wyboru, a następnie zapisz hello wartość, która jest wyświetlana w hello **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-clever-test-user"></a>Tworzenie użytkownika testowego inteligentne
 
-toolog użytkowników tooenable usługi Azure AD w tooClever, muszą mieć przydzielone do Clever.
+Aby umożliwić użytkownikom usługi Azure AD zalogować się do Clever, musi być przygotowana do Clever.
 
-W przypadku Clever, Praca z [zespołem pomocy technicznej klienta inteligentne](https://clever.com/about/contact/) do dodawania użytkowników hello hello inteligentne platformy. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
+W przypadku Clever, Praca z [zespołem pomocy technicznej klienta inteligentne](https://clever.com/about/contact/) Aby dodać użytkowników do platformy inteligentne. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
 
 >[!NOTE]
->Możesz użyć innych inteligentne użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez tooprovision inteligentne kont użytkowników usługi Azure AD.
+>Możesz użyć innych inteligentne użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Clever do udostępnienia konta użytkownika usługi Azure AD.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooClever.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Clever.
 
-![Przypisanie roli użytkownika hello][200] 
+![Przypisanie roli użytkownika][200] 
 
-**tooassign tooClever Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta Clever, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Clever**.
+2. Na liście aplikacji zaznacz **Clever**.
 
-    ![Witaj Clever łącza na liście aplikacji hello](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)  
+    ![Clever łącza na liście aplikacji](./media/active-directory-saas-clever-tutorial/tutorial_clever_app.png)  
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![łącze "Użytkownicy i grupy" Hello][202]
+    ![Łącze "Użytkownicy i grupy"][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Okienko Dodaj przypisania Hello][203]
+    ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -269,14 +269,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka inteligentne hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour inteligentne aplikacji.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+Po kliknięciu kafelka inteligentne w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane inteligentne aplikacji.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

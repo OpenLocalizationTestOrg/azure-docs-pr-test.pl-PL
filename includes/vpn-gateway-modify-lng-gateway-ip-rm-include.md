@@ -1,8 +1,8 @@
-### <a name="gwipnoconnection"></a>Brama sieci lokalnej hello toomodify "GatewayIpAddress" — Brak połączenia bramy
+### <a name="gwipnoconnection"></a>Aby zmodyfikować element „GatewayIpAddress” bramy sieci lokalnej — brak połączenia bramy
 
-Witaj urządzenia sieci VPN, które mają tooconnect toohas zmienić publicznego adresu IP, należy najpierw tooreflect bramy sieci lokalnej hello toomodify, która zmienia. Użyj toomodify przykład hello bramy sieci lokalnej, która nie ma połączenia bramy.
+W przypadku zmiany publicznego adresu IP urządzenia sieci VPN, z którym chcesz nawiązać połączenie, musisz zmodyfikować bramę sieci lokalnej w celu odzwierciedlenia tej zmiany. Użyj przykładu, aby zmodyfikować bramę sieci lokalnej bez połączenia bramy.
 
-Podczas modyfikowania tej wartości, można również zmodyfikować prefiksy adresów hello na powitania tym samym czasie. Należy się toouse hello istniejącą nazwę bramy sieci lokalnej w kolejności toooverwrite hello bieżące ustawienia. Jeśli używasz innej nazwy, Utwórz nową bramę sieci lokalnej, zamiast zastępowanie hello istniejący.
+Podczas modyfikowania tej wartości możesz również zmodyfikować prefiksy adresów. Użyj istniejącej nazwy bramy sieci lokalnej w celu zastąpienia bieżących ustawień. Jeśli użyjesz innej nazwy, utworzysz nową bramę sieci lokalnej, a nie zastąpisz istniejącej.
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
@@ -10,34 +10,34 @@ New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 ```
 
-### <a name="gwipwithconnection"></a>Brama sieci lokalnej hello toomodify "GatewayIpAddress" - istniejące połączenie bramy
+### <a name="gwipwithconnection"></a>Aby zmodyfikować element „GatewayIpAddress” bramy sieci lokalnej — istniejące połączenie bramy
 
-Witaj urządzenia sieci VPN, które mają tooconnect toohas zmienić publicznego adresu IP, należy najpierw tooreflect bramy sieci lokalnej hello toomodify, która zmienia. Jeśli istnieje już połączenie bramy, musisz najpierw tooremove hello połączenia. Po usunięciu hello połączenia można zmodyfikować adres IP bramy hello i utworzyć nowe połączenie. Można również zmodyfikować prefiksy adresów hello na powitania tym samym czasie. Spowoduje to pewien przestój połączenia sieci VPN. Podczas modyfikowania adres IP bramy hello, nie potrzebujesz bramy sieci VPN hello toodelete. Wystarczy tooremove hello połączenia.
+W przypadku zmiany publicznego adresu IP urządzenia sieci VPN, z którym chcesz nawiązać połączenie, musisz zmodyfikować bramę sieci lokalnej w celu odzwierciedlenia tej zmiany. Jeśli istnieje już połączenie bramy, musisz je najpierw usunąć. Po usunięciu połączenia możesz zmodyfikować adres IP bramy i ponownie utworzyć nowe połączenie. Jednocześnie możesz również zmodyfikować prefiksy adresów. Spowoduje to pewien przestój połączenia sieci VPN. W przypadku modyfikowania adresu IP bramy nie musisz usuwać bramy sieci VPN. Musisz usunąć tylko połączenie.
  
 
-1. Usuń połączenie hello. Za pomocą polecenia cmdlet "Get-AzureRmVirtualNetworkGatewayConnection" hello, można znaleźć hello nazwę połączenia.
+1. Usuń połączenie. Nazwę połączenia możesz znaleźć przy użyciu polecenia cmdlet „Get-AzureRmVirtualNetworkGatewayConnection”.
 
   ```powershell
   Remove-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName `
   -ResourceGroupName MyRGName
   ```
-2. Zmień wartość "GatewayIpAddress" hello. Można również zmodyfikować prefiksy adresów hello na powitania tym samym czasie. Należy się toouse hello istniejącej nazwy sieci lokalnej bramy toooverwrite hello bieżących ustawień. Jeśli nie istnieje, Utwórz nową bramę sieci lokalnej, zamiast zastępowanie hello istniejący.
+2. Zmodyfikuj wartość klasy „GatewayIpAddress”. Jednocześnie możesz również zmodyfikować prefiksy adresów. Pamiętaj, aby użyć istniejącej nazwy bramy sieci lokalnej w celu zastąpienia bieżących ustawień. Jeśli tego nie zrobisz, utworzysz nową bramę sieci lokalnej, a nie zastąpisz istniejącej.
 
   ```powershell
   New-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName `
   -Location "West US" -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24') `
   -GatewayIpAddress "104.40.81.124" -ResourceGroupName MyRGName
   ```
-3. Utwórz połączenie hello. W tym przykładzie skonfigurujemy połączenie typu IPsec. Podczas ponownego tworzenia połączenia, należy użyć hello typu połączenia, który jest określony dla danej konfiguracji. Dla typów dodatkowego połączenia, zobacz hello [polecenia cmdlet programu PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) strony.  Nazwa VirtualNetworkGateway hello tooobtain, można uruchomić polecenia cmdlet "Get-AzureRmVirtualNetworkGateway" hello.
+3. Utwórz połączenie. W tym przykładzie skonfigurujemy połączenie typu IPsec. Podczas ponownego tworzenia połączenia należy użyć typu połączenia, który został określony dla danej konfiguracji. O dodatkowych typach połączeń można przeczytać na stronie [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) (Polecenia cmdlet programu PowerShell).  Aby uzyskać nazwę bramy VirtualNetworkGateway, można uruchomić polecenie cmdlet „Get-AzureRmVirtualNetworkGateway”.
    
-    Ustaw zmienne hello.
+    Ustaw zmienne.
 
   ```powershell
   $local = Get-AzureRMLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
   $vnetgw = Get-AzureRmVirtualNetworkGateway -Name RMGateway -ResourceGroupName MyRGName
   ```
    
-    Utwórz połączenie hello.
+    Utwórz połączenie.
 
   ```powershell 
   New-AzureRmVirtualNetworkGatewayConnection -Name MyGWConnectionName -ResourceGroupName MyRGName `

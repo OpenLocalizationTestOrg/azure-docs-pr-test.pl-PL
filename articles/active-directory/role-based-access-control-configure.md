@@ -1,6 +1,6 @@
 ---
-title: "na podstawie aaaRole kontroli dostępu w portalu Azure hello | Dokumentacja firmy Microsoft"
-description: "Rozpocznij zarządzanie dostępem z opartej na rolach kontrola dostępu w portalu Azure hello. Użyj roli przypisania tooassign uprawnienia tooyour zasobów."
+title: "Kontrola dostępu oparta na rolach w witrynie Azure Portal | Microsoft Docs"
+description: "Rozpocznij zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach w witrynie Azure Portal. Przypisz uprawnienia do swoich zasobów za pomocą przypisań ról."
 services: active-directory
 documentationcenter: 
 author: andredm7
@@ -14,62 +14,62 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
-ms.openlocfilehash: b87e00089b0fc93fb212b318330a6f22bfbf59e2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9df7f7851ef1fc6b4ed03b981aa5062d6b0913ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-role-based-access-control-toomanage-access-tooyour-azure-subscription-resources"></a>Korzystanie z kontroli dostępu opartej na rolach toomanage dostępu tooyour subskrypcji platformy Azure zasobów
+# <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>Korzystanie z kontroli dostępu opartej na rolach do zarządzania dostępem do zasobów subskrypcji platformy Azure
 > [!div class="op_single_selector"]
 > * [Zarządzanie dostępem użytkowników lub grup](role-based-access-control-manage-assignments.md)
 > * [Zarządzanie dostępem do zasobów](role-based-access-control-configure.md)
 
-Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Przy użyciu funkcji RBAC, można udzielić tylko hello takiego dostępu czy użytkownicy muszą tooperform swoich zadań. W tym artykule opisano, jak rozpocząć pracę z RBAC w hello portalu Azure. Jeśli chcesz uzyskać więcej szczegółowych informacji na temat sposobu, w jaki RBAC ułatwia zarządzanie dostępem, zobacz [Co to jest kontrola dostępu oparta na rolach](role-based-access-control-what-is.md).
+Kontrola dostępu oparta na rolach (Role-Based Access Control, RBAC) na platformie Azure umożliwia precyzyjne zarządzanie dostępem dla platformy Azure. Korzystając z modelu RBAC, można udzielić użytkownikom tylko takiego dostępu, jakiego potrzebują do wykonania swoich zadań. Ten artykuł ułatwia rozpoczęcie pracy z kontrolą dostępu opartą na rolach w witrynie Azure Portal. Jeśli chcesz uzyskać więcej szczegółowych informacji na temat sposobu, w jaki RBAC ułatwia zarządzanie dostępem, zobacz [Co to jest kontrola dostępu oparta na rolach](role-based-access-control-what-is.md).
 
-W ramach każdej subskrypcji można przyznać się too2000 przypisań ról. 
+W ramach każdej subskrypcji można przyznać maksymalnie 2000 przypisań ról. 
 
 ## <a name="view-access"></a>Wyświetlanie dostępu
-Można zobaczyć, kto ma dostęp do zasobów tooa, grupy zasobów lub subskrypcji z głównego bloku hello [portalu Azure](https://portal.azure.com). Na przykład chcemy toosee, kto ma dostęp tooone naszych grup zasobów:
+Z poziomu głównego bloku zasobu, grupy zasobów lub subskrypcji w witrynie [Azure Portal](https://portal.azure.com) można zobaczyć, kto ma dostęp do tego zasobu, grupy zasobów lub subskrypcji. Na przykład jeśli chcesz zobaczyć, kto ma dostęp do jednej z grup zasobów:
 
-1. Wybierz **grup zasobów** hello pasku nawigacyjnym po lewej stronie powitania.  
+1. Wybierz pozycję **Grupy zasobów** na pasku nawigacyjnym po lewej stronie.  
     ![Grupy zasobów — ikona](./media/role-based-access-control-configure/resourcegroups_icon.png)
-2. Witaj wybierz nazwę grupy zasobów hello z hello **grup zasobów** bloku.
-3. Wybierz **(IAM) kontroli dostępu** z menu po lewej stronie powitania.  
-4. blok kontroli dostępu Hello zawiera listę wszystkich użytkowników, grup i aplikacji, które zostały przyznane grupy zasobów toohello dostępu.  
+2. Wybierz nazwę grupy zasobów z bloku **Grupy zasobów**.
+3. Z menu po lewej stronie wybierz opcję **Kontrola dostępu (IAM)**.  
+4. W bloku Kontrola dostępu znajduje się lista wszystkich użytkowników, grup i aplikacji, którym został udzielony dostęp do grupy zasobów.  
    
     ![Blok użytkowników — dostęp dziedziczony a przypisany (zrzut ekranu)](./media/role-based-access-control-configure/view-access.png)
 
-Zwróć uwagę, zbyt ograniczone niektóre role**tego zasobu** a inne **dziedziczonych** go z innym zakresem. Dostępu jest przypisane w szczególności toohello grupy zasobów albo dziedziczony z subskrypcji nadrzędnej toohello przypisania.
+Należy zauważyć, że niektóre role należą do zakresu **tego zasobu**, a inne są **dziedziczone** z innego zakresu. Dostęp jest przypisywany specjalnie do grupy zasobów albo dziedziczony z przypisania do subskrypcji nadrzędnej.
 
 > [!NOTE]
-> Klasyczni Administratorzy i współadministratorzy są traktowani jako właściciele subskrypcji hello w nowym modelu RBAC hello.
+> Klasyczni administratorzy i współadministratorzy są traktowani jako właściciele subskrypcji w nowym modelu RBAC.
 
 ## <a name="add-access"></a>Dodawanie dostępu
-Można przyznać dostęp z wewnątrz hello zasobu, grupy zasobów lub subskrypcji, która jest zakresem hello hello przypisania roli.
+Dostęp udzielany jest w ramach zasobu, grupy zasobów lub subskrypcji, która jest zakresem przypisania roli.
 
-1. Wybierz **Dodaj** w bloku kontroli dostępu hello.  
-2. Czy chcesz tooassign z hello roli wybierz hello **wybierz rolę** bloku.
-3. Wybierz użytkownika hello, grupę lub aplikację w katalogu, który ma dostęp toogrant do. Można przeszukiwać katalog hello o nazw wyświetlanych, adresów e-mail i identyfikatorów obiektów.  
+1. Kliknij przycisk **Dodaj** w bloku Kontrola dostępu.  
+2. W bloku **Wybierz rolę** wybierz rolę, którą chcesz przypisać.
+3. Wybierz użytkownika, grupę lub aplikację w katalogu, którym chcesz udzielić dostępu. Możesz przeszukiwać katalog przy użyciu nazw wyświetlanych, adresów e-mail i identyfikatorów obiektów.  
    
     ![Blok dodawania użytkowników — zrzut ekranu wyszukiwania](./media/role-based-access-control-configure/grant-access2.png)
-4. Wybierz **OK** toocreate hello przypisania. Witaj **Dodawanie użytkownika** podręcznego śledzi postęp hello.  
+4. Wybierz przycisk **OK**, aby utworzyć przypisanie. Wyskakujące okienko **Dodawanie użytkownika** śledzi postęp procesu.  
     ![Pasek postępu dodawania użytkownika — zrzut ekranu](./media/role-based-access-control-configure/addinguser_popup.png)
 
-Po pomyślnym dodaniu przypisania roli, pojawi się na powitania **użytkowników** bloku.
+Po pomyślnym dodaniu przypisania roli będzie ono wyświetlane w bloku **Użytkownicy**.
 
 ## <a name="remove-access"></a>Usuwanie dostępu
-1. Wskaźnik nad hello nazwy przypisania hello, które mają tooremove. Pole wyboru zostanie wyświetlona nazwa toohello dalej.
-2. Użyj hello tooselect pola wyboru jednego lub więcej przypisań ról.
+1. Umieść kursor na nazwie przypisania, które chcesz usunąć. Obok nazwy pojawi się pole wyboru.
+2. Użyj pól wyboru, aby wybrać co najmniej jedno przypisanie roli.
 2. Wybierz pozycję **Usuń**.  
-3. Wybierz **tak** tooconfirm hello usuwania.
+3. Wybierz pozycję **Tak**, aby potwierdzić usunięcie.
 
-Przypisań dziedziczonych nie można usunąć. Tooremove dziedziczone przypisania, należy należy toodo go na powitania zakresu, której utworzono hello przypisania roli. W hello **zakres** kolumny, obok zbyt**dziedziczonych** jest łącze, które umożliwia przejście zasobów toohello gdy ta rola została przypisana. Przejście zasobu toohello podane przypisania roli hello tooremove.
+Przypisań dziedziczonych nie można usunąć. Aby usunąć odziedziczone przypisanie, należy to zrobić w zakresie, w którym je utworzono. W kolumnie **Zakres** obok pola **Dziedziczone** znajduje się link umożliwiający przejście do zasobów, w ramach których ta rola została przypisana. Przejdź do zasobu wskazanego w tym miejscu, aby usunąć przypisanie roli.
 
 ![Blok Użytkownicy — dostęp dziedziczony wyłącza przycisk usuwania (zrzut ekranu)](./media/role-based-access-control-configure/remove-access2.png)
 
-## <a name="other-tools-toomanage-access"></a>Inne narzędzia toomanage dostępu
-Można przypisywać role i Zarządzaj dostępem za pomocą poleceń Azure RBAC w narzędziach innych niż hello portalu Azure.  Wykonaj toolearn łącza hello więcej o warunkach wstępnych hello i wprowadzenie do poleceń Azure RBAC hello.
+## <a name="other-tools-to-manage-access"></a>Inne narzędzia do zarządzania dostępem
+Za pomocą poleceń Azure RBAC można przypisywać role i zarządzać dostępem w narzędziach innych niż witryna Azure Portal.  Skorzystaj z linków, aby dowiedzieć się więcej o wymaganiach wstępnych i zacząć korzystać z poleceń Azure RBAC.
 
 * [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
 * [Interfejs wiersza polecenia platformy Azure](role-based-access-control-manage-access-azure-cli.md)
@@ -77,6 +77,6 @@ Można przypisywać role i Zarządzaj dostępem za pomocą poleceń Azure RBAC w
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie raportu historii zmian dostępu](role-based-access-control-access-change-history-report.md)
-* Zobacz hello [wbudowane role RBAC](role-based-access-built-in-roles.md)
+* Zobacz [Wbudowane role RBAC](role-based-access-built-in-roles.md)
 * Definiowanie własnych [niestandardowych ról dla kontroli dostępu opartej na rolach na platformie Azure](role-based-access-control-custom-roles.md)
 

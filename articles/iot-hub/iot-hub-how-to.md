@@ -1,6 +1,6 @@
 ---
-title: Jak Centrum IoT aaaAzure zbyt | Dokumentacja firmy Microsoft
-description: "Deweloper, jak używać hello różnych funkcji Centrum IoT?"
+title: Centrum IoT Azure jak | Dokumentacja firmy Microsoft
+description: "Deweloper jak używać różnych funkcji Centrum IoT?"
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: d9c6e25bb332704dee4327bcdc361a299c064130
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 786121ae249d69376b4be4c74000868cbb208989
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-toouse-azure-iot-hub"></a>Jak toouse Centrum IoT Azure
+# <a name="how-to-use-azure-iot-hub"></a>Jak używać Centrum IoT Azure
 
-Istnieją różne opcje toolearn, jak usługa toodevelop dla hello Centrum IoT:
+Istnieją różne opcje, aby dowiedzieć się, jak opracowywać usługi Centrum IoT:
 
-* Przeczytaj artykuły koncepcyjne hello opisujące hello funkcji Centrum IoT szczegółowo.
-* Wykonaj jedną z samouczki hello, które obejmują hello różnych funkcji Centrum IoT.
+* Przeczytaj koncepcyjnej artykuły, które opisano szczegółowo funkcji Centrum IoT.
+* Wykonaj jedną z samouczków, które obejmują różnych funkcji Centrum IoT.
 
 ## <a name="developer-guide"></a>Przewodnik dla deweloperów
 
-Projektant, możesz przeczytać szczegółowe ogólne wskazówki dotyczące Centrum IoT w hello [przewodnik dewelopera po][lnk-devguide]. Ten przewodnik zawiera:
+Projektant, możesz przeczytać szczegółowe ogólne wskazówki dotyczące Centrum IoT w [przewodnik dewelopera po][lnk-devguide]. Ten przewodnik zawiera:
 
-* Szczegółowe opisy wszystkich funkcji Centrum IoT, które ułatwiają toolearn jak toouse je.
-* Wskazówki dotyczące toochoose, gdy jest dostępnych kilka opcji.
+* Szczegółowy opis wszystkich funkcji Centrum IoT, które ułatwiają korzystanie z nich.
+* Wskazówki na temat wybierania, jeśli jest dostępnych kilka opcji.
 
 ## <a name="tutorials"></a>Samouczki
 
-Jeśli wolisz toolearn o określonych funkcji Centrum IoT przy pracy nad Ćwiczenia praktyczne, istnieje kilka toochoose samouczki z. Wiele z tych samouczki są dostępne w wielu języków programowania. Te samouczki obejmują:
+Jeśli wolisz informacje o określonych funkcji Centrum IoT pracy nad Ćwiczenia praktyczne istnieje kilka samouczków do wyboru. Wiele z tych samouczki są dostępne w wielu języków programowania. Te samouczki obejmują:
 
-- [Przetwarzanie wiadomości urządzenia do chmury Centrum IoT przy użyciu trasy][lnk-routes-tutorial]. Ten samouczek pokazuje, jak routing Centrum IoT toouse zasady toodispatch urządzenia do chmury wiadomości w sposób łatwy, na podstawie konfiguracji.
+- [Przetwarzanie wiadomości urządzenia do chmury Centrum IoT przy użyciu trasy][lnk-routes-tutorial]. W tym samouczku przedstawiono sposób wysyłania wiadomości urządzenia do chmury w sposób łatwy, oparta na konfiguracji za pomocą reguł routingu Centrum IoT.
 
-- [Wysyłanie komunikatów chmury do urządzenia z Centrum IoT][lnk-c2d-tutorial]. Ten samouczek pokazuje, jak komunikaty toosend chmury do urządzenia za pośrednictwem Centrum IoT i odbieranie wiadomości chmury do urządzenia na urządzeniu.
+- [Wysyłanie komunikatów chmury do urządzenia z Centrum IoT][lnk-c2d-tutorial]. W tym samouczku przedstawiono sposób wysyłania wiadomości chmury do urządzenia za pośrednictwem Centrum IoT i odbierania wiadomości chmury do urządzenia na urządzeniu.
 
-- [Przekazywanie plików z chmury toohello urządzenia z Centrum IoT][lnk-upload-tutorial]. Ten samouczek pokazuje, jak plik hello toouse przekazać możliwości Centrum IoT.
+- [Przekazywanie plików z urządzenia do chmury z Centrum IoT][lnk-upload-tutorial]. Ten samouczek pokazuje, jak używać funkcji przekazywania plików z Centrum IoT.
 
-- [Rozpoczynanie pracy z urządzenia twins][lnk-twin-tutorial]. W tym samouczku przedstawiono toodevice twins, właściwości zgłoszone odpowiednie właściwości i tagów. Należy użyć wartości toosynchronize twins urządzenia z urządzenia.
+- [Rozpoczynanie pracy z urządzenia twins][lnk-twin-tutorial]. W tym samouczku przedstawiono twins urządzenia, właściwości zgłoszone odpowiednie właściwości i tagów. Twins urządzenia jest służy do synchronizowania wartości z urządzenia.
 
-- [Użyj metody bezpośredniego][lnk-methods-tutorial]. Ten samouczek pokazuje, jak toouse bezpośrednie metody. Dodaj obsługę metoda bezpośrednia w symulowane urządzenie i wywołania metody bezpośredniego hello z Centrum IoT.
+- [Użyj metody bezpośredniego][lnk-methods-tutorial]. W tym samouczku przedstawiono sposób użycia metody bezpośredniego. Dodaj obsługę metoda bezpośrednia w symulowane urządzenie i wywołać metodę bezpośrednio z Centrum IoT.
 
-- [Wprowadzenie do zarządzania urządzeniami][lnk-dm-tutorial]. Ten samouczek pokazuje, jak takich twins i bezpośrednie metody funkcji zarządzania urządzeniami klucza toouse. Użyj ponownego uruchomienia tych funkcji tooremotely symulowane urządzenie.
+- [Wprowadzenie do zarządzania urządzeniami][lnk-dm-tutorial]. Ten samouczek pokazuje, jak używać funkcji zarządzania urządzeniami klucza, takich jak twins i bezpośrednie metody. Zdalnie uruchom ponownie symulowane urządzenie przy użyciu tych funkcji.
 
-- [Używanie urządzeń tooconfigure odpowiednie właściwości][lnk-properties-tutorial]. W tym samouczku przedstawiono sposób dwie toouse hello urządzenia żądanego i podać właściwości, tooremotely Skonfiguruj urządzenie.
+- [Konfigurowanie urządzeń za pomocą właściwości żądanego][lnk-properties-tutorial]. Ten samouczek pokazuje, że sposobu do urządzenia przez dwie potrzeby a zgłosił właściwości, do zdalnego konfigurowania urządzenia.
 
-- [Użyj urządzenia zadania tooinitiate aktualizacji oprogramowania układowego urządzenia][lnk-jobs-tutorial]. Ten samouczek pokazuje, jak takich twins i bezpośrednie metody funkcji zarządzania urządzeniami klucza toouse. Dowiesz się, jak toouse tooremotely tych funkcji aktualizacji oprogramowania układowego urządzenia.
+- [Zainicjuj aktualizację oprogramowania układowego urządzenia za pomocą zadania urządzenia][lnk-jobs-tutorial]. Ten samouczek pokazuje, jak używać funkcji zarządzania urządzeniami klucza, takich jak twins i bezpośrednie metody. Jak używać tych funkcji można zdalnie zaktualizować oprogramowanie układowe urządzenia.
 
-- [Zadania harmonogramu i emisji][lnk-schedule-tutorial]. Ten samouczek pokazuje, jak toouse żądanego właściwości i metod bezpośredniego toointeract z wieloma urządzeniami w zaplanowanym terminie.
+- [Zadania harmonogramu i emisji][lnk-schedule-tutorial]. W tym samouczku przedstawiono sposób użyć żądanej właściwości i metody bezpośrednio do interakcji z wieloma urządzeniami w zaplanowanym czasie.
 
 ## <a name="next-steps"></a>Następne kroki
 
-toolearn więcej informacji na temat hello usługi IoT Hub, zobacz hello [przewodnik dewelopera po][lnk-devguide].
+Aby dowiedzieć się więcej o usłudze IoT Hub, zobacz [przewodnik dewelopera po][lnk-devguide].
 
 [lnk-devguide]: ./iot-hub-devguide.md
 [lnk-routes-tutorial]: ./iot-hub-csharp-csharp-process-d2c.md

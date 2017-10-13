@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Push sformatowanego centra powiadomień"
-description: "Dowiedz się, jak sformatowanego toosend wypychanych aplikacji dla systemu iOS tooan powiadomienia z platformy Azure. Przykłady kodu napisane w języku Objective C i C#."
+title: "Wypychania sformatowanego centra powiadomień Azure"
+description: "Dowiedz się, jak wysyłać powiadomienia wypychane sformatowanego do aplikacji systemu iOS z platformy Azure. Przykłady kodu napisane w języku Objective C i C#."
 documentationcenter: ios
 services: notification-hubs
 author: ysxu
@@ -14,15 +14,15 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 5432d8bf47777371bea3521a0c0176ade75fbd9a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 394efdc2dfaff0666bc23d8a448b0a00d414da99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Wypychania sformatowanego centra powiadomień Azure
 ## <a name="overview"></a>Omówienie
-W kolejności tooengage użytkownikom błyskawiczne sformatowanego zawartość aplikacja może być toopush poza zwykły tekst. Te powiadomienia wspierania interakcji użytkowników i obecny zawartości, takie jak adresy URL, dźwięki, obrazy/bony i. W tym samouczku opiera się na powitania [Powiadom użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tematu i pokazuje, jak toosend wypychanie powiadomień, zawierające ładunków (na przykład obraz).
+Aby angażowania użytkowników błyskawicznych sformatowanego zawartość, aplikacja może być push poza zwykły tekst. Te powiadomienia wspierania interakcji użytkowników i obecny zawartości, takie jak adresy URL, dźwięki, obrazy/bony i. W tym samouczku opiera się na [Powiadom użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tematu i pokazuje, jak wysyłać powiadomienia wypychane, zawierające ładunków (na przykład obraz).
 
 W tym samouczku jest zgodny z systemem iOS 7 i 8.
 
@@ -30,28 +30,28 @@ W tym samouczku jest zgodny z systemem iOS 7 i 8.
 
 Na wysokim poziomie:
 
-1. zaplecze aplikacji Hello:
-   * Magazyny hello ładunku sformatowanego (w tym przypadku obrazu) w magazynie bazy danych i lokalnym zaplecza hello
-   * Wysyła identyfikator tego urządzenia toohello sformatowanego powiadomień
-2. Aplikacja hello urządzenia:
-   * Kontakty hello hello ładunku sformatowanym identyfikatorem hello odbierze żądanie wewnętrznej bazy danych
-   * Wysyła powiadomienia użytkowników na urządzeniu hello, po zakończeniu pobierania danych i zawiera ładunek hello natychmiast, gdy użytkownik naciśnie polecenie toolearn więcej
+1. Zaplecze aplikacji:
+   * Przechowuje sformatowanego ładunku (w tym przypadku obrazu) w magazynie bazy danych i lokalnym wewnętrznej bazy danych
+   * Wysyła identyfikator sformatowanego powiadomienia do urządzenia
+2. Aplikacją na urządzeniu:
+   * Kontakty zaplecza sformatowanego ładunku o identyfikatorze odbiera żądanie
+   * Wysyła powiadomienia użytkowników na urządzeniu, po zakończeniu pobierania danych i pokazuje ładunku natychmiast, gdy użytkownik naciśnie polecenie, aby dowiedzieć się więcej
 
 ## <a name="webapi-project"></a>WebAPI projektu
-1. W programie Visual Studio Otwórz hello **AppBackend** projektu, który został utworzony w hello [Powiadom użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) samouczka.
-2. Uzyskaj obraz chcesz toonotify użytkownikom i umieszcza je **img** folderu w katalogu projektu.
-3. Kliknij przycisk **Pokaż wszystkie pliki** w hello Eksploratorze rozwiązań i kliknij prawym przyciskiem myszy hello folder zbyt**załącz do projektu**.
-4. Wybrany obraz powitania, zmienić jego Akcja kompilacji w oknie właściwości zbyt**osadzonego zasobu**.
+1. W programie Visual Studio Otwórz **AppBackend** projektu, który został utworzony w [Powiadom użytkowników](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) samouczka.
+2. Uzyskaj obraz chcesz powiadamiać użytkowników i umieszcza je **img** folderu w katalogu projektu.
+3. Kliknij przycisk **Pokaż wszystkie pliki** w Eksploratorze rozwiązań i kliknij prawym przyciskiem myszy folder, z którego **załącz do projektu**.
+4. Zaznacz obraz, zmienić jego akcji kompilacji w oknie właściwości, aby **osadzonego zasobu**.
    
     ![][IOS2]
-5. W **Notifications.cs**, Dodaj następujące hello instrukcję using:
+5. W **Notifications.cs**, dodaj następującą instrukcję using:
    
         using System.Reflection;
-6. Aktualizacja hello całego **powiadomienia** klasy z hello następującego kodu. Należy się tooreplace symbole zastępcze hello poświadczenia Centrum powiadomień i nazwę pliku obrazu.
+6. Aktualizacji całym **powiadomienia** klasy następującym kodem. Pamiętaj zastąpić symbole zastępcze poświadczenia Centrum powiadomień i nazwę pliku obrazu.
    
         public class Notification {
             public int Id { get; set; }
-            // Initial notification message toodisplay toousers
+            // Initial notification message to display to users
             public string Message { get; set; }
             // Type of rich payload (developer-defined)
             public string RichType { get; set; }
@@ -67,7 +67,7 @@ Na wysokim poziomie:
             public NotificationHubClient Hub { get; set; }
    
             private Notifications() {
-                // Placeholders: replace with hello connection string (with full access) for your notification hub and hello hub name from hello Azure Classics Portal
+                // Placeholders: replace with the connection string (with full access) for your notification hub and the hub name from the Azure Classics Portal
                 Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
             }
    
@@ -93,10 +93,10 @@ Na wysokim poziomie:
         }
    
    > [!NOTE]
-   > (opcjonalnie) Odwołuje się zbyt[jak tooembed i dostęp do zasobów przy użyciu programu Visual C#](http://support.microsoft.com/kb/319292) Aby uzyskać więcej informacji na temat tooadd i uzyskiwanie zasobów projektu.
+   > (opcjonalnie) Zapoznaj się [jak osadzić i uzyskiwać dostęp do zasobów przy użyciu programu Visual C#](http://support.microsoft.com/kb/319292) Aby uzyskać więcej informacji na temat sposobu dodawania i uzyskiwanie zasobów projektu.
    > 
    > 
-7. W **NotificationsController.cs**, Zmień definicję **NotificationsController** z powitania po fragmentów. Wysyła toodevice identyfikator początkowym powiadomieniu sformatowanego dyskretnej i umożliwia pobranie obrazu po stronie klienta:
+7. W **NotificationsController.cs**, Zmień definicję **NotificationsController** z poniższe fragmenty kodu. Wysyła identyfikator początkowej dyskretnej sformatowanego powiadomień do urządzeń i umożliwia pobranie obrazu po stronie klienta:
    
         // Return http response with image binary
         public HttpResponseMessage Get(int id) {
@@ -110,9 +110,9 @@ Na wysokim poziomie:
             return result;
         }
    
-        // Create rich notification and send initial silent notification (containing id) tooclient
+        // Create rich notification and send initial silent notification (containing id) to client
         public async Task<HttpResponseMessage> Post() {
-            // Replace hello placeholder with image file name
+            // Replace the placeholder with image file name
             var richNotificationInTheBackend = Notifications.Instance.CreateNotification("Check this image out!", "img",  "{logo.png}");
    
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
@@ -120,41 +120,41 @@ Na wysokim poziomie:
             // Silent notification with content available
             var aboutUser = "{\"aps\": {\"content-available\": 1, \"sound\":\"\"}, \"richId\": \"" + richNotificationInTheBackend.Id.ToString() + "\",  \"richMessage\": \"" + richNotificationInTheBackend.Message + "\", \"richType\": \"" + richNotificationInTheBackend.RichType + "\"}";
    
-            // Send notification tooapns
+            // Send notification to apns
             await Notifications.Instance.Hub.SendAppleNativeNotificationAsync(aboutUser, usernameTag);
    
             return Request.CreateResponse(HttpStatusCode.OK);
         }
-8. Teraz ponownie wdrożymy ten tooan aplikacji witryny sieci Web Azure w kolejności toomake go ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy na powitania **AppBackend** projekt i wybierz **publikowania**.
-9. Wybierz urządzenie docelowe publikowania witryny sieci Web platformy Azure. Zaloguj się przy użyciu konta platformy Azure i wybierz istniejącą lub nową witrynę sieci Web i zanotuj hello **docelowy adres URL** właściwości w hello **połączenia** kartę. Odnoszą się adres URL toothis Twojego *wewnętrznej bazy danych punktu końcowego* dalszej części tego samouczka. Kliknij przycisk **Opublikuj**.
+8. Teraz ponownie wdrożymy tę aplikację do witryny sieci Web platformy Azure, aby udostępnić go ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy projekt **AppBackend** i wybierz polecenie **Publikuj**.
+9. Wybierz urządzenie docelowe publikowania witryny sieci Web platformy Azure. Zaloguj się przy użyciu konta platformy Azure i wybierz istniejącą lub nową witrynę sieci Web i zanotuj **docelowy adres URL** właściwości w **połączenia** kartę. W dalszej części tego samouczka będziemy nazywać ten adres URL *punktem końcowym zaplecza*. Kliknij przycisk **Opublikuj**.
 
-## <a name="modify-hello-ios-project"></a>Modyfikowanie hello projekt dla systemu iOS
-Teraz, gdy zmieniono Twojej aplikacji zaplecza toosend tylko hello *identyfikator* powiadomienia, będzie zmienić ten identyfikator użytkownika toohandle aplikacji systemu iOS i pobrać sformatowanego wiadomość hello z poziomu zaplecza.
+## <a name="modify-the-ios-project"></a>Zmodyfikuj projekt dla systemu iOS
+Teraz, gdy zmieniono zapleczu swojej aplikacji, aby wysłać tylko *identyfikator* powiadomienia, spowoduje zmianę aplikacji systemu iOS do obsługi tego identyfikatora i pobierania sformatowany komunikat z zaplecza.
 
-1. Otwórz projekt dla systemu iOS, a następnie Włącz powiadomienia zdalne przez przechodzi do docelowej aplikacji głównej tooyour w hello **cele** sekcji.
-2. Polecenie **możliwości**, Włącz **tryby tła**i sprawdź hello **zdalnego powiadomienia** wyboru.
+1. Otwórz projekt dla systemu iOS i włączyć zdalne powiadomienia, przechodząc do urządzenie docelowe głównej aplikacji w **cele** sekcji.
+2. Polecenie **możliwości**, Włącz **tryby tła**i sprawdź **zdalnego powiadomienia** wyboru.
    
     ![][IOS3]
-3. Przejdź za**Main.storyboard**i upewnij się, że masz kontroler widoku (tooas określonej Home kontrolera widoku w tym samouczku) z [powiadamia użytkownika](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) samouczka.
-4. Dodaj **kontrolera nawigacji** tooyour scenorysu, a następnie przeciągnij formant toomake kontrolera widoku tooHome go hello **Widok główny** nawigacji. Upewnij się, że hello **jest początkowej kontrolera widoku** w atrybutach inspektora został wybrany do hello tylko kontrolera nawigacji.
-5. Dodaj **kontrolera widoku** toostoryboard i Dodaj **widoku obrazu**. Jest to strona hello, które użytkownicy zobaczą, gdy wybiera on toolearn więcej klikając hello notifiication. Twoje scenorysu powinna wyglądać następująco:
+3. Przejdź do **Main.storyboard**i upewnij się, że masz kontroler widoku (określonej jako Home kontrolera widoku w tym samouczku) z [powiadamia użytkownika](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) samouczka.
+4. Dodaj **kontrolera nawigacji** do scenorysu i kontrolki przeciągania Home kontrolera widoku umożliwia **Widok główny** nawigacji. Upewnij się, że **jest początkowej kontrolera widoku** w atrybutach inspektora wybrano tylko kontrolera nawigacji.
+5. Dodaj **kontrolera widoku** scenorysu, a następnie dodaj **widoku obrazu**. Jest to strona, którą użytkownicy zobaczą, gdy wybiera on dowiedzieć się więcej, klikając notifiication. Twoje scenorysu powinna wyglądać następująco:
    
     ![][IOS4]
-6. Polecenie hello **Home kontrolera widoku** scenorysu, i upewnij się, że ma ona **homeViewController** jako jego **klasy niestandardowej** i **scenorysu identyfikator**w obszarze hello inspektora tożsamości.
-7. Witaj takie same dla obrazu kontroler widoku jako **imageViewController**.
-8. Następnie utwórz nową klasę kontrolera widoku zatytułowany **imageViewController** toohandle hello właśnie utworzony interfejsu użytkownika.
-9. W **imageViewController.h**, Dodaj powitania po deklaracji interfejsów toohello kontrolera. Upewnij się, że toocontrol i przeciągnij od Witaj scenorysu obrazu widoku toothese właściwości toolink Witaj dwie:
+6. Polecenie **Home kontrolera widoku** scenorysu, i upewnij się, że ma ona **homeViewController** jako jego **klasy niestandardowej** i **scenorysu identyfikator**w obszarze inspektora tożsamości.
+7. Wykonaj te same czynności dla obrazu kontroler widoku jako **imageViewController**.
+8. Następnie utwórz nową klasę kontrolera widoku zatytułowany **imageViewController** do obsługi interfejsu użytkownika został utworzony.
+9. W **imageViewController.h**, Dodaj następujący kod do kontrolera deklaracji interfejsu. Upewnij się, że formant podczas przeciągania z widoku obrazu scenorysu te właściwości, aby połączyć dwóch:
    
         @property (weak, nonatomic) IBOutlet UIImageView *myImage;
         @property (strong) UIImage* imagePayload;
-10. W **imageViewController.m**, Dodaj następujące hello na końcu hello **viewDidload**:
+10. W **imageViewController.m**, Dodaj następujący kod na końcu **viewDidload**:
     
-        // Display hello UI Image in UI Image View
+        // Display the UI Image in UI Image View
         [self.myImage setImage:self.imagePayload];
-11. W **AppDelegate.m**, kontrolera obraz powitania importu utworzone:
+11. W **AppDelegate.m**, zaimportuj kontrolera obraz został utworzony:
     
         #import "imageViewController.h"
-12. Dodaj sekcję interfejsu z powitania po deklaracji:
+12. Dodaj sekcję interfejsu z deklaracją następujące:
     
         @interface AppDelegate ()
     
@@ -165,7 +165,7 @@ Teraz, gdy zmieniono Twojej aplikacji zaplecza toosend tylko hello *identyfikato
         // Obtain content from backend with notification id
         - (void)retrieveRichImageWithId:(int)richId completion: (void(^)(NSError*)) completion;
     
-        // Redirect tooImage View Controller after notification interaction
+        // Redirect to Image View Controller after notification interaction
         - (void)redirectToImageViewWithImage: (UIImage *)img;
     
         @end
@@ -211,14 +211,14 @@ Teraz, gdy zmieniono Twojej aplikacji zaplecza toosend tylko hello *identyfikato
 
         return YES;
 
-1. Subsitute w powitania po implementacji **aplikacji: didRegisterForRemoteNotificationsWithDeviceToken** tootake hello scenorysu zmiany interfejsu użytkownika do konta:
+1. Subsitute w następujących implementacji dla **aplikacji: didRegisterForRemoteNotificationsWithDeviceToken** do wykonania dla scenorysu zmiany interfejsu użytkownika do konta:
    
-       // Access navigation controller which is at hello root of window
+       // Access navigation controller which is at the root of window
        UINavigationController *nc = (UINavigationController *)self.window.rootViewController;
        // Get home view controller from stack on navigation controller
        homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
        hvc.deviceToken = deviceToken;
-2. Następnie należy dodać następujące metody zbyt hello**AppDelegate.m** tooretrieve hello obrazu z punktu końcowego i wysyłania powiadomień lokalnego, po ukończeniu pobierania. Upewnij się, że symbol zastępczy hello toosubstitute `{backend endpoint}` z wewnętrznej bazy danych punktu końcowego:
+2. Następnie należy dodać następujące metody umożliwiające **AppDelegate.m** można pobrać obrazu z punktu końcowego i wysyłania powiadomień lokalnego, po ukończeniu pobierania. Zastąp symbol zastępczy `{backend endpoint}` z wewnętrznej bazy danych punktu końcowego:
    
        NSString *const GetNotificationEndpoint = @"{backend endpoint}/api/notifications";
    
@@ -245,7 +245,7 @@ Teraz, gdy zmieniono Twojej aplikacji zaplecza toosend tylko hello *identyfikato
    
                NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
                if (!error && httpResponse.statusCode == 200) {
-                   // From NSData tooUIImage
+                   // From NSData to UIImage
                    self.imagePayload = [UIImage imageWithData:data];
    
                    completion(nil);
@@ -275,7 +275,7 @@ Teraz, gdy zmieniono Twojej aplikacji zaplecza toosend tylko hello *identyfikato
                        // Send local notification
                        UILocalNotification* localNotification = [[UILocalNotification alloc] init];
    
-                       // "5" is arbitrary here toogive you enough time tooquit out of hello app and receive push notifications
+                       // "5" is arbitrary here to give you enough time to quit out of the app and receive push notifications
                        localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:5];
                        localNotification.userInfo = self.userInfo;
                        localNotification.alertBody = [self.userInfo objectForKey:@"richMessage"];
@@ -295,17 +295,17 @@ Teraz, gdy zmieniono Twojej aplikacji zaplecza toosend tylko hello *identyfikato
                    }
                }];
            }
-           // Add "else if" here toohandle more types of rich content such as url, sound files, etc.
+           // Add "else if" here to handle more types of rich content such as url, sound files, etc.
        }
-3. Obsługi powiadamiania lokalne powitania powyżej otwierając kontrolera widoku obraz powitania w **AppDelegate.m** z hello następujące metody:
+3. Obsługę lokalnego powiadomienia powyżej otwierając kontroler widoku obrazu w **AppDelegate.m** z następujących metod:
    
-       // Helper: redirect users tooimage view controller
+       // Helper: redirect users to image view controller
        - (void)redirectToImageViewWithImage: (UIImage *)img {
            UINavigationController *navigationController = (UINavigationController*) self.window.rootViewController;
            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                     bundle: nil];
            imageViewController *imgViewController = [mainStoryboard instantiateViewControllerWithIdentifier: @"imageViewController"];
-           // Pass data/image tooimage view controller
+           // Pass data/image to image view controller
            imgViewController.imagePayload = img;
    
            // Redirect
@@ -333,7 +333,7 @@ Teraz, gdy zmieniono Twojej aplikacji zaplecza toosend tylko hello *identyfikato
            {
                [self redirectToImageViewWithImage:self.imagePayload];
            }
-           // Add "else if" here toohandle more buttons
+           // Add "else if" here to handle more buttons
        }
    
        // Handle notification setting actions in iOS8
@@ -345,11 +345,11 @@ Teraz, gdy zmieniono Twojej aplikacji zaplecza toosend tylko hello *identyfikato
            completionHandler();
        }
 
-## <a name="run-hello-application"></a>Uruchom hello aplikacji
-1. W programie XCode uruchamianie aplikacji hello na urządzenie fizyczne z systemem iOS (push, które nie będą działać powiadomienia w symulatorze hello).
-2. W aplikacji dla systemu iOS hello interfejsu użytkownika, wprowadź nazwę użytkownika i hasło hello takie same wartości dla uwierzytelniania i kliknij przycisk **dziennika w**.
-3. Kliknij przycisk **wysyłania wypychania** i powinien zostać wyświetlony alert w aplikacji. Po kliknięciu **więcej**, można wprowadzić toohello obrazu wybrano tooinclude w zapleczu swojej aplikacji.
-4. Możesz również kliknąć **wysyłania wypychania** i natychmiast naciśnij przycisk Strona główna hello urządzenia. Za chwilę otrzymasz powiadomienie wypychane. Wybierz na niej, lub kliknij przycisk więcej, zostanie wyświetlona zawartość sformatowanego obrazu i aplikacji hello tooyour.
+## <a name="run-the-application"></a>Uruchamianie aplikacji
+1. W programie XCode Uruchom aplikację na urządzenie fizyczne z systemem iOS (wypychanie powiadomień nie będzie działać w symulatorze).
+2. W aplikacji systemu iOS interfejsu użytkownika, wprowadź nazwę użytkownika i hasła tę samą wartość do uwierzytelniania i kliknięcie **dziennika w**.
+3. Kliknij przycisk **wysyłania wypychania** i powinien zostać wyświetlony alert w aplikacji. Po kliknięciu **więcej**, zostanie przeniesiony do obrazu chcesz uwzględnić w zapleczu swojej aplikacji.
+4. Możesz również kliknąć **wysyłania wypychania** i natychmiast naciśnij przycisk macierzystego urządzenia. Za chwilę otrzymasz powiadomienie wypychane. Wybierz na niej, lub kliknij przycisk więcej, zostanie wyświetlona do aplikacji i sformatowanego obrazu.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png

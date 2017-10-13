@@ -1,6 +1,6 @@
 ---
-title: "aaaLoad danych z programu SQL Server do usługi Azure SQL Data Warehouse (PolyBase) | Dokumentacja firmy Microsoft"
-description: "Używa bcp tooexport danych z plików tooflat programu SQL Server, magazynu obiektów blob tooAzure danych tooimport AZCopy i PolyBase tooingest hello danych do usługi Azure SQL Data Warehouse."
+title: "Ładowanie danych z programu SQL Server do usługi Azure SQL Data Warehouse (PolyBase) | Microsoft Docs"
+description: "Eksportowanie danych z programu SQL Server do plików prostych przy użyciu programu bcpw, importowanie danych do usługi Azure Blob Storage przy użyciu programu AZCopy oraz pozyskiwanie danych do usługi Azure SQL Data Warehouse przy użyciu programu PolyBase."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 1346fb016e0538a44426671bf4e29358cb24f7ab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 966100094f98bae41bf90df500d005fa78b31ec3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Ładowanie danych przy użyciu programu PolyBase w usłudze SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -29,32 +29,32 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Ten samouczek pokazuje, jak tooload danych do usługi SQL Data Warehouse przy użyciu programów AzCopy i PolyBase. Po zakończeniu będziesz umieć wykonywać następujące czynności:
+Ten samouczek przedstawia sposób ładowania danych do usługi SQL Data Warehouse przy użyciu programów AzCopy i PolyBase. Po zakończeniu będziesz umieć wykonywać następujące czynności:
 
-* Użyj magazynu obiektów blob tooAzure AzCopy toocopy danych
-* Tworzenie obiektów bazy danych toodefine hello danych
-* Uruchamianie zapytania T-SQL tooload hello danych
+* Kopiowanie danych do magazynu obiektów blob platformy Azure przy użyciu programu AzCopy
+* Tworzenie obiektów bazy danych do definiowania danych
+* Uruchamianie zapytania T-SQL do ładowania danych
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-toostep opisanych w tym samouczku, należy
+Do wykonania kroków opisanych w tym samouczku potrzebne są:
 
 * Baza danych usługi SQL Data Warehouse.
 * Konto magazynu platformy Azure typu standardowy magazyn lokalnie nadmiarowy (Standard-LRS), standardowy magazyn geograficznie nadmiarowy (Standard-GRS) lub standardowy magazyn geograficznie nadmiarowy dostępny do odczytu (Standard-RAGRS).
-* Narzędzie wiersza polecenia AzCopy. Pobierz i zainstaluj hello [najnowszą wersję programu AzCopy] [ latest version of AzCopy] który został zainstalowany z hello narzędzia magazynu usługi Microsoft Azure.
+* Narzędzie wiersza polecenia AzCopy. Pobierz i zainstaluj [najnowszą wersję programu AzCopy][latest version of AzCopy], która jest instalowana z narzędziami Microsoft Azure Storage Tools.
   
     ![Narzędzia Azure Storage Tools](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-## <a name="step-1-add-sample-data-tooazure-blob-storage"></a>Krok 1: Dodawanie przykładowych danych tooAzure obiektu blob magazynu
-W danych tooload potrzebujemy tooput przykładowych danych do magazynu obiektów blob platformy Azure. W tym kroku wypełnimy obiekt blob magazynu Azure przykładowymi danymi. Później użyjemy PolyBase tooload przykładowe dane do bazy danych SQL Data Warehouse.
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>Krok 1: dodawanie przykładowych danych do magazynu obiektów blob platformy Azure
+Aby załadować dane, trzeba umieścić trochę przykładowych danych w magazynie obiektów blob platformy Azure. W tym kroku wypełnimy obiekt blob magazynu Azure przykładowymi danymi. Następnie użyjemy aparatu PolyBase, aby załadować te przykładowe dane do bazy danych usługi SQL Data Warehouse.
 
 ### <a name="a-prepare-a-sample-text-file"></a>A. Przygotowanie przykładowego pliku tekstowego
-Przykładowy plik tekstowy tooprepare:
+Aby przygotować przykładowy plik tekstowy:
 
-1. Otwórz Notatnik i skopiuj hello następujące wiersze danych do nowego pliku. Zapisz ten tooyour lokalnym katalogu tymczasowym jako % temp%\DimDate2.txt.
+1. Otwórz program Notatnik i skopiuj następujące wiersze danych do nowego pliku. Zapisz go jako % temp%\DimDate2.txt w lokalnym katalogu tymczasowym.
 
 ```
 20150301,1,3
@@ -72,11 +72,11 @@ Przykładowy plik tekstowy tooprepare:
 ```
 
 ### <a name="b-find-your-blob-service-endpoint"></a>B. Znajdowanie punktu końcowego usługi Blob
-toofind punktu końcowego usługi blob:
+Aby znaleźć punkt końcowy usługi Blob:
 
-1. Z hello portalu Azure wybierz **Przeglądaj** > **kont magazynu**.
-2. Kliknij przycisk hello konta magazynu, które chcesz toouse.
-3. W bloku konto magazynu hello kliknij pozycję obiekty BLOB
+1. W Portalu Azure wybierz opcje **Przeglądaj**  >  **Konta magazynu**.
+2. Kliknij konto magazynu, którego chcesz użyć.
+3. W bloku Konto magazynu kliknij pozycję Obiekty blob.
    
     ![Klikanie pozycji Obiekty blob](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
 4. Zapisz adres URL punktu końcowego usługi Blob do użycia później.
@@ -84,67 +84,67 @@ toofind punktu końcowego usługi blob:
     ![Punkt końcowy usługi Blob](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### <a name="c-find-your-azure-storage-key"></a>C. Znajdowanie klucza magazynu Azure
-toofind klucza magazynu Azure:
+Aby znaleźć klucz magazynu Azure:
 
-1. Z hello portalu Azure, wybierz **Przeglądaj** > **kont magazynu**.
-2. Polecenie hello konta magazynu, które chcesz toouse.
+1. W witrynie Azure Portal wybierz opcje **Przeglądaj** > **Konta magazynu**.
+2. Kliknij konto magazynu, którego chcesz użyć.
 3. Wybierz pozycje **Wszystkie ustawienia**  >  **Klucze dostępu**.
-4. Kliknij przycisk hello toocopy pole kopiowania, jeden Schowka toohello klucze dostępu.
+4. Kliknij pole kopiowania, aby skopiować jeden z kluczy dostępu do schowka.
    
     ![Kopiowanie klucza magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### <a name="d-copy-hello-sample-file-tooazure-blob-storage"></a>D. Skopiuj magazynu obiektów blob tooAzure hello przykładowych plików
-toocopy usługi magazynu obiektów blob tooAzure danych:
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Kopiowanie przykładowego pliku do magazynu obiektów blob platformy Azure
+Aby skopiować dane do magazynu obiektów blob platformy Azure:
 
-1. Otwórz wiersz polecenia i zmień katalog instalacyjny AzCopy toohello katalogów. To polecenie powoduje zmianę domyślnego katalogu instalacji na komputerze klienckim systemu Windows w 64-bitowych toohello.
+1. Otwórz wiersz polecenia i zmień katalogi na katalog instalacyjny programu AzCopy. To polecenie powoduje zmianę domyślnego katalogu instalacji na 64-bitowym kliencie systemu Windows.
    
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
-2. Uruchom poniższe polecenie tooupload hello plik hello. Określ adres URL punktu końcowego usługi Blob jako wartość <blob service endpoint URL> i klucz konta usługi Azure Storage jako wartość <azure_storage_account_key>.
+2. Uruchom następujące polecenie, aby przekazać plik. Określ adres URL punktu końcowego usługi Blob jako wartość <blob service endpoint URL> i klucz konta usługi Azure Storage jako wartość <azure_storage_account_key>.
    
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Zobacz też [wprowadzenie hello wiersza polecenia Azcopy][latest version of AzCopy].
+Zobacz też: [Wprowadzenie do narzędzia wiersza polecenia AzCopy][latest version of AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Eksplorowanie kontenera magazynu obiektów blob
-Plik hello toosee przekazać tooblob magazynu:
+Aby zobaczyć plik przekazany do magazynu obiektów blob:
 
-1. Przejdź wstecz bloku usługi Blob tooyour.
+1. Wróć do bloku usługi Blob.
 2. W obszarze Kontenery kliknij dwukrotnie pozycję **datacontainer**.
-3. dane tooyour tooexplore hello ścieżki, kliknij hello folder **datedimension** i będzie widoczny przekazany plik **DimDate2.txt**.
-4. Kliknij przycisk Właściwości tooview **DimDate2.txt**.
-5. Należy pamiętać, że w bloku właściwości obiektu Blob hello, można pobrać lub usunąć hello pliku.
+3. Aby wyświetlić ścieżkę do danych, kliknij folder **datedimension**, w którym będzie widoczny przekazany plik **DimDate2.txt**.
+4. Aby wyświetlić właściwości, kliknij plik **DimDate2.txt**.
+5. Zauważ, że w bloku właściwości obiektu blob można pobrać lub usunąć plik.
    
     ![Wyświetlanie obiektu blob magazynu Azure](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-## <a name="step-2-create-an-external-table-for-hello-sample-data"></a>Krok 2: Tworzenie tabeli zewnętrznej hello przykładowych danych
-W tej sekcji utworzymy tabelę zewnętrzną definiującą hello przykładowych danych.
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>Krok 2: tworzenie tabeli zewnętrznej dla przykładowych danych
+W tej sekcji utworzymy tabelę zewnętrzną definiującą przykładowe dane.
 
-Program PolyBase używa tabel zewnętrznych tooaccess danych w magazynie obiektów blob platformy Azure. Ponieważ hello dane nie są przechowywane w usłudze SQL Data Warehouse, aparat PolyBase obsługuje dane zewnętrzne toohello uwierzytelniania przy użyciu poświadczeń o zakresie bazy danych.
+Aparat PolyBase używa tabel zewnętrznych do uzyskiwania dostępu do danych w magazynie obiektów blob platformy Azure. Ponieważ dane nie są przechowywane w usłudze SQL Data Warehouse, aparat PolyBase obsługuje uwierzytelnianie w odniesieniu do danych zewnętrznych przy użyciu poświadczeń o zakresie bazy danych.
 
-przykład Witaj w tym kroku używa tych toocreate instrukcji języka Transact-SQL tabeli zewnętrznej.
+W tym kroku przykładu użyto następujących instrukcji języka Transact-SQL do utworzenia tabeli zewnętrznej.
 
-* [Tworzenie klucza głównego (Transact-SQL)] [ Create Master Key (Transact-SQL)] poświadczeń o zakresie klucz tajny hello tooencrypt bazy danych.
-* [Create Database Scoped Credential (Transact-SQL)] [ Create Database Scoped Credential (Transact-SQL)] toospecify informacje dotyczące uwierzytelniania dla konta magazynu Azure.
-* [Create External Data Source (Transact-SQL)] [ Create External Data Source (Transact-SQL)] toospecify hello lokalizacji magazynu obiektów blob platformy Azure.
-* [Create External File Format (Transact-SQL)] [ Create External File Format (Transact-SQL)] toospecify hello format danych.
-* [Create External Table (Transact-SQL)] [ Create External Table (Transact-SQL)] definicji tabeli hello toospecify i lokalizację hello danych.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)] w celu szyfrowania wpisu tajnego poświadczeń o zakresie bazy danych.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)], aby określić dane uwierzytelniania dla konta usługi Azure Storage.
+* [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)], aby określić lokalizację usługi Azure Blob Storage.
+* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)], aby określić format danych.
+* [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)], aby określić definicję tabeli i lokalizację danych.
 
-Uruchom to zapytanie w bazie danych usługi SQL Data Warehouse. Zostanie utworzony o nazwie DimDate2External w schemacie dbo hello wskazujące przykładowe dane DimDate2.txt toohello w magazynie obiektów blob Azure hello tabeli zewnętrznej.
+Uruchom to zapytanie w bazie danych usługi SQL Data Warehouse. W schemacie dbo zostanie utworzona zewnętrzna tabela o nazwie DimDate2External wskazująca przykładowe dane DimDate2.txt w magazynie obiektów blob platformy Azure.
 
 ```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
--- Required tooencrypt hello credential secret in hello next step.
+-- Required to encrypt the credential secret in the next step.
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Provide any string, it is not used for authentication tooAzure storage.
+-- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
 
 
@@ -156,9 +156,9 @@ WITH
 
 
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure blob storage.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
--- CREDENTIAL: Provide hello credential created in hello previous step.
+-- CREDENTIAL: Provide the credential created in the previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
@@ -180,10 +180,10 @@ WITH (
 );
 
 
--- E: Create hello external table
--- Specify column names and data types. This needs toomatch hello data in hello sample file.
--- LOCATION: Specify path toofile or directory that contains hello data (relative toohello blob container).
--- toopoint tooall files under hello blob container, use LOCATION='.'
+-- E: Create the external table
+-- Specify column names and data types. This needs to match the data in the sample file.
+-- LOCATION: Specify path to file or directory that contains the data (relative to the blob container).
+-- To point to all files under the blob container, use LOCATION='.'
 
 CREATE EXTERNAL TABLE dbo.DimDate2External (
     DateId INT NOT NULL,
@@ -197,25 +197,25 @@ WITH (
 );
 
 
--- Run a query on hello external table
+-- Run a query on the external table
 
 SELECT count(*) FROM dbo.DimDate2External;
 
 ```
 
 
-W Eksploratorze obiektów SQL Server w programie Visual Studio mogą zobaczyć hello format pliku zewnętrznego, zewnętrzne źródło danych i tabela DimDate2External hello.
+W Eksploratorze obiektów SQL Server w programie Visual Studio widoczne będą: format pliku zewnętrznego, zewnętrzne źródło danych oraz tabela DimDate2External.
 
 ![Widok tabeli zewnętrznej](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>Krok 3: ładowanie danych do usługi SQL Data Warehouse
-Po utworzeniu tabeli zewnętrznej hello można załadować danych hello do nowej tabeli lub wstawić je do istniejącej tabeli.
+Po utworzeniu tabeli zewnętrznej można załadować dane do nowej tabeli lub wstawić je do tabeli istniejącej.
 
-* tooload hello danych do nowej tabeli, uruchom hello [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instrukcji. Witaj nowa tabela będzie miała hello kolumny o nazwie w zapytaniu hello. typy danych Hello hello kolumn będą zgodne hello typów danych w definicji tabeli zewnętrznej hello.
-* tooload hello danych w istniejącej tabeli, użyj hello [INSERT... SELECT (Transact-SQL)] [ INSERT...SELECT (Transact-SQL)] instrukcji.
+* Aby załadować dane do nowej tabeli, uruchom instrukcję [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. Nowa tabela będzie miała kolumny o nazwach podanych w zapytaniu. Typy danych kolumn będą zgodne z typami danych w definicji tabeli zewnętrznej.
+* Aby załadować dane do istniejącej tabeli, użyj instrukcji [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
--- Load hello data from Azure blob storage tooSQL Data Warehouse
+-- Load the data from Azure blob storage to SQL Data Warehouse
 
 CREATE TABLE dbo.DimDate2
 WITH
@@ -228,9 +228,9 @@ SELECT * FROM [dbo].[DimDate2External];
 ```
 
 ## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Krok 4: tworzenie statystyk na podstawie nowo załadowanych danych
-Usługa SQL Data Warehouse nie tworzy ani nie aktualizuje statystyk w sposób automatyczny. W związku z tym tooachieve wysoką wydajność zapytań, ważne jest, najpierw załadować toocreate statystyk dotyczących poszczególnych kolumn każdej tabeli po hello. Możliwe jest również tooupdate ważnych statystyk po wprowadzeniu istotnych zmian w danych hello.
+Usługa SQL Data Warehouse nie tworzy ani nie aktualizuje statystyk w sposób automatyczny. Dlatego, aby uzyskać wysoką wydajność zapytań, ważne jest tworzenie statystyk dotyczących poszczególnych kolumn każdej tabeli po pierwszym załadowaniu. Istotne jest również aktualizowanie statystyk po wprowadzeniu istotnych zmian w danych.
 
-Ten przykład tworzy statystyki pojedynczej kolumny hello nowej tabeli DimDate2.
+W tym przykładzie zostaną utworzone statystyki dla pojedynczej kolumny w nowej tabeli DimDate2.
 
 ```sql
 CREATE STATISTICS [DateId] on [DimDate2] ([DateId]);
@@ -238,10 +238,10 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-toolearn więcej, zobacz [statystyki][Statistics].  
+Aby dowiedzieć się więcej, zobacz temat [Statystyki][Statistics].  
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz hello [Przewodnik po programie PolyBase] [ PolyBase guide] dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.
+Zobacz [Przewodnik po programie PolyBase][PolyBase guide] w celu uzyskania dalszych informacji przydatnych podczas tworzenia rozwiązań z użyciem aparatu PolyBase.
 
 <!--Image references-->
 

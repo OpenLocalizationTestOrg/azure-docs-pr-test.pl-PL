@@ -1,24 +1,24 @@
-1. W lewej części strony portalu hello hello, kliknij polecenie  **+**  i wpisz "Brama sieci wirtualnej" w wyszukiwaniu. W obszarze **Wyniki** zlokalizuj i kliknij pozycję **Brama sieci wirtualnej**.
-2. U dołu hello bloku "Brama sieci wirtualnej" hello, kliknij przycisk **Utwórz**. Spowoduje to otwarcie hello **Utwórz bramę sieci wirtualnej** bloku.
+1. Na stronie portalu po lewej kliknij pozycję **+** i wpisz tekst „brama sieci wirtualnej” w polu wyszukiwania. W obszarze **Wyniki** zlokalizuj i kliknij pozycję **Brama sieci wirtualnej**.
+2. U dołu bloku „Brama sieci wirtualnej” kliknij pozycję **Utwórz**. Spowoduje to otwarcie bloku **Tworzenie bramy sieci wirtualnej**.
 
     ![Tworzenie pól bloku bramy sieci wirtualnej](./media/vpn-gateway-add-gw-s2s-rm-portal-include/vnet_gw.png "Nowa brama")
 
-3. Na powitania **Utwórz bramę sieci wirtualnej** bloku, określ hello wartości dla bramy sieci wirtualnej.
+3. W bloku **Tworzenie bramy sieci wirtualnej** określ wartości dla swojej bramy sieci wirtualnej.
 
-  - **Nazwa**: Nadaj nazwę bramie. To jest nie hello taki sam jak nazewnictwa podsieci bramy. Jego imię i nazwisko hello hello bramy obiektu, którego jest tworzony.
-  - **Typ bramy**: Wybierz pozycję **Sieć VPN**. Bramy sieci VPN, użyj typu bramy sieci wirtualnej hello **VPN**. 
-  - **Typ sieci VPN**: Wybierz hello typ sieci VPN, który jest określony dla danej konfiguracji. Większość konfiguracji wymaga zastosowania typu sieci VPN opartego na trasach.
-  - **Jednostka SKU**: jednostka SKU bramy hello wybierz z listy rozwijanej hello. na liście rozwijanej hello SKU Hello są zależne od hello wybranego typu sieci VPN. Więcej informacji o jednostkach SKU bramy zawiera artykuł [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Jednostki SKU bramy).
-  - **Lokalizacja**: może być konieczne toosee tooscroll lokalizacji. Dostosuj hello **lokalizacji** pola toopoint toohello lokalizacji, gdzie znajduje się sieci wirtualnej. Jeśli lokalizacja hello nie wskazuje region toohello, gdzie znajduje się sieci wirtualnej, sieci wirtualnej hello nie będą widoczne w hello następnego kroku "Wybierz sieć wirtualną" z listy rozwijanej.
-  - **Sieć wirtualna**: Wybierz hello toowhich sieci wirtualnej ma tooadd tej bramy. Kliknij przycisk **sieci wirtualnej** bloku "Wybierz sieć wirtualną" hello tooopen. Wybierz hello sieci wirtualnej. Jeśli nie widzisz sieci wirtualnej, upewnij się, że pole lokalizacji hello wskazuje toohello regionu, w którym znajduje się sieci wirtualnej.
-  - **Publiczny adres IP**: bloku "Tworzenie publicznego adresu IP" hello tworzy obiekt publiczny adres IP. Po utworzeniu bramy sieci VPN hello Hello publiczny adres IP jest przypisywane dynamicznie. Brama sieci VPN aktualnie obsługuje tylko *dynamiczne* przypisywanie publicznych adresów IP. Jednak nie oznacza to, że adres IP hello ulegnie zmianie po przypisaniu tooyour bramy sieci VPN. Hello czasu tylko zmiany adresu publicznego adresu IP hello jest po hello bramy zostanie usunięta i utworzona ponownie. Nie zmienia się on w przypadku zmiany rozmiaru, zresetowania ani przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN.
+  - **Nazwa**: Nadaj nazwę bramie. Nie chodzi o nazwę podsieci bramy. Jest to nazwa obiektu bramy, który zostanie utworzony.
+  - **Typ bramy**: Wybierz pozycję **Sieć VPN**. Bramy sieci VPN używają typu bramy sieci wirtualnej **Sieć VPN**. 
+  - **Typ sieci VPN**: Wybierz typ sieci VPN określony dla danej konfiguracji. Większość konfiguracji wymaga zastosowania typu sieci VPN opartego na trasach.
+  - **Jednostka SKU**: Wybierz jednostkę SKU bramy z listy rozwijanej. Jednostki SKU wymienione na liście rozwijanej zależą od wybranego typu sieci VPN. Więcej informacji o jednostkach SKU bramy zawiera artykuł [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) (Jednostki SKU bramy).
+  - **Lokalizacja**: Aby zobaczyć pozycję Lokalizacja, może być konieczne przewinięcie ekranu. Dostosuj pole **Lokalizacja**, aby wskazywało miejsce, w którym znajduje się sieć wirtualna. Jeśli lokalizacja nie wskazuje regionu, w którym znajduje się Twoja sieć wirtualna, sieć ta nie będzie widoczna na liście rozwijanej „Wybierz sieć wirtualną” w następnym kroku.
+  - **Sieć wirtualna**: Wybierz sieć wirtualną, do której chcesz dodać tę bramę. Kliknij pozycję **Sieć wirtualna**, aby otworzyć blok „Wybierz sieć wirtualną”. Wybierz sieć wirtualną. Jeśli sieć wirtualna nie jest widoczna, upewnij się, że wartość w polu Lokalizacja wskazuje region, w którym znajduje się sieć wirtualna.
+  - **Publiczny adres IP**: Blok „Tworzenie publicznego adresu IP” tworzy obiekt publicznego adresu IP. Publiczny adres IP jest dynamicznie przypisywany podczas tworzenia bramy sieci VPN. Brama sieci VPN aktualnie obsługuje tylko *dynamiczne* przypisywanie publicznych adresów IP. Nie oznacza to jednak, że adres IP zmienia się po przypisaniu go do bramy sieci VPN. Jedyną sytuacją, w której ma miejsce zmiana publicznego adresu IP, jest usunięcie bramy i jej ponowne utworzenie. Nie zmienia się on w przypadku zmiany rozmiaru, zresetowania ani przeprowadzania innych wewnętrznych czynności konserwacyjnych bądź uaktualnień bramy sieci VPN.
 
-    - Najpierw kliknij **publicznego adresu IP** tooopen hello bloku "Wybierz publiczny adres IP", a następnie kliknij przycisk **+ Utwórz nowe** bloku "Tworzenie publicznego adresu IP" hello tooopen.
-    - Następnie wprowadź **nazwa** dla publicznego adresu IP, następnie kliknij przycisk **OK** na hello dolnej części tego bloku toosave zmiany.
+    - Najpierw kliknij pozycję **Publiczny adres IP**, aby otworzyć blok „Wybieranie publicznego adresu IP”, a następnie kliknij pozycję **+Utwórz nowe**, aby otworzyć blok „Tworzenie publicznego adresu IP”.
+    - Następnie uzupełnij pozycję **Nazwa** dla publicznego adresu IP i kliknij przycisk **OK** w dolnej części tego bloku, aby zapisać zmiany.
 
       ![Tworzenie publicznego adresu IP](./media/vpn-gateway-add-gw-s2s-rm-portal-include/pip.png "Tworzenie adresu PIP")
 
-4. Sprawdź ustawienia hello. Możesz wybrać **toodashboard numeru Pin** u dołu bloku hello, jeśli chcesz, aby Twoje tooappear bramy na pulpicie nawigacyjnym hello hello. 
-5. Kliknij przycisk **Utwórz** toobegin tworzenie hello bramy sieci VPN. Ustawienia Hello zostaną zweryfikowane, i zobaczysz hello Kafelek "Wdrażanie bramy sieci wirtualnej" na powitania pulpitu nawigacyjnego. Tworzenie bramy może potrwać too45 minut. Toorefresh może być konieczne stan ukończyć powitalnych toosee strony portalu.
+4. Sprawdź poprawność ustawień. Jeśli chcesz, aby brama była wyświetlana na pulpicie nawigacyjnym, możesz wybrać opcję **Przypnij do pulpitu nawigacyjnego** znajdującą się u dołu bloku. 
+5. Kliknij przycisk **Utwórz**, aby rozpocząć tworzenie bramy sieci VPN. Zostanie sprawdzona poprawność ustawień, a na pulpicie nawigacyjnym pojawi się kafelek „Wdrażanie bramy sieci wirtualnej”. Tworzenie bramy może potrwać do 45 minut. Być może będzie trzeba odświeżyć stronę portalu, aby zobaczyć, czy tworzenie zostało ukończone.
 
-Po utworzeniu bramy hello wyświetlić hello adres IP, który został przypisany tooit analizując hello sieci wirtualnej w portalu hello. Witaj brama będzie widoczna jako urządzenie podłączone. Możesz kliknąć hello podłączone urządzenia (bramy sieci wirtualnej) tooview więcej informacji.
+Po utworzeniu bramy sprawdź adres IP, który został do niej przypisany, spoglądając na sieć wirtualną w portalu. Brama będzie widoczna jako urządzenie podłączone. Możesz kliknąć podłączone urządzenie (bramę sieci wirtualnej), aby wyświetlić więcej informacji.

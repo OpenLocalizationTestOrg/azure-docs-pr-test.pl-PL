@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure usługi Active Directory dla deweloperów | Dokumentacja firmy Microsoft"
+title: "Usługa Azure Active Directory dla deweloperów | Microsoft Docs"
 description: "Ten artykuł zawiera omówienie logowania się na konta służbowe Microsoft przy użyciu usługi Azure Active Directory."
 services: active-directory
 author: dstrockis
@@ -14,22 +14,22 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4dbbea6c1e0b8a70c0c36ddd1caec5658130a003
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Usługa Azure Active Directory dla deweloperów
-Azure Active Directory jest usługa tożsamości chmury, która umożliwia deweloperom toosecurely logowania każdy użytkownik z konta służbowego kopii przez firmę Microsoft.  w tym miejscu dokumentacji Hello pokazuje, jak tooadd usługi Azure AD obsługuje tooyour aplikacji przy użyciu branżowych standardowych protokołów uwierzytelniania, OAuth i OpenID Connect.
+Azure Active Directory to usługa zarządzania tożsamościami w chmurze, która umożliwia deweloperom bezpieczne logowanie każdego użytkownika mającego konto służbowe bazujące na technologii Microsoft.  W tej dokumentacji pokazano, jak dodać obsługę usługi Azure AD do swojej aplikacji, używając standardowych w branży protokołów uwierzytelniania: OAuth i OpenID Connect.
 
 | | |
 | --- | --- |
-|[Podstawowe informacje o uwierzytelnianiu](active-directory-authentication-scenarios.md) | Wprowadzenie tooauthentication z usługą Azure AD |
-|[Typy aplikacji](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Omówienie scenariuszy uwierzytelniania hello obsługiwane przez usługę Azure AD |                                
+|[Podstawowe informacje o uwierzytelnianiu](active-directory-authentication-scenarios.md) | Wprowadzenie do uwierzytelniania za pomocą usługi Azure AD |
+|[Typy aplikacji](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Przegląd scenariuszy uwierzytelniania obsługiwanych przez usługę Azure AD |                                
                                                                               
 ## <a name="get-started"></a>Rozpoczęcie pracy
-Te konfiguracje z przewodnikiem przeprowadzenie za pomocą naszych toosign biblioteki uwierzytelniania w usłudze Azure Active Directory użytkowników.
+Te instalatory z przewodnikiem pokazują krok po kroku, jak używać naszych bibliotek uwierzytelniania do logowania użytkowników usługi Azure Active Directory.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,13 +40,13 @@ Te konfiguracje z przewodnikiem przeprowadzenie za pomocą naszych toosign bibli
 | <center>![Usługa-usługa](./media/active-directory-developers-guide/Service_App.png)<br />Usługa-usługa</center> | [Omówienie](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[Poświadczenia klienta OAuth 2.0](active-directory-protocols-oauth-service-to-service.md) |  |
 
 ## <a name="guides"></a>Przewodniki
-Te artykuły poinformuj o tym, jak tooperform typowe zadania z usługą Azure Active Directory.
+Te artykuły zawierają informacje o tym, jak wykonywać typowe zadania w usłudze Azure Active Directory.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
-|[Rejestrowanie aplikacji](active-directory-integrating-applications.md)           | Jak tooregister aplikacji w usłudze Azure AD |
-|[Aplikacje z wieloma dzierżawami](active-directory-devhowto-multi-tenant-overview.md)    | Jak konta służbowego toosign w udostępnianych przez firmę Microsoft |
-|[OAuth i OpenID Connect](active-directory-protocols-openid-connect-code.md)| W jaki sposób użytkownicy toosign i wywołania interfejsów API sieci web przy użyciu protokołów naszych nowoczesnego uwierzytelniania |
+|[Rejestrowanie aplikacji](active-directory-integrating-applications.md)           | Jak zarejestrować aplikację w usłudze Azure AD |
+|[Aplikacje z wieloma dzierżawami](active-directory-devhowto-multi-tenant-overview.md)    | Jak zalogować dowolne konto służbowe Microsoft |
+|[OAuth i OpenID Connect](active-directory-protocols-openid-connect-code.md)| Jak logować użytkowników i wywoływać interfejsy API sieci Web za pomocą naszych nowoczesnych protokołów uwierzytelniania |
 |[Więcej przewodników...](active-directory-developers-guide-index.md#guides)        |     |
 
 ## <a name="reference"></a>Dokumentacja
@@ -54,13 +54,13 @@ Te artykuły zawierają szczegółowe informacje o interfejsach API, komunikatac
 
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
-| [Biblioteki uwierzytelniania (ADAL)](active-directory-authentication-libraries.md)   | Omówienie biblioteki hello & zestawów SDK dostarczane przez usługę Azure AD |
+| [Biblioteki uwierzytelniania (ADAL)](active-directory-authentication-libraries.md)   | Omówienie bibliotek i zestawów SDK dostarczanych przez usługę Azure AD |
 | [Przykłady kodu](active-directory-code-samples.md)                                  | Lista wszystkich przykładów kodu usługi Azure AD |
 | [Słownik](active-directory-dev-glossary.md)                                      | Terminologia i definicje słów używanych w tej dokumentacji |
 | [Więcej materiałów referencyjnych...](active-directory-developers-guide-index.md#reference)|     |
 
 ## <a name="help--support"></a>Pomoc i obsługa techniczna
-Są to hello najlepsze miejsca tooget pomoc dotyczącą tworzenia w usłudze Azure Active Directory.
+To są najlepsze miejsca, aby uzyskać pomoc w programowaniu dla usługi Azure Active Directory.
 
 |  |  
 |---|
@@ -71,4 +71,4 @@ Są to hello najlepsze miejsca tooget pomoc dotyczącą tworzenia w usłudze Azu
 <br />
 
 > [!NOTE]
-> Jeśli potrzebujesz toosign w osobistego konta Microsoft, może być tooconsider przy użyciu hello [punktu końcowego v2.0 usługi Azure AD](active-directory-appmodel-v2-overview.md).  punktu końcowego v2.0 Hello Azure AD jest ujednolicenie hello osobistego konta Microsoft i konta służbowego firmy Microsoft (z usługi Azure AD) w systemie pojedynczego uwierzytelniania.
+> Jeśli musisz logować konta osobiste Microsoft, warto rozważyć skorzystanie z [punktu końcowego usługi Azure AD v2.0](active-directory-appmodel-v2-overview.md).  Punkt końcowy usługi Azure AD v2.0 stanowi ujednolicenie kont osobistych i kont służbowych Microsoft (z usługi Azure AD) do postaci jednego systemu uwierzytelniania.

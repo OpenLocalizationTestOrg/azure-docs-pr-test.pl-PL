@@ -1,6 +1,6 @@
 ---
-title: aaaMFA software development kit aplikacji niestandardowych | Dokumentacja firmy Microsoft
-description: "W tym artykule opisano, jak toodownload i użyj hello weryfikacji dwuetapowej tooenable zestawu SDK usługi Azure MFA dla aplikacji niestandardowych."
+title: "Uwierzytelnianie wieloskładnikowe software development kit aplikacji niestandardowych | Dokumentacja firmy Microsoft"
+description: "W tym artykule przedstawiono sposób pobranie i użycie zestawu SDK usługi Azure MFA, aby włączyć weryfikację dwuetapową dla niestandardowych aplikacji."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,86 +14,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: kgremban
-ms.openlocfilehash: 10e02e844bf3928575bfca79dbc34717a31a08b4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 281f9c61a30a20027f69808600373aa272255ef6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Tworzenie usługi Multi-Factor Authentication w aplikacje niestandardowe (SDK)
 
-Transakcja procesów aplikacji w dzierżawie usługi Azure AD lub hello Hello Azure Multi-Factor Authentication Software Development Kit (SDK) umożliwia tworzenie weryfikacji dwuetapowej bezpośrednio do logowania.
+Azure Multi-Factor Authentication Software Development Kit (SDK) umożliwia tworzenie aplikacji w dzierżawie usługi Azure AD włączono weryfikację dwuetapową bezpośrednio do procesów logowania lub transakcji.
 
-Witaj SDK usługi Multi-Factor Authentication jest dostępna w C#, Visual Basic (.NET), Java, Perl, PHP i Ruby. Witaj SDK udostępnia alokowania otokę weryfikacji dwuetapowej. Obejmuje on wszystko, co potrzebne toowrite kodu, w tym pliki kodu źródłowego komentarze, przykładowe pliki i szczegółowe plik ReadMe. Każdy zestaw SDK zawiera również certyfikat i klucz prywatny szyfrowania transakcje, które są unikatowe tooyour dostawca uwierzytelniania MFA. Tak długo, jak długo ma dostawcy, możesz pobrać hello zestawu SDK w formatach i języków tyle zgodnie z potrzebami.
+SDK usługi Multi-Factor Authentication jest dostępna w C#, Visual Basic (.NET), Java, Perl, PHP i Ruby. Zestaw SDK udostępnia cienką otoką wokół weryfikacji dwuetapowej. Obejmuje on wszystko, co potrzebne do pisania kodu, w tym pliki kodu źródłowego komentarze, przykładowe pliki i szczegółowe plik ReadMe. Każdy zestaw SDK zawiera również certyfikat i klucz prywatny szyfrowania transakcje, które są unikatowe dla dostawcy uwierzytelniania wieloskładnikowego. Tak długo, jak długo ma dostawcy, możesz pobrać zestaw SDK w dowolną liczbę języków i formaty zgodnie z potrzebami.
 
-Struktura Hello hello interfejsów API w hello SDK usługi Multi-Factor Authentication jest proste. Należy wywołać interfejs API tooan hello opcja wieloskładnikowego parametrów (takie jak tryb weryfikacji) i danych użytkownika (na przykład toocall numeru telefonu hello lub toovalidate numer PIN hello) jednej funkcji. Witaj interfejsów API wykonuje wywołanie funkcji hello toohello żądania usługi sieci web opartej na chmurze usługi systemu Azure Multi-Factor Authentication. Wszystkie wywołania musi zawierać certyfikatu prywatnego toohello odwołania, który znajduje się w każdym zestawu SDK.
+Struktura interfejsów API w zestawie SDK usługi Multi-Factor Authentication jest proste. Należy jednej funkcji wywołanie interfejsu API za pomocą opcji wieloskładnikowego parametry (takie jak tryb weryfikacji) i danych użytkownika (na przykład numer telefonu lub numer PIN, aby sprawdzić poprawność). Interfejsy API wykonuje wywołanie funkcji do żądania usługi sieci web do usługi uwierzytelniania wieloskładnikowego Azure opartej na chmurze. Wszystkie wywołania musi zawierać odwołanie do certyfikatu prywatnego, który znajduje się w każdym zestawu SDK.
 
-Ponieważ hello interfejsów API nie mają toousers access zarejestrowane w usłudze Azure Active Directory, musisz podać informacje o użytkowniku w pliku lub bazy danych. Hello interfejsów API oferuje również funkcje zarządzania rejestracji lub użytkownika, więc należy toobuild tych procesów do aplikacji.
+Ponieważ interfejsy API nie mają dostępu do użytkowników zarejestrowanych w usłudze Azure Active Directory, musisz podać informacje o użytkowniku w pliku lub bazy danych. Interfejsy API nie udostępniają również funkcje zarządzania użytkownika lub rejestracji, więc jest potrzebne do tworzenia tych procesów do aplikacji.
 
 > [!IMPORTANT]
-> toodownload hello zestawu SDK, należy toocreate dostawcy usługi Azure Multi-Factor Authentication, nawet jeśli użytkownik ma licencje usługi Azure MFA, usługi AAD Premium lub pakietu EMS. W tym celu należy utworzyć dostawcy usługi Azure Multi-Factor Authentication, a już licencji, należy się hello toocreate dostawcy z hello **każdego włączonego użytkownika** modelu. Następnie połącz hello dostawcy toohello katalog, który zawiera hello licencje usługi Azure MFA, Azure AD Premium lub pakietu EMS. Taka konfiguracja powoduje, że rozliczenie jest przeprowadzane tylko jeśli masz więcej unikatowych użytkowników przy użyciu hello SDK niż hello liczbę licencji użytkownika.
+> Aby pobrać zestaw SDK, musisz utworzyć dostawcę usługi Azure Multi-Factor Authentication, nawet jeśli masz licencje usług Azure MFA, AAD Premium lub EMS. Jeśli w tym celu należy utworzyć dostawcy uwierzytelniania wieloskładnikowego Azure i mają już licencji, upewnij się, że tworzenie dostawcy z **każdego włączonego użytkownika** modelu. Następnie połącz dostawcę z katalogiem zawierającym licencje usług Azure MFA, Azure AD Premium lub EMS. Taka konfiguracja powoduje, że rozliczenie jest przeprowadzane tylko jeśli masz więcej unikatowych użytkowników przy użyciu zestawu SDK niż liczba licencji użytkownika.
 
 
-## <a name="download-hello-sdk"></a>Pobierz hello zestawu SDK
-Pobieranie hello zestawu SDK usługi Azure Multi-Factor wymaga [dostawcy uwierzytelniania wieloskładnikowego Azure](multi-factor-authentication-get-started-auth-provider.md).  Wymaga pełnej Azure subskrypcji, nawet jeśli należą do firmy licencje usługi Azure MFA, Azure AD Premium lub pakietu Enterprise Mobility Suite.  Witaj toodownload zestawu SDK, przejdź toohello Portal zarządzania usługą Multi-Factor. Hello portal można osiągnąć przez zarządzanie hello dostawcy uwierzytelniania wieloskładnikowego bezpośrednio lub przez kliknięcie przycisku hello **"Portal toohello Przejdź"** łącze na stronie ustawień usługi MFA hello.
+## <a name="download-the-sdk"></a>Pobierz zestaw SDK
+Pobieranie zestawu SDK usługi Azure Multi-Factor wymaga [dostawcy uwierzytelniania wieloskładnikowego Azure](multi-factor-authentication-get-started-auth-provider.md).  Wymaga pełnej Azure subskrypcji, nawet jeśli należą do firmy licencje usługi Azure MFA, Azure AD Premium lub pakietu Enterprise Mobility Suite.  Aby pobrać zestaw SDK, przejdź do portalu zarządzania usługi Multi-Factor. Portalu można osiągnąć dzięki zarządzaniu dostawcy uwierzytelniania wieloskładnikowego bezpośrednio lub przez kliknięcie przycisku **"Przejdź do portalu"** łącze na stronie ustawień usługi MFA.
 
-### <a name="download-from-hello-azure-classic-portal"></a>Pobierz z hello klasycznego portalu Azure
-1. Zaloguj się toohello [klasycznego portalu Azure](https://manage.windowsazure.com) jako Administrator.
-2. Po lewej stronie powitania, wybierz **usługi Active Directory**.
-3. Na stronie usługi Active Directory hello na górnym umożliwia hello **dostawców uwierzytelniania wieloskładnikowego**
-4. U dołu hello wybierz **Zarządzaj**. Zostanie otwarta nowa strona.
-5. Na powitania po lewej, u dołu hello kliknij **SDK**.
+### <a name="download-from-the-azure-classic-portal"></a>Pobierz z klasycznego portalu Azure
+1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
+2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
+3. Na stronie usługi Active Directory na górnym umożliwia **dostawców uwierzytelniania wieloskładnikowego**
+4. U dołu wybierz **Zarządzaj**. Zostanie otwarta nowa strona.
+5. Po lewej stronie u dołu, kliknij przycisk **SDK**.
    <center>![Pobierz](./media/multi-factor-authentication-sdk/download.png)</center>
-6. Wybierz język hello i kliknij jeden łączy do pobierania hello.
-7. Zapisz hello pobierania.
+6. Wybierz język i kliknij jeden łączy do pobierania.
+7. Zapisz pobrany plik.
 
-### <a name="download-from-hello-service-settings"></a>Pobierz z hello ustawienia usługi
-1. Zaloguj się toohello [klasycznego portalu Azure](https://manage.windowsazure.com) jako Administrator.
-2. Po lewej stronie powitania, wybierz **usługi Active Directory**.
+### <a name="download-from-the-service-settings"></a>Pobierz z ustawienia usługi
+1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com) jako administrator.
+2. W obszarze po lewej stronie wybierz pozycję **Active Directory**.
 3. Kliknij dwukrotnie wystąpienie usługi Azure AD.
-4. Na powitania kliknij górny **Konfiguruj**
+4. Kliknij pozycję **Konfiguruj** u góry strony
 5. W obszarze usługi Multi-Factor authentication, zaznacz **Zarządzaj ustawieniami usługi**
    ![Pobierz](./media/multi-factor-authentication-sdk/download2.png)
-6. Na stronie ustawień usługi hello u dołu ekranu hello powitania kliknij **Przejdź toohello portal**. Zostanie otwarta nowa strona.
+6. Na stronie ustawień usługi, w dolnej części ekranu, kliknij opcję **Przejdź do portalu**. Zostanie otwarta nowa strona.
    ![Pobieranie](./media/multi-factor-authentication-sdk/download3a.png)
-7. Na powitania po lewej, u dołu hello kliknij **SDK**.
-8. Wybierz język hello i kliknij jeden łączy do pobierania hello.
-9. Zapisz hello pobierania.
+7. Po lewej stronie u dołu, kliknij przycisk **SDK**.
+8. Wybierz język i kliknij jeden łączy do pobierania.
+9. Zapisz pobrany plik.
 
-## <a name="whats-in-hello-sdk"></a>Co to jest w hello zestawu SDK
-Witaj zestaw SDK zawiera hello następujące elementy:
+## <a name="whats-in-the-sdk"></a>Co to jest w zestawie SDK
+Zestaw SDK zawiera następujące elementy:
 
-* **PLIK README**. W tym artykule wyjaśniono, jak toouse hello interfejsy API uwierzytelniania wieloskładnikowego w nowej lub istniejącej aplikacji.
+* **PLIK README**. Opisano sposób korzystania z interfejsów API uwierzytelniania wieloskładnikowego w nowej lub istniejącej aplikacji.
 * **Pliki źródłowe** uwierzytelnianie wieloskładnikowe
-* **Certyfikat klienta** użyć toocommunicate z hello usługi Multi-Factor Authentication
-* **Klucz prywatny** hello certyfikatu
-* **Wyniki wywołania.** Lista kody rezultatów połączeń. tooopen ten plik, użyj aplikacji przy użyciu tekstu, takich jak program WordPad. Użyj hello wywołać tootest kody wyników i rozwiązywania problemów z hello stosowania uwierzytelniania wieloskładnikowego w aplikacji. Nie są one kodów stanu uwierzytelniania.
+* **Certyfikat klienta** używanej do komunikacji z usługą Multi-Factor Authentication
+* **Klucz prywatny** certyfikatu
+* **Wyniki wywołania.** Lista kody rezultatów połączeń. Aby otworzyć ten plik, za pomocą aplikacji formatowanie tekstu, takich jak program WordPad. Kody rezultatów połączeń umożliwia testowanie i rozwiązywanie problemów stosowania uwierzytelniania wieloskładnikowego w aplikacji. Nie są one kodów stanu uwierzytelniania.
 * **Przykłady.** Przykładowy kod Podstawowa implementacja pracy usługi Multi-Factor Authentication.
 
 > [!WARNING]
-> certyfikat klienta na powitania jest unikatowy certyfikat prywatny wygenerowany specjalnie dla Ciebie. Udostępnij lub nie utracić tego pliku. Jest tooensuring klucza zabezpieczeń hello komunikacji z usługą Multi-Factor Authentication hello.
+> Certyfikat klienta jest unikatowy certyfikat prywatny wygenerowany specjalnie dla Ciebie. Udostępnij lub nie utracić tego pliku. Jest kluczem do zapewnienia bezpieczeństwa komunikacji z usługą Multi-Factor Authentication.
 
 ## <a name="code-sample"></a>Przykład kodu
-Ten przykładowy kod przedstawia sposób toouse hello interfejsów API w hello Azure Multi-Factor Authentication SDK tooadd Tryb standardowy głosu wywoływania aplikacji tooyour weryfikacji. Telefon hello użytkownika odpowiada tooby naciśnięcie klawisza # hello jest tryb standardowy.
+Ten przykładowy kod przedstawia sposób dodawania Tryb standardowy głosu wywołania weryfikacji do aplikacji przy użyciu interfejsów API w zestawie SDK Azure Multi-Factor Authentication. Tryb standardowy jest telefon użytkownika reaguje na naciśnięcie przycisku #.
 
-W tym przykładzie użyto hello C# .NET 2.0 SDK usługi Multi-Factor Authentication w podstawowej aplikacji ASP.NET w logice C# po stronie serwera, ale hello proces jest podobny w innych językach. Ponieważ hello zestaw SDK zawiera pliki źródłowe, pliki wykonywalne nie można skompilować plików hello i odwoływać je lub umieścić je bezpośrednio w aplikacji.
+W tym przykładzie użyto C# .NET 2.0 SDK usługi Multi-Factor Authentication w podstawowej aplikacji ASP.NET w logice C# po stronie serwera, ale ten proces przypomina w innych językach. Ponieważ zestaw SDK zawiera pliki źródłowe, pliki wykonywalne nie można skompilować plików i ich odwołania lub umieścić je bezpośrednio w aplikacji.
 
 > [!NOTE]
-> Podczas wdrażania usługi Multi-Factor Authentication, użyj hello dodatkowe metody (Rozmowa telefoniczna lub wiadomości tekstowej) jako dodatkowej lub trzeciorzędny weryfikacji toosupplement metodę uwierzytelniania podstawowego (nazwa użytkownika i hasło). Te metody nie są zaprojektowane jako metody uwierzytelniania podstawowego.
+> Podczas wdrażania usługi Multi-Factor Authentication, należy użyć dodatkowe metody (Rozmowa telefoniczna lub wiadomości tekstowej) jako dodatkowej lub trzeciorzędny weryfikacji uzupełnienie metodę uwierzytelniania podstawowego (nazwa użytkownika i hasło). Te metody nie są zaprojektowane jako metody uwierzytelniania podstawowego.
 
 ### <a name="code-sample-overview"></a>Omówienie przykładowy kod
-Ten przykładowy kod dla prostą aplikację sieci web pokaz używa połączenia telefonicznego z uwierzytelnianiem # klucza odpowiedzi tooverify hello użytkownika. Współczynnik ten telefon jest określany w usłudze Multi-Factor Authentication jako tryb standardowy.
+Ten przykładowy kod dla prostą aplikację sieci web pokaz używa połączenia telefonicznego z odpowiedzią klucza # do weryfikacji uwierzytelniania użytkownika. Współczynnik ten telefon jest określany w usłudze Multi-Factor Authentication jako tryb standardowy.
 
-Hello kod po stronie klienta nie ma żadnych elementów specyficznych dla usługi Multi-Factor Authentication. Ponieważ hello dodatkowych czynników autoryzacji są niezależne od hello podstawowego uwierzytelniania, można dodawać je bez zmieniania hello istniejącego logowania interfejsu. Hello interfejsów API w hello SDK Multi-Factor umożliwiają dostosowanie hello środowisko użytkownika, ale może nie być konieczny toochange niczego w ogóle.
+Kod po stronie klienta nie ma żadnych elementów specyficznych dla usługi Multi-Factor Authentication. Czynniki dodatkowego uwierzytelniania są niezależne od podstawowego uwierzytelniania, dlatego można dodać je bez zmiany istniejącego interfejsu logowania jednokrotnego. Interfejsy API w zestawie SDK usługi Multi-Factor umożliwiają dostosowanie środowiska użytkownika, ale nie może być konieczne wprowadzanie zmian w ogóle.
 
-Kod po stronie serwera Hello dodaje Tryb standardowy uwierzytelniania w kroku 2. Tworzy obiekt PfAuthParams z parametrami hello, które są wymagane do weryfikacji Tryb standardowy: nazwa_użytkownika, telefonu numer i tryb i hello ścieżki toohello certyfikatu klienta (CertFilePath), który jest wymagany w każdym wywołaniu. Aby demonstracyjne wszystkich parametrów w PfAuthParams, zobacz hello przykładowy plik w hello zestawu SDK.
+Kod po stronie serwera dodaje Tryb standardowy uwierzytelniania w kroku 2. Tworzy obiekt PfAuthParams z parametrami, które są wymagane do weryfikacji Tryb standardowy: nazwa_użytkownika, telefonu numer oraz trybu i ścieżkę do certyfikatu klienta (CertFilePath), który jest wymagany w każdym wywołaniu. Pokaz wszystkich parametrów w PfAuthParams na ten temat można znaleźć w pliku przykładzie w zestawie SDK.
 
-Następnie kod hello przekazuje hello PfAuthParams obiektu toohello pf_authenticate() funkcji. Wartość zwracana Hello wskazuje hello powodzenie lub niepowodzenie uwierzytelniania hello. Witaj parametrów, callStatus oraz identyfikator błędu, zawierają informacje wynik wywołania dodatkowe. kody rezultatów połączeń Hello są udokumentowane w pliku wyników wywołania hello w hello zestawu SDK.
+Następnie kod przekazuje obiekt PfAuthParams funkcji pf_authenticate(). Zwracana wartość wskazuje powodzenie lub niepowodzenie uwierzytelniania. Parametry, callStatus oraz identyfikator błędu zawierają informacje wynik wywołania dodatkowe. Kody rezultatów połączeń są rejestrowane w pliku wyników wywołania w zestawie SDK.
 
 Ta implementacja minimalnego można pisać w zaledwie kilku wierszach. Jednak w kodzie produkcyjnym, można dołączyć dokładniejsze obsługi błędów kodu dodatkowej bazy danych i lepszą obsługę użytkowników.
 
 ### <a name="web-client-code"></a>Kod klienta sieci Web
-Oto Hello kodu klienta sieci web dla strony pokaz.
+Poniżej znajduje się kod klienta sieci web dla strony demonstracyjnej.
 
     <%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="\_Default" %>
 
@@ -127,7 +127,7 @@ Oto Hello kodu klienta sieci web dla strony pokaz.
 
 
 ### <a name="server-side-code"></a>Kod po stronie serwera
-Uwierzytelnianie wieloskładnikowe hello następującego kodu po stronie serwera, jest skonfigurowany i uruchamiania w kroku 2. Rozmowy telefonicznej użytkownika hello toowhich odpowiada naciskając klawisz # hello jest tryb standardowy (MODE_STANDARD).
+W poniższym kodzie po stronie serwera Multi-Factor Authentication jest skonfigurowany i uruchom w kroku 2. Tryb standardowy (MODE_STANDARD) jest połączeń telefonicznych, do którego użytkownik odpowiada, naciskając klawisz #.
 
     using System;
     using System.Collections.Generic;
@@ -144,7 +144,7 @@ Uwierzytelnianie wieloskładnikowe hello następującego kodu po stronie serwera
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Step 1: Validate hello username and password
+            // Step 1: Validate the username and password
             if (username.Text != "Contoso" || password.Text != "password")
             {
                 lblResult.ForeColor = System.Drawing.Color.Red;
@@ -154,14 +154,14 @@ Uwierzytelnianie wieloskładnikowe hello następującego kodu po stronie serwera
             {
                 // Step 2: Perform multi-factor authentication
 
-                // Add call details from hello user database.
+                // Add call details from the user database.
                 PfAuthParams pfAuthParams = new PfAuthParams();
                 pfAuthParams.Username = username.Text;
                 pfAuthParams.Phone = "5555555555";
                 pfAuthParams.Mode = pf_auth.MODE_STANDARD;
 
                 // Specify a client certificate
-                // NOTE: This file contains hello private key for hello client
+                // NOTE: This file contains the private key for the client
                 // certificate. It must be stored with appropriate file
                 // permissions.
                 pfAuthParams.CertFilePath = "c:\\cert_key.p12";

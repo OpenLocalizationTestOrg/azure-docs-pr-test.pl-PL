@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z RFPIO | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i RFPIO."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i RFPIO."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,51 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e0c692276276edd8f859e73d81cf54d75a65957a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 26a8bb17dad5a01b401ce7f9b484f09822825cbf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Samouczek: Integracji Azure Active Directory z RFPIO
 
-Z tego samouczka, dowiesz się, jak toointegrate RFPIO w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie RFPIO z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD RFPIO zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD RFPIO zapewnia następujące korzyści:
 
-- Możesz kontrolować, kto w usłudze Azure AD, kto ma dostęp do tooRFPIO.
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooRFPIO (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji — Witaj portalu Azure.
+- Możesz kontrolować, kto w usłudze Azure AD, który ma dostęp do RFPIO.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do RFPIO (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji--portalu Azure.
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z RFPIO należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z RFPIO, potrzebne są następujące elementy:
 
 - Subskrypcja usługi Azure AD.
 - RFPIO pojedynczy znak z włączoną subskrypcji.
 
 > [!NOTE]
-> Nie zaleca się użyć procedura hello tootest środowiska produkcyjnego w tym samouczku.
+> Firma Microsoft nie zaleca się używanie środowiska produkcyjnego do testowania czynności w tym samouczku.
 
-kroki hello tootest w tym samouczku, wykonaj te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, wykonaj te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać [miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello, opisaną w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz, który jest opisane w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie RFPIO z galerii hello.
+1. Dodawanie RFPIO z galerii.
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne.
 
-## <a name="add-rfpio-from-hello-gallery"></a>Dodaj RFPIO z galerii hello
-tooconfigure hello integracji RFPIO do usługi Azure AD, należy tooadd RFPIO z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="add-rfpio-from-the-gallery"></a>Dodaj RFPIO z galerii
+Aby skonfigurować integrację usługi Azure AD RFPIO, należy dodać RFPIO z galerii do listy zarządzanych aplikacji SaaS.
 
-### <a name="tooadd-rfpio-from-hello-gallery"></a>tooadd RFPIO z galerii hello
+### <a name="to-add-rfpio-from-the-gallery"></a>Aby dodać RFPIO z galerii
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello w lewym okienku nawigacji, wybierz hello **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, w okienku nawigacji po lewej stronie wybierz **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
@@ -65,66 +65,66 @@ tooconfigure hello integracji RFPIO do usługi Azure AD, należy tooadd RFPIO z 
 
     ![Aplikacje][2]
     
-3. tooadd nowej aplikacji, wybierz opcję hello **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, zaznacz **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **RFPIO**.
+4. W polu wyszukiwania wpisz **RFPIO**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_search.png)
 
-5. W panelu wyników hello, wybierz **RFPIO**, a następnie wybierz hello **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **RFPIO**, a następnie wybierz **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z RFPIO w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow jakie relacje hello jest odpowiednikiem użytkownika w RFPIO i użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w RFPIO musi toobe ustanowione.
+Do rejestracji jednokrotnej do pracy usługi Azure AD musi ustalić relacji między użytkownikiem odpowiednika w RFPIO a użytkownikiem w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w RFPIO musi się.
 
-W RFPIO, należy przypisać wartość hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello **Username** tooestablish hello łącze relacji.
+W RFPIO, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z RFPIO, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z RFPIO, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**— tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**— tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego RFPIO](#creating-a-rfpio-test-user)**  — toohave odpowiednikiem Simona Britta w RFPIO, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**tooenable — Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#testing-single-sign-on)**  — tooverify, jeśli konfiguracja hello działa.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**— aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**— do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego RFPIO](#creating-a-rfpio-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta RFPIO połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**— aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji RFPIO.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji RFPIO.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z RFPIO, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z RFPIO, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **RFPIO** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **RFPIO** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_samlbase.png)
 
-3. Na powitania **RFPIO domeny i adres URL** sekcji, jeśli chcesz, aby aplikacja hello tooconfigure w **IDP** inicjowane tryb:
+3. Na **RFPIO domeny i adres URL** sekcji, jeśli chcesz skonfigurować aplikację w **IDP** inicjowane tryb:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url.png)
 
-    a. W hello **identyfikator** pole tekstowe, wprowadź adres URL hello:`https://www.rfpio.com`
+    a. W **identyfikator** tekstowym, wpisz adres URL:`https://www.rfpio.com`
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url1.png)
 
     b. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**.
 
-    c. W hello **stan przekazywania** pole tekstowe Wprowadź wartość ciągu. Skontaktuj się z [RFPIO obsługuje zespołu](https://www.rfpio.com/contact/) tooget tej wartości. 
+    c. W **stan przekazywania** pole tekstowe Wprowadź wartość ciągu. Skontaktuj się z [RFPIO obsługuje zespołu](https://www.rfpio.com/contact/) aby zyskać tę wartość. 
 
-4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**. Jeśli chcesz, aby aplikacja hello tooconfigure w **SP** inicjowane tryb:   
+4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**. Jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb: 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_url2.png)
 
-    W hello **Zaloguj się na adres URL** pole tekstowe, wprowadź adres URL hello:`https://www.app.rfpio.com`
+    W **Zaloguj się na adres URL** tekstowym, wpisz adres URL:`https://www.app.rfpio.com`
 
-5. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.
+5. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_certificate.png) 
 
@@ -132,21 +132,21 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/tutorial_general_400.png)
 
-7. W oknie przeglądarki innej witryny sieci web, logowania toohello **RFPIO** witryny sieci Web jako administrator.
+7. W oknie przeglądarki innej witryny sieci web, zaloguj się do **RFPIO** witryny sieci Web jako administrator.
 
-8. Polecenie hello dolnej lewym rogu z listy rozwijanej.
+8. Kliknij menu rozwijanego lewym rogu dolnej.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app1.png)
 
-9. Polecenie hello **ustawienia organizacji**. 
+9. Polecenie **ustawienia organizacji**. 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app2.png)
 
-10. Polecenie hello **funkcje & integracji**.
+10. Polecenie **funkcje & integracji**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app4.png)
 
-11. W hello **konfiguracji logowania jednokrotnego SAML** kliknij **Edytuj**.
+11. W **konfiguracji logowania jednokrotnego SAML** kliknij **Edytuj**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app3.png)
 
@@ -154,66 +154,66 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app5.png)
     
-    a. Skopiuj zawartość hello hello **pobierane metadane XML** i wklej go do hello **konfiguracji tożsamości** pola.
+    a. Skopiuj zawartość **pobierane metadane XML** i wklej ją do **konfiguracji tożsamości** pola.
 
     > [!NOTE]
-    >pobrane hello toocopy zawartości **XML metadanych** użyj **Notatnik ++** lub właściwe **edytora XML**. 
+    >Aby skopiować zawartość pobrana **XML metadanych** użyj **Notatnik ++** lub właściwe **edytora XML**. 
 
     b. Kliknij przycisk **zweryfikować**.
 
-    c. Po kliknięcie przycisku **weryfikacji**, przerzucania **SAML(Enabled)** tooon.
+    c. Po kliknięciu przycisku **zweryfikować**, przerzucania **SAML(Enabled)** do włączenia.
 
     d. Kliknij przycisk **przesłać**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-rfpio-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-rfpio-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-rfpio-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-rfpio-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-rfpio-test-user"></a>Tworzenie użytkownika testowego RFPIO
 
-toolog użytkowników tooenable usługi Azure AD w tooRFPIO, muszą mieć przydzielone do RFPIO.  
-W przypadku hello RFPIO Inicjowanie obsługi to zadanie ręczne.
+Aby umożliwić użytkownikom usługi Azure AD zalogować się do RFPIO, musi być przygotowana do RFPIO.  
+W przypadku RFPIO Inicjowanie obsługi to zadanie ręczne.
 
-**tooprovision konta użytkownika, należy wykonać hello następujące kroki:**
+**Aby udostępnić konta użytkownika, wykonaj następujące czynności:**
 
-1. Zaloguj się za tooyour RFPIO witryny firmy jako administrator.
+1. Zaloguj się do witryny firmy RFPIO jako administrator.
 
-2. Polecenie hello dolnej lewym rogu z listy rozwijanej.
+2. Kliknij menu rozwijanego lewym rogu dolnej.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app1.png)
 
-3. Polecenie hello **ustawienia organizacji**. 
+3. Polecenie **ustawienia organizacji**. 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app2.png)
 
@@ -225,36 +225,36 @@ W przypadku hello RFPIO Inicjowanie obsługi to zadanie ręczne.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app7.png)
 
-6. W hello **Dodawanie nowych elementów członkowskich** sekcji. Wykonaj następujące czynności:
+6. W **Dodawanie nowych elementów członkowskich** sekcji. Wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/app8.png)
 
-    a. Wprowadź **adres E-mail** w hello **Podaj jeden adres e-mail w jednym wierszu** pola.
+    a. Wprowadź **adres E-mail** w **Podaj jeden adres e-mail w jednym wierszu** pola.
 
     b. Wybierz Plese **roli** zgodnie z wymaganiami.
 
     c. Kliknij przycisk **Dodaj członków**.
         
     > [!NOTE]
-    > Właściciel konta usługi Azure Active Directory Hello otrzymuje wiadomość e-mail i następuje tooconfirm łącze swojego konta, zanim staje się aktywny.
+    > Właściciel konta usługi Azure Active Directory otrzymuje wiadomość e-mail i następuje łącze, aby potwierdzić swoje konto, zanim staje się aktywny.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooRFPIO.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu RFPIO.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooRFPIO Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta RFPIO, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **RFPIO**.
+2. Na liście aplikacji zaznacz **RFPIO**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-rfpio-tutorial/tutorial_rfpio_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -262,7 +262,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -270,14 +270,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu hello RFPIO kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour RFPIO aplikacji.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu kafelka RFPIO w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji RFPIO.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących toointegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobu integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

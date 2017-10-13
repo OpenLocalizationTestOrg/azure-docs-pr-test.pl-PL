@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate aplikacji systemu Android w usłudze Azure App Service Mobile Apps | Dokumentacja firmy Microsoft"
-description: "Postępuj zgodnie z tego samouczka tooget korzystanie z zapleczy zapleczy aplikacji mobilnych Azure dla systemu Android."
+title: "Tworzenie aplikacji systemu Android przy użyciu funkcji Azure App Service Mobile Apps | Microsoft Docs"
+description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z zapleczy usług mobilnych Azure na potrzeby opracowywania aplikacji dla systemu Android."
 services: app-service\mobile
 documentationcenter: android
 author: ggailey777
@@ -14,34 +14,34 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 0af85a3a4de9fc265976bbe3f34d73effc3807df
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 418a5229a084d570bc6cab5925dbd8d30945a3c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-android-app"></a>Tworzenie aplikacji systemu Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
-Ten samouczek pokazuje, jak tooadd wewnętrznej bazy danych opartej na chmurze usługi tooan aplikacji mobilnej systemu Android przy użyciu zaplecza aplikacji mobilnej Azure.  Będziesz tworzyć nowe zaplecze aplikacji mobilnej oraz prostą aplikację systemu Android typu *Lista czynności do wykonania*, która przechowuje dane aplikacji na platformie Azure.
+W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do aplikacji mobilnej systemu Android przy użyciu zaplecza aplikacji mobilnej Azure.  Będziesz tworzyć nowe zaplecze aplikacji mobilnej oraz prostą aplikację systemu Android typu *Lista czynności do wykonania*, która przechowuje dane aplikacji na platformie Azure.
 
-Wykonanie kroków tego samouczka jest wymaganiem wstępnym dla wszystkich innych samouczków dla systemu Android dotyczących używania funkcji Mobile Apps hello w usłudze Azure App Service.
+Wykonanie kroków tego samouczka jest wymagane w przypadku wszystkich innych samouczków z zakresu systemu Android dotyczących używania funkcji Mobile Apps w usłudze Azure App Service.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-toocomplete tego samouczka należy hello następujące:
+Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* [Narzędzia dla deweloperów systemu android](https://developer.android.com/sdk/index.html), w tym hello Android Studio zintegrowane środowisko programistyczne oraz najnowszej platformy Android hello.
-* Azure Mobile Android SDK, która jest automatycznie używany jako część hello pobieranego projektu szybkiego startu możesz pobrać.
+* [Narzędzia dla deweloperów systemu Android](https://developer.android.com/sdk/index.html), w tym zintegrowane środowisko projektowe Android Studio i najnowsza platforma systemu Android.
+* Zestaw Azure Mobile Android SDK, który jest automatycznie używany jako część pobieranego projektu szybkiego startu.
 * [Aktywne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Tworzenie zaplecza nowej aplikacji mobilnej Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-hello-server-project"></a>Konfigurowanie projektu serwera hello
+## <a name="configure-the-server-project"></a>Konfigurowanie projektu serwera
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-android-app"></a>Pobieranie i uruchamianie aplikacji systemu Android hello
+## <a name="download-and-run-the-android-app"></a>Pobieranie i uruchamianie aplikacji systemu Android
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- URLs -->

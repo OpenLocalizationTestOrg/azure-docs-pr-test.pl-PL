@@ -1,6 +1,6 @@
 ---
-title: "Omówienie usług analizy aaaFault | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano hello usługi analiza błędów w sieci szkieletowej usług dla wywołania usterek i uruchamiania scenariuszy testowania usług."
+title: "Omówienie usługi analiza błędów | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano usługę analiza błędów w sieci szkieletowej usług dla wywołania usterek i uruchamiania scenariuszy testowania usług."
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,91 +14,91 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: deac16ec830aa10d4e488e60691faa9ef2b6cd33
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f275fa5d3d6d727b016e55c188321d7e68091a33
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="introduction-toohello-fault-analysis-service"></a>Wprowadzenie toohello usługi analiza błędów
-Hello błędów Analysis Services jest przeznaczony do testowania usług, które są wbudowane w usługi sieć szkieletowa usług Microsoft Azure. Hello błędów usługi Analysis możesz wywołać znaczenie błędów i uruchom ukończenia testowej scenariusze dla aplikacji. Te błędy i scenariuszy wykonywania i sprawdzania poprawności hello wiele stanów i przejść, które usługa może wystąpić w całym cyklu eksploatacji w sposób kontrolowany, bezpieczne i zgodne.
+# <a name="introduction-to-the-fault-analysis-service"></a>Wprowadzenie do usługi analiza błędów
+Usługi analizy błędów jest przeznaczony do testowania usług, które są wbudowane w usługi sieć szkieletowa usług Microsoft Azure. W usłudze analiza błędów można wywołać znaczenie błędów i uruchomienia testu pełne scenariusze aplikacji. Te błędy i scenariusze wykonywania i sprawdzania poprawności wiele stanów i przejść, które usługa może wystąpić w jego okres istnienia, w sposób kontrolowany, bezpieczne i zgodne.
 
-Akcje są błędy poszczególnych hello przeznaczonych dla usługi do testowania go. Projektant usługi można użyć je jako bloków konstrukcyjnych toowrite skomplikowane scenariuszy. Na przykład:
+Akcje są poszczególnych usterek przeznaczonych dla usługi do testowania go. Projektant usługi można użyć je jako bloków konstrukcyjnych, aby zapisać złożonych zadań. Na przykład:
 
-* Uruchom ponownie toosimulate węzła dowolną liczbę sytuacji, w którym ponownego uruchomienia komputera lub maszyny Wirtualnej.
-* Przenieś repliki równoważenia obciążenia toosimulate usługi stanowej, trybu failover, lub uaktualniania aplikacji.
-* Wywołaj utraty kworum toocreate usługi stanowej sytuacji, gdy nie można kontynuować operacje zapisu dla, ponieważ nie ma wystarczającej liczby replik "kopii zapasowych" i "secondary" tooaccept nowych danych.
-* Wywołanie toocreate usługi stanowej sytuacji, w którym całkowicie wyczyszczeniem wszystkich stanów w pamięci poza utraty danych.
+* Uruchom ponownie węzeł, aby symulować dowolną liczbę sytuacji, w którym ponownego uruchomienia komputera lub maszyny Wirtualnej.
+* Przenieś repliki usługi stanowej do symulowania równoważenia obciążenia i trybu failover lub uaktualniania aplikacji.
+* Wywołaj utraty kworum usługi stanowej, aby uniknąć sytuacji, gdy nie można kontynuować operacji zapisu, ponieważ nie ma wystarczającej liczby replik "kopii zapasowych" i "secondary" nowe dane.
+* Wywołanie usługi stanowej, aby uniknąć sytuacji, gdy całkowicie wyczyszczeniem wszystkich stanów w pamięci poza utraty danych.
 
-Scenariusze są złożonych operacji składa się z co najmniej jednej akcji. Hello błędów Analysis Services zawiera dwa wbudowane pełne scenariusze:
+Scenariusze są złożonych operacji składa się z co najmniej jednej akcji. Usługi analizy błędów zawiera dwa wbudowane pełne scenariusze:
 
 * Scenariusz chaos
 * Scenariusz trybu failover
 
 ## <a name="testing-as-a-service"></a>Testowanie jako usługa
-Hello błędów Analysis Services to usługa systemu sieci szkieletowej usług, która zostanie automatycznie uruchomiony przy użyciu klastra sieci szkieletowej usług. Ta usługa działa jako host hello iniekcji błędów, wykonywania testów scenariusza i analizy kondycji. 
+Usługi analizy błędów jest usługą systemu sieci szkieletowej usług, która zostanie automatycznie uruchomiony przy użyciu klastra sieci szkieletowej usług. Ta usługa działa jako host iniekcji błędów, wykonywania testów scenariusza i analizy kondycji. 
 
 ![Błąd analizy usługi][0]
 
-Po zainicjowaniu akcji lub testu scenariusza błędów polecenia są wysyłane toohello błędów Analysis Service toorun hello błędów akcji lub testu scenariusza. Hello błąd analizy usługi jest obiektem stanowym tak, aby można niezawodnie Uruchom scenariuszy i usterek i Zweryfikuj wyniki. Na przykład scenariusza testu długotrwałe może być niezawodnie wykonywane przez hello usługi analizy błędów. I ponieważ testy są wykonywane w klastrze hello, hello usługi można sprawdzić stan hello hello klastra i tooprovide Twojego usług więcej szczegółowych informacji o awarii.
+Po zainicjowaniu akcji lub testu scenariusza błędów polecenia są wysyłane do usługi analizy błędów do uruchomienia scenariusz akcji lub test awarii. Usługi analizy błędów jest obiektem stanowym tak, aby można niezawodnie Uruchom scenariuszy i usterek i Zweryfikuj wyniki. Na przykład scenariusza testu długotrwałe może być niezawodnie wykonywane przez usługę analiza błędów. I ponieważ testy są wykonywane w klastrze, usługi można sprawdzić stan klastra i usługi, aby zapewnić więcej szczegółowych informacji o awarii.
 
 ## <a name="testing-distributed-systems"></a>Testowanie systemów rozproszonych
-Sieć szkieletowa usług sprawia, że zadania hello zapisywania i aplikacje skalowalne rozproszone znacznie łatwiejsze zarządzanie. Hello usługi analiza błędów sprawia, że testowanie aplikacji rozproszonej podobnie łatwiejsze. Istnieją trzy główne kwestie, które należy rozwiązać podczas badania toobe:
+Sieć szkieletowa usług sprawia, że zapisywanie i aplikacje skalowalne rozproszone znacznie łatwiejsze zarządzanie. Usługi analizy błędów sprawia, że testowanie aplikacji rozproszonej podobnie łatwiejsze. Istnieją trzy główne problemy, które muszą zostać rozwiązane podczas testowania:
 
-1. Symuluje/generowanie błędów, które mogą wystąpić w rzeczywistych scenariuszach: jeden hello ważne kwestie związane z sieci szkieletowej usług jest możliwość toorecover aplikacje rozproszone z różnych błędów. Jednak tootest, która aplikacja hello jest możliwe toorecover z tych błędów, potrzebujemy mechanizm toosimulate/generowanie tych błędów rzeczywistych w środowisku testowym kontrolowany.
-2. toogenerate możliwości Hello skorelowane błędów: podstawowe błędy w systemie hello, takie jak awarie sieci i błędy maszyn są łatwe tooproduce indywidualnie. Generowanie znaczących scenariusze, które mogą wystąpić w rzeczywistych hello wyniku hello interakcji z tych błędów pojedynczych jest nieuproszczony.
-3. Ujednolicone i środowisko na różnych poziomach programowanie i wdrożenie: istnieje wiele systemów iniekcji błędów, które mogą wykonywać różnych typów błędów. Jednak środowisko hello we wszystkich tych jest niska, podczas przechodzenia z jednego pola deweloperów, powitalne toorunning takie same testy w środowisku testowym dużych, toousing je dla testów w środowisku produkcyjnym.
+1. Symuluje/generowanie błędów, które mogą wystąpić w rzeczywistych scenariuszach: jedną z najważniejszych aspektów usługi sieć szkieletowa jest możliwość aplikacji rozproszonych odzyskać z różnych błędów. Aby sprawdzić, czy aplikacja jest w stanie odzyskać z tych błędów, Potrzebujemy jednak mechanizm do symulowania/wygenerowania tych błędów rzeczywistych w środowisku testowym kontrolowane.
+2. Możliwość generowania błędów skorelowane: podstawowe błędy w systemie, takie jak awarie sieci i błędy maszyn łatwych do utworzenia pojedynczo. Generowanie znaczących scenariusze, które mogą wystąpić w świecie rzeczywistym w wyniku interakcji z tych błędów pojedynczych jest nieuproszczony.
+3. Ujednolicone i środowisko na różnych poziomach programowanie i wdrożenie: istnieje wiele systemów iniekcji błędów, które mogą wykonywać różnych typów błędów. Jednak środowisko we wszystkich z nich jest niska, podczas przenoszenia z jednego pola deweloperów uruchomione te same testy w środowisku testowym duża, aby ich użycie w przypadku testów w środowisku produkcyjnym.
 
-Gdy istnieją wiele mechanizmów toosolve tych problemów, system hello sam wymagane gwarancje — wszystkie sposób hello środowiska deweloperskiego jednego pola tootest w klastrów produkcyjnych — Brak. Hello błędów Analysis Service ułatwia deweloperom aplikacji hello skoncentrować się na temat testowania ich logiki biznesowej. Hello błędów Analysis Services zawiera wszystkie funkcje hello potrzebne interakcji hello tootest hello usługi o podstawowym systemie rozproszonej hello.
+Gdy istnieje wiele mechanizmów rozwiązywania tych problemów, system, który jest taki sam jak wymagane gwarancje — od środowiska deweloperskiego jednego pola, testowanie w produkcji klastrów — Brak. Usługi analizy błędów ułatwia deweloperom aplikacji, skoncentrować się na temat testowania ich logiki biznesowej. Usługi analizy błędów zawiera wszystkie funkcje, które są potrzebne do testowania interakcji usługi o podstawowym systemie rozproszonej.
 
 ### <a name="simulatinggenerating-real-world-failure-scenarios"></a>Symuluje generowania scenariuszy awarii rzeczywistych
-niezawodność hello tootest systemu rozproszonego przed awariami, potrzebujemy błędów toogenerate mechanizmu. Gdy teoretycznie generowania awarii, jak węzeł w dół prawdopodobnie łatwe, uruchamia, aktywując hello sam zestaw problemów spójności czy usługi sieci szkieletowej, próbuje toosolve. Na przykład jeśli chcemy tooshut wyłączenia węzła, hello wymaganym przepływu pracy jest hello następujące czynności:
+Aby przetestować niezawodności systemu rozproszonego przed awariami, potrzebujemy mechanizm umożliwiający generowanie błędów. Gdy teoretycznie generowania awarii, jak węzeł w dół prawdopodobnie łatwe, rozpoczyna się naciśnięcie ten sam zestaw spójności problemów, które podejmuje próbę rozwiązania sieci szkieletowej usług. Na przykład jeśli chcemy wyłączyć węzła, przepływ pracy, wymagane jest:
 
-1. W kliencie hello wystawiać żądanie zamknięcia węzła.
-2. Wyślij żądanie hello toohello prawidłowego węzła.
+1. Od klienta należy wydać żądanie zamknięcia węzła.
+2. Wyślij żądanie do prawidłowego węzła.
    
-    a. Jeśli nie znaleziono węzła hello, jeżeli nie.
+    a. Jeśli węzeł nie zostanie znaleziony, jeżeli nie.
    
-    b. Jeśli węzeł hello zostanie znaleziony, powinien on zwrócić tylko jeśli węzeł hello jest zamknięta.
+    b. Jeśli węzeł zostanie znaleziony, powinien on zwrócić tylko jeśli węzeł zostanie zamknięta.
 
-Błąd hello tooverify z punktu widzenia testu, hello testu musi tooknow, że podczas tego błędu jest wywołane, hello błąd wystąpi. Witaj gwarancji, że Usługa Service Fabric realizuje nie zostanie umieszczona w dół dowolnego węzła hello lub już nie działa, jeśli polecenie hello osiągnięto hello węzła. W albo wielkość hello testu powinien być toocorrectly możliwe przyczyny o stanie hello i powiedzie się lub się nie powieść w jego weryfikacji poprawnie. System zaimplementowana poza hello toodo sieci szkieletowej usług sam zestaw błędów można trafień przez wiele sieci, sprzętu i oprogramowania problemy, które mogłyby uniemożliwiać zapewnienie hello poprzedniego gwarancji. Obecność hello problemów hello wspomniano wcześniej, sieci szkieletowej usług ponownie skonfigurować toowork stanu klastra hello wokół hello problemy, a więc hello błędów usługi Analysis będzie nadal mogli toogive hello prawo ustawiony gwarancji.
+Aby sprawdzić błąd z punktu widzenia testu, testu musi wiedzieć, że przy powstaniu jest ten błąd, błąd wystąpi. Gwarancji, że Usługa Service Fabric realizuje jest to, że albo węzeł zostanie umieszczona w dół lub już nie działa, jeśli polecenie osiągnięto węzła. W obu przypadkach testu powinien móc prawidłowo przyczyny o stanie i powodzenie lub niepowodzenie poprawnie w jego poprawności. System zaimplementowana poza sieci szkieletowej usług do tego samego zestawu błędów można osiągnęła wiele sieci, sprzętu i problemy z oprogramowaniem, które mogłyby uniemożliwiać zapewnienie poprzedniego gwarancji. Obecności problemy wspomniano wcześniej, stan klastra w celu obejścia problemów konfigurację sieci szkieletowej usług i dlatego usługa analiza błędów nadal będą mogły umożliwiają prawidłowego zestawu gwarancje.
 
 ### <a name="generating-required-events-and-scenarios"></a>Generowanie zdarzeń wymagane i scenariusze
-Spójnie symulację awarii rzeczywistych jest trudnych toostart z, nawet silniejsze jest hello możliwości toogenerate skorelowane błędów. Na przykład utraty danych odbywa się w usługa stanowa utrwalonego, gdy wystąpi hello następujące czynności:
+Spójnie symulację awarii rzeczywistych skomplikowane jest zacząć, nawet silniejsze jest możliwość generowania skorelowane błędów. Na przykład utraty danych odbywa się w usługa stanowa utrwalonego, gdy wystąpi następujących czynności:
 
-1. Tylko do zapisu kworum replik hello są przechwytywane w na replikację. Wszystkie repliki pomocniczej hello opóźniona hello podstawowego.
-2. Witaj zapisu kworum ulegnie awarii z powodu replik hello przechodzi w dół (powodu pakietu kodu tooa lub węzeł przechodzi w dół).
-3. Witaj zapisu kworum nie przywracane ponieważ hello dane repliki hello są utracone (z powodu uszkodzenia toodisk lub ponownej instalacji systemu komputera).
+1. Tylko do zapisu kworum replik są przechwytywane w na replikację. Wszystkie pomocnicze repliki opóźniona serwera podstawowego.
+2. Kworum zapisu przestanie działać z powodu replik, przechodząc w dół (ze względu na pakiet kodu lub węzeł przechodzi w dół).
+3. Kworum zapisu nie przywracane ponieważ dane repliki są utracone (z powodu uszkodzenia dysku lub ponownej instalacji systemu komputera).
 
-Tych błędów skorelowane realizowane w świecie rzeczywistym hello, ale nie tak często, jak poszczególne błędy. bardzo ważne jest Hello tootest możliwości dotyczących następujących scenariuszy, zanim wystąpią w środowisku produkcyjnym. Szczególnie ważne jest toosimulate możliwości hello tych scenariuszy z obciążeń produkcyjnych w warunkach kontrolowanych (hello w środku dnia hello z wszystkich inżynierów w talii). To znacznie lepszą niż go być powitania po raz pierwszy w środowisku produkcyjnym o 2:00
+Te błędy skorelowane się tak zdarzyć w świecie rzeczywistym, ale nie jako błędy często indywidualnych. Bardzo ważne jest możliwość testowania dla tych scenariuszy, zanim wystąpią w środowisku produkcyjnym. Szczególnie ważne jest możliwość symulować tych scenariuszy z obciążeń produkcyjnych w warunkach kontrolowanych (na środku dnia z wszystkich inżynierów w talii). To znacznie lepszą niż w przypadku jego stanie się po raz pierwszy w środowisku produkcyjnym o 2:00
 
 ### <a name="unified-experience-across-different-environments"></a>Ujednolicone doświadczenie w różnych środowiskach
-praktyki Hello tradycyjnie była toocreate trzy różne zestawy środowiska, dla hello środowisko projektowe dla testów i jeden w środowisku produkcyjnym. Hello model był:
+Praktyki tradycyjnie była utworzyć trzy różne zestawy środowiska, jeden dla środowiska programowania, jeden dla testów, a drugi do produkcji. Model został:
 
-1. W środowisku projektowym hello należy utworzyć przejścia stanu zezwala testów jednostkowych poszczególnych metod.
-2. W środowisku testowym hello powodują błędy tooallow end-to-end testy, które korzystają z różnych scenariuszy awarii.
-3. Zachowaj tooprevent idealnego środowiska produkcyjnego hello wszelkie błędy naturalny z systemem innym niż i tooensure jest bardzo szybko odpowiedź człowieka toofailure.
+1. Środowisko deweloperskie do tworzenia przejścia stanu zezwala testów jednostkowych poszczególnych metod.
+2. W środowisku testowym należy utworzyć nieudanych logowań end-to-end testy, które korzystają z różnych scenariuszy awarii.
+3. Zachowaj nienaruszone, aby zapobiec błędom żadnych innych niż naturalnych i upewnij się, że jest bardzo szybki człowieka odpowiedzi na błąd środowiska produkcyjnego.
 
-W sieci szkieletowej usług, za pośrednictwem hello usługi analiza błędów, możemy są proponowania tooturn to wokół i użyj hello takie same metodologii z tooproduction środowiska dewelopera. Istnieją dwa sposoby tooachieve to:
+W sieci szkieletowej usług za pośrednictwem usługi analiza błędów możemy proponowania włączenie tej funkcji i użycie tej samej metodologii ze środowiska deweloperskiego do środowiska produkcyjnego. Istnieją dwa sposoby, w tym:
 
-1. błędy tooinduce kontrolowane, użyj hello interfejsów API usługi analiza błędów w środowisku jednego pola wszystkich tooproduction sposób hello klastrów.
-2. Witaj toogive klastra pomoru, powoduje automatyczne wywoływanie błędów, użyj hello błędów Analysis Service toogenerate automatyczne błędów. Kontrolowanie hello współczynnik błędów za pomocą konfiguracji umożliwia hello tej samej usługi toobe przetestowane inaczej w różnych środowiskach.
+1. Aby wywołać kontrolowane błędów, przy użyciu błędów analizy usługi interfejsów API ze środowiska jednego pola aż do klastrów produkcyjnych.
+2. Aby dać pomoru, która powoduje automatyczne wywoływanie awarii klastra, należy korzystać z usługi analizy błędów do generowania automatycznego błędów. Kontrolowanie współczynnik błędów za pomocą konfiguracji umożliwia tej samej usługi do sprawdzenia inaczej w różnych środowiskach.
 
-Z sieci szkieletowej usług chociaż skali hello niepowodzeń będą różne w różnych środowiskach hello mechanizmów rzeczywiste hello będą identyczne. Pozwala to znacznie szybsze wdrażanie kodu potoku i hello możliwości tootest hello usług pod obciążeniem rzeczywistych.
+Z usługi Service Fabric chociaż skali błędy będą różne w różnych środowiskach rzeczywistych mechanizmów będą identyczne. Dzięki temu wiele potoku przyspieszają-do wdrażanie kodu oraz możliwość testowania usług pod obciążeniem rzeczywistych.
 
-## <a name="using-hello-fault-analysis-service"></a>Przy użyciu hello usługi analiza błędów
+## <a name="using-the-fault-analysis-service"></a>Przy użyciu usługi analiza błędów
 **C#**
 
-Funkcji usługi analiza błędów znajdują się w przestrzeni nazw System.Fabric hello w hello pakietu Microsoft.ServiceFabric NuGet. toouse hello błędów Analysis Services, cechy pakietu nuget hello jako odwołanie do projektu.
+Funkcji usługi analiza błędów znajdują się w przestrzeni nazw System.Fabric w pakiecie Microsoft.ServiceFabric NuGet. Aby używać funkcji usługi analiza błędów, obejmują pakiet nuget jako odwołanie do projektu.
 
 **PowerShell**
 
-toouse programu PowerShell, należy zainstalować program hello zestawu SDK usług sieci szkieletowej. Po hello, który jest zainstalowany zestaw SDK, hello ServiceFabric programu PowerShell moduł jest automatycznie załadowany na potrzeby toouse użytkownik.
+Przy użyciu programu PowerShell, należy zainstalować zestaw SDK sieci szkieletowej usług. Po zainstalowaniu zestawu SDK modułu ServiceFabric programu PowerShell jest załadowany można użyć automatycznego.
 
 ## <a name="next-steps"></a>Następne kroki
-toocreate naprawdę usług skali chmury jest krytyczne tooensure przed i po wdrożeniu, że usługi może wytrzymać rzeczywistych błędów. Hello dzisiaj świecie usługi hello tooinnovate możliwości szybkiego i Przenieś kod tooproduction szybko jest bardzo ważne. Hello błędów Analysis Service pomaga toodo deweloperów usługi dokładnie który.
+Aby utworzyć naprawdę skali chmury usługi, jest krytyczne, aby upewnić się, przed i po wdrożeniu, że usługi może wytrzymać rzeczywistych błędów. W świecie usługi obecnie możliwość innowacji szybko i Przenieś kod do środowiska produkcyjnego szybko jest bardzo ważne. Usługi analizy błędów ułatwia deweloperom usługi dokładnie w tym celu należy.
 
-Rozpoczęcie testowania aplikacji i usług przy użyciu wbudowanych hello [przetestować scenariusze](service-fabric-testability-scenarios.md), lub tworzenie własnych scenariuszy testowania przy użyciu hello [fault akcje](service-fabric-testability-actions.md) podał hello usługi analizy błędów.
+Rozpoczęcie testowania aplikacji i usług przy użyciu wbudowanych [przetestować scenariusze](service-fabric-testability-scenarios.md), lub utworzyć własne scenariuszy testowania przy użyciu [fault akcje](service-fabric-testability-actions.md) udostępniony przez usługę analiza błędów.
 
 <!--Image references-->
 [0]: ./media/service-fabric-testability-overview/faultanalysisservice.png

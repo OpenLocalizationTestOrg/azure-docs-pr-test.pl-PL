@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Wymagania wstępne
 * A [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) konta 
 
-Zanim użyjesz swojego konta ProjectOnline w aplikacji logiki, musisz autoryzować hello logiki aplikacji tooconnect tooyour ProjectOnline konta. Na szczęście można w tym z aplikacji logiki na powitania portalu Azure. 
+Zanim użyjesz swojego konta ProjectOnline w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem ProjectOnline. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
 
-Oto hello kroki tooauthorize tooyour tooconnect konta ProjectOnline Twojego logiki aplikacji:
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem ProjectOnline:
 
-1. Wybierz tooProjectOnline połączenia, w Projektancie aplikacji logiki hello, toocreate **Pokaż Microsoft zarządzanych interfejsów API** w hello listy rozwijanej, a następnie wprowadź *ProjectOnline* w polu wyszukiwania hello. Wybierz wyzwalacz hello lub Ci się spodoba toouse akcji:  
+1. Aby utworzyć połączenie ProjectOnline, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *ProjectOnline* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
    ![ProjectOnline krok 1](./media/connectors-create-api-projectonline/projectonline-1.png)
-2. Jeśli nie utworzono żadnych tooProjectOnline połączenia przed, uzyskasz tooprovide zostanie wyświetlony monit o poświadczenia ProjectOnline. Te poświadczenia można używane tooauthorize Twojego tooconnect aplikacji logiki do i uzyskać dostęp do danych konta ProjectOnline:  
+2. Jeśli nie utworzono żadnych połączeń ProjectOnline przed będzie zostanie wyświetlony monit o podanie poświadczeń ProjectOnline. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta ProjectOnline:  
    ![ProjectOnline krok 2](./media/connectors-create-api-projectonline/projectonline-2.png)
-3. Dostarcza aplikację logiki tooauthorize Twojego ProjectOnline w użytkownika nazwę i hasło:  
+3. Podaj ProjectOnline nazwę użytkownika i hasło, aby zezwolić aplikacji logiki:  
    ![ProjectOnline krok 3](./media/connectors-create-api-projectonline/projectonline-3.png)   
-4. Zwróć uwagę, hello połączenie zostało utworzone i są teraz wolnego tooproceed z hello innych czynności w aplikacji logiki:  
+4. Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:  
    ![ProjectOnline krok 4](./media/connectors-create-api-projectonline/projectonline-4.png)   
 

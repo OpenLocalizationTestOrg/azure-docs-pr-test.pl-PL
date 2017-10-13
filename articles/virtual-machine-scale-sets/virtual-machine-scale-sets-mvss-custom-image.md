@@ -1,6 +1,6 @@
 ---
 title: "Odwołanie obraz niestandardowy w skali Azure Ustaw szablon | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooadd niestandardowego obrazu tooan istniejący szablon Azure zestaw skali maszyny wirtualnej"
+description: "Dowiedz się, jak dodać do istniejącego zestawu skalowania maszyn wirtualnych Azure szablonu niestandardowego obrazu"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: 6a17d989e44d241b460238c0106350c3ef038e56
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="add-a-custom-image-tooan-azure-scale-set-template"></a>Dodawanie zestawu szablonu niestandardowego obrazu tooan Azure skali
+# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Dodawanie niestandardowego obrazu do szablonu zestaw skalowania Azure
 
-W tym artykule przedstawiono sposób toomodify hello [minimalnej wielkości Ustaw szablon](./virtual-machine-scale-sets-mvss-start.md) toodeploy z niestandardowego obrazu.
+W tym artykule przedstawiono sposób modyfikowania [minimalnej wielkości Ustaw szablon](./virtual-machine-scale-sets-mvss-start.md) do wdrożenia z niestandardowego obrazu.
 
-## <a name="change-hello-template-definition"></a>Zmień hello definicji szablonu
+## <a name="change-the-template-definition"></a>Zmiany definicji szablonu
 
-Nasze minimalnej wielkości Ustaw szablon może być widoczny [tutaj](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), i widoczne naszych szablon do wdrażania zestaw z obrazu niestandardowego skalowania hello [tutaj](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Przeanalizujmy hello toocreate różnicowego używany ten szablon (`git diff minimum-viable-scale-set custom-image`) element przez element:
+Nasze minimalnej wielkości Ustaw szablon może być widoczny [tutaj](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), i naszych szablonu dla wdrażania skali zestawu z niestandardowego obrazu widoczne [tutaj](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Przeanalizujmy różnicowego używany do tworzenia tego szablonu (`git diff minimum-viable-scale-set custom-image`) element przez element:
 
 ### <a name="creating-a-managed-disk-image"></a>Tworzenie obrazu dysku zarządzanego
 
 Jeśli masz już obraz niestandardowy dysku zarządzanego (zasobu typu `Microsoft.Compute/images`), a następnie można pominąć tę sekcję.
 
-Najpierw dodamy `sourceImageVhdUri` parametru, który jest hello URI toohello uogólniony blob w magazynie Azure, zawierającą hello toodeploy niestandardowego obrazu z.
+Najpierw dodamy `sourceImageVhdUri` parametr, który jest identyfikatorem URI do ogólnych obiektu blob w magazynie Azure, który zawiera niestandardowy obraz do wdrożenia z.
 
 
 ```diff
@@ -44,14 +44,14 @@ Najpierw dodamy `sourceImageVhdUri` parametru, który jest hello URI toohello uo
 +    "sourceImageVhdUri": {
 +      "type": "string",
 +      "metadata": {
-+        "description": "hello source of hello generalized blob containing hello custom image"
++        "description": "The source of the generalized blob containing the custom image"
 +      }
      }
    },
    "variables": {},
 ```
 
-Następnie dodamy zasobu typu `Microsoft.Compute/images`, która obrazu dysku twardego zarządzanego hello opiera się na powitania uogólniony obiektu blob znajduje się pod identyfikatorem URI `sourceImageVhdUri`. Ten obraz musi być w hello hello skali zestaw, który używa tego samego regionu. We właściwościach hello hello obrazu, możemy określić typ hello systemu operacyjnego, hello lokalizacji obiektu hello blob (z hello `sourceImageVhdUri` parametru), a typ konta magazynu hello:
+Następnie dodamy zasobu typu `Microsoft.Compute/images`, która jest oparta na ogólnych znajdujący się pod identyfikatorem URI obiektu blob obrazu dysków zarządzanych w `sourceImageVhdUri`. Ten obraz musi być w tym samym regionie co zestaw skalowania, która korzysta z niego. We właściwościach obrazu określono typ systemu operacyjnego, lokalizacji obiektu blob (z `sourceImageVhdUri` parametru), a typ konta magazynu:
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ Następnie dodamy zasobu typu `Microsoft.Compute/images`, która obrazu dysku tw
 
 ```
 
-W hello zestawu skalowania zasobu, dodamy `dependsOn` klauzuli przywołuje toomake niestandardowego obrazu toohello się obraz powitania pobiera utworzone przed zestaw skali hello próbuje toodeploy z tego obrazu:
+W zestawie skalowania zasobu, dodamy `dependsOn` klauzuli odwołujących się do niestandardowego obrazu, aby upewnić się, że obraz jest tworzony przed skali podejmuje próbę wdrożenia z tego obrazu:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -93,9 +93,9 @@ W hello zestawu skalowania zasobu, dodamy `dependsOn` klauzuli przywołuje tooma
 
 ```
 
-### <a name="changing-scale-set-properties-toouse-hello-managed-disk-image"></a>Zmiana skali ustawić właściwości toouse hello dysków zarządzanych w obrazie
+### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Zmiana skali Ustaw właściwości, aby używać obrazu dysku twardego zarządzanego
 
-W hello `imageReference` skali hello ustawić `storageProfile`, zamiast określania hello wydawcy, oferty, jednostki sku i wersji obrazu platformy, określono hello `id` z hello `Microsoft.Compute/images` zasobów:
+W `imageReference` skali ustawić `storageProfile`, zamiast określania wydawcy, oferty, jednostki sku i wersji obrazu platformy, określono `id` z `Microsoft.Compute/images` zasobów:
 
 ```diff
          "virtualMachineProfile": {
@@ -111,7 +111,7 @@ W hello `imageReference` skali hello ustawić `storageProfile`, zamiast określa
            "osProfile": {
 ```
 
-W tym przykładzie używamy hello `resourceId` funkcja tooget hello identyfikator zasobu obrazu hello utworzone w hello sam szablonu. Jeśli wcześniej utworzono obrazu dysku twardego zarządzanego hello, należy zamiast tego Podaj identyfikator hello tego obrazu. Ten identyfikator musi mieć formę hello: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+W tym przykładzie używamy `resourceId` funkcji, aby uzyskać identyfikator zasobu obrazu utworzonego w tym samym szablonie. Jeśli wcześniej utworzono obrazu dysku twardego zarządzanego, należy zamiast tego Podaj identyfikator obrazu. Ten identyfikator musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Następne kroki

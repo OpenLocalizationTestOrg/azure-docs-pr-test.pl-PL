@@ -4,13 +4,13 @@
 
 # Wprowadzenie
 ## [Identyfikowanie baz danych i tabel](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
-## [Uruchom Kreatora hello](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
+## [Uruchamianie kreatora](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
 # Instrukcje
 ## Włączanie
 ### [Włączanie bazy danych](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
 ### [Włączanie tabeli](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
-### [Wybierz wiersze toomigrate](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
+### [Wybieranie wierszy do migrowania](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
 ## Zarządzanie
 ### [Monitorowanie migracji danych](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
 ### [Wstrzymywanie i wznawianie migracji](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)

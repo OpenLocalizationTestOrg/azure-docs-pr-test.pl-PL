@@ -1,6 +1,6 @@
 ---
-title: "aaaReplicate tooAzure maszyn wirtualnych funkcji Hyper-V z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób tooorchestrate replikacji, trybu failover i odzyskiwania lokalnych funkcji Hyper-V VMs tooAzure"
+title: "Replikowanie maszyn wirtualnych funkcji Hyper-V na platformie Azure za pomocą usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób organizowania replikacji, trybu failover i odzyskiwania maszyn wirtualnych funkcji Hyper-V lokalnego do platformy Azure"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.openlocfilehash: ab9cd14149ef32a416428d0f4327aa18b042e9c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: da10b213bc2543942b5ac77cf5c5d8547c00220c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="replicate-hyper-v-virtual-machines-without-vmm-tooazure"></a>Replikację funkcji Hyper-V tooAzure maszyn wirtualnych (bez VMM) 
+# <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure"></a>Replikowanie maszyn wirtualnych funkcji Hyper-V (bez VMM) na platformie Azure 
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](site-recovery-hyper-v-site-to-azure.md)
@@ -29,81 +29,81 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Ten artykuł zawiera omówienie hello kroki wymagane tooreplicate lokalnym funkcji Hyper-V maszyny wirtualne tooAzure, przy użyciu hello [usługi Azure Site Recovery](site-recovery-overview.md) w hello portalu Azure. W tym maszyn wirtualnych funkcji Hyper-V wdrożenia nie są zarządzane przez System Center Virtual Machine Manager (VMM).
+W tym artykule omówiono kroki wymagane do replikowania maszyn wirtualnych funkcji Hyper-V lokalnej na platformie Azure, przy użyciu [usługi Azure Site Recovery](site-recovery-overview.md) w portalu Azure. W tym maszyn wirtualnych funkcji Hyper-V wdrożenia nie są zarządzane przez System Center Virtual Machine Manager (VMM).
 
 
-Po przeczytaniu tego artykułu, post wszelkie komentarze u dołu hello, lub zadać pytania techniczne na powitania [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Po przeczytaniu tego artykułu, post wszelkie komentarze u dołu i zadawaj pytania techniczne na [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="step-1-review-architecture-and-prerequisites"></a>Krok 1: Przegląd architektury i wymagania wstępne
 
-Przed rozpoczęciem wdrażania, przejrzyj architektura scenariusza hello i upewnij się, że znasz wszystkie składniki hello należy toodeploy
+Przed rozpoczęciem wdrażania zapoznaj się z architekturą scenariusza i upewnij się, że znasz wszystkie składniki potrzebne do wdrożenia
 
-Przejdź do zbyt[krok 1: Przejrzyj hello architektury](hyper-v-site-walkthrough-architecture.md)
+Przejdź do [krok 1: Przejrzyj architektury](hyper-v-site-walkthrough-architecture.md)
 
 
 ## <a name="step-2-review-prerequisites"></a>Krok 2: Sprawdź wymagania wstępne dotyczące
 
-Upewnij się, że hello wymagania wstępne zostały spełnione dla każdego składnika wdrażania:
+Upewnij się, że zostały spełnione wymagania wstępne w przypadku każdego składnika wdrażania:
 
 - **Wymagania wstępne platformy Azure**: wymagane konto Microsoft Azure, sieci platformy Azure i kont magazynu.
 - **Wymagania wstępne funkcji Hyper-V lokalnymi**: Upewnij się, że hosty funkcji Hyper-V są przygotowane do wdrażania usługi Site Recovery.
-- **Maszyny wirtualne replikowane**: maszyny wirtualne mają tooreplicate muszą toocomply z wymaganiami platformy Azure.
+- **Maszyny wirtualne replikowane**: maszyny wirtualne mają być replikowane musi spełniać wymagania dotyczące usługi Azure.
 
-Przejdź do zbyt[krok 2: Sprawdź wymagania wstępne i ograniczenia](hyper-v-site-walkthrough-prerequisites.md)
+Przejdź do [krok 2: Sprawdź wymagania wstępne i ograniczenia](hyper-v-site-walkthrough-prerequisites.md)
 
 ## <a name="step-3-plan-capacity"></a>Krok 3: Planowanie pojemności
 
-Jeśli pełne wdrożenie robimy należy toofigure się, jakie potrzebne zasoby replikacji. Istnieje kilka z toohelp dostępne narzędzia można to zrobić. Przejdź tooStep 2. Jeśli podczas wykonywania szybkiego skonfigurowania środowiska hello tootest można pominąć ten krok.
+Jeśli pełne wdrożenie robimy należy dowiedzieć się, jakie potrzebne zasoby replikacji. Istnieje kilka narzędzi ułatwiających to zrobić. Przejdź do kroku 2. Jeśli podczas wykonywania zestawu szybkiego się do środowiska testowego można pominąć ten krok.
 
-Przejdź do zbyt[krok 3: Planowanie pojemności](hyper-v-site-walkthrough-capacity.md)
+Przejdź do sekcji [Krok 3. Planowanie wydajności](hyper-v-site-walkthrough-capacity.md)
 
 ## <a name="step-4-plan-networking"></a>Krok 4: Planowanie sieci
 
-Należy toodo niektórych planowania tooensure czy maszynach wirtualnych platformy Azure są połączone toonetworks po pracy awaryjnej i czy mają one hello prawo adresów IP sieci.
+Należy wykonać niektóre sieci, planowanie upewnić się, czy maszynach wirtualnych platformy Azure są połączone z sieciami po pracy awaryjnej i które mają prawo IP adresy.
 
-Przejdź do zbyt[krok 4: Planowanie sieci](hyper-v-site-walkthrough-network.md)
+Przejdź do [krok 4: Planowanie sieci](hyper-v-site-walkthrough-network.md)
 
 ##  <a name="step-5-prepare-azure-resources"></a>Krok 5: Przygotowanie zasobów platformy Azure
 
 Konfigurowanie sieci platformy Azure i magazynu przed jego uruchomieniem. Można to zrobić podczas wdrażania, ale zaleca się, że można to zrobić przed rozpoczęciem.
 
-Przejdź do zbyt[krok 5: przygotowanie Azure](hyper-v-site-walkthrough-prepare-azure.md)
+Przejdź do [krok 5: przygotowanie Azure](hyper-v-site-walkthrough-prepare-azure.md)
 
 
 ## <a name="step-6-prepare-hyper-v"></a>Krok 6: Przygotowanie funkcji Hyper-V
 
 Upewnij się, że serwery funkcji Hyper-V spełniają wymagania dotyczące wdrażania usługi Site Recovery.
 
-Przejdź do zbyt[krok 6: Przygotowanie funkcji Hyper-V](hyper-v-site-walkthrough-prepare-hyper-v.md)
+Przejdź do [krok 6: Przygotowanie funkcji Hyper-V](hyper-v-site-walkthrough-prepare-hyper-v.md)
 
 ## <a name="step-7-set-up-a-vault"></a>Krok 7: Konfigurowanie magazynu
 
-Należy tooset się tooorchestrate magazyn usług odzyskiwania i Zarządzanie replikacją. Po skonfigurowaniu magazynu hello Określ sposób tooreplicate, i miejsce tooreplicate jej.
+Należy skonfigurować magazyn usług odzyskiwania do organizowania replikacji. Po skonfigurowaniu magazynu można określić co chcesz replikować, a które chcesz replikować go do.
 
-Przejdź do zbyt[kroku 7: Tworzenie magazynu](hyper-v-site-walkthrough-create-vault.md)
+Przejdź do [kroku 7: Tworzenie magazynu](hyper-v-site-walkthrough-create-vault.md)
 
 ## <a name="step-8-configure-source-and-target-settings"></a>Krok 8: Konfigurowanie ustawień źródłowa i docelowa
 
-Konfigurowanie hello źródłowy i docelowy, który jest używany do replikacji. Konfigurowanie ustawień źródła obejmuje dodanie funkcji Hyper-V hosts tooa funkcji Hyper-V lokacji, instalowanie hello dostawcy usługi Site Recovery i agent usług odzyskiwania na każdym hoście funkcji Hyper-V i rejestrowanie lokacji hello w powitalne magazyn usług odzyskiwania.
+Skonfiguruj źródłowy i docelowy, który jest używany do replikacji. Konfigurowanie ustawień źródła obejmuje dodawanie hostów funkcji Hyper-V do lokacji funkcji Hyper-V, zainstalowanie agenta dostawcy usługi Site Recovery i usług odzyskiwania na każdym hoście funkcji Hyper-V i rejestrowanie w magazynie usług odzyskiwania lokacji.
 
-Przejdź do zbyt[krok 8: Konfigurowanie hello źródłowa i docelowa](hyper-v-site-walkthrough-source-target.md)
+Przejdź do [krok 8: Konfigurowanie źródłowych i docelowych](hyper-v-site-walkthrough-source-target.md)
 
 ## <a name="step-9-set-up-a-replication-policy"></a>Krok 9: Konfigurowanie zasad replikacji
 
-Skonfigurowane ustawienia replikacji toospecify zasad dla maszyn wirtualnych funkcji Hyper-V w magazynie hello.
+Aby określić ustawienia replikacji dla maszyn wirtualnych funkcji Hyper-V w magazynie skonfigurować zasadę.
 
-Przejdź do zbyt[krok 9: Konfigurowanie zasad replikacji](hyper-v-site-walkthrough-replication.md)
+Przejdź do [krok 9: Konfigurowanie zasad replikacji](hyper-v-site-walkthrough-replication.md)
 
 
 ## <a name="step-10-enable-replication"></a>Krok 10: Włączanie replikacji
 
-Po utworzeniu zasad replikacji w miejscu, po włączeniu replikacji początkowej dla maszyny Wirtualnej hello występuje.
+Po utworzeniu zasad replikacji w miejscu, po włączeniu występuje początkowej replikacji maszyny wirtualnej.
 
-Przejdź do zbyt[kroku 10: Włączanie replikacji](hyper-v-site-walkthrough-enable-replication.md)
+Przejdź do [kroku 10: Włączanie replikacji](hyper-v-site-walkthrough-enable-replication.md)
 
 ## <a name="step-11-run-a-test-failover"></a>Krok 11: Uruchom test trybu failover
 
-Po zakończeniu replikacji początkowej, a replikacja różnicowa jest uruchomiony, możesz uruchomić test pracy awaryjnej toomake się, że wszystko działa zgodnie z oczekiwaniami.
+Po zakończeniu replikacji początkowej, a replikacja różnicowa jest uruchomiony, możesz uruchomić test trybu failover, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami.
 
-Przejdź do zbyt[krok 11: testować tryb failover](hyper-v-site-walkthrough-test-failover.md)
+Przejdź do [krok 11: testować tryb failover](hyper-v-site-walkthrough-test-failover.md)

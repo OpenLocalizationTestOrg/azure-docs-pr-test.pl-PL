@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z @Task| Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i @Task."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i @Task."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,108 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 0840763622086a02a27cfafff3b741bc66cec498
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ebb19ca6cbaf04106fbce937d95651e709854cfd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-task"></a>Samouczek: Integracji Azure Active Directory z@Task
-Celem Hello tego samouczka jest tooshow należy jak toointegrate @Task z usługą Azure Active Directory (Azure AD).  
-Integrowanie @Task z usługą Azure AD zapewnia hello następujące korzyści: 
+Celem tego samouczka jest pokazano, jak zintegrować @Task z usługą Azure Active Directory (Azure AD).  
+Integrowanie @Task z usługą Azure AD zapewnia następujące korzyści: 
 
-* Można kontrolować w usłudze Azure AD, który ma dostęptoo@Task
-* Umożliwia użytkownikom uzyskać tooautomatically zalogowane too@Task (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-* Możesz zarządzać kont w jednej centralnej lokalizacji - hello klasycznego portalu Azure
+* Można kontrolować w usłudze Azure AD, kto ma dostęp@Task
+* Można umożliwić użytkownikom automatycznie pobrać zalogowane do @Task (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+* Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Integracja tooconfigure usługi Azure AD z @Task, potrzebujesz hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z @Task, potrzebne są następujące zasoby:
 
 * Subskrypcję usługi Azure AD
 * @Task Jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 > 
 > 
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 * Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 * Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Opis scenariusza
-Celem Hello tego samouczka jest tooenable możesz tootest usługi Azure AD rejestracji jednokrotnej w środowisku testowym.  
-Scenariusz Hello opisane w tym samouczku składa się z trzech głównych bloków konstrukcyjnych:
+Celem tego samouczka jest umożliwienie umożliwia testowanie usługi Azure AD rejestracji jednokrotnej w środowisku testowym.  
+Scenariusz opisany w tym samouczku składa się z trzech głównych bloków konstrukcyjnych:
 
-1. Dodawanie @Task z galerii hello 
+1. Dodawanie @Task z galerii 
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-task-from-hello-gallery"></a>Dodawanie @Task z galerii hello
-Integracja hello tooconfigure @Task do usługi Azure AD, należy tooadd @Task z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-task-from-the-gallery"></a>Dodawanie @Task z galerii
+Aby skonfigurować integrację @Task do usługi Azure AD, należy dodać @Task z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd @Task z galerii hello wykonywać hello następujące kroki:**
+**Aby dodać @Task z galerii, wykonaj następujące czynności:**
 
-1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**. 
+1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**. 
    
     ![Usługa Active Directory][1] 
-2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
-3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
+2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
    
     ![Aplikacje][2] 
-4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
+4. Kliknij przycisk **Dodaj** w dolnej części strony.
    
     ![Aplikacje][3] 
-5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
+5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
    
     ![Aplikacje][4] 
-6. W polu wyszukiwania hello wpisz  **@Task** .
+6. W polu wyszukiwania wpisz  **@Task** .
    
     ![Aplikacje][5] 
-7. Wybierz w okienku wyników hello  **@Task** , a następnie kliknij przycisk **Complete** aplikacji hello tooadd.
+7. W okienku wyników wybierz  **@Task** , a następnie kliknij przycisk **Complete** można dodać aplikację.
    
     ![Aplikacje][30] 
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
-Witaj celem tej sekcji jest tooshow należy jak pojedynczy tooconfigure i testowych usługi Azure AD logowania z @Task w oparciu o nazwie "Britta Simona" użytkownika testowego.
+Celem tej sekcji jest opisano, jak skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z @Task w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork, usługi Azure AD wymaga tooknow użytkownika odpowiednikiem hello w @Task jest tooan użytkownika w usłudze Azure AD. Innymi słowy, relacja linku między użytkownika usługi Azure AD i hello użytkownikowi w @Task musi toobe ustanowione.   
-Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w @Task.
+Dla rejestracji jednokrotnej do pracy, usługi Azure AD musi wiedzieć, jaki użytkownik odpowiednika w @Task użytkownika w usłudze Azure AD jest. Innymi słowy, relacja linku między użytkownika usługi Azure AD i danemu użytkownikowi w @Task należy ustanowić.   
+Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w @Task.
 
-tooconfigure i testowych usługi Azure AD logowanie jednokrotne z @Task, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z @Task, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie @Tasktest użytkownika](#creating-a-halogen-software-test-user)**  -toohave a odpowiednikiem Simona Britta w @Taskthat jej reprezentacja toohello połączonej usługi Azure AD.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie @Tasktest użytkownika](#creating-a-halogen-software-test-user)**  — aby odpowiednikiem Simona Britta w @Taskthat jest połączona z jej reprezentacji usługi Azure AD.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
-Celem Hello w tej sekcji jest tooenable usługi Azure AD rejestracji jednokrotnej w hello klasycznego portalu Azure i tooconfigure rejestracji jednokrotnej w sieci @Task aplikacji.
+Celem tej sekcji jest do włączenia usługi Azure AD rejestracji jednokrotnej w klasycznym portalu Azure i konfigurowania rejestracji jednokrotnej w sieci @Task aplikacji.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z @Task, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z @Task, wykonaj następujące czynności:**
 
-1. W hello klasycznego portalu Azure na powitania  **@Task**  strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować logowanie jednokrotne**  okno dialogowe.
+1. W klasycznym portalu Azure na  **@Task**  strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne** okna dialogowego.
    
     ![Konfigurowanie rejestracji jednokrotnej][6] 
-2. Na powitania **jak ma toosign użytkowników na too@Task**  wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+2. Na **jak chcesz użytkownikom logowanie się @Task**  wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
     ![Azure AD rejestracji jednokrotnej][7] 
-3. Na powitania **Konfigurowanie ustawień aplikacji** okna dialogowego wykonaj hello następujące kroki:
+3. Na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności:
    
     ![Konfiguruj ustawienia aplikacji][8] 
    
-     a. W hello **na adres URL logowania** pole tekstowe, wprowadź adres URL hello używane przez użytkowników z toosign na tooyour @Task aplikacji (np.:*https://<Tenant name>.attask ondemand.com*).
+     a. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego w sieci @Task aplikacji (np.:*https://<Tenant name>.attask ondemand.com*).
    
      b. Kliknij przycisk **Dalej**.
-4. Na powitania **skonfigurować logowanie jednokrotne w @Task**  kliknij przycisk **pobierania metadanych**, Zapisz plik metadanych hello lokalnie na komputerze, a następnie kliknij przycisk **dalej**.
+4. Na **skonfigurować logowanie jednokrotne w @Task**  kliknij przycisk **pobierania metadanych**, Zapisz plik metadanych lokalnie na komputerze, a następnie kliknij przycisk **dalej**.
    
     ![Co to jest program Azure AD Connect][9] 
-5. Logowania jednokrotnego tooyour @Task witryny firmy jako administrator.
-6. Przejdź za**pojedynczy znak w konfiguracji**.
-7. Na powitania **rejestracji jednokrotnej** okna dialogowego, wykonaj następujące kroki hello
+5. Logowanie do Twojej @Task witryny firmy jako administrator.
+6. Przejdź do **Rejestracja jednokrotna w konfiguracji**.
+7. Na **rejestracji jednokrotnej** okna dialogowego, wykonaj następujące czynności
    
     ![Konfigurowanie rejestracji jednokrotnej][23]
    
@@ -123,118 +123,118 @@ Celem Hello w tej sekcji jest tooenable usługi Azure AD rejestracji jednokrotne
    
     b. Wybierz **usługi identyfikator dostawcy**.
    
-    c. Na powitania klasycznego portalu Azure, skopiuj hello **zdalnego adresu URL logowania**i wklej go do hello **adresu URL logowania do portalu** pola tekstowego.
+    c. W klasycznym portalu Azure, skopiuj **zdalnego adresu URL logowania**, a następnie wklej go do **adresu URL logowania do portalu** pola tekstowego.
    
-    d. Na powitania klasycznego portalu Azure, skopiuj hello **pojedynczy adres URL usługi Sign-Out**, a następnie wklej go do hello **Sign-Out URL** pola tekstowego.
+    d. W klasycznym portalu Azure, skopiuj **pojedynczy adres URL usługi Sign-Out**, a następnie wklej go do **Sign-Out adres URL** pola tekstowego.
    
-    e. Hello klasycznego portalu Azure, skopiuj hello **Zmień adres URL hasła**, a następnie wklej go do hello **Zmień adres URL hasła** pole tekstowe.
+    e. W klasycznym portalu Azure, skopiuj **Zmień adres URL hasła**, a następnie wklej go do **Zmień adres URL hasła** pola tekstowego.
    
     f. Kliknij pozycję **Zapisz**.
-8. Na powitania klasycznego portalu Azure, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **dalej**. 
+8. W klasycznym portalu Azure, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **dalej**. 
    
     ![Co to jest program Azure AD Connect][10]
-9. Na powitania **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
+9. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
    
     ![Co to jest program Azure AD Connect][11]
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego w hello klasycznego portalu Azure o nazwie Simona Britta.  
+Celem tej sekcji jest tworzenie użytkownika testowego w klasycznym portalu Azure o nazwie Simona Britta.  
 
 ![Tworzenie użytkowników usługi Azure AD][20]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.
+1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_02.png) 
-2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
-3. Kliknij toodisplay hello listę użytkowników, w menu hello na górze hello **użytkowników**.
+2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_03.png) 
-4. Witaj tooopen **Dodaj użytkownika** kliknij okno dialogowe narzędzi hello na dole hello **Dodaj użytkownika**. 
+4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**. 
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_04.png) 
-5. Na powitania **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj hello następujące kroki: 
+5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności: 
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_05.png) 
    
     a. Jako typ użytkownika wybierz nowego użytkownika w organizacji.
    
-    b. W hello nazwy użytkownika **pole tekstowe**, typ **BrittaSimon**.
+    b. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
    
     c. Kliknij przycisk **Dalej**.
-6. Na powitania **profilu użytkownika** okna dialogowego wykonaj hello następujące kroki: 
+6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności: 
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_06.png) 
    
-    a. W hello **imię** pole tekstowe, typ **Britta**.  
+    a. W **imię** pole tekstowe, typ **Britta**.  
    
-    b. W hello **nazwisko** pole tekstowe, typ **Simona**.
+    b. W **nazwisko** pole tekstowe, typ **Simona**.
    
-    c. W hello **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
+    c. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
    
-    d. W hello **roli** listy, wybierz **użytkownika**.
+    d. W **roli** listy, wybierz **użytkownika**.
 
     e. Kliknij przycisk **Dalej**.
 
-7. Na powitania **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
+7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_07.png) 
-8. Na powitania **Uzyskaj hasło tymczasowe** okna dialogowego wykonaj hello następujące kroki:
+8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-attask-tutorial/create_aaduser_08.png) 
    
-    a. Zanotuj wartość hello hello **nowe hasło**.
+    a. Zanotuj wartość **nowe hasło**.
    
     b. Kliknij przycisk **Complete** (Zakończ).   
 
 ### <a name="creating-an-task-test-user"></a>Tworzenie @Task użytkownika testowego
-Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w @Task.
+Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w @Task.
 
-**toocreate użytkownika o nazwie Simona Britta w @Task, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika o nazwie Simona Britta w @Task, wykonaj następujące czynności:**
 
-1. Zaloguj się na tooyour @Task witryny firmy jako administrator.
-2. W menu hello na górze hello, kliknij przycisk **osób**.
+1. Zaloguj się na Twojej @Task witryny firmy jako administrator.
+2. W menu u góry kliknij **osób**.
 3. Kliknij przycisk **nowej osoby**. 
-4. W oknie dialogowym nowej osoby hello wykonaj następujące kroki hello:
+4. W oknie dialogowym nowej osoby wykonaj następujące czynności:
    
     ![Utwórz @Task użytkownika testowego][21] 
    
-    a. W hello **imię** tekstowym, wpisz "Britta".
+    a. W **imię** tekstowym, wpisz "Britta".
    
-    b. W hello **nazwisko** tekstowym, wpisz "Simona".
+    b. W **nazwisko** tekstowym, wpisz "Simona".
    
-    c. W hello **adres E-mail** tekstowym, wpisz adres e-mail Simona Britta w usłudze Azure Active Directory.
+    c. W **adres E-mail** tekstowym, wpisz adres e-mail Simona Britta w usłudze Azure Active Directory.
    
     d. Kliknij przycisk **Dodaj osobę**.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
-Celem Hello w tej sekcji jest tooenabling toouse Simona Britta Azure rejestracji jednokrotnej przez udostępnienie jej too@Task.
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
+Celem tej sekcji jest włączenie Simona Britta do używania Azure logowania jednokrotnego za udostępnienie jej @Task.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign Simona Britta too@Task, wykonaj następujące kroki hello:**
+**Aby przypisać Simona Britta do @Task, wykonaj następujące czynności:**
 
-1. Na hello Azure kliknij klasycznego portalu, widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
+1. W klasycznym portalu Azure, aby otworzyć widok aplikacji, w widoku katalogu, kliknij polecenie **aplikacji** w menu u góry.
    
     ![Przypisz użytkownika][201] 
-2. Z listy aplikacji hello wybierz  **@Task** .
+2. Na liście aplikacji zaznacz  **@Task** .
    
     ![Przypisz użytkownika][202] 
-3. W menu hello na górze hello, kliknij przycisk **użytkowników**.
+3. W menu u góry kliknij **użytkowników**.
    
     ![Przypisz użytkownika][203] 
-4. Na liście hello użytkowników, wybierz **Simona Britta**.
-5. W narzędzi hello na dole powitania kliknij **przypisać**.
+4. Na liście użytkowników wybierz **Simona Britta**.
+5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
    
     ![Przypisz użytkownika][205]
 
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
-Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.  
-Po kliknięciu hello @Task kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour @Task aplikacji.
+Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.  
+Po kliknięciu @Task kafelka w panelu dostępu, należy pobrać automatycznie zalogowane do Twojej @Task aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

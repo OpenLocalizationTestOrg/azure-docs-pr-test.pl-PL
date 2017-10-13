@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure harmonogramu dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse tooschedule harmonogramu i wywoływać zadań takich jak cyklicznego aplikacji działania i procedury obsługi. Samouczki, dokumentacja interfejsu API i inne materiały."
+title: "Dokumentacja usługi Azure Scheduler — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak za pomocą usługi Scheduler planować i wywoływać zadania, takie jak cykliczne akcje aplikacji i działania w zakresie rutynowej konserwacji. Samouczki, dokumentacja interfejsu API i inne materiały."
 services: scheduler
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c9e67fc813939c31bb3cd38215293c98babe3838
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4883e5689a639259ec1c0bcd31e1016f85af5d66
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-documentation"></a>Dokumentacja usługi Scheduler
 
-Dowiedz się, jak toouse tooschedule harmonogramu i automatycznie wywołują cyklicznych zadań w chmurze hello. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób tooschedule i monitorowanie zadań takich jak cyklicznego aplikacji działania i procedury obsługi.
+Dowiedz się, jak za pomocą usługi Scheduler planować i automatycznie wywoływać cykliczne zadania w chmurze. Samouczki, dokumentacja interfejsu API oraz inne dokumenty przedstawiające sposób planowania i monitorowania zadań, takich jak cykliczne akcje aplikacji i działania w zakresie rutynowej konserwacji.
 
 <ul class="panelContent cardsFTitle">
     <li>

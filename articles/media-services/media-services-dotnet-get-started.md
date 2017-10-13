@@ -1,6 +1,6 @@
 ---
-title: "wprowadzenie do dostarczania zawartości na żądanie przy użyciu platformy .NET aaaGet | Dokumentacja firmy Microsoft"
-description: "Ten samouczek przedstawia kroki hello wdrażania aplikacji dostarczania zawartości na żądanie usłudze Azure Media Services przy użyciu platformy .NET."
+title: "Wprowadzenie do dostarczania zawartości na żądanie przy użyciu platformy .NET | Microsoft Docs"
+description: "Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości na żądanie w usługach Azure Media Services z użyciem platformy .NET."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,90 +14,90 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: 4ca9394bd581e1d9062e5a008a410b2c058e017e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu zestawu .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Ten samouczek przedstawia kroki wdrażania podstawowej usługi dostarczania zawartości wideo na żądanie (VoD) z aplikacją Azure Media Services (AMS) przy użyciu zestawu .NET SDK usługi Azure Media Services hello hello.
+W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie (VoD) za pomocą aplikacji Azure Media Services (AMS) przy użyciu zestawu Azure Media Services .NET SDK.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Samouczek hello toocomplete wymagane są następujące Hello:
+Do wykonania czynności przedstawionych w tym samouczku są niezbędne następujące elementy:
 
 * Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Konto usługi Media Services. Zobacz toocreate konto usługi Media Services [jak tooCreate konta usługi Media Services](media-services-portal-create-account.md).
+* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
 * .NET Framework 4.0 lub nowszy.
 * Program Visual Studio.
 
-W tym samouczku opisano hello następujące zadania:
+W tym samouczku opisano następujące zadania:
 
-1. Początek (przy użyciu portalu Azure hello) punktu końcowego przesyłania strumieniowego.
+1. Uruchamianie punktów końcowych przesyłania strumieniowego (przy użyciu witryny Azure Portal).
 2. Tworzenie i konfigurowanie projektu programu Visual Studio.
-3. Połącz toohello konta usługi Media Services.
+3. Nawiązywanie połączenia z kontem usług Media Services.
 2. Ładowanie pliku wideo.
-3. Kodowanie pliku źródłowego hello do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów.
-4. Publikowanie zawartości hello i get przesyłania strumieniowego i pobierania progresywnego adresów URL.  
+3. Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów.
+4. Publikowanie elementu zawartości i uzyskiwanie adresów URL na potrzeby przesyłania strumieniowego i pobierania progresywnego.  
 5. Odtwarzanie zawartości.
 
 ## <a name="overview"></a>Omówienie
-Ten samouczek przedstawia kroki hello wdrażania aplikacji do dostarczania zawartości wideo na żądanie (VoD) przy użyciu usługi Azure Media Services (AMS) zestawu SDK dla platformy .NET.
+Ten samouczek przedstawia kroki wdrażania aplikacji do dostarczania zawartości wideo na żądanie (VoD) przy użyciu zestawu SDK usług Azure Media Services (AMS) dla programu .NET.
 
-Samouczek Hello wprowadza hello podstawowy przepływ pracy usług Media Services i hello najczęściej obiekty i zadania programowania wymagane do tworzenia usługi Media Services. Po ukończeniu hello samouczka hello będzie toostream może być lub pobrać progresywnie przykładowy plik nośnika, który przekazany, zakodowany i pobierane.
+Samouczek przedstawia podstawowy przepływ pracy usług Media Services oraz najczęściej występujące obiekty i zadania programowania wymagane w celu projektowania usług Media Services. Po zakończeniu samouczka będziesz umieć przesłać strumieniowo lub pobrać progresywnie przykładowy plik multimedialny, który został wcześniej przekazany, zakodowany oraz pobrany.
 
 ### <a name="ams-model"></a>Model AMS
 
-Witaj poniższej ilustracji przedstawiono niektóre obiekty hello najczęściej używane podczas tworzenia aplikacji VoD hello Media Services OData modelu.
+Na poniższym obrazie przedstawiono niektóre z najczęściej używanych obiektów podczas tworzenia aplikacji VoD w modelu Media Services OData.
 
-Kliknij przycisk tooview obraz powitania pełny jego rozmiar.  
+Kliknij obraz, aby go wyświetlić w pełnym rozmiarze.  
 
 <a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-Możesz wyświetlić hello całego modelu [tutaj](https://media.windows.net/API/$metadata?api-version=2.15).  
+Cały model możesz obejrzeć [tutaj](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-## <a name="start-streaming-endpoints-using-hello-azure-portal"></a>Uruchom przy użyciu portalu Azure hello punkty końcowe przesyłania strumieniowego
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Uruchamianie punktów końcowych przesyłania strumieniowego przy użyciu witryny Azure Portal
 
-Podczas pracy w usłudze Azure Media Services jednym z hello najbardziej typowych scenariuszy jest dostarczanie plików wideo przy użyciu przesyłania strumieniowego adaptacyjną szybkością transmisji bitów. Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, co pozwala toodeliver adaptacyjnej szybkości bitowej MP4 zakodowane zawartości w formatach transmisji strumieniowej obsługiwanych przez usługi Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, bez konieczności toostore wstępnie umieszczone wersje każdego z tych formatach.
+Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie obrazu wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, która pozwala dostarczać kodowaną zawartość plików MP4 z adaptacyjną szybkością transmisji bitów w formatach przesyłania strumieniowego obsługiwanych przez usługę Media Services (MPEG DASH, HLS, Smooth Streaming) w odpowiednim czasie bez konieczności przechowywania wersji wstępnie utworzonych pakietów poszczególnych formatów przesyłania strumieniowego.
 
 >[!NOTE]
->Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego w brzmieniu konta tooyour hello **zatrzymane** stanu. przesyłanie strumieniowe zawartości i podejmij korzyści z dynamicznego tworzenia pakietów i dynamicznego szyfrowania toostart hello punktu końcowego przesyłania strumieniowego, z którego mają zostać toostream zawartość ma toobe w hello **systemem** stanu.
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**.
 
-toostart hello punktu końcowego przesyłania strumieniowego, hello następujące:
+Aby uruchomić punkt końcowy przesyłania strumieniowego, wykonaj następujące czynności:
 
-1. Zaloguj się w hello [portalu Azure](https://portal.azure.com/).
-2. W oknie Ustawienia powitania kliknij punkty końcowe przesyłania strumieniowego.
-3. Kliknij przycisk domyślny hello punktu końcowego przesyłania strumieniowego.
+1. Zaloguj się w [portalu Azure](https://portal.azure.com/).
+2. W oknie Ustawienia kliknij pozycję Punkty końcowe przesyłania strumieniowego.
+3. Kliknij domyślny punkt końcowy przesyłania strumieniowego.
 
-    zostanie wyświetlone okno Szczegóły punktu KOŃCOWEGO przesyłania STRUMIENIOWEGO domyślne Hello.
+    Zostanie wyświetlone okno SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO.
 
-4. Kliknij ikonę Start hello.
-5. Kliknij przycisk toosave przycisk Zapisz hello zmiany.
+4. Kliknij ikonę Uruchom.
+5. Kliknij przycisk Zapisz, aby zapisać zmiany.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-1. Konfigurowanie środowiska projektowego i wypełnić plik app.config hello o informacje dotyczące połączenia, zgodnie z opisem w [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md). 
-2. Utwórz nowy folder (folder może być dowolnym miejscu na dysku lokalnym) i skopiuj plik plik MP4 tooencode i strumienia, lub pobrać progresywnie. W tym przykładzie ścieżki "C:\VideoFiles" hello jest używany.
+1. Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md). 
+2. Utwórz nowy folder (może się on znajdować w dowolnym miejscu na dysku lokalnym) i skopiuj plik mp4, który ma zostać zakodowany i przesłany strumieniowo lub pobrany progresywnie. W tym przykładzie użyto ścieżki „C:\VideoFiles”.
 
-## <a name="connect-toohello-media-services-account"></a>Połącz toohello konta usługi Media Services
+## <a name="connect-to-the-media-services-account"></a>Nawiązywanie połączenia z kontem usługi Media Services
 
-Korzystając z usługi Media Services z platformą .NET, należy użyć hello **CloudMediaContext** klasy dla większości zadań programowania Media Services: Łączenie konta usług tooMedia; tworzenia, aktualizowania, uzyskiwanie dostępu do i usuwanie następujących hello obiekty: zasoby, pliki zasobów, zadań, zasad dostępu, lokalizatorów itp.
+Podczas korzystania z usługi Media Services z użyciem platformy .NET należy użyć klasy **CloudMediaContext** do większości zadań programowania usługi Media Services, takich jak nawiązywanie połączenia z kontem usługi Media Services oraz tworzenie, aktualizowanie, usuwanie i uzyskiwanie dostępu do następujących obiektów: elementów zawartości, plików elementów zawartości, zadań, zasad dostępu, lokalizatorów itp.
 
-Zastąp domyślną klasę Program hello hello następującego kodu. Witaj kod pokazuje, jak połączenia hello tooread wartości z pliku App.config hello i jak toocreate hello **CloudMediaContext** obiektu w kolejności tooconnect tooMedia usług. Aby uzyskać więcej informacji, zobacz [łączenie toohello Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
+Zastąp domyślną klasę Program poniższym kodem. Kod przedstawia sposób odczytywania wartości połączenia z pliku App.config oraz sposób tworzenia obiektu **CloudMediaContext** na potrzeby połączenia z usługą Media Services. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z interfejsem API usług Media Services](media-services-use-aad-auth-to-access-ams-api.md).
 
-Upewnij się, że tooupdate hello pliku nazwa i ścieżka toowhere posiadanego pliku nośnika.
+Pamiętaj o zaktualizowaniu nazwy pliku i ścieżki do lokalizacji pliku multimedialnego.
 
-Witaj **Main** funkcja wywołuje metody, które będą zdefiniowane dalszej części tej sekcji.
+Funkcja **Main** wywołuje metody, które będą zdefiniowane w dalszej części tej sekcji.
 
 > [!NOTE]
-> Możesz będą występować błędy kompilacji do momentu dodania definicje dla wszystkich funkcji hello.
+> Błędy kompilacji będą się pojawiać do momentu dodania definicji dla wszystkich funkcji.
 
     class Program
     {
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -114,8 +114,8 @@ Witaj **Main** funkcja wywołuje metody, które będą zdefiniowane dalszej czę
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            // Add calls toomethods defined in this section.
-            // Make sure tooupdate hello file name and path toowhere you have your media file.
+            // Add calls to methods defined in this section.
+            // Make sure to update the file name and path to where you have your media file.
             IAsset inputAsset =
             UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -126,7 +126,7 @@ Witaj **Main** funkcja wywołuje metody, które będą zdefiniowane dalszej czę
         }
         catch (Exception exception)
         {
-            // Parse hello XML error message in hello Media Services response and create a new
+            // Parse the XML error message in the Media Services response and create a new
             // exception with its content.
             exception = MediaServicesExceptionParser.Parse(exception);
 
@@ -141,23 +141,23 @@ Witaj **Main** funkcja wywołuje metody, które będą zdefiniowane dalszej czę
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Tworzenie nowego elementu zawartości i przekazywanie pliku wideo
 
-Za pomocą usługi Media Services można przekazać (lub pozyskać) pliki cyfrowe do elementu zawartości. Witaj **zasobów** może zawierać wideo, audio, obrazy, kolekcje miniatur, tekst ścieżki i napisów plików (i hello metadane dotyczące tych plików.)  Po przekazaniu plików hello zawartość jest bezpiecznie przechowywana w chmurze powitania dla dalszego przetwarzania i przesyłania strumieniowego. pliki Hello w hello zasobów są nazywane **plików zasobów**.
+Za pomocą usługi Media Services można przekazać (lub pozyskać) pliki cyfrowe do elementu zawartości. Obiekt **Element zawartości** może zawierać pliki wideo, audio, obrazy, kolekcje miniatur, ścieżki tekstowe i pliki napisów (oraz metadane dotyczące tych plików).  Po przekazaniu plików zawartość jest bezpiecznie przechowywana w chmurze, na potrzeby dalszego przetwarzania i przesyłania strumieniowego. Pliki w elementach zawartości są nazywane **plikami elementów zawartości**.
 
-Witaj **UploadFile** określonych poniżej wywołania metody **CreateFromFile** (określone w rozszerzenia zestawu .NET SDK). **CreateFromFile** powoduje utworzenie nowego elementu zawartości, do których hello jest przekazywany określony plik źródłowy.
+Zdefiniowana poniżej metoda **UploadFile** wywołuje metodę **CreateFromFile** (zdefiniowaną w rozszerzeniach zestawu SDK programu .NET). Metoda **CreateFromFile** tworzy nowy element zawartości, do którego jest przekazywany określony plik źródłowy.
 
-Witaj **CreateFromFile** ma metodę **AssetCreationOptions** które pozwalają określić jedną z hello następujące opcje tworzenia zasobów:
+Metoda **CreateFromFile** przyjmuje opcje **AssetCreationOptions**, które pozwalają określić jedną z poniższych opcji tworzenia elementów zawartości:
 
-* **None** — szyfrowanie nie jest stosowane. Jest to wartość domyślna hello. Należy pamiętać, że w przypadku korzystania z tej opcji zawartość nie jest chroniona w trakcie przesyłania lub przechowywania w magazynie.
-  Jeśli planujesz toodeliver MP4 przy użyciu pobierania progresywnego, użyj tej opcji.
-* **StorageEncrypted** — Użyj tej opcji tooencrypt zawartości lokalnie, przy użyciu szyfrowania 256-bitowego szyfrowania AES (Advanced Standard), a następnie przekazanie jej tooAzure magazynu, w którym są przechowywane szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie bez szyfrowania i umieszczana w poprzednich tooencoding systemu szyfrowania plików i opcjonalnie ponownie szyfrowane przed toouploading zwrotnym w formie nowego elementu zawartości wyjściowej. Witaj pierwotnym zastosowaniem szyfrowania magazynu jest toosecure Twojego wysokiej jakości multimedialnych plików wejściowych z silne szyfrowanie przechowywanych na dysku.
+* **None** — szyfrowanie nie jest stosowane. Jest to wartość domyślna. Należy pamiętać, że w przypadku korzystania z tej opcji zawartość nie jest chroniona w trakcie przesyłania lub przechowywania w magazynie.
+  Jeśli planujesz dostarczać zawartość w formacie MP4 przy użyciu pobierania progresywnego, użyj tej opcji.
+* **StorageEncrypted** — ta opcja umożliwia lokalne szyfrowanie wyczyszczonej zawartości przy użyciu szyfrowania 256-bitowego Advanced Encryption Standard (AES), a następnie przekazanie jej do usługi Azure Storage, gdzie jest przechowywana w formie zaszyfrowanej. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a także opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest zabezpieczenie za pomocą silnego szyfrowania wysokiej jakości multimedialnych plików wejściowych przechowywanych na dysku.
 * **CommonEncryptionProtected** — za pomocą tej opcji można przekazać zawartość, która jest już zaszyfrowana i chroniona za pomocą wspólnego szyfrowania lub technologii PlayReady DRM (np. pliki Smooth Streaming chronione za pomocą technologii PlayReady DRM).
-* **EnvelopeEncryptionProtected** — ta opcja umożliwia przekazanie plików w formacie HLS zaszyfrowanych z użyciem standardu AES. Należy pamiętać, że pliki hello musi zostały zakodowane i zaszyfrowane przez Transform Manager.
+* **EnvelopeEncryptionProtected** — ta opcja umożliwia przekazanie plików w formacie HLS zaszyfrowanych z użyciem standardu AES. Należy pamiętać, że pliki muszą być zakodowane i zaszyfrowane za pomocą narzędzia Transform Manager.
 
-Witaj **CreateFromFile** metoda pozwala także określić wywołanie zwrotne w kolejności tooreport hello postępu przekazywania pliku hello.
+Metoda **CreateFromFile** pozwala także określić wywołanie zwrotne w celu raportowania postępu przekazywania pliku.
 
-Poniższy przykład hello, możemy określić **Brak** hello opcji zasobów.
+W poniższym przykładzie dla opcji elementu zawartości określono wartość **None**.
 
-Dodaj hello następujące metody toohello Program klasy.
+Dodaj następującą metodę do klasy Program.
 
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
@@ -175,23 +175,23 @@ Dodaj hello następujące metody toohello Program klasy.
     }
 
 
-## <a name="encode-hello-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Kodowanie pliku źródłowego hello do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów
-Po pozyskaniu elementów zawartości do usługi Media Services, nośnik, mogą zostać zakodowane, poddane transmultipleksacji, oznaczone znakiem wodnym i tak dalej, przed przekazaniem tooclients. Te działania są zaplanowane i uruchomienia wielu tła roli wystąpień tooensure wysokiej wydajności i dostępności. Te działania są nazywane zadaniami, a każde zadanie składa się z niepodzielnych zadań, które hello rzeczywistą pracę w pliku trwałego hello.
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów
+Po pozyskaniu elementów zawartości do usługi Media Services pliki multimedialne przed dostarczeniem do klientów mogą zostać zakodowane, poddane transmultipleksacji, oznaczone znakiem wodnym itp. Te działania są zaplanowane i uruchamiane w wielu wystąpieniach ról w tle, aby zapewnić wysoką wydajność oraz dostępność. Te działania są nazywane zadaniami, a każde zadanie składa się z niepodzielnych podzadań, które wykonują rzeczywistą pracę w pliku elementu zawartości.
 
-Jak wspomniano wcześniej, podczas pracy z usługą Azure Media Services, jest jednym z najbardziej typowych scenariuszy hello dostarczanie przesyłania strumieniowego klientów tooyour adaptacyjną szybkością transmisji bitów. Usługi Media Services można dynamicznie pakietu do jednego z następujących formatów hello zestaw plików MP4 z adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH.
+Jak wspomniano wcześniej, podczas pracy z usługą Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie do klientów transmisji strumieniowej z adaptacyjną szybkością transmisji bitów. Usługa Media Services, korzystając z funkcji dynamicznego tworzenia pakietów, może utworzyć pakiet zestawu plików MP4 z adaptacyjną szybkością transmisji bitów w jednym z następujących formatów: HTTP Live Streaming (HLS), Smooth Streaming i MPEG DASH.
 
-tootake korzyści z dynamicznego tworzenia pakietów, potrzebujesz tooencode lub transkoduj plik (źródłowy) mezzanine do zestawu plików MP4 lub Smooth Streaming plików.  
+Aby korzystać z dynamicznego tworzenia pakietów, zakoduj lub transkoduj plik (źródłowy) mezzanine do zestawu plików MP4 lub Smooth Streaming z adaptacyjną szybkością transmisji bitów.  
 
-Witaj następującego kodu pokazuje, jak zadania toosubmit kodowania. Witaj zadanie zawiera jedno zadanie, które określa plik mezzanine hello tootranscode do zestawu z adaptacyjną szybkością transmisji bitów MP4s przy użyciu **Media Encoder Standard**. Hello kod przesyła zadanie hello i czeka, dopóki zostanie zakończona.
+Poniższy kod ilustruje sposób przesyłania zadania kodowania. Zadanie zawiera jedno zadanie podrzędne, która określa transkodowanie pliku mezzanine do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów przy użyciu **standardu kodera multimediów**. Kod przesyła zadanie i oczekuje na ukończenie działania.
 
-Po zakończeniu zadania hello może być możliwe toostream zawartości lub pobrać progresywnie pliki MP4, które zostały utworzone w wyniku transkodowania.
+Po zakończeniu zadania użytkownik będzie mógł przesłać strumieniowo element zawartości lub pobrać progresywnie pliki MP4, które zostały utworzone w wyniku transkodowania.
 
-Dodaj hello następujące metody toohello Program klasy.
+Dodaj następującą metodę do klasy Program.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
-        // Prepare a job with a single task tootranscode hello specified asset
+        // Prepare a job with a single task to transcode the specified asset
         // into a multi-bitrate asset.
 
         IJob job = _context.Jobs.CreateWithSingleTask(
@@ -204,7 +204,7 @@ Dodaj hello następujące metody toohello Program klasy.
         Console.WriteLine("Submitting transcoding job...");
 
 
-        // Submit hello job and wait until it is completed.
+        // Submit the job and wait until it is completed.
         job.Submit();
 
         job = job.StartExecutionProgressTask(
@@ -222,40 +222,40 @@ Dodaj hello następujące metody toohello Program klasy.
         return outputAsset;
     }
 
-## <a name="publish-hello-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publikowanie hello zawartości i uzyskiwanie adresów URL do przesyłania strumieniowego i pobierania progresywnego
+## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publikowanie elementu zawartości i uzyskiwanie adresów URL na potrzeby pobierania stopniowego oraz przesyłania progresywnego
 
-toostream lub pobierania zawartości, należy najpierw należy zbyt opublikować, przez utworzenie lokalizatora. Lokalizatory zapewniają toofiles dostępu do zawartych w hello zasobów. Usługa Media Services obsługuje dwa typy lokalizatorów: OnDemandOrigin lokalizatory nośniki używane toostream (na przykład MPEG DASH, HLS lub Smooth Streaming) i lokalizatorów podpis dostępu (SAS) używane pliki multimedialne toodownload (Aby uzyskać więcej informacji o lokalizatory sygnatury dostępu Współdzielonego, zobacz [to](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blogu).
+Aby przesłać strumieniowo lub pobrać element zawartości, należy go najpierw opublikować, tworząc lokalizator. Lokalizatory zapewniają dostęp do plików znajdujących się w elemencie zawartości. Usługa Media Services obsługuje dwa typy lokalizatorów: lokalizatory OnDemandOrigin używane do strumieniowego przesyłania plików multimedialnych (na przykład w formacie MPEG DASH, HLS i Smooth Streaming) oraz lokalizatory sygnatury dostępu współdzielonego używane do pobierania plików multimedialnych (aby uzyskać więcej informacji o lokalizatorach sygnatury dostępu współdzielonego, zobacz [ten](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
 
 ### <a name="some-details-about-url-formats"></a>Informacje na temat formatów adresów URL
 
-Po utworzeniu lokalizatorów hello można tworzyć adresy URL hello, które może być używane toostream lub pobierania plików. Przykładowe Hello w tym samouczku dane wyjściowe obejmują adresów URL, które można wkleić w odpowiednich przeglądarkach. W tej sekcji przedstawiono jedynie krótkie przykłady różnych formatów.
+Po utworzeniu lokalizatorów można tworzyć adresy URL umożliwiające przesyłanie strumieniowe lub pobieranie plików. Przykład w tym samouczku spowoduje utworzenie adresów URL, które można wkleić w odpowiednich przeglądarkach. W tej sekcji przedstawiono jedynie krótkie przykłady różnych formatów.
 
-#### <a name="a-streaming-url-for-mpeg-dash-has-hello-following-format"></a>Adres URL przesyłania strumieniowego MPEG DASH ma hello następującego formatu:
+#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>Adres URL dla protokołu MPEG DASH ma następujący format:
 
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest**(format=mpd-time-csf)**
 
-#### <a name="a-streaming-url-for-hls-has-hello-following-format"></a>Adres URL dla protokołu HLS ma hello następującego formatu:
+#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>Adres URL dla protokołu HLS ma następujący format:
 
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest**(format=m3u8-aapl)**
 
-#### <a name="a-streaming-url-for-smooth-streaming-has-hello-following-format"></a>Adres URL dla protokołu Smooth Streaming ma hello następującego formatu:
+#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Adres URL dla protokołu Smooth Streaming ma następujący format:
 
 {nazwa punktu końcowego przesyłania strumieniowego-nazwa konta usługi Media Services}.streaming.mediaservices.windows.net/{identyfikator lokalizatora}/{nazwa pliku}.ism/Manifest
 
 
-#### <a name="a-sas-url-used-toodownload-files-has-hello-following-format"></a>Pliki toodownload adres URL SAS używany ma hello następującego formatu:
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Adres URL SAS używany do pobierania plików ma następujący format:
 
 {nazwa kontenera obiektów blob}/{nazwa elementu zawartości}/{nazwa pliku}/{sygnatura dostępu współdzielonego}
 
-Rozszerzenia .NET SDK usługi Media Services zapewniają wygodne metody pomocnicze czy powrotu sformatowane adresy URL dla hello opublikowanych zasobów.
+Rozszerzenia zestawu .NET SDK usługi Media Services zawierają wygodne metody pomocnicze, które zwracają sformatowane adresy URL dla opublikowanego elementu zawartości.
 
-Hello poniższym kodzie użyto rozszerzeń zestawu .NET SDK toocreate lokalizatory i tooget przesyłania strumieniowego i pobierania progresywnego adresów URL. Kod Hello przedstawiono również sposób tooa lokalny folder plików toodownload.
+W poniższym kodzie użyto rozszerzeń zestawu .NET SDK, aby utworzyć lokalizatory i pobrać adresy URL przesyłania strumieniowego oraz pobierania progresywnego. Kod przedstawia również sposób pobierania plików do folderu lokalnego.
 
-Dodaj hello następujące metody toohello Program klasy.
+Dodaj następującą metodę do klasy Program.
 
     static public void PublishAssetGetURLs(IAsset asset)
     {
-        // Publish hello output asset by creating an Origin locator for adaptive streaming,
+        // Publish the output asset by creating an Origin locator for adaptive streaming,
         // and a SAS locator for progressive download.
 
         _context.Locators.Create(
@@ -276,30 +276,30 @@ Dodaj hello następujące metody toohello Program klasy.
                 .ToList()
                 .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
 
-        // Get hello Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
-        // and hello Progressive Download URL.
+        // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
+        // and the Progressive Download URL.
         Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
         Uri hlsUri = asset.GetHlsUri();
         Uri mpegDashUri = asset.GetMpegDashUri();
 
-        // Get hello URls for progressive download for each MP4 file that was generated as a result
+        // Get the URls for progressive download for each MP4 file that was generated as a result
         // of encoding.
         List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
 
 
-        // Display  hello streaming URLs.
-        Console.WriteLine("Use hello following URLs for adaptive streaming: ");
+        // Display  the streaming URLs.
+        Console.WriteLine("Use the following URLs for adaptive streaming: ");
         Console.WriteLine(smoothStreamingUri);
         Console.WriteLine(hlsUri);
         Console.WriteLine(mpegDashUri);
         Console.WriteLine();
 
-        // Display hello URLs for progressive download.
-        Console.WriteLine("Use hello following URLs for progressive download.");
+        // Display the URLs for progressive download.
+        Console.WriteLine("Use the following URLs for progressive download.");
         mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
         Console.WriteLine();
 
-        // Download hello output asset tooa local folder.
+        // Download the output asset to a local folder.
         string outputFolder = "job-output";
         if (!Directory.Exists(outputFolder))
         {
@@ -307,7 +307,7 @@ Dodaj hello następujące metody toohello Program klasy.
         }
 
         Console.WriteLine();
-        Console.WriteLine("Downloading output asset files tooa local folder...");
+        Console.WriteLine("Downloading output asset files to a local folder...");
         asset.DownloadToFolder(
             outputFolder,
             (af, p) =>
@@ -320,7 +320,7 @@ Dodaj hello następujące metody toohello Program klasy.
 
 ## <a name="test-by-playing-your-content"></a>Testowanie przez odtwarzanie zawartości
 
-Po uruchomieniu program hello zdefiniowane w poprzedniej sekcji hello hello podobne następujące toohello będą wyświetlane w oknie konsoli hello adresów URL.
+Po uruchomieniu programu zdefiniowanego w poprzedniej sekcji w oknie konsoli zostanie wyświetlony adres URL podobny do poniższego.
 
 Adresy URL przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów:
 
@@ -355,18 +355,18 @@ Adresy URL pobierania progresywnego (audio i wideo):
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-toostream wideo, wklej adres URL w polu tekstowym adres URL hello w hello [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Aby przesyłać strumieniowo zawartość wideo, wklej adres URL w polu tekstowym adresu URL w odtwarzaczu [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-tootest progresywnego pobierania, wklej adres URL do przeglądarki (na przykład program Internet Explorer, Chrome lub Safari).
+Aby przetestować pobieranie progresywne, wklej adres URL do przeglądarki (np. Internet Explorer, Chrome lub Safari).
 
-Aby uzyskać więcej informacji zobacz następujące tematy hello:
+Aby uzyskać więcej informacji, zobacz następujące tematy:
 
 - [Odtwarzanie zawartości w istniejących odtwarzaczach](media-services-playback-content-with-existing-players.md)
 - [Opracowywanie aplikacji odtwarzacza wideo](media-services-develop-video-players.md)
 - [Osadzanie plików wideo adaptacyjnego przesyłania strumieniowego MPEG-DASH w aplikacji HTML5 z implementacją DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Pobieranie przykładu
-Witaj Poniższy przykładowy kod zawiera hello kod, który został utworzony w tym samouczku: [próbki](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Następujący przykład kodu zawiera kod utworzony w tym samouczku: [przykład](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="next-steps"></a>Następne kroki
 

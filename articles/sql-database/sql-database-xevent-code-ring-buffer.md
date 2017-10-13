@@ -1,6 +1,6 @@
 ---
-title: "aaaXEvent bufor pierścień kod dla bazy danych SQL | Dokumentacja firmy Microsoft"
-description: "Zawiera przykładowy kod języka Transact-SQL, która zostaje łatwo i szybko przy użyciu hello bufor pierścień obiektu docelowego w bazie danych SQL Azure."
+title: "Kod bufor pierścień systemu XEvent dla bazy danych SQL | Dokumentacja firmy Microsoft"
+description: "Zawiera przykładowy kod języka Transact-SQL, które zostało utworzone przy użyciu obiektu docelowego buforu pierścień w bazie danych SQL Azure łatwo i szybko."
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -16,33 +16,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
-ms.openlocfilehash: 21df748d9999d6837d2b5bbe4a3f47fb351b4633
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6fbefe151901ac3b15d93712422878fc4d6206f1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Pierścienia kodu docelowego buforu dla zdarzeń rozszerzonych w bazie danych SQL
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Chcesz próbkę kompletny kod dla hello najprostszym szybko toocapture i przekazuje informacje dla zdarzeń rozszerzonych podczas testu. Najprostszym docelowy Hello danych zdarzeń rozszerzonych jest hello [docelowego buforu pierścień](http://msdn.microsoft.com/library/ff878182.aspx).
+Chcesz próbkę kompletny kod dla szybkiego Najprostszym sposobem przechwytywania i przekazuje informacje dla zdarzeń rozszerzonych podczas testu. Najprostszym elementu docelowego dla danych zdarzeń rozszerzonych jest [docelowego buforu pierścień](http://msdn.microsoft.com/library/ff878182.aspx).
 
 W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
 
-1. Tworzy tabelę z toodemonstrate danych z.
+1. Tworzy tabelę z danymi, aby zademonstrować z.
 2. Tworzy sesję dla istniejących zdarzeń rozszerzonych mianowicie **sqlserver.sql_statement_starting**.
    
-   * Witaj zdarzenie jest ograniczona tooSQL zawierających określony ciąg aktualizacji instrukcji: **instrukcji, takich jak '% aktualizacji tabEmployee %'**.
-   * Wybiera dane wyjściowe hello toosend cel tooa zdarzenia hello typu pierścień buforu, a mianowicie **package0.ring_buffer**.
-3. Uruchamia hello sesji zdarzeń.
+   * Zdarzenie jest ograniczona do instrukcji SQL, które zawierają określony ciąg aktualizacji: **instrukcji, takich jak '% aktualizacji tabEmployee %'**.
+   * Wybiera do wysłania dane wyjściowe zdarzenia do elementu docelowego typu pierścień buforu, a mianowicie **package0.ring_buffer**.
+3. Uruchamia sesji zdarzeń.
 4. Problemy z kilku prostych instrukcji SQL UPDATE.
-5. Problemy z SQL SELECT instrukcji tooretrieve zdarzeń dane wyjściowe hello bufor pierścień.
+5. Problemy z instrukcję SQL SELECT, aby pobrać dane wyjściowe zdarzenia z buforu pierścień.
    
    * **sys.dm_xe_database_session_targets** i innych dynamicznych widoków zarządzania (widoków DMV) są połączone.
-6. Zatrzymuje hello sesji zdarzeń.
-7. Porzucania hello pierścień buforu docelowego, toorelease jego zasoby.
-8. Odrzuca hello sesji zdarzeń i hello pokaz tabeli.
+6. Zatrzymuje sesji zdarzeń.
+7. Odrzuca docelowej pierścień buforu, aby zwolnić zasoby jego.
+8. Odrzuca sesji zdarzeń i pokaz tabeli.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -51,14 +51,14 @@ W tym temacie przedstawiono przykładowy kod języka Transact-SQL, który:
   
   * Opcjonalnie można [utworzyć **AdventureWorksLT** demonstracyjna baza danych](sql-database-get-started.md) w minutach.
 * SQL Server Management Studio (ssms.exe), najlepiej najnowszej miesięcznej wersji aktualizacji. 
-  Możesz pobrać najnowszą ssms.exe hello z:
+  Możesz pobrać najnowszą ssms.exe od:
   
   * Temat zatytułowany [pobierania programu SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [Pobieranie toohello bezpośredniego łącza.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * [Łącze do pobrania.](http://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Przykład kodu
 
-Drobne modyfikacji hello Poniższy przykładowy kod bufor pierścień może działać w bazy danych SQL Azure lub programu Microsoft SQL Server. Witaj różnica polega na obecność hello hello węzła 'bazy _danych"w nazwie hello niektórych dynamicznych widoków zarządzania (widoków DMV), używany w klauzuli FROM hello w kroku 5. Na przykład:
+Drobne zmiany w poniższym przykładzie kodu bufor pierścień umożliwia uruchamianie bazy danych SQL Azure lub programu Microsoft SQL Server. Różnica polega na obecność węzeł 'bazy _danych"nazwach niektórych dynamicznych widoków zarządzania (widoków DMV), używany w klauzuli FROM w kroku 5. Na przykład:
 
 * sys.dm_xe**bazy _danych**_session_targets
 * sys.dm_xe_session_targets
@@ -220,13 +220,13 @@ GO
 
 ## <a name="ring-buffer-contents"></a>Zawartość buforów pierścień
 
-My używamy przykładowy kod hello toorun ssms.exe.
+My używamy ssms.exe uruchomić przykładowy kod.
 
-wyniki hello tooview, możemy kliknięciu komórki hello w obszarze nagłówka kolumny hello **target_data_XML**.
+Aby wyświetlić wyniki, możemy kliknięciu komórki w nagłówku kolumny **target_data_XML**.
 
-Następnie w okienku wyników hello możemy kliknięciu komórki hello w obszarze nagłówka kolumny hello **target_data_XML**. Kliknij ten przycisk utworzyć inną kartę pliku w ssms.exe w których hello zawartość komórki wynik hello został wyświetlony, w formacie XML.
+Następnie w okienku wyników możemy kliknięciu komórki w nagłówku kolumny **target_data_XML**. Kliknij ten przycisk utworzyć inną kartę pliku w ssms.exe w którym zawartość komórki wynik został wyświetlony, w formacie XML.
 
-dane wyjściowe Hello jest wyświetlany w powitania po bloku. Wygląda na to długie, ale jest tylko dwa  **<event>**  elementów.
+Dane wyjściowe przedstawiono w następującym fragmencie. Wygląda na to długie, ale jest tylko dwa  **<event>**  elementów.
 
 &nbsp;
 
@@ -320,7 +320,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 #### <a name="release-resources-held-by-your-ring-buffer"></a>Zwolnij zasoby zajmowane przez użytkownika bufor pierścień
 
-Po zakończeniu Twojej buforem pierścienia, można ją usunąć i zwolnić jego zasoby wystawiania **ALTER** następujące hello, takich jak:
+Po zakończeniu Twojej buforem pierścienia, można ją usunąć i zwolnić jego zasoby wystawiania **ALTER** podobnie do następującego:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -330,7 +330,7 @@ GO
 ```
 
 
-Definicja Hello sesji zdarzeń jest zaktualizowana, ale nie został porzucony. Później można dodać inne wystąpienie sesji zdarzeń tooyour bufor pierścień hello:
+Definicja sesji zdarzeń jest zaktualizowana, ale nie został porzucony. Później można dodać inne wystąpienie buforu pierścień do sesji zdarzeń:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -345,11 +345,11 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 ## <a name="more-information"></a>Więcej informacji
 
-temat głównej Hello rozszerzonej zdarzeń w bazie danych SQL Azure jest:
+Podstawowy temat rozszerzonej zdarzeń w bazie danych SQL Azure jest:
 
 * [Rozszerzony zagadnienia dotyczące zdarzeń w bazie danych SQL](sql-database-xevent-db-diff-from-svr.md), która różni się znacząco niektórych aspektów rozszerzone zdarzenia, które różnią się od bazy danych SQL Azure i programu Microsoft SQL Server.
 
-Inne tematy przykładowy kod dla zdarzeń rozszerzonych są dostępne pod adresem hello następującego łącza. Regularnie musi jednak sprawdzić wszelkie toosee próbki, czy hello przykładowy jest przeznaczony dla programu Microsoft SQL Server i bazy danych SQL Azure. Następnie można zdecydować, czy drobne zmiany są potrzebne toorun hello próbki.
+Inne tematy przykładowy kod dla zdarzeń rozszerzonych są dostępne w poniższych łączy. Regularnie należy jednak sprawdzić wszelkie przykład, aby zobaczyć, czy próbki jest przeznaczony dla programu Microsoft SQL Server i bazy danych SQL Azure. Następnie można zdecydować, czy drobne zmiany są potrzebne do uruchomienia przykładu.
 
 * Przykładowy kod bazy danych SQL Azure: [kod docelowy plik zdarzeń rozszerzonych zdarzeń w bazie danych SQL](sql-database-xevent-code-event-file.md)
 
@@ -357,5 +357,5 @@ Inne tematy przykładowy kod dla zdarzeń rozszerzonych są dostępne pod adrese
 ('lock_acquired' event.)
 
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find hello Objects That Have hello Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->

@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> Centrum IoT Hello będzie być publicznie wykrywalny jako punktu końcowego DNS, dlatego upewnij się, że tooavoid żadnych poufnych informacji podczas nazw.
+> Usługa IoT Hub będzie publicznie wykrywalna jako punkt końcowy DNS, dlatego upewnij się, żeby unikać jakichkolwiek poufnych informacji podczas nadawania jej nazwy.
 >

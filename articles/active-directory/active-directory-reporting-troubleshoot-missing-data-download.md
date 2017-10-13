@@ -1,6 +1,6 @@
 ---
-title: "Rozwiązywanie problemów: Brak danych w hello pobrać Dzienniki aktywności w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Udostępnia rozpoznawanie danych toomissing w pobranych Dzienniki aktywności usługi Azure Active Directory."
+title: "Rozwiązywanie problemów: Brak danych w pobranych dziennikach aktywności usługi Azure Active Directory | Microsoft Docs"
+description: "Zawiera rozwiązanie problemu dotyczącego braku danych w pobranych dziennikach aktywności usługi Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,30 +15,30 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 027b70e6efc570f81d3c836f50ee52aaa89be71a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3d56f89035da4d1a0074256b165663f81fc2b01e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="i-cant-find-any-data-in-hello-azure-active-directory-activity-logs-i-have-downloaded"></a>Nie można znaleźć żadnych danych w dziennikach hello działania usługi Azure Active Directory, który został pobrany
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>Nie mogę znaleźć danych w pobranych dziennikach aktywności usługi Azure Active Directory
 
 
 ## <a name="symptoms"></a>Objawy
 
-Pobrany Dzienniki aktywności hello (inspekcji lub logowania) i wszystkie rekordy hello nie jest widoczny dla czasu hello, które zostało określone. Dlaczego? 
+Pobrano dzienniki aktywności (inspekcji lub logowania), ale nie widać wszystkich rekordów dla wybranego czasu. Dlaczego? 
 
  ![Raportowanie](./media/active-directory-reporting-troubleshoot-missing-data-download/01.png)
  
 
 ## <a name="cause"></a>Przyczyna
 
-Podczas pobierania dzienników aktywności w portalu Azure hello jest ograniczona rekordy too120K skali hello posortowane przez większość ostatnie. 
+Dzienniki aktywności pobierane z witryny Azure Portal mają nałożony limit wynoszący 120 tysięcy rekordów posortowanych według najnowszych wpisów. 
 
 ## <a name="resolution"></a>Rozwiązanie
 
-Można wykorzystać [API Azure AD raportowania](active-directory-reporting-api-getting-started.md) toofetch tooa miliony rekordów na dowolnym etapie. Nasze podejście zalecane jest toorun skryptu zgodnie z harmonogramem wywołującą hello raportowania interfejsów API toofetch rejestruje w sposób przyrostowy w danym okresie czasu (np., codziennie lub co tydzień).
+Można wykorzystać [interfejsy API raportowania usługi Azure AD](active-directory-reporting-api-getting-started.md), aby pobrać do miliona rekordów z dowolnego okresu. Zalecamy regularne uruchamianie skryptu wywołującego interfejsy API raportowania w celu pobrania rekordów w sposób przyrostowy w podanym okresie (np. codziennie lub co tydzień).
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz hello [raportowania często zadawane pytania dotyczące usługi Azure Active Directory](active-directory-reporting-faq.md).
+Zobacz temat[Azure Active Directory reporting FAQ](active-directory-reporting-faq.md) (Często zadawane pytania dotyczące raportowania usługi Azure Active Directory).
 

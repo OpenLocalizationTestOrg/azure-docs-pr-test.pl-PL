@@ -1,5 +1,5 @@
 ---
-title: "aaaOverview kontroli dostępu w usłudze Data Lake Store | Dokumentacja firmy Microsoft"
+title: "Omówienie kontroli dostępu w usłudze Data Lake Store | Microsoft Docs"
 description: "Zrozumienie sposobu działania kontroli dostępu w usłudze Azure Data Lake Store"
 services: data-lake-store
 documentationcenter: 
@@ -12,36 +12,36 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.openlocfilehash: 1cc5d578f22ef0a123a1547abebfb4795ea09139
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Kontrola dostępu w usłudze Azure Data Lake Store
 
-Azure Data Lake Store implementuje model kontroli dostępu, która pochodzi z systemu plików HDFS, który z kolei jest pochodną model kontroli dostępu POSIX hello. Ten artykuł zawiera podsumowanie hello podstawy hello model kontroli dostępu dla usługi Data Lake Store. toolearn więcej informacji na temat hello model kontroli dostępu do systemu plików HDFS, zobacz [przewodnik uprawnienia systemu plików HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+Usługa Azure Data Lake Store wdraża model kontroli dostępu pochodzący z systemu plików HDFS, który z kolei pochodzi z modelu kontroli dostępu POSIX. Ten artykuł zawiera podsumowanie podstaw modelu kontroli dostępu dla usługi Data Lake Store. Aby dowiedzieć się więcej o modelu kontroli dostępu systemu plików HDFS, zobacz [Przewodnik po uprawnieniach systemu plików HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 ## <a name="access-control-lists-on-files-and-folders"></a>Listy kontroli dostępu do plików i folderów
 
 Istnieją dwa typy list kontroli dostępu (ACL) — **Listy ACL dostępu** i **Domyślne listy ACL**.
 
-* **Dostęp do listy ACL**: obiekt tooan tych kontroli dostępu. Pliki i foldery mają listy ACL dostępu.
+* **Listy ACL dostępu**: listy te kontrolują dostęp do obiektu. Pliki i foldery mają listy ACL dostępu.
 
-* **Domyślne listy ACL**: "szablon" listy kontroli dostępu skojarzone z folderem ustalić hello dostępu ACL dla wszystkie elementy podrzędne, które zostały utworzone w tym folderze. Pliki nie mają domyślnych list ACL.
+* **Domyślne listy ACL**: „szablon” list ACL skojarzonych z folderem, który określa listy ACL dostępu dla wszelkich elementów podrzędnych, które zostały utworzone w tym folderze. Pliki nie mają domyślnych list ACL.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
-Zarówno listy ACL dostępu, jak i domyślnej listy ACL mają hello tej samej struktury.
+Zarówno listy ACL dostępu, jak i domyślne listy ACL mają tę samą strukturę.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
 > [!NOTE]
-> Zmiana hello domyślnej listy ACL na element nadrzędny nie ma wpływu na powitania dostępu lub domyślnej listy ACL elementy podrzędne, które już istnieją.
+> Zmiana domyślnej listy ACL w lokalizacji nadrzędnej nie wpływa na listę ACL dostępu lub domyślną listę ACL elementów podrzędnych, które już istnieją.
 >
 >
 
@@ -49,27 +49,27 @@ Zarówno listy ACL dostępu, jak i domyślnej listy ACL mają hello tej samej st
 
 Każdy plik i folder ma różne uprawnienia do tych tożsamości:
 
-* Witaj, będącej właścicielem, jeśli użytkownik hello pliku
-* Witaj będący właścicielem grupy
+* Użytkownik będący właścicielem
+* Grupa będąca właścicielem
 * Użytkownicy nazwani
 * Grupy nazwane
 * Wszyscy pozostali użytkownicy
 
-Witaj tożsamości użytkowników i grup są tożsamości usługi Azure Active Directory (Azure AD). Chyba że określono inaczej, "użytkownika" w kontekście hello Data Lake Store może oznaczać albo użytkownika usługi Azure AD lub grupy zabezpieczeń usługi Azure AD.
+Tożsamości użytkowników i grup są tożsamościami usługi Azure Active Directory (Azure AD). O ile nie zostało to określone inaczej, termin „użytkownik” w kontekście usługi Data Lake Store może oznaczać użytkownika usługi Azure AD albo grupę zabezpieczeń usługi Azure AD.
 
 ## <a name="permissions"></a>Uprawnienia
 
-Witaj uprawnień do obiektu systemu plików są **odczytu**, **zapisu**, i **Execute**, i mogą być używane w pliki i foldery, jak pokazano w poniższej tabeli hello:
+Uprawnienia do obiektu systemu plików to uprawnienia do **odczytu**, **zapisu** i **wykonania**. Mogą one być używane w stosunku do plików i folderów, jak pokazano w poniższej tabeli:
 
 |            |    Plik     |   Folder |
 |------------|-------------|----------|
-| **Odczyt (R)** | Można odczytać zawartości pliku hello | Wymaga **odczytu** i **Execute** toolist hello zawartość folderu hello|
-| **Zapis (W)** | Można zapisać lub Dołącz plik tooa | Wymaga **zapisu** i **Execute** toocreate elementy podrzędne w folderze |
-| **Wykonanie (X)** | Nie oznacza niczego w kontekście hello Data Lake Store | Elementy podrzędne hello tootraverse wymaganego folderu |
+| **Odczyt (R)** | Może odczytywać zawartości pliku | Wymaga uprawnień do **odczytu** i **wykonania**, aby wyświetlać listę zawartości folderu|
+| **Zapis (W)** | Może zapisywać w pliku lub dołączać do pliku | Wymaga uprawnień do **zapisu** i **wykonania**, aby tworzyć elementy podrzędne w folderze |
+| **Wykonanie (X)** | Nie oznacza niczego w kontekście usługi Data Lake Store | Wymagane w przypadku przechodzenia między elementami podrzędnymi w folderze |
 
 ### <a name="short-forms-for-permissions"></a>Krótkie formy uprawnień
 
-**RWX** jest używane tooindicate **odczytu i zapisu i wykonać**. Zmniejszoną formularza liczbowych istnieje w którym **odczytu = 4**, **zapisu = 2**, i **Execute = 1**, Suma hello reprezentuje hello uprawnienia. Poniżej przedstawiono kilka przykładów.
+Skrót **RWX** służy do wskazywania uprawnień do **odczytu, zapisu i wykonania**. Istnieje bardziej skondensowana postać liczbowa, w której uprawnienia do **odczytu = 4**, **zapisu = 2** i **wykonania = 1**, a ich suma reprezentuje uprawnienia. Poniżej przedstawiono kilka przykładów.
 
 | Forma liczbowa | Forma krótka |      Co to oznacza     |
 |--------------|------------|------------------------|
@@ -81,68 +81,68 @@ Witaj uprawnień do obiektu systemu plików są **odczytu**, **zapisu**, i **Exe
 
 ### <a name="permissions-do-not-inherit"></a>Uprawnienia nie są dziedziczone
 
-W modelu POSIX stylu hello jest używany przez usługi Data Lake Store uprawnienia dla elementu są przechowywane w samym elemencie hello. Innymi słowy uprawnienia dla elementu nie może być dziedziczona z hello elementów nadrzędnych.
+W modelu w stylu POSIX, który jest używany przez usługę Data Lake Store, uprawnienia dla elementu są przechowywane w samym elemencie. Innymi słowy, uprawnienia dla elementu nie mogą być dziedziczone z elementów nadrzędnych.
 
-## <a name="common-scenarios-related-toopermissions"></a>Typowe scenariusze toopermissions pokrewne
+## <a name="common-scenarios-related-to-permissions"></a>Typowe scenariusze dotyczące uprawnień
 
-Poniżej przedstawiono niektóre typowe scenariusze toohelp, zrozumieć, jakie uprawnienia są wymagane tooperform pewnych operacji na konto usługi Data Lake Store.
+Poniżej przedstawiono kilka typowych scenariuszy, które pomagają zrozumieć, które uprawnienia są wymagane do wykonania danych operacji na koncie usługi Data Lake Store.
 
-### <a name="permissions-needed-tooread-a-file"></a>Wymagane uprawnienia tooread pliku
+### <a name="permissions-needed-to-read-a-file"></a>Uprawnienia wymagane do odczytu pliku
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
 
-* Dla hello toobe pliku do odczytu, hello wywołujący musi **odczytu** uprawnienia.
-* Dla wszystkich hello folderach hello struktury folderów zawierających plik hello, hello wywołujący musi **Execute** uprawnienia.
+* W przypadku pliku, który będzie odczytywany, wywołujący musi mieć uprawnienia do **odczytu**.
+* W przypadku wszystkich folderów w strukturze folderów, które zawierają plik, wywołujący musi mieć uprawnienia do **wykonania**.
 
-### <a name="permissions-needed-tooappend-tooa-file"></a>Plik tooa tooappend potrzebne uprawnienia
+### <a name="permissions-needed-to-append-to-a-file"></a>Uprawnienia wymagane do dołączania do pliku
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
 
-* Dla hello toobe plik dołączany do, hello wywołujący musi **zapisu** uprawnienia.
-* Dla wszystkich hello foldery, które zawierają hello pliku, hello wywołujący musi **Execute** uprawnienia.
+* W przypadku pliku, do którego będzie dołączana zawartość, wywołujący musi mieć uprawnienia do **zapisu**.
+* W przypadku wszystkich folderów, które zawierają plik, wywołujący musi mieć uprawnienia do **wykonania**.
 
-### <a name="permissions-needed-toodelete-a-file"></a>Wymagane uprawnienia toodelete pliku
+### <a name="permissions-needed-to-delete-a-file"></a>Uprawnienia wymagane do usunięcia pliku
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
 
-* Dla folderu nadrzędnego hello, hello wywołujący musi **zapisu i wykonywania** uprawnienia.
-* Dla wszystkich hello innych folderów w ścieżce pliku hello, hello wywołujący musi **Execute** uprawnienia.
+* W przypadku folderu nadrzędnego wywołujący musi mieć uprawnienia do **zapisu i wykonania**.
+* W przypadku innych folderów w ścieżce pliku wywołujący musi mieć uprawnienia do **wykonania**.
 
 
 
 > [!NOTE]
-> Zapisu uprawnienia pliku hello nie są wymagane toodelete go tak długo, jak hello poprzednie dwa warunki są spełnione.
+> Uprawnienia do zapisu dla pliku nie są wymagane do usunięcia go, jeśli dwa poprzednie warunki pozostają spełnione.
 >
 >
 
-### <a name="permissions-needed-tooenumerate-a-folder"></a>Wymagane uprawnienia tooenumerate folderu
+### <a name="permissions-needed-to-enumerate-a-folder"></a>Uprawnienia wymagane do wyliczenia folderu
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
 
-* Dla tooenumerate folderu hello, hello wywołujący musi **Odczyt i wykonywanie** uprawnienia.
-* Dla wszystkich hello foldery nadrzędne, hello wywołujący musi **Execute** uprawnienia.
+* W przypadku folderu do wyliczenia wywołujący musi mieć uprawnienia do **odczytu i wykonania**.
+* W przypadku wszystkich folderów nadrzędnych wywołujący musi mieć uprawnienia do **wykonania**.
 
-## <a name="viewing-permissions-in-hello-azure-portal"></a>Wyświetlanie uprawnień w hello portalu Azure
+## <a name="viewing-permissions-in-the-azure-portal"></a>Wyświetlanie uprawnień w witrynie Azure Portal
 
-Z hello **Eksploratora danych** bloku hello konta usługi Data Lake Store kliknij **dostępu** toosee hello listy ACL dla pliku lub folderu. Kliknij przycisk **dostępu** toosee hello listy ACL dla hello **katalogu** folder hello **mydatastore** konta.
+W bloku **Eksplorator danych** konta usługi Data Lake Store kliknij przycisk **Dostęp**, aby zobaczyć listy ACL dla pliku lub folderu. Kliknij przycisk **Dostęp**, aby zobaczyć listy ACL dla folderu **catalog** na koncie **mydatastore**.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-W tym bloku hello pierwsza sekcja zawiera omówienie hello uprawnienia użytkownika. (Hello zrzucie ekranu, użytkownik hello jest Bob). Po tym, że uprawnienia dostępu hello są wyświetlane. Po wykonaniu tej z hello **dostępu** bloku, kliknij przycisk **widoku uproszczonym** toosee hello prostsze widoku.
+W tym bloku górna sekcja przedstawia omówienie uprawnień posiadanych przez użytkownika. (Na zrzucie ekranu użytkownikiem jest Bob). Poniżej widoczne są uprawnienia dostępu. Po wykonaniu tego kroku w bloku **Dostęp** kliknij przycisk **Widok prosty**, aby zobaczyć prostszy widok.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Kliknij przycisk **widoku zaawansowanego** toosee hello bardziej zaawansowane widoku, gdy są pokazywane pojęcia hello domyślnej listy ACL, maska i administratora.
+Kliknij pozycję **Widok zaawansowany**, aby wyświetlić bardziej zaawansowany widok, w którym występują pojęcia domyślnych list ACL, maski i administratora.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
-## <a name="hello-super-user"></a>Witaj administratora
+## <a name="the-super-user"></a>Administrator
 
-Nadtypem użytkownik ma hello większości prawa wszystkim użytkownikom hello w hello usługi Data Lake Store. Administrator:
+Administrator ma najwięcej uprawnień spośród wszystkich użytkowników usługi Data Lake Store. Administrator:
 
-* Zbyt uprawnieniami RWX**wszystkich** plików i folderów.
-* Można zmienić uprawnienia hello plik lub folder.
-* Można zmienić hello użytkownik będący właścicielem lub będący właścicielem grupy pliku lub folderu.
+* ma uprawnienia RWX do **wszystkich** plików i folderów;
+* może zmieniać uprawnienia do dowolnego pliku lub folderu;
+* może zmieniać właściciela lub grupę będącą właścicielem dla dowolnego pliku lub folderu.
 
 Na platformie Azure konto usługi Data Lake Store ma kilka ról platformy Azure, a w tym:
 
@@ -150,100 +150,100 @@ Na platformie Azure konto usługi Data Lake Store ma kilka ról platformy Azure,
 * Współautorzy
 * Czytelnicy
 
-Wszyscy użytkownicy w hello **właścicieli** rolę dla konta usługi Data Lake Store jest automatycznie administratora dla tego konta. toolearn więcej, zobacz [kontroli dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md).
-Jeśli chcesz toocreate roli niestandardowej roli-— kontrola dostępu oparta na (rolach RBAC), która ma uprawnienia administratora musi hello toohave następujących uprawnień:
+Wszyscy użytkownicy w roli **Właściciele** dla konta usługi Data Lake Store są automatycznie administratorami dla tego konta. Aby dowiedzieć się więcej, zobacz [Kontrola dostępu oparta na rolach](../active-directory/role-based-access-control-configure.md).
+Jeśli chcesz utworzyć niestandardową rolę kontroli dostępu opartej na rolach (RBAC) z uprawnieniami administratora, musi ona mieć następujące uprawnienia:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
 
 
-## <a name="hello-owning-user"></a>Użytkownik będący właścicielem Hello
+## <a name="the-owning-user"></a>Użytkownik będący właścicielem
 
-Hello użytkownika, który utworzył element hello jest automatycznie hello użytkownik hello element będący właścicielem. Użytkownik będący właścicielem może:
+Użytkownik, który utworzył element, jest automatycznie właścicielem elementu. Użytkownik będący właścicielem może:
 
-* Zmień uprawnienia hello pliku, który jest właścicielem.
-* Zmiana będącej właścicielem grupy plików, która jest właścicielem tak długo, jak długo użytkownik będący właścicielem hello jest również członkiem grupy docelowej hello hello.
+* zmieniać uprawnienia dla pliku, którego jest właścicielem;
+* zmieniać grupę będącą właścicielem dla pliku, którego jest właścicielem, jeśli użytkownik będący właścicielem jest również członkiem grupy docelowej.
 
 > [!NOTE]
-> Użytkownik będący właścicielem Hello *nie* zmienić hello będącej właścicielem, jeśli użytkownik innego pliku należące do firmy. Tylko nadtypem użytkownicy mogą zmieniać hello będącej właścicielem, jeśli użytkownik pliku lub folderu.
+> Użytkownik będący właścicielem *nie może* zmienić użytkownika będącego właścicielem innego pliku. Tylko administratorzy mogą zmieniać użytkowników będących właścicielami pliku lub folderu.
 >
 >
 
-## <a name="hello-owning-group"></a>Witaj będący właścicielem grupy
+## <a name="the-owning-group"></a>Grupa będąca właścicielem
 
-W hello listy ACL POSIX każdy użytkownik, jest skojarzona z "podstawowej grupy". Na przykład "Alicja" użytkownik może należeć toohello "Finanse" grupy. Alicja może również należeć toomultiple grupy, ale jedna grupa zawsze jest oznaczony jako swojej grupy podstawowej. W POSIX gdy Alicja tworzy plik hello grupy tego pliku będącej właścicielem, wartość grupy podstawowej tooher, czyli w tym przypadku "Finanse".
+Na listach ACL w modelu POSIX każdy użytkownik jest skojarzony z „grupą główną”. Przykładowo użytkownik „Alicja” może należeć do grupy „Finanse”. Alicja może również należeć do wielu grup, ale jedna grupa jest zawsze wyznaczona jako jej grupa główna. W modelu POSIX, gdy Alicja tworzy plik, na grupę będącą właścicielem tego pliku zostaje ustawiona jej grupa główna. W tym przypadku jest to grupa „Finanse”.
 
-Podczas tworzenia nowego elementu systemu plików usługi Data Lake Store przypisuje toohello wartość grupy będącej właścicielem.
+Gdy zostaje utworzony nowy element systemu plików, usługa Data Lake Store przypisuje wartość grupie będącej właścicielem.
 
-* **Przypadek 1**: folder główny hello "/". Ten folder jest tworzony wraz z kontem usługi Data Lake Store. W takim przypadku hello będący właścicielem grupy ustawiono toohello użytkownika, który utworzył konto hello.
-* **Przypadek 2** (każdego innego litery): podczas tworzenia nowego elementu hello będący właścicielem grupy zostaną skopiowane z hello folderu nadrzędnego.
+* **Przypadek 1**: folder główny „/”. Ten folder jest tworzony wraz z kontem usługi Data Lake Store. W takim przypadku grupa będąca właścicielem jest ustawiana na użytkownika, który utworzył konto.
+* **Przypadek 2** (każdy inny przypadek): gdy tworzony jest nowy element, grupa będąca właścicielem jest kopiowana z folderu nadrzędnego.
 
-Witaj będący właścicielem grupy może zostać zmieniona przez:
+Grupę będącą właścicielem może zmienić:
 * każdy administrator;
-* Użytkownik, będący właścicielem, jeśli użytkownik będący właścicielem hello jest również członkiem grupy docelowej hello Hello.
+* użytkownik będący właścicielem, jeśli jest on również członkiem grupy docelowej.
 
 ## <a name="access-check-algorithm"></a>Algorytm kontroli dostępu
 
-Witaj następującej ilustracji reprezentuje hello dostępu wyboru algorytmu dla kont usługi Data Lake Store.
+Poniższa ilustracja przedstawia algorytm kontroli dostępu dla kont usługi Data Lake Store.
 
 ![Algorytm list ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
 
 
-## <a name="hello-mask-and-effective-permissions"></a>Maska Hello i "czynne uprawnienia"
+## <a name="the-mask-and-effective-permissions"></a>Maska i „czynne uprawnienia”
 
-Hello **maski** jest RWX wartość czyli dostęp toolimit używane dla **nazwani użytkownicy**, hello **grupy będącej właścicielem**, i **o nazwie grupy** czasie wykonywanie hello dostępu wyboru algorytmu. Poniżej przedstawiono podstawowe pojęcia hello hello maski.
+**Maska** jest wartością RWX używaną do ograniczania dostępu dla **użytkowników nazwanych**, **grupy będącej właścicielem** i **grup nazwanych** w przypadku wykonywania algorytmu kontroli dostępu. Oto kluczowe założenia maski.
 
-* Maska Hello tworzy "czynne uprawnienia." Oznacza to modyfikuje uprawnienia hello w czasie hello kontroli dostępu.
-* Maska Hello można edytować bezpośrednio przez właściciela pliku hello i nadtypem użytkowników.
-* Maska Hello można usunąć uprawnienia toocreate hello czynne uprawnienia. Maska Hello *nie* dodać skuteczne toohello uprawnieniami.
+* Maska tworzy „czynne uprawnienia”. Oznacza to, że modyfikuje ona uprawnienia w momencie przeprowadzania kontroli dostępu.
+* Maskę może edytować bezpośrednio właściciel pliku i dowolny administrator.
+* Maska może usuwać uprawnienia w celu tworzenia czynnych uprawnień. Maska *nie może* dodawać uprawnień do czynnych uprawnień.
 
-Przyjrzyjmy się kilku przykładom. W hello poniższy przykład, maska hello ustawiono zbyt**RWX**, co oznacza, że maska hello nie powoduje usunięcia żadnych uprawnień. Hello czynnych uprawnień hello o nazwie użytkownika, grupy będącej właścicielem, a o nazwie grupy nie zostały zmienione podczas sprawdzania dostępu hello.
+Przyjrzyjmy się kilku przykładom. W poniższym przykładzie maskę ustawiono na **RWX**, co oznacza, że ta maska nie usuwa żadnych uprawnień. Czynne uprawnienia dla użytkownika nazwanego, grupy będącej właścicielem i grupy nazwanej nie są modyfikowane podczas kontroli dostępu.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
 
-W hello poniższy przykład, maska hello ustawiono zbyt**R X**. Oznacza to, że **wyłącza uprawnienia zapisu hello** dla **o nazwie użytkownika**, **grupy będącej właścicielem**, i **o nazwie grupy** w czasie hello dostępu Sprawdź.
+W poniższym przykładzie maska jest ustawiona na **R-X**. Oznacza to, że maska **wyłącza uprawnienie do zapisu** dla **użytkownika nazwanego**, **grupy będącej właścicielem** i **grupy nazwanej** w czasie kontroli dostępu.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
 
-Odwołanie w tym miejscu jest gdzie hello maska dla pliku lub folderu będzie wyświetlana w hello portalu Azure.
+Jest to miejsce, w którym maska dla pliku lub folderu pojawia się w witrynie Azure Portal.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> Dla nowego konta usługi Data Lake Store, maskę hello hello dostępu i domyślne listy ACL hello głównego folderu ("/"), domyślnie przyjmowana tooRWX.
+> W przypadku nowego konta usługi Data Lake Store maski dla listy ACL dostępu i domyślnej listy ACL folderu głównego („/”) są domyślnie maskami RWX.
 >
 >
 
 ## <a name="permissions-on-new-files-and-folders"></a>Uprawnienia do nowych plików i folderów
 
-Gdy nowy plik lub folder utworzony na podstawie istniejącego folderu, określa hello domyślnej listy kontroli dostępu folderu nadrzędnego hello:
+Gdy nowy plik lub folder jest tworzony w istniejącym folderze, domyślna lista ACL w folderze nadrzędnym określa:
 
 - domyślną listę ACL i listę ACL dostępu folderu podrzędnego;
 - listę ACL dostępu pliku podrzędnego (pliki nie mają domyślnej listy ACL);
 
-### <a name="hello-access-acl-of-a-child-file-or-folder"></a>Witaj dostępu ACL podrzędnego pliku lub folderu
+### <a name="the-access-acl-of-a-child-file-or-folder"></a>listę ACL dostępu pliku lub folderu podrzędnego.
 
-Po utworzeniu podrzędnego pliku lub folderu nadrzędnego hello domyślne ACL jest kopiowana jako hello dostępu ACL hello podrzędnego pliku lub folderu. Ponadto jeśli **innych** użytkownik ma uprawnienia RWX nadrzędnego hello domyślnej listy kontroli dostępu, zostanie ono usunięte z elementu podrzędnego hello dostępu ACL.
+Gdy tworzony jest plik lub folder podrzędny, domyślna lista ACL lokalizacji nadrzędnej jest kopiowana jako lista ACL dostępu pliku lub folderu podrzędnego. Ponadto, jeśli **inny** użytkownik ma uprawnienia RWX w domyślnej liście ACL lokalizacji nadrzędnej, zostaje usunięty z listy ACL dostępu elementu podrzędnego.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
 
-W większości przypadków informacje poprzednich hello są wszystkie potrzebne tooknow o jak element podrzędny dostępu ACL jest określana. Jednak jeśli znasz POSIX systemów i chcesz toounderstand szczegółowe jak uzyskuje się tej transformacji, zobacz sekcję hello [umask — w roli w tworzeniu hello dostępu ACL dla nowych plików i folderów](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) dalszej części tego artykułu.
+W większości przypadków poprzednie informacje są wszystkim, co należy wiedzieć o sposobie określania listy ACL dostępu elementu podrzędnego. Niemniej jednak jeśli znasz systemy POSIX i chcesz lepiej zrozumieć sposób działania tej transformacji, zapoznaj się z sekcją [Rola maski umask w tworzeniu listy ACL dostępu do nowych plików i folderów](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) poniżej w tym artykule.
 
 
 ### <a name="a-child-folders-default-acl"></a>Domyślna lista ACL folderu podrzędnego
 
-Po utworzeniu folderu podrzędnego w folderze nadrzędnym ACL domyślny folder nadrzędny hello jest kopiowana za pośrednictwem jest folder podrzędny toohello domyślne ACL.
+Gdy folder podrzędny jest tworzony w folderze nadrzędnym, domyślna lista ACL folderu nadrzędnego jest kopiowana bez zmian do domyślnej listy ACL folderu podrzędnego.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
 
 ## <a name="advanced-topics-for-understanding-acls-in-data-lake-store"></a>Zaawansowane tematy związane z listami ACL w usłudze Data Lake Store
 
-Poniżej przedstawiono niektóre toohelp Tematy zaawansowane zrozumieć, jak listy kontroli dostępu są określone dla usługi Data Lake Store plików lub folderów.
+Poniżej przedstawiono niektóre zaawansowane tematy, które pomagają zrozumieć, jak listy ACL są określane dla plików lub folderów usługi Data Lake Store.
 
-### <a name="umasks-role-in-creating-hello-access-acl-for-new-files-and-folders"></a>Umask — w roli w tworzeniu hello dostępu ACL dla nowych plików i folderów
+### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>Rola maski umask w tworzeniu listy ACL dostępu do nowych plików i folderów
 
-W systemie standardem POSIX, ogólnej koncepcji hello jest tego umask — 9-bitową wartość folderu nadrzędnego hello używanej tootransform hello uprawnienia dla **użytkownik będący właścicielem**, **grupy będącej właścicielem**, i  **inne** na powitania dostępu ACL podrzędnego nowego pliku lub folderu. bity Hello umask — określić które tooturn usługi bits poza hello podrzędny element dostępu ACL. W związku z tym służy tooselectively zapobiec hello propagację uprawnień dla **użytkownik będący właścicielem**, **grupy będącej właścicielem**, i **innych**.
+W systemie zgodnym z modelem POSIX ogólnym założeniem jest, że maska umask jest 9-bitową wartością w folderze nadrzędnym używaną do przekształcania uprawnień dla **użytkownika będącego właścicielem**, **grupy będącej właścicielem** i **innych** na liście ACL dostępu nowego pliku lub folderu podrzędnego. Bity mapy umask identyfikują bity, które zostaną wyłączone na liście ACL dostępu elementu podrzędnego. W związku z tym maski używa się selektywnie, aby zapobiegać propagacji uprawnień **użytkownika będącego właścicielem**, **grupy będącej właścicielem** i **innych**.
 
-W systemie HDFS umask — Witaj jest zwykle w całym serwisie opcji konfiguracji, które są kontrolowane przez administratorów. Usługa Data Lake Store używa **maski umask obejmującej całe konto**, której nie można zmienić. Witaj w następującej tabeli przedstawiono hello maskowanie dla usługi Data Lake Store.
+W systemie plików HDFS maska umask jest typową opcją konfiguracji obejmującą całą lokację, którą kontrolują administratorzy. Usługa Data Lake Store używa **maski umask obejmującej całe konto**, której nie można zmienić. W poniższej tabeli przedstawiono maskę umask usługi Data Lake Store.
 
 | Grupa użytkowników  | Ustawienie | Wpływ na listę ACL dostępu nowego elementu podrzędnego |
 |------------ |---------|---------------------------------------|
@@ -251,73 +251,73 @@ W systemie HDFS umask — Witaj jest zwykle w całym serwisie opcji konfiguracji
 | Grupa będąca właścicielem| ---     | Brak wpływu                             |
 | Inne       | RWX     | Usuwanie uprawnień do odczytu, zapisu, wykonania         |
 
-Hello następującej ilustracji przedstawiono ten umask — w akcji. Efekt netto Hello jest tooremove **odczytu i zapisu i wykonać** dla **innych** użytkownika. Ponieważ hello umask — nie określono bitów dla **użytkownik będący właścicielem** i **grupy będącej właścicielem**, te uprawnienia nie są przekształcane.
+Poniższa ilustracja przedstawia tę maskę umask w działaniu. Efektem sieciowym jest usunięcie uprawnień do **odczytu, zapisu i wykonania** dla **innego** użytkownika. Ponieważ maska umask nie określiła bitów dla **użytkownika będącego właścicielem** oraz **grupy będącej właścicielem**, uprawnienia te nie są przekształcane.
 
 ![Listy ACL usługi Data Lake Store](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
 
-### <a name="hello-sticky-bit"></a>bit trwałe Hello
+### <a name="the-sticky-bit"></a>Atrybut sticky bit
 
-bit trwałe Hello jest bardziej zaawansowanych funkcji systemu plików POSIX. W kontekście hello usługi Data Lake Store najprawdopodobniej tego bit trwałe hello będą potrzebne.
+Sticky bit jest bardziej zaawansowaną funkcją systemu plików POSIX. W kontekście usługi Data Lake Store jest mało prawdopodobne, że atrybut sticky bit będzie potrzebny.
 
-Witaj poniższej tabeli przedstawiono jak hello trwałe bitowa działa w usłudze Data Lake Store.
+W poniższej tabeli przedstawiono sposób działania atrybutu sticky bit w usłudze Data Lake Store.
 
 | Grupa użytkowników         | Plik    | Folder |
 |--------------------|---------|-------------------------|
 | Sticky bit **WYŁ.** | Brak wpływu   | Brak wpływu.           |
-| Sticky bit **WŁ.**  | Brak wpływu   | Każda osoba, z wyjątkiem uniemożliwia **nadtypem użytkowników** i hello **użytkownik będący właścicielem** elementu podrzędnego, usuwanie lub zmiana nazwy elementu podrzędnego.               |
+| Sticky bit **WŁ.**  | Brak wpływu   | Uniemożliwia wszystkich użytkownikom poza **administratorami** i **użytkownikiem będącym właścicielem** elementu podrzędnego usunięcie lub zmianę nazwy tego elementu podrzędnego.               |
 
-bit trwałe Hello nie jest wyświetlany w hello portalu Azure.
+Atrybut sticky bit nie jest wyświetlany w witrynie Azure Portal.
 
 ## <a name="common-questions-about-acls-in-data-lake-store"></a>Często zadawane pytania dotyczące list ACL w usłudze Data Lake Store
 
 Oto kilka często zadawanych pytań dotyczących list ACL w usłudze Data Lake Store.
 
-### <a name="do-i-have-tooenable-support-for-acls"></a>Obsługa tooenable listy ACL są dostępne?
+### <a name="do-i-have-to-enable-support-for-acls"></a>Czy muszę włączyć obsługę list ACL?
 
 Nie. Kontrola dostępu za pośrednictwem list ACL jest zawsze włączona dla konta usługi Data Lake Store.
 
-### <a name="which-permissions-are-required-toorecursively-delete-a-folder-and-its-contents"></a>Jakie uprawnienia są wymagane toorecursively Usuń folder i jego zawartość?
+### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Jakie uprawnienia są wymagane do rekursywnego usunięcia folderu i jego zawartości?
 
-* folder nadrzędny Hello musi mieć **zapisu i wykonywania** uprawnienia.
-* Witaj toobe folderu usunięte i wymaga każdego folderu, to **odczytu i zapisu i wykonać** uprawnienia.
+* Folder nadrzędny musi mieć uprawnienia do **zapisu i wykonania**.
+* Folder do usunięcia i każdy folder w tym folderze muszą mieć uprawnienia do **odczytu, zapisu i wykonania**.
 
 > [!NOTE]
-> Nie należy, uprawnienia do zapisu plików toodelete w folderach. Ponadto hello folderu głównego "/" można **nigdy nie** można usunąć.
+> Do usuwania plików w folderach nie potrzebujesz uprawnienia do zapisu. Ponadto **nigdy** nie można usunąć folderu głównego „/”.
 >
 >
 
-### <a name="who-is-hello-owner-of-a-file-or-folder"></a>Kto jest właścicielem hello pliku lub folderu?
+### <a name="who-is-the-owner-of-a-file-or-folder"></a>Kto jest właścicielem pliku lub folderu?
 
-Twórca Hello pliku lub folderu staje się właścicielem hello.
+Twórca pliku lub folderu staje się jego właścicielem.
 
-### <a name="which-group-is-set-as-hello-owning-group-of-a-file-or-folder-at-creation"></a>Grupy, do której jest ustawiony jako hello-właściciel pliku lub folderu podczas tworzenia grupy?
+### <a name="which-group-is-set-as-the-owning-group-of-a-file-or-folder-at-creation"></a>Jaka grupa zostaje ustawiona jako grupa będąca właścicielem pliku lub folderu w momencie jego tworzenia?
 
-Grupa będący właścicielem Hello jest kopiowana z hello-właściciel grupy hello folderu nadrzędnego, w których hello jest tworzony nowy plik lub folder.
+Grupa będąca właścicielem jest kopiowana z grupy będącej właścicielem folderu nadrzędnego, w którym tworzony jest nowy plik lub folder.
 
-### <a name="i-am-hello-owning-user-of-a-file-but-i-dont-have-hello-rwx-permissions-i-need-what-do-i-do"></a>Jestem hello użytkownik pliku będący właścicielem, ale nie mam hello RWX uprawnienia, które należy. Co mam zrobić?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Jestem właścicielem pliku, ale nie mam wymaganych uprawnień RWX. Co mam zrobić?
 
-Hello będący właścicielem użytkownik może zmienić uprawnień hello hello pliku toogive się żadnych uprawnień RWX, które są im potrzebne.
+Użytkownik będący właścicielem może zmienić uprawnienia do pliku, aby przydzielić sobie wymagane uprawnienia RWX.
 
-### <a name="when-i-look-at-acls-in-hello-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>Podczas wyświetlania listy kontroli dostępu w portalu Azure hello widać nazwy użytkownika, ale za pośrednictwem interfejsów API, wyświetlane identyfikatory GUID, dlaczego?
+### <a name="when-i-look-at-acls-in-the-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>Na listach ACL przeglądanych w witrynie Azure Portal są widoczne nazwy użytkowników, natomiast w przypadku korzystania z interfejsów API wyświetlane są identyfikatory GUID. Dlaczego?
 
-Wpisy w hello listy ACL są przechowywane jako identyfikatory GUID, które odpowiadają toousers w usłudze Azure AD. Witaj interfejsów API zwraca hello identyfikatorów GUID, ponieważ jest. Witaj portalu Azure próbuje toouse łatwiejsze toomake listy ACL przez tłumaczenie hello identyfikatorów GUID do przyjaznych nazw, gdy jest to możliwe.
+Wpisy na listach ACL są przechowywane jako identyfikatory GUID odpowiadające użytkownikom w usłudze Azure AD. Interfejsy API zwracają identyfikator GUID w faktycznej postaci. Witryna Azure Portal stara się ułatwić korzystanie z list ACL, dlatego identyfikatory GUID są w miarę możliwości zamieniane na przyjazne nazwy.
 
-### <a name="why-do-i-sometimes-see-guids-in-hello-acls-when-im-using-hello-azure-portal"></a>Dlaczego czasami wyświetlane identyfikatory GUID w listy ACL hello Kiedy używam hello portalu Azure?
+### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-im-using-the-azure-portal"></a>Dlaczego na listach ACL w witrynie Azure Portal są czasami wyświetlane identyfikatory GUID?
 
-Identyfikator GUID jest wyświetlany, jeśli użytkownik hello nie istnieje w usłudze Azure AD już. Zazwyczaj dzieje się tak podczas hello użytkownik opuścił hello firmy lub jeśli ich konto zostało usunięte w usłudze Azure AD.
+Identyfikator GUID jest wyświetlany w przypadku, gdy dany użytkownik nie istnieje już w usłudze Azure AD. Zwykle dzieje się tak, gdy użytkownik opuścił firmę lub jego konto w usłudze Azure AD zostało usunięte.
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Czy usługa Data Lake Store obsługuje dziedziczenie list ACL?
 
 Nie.
 
-### <a name="what-is-hello-difference-between-mask-and-umask"></a>Jaka jest różnica hello maski i umask —?
+### <a name="what-is-the-difference-between-mask-and-umask"></a>Jaka jest różnica między maską i maską umask?
 
 | maska | maska umask|
 |------|------|
-| Witaj **maski** właściwość jest dostępna na każdym plików i folderów. | Witaj **umask —** jest właściwością hello konta usługi Data Lake Store. To jest tylko jeden umask — hello usługi Data Lake Store.    |
-| może się zmienić właściwości mask Hello pliku lub folderu w hello będącej właścicielem, użytkownika lub grupy plików lub nadtypem użytkownika będącej właścicielem. | Nie można zmodyfikować właściwości umask — Witaj przez dowolnego użytkownika, nawet administratora. Jest to niezmienna, stała wartość.|
-| Właściwość maska Hello jest używany podczas algorytmu sprawdzania dostępu hello na toodetermine środowiska uruchomieniowego, czy użytkownik ma prawo tooperform hello na operacji na pliku lub folderu. Rola Hello maski hello jest toocreate "czynnych uprawnień" w czasie hello kontroli dostępu. | umask — Witaj nie jest używany podczas sprawdzania dostępu w ogóle. umask — Hello jest używany toodetermine hello dostępu ACL nowych elementów podrzędnych folderu. |
-| Maska Hello jest 3-bitową wartość RWX, która dotyczy użytkownika toonamed, nazwaną grupę i będący właścicielem użytkownika w czasie hello kontroli dostępu.| Witaj umask — jest wartość 9-bitowego, która dotyczy toohello będącej właścicielem, jeśli użytkownik będący właścicielem grupy, a **innych** nowego elementu podrzędnego.|
+| Właściwość **maski** jest dostępna dla każdego pliku i folderu. | **Umask** jest właściwością konta usługi Data Lake Store. W usłudze Data Lake Store istnieje więc tylko jedna maska umask.    |
+| Właściwość maski dla pliku lub folderu może zmienić użytkownik będący właścicielem lub grupa będąca właścicielem pliku, a także administrator. | Właściwości maski umask nie może zmodyfikować żaden użytkownik, nawet administrator. Jest to niezmienna, stała wartość.|
+| Właściwość maski jest używana podczas wykonywania algorytmu kontroli dostępu w momencie uruchomienia, aby określić, czy użytkownik ma prawo wykonać operację na pliku lub folderze. Rolą maski jest tworzenie „czynnych uprawnień” w momencie przeprowadzania kontroli dostępu. | Maska umask nie jest używana podczas kontroli dostępu. Maski umask używa się do określania listy ACL dostępu dla nowych elementów podrzędnych w folderze. |
+| Maska jest 3-bitową wartością RWX stosowaną do nazwanego użytkownika, nazwanej grupy i użytkownika będącego właścicielem w czasie przeprowadzania kontroli dostępu.| Umask jest 9-bitową wartością stosowaną do użytkownika będącego właścicielem, grupy będącej właścicielem i **innych** użytkowników nowego elementu podrzędnego.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Gdzie można dowiedzieć się więcej na temat modelu kontroli dostępu POSIX?
 

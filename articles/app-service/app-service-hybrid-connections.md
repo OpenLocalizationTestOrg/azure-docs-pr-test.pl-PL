@@ -1,6 +1,6 @@
 ---
-title: "AAA \"połączeń hybrydowych w usłudze Azure App Service | Dokumentacja firmy Microsoft\""
-description: "Jak toocreate i użycia zasobów tooaccess połączeń hybrydowych w różnych sieciach"
+title: "Usługa aplikacji Azure połączeń hybrydowych | Dokumentacja firmy Microsoft"
+description: "Jak utworzyć i dostęp do zasobów w różnych sieciach za pomocą połączeń hybrydowych"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2017
 ms.author: ccompy
-ms.openlocfilehash: 61d58068ab0a7c803019e3f0e92bde4273d1a053
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fef9e7b280387934cb093f51b4c8aa134a3b87e7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Połączenia hybrydowe usługi aplikacji Azure #
 
 ## <a name="overview"></a>Omówienie ##
 
-Połączenia hybrydowe jest zarówno usługa na platformie Azure, jak i funkcja hello Azure App Service.  Jako usługa ma użycia i możliwości poza tymi, które można wykorzystać w hello Azure App Service.  więcej informacji na temat połączeń hybrydowych i ich użycia poza hello Azure App Service można uruchomić w tym miejscu toolearn [połączeń hybrydowych przekaźnika usługi Azure][HCService]
+Połączenia hybrydowe jest zarówno usługa na platformie Azure, jak i funkcji w usłudze Azure App Service.  Jako usługa ma użycia i możliwości poza tymi, które można wykorzystać w usłudze Azure App Service.  Aby dowiedzieć się więcej na temat połączeń hybrydowych i ich użycia poza usługi Azure App Service można uruchomić w tym miejscu [połączeń hybrydowych przekaźnika usługi Azure][HCService]
 
-W usłudze Azure App Service hello połączeń hybrydowych może być używane tooaccess zasobów aplikacji w innych sieciach. Zapewnia dostęp z punkt końcowy aplikacji tooan aplikacji.  Tooaccess alternatywnych możliwości nie umożliwia aplikacji.  Jak używane w hello App Service, każde połączenie hybrydowe są powiązane z tooa jednego hosta i portu kombinacji TCP.  Oznacza to, że tego punktu końcowego połączenia hybrydowe hello może być dowolnego systemu operacyjnego i aplikacji pod warunkiem że czy osiągnięto port nasłuchiwania protokołu TCP. Połączeń hybrydowych znasz lub zależy, jakie protokół aplikacji hello jest lub co chcesz uzyskać dostęp.  Po prostu zapewnia dostęp do sieci.  
+W usłudze Azure App Service można uzyskać dostęp do zasobów aplikacji w innych sieciach połączeń hybrydowych było możliwe. Zapewnia dostęp z aplikacji do punktu końcowego w aplikacji.  Nie umożliwia alternatywnych możliwości uzyskania dostępu do Twojej aplikacji.  Używane w usłudze App Service, każde połączenie hybrydowe są powiązane z jednym kombinacji hosta i portu TCP.  Oznacza to, że punktu końcowego połączenia hybrydowe można w dowolnym systemie operacyjnym i dowolnej aplikacji, pod warunkiem, że są naciśnięcie port nasłuchiwania protokołu TCP. Połączeń hybrydowych wiedzieć, lub nie obsługę protokołu aplikacji jest lub co chcesz uzyskać dostęp.  Po prostu zapewnia dostęp do sieci.  
 
 
 ## <a name="how-it-works"></a>Jak to działa ##
-Funkcja połączenia hybrydowe Hello składa się z dwóch wychodzący tooService przekaźnik magistrali.  Brak połączenia z biblioteki na hoście hello, gdy aplikacja działa w usłudze aplikacji hello i następnie istnieje połączenie z hello Manager(HCM) połączenia hybrydowe tooService magistrali przekazywania.  usługi przekazywania, który można wdrożyć w ramach hosting sieci hello jest Hello HCM 
+Funkcja połączenia hybrydowe składa się z dwóch wywołań wychodzących do przekaźnik magistrali usług.  Brak połączenia z biblioteki na hoście, gdy aplikacja działa w usłudze app service i następnie istnieje połączenie hybrydowe Manager(HCM) połączenia przekaźnika usługi Service Bus.  HCM jest usługi przekazywania, który można wdrożyć w ramach hosting sieci 
 
-Za pomocą hello dwa połączone połączenia aplikacja ma tooa tunelu TCP stałej kombinacja hosta: port. na powitania drugiej stronie powitania HCM.  połączenie Hello używa protokołu TLS 1.2, zabezpieczeń i klucze sygnatury dostępu Współdzielonego dla uwierzytelniania/autoryzacji.    
+Przez dwa połączenia przyłączone do Twojej aplikacji ma tunelu TCP kombinację stałych hosta: port. po drugiej stronie HCM.  Połączenie korzysta z protokołu TLS 1.2 dla zabezpieczeń i klucze sygnatury dostępu Współdzielonego dla uwierzytelniania/autoryzacji.    
 
 ![][1]
 
-Gdy aplikacja wysyła żądanie DNS, które odpowiadają punktu końcowego połączenia hybrydowego Konfigurowanie, a następnie ruch wychodzący TCP hello nastąpi przekierowanie w dół hello połączenia hybrydowego.  
+Gdy aplikacja wysyła żądanie DNS zgodny punktu końcowego połączenia hybrydowego Konfigurowanie, ruch wychodzący TCP zostanie przekierowany połączenie hybrydowe.  
 
 > [!NOTE]
-> Oznacza to, że należy spróbować tooalways Użyj nazwy DNS dla połączenia hybrydowego.  Niektóre oprogramowanie klienckie nie wyszukiwania DNS, jeśli zamiast tego punktu końcowego hello korzysta z adresu IP.
+> Oznacza to, że należy zawsze używać nazwy DNS dla połączenia hybrydowego.  Niektóre oprogramowanie klienckie nie wyszukiwania DNS, jeśli zamiast tego punktu końcowego korzysta z adresu IP.
 >
 >
 
-Istnieją dwa typy połączeń hybrydowych było możliwe, hello nowych połączeń hybrydowych mogą używać jako usługa przekaźnika usługi Azure, które hello starsze połączeń hybrydowych BizTalk.  Hello starsze połączeń hybrydowych BizTalk są określonego tooas klasycznego połączeń hybrydowych w portalu hello.  Ma więcej informacji w dalszej części tego dokumentu o nich.
+Istnieją dwa typy połączeń hybrydowych było możliwe, nowych połączeń hybrydowych, które są oferowane jako usługa przekaźnika usługi Azure i starszych połączeń hybrydowych BizTalk.  Starsze połączeń hybrydowych BizTalk są określane jako klasycznego połączeń hybrydowych w portalu.  Ma więcej informacji w dalszej części tego dokumentu o nich.
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Korzyści połączenia hybrydowe usługi aplikacji ###
 
-Istnieje wiele korzyści toohello hybrydowego połączenia możliwości, w tym
+Istnieje wiele zalet tym możliwości połączenia hybrydowego
 
 - Aplikacje mogą bezpiecznie uzyskiwać dostęp do systemów lokalnych i usług bezpiecznie
-- Funkcja Hello nie wymaga dostępnym punkcie końcowym internet
-- jest szybkie i łatwe tooset w górę  
-- Kombinacja pojedynczego hosta: port. tooa, która jest elementem znakomity zabezpieczeń odpowiada każdego połączenia hybrydowego
-- zwykle nie wymaga luk Zapora połączenia hello są wszystkie wychodzących za pośrednictwem portów standardowe sieci web
-- ponieważ funkcja hello jest również oznacza, że jest używany przez aplikację i hello technologii używanych przez punkt końcowy hello języka toohello o niesprecyzowanym poziom sieci
-- może być używany w wielu sieciach z jednej aplikacji tooprovide dostępu 
+- funkcja nie wymaga dostępnym punkcie końcowym internet
+- jest szybkie i łatwe konfigurowanie  
+- Każde połączenie hybrydowe odpowiada kombinację pojedynczy host: port, który jest elementem znakomity zabezpieczeń
+- zwykle nie wymaga luk zapory jako połączenia są wszystkie wychodzące przez porty standardowe sieci web
+- ponieważ funkcja jest na poziomie sieci, który również oznacza, że jest niezależny od języka używanego przez aplikację i technologii używanych przez punkt końcowy
+- może służyć do zapewnienia dostępu w wielu sieciach z jednej aplikacji 
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Czynności, które nie można wykonywać z połączeń hybrydowych ###
 
@@ -69,113 +69,113 @@ Istnieje kilka rzeczy, które nie można wykonać za pomocą połączeń hybrydo
 
 ## <a name="adding-and-creating-a-hybrid-connection-in-your-app"></a>Dodawanie i tworzenie połączenia hybrydowego w aplikacji ##
 
-Można tworzyć połączeń hybrydowych było możliwe za pośrednictwem portalu aplikacji hello lub z portalu hello połączenia hybrydowego.  Zdecydowanie zaleca się używanie hello toocreate portalu aplikacji hello połączeń hybrydowych mają toouse z aplikacją.  toocreate połączenie hybrydowe Przejdź toohello [portalu Azure] [ portal] i przejdź do hello interfejsu użytkownika dla aplikacji.  Wybierz **sieci > skonfiguruj punkty końcowe połączenia hybrydowego**.  W tym miejscu można wyświetlić hello połączeń hybrydowych, które są skonfigurowane przy użyciu aplikacji  
+Można tworzyć połączeń hybrydowych było możliwe za pośrednictwem portalu aplikacji lub za pomocą portalu usługi połączenia hybrydowego.  Zdecydowanie zaleca się, użyj portalu aplikacji do tworzenia połączeń hybrydowych mają być używane z aplikacji.  Aby utworzyć połączenie hybrydowe, przejdź do [portalu Azure] [ portal] i przejdź do interfejsu użytkownika dla aplikacji.  Wybierz **sieci > skonfiguruj punkty końcowe połączenia hybrydowego**.  W tym miejscu można wyświetlić połączeń hybrydowych, które są skonfigurowane przy użyciu aplikacji  
 
 ![][2]
 
-tooadd nowe połączenie hybrydowe, kliknij przycisk Dodaj połączenie hybrydowe.  Witaj interfejsu użytkownika, który zostaje otwarty zawiera listę połączeń hybrydowych hello, które zostały już utworzone.  tooadd co najmniej jeden z nich tooyour aplikacji, kliknij na powitania te mają i naciśnij **Dodaj wybrane połączenie hybrydowe**.  
+Aby dodać nowe połączenie hybrydowe, kliknij przycisk Dodaj połączenie hybrydowe.  Interfejs użytkownika, który zostaje otwarty zawiera listę połączeń hybrydowych, które zostały już utworzone.  Aby dodać co najmniej jeden z nich do aplikacji, kliknij te mają i naciśnij **Dodaj wybrane połączenie hybrydowe**.  
 
 ![][3]
 
-Toocreate nowe połączenie hybrydowe, kliknij przycisk **Utwórz nowe połączenie hybrydowe**.  W tym miejscu można określić: 
+Jeśli chcesz utworzyć nowe połączenie hybrydowe, kliknij przycisk **Utwórz nowe połączenie hybrydowe**.  W tym miejscu można określić: 
 
 - Nazwa punktu końcowego
 - Nazwa hosta punktu końcowego
 - Port punktu końcowego
-- przestrzeń nazw magistrali usług mają toouse
+- przestrzeń nazw magistrali usług, które chcesz użyć
 
 ![][4]
 
-Co połączenia hybrydowego jest wiązana tooa przestrzeń nazw magistrali usług i każda przestrzeń nazw magistrali usług jest w region platformy Azure.  Jest ważne tootry i użyj przestrzeni nazw w magistrali usługi hello tym samym regionie co aplikacja tak opóźnienia sieci powstaniu tooavoid.
+Przestrzeń nazw magistrali usług jest związany z każdego połączenia hybrydowe i każda przestrzeń nazw magistrali usług jest region platformy Azure.  Jest ważne, i spróbuj użyć w tym samym regionie co aplikację tak, aby uniknąć opóźnienia sieci powstaniu przestrzeń nazw magistrali usług.
 
-Jeśli chcesz tooremove połączenie hybrydowe z aplikacji, kliknij prawym przyciskiem go i wybierz **rozłączenia**.  
+Jeśli chcesz usunąć połączenie hybrydowe z aplikacji, kliknij prawym przyciskiem myszy na nim i wybierz **rozłączenia**.  
 
-Po dodaniu aplikacji sieci web tooyour połączenie hybrydowe można wyświetlić szczegółowe informacje na jego, po prostu kliknij go.  
+Po dodaniu połączenia hybrydowego do aplikacji sieci web, możesz wyświetlić szczegóły na nim, po prostu kliknij go.  
 
 ![][5]
 
 ## <a name="hybrid-connections-and-app-service-plans"></a>Połączenia hybrydowe i planów usługi aplikacji ##
 
-Witaj tylko połączeń hybrydowych było możliwe, możesz teraz wprowadzić są hello nowych połączeń hybrydowych było możliwe.  Tylko są dostępne w Basic, Standard i Premium izolowany cennik jednostki SKU.  Brak toohello limity powiązane cenową planu.  
+Połączenia hybrydowe tylko, które można teraz wykonać są nowych połączeń hybrydowych.  Tylko są dostępne w Basic, Standard i Premium izolowany cennik jednostki SKU.  Istnieją powiązane planu cenowego ograniczenia.  
 
-| Cennik planu | Liczba połączeń hybrydowych można używać w planie hello |
+| Cennik planu | Liczba połączeń hybrydowych, której można używać w planie |
 |----|----|
 | Podstawowa | 5 |
 | Standardowa | 25 |
 | Premium | 200 |
 | Izolowane | 200 |
 
-Ponieważ istnieją ograniczenia planu usługi App Service jest również interfejsu użytkownika w hello Plan usługi aplikacji, który pokazuje, jak wiele połączeń hybrydowych są używane i jakie aplikacje.  
+Ponieważ istnieją ograniczenia planu usługi App Service jest również interfejs użytkownika w planie aplikacji usługi, który pokazuje, jak wiele połączeń hybrydowych są używane i jakie aplikacje.  
 
 ![][6]
 
-Podobnie jak z widokiem aplikacji hello, można wyświetlić szczegółowe informacje na połączenie hybrydowe, klikając go.  We właściwościach hello tutaj pokazano wszystkie informacje hello miały w widoku aplikacji hello jest widoczne, ale można również sprawdzić, jak wiele innych aplikacji hello tego samego planu usługi App Service korzystają z tego połączenia hybrydowego.
+Podobnie jak z widokiem aplikacji można wyświetlić szczegółowe informacje na połączenie hybrydowe, klikając go.  We właściwościach pokazano tutaj wyświetlane są informacje, które miały w widoku aplikacji, ale można również sprawdzić, jak wiele aplikacji w tym samym planie usługi aplikacji korzystają z tego połączenia hybrydowego.
 
 ![][7]
 
-Gdy istnieje limit liczby hello punkty końcowe połączenia hybrydowego, które mogą być używane w planie usługi aplikacji, każde połączenie hybrydowe używane można w dowolnej liczby aplikacji w tym planie usługi aplikacji.  To toosay gdyby 1 połączenia hybrydowego używany w 5 osobnych aplikacji w mojej planu usługi App Service, która jest nadal tylko 1 połączenia hybrydowego.
+Gdy istnieje limit liczby punkty końcowe połączenia hybrydowego, które mogą być używane w planie usługi aplikacji, każde połączenie hybrydowe używane można w dowolnej liczby aplikacji w tym planie usługi aplikacji.  To znaczy, gdyby 1 połączenia hybrydowego używany w 5 osobnych aplikacji w mojej planu usługi App Service, która jest nadal tylko 1 połączenia hybrydowego.
 
-Brak dodatkowych kosztów połączeń toohybrid poza trwa tylko w Basic, Standard, Premium lub izolowane jednostki SKU.  Dla informacji o cenach połączenia hybrydowe przejdź tutaj: [cennik usługi Service Bus][sbpricing].
+Brak dodatkowych kosztów połączeń hybrydowych poza trwa tylko w Basic, Standard, Premium lub izolowane jednostki SKU.  Dla informacji o cenach połączenia hybrydowe przejdź tutaj: [cennik usługi Service Bus][sbpricing].
 
 ## <a name="hybrid-connection-manager"></a>Menedżera połączeń hybrydowych ##
 
-Aby toowork połączeń hybrydowych należy agenta przekazywania w sieci hello, który jest hostem punktu końcowego połączenia hybrydowego.  Agent przekazywania jest nazywany hello Menedżera połączeń hybrydowych (HCM).  To narzędzie można pobrać z hello **sieci > skonfiguruj punkty końcowe połączenia hybrydowego** interfejsu użytkownika dostępne z aplikacji w hello [portalu Azure][portal].  
+Aby połączeń hybrydowych było możliwe do pracy należy agenta przekazywania w sieci, który jest hostem punktu końcowego połączenia hybrydowego.  Agent przekazywania jest nazywany Menedżera połączeń hybrydowych (HCM).  To narzędzie można pobrać z **sieci > skonfiguruj punkty końcowe połączenia hybrydowego** interfejsu użytkownika dostępne z aplikacji w [portalu Azure][portal].  
 
-To narzędzie jest uruchamiane w systemie Windows server 2008 R2 i nowszych wersjach systemu Windows.  Po zainstalowaniu hello HCM działa jako usługa.  Ta usługa łączy przekaźnik magistrali usług tooAzure oparte na punktach końcowych hello skonfigurowane.  Witaj połączenia z hello HCM są wychodzących tooports 80 i 443.    
+To narzędzie jest uruchamiane w systemie Windows server 2008 R2 i nowszych wersjach systemu Windows.  Wcześniej zainstalowano HCM działa jako usługa.  Ta usługa łączy do skonfigurowanych punktów końcowych w oparciu przekaźnik magistrali usług Azure.  Połączenia z HCM są ruch wychodzący do portów 80 i 443.    
 
-Witaj HCM ma tooconfigure interfejsu użytkownika go.  Po hello HCM jest zainstalowana można uzupełnić hello interfejsu użytkownika, uruchamiając hello HybridConnectionManagerUi.exe, który znajduje się w katalogu instalacyjnego hello Menedżera połączeń hybrydowych.  Jest także łatwo osiągnął w systemie Windows 10, wpisując *interfejsu użytkownika Menedżera połączeń hybrydowych* w polu wyszukiwania.  
+HCM ma interfejsu użytkownika, aby go skonfigurować.  Po zainstalowaniu HCM można uzupełnić interfejsu użytkownika, uruchamiając HybridConnectionManagerUi.exe, który znajduje się w katalogu instalacyjnym Menedżera połączeń hybrydowych.  Jest także łatwo osiągnął w systemie Windows 10, wpisując *interfejsu użytkownika Menedżera połączeń hybrydowych* w polu wyszukiwania.  
 
-Po uruchomieniu HCM interfejsu użytkownika, powitalne hello po pierwsze można znaleźć jest tabelę, która zawiera listę wszystkich połączeń hybrydowych hello, które zostały skonfigurowane dla tego wystąpienia hello HCM.  Jeśli chcesz toomake wszelkie zmiany, konieczne będzie tooauthenticate z platformy Azure. 
+Po uruchomieniu interfejsu użytkownika HCM, zostanie wyświetlony w pierwszej kolejności jest tabelę, która zawiera listę wszystkich połączeń hybrydowych, które zostały skonfigurowane dla tego wystąpienia HCM.  Jeśli chcesz wprowadzić zmiany, które mają być do uwierzytelniania w usłudze Azure. 
 
-tooadd jeden lub więcej połączeń hybrydowych tooyour HCM:
+Aby dodać jeden lub więcej połączeń hybrydowych było możliwe do Twojej HCM:
 
-1. Uruchom hello HCM interfejsu użytkownika
+1. Uruchom HCM interfejsu użytkownika
 1. Kliknij przycisk Konfiguruj innego połączenia hybrydowego![][8]
 
 1. Zaloguj się przy użyciu konta platformy Azure
 1. Wybieranie subskrypcji
-1. Kliknij na powitania połączeń hybrydowych ma to toorelay HCM![][9]
+1. Polecenie połączeń hybrydowych ma to HCM do przekazywania![][9]
 
 1. Klikanie pozycji Zapisz.
 
-W tym momencie zostanie wyświetlony połączeń hybrydowych hello dodane.  Można również kliknij połączenie hybrydowe hello skonfigurowane i zobaczyć szczegółowe informacje dotyczące połączenia hello.
+W tym momencie zostanie wyświetlony połączeń hybrydowych, dodane.  Można również kliknij połączenie hybrydowe skonfigurowany i szczegółowe informacje o połączeniu.
 
 ![][10]
 
-HCM toobe toosupport stanie hello hybrydowego połączeń jest skonfigurowany z musi:
+Dla Twojego HCM można było obsługiwać połączenia hybrydowe, który jest skonfigurowany z musi:
 
-- TCP tooAzure dostępu przez porty 80 i 443
-- Punkt końcowy protokołu TCP dostępu toohello hybrydowego połączenia
-- możliwość toodo DNS wyszukiwań na powitania hosta punktu końcowego i przestrzeni nazw magistrali usług azure hello
+- TCP dostępu na platformie Azure przez porty 80 i 443
+- TCP dostęp do punktu końcowego połączenia hybrydowego
+- możliwości DNS wyszukiwań na hoście punktu końcowego i przestrzeń nazw magistrali usług azure
 
-Witaj HCM obsługuje zarówno nowych połączeń hybrydowych, jak i hello starsze BizTalk połączeń hybrydowych było możliwe.
+HCM obsługuje zarówno nowych połączeń hybrydowych, jak i starszych połączeń hybrydowych BizTalk.
 
 ### <a name="redundancy"></a>Nadmiarowość ###
 
-Każdy HCM może obsługiwać wiele połączeń hybrydowych.  Ponadto każde połączenie hybrydowe danego mogą być obsługiwane przez wiele HCMs.  zachowanie domyślne Hello jest tooround działania okrężnego ruchu między hello skonfigurowane HCMs dla dowolnego danego punktu końcowego.  Jeśli chcesz wysokiej dostępności połączeń hybrydowych z sieci, po prostu utworzyć wystąpienia wielu HCMs na oddzielnych komputerach. 
+Każdy HCM może obsługiwać wiele połączeń hybrydowych.  Ponadto każde połączenie hybrydowe danego mogą być obsługiwane przez wiele HCMs.  Domyślnym zachowaniem jest działanie okrężne ruchu między skonfigurowanego HCMs dla dowolnego danego punktu końcowego.  Jeśli chcesz wysokiej dostępności połączeń hybrydowych z sieci, po prostu utworzyć wystąpienia wielu HCMs na oddzielnych komputerach. 
 
 ### <a name="manually-adding-a-hybrid-connection"></a>Ręcznie dodać połączenie hybrydowe ###
 
-Jeśli chcesz ktoś poza toohost Twojej subskrypcji dla połączenia hybrydowe danego wystąpienia HCM, można udostępniać je hello parametry połączenia bramy hello połączenia hybrydowego.  Zobacz ten we właściwościach hello połączenia hybrydowe w hello [portalu Azure][portal]. toouse, że ciąg znaków, kliknij przycisk hello **ręcznie skonfigurować** przycisk na powitania HCM i Wklej parametry połączenia bramy hello.
+Jeśli ktoś poza subskrypcją wystąpienia HCM połączenia hybrydowe danego hosta, możesz udostępniać je parametry połączenia bramy połączenia hybrydowego.  Zobacz ten we właściwościach połączenia hybrydowe w [portalu Azure][portal]. Aby użyć tego ciągu, kliknij przycisk **ręcznie skonfigurować** przycisk HCM i Wklej w parametrach połączenia bramy.
 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów ##
 
-Podczas połączenia hybrydowe została skonfigurowana z uruchomioną aplikację i istnieje co najmniej jeden HCM, który ma skonfigurowane połączenie hybrydowe, a następnie dowiesz się, stan hello **połączony** w portalu hello.  Jeśli nie powiedzieć **połączony** oznacza to, że aplikacja nie działa lub Twoje HCM nie może połączyć się tooAzure na porty 80 i 443.  
+Gdy połączenie hybrydowe została skonfigurowana z uruchomioną aplikację i istnieje co najmniej jeden HCM, który ma skonfigurowane połączenie hybrydowe, a następnie dowiesz się, stan **połączony** w portalu.  Jeśli nie powiedzieć **połączony** oznacza to, że aplikacja nie działa lub Twoje HCM nie można nawiązać połączenia limit Azure na porty 80 i 443.  
 
-podstawowym powodem Hello, że klienci nie mogą łączyć tootheir punktu końcowego jest ponieważ hello punkt końcowy został określony przy użyciu adresu IP zamiast nazwy DNS.  Jeśli aplikacja nie może połączyć się hello żądanego punktu końcowego i adres IP jest używany, Przełącz toousing nazwy DNS, która jest prawidłowa na hoście hello, w którym hello HCM jest uruchomiona.  Inne rzeczy toocheck to tego hello nazwy DNS rozpoznaje poprawnie na hoście hello gdzie hello HCM działa i że ma łączności z hosta hello, w którym hello HCM działa punktu końcowego połączenia hybrydowe toohello.  
+Podstawowym powodem, że klienci nie mogą łączyć się ich punktu końcowego jest, ponieważ punkt końcowy został określony przy użyciu adresu IP zamiast nazwy DNS.  Jeśli aplikacja nie może połączyć się żądanego punktu końcowego i adres IP jest używany, przełącz się do przy użyciu nazwy DNS, która jest nieprawidłowa na hoście, którym jest uruchomiona HCM.  Inne czynności do wykonania są nazwy DNS rozpoznaje poprawnie na hoście, na którym jest uruchomiona HCM i że istnieje łączność z hosta, którym jest uruchomiona HCM do punktu końcowego połączenia hybrydowego.  
 
-W hello usługi aplikacji, która może być wywoływany z konsoli hello o nazwie tcpping znajduje się narzędziem.  To narzędzie można stwierdzić, jeśli masz punkt końcowy protokołu TCP tooa dostępu, ale właściwość nie określa, czy masz dostęp do punktu końcowego połączenia hybrydowe dla tooa.  W przypadku używania w konsoli hello względem punktu końcowego połączenia hybrydowe, pomyślne polecenie ping tylko informuje czy masz połączenie hybrydowe skonfigurowane dla twojej aplikacji, który używa tej kombinacji hosta: port.  
+Brak narzędzia usługi aplikacji, który może być wywoływany z konsoli o nazwie tcpping.  To narzędzie można stwierdzić, jeśli mają dostęp do punktu końcowego TCP, ale właściwość nie określa, czy masz dostęp do punktu końcowego połączenia hybrydowego.  W przypadku używania w konsoli dla punktu końcowego połączenia hybrydowe, pomyślne polecenie ping tylko informuje czy masz połączenie hybrydowe skonfigurowane dla twojej aplikacji, który używa tej kombinacji hosta: port.  
 
 ## <a name="biztalk-hybrid-connections"></a>Połączenia hybrydowe BizTalk ##
 
-Wyłącz tworzenie połączenia hybrydowego BizTalk toofurther został zamknięty Hello starsze możliwości usług BizTalk — wersja połączeń hybrydowych było możliwe.  Nadal korzystać z istniejących połączeń hybrydowych BizTalk z aplikacjami, ale należy zmigrować toohello nowej usługi.  Witaj zalet hello nową usługę BizTalk hello w wersji należą:
+Starsze możliwości połączeń hybrydowych BizTalk został zamknięty poza do dalszego Tworzenie połączenia hybrydowego BizTalk.  Nadal korzystać z istniejących połączeń hybrydowych BizTalk z aplikacjami, ale należy migrować do nowej usługi.  Korzyści w nową usługę BizTalk wersji należą:
 
 - żadne dodatkowe konto usług BizTalk — wersja nie jest wymagane
 - Protokół TLS to 1.2 zamiast 1.0 jak połączeń hybrydowych BizTalk
-- Komunikacja odbywa się za pośrednictwem portów 80 i 443 przy użyciu tooreach nazwy DNS Azure zamiast adresów IP i zakres dodatkowych inne porty.  
+- Komunikacja odbywa się za pośrednictwem portów porty 80 i 443 do osiągnięcia Azure zamiast adresów IP i zakres dodatkowych innych przy użyciu nazwy DNS.  
 
-tooadd BizTalk hybrydowego połączenia tooyour aplikacji, aplikacji tooyour Przejdź w hello [portalu Azure] [ portal] i kliknij przycisk **sieci > skonfiguruj punkty końcowe połączenia hybrydowego**.  W tabeli połączeń hybrydowych Classic powitania kliknij **Dodaj połączenie hybrydowe klasycznego**.  W tym miejscu zostanie wyświetlona lista połączeń hybrydowych BizTalk.  
+Aby dodać połączenie hybrydowe BizTalk do aplikacji, przejdź do aplikacji w [portalu Azure] [ portal] i kliknij przycisk **sieci > skonfiguruj punkty końcowe połączenia hybrydowego**.  W tabeli połączeń hybrydowych klasycznym kliknij **Dodaj połączenie hybrydowe klasycznego**.  W tym miejscu zostanie wyświetlona lista połączeń hybrydowych BizTalk.  
 
 
 <!--Image references-->

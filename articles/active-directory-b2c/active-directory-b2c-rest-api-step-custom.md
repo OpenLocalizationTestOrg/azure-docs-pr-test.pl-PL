@@ -14,48 +14,48 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: 90a495029f48d70232ef3f99de4ea4d351395aa7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dc319c97e64e55861b84cc3943667418077a05d8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Wskazówki: Integrowanie wymiany oświadczenia interfejsu API REST w podróży użytkownika usługi Azure AD B2C krok aranżacji
 
-Witaj Identity Framework środowisko (IEF, Internet Authentication Service), źródłową Azure Active Directory B2C (Azure AD B2C) umożliwia hello tożsamości developer toointegrate interakcji z interfejsu API RESTful w podróży użytkownika.  
+Tożsamość środowiska Framework (IEF) źródłową Azure Active Directory B2C (Azure AD B2C) umożliwia deweloperowi tożsamości integracji interakcji z interfejsu API RESTful w podróży użytkownika.  
 
-Na końcu hello tego przewodnika będzie możliwe toocreate podróży użytkownika usługi Azure AD B2C, która współdziała z usług RESTful.
+Na końcu tego przewodnika można utworzyć przebieg użytkownika usługi Azure AD B2C, która współdziała z usług RESTful.
 
-Hello IEF wysyła dane w oświadczeniach i odbiera dane z powrotem w oświadczeniach. Witaj exchange oświadczenia interfejsu API REST:
+IEF wysyła dane w oświadczeniach i odbiera dane z powrotem w oświadczeniach. Wymiana oświadczenia interfejsu API REST:
 
 - Można zaprojektować krok aranżacji.
 - Może wyzwolić zewnętrznego działania. Na przykład on rejestrować zdarzenie w zewnętrznej bazy danych.
-- Można toofetch używana wartość i zapisz go w bazie danych użytkownika hello.
+- Umożliwia pobieranie wartości, a następnie zapisać ją w bazie danych użytkownika.
 
-Można użyć oświadczeń hello Odebrano nowsze przepływu hello toochange wykonywania.
+Odebrano oświadczeń można użyć później, aby zmienić sposób wykonywania.
 
-Można również projektować interakcji hello jako profil sprawdzania poprawności. Aby uzyskać więcej informacji, zobacz [wskazówki: integrowanie interfejsu API REST oświadczeń wymiany w podróży użytkownika usługi Azure AD B2C jako sprawdzanie poprawności danych wejściowych użytkownika](active-directory-b2c-rest-api-validation-custom.md).
+Można również projektować interakcji jako profil sprawdzania poprawności. Aby uzyskać więcej informacji, zobacz [wskazówki: integrowanie interfejsu API REST oświadczeń wymiany w podróży użytkownika usługi Azure AD B2C jako sprawdzanie poprawności danych wejściowych użytkownika](active-directory-b2c-rest-api-validation-custom.md).
 
-Scenariusz Hello jest, gdy użytkownik wykona edycji profilu, chęć:
+Scenariusz jest, gdy użytkownik wykona edycji profilu, chęć:
 
-1. Wyszukiwanie hello użytkownika w systemie zewnętrznym.
-2. Get hello Miasto, w którym użytkownik jest zarejestrowany.
-3. Zwróć aplikację toohello atrybut jako oświadczenia.
+1. Wyszukiwanie użytkownika w systemie zewnętrznym.
+2. Pobierz miasto, w którym użytkownik jest zarejestrowany.
+3. Zwróć tego atrybutu w aplikacji jako oświadczenia.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Toocomplete skonfigurowany dzierżawy usługi Azure AD B2C konta lokalnego konta-konta/logowania, zgodnie z opisem w [wprowadzenie](active-directory-b2c-get-started-custom.md).
-- Toointeract punkt końcowy interfejsu API REST z. W tym przewodniku zastosowano elementu webhook aplikacji prostych funkcji platformy Azure jako przykład.
-- *Zalecane*: hello pełną [interfejsu API REST oświadczeń wskazówki programu exchange na potrzeby sprawdzania poprawności](active-directory-b2c-rest-api-validation-custom.md).
+- Dzierżawy usługi Azure AD B2C, skonfigurowany tak, aby ukończyć konta lokalnego konta-konta/logowania, zgodnie z opisem w [wprowadzenie](active-directory-b2c-get-started-custom.md).
+- Punkt końcowy interfejsu API REST do interakcji z. W tym przewodniku zastosowano elementu webhook aplikacji prostych funkcji platformy Azure jako przykład.
+- *Zalecane*: zakończenie [interfejsu API REST oświadczeń wskazówki programu exchange na potrzeby sprawdzania poprawności](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-hello-rest-api-function"></a>Krok 1: Przygotowanie hello funkcji interfejsu API REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Krok 1: Przygotowanie funkcji interfejsu API REST
 
 > [!NOTE]
-> Instalator funkcji interfejsu API REST jest poza zakres tego artykułu hello. [Środowisko Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) zapewnia doskonałą toolkit toocreate RESTful usług w chmurze hello.
+> Instalator funkcji interfejsu API REST jest poza zakres tego artykułu. [Środowisko Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) zapewnia doskonałą zestawu narzędzi do tworzenia usługi RESTful w chmurze.
 
-Firma Microsoft Konfigurowanie funkcji Azure, które otrzymuje oświadczenie o nazwie `email`, a następnie zwraca hello oświadczeń `city` o wartości hello przypisane `Redmond`. przykład Hello Azure funkcja jest na [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Firma Microsoft Konfigurowanie funkcji Azure, które otrzymuje oświadczenie o nazwie `email`, a następnie zwraca oświadczenia `city` z przypisaną wartością `Redmond`. Przykład funkcji platformy Azure jest na [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
-Witaj `userMessage` oświadczenie, które hello Azure zwracana jest opcjonalna w tym kontekście i hello IEF zignoruje. Potencjalnie służy jako komunikat przekazany toohello aplikacji i przedstawione użytkownika toohello później.
+`userMessage` Oświadczenie, które zwraca funkcja Azure jest opcjonalna w tym kontekście i IEF zignoruje. Może potencjalnie używać go jako wiadomości do aplikacji i użytkownik widzi później.
 
 ```csharp
 if (requestContentAsJObject.email == null)
@@ -78,14 +78,14 @@ return request.CreateResponse<ResponseContent>(
     "application/json");
 ```
 
-Aplikacji funkcji Azure umożliwia łatwe tooget hello adres URL funkcji, identyfikatorze hello hello określonych funkcji. W tym przypadku jest adres URL hello: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Służy on do testowania.
+Aplikacja Azure funkcji można łatwo uzyskać adres URL funkcji, która zawiera identyfikator określoną funkcję. W tym przypadku jest adres URL: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Służy on do testowania.
 
-## <a name="step-2-configure-hello-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Krok 2: Skonfiguruj hello interfejsu API RESTful oświadczeń w programie exchange jako profil techniczne w pliku TrustFrameworExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Krok 2: Konfigurowanie programu exchange oświadczenia interfejsu API RESTful jako profil techniczne w pliku TrustFrameworExtensions.xml
 
-Techniczne profil jest hello pełnej konfiguracji programu exchange hello potrzeby z hello usługi RESTful. Otwórz plik TrustFrameworkExtensions.xml hello i dodaj następujące fragment kodu XML wewnątrz hello hello `<ClaimsProvider>` elementu.
+Techniczne profil jest pełną konfigurację programu exchange potrzeby z usługą RESTful. Otwórz plik TrustFrameworkExtensions.xml i Dodaj następujący fragment kodu XML wewnątrz `<ClaimsProvider>` elementu.
 
 > [!NOTE]
-> W powitania po XML, dostawca RESTful `Version=1.0.0.0` jest określane jako hello protokołu. Należy wziąć pod uwagę ją jako funkcję hello, który będzie wchodzić w interakcje hello zewnętrznej usługi. <!-- TODO: A full definition of hello schema can be found...link tooRESTful Provider schema definition>-->
+> W poniższych XML dostawcy RESTful `Version=1.0.0.0` jest określane jako protokół. Należy wziąć pod uwagę ją jako funkcję, która będzie współpracować z zewnętrznej usługi. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```XML
 <ClaimsProvider>
@@ -111,18 +111,18 @@ Techniczne profil jest hello pełnej konfiguracji programu exchange hello potrze
 </ClaimsProvider>
 ```
 
-Witaj `<InputClaims>` element definiuje hello oświadczenia, które będą wysyłane hello IEF toohello REST usługi. W tym przykładzie hello zawartość oświadczenia hello `givenName` będą wysyłane z usługi REST toohello oświadczenia hello `email`.  
+`<InputClaims>` Element definiuje oświadczenia, które będą wysyłane do usługi REST IEF. W tym przykładzie zawartość oświadczenia `givenName` będą wysyłane do usługi REST jako oświadczenie `email`.  
 
-Witaj `<OutputClaims>` element definiuje oświadczenia hello tego hello IEF będą oczekiwać od usługi REST hello. Niezależnie od liczby hello oświadczenia, które są odbierane hello IEF używają tylko te określone w tym miejscu. W tym przykładzie oświadczenie odebrana jako `city` zostanie wywołana zamapowanych tooan IEF oświadczeń `city`.
+`<OutputClaims>` Element definiuje oświadczenia, które IEF będą oczekiwać od usługi REST. Niezależnie od liczby oświadczenia, które są odbierane IEF będzie używać tylko te określone w tym miejscu. W tym przykładzie oświadczenie odebrana jako `city` zostaną zmapowane do IEF oświadczeń o nazwie `city`.
 
-## <a name="step-3-add-hello-new-claim-city-toohello-schema-of-your-trustframeworkextensionsxml-file"></a>Krok 3: Dodaj nowe oświadczenie hello `city` toohello schematu pliku TrustFrameworkExtensions.xml
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>Krok 3: Dodaj nowe oświadczenie `city` do schematu pliku TrustFrameworkExtensions.xml
 
-oświadczenia Hello `city` nie jest jeszcze zdefiniowana dowolne miejsce w naszym schematu. Tak, Dodaj definicję w elemencie hello `<BuildingBlocks>`. Ten element na początku hello hello TrustFrameworkExtensions.xml pliku można znaleźć.
+Oświadczenie `city` nie jest jeszcze zdefiniowana dowolne miejsce w naszym schematu. Tak, Dodaj definicję wewnątrz elementu `<BuildingBlocks>`. Ten element na początku pliku TrustFrameworkExtensions.xml można znaleźć.
 
 ```XML
 <BuildingBlocks>
-    <!--hello claimtype city must be added toohello TrustFrameworkPolicy-->
-    <!-- You can add new claims in hello BASE file Section III, or in hello extensions file-->
+    <!--The claimtype city must be added to the TrustFrameworkPolicy-->
+    <!-- You can add new claims in the BASE file Section III, or in the extensions file-->
     <ClaimsSchema>
         <ClaimType Id="city">
             <DisplayName>City</DisplayName>
@@ -134,14 +134,14 @@ oświadczenia Hello `city` nie jest jeszcze zdefiniowana dowolne miejsce w naszy
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-hello-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Krok 4: Obejmują wymiana oświadczeń usługi REST hello krok aranżacji w podróży użytkownika edycji profilu w TrustFrameworkExtensions.xml
+## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Krok 4: Obejmują wymiana oświadczeń usługi REST aranżacji krok w podróży użytkownika edycji profilu w TrustFrameworkExtensions.xml
 
-Dodaj krok toohello profilu Edycja użytkownika podróży, po hello użytkownik został uwierzytelniony (procedura aranżacji 1 – 4 w powitania po XML) i hello użytkownik udostępnił hello zaktualizowane informacje o profilu (krok 5).
+Dodaj krok do podróży profilu użytkownika edycji, po użytkownik został uwierzytelniony (procedura aranżacji 1 – 4 w następujących XML) i użytkownik udostępnił informacje zaktualizowany profil (krok 5).
 
 > [!NOTE]
-> Istnieje wiele przypadków użycia, gdzie hello wywołaniu interfejsu API REST może służyć jako etap aranżacji. Krok aranżacji jego mogą być używane jako aktualizacja systemu zewnętrznego tooan po pomyślnym zakończeniu zadania, takie jak rejestracji po raz pierwszy lub jako profil zaktualizować synchronizację informacji tookeep. W takim przypadku jest używane tooaugment hello informacjami toohello aplikacji po edycji hello profilu.
+> Istnieje wiele przypadków użycia, gdy wywołanie interfejsu API REST może służyć jako etap aranżacji. Krok aranżacji może służyć jako aktualizacji do systemu zewnętrznego po pomyślnym zakończeniu zadania, takie jak rejestracji po raz pierwszy lub aktualizacji profilu, aby zachować synchronizację informacji. W takim przypadku służy rozszerzyć informacje podane w aplikacji po edycji profilu.
 
-Kopiowanie hello profilu edytowania kodu XML przebieg użytkownika z hello TrustFrameworkBase.xml tooyour TrustFrameworkExtensions.xml pliku wewnątrz hello `<UserJourneys>` elementu. Następnie wprowadzić modyfikacji hello w kroku 6.
+Kopia profilu Edytuj przebieg XML kod użytkownika z pliku TrustFrameworkBase.xml do pliku TrustFrameworkExtensions.xml wewnątrz `<UserJourneys>` elementu. Następnie wprowadź zmiany w kroku 6.
 
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
@@ -152,9 +152,9 @@ Kopiowanie hello profilu edytowania kodu XML przebieg użytkownika z hello Trust
 ```
 
 > [!IMPORTANT]
-> Jeśli hello kolejność nie jest zgodna z wersją, upewnij się, Wstaw kod hello jako hello kroku przed hello `ClaimsExchange` typu `SendClaims`.
+> Jeśli kolejność nie jest zgodna z wersją, upewnij się, Wstaw kod jako kroku przed `ClaimsExchange` typu `SendClaims`.
 
-Witaj końcowego XML hello podróż użytkownika powinien wyglądać następująco:
+Końcowe XML podróży użytkownika powinien wyglądać następująco:
 
 ```XML
 <UserJourney Id="ProfileEdit">
@@ -200,7 +200,7 @@ Witaj końcowego XML hello podróż użytkownika powinien wyglądać następują
                 <ClaimsExchange Id="B2CUserProfileUpdateExchange" TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate" />
             </ClaimsExchanges>
         </OrchestrationStep>
-        <!-- Add a step 6 toohello user journey before hello JWT token is created-->
+        <!-- Add a step 6 to the user journey before the JWT token is created-->
         <OrchestrationStep Order="6" Type="ClaimsExchange">
             <ClaimsExchanges>
                 <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
@@ -212,11 +212,11 @@ Witaj końcowego XML hello podróż użytkownika powinien wyglądać następują
 </UserJourney>
 ```
 
-## <a name="step-5-add-hello-claim-city-tooyour-relying-party-policy-file-so-hello-claim-is-sent-tooyour-application"></a>Krok 5: Dodawanie oświadczeń hello `city` tooyour jednostki uzależnionej strony zasad plików dzięki hello oświadczenia są wysyłane tooyour aplikacji
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Krok 5: Dodaj oświadczenie `city` Twojego jednostki uzależnionej zasady plików, oświadczenia są wysyłane do aplikacji
 
-Edytuj plik ProfileEdit.xml jednostki uzależnionej strony (RP) i zmodyfikuj hello `<TechnicalProfile Id="PolicyProfile">` elementu tooadd hello następujące: `<OutputClaim ClaimTypeReferenceId="city" />`.
+Edytuj plik ProfileEdit.xml jednostki uzależnionej strony (RP) i zmodyfikuj `<TechnicalProfile Id="PolicyProfile">` elementu do dodania następujących: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
-Po dodaniu hello oświadczeń nowy profil techniczne hello wygląda następująco:
+Po dodaniu nowego oświadczenia profilu techniczna wygląda następująco:
 
 ```XML
 <DisplayName>PolicyProfile</DisplayName>
@@ -231,15 +231,15 @@ Po dodaniu hello oświadczeń nowy profil techniczne hello wygląda następując
 
 ## <a name="step-6-upload-your-changes-and-test"></a>Krok 6: Przekazać zmiany i testowanie
 
-Zastąp istniejące wersje hello hello zasad.
+Zastąp istniejące wersje zasad.
 
-1.  (Opcjonalne:) Zapisz (pobierając) hello istniejącą wersję pliku rozszerzenia przed kontynuowaniem. tookeep hello początkowej złożoności niski, firma Microsoft zaleca, nie przekazuj wielu wersji hello rozszerzenia pliku.
-2.  (Opcjonalne:) Zmień nazwę nowej wersji identyfikator zasad hello hello zasad edycji pliku hello zmieniając `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
-3.  Przekaż hello rozszerzenia pliku.
-4.  Przekaż plik RP edycji zasad hello.
-5.  Użyj **Uruchom teraz** tootest hello zasad. Przejrzyj hello token, który hello IEF zwraca toohello aplikacji.
+1.  (Opcjonalne:) Zapisz (pobierając) istniejącą wersję pliku rozszerzenia przed kontynuowaniem. Aby zachować początkowej złożoności niski, firma Microsoft zaleca, nie przekazuj wielu wersji pliku rozszerzenia.
+2.  (Opcjonalne:) Zmień nazwę nowej wersji identyfikator zasad dla pliku edycji zasad, zmieniając `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+3.  Przekaż plik rozszerzenia.
+4.  Przekaż plik RP edycji zasady.
+5.  Użyj **Uruchom teraz** do testowania zasad. Przejrzyj token, który IEF zwraca do aplikacji.
 
-Jeśli wszystko jest poprawnie skonfigurowane, hello token uwzględni hello nowe oświadczenie `city`, z wartością hello `Redmond`.
+Jeśli wszystko jest poprawnie skonfigurowane, token uwzględni nowe oświadczenie `city`, z wartością `Redmond`.
 
 ```JSON
 {
@@ -261,4 +261,4 @@ Jeśli wszystko jest poprawnie skonfigurowane, hello token uwzględni hello nowe
 
 [Za pośrednictwem interfejsu API REST na potrzeby sprawdzania poprawności](active-directory-b2c-rest-api-validation-custom.md)
 
-[Modyfikowanie hello profilu edycji toogather dodatkowych informacji od użytkowników](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Modyfikowanie edycji profilu uzyskanie dodatkowych informacji od użytkowników](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)

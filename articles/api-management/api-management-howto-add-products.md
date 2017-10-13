@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toocreate i publikować w usłudze Azure API Management produktu"
-description: "Dowiedz się, jak toocreate i publikować w usłudze Azure API Management produktów."
+title: "Jak tworzyć i publikować w usłudze Azure API Management produktu"
+description: "Dowiedz się, jak tworzyć i publikować w usłudze Azure API Management produktów."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,114 +14,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f0a37f08b4e29ca68be9caec4c7604e3b4b6aaa6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 73bf4451ba1b71807e22440beecc73a7e8045c5e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocreate-and-publish-a-product-in-azure-api-management"></a>Jak toocreate i publikować w usłudze Azure API Management produktu
-W systemie Azure API Management produkt zawiera jeden lub więcej interfejsów API, jak również użycie przydziału i hello warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą subskrypcji toohello produktu i rozpocząć interfejsów API toouse hello produktu. temat Hello zawiera toocreating przewodnik produktu, dodawanie interfejsu API i publikowania dla deweloperów.
+# <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Jak tworzyć i publikować w usłudze Azure API Management produktu
+W systemie Azure API Management produkt zawiera jeden lub więcej interfejsów API, a także przydział użycia i warunki użytkowania. Po opublikowaniu produktu deweloperzy mogą subskrybować produktu i rozpocząć przy użyciu interfejsów API produktu. Temat zawiera przewodnik dotyczący tworzenia produktu, dodawanie interfejsu API i publikowania dla deweloperów.
 
 ## <a name="create-product"></a>Tworzenie produktu
-Operacje są dodawane i tooan interfejsu API w portalu wydawcy hello. tooaccess hello wydawcy portalu, kliknij przycisk **portal wydawcy** w hello portalu Azure usługi Zarządzanie interfejsami API.
+Działania są dodawane i skonfigurowane do interfejsu API w portalu wydawcy. Aby uzyskać dostęp do portalu wydawcy, kliknij przycisk **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API.
 
 ![Portal wydawcy][api-management-management-console]
 
-> Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w hello [wprowadzenie do usługi Azure API Management] [ Get started with Azure API Management] samouczka.
+> Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
 > 
 > 
 
-Polecenie **produktów** w menu hello na powitania po lewej stronie toodisplay hello **produktów** , a następnie kliknij przycisk **Dodaj produkt**.
+Polecenie **produktów** w menu po lewej stronie, aby wyświetlić **produktów** , a następnie kliknij przycisk **Dodaj produkt**.
 
 ![Produkty][api-management-products]
 
 ![Nowego produktu][api-management-add-new-product]
 
-Wprowadź opisową nazwę produktu hello w hello **nazwa** opis produktu hello hello **opis** pola.
+Wprowadź opisową nazwę produktu w **nazwa** opis produktu w **opis** pola.
 
-Produkty w usłudze API Management może być **Otwórz** lub **chronione**. Produkty chronione muszą być subskrybowanego toobefore mogą być używane, otwartej produktów może być używany bez subskrypcji. Sprawdź **wymagają subskrypcji** toocreate chronionych produkt, który wymaga subskrypcji. To jest ustawienie domyślne hello.
+Produkty w usłudze API Management może być **Otwórz** lub **chronione**. Produkty chronione trzeba subskrybować przed użyciem, a produkty otwarte mogą być używane bez subskrypcji. Sprawdź **wymagają subskrypcji** do tworzenia chronionej produkt, który wymaga subskrypcji. Jest to ustawienie domyślne.
 
-Sprawdź **wymagają zatwierdzenia subskrypcji** Jeśli chcesz tooreview administratora i zaakceptuj lub Odrzuć subskrypcji prób toothis produktu. Jeśli pole hello jest zaznaczona, prób subskrypcji będą automatycznie zatwierdzone. Aby uzyskać więcej informacji o subskrypcji, zobacz [widoku subskrybentów tooa produktu][View subscribers tooa product].
+Sprawdź **wymagają zatwierdzenia subskrypcji** Jeśli chcesz, aby administrator, aby przejrzeć i zaakceptować lub odrzucić prób subskrypcję do tego produktu. Jeśli pole jest zaznaczona, prób subskrypcja będzie automatycznie zatwierdzone. Aby uzyskać więcej informacji o subskrypcji, zobacz [wyświetlić subskrybentów produktu][View subscribers to a product].
 
-toosubscribe konta dewelopera tooallow wielokrotnie toohello produktu, sprawdź hello **zezwalać na wiele subskrypcji** pole wyboru. Jeśli to pole nie jest zaznaczone, każdego konta dewelopera można zasubskrybować tylko produkt toohello jeden raz.
+Aby zezwalać kontom developer do subskrybowania wielokrotnie produktu, sprawdź **zezwalać na wiele subskrypcji** pole wyboru. Jeśli to pole nie jest zaznaczone, każde konto dewelopera można zasubskrybować tylko jeden raz dla produktu.
 
 ![Nieograniczone wiele subskrypcji][api-management-unlimited-multiple-subscriptions]
 
-Liczba hello toolimit wiele równoczesnych subskrypcji, sprawdź hello **Ogranicz liczbę jednoczesnych subskrypcje** pole wyboru, a następnie wprowadź hello limit subskrypcji. W hello poniższy przykład jednoczesnych subskrypcje są ograniczone toofour na konto dewelopera.
+Aby ograniczyć liczbę wiele równoczesnych subskrypcji, sprawdź **Ogranicz liczbę jednoczesnych subskrypcje** pole wyboru, a następnie wprowadź limit subskrypcji. W poniższym przykładzie jednoczesnych subskrypcje są maksymalnie cztery na konto dewelopera.
 
 ![Cztery wiele subskrypcji][api-management-four-multiple-subscriptions]
 
-Po skonfigurowaniu wszystkich nowych opcji produktu, kliknij przycisk **zapisać** toocreate hello nowego produktu.
+Po skonfigurowaniu wszystkich nowych opcji produktu, kliknij przycisk **zapisać** do tworzenia nowych produktów.
 
 ![Produkty][api-management-products-page]
 
-> Domyślnie są nieopublikowane nowych produktów i są widoczne tylko toohello **Administratorzy** grupy.
+> Domyślnie są nieopublikowane nowych produktów i są widoczne tylko dla **Administratorzy** grupy.
 > 
 > 
 
-Kliknij tooconfigure produktu, nazwa produktu hello w hello **produktów** kartę.
+Aby skonfigurować produkt, kliknij nazwę produktu w **produktów** kartę.
 
-## <a name="add-apis"></a>Produktu tooa dodać interfejsów API
-Witaj **produktów** strona zawiera cztery łącza dla konfiguracji: **Podsumowanie**, **ustawienia**, **widoczność**, i ** Subskrybenci**. Witaj **Podsumowanie** jest karta, którym można dodać interfejsów API i opublikować lub Cofnij publikowanie produktu.
+## <a name="add-apis"></a>Dodaj interfejsów API do produktu
+**Produktów** strona zawiera cztery łącza dla konfiguracji: **Podsumowanie**, **ustawienia**, **widoczność**, i  **Subskrybenci**. **Podsumowanie** jest karta, którym można dodać interfejsów API i opublikować lub Cofnij publikowanie produktu.
 
 ![Podsumowanie][api-management-new-product-summary]
 
-Przed opublikowaniem produktu należy tooadd jeden lub więcej interfejsów API. toodo tego, kliknij **tooproduct dodać interfejsu API**.
+Przed opublikowaniem produkt, musisz dodać jeden lub więcej interfejsów API. Aby to zrobić, kliknij przycisk **dodać interfejsu API do produktu**.
 
 ![Dodaj interfejsów API][api-management-add-apis-to-product]
 
-Wybierz hello potrzeby interfejsów API i kliknij przycisk **zapisać**.
+Wybierz żądaną interfejsów API i kliknij przycisk **zapisać**.
 
-## <a name="add-description"></a>Dodaj informacje opisowe tooa produktu
-Witaj **ustawienia** karta umożliwia tooprovide szczegółowe informacje o produkcie hello, takie jak jego przeznaczenie, hello zapewnia dostęp do interfejsów API i inne przydatne informacje. zawartość Hello jest przeznaczona dla deweloperów hello, będzie wywoływany hello interfejsu API, które mogą być zapisywane w postaci zwykłego tekstu lub kod znaczników HTML.
+## <a name="add-description"></a>Dodać opisowe informacje do produktu
+**Ustawienia** karta umożliwia zawierają szczegółowe informacje o produkcie, takie jak jego przeznaczenie, zapewnia dostęp do interfejsów API i inne przydatne informacje. Zawartość jest przeznaczona dla deweloperów, spowoduje wywołanie interfejsu API, które mogą być zapisywane w postaci zwykłego tekstu lub kod znaczników HTML.
 
 ![Ustawienia produktów][api-management-product-settings]
 
-Sprawdź **wymagają subskrypcji** toocreate chronionych produkt, który wymaga toobe subskrypcji, używane, lub wyczyść pole wyboru hello toocreate wyboru Otwieranie produktu, który można wywołać bez subskrypcji.
+Sprawdź **wymagają subskrypcji** do tworzenia chronionej produkt, który wymaga subskrypcji można używać, lub wyczyść pole wyboru, aby utworzyć otwieranie produktu, który można wywołać bez subskrypcji.
 
-Wybierz **wymagają zatwierdzenia subskrypcji** Jeśli chcesz toomanually zatwierdzić wszystkie żądania subskrypcji produktu. Domyślnie wszystkie subskrypcje produktu są przyznawane automatycznie.
+Wybierz **wymagają zatwierdzenia subskrypcji** Jeśli chcesz ręcznie zatwierdzić wszystkie żądania subskrypcji produktu. Domyślnie wszystkie subskrypcje produktu są przyznawane automatycznie.
 
-toosubscribe konta dewelopera tooallow wielokrotnie toohello produktu, sprawdź hello **zezwalać na wiele subskrypcji** pole wyboru i opcjonalnie Określ limit. Jeśli to pole nie jest zaznaczone, każdego konta dewelopera można zasubskrybować tylko produkt toohello jeden raz.
+Aby zezwalać kontom developer do subskrybowania wielokrotnie produktu, sprawdź **zezwalać na wiele subskrypcji** pole wyboru i opcjonalnie Określ limit. Jeśli to pole nie jest zaznaczone, każde konto dewelopera można zasubskrybować tylko jeden raz dla produktu.
 
-Opcjonalnie Wypełnij hello **warunki użytkowania** pola opisujące hello warunki użytkowania hello produktu, które zaakceptować subskrybentów w kolejności toouse hello produktu.
+Opcjonalnie wypełnij **warunki użytkowania** pola opisujące warunki użytkowania produktów, którzy użytkownicy muszą zaakceptować, aby korzystać z produktu.
 
 ## <a name="publish-product"></a>Publikowania produktu
-Aby można było wywołać hello interfejsów API w produkcie, musi zostać opublikowany hello produktu. Na powitania **Podsumowanie** hello produktu, kliknij pozycję **publikowania**, a następnie kliknij przycisk **tak, przed opublikowaniem** tooconfirm. toomake prywatnej wydane wcześniej produktu, kliknij przycisk **Cofnij publikowanie**.
+Aby można było wywołać interfejsów API w produkcie, musi zostać opublikowany produktu. Na **Podsumowanie** produktu, kliknij pozycję **publikowania**, a następnie kliknij przycisk **tak, przed opublikowaniem** o potwierdzenie. Aby wcześniej opublikowanej produktu prywatne, kliknij przycisk **Cofnij publikowanie**.
 
 ![Publikowanie produktu][api-management-publish-product]
 
-## <a name="make-visible"></a>Upewnij toodevelopers widoczne produktu
-Witaj **widoczność** karta umożliwia toochoose role są możliwe toosee hello produktu w portalu dla deweloperów hello i subskrybowania toohello produktu.
+## <a name="make-visible"></a>Udostępnienie produktu dla deweloperów
+**Widoczność** karcie można wybrać role mogą wyświetlić w portalu dla deweloperów i subskrybowanie produktu.
 
 ![Widoczność produktu][api-management-product-visiblity]
 
-widoczność tooenable lub wyłącz produktu dla deweloperów hello w grupie, sprawdź lub usuń zaznaczenie pola wyboru hello obok hello grupy, a następnie kliknij przycisk **zapisać**.
+Aby włączyć lub wyłączyć widoczność produktu dla deweloperów w grupie, sprawdź lub usuń zaznaczenie pola wyboru obok grupy, a następnie kliknij przycisk **zapisać**.
 
-> Aby uzyskać więcej informacji, zobacz [jak developer toomanage grup toocreate i używania kont w usłudze Azure API Management][How toocreate and use groups toomanage developer accounts in Azure API Management].
+> Aby uzyskać więcej informacji, zobacz [tworzenie i używanie grup do zarządzania konta dewelopera usługi Azure API Management][How to create and use groups to manage developer accounts in Azure API Management].
 > 
 > 
 
-## <a name="view-subscribers"></a>Widoku subskrybentów tooa produktu
-Witaj **subskrybentów** karta zawiera listę hello deweloperów, którzy subskrybowanych toohello produktu. Hello ustawienia dla wszystkich deweloperów i szczegółowe informacje można wyświetlić, klikając nazwę hello developer. W tym przykładzie deweloperzy nie masz jeszcze subskrypcję toohello produktu.
+## <a name="view-subscribers"></a>Wyświetlić subskrybentów produktu
+**Subskrybentów** karta zawiera listę deweloperów, którzy subskrybuje produktu. Ustawienia dla wszystkich deweloperów i szczegółowe informacje można wyświetlić, klikając nazwę dewelopera. W tym przykładzie deweloperzy nie masz jeszcze subskrypcję do produktu.
 
 ![Deweloperzy][api-management-developer-list]
 
 ## <a name="next-steps"> </a>Następne kroki
-Raz hello żądana dodano interfejsy API i produktu hello opublikowana, deweloperzy mogą subskrybować toohello produktu i rozpocząć hello toocall interfejsów API. Samouczek przedstawiający tych elementów, a także zaawansowane produktu configuration [jak utworzyć i skonfigurować ustawienia zaawansowane produktu w usłudze Azure API Management][How create and configure advanced product settings in Azure API Management].
+Po są dodawane odpowiednie interfejsów API i publikowane produktu, deweloperzy mogą subskrybować produktu i rozpocząć do wywoływania interfejsów API. Samouczek przedstawiający tych elementów, a także zaawansowane produktu configuration [jak utworzyć i skonfigurować ustawienia zaawansowane produktu w usłudze Azure API Management][How create and configure advanced product settings in Azure API Management].
 
-Aby uzyskać więcej informacji na temat pracy z produktami Zobacz powitania po wideo.
+Aby uzyskać więcej informacji na temat pracy z produktami zobacz poniższe wideo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
 > 
 
 [Create a product]: #create-product
-[Add APIs tooa product]: #add-apis
-[Add descriptive information tooa product]: #add-description
+[Add APIs to a product]: #add-apis
+[Add descriptive information to a product]: #add-description
 [Publish a product]: #publish-product
-[Make a product visible toodevelopers]: #make-visible
-[View subscribers tooa product]: #view-subscribers
+[Make a product visible to developers]: #make-visible
+[View subscribers to a product]: #view-subscribers
 [Next steps]: #next-steps
 
 [api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
@@ -144,10 +144,10 @@ Aby uzyskać więcej informacji na temat pracy z produktami Zobacz powitania po 
 [api-management-]: ./media/api-management-howto-add-products/
 
 
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How toocreate and publish a product]: api-management-howto-add-products.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
-[How toocreate and use groups toomanage developer accounts in Azure API Management]: api-management-howto-create-groups.md
+[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
 [How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 

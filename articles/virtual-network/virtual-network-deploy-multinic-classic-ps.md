@@ -1,6 +1,6 @@
 ---
-title: "Maszyna wirtualna (klasyczna) z wieloma kartami sieciowymi — programu Azure PowerShell aaaCreate | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate maszyna wirtualna (klasyczna) z wieloma kartami sieciowymi przy użyciu programu PowerShell."
+title: "Tworzenie maszyny Wirtualnej (klasyczne) z wieloma kartami sieciowymi — programu Azure PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć Maszynę wirtualną (klasyczne) z wieloma kartami sieciowymi przy użyciu programu PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,42 +16,42 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90c967929bb418042c3fb7079e0f69246faac53c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 923d4817d96399fc423b0a89cbf88f8d397f1af0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Tworzenie maszyny Wirtualnej (klasyczne) z wieloma kartami sieciowymi przy użyciu programu PowerShell
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
-Można tworzyć maszyn wirtualnych (VM) na platformie Azure i dołączyć wiele sieci tooeach interfejsów (NIC) z maszyn wirtualnych. Wiele kart sieciowych włączać rozdzielenie typów ruchu sieciowego między kart sieciowych. Na przykład jedna karta sieciowa może komunikować się z hello Internet, podczas gdy inny komunikuje się tylko z wewnętrznych zasobów nie podłączone toohello Internet. Program Hello możliwości tooseparate ruch sieciowy między wieloma kartami jest wymagany dla wielu urządzeń wirtualnych sieci, takich jak dostarczania aplikacji i rozwiązań Optymalizacja sieci WAN.
+Można tworzyć maszyn wirtualnych (VM) na platformie Azure i dołączyć wiele interfejsów sieciowych (NIC) do wszystkich maszyn wirtualnych. Wiele kart sieciowych włączać rozdzielenie typów ruchu sieciowego między kart sieciowych. Na przykład jednej karcie Sieciowej może komunikować się z Internetem, podczas gdy inny komunikuje się tylko z wewnętrznych zasobów nie jest połączony z Internetem. Do rozdzielania ruchu sieciowego między wiele kart sieciowych jest wymaganych dla wielu urządzeń wirtualnych sieci, takich jak dostarczania aplikacji i rozwiązań Optymalizacja sieci WAN.
 
 > [!IMPORTANT]
-> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu hello klasycznego modelu wdrażania. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Dowiedz się, jak tooperform te czynności przy użyciu hello [modelu wdrażania usługi Resource Manager](virtual-network-deploy-multinic-arm-ps.md).
+> Platforma Azure oferuje dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [model wdrażania przy użyciu usługi Azure Resource Manager i model klasyczny](../resource-manager-deployment-model.md). Ten artykuł dotyczy klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Dowiedz się, jak wykonać te czynności przy użyciu [modelu wdrażania usługi Resource Manager](virtual-network-deploy-multinic-arm-ps.md).
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Witaj następujące kroki Użyj grupy zasobów o nazwie *IaaSStory* hello serwerów sieci WEB oraz grupę zasobów o nazwie *IaaSStory zaplecza* dla serwerów hello bazy danych.
+Poniższe kroki Użyj grupy zasobów o nazwie *IaaSStory* dla serwerów sieci WEB i grupy zasobów o nazwie *IaaSStory zaplecza* dla serwerów baz danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed utworzeniem hello serwerów bazy danych, należy toocreate hello *IaaSStory* grupy zasobów z wszystkie niezbędne zasoby hello w tym scenariuszu. toocreate tych zasobów, pełny hello kroki, które należy wykonać. Tworzenie sieci wirtualnej, wykonując następujące kroki hello hello [utworzyć sieć wirtualną](virtual-networks-create-vnet-classic-netcfg-ps.md) artykułu.
+Przed utworzeniem serwerów bazy danych, należy utworzyć *IaaSStory* grupy zasobów z wszystkie niezbędne zasoby dotyczące tego scenariusza. Aby utworzyć tych zasobów, wykonaj kroki, które należy wykonać. Tworzenie sieci wirtualnej, wykonując kroki opisane w [utworzyć sieć wirtualną](virtual-networks-create-vnet-classic-netcfg-ps.md) artykułu.
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-hello-back-end-vms"></a>Tworzenie hello zaplecza maszyn wirtualnych
-Hello zaplecza maszyny wirtualne są zależne od utworzenia hello hello następujące zasoby:
+## <a name="create-the-back-end-vms"></a>Tworzenie maszyn wirtualnych zaplecza
+Maszyny wirtualne zaplecza są zależne od utworzenie następujących zasobów:
 
-* **Podsieci wewnętrznej bazy danych**. serwery bazy danych Hello będą częścią osobnej podsieci ruchu toosegregate. Poniższy skrypt Hello oczekuje tooexist tej podsieci w sieci wirtualnej o nazwie *WTestVnet*.
-* **Konto magazynu dla dysków z danymi**. W celu poprawy wydajności hello dysków z danymi na serwerach bazy danych hello użyje półprzewodnikowych (SSD) dysku technologii, która wymaga konta magazynu w warstwie premium. Upewnij się, że hello wdrożyć magazyn w warstwie premium toosupport lokalizacji platformy Azure.
-* **Zestaw dostępności**. Wszystkie serwery baz danych zostanie dodany zestaw dostępności pojedynczego tooa, tooensure co najmniej jeden z maszyn wirtualnych hello jest uruchomiona podczas konserwacji.
+* **Podsieci wewnętrznej bazy danych**. Serwery bazy danych będą częścią osobnej podsieci, aby rozdzielenie ruchu. W poniższym skrypcie oczekuje tej podsieci w sieci wirtualnej o nazwie występują *WTestVnet*.
+* **Konto magazynu dla dysków z danymi**. W celu poprawy wydajności dysków danych na serwerach bazy danych będzie używać półprzewodnikowych (SSD) dysku technologii, która wymaga konta magazynu w warstwie premium. Upewnij się, lokalizacja platformy Azure, można wdrożyć na obsługuje usługi premium storage.
+* **Zestaw dostępności**. Wszystkie serwery baz danych zostanie dodany do jednej dostępności ustawić, aby upewnić się, że co najmniej jeden z maszynami wirtualnymi i systemem podczas konserwacji.
 
 ### <a name="step-1---start-your-script"></a>Krok 1 — Uruchom skrypt
-Możesz pobrać hello używane pełne skrypt programu PowerShell [tutaj](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Wykonaj kroki hello poniżej toochange hello skryptu toowork w danym środowisku.
+Możesz pobrać pełną skrypt programu PowerShell używane [tutaj](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Wykonaj poniższe kroki, aby zmienić skryptu do pracy w środowisku.
 
-1. Zmień hello wartości zmiennych hello poniżej oparte na istniejącej grupie zasobów wdrożone powyżej w [wymagania wstępne](#Prerequisites).
+1. Zmienianie wartości zmiennych poniżej oparte na istniejącej grupie zasobów wdrożone powyżej w [wymagania wstępne](#Prerequisites).
 
     ```powershell
     $location              = "West US"
@@ -59,7 +59,7 @@ Możesz pobrać hello używane pełne skrypt programu PowerShell [tutaj](https:/
     $backendSubnetName     = "BackEnd"
     ```
 
-2. Zmień hello wartości zmiennych hello poniżej na podstawie wartości hello ma toouse wdrożenia wewnętrznej bazy danych.
+2. Zmienianie wartości zmiennych poniżej na podstawie wartości, który ma być używany dla danego wdrożenia wewnętrznej bazy danych.
 
     ```powershell
     $backendCSName         = "IaaSStory-Backend"
@@ -74,7 +74,7 @@ Możesz pobrać hello używane pełne skrypt programu PowerShell [tutaj](https:/
     ```
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>Krok 2 — Tworzenie niezbędne zasoby dla maszyn wirtualnych
-Należy toocreate konta dla dysków z danymi hello nową usługę w chmurze i magazynu dla wszystkich maszyn wirtualnych. Należy również toospecify obrazu, a konto administratora lokalnego na powitania maszyn wirtualnych. ukończenie tych zasobów, toocreate hello następujące kroki:
+Należy utworzyć nową usługę w chmurze i konto magazynu dla dysków z danymi dla wszystkich maszyn wirtualnych. Należy również określić obrazu, a konto administratora lokalnego dla maszyn wirtualnych. Aby utworzyć tych zasobów, wykonaj następujące kroki:
 
 1. Utwórz nową usługę w chmurze.
 
@@ -88,7 +88,7 @@ Należy toocreate konta dla dysków z danymi hello nową usługę w chmurze i ma
     New-AzureStorageAccount -StorageAccountName $prmStorageAccountName `
     -Location $location -Type Premium_LRS
     ```
-3. Ustaw konto magazynu hello utworzone powyżej jako hello bieżącego konta magazynu dla Twojej subskrypcji.
+3. Ustaw konto magazynu utworzone powyżej bieżącego konta magazynu dla Twojej subskrypcji.
 
     ```powershell
     $subscription = Get-AzureSubscription | where {$_.IsCurrent -eq $true}  
@@ -96,7 +96,7 @@ Należy toocreate konta dla dysków z danymi hello nową usługę w chmurze i ma
     -CurrentStorageAccountName $prmStorageAccountName
     ```
 
-4. Wybierz obraz powitania maszyny Wirtualnej.
+4. Wybieranie obrazu maszyny wirtualnej.
 
     ```powershell
     $image = Get-AzureVMImage `
@@ -105,22 +105,22 @@ Należy toocreate konta dla dysków z danymi hello nową usługę w chmurze i ma
     | select -ExpandProperty ImageName -First 1
     ```
 
-5. Ustaw poświadczenia konta administratora lokalnego hello.
+5. Ustaw poświadczenia konta administratora lokalnego.
 
     ```powershell
     $cred = Get-Credential -Message "Enter username and password for local admin account"
     ```
 
 ### <a name="step-3---create-vms"></a>Krok 3 — Tworzenie maszyn wirtualnych
-Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello niezbędne karty sieciowe i maszyn wirtualnych w pętli hello. toocreate hello kart sieciowych i maszyn wirtualnych, należy wykonać hello następujące kroki.
+Należy użyć pętli można utworzyć dowolną liczbę maszyn wirtualnych, jak i utworzyć niezbędne karty sieciowe i maszyn wirtualnych w pętli. Aby utworzyć karty sieciowe i maszyn wirtualnych, należy wykonać następujące kroki.
 
-1. Uruchom `for` hello toorepeat pętli polecenia toocreate Maszynę wirtualną i dwie karty sieciowe, jak tyle razy, na podstawie hello wartości hello `$numberOfVMs` zmiennej.
+1. Uruchom `for` pętli powtórzeń poleceń, aby utworzyć Maszynę wirtualną i dwie karty sieciowe jako tyle razy, ile to konieczne, na podstawie wartości z `$numberOfVMs` zmiennej.
 
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
     ```
 
-2. Utwórz `VMConfig` obiektu określenie hello obrazu, rozmiar i zbiór dostępności dla hello maszyny Wirtualnej.
+2. Utwórz `VMConfig` obiekt określający obrazu, rozmiar i zbiór dostępności dla maszyny Wirtualnej.
 
     ```powershell
     $vmName = $vmNamePrefix + $suffixNumber
@@ -130,7 +130,7 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
         -AvailabilitySetName $avSetName
     ```
 
-3. Zainicjuj obsługę hello maszyny Wirtualnej jako Maszynę wirtualną systemu Windows.
+3. Maszyna wirtualna wyznaczenie jako maszyny Wirtualnej systemu Windows.
 
     ```powershell
     Add-AzureProvisioningConfig -VM $vmConfig -Windows `
@@ -138,7 +138,7 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
         -Password $cred.GetNetworkCredential().Password
     ```
 
-4. Ustaw domyślny hello karty Sieciowej i przypisz mu statyczny adres IP.
+4. Ustaw domyślny karty Sieciowej i przypisz mu statyczny adres IP.
 
     ```powershell
     Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
@@ -154,7 +154,7 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
     -VM $vmConfig
     ```
 
-6. Tworzenie dysków toodata dla każdej maszyny Wirtualnej.
+6. Utwórz dyski danych dla każdej maszyny Wirtualnej.
 
     ```powershell
     $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
@@ -170,7 +170,7 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
     -LUN 1
     ```
 
-7. Utwórz każdej maszyny Wirtualnej, a koniec hello pętli.
+7. Utwórz każdej maszyny Wirtualnej i zakończyć pętli.
 
     ```powershell
     New-AzureVM -VM $vmConfig `
@@ -180,10 +180,10 @@ Należy toouse toocreate pętli, jak wiele maszyn wirtualnych, a tworzenie hello
     }
     ```
 
-### <a name="step-4---run-hello-script"></a>Krok 4 — uruchamianie skryptu hello
-Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, runt on skryptu bazy toocreate hello wewnętrznej bazy danych maszyn wirtualnych z wieloma kartami sieciowymi.
+### <a name="step-4---run-the-script"></a>Krok 4 — Uruchom skrypt
+Pobrane i zmienić skryptu na podstawie Twoich potrzeb, runt on skryptu w celu tworzenia wewnętrznej bazy danych maszyn wirtualnych z wieloma kartami sieciowymi.
 
-1. Zapisz skrypt i uruchom go z hello **PowerShell** wiersza polecenia lub **PowerShell ISE**. Zobaczysz hello początkowej danych wyjściowych, jak pokazano poniżej.
+1. Zapisz skrypt i uruchom go z **PowerShell** wiersza polecenia lub **PowerShell ISE**. Zobaczysz początkowej danych wyjściowych, jak pokazano poniżej.
 
         OperationDescription    OperationId                          OperationStatus
 
@@ -191,7 +191,7 @@ Pobrane i zmienić hello skryptu na podstawie Twoich potrzeb, runt on skryptu ba
         New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. Wypełnij informacje hello potrzebne hello poświadczeń monit i kliknij przycisk **OK**. zwracany jest Hello danych wyjściowych poniżej.
+2. Wprowadź informacje wymagane w wierszu poświadczenia i kliknij **OK**. Zwracany jest danych wyjściowych poniżej.
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded

@@ -1,5 +1,5 @@
 ---
-title: "aaaGroup opcje w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
+title: "Grupuj według opcje w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
 description: "Wskazówki dotyczące implementowania grupy Opcje w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: cc443c2af4e3ef2babd74d78aa6fb57bb3c1c7ea
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Grupuj według opcje w usłudze SQL Data Warehouse
-Witaj [GROUP BY] [ GROUP BY] jest używana klauzula tooaggregate danych tooa podsumowania zestawu wierszy. Ma również kilka opcji rozszerzające jego funkcjonalność tego toobe potrzeby działał wokół, ponieważ nie są bezpośrednio obsługiwane przez Magazyn danych SQL Azure.
+[GROUP BY] [ GROUP BY] jest używana do agregowania danych podsumowania zestawu wierszy. Ma również kilka opcji, które rozszerzają jego funkcjonalność konieczne działał wokół, ponieważ nie są bezpośrednio obsługiwane przez Magazyn danych SQL Azure.
 
 Te opcje są
 
@@ -31,9 +31,9 @@ Te opcje są
 * Klauzula GROUP BY modułu
 
 ## <a name="rollup-and-grouping-sets-options"></a>Ustawia opcje ROLLUP i grouping
-Witaj najprostsza opcja tutaj jest toouse `UNION ALL` zamiast tego pakiet zbiorczy hello tooperform zamiast polegania na hello jawnej składni. wynik Hello jest hello dokładnie tego samego
+Jest to najprostsza opcja używania `UNION ALL` zamiast tego przeprowadzić pakiet zbiorczy zamiast polegania na jawnej składni. Wynik jest dokładnie taka sama
 
-Poniżej znajduje się przykład grupy przez instrukcję, używając hello `ROLLUP` opcji:
+Poniżej znajduje się przykład grupy za pomocą instrukcji `ROLLUP` opcji:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -48,13 +48,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Za pomocą pakietu ZBIORCZEGO żądanych firma Microsoft hello po agregacji:
+Za pomocą pakietu ZBIORCZEGO możemy żądanych agregacji następujące:
 
 * Kraj lub Region
 * Kraj
 * Całkowita suma
 
-tooreplace to należy toouse `UNION ALL`; Określanie agregacji hello wymagane jawnie tooreturn hello takie same wyniki:
+Aby zamienić to będą musieli używać `UNION ALL`; Określanie agregacji jawnie muszą zwracać takie same wyniki:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,14 +81,14 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-GROUPING SETS potrzebujemy toodo jest przyjąć hello sama główna, lecz tylko utworzyć sekcje UNION ALL dla hello poziomy agregacji chcemy toosee
+GROUPING SETS wszystkie konieczne jest przyjąć tej samej nazwy głównej, ale tylko utworzyć UNION ALL sekcjach poziomów agregacji, które chcesz zobaczyć
 
 ## <a name="cube-options"></a>Opcje modułu
-Jest możliwe toocreate GROUP BY WITH CUBE hello podejście UNION ALL. Hello problem jest, że kod hello może szybko stać się skomplikowane i niewygodna. toomitigate to możesz użyć tej funkcji bardziej zaawansowane metody.
+Istnieje możliwość utworzenia grupy przez z modułu przy użyciu podejścia UNION ALL. Problem polega na tym, że kod może szybko stać się skomplikowane i niewygodna. Aby temu zaradzić możesz użyć tego bardziej zaawansowane metody.
 
-Użyjmy przykład Witaj powyżej.
+Użyjmy w powyższym przykładzie.
 
-pierwszym krokiem Hello jest hello toodefine modułu, który definiuje wszystkie poziomy hello agregacji, że chcemy toocreate. Jest ważne tootake należy wziąć pod uwagę hello CROSS JOIN hello dwóch tabel pochodnych. Spowoduje to wygenerowanie wszystkie poziomy hello firmie Microsoft. rest Hello kodu hello jest naprawdę formatowania.
+Pierwszym krokiem jest określenie "module" definiujący wszystkie poziomy agregacji, jeśli chcesz utworzyć. Należy pamiętać o CROSS JOIN dwóch tabel pochodnych. Spowoduje to wygenerowanie wszystkie poziomy firmie Microsoft. Pozostała część kodu jest naprawdę formatowania.
 
 ```sql
 CREATE TABLE #Cube
@@ -119,11 +119,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-wyniki Hello hello CTAS są widoczne poniżej:
+Wyniki CTAS są widoczne poniżej:
 
 ![][1]
 
-drugim krokiem Hello jest toospecify przejściowej toostore tabeli docelowej w wynikach:
+Drugim krokiem jest określenie tabeli docelowej do przechowywania wyników pośrednich:
 
 ```sql
 DECLARE
@@ -146,7 +146,7 @@ WITH
 ;
 ```
 
-trzeci krok Hello jest tooloop za pośrednictwem naszego modułu wykonywania agregacji hello kolumn. Zapytanie Hello zostaną uruchomione jeden raz dla każdego wiersza w tabeli tymczasowej hello #Cube i przechowywać wyniki hello w tabeli tymczasowej hello #Results
+Trzeci krok ma pętlę naszych modułu wykonywania agregacji kolumn. Zapytanie zostanie uruchomione jeden raz dla każdego wiersza w tabeli tymczasowej #Cube i zapisać wyniki w tabeli tymczasowej #Results
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +170,7 @@ BEGIN
 END
 ```
 
-Na koniec zostanie zwrócona wyniki hello odczytując po prostu z tabeli tymczasowej hello #Results
+Na koniec zostanie zwrócona po prostu przeczytaj z tabeli tymczasowej #Results wyników
 
 ```sql
 SELECT *
@@ -179,7 +179,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-Przez podzielenie kodu hello sekcje i generowania pętli hello konstrukcji kodu staje się bardziej łatwe w zarządzaniu i łatwy w obsłudze.
+Przez podzielenie kod na sekcje i generowanie konstrukcji pętli kodu staje się bardziej łatwe w zarządzaniu i łatwy w obsłudze.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej porad programistycznych, zobacz [omówienie tworzenia][development overview].

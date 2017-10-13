@@ -1,6 +1,6 @@
 ---
-title: aaaControl routingu w klasycznym Azure Virtual Network - CLI - | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak hello toocontrol routingu w sieci wirtualnych za pomocą wiersza polecenia platformy Azure w hello klasycznego modelu wdrażania"
+title: Kontrolowanie routingu w klasycznym Azure Virtual Network - CLI - | Dokumentacja firmy Microsoft
+description: "Informacje o sposobie kontrolowania routingu w sieci wirtualnych w klasycznym modelu wdrażania przy użyciu wiersza polecenia platformy Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: 07dde573f1a605bf280156c261d51e213ede0cdc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8fcb98723e7e872c932908e3456dc8680deb0901
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="control-routing-and-use-virtual-appliances-classic-using-hello-azure-cli"></a>Formant routingu i użyj wirtualnych urządzeń (klasyczne) przy użyciu interfejsu wiersza polecenia Azure hello
+# <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Kontrolowanie routingu i używaniu urządzeń wirtualnych (klasyczne) przy użyciu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](virtual-network-create-udr-arm-ps.md)
@@ -34,18 +34,18 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-W tym artykule omówiono hello klasycznego modelu wdrażania. Możesz również [kontrolować routingu i używaniu urządzeń wirtualnych w modelu wdrażania usługi Resource Manager hello](virtual-network-create-udr-arm-cli.md).
+W tym artykule opisano klasyczny model wdrażania. Możesz również [kontrolować routingu i używaniu urządzeń wirtualnych w modelu wdrażania usługi Resource Manager](virtual-network-create-udr-arm-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
-Poniższe polecenia interfejsu wiersza polecenia Azure próbki Hello oczekiwać środowisku niezłożonym już utworzone w zależności od scenariusza hello powyżej. Polecenia hello toorun wyświetlaną w tym dokumencie, utworzyć środowisko hello pokazano [Utwórz sieć wirtualną (klasyczne) przy użyciu interfejsu wiersza polecenia Azure hello](virtual-networks-create-vnet-classic-cli.md).
+Poniższe przykładowe polecenia interfejsu wiersza polecenia Azure oczekiwać środowisku niezłożonym już utworzone w zależności od scenariusza powyżej. Jeśli chcesz uruchomić polecenia wyświetlaną w tym dokumencie, należy utworzyć w środowisku pokazanym w [Utwórz sieć wirtualną (klasyczne) przy użyciu interfejsu wiersza polecenia Azure](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## <a name="create-hello-udr-for-hello-front-end-subnet"></a>Utwórz hello przez dla podsieci frontonu hello
-tabeli tras hello toocreate i trasy wymagane do podsieci frontonu hello oparta na scenariuszu hello powyżej, wykonaj poniższe kroki hello.
+## <a name="create-the-udr-for-the-front-end-subnet"></a>Utwórz przez podsieci frontonu
+Aby utworzyć tabelę tras i trasy wymagane do podsieci frontonu oparte na powyższym scenariuszu, wykonaj poniższe kroki.
 
-1. Witaj uruchom następujące polecenie Tryb tooclassic tooswitch:
+1. Uruchom następujące polecenie, aby przełączyć do trybu klasycznego:
 
     ```azurecli
     azure config mode asm
@@ -55,7 +55,7 @@ tabeli tras hello toocreate i trasy wymagane do podsieci frontonu hello oparta n
 
         info:    New mode is asm
 
-2. Uruchom następujące polecenie toocreate hello tabelę tras dla podsieci frontonu hello:
+2. Uruchom następujące polecenie, aby utworzyć tabelę tras dla podsieci frontonu:
 
     ```azurecli
     azure network route-table create -n UDR-FrontEnd -l uswest
@@ -72,9 +72,9 @@ tabeli tras hello toocreate i trasy wymagane do podsieci frontonu hello oparta n
    
     Parametry:
    
-   * **-l (lub --location)**. Region platformy Azure, której hello Nowa grupa NSG zostanie utworzona. W naszym scenariuszu *westus*.
-   * **-n (lub --name)**. Nazwa hello Nowa grupa NSG. W naszym scenariuszu *frontonu NSG*.
-3. Uruchom następujące polecenie toocreate trasy w toosend tabeli tras hello hello wszystkich toohello podsieci zaplecza (192.168.2.0/24) toohello ruch kierowany **FW1** maszyny Wirtualnej (192.168.0.4):
+   * **-l (lub --location)**. Region platformy Azure, w którym zostanie utworzona nowa grupa NSG. W naszym scenariuszu *westus*.
+   * **-n (lub --name)**. Nazwa nowej grupy NSG. W naszym scenariuszu *frontonu NSG*.
+3. Uruchom następujące polecenie, aby utworzyć trasę w tabeli tras do wysyłania całego ruchu kierowanego do podsieci zaplecza (192.168.2.0/24), aby **FW1** maszyny Wirtualnej (192.168.0.4):
 
     ```azurecli
     azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
@@ -89,11 +89,11 @@ tabeli tras hello toocreate i trasy wymagane do podsieci frontonu hello oparta n
    
     Parametry:
    
-   * **-r (lub--nazwa tabeli tras)**. Nazwa tabeli tras hello, gdzie ma zostać dodana hello trasy. W naszym scenariuszu *frontonu przez*.
-   * **-a (lub --address-prefix)**. Prefiks adresu podsieci hello, gdy pakiety są przeznaczone do. W naszym scenariuszu *192.168.2.0/24*.
+   * **-r (lub--nazwa tabeli tras)**. Nazwa tabeli tras, w którym można dodać trasy. W naszym scenariuszu *frontonu przez*.
+   * **-a (lub --address-prefix)**. Prefiks adresu podsieci, gdy pakiety są przeznaczone do. W naszym scenariuszu *192.168.2.0/24*.
    * **-t (lub--następnego przeskoku typu)**. Typ obiektu ruchu zostaną wysłane do. Możliwe wartości to *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, lub *Brak*.
    * **-p (lub--dalej przeskoku — adres ip**). Adres IP następnego przeskoku. W naszym scenariuszu *192.168.0.4*.
-4. Witaj uruchom następujące polecenie tabeli tras hello tooassociate utworzone za pomocą hello **frontonu** podsieci:
+4. Uruchom następujące polecenie, aby skojarzyć utworzone za pomocą tabeli tras **frontonu** podsieci:
 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n FrontEnd -r UDR-FrontEnd
@@ -102,7 +102,7 @@ tabeli tras hello toocreate i trasy wymagane do podsieci frontonu hello oparta n
     Dane wyjściowe:
    
         info:    Executing command network vnet subnet route-table add
-        info:    Looking up hello subnet "FrontEnd"
+        info:    Looking up the subnet "FrontEnd"
         info:    Looking up network configuration
         info:    Looking up network gateway route tables in virtual network "TestVNet" subnet "FrontEnd"
         info:    Associating route table "UDR-FrontEnd" and subnet "FrontEnd"
@@ -114,25 +114,25 @@ tabeli tras hello toocreate i trasy wymagane do podsieci frontonu hello oparta n
    
     Parametry:
    
-   * **-t (lub--vnet-name)**. Nazwa sieci wirtualnej, w którym znajduje się podsieci hello hello. W naszym scenariuszu jest to *TestVNet*.
-   * **-n (lub--nazwy podsieci**. Nazwa tabeli tras hello podsieci hello zostaną dodane do. W naszym scenariuszu jest to *FrontEnd*.
+   * **-t (lub--vnet-name)**. Nazwa sieci wirtualnej, w którym znajduje się podsieci. W naszym scenariuszu jest to *TestVNet*.
+   * **-n (lub--nazwy podsieci**. Nazwa tabeli tras zostanie dodany do podsieci. W naszym scenariuszu jest to *FrontEnd*.
 
-## <a name="create-hello-udr-for-hello-back-end-subnet"></a>Utwórz hello przez hello zaplecza podsieci
-Tabela tras hello toocreate i trasy wymagane do podsieci wewnętrznej hello oparta na scenariuszu hello pełną hello następujące kroki:
+## <a name="create-the-udr-for-the-back-end-subnet"></a>Utwórz przez podsieci wewnętrznej
+Aby utworzyć tabelę tras i trasy wymagane do podsieci zaplecza opartą na tym scenariuszu, wykonaj następujące kroki:
 
-1. Uruchom następujące polecenie toocreate hello tabelę tras dla podsieci wewnętrznej hello:
+1. Uruchom następujące polecenie, aby utworzyć tabelę tras dla podsieci wewnętrznej:
 
     ```azurecli
     azure network route-table create -n UDR-BackEnd -l uswest
     ```
 
-2. Uruchom następujące polecenia toocreate trasy w toosend tabeli tras hello hello wszystkich ruch kierowany toohello podsieci frontonu (192.168.1.0/24) toohello **FW1** maszyny Wirtualnej (192.168.0.4):
+2. Uruchom następujące polecenie, aby utworzyć trasę w tabeli tras do wysyłania całego ruchu kierowanego do podsieci frontonu (192.168.1.0/24), aby **FW1** maszyny Wirtualnej (192.168.0.4):
 
     ```azurecli
     azure network route-table route set -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -t VirtualAppliance -p 192.168.0.4
     ```
 
-3. Uruchom hello następujących tabeli tras hello tooassociate polecenie z hello **zaplecza** podsieci:
+3. Uruchom następujące polecenie, aby skojarzyć tabela tras o **zaplecza** podsieci:
 
     ```azurecli
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd

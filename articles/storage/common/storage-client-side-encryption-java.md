@@ -1,6 +1,6 @@
 ---
-title: "Szyfrowanie po stronie aaaClient z językiem Java dla magazynu Microsoft Azure | Dokumentacja firmy Microsoft"
-description: "Witaj biblioteki klienta usługi Azure Storage dla języka Java obsługuje szyfrowanie po stronie klienta i integracja z usługą Azure Key Vault dla zapewnienia maksymalnego poziomu bezpieczeństwa dla aplikacji usługi Azure Storage."
+title: "Szyfrowanie po stronie klienta z językiem Java dla magazynu Microsoft Azure | Dokumentacja firmy Microsoft"
+description: "Biblioteka klienta magazynu Azure dla języka Java obsługuje szyfrowanie po stronie klienta i integracja z usługą Azure Key Vault dla zapewnienia maksymalnego poziomu bezpieczeństwa dla aplikacji usługi Azure Storage."
 services: storage
 documentationcenter: java
 author: lakasa
@@ -14,171 +14,171 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: cb40c737b9065005f0f31f654e7e43fd27b923f5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Szyfrowanie po stronie klienta i usługi Azure Key Vault z językiem Java dla magazynu Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Omówienie
-Witaj [biblioteki klienta usługi Azure Storage dla języka Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) obsługuje szyfrowanie danych w aplikacjach klienckich przed przekazaniem tooAzure magazynu i odszyfrowywania danych podczas pobierania toohello klienta. Biblioteka Hello obsługuje również integrację z [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/) zarządzania kluczami konta magazynu.
+[Biblioteki klienta usługi Azure Storage dla języka Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) obsługuje szyfrowanie danych w aplikacjach klienckich przed przekazaniem do usługi Azure Storage i odszyfrowywania danych podczas pobierania do klienta. Biblioteka obsługuje również integrację z [usługi Azure Key Vault](https://azure.microsoft.com/services/key-vault/) zarządzania kluczami konta magazynu.
 
-## <a name="encryption-and-decryption-via-hello-envelope-technique"></a>Szyfrowanie i odszyfrowywanie za pomocą techniki koperty hello
-procesy Hello szyfrowania i odszyfrowywania wykonaj hello koperty techniki.  
+## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Szyfrowanie i odszyfrowywanie za pomocą techniki koperty
+Procesy szyfrowania i odszyfrowywania wykonaj technika koperty.  
 
-### <a name="encryption-via-hello-envelope-technique"></a>Szyfrowanie za pomocą techniki koperty hello
-Szyfrowanie za pomocą techniki koperty hello działa w następujący sposób hello:  
+### <a name="encryption-via-the-envelope-technique"></a>Szyfrowanie za pomocą techniki koperty
+Szyfrowanie za pomocą techniki koperty działa w następujący sposób:  
 
-1. Biblioteka klienta magazynu Azure Hello generuje klucz szyfrowania zawartości (CEK), jest jeden jednorazowej użycia klucza symetrycznego.  
+1. Biblioteka klienta magazynu Azure generuje klucz szyfrowania zawartości (CEK), jest jeden jednorazowej użycia klucza symetrycznego.  
 2. Dane użytkownika są szyfrowane przy użyciu tego CEK.   
-3. Witaj CEK jest następnie opakowane (zaszyfrowane) przy użyciu hello klucza szyfrowania klucza (KEK). Hello KEK jest identyfikowany przez identyfikator klucza i można parę klucza asymetrycznego lub klucza symetrycznego i może być zarządzane lokalnie lub przechowywane w magazynach klucza usługi Azure.  
-   Biblioteka klienta usługi storage Hello się nigdy nie tooKEK dostępu. Biblioteka Hello wywołuje algorytm klucza zawijania hello są udostępniane przez usługi Key Vault. Użytkownicy mogą wybrać toouse niestandardowego dostawcy dla kluczy zawijania/odkodowywania w razie potrzeby.  
-4. Witaj zaszyfrowane dane są następnie przekazywane toohello usługi Magazyn Azure. Hello opakowana klucz wraz ze niektóre metadane dodatkowego szyfrowania jest przechowywane jako metadanych (dla obiektu blob) albo interpolowane z hello zaszyfrowane dane (wiadomości w kolejce i jednostek tabeli).
+3. CEK jest następnie opakowane (zaszyfrowane) przy użyciu klucza szyfrowania klucza (KEK). KEK jest identyfikowany przez identyfikator klucza i można parę klucza asymetrycznego lub klucza symetrycznego i można być zarządzany lokalnie lub przechowywane w magazynach klucza usługi Azure.  
+   Biblioteka klienta magazynu się nigdy nie ma dostęp do KEK. Biblioteka wywołuje algorytm klucza zawijania zapewnianej przez usługi Key Vault. Użytkownicy mogą wybierać dostawców niestandardowych dla klucza zawijania/odkodowywania w razie potrzeby.  
+4. Zaszyfrowane dane są następnie przekazywane do usługi Magazyn Azure. Opakowana klucz wraz ze niektóre metadane dodatkowego szyfrowania jest przechowywane jako metadanych (dla obiektu blob) albo interpolowane z zaszyfrowanych danych (wiadomości w kolejce i jednostek tabeli).
 
-### <a name="decryption-via-hello-envelope-technique"></a>Odszyfrowywanie przy użyciu techniki koperty hello
-Odszyfrowywanie przy użyciu techniki koperty hello działa w hello w następujący sposób:  
+### <a name="decryption-via-the-envelope-technique"></a>Odszyfrowywanie przy użyciu techniki koperty
+Odszyfrowywanie przy użyciu techniki koperty działa w następujący sposób:  
 
-1. Biblioteka klienta Hello przyjęto założenie, że użytkownik hello zarządza hello klucza szyfrowania klucza (KEK) lokalnie lub w magazynach klucza usługi Azure. Witaj, użytkownik nie musi tooknow hello określonego klucza używanego do szyfrowania. Zamiast tego klucza programu rozpoznawania nazw, która rozwiązuje tookeys różne identyfikatory klucza można skonfigurować i używane.  
-2. Biblioteka klienta Hello pobiera hello zaszyfrowanych danych wraz z materiał szyfrowania, który jest przechowywany w usłudze hello.  
-3. klucz szyfrowania zawartości opakowanej Hello (CEK) znajduje się przy użyciu (odszyfrowane) bez otoki hello klucza szyfrowania klucza (KEK). W tym miejscu ponownie powitania klienta biblioteki nie ma tooKEK dostępu. Wywołuje po prostu hello niestandardowych lub dostawcy magazynu kluczy odszyfrowania algorytmu.  
-4. Hello zawartości klucza szyfrowania (CEK) jest następnie używane dane użytkownika toodecrypt hello szyfrowane.
+1. Biblioteka klienta przyjęto założenie, czy użytkownik zarządza klucz szyfrowania klucza (KEK) lokalnie lub w magazynach klucza usługi Azure. Użytkownik nie musi wiedzieć określonego klucza, który był używany do szyfrowania. Zamiast tego klucza programu rozpoznawania nazw, który jest rozpoznawany jako różne identyfikatory klucza kluczy można skonfigurować i używane.  
+2. Biblioteka klienta pobierze zaszyfrowanych danych wraz z materiał szyfrowania, który jest przechowywany w usłudze.  
+3. Klucz szyfrowania zawartości opakowana (CEK) znajduje się bez otoki (odszyfrowane) przy użyciu klucza szyfrowania klucza (KEK). W tym miejscu ponownie, Biblioteka klienta nie ma dostępu do KEK. Wywołuje po prostu niestandardowej lub dostawcy magazynu kluczy odszyfrowania algorytmu.  
+4. Klucz szyfrowania zawartości (CEK) jest następnie używany do odszyfrowywania danych zaszyfrowanych użytkownika.
 
 ## <a name="encryption-mechanism"></a>Mechanizm szyfrowania
-Biblioteka klienta usługi storage Hello używa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) w kolejności tooencrypt użytkownika danych. W szczególności [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) trybu z użyciem standardu AES. Każdy usługi działa nieco inaczej, dlatego omówimy każdego z nich w tym miejscu.
+Biblioteka klienta magazynu używa [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) w celu zaszyfrowania danych użytkownika. W szczególności [Cipher Block Chaining (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) trybu z użyciem standardu AES. Każdy usługi działa nieco inaczej, dlatego omówimy każdego z nich w tym miejscu.
 
 ### <a name="blobs"></a>Obiekty blob
-Biblioteka klienta Hello obecnie obsługuje szyfrowanie tylko całe obiektów blob. W szczególności, szyfrowanie jest obsługiwane, gdy użytkownicy używają hello **przekazać*** metod lub hello **openOutputStream** metody. Obsługiwane są pliki do pobrania, zarówno pełne i pobieranie zakresu.  
+Biblioteka klienta obecnie obsługuje szyfrowanie całego obiektów blob tylko. W szczególności, szyfrowanie jest obsługiwane, gdy użytkownicy używają **przekazać*** metody lub **openOutputStream** metody. Obsługiwane są pliki do pobrania, zarówno pełne i pobieranie zakresu.  
 
-Podczas szyfrowania powitania klienta biblioteki generowania losowego inicjowania wektora (IV) 16 bajtów oraz klucz szyfrowania zawartości (CEK) 32 bajtów i wykonać koperty szyfrowanie danych obiektów blob hello, korzystając z tych informacji. Witaj opakowana CEK i niektóre metadane szyfrowania dodatkowe są następnie przechowywane, jak metadanych oraz hello blob zaszyfrowane na powitania usługi blob.
+Podczas szyfrowania biblioteki klienckiej generowania losowego inicjowania wektora (IV) 16 bajtów oraz klucz szyfrowania zawartości (CEK) 32 bajtów i wykonać koperty szyfrowanie danych obiektów blob, korzystając z tych informacji. Opakowana CEK i niektóre metadane szyfrowania dodatkowe następnie są przechowywane jako obiektów blob metadane wraz z zaszyfrowanego obiektu blob w usłudze.
 
 > [!WARNING]
-> Jeśli edytujesz lub przekazywania metadanych dla obiektu blob hello, konieczne jest zachowywanie tych metadanych tooensure. Podczas przesyłania nowych metadanych bez takich metadanych, hello opakowana CEK, IV i inne metadane zostaną utracone i zawartości obiektu blob hello nigdy nie zostać pobieranie.
+> W przypadku edytowania lub przekazywanie metadanych dla obiektu blob, należy upewnij się, że te metadane są zachowywane. Po wysłaniu nowej metadanych bez takich metadanych opakowana CEK, IV i inne metadane zostaną utracone i zawartości obiektu blob nigdy nie być pobieranie.
 > 
 > 
 
-Pobieranie zaszyfrowanej blob polega na pobraniu zawartości hello całego obiektu blob hello przy użyciu hello  **Pobierz*/openInputStream** podręczne metody. Hello opakowana CEK następnie rozpakować i używać razem z hello IV (przechowywane jako metadane obiektu blob w tym przypadku) tooreturn hello odszyfrować danych toohello użytkowników.
+Pobieranie zaszyfrowanej blob polega na pobraniu zawartości przy użyciu całego obiektu blob  **Pobierz*/openInputStream** podręczne metody. Opakowana CEK następnie rozpakować i używać razem z IV (przechowywane jako metadane obiektu blob w tym przypadku), aby przywrócić odszyfrowane dane użytkowników.
 
-Pobieranie z dowolnego zakresu (**downloadRange*** metody) w hello zaszyfrowany obiekt blob obejmuje dostosowania zakresu hello dostarczane przez użytkowników w kolejności tooget niewielkie dodatkowych danych, które mogą być używane toosuccessfully odszyfrować hello żądany zakres.  
+Pobieranie z dowolnego zakresu (**downloadRange*** metody) w obiekcie blob zaszyfrowane obejmuje dopasowywanie dostarczone przez użytkowników, aby uzyskać niewielkie dodatkowych danych, które można pomyślnie odszyfrować żądanego zakresu zakres.  
 
 Wszystkie typy obiektu blob (blokowe obiekty BLOB, stronicowe i uzupełnialne) mogły być szyfrowane/odszyfrowane przy użyciu tego systemu.
 
 ### <a name="queues"></a>Kolejki
-Ponieważ wiadomości w kolejce może być dowolnym formacie, powitania klienta biblioteki definiuje niestandardowego formatu, który zawiera tekst wiadomości powitania hello wektor inicjowania (IV) i klucz szyfrowania zaszyfrowanej zawartości hello (CEK).  
+Ponieważ wiadomości w kolejce może być dowolnym formacie, Biblioteka klienta definiuje formatu niestandardowego, który obejmuje wektor inicjowania (IV) oraz klucza zaszyfrowanego szyfrowania zawartości (CEK) w treści wiadomości.  
 
-Podczas szyfrowania powitania klienta biblioteki generuje losowe IV 16 bajtów wraz z losowe CEK 32 bajtów i wykonuje szyfrowanie koperty hello kolejki wiadomości tekstu, korzystając z tych informacji. Witaj opakowana CEK i niektóre metadane dodatkowego szyfrowania jest następnie dodawana toohello zaszyfrowanych kolejki wiadomości. Ten komunikat modyfikacji (pokazana poniżej) są przechowywane na powitania usługi.
+Podczas szyfrowania biblioteki klienckiej generuje losowe IV 16 bajtów wraz z losowe CEK 32 bajtów i wykonuje koperty szyfrowania treści wiadomości kolejki, korzystając z tych informacji. Opakowana CEK i niektóre metadane dodatkowego szyfrowania jest następnie dodawana do komunikatu w kolejce zaszyfrowane. Ten komunikat modyfikacji (pokazana poniżej) są przechowywane w usłudze.
 
 ```
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 ```
 
-Podczas odszyfrowywania klucz opakowana hello zostaje wyodrębniony z komunikatu w kolejce hello i nie opakowanych. Hello IV jest również wyodrębniony z komunikatu w kolejce hello i używać razem z danymi o hello nie opakowanych klucza toodecrypt hello kolejki wiadomości. Należy pamiętać, że metadane szyfrowania hello to mały (w bajtach 500), więc podczas jego wliczane limit 64 KB hello komunikatu w kolejce, wpływ hello powinno być łatwe w zarządzaniu.
+Podczas odszyfrowywania opakowana klucz zostaje wyodrębniony z komunikatu w kolejce i nie opakowanych. IV jest również wyodrębniony z komunikatu w kolejce i używać razem z kluczem odkodowany do odszyfrowania danych kolejki wiadomości. Należy pamiętać, że metadane szyfrowania mały (w obszarze 500 bajtów), więc podczas jego wliczane limit 64KB komunikatu w kolejce, wpływ powinno być łatwe w zarządzaniu.
 
 ### <a name="tables"></a>Tabele
-Witaj klienta biblioteki obsługuje szyfrowanie właściwości obiektów w operacjach wstawiania i zamienianie operacji.
+Biblioteka klienta obsługuje szyfrowanie właściwości obiektów w operacjach wstawiania i zamienianie operacji.
 
 > [!NOTE]
-> Scalanie nie jest obecnie obsługiwane. Ponieważ podzbiór właściwości może być zaszyfrowany wcześniej za pomocą innego klucza, po prostu scalanie hello nowe właściwości i aktualizowania metadanych hello spowoduje utratę danych. Scalanie albo wymaga wprowadzania dodatkowych usługi wywołuje tooread hello istniejące jednostki z usługi hello lub przy użyciu nowego klucza dla właściwości, które nie są odpowiednie ze względu na wydajność.
+> Scalanie nie jest obecnie obsługiwane. Ponieważ podzbiór właściwości może być zaszyfrowany wcześniej za pomocą innego klucza, po prostu scalanie nowych właściwości i aktualizowania metadanych spowoduje utratę danych. Scalanie albo wymaga wywołań usługi dodatkowe odczytać istniejące jednostki z usługi lub przy użyciu nowego klucza dla właściwości, które nie są odpowiednie ze względu na wydajność.
 > 
 > 
 
 Szyfrowanie danych tabeli działa w następujący sposób:  
 
-1. Użytkownicy określić toobe właściwości hello szyfrowane.  
-2. Biblioteka klienta Hello generuje losowe inicjowania wektora (IV) 16 bajtów oraz klucza szyfrowania zawartości (CEK) 32 bajtów dla każdej jednostki i wykonuje szyfrowanie koperty na powitania poszczególnych właściwości toobe zaszyfrowane przez nowy IV na wyprowadzanie Właściwość. Właściwość Hello szyfrowane są przechowywane jako dane binarne.  
-3. Witaj opakowana CEK i niektóre metadane szyfrowania dodatkowe następnie są przechowywane jako dwa dodatkowe właściwości zastrzeżone. pierwszą właściwością zarezerwowane (_ClientEncryptionMetadata1) Hello jest właściwości ciągu, która zawiera informacje hello IV, wersji i klucz opakowana. Druga właściwość zastrzeżone (_ClientEncryptionMetadata2) Hello jest właściwość binarną, która zawiera informacje hello hello właściwości, które są szyfrowane. Witaj informacji w tej drugiej właściwości (_ClientEncryptionMetadata2) jest zaszyfrowany.  
-4. Powodu toothese dodatkowe właściwości zastrzeżone wymagana na potrzeby szyfrowania użytkownicy mogą teraz mieć tylko 250 właściwości niestandardowych zamiast 252. Całkowity rozmiar Hello hello jednostki musi być mniejszy niż 1MB.  
+1. Użytkownicy określić właściwości, które mają być szyfrowane.  
+2. Biblioteka klienta generuje losowe inicjowania wektora (IV) 16 bajtów oraz klucza szyfrowania zawartości (CEK) 32 bajtów dla każdej jednostki i wykonuje szyfrowanie koperty na poszczególnych właściwości w celu zaszyfrowania przez wyprowadzanie nowy IV dla właściwości. Zaszyfrowane właściwości są przechowywane jako dane binarne.  
+3. Opakowana CEK i niektóre metadane szyfrowania dodatkowe następnie są przechowywane jako dwa dodatkowe właściwości zastrzeżone. Pierwszą właściwością zarezerwowane (_ClientEncryptionMetadata1) jest właściwości ciągu, która przechowuje informacje dotyczące IV, wersji i klucz opakowana. Właściwość drugi zarezerwowane (_ClientEncryptionMetadata2) jest właściwość binarną, która przechowuje informacje o właściwościach, które są szyfrowane. Informacje przedstawione w tej drugiej właściwości (_ClientEncryptionMetadata2) jest zaszyfrowany.  
+4. Z powodu te dodatkowe właściwości zastrzeżone wymagana na potrzeby szyfrowania użytkownicy mogą teraz mieć tylko 250 właściwości niestandardowych zamiast 252. Całkowity rozmiar jednostki musi być mniejszy niż 1MB.  
    
-   Należy pamiętać, że tylko właściwości parametrów mogą być szyfrowane. Jeśli inne typy właściwości toobe zaszyfrowane, muszą być toostrings przekonwertowany. ciągi Hello szyfrowane są przechowywane w usłudze hello jako właściwości binarnych, a zostaną one przetworzone toostrings wstecz po odszyfrowywania.
+   Należy pamiętać, że tylko właściwości parametrów mogą być szyfrowane. Inne typy właściwości mają być szyfrowane, musi zostać przekonwertowana na ciągi. Zaszyfrowane ciągi są przechowywane w usłudze jako właściwości binarnych i są one konwertowana z powrotem do ciągów po odszyfrowywania.
    
-   W przypadku tabel Ponadto toohello zasady szyfrowania, użytkownicy muszą określić toobe właściwości hello szyfrowane. Można to zrobić, określając atrybutu [Szyfruj] (dla jednostki POCO, które pochodzą z TableEntity) lub szyfrowania, program rozpoznawania nazw w opcjach żądania. Rozwiązywanie problemów z szyfrowania jest delegata, który ma klucz partycji, klucz wiersza i nazwy właściwości i zwraca wartość boolean wskazującą, czy ma być szyfrowana tej właściwości. Podczas szyfrowania powitania klienta biblioteki użyje tego toodecide informacji czy właściwość powinny być szyfrowane podczas przesyłania toohello zapisu. Delegat Hello udostępnia także możliwość hello logiki wokół jak właściwości są szyfrowane. (Na przykład, jeśli X, następnie szyfrować właściwości A; w przeciwnym razie szyfrowania właściwości A i B.) Należy pamiętać, że jest niekonieczne tooprovide te informacje podczas odczytywania lub zapytanie jednostki.
+   W przypadku tabel, oprócz zasad szyfrowania użytkownicy muszą określić właściwości, które mają być szyfrowane. Można to zrobić, określając atrybutu [Szyfruj] (dla jednostki POCO, które pochodzą z TableEntity) lub szyfrowania, program rozpoznawania nazw w opcjach żądania. Rozwiązywanie problemów z szyfrowania jest delegata, który ma klucz partycji, klucz wiersza i nazwy właściwości i zwraca wartość boolean wskazującą, czy ma być szyfrowana tej właściwości. Podczas szyfrowania biblioteki klienckiej użyje tych informacji do określania, czy właściwości powinny być szyfrowane podczas zapisywania można przewodowo. Delegat także możliwość logiki wokół jak właściwości są szyfrowane. (Na przykład, jeśli X, następnie szyfrować właściwości A; w przeciwnym razie szyfrowania właściwości A i B.) Należy pamiętać, że nie jest niezbędne do zapewnienia tych informacji podczas odczytywania lub zapytanie jednostki.
 
 ### <a name="batch-operations"></a>Operacje w trybie wsadowym
-W operacji wsadowych hello KEK tego samego zostanie użyty przez wszystkie wiersze hello w tej operacji zbiorczej ponieważ powitania klienta biblioteki umożliwia tylko jeden obiekt opcje (i dlatego jednej zasady/KEK) dla operacji zbiorczej. Jednak biblioteka klienta hello wewnętrznie wygeneruje nowy losowych IV i losowe CEK w wierszu w partii hello. Użytkownicy mogą także wybrać tooencrypt inne właściwości dla każdej operacji w partii hello, definiując to zachowanie w hello szyfrowania programu rozpoznawania nazw.
+W operacji wsadowych tego samego klucza KEK zostanie użyty przez wszystkie wiersze w tej operacji zbiorczej ponieważ biblioteki klienta umożliwia tylko jeden obiekt opcje (i dlatego jednej zasady/KEK) dla operacji zbiorczej. Jednak biblioteka klienta wewnętrznie wygeneruje nowy losowych IV i losowe CEK wierszu w partii. Użytkowników można również zaszyfrować inne właściwości dla każdej operacji w partii, definiując to zachowanie w szyfrowania programu rozpoznawania nazw.
 
 ### <a name="queries"></a>Zapytania
-Operacje kwerend tooperform, należy określić klucza programu rozpoznawania nazw, będącą w stanie tooresolve hello wszystkie klucze w zestawie wyników hello. Jeśli jednostka zawarte w wyniku zapytania hello nie można rozpoznać tooa dostawcy, powitania klienta biblioteki zgłosi błąd. Dla dowolnego zapytania, który wykonuje projekcje po stronie serwera powitania klienta biblioteki doda hello właściwości metadanych szyfrowania specjalne (_ClientEncryptionMetadata1 i _ClientEncryptionMetadata2) przez domyślne toohello wybrane kolumny.
+Aby wykonać operacje zapytań, należy określić klucza programu rozpoznawania nazw, która jest w stanie rozwiązać wszystkich kluczy w zestawie wyników. Jeśli nie można rozpoznać jednostki zawarty w wyniku zapytania do dostawcy, biblioteki klienckiej zgłosi błąd. Dla dowolnego zapytania, który wykonuje projekcje po stronie serwera biblioteki klienckiej doda właściwości metadanych szyfrowania specjalne (_ClientEncryptionMetadata1 i _ClientEncryptionMetadata2) domyślnie do zaznaczonych kolumnach.
 
 ## <a name="azure-key-vault"></a>W usłudze Azure Key Vault
 Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Za pomocą usługi Azure Key Vault, użytkownicy mogą szyfrować klucze i klucze tajne (takie jak klucze uwierzytelniania, klucze konta magazynu, klucze szyfrowania danych. Pliki PFX oraz hasła) przy użyciu kluczy chronionych przez sprzętowe moduły zabezpieczeń (HSM). Aby uzyskać więcej informacji, zobacz [co to jest usługa Azure Key Vault?](../../key-vault/key-vault-whatis.md).
 
-Biblioteka klienta usługi storage Hello używa hello Key Vault podstawowej biblioteki w kolejności tooprovide wspólnej struktury wszystkich Azure do zarządzania kluczami. Użytkownicy otrzymują również hello dodatkową korzyścią z używania biblioteki rozszerzenia usługi Key Vault hello. Biblioteka rozszerzeń Hello zawiera przydatne funkcje wokół łatwego i Symmetric/RSA lokalnych i chmurze dostawców klucza, a także z agregacji i buforowania.
+Biblioteka klienta magazynu używa podstawowej biblioteki usługi Key Vault w celu zapewnienia wspólnej struktury całej Azure do zarządzania kluczami. Użytkownicy otrzymują również dodatkową korzyścią z używania biblioteki rozszerzenia usługi Key Vault. Biblioteka rozszerzeń zawiera przydatne funkcje wokół łatwego i Symmetric/RSA lokalnych i chmurze dostawców klucza, a także z agregacji i buforowania.
 
 ### <a name="interface-and-dependencies"></a>Interfejs i zależności
 Istnieją trzy pakiety usługi Key Vault:  
 
-* Azure keyvault podstawowe zawiera hello IKey i IKeyResolver. Jest mała pakietu bez zależności. Witaj biblioteki klienta usługi storage dla języka Java definiuje ją jako zależności.
-* Azure keyvault zawiera powitania klienta Key Vault REST.  
-* Azure — keyvault rozszerzenia zawiera rozszerzenia kod, który obejmuje implementacje algorytmów kryptograficznych i RSAKey i SymmetricKey. Zależy od hello Core i KeyVault przestrzeni nazw, a zapewnia toodefine funkcji agregujących rozpoznawania nazw (gdy użytkownicy mają toouse wielu dostawców klucza) i buforowania rozpoznawania klucza. Mimo że biblioteki klienta usługi storage hello bezpośrednio niezależnie od tego pakietu, jeśli użytkownicy mają toostore usługi Azure Key Vault toouse ich kluczy lub toouse hello Key Vault rozszerzenia tooconsume hello lokalnych i w chmurze dostawców usług kryptograficznych, potrzebują tego pakietu.  
+* Azure keyvault podstawowe zawiera IKey i IKeyResolver. Jest mała pakietu bez zależności. Biblioteki klienta usługi storage dla języka Java definiuje ją jako zależności.
+* Azure keyvault zawiera klienta REST magazynu kluczy.  
+* Azure — keyvault rozszerzenia zawiera rozszerzenia kod, który obejmuje implementacje algorytmów kryptograficznych i RSAKey i SymmetricKey. Zależy od podstawowej i KeyVault przestrzeni nazw, a funkcje do definiowania agregacji rozpoznawania nazw (gdy użytkownicy chcą korzystać z wielu dostawców klucza) i buforowania rozpoznawania klucza. Mimo że biblioteki klienta usługi storage nie bezpośrednio zależy od tego pakietu, jeśli użytkownicy chcą za pomocą usługi Azure Key Vault do przechowywania ich kluczy lub używanie rozszerzeń usługi Key Vault korzystać z lokalnej i w chmurze dostawcy usług kryptograficznych, potrzebują tego pakietu.  
   
-  Key Vault jest zaprojektowana dla kluczy głównych wysokiej wartości i ograniczania przepustowości limity dla usługi Key Vault zostały zaprojektowane z tym pamiętać. Podczas wykonywania szyfrowania po stronie klienta z magazynu kluczy, model preferowany hello jest toouse głównego kluczy symetrycznych przechowywane jako kluczy tajnych w magazynie kluczy i buforowane lokalnie. Użytkownicy muszą wykonać następujące hello:  
+  Key Vault jest zaprojektowana dla kluczy głównych wysokiej wartości i ograniczania przepustowości limity dla usługi Key Vault zostały zaprojektowane z tym pamiętać. Podczas wykonywania szyfrowania po stronie klienta z magazynu kluczy, model preferowany jest do używania kluczy symetrycznych wzorca przechowywane jako kluczy tajnych w magazynie kluczy i buforowane lokalnie. Użytkownicy, wykonaj następujące czynności:  
 
-1. Utwórz klucz tajny w trybie offline i przekaż go tooKey magazynu.  
-2. Za pomocą identyfikatora podstawowej hello secret tooresolve parametru hello bieżącej wersji hello hasło do szyfrowania i pamięci podręcznej te informacje lokalnie. Użyj CachingKeyResolver do buforowania; Użytkownicy są tooimplement nie oczekiwano własne buforowanie logiki.  
-3. Użyj programu rozpoznawania nazw buforowania hello jako dane wejściowe podczas tworzenia zasady szyfrowania hello.
-   Więcej informacji na temat użycia usługi Key Vault znajduje się w przykładach kodu hello szyfrowania. <fix URL>  
+1. Utwórz klucz tajny w trybie offline i przekaż go do magazynu kluczy.  
+2. Użyj identyfikatora podstawowego klucza tajnego jako parametr rozwiązać bieżącą wersję tajnego klucza szyfrowania i pamięci podręcznej te informacje lokalnie. Użyj CachingKeyResolver do buforowania; Użytkownicy nie powinny implementować własnej logiki buforowania.  
+3. Użyj buforowania rozpoznawania jako dane wejściowe podczas tworzenia zasady szyfrowania.
+   Więcej informacji na temat użycia usługi Key Vault znajduje się w przykładach kodu szyfrowania. <fix URL>  
 
 ## <a name="best-practices"></a>Najlepsze praktyki
-Obsługa szyfrowania jest dostępna tylko w hello biblioteki klienta usługi storage dla języka Java.
+Obsługa szyfrowania jest dostępna tylko w przypadku biblioteki klienta usługi storage dla języka Java.
 
 > [!IMPORTANT]
 > Należy pamiętać o tych punktów ważne przy użyciu szyfrowania po stronie klienta:
 > 
-> * Podczas odczytywania lub pisania tooan szyfrowane obiektów blob, użyj całego obiektu blob przekazywania oraz zakres/całość obiektu blob pobierania poleceń. Unikać pisania tooan blob zaszyfrowane za pomocą protokołu operacji, takich jak Put bloku, umieść listy zablokowanych, zapisu stron, wyczyść strony lub Dołącz bloku; w przeciwnym razie możesz uszkodzony obiekt blob zaszyfrowany hello i stał się niemożliwe do odczytania.
-> * W przypadku tabel istnieje ograniczenie podobne. Należy uważać toonot aktualizacji zaszyfrowane właściwości bez aktualizowania metadanych szyfrowania hello.  
-> * Jeśli ustawisz metadanych dla obiektu blob zaszyfrowane hello może zastąpić metadane związane z szyfrowaniem hello wymaganych do odszyfrowania, ponieważ ustawienie metadanych nie jest dodatek. Dotyczy to również migawki; Unikaj określania metadanych podczas tworzenia migawki obiektu blob zaszyfrowane. Jeśli metadane muszą być ustawione, należy się hello toocall **downloadAttributes** tooget pierwszy — metoda hello bieżących metadanych szyfrowania i uniknąć równoczesnych zapisów podczas ustawiania metadanych.  
-> * Włącz hello **requireEncryption** flagi w hello domyślne opcje żądania użytkowników, którzy powinien działać wyłącznie z zaszyfrowanych danych. Aby uzyskać więcej informacji, zobacz poniżej.  
+> * Gdy odczyt lub zapis do obiektu blob zaszyfrowane, użyj całego obiektu blob przekazywania oraz poleceń pobieranie obiektu blob zakresu/całości. Należy unikać pisania do obiektu blob zaszyfrowane za pomocą protokołu operacji, takich jak Put bloku, umieść listy zablokowanych, zapisu stron, wyczyść strony lub Dołącz bloku; w przeciwnym razie możesz uszkodzony zaszyfrowany obiekt blob i stał się niemożliwe do odczytania.
+> * W przypadku tabel istnieje ograniczenie podobne. Należy zachować ostrożność nie aktualizować zaszyfrowane właściwości bez aktualizowania metadanych szyfrowania.  
+> * Jeśli ustawisz metadanych w obiekcie blob zaszyfrowane, mogą zastąpić metadane związane z szyfrowaniem wymaganych do odszyfrowania, ponieważ ustawienie metadanych nie jest dodatek. Dotyczy to również migawki; Unikaj określania metadanych podczas tworzenia migawki obiektu blob zaszyfrowane. Jeśli metadane muszą być ustawione, należy wywołać **downloadAttributes** metodę najpierw uzyskać bieżące metadane szyfrowania i uniknąć równoczesnych zapisów podczas ustawiania metadanych.  
+> * Włącz **requireEncryption** flagi w domyślnych opcji żądania dla użytkowników, którzy powinien działać wyłącznie z zaszyfrowanych danych. Aby uzyskać więcej informacji, zobacz poniżej.  
 > 
 > 
 
 ## <a name="client-api--interface"></a>Interfejs API klienta / interfejsu
-Podczas tworzenia obiektu EncryptionPolicy, użytkownicy mogą podać tylko klucz (Implementowanie IKey), tylko program rozpoznawania nazw (Implementowanie IKeyResolver) lub obie. IKey jest hello podstawowy typ klucza który jest identyfikowany przy użyciu identyfikatora klucza i zapewnia logiki hello zawijania/odkodowywania. IKeyResolver jest używane tooresolve klucza podczas odszyfrowywania hello. Definiuje metodę ResolveKey, która zwraca IKey podany identyfikator klucza. Zapewnia to użytkownikom hello możliwości toochoose między wiele kluczy, które są zarządzane na wiele lokalizacji.
+Podczas tworzenia obiektu EncryptionPolicy, użytkownicy mogą podać tylko klucz (Implementowanie IKey), tylko program rozpoznawania nazw (Implementowanie IKeyResolver) lub obie. IKey jest podstawowy typ klucza, który jest identyfikowany przy użyciu identyfikatora klucza i zapewnia logiki zawijania/odkodowywania. IKeyResolver jest używany do rozpoznawania klucza podczas odszyfrowywania. Definiuje metodę ResolveKey, która zwraca IKey podany identyfikator klucza. Zapewnia to użytkownikom wybór między wiele kluczy, które są zarządzane na wiele lokalizacji.
 
-* Dla celów szyfrowania zawsze jest używany klucz hello i hello Brak klucza spowoduje błąd.  
+* Dla celów szyfrowania jest on używany zawsze i Brak klucza spowoduje błąd.  
 * Do odszyfrowywania:  
   
-  * Program rozpoznawania nazw kluczy Hello jest wywoływana, jeśli określony klucz hello tooget. Jeśli hello programu rozpoznawania nazw jest określony, ale nie ma mapowania dla identyfikatora klucza hello, jest zgłaszany błąd.  
-  * Jeśli nie określono programu rozpoznawania nazw, ale nie określono klucza, klucz hello zostanie użyty, jeśli jego identyfikator odpowiada hello wymagany identyfikator klucza. Jeśli identyfikator hello nie jest zgodny, jest zgłaszany błąd.  
+  * Mechanizm rozpoznawania klucza jest wywoływana, jeśli określono, aby pobrać klucz. Jeśli program rozpoznawania nazw jest określony, ale nie ma mapowania dla identyfikatora klucza, zostanie zgłoszony błąd.  
+  * Jeśli nie określono programu rozpoznawania nazw, ale nie określono klucza, klucz zostanie użyty, jeśli jego identyfikator odpowiada wymagany identyfikator klucza. Jeśli identyfikator nie jest zgodne, zostanie zgłoszony błąd.  
     
-    Witaj [przykłady szyfrowania](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>pokazują scenariusza bardziej szczegółowe end-to-end dla obiektów blob, kolejek i tabel, wraz z Integracja magazynu kluczy.
+    [Przykłady szyfrowania](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>pokazują scenariusza bardziej szczegółowe end-to-end dla obiektów blob, kolejek i tabel, wraz z Integracja magazynu kluczy.
 
 ### <a name="requireencryption-mode"></a>Tryb RequireEncryption
-Użytkownicy mogą opcjonalnie włączyć tryb działania, w której wszystkie przekazywania i pobierania muszą być szyfrowane. W tym trybie prób tooupload danych bez szyfrowania zasad lub pobrać dane, które nie są szyfrowane na powitania usługi zakończy się niepowodzeniem na powitania klienta. Witaj **requireEncryption** flagi obiektu opcje żądania hello kontroluje to zachowanie. Jeśli aplikacja będzie szyfrowania wszystkich obiektów przechowywanych w usłudze Azure Storage, a następnie można ustawić hello **requireEncryption** właściwość hello domyślne żądanie opcje dla obiekt klienta usługi hello.   
+Użytkownicy mogą opcjonalnie włączyć tryb działania, w której wszystkie przekazywania i pobierania muszą być szyfrowane. W tym trybie próby przekazania danych bez zasady szyfrowania lub pobrać dane, które nie są szyfrowane w usłudze zakończy się niepowodzeniem na kliencie. **RequireEncryption** flagi obiektu opcje żądania kontroluje to zachowanie. Jeśli aplikacja będzie szyfrowania wszystkich obiektów przechowywanych w usłudze Azure Storage, a następnie można ustawić **requireEncryption** właściwości domyślnych opcji żądania dla obiekt klienta usługi.   
 
-Na przykład użyć **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** toorequire szyfrowania dla wszystkich operacji obiektu blob wykonywane za pośrednictwem tego obiektu klienta.
+Na przykład użyć **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** umożliwia Wymaganie szyfrowania dla wszystkich operacji wykonywanych za pośrednictwem tego obiektu klienta obiektu blob.
 
 ### <a name="blob-service-encryption"></a>Szyfrowanie usługi blob
-Utwórz **BlobEncryptionPolicy** obiektu i ustaw go w opcji żądania hello (dla interfejsu API lub na poziomie klienta za pomocą **DefaultRequestOptions**). Wszystkie inne będzie obsługiwany przez bibliotekę klienta hello wewnętrznie.
+Utwórz **BlobEncryptionPolicy** obiektu i ustaw go w opcji żądania (dla interfejsu API lub na poziomie klienta za pomocą **DefaultRequestOptions**). Wszystkie inne będzie obsługiwany przez bibliotekę klienta wewnętrznie.
 
 ```java
-// Create hello IKey used for encryption.
+// Create the IKey used for encryption.
 RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-// Create hello encryption policy toobe used for upload and download.
+// Create the encryption policy to be used for upload and download.
 BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
 
-// Set hello encryption policy on hello request options.
+// Set the encryption policy on the request options.
 BlobRequestOptions options = new BlobRequestOptions();
 options.setEncryptionPolicy(policy);
 
-// Upload hello encrypted contents toohello blob.
+// Upload the encrypted contents to the blob.
 blob.upload(stream, size, null, options, null);
 
-// Download and decrypt hello encrypted contents from hello blob.
+// Download and decrypt the encrypted contents from the blob.
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 blob.download(outputStream, null, options, null);
 ```
 
 ### <a name="queue-service-encryption"></a>Szyfrowanie usługi kolejki
-Utwórz **QueueEncryptionPolicy** obiektu i ustaw go w opcji żądania hello (dla interfejsu API lub na poziomie klienta za pomocą **DefaultRequestOptions**). Wszystkie inne będzie obsługiwany przez bibliotekę klienta hello wewnętrznie.
+Utwórz **QueueEncryptionPolicy** obiektu i ustaw go w opcji żądania (dla interfejsu API lub na poziomie klienta za pomocą **DefaultRequestOptions**). Wszystkie inne będzie obsługiwany przez bibliotekę klienta wewnętrznie.
 
 ```java
-// Create hello IKey used for encryption.
+// Create the IKey used for encryption.
 RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-// Create hello encryption policy toobe used for upload and download.
+// Create the encryption policy to be used for upload and download.
 QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
 
 // Add message
@@ -192,15 +192,15 @@ CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
 
 ### <a name="table-service-encryption"></a>Szyfrowanie usługi tabel
-Ponadto toocreating zasady szyfrowania i ustawienie jej na żądanie opcji, należy określić **EncryptionResolver** w **TableRequestOptions**, lub ustaw atrybut hello [Szyfruj] na powitania jednostki pobierającej i ustawiającej.
+Oprócz tworzenia zasady szyfrowania i ustawienie jej na żądanie opcji, należy określić **EncryptionResolver** w **TableRequestOptions**, lub ustaw dla atrybutu [Szyfruj] jednostki metody pobierającej i ustawiającej.
 
-### <a name="using-hello-resolver"></a>Za pomocą mechanizmu rozpoznawania hello
+### <a name="using-the-resolver"></a>Za pomocą programu rozpoznawania nazw
 
 ```java
-// Create hello IKey used for encryption.
+// Create the IKey used for encryption.
 RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-// Create hello encryption policy toobe used for upload and download.
+// Create the encryption policy to be used for upload and download.
 TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
 
 TableRequestOptions options = new TableRequestOptions()
@@ -219,7 +219,7 @@ options.setEncryptionResolver(new EncryptionResolver() {
 currentTable.execute(TableOperation.insert(ent), options, null);
 
 // Retrieve Entity
-// No need toospecify an encryption resolver for retrieve
+// No need to specify an encryption resolver for retrieve
 TableRequestOptions retrieveOptions = new TableRequestOptions()
 retrieveOptions.setEncryptionPolicy(policy);
 
@@ -228,7 +228,7 @@ TableResult result = currentTable.execute(operation, retrieveOptions, null);
 ```
 
 ### <a name="using-attributes"></a>Przy użyciu atrybutów
-Jak wspomniano powyżej, gdy jednostka hello implementuje TableEntity, hello metody pobierającej właściwości i metody ustawiającej może korzystać z atrybutem hello [Szyfruj] zamiast określania hello **EncryptionResolver**.
+Jak wspomniano powyżej, gdy jednostka implementuje TableEntity, następnie właściwości pobierającej i ustawiającej może korzystać z atrybutem [Szyfruj] zamiast określania **EncryptionResolver**.
 
 ```java
 private string encryptedProperty1;
@@ -245,12 +245,12 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ```
 
 ## <a name="encryption-and-performance"></a>Szyfrowanie i wydajności
-Należy pamiętać, że szyfrowania z magazynu danych spowoduje zmniejszenie wydajności. Witaj zawartości musi zostać wygenerowany klucz i IV samej zawartości hello muszą być szyfrowane i dodatkowe metadane muszą być sformatowane i przekazać. Ten narzut będą się różnić w zależności od ilości hello dane są zaszyfrowane. Zaleca się, że klienci zawsze testują wydajności w czasie projektowania.
+Należy pamiętać, że szyfrowania z magazynu danych spowoduje zmniejszenie wydajności. Musi zostać wygenerowany klucz zawartości i IV, muszą być szyfrowane samej zawartości i dodatkowe metadane muszą być sformatowane i przekazać. Ten narzut będą się różnić w zależności od ilości danych szyfrowany. Zaleca się, że klienci zawsze testują wydajności w czasie projektowania.
 
 ## <a name="next-steps"></a>Następne kroki
-* Pobierz hello [biblioteki klienta usługi Azure Storage dla języka Java Maven pakietu](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
-* Pobierz hello [biblioteki klienta magazynu Azure do kodu źródłowego języka Java z usługi GitHub](https://github.com/Azure/azure-storage-java)   
-* Pobierz hello Azure klucza magazynu Maven biblioteki w przypadku Java Maven pakietów:
+* Pobierz [biblioteki klienta usługi Azure Storage dla języka Java Maven pakietu](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Pobierz [biblioteki klienta magazynu Azure do kodu źródłowego języka Java z usługi GitHub](https://github.com/Azure/azure-storage-java)   
+* Pobierz biblioteki Maven Azure klucza magazynu w przypadku Java Maven pakietów:
   * [Podstawowe](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) pakietu
   * [Klient](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) pakietu
-* Odwiedź hello [dokumentacji magazynu kluczy Azure](../../key-vault/key-vault-whatis.md)
+* Odwiedź stronę [dokumentacji usługi Azure Key Vault](../../key-vault/key-vault-whatis.md)

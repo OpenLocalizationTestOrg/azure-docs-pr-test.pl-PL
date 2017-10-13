@@ -1,6 +1,6 @@
 ---
-title: "aaaTroubleshoot ochrony błędów VMware/fizyczne tooAzure | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano błędy replikacji maszyn VMware hello typowe i w jaki sposób tootroubleshoot ich"
+title: "Rozwiązywanie problemów z błędami ochrony VMware/fizycznych do platformy Azure | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano typowe błędy replikacji maszyny VMware i sposoby ich rozwiązywania"
 services: site-recovery
 documentationcenter: 
 author: asgang
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/26/2017
 ms.author: asgang
-ms.openlocfilehash: b821e9aa2610482ba1900645fb75e75744dc442f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6ebec2e06566b1e2d6834fdd81c0d8b2801b80b9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Rozwiązywanie problemów replikacji serwera VMware/fizyczne lokalnej
-W trakcie ochronę sieci maszyn wirtualnych VMware lub serwerów fizycznych za pomocą usługi Azure Site Recovery może zostać wyświetlony komunikat o błędzie. Szczegółów tego artykułu hello niektóre z najczęściej komunikaty o błędach napotkano oraz rozwiązywanie problemów z tooresolve kroki je.
+W trakcie ochronę sieci maszyn wirtualnych VMware lub serwerów fizycznych za pomocą usługi Azure Site Recovery może zostać wyświetlony komunikat o błędzie. Ten artykuł zawiera szczegóły dotyczące niektórych bardziej typowe komunikaty o błędach napotkano wraz z czynności pozwalające rozwiązać je.
 
 
 ## <a name="initial-replication-is-stuck-at-0"></a>Replikacja początkowa jest zablokowany na 0%
-Większość hello błędy replikacji początkowej, napotykane w witrynie pomocy technicznej jest powodu tooconnectivity problemy między serwerem proces serwera źródłowego lub serwera Azure procesu.
-W większości przypadków można samodzielnie rozwiązywania tych problemów, wykonując kroki hello wymienionych poniżej.
+Większość błędów jest Replikacja początkowa napotykane w witrynie pomocy technicznej są spowodowane problemami z łącznością między serwerem proces serwera źródłowego lub serwera Azure procesu.
+W większości przypadków można samodzielnie rozwiązywania tych problemów, wykonując kroki opisane poniżej.
 
-###<a name="check-hello-following-on-source-machine"></a>Sprawdź następujące hello na MASZYNIE ŹRÓDŁOWEJ
-* Z wiersza polecenia komputera serwera źródłowego należy użyć Telnet tooping powitania serwera przetwarzania z portem https (domyślnie 9443) zgodnie z poniższym toosee, jeśli istnieją problemy z połączeniem sieciowym lub problemów z blokowaniem portu zapory.
+###<a name="check-the-following-on-source-machine"></a>Sprawdź, czy na MASZYNIE ŹRÓDŁOWEJ
+* Z wiersza polecenia komputera serwera źródłowego należy użyć Telnet na polecenie ping serwera przetwarzania z portem https (domyślnie 9443), jak pokazano poniżej, aby zobaczyć, czy istnieją problemy z połączeniem sieciowym lub problemy z blokowaniem portów zapory.
      
     `telnet <PS IP address> <port>`
 > [!NOTE]
-    > Użyj Telnet, nie używaj łączności tootest PING.  Jeśli nie zainstalowano programu Telnet, wykonaj listę kroków hello [tutaj](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
+    > Użyj Telnet, nie za pomocą polecenia PING do testowania łączności.  Jeśli nie zainstalowano programu Telnet, wykonaj listę kroków [tutaj](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
 
-Jeśli tooconnect Zezwalaj na port wejściowy 9443 na powitania serwera przetwarzania i sprawdź, czy hello problem nadal zamknięte. Było w niej niektórych przypadkach, gdy serwer przetwarzania został za strefą DMZ, która była przyczyną tego problemu.
+Jeśli nie można połączyć, Zezwalaj na port wejściowy 9443 na serwerze przetwarzania i sprawdź, czy problem nadal kończy działanie. Było w niej niektórych przypadkach, gdy serwer przetwarzania został za strefą DMZ, która była przyczyną tego problemu.
 
-* Sprawdź stan hello usługi `InMage Scout VX Agent – Sentinel/OutpostStart` Jeśli nie jest uruchomiona i sprawdź, czy hello problem nadal występuje.   
+* Sprawdź stan usługi `InMage Scout VX Agent – Sentinel/OutpostStart` Jeśli nie jest uruchomiona i sprawdź, czy problem nadal występuje.   
  
-###<a name="check-hello-following-on-process-server"></a>Sprawdź następujące hello na serwerze przetwarzania
+###<a name="check-the-following-on-process-server"></a>Sprawdź, czy na serwerze przetwarzania
 
-* **Sprawdź, czy serwer przetwarzania jest aktywnie wypychanie tooAzure danych** 
+* **Sprawdź, czy serwer przetwarzania jest aktywnie przekazywanie danych do platformy Azure** 
 
-Z komputera serwer przetwarzania Otwórz hello Menedżera zadań (naciśnij klawisze Ctrl-Shift-Esc). Przejdź na kartę Wydajność toohello, a następnie kliknij łącze otwieranie monitora zasobów. Z Menedżera zasobów Przejdź tooNetwork kartę. Sprawdź, czy cbengine.exe "Procesów z działaniem sieci" aktywnie wysyła dużej ilości danych (w MB).
+Z komputera serwer przetwarzania Otwórz Menedżera zadań (naciśnij klawisze Ctrl-Shift-Esc). Przejdź do karty wyników, a następnie kliknij łącze otwieranie monitora zasobów. Z Menedżera zasobów, przejdź do karty sieciowej. Sprawdź, czy cbengine.exe "Procesów z działaniem sieci" aktywnie wysyła dużej ilości danych (w MB).
 
 ![Włączanie replikacji](./media/site-recovery-protection-common-errors/cbengine.png)
 
-W przeciwnym razie wykonaj kroki hello wymienionych poniżej:
+W przeciwnym razie wykonaj następujące kroki:
 
-* **Sprawdź, czy serwer przetwarzania jest możliwe tooconnect obiektów Blob platformy Azure**: Wybierz, a następnie sprawdź toosee "Połączenia TCP" hello tooview cbengine.exe, jeśli brak łączności z adresu URL procesu serwera tooAzure magazynu obiektów blob.
+* **Sprawdź, czy serwer przetwarzania jest możliwość łączenia z obiektów Blob platformy Azure**: zaznacz i sprawdź cbengine.exe przeglądania "Połączeń TCP" czy jest łączność między serwerem przetwarzania adresu URL obiektu blob magazynu Azure.
 
 ![Włączanie replikacji](./media/site-recovery-protection-common-errors/rmonitor.png)
 
-Jeśli nie, następnie przejdź tooControl panelu > usługi, sprawdź, czy hello następujące usługi są uruchomione i działają prawidłowo:
+Jeśli nie są następnie przejdź do pozycji Panel sterowania > usługi, sprawdź, czy następujące usługi są uruchomione i działają prawidłowo:
 
      * cxprocessserver
      * InMage Scout VX Agent – Sentinel/Outpost
@@ -61,33 +61,33 @@ Jeśli nie, następnie przejdź tooControl panelu > usługi, sprawdź, czy hello
      * Microsoft Azure Site Recovery Service
      * tmansvc
      * 
-(Ponownego) Uruchom dowolnej usługi, która nie jest uruchomiona i sprawdź, czy hello problem nadal istnieje.
+(Ponownego) Uruchom dowolnej usługi, która nie jest uruchomiona i sprawdź, czy problem nadal występuje.
 
-* **Sprawdź, czy serwer przetwarzania jest w stanie tooconnect tooAzure publiczny adres IP przy użyciu portu 443**
+* **Sprawdź, czy serwer przetwarzania jest można nawiązać połączenia z programem Azure publiczny adres IP przy użyciu portu 443**
 
-Otwórz hello najnowsze CBEngineCurr.errlog z `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` i wyszukaj: 443 i połączenia próba nie powiodła się.
+Otwórz najnowszą CBEngineCurr.errlog z `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` i wyszukaj: 443 i połączenia próba nie powiodła się.
 
 ![Włączanie replikacji](./media/site-recovery-protection-common-errors/logdetails1.png)
 
-Jeśli występują problemy, z serwera przetwarzania wiersza polecenia, użyj telnet tooping Azure publicznego adresu IP (maskowania w powyżej obrazu) w hello CBEngineCurr.currLog przy użyciu portu 443.
+Jeśli występują problemy, z serwera przetwarzania wiersza polecenia, użyj telnet na polecenie ping Azure publicznego adresu IP (maskowania w powyżej obrazu) w CBEngineCurr.currLog przy użyciu portu 443.
 
       telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
-W przypadku tooconnect nie można sprawdzić w przypadku problemu z dostępem hello toofirewall lub serwera Proxy, zgodnie z opisem w następnym kroku.
+Jeśli nie możesz się połączyć, sprawdź, czy problem dostępu występuje z powodu zapory lub serwera Proxy, zgodnie z opisem w następnym kroku.
 
 
-* **Sprawdź, czy zapora oparta na adres IP na serwerze przetwarzania są nie blokuje dostępu**: Jeśli używasz reguły zapory oparte na adresie IP na serwerze hello, Pobierz pełną listę hello Microsoft Azure zakresów IP centrum danych z [tutaj ](https://www.microsoft.com/download/details.aspx?id=41653) i dodaj je tooensure konfiguracji zapory tooyour pozwalają tooAzure komunikacji (i hello port HTTPS (port 443)).  Zezwalaj na zakresy adresów IP dla hello Azure regionie Twojej subskrypcji i zachodnie stany USA (używanych do kontroli dostępu i zarządzania tożsamościami).
+* **Sprawdź, czy zapora oparta na adres IP na serwerze przetwarzania są nie blokuje dostępu**: Jeśli używasz reguły zapory oparte na adresie IP na serwerze, Pobierz pełną listę Microsoft Azure zakresów IP centrum danych z [tutaj](https://www.microsoft.com/download/details.aspx?id=41653) i dodaj je do konfiguracji zapory w celu zapewnienia ich zezwalają na komunikację z platformy Azure (i portu HTTPS (port 443)).  Zezwól na użycie zakresów adresów IP dla regionu platformy Azure Twojej subskrypcji oraz regionu Zachodnie stany USA (służy do kontrolowania dostępu i zarządzania tożsamościami).
 
-* **Sprawdź, czy zapora oparta na adres URL, na serwerze przetwarzania nie blokuje dostępu**: Jeśli używasz reguły zapory adres URL oparty na powitania serwera, upewnij się, hello następujące adresy URL są dodawane toofirewall konfiguracji. 
+* **Sprawdź, czy zapora oparta na adres URL, na serwerze przetwarzania nie blokuje dostępu**: Jeśli używasz reguły zapory adres URL oparty na serwerze, upewnij się, następujące adresy URL są dodawane do konfiguracji zapory. 
      
   `*.accesscontrol.windows.net:` służy do kontrolowania dostępu i zarządzania tożsamościami
 
   `*.backup.windowsazure.com:` służy do transferowania i organizowania danych replikacji
 
-  `*.blob.core.windows.net:`Używany do toohello dostępu konta magazynu, która przechowuje zreplikowanych danych
+  `*.blob.core.windows.net:`Używane do uzyskiwania dostępu do konta magazynu, czy magazyny zreplikowanych danych
 
   `*.hypervrecoverymanager.windowsazure.com:` służy do wykonywania operacji i organizowania zarządzania replikacją
 
-  `time.nist.gov`i `time.windows.com`: używane toocheck synchronizacja czasu między systemem a czasem globalnym.
+  `time.nist.gov`i `time.windows.com`: użytych do sprawdzenia synchronizacja czasu między systemem a czasem globalnym.
 
 Adresy URL **chmury Azure dla instytucji rządowych**:
 
@@ -99,21 +99,21 @@ Adresy URL **chmury Azure dla instytucji rządowych**:
 
 `* .ugi.backup.windowsazure.us` 
 
-* **Sprawdź, czy ustawienia serwera Proxy na serwerze przetwarzania są nie blokuje dostępu**.  Jeśli używasz serwera Proxy, upewnij się, że nazwa serwera proxy hello jest rozpoznawana przez serwer DNS hello.
-toocheck co podano w czasie hello instalacji serwera konfiguracji. Przejdź do klucza tooregistry
+* **Sprawdź, czy ustawienia serwera Proxy na serwerze przetwarzania są nie blokuje dostępu**.  Jeśli używasz serwera Proxy, upewnij się, że nazwa serwera proxy jest rozpoznawana przez serwer DNS.
+Aby sprawdzić, jakie zostały podane w czasie instalacji serwera konfiguracji. Przejdź do klucza rejestru
 
     `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
 
-Teraz upewnij się, że powitalne tych samych ustawień są używane przez usługi Azure Site Recovery agent toosend danych.
+Teraz upewnij się, że te same ustawienia są używane przez agenta usługi Azure Site Recovery do przesyłania danych.
 Kopia zapasowa Microsoft Azure Search 
 
 ![Włączanie replikacji](./media/site-recovery-protection-common-errors/mab.png)
 
-Otwórz go i kliknij akcję > Zmień właściwości. Na karcie Konfiguracja serwera Proxy powinna zostać wyświetlona hello adres serwera proxy, która powinna być taka sama, jak to przedstawiono ustawienia rejestru hello. Jeśli nie, zmień ją toohello tego samego adresu.
+Otwórz go i kliknij akcję > Zmień właściwości. Na karcie Konfiguracja serwera Proxy powinien zostać wyświetlony adres serwera proxy, która powinna być taka sama, jak to przedstawiono ustawienia rejestru. Jeśli nie, zmień ją na ten sam adres.
 
 ![Włączanie replikacji](./media/site-recovery-protection-common-errors/mabproxy.png)
 
-* **Sprawdź, czy ograniczania przepustowości nie jest ograniczane na serwerze przetwarzania**: zwiększyć przepustowość hello i sprawdź, czy hello problem nadal istnieje.
+* **Sprawdź, czy ograniczania przepustowości nie jest ograniczane na serwerze przetwarzania**: zwiększyć przepustowość i sprawdź, czy problem nadal występuje.
 
 ##<a name="next-steps"></a>Następne kroki
-Jeśli potrzebujesz więcej pomocy, następnie przesłanie kwerendy zbyt[forum usługi ASR](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Mamy aktywną społeczność i jeden z naszych inżynierów będą mogli tooassist użytkownik.
+Jeśli potrzebujesz więcej pomocy, opublikuj wpis kwerendy do [forum usługi ASR](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Mamy aktywną społeczność i jeden z naszych inżynierów będzie można pomóc.

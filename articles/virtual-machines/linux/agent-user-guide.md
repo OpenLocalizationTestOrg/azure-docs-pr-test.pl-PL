@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure omówienie agenta maszyny Wirtualnej systemu Linux | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooinstall i konfigurowanie maszyny wirtualnej interakcji z kontrolerem sieci szkieletowej Azure toomanage agenta systemu Linux (agenta waagent)."
+title: "Omówienie agenta maszyny Wirtualnej systemu Linux platformy Azure | Dokumentacja firmy Microsoft"
+description: "Informacje o sposobie instalowania i konfigurowania agenta systemu Linux (agenta waagent) do zarządzania na komputerze wirtualnym interakcji z kontrolerem sieci szkieletowej Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e08c84d9205f4db7aae6fd1568ec1f15fba395c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="understanding-and-using-hello-azure-linux-agent"></a>Opis i przy użyciu hello Azure agenta systemu Linux
+# <a name="understanding-and-using-the-azure-linux-agent"></a>Opis i przy użyciu agenta systemu Linux platformy Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="introduction"></a>Wprowadzenie
-Witaj Linux Agent usługi Microsoft Azure (agenta waagent) zarządza systemu Linux i FreeBSD inicjowania obsługi administracyjnej i maszyny Wirtualnej interakcji z hello Azure kontrolera sieci szkieletowej. Udostępnia ona następujące funkcje dla wdrożenia systemu Linux i FreeBSD IaaS hello:
+Agent systemu Linux usługi Microsoft Azure (agenta waagent) zarządza systemu Linux i FreeBSD inicjowania obsługi administracyjnej i maszyny Wirtualnej interakcji z kontrolera sieci szkieletowej Azure. Udostępnia ona następujące funkcje dla systemów Linux i FreeBSD IaaS wdrożenia:
 
 > [!NOTE]
-> Zobacz agenta systemu Linux Azure hello [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) dodatkowe szczegóły.
+> Zobacz agenta systemu Linux Azure [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) dodatkowe szczegóły.
 > 
 > 
 
@@ -38,43 +38,43 @@ Witaj Linux Agent usługi Microsoft Azure (agenta waagent) zarządza systemu Lin
   * Tworzenie konta użytkownika
   * Konfigurowanie typów uwierzytelniania SSH
   * Wdrożenie par kluczy i kluczy publicznych SSH
-  * Nazwa hosta hello ustawienia
-  * Platforma toohello nazwy hosta hello publikowania DNS
-  * Platforma toohello klucza odcisk palca hosta raportowania SSH
+  * Ustawienie nazwy hosta
+  * Publikowanie nazwy hosta DNS platformy
+  * Raportowanie odcisku klucza SSH hosta do platformy
   * Zarządzanie zasobami dysku
-  * Formatowanie i instalowania hello zasobu dysku
+  * Formatowanie i Instalowanie zasobu dysku
   * Konfigurowanie obszaru wymiany
 * **Sieć**
   
-  * Zarządza tras tooimprove zgodność z serwerami DHCP platformy
-  * Zapewnia stabilność hello Nazwa interfejsu sieciowego hello
+  * Zarządza trasy, aby zwiększyć zgodność z serwerów DHCP platformy
+  * Zapewnia stabilność Nazwa interfejsu sieciowego
 * **Jądra**
   
   * Konfiguruje wirtualną architekturę NUMA (Wyłącz dla jądra < 2.6.37)
   * Wykorzystuje entropii funkcji Hyper-V dla /dev/random
-  * Konfiguruje SCSI przekroczeń limitu czasu dla urządzenia głównego hello, (który może być zdalne)
+  * Konfiguruje SCSI przekroczeń limitu czasu dla urządzenia katalogu głównego (który może być zdalne)
 * **Diagnostyka**
   
-  * Port szeregowy toohello przekierowania konsoli
+  * Przekierowywanie konsoli do portu szeregowego
 * **Wdrożenia programu SCVMM**
   
-  * Wykrywa i używa do ładowania agenta VMM hello Linux podczas uruchamiania w środowisku programu System Center Virtual Machine Manager 2012 R2
+  * Wykrywa i używa do ładowania agenta programu VMM dla systemu Linux podczas uruchamiania w środowisku programu System Center Virtual Machine Manager 2012 R2
 * **Rozszerzenia maszyny Wirtualnej**
   
-  * Wstaw składnik utworzone przez firmę Microsoft i partnerów do automatyzacji oprogramowania i konfiguracji tooenable maszyny Wirtualnej systemu Linux (IaaS)
+  * Wstaw składnik utworzone przez firmę Microsoft i partnerów do maszyny Wirtualnej systemu Linux (IaaS) umożliwiające oprogramowania i konfiguracji automatyzacji
   * Implementacja odwołanie rozszerzenia maszyny Wirtualnej na [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Komunikacja
-przepływ informacji Hello hello platformy toohello agenta odbywa się za pośrednictwem dwóch kanałów:
+Przepływ informacji od platformy do agenta odbywa się za pośrednictwem dwóch kanałów:
 
-* Czas rozruchu dołączonych dysków DVD do wdrożenia IaaS. Ten dysk DVD zawiera zgodne OVF pliku konfiguracji, który zawiera wszystkie informacje o udostępnianiu niż rzeczywista keypairs SSH hello.
-* Punkt końcowy protokołu TCP udostępnianie interfejsu API REST używany tooobtain wdrażanie i Konfigurowanie topologii.
+* Czas rozruchu dołączonych dysków DVD do wdrożenia IaaS. Ten dysk DVD zawiera zgodne OVF pliku konfiguracji, który zawiera wszystkie informacje o udostępnianiu niż rzeczywista keypairs SSH.
+* Punkt końcowy protokołu TCP udostępnianie interfejsu API REST używany do uzyskania wdrażanie i Konfigurowanie topologii.
 
 ## <a name="requirements"></a>Wymagania
-Witaj następujących systemów zostały przetestowane i są znane toowork z hello Azure agenta systemu Linux:
+Poniższe systemy zostały przetestowane i są znane, aby pracować z agenta systemu Linux platformy Azure:
 
 > [!NOTE]
-> Ta lista może się różnić od hello oficjalnego listę obsługiwanych systemów na powitania platformie Microsoft Azure, zgodnie z opisem w tym miejscu: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Ta lista może się różnić od oficjalnego listę obsługiwanych systemów na platformie Microsoft Azure, zgodnie z opisem w tym miejscu: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -91,7 +91,7 @@ Inne obsługiwane systemy:
 
 * FreeBSD 10 + (Azure agenta systemu Linux v2.0.10 +)
 
-agenta systemu Linux Hello jest zależna od niektórych pakietów systemu w kolejności toofunction prawidłowo:
+Agent systemu Linux jest zależna od niektórych pakietów systemu prawidłowego działania:
 
 * Python 2.6 +
 * Biblioteki OpenSSL 1.0 +
@@ -103,9 +103,9 @@ agenta systemu Linux Hello jest zależna od niektórych pakietów systemu w kole
 * Obsługuje jądra służący do instalowania funkcji zdefiniowanej przez użytkownika, systemy plików.
 
 ## <a name="installation"></a>Instalacja
-Instalacja przy użyciu obr. / min lub pakietu DEB z repozytorium pakietów programu dystrybucji jest hello preferowana metoda Instalowanie i uaktualnianie hello Azure agenta systemu Linux. Wszystkie hello [zatwierdzone dostawców dystrybucji](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) zintegrować pakiet agenta platformy Azure Linux hello repozytoriami i obrazów.
+Instalacja przy użyciu obr. / min lub pakietu DEB z repozytorium pakietów z dystrybucji jest preferowaną metodą instalacji i uaktualniania agenta systemu Linux platformy Azure. Wszystkie [zatwierdzone dostawców dystrybucji](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) integracji pakiet agenta systemu Linux platformy Azure z repozytoriami i obrazów.
 
-Zapoznaj się z dokumentacją toohello w hello [repozytorium agenta systemu Linux platformy Azure w serwisie GitHub](https://github.com/Azure/WALinuxAgent) dla zaawansowane opcje instalacji, takich jak instalowanie z lokalizacji źródłowej lub toocustom lub prefiksów.
+Zapoznaj się z dokumentacją w [repozytorium agenta systemu Linux platformy Azure w serwisie GitHub](https://github.com/Azure/WALinuxAgent) dla zaawansowane opcje instalacji, takich jak instalowanie ze źródła lub niestandardowe lokalizacje lub prefiksów.
 
 ## <a name="command-line-options"></a>Opcje wiersza polecenia
 ### <a name="flags"></a>Flagi
@@ -113,28 +113,28 @@ Zapoznaj się z dokumentacją toohello w hello [repozytorium agenta systemu Linu
 * Wymuś: Pomiń interakcyjne potwierdzenie dla niektórych poleceń
 
 ### <a name="commands"></a>Polecenia
-* Pomoc: Wyświetla listę poleceń hello obsługiwane i flagi.
-* deprovision: próba tooclean hello systemu i zapewnić ich nadające się do ponownego inicjowania obsługi administracyjnej. Ta operacja usunięte hello następujące czynności:
+* Pomoc: Wyświetla listę obsługiwanych poleceń i flagi.
+* deprovision: próba oczyszczeniu systemu i zapewnić ich nadające się do ponownego inicjowania obsługi administracyjnej. Ta operacja usunięte następujące czynności:
   
-  * Wszystkie klucze hosta SSH (jeśli Provisioning.RegenerateSshHostKeyPair "y" w pliku konfiguracyjnym hello)
+  * Wszystkie klucze hosta SSH (jeśli Provisioning.RegenerateSshHostKeyPair "y" w pliku konfiguracji)
   * Konfiguracja serwera nazw w /etc/resolv.conf
-  * Hasła głównego z /etc/shadow (jeśli Provisioning.DeleteRootPassword "y" w pliku konfiguracyjnym hello)
+  * Hasła głównego z /etc/shadow (jeśli Provisioning.DeleteRootPassword "y" w pliku konfiguracji)
   * Buforowane dzierżawy klientów DHCP
-  * Resetuje hosta toolocalhost.localdomain nazwy
+  * Zresetowanie nazwy hosta na wartość localhost.localdomain
 
 > [!WARNING]
-> Cofanie zastrzegania nie gwarantuje, że ten obraz powitania jest wyczyszczone wszystkie informacje poufne i odpowiedni w przypadku ponownej dystrybucji.
+> Cofanie zastrzegania nie gwarantuje, że obraz jest wyczyszczone wszystkie informacje poufne i nadaje się do ponownej dystrybucji.
 > 
 > 
 
-* deprovision + użytkownika: wykonuje wszystkie elementy w obszarze - deprovision (powyżej) i również usuwa hello ostatnie konto użytkownika elastycznie (uzyskane z /var/lib/waagent) i skojarzone dane. Ten parametr jest podczas usuwania inicjowania obsługi administracyjnej z obrazem, który został wcześniej inicjowania obsługi administracyjnej na platformie Azure, mogą być przechwytywane i ponownego użycia.
-* Wersja: Wyświetla hello wersji agenta waagent
-* serialconsole: konfiguruje ttyS0 toomark CHODNIKÓW (hello pierwszego portu szeregowego) jako hello rozruchowe konsoli. Dzięki temu jądra rozruchu dzienniki są wysyłane do portu szeregowego toothe, a udostępnione do debugowania.
-* demon: uruchomiono agenta waagent jako demon toomanage interakcji z platformą hello. Ten argument jest toowaagent określonego w skrypcie inicjowania agenta waagent hello.
+* deprovision + użytkownika: wykonuje wszystkie elementy w obszarze - deprovision (powyżej) i również usuwa ostatnie konto użytkownika elastycznie (uzyskane z /var/lib/waagent) i skojarzone dane. Ten parametr jest podczas usuwania inicjowania obsługi administracyjnej z obrazem, który został wcześniej inicjowania obsługi administracyjnej na platformie Azure, mogą być przechwytywane i ponownego użycia.
+* Wersja: Wyświetla wersję agenta waagent
+* serialconsole: konfiguruje CHODNIKÓW, aby oznaczyć ttyS0 (pierwszy port szeregowy) jako konsoli rozruchu. Dzięki temu, że jądra rozruchu dzienniki są wysyłane do portu szeregowego i udostępnione do debugowania.
+* demon: uruchomiono agenta waagent jako demon do interakcji z platformą zarządzania. Ten argument zostanie określony do agenta waagent w skrypcie inicjowania agenta waagent.
 * Rozpocznij: uruchomiono agenta waagent jako proces w tle
 
 ## <a name="configuration"></a>Konfiguracja
-Plik konfiguracji (/ etc/waagent.conf) kontrolki hello agenta waagent akcje. Poniżej przedstawiono przykładowy plik konfiguracji:
+Plik konfiguracji (/ etc/waagent.conf) steruje agenta waagent akcje. Poniżej przedstawiono przykładowy plik konfiguracji:
 
     Provisioning.Enabled=y
     Provisioning.DeleteRootPassword=n
@@ -158,16 +158,16 @@ Plik konfiguracji (/ etc/waagent.conf) kontrolki hello agenta waagent akcje. Pon
     HttpProxy.Host=None
     HttpProxy.Port=None
 
-powitalne różne opcje konfiguracji są szczegółowo opisana poniżej. Opcje konfiguracji są trzy typy; Wartość logiczna, String lub Integer. Opcje konfiguracji logiczna Hello można określić jako "y" lub "n". Witaj specjalne — słowo kluczowe "None" mogą być używane w przypadku niektórych ciąg typu konfiguracji wpisów zgodnie z opisem poniżej.
+Różne opcje konfiguracji opisano szczegółowo poniżej. Opcje konfiguracji są trzy typy; Wartość logiczna, String lub Integer. Opcje konfiguracji logicznych można określić jako "y" lub "n". Specjalne słowo kluczowe "None" mogą być używane w przypadku niektórych ciąg typu konfiguracji wpisów zgodnie z opisem poniżej.
 
 **Provisioning.Enabled:**  
 Typ: wartość logiczna  
 Domyślne: y
 
-To umożliwia tooenable użytkownika hello lub wyłącz hello inicjowania obsługi funkcji hello agenta. Prawidłowe wartości to "y" lub "n". Jeśli Inicjowanie obsługi administracyjnej jest wyłączone, hosta i użytkownika kluczy SSH w obrazie hello są zachowywane i określona w hello Azure API inicjowania obsługi administracyjnej konfiguracja jest ignorowana.
+Dzięki temu użytkownik włączyć lub wyłączyć funkcję inicjowania obsługi administracyjnej w agencie. Prawidłowe wartości to "y" lub "n". Jeśli Inicjowanie obsługi administracyjnej jest wyłączone, hosta i użytkownika kluczy SSH w obrazie zostaną zachowane i określona na platformie Azure, inicjowanie obsługi interfejsu API konfiguracja jest ignorowana.
 
 > [!NOTE]
-> Witaj `Provisioning.Enabled` zbyt "n" na Ubuntu chmury obrazów użyj init chmury w celu obsługi domyślne wartości parametrów.
+> `Provisioning.Enabled` Jest domyślnie "n" na Ubuntu chmury obrazów użyj init chmury w celu obsługi.
 > 
 > 
 
@@ -175,27 +175,27 @@ To umożliwia tooenable użytkownika hello lub wyłącz hello inicjowania obsłu
 Typ: wartość logiczna  
 Domyślne: n
 
-Jeśli zestaw, hello hasła użytkownika root w hello/etc/pliku w tle zostanie wymazane podczas hello procesu inicjowania obsługi administracyjnej.
+Jeśli podczas procesu inicjowania obsługi administracyjnej jest usuwane zestawu, w pliku/etc/tle hasła głównego.
 
 **Provisioning.RegenerateSshHostKeyPair:**  
 Typ: wartość logiczna  
 Domyślne: y
 
-Jeśli zestawu i wszystkich hostów par kluczy SSH (ecdsa, dsa i rsa) zostaną usunięte podczas procesu z/etc/ssh/udostępniania hello. I generowany jest jeden świeże pary kluczy.
+Jeśli zestawu i wszystkich hostów par kluczy SSH (ecdsa, dsa i rsa) zostaną usunięte podczas procesu inicjowania obsługi administracyjnej z/etc/ssh /. I generowany jest jeden świeże pary kluczy.
 
-Typ szyfrowania Hello hello świeże pary kluczy jest konfigurowane przez hello Provisioning.SshHostKeyPairType wpisu. Należy pamiętać, że niektórych dystrybucji zostaną ponownie utworzone par kluczy SSH dla wszystkich Brak typów szyfrowania, po ponownym uruchomieniu demon SSH hello (na przykład po ponownym rozruchu).
+Można skonfigurować we wpisie Provisioning.SshHostKeyPairType jest typ szyfrowania dla świeże pary kluczy. Należy pamiętać, że niektóre dystrybucje zostaną ponownie utworzone par kluczy SSH dla wszystkich Brak typów szyfrowania, podczas ponownego uruchamiania demona SSH (na przykład po ponownym rozruchu).
 
 **Provisioning.SshHostKeyPairType:**  
 Typ: ciąg  
 Domyślne: rsa
 
-Typ algorytmu szyfrowania tooan, który jest obsługiwany przez hello demon SSH na maszynie wirtualnej hello można go ustawić. Hello zwykle obsługiwane wartości to "rsa", "dsa" i "ecdsa". Należy pamiętać, że "putty.exe" w systemie Windows nie obsługuje "ecdsa". Tak Jeśli planujesz toouse putty.exe na tooa tooconnect Windows wdrożenia systemu Linux, użyj "rsa" lub "dsa".
+To może należeć do typu algorytmu szyfrowania, który jest obsługiwany przez demon SSH na maszynie wirtualnej. Zazwyczaj obsługiwane wartości to "rsa", "dsa" i "ecdsa". Należy pamiętać, że "putty.exe" w systemie Windows nie obsługuje "ecdsa". Tak Jeśli zamierzasz używać putty.exe w systemie Windows do nawiązania połączenia wdrożenia systemu Linux, użyj "rsa" lub "dsa".
 
 **Provisioning.MonitorHostName:**  
 Typ: wartość logiczna  
 Domyślne: y
 
-Jeśli ustawiona, agenta waagent monitorujący maszyny wirtualnej systemu Linux hello zmiany nazwy hosta (jak zwracany przez polecenie "Nazwa hosta" hello) i automatycznie Aktualizuj hello konfiguracji sieci w przypadku zmiany hello tooreflect obraz powitania. W nazwie hello toopush kolejności zmienić toohello serwerów DNS, sieci zostanie uruchomiona ponownie w hello maszyny wirtualnej. Spowoduje to w skrócie utratę łączności z Internetem.
+Jeśli ustawiona, agenta waagent monitorujący maszyny wirtualnej systemu Linux zmiany nazwy hosta (jak zwracany przez polecenie "Nazwa hosta") i automatycznie zaktualizować konfiguracji sieci w obrazie w celu odzwierciedlenia zmian. Aby wypchnąć zmiany nazwy do serwerów DNS, sieci zostanie ponownie uruchomiony na maszynie wirtualnej. Spowoduje to w skrócie utratę łączności z Internetem.
 
 **Provisioning.DecodeCustomData**  
 Typ: wartość logiczna  
@@ -229,80 +229,80 @@ Długość losowe soli używana podczas generowania skrótu hasła.
 Typ: wartość logiczna  
 Domyślne: y
 
-Jeśli ustawiona, dysk zasobów hello dostarczony przez platformę hello jest formatowany i zainstalowanych w wyniku agenta waagent, jeśli typ filesystem hello żądany przez użytkownika hello w "ResourceDisk.Filesystem" jest inna niż "ntfs". Jednej partycji typu systemu Linux (83) są udostępniane na powitania dysku. Należy pamiętać, że ta partycja nie zostanie sformatowana Jeśli można zainstalować pomyślnie.
+Jeśli ustawiona, dysk zasobu dostarczone przez platformę zostanie sformatowany i zainstalowanych w wyniku agenta waagent, jeśli typ filesystem żądanej przez użytkownika w "ResourceDisk.Filesystem" jest inna niż "ntfs". Jednej partycji typu systemu Linux (83) będą dostępne na dysku. Należy pamiętać, że ta partycja nie zostanie sformatowana Jeśli można zainstalować pomyślnie.
 
 **ResourceDisk.Filesystem:**  
 Typ: ciąg  
 Domyślne: ext4
 
-To określa typ plików hello hello zasobu dysku. Obsługiwane wartości różnią się dystrybucji systemu Linux. Jeśli ciąg hello jest X, następnie mkfs. X powinny znajdować się na powitania Linux obrazu. SLES 11 obrazów zwykle należy użyć "ext3". Obrazy FreeBSD należy użyć "ufs2" w tym miejscu.
+To ustawienie określa typ systemu plików dla zasobu dysku. Obsługiwane wartości różnią się dystrybucji systemu Linux. Jeśli ciąg jest następnie mkfs X. X powinny znajdować się w obrazie systemu Linux. SLES 11 obrazów zwykle należy użyć "ext3". Obrazy FreeBSD należy użyć "ufs2" w tym miejscu.
 
 **ResourceDisk.MountPoint:**  
 Typ: ciąg  
 Wartość domyślna: / mnt/zasobu 
 
-Określa ścieżkę hello jaką hello zasobu dysk jest zainstalowany. Ten dysk zasobów hello jest *tymczasowego* na dysku i może opróżnić po anulowaną aprowizacją hello maszyny Wirtualnej.
+Określa ścieżkę, w którym jest zainstalowany dysk zasobu. Należy zauważyć, że zasób dysku *tymczasowego* na dysku i może opróżnić, gdy maszyna wirtualna jest anulowana.
 
 **ResourceDisk.MountOptions**  
 Typ: ciąg  
 Domyślnie: Brak
 
-Określa opcje instalacji dysku toobe przekazany polecenie -o instalacji toohello. Jest to rozdzielana przecinkami lista wartości, np. "nodev, nosuid". Zobacz mount(8), aby uzyskać szczegółowe informacje.
+Określa opcje instalacji dysku do przekazania do polecenia -o instalacji. Jest to rozdzielana przecinkami lista wartości, np. "nodev, nosuid". Zobacz mount(8), aby uzyskać szczegółowe informacje.
 
 **ResourceDisk.EnableSwap:**  
 Typ: wartość logiczna  
 Domyślne: n
 
-Jeśli ustawiona, plik wymiany (/ swapfile) jest tworzony na powitania zasobu dysku i dodać obszar wymiany toohello systemu.
+Jeśli ustawiona, plik wymiany (/ swapfile) jest utworzony na dysku zasobów i dodana do obszaru wymiany w systemie.
 
 **ResourceDisk.SwapSizeMB:**  
 Typ: liczba całkowita  
 Domyślna: 0
 
-rozmiar Hello hello pliku wymiany w megabajtach.
+Rozmiar pliku wymiany w megabajtach.
 
 **Logs.Verbose:**  
 Typ: wartość logiczna  
 Domyślne: n
 
-Jeśli jest boosted zestawu, szczegółowości dziennika. Agenta Waagent dzienniki too/var/log/waagent.log i wykorzystuje hello systemu logrotate funkcji toorotate dzienniki.
+Jeśli jest boosted zestawu, szczegółowości dziennika. Agenta Waagent rejestruje /var/log/waagent.log i korzysta z funkcji logrotate systemu w celu obracania dzienników.
 
 **SYSTEM OPERACYJNY. EnableRDMA**  
 Typ: wartość logiczna  
 Domyślne: n
 
-Jeśli ustawiona, hello agent będą podejmować tooinstall, a następnie załadować sterownik jądra RDMA, odpowiadający hello wersji oprogramowania układowego hello na powitania podstawowy sprzęt.
+Jeśli ustawiona, agent podejmie próbę instalacji, a następnie załadować sterownik jądra RDMA, zgodna z wersją oprogramowania sprzętowego używanego sprzętu.
 
 **SYSTEM OPERACYJNY. RootDeviceScsiTimeout:**  
 Typ: liczba całkowita  
 Domyślne: 300
 
-Spowoduje to skonfigurowanie hello SCSI przekroczenia limitu czasu w sekundach na dyskach dysku i danych hello systemu operacyjnego. Jeśli nie jest ustawiona, system hello, które będą używane wartości domyślne.
+Spowoduje to skonfigurowanie SCSI limit czasu w sekundach na dyskach systemu operacyjnego dysku i danych. Jeśli nie jest ustawiony, systemu, które będą używane wartości domyślne.
 
 **SYSTEM OPERACYJNY. OpensslPath:**  
 Typ: ciąg  
 Domyślnie: Brak
 
-Może to być toospecify używane ścieżki alternatywnej dla hello toouse binarnych biblioteki openssl dla operacji kryptograficznych.
+Może to służyć do określenia ścieżki alternatywnej dla biblioteki openssl binarnego do użycia dla operacji kryptograficznych.
 
 **HttpProxy.Host, HttpProxy.Port**  
 Typ: ciąg  
 Domyślnie: Brak
 
-Jeśli ustawiona, hello agent użyje tego serwera proxy internet hello tooaccess serwera. 
+Jeśli ustawiona, będzie używane przez agenta ten serwer proxy do uzyskania dostępu do Internetu. 
 
 ## <a name="ubuntu-cloud-images"></a>Obrazy Ubuntu chmury
-Należy pamiętać, że korzystanie z obrazów chmury Ubuntu [init chmury](https://launchpad.net/ubuntu/+source/cloud-init) tooperform wiele zadań konfiguracyjnych, które w przeciwnym razie mogłyby być zarządzane przez hello agenta systemu Linux platformy Azure.  Należy pamiętać, hello następujące różnice:
+Należy pamiętać, że korzystanie z obrazów chmury Ubuntu [init chmury](https://launchpad.net/ubuntu/+source/cloud-init) do wykonywania wielu zadań konfiguracji, które w przeciwnym razie będą zarządzane przez agenta systemu Linux platformy Azure.  Należy pamiętać, następujące różnice:
 
-* **Provisioning.Enabled** zbyt "n" na obrazów chmury Ubuntu tooperform chmury inicjowania obsługi zadań Użyj ustawień domyślnych.
-* Witaj następujące parametry konfiguracji nie mają wpływu na obrazy chmury Ubuntu, używanego init chmury toomanage hello zasobów dysku i zamiany miejsca:
+* **Provisioning.Enabled** wartość domyślna to "n" na Ubuntu chmury obrazów użyj init chmury do wykonywania zadań inicjowania obsługi administracyjnej.
+* Poniższe parametry konfiguracji nie mają wpływu na obrazy chmury Ubuntu, używanym do zarządzania dyskami zasobów i obszar wymiany init chmury:
   
   * **ResourceDisk.Format**
   * **ResourceDisk.Filesystem**
   * **ResourceDisk.MountPoint**
   * **ResourceDisk.EnableSwap**
   * **ResourceDisk.SwapSizeMB**
-* Zobacz hello następującego punktu instalacji zasobów tooconfigure hello zasobów dysku i Zamień miejsce na obrazy chmury Ubuntu podczas inicjowania obsługi:
+* Zobacz następujące zasoby do konfigurowania punktu instalacji zasobów dysku i Zamień miejsce na obrazy chmury Ubuntu podczas inicjowania obsługi:
   
   * [Ubuntu Witryna typu Wiki: Konfigurowanie partycji wymiany](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Wstrzykiwania niestandardowe dane do maszyny wirtualnej platformy Azure](../windows/classic/inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)

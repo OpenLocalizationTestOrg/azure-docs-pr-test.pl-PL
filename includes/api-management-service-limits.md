@@ -6,5 +6,5 @@
 | Jednostki skalowania |Nieograniczone<sup>1</sup> |
 | Integracja z usługą Azure Active Directory |Konta użytkowników nieograniczone<sup>1</sup> |
 
-<sup>1</sup>limity interfejsu API zarządzania są różne dla każdej warstwy cenowej. toosee hello ceny warstw i limity ich skojarzone i skalowanie opcji, zobacz [interfejsu API zarządzania cennik](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>1</sup>limity interfejsu API zarządzania są różne dla każdej warstwy cenowej. Aby poznać ceny warstw i limity ich skojarzone i opcje skalowania, zobacz [interfejsu API zarządzania cennik](https://azure.microsoft.com/pricing/details/api-management/).
 

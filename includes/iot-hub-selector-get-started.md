@@ -7,15 +7,15 @@
 > 
 
 ## <a name="introduction"></a>Wprowadzenie
-Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną komunikację dwukierunkową między milionami urządzeń Internetu rzeczy (IoT) i zapleczem rozwiązania. Jedną z największych wyzwań hello projekty krój w IoT jest sposób tooreliably i bezpieczne łączenie z zaplecza urządzeń toohello rozwiązania. tooaddress ten problem, Centrum IoT:
+Azure IoT Hub to w pełni zarządzana usługa, która umożliwia bezpieczną i niezawodną komunikację dwukierunkową między milionami urządzeń Internetu rzeczy (IoT) i zapleczem rozwiązania. Jedno z największych wyzwań w projektach IoT polega na tym, jak w sposób niezawodny i bezpieczny połączyć urządzenia z zapleczem rozwiązania. Problem ten można rozwiązać, ponieważ usługa IoT Hub:
 
 * Zapewnia niezawodne przesyłanie komunikatów z urządzeń do chmury i z chmury do urządzeń w hiperskali;
 * Umożliwia bezpieczne komunikowanie się przy użyciu poświadczeń zabezpieczeń i kontroli dostępu dla poszczególnych urządzeń;
-* Zawiera urządzenia biblioteki dla hello najbardziej popularnych języków i platform.
+* Zawiera biblioteki urządzeń dla najbardziej popularnych języków i platform.
 
 Ten samouczek przedstawia sposób wykonania następujących czynności:
 
-* Użyj hello Azure toocreate portalu Centrum IoT.
+* Użycie portalu Azure do utworzenia centrum IoT.
 * Utworzenie tożsamości urządzenia w centrum IoT.
-* Utwórz aplikację symulowane urządzenie, która wysyła zaplecza telemetrii tooyour rozwiązania.
+* Utworzenie aplikacji symulowanego urządzenia, które wysyła telemetrię do zaplecza rozwiązania.
 

@@ -1,6 +1,6 @@
 ---
-title: aaaApache topologii Storm z programu Visual Studio i C# - Azure HDInsight | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak toocreate topologii Storm w języku C#. Utworzyć topologię, liczba proste programu word w Visual Studio za pomocą narzędzi Hadoop hello for Visual Studio."
+title: Topologii Apache Storm i Visual Studio C# - Azure HDInsight | Dokumentacja firmy Microsoft
+description: "Informacje o sposobie tworzenia topologii Storm w języku C#. Utworzyć topologię, liczba proste programu word w Visual Studio za pomocą narzędzia usługi Hadoop dla programu Visual Studio."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,22 +16,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: larryfr
-ms.openlocfilehash: b3fb01a4dda144fd7fb4141e624e31e667f93753
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3ee89b6644ba395e0a6c28ecc2c082c2f7393ac8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="develop-c-topologies-for-apache-storm-by-using-hello-data-lake-tools-for-visual-studio"></a>Tworzenie topologii C# dla Apache Storm przy użyciu narzędzi Data Lake hello for Visual Studio
+# <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Tworzenie topologii C# dla Apache Storm przy użyciu narzędzi Data Lake tools dla programu Visual Studio
 
-Dowiedz się, jak toocreate topologii Storm C# za pomocą usługi Azure Data Lake (Hadoop) z hello narzędzia dla programu Visual Studio. Ten dokument przeprowadzi Cię przez proces hello Tworzenie projektu Storm w Visual Studio, testowanie go lokalnie i wdrażania go tooan Apache Storm w klastrze usługi HDInsight Azure.
+Informacje o sposobie tworzenia topologii Storm C# za pomocą narzędzi usługi Azure Data Lake (Hadoop) dla programu Visual Studio. Ten dokument przeprowadzi Cię przez proces tworzenia projektu Storm w programie Visual Studio, testowanie go lokalnie i wdrażania go do systemu Apache Storm w klastrze usługi HDInsight Azure.
 
-Możesz także dowiedzieć się, jak toocreate hybrydowe topologie, wykorzystujące składniki C# i Java.
+Możesz również Dowiedz się, jak tworzyć hybrydowe topologie, korzystających z języka C# i składniki Java.
 
 > [!NOTE]
-> Gdy hello kroków w tym dokumencie zależą od środowiska projektowego systemu Windows w programie Visual Studio, hello skompilowany projekt może mieć tooeither przesyłanego klastra z systemem Linux lub HDInsight opartych na systemie Windows. Topologie SCP.NET obsługują tylko opartych na systemie Linux klastrów utworzonych po 28 października 2016 roku.
+> Podczas czynności opisane w tym dokumencie zależą od środowiska projektowego systemu Windows w programie Visual Studio, skompilowany projekt może zostać przesłane do klastra z systemem Linux lub HDInsight opartych na systemie Windows. Topologie SCP.NET obsługują tylko opartych na systemie Linux klastrów utworzonych po 28 października 2016 roku.
 
-Topologia toouse C# z opartą na systemie Linux klaster, należy zaktualizować hello pakietu Microsoft.SCP.Net.SDK NuGet używany przez tooversion Twojego projektu 0.10.0.6 lub nowszej. Hello wersję pakietu hello musi być również zgodna wersja główna hello Storm zainstalowany w usłudze HDInsight.
+Aby użyć topologii C# z klastrem opartych na systemie Linux, musisz zaktualizować pakiet Microsoft.SCP.Net.SDK NuGet używany w projekcie do wersji 0.10.0.6 lub nowszej. Wersja pakietu musi być również zgodna z wersją główną systemu Storm zainstalowanego w usłudze HDInsight.
 
 | Wersja usługi HDInsight | Wersja platformy STORM | Wersja SCP.NET | Domyślna wersja Mono |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
@@ -41,11 +41,11 @@ Topologia toouse C# z opartą na systemie Linux klaster, należy zaktualizować 
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
 > [!IMPORTANT]
-> Topologie języka C# w klastrach opartych na systemie Linux należy użyć .NET 4.5 i użyj Mono toorun na powitania klastra usługi HDInsight. Sprawdź [Mono zgodności](http://www.mono-project.com/docs/about-mono/compatibility/) dla potencjalnych niezgodności.
+> Topologie C# w klastrach opartych na systemie Linux muszą korzystać z platformy .NET 4.5 i używać platformy Mono, aby mogły działać w klastrze usługi HDInsight. Sprawdź [Mono zgodności](http://www.mono-project.com/docs/about-mono/compatibility/) dla potencjalnych niezgodności.
 
 ## <a name="install-visual-studio"></a>Instalacja programu Visual Studio
 
-Topologie języka C# z SCP.NET można tworzyć przy użyciu jednej z hello następujące wersje programu Visual Studio:
+Topologie języka C# z SCP.NET można tworzyć przy użyciu jednej z następujących wersji programu Visual Studio:
 
 * Program Visual Studio 2012 z [aktualizacja 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
@@ -57,19 +57,19 @@ Topologie języka C# z SCP.NET można tworzyć przy użyciu jednej z hello nast�
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Zainstaluj Data Lake tools dla programu Visual Studio
 
-tooinstall Data Lake tools dla programu Visual Studio, wykonaj kroki hello w [rozpocząć korzystanie z usługi Data Lake tools dla programu Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+Aby zainstalować usługi Data Lake tools dla programu Visual Studio, postępuj zgodnie z instrukcjami [rozpocząć korzystanie z usługi Data Lake tools dla programu Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 ## <a name="install-java"></a>Instalowanie języka Java
 
-Podczas przesyłania topologii Storm z programu Visual Studio SCP.NET generuje plik zip, który zawiera hello topologii i zależności. Java jest używane toocreate te Kompresuj pliki, ponieważ używa ona formatu, który jest bardziej zgodne z opartą na systemie Linux klastrów.
+Podczas przesyłania topologii Storm z programu Visual Studio SCP.NET generuje plik zip, który zawiera topologii i zależności. Java służy do tworzenia tych plików zip, ponieważ używa ona formatu, który jest bardziej zgodne z opartą na systemie Linux klastrów.
 
-1. Zainstaluj hello Java Developer Kit (JDK) 7 lub nowszego środowiska deweloperskiego. Możesz uzyskać hello JDK Oracle z [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Można również użyć [innych dystrybucje Java](http://openjdk.java.net/).
+1. Zainstaluj Java Developer Kit (JDK) 7 lub nowszego środowiska deweloperskiego. Możesz uzyskać JDK Oracle z [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Można również użyć [innych dystrybucje Java](http://openjdk.java.net/).
 
-2. Witaj `JAVA_HOME` środowiska zmiennej musi toohello punktu katalog, który zawiera Java.
+2. `JAVA_HOME` Zmiennej środowiskowej musi wskazywać katalog, który zawiera Java.
 
-3. Witaj `PATH` zmiennej środowiskowej musi zawierać hello `%JAVA_HOME%\bin` katalogu.
+3. `PATH` Zmiennej środowiskowej musi zawierać `%JAVA_HOME%\bin` katalogu.
 
-Program hello C# console application tooverify że Java i hello JDK są prawidłowo zainstalowane następujące:
+Aby zweryfikować, że Java i zestaw JDK są prawidłowo zainstalowane, można użyć następujących aplikacji konsolowej C#:
 
 ```csharp
 using System;
@@ -105,34 +105,34 @@ namespace ConsoleApplication2
 
 ## <a name="storm-templates"></a>Szablony STORM
 
-Witaj usługi Data Lake tools dla Visual Studio zawierają hello następujące szablony:
+Narzędzia Data Lake dla programu Visual Studio zapewniają następujące szablony:
 
 | Typ projektu | Pokazuje |
 | --- | --- |
 | Aplikacja STORM |Pusty projekt topologii Storm. |
-| Przykładowy składnik zapisywania usługi Azure SQL STORM |Jak tooAzure toowrite bazy danych SQL. |
-| Przykładowe czytnika rozwiązania Cosmos Azure DB STORM |Jak tooread z bazy danych usługi Azure rozwiązania Cosmos. |
-| Przykładowy składnik zapisywania rozwiązania Cosmos Azure DB STORM |Jak tooAzure toowrite DB rozwiązania Cosmos. |
-| Przykładowe czytnika EventHub STORM |Jak tooread z usługi Azure Event Hubs. |
-| Przykładowy składnik zapisywania EventHub STORM |Jak tooAzure toowrite usługi Event Hubs. |
-| Przykładowe bazy danych HBase czytnika STORM |Jak tooread z bazy danych HBase w usłudze HDInsight klastrów. |
-| Przykładowe bazy danych HBase zapisywania STORM |Jak klastrów tooHBase toowrite w usłudze HDInsight. |
-| Przykład hybrydowego STORM |Jak toouse składnika Java. |
+| Przykładowy składnik zapisywania usługi Azure SQL STORM |Jak można zapisać do bazy danych SQL Azure. |
+| Przykładowe czytnika rozwiązania Cosmos Azure DB STORM |Jak można odczytać z bazy danych Azure rozwiązania Cosmos. |
+| Przykładowy składnik zapisywania rozwiązania Cosmos Azure DB STORM |Jak napisać do bazy danych Azure rozwiązania Cosmos. |
+| Przykładowe czytnika EventHub STORM |Jak można odczytać z usługi Azure Event Hubs. |
+| Przykładowy składnik zapisywania EventHub STORM |Jak napisać usługi Azure Event hubs. |
+| Przykładowe bazy danych HBase czytnika STORM |Jak można odczytać z bazy danych HBase w usłudze hdinsight. |
+| Przykładowe bazy danych HBase zapisywania STORM |Sposób zapisywania do bazy danych HBase na klastrach usługi HDInsight. |
+| Przykład hybrydowego STORM |Jak używać składnika Java. |
 | Przykładowe STORM |Topologii liczby podstawowych programu word. |
 
 > [!WARNING]
-> Nie wszystkie szablony będzie działać z opartą na systemie Linux usługą HDInsight. Pakiety Nuget służące przez hello szablony mogą być niezgodne z Mono. Sprawdź hello [Mono zgodności](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentów i użyj hello [analizator przenośność .NET](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) tooidentify potencjalne problemy.
+> Nie wszystkie szablony będzie działać z opartą na systemie Linux usługą HDInsight. Pakiety Nuget służące za pomocą szablonów nie może być zgodna z Mono. Sprawdź [Mono zgodności](http://www.mono-project.com/docs/about-mono/compatibility/) dokumentów i użyj [.NET przenośność analizator](hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) do identyfikowania potencjalnych problemów.
 
-W hello kroków w tym dokumencie należy użyć hello Podstawowa aplikacja Storm projektu typu toocreate topologii.
+Instrukcje w tym dokumencie umożliwia Podstawowa aplikacja Storm projektu typu Tworzenie topologii.
 
 ### <a name="hbase-templates-notes"></a>Informacje o szablonach HBase
 
-Hello czytnika HBase i szablony zapisywania użyć hello interfejsu API REST HBase, nie hello HBase interfejsu API języka Java, toocommunicate z bazy danych HBase w klastrze usługi HDInsight.
+Szablony HBase i zapisu Użyj interfejsu API REST HBase, nie HBase API języka Java, do komunikowania się z bazą danych HBase w klastrze usługi HDInsight.
 
 ### <a name="eventhub-templates-notes"></a>Informacje o szablonach EventHub
 
 > [!IMPORTANT]
-> Witaj opartych na języku Java EventHub spout składnika dołączonego hello czytnika EventHub szablonu nie może działać z systemu Storm w usłudze HDInsight w wersji 3.5 lub nowszej. Zaktualizowana wersja tego składnika jest dostępna w [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
+> Składnik spout opartych na języku Java EventHub zawartych w szablonie czytnika EventHub nie mogą działać z Storm w usłudze HDInsight w wersji 3.5 lub nowszej. Zaktualizowana wersja tego składnika jest dostępna w [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
 Aby przykładową topologię, która używa tej składnika i współpracuje z systemu Storm w usłudze HDInsight 3.5, zobacz [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
@@ -140,61 +140,61 @@ Aby przykładową topologię, która używa tej składnika i współpracuje z sy
 
 1. Otwórz program Visual Studio, wybierz **pliku** > **nowy**, a następnie wybierz **projektu**.
 
-2. Z hello **nowy projekt** okna, rozwiń węzeł **zainstalowana** > **szablony**i wybierz **usługi Azure Data Lake**. Wybierz z listy hello szablonów **aplikacji Storm**. U dołu hello hello ekranu, wprowadź **WordCount** jako nazwa hello aplikacji hello.
+2. Z **nowy projekt** okna, rozwiń węzeł **zainstalowana** > **szablony**i wybierz **usługi Azure Data Lake**. Wybierz z listy szablonów **aplikacji Storm**. W dolnej części ekranu, wprowadź **WordCount** jako nazwę aplikacji.
 
     ![Zrzut ekranu nowego projektu okna](./media/hdinsight-storm-develop-csharp-visual-studio-topology/new-project.png)
 
-3. Po utworzeniu projektu hello powinny mieć hello następujące pliki:
+3. Po utworzeniu projektu, musisz mieć następujące pliki:
 
-   * **Plik program.cs**: plik definiuje hello topologii dla projektu. Domyślnie zostanie utworzona domyślną topologię, która składa się z jednego spout i jeden bolt.
+   * **Plik program.cs**: plik definiuje topologii dla projektu. Domyślnie zostanie utworzona domyślną topologię, która składa się z jednego spout i jeden bolt.
 
    * **Spout.cs**: spout przykład, który emituje liczb losowych.
 
-   * **Bolt.cs**: przykład bolt, który śledzi liczbę elementów emitowane przez hello spout.
+   * **Bolt.cs**: przykład bolt, który śledzi liczbę elementów emitowane przez elementy spout.
 
-     Podczas tworzenia projektu hello NuGet pobieranie najnowszych hello [pakietu SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
+     Podczas tworzenia projektu NuGet pobierze najnowszą [pakietu SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
 
      [!INCLUDE [scp.net version important](../../includes/hdinsight-storm-scpdotnet-version.md)]
 
-### <a name="implement-hello-spout"></a>Spout hello wdrożenie
+### <a name="implement-the-spout"></a>Implementowanie spout
 
-1. Otwórz **Spout.cs**. Elementach spout są używane tooread danych w topologii z zewnętrznego źródła. główne składniki powitania dla spout są:
+1. Otwórz **Spout.cs**. Elementach spout są używane do odczytywania danych w topologii z zewnętrznego źródła. Główne składniki spout są:
 
-   * **NextTuple**: wywoływane przez Storm, gdy elementy spout hello jest dozwolone tooemit krotek nowe.
+   * **NextTuple**: wywoływane przez Storm, gdy elementy spout może wyemitować krotek nowe.
 
-   * **Potwierdzenia** (tylko w przypadku topologii transakcyjnych): obsługuje inicjowane przez inne składniki w topologii hello krotek wysyłane z hello spout potwierdzeń. Potwierdzeniem krotka umożliwia spout hello wiedzieć, że jej został pomyślnie przetworzony przez składniki podrzędne.
+   * **Potwierdzenia** (tylko w przypadku topologii transakcyjnych): obsługuje inicjowane przez inne składniki w topologii krotek wysyłane z spout potwierdzeń. Potwierdzeniem krotka umożliwia spout wiedzieć, że jej został pomyślnie przetworzony przez składniki podrzędne.
 
-   * **Niepowodzenie** (tylko w przypadku topologii transakcyjnych): obsługuje krotek, które są niepowodzenie przetwarzania innych składników w topologii hello. Implementacja metody niepowodzenie umożliwia toore-Emituj hello spójnej kolekcji, dzięki czemu mogą być przetwarzane ponownie.
+   * **Niepowodzenie** (tylko w przypadku topologii transakcyjnych): obsługuje krotek, które są niepowodzenie przetwarzania innych składników w topologii. Implementacja metody błędów pozwala na ponowne Emituj spójnej kolekcji, dzięki czemu mogą być przetwarzane ponownie.
 
-2. Zamień zawartość hello hello **Spout** klasy z hello następującego tekstu. Ta spout losowo emituje zdania na powitania topologii.
+2. Zastąp zawartość **Spout** klasy z następującym tekstem. Spout ten emituje losowo zdanie w topologii.
 
     ```csharp
     private Context ctx;
     private Random r = new Random();
     string[] sentences = new string[] {
-        "hello cow jumped over hello moon",
-        "an apple a day keeps hello doctor away",
+        "the cow jumped over the moon",
+        "an apple a day keeps the doctor away",
         "four score and seven years ago",
-        "snow white and hello seven dwarfs",
+        "snow white and the seven dwarfs",
         "i am at two with nature"
     };
 
     public Spout(Context ctx)
     {
-        // Set hello instance context
+        // Set the instance context
         this.ctx = ctx;
 
         Context.Logger.Info("Generator constructor called");
 
         // Declare Output schema
         Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-        // hello schema for hello default output stream is
+        // The schema for the default output stream is
         // a tuple that contains a string field
         outputSchema.Add("default", new List<Type>() { typeof(string) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(null, outputSchema));
     }
 
-    // Get an instance of hello spout
+    // Get an instance of the spout
     public static Spout Get(Context ctx, Dictionary<string, Object> parms)
     {
         return new Spout(ctx);
@@ -203,7 +203,7 @@ Aby przykładową topologię, która używa tej składnika i współpracuje z sy
     public void NextTuple(Dictionary<string, Object> parms)
     {
         Context.Logger.Info("NextTuple enter");
-        // hello sentence toobe emitted
+        // The sentence to be emitted
         string sentence;
 
         // Get a random sentence
@@ -226,22 +226,22 @@ Aby przykładową topologię, która używa tej składnika i współpracuje z sy
     }
     ```
 
-### <a name="implement-hello-bolts"></a>Bolts hello wdrożenie
+### <a name="implement-the-bolts"></a>Implementowanie elementów bolt
 
-1. Usunięcie istniejących hello **Bolt.cs** plik z projektu hello.
+1. Usuń istniejącą **Bolt.cs** plik z projektu.
 
-2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt hello i wybierz **Dodaj** > **nowy element**. Wybierz z listy hello **Storm Bolt**, a następnie wprowadź **Splitter.cs** jako nazwa hello. Powtórz ten proces toocreate, drugi bolt o nazwie **Counter.cs**.
+2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Dodaj** > **nowy element**. Wybierz z listy, **Storm Bolt**, a następnie wprowadź **Splitter.cs** jako nazwy. Powtórz ten proces, aby utworzyć drugi bolt o nazwie **Counter.cs**.
 
    * **Splitter.cs**: implementuje elementu bolt, który dzieli zdania na poszczególnych wyrazów i emituje nowego strumienia słów.
 
-   * **Counter.cs**: implementuje elementu bolt, który zlicza każdego wyrazu i emituje nowego strumienia słów i liczby powitania dla każdego wyrazu.
+   * **Counter.cs**: implementuje elementu bolt, który zlicza każdego wyrazu i emituje nowego strumienia słów i liczby dla każdego wyrazu.
 
      > [!NOTE]
-     > Tych elementów bolt odczytu i zapisu toostreams, ale można również użyć bolt toocommunicate ze źródeł, takich jak bazy danych lub usługi.
+     > Tych elementów bolt odczytu i zapisu do strumieni, ale umożliwia także bolt do komunikowania się ze źródeł, takich jak bazy danych lub usługi.
 
-3. Otwórz **Splitter.cs**. Domyślnie ma tylko jedną metodę: **Execute**. Witaj metody Execute jest wywoływane, gdy hello bolt odbiera tuple do przetwarzania. W tym miejscu możesz przeczytać i przetwarzania przychodzących krotek i Emituj krotek wychodzących.
+3. Otwórz **Splitter.cs**. Domyślnie ma tylko jedną metodę: **Execute**. Metody Execute jest wywoływane, gdy elementy bolt odbiera tuple do przetwarzania. W tym miejscu możesz przeczytać i przetwarzania przychodzących krotek i Emituj krotek wychodzących.
 
-4. Zamień zawartość hello hello **podziału** klasy z hello następującego kodu:
+4. Zastąp zawartość **podziału** klasy następującym kodem:
 
     ```csharp
     private Context ctx;
@@ -254,15 +254,15 @@ Aby przykładową topologię, która używa tej składnika i współpracuje z sy
 
         // Declare Input and Output schemas
         Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-        // Input contains a tuple with a string field (hello sentence)
+        // Input contains a tuple with a string field (the sentence)
         inputSchema.Add("default", new List<Type>() { typeof(string) });
         Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-        // Outbound contains a tuple with a string field (hello word)
+        // Outbound contains a tuple with a string field (the word)
         outputSchema.Add("default", new List<Type>() { typeof(string) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
     }
 
-    // Get a new instance of hello bolt
+    // Get a new instance of the bolt
     public static Splitter Get(Context ctx, Dictionary<string, Object> parms)
     {
         return new Splitter(ctx);
@@ -273,7 +273,7 @@ Aby przykładową topologię, która używa tej składnika i współpracuje z sy
     {
         Context.Logger.Info("Execute enter");
 
-        // Get hello sentence from hello tuple
+        // Get the sentence from the tuple
         string sentence = tuple.GetString(0);
         // Split at space characters
         foreach (string word in sentence.Split(' '))
@@ -287,7 +287,7 @@ Aby przykładową topologię, która używa tej składnika i współpracuje z sy
     }
     ```
 
-5. Otwórz **Counter.cs**i Zastąp zawartość klasy hello hello następujące czynności:
+5. Otwórz **Counter.cs**i Zastąp zawartość klasy następującym kodem:
 
     ```csharp
     private Context ctx;
@@ -304,11 +304,11 @@ Aby przykładową topologię, która używa tej składnika i współpracuje z sy
 
         // Declare Input and Output schemas
         Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
-        // A tuple containing a string field - hello word
+        // A tuple containing a string field - the word
         inputSchema.Add("default", new List<Type>() { typeof(string) });
 
         Dictionary<string, List<Type>> outputSchema = new Dictionary<string, List<Type>>();
-        // A tuple containing a string and integer field - hello word and hello word count
+        // A tuple containing a string and integer field - the word and the word count
         outputSchema.Add("default", new List<Type>() { typeof(string), typeof(int) });
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, outputSchema));
     }
@@ -324,42 +324,42 @@ Aby przykładową topologię, która używa tej składnika i współpracuje z sy
     {
         Context.Logger.Info("Execute enter");
 
-        // Get hello word from hello tuple
+        // Get the word from the tuple
         string word = tuple.GetString(0);
-        // Do we already have an entry for hello word in hello dictionary?
+        // Do we already have an entry for the word in the dictionary?
         // If no, create one with a count of 0
         int count = counts.ContainsKey(word) ? counts[word] : 0;
-        // Increment hello count
+        // Increment the count
         count++;
-        // Update hello count in hello dictionary
+        // Update the count in the dictionary
         counts[word] = count;
 
         Context.Logger.Info("Emit: {0}, count: {1}", word, count);
-        // Emit hello word and count information
+        // Emit the word and count information
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new List<SCPTuple> { tuple }, new Values(word, count));
         Context.Logger.Info("Execute exit");
     }
     ```
 
-### <a name="define-hello-topology"></a>Zdefiniuj topologię hello
+### <a name="define-the-topology"></a>Zdefiniuj topologię
 
-Elementach spout i elementów bolt są rozmieszczone na wykresie, który definiuje sposób hello dane przepływają między składnikami. Ta topologia wykres hello jest następujący:
+Elementach spout i elementów bolt są rozmieszczone na wykresie, która określa, jak dane przepływają między składnikami. Ta topologia wykres jest w następujący sposób:
 
 ![Diagram przedstawiający sposób rozmieszczenia elementów](./media/hdinsight-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
 
-Zdania są emitowane z hello spout i są rozproszone tooinstances z hello podziału bolt. bolt podziału Hello dzieli hello zdań w wyrazy, które są rozproszone toohello licznika bolt.
+Zdania są emitowane z spout i są dystrybuowane do wystąpień bolt podziału. Bolt podziału dzieli zdań w wyrazy, które są dystrybuowane do bolt licznika.
 
-Ponieważ wyrazów jest przechowywanych lokalnie w wystąpienia licznika hello, chcemy się upewnić, że określone wyrazy przepływ toohello toomake tego samego wystąpienia bolt licznika. Każde wystąpienie przechowuje informacje o słów. Ponieważ bolt podziału hello przechowuje bez stanu, rzeczywiście nie ma znaczenia, którego wystąpienia podziału hello otrzymuje zdanie, które.
+Ponieważ wyrazów jest przechowywanych lokalnie w wystąpieniu licznika, chcemy się upewnić się, że określone wyrazy przepływać do tego samego wystąpienia licznika bolt. Każde wystąpienie przechowuje informacje o słów. Ponieważ bolt podziału przechowuje bez stanu, naprawdę nie ma znaczenia, którego wystąpienia rozdzielacza otrzymuje zdanie, które.
 
-Otwórz **Program.cs**. Metoda ważne Hello jest **GetTopologyBuilder**, które jest używane toodefine hello topologię, która jest przesyłany tooStorm. Zamień zawartość hello **GetTopologyBuilder** z powitania po topologii hello tooimplement kodu opisanych powyżej:
+Otwórz **Program.cs**. Metoda ważne jest **GetTopologyBuilder**, które jest używane do definiowania topologia, z której zostało przesłane do systemu Storm. Zastąp zawartość **GetTopologyBuilder** z następujący kod do wdrożenia topologii opisanych powyżej:
 
 ```csharp
 // Create a new topology named 'WordCount'
 TopologyBuilder topologyBuilder = new TopologyBuilder("WordCount" + DateTime.Now.ToString("yyyyMMddHHmmss"));
 
-// Add hello spout toohello topology.
-// Name hello component 'sentences'
-// Name hello field that is emitted as 'sentence'
+// Add the spout to the topology.
+// Name the component 'sentences'
+// Name the field that is emitted as 'sentence'
 topologyBuilder.SetSpout(
     "sentences",
     Spout.Get,
@@ -368,12 +368,12 @@ topologyBuilder.SetSpout(
         {Constants.DEFAULT_STREAM_ID, new List<string>(){"sentence"}}
     },
     1);
-// Add hello splitter bolt toohello topology.
-// Name hello component 'splitter'
-// Name hello field that is emitted 'word'
-// Use suffleGrouping toodistribute incoming tuples
-//   from hello 'sentences' spout across instances
-//   of hello splitter
+// Add the splitter bolt to the topology.
+// Name the component 'splitter'
+// Name the field that is emitted 'word'
+// Use suffleGrouping to distribute incoming tuples
+//   from the 'sentences' spout across instances
+//   of the splitter
 topologyBuilder.SetBolt(
     "splitter",
     Splitter.Get,
@@ -383,15 +383,15 @@ topologyBuilder.SetBolt(
     },
     1).shuffleGrouping("sentences");
 
-// Add hello counter bolt toohello topology.
-// Name hello component 'counter'
-// Name hello fields that are emitted 'word' and 'count'
-// Use fieldsGrouping tooensure that tuples are routed
-//   toocounter instances based on hello contents of field
-//   position 0 (hello word). This could also have been
+// Add the counter bolt to the topology.
+// Name the component 'counter'
+// Name the fields that are emitted 'word' and 'count'
+// Use fieldsGrouping to ensure that tuples are routed
+//   to counter instances based on the contents of field
+//   position 0 (the word). This could also have been
 //   List<string>(){"word"}.
-//   This ensures that hello word 'jumped', for example, will always
-//   go toohello same instance
+//   This ensures that the word 'jumped', for example, will always
+//   go to the same instance
 topologyBuilder.SetBolt(
     "counter",
     Counter.Get,
@@ -410,52 +410,52 @@ topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
 return topologyBuilder;
 ```
 
-## <a name="submit-hello-topology"></a>Przedstawia topologię hello
+## <a name="submit-the-topology"></a>Przedstawia topologię
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt hello i wybierz **przesłać tooStorm w usłudze HDInsight**.
+1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **przesyłania do systemu Storm w usłudze HDInsight**.
 
    > [!NOTE]
-   > Jeśli zostanie wyświetlony monit, wprowadź poświadczenia hello subskrypcji platformy Azure. Jeśli masz więcej niż jedną subskrypcję, zaloguj się toohello, który zawiera Storm w klastrze usługi HDInsight.
+   > Jeśli zostanie wyświetlony monit, wprowadź poświadczenia dla subskrypcji platformy Azure. Jeśli masz więcej niż jedną subskrypcję, zaloguj się do tego, który zawiera Storm w klastrze usługi HDInsight.
 
-2. Wybierz Storm w klastrze usługi HDInsight z hello **klaster Storm** listy rozwijanej, a następnie wybierz **przesyłania**. Można monitorować, jeśli przesyłanie hello działa prawidłowo, używając hello **dane wyjściowe** okna.
+2. Wybierz Storm w klastrze usługi HDInsight z **klaster Storm** listy rozwijanej, a następnie wybierz **przesyłania**. Można monitorować, jeśli przesyłanie zakończy się pomyślnie, za pomocą **dane wyjściowe** okna.
 
-3. Gdy topologia hello został pomyślnie przesłany, hello **topologii Storm** dla klastra hello powinna zostać wyświetlona. Wybierz hello **WordCount** topologii z hello listy tooview informacji na temat hello systemem topologii.
+3. Gdy topologia zostało pomyślnie przesłane, **topologii Storm** dla klastra powinna zostać wyświetlona. Wybierz **WordCount** topologii z listy, aby wyświetlić informacje o uruchomionej topologii.
 
    > [!NOTE]
    > Można również wyświetlić **topologii Storm** z **Eksploratora serwera**. Rozwiń węzeł **Azure** > **HDInsight**, kliknij prawym przyciskiem myszy klaster Storm w usłudze HDInsight, a następnie wybierz **topologii Storm widoku**.
 
-    tooview informacji o składnikach hello topologii hello, kliknij dwukrotnie składnik hello hello diagramie.
+    Aby wyświetlić informacje o składnikach topologii, kliknij dwukrotnie składnik na diagramie.
 
-4. Z hello **podsumowanie topologii** wyświetlić, kliknij przycisk **Kill** toostop hello topologii.
+4. Z **podsumowanie topologii** wyświetlić, kliknij przycisk **Kill** przestanie topologii.
 
    > [!NOTE]
-   > Topologii STORM nadal toorun, dopóki nie zostaną one wyłączone lub klaster hello jest usunięty.
+   > Topologii STORM nadal uruchamiać, dopóki nie zostaną one wyłączone lub usunąć klastra.
 
 ## <a name="transactional-topology"></a>Topologia transakcyjne
 
-Topologia poprzedniej Hello jest nietransakcyjnej. składniki Hello w topologii hello implementuje funkcje tooreplaying wiadomości. Na przykład transakcyjne topologii Utwórz projekt i wybierz **próbki Storm** jako hello typu projektu.
+Poprzednie topologia jest nietransakcyjnej. Składniki w topologii nie implementuje funkcje odtwarzanie wiadomości. Na przykład transakcyjne topologii Utwórz projekt i wybierz **próbki Storm** jako typ projektu.
 
-Topologie transakcyjne zaimplementować powitania po toosupport powtarzania danych:
+Topologie transakcyjne zaimplementować następujące polecenie, aby obsługiwać powtarzania danych:
 
-* **Buforowanie metadanych**: hello spout muszą być przechowywane metadane dotyczące danych hello wysyłanego, dzięki czemu hello danych można je pobrać i wysyłanego ponownie, jeśli wystąpi błąd. Ponieważ hello danych emitowanych przez próbki hello jest mały, hello danych pierwotnych dla każdej krotki są przechowywane w słowniku powtarzania.
+* **Buforowanie metadanych**: spout muszą być przechowywane metadane na temat danych emitowanych, dzięki czemu dane można je pobrać i wysyłanego ponownie, jeśli wystąpi błąd. Ponieważ danych emitowanych przez próbki jest mały, danych pierwotnych dla każdej krotki znajduje się w słowniku powtarzania.
 
-* **Potwierdzenia**: każdego bolt w topologii hello można wywołać `this.ctx.Ack(tuple)` tooacknowledge, że pomyślnie przetworzył spójnych kolekcji. Witaj w przypadku wszystkich elementów bolt prześledzone hello krotki, `Ack` wywoływana jest metoda hello spout. Witaj `Ack` metody umożliwia hello spout tooremove danych, który był buforowany powtarzania.
+* **Potwierdzenia**: każdego bolt topologii można wywołać `this.ctx.Ack(tuple)` potwierdzić, że pomyślnie przetworzył spójnych kolekcji. Gdy wszystkie elementów bolt prześledzone spójnej kolekcji, `Ack` wywoływana jest metoda spout. `Ack` Metoda pozwala spout do usunięcia danych, który był buforowany powtarzania.
 
-* **Niepowodzenie**: każdego bolt można wywołać `this.ctx.Fail(tuple)` tooindicate przetwarzanie nie powiodło się dla spójnych kolekcji. Błąd Hello propaguje toohello `Fail` metody spout hello, w którym krotki hello można odtworzyć za pomocą buforowanych metadanych.
+* **Niepowodzenie**: każdego bolt można wywołać `this.ctx.Fail(tuple)` wskazująca, że przetwarzanie nie powiodło się dla spójnych kolekcji. Błąd propaguje do `Fail` metody spout, gdzie można odtworzyć spójna kolekcja znajdująca się przy użyciu buforowanych metadanych.
 
-* **Identyfikator sekwencji**: podczas emitowania krotka, można określić identyfikator unikatowy ciąg. Ta wartość określa krotki hello przetwarzania powtórzeń (Ack i błędów). Na przykład Witaj spout w hello **próbki Storm** projekt używa następujących hello podczas emitowania danych:
+* **Identyfikator sekwencji**: podczas emitowania krotka, można określić identyfikator unikatowy ciąg. Ta wartość określa spójnej kolekcji dla przetwarzania powtórzeń (Ack i błędów). Na przykład spout w **próbki Storm** projektu są używane następujące podczas emitowania danych:
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
 
-    Ten kod emituje krotka zawiera zdanie toohello domyślny strumień, z identyfikatorem sekwencji hello zawarte w **lastSeqId**. Na przykład **lastSeqId** jest zwiększany dla każdego krotki wysyłanego.
+    Ten kod emituje spójnych kolekcji zawierający zdania do domyślny strumień, z identyfikatorem sekwencji zawartych w **lastSeqId**. Na przykład **lastSeqId** jest zwiększany dla każdego krotki wysyłanego.
 
-Jak pokazano w hello **próbki Storm** projektu, czy składnik jest transakcyjna można ustawić w czasie wykonywania na podstawie konfiguracji.
+Jak pokazano w **próbki Storm** projektu, czy składnik jest transakcyjna można ustawić w czasie wykonywania na podstawie konfiguracji.
 
 ## <a name="hybrid-topology-with-c-and-java"></a>Hybrydowych topologii C# i Java
 
-Umożliwia także Data Lake tools dla Visual Studio toocreate hybrydowe topologie, gdzie są niektóre składniki C#, a niektóre Java.
+Data Lake tools dla Visual Studio umożliwia również tworzyć hybrydowe topologie, gdzie są niektóre składniki C#, a niektóre Java.
 
-Na przykład topologii hybrydowego Utwórz projekt i wybierz **przykład hybrydowego Storm**. Ten typ przykładowych pokazano hello następujące pojęcia:
+Na przykład topologii hybrydowego Utwórz projekt i wybierz **przykład hybrydowego Storm**. Ten typ przykładowych pokazano następujące kwestie:
 
 * **Java spout** i **C# bolt**: zdefiniowanych w **HybridTopology_javaSpout_csharpBolt**.
 
@@ -466,62 +466,62 @@ Na przykład topologii hybrydowego Utwórz projekt i wybierz **przykład hybrydo
     * Transakcyjne wersja jest zdefiniowany w **HybridTopologyTx_csharpSpout_javaBolt**.
 
   > [!NOTE]
-  > Ta wersja również pokazuje, jak toouse Clojure kodu z pliku tekstowego jako składnik Java.
+  > Ta wersja także przedstawiono sposób użycia Clojure kodu z pliku tekstowego jako składnik Java.
 
 
-tooswitch hello topologię, która jest używana po przesłaniu hello projektu, po prostu przenieść hello `[Active(true)]` topologii toohello instrukcji ma toouse, przed przesłaniem go toohello klastra.
+Aby przełączyć topologię, która jest używana po przesłaniu projektu, po prostu przenieść `[Active(true)]` instrukcji topologii, którego chcesz użyć, przed przesłaniem go do klastra.
 
 > [!NOTE]
-> Wszystkie pliki hello Java, które są wymagane są dostarczane jako część tego projektu w hello **JavaDependency** folderu.
+> Wszystkie pliki języka Java, które są wymagane są dostarczane jako część tego projektu w **JavaDependency** folderu.
 
-Podczas tworzenia i przesyłania topologii hybrydowe, należy wziąć pod uwagę następujące hello:
+Podczas tworzenia i przesyłania topologii hybrydowe, należy wziąć pod uwagę następujące:
 
-* Należy użyć **JavaComponentConstructor** toocreate wystąpienia hello Klasa Java spout lub bolt.
+* Należy użyć **JavaComponentConstructor** można utworzyć wystąpienia klasy Java dla spout lub elementów bolt.
 
-* Należy używać **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** tooJSON obiektów danych tooserialize do lub wychodzący składniki Java za pomocą języka Java.
+* Należy używać **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** do serializowania danych do lub wychodzący składniki Java z obiektów języka Java na format JSON.
 
-* Podczas przesyłania hello topologii toohello serwera, należy użyć hello **dodatkowe konfiguracje** hello toospecify opcji **ścieżki plików Java**. Określona ścieżka Hello powinna być hello katalog, który zawiera pliki JAR hello, które zawierają klas Java.
+* Podczas przesyłania topologii do serwera, należy użyć **dodatkowe konfiguracje** opcję, aby określić **ścieżki plików Java**. Określona ścieżka powinna być katalog zawierający pliki JAR, które zawierają klas Java.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-Wersja SCP.NET 0.9.4.203 wprowadza nowe klasy i metody specjalnie z myślą o pracy z hello spout Centrum zdarzeń (Java spout, służącą do odczytywania z usługi Event Hubs). Po utworzeniu topologię, która używa spout Centrum zdarzeń Użyj hello następujące metody:
+Wersja SCP.NET 0.9.4.203 wprowadza nowe klasy i metody specjalnie z myślą o pracy z spout Centrum zdarzeń (Java spout, służącą do odczytywania z usługi Event Hubs). Podczas tworzenia topologię, która używa spout Centrum zdarzeń, należy użyć następujących metod:
 
-* **EventHubSpoutConfig** klasy: tworzy obiekt zawierający konfigurację hello hello spout składnika.
+* **EventHubSpoutConfig** klasy: tworzy obiekt zawierający konfigurację dla składnika spout.
 
-* **TopologyBuilder.SetEventHubSpout** metody: dodaje hello Centrum zdarzeń spout składnika toohello topologii.
+* **TopologyBuilder.SetEventHubSpout** metody: dodaje składnik spout Centrum zdarzeń do topologii.
 
 > [!NOTE]
-> Możesz nadal korzystać hello **CustomizedInteropJSONSerializer** tooserialize dane generowane przez hello spout.
+> Możesz nadal korzystać **CustomizedInteropJSONSerializer** do serializowania danych produkowane przez elementy spout.
 
 ## <a id="configurationmanager"></a>Użyj program Configuration Manager
 
-Nie używaj **ConfigurationManager** wartości konfiguracji tooretrieve z elementów bolt i spout składników. W ten sposób może spowodować wyjątek pustego wskaźnika. Zamiast tego hello konfiguracji projektu jest przekazywany do topologii Storm hello jako pary kluczy i wartości w kontekście topologii hello. Każdego składnika, który korzysta z wartości konfiguracji musi pobrać je z kontekstu hello podczas inicjowania.
+Nie używaj **ConfigurationManager** można pobrać wartości konfiguracji z bolt i spout składników. W ten sposób może spowodować wyjątek pustego wskaźnika. Zamiast tego konfiguracji projektu jest przekazywany do topologii Storm jako pary kluczy i wartości w kontekście topologii. Każdego składnika, który korzysta z wartości konfiguracji należy pobrać je z kontekstu podczas inicjowania.
 
-Witaj poniższy kod przedstawia sposób tooretrieve te wartości:
+Poniższy kod przedstawia sposób pobierania tych wartości:
 
 ```csharp
 public class MyComponent : ISCPBolt
 {
-    // toohold configuration information loaded from context
+    // To hold configuration information loaded from context
     Configuration configuration;
     ...
     public MyComponent(Context ctx, Dictionary<string, Object> parms)
     {
-        // Save a copy of hello context for this component instance
+        // Save a copy of the context for this component instance
         this.ctx = ctx;
-        // If it exists, load hello configuration for hello component
+        // If it exists, load the configuration for the component
         if(parms.ContainsKey(Constants.USER_CONFIG))
         {
             this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
         }
-        // Retrieve hello value of "Foo" from configuration
+        // Retrieve the value of "Foo" from configuration
         var foo = this.configuration.AppSettings.Settings["Foo"].Value;
     }
     ...
 }
 ```
 
-Jeśli używasz `Get` tooreturn metody instancję składnika, należy upewnić się, czy przekazaniem zarówno hello `Context` i `Dictionary<string, Object>` Konstruktor toohello parametrów. Witaj przykładem jest podstawowy `Get` metodę, która poprawnie przekazuje te wartości:
+Jeśli używasz `Get` metodę, aby zwrócić wystąpienia składnika, należy upewnić się, że przekazuje zarówno `Context` i `Dictionary<string, Object>` parametrów konstruktora. Poniższy przykład jest podstawowy `Get` metodę, która poprawnie przekazuje te wartości:
 
 ```csharp
 public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
@@ -530,78 +530,78 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 }
 ```
 
-## <a name="how-tooupdate-scpnet"></a>Jak tooupdate SCP.NET
+## <a name="how-to-update-scpnet"></a>Jak zaktualizować SCP.NET
 
-Najnowsze wersje SCP.NET obsługuje uaktualnienie pakietu przez pakiet NuGet. Dostępna jest nowa aktualizacja, pojawi się powiadomienie uaktualnienia. Sprawdź toomanually do uaktualnienia, wykonaj następujące kroki:
+Najnowsze wersje SCP.NET obsługuje uaktualnienie pakietu przez pakiet NuGet. Dostępna jest nowa aktualizacja, pojawi się powiadomienie uaktualnienia. Aby ręcznie sprawdzić uaktualnienia, wykonaj następujące kroki:
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt hello i wybierz **Zarządzaj pakietami NuGet**.
+1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Zarządzaj pakietami NuGet**.
 
-2. Wybierz z Menedżera pakietów hello, **aktualizacje**. Czy jest dostępna aktualizacja, są one dostępne. Kliknij przycisk **aktualizacji** dla tooinstall pakietu hello go.
+2. Wybierz z Menedżera pakietów, **aktualizacje**. Czy jest dostępna aktualizacja, są one dostępne. Kliknij przycisk **aktualizacji** dla pakietu go zainstalować.
 
 > [!IMPORTANT]
-> Jeśli projekt został utworzony przy użyciu starszej wersji SCP.NET, który nie używa NuGet, należy wykonać hello następujące kroki tooupdate tooa nowszej wersji:
+> Jeśli projekt został utworzony przy użyciu starszej wersji SCP.NET, który nie używa NuGet, należy wykonać następujące kroki, aby zaktualizować do nowszej wersji:
 >
-> 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt hello i wybierz **Zarządzaj pakietami NuGet**.
-> 2. Przy użyciu hello **wyszukiwania** pola, Wyszukaj, a następnie dodaj **Microsoft.SCP.Net.SDK** toohello projektu.
+> 1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **Zarządzaj pakietami NuGet**.
+> 2. Przy użyciu **wyszukiwania** pola, Wyszukaj, a następnie dodaj **Microsoft.SCP.Net.SDK** do projektu.
 
 ## <a name="troubleshoot-common-issues-with-topologies"></a>Rozwiązywanie typowych problemów z topologii
 
 ### <a name="null-pointer-exceptions"></a>Wyjątki wskaźnika o wartości null
 
-Gdy używasz topologii C# z klastrem usługi HDInsight opartej na systemie Linux, blokowania i spout składników, które używają **ConfigurationManager** tooread ustawienia konfiguracji w czasie wykonywania mogą zwracać wyjątki wskaźnika o wartości null.
+Gdy używasz topologii C# z klastrem usługi HDInsight opartej na systemie Linux, blokowania i spout składników, które używają **ConfigurationManager** można odczytać ustawień konfiguracji w czasie wykonywania mogą zwracać wyjątki wskaźnika o wartości null.
 
-Hello konfiguracji projektu jest przekazywany do topologii Storm hello jako pary kluczy i wartości w kontekście topologii hello. Można go pobrać z hello słownika obiektu, który jest przekazywany tooyour składniki, gdy są one inicjowane.
+Konfiguracja dla projektu jest przekazywany do topologii Storm jako pary kluczy i wartości w kontekście topologii. Można go pobrać z obiekt słownika, który jest przekazywany do składników programu, gdy są one inicjowane.
 
-Aby uzyskać więcej informacji, zobacz hello [ConfigurationManager](#configurationmanager) sekcji tego dokumentu.
+Aby uzyskać więcej informacji, zobacz [ConfigurationManager](#configurationmanager) sekcji tego dokumentu.
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
-Jeśli używasz topologii C# z klastrem usługi HDInsight opartej na systemie Linux, możesz napotkać hello następujący błąd:
+Używając topologii C# z klastrem usługi HDInsight opartej na systemie Linux, może wystąpić następujący błąd:
 
     System.TypeLoadException: Failure has occurred while loading a type.
 
-Ten błąd występuje podczas używania pliku binarnego, który nie jest zgodny z wersją .NET, który obsługuje Mono hello.
+Ten błąd występuje podczas używania pliku binarnego, który jest niezgodny z wersją programu .NET, który obsługuje Mono.
 
 W przypadku klastrów usługi HDInsight opartej na systemie Linux upewnij się, że projekt korzysta z plików binarnych skompilowanego dla platformy .NET 4.5.
 
 ### <a name="test-a-topology-locally"></a>Testowanie topologii lokalnie
 
-Chociaż jest łatwe toodeploy klastra tooa topologii, w niektórych przypadkach może być konieczne tootest topologii lokalnie. Następujące kroki toorun hello i testów hello przykładową topologię w tym samouczku lokalnie w środowisku projektowania.
+Chociaż jest to łatwa do wdrożenia topologii do klastra, w niektórych przypadkach może być konieczne test topologii lokalnie. Wykonaj następujące kroki, aby uruchomić i przetestować przykładową topologię w tym samouczku lokalnie w środowisku projektowania.
 
 > [!WARNING]
 > Testowanie lokalnym działa tylko dla basic, C# — tylko topologii. Nie można użyć lokalnego testowanie pod kątem hybrydowe topologie lub topologie, wykorzystujące wiele strumieni.
 
-1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt hello i wybierz **właściwości**. We właściwościach projektu hello, zmień hello **Output typu** za**aplikacji konsoli**.
+1. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt i wybierz **właściwości**. We właściwościach projektu, należy zmienić **Output typu** do **aplikacji konsoli**.
 
     ![Zrzut ekranu przedstawiający właściwości projektu z wyróżnionym typem danych wyjściowych](./media/hdinsight-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
    > [!NOTE]
-   > Pamiętaj toochange hello **Output typu** za tworzenie kopii**biblioteki klas** przed wdrożeniem hello topologii tooa klastra.
+   > Pamiętaj, aby zmienić **Output typu** do **biblioteki klas** przed wdrożeniem topologii do klastra.
 
-2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt hello, a następnie wybierz **Dodaj** > **nowy element**. Wybierz **klasy**, a następnie wprowadź **LocalTest.cs** jako nazwa klasy hello. Na koniec kliknij **Dodaj**.
+2. W **Eksploratora rozwiązań**, kliknij prawym przyciskiem myszy projekt, a następnie wybierz **Dodaj** > **nowy element**. Wybierz **klasy**, a następnie wprowadź **LocalTest.cs** jak nazwa klasy. Na koniec kliknij **Dodaj**.
 
-3. Otwórz **LocalTest.cs**i dodaj następujące hello **przy użyciu** instrukcji u góry hello:
+3. Otwórz **LocalTest.cs**i dodaj następującą **przy użyciu** instrukcji u góry:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Użyj hello poniższy kod jako zawartość hello hello **LocalTest** klasy:
+4. Użyj następującego kodu jako zawartość **LocalTest** klasy:
 
     ```csharp
-    // Drives hello topology components
+    // Drives the topology components
     public void RunTestCase()
     {
         // An empty dictionary for use when creating components
         Dictionary<string, Object> emptyDictionary = new Dictionary<string, object>();
 
-        #region Test hello spout
+        #region Test the spout
         {
             Console.WriteLine("Starting spout");
-            // LocalContext is a local-mode context that can be used tooinitialize
-            // components in hello development environment.
+            // LocalContext is a local-mode context that can be used to initialize
+            // components in the development environment.
             LocalContext spoutCtx = LocalContext.Get();
-            // Get a new instance of hello spout, using hello local context
+            // Get a new instance of the spout, using the local context
             Spout sentences = Spout.Get(spoutCtx, emptyDictionary);
 
             // Emit 10 tuples
@@ -609,55 +609,55 @@ Chociaż jest łatwe toodeploy klastra tooa topologii, w niektórych przypadkach
             {
                 sentences.NextTuple(emptyDictionary);
             }
-            // Use LocalContext toopersist hello data stream toofile
+            // Use LocalContext to persist the data stream to file
             spoutCtx.WriteMsgQueueToFile("sentences.txt");
             Console.WriteLine("Spout finished");
         }
         #endregion
 
-        #region Test hello splitter bolt
+        #region Test the splitter bolt
         {
             Console.WriteLine("Starting splitter bolt");
-            // LocalContext is a local-mode context that can be used tooinitialize
-            // components in hello development environment.
+            // LocalContext is a local-mode context that can be used to initialize
+            // components in the development environment.
             LocalContext splitterCtx = LocalContext.Get();
-            // Get a new instance of hello bolt
+            // Get a new instance of the bolt
             Splitter splitter = Splitter.Get(splitterCtx, emptyDictionary);
 
-            // Set hello data stream toohello data created by hello spout
+            // Set the data stream to the data created by the spout
             splitterCtx.ReadFromFileToMsgQueue("sentences.txt");
-            // Get a batch of tuples from hello stream
+            // Get a batch of tuples from the stream
             List<SCPTuple> batch = splitterCtx.RecvFromMsgQueue();
-            // Process each tuple in hello batch
+            // Process each tuple in the batch
             foreach (SCPTuple tuple in batch)
             {
                 splitter.Execute(tuple);
             }
-            // Use LocalContext toopersist hello data stream toofile
+            // Use LocalContext to persist the data stream to file
             splitterCtx.WriteMsgQueueToFile("splitter.txt");
             Console.WriteLine("Splitter bolt finished");
         }
         #endregion
 
-        #region Test hello counter bolt
+        #region Test the counter bolt
         {
             Console.WriteLine("Starting counter bolt");
-            // LocalContext is a local-mode context that can be used tooinitialize
-            // components in hello development environment.
+            // LocalContext is a local-mode context that can be used to initialize
+            // components in the development environment.
             LocalContext counterCtx = LocalContext.Get();
-            // Get a new instance of hello bolt
+            // Get a new instance of the bolt
             Counter counter = Counter.Get(counterCtx, emptyDictionary);
 
-            // Set hello data stream toohello data created by splitter bolt
+            // Set the data stream to the data created by splitter bolt
             counterCtx.ReadFromFileToMsgQueue("splitter.txt");
-            // Get a batch of tuples from hello stream
+            // Get a batch of tuples from the stream
             List<SCPTuple> batch = counterCtx.RecvFromMsgQueue();
-            // Process each tuple in hello batch
+            // Process each tuple in the batch
             foreach (SCPTuple tuple in batch)
             {
                 counter.Execute(tuple);
             }
-            // Use LocalContext toopersist hello data stream toofile
+            // Use LocalContext to persist the data stream to file
             counterCtx.WriteMsgQueueToFile("counter.txt");
             Console.WriteLine("Counter bolt finished");
         }
@@ -665,17 +665,17 @@ Chociaż jest łatwe toodeploy klastra tooa topologii, w niektórych przypadkach
     }
     ```
 
-    Zająć tooread moment, za pośrednictwem hello komentarze w kodzie. Ten kod zawiera **LocalContext** toorun hello składników w hello Środowisko deweloperskie, a będzie się powtarzał hello strumienia danych między plikami tootext składników na lokalnym dysku hello.
+    Poświęć chwilę, aby zapoznaj się z artykułem komentarze w kodzie. Ten kod zawiera **LocalContext** do uruchamiania w środowisku programistycznym, a składniki będzie się powtarzał strumienia danych między składnikami w plikach tekstowych na dysku lokalnym.
 
-1. Otwórz **Program.cs**i dodaj następujące toohello hello **Main** metody:
+1. Otwórz **Program.cs**i Dodaj następujący kod do **Main** metody:
 
     ```csharp
     Console.WriteLine("Starting tests");
     System.Environment.SetEnvironmentVariable("microsoft.scp.logPrefix", "WordCount-LocalTest");
-    // Initialize hello runtime
+    // Initialize the runtime
     SCPRuntime.Initialize();
 
-    //If we are not running under hello local context, throw an error
+    //If we are not running under the local context, throw an error
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)
     {
         throw new Exception(string.Format("unexpected pluginType: {0}", Context.pluginType));
@@ -688,60 +688,60 @@ Chociaż jest łatwe toodeploy klastra tooa topologii, w niektórych przypadkach
     Console.ReadKey();
     ```
 
-2. Zapisz zmiany hello, a następnie kliknij przycisk **F5** lub wybierz **debugowania** > **Rozpocznij debugowanie** toostart hello projektu. Okno konsoli powinna wyświetlane i rejestrowania stanu hello testów postępu. Gdy **testy zakończone** pojawia się, naciśnij klawisz w dowolnym oknie hello tooclose klucza.
+2. Zapisz zmiany, a następnie kliknij przycisk **F5** lub wybierz **debugowania** > **Rozpocznij debugowanie** do uruchamiania projektu. Okno konsoli powinna wyświetlane i rejestrowania stanu postęp testów. Gdy **testy Zakończono** pojawia się, naciśnij dowolny klawisz, aby zamknąć okno.
 
-3. Użyj **Eksploratora Windows** toolocate hello katalog, który zawiera projekt. Na przykład: **C:\Users\<your_user_name > \Documents\Visual 2013\Projects\WordCount\WordCount w Studio**. W tym katalogu, otwórz **Bin**, a następnie kliknij przycisk **debugowania**. Powinny pojawić się hello plików tekstowych, które zostały utworzone podczas testów hello: sentences.txt, counter.txt i splitter.txt. Otwórz każdy plik tekstowy i sprawdzić hello danych.
+3. Użyj **Eksploratora Windows** można zlokalizować katalogu, który zawiera projekt. Na przykład: **C:\Users\<your_user_name > \Documents\Visual 2013\Projects\WordCount\WordCount w Studio**. W tym katalogu, otwórz **Bin**, a następnie kliknij przycisk **debugowania**. Powinny pojawić się plikami tekstowymi, które zostały utworzone podczas testów: sentences.txt, counter.txt i splitter.txt. Otwórz każdy plik tekstowy i sprawdzać dane.
 
    > [!NOTE]
-   > Ciąg danych będzie nadal występował jako tablica wartości dziesiętnych w tych plikach. Na przykład \[[97,103,111]] w hello **splitter.txt** pliku jest słowem hello *i*.
+   > Ciąg danych będzie nadal występował jako tablica wartości dziesiętnych w tych plikach. Na przykład \[[97,103,111]] w **splitter.txt** plik jest słowo *i*.
 
 > [!NOTE]
-> Należy się hello tooset **typ projektu** kopii za**biblioteki klas** przed wdrożeniem tooa Storm w klastrze usługi HDInsight.
+> Należy ustawić **typ projektu** do **biblioteki klas** przed wdrożeniem w Storm w klastrze usługi HDInsight.
 
 ### <a name="log-information"></a>Informacje w Dzienniku
 
-Można łatwo rejestrowanie informacji z składniki topologii sieci, za pomocą `Context.Logger`. Na przykład następujące hello tworzy wpis informacyjny w dzienniku:
+Można łatwo rejestrowanie informacji z składniki topologii sieci, za pomocą `Context.Logger`. Na przykład następujący tworzy wpis informacyjny w dzienniku:
 
 ```csharp
 Context.Logger.Info("Component started");
 ```
 
-Zarejestrowane informacje mogą być wyświetlane z hello **dziennik usługi Hadoop**, który znajduje się w **Eksploratora serwera**. Rozwiń pozycję powitania dla Storm w klastrze usługi HDInsight, a następnie rozwiń **dziennik usługi Hadoop**. Na koniec wybierz tooview pliku dziennika hello.
+Zarejestrowane informacje mogą być wyświetlane z **dziennik usługi Hadoop**, który znajduje się w **Eksploratora serwera**. Rozwiń pozycję dla Storm w klastrze usługi HDInsight, a następnie rozwiń **dziennik usługi Hadoop**. Na koniec wybierz plik dziennika, aby wyświetlić.
 
 > [!NOTE]
-> Witaj dzienniki są przechowywane w hello kontem magazynu platformy Azure, który jest używany przez klaster. Dzienniki hello tooview w programie Visual Studio, musisz zalogować się toohello subskrypcji platformy Azure, który jest właścicielem konta magazynu hello.
+> Dzienniki są przechowywane na koncie magazynu Azure, który jest używany przez klaster. Aby wyświetlić dzienniki w programie Visual Studio, możesz zalogować się do subskrypcji platformy Azure, który jest właścicielem konta magazynu.
 
 ### <a name="view-error-information"></a>Wyświetl informacje o błędzie
 
-błędy tooview, które wystąpiły w uruchomionej topologii, użyj hello następujące kroki:
+Aby wyświetlić błędy, które wystąpiły w uruchomionej topologii, użyj następujących kroków:
 
-1. Z **Eksploratora serwera**, kliknij prawym przyciskiem myszy hello Storm w klastrze usługi HDInsight i wybierz **topologii Storm widoku**.
+1. Z **Eksploratora serwera**, kliknij prawym przyciskiem myszy klaster Storm w usłudze HDInsight i wybierz **topologii Storm widoku**.
 
-2. Dla hello **Spout** i **Bolts**, hello **ostatniego błędu** kolumna zawiera informacje na temat hello ostatniego błędu.
+2. Aby uzyskać **Spout** i **Bolts**, **ostatniego błędu** kolumna zawiera informacje o ostatnim błędzie.
 
-3. Wybierz hello **Spout identyfikator** lub **identyfikator Bolt** hello składnika, który zawiera błąd na liście. Na stronie szczegółów hello jest błąd wyświetlania, dodatkowe informacje są wymienione w hello **błędy** sekcji u dołu hello hello strony.
+3. Wybierz **Spout identyfikator** lub **identyfikator Bolt** składnika, który zawiera błąd na liście. Na stronie Szczegóły błędu wyświetlanych, dodatkowe informacje są wymienione w **błędy** sekcji u dołu strony.
 
-4. tooobtain więcej informacji, wybierz opcję **portu** z hello **modułów** sekcji hello strony, toosee hello Storm procesu roboczego w dzienniku hello ostatnich kilka minut.
+4. Aby uzyskać więcej informacji, wybierz **portu** z **modułów** części strony, aby wyświetlić dziennik procesu roboczego Storm ostatnich kilka minut.
 
 ### <a name="errors-submitting-topologies"></a>Błędy przesyłania topologii
 
-Jeśli wystąpią błędy przesyłania tooHDInsight topologii hello składników po stronie serwera, które obsługi przesyłania topologii w klastrze usługi HDInsight można znaleźć dzienników. tooretrieve te dzienniki, użyj hello następujące polecenie w wierszu polecenia:
+Jeśli wystąpią błędy przesyłania topologii do usługi HDInsight można znaleźć dzienniki dla składników po stronie serwera, które obsługi przesyłania topologii w klastrze usługi HDInsight. Aby pobrać te dzienniki, użyj następującego polecenia w wierszu polecenia:
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
-Zastąp __sshuser__ z hello konta użytkownika SSH hello klastra. Zastąp __clustername__ o nazwie hello hello klastra usługi HDInsight. Aby uzyskać więcej informacji na temat używania `scp` i `ssh` z usługą HDInsight, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Zastąp __sshuser__ przy użyciu konta użytkownika SSH dla klastra. Zastąp __clustername__ z nazwą klastra usługi HDInsight. Aby uzyskać więcej informacji na temat używania `scp` i `ssh` z usługą HDInsight, zobacz [używanie SSH z usługą HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Przesyłanie może zakończyć się niepowodzeniem kilka przyczyn:
 
-* JDK nie jest zainstalowany lub nie znajduje się w ścieżce hello.
-* Wymagane zależności Java nie znajdują się w hello przesyłania.
+* JDK nie jest zainstalowany lub nie znajduje się w ścieżce.
+* Wymagane zależności Java nie znajdują się w przesyłania.
 * Niezgodne zależności.
 * Zduplikowane nazwy topologii.
 
-Jeśli hello `hdinsight-scpwebapi.out` dziennik zawiera `FileNotFoundException`, może to być spowodowane hello następujące warunki:
+Jeśli `hdinsight-scpwebapi.out` dziennik zawiera `FileNotFoundException`, może to być spowodowane przez następujące warunki:
 
-* Witaj JDK nie jest w ścieżce hello na powitania Środowisko deweloperskie. Sprawdź, że hello JDK jest zainstalowany w hello Środowisko deweloperskie, który `%JAVA_HOME%/bin` znajduje się w ścieżce hello.
-* Brak zależności Java. Upewnij się, że łącznie z plikami wymagane JAR jako część hello przesyłania.
+* Zestaw JDK, który nie jest w ścieżce na środowisko deweloperskie. Sprawdź, czy w środowisku programistycznym, który jest zainstalowany zestaw JDK `%JAVA_HOME%/bin` znajduje się w ścieżce.
+* Brak zależności Java. Upewnij się, że łącznie z plikami JAR wymaganych w ramach złożenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -749,9 +749,9 @@ Na przykład przetwarzania danych z usługi Event Hubs, zobacz [przetwarzać zda
 
 Na przykład topologii C#, która dzieli strumienia danych na wiele strumieni zobacz [przykład C# Storm](https://github.com/Blackmist/csharp-storm-example).
 
-Zobacz więcej informacji o tworzeniu topologie języka C#, toodiscover [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+Aby dowiedzieć się więcej informacji o tworzeniu topologie języka C#, zobacz [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
-Więcej sposobów toowork z usługą HDInsight i więcej Storm na próbkach HDInsight Zobacz hello następujące dokumenty:
+Inne sposoby pracy z usługą HDInsight i więcej Storm na próbkach HDInsight można znaleźć w następujących dokumentach:
 
 **SCP.NET firmy Microsoft**
 

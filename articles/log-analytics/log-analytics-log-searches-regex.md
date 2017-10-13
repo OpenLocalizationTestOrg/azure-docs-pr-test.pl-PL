@@ -1,6 +1,6 @@
 ---
-title: "wyrażenia aaaRegular w analizy dzienników OMS dziennika wyszukiwania | Dokumentacja firmy Microsoft"
-description: "W analizy dzienników dziennik wyszukiwania toohello hello wyników filtrowania zgodnie z wyrażeniem regularnym tooa służy — słowo kluczowe hello wyrażenia regularnego.  Ten artykuł zawiera składnię hello tych wyrażeń z kilka przykładów."
+title: "Wyrażeń regularnych w analizy dzienników OMS dziennika wyszukiwania | Dokumentacja firmy Microsoft"
+description: "Można użyć słowa kluczowego wyrażenia regularnego podczas wyszukiwania dziennika analizy dzienników do filtru wyników na podstawie wyrażenia regularnego.  Ten artykuł zawiera składnię dla tych wyrażeń z kilka przykładów."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: bwren
-ms.openlocfilehash: 3033593dac2c50e911fc69054947d40d4a74369b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="using-regular-expressions-toofilter-log-searches-in-log-analytics"></a>Za pomocą wyrażeń regularnych toofilter przeszukuje dziennika analizy dzienników
+# <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Za pomocą wyrażeń regularnych do filtrowania dziennika przeszukuje analizy dzienników
 
-[Zaloguj się wyszukiwanie](log-analytics-log-searches.md) pozwalają tooextract informacji z repozytorium analizy dzienników hello.  [Wyrażenia filtru](log-analytics-search-reference.md#filter-expressions) pozwalają toofilter hello wyniki wyszukiwania hello zgodnie z kryteriami toospecific.  Witaj **RegEx** — słowo kluczowe umożliwia toospecify wyrażenia regularnego dla tego filtru.  
+[Zaloguj się wyszukiwanie](log-analytics-log-searches.md) umożliwiają wyodrębnienia informacji z repozytorium analizy dzienników.  [Wyrażenia filtru](log-analytics-search-reference.md#filter-expressions) umożliwiają filtrowanie wyników wyszukiwania według określonych kryteriów.  **RegEx** — słowo kluczowe pozwala określić wyrażenie regularne dla tego filtru.  
 
-Ten artykuł zawiera szczegółowe informacje o składni wyrażeń regularnych hello używane przez analizy dzienników.
+Ten artykuł zawiera szczegółowe informacje o składni wyrażeń regularnych, używany przez analizy dzienników.
 
 > [!NOTE]
 > Wyrażenia regularnego można używać tylko z pól z możliwością wyszukiwania.  Aby uzyskać więcej informacji dotyczących pól z możliwością wyszukiwania, zobacz **typy pól** w [wyszukiwanie danych przy użyciu dziennika wyszukiwania w analizy dzienników](log-analytics-log-searches.md#use-additional-filters).
@@ -31,21 +31,21 @@ Ten artykuł zawiera szczegółowe informacje o składni wyrażeń regularnych h
 
 ## <a name="regex-keyword"></a>RegEx — słowo kluczowe
 
-Witaj użyj następującej składni toouse hello **RegEx** — słowo kluczowe w polu wyszukiwania dziennika.  Można użyć hello pozostałe sekcje w tym artykule toodetermine hello składni wyrażeń regularnych hello samej siebie.
+Użyj następującej składni, aby użyć **RegEx** — słowo kluczowe w polu wyszukiwania dziennika.  Pozostałe sekcje w tym artykule można użyć składni wyrażenia regularnego.
 
     field:Regex("Regular Expression")
     field=Regex("Regular Expression")
 
-Na przykład rejestruje toouse alert tooreturn wyrażenia regularnego z typem *ostrzeżenie* lub *błąd*, należy użyć powitania po wyszukiwania dziennika.
+Na przykład użycie wyrażenia regularnego do zwrócenia alertu rekordy z typem *ostrzeżenie* lub *błąd*, należy użyć następujących wyszukiwania dziennika.
 
     Type=Alert AlertSeverity=RegEx("Warning|Error")
 
 ## <a name="partial-matches"></a>Wyniki pasujące częściowo
-Należy pamiętać, że wyrażenie regularne hello musi odpowiadać hello cały tekst hello właściwości.  Wyniki pasujące częściowo nie zwróci żadnych rekordów.  Na przykład, jeśli chcesz tooreturn rekordy z komputera o nazwie srv01.contoso.com, czy powitania po wyszukiwania dziennika **nie** zwraca żadnych rekordów.
+Należy pamiętać, że wyrażenie regularne musi odpowiadać właściwości cały tekst.  Wyniki pasujące częściowo nie zwróci żadnych rekordów.  Na przykład, jeśli próbujesz zwraca rekordów z komputera o nazwie srv01.contoso.com, czy następujące wyszukiwania dziennika **nie** zwraca żadnych rekordów.
 
     Computer=RegEx("srv..")
 
-Jest to spowodowane tylko hello pierwsza część hello nazwy odpowiada wyrażeniu regularnemu hello.  Hello następujące dwa dziennik wyszukiwania zwróci rekordy z tego komputera, ponieważ są zgodne hello całą nazwę.
+Jest to spowodowane pierwsza część nazwy odpowiada wyrażeniu regularnemu.  Następujące dwa dziennika operacji wyszukiwania zwróci rekordy z tego komputera, ponieważ spełniają całą nazwę.
 
     Computer=RegEx("srv..@")
     Computer=RegEx("srv...contoso.com")
@@ -55,15 +55,15 @@ Określ inną znaków.
 
 | Znak | Opis | Przykład | Przykładowe dopasowań |
 |:--|:--|:--|:--|
-| A | Jedno wystąpienie hello znaku. | Computer=RegEx("SRV01.contoso.com") | SRV01.contoso.com |
+| A | Jedno wystąpienie znaku. | Computer=RegEx("SRV01.contoso.com") | SRV01.contoso.com |
 | . | Dowolny pojedynczy znak. | Computer=RegEx("SRV...contoso.com") | SRV01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
-| ? | Zero lub jeden wystąpienie hello znaków. | Komputer = wyrażenie regularne ("Srw01?. "contoso.com") | srv0.contoso.com<br>SRV01.contoso.com |
-| * | Zero lub więcej wystąpień hello znaków. | Computer=RegEx("SRV01*.contoso.com") | srv0.contoso.com<br>SRV01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
-| + | Jedno lub więcej wystąpień hello znaków. | Computer=RegEx("SRV01+.contoso.com") | SRV01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
-| [*abc*] | Dopasowuje dowolny pojedynczy znak w nawiasach hello | Computer=RegEx("srv0[123].contoso.com") | SRV01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
-| [**-*z*] | Zgodny z pojedynczym znakiem w zakresie hello.  Może zawierać wiele zakresów. | Computer=RegEx("srv0[1-3].contoso.com") | SRV01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
-| [^*abc*] | Brak znaków hello w nawiasach hello | Computer=RegEx("srv0[^123].contoso.com") | srv05.contoso.com<br>SRV06.contoso.com<br>srv07.contoso.com |
-| [^**-*z*] | Brak znaków hello hello zakresu. | Computer=RegEx("srv0[^1-3].contoso.com") | srv05.contoso.com<br>SRV06.contoso.com<br>srv07.contoso.com |
+| ? | Wystąpienie zero lub jeden znak. | Komputer = wyrażenie regularne ("Srw01?. "contoso.com") | srv0.contoso.com<br>SRV01.contoso.com |
+| * | Zero lub więcej wystąpień znaku. | Computer=RegEx("SRV01*.contoso.com") | srv0.contoso.com<br>SRV01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
+| + | Jedno lub więcej wystąpień znaku. | Computer=RegEx("SRV01+.contoso.com") | SRV01.contoso.com<br>srv011.contoso.com<br>srv0111.contoso.com |
+| [*abc*] | Dopasowuje dowolny pojedynczy znak w nawiasach | Computer=RegEx("srv0[123].contoso.com") | SRV01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
+| [**-*z*] | Odpowiada pojedynczy znak z zakresu.  Może zawierać wiele zakresów. | Computer=RegEx("srv0[1-3].contoso.com") | SRV01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
+| [^*abc*] | Brak znaków w nawiasach | Computer=RegEx("srv0[^123].contoso.com") | srv05.contoso.com<br>SRV06.contoso.com<br>srv07.contoso.com |
+| [^**-*z*] | Brak znaków w zakresie. | Computer=RegEx("srv0[^1-3].contoso.com") | srv05.contoso.com<br>SRV06.contoso.com<br>srv07.contoso.com |
 | [*n*-*m*] | Zgodne zakres znaków liczbowych. | Computer=RegEx("SRV[01-03].contoso.com") | SRV01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
 | @ | Dowolny ciąg znaków. | Komputer = wyrażenie regularne ("srv@.contoso.com") | SRV01.contoso.com<br>SRV02.contoso.com<br>srv03.contoso.com |
 
@@ -73,9 +73,9 @@ Określ wiele wystąpień określonych znaków.
 
 | Znak | Opis | Przykład | Przykładowe dopasowań |
 |:--|:--|:--|:--|
-| {n} |  *n*wystąpienia hello znaków. | Computer=RegEx("bW-win-sc01{3}.bwren.Lab") | bW Windows sc0111.bwren.lab |
-| {n} |  *n*lub więcej wystąpień hello znaku. | Computer=RegEx("bW-win-sc01{3,}.bwren.Lab") | bW Windows sc0111.bwren.lab<br>bW Windows sc01111.bwren.lab<br>bW Windows sc011111.bwren.lab<br>bW Windows sc0111111.bwren.lab |
-| {n, m} |  *n*zbyt*m* wystąpień hello znaku. | Computer=RegEx("bW-win-sc01{3,5}.bwren.Lab") | bW Windows sc0111.bwren.lab<br>bW Windows sc01111.bwren.lab<br>bW Windows sc011111.bwren.lab |
+| {n} |  *n*wystąpienia znak. | Computer=RegEx("bW-win-sc01{3}.bwren.Lab") | bW Windows sc0111.bwren.lab |
+| {n} |  *n*lub więcej wystąpień znaku. | Computer=RegEx("bW-win-sc01{3,}.bwren.Lab") | bW Windows sc0111.bwren.lab<br>bW Windows sc01111.bwren.lab<br>bW Windows sc011111.bwren.lab<br>bW Windows sc0111111.bwren.lab |
+| {n, m} |  *n*Aby *m* wystąpień znaku. | Computer=RegEx("bW-win-sc01{3,5}.bwren.Lab") | bW Windows sc0111.bwren.lab<br>bW Windows sc01111.bwren.lab<br>bW Windows sc011111.bwren.lab |
 
 
 ## <a name="logical-expressions"></a>Wyrażenia logiczne
@@ -88,13 +88,13 @@ Wybierz z wieloma wartościami.
 
 
 ## <a name="literals"></a>Literały
-Konwersja znaków tooliteral znaki specjalne.  Dotyczy to również znaki, które są dostępne funkcje takie jak wyrażenia tooregular?-\*^\[\]{}\(\)+\|. &.
+Konwertuj znaki specjalne literał znaków.  Dotyczy to również znaki, które udostępnia funkcji wyrażeń regularnych, takich jak?-\*^\[\]{}\(\)+\|. &.
 
 | Znak | Opis | Przykład | Przykładowe dopasowań |
 |:--|:--|:--|:--|
-| \\ | Konwertuje znaki specjalne tooa literału. | Status_CF =\\[błąd\\] @<br>Status_CF = błąd\\-@ | [Błąd] Nie można odnaleźć pliku.<br>Nie można odnaleźć pliku błędu. |
+| \\ | Konwertuje znak specjalny literału. | Status_CF =\\[błąd\\] @<br>Status_CF = błąd\\-@ | [Błąd] Nie można odnaleźć pliku.<br>Nie można odnaleźć pliku błędu. |
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Zapoznaj się z [dziennika wyszukiwania](log-analytics-log-searches.md) tooview i analizowanie danych hello analizy dzienników repozytorium.
+* Zapoznaj się z [dziennika wyszukiwania](log-analytics-log-searches.md) do wyświetlania i analizowania danych w repozytorium analizy dzienników.

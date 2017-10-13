@@ -1,6 +1,6 @@
 ---
-title: "aaaCertificate poświadczeń w usłudze Azure AD | Dokumentacja firmy Microsoft"
-description: "W tym artykule omówiono hello rejestracji i stosowania certyfikatu poświadczeń dla uwierzytelniania aplikacji"
+title: "Certyfikat poświadczeń w usłudze Azure AD | Dokumentacja firmy Microsoft"
+description: "W tym artykule omówiono rejestracji i stosowania certyfikatu poświadczeń dla uwierzytelniania aplikacji"
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 3508803112ac06268d553db86ab74812aa53e455
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Certyfikat poświadczeń do uwierzytelniania aplikacji
 
-Usługa Azure Active Directory umożliwia toouse aplikacji własne poświadczenia dla uwierzytelniania, na przykład w hello przepływ udzielania poświadczeń klienta OAuth w 2.0 i hello imieniu-przepływ "w".
-Jeden formularz poświadczeniami, które mogą być używane jest potwierdzenie Token(JWT) sieci Web JSON, podpisanego przy użyciu certyfikatu, który jest właścicielem aplikacji hello.
+Usługi Azure Active Directory umożliwia aplikacji korzystanie własne poświadczenia dla uwierzytelniania, na przykład przepływ udzielania poświadczeń klienta OAuth w 2.0 i przepływu w imieniu-z.
+Jeden formularz poświadczeniami, które mogą być używane jest potwierdzenie Token(JWT) sieci Web JSON, podpisanego przy użyciu certyfikatu, który jest właścicielem aplikacji.
 
-## <a name="format-of-hello-assertion"></a>Format hello potwierdzenia
-Potwierdzenie hello toocompute, prawdopodobnie potrzebna będzie toouse jedną hello wiele [JSON Web Token](https://jwt.io/) bibliotek w dowolnie wybranym języku hello. informacje o Hello przez hello token są:
+## <a name="format-of-the-assertion"></a>Format potwierdzenia
+Do obliczenia potwierdzenia, prawdopodobnie chcesz skorzystać z jednej z wielu [JSON Web Token](https://jwt.io/) bibliotek w wybranym języku. Informacje przez token jest:
 
 #### <a name="header"></a>Nagłówek
 
@@ -35,21 +35,21 @@ Potwierdzenie hello toocompute, prawdopodobnie potrzebna będzie toouse jedną h
 | --- | --- | --- |
 | `alg` | Powinien być **RS256** |
 | `typ` | Powinien być **JWT** |
-| `x5t` | Powinien być odcisk palca certyfikatu X.509 SHA-1 hello |
+| `x5t` | Powinien być odcisk palca certyfikatu X.509 SHA-1. |
 
 #### <a name="claims-payload"></a>Oświadczenia (ładunku)
 
 | Parametr |  Uwagi |
 | --- | --- | --- |
 | `aud` | Grupy odbiorców: Powinien być  **https://login.microsoftonline.com/*tenant_Id*  /oauth2/token ** |
-| `exp` | Data wygaśnięcia: hello daty wygaśnięcia tokenu hello. czas Hello jest reprezentowany jako hello liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC do momentu wygaśnięcia hello hello czas ważności tokenu.|
-| `iss` | Wystawca: powinien być client_id hello (identyfikator aplikacji hello usługi klienta) |
-| `jti` | Identyfikator GUID: hello identyfikator JWT |
-| `nbf` | Nie wcześniej niż: hello data przed hello, których nie można użyć tokenu. czas Hello jest reprezentowany jako hello liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC, dopóki hello czasu hello token został wystawiony. |
-| `sub` | Podmiot: jak w przypadku `iss`, powinny być client_id hello (identyfikator aplikacji hello usługi klienta) |
+| `exp` | Data wygaśnięcia: Data wygaśnięcia tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC czasu wygaśnięcia ważności tokenu.|
+| `iss` | Wystawca: powinien być client_id (identyfikator aplikacji usługi klienta) |
+| `jti` | Identyfikator GUID: identyfikator JWT |
+| `nbf` | Nie wcześniej niż: Data przed którym nie można użyć tokenu. Czas jest reprezentowany jako liczba sekund od 1 stycznia 1970 (1970-01-01T0:0:0Z) UTC czasu token został wystawiony. |
+| `sub` | Podmiot: jak w przypadku `iss`, powinny być client_id (identyfikator aplikacji usługi klienta) |
 
 #### <a name="signature"></a>Podpis
-Podpis Hello jest obliczana stosowania hello certyfikatu zgodnie z opisem w hello [specyfikacji RFC7519 tokenu Web JSON](https://tools.ietf.org/html/rfc7519)
+Podpis jest obliczana stosowania certyfikatu zgodnie z opisem w [specyfikacji RFC7519 tokenu Web JSON](https://tools.ietf.org/html/rfc7519)
 
 ### <a name="example-of-a-decoded-jwt-assertion"></a>Przykład dekodowane potwierdzenia JWT
 ```
@@ -73,22 +73,22 @@ Podpis Hello jest obliczana stosowania hello certyfikatu zgodnie z opisem w hell
 ```
 
 ### <a name="example-of-an-encoded-jwt-assertion"></a>Przykład zakodowanego potwierdzenia JWT
-po ciągu Hello jest przykładem zakodowanego potwierdzenia. Zwróć uwagę, można zauważyć trzy części oddzielone kropkami (.).
-Pierwsza sekcja Hello koduje hello nagłówka, drugi ładunek hello hello i hello jest ostatni hello podpisem obliczonym przy certyfikaty powitania od zawartości hello hello pierwsze dwie sekcje.
+Następujący ciąg jest przykładem zakodowanego potwierdzenia. Zwróć uwagę, można zauważyć trzy części oddzielone kropkami (.).
+Pierwsza sekcja koduje nagłówka, drugi ładunku oraz za ostatni jest z podpisem obliczonym z certyfikatami od zawartości najpierw dwie sekcje.
 ```
 "eyJhbGciOiJSUzI1NiIsIng1dCI6Imd4OHRHeXN5amNScUtqRlBuZDdSRnd2d1pJMCJ9.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ubWljcm9zb2Z0b25saW5lLmNvbVwvam1wcmlldXJob3RtYWlsLm9ubWljcm9zb2Z0LmNvbVwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQ4NDU5MzM0MSwiaXNzIjoiOTdlMGE1YjctZDc0NS00MGI2LTk0ZmUtNWY3N2QzNWM2ZTA1IiwianRpIjoiMjJiM2JiMjYtZTA0Ni00MmRmLTljOTYtNjVkYmQ3MmMxYzgxIiwibmJmIjoxNDg0NTkyNzQxLCJzdWIiOiI5N2UwYTViNy1kNzQ1LTQwYjYtOTRmZS01Zjc3ZDM1YzZlMDUifQ.
 Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 ```
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Zarejestruj certyfikat z usługą Azure AD
-tooassociate hello certyfikat poświadczeń z powitania klienta aplikacji w usłudze Azure AD, należy w manifeście aplikacji hello tooedit.
-Posiadanie wstrzymywania certyfikatu, należy toocompute:
-- `$base64Thumbprint`, które hello kodowanie base64 certyfikatu hello wyznaczania wartości skrótu
-- `$base64Value`, które hello kodowanie base64 hello dane pierwotne certyfikatu
+Aby skojarzyć poświadczenia certyfikatu z aplikacji klienckiej w usłudze Azure AD, należy edytować manifest aplikacji.
+O wstrzymywania certyfikatu, należy obliczyć:
+- `$base64Thumbprint`, która jest base64 kodowanie skrót certyfikatu
+- `$base64Value`, która jest base64 kodowanie dane pierwotne certyfikatu
 
-należy również tooprovide klucz hello tooidentify identyfikatora GUID w manifeście aplikacji hello (`$keyId`)
+należy również podać identyfikator GUID, aby zidentyfikować klucza w manifeście aplikacji (`$keyId`)
 
-Manifest aplikacji hello Otwórz hello rejestracji aplikacji platformy Azure dla aplikacji klienckiej hello i Zastąp hello *keyCredentials* właściwości z informacjami certyfikatu przy użyciu hello następującego schematu:
+W aplikacji Azure rejestracji aplikacji klienckiej, otwórz plik manifestu aplikacji i Zastąp *keyCredentials* właściwości z informacjami certyfikatu przy użyciu następującego schematu:
 ```
 "keyCredentials": [
     {
@@ -101,4 +101,4 @@ Manifest aplikacji hello Otwórz hello rejestracji aplikacji platformy Azure dla
 ]
 ```
 
-Zapisz hello toohello edycji w manifeście aplikacji i przekazać tooAzure AD. Właściwość keyCredentials Hello jest wielokrotne wartości, więc może przekazać wiele certyfikatów bardziej zaawansowane funkcje zarządzania kluczami.
+Zapisać zmiany w manifeście aplikacji, a następnie przekazać do usługi Azure AD. Właściwość keyCredentials jest wielowartościowe, więc może przekazać wiele certyfikatów bardziej zaawansowane funkcje zarządzania kluczami.

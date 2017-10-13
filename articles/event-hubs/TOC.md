@@ -16,8 +16,8 @@
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Przechwytywanie zdarzeń
-### [Użyj hello Azure tooenable portalu przechwytywania centra zdarzeń](event-hubs-capture-enable-through-portal.md)
-### [Użyj tooenable szablonu usługi Resource Manager, przechwytywania centra zdarzeń](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+### [Włączanie usługi Event Hubs Capture za pomocą witryny Azure Portal](event-hubs-capture-enable-through-portal.md)
+### [Włączanie usługi Event Hubs Capture za pomocą szablonu usługi Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Przewodnik programowania](event-hubs-programming-guide.md)
 
 # Instrukcje
@@ -37,7 +37,7 @@
 ### Przechwytywanie
 #### [Usługa Event Hubs Capture](event-hubs-capture-overview.md)
 #### [Przechwytywanie danych usługi Event Hubs przy użyciu języka Python](event-hubs-capture-python.md)
-### [Przy użyciu programu PowerShell tooprovision jednostek](event-hubs-manage-with-ps.md) 
+### [Aprowizacja jednostek za pomocą programu PowerShell](event-hubs-manage-with-ps.md) 
 ### [Strumieniowe przesyłanie danych usługi Azure Diagnostics przy użyciu usługi Event Hubs](event-hubs-streaming-azure-diags-data.md)
 ### [Tworzenie i wdrażanie centrum zdarzeń przy użyciu szablonu usługi Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
 

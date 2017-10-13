@@ -1,6 +1,6 @@
 ---
-title: aaaCreate sieci wirtualnej - programu Azure PowerShell | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak toocreate a wirtualnych sieci za pomocą programu PowerShell."
+title: Tworzenie sieci wirtualnej - programu Azure PowerShell | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak utworzyć sieć wirtualną przy użyciu programu PowerShell."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -16,19 +16,19 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d6e395a77f71de9f94b6304b05450e46b47544f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e7072ddf51570d46578111e2e392e3cbea53f2aa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-network-using-powershell"></a>Tworzenie sieci wirtualnej przy użyciu programu PowerShell
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna. Firma Microsoft zaleca utworzenie zasobów za pośrednictwem modelu wdrażania usługi Resource Manager hello. więcej informacji o toolearn hello różnice między modelami hello dwa odczytu hello [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md) artykułu.
+Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna. Firma Microsoft zaleca tworzenie zasobów za pomocą modelu wdrożenia usługi Resource Manager. Aby dowiedzieć się więcej o różnicach między dwoma modelami, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Informacje na temat modeli wdrażania platformy Azure).
  
-W tym artykule opisano, jak toocreate sieci wirtualnej przez wdrożenie usługi Resource Manager hello modelu przy użyciu programu PowerShell. Możesz również utworzyć sieć wirtualną za pomocą Menedżera zasobów przy użyciu innych narzędzi lub utworzyć sieć wirtualną przy użyciu hello klasycznego modelu wdrażania, wybierając inną opcję z hello następującej listy:
+W tym artykule wyjaśniono, jak utworzyć sieć wirtualną przy użyciu modelu wdrażania usługi Resource Manager przy użyciu programu PowerShell. Sieć wirtualną można również utworzyć w usłudze Resource Manager przy użyciu innych narzędzi albo za pośrednictwem klasycznego modelu wdrożenia, wybierając inną opcję z poniższej listy:
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-networks-create-vnet-arm-pportal.md)
@@ -43,9 +43,9 @@ W tym artykule opisano, jak toocreate sieci wirtualnej przez wdrożenie usługi 
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-toocreate przez sieć wirtualną przy użyciu programu PowerShell, pełną hello następujące kroki:
+Aby utworzyć sieć wirtualną przy użyciu programu PowerShell, wykonaj następujące kroki:
 
-1. Instalowanie i konfigurowanie programu Azure PowerShell, wykonując następujące kroki hello hello [jak tooInstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
+1. Instalowanie i konfigurowanie programu Azure PowerShell, wykonując kroki opisane w [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
 
 2. W razie potrzeby utwórz nową grupę zasobów, jak pokazano poniżej. W tym scenariuszu, należy utworzyć grupę zasobów o nazwie *TestRG*. Aby uzyskać więcej informacji na temat grup zasobów, zobacz temat [Omówienie usługi Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -84,7 +84,7 @@ toocreate przez sieć wirtualną przy użyciu programu PowerShell, pełną hello
         DhcpOptions                : {}
         Subnets                    : []
         VirtualNetworkPeerings     : []
-4. Obiekt sieci wirtualnej hello należy przechowywać w zmiennej:
+4. Obiekt sieci wirtualnej można przechowywać w zmiennej:
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
@@ -94,7 +94,7 @@ toocreate przez sieć wirtualną przy użyciu programu PowerShell, pełną hello
    > Można połączyć kroki 3 i 4, uruchamiając `$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus`.
    > 
 
-5. Dodawanie nowej zmiennej sieci wirtualnej podsieci toohello:
+5. Dodaj podsieć do nowej zmiennej sieci wirtualnej:
 
     ```powershell
     Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
@@ -124,14 +124,14 @@ toocreate przez sieć wirtualną przy użyciu programu PowerShell, pełną hello
                                 ]
         VirtualNetworkPeerings     : []
 
-6. Powtórz krok 5 powyżej dla każdej podsieci ma toocreate. Witaj poniższe polecenie tworzy hello *zaplecza* podsieci dla scenariusza hello:
+6. Powtórz krok 5 opisany powyżej dla każdej podsieci, którą chcesz utworzyć. Poniższe polecenie tworzy *zaplecza* podsieci dla tego scenariusza:
 
     ```powershell
     Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
     -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
     ```
 
-7. Mimo że można utworzyć podsieci, istnieją one tylko w hello hello lokalnej zmiennej tooretrieve używana sieć wirtualna została utworzona w kroku 4 powyżej. toosave hello zmiany tooAzure, uruchom następujące polecenie hello:
+7. Chociaż w toku tego procesu są tworzone podsieci, to na tym etapie istnieją one tylko w zmiennej lokalnej używanej do pobierania sieci wirtualnej, która została utworzona w kroku 4. Aby zapisać zmiany na platformie Azure, uruchom następujące polecenie:
 
     ```powershell
     Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
@@ -176,8 +176,8 @@ toocreate przez sieć wirtualną przy użyciu programu PowerShell, pełną hello
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak tooconnect:
+Dowiedz się, jak połączyć:
 
-- Sieć wirtualną maszyny wirtualnej (VM) tooa odczytując hello [utworzyć Maszynę wirtualną systemu Windows](../virtual-machines/virtual-machines-windows-ps-create.md) artykułu. Zamiast tworzenia sieci wirtualnej i podsieci w krokach hello hello artykułów, możesz wybrać istniejącej sieci wirtualnej i tooconnect podsieci maszyny Wirtualnej, aby.
-- Witaj sieci wirtualne sieci wirtualnej tooother odczytując hello [połączyć sieci wirtualnych](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) artykułu.
-- Witaj sieci wirtualnej tooan sieci lokalnej za pomocą wirtualnej sieci prywatnej (VPN) do lokacji lub obwodu usługi expressroute. Dowiedz się, jak odczytując hello [połączyć sieć lokalną tooan sieci wirtualnej przy użyciu sieci VPN lokacja lokacja](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) i [połączyć sieć wirtualną tooan obwodu ExpressRoute](../expressroute/expressroute-howto-linkvnet-arm.md) artykułów.
+- Maszyna wirtualna (VM) do sieci wirtualnej, odczytując [utworzyć Maszynę wirtualną systemu Windows](../virtual-machines/virtual-machines-windows-ps-create.md) artykułu. Zamiast tworzyć sieć wirtualną i podsieć, wykonując kroki opisane w artykułach, można wybrać istniejącą sieć wirtualną i podsieć, z którymi zostanie połączona maszyna wirtualna.
+- Sieć wirtualną z innymi sieciami wirtualnymi. Odpowiednie informacje możesz znaleźć w artykule [Łączenie sieci wirtualnych](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
+- Sieć wirtualną z siecią lokalną za pomocą prywatnej sieci wirtualnej (VPN) typu lokacja-lokacja lub obwodu usługi ExpressRoute. Odpowiednie informacje znajdziesz w artykułach [Connect a VNet to an on-premises network using a site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) (Łączenie sieci wirtualnej z siecią lokalną za pomocą sieci VPN typu lokacja-lokacja) i [Link a VNet to an ExpressRoute circuit](../expressroute/expressroute-howto-linkvnet-arm.md) (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute).

@@ -1,5 +1,5 @@
 > [!NOTE]
-> Chociaż ten artykuł dotyczy aplikacji tooweb, ma również zastosowanie tooAPI aplikacji i aplikacji mobilnych.
+> Mimo że ten artykuł dotyczy aplikacji sieci Web, ma również zastosowanie do aplikacji interfejsu API i aplikacji mobilnych.
 > 
 > 
 

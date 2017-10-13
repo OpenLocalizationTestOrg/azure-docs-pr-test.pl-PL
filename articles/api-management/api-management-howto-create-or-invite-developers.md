@@ -1,6 +1,6 @@
 ---
-title: "aaaHow Zarządzanie kontami użytkowników w usłudze Azure API Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate lub zaprosić użytkowników w usłudze Azure API Management"
+title: "Jak zarządzać kontami użytkowników w usłudze Azure API Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć lub zaprosić użytkowników w usłudze Azure API Management"
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 3966f4454e29621d7c615beefee352ec91b48b2e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d3a50f6d22cbf1797f580078bc0d2cc9cefe5064
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-user-accounts-in-azure-api-management"></a>Jak konta użytkowników toomanage w usłudze Azure API Management
-W usłudze API Management Deweloperzy są użytkownikami hello hello interfejsów API, które można udostępnić przy użyciu interfejsu API zarządzania. Ten przewodnik przedstawia toohow toocreate i zaproszenia deweloperzy toouse hello interfejsów API i produktów należy toothem dostępne z wystąpieniem usługi API Management. Uzyskać informacji o programowe zarządzanie kontami użytkowników, zobacz hello [jednostki użytkownika](https://msdn.microsoft.com/library/azure/dn776330.aspx) dokumentacji w hello [interfejsu API REST zarządzania](https://msdn.microsoft.com/library/azure/dn776326.aspx) odwołania.
+# <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Jak zarządzać kontami użytkowników w usłudze Azure API Management
+W usłudze API Management Deweloperzy są użytkownicy interfejsów API, które można udostępnić przy użyciu interfejsu API zarządzania. Ten przewodnik przedstawia sposobu tworzenia i zapraszanie deweloperów do korzystania z interfejsów API i produktów czy należy udostępnić je z wystąpieniem usługi API Management. Informacje na programowe zarządzanie kontami użytkowników, zobacz [jednostki użytkownika](https://msdn.microsoft.com/library/azure/dn776330.aspx) dokumentacji w [interfejsu API REST zarządzania](https://msdn.microsoft.com/library/azure/dn776326.aspx) odwołania.
 
 ## <a name="create-developer"></a>Tworzenie nowych developer
-toocreate nowych deweloperów, kliknij przycisk **portal wydawcy** w hello portalu Azure usługi Zarządzanie interfejsami API. Trwa toohello zarządzanie interfejsami API wydawcy portalu. Jeśli jeszcze nie utworzono wystąpienie usługi API Management, zobacz [Utwórz wystąpienie usługi Zarządzanie interfejsami API] [ Create an API Management service instance] w hello [wprowadzenie do usługi Azure API Management] [ Get started with Azure API Management] samouczka.
+Aby utworzyć nowy developer, kliknij przycisk **portal wydawcy** w portalu Azure usługi Zarządzanie interfejsami API. Spowoduje to przejście do portalu wydawcy usługi API Management. Jeśli jeszcze nie masz utworzonego wystąpienia usługi API Management, zobacz [Tworzenie wystąpienia usługi API Management][Create an API Management service instance] w samouczku [Wprowadzenie do usługi Azure API Management][Get started with Azure API Management].
 
 ![Portal wydawcy][api-management-management-console]
 
-Kliknij przycisk **użytkowników** z hello **zarządzanie interfejsami API** menu na powitania po lewej, a następnie kliknij **dodać użytkownika**.
+Kliknij przycisk **użytkowników** z **zarządzanie interfejsami API** menu po lewej stronie, a następnie kliknij przycisk **dodać użytkownika**.
 
 ![Utwórz developer][api-management-create-developer]
 
-Wprowadź hello **E-mail**, **hasło**, i **nazwa** hello nowych deweloperów, a następnie kliknij przycisk **zapisać**.
+Wprowadź **E-mail**, **hasło**, i **nazwa** developer nowy i kliknij **zapisać**.
 
 ![Utwórz developer][api-management-add-new-user]
 
-Domyślnie developer nowo utworzonego konta są **Active**wraz ze skojarzonymi z hello **deweloperzy** grupy.
+Domyślnie developer nowo utworzonego konta są **Active**wraz ze skojarzonymi z **deweloperzy** grupy.
 
 ![Nowe developer][api-management-new-developer]
 
-Konta dewelopera, które znajdują się w **active** stanu mogą być używane tooaccess wszystkie interfejsy API hello, do którego mają zostać subskrypcji. tooassociate dewelopera hello nowo utworzone przy użyciu dodatkowych grup, zobacz [jak tooassociate grup z deweloperami][How tooassociate groups with developers].
+Konta dewelopera, które znajdują się w **active** stanu można uzyskać dostęp do wszystkich interfejsów API, do którego mają zostać subskrypcji. Aby skojarzyć developer nowo utworzony z dodatkowych grup, zobacz [sposobu kojarzenia grupy z deweloperami][How to associate groups with developers].
 
 ## <a name="invite-developer"></a>Zaprosić dewelopera
-tooinvite dewelopera, kliknij przycisk **użytkowników** z hello **zarządzanie interfejsami API** menu na powitania po lewej, a następnie kliknij **zaprosić użytkowników**.
+Aby zaprosić dewelopera, kliknij przycisk **użytkowników** z **zarządzanie interfejsami API** menu po lewej stronie, a następnie kliknij przycisk **zaprosić użytkowników**.
 
 ![Zaproś developer][api-management-invite-developer]
 
-Wprowadź nazwę i adres e-mail adres hello dewelopera hello, a następnie kliknij przycisk **zaprosić**.
+Wprowadź nazwę i adres e-mail dewelopera, a następnie kliknij przycisk **zaprosić**.
 
 ![Zaproś developer][api-management-invite-developer-window]
 
-Zostanie wyświetlony komunikat potwierdzenia, ale Deweloper hello nowo zaproszenie nie ma listy hello do po zaakceptowaniu zaproszenia hello. 
+Zostanie wyświetlony komunikat potwierdzenia, ale Deweloper nowo zaproszonych nie znajdują się na liście dopiero po ich zaakceptowaniu zaproszenia. 
 
 ![Zaproś potwierdzenia][api-management-invite-developer-confirmation]
 
-Gdy poproszeni dewelopera toohello developer zostanie wysłana wiadomość e-mail. Ten adres e-mail jest generowana z użyciem szablonu i można dostosowywać. Aby uzyskać więcej informacji, zobacz [Konfigurowanie szablonów wiadomości e-mail][Configure email templates].
+Gdy Projektant jest zaproszenie, zostanie wysłana wiadomość e-mail do deweloperów. Ten adres e-mail jest generowana z użyciem szablonu i można dostosowywać. Aby uzyskać więcej informacji, zobacz [Konfigurowanie szablonów wiadomości e-mail][Configure email templates].
 
-Po zaakceptowaniu zaproszenia hello konta hello staje się aktywny.
+Po zaakceptowaniu zaproszenia konto staje się aktywny.
 
 ## <a name="block-developer"></a> Dezaktywuj lub ponownym uaktywnieniem konta dewelopera
-Domyślnie są konta dewelopera nowo utworzone lub zaproszonych **Active**. Kliknij konto dewelopera toodeactivate **bloku**. Kliknij konto dewelopera zablokowanych tooreactivate **Aktywuj**. Konto dewelopera zablokowanych nie można uzyskać dostępu do portalu dla deweloperów hello lub zadzwoń wszystkie interfejsy API. toodelete konta użytkownika, kliknij przycisk **usunąć**.
+Domyślnie są konta dewelopera nowo utworzone lub zaproszonych **Active**. Aby zdezaktywować konta dewelopera, kliknij przycisk **bloku**. Aby ponownie uaktywnić konto dewelopera zablokowanych, kliknij przycisk **Aktywuj**. Konto dewelopera zablokowanych nie można uzyskać dostępu do portalu dla deweloperów lub zadzwoń wszystkie interfejsy API. Aby usunąć konto użytkownika, kliknij przycisk **usunąć**.
 
 ![Blok developer][api-management-new-developer]
 
 ## <a name="reset-a-user-password"></a>Resetowanie hasła użytkownika
-tooreset hello hasło dla konta użytkownika, kliknij nazwę hello hello konta.
+Aby zresetować hasło do konta użytkownika, kliknij nazwę konta.
 
 ![Resetowanie hasła][api-management-view-developer]
 
-Kliknij przycisk **resetowania hasła** toosend łącze toohello użytkownika tooreset swoje hasło.
+Kliknij przycisk **resetowania hasła** wysłać łącze do użytkownika, aby zresetować swoje hasło.
 
 ![Resetowanie hasła][api-management-reset-password]
 
-tooprogrammatically pracy z kontami użytkowników, zobacz hello [jednostki użytkownika](https://msdn.microsoft.com/library/azure/dn776330.aspx) dokumentacji w hello [interfejsu API REST zarządzania](https://msdn.microsoft.com/library/azure/dn776326.aspx) odwołania. tooreset użytkownika konta hasło tooa określoną wartość, można użyć hello [zaktualizowania użytkownika](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) operację i określ hello wymagane hasło.
+Aby programowo pracować z kontami użytkowników, zobacz [jednostki użytkownika](https://msdn.microsoft.com/library/azure/dn776330.aspx) dokumentacji w [interfejsu API REST zarządzania](https://msdn.microsoft.com/library/azure/dn776326.aspx) odwołania. Aby zresetować hasło do konta użytkownika na określoną wartość, można użyć [zaktualizowania użytkownika](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) operację i określ odpowiednie hasło.
 
 ## <a name="pending-verification"></a>Oczekujące weryfikacji
 ![Oczekujące weryfikacji][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Następne kroki
-Po utworzeniu konta dewelopera, można ją skojarzyć z rolami i subskrybowania go tooproducts i interfejsów API. Aby uzyskać więcej informacji, zobacz [jak toocreate i używania grup][How toocreate and use groups].
+Po utworzeniu konta dewelopera, można ją skojarzyć z rolami i subskrybowania produktów i interfejsów API. Aby uzyskać więcej informacji, zobacz [sposobu tworzenia i używania grup][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png
@@ -97,8 +97,8 @@ Po utworzeniu konta dewelopera, można ją skojarzyć z rolami i subskrybowania 
 [Invite a developer]: #invite-developer
 [Deactivate or reactivate a developer account]: #block-developer
 [Next steps]: #next-steps
-[How toocreate and use groups]: api-management-howto-create-groups.md
-[How tooassociate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

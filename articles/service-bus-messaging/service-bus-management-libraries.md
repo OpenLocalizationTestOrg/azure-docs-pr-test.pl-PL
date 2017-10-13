@@ -1,5 +1,5 @@
 ---
-title: "biblioteki zarządzania aaaAzure usługi Service Bus | Dokumentacja firmy Microsoft"
+title: "Biblioteki zarządzania usługi Azure Service Bus | Dokumentacja firmy Microsoft"
 description: "Zarządzanie przestrzeni nazw usługi Service Bus i jednostki z .NET do obsługi komunikatów."
 services: service-bus-messaging
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sethm
-ms.openlocfilehash: 9e4ad91f22815ca0838e6e4647a3606109b2b441
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1db00dc1f91e8976b622030450445babbe547ad8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="service-bus-management-libraries"></a>Biblioteki zarządzania usługi Service Bus
 
-biblioteki zarządzania Hello Azure Service Bus można dynamicznie inicjują obsługę przestrzeni nazw usługi Service Bus i jednostek. Umożliwia to scenariusze obsługi wiadomości i złożone wdrożenia oraz umożliwia tooprogrammatically ustalić, jakie tooprovision jednostek. Te biblioteki są obecnie dostępne dla platformy .NET.
+Biblioteki zarządzania usługi Azure Service Bus można dynamicznie inicjują obsługę przestrzeni nazw usługi Service Bus i jednostek. Włącza scenariusze obsługi wiadomości i złożone wdrożenia i umożliwia programowo ustalić, jakie jednostki do udostępniania. Te biblioteki są obecnie dostępne dla platformy .NET.
 
 ## <a name="supported-functionality"></a>Obsługiwane funkcje
 
@@ -33,26 +33,26 @@ biblioteki zarządzania Hello Azure Service Bus można dynamicznie inicjują obs
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooget uruchomiony przy użyciu biblioteki zarządzania hello usługi Service Bus, wymagane jest uwierzytelnienie przez hello usługi Azure Active Directory (AAD). AAD wymaga, aby uwierzytelniać się jako nazwy głównej usługi, która zapewnia tooyour dostępu do zasobów platformy Azure. Informacji o tworzeniu usługę podmiotu zabezpieczeń zobacz następujące artykuły:  
+Aby rozpocząć korzystanie z bibliotek usługi Service Bus zarządzania musi uwierzytelniać się w usłudze Azure Active Directory (AAD). AAD wymaga, aby uwierzytelniać się jako nazwy głównej usługi, która zapewnia dostęp do zasobów platformy Azure. Informacji o tworzeniu usługę podmiotu zabezpieczeń zobacz następujące artykuły:  
 
-* [Użyj aplikacji usługi Active Directory hello toocreate portalu Azure i nazwy głównej usługi, który ma dostęp do zasobów](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Użyj programu Azure PowerShell toocreate zasobów tooaccess głównej usługi](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Użyj interfejsu wiersza polecenia Azure toocreate zasobów tooaccess głównej usługi](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Tworzenie aplikacji usługi Active Directory i nazwy głównej usługi, który ma dostęp do zasobów za pomocą portalu Azure](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+* [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-Te samouczki oferuje `AppId` (identyfikator klienta), `TenantId`, i `ClientSecret` (klucz uwierzytelniania), które są używane do uwierzytelniania przez hello biblioteki zarządzania. Musi mieć **właściciela** uprawnienia dla grupy zasobów hello, na którym chcesz toorun.
+Te samouczki oferuje `AppId` (identyfikator klienta), `TenantId`, i `ClientSecret` (klucz uwierzytelniania), które są używane do uwierzytelniania przez biblioteki zarządzania. Musi mieć **właściciela** uprawnienia dla grupy zasobów, na którym chcesz uruchomić.
 
 ## <a name="programming-pattern"></a>Wzorzec programowania
 
-Witaj toomanipulate wzorzec wszystkich zasobów usługi Service Bus następuje wspólny protokół:
+Wzorzec do manipulowania wszystkich zasobów usługi Service Bus obejmuje wspólny protokół:
 
-1. Uzyskać token z usługi Azure Active Directory przy użyciu hello **Microsoft.IdentityModel.Clients.ActiveDirectory** biblioteki.
+1. Uzyskać token z usługi Azure Active Directory przy użyciu **Microsoft.IdentityModel.Clients.ActiveDirectory** biblioteki.
    ```csharp
    var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
    var result = await context.AcquireTokenAsync("https://management.core.windows.net/", new ClientCredential(clientId, clientSecret));
    ```
 
-1. Utwórz hello `ServiceBusManagementClient` obiektu.
+1. Utwórz `ServiceBusManagementClient` obiektu.
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -62,7 +62,7 @@ Witaj toomanipulate wzorzec wszystkich zasobów usługi Service Bus następuje w
    };
    ```
 
-1. Zestaw hello `CreateOrUpdate` tooyour parametry określone wartości.
+1. Ustaw `CreateOrUpdate` Twojego podanych wartości parametrów.
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()
@@ -72,7 +72,7 @@ Witaj toomanipulate wzorzec wszystkich zasobów usługi Service Bus następuje w
    };
    ```
 
-1. Wykonanie hello wywołania.
+1. Wykonać wywołania.
 
    ```csharp
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);

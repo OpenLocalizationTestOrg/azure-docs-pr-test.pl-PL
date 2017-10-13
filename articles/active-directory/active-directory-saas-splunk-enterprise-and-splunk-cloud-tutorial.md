@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracji usługi Azure Active Directory z Splunk przedsiębiorstwa i w chmurze Splunk | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługi Azure Active Directory i Splunk Enterprise i Splunk chmury."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługi Azure Active Directory i Splunk Enterprise i Splunk chmury."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 9bb6817cb31dce684cd9cc1c567fa3efc8906ad6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b78e9b7161207a74880e912241d5e965b353d1c5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Samouczek: Integracji usługi Azure Active Directory z Splunk przedsiębiorstwa i w chmurze Splunk
 
-Z tego samouczka, dowiesz się, jak toointegrate Splunk przedsiębiorstwa i w chmurze Splunk w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz integrowanie Splunk przedsiębiorstwa i w chmurze Splunk z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Splunk przedsiębiorstwa i w chmurze Splunk zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD Splunk przedsiębiorstwa i w chmurze Splunk zapewnia następujące korzyści:
 
-- TooSplunk Enterprise i Splunk chmury można kontrolować w usłudze Azure AD, który ma dostęp
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooSplunk przedsiębiorstwa i w chmurze Splunk rejestracji jednokrotnej (SSO) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello klasycznego portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Splunk przedsiębiorstwa i w chmurze Splunk
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Splunk przedsiębiorstwa i w chmurze Splunk rejestracji jednokrotnej (SSO) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - klasycznego portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z Splunk przedsiębiorstwa i w chmurze Splunk należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Splunk przedsiębiorstwa i w chmurze Splunk, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Splunk Enterprise lub logowania jednokrotnego chmury Splunk włączone subskrypcji
 
 
 >[!NOTE]
->tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+>Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 >
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać [miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
@@ -52,186 +52,186 @@ tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
 ## <a name="scenario-description"></a>Opis scenariusza
 W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym.
 
-Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Splunk przedsiębiorstwa i w chmurze Splunk z galerii hello
+1. Dodawanie Splunk przedsiębiorstwa i w chmurze Splunk z galerii
 2. Konfigurowanie i testowania logowania jednokrotnego programu Azure AD
 
 
-## <a name="add-splunk-enterprise-and-splunk-cloud-from-hello-gallery"></a>Dodaj Splunk przedsiębiorstwa i w chmurze Splunk z galerii hello
-tooconfigure hello integracji przedsiębiorstwa Splunk i Splunk chmury do usługi Azure AD, potrzebujesz tooadd Splunk przedsiębiorstwa oraz Splunk chmury hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="add-splunk-enterprise-and-splunk-cloud-from-the-gallery"></a>Dodaj Splunk przedsiębiorstwa i w chmurze Splunk z galerii
+Aby skonfigurować integrację Splunk przedsiębiorstwa i Splunk chmury do usługi Azure AD, należy dodać Splunk przedsiębiorstwa i w chmurze Splunk z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Splunk przedsiębiorstwa i w chmurze Splunk z galerii hello wykonaj hello następujące kroki:**
+**Aby dodać Splunk przedsiębiorstwa i w chmurze Splunk z galerii, wykonaj następujące czynności:**
 
-1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.
+1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
 
     ![Usługa Active Directory][1]
 
-2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
+2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
 
-3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
+3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
 
     ![Aplikacje][2]
 
-4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
+4. Kliknij przycisk **Dodaj** w dolnej części strony.
 
     ![Aplikacje][3]
 
-5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
+5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
 
     ![Aplikacje][4]
 
-6. W polu wyszukiwania hello wpisz **Splunk przedsiębiorstwa lub w chmurze Splunk**.
+6. W polu wyszukiwania wpisz **Splunk przedsiębiorstwa lub w chmurze Splunk**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_01.png)
 
-7. Wybierz w okienku wyników hello **Splunk przedsiębiorstwa i w chmurze Splunk**, a następnie kliknij przycisk **Complete** aplikacji hello tooadd.
+7. W okienku wyników wybierz **Splunk przedsiębiorstwa i w chmurze Splunk**, a następnie kliknij przycisk **Complete** można dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_02.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Splunk przedsiębiorstwa i Splunk chmury oparte na użytkownika testowego o nazwie "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow jakie hello odpowiednikiem użytkownik w organizacji Splunk i w chmurze Splunk jest tooa w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w organizacji Splunk i w chmurze Splunk musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Splunk przedsiębiorstwa i w chmurze Splunk jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w organizacji Splunk i w chmurze Splunk musi się.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **nazwy użytkownika** Splunk przedsiębiorstwa i Splunk chmury.
+Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **nazwy użytkownika** Splunk przedsiębiorstwa i Splunk chmury.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Splunk przedsiębiorstwa i w chmurze Splunk, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Splunk przedsiębiorstwa i w chmurze Splunk, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Splunk przedsiębiorstwa i w chmurze Splunk](#creating-a-splunk-enterprise-and-splunk-cloud-test-user)**  -toohave odpowiednikiem Simona Britta w przedsiębiorstwie Splunk i w chmurze Splunk, że jego reprezentacja toohello połączonej usługi Azure AD.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Splunk przedsiębiorstwa i w chmurze Splunk](#creating-a-splunk-enterprise-and-splunk-cloud-test-user)**  — mają odpowiednika Simona Britta w przedsiębiorstwie Splunk i Splunk chmurze, która jest połączona z jej reprezentacji usługi Azure AD.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji włączenia funkcji logowania jednokrotnego usługi Azure AD w klasycznym portalu hello i konfigurowanie logowania jednokrotnego w aplikacji przedsiębiorstwa Splunk i Splunk chmury.
+W tej sekcji włączenia funkcji logowania jednokrotnego usługi Azure AD w klasycznym portalu i konfigurowanie logowania jednokrotnego w aplikacji przedsiębiorstwa Splunk i Splunk chmury.
 
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Splunk przedsiębiorstwa i Splunk chmury, wykonaj hello następujące kroki:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Splunk przedsiębiorstwa i Splunk chmury, wykonaj następujące czynności:**
 
-1. W klasycznym portalu hello na powitania **Splunk przedsiębiorstwa i w chmurze Splunk** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować logowanie jednokrotne** okna dialogowego.
+1. W klasycznym portalu na **Splunk przedsiębiorstwa i w chmurze Splunk** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne**okna dialogowego.
      
     ![Konfigurowanie rejestracji jednokrotnej][6] 
 
-2. Na powitania **jak chcesz toosign użytkowników na tooSplunk przedsiębiorstwa i w chmurze Splunk** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+2. Na **jak chcesz użytkownikom logowanie się Splunk przedsiębiorstwa i w chmurze Splunk** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_03.png) 
 
-3. Na powitania **Konfigurowanie ustawień aplikacji** okna dialogowego wykonaj hello następujące kroki:
+3. Na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_04.png) 
-  1. W hello **na adres URL logowania** pole tekstowe, wprowadź adres URL hello używane przez użytkowników na toosign tooyour Splunk przedsiębiorstwa i aplikacji w chmurze Splunk przy użyciu hello następującego wzorca:`https://<splunkserverUrl>/en-US/app/launcher/home`
-  2. W hello **identyfikator** pole tekstowe, wprowadź adres URL powitania serwera Splunk.
-  3. W hello **adres URL odpowiedzi** pole tekstowe, wprowadź adres URL hello z hello następującego wzorca:`https://<splunkserver>/saml/acs`
+  1. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania jednokrotnego do aplikacji przedsiębiorstwa Splunk i w chmurze Splunk przy użyciu następującego wzorca:`https://<splunkserverUrl>/en-US/app/launcher/home`
+  2. W **identyfikator** tekstowym, wpisz adres URL serwera Splunk.
+  3. W **adres URL odpowiedzi** tekstowym, wpisz adres URL z następującego wzorca:`https://<splunkserver>/saml/acs`
   4. Kliknij przycisk **Dalej**.
  
-4. Na powitania **skonfigurować logowanie jednokrotne w Splunk przedsiębiorstwa i w chmurze Splunk** wykonaj hello następujące kroki:
+4. Na **skonfigurować logowanie jednokrotne w Splunk przedsiębiorstwa i w chmurze Splunk** wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_05.png)
-  1. Kliknij przycisk **pobierania metadanych**, a następnie zapisz plik hello na tym komputerze.
+  1. Kliknij przycisk **pobierania metadanych**, a następnie zapisz plik na komputerze.
   2. Kliknij przycisk **Dalej**.
 
-5. tooget logowania jednokrotnego skonfigurowane dla danej aplikacji, skontaktuj się z Splunk przedsiębiorstwa i Splunk chmury z pomocą techniczną i podaj następujące hello:
+5. Aby uzyskać logowania jednokrotnego skonfigurowane dla aplikacji, skontaktuj się z Splunk przedsiębiorstwa i Splunk chmury z pomocą techniczną i podaj z następującymi:
 
-    * Witaj pobrane **federaton metadanych**
-6. W portalu klasycznym hello, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **dalej**.
+    * Pobrany **federaton metadanych**
+6. W klasycznym portalu, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **dalej**.
     
     ![Azure AD rejestracji jednokrotnej][10]
 
-7. Na powitania **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
+7. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.  
  
     ![Azure AD rejestracji jednokrotnej][11]
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-W tej sekcji Tworzenie użytkownika testowego w portalu klasycznym hello o nazwie Simona Britta.
+W tej sekcji utworzysz użytkownika testowego w klasycznym portalu o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][20]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.
+1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_09.png) 
 
-2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
+2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
 
-3. Kliknij toodisplay hello listę użytkowników, w menu hello na górze hello **użytkowników**.
+3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_03.png) 
 
-4. Witaj tooopen **Dodaj użytkownika** kliknij okno dialogowe narzędzi hello na dole hello **Dodaj użytkownika**.
+4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_04.png) 
 
-5. Na powitania **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj hello następujące kroki:
+5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności:
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_05.png) 
   1. Jako typ użytkownika wybierz nowego użytkownika w organizacji.
-  2. W hello nazwy użytkownika **pole tekstowe**, typ **BrittaSimon**.
+  2. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**.
   3. Kliknij przycisk **Dalej**.
 
-6.  Na powitania **profilu użytkownika** okna dialogowego wykonaj hello następujące kroki:
+6.  Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
   
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_06.png) 
-  1. W hello **imię** pole tekstowe, typ **Britta**.  
-  2. W hello **nazwisko** pole tekstowe, typ **Simona**.
-  3. W hello **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
-  4. W hello **roli** listy, wybierz **użytkownika**.
+  1. W **imię** pole tekstowe, typ **Britta**.  
+  2. W **nazwisko** pole tekstowe, typ **Simona**.
+  3. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**.
+  4. W **roli** listy, wybierz **użytkownika**.
   5. Kliknij przycisk **Dalej**.
 
-7. Na powitania **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
+7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_07.png) 
 
-8. Na powitania **Uzyskaj hasło tymczasowe** okna dialogowego wykonaj hello następujące kroki:
+8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_08.png) 
-  1. Zanotuj wartość hello hello **nowe hasło**.
+  1. Zanotuj wartość **nowe hasło**.
   2. Kliknij przycisk **Complete** (Zakończ).   
 
 ### <a name="create-a-splunk-enterprise-and-splunk-cloud-test-user"></a>Tworzenie Splunk przedsiębiorstwa i chmury Splunk użytkownika testowego
 
-W tej sekcji utworzysz użytkownika o nazwie Simona Britta w przedsiębiorstwie Splunk i Splunk chmury. We współpracy z Splunk przedsiębiorstwa i w chmurze Splunk pomocy technicznej zespół tooadd hello użytkowników w hello Splunk Enterprise Splunk platforma i chmury.
+W tej sekcji utworzysz użytkownika o nazwie Simona Britta w przedsiębiorstwie Splunk i Splunk chmury. Proszę współpracować z Splunk Enterprise i chmury Splunk zespołem pomocy technicznej, aby dodać użytkowników na platformie Splunk przedsiębiorstwa i w chmurze Splunk.
 
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji można włączyć toouse Simona Britta SSOy Azure udzielanie jej Enterprise tooSplunk dostępu i Splunk chmury.
+W tej sekcji można włączyć Simona Britta umożliwia udostępnienie jej Splunk przedsiębiorstwa i w chmurze Splunk SSOy Azure.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign Simona Britta tooSplunk przedsiębiorstwa i Splunk chmury, wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta do Splunk przedsiębiorstwa i Splunk chmury, wykonaj następujące czynności:**
 
-1. W portalu klasycznym hello, kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
+1. W klasycznym portalu, aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Splunk przedsiębiorstwa i w chmurze Splunk**.
+2. Na liście aplikacji zaznacz **Splunk przedsiębiorstwa i w chmurze Splunk**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_50.png) 
 
-3. W menu hello na górze hello, kliknij przycisk **użytkowników**.
+3. W menu u góry kliknij **użytkowników**.
 
     ![Przypisz użytkownika][203]
 
-4. Na liście hello użytkowników, wybierz **Simona Britta**.
+4. Na liście użytkowników wybierz **Simona Britta**.
 
-5. W narzędzi hello na dole powitania kliknij **przypisać**.
+5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
 
     ![Przypisz użytkownika][205]
 
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować programu Azure AD SSOonfiguration, przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować programu Azure AD SSOonfiguration, za pomocą panelu dostępu.
 
-Po kliknięciu hello Splunk przedsiębiorstwa i chmury Splunk kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Splunk przedsiębiorstwa i w chmurze Splunk aplikacji.
+Po kliknięciu Splunk Enterprise i chmury Splunk kafelka w panelu dostępu, możesz należy pobrać automatycznie zalogowane Splunk przedsiębiorstwa i w chmurze Splunk aplikacji.
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

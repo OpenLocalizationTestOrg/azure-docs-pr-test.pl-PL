@@ -1,6 +1,6 @@
 ---
-title: "aaaWorking z duże zestawy skalowania maszyny wirtualnej platformy Azure | Dokumentacja firmy Microsoft"
-description: "Co należy zestawów skalowania tooknow toouse dużych maszyny wirtualnej platformy Azure"
+title: "Praca z dużymi zestawami skalowania maszyn wirtualnych platformy Azure | Microsoft Docs"
+description: "Informacje potrzebne do używania dużych zestawów skalowania maszyn wirtualnych platformy Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gbowerman
@@ -13,54 +13,54 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/7/2017
+ms.date: 9/1/2017
 ms.author: guybo
-ms.openlocfilehash: a39aab25925d7fc50763f0a20148b1f2213b492f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Praca z dużymi zestawami skalowania maszyn wirtualnych
-Możesz teraz utworzyć Azure [zestawy skalowania maszyny wirtualnej](/azure/virtual-machine-scale-sets/) o pojemności zapasowej too1, 000 maszyn wirtualnych. W tym dokumencie _zestaw skali maszyny wirtualnej dużych_ jest zdefiniowany jako skali ustawić możliwość skalowania toogreater niż 100 maszyn wirtualnych. Ta funkcja jest ustawiana za pomocą właściwości zestawu skalowania (_singlePlacementGroup=False_). 
+Możliwe jest teraz tworzenie [zestawów skalowania maszyn wirtualnych platformy Azure](/azure/virtual-machine-scale-sets/) o pojemności do 1000 maszyn wirtualnych. W tym dokumencie _duży zestaw skalowania maszyn wirtualnych_ jest zdefiniowany jako zestaw skalowania umożliwiający skalowanie do ponad 100 maszyn wirtualnych. Ta funkcja jest ustawiana za pomocą właściwości zestawu skalowania (_singlePlacementGroup=False_). 
 
-Ustawia niektórych aspektów dużej skali, takie jak obciążenia równoważenia i odporność domen zachowywać się inaczej zestaw standardowych skali tooa. Ten dokument opisano charakterystyki hello dużych zestawów, a w tym artykule opisano, jakie muszą tooknow toosuccessfully używane w aplikacji. 
+Niektóre aspekty dużych zestawów skalowania, na przykład równoważenie obciążenia i domeny błędów, działają inaczej niż w przypadku standardowych zestawów skalowania. Ten dokument zawiera wyjaśnienie charakterystyk dużych zestawów skalowania oraz informacje potrzebne, aby pomyślnie używać ich w ramach aplikacji. 
 
-Typowym podejściem wdrażania infrastruktury chmury na dużą skalę jest toocreate zbiór _jednostek skalowania_, na przykład przez utworzenie wielu maszyn wirtualnych skalowanie zestawów między wieloma sieciami wirtualnymi i kontami magazynu. Metoda ta umożliwia łatwiejsze zarządzanie w porównaniu toosingle maszyn wirtualnych, a wiele jednostek skalowania są przydatne w przypadku wielu aplikacji, zwłaszcza tych, które wymagają innymi urządzeniami składników, takich jak wiele sieci wirtualnych i punktów końcowych. Jeśli aplikacja wymaga jednak jeden klaster duży, może być bardziej bezpośrednie toodeploy pojedynczego skali Konfigurowanie z too1, 000 maszyn wirtualnych. Przykładowe scenariusze obejmują scentralizowane wdrożenia danych big data lub sieci obliczeniowe wymagające prostego zarządzania dużą pulą węzłów procesu roboczego. Połączone z zestawu skalowania maszyny Wirtualnej [dołączone dyski danych](virtual-machine-scale-sets-attached-disks.md), dużych zestawów pozwalają toodeploy skalowalnej infrastruktury składające się z tysiącami rdzeni i petabajtów magazynu jako jedna operacja.
+Powszechnym podejściem do wdrażania infrastruktury chmury na dużą skalę jest tworzenie zestawu _jednostek skalowania_, na przykład przez utworzenie wielu zestawów skalowania maszyn wirtualnych w obrębie wielu sieci wirtualnych i kont magazynu. Metoda ta umożliwia łatwiejsze zarządzanie w porównaniu do pojedynczej maszyny wirtualnej, a posiadanie wielu jednostek skalowania jest przydatne w przypadku wielu aplikacji, zwłaszcza tych, które wymagają innych składników możliwych do umieszczenia na stosie, takich jak wiele sieci wirtualnych i punktów końcowych. Jeśli jednak aplikacja wymaga pojedynczego dużego klastra, prostsze może okazać się wdrożenie pojedynczego zestawu skalowania zawierającego maksymalnie 1000 maszyn wirtualnych. Przykładowe scenariusze obejmują scentralizowane wdrożenia danych big data lub sieci obliczeniowe wymagające prostego zarządzania dużą pulą węzłów procesu roboczego. Duże zestawy skalowania połączone z [dołączonymi dyskami danych](virtual-machine-scale-sets-attached-disks.md) zestawu skalowania maszyn wirtualnych umożliwiają wdrażanie w ramach jednej operacji skalowalnej infrastruktury składającej się z tysięcy rdzeni i petabajtów magazynu.
 
 ## <a name="placement-groups"></a>Grupy umieszczania 
-Co sprawia, że _dużych_ zestaw specjalne skalowania nie jest hello liczbę maszyn wirtualnych, ale liczba hello _umieszczania grupy_ zawiera. Grupy umieszczania to konstrukcja podobne tooan dostępności Azure zestaw, z domen błędów i domen uaktualnienia. Domyślnie zestaw skalowania składa się z pojedynczej grupy umieszczania zawierającej maksymalnie 100 maszyn wirtualnych. Jeśli właściwość o nazwie zestawu skalowania _singlePlacementGroup_ ustawiono too_false_, zestaw skali hello może składać się z wielu grup umieszczania i ma zakres 0-1000 maszyn wirtualnych. Kiedy należy ustawić wartość domyślną toohello _true_, zestaw skali składa się z grupą pojedynczego umieszczania i ma zakres 0-100 maszyn wirtualnych.
+To, co sprawia, że _duże_ zestawy skalowania są wyjątkowe, to nie liczba maszyn wirtualnych, ale liczba _grup umieszczania_, które się w nich znajdują. Grupa umieszczania to konstrukcja podobna do zestawu dostępności platformy Azure, która zawiera własne domeny błędów i domeny uaktualnień. Domyślnie zestaw skalowania składa się z pojedynczej grupy umieszczania zawierającej maksymalnie 100 maszyn wirtualnych. Jeśli właściwość zestawu skalowania o nazwie _singlePlacementGroup_ jest ustawiona na wartość _false_, zestaw skalowania może składać się z wielu grup umieszczania i ma zakres od 0 do 1000 maszyn wirtualnych. Jeśli właściwość jest ustawiona na domyślną wartość _true_, zestaw skalowania składa się z pojedynczej grupy umieszczania i ma zakres od 0 do 100 maszyn wirtualnych.
 
 ## <a name="checklist-for-using-large-scale-sets"></a>Lista kontrolna na potrzeby używania dużych zestawów skalowania
-toodecide czy aplikacji ułatwia efektywne korzystanie z zestawów na dużą skalę, należy wziąć pod uwagę hello następujące wymagania:
+Aby zdecydować, czy aplikacja może w sposób efektywny używać dużych zestawów skalowania, należy wziąć pod uwagę następujące wymagania:
 
-- Duże zestawy skalowania wymagają użycia usługi Azure Managed Disks. Zestawy skalowania, które nie zostaną utworzone za pomocą usługi Managed Disks, wymagają wielu kont magazynu (jednego dla każdych 20 maszyn wirtualnych). Ustawia dużej skali są zaprojektowane toowork wyłącznie w przypadku dysków zarządzanych tooreduce ogranicza magazynu nakładów pracy zarządzania i tooavoid hello ryzyka uruchomione w subskrypcji dla konta magazynu. Nie dysków zarządzanych, zestaw skalowania jest ograniczona too100 maszyn wirtualnych.
-- Zestawy skalowania utworzone z obrazów Azure Marketplace można skalować too1, 000 maszyn wirtualnych.
-- Zestawy skalowania utworzone na podstawie niestandardowych obrazów (obrazów maszyn wirtualnych można utworzyć i przekazać samodzielnie) można obecnie skalowanie w górę too100 maszyn wirtualnych.
-- Hello Azure Load Balancer równoważenia obciążenia dla warstwy 4 nie jest jeszcze obsługiwana dla zestawów skalowania składa się z wielu grup umieszczania. Hello toouse modułu równoważenia obciążenia Azure upewnij się, że zestaw skalowania hello jest skonfigurowany toouse grupy pojedynczego umieszczania jest ustawienie domyślne hello.
-- Wszystkie zestawy skalowania warstwy 7 równoważenia obciążenia z hello Azure Application Gateway jest obsługiwana.
-- Zestaw skalowania jest zdefiniowana z pojedynczą podsiecią — upewnij się, że podsieć ma przestrzeń adresową wystarczająco duży dla wszystkich hello maszyn wirtualnych należy. Domyślnie overprovisions zestawu skalowania (tworzy dodatkowe maszyny wirtualne w czasie wdrażania lub w trakcie skalowania, które nie są naliczane opłaty dotyczące) tooimprove wdrożenia niezawodność i wydajność. Zezwalaj na adres miejsca 20% większa niż liczba hello planujesz tooscale do maszyn wirtualnych.
-- Jeśli planujesz toodeploy wiele maszyn wirtualnych, sieci limity przydziału rdzeni obliczeń może być konieczne toobe zwiększyć.
-- Domeny błędów i domeny uaktualnień są spójne tylko w ramach grupy umieszczania. Tej architektury nie zmienia hello ogólne zestawu dostępności skali, zgodnie z maszyn wirtualnych jest rozmieszczana równomiernie wzdłuż różne sprzętu fizycznego, ale go nie oznacza, że jeśli potrzebujesz tooguarantee dwóch maszyn wirtualnych znajdują się na inny sprzęt, upewnij się, znajdują się w różnych błędów domen w hello tej samej grupie umieszczania. Identyfikator grupy błędów domeny i umieszczania są wyświetlane w hello _wystąpienia widoku_ skalę ustawić maszyny Wirtualnej. Witaj widok wystąpienia zestawu skali maszyny Wirtualnej można wyświetlić w hello [Eksploratora zasobów Azure](https://resources.azure.com/).
+- Duże zestawy skalowania wymagają użycia usługi Azure Managed Disks. Zestawy skalowania, które nie zostaną utworzone za pomocą usługi Managed Disks, wymagają wielu kont magazynu (jednego dla każdych 20 maszyn wirtualnych). Duże zestawy skalowania są przeznaczone do użytku tylko z usługą Managed Disks w celu ograniczenia narzutu związanego z zarządzaniem magazynem oraz uniknięcia ryzyka przekroczenia limitów subskrypcji dla kont magazynu. Jeśli usługa Managed Disks nie jest używana, zestaw skalowania jest ograniczony do 100 maszyn wirtualnych.
+- Zestawy skalowania utworzone na podstawie obrazów portalu Azure Marketplace można skalować w górę do 1000 maszyn wirtualnych.
+- Zestawy skalowania utworzone na podstawie obrazów niestandardowych (samodzielnie utworzone i przekazane obrazy maszyn wirtualnych) można aktualnie skalować w górę do 300 maszyn wirtualnych.
+- Równoważenie obciążenia w warstwie 4 za pomocą usługi Azure Load Balancer nie jest jeszcze obsługiwane dla zestawów skalowania składających się z wielu grup umieszczania. Jeśli konieczne jest użycie usługi Azure Load Balancer, upewnij się, że zestaw skalowania jest skonfigurowany pod kątem używania pojedynczej grupy umieszczania (jest to ustawienie domyślne).
+- Równoważenie obciążenia w warstwie 7 za pomocą usługi Azure Application Gateway jest obsługiwane dla wszystkich zestawów skalowania.
+- Zestaw skalowania jest zdefiniowany z jedną podsiecią — upewnij się, że podsieć ma wystarczająco dużą przestrzeń adresową dla wszystkich wymaganych maszyn wirtualnych. Domyślnie zestaw skalowania w celu poprawy niezawodności i wydajności wdrożenia przeprowadza nadmiarową aprowizację, czyli tworzy dodatkowe maszyny wirtualne w czasie wdrażania lub skalowania w poziomie, za które nie są naliczane opłaty. Przestrzeń adresowa powinna być o 20% większa niż liczba maszyn wirtualnych, do której planowane jest skalowanie.
+- Jeśli planujesz wdrożyć wiele maszyn wirtualnych, konieczne może być zwiększenie limitów przydziału rdzeni obliczeniowych.
+- Domeny błędów i domeny uaktualnień są spójne tylko w ramach grupy umieszczania. Taka architektura nie zmienia ogólnej dostępności zestawu skalowania, ponieważ maszyny wirtualne są równomiernie rozpraszane na różnym sprzęcie fizycznym, ale w celu zagwarantowania, że dwie maszyny wirtualne znajdują się na różnym sprzęcie, upewnij się, że znajdują się one w różnych domenach błędów w tej samej grupie umieszczania. Identyfikatory domeny błędów i grupy umieszczania są wyświetlane w _widoku wystąpienia_ maszyny wirtualnej zestawu skalowania. Widok wystąpienia maszyny wirtualnej zestawu skalowania można otworzyć w [Eksploratorze zasobów Azure](https://resources.azure.com/).
 
 
 ## <a name="creating-a-large-scale-set"></a>Tworzenie dużego zestawu skalowania
-Po utworzeniu skali w hello portalu Azure, można zezwolić tooscale toomultiple umieszczania grupy przez ustawienie hello _Limit tooa umieszczania jednej grupy_ too_False_ opcji w hello _podstawy_ bloku. Z tym too_False_ zestaw opcji, możesz określić _wystąpienia licznika_ wartość zapasową too1, 000.
+Podczas tworzenia zestawu skalowania w witrynie Azure Portal można zezwolić na jego skalowanie do wielu grup umieszczania przez ustawienie opcji _Ogranicz do pojedynczej grupy umieszczania_ na wartość _Fałsz_ w bloku _Podstawy_. Jeśli ta opcja jest ustawiona na wartość _Fałsz_, właściwość _Liczba wystąpień_ może zostać ustawiona maksymalnie na wartość 1000.
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Możesz utworzyć dużej skali maszyny Wirtualnej ustawić za pomocą hello [interfejsu wiersza polecenia Azure](https://github.com/Azure/azure-cli) _az vmss utworzyć_ polecenia. To polecenie ustawia inteligentnego wartości domyślnych, takich jak rozmiar podsieci oparte na powitania _liczba wystąpień_ argumentu:
+Duży zestaw skalowania maszyn wirtualnych można utworzyć za pomocą polecenia [interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-cli) _az vmss create_. To polecenie ustawia inteligentne wartości domyślne, takie jak rozmiar podsieci, na podstawie argumentu _instance-count_:
 
 ```bash
 az group create -l southcentralus -n biginfra
 az vmss create -g biginfra -n bigvmss --image ubuntults --instance-count 1000
 ```
-Należy pamiętać, że hello _vmss utworzyć_ polecenia domyślnie niektóre wartości konfiguracji, jeśli nie zostanie określony. Spróbuj toosee hello dostępne opcje, które można zastąpić:
+Zwróć uwagę, że polecenie _vmss create_ powoduje ustawienie pewnych domyślnych wartości konfiguracji, jeśli nie zostaną określone. Aby wyświetlić dostępne opcje, które można przesłonić:
 ```bash
 az vmss create --help
 ```
 
-Jeśli tworzysz dużej skali ustawione przez tworzenie szablonu usługi Azure Resource Manager, upewnij się, że szablon hello tworzy zestaw skalowania oparte na dyskach zarządzanych Azure. Można ustawić hello _singlePlacementGroup_ too_false_ właściwości w hello _właściwości_ sekcji hello _Microsoft.Compute/virtualMAchineScaleSets_ zasobów. Witaj poniższy fragment JSON zawiera hello początku szablonem zestaw skali, w tym hello 1000 możliwą liczbę maszyn wirtualnych i hello _"singlePlacementGroup": false_ ustawienia:
+Jeśli tworzysz duży zestaw skalowania za pośrednictwem usługi Azure Resource Manager, upewnij się, że szablon tworzy zestaw skalowania na podstawie usługi Azure Managed Disks. Właściwość _singlePlacementGroup_ można ustawić na wartość _false_ w sekcji _properties_ zasobu _Microsoft.Compute/virtualMAchineScaleSets_. Poniższy fragment kodu JSON zawiera początek szablonu zestawu skalowania, w tym pojemność wynoszącą 1000 maszyn wirtualnych i ustawienie _"singlePlacementGroup" : false_:
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -77,12 +77,12 @@ Jeśli tworzysz dużej skali ustawione przez tworzenie szablonu usługi Azure Re
       "mode": "Automatic"
     }
 ```
-Pełny przykład dużą skalę należy ustawić szablon, zapoznaj się zbyt[https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
+Pełny przykład szablonu dużego zestawu skalowania znajduje się pod adresem [https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/master/bigtest/bigbottle.json).
 
-## <a name="converting-an-existing-scale-set-toospan-multiple-placement-groups"></a>Konwertowanie istniejących skali ustawić toospan wiele grup umieszczania
-toomake istniejącego zestawu skalowania maszyny wirtualnej umożliwia skalowanie toomore niż 100 maszyn wirtualnych, należy toochange hello _singplePlacementGroup_ too_false_ właściwości w skali hello wartość modelu. Możesz przetestować, zmienianie tej właściwości z hello [Eksploratora zasobów Azure](https://resources.azure.com/). Znajdowanie istniejącego zestawu skalowania, wybierz opcję _Edytuj_ i zmień hello _singlePlacementGroup_ właściwości. Jeśli ta właściwość nie jest widoczny, mogą być wyświetlane skali hello ustawić przy użyciu starszej wersji hello Microsoft.Compute interfejsu API.
+## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Konwertowanie istniejącego zestawu skalowania, aby uwzględniał wiele grup umieszczania
+Aby możliwe było skalowanie istniejącego zestawu skalowania maszyn wirtualnych do ponad 100 maszyn wirtualnych, w modelu zestawu skalowania należy zmienić właściwość _singlePlacementGroup_ na wartość _false_. Zmianę tej właściwości można przetestować za pomocą [Eksploratora zasobów Azure](https://resources.azure.com/). Znajdź istniejący zestaw skalowania, wybierz pozycję _Edytuj_ i zmień wartość właściwości _singlePlacementGroup_. Jeśli ta właściwość nie jest widoczna, być może zestaw skalowania jest wyświetlany za pomocą starszej wersji interfejsu API Microsoft.Compute.
 
 >[!NOTE] 
-Ustaw obsługę jednego umieszczania grupy tylko (hello domyślne zachowanie) tooa Obsługa wielu grup umieszczania skali można zmienić, ale nie można przekonwertować hello odwrotnie. W związku z tym upewnij się, że rozumiesz właściwości hello dużych zestawów przed konwersją. W szczególności upewnij się, że nie ma potrzeby hello Azure Load Balancer równoważenia obciążenia dla warstwy 4.
+Zestaw skalowania można zmienić z obsługującego tylko pojedynczą grupę umieszczania (domyślne zachowanie) na obsługujący wiele grup umieszczania, ale nie odwrotnie. W związku z tym przed przeprowadzeniem konwersji zapoznaj się z właściwościami dużych zestawów skalowania. W szczególności upewnij się, że nie jest konieczne używanie równoważenia obciążenia w warstwie 4 za pomocą usługi Azure Load Balancer.
 
 

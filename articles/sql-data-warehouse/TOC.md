@@ -8,9 +8,10 @@
 # Wprowadzenie
 
 ## [Samouczek dla początkujących](sql-data-warehouse-get-started-tutorial.md)
+## [Elastyczne zapytanie — samouczek](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [Najlepsze praktyki](sql-data-warehouse-best-practices.md)
 ## [Zarządzanie](sql-data-warehouse-overview-manage.md)
-## [Uzyskiwanie pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # Instrukcje
@@ -19,8 +20,8 @@
 
 ### [Omówienie usługi Backup](sql-data-warehouse-backups.md)
 ### [Omówienie przywracania kopii zapasowych](sql-data-warehouse-restore-database-overview.md)
-#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [Program PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Witryna Azure Portal](sql-data-warehouse-restore-database-portal.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Połączenie
@@ -33,8 +34,8 @@
 ### [Parametry połączenia](sql-data-warehouse-connection-strings.md)
 
 ## Przycisk Utwórz
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [Program PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Witryna Azure Portal](sql-data-warehouse-get-started-provision.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Programowanie
@@ -80,6 +81,8 @@
 ### [Wizualizacja w usłudze Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
+### [Elastyczne zapytanie — z bazą danych SQL i usługą SQL Data Warehouse](how-to-use-elastic-query-with-sql-data-warehouse.md)
+
 ## Ładowanie
 
 ### Pojęcia
@@ -89,7 +92,7 @@
 ### Samouczki
 #### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 
-### Jak tooguides
+### Przewodniki z instrukcjami
 #### [Dane przykładowe](sql-data-warehouse-load-sample-databases.md)
 #### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 #### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -106,7 +109,7 @@
 ### [Migrowanie schematu](sql-data-warehouse-migrate-schema.md)
 ### [Migrowanie kodu](sql-data-warehouse-migrate-code.md)
 ### [Migrowanie danych](sql-data-warehouse-migrate-data.md)
-### [Przeprowadź migrację pamięci masowej toopremium](sql-data-warehouse-migrate-to-premium-storage.md)
+### [Migrowanie do usługi Premium Storage](sql-data-warehouse-migrate-to-premium-storage.md)
 
 ## Zarządzanie obliczeniami
 
@@ -139,18 +142,22 @@
 # Dokumentacja
 
 ## [Limity pojemności](sql-data-warehouse-service-capacity-limits.md)
-## [Elementy języka T-SQL](sql-data-warehouse-reference-tsql-language-elements.md)
-## [Instrukcje języka T-SQL](sql-data-warehouse-reference-tsql-statements.md)
-## [Widoki systemowe języka T-SQL](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [Pełna dokumentacja](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [Elementy języka usługi SQL DW](sql-data-warehouse-reference-tsql-language-elements.md)
+### [Instrukcje usługi SQL DW](sql-data-warehouse-reference-tsql-statements.md)
+## [Widoki systemowe](sql-data-warehouse-reference-tsql-system-views.md)
 ## [Polecenia cmdlet programu PowerShell](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/?category=databases)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Cennik](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
+## [Żądania funkcji](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Pomoc techniczna](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Partnerzy

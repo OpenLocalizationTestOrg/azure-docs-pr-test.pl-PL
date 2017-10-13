@@ -1,6 +1,6 @@
 ---
-title: "aaaSet się Środowisko deweloperskie do platformy Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Zainstaluj hello środowiska uruchomieniowego, zestawu SDK i narzędzia i Utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji będzie gotowy toobuild aplikacji."
+title: "Konfigurowanie środowiska deweloperskiego w systemie Windows dla mikrousług platformy Azure | Microsoft Docs"
+description: "Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji w systemie Windows."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 9b0442778999d4c3d2b99adb98f6596dcbdc36d3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0691f26168feacf290b732afd7dfd680a2537179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="prepare-your-development-environment"></a>Przygotowywanie środowiska projektowego
+# <a name="prepare-your-development-environment-on-windows"></a>Przygotowywanie środowiska deweloperskiego w systemie Windows
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
@@ -28,11 +28,11 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
- toobuild i uruchom [aplikacji usługi Azure Service Fabric] [ 1] na komputerze deweloperskim instalowanie hello środowiska uruchomieniowego, zestawu SDK i narzędzia. Należy również tooenable wykonywania skryptów programu Windows PowerShell hello objęte hello zestawu SDK.
+ Aby móc tworzyć i uruchamiać [aplikacje usługi Azure Service Fabric][1] na maszynie deweloperskiej z systemem Windows, zainstaluj środowisko uruchomieniowe, zestaw SDK oraz narzędzia. Należy również włączyć wykonywanie skryptów programu Windows PowerShell zawartych w zestawie SDK.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 ### <a name="supported-operating-system-versions"></a>Obsługiwane wersje systemu operacyjnego
-następujące wersje systemu operacyjnego Hello są obsługiwane w przypadku rozwoju:
+Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu operacyjnego:
 
 * Windows 7
 * Windows 8/Windows 8.1
@@ -41,37 +41,37 @@ następujące wersje systemu operacyjnego Hello są obsługiwane w przypadku roz
 * Windows 10
 
 > [!NOTE]
-> System Windows 7 domyślnie zawiera program Windows PowerShell wyłącznie w wersji 2.0. Polecenia cmdlet programu PowerShell usługi Service Fabric wymagają programu PowerShell w wersji 3.0 lub nowszej. Możesz [pobrać program Windows PowerShell 5.0] [ powershell5-download] z hello Microsoft Download Center.
+> System Windows 7 domyślnie zawiera program Windows PowerShell wyłącznie w wersji 2.0. Polecenia cmdlet programu PowerShell usługi Service Fabric wymagają programu PowerShell w wersji 3.0 lub nowszej. Możesz [pobrać program Windows PowerShell 5.0][powershell5-download] w Centrum pobierania Microsoft.
 > 
 > 
 
-## <a name="install-hello-sdk-and-tools"></a>Zainstaluj hello zestawu SDK i narzędzia
-### <a name="toouse-visual-studio-2017"></a>toouse programu Visual Studio 2017 r.
-Service Fabric Tools są częścią hello Azure projektowania i zarządzania nimi obciążenia w programie Visual Studio 2017 r. Włącz to obciążenie w ramach instalacji programu Visual Studio.
-Ponadto należy hello tooinstall zestaw Microsoft Azure Service Fabric SDK, za pomocą Instalatora platformy sieci Web.
+## <a name="install-the-sdk-and-tools"></a>Instalowanie zestawu SDK i narzędzi
+### <a name="to-use-visual-studio-2017"></a>Używanie programu Visual Studio 2017
+Narzędzia Service Fabric Tools są częścią pakietu roboczego projektowania i zarządzania na platformie Azure w programie Visual Studio 2017. Włącz to obciążenie w ramach instalacji programu Visual Studio.
+Ponadto należy zainstalować zestaw SDK usługi Microsoft Azure Service Fabric przy użyciu instalatora platformy sieci Web.
 
-* [Zainstaluj zestaw SDK usługi Microsoft Azure Service Fabric hello][core-sdk]
+* [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric][core-sdk]
 
-### <a name="toouse-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>toouse programu Visual Studio 2015 (wymaga programu Visual Studio 2015 Update 2 lub nowszy)
-Dla programu Visual Studio 2015 wraz z zestawu SDK, za pomocą Instalatora platformy sieci Web hello hello są zainstalowane narzędzia Service Fabric:
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>Używanie programu Visual Studio 2015 (wymaga programu Visual Studio 2015 Update 2 lub nowszego)
+W przypadku programu Visual Studio 2015 narzędzia Service Fabric są instalowane razem z zestawem SDK przy użyciu instalatora platformy sieci Web:
 
-* [Zainstaluj zestaw SDK usługi Microsoft Azure Service Fabric hello i narzędzia][full-bundle-vs2015]
+* [Instalowanie zestawu SDK i narzędzi usługi Microsoft Azure Service Fabric][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>Instalowanie samego zestawu SDK
-Wymagane jest tylko hello zestawu SDK, po zastosowaniu tego pakietu:
-* [Zainstaluj zestaw SDK usługi Microsoft Azure Service Fabric hello][core-sdk]
+Jeśli potrzebujesz tylko zestawu SDK, możesz zainstalować ten pakiet:
+* [Instalowanie zestawu SDK usługi Microsoft Azure Service Fabric][core-sdk]
 
-bieżące wersje Hello są:
-* Zestaw SDK usługi Service Fabric w wersji 2.7.198
-* Środowisko uruchomieniowe usługi Service Fabric w wersji 5.7.198
+Bieżące wersje:
+* Zestaw SDK usługi Service Fabric w wersji 2.8.211
+* Środowisko uruchomieniowe usługi Service Fabric w wersji 6.0.211
 * Narzędzia usługi Service Fabric dla programu Visual Studio 2015 w wersji 1.7.50721
-* Program Visual Studio 2017 Update 2 obejmuje narzędzia usługi Service Fabric dla programu Visual Studio w wersji 1.6.20170504
-* Program Visual Studio 2017 Update 3 Preview 7 (15.3.0 Preview 7.0) obejmuje narzędzia usługi Service Fabric dla programu Visual Studio w wersji 1.7.20170721
+* Program Visual Studio 2017 Update 3 obejmuje narzędzia usługi Service Fabric dla programu Visual Studio w wersji 1.7.20170817
+* Program Visual Studio 2017 Update 4 Preview 1 (15.4.0 Preview 1.0) obejmuje narzędzia usługi Service Fabric dla programu Visual Studio w wersji 1.7.20170721
 
 Listę obsługiwanych wersji można znaleźć na stronie [pomocy technicznej usługi Service Fabric](service-fabric-support.md)
 
 ## <a name="enable-powershell-script-execution"></a>Włączanie wykonywania skryptów programu PowerShell
-Platforma Service Fabric korzysta ze skryptów programu Windows PowerShell do tworzenia lokalnego klastra projektowego i do wdrażania aplikacji z programu Visual Studio. Domyślnie system Windows blokuje uruchamianie tych skryptów. tooenable je, należy zmodyfikować zasady wykonywania programu PowerShell. Otwórz program PowerShell jako administrator i wprowadź następujące polecenie hello:
+Platforma Service Fabric korzysta ze skryptów programu Windows PowerShell do tworzenia lokalnego klastra projektowego i do wdrażania aplikacji z programu Visual Studio. Domyślnie system Windows blokuje uruchamianie tych skryptów. Aby je włączyć, należy zmienić zasady wykonywania w programie PowerShell. Uruchom program PowerShell jako administrator i wprowadź następujące polecenie:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
@@ -81,11 +81,11 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 Po skonfigurowaniu środowiska projektowego możesz zacząć kompilować i uruchamiać aplikacje.
 
 * [Tworzenie pierwszej aplikacji platformy Service Fabric w programie Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-* [Dowiedz się, jak toodeploy aplikacji w klastrze lokalnym i zarządzanie nimi](service-fabric-get-started-with-a-local-cluster.md)
-* [Dowiedz się więcej o hello modele programowania: Reliable Services i Reliable Actors](service-fabric-choose-framework.md)
-* [Zapoznaj się z sieci szkieletowej usług hello przykłady kodu w witrynie GitHub](https://aka.ms/servicefabricsamples)
+* [Informacje o wdrażaniu aplikacji i zarządzaniu nimi w klastrze lokalnym](service-fabric-get-started-with-a-local-cluster.md)
+* [Informacje o modelach programowania: Reliable Services i Reliable Actors](service-fabric-choose-framework.md)
+* [Przykłady kodu platformy Service Fabric w witrynie GitHub](https://aka.ms/servicefabricsamples)
 * [Wizualizowanie klastra przy użyciu narzędzia Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
-* [Wykonaj hello learning tooget ścieżki platformy toohello obszerne wprowadzenie sieci szkieletowej usług](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* [Ścieżka szkoleniowa platformy Service Fabric — pełne wprowadzenie do platformy](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * Uzyskaj informacje o [opcjach pomocy technicznej usługi Service Fabric](service-fabric-support.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Strona kampanii usługi Service Fabric"

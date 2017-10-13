@@ -1,6 +1,6 @@
 ---
-title: aaaAzure AD Connect Health Historia wersji
-description: "W tym dokumencie opisano wersje hello Azure AD Connect Health i dołączył w tych wersjach."
+title: Historia wersji programu Azure AD Connect Health
+description: "Ten dokument zawiera opis wydanie dla usługi Azure AD Connect Health i dołączył w tych wersjach."
 services: active-directory
 documentationcenter: 
 author: karavar
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: a583263e412f5da9af75947f3431de2494042388
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6c990a184d44771c78330f54f518bb4c35a36a35
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: historia wersji
-Zespół usługi Azure Active Directory Hello regularnie aktualizuje Azure AD Connect Health z nowych funkcji. W tym artykule wymieniono wersje hello i funkcje, które zostały wydane.
+Zespół usługi Azure Active Directory regularnie aktualizuje Azure AD Connect Health z nowych funkcji. W tym artykule wymieniono wersje i funkcje, które zostały wydane.
 
 ## <a name="october-2016"></a>Października 2016
 **Aktualizacja agenta:**
 
 * Agent Azure AD Connect Health dla usług AD FS \(wersji 2.6.408.0\)
   1. Ulepszenia w wykrywaniu adresów IP klientów w żądania uwierzytelniania
-  2. Poprawki dotyczące tooAlerts
+  2. Poprawki błędów związane z alertami
 * Agent Azure AD Connect Health dla usług AD DS (wersja 2.6.408.0)
-  1. Poprawki błędów związanych z tooAlerts.
+  1. Poprawki błędów związane z alertami.
 * Agent Azure AD Connect Health zwolnione z programem Azure AD Connect wersji 1.1.281.0 synchronizacji (wersja 2.6.353.0)
-  1. Podanie danych hello wymagane hello raporty o błędach synchronizacji
-  2. Poprawki dotyczące tooAlerts
+  1. Podaj wymagane dane raportów o błędach synchronizacji
+  2. Poprawki błędów związane z alertami
 
 **Nowe funkcje w wersji zapoznawczej:**
 
@@ -41,7 +41,7 @@ Zespół usługi Azure Active Directory Hello regularnie aktualizuje Azure AD Co
 
 **Nowe funkcje:**
 
-* Azure AD Connect Health dla usług AD FS — pole adresu IP jest dostępna w hello zgłaszanie top 50 użytkowników z zły nazwy użytkownika i hasła.
+* Azure AD Connect Health dla usług AD FS — pole adresu IP jest dostępna w raporcie o najwyższym 50 użytkowników z zły nazwy użytkownika i hasła.
 
 ## <a name="july-2016"></a>Lipca 2016 r.
 **Nowe funkcje w wersji zapoznawczej:**
@@ -74,9 +74,9 @@ Zespół usługi Azure Active Directory Hello regularnie aktualizuje Azure AD Co
 **Nowe funkcje:**
 
 * Niewłaściwa nazwy użytkownika hasło raportów dla usług AD FS
-* Obsługa tooconfigure Unauthenticated HTTP serwera Proxy
-* Obsługa tooconfigure agenta w instalacji Server core
-* Ulepszenia tooAlerts dla usług AD FS
+* Pomocy technicznej, aby skonfigurować serwer Proxy HTTP nieuwierzytelniony
+* Pomocy technicznej w celu skonfigurowania agenta w instalacji Server core
+* Ulepszenia alerty dla usług AD FS
 * Przekaż ulepszenia Azure AD Connect Health Agent dla usług AD FS dla danych i łączności.
 
 **Rozwiązane problemy:**
@@ -89,11 +89,11 @@ Zespół usługi Azure Active Directory Hello regularnie aktualizuje Azure AD Co
 **Nowe funkcje:**
 
 * Alerty dotyczące monitorowania serwerów usług AD FS i serwera Proxy usług AD FS z powiadomienia e-mail.
-* Topologia tooAD FS łatwy dostęp i wzorce w liczniki wydajności usługi AD FS.
+* Łatwy dostęp do topologii usług AD FS i wzorce w liczniki wydajności usługi AD FS.
 * Trend w pomyślnych żądań tokenów na serwerach usług AD FS pogrupowane według aplikacje, metody uwierzytelniania, żądania sieci lokalizacji itp.
 * Trendy w żądaniu nie powiodło się na serwerach usług AD FS pogrupowane według aplikacji, błąd typy itp.
 * Łatwiejsze wdrażanie agenta przy użyciu poświadczeń administratora globalnego usługi Azure AD.  
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [monitorowanie lokalnej tożsamości infrastruktury i synchronizacji usług w chmurze hello](active-directory-aadconnect-health.md).
+Dowiedz się więcej o [monitorowanie lokalnej tożsamości infrastruktury i synchronizacji usług w chmurze](active-directory-aadconnect-health.md).
 

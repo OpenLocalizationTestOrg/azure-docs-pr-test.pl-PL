@@ -1,12 +1,12 @@
 ## <a name="create-client"></a>Tworzenie połączenia klienta
-Utwórz połączenie klienta, tworząc obiekt `WindowsAzure.MobileServiceClient`.  Zastąp `appUrl` z tooyour adres URL aplikacji mobilnej.
+Utwórz połączenie klienta, tworząc obiekt `WindowsAzure.MobileServiceClient`.  Zastąp ciąg `appUrl` adresem URL Twojej aplikacji Mobile App.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>Praca z tabelami
-dane tooaccess lub aktualizacji, tworzy tabelę odwołania toohello wewnętrznej bazy danych. Zastąp `tableName` o nazwie hello tabeli
+Aby uzyskać dostęp do danych lub je zaktualizować, utwórz odwołanie do tabeli zaplecza. Zastąp ciąg `tableName` nazwą tabeli
 
 ```
 var table = client.getTable(tableName);
@@ -23,23 +23,23 @@ Po utworzeniu odwołania do tabeli możesz kontynuować pracę z tabelą:
 * [Usuwanie danych](#deleting)
 
 ### <a name="querying"></a>Instrukcje: odpytywanie odwołania do tabeli
-Po utworzeniu odwołania do tabeli, można go tooquery danych na powitania serwera.  Zapytania są tworzone w języku przypominającym LINQ.
-tooreturn wszystkich danych z tabeli hello, hello Użyj następującego kodu:
+Po utworzeniu odwołania do tabeli możesz przy jego użyciu wysłać zapytanie o dane na serwerze.  Zapytania są tworzone w języku przypominającym LINQ.
+Aby zwrócić wszystkie dane z tabeli, użyj następującego kodu:
 
 ```
 /**
- * Process hello results that are received by a call tootable.read()
+ * Process the results that are received by a call to table.read()
  *
- * @param {Object} results hello results as a pseudo-array
- * @param {int} results.length hello length of hello results array
- * @param {Object} results[] hello individual results
+ * @param {Object} results the results as a pseudo-array
+ * @param {int} results.length the length of the results array
+ * @param {Object} results[] the individual results
  */
 function success(results) {
    var numItemsRead = results.length;
 
    for (var i = 0 ; i < results.length ; i++) {
        var row = results[i];
-       // Each row is an object - hello properties are hello columns
+       // Each row is an object - the properties are the columns
    }
 }
 
@@ -52,12 +52,12 @@ table
     .then(success, failure);
 ```
 
-Funkcja Powodzenie Hello jest wywoływana z wynikami hello.  Nie używaj `for (var i in results)` w Powodzenie hello działać zgodnie z którego będzie iteracja informacje zawarte w wynikach hello gdy inne funkcje zapytań (takie jak `.includeTotalCount()`) są używane.
+Funkcja success jest wywoływana z użyciem wyników.  Nie umieszczaj w funkcji success pętli `for (var i in results)`, ponieważ będzie ona przechodzić przez informacje zawarte w wynikach w czasie, gdy będą używane inne funkcje zapytań (takie jak `.includeTotalCount()`).
 
-Aby uzyskać więcej informacji na powitania składnia zapytania, zobacz hello [obiektu dokumentację dotyczącą zapytań].
+Aby dowiedzieć się więcej o składni zapytań, zobacz [dokumentację obiektu Query].
 
-#### <a name="table-filter"></a>Filtrowanie danych na powitania serwera
-Można użyć `where` klauzuli hello w odwołaniu do tabeli:
+#### <a name="table-filter"></a>Filtrowanie danych na serwerze
+W przypadku odwołania do tabeli możesz użyć klauzuli `where`:
 
 ```
 table
@@ -66,7 +66,7 @@ table
     .then(success, failure);
 ```
 
-Można także użyć funkcji filtrujące hello obiektu.  W takim przypadku hello `this` zmienna jest przypisana toothe bieżący obiekt, którego jest wykonywane filtrowanie.  Hello następującego kodu jest wcześniejsze przykład toohello taką samą funkcję:
+Ponadto możesz użyć funkcji filtrującej obiekt.  W tym przykładzie zmienna `this` jest przypisana do obecnie filtrowanego obiektu.  Poniższy kod jest funkcjonalnie równoważny z poprzednim przykładem:
 
 ```
 function filterByUserId(currentUserId) {
@@ -80,12 +80,12 @@ table
 ```
 
 #### <a name="table-paging"></a>Stronicowanie danych
-Korzystanie z hello `take()` i `skip()` metody.  Na przykład, jeśli chcesz toosplit hello tabeli do wiersza 100 rekordów:
+Skorzystaj z metod `take()` i `skip()`.  Na przykład jeśli chcesz podzielić tabelę na rekordy składające się ze 100 wierszy:
 
 ```
 var totalCount = 0, pages = 0;
 
-// Step 1 - get hello total number of records
+// Step 1 - get the total number of records
 table.includeTotalCount().take(0).read(function (results) {
     totalCount = results.totalCount;
     pages = Math.floor(totalCount/100) + 1;
@@ -103,12 +103,12 @@ function loadPage(pageNum) {
 }
 ```
 
-Witaj `.includeTotalCount()` metoda jest używane tooadd obiektu totalCount pola toohello wyników.  W polu totalCount jest wypełniony hello całkowita liczba rekordów, które będzie zwracany, jeśli Stronicowanie nie jest używany.
+Metoda `.includeTotalCount()` powoduje dodanie pola totalCount do obiektu results.  Pole totalCount zostanie wypełnione łączną liczbą rekordów, które zostałyby zwrócone w przypadku braku stronicowania.
 
-Następnie można użyć zmiennej strony hello i niektóre tooprovide przyciski interfejsu użytkownika strony listy; Użyj `loadPage()` załadować hello nowych rekordów dla każdej strony.  Implementuje buforowanie toospeed toorecords dostępu, które zostały już załadowane.
+Następnie możesz udostępnić listę stron za pomocą zmiennej pages i przycisków interfejsu użytkownika. Aby załadować nowe rekordy na każdą stronę, użyj metody `loadPage()`.  Zaimplementuj buforowanie, aby przyspieszyć dostęp do już załadowanych rekordów.
 
 #### <a name="sorting-data"></a>Instrukcje: zwracanie posortowanych danych
-Użyj hello `.orderBy()` lub `.orderByDescending()` metod zapytania:
+Użyj metody zapytania `.orderBy()` lub `.orderByDescending()`:
 
 ```
 table
@@ -117,10 +117,10 @@ table
     .then(success, failure);
 ```
 
-Aby uzyskać więcej informacji na powitania obiektu zapytania, zobacz hello [obiektu dokumentację dotyczącą zapytań].
+Aby uzyskać informacje o obiekcie Query, zobacz [dokumentację obiektu Query].
 
 ### <a name="inserting"></a>Instrukcje: wstawianie danych
-Utwórz obiekt JavaScript z odpowiednią datą hello i wywołanie `table.insert()` asynchronicznie:
+Utwórz obiekt JavaScript z odpowiednimi danymi i asynchronicznie wywołaj metodę `table.insert()`:
 
 ```javascript
 var newItem = {
@@ -135,12 +135,12 @@ table
     }, failure);
 ```
 
-Na pomyślne wstawiania hello wstawiony element jest zwracany za hello dodatkowe pola, które są wymagane dla operacji synchronizacji.  Zaktualizuj własną pamięć podręczną o te informacje na potrzeby późniejszych aktualizacji.
+Pomyślnie wstawiony element zostaje zwrócony z dodatkowymi polami, które są wymagane przez operacje synchronizacji.  Zaktualizuj własną pamięć podręczną o te informacje na potrzeby późniejszych aktualizacji.
 
-Hello Azure Mobile Apps Node.js Server SDK obsługuje schematu dynamicznego do celów programistycznych.  Dynamiczne schematu umożliwia tooadd kolumn toohello tabeli, określając je w operacji insert lub update.  Zaleca się wyłączenie schematu dynamicznego przed przeniesieniem tooproduction Twojej aplikacji.
+Zestaw Azure Mobile Apps Node.js Server SDK obsługuje schemat dynamiczny dla celów deweloperskich.  Schemat dynamiczny umożliwia dodawanie kolumn do tabeli przez podanie ich w operacji wstawiania lub aktualizacji.  Zalecamy wyłączenie schematu dynamicznego przed przeniesieniem aplikacji na etap produkcji.
 
 ### <a name="modifying"></a>Instrukcje: modyfikowanie danych
-Podobne toohello `.insert()` metody, należy utworzyć obiekt aktualizacji i wywoływać `.update()`.  Hello obiektu update musi zawierać identyfikator hello hello toobe rekordów zaktualizowane — identyfikator hello są uzyskiwane podczas odczytywania rekordu hello lub podczas wywoływania metody `.insert()`.
+Podobnie jak w przypadku metody `.insert()` należy utworzyć obiekt aktualizacji, a następnie wywołać metodę `.update()`.  Obiekt aktualizacji musi zawierać identyfikator rekordu do zaktualizowania — identyfikator ten uzyskuje się podczas odczytu rekordu bądź wywoływania metody `.insert()`.
 
 ```javascript
 var updateItem = {
@@ -156,7 +156,7 @@ table
 ```
 
 ### <a name="deleting"></a>Instrukcje: usuwanie danych
-toodelete rekordu, wywołanie hello `.del()` metody.  Podaj identyfikator hello odwołanie do obiektu:
+Aby usunąć rekord, wywołaj metodę `.del()`.  Przekaż identyfikator w odwołaniu do obiektu:
 
 ```
 table

@@ -2,25 +2,25 @@
 
 Utwórz plik JavaScript o nazwie `listener.js`.
 
-### <a name="add-hello-relay-npm-package"></a>Dodaj pakiet NPM przekazywania hello
+### <a name="add-the-relay-npm-package"></a>Dodawanie pakietu NPM usługi Relay
 
 Uruchom polecenie `npm install hyco-ws` w wierszu polecenia języka Node w folderze projektu.
 
-### <a name="write-some-code-tooreceive-messages"></a>Napisanie kodu tooreceive wiadomości
+### <a name="write-some-code-to-receive-messages"></a>Pisanie kodu w celu odbierania komunikatów
 
-1. Dodaj powitania od góry stałej toohello hello `listener.js` pliku.
+1. Dodaj następującą stałą na początku pliku `listener.js`.
    
     ```js
     const WebSocket = require('hyco-ws');
     ```
-2. Dodaj następujące toohello stałe hello `listener.js` szczegóły połączenia hybrydowe hello w pliku. Zastąp symbole zastępcze hello w nawiasach wartości hello uzyskane podczas tworzenia połączenia hybrydowego hello.
+2. Dodaj następujące stałe do pliku `listener.js` na potrzeby szczegółów połączenia hybrydowego. Zastąp symbole zastępcze w nawiasach wartościami uzyskanymi podczas tworzenia połączenia hybrydowego.
    
-   1. `const ns`-hello przekazywania przestrzeni nazw. Czy toouse hello przestrzeni nazw w pełni kwalifikowana nazwa; na przykład `{namespace}.servicebus.windows.net`.
-   2. `const path`-Nazwa hello hello połączenia hybrydowego.
-   3. `const keyrule`-hello nazwa klucza SAS hello.
-   4. `const key`-hello wartości klucza sygnatury dostępu Współdzielonego.
+   1. `const ns` — obszar nazw usługi Relay. Pamiętaj, aby użyć w pełni kwalifikowanej nazwy obszaru nazw, na przykład `{namespace}.servicebus.windows.net`.
+   2. `const path` — nazwa połączenia hybrydowego.
+   3. `const keyrule` — nazwa klucza sygnatury dostępu współdzielonego.
+   4. `const key` — wartość klucza sygnatury dostępu współdzielonego.
 
-3. Dodaj hello następującego kodu toohello `listener.js` pliku:
+3. Dodaj następujący kod do pliku `listener.js`:
    
     ```js
     var wss = WebSocket.createRelayedServer(

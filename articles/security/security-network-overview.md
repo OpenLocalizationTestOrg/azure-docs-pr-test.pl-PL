@@ -1,6 +1,6 @@
 ---
-title: "aaaNetwork pojęcia dotyczące zabezpieczeń i wymagania dotyczące platformy Azure | Dokumentacja firmy Microsoft"
-description: " Ten artykuł ułatwia toounderstand należy co Microsoft Azure ma toooffer w obszarze hello zabezpieczeń sieci. Firma Microsoft udostępnia podstawowe wyjaśnienia dotyczące pojęcia dotyczące zabezpieczeń sieci podstawowej i wymagania i informacje, jakie Azure ma toooffer w każdym z tych obszarów. "
+title: "Sieci pojęcia dotyczące zabezpieczeń i wymagania dotyczące platformy Azure | Dokumentacja firmy Microsoft"
+description: " Ten artykuł ułatwia zrozumienie Microsoft Azure ma oferować w zakresie zabezpieczeń sieci. Udostępniamy wyjaśnienia podstawowe pojęcia dotyczące zabezpieczeń sieci podstawowej i wymagania i informacje na platforma Azure ma oferować w każdym z tych obszarów. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: terrylan
-ms.openlocfilehash: 87d336064b880ddcf90ae4fcb79b7823367682b4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 27243856d0c6b70c7515b6bde66b99ef6160eb36
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-network-security-overview"></a>Przegląd zabezpieczeń sieci platformy Azure
-Microsoft Azure obejmuje niezawodne toosupport infrastruktury sieci, aplikacji i wymaganiami dotyczącymi łączności usługi. Łączność sieciowa będzie możliwe między zasobami znajdującymi się na platformie Azure, między lokalnymi i Azure hostowanej zasobów oraz tooand z hello Internet i Azure.
+Microsoft Azure obejmuje to niezawodna infrastruktura sieci do obsługi aplikacji i wymaganiami dotyczącymi łączności usługi. Łączność sieciowa będzie możliwe między zasobami znajdującymi się na platformie Azure, między lokalnymi i Azure hostowanych zasobów oraz do i z Internetu i Azure.
 
-Witaj celem tego artykułu jest toomake go toounderstand można łatwiej co Microsoft Azure ma toooffer w obszarze hello zabezpieczeń sieci. W tym miejscu udostępniamy wyjaśnienia podstawowe pojęcia dotyczące zabezpieczeń sieci podstawowej i wymagań. Firma Microsoft udostępnia również informacji jakie Azure ma toooffer w każdym z tych obszarów, a także łączy toohelp uzyskania lepiej zrozumieć interesujące obszary.
+Celem tego artykułu jest w celu ułatwienia zrozumienia Microsoft Azure ma oferować w zakresie zabezpieczeń sieci. W tym miejscu udostępniamy wyjaśnienia podstawowe pojęcia dotyczące zabezpieczeń sieci podstawowej i wymagań. Firma Microsoft udostępnia również można uzyskać informacje na platforma Azure ma oferować w każdym z tych obszarów, a także łącza do pomagają lepiej zrozumieć interesujące obszary.
 
-W tym artykule Przegląd zabezpieczeń sieci Azure koncentruje się na powitania w następujących obszarach:
+W tym artykule Przegląd zabezpieczeń sieci Azure skupia się wokół następujących obszarów:
 
 * Sieć platformy Azure
 * Kontrola dostępu do sieci
@@ -37,7 +37,7 @@ W tym artykule Przegląd zabezpieczeń sieci Azure koncentruje się na powitania
 
 
 ## <a name="azure-networking"></a>Sieci systemu Azure
-Maszyny wirtualne muszą łączność sieciową. toosupport tego wymogu Azure wymaga toobe maszyny wirtualne podłączone tooan sieci wirtualnej platformy Azure. Sieci wirtualnej platformy Azure jest konstrukcją logiczną, rozszerzający hello fizycznej Azure sieci szkieletowej. Każdy logicznej sieci wirtualnej platformy Azure jest odizolowana od wszystkich innych sieciach wirtualnych platformy Azure. Dzięki temu można mieć pewność, że ruch sieciowy we wdrożeniach nie jest dostępny tooother klientów Microsoft Azure.
+Maszyny wirtualne muszą łączność sieciową. W celu spełnienia tego wymagania, platforma Azure wymaga maszyn wirtualnych, które będą podłączone do sieci wirtualnej platformy Azure. Sieci wirtualnej platformy Azure jest konstrukcją logiczną, rozszerzający fizycznej Azure sieci szkieletowej. Każdy logicznej sieci wirtualnej platformy Azure jest odizolowana od wszystkich innych sieciach wirtualnych platformy Azure. Dzięki temu można mieć pewność, że ruch sieciowy we wdrożeniach nie jest dostępna dla innych klientów firmy Microsoft Azure.
 
 Więcej informacji:
 
@@ -45,7 +45,7 @@ Więcej informacji:
 
 
 ## <a name="network-access-control"></a>Kontrola dostępu do sieci
-Kontrola dostępu do sieci polega hello ograniczanie tooand łączności z określonymi urządzeniami lub podsieci w sieci wirtualnej platformy Azure. Celem Hello kontroli dostępu do sieci jest maszyn wirtualnych tooyour dostępu toolimit i usług tooapproved użytkowników i urządzeń. Kontroli dostępu są oparte na akceptować lub odrzucać decyzje dotyczące tooand połączeń z maszyny wirtualnej lub usługi.
+Kontrola dostępu do sieci jest czynnością ograniczenia łączności do i z określonymi urządzeniami lub podsieci w sieci wirtualnej platformy Azure. Celem kontroli dostępu do sieci jest ograniczenie dostępu do maszyn wirtualnych i usług dla zatwierdzonych użytkowników i urządzeń. Kontroli dostępu są oparte na akceptować lub odrzucać decyzje dotyczące połączeń do i z sieci maszyny wirtualnej lub usługi.
 
 Azure obsługuje kilka typów kontroli dostępu do sieci, takich jak:
 
@@ -54,136 +54,136 @@ Azure obsługuje kilka typów kontroli dostępu do sieci, takich jak:
 * Urządzenia zabezpieczeń sieci wirtualnej
 
 ### <a name="network-layer-control"></a>Kontrola warstwy sieci
-Wszystkie wdrożenia bezpiecznego wymaga niektóre miary kontroli dostępu do sieci. Celem Hello kontroli dostępu do sieci jest toorestrict maszyny wirtualnej komunikacji toohello niezbędnych systemów i że inne próby komunikacji są blokowane.
+Wszystkie wdrożenia bezpiecznego wymaga niektóre miary kontroli dostępu do sieci. Celem kontroli dostępu do sieci jest ograniczanie komunikacji maszyny wirtualnej na potrzeby systemów i że inne próby komunikacji są blokowane.
 
-Jeśli potrzebujesz kontroli dostępu na poziomie sieci podstawowej (na podstawie adresu IP i hello TCP lub UDP protokołów), można użyć grup zabezpieczeń sieci. Grupy zabezpieczeń sieci (NSG) jest filtrowanie Zapora podstawowa pakietów stanowe i umożliwia toocontrol dostępu na podstawie [5-elementowej](https://www.techopedia.com/definition/28190/5-tuple). Grupy NSG nie udostępniają kontroli warstwy aplikacji lub uwierzytelnionego kontroli dostępu.
+Jeśli potrzebujesz kontroli dostępu na poziomie sieci podstawowej (na podstawie adresu IP i protokoły TCP lub UDP), można użyć grup zabezpieczeń sieci. Grupy zabezpieczeń sieci (NSG) jest filtrowanie Zapora podstawowa pakietów stanowe i umożliwia kontrolowanie dostępu na podstawie [5-elementowej](https://www.techopedia.com/definition/28190/5-tuple). Grupy NSG nie udostępniają kontroli warstwy aplikacji lub uwierzytelnionego kontroli dostępu.
 
 Więcej informacji:
 
 * [Grupy zabezpieczeń sieci](../virtual-network/virtual-networks-nsg.md)
 
 ### <a name="route-control-and-forced-tunneling"></a>Formant trasy i wymuszanie tunelowania
-Hello możliwości toocontrol routingu w sieci wirtualnej platformy Azure jest możliwości kontroli dostępu i zabezpieczeń sieci w krytycznych. Routing jest niepoprawnie skonfigurowana, aplikacji i usług hostowanych na maszynie wirtualnej może połączyć z toounauthorized urządzeń, takich jak systemy i jest przez potencjalnymi atakami.
+Możliwość kontrolowania zachowania routingu w sieci wirtualnej platformy Azure jest krytyczny sieci możliwości kontroli dostępu i zabezpieczeń. Jeśli routing jest niepoprawnie skonfigurowana, aplikacji i usług hostowanych na maszynie wirtualnej może połączyć się nieautoryzowanego urządzeń, takich jak systemy i jest przez potencjalnymi atakami.
 
-Sieć platformy Azure obsługuje zachowania routingu hello toocustomize możliwości hello ruchu w sieci dla sieci wirtualne platformy Azure. Dzięki temu tooalter hello domyślne pozycje tabeli routingu w sieci wirtualnej platformy Azure. Kontroli zachowania routingu pomaga upewnij się, że cały ruch z niektórych urządzeń lub grupy urządzeń wprowadza lub pozostawia sieci wirtualnej do określonej lokalizacji.
+Sieć platformy Azure obsługuje możliwość dostosowania zachowania routingu ruchu w sieci dla sieci wirtualne platformy Azure. Dzięki temu zmieniania domyślnych wpisów tabeli routingu w sieci wirtualnej platformy Azure. Kontroli zachowania routingu pomaga upewnij się, że cały ruch z niektórych urządzeń lub grupy urządzeń wprowadza lub pozostawia sieci wirtualnej do określonej lokalizacji.
 
-Na przykład może być urządzenie zabezpieczeń sieci wirtualnych w sieci wirtualnej platformy Azure. Chcesz, aby się upewnić, że wszystkie tooand ruch z sieci wirtualnej Azure przechodzi przez tego urządzenia wirtualnego zabezpieczeń toomake. Można to zrobić przez skonfigurowanie [trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) na platformie Azure.
+Na przykład może być urządzenie zabezpieczeń sieci wirtualnych w sieci wirtualnej platformy Azure. Chcesz upewnij się, że cały ruch do i z sieci wirtualnej Azure przechodzi przez tego urządzenia wirtualnego zabezpieczeń. Można to zrobić przez skonfigurowanie [trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) na platformie Azure.
 
-[Wymuszone tunelowanie](https://www.petri.com/azure-forced-tunneling) jest mechanizm służy tooensure, że usługi nie są dozwolone tooinitiate toodevices połączenia na powitania Internet. Należy pamiętać, że jest inny niż przyjmowanie połączeń przychodzących, a następnie odpowiada toothem. Serwery frontonu sieci web muszą toorequests toorespond z hostami w Internecie, a więc powierzając jej ich konserwację Internet ruch jest dozwolony dla ruchu przychodzącego toothese serwerów sieci web i serwery sieci web hello są dozwolone toorespond.
+[Wymuszone tunelowanie](https://www.petri.com/azure-forced-tunneling) mechanizm służy do zapewnienia usług nie są dozwolone do nawiązania połączenia z urządzeniami przez Internet. Należy pamiętać, że różni się to od przyjmowanie połączeń przychodzących, a następnie odpowiada do nich. Serwerów frontonu sieci web muszą odpowiadać na żądania z hostami w Internecie, a więc Internet-powierzając jej ich konserwację ruch jest dozwolony przychodzące do tych serwerów sieci web i serwerów sieci web mogą odpowiadać.
 
-Co chcesz tooallow jest tooinitiate serwera frontonu sieci web żądania wychodzącego. Takich żądań może reprezentować zagrożenie bezpieczeństwa, ponieważ te połączenia może być używane toodownload złośliwego oprogramowania. Nawet wtedy, gdy mają one frontonu toohello Internet żądań wychodzących tooinitiate serwerów, może być tooforce ich toogo za pośrednictwem lokalnej sieci web serwerów proxy, dzięki czemu możesz korzystać z adresu URL filtrowanie i rejestrowanie.
+Co nie chcesz umożliwić to serwer frontonu sieci web do zainicjowania żądania wychodzącego. Takich żądań może reprezentować zagrożenie bezpieczeństwa, ponieważ te połączenia może zostać użyty do pobrania złośliwego oprogramowania. Nawet jeśli chcesz, aby te serwery frontonu do inicjowania żądań wychodzące z Internetem, można wymusić przechodzić przez serwer proxy sieci web w sieci lokalnej, dzięki czemu możesz korzystać z adresu URL filtrowanie i rejestrowanie.
 
-Zamiast tego czy chcesz toouse wymuszonego tunelowania tooprevent to. Włączenie tunelowania wymuszonego wszystkich toohello połączenia internetowe są wymuszone za pośrednictwem bramy sieci lokalnej. Można skonfigurować wymuszanie tunelowania dzięki wykorzystaniu trasy zdefiniowane przez użytkownika.
+Czy chcesz zamiast tego użyj tunelowania wymuszonego, aby zapobiec takiej sytuacji. Włączenie tunelowania wymuszonego, wszystkie połączenia z Internetem będą obowiązkowo przenoszone za pośrednictwem bramy sieci lokalnej. Można skonfigurować wymuszanie tunelowania dzięki wykorzystaniu trasy zdefiniowane przez użytkownika.
 
 Więcej informacji:
 
 * [Co to są trasy zdefiniowane przez użytkownika i przesyłania dalej IP](../virtual-network/virtual-networks-udr-overview.md)
 
 ### <a name="virtual-network-security-appliances"></a>Urządzenia zabezpieczeń sieci wirtualnej
-Gdy grup zabezpieczeń sieci, trasy zdefiniowane przez użytkownika i wymuszanie tunelowania zapewniają poziom zabezpieczeń na poziomie warstwy sieci i transportu hello hello [OSI model](https://en.wikipedia.org/wiki/OSI_model), czasami, kiedy zechcesz tooenable zabezpieczeń na wyższych poziomach niż hello sieci.
+Gdy grup zabezpieczeń sieci, trasy zdefiniowane przez użytkownika i wymuszanie tunelowania zapewniają poziom zabezpieczeń na poziomie warstwy sieci i transportu [OSI model](https://en.wikipedia.org/wiki/OSI_model), czasami, jeśli chcesz włączyć zabezpieczeń na poziomie wyższym niż sieć.
 
 Na przykład wymagań dotyczących zabezpieczeń mogą być następujące:
 
-* Uwierzytelnianie i autoryzacja przed zezwoleniem na dostęp do aplikacji tooyour
+* Uwierzytelnianie i autoryzacja przed zezwoleniem na dostęp do aplikacji
 * Wykrywania nieautoryzowanego dostępu i odpowiedzi nieautoryzowanego dostępu
 * Kontrolę warstwy aplikacji protokołów wysokiego poziomu
 * Filtrowanie adresów URL
 * Oprogramowanie antywirusowe poziomu sieci i ochrony przed złośliwym oprogramowaniem
 * Ochrona przed bot
 * Kontrola dostępu aplikacji
-* Dodatkowa ochrona przed atakami DDoS (powyżej hello ochrony przed atakami DDoS hello Azure sieci szkieletowej, sam)
+* Dodatkowa ochrona przed atakami DDoS (powyżej DDoS, zapewnić ochronę sieci szkieletowej Azure, sam)
 
-Te funkcje zabezpieczeń rozszerzonych sieci mogą korzystać za pomocą rozwiązania Azure partnera. Można znaleźć hello najbardziej aktualne Azure partnerskich rozwiązań zabezpieczeń sieci, przechodząc na stronę hello [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/) i wyszukując "zabezpieczenia" i "zabezpieczenia sieciowe".
+Te funkcje zabezpieczeń rozszerzonych sieci mogą korzystać za pomocą rozwiązania Azure partnera. Można znaleźć najbardziej aktualne sieci Azure partnerów rozwiązań zabezpieczeń poprzez wizytę [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/) i wyszukując "zabezpieczenia" i "zabezpieczenia sieciowe".
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Bezpieczny dostęp zdalny i łączność między różnymi lokalizacjami
-Instalacji, konfiguracji i zarządzania zasobami Azure musi toobe wykonywane zdalnie. Ponadto możesz toodeploy [hybrydowego IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) rozwiązania, które ma składniki lokalnej i w chmurze publicznej Azure hello. Te scenariusze wymaga bezpiecznego dostępu zdalnego.
+Instalacji, konfiguracji i zarządzania potrzeb zasobów platformy Azure, można to robić zdalnie. Ponadto warto wdrożyć [hybrydowego IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) rozwiązania, które ma składniki lokalnej i w chmurze publicznej Azure. Te scenariusze wymaga bezpiecznego dostępu zdalnego.
 
-Sieć platformy Azure obsługuje następujące scenariusze bezpieczny dostęp zdalny hello:
+Sieć platformy Azure obsługuje następujące scenariusze bezpieczny dostęp zdalny:
 
-* Połącz tooan poszczególnych stacji roboczych sieci wirtualnej platformy Azure
-* Połącz z tooan sieci lokalnej sieci wirtualnej platformy Azure z sieci VPN
-* Połączenie z tooan sieci lokalnej sieci wirtualnej platformy Azure z dedykowanych łącza sieci WAN
-* Połączyć sieci wirtualnych Azure tooeach innych
+* Połącz stacjach roboczych do sieci wirtualnej platformy Azure
+* Łączenie sieci lokalnej sieci wirtualnej platformy Azure, korzystając z sieci VPN
+* Połączyć sieć lokalną sieć wirtualną platformy Azure dedykowane łącza sieci WAN
+* Połączenia sieci wirtualnych platformy Azure
 
-### <a name="connect-individual-workstations-tooan-azure-virtual-network"></a>Połącz tooan poszczególnych stacji roboczych sieci wirtualnej platformy Azure
-Może to być godziny zużycia tooenable poszczególnych deweloperów i operacji personelu toomanage maszyn wirtualnych i usług Azure. Na przykład konieczne dostępu tooa maszyny wirtualnej w sieci wirtualnej platformy Azure i zasady zabezpieczeń nie zezwala RDP lub SSH dostępu zdalnego tooindividual maszyn wirtualnych. W takim przypadku można użyć połączenia sieci VPN punkt lokacja.
+### <a name="connect-individual-workstations-to-an-azure-virtual-network"></a>Połącz stacjach roboczych do sieci wirtualnej platformy Azure
+Może to być razy, jeśli chcesz włączyć indywidualnych deweloperów i operacji personelu do zarządzania maszynami wirtualnymi i usługami na platformie Azure. Na przykład potrzebny jest dostęp do maszyny wirtualnej w sieci wirtualnej platformy Azure i zasady zabezpieczeń nie zezwalaj na RDP lub SSH zdalny dostęp do poszczególnych maszyn wirtualnych. W takim przypadku można użyć połączenia sieci VPN punkt lokacja.
 
-Witaj punkt lokacja połączenie VPN używa hello [sieć VPN SSTP](https://technet.microsoft.com/library/cc731352.aspx) tooenable protokołu tooset prywatne i bezpiecznego połączenia między użytkownikiem hello a hello sieci wirtualnej platformy Azure. Po ustanowieniu połączenia sieci VPN hello hello użytkownicy będą mogli tooRDP lub SSH za pośrednictwem sieci VPN hello link do żadnej maszyny wirtualnej na powitania sieci wirtualnej platformy Azure (przy założeniu, że hello użytkownika mogą uwierzytelniać i daje uprawnienia).
-
-Więcej informacji:
-
-* [Skonfiguruj tooa połączenie punkt-lokacja sieci wirtualnej przy użyciu programu PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
-
-### <a name="connect-your-on-premises-network-tooan-azure-virtual-network-with-a-vpn"></a>Tooan siecią lokalną sieć wirtualna Azure Uzyskuj dostęp do sieci VPN
-Możesz tooconnect całej sieci firmowej, lub w części, tooan sieci wirtualnej platformy Azure. To jest typowe w przypadku hybrydowych IT scenariusze gdzie firmy [rozszerzenie ich lokalnych centrów danych na platformie Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). W wielu przypadkach firmy będą hosta usługi w programie Azure i w częściach lokalnymi, np. gdy rozwiązanie zawiera serwerów frontonu sieci web w Azure i bazy danych zaplecza lokalnie. Typy połączeń "między lokalizacjami" Upewnij się również zarządzania Azure znajduje się zasoby bardziej bezpieczny i włączyć scenariuszy, takich jak rozszerzanie kontrolerów domeny usługi Active Directory na platformie Azure.
-
-Jednym ze sposobów tooaccomplish jest toouse [sieci VPN typu lokacja lokacja](https://www.techopedia.com/definition/30747/site-to-site-vpn). Różnica Hello VPN lokacja lokacja i sieć VPN punkt lokacja jest VPN punkt lokacja łączy tooan pojedyncze urządzenie sieci wirtualnej platformy Azure, gdy sieć VPN lokacja lokacja łączy tooan całej sieci (na przykład sieci lokalnej) sieci wirtualnej platformy Azure . Tooan sieci VPN typu lokacja lokacja sieci wirtualnej platformy Azure, użyj hello bardzo bezpieczny tunel tryb VPN protokołu IPsec.
+Połączenie VPN punkt lokacja używa [sieć VPN SSTP](https://technet.microsoft.com/library/cc731352.aspx) protokołu umożliwiają konfigurowanie prywatne i bezpiecznego połączenia między użytkownikiem i sieci wirtualnej platformy Azure. Po ustanowieniu połączenia sieci VPN, użytkownik będzie nawiązać połączenie RDP lub SSH za pośrednictwem łącza sieci VPN do żadnej maszyny wirtualnej w sieci wirtualnej platformy Azure (przy założeniu, że jest autoryzowany i może uwierzytelnić użytkownika).
 
 Więcej informacji:
 
-* [Tworzenie sieci wirtualnej Resource Manager się przez połączenie VPN lokacja lokacja za pomocą hello portalu Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Skonfiguruj połączenie punkt-lokacja sieci wirtualnej przy użyciu programu PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+
+### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-vpn"></a>Połączyć sieć lokalną sieć wirtualną platformy Azure, korzystając z sieci VPN
+Możesz połączyć całej sieci firmowej, lub w części, sieć wirtualną platformy Azure. To jest typowe w przypadku hybrydowych IT scenariusze gdzie firmy [rozszerzenie ich lokalnych centrów danych na platformie Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). W wielu przypadkach firmy będą hosta usługi w programie Azure i w częściach lokalnymi, np. gdy rozwiązanie zawiera serwerów frontonu sieci web w Azure i bazy danych zaplecza lokalnie. Typy połączeń "między lokalizacjami" Upewnij się również zarządzania Azure znajduje się zasoby bardziej bezpieczny i włączyć scenariuszy, takich jak rozszerzanie kontrolerów domeny usługi Active Directory na platformie Azure.
+
+Aby wykonać to jest użycie [sieci VPN typu lokacja lokacja](https://www.techopedia.com/definition/30747/site-to-site-vpn). Różnica między VPN lokacja lokacja i sieć VPN punkt lokacja jest, że VPN punkt lokacja pojedyncze urządzenie łączy się z sieci wirtualnej platformy Azure, gdy sieć VPN lokacja lokacja łączy całej sieci (na przykład sieci lokalnej) do sieci wirtualnej platformy Azure. Sieci VPN typu lokacja lokacja, do sieci wirtualnej platformy Azure, użyj wysokim poziomie zabezpieczeń trybu tunelowania IPsec protokołu sieci VPN.
+
+Więcej informacji:
+
+* [Tworzenie sieci wirtualnej Resource Manager za pomocą połączenia sieci VPN lokacja lokacja przy użyciu portalu Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Planowanie i projektowanie bramy sieci VPN](../vpn-gateway/vpn-gateway-plan-design.md)
 
-### <a name="connect-your-on-premises-network-tooan-azure-virtual-network-with-a-dedicated-wan-link"></a>Uzyskuj tooan z sieci lokalnej sieci wirtualnej platformy Azure w wersji dedykowanej łącza sieci WAN
-Połączenia VPN punkt lokacja i lokacja lokacja obowiązują umożliwiających łączności między lokalizacjami. Jednak niektóre organizacje wziąć pod uwagę ich hello toohave następujące wady:
+### <a name="connect-your-on-premises-network-to-an-azure-virtual-network-with-a-dedicated-wan-link"></a>Połączyć sieć lokalną sieć wirtualną Azure z dedykowanym łącza sieci WAN
+Połączenia VPN punkt lokacja i lokacja lokacja obowiązują umożliwiających łączności między lokalizacjami. Jednak niektóre organizacje wziąć pod uwagę ich ma następujące wady:
 
-* Połączenia sieci VPN przenoszenia danych za pośrednictwem Internetu hello — to przedstawia tych połączeń toopotential problemy z zabezpieczeniami dotyczące przenoszenia danych za pośrednictwem publicznej sieci. Ponadto nie można zagwarantować niezawodność i dostępność dla połączenia z Internetem.
-* TooAzure połączenia sieci VPN między sieciami wirtualnymi można uznać się, że przepustowość jest ograniczona do niektóre aplikacje i celów, w miarę ich maksymalny limit na około 200 MB/s.
+* Połączenia sieci VPN przenoszenia danych za pośrednictwem Internetu — to udostępnia te połączenia na potencjalne problemy związane z przenoszenia danych w sieci publicznej. Ponadto nie można zagwarantować niezawodność i dostępność dla połączenia z Internetem.
+* Połączenia sieci VPN do sieci wirtualnych Azure można uznać się, że przepustowość jest ograniczona do niektóre aplikacje i celów, w miarę ich maksymalny limit na około 200 MB/s.
 
-Organizacje, które muszą zwykle hello najwyższy poziom bezpieczeństwa i dostępności do ustanawiania połączeń między różnymi lokalizacjami Użyj dedykowanego łącza sieci WAN tooconnect tooremote witryny. Azure oferuje hello toouse możliwości dedykowane łącza sieci WAN, których można używać tooconnect Twojego tooan sieci lokalnej sieci wirtualnej platformy Azure. Ta opcja jest włączona za pomocą usługi Azure ExpressRoute.
+Organizacji, które zwykle potrzebują najwyższy poziom zabezpieczeń i dostępności do ustanawiania połączeń między różnymi lokalizacjami Użyj dedykowane łącza sieci WAN, aby połączyć się z lokacjami zdalnymi. Platforma Azure udostępnia możliwość używania wydzielonego łącza sieci WAN, można użyć, aby połączyć sieć lokalną sieć wirtualną platformy Azure. Ta opcja jest włączona za pomocą usługi Azure ExpressRoute.
 
 Więcej informacji:
 
 * [Opis techniczny ExpressRoute](../expressroute/expressroute-introduction.md)
 
-### <a name="connect-azure-virtual-networks-tooeach-other"></a>Połączyć sieci wirtualnych Azure tooEach innych
-Istnieje możliwość, że możesz toouse wiele sieci wirtualnych Azure wdrożeń. Istnieje wiele przyczyn, dlaczego można to zrobić. Jednym z powodów hello może być toosimplify zarządzania; inny może być ze względów bezpieczeństwa. Niezależnie od tego, czy motywacją hello lub uzasadnienie umieszczanie zasobów w różnych sieciach wirtualnych platformy Azure może być godziny zużycia zasobów na każdym hello sieci tooconnect ze sobą.
+### <a name="connect-azure-virtual-networks-to-each-other"></a>Połączenia sieci wirtualnych platformy Azure
+Istnieje możliwość użycia wielu sieci wirtualnych Azure wdrożeń. Istnieje wiele przyczyn, dlaczego można to zrobić. Przyczyny mogą być uproszczenie zarządzania; inny może być ze względów bezpieczeństwa. Niezależnie od tego, czy motywacją lub uzasadnienie umieszczanie zasobów w różnych sieciach wirtualnych platformy Azure może być godziny zużycia zasobów w każdej sieci, aby połączyć się ze sobą.
 
-Jedną z opcji byłoby dla usług na jeden tooservices tooconnect sieci wirtualnej platformy Azure w innej sieci wirtualnej platformy Azure "pętli ponownie" za pośrednictwem hello Internet. połączenia Hello czy uruchomić na jedną sieć wirtualną platformy Azure, przejdź za pośrednictwem Internetu hello i następnie wrócić toohello docelowej sieci wirtualnej platformy Azure. Ta opcja udostępnia hello połączenia toohello zabezpieczeń problemy związane tooany komunikacji z Internetem.
+Jedną z opcji byłoby dla usług w jednej sieci wirtualnych Azure nawiązać połączenia z usługami w innej sieci wirtualnej platformy Azure "pętli ponownie" za pośrednictwem Internetu. Połączenie będzie uruchomić na jedną sieć wirtualną platformy Azure, przejdź przez Internet i następnie wróć do miejsca docelowego sieci wirtualnej platformy Azure. Ta opcja udostępnia połączenie do komunikacji między internetowym związane problemy dotyczące zabezpieczeń.
 
-Lepszym rozwiązaniem może być toocreate Azure wirtualnego VPN lokacja lokacja sieci wirtualnej sieci do platformy Azure. Tej sieci wirtualnej Azure wirtualnej sieci do Azure, sieci VPN typu lokacja lokacja używa hello sam [trybu tunelowania IPsec](https://technet.microsoft.com/library/cc786385.aspx) protokołem hello między lokalizacjami lokacja lokacja połączenia sieci VPN wymienionych powyżej.
+Lepszym rozwiązaniem może być utworzyć Azure wirtualnego VPN lokacja lokacja sieci wirtualnej sieci do platformy Azure. Używa tego Azure wirtualnego VPN lokacja lokacja sieci wirtualnej sieci do platformy Azure, takie same [trybu tunelowania IPsec](https://technet.microsoft.com/library/cc786385.aspx) protokołem wymienione powyżej połączenia sieci VPN między lokalizacjami lokacja lokacja.
 
-Zaletą Hello Azure wirtualnej VPN lokacja lokacja sieci wirtualnej sieci do platformy Azure jest, że za pośrednictwem hello Azure sieci szkieletowej, a nie połączenie za pośrednictwem Internetu hello ustanowieniu połączenia sieci VPN hello. To zapewnia dodatkową warstwę zabezpieczeń można porównać toosite-to-site VPN, łączących się za pośrednictwem Internetu hello.
+Zaletą używania Azure wirtualnego VPN lokacja lokacja sieci wirtualnej sieci do platformy Azure jest ustanowienie połączenia sieci VPN za pośrednictwem sieci szkieletowej sieć platformy Azure, a nie połączenie za pośrednictwem Internetu. Zapewnia dodatkową warstwę zabezpieczeń w porównaniu z sieciami VPN lokacja lokacja, które łączą się przez Internet.
 
 Więcej informacji:
 
 * [Konfigurowanie połączenia do wirtualnymi przy użyciu usługi Azure Resource Manager i programu PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 ## <a name="availability"></a>Dostępność
-Dostępność jest kluczowym składnikiem programu zabezpieczeń. Jeśli nie jakie one dostępu użytkowników i systemów muszą tooaccess za pośrednictwem hello sieci, hello usługi mogą być uważane za naruszenia zabezpieczeń. Platforma Azure ma technologie sieciowe tego hello pomocy technicznej następujące mechanizmy wysokiej dostępności:
+Dostępność jest kluczowym składnikiem programu zabezpieczeń. Jeśli muszą uzyskiwać dostęp za pośrednictwem sieci nie dostępu użytkowników i systemów, usługa jest uznawana za naruszenia zabezpieczeń. Platforma Azure ma technologii sieciowych, które obsługują następujące mechanizmy wysokiej dostępności:
 
 * Równoważenie obciążenia oparte na protokole HTTP
 * Równoważenie obciążenia poziomu sieci
 * Globalnego równoważenia obciążenia
 
-Równoważenie obciążenia jest tooequally mechanizmu zaprojektowane dystrybucji połączeń między wieloma urządzeniami. cele Hello Równoważenie obciążenia sieciowego są:
+Równoważenie obciążenia sieciowego jest mechanizm przeznaczony do jednakowo dystrybucji połączeń między wieloma urządzeniami. Cele równoważenia obciążenia są:
 
-* Zwiększ dostępność — podczas ładowania saldo połączenia między wieloma urządzeniami, co najmniej jedno z urządzeń hello może stać się niedostępne i hello usługi działające na powitania pozostałych urządzeń online można kontynuować tooserve hello zawartość z usługi hello
-* Zwiększyć wydajność — podczas ładowania saldo połączeń na wielu urządzeniach, pojedyncze urządzenie nie ma procesora hello tootake trafień. Zamiast tego hello pamięci i przetwarzania żądania dotyczące dostarczania zawartości hello zostanie rozmieszczona na wielu urządzeniach.
+* Zwiększ dostępność — podczas ładowania saldo połączenia między wieloma urządzeniami, co najmniej jedno urządzenie może stać się niedostępne i usługi działające na pozostałych urządzeń online mogą w dalszym ciągu udostępniać zawartość z usługi
+* Zwiększyć wydajność — podczas ładowania saldo połączeń na wielu urządzeniach, pojedyncze urządzenie nie trzeba wykonywać trafień procesora. Zamiast tego żądania przetwarzania i pamięci do obsługi zawartości zostanie rozmieszczona na wielu urządzeniach.
 
 ### <a name="http-based-load-balancing"></a>Równoważenie obciążenia oparte na protokole HTTP
-Organizacje, czy działa usług sieci web często toohave dążenie do modułu równoważenia obciążenia opartą na protokole HTTP przed tych toohelp usług sieci web ułatwieniu zapewnienia odpowiednich poziomów wydajności i wysokiej dostępności. Z kolei tootraditional sieciowej usługi równoważenia obciążenia, hello równoważenia obciążenia decyzje na przez usługi równoważenia obciążenia oparty na protokole HTTP są oparte na właściwości protokołu hello HTTP, nie na powitania protokołami warstwy transportu i sieci.
+Organizacje, które działa usług sieci web często chcesz mieć usługi równoważenia obciążenia opartą na protokole HTTP przed tych usług sieci web, aby upewnić się, odpowiednich poziomów wydajności i wysokiej dostępności. W przeciwieństwie do równoważenia obciążenia opartego na sieci tradycyjnych decyzje podjęte przez oparte na protokole HTTP równoważenia obciążenia usługi równoważenia obciążenia są oparte na właściwości protokołu HTTP, a nie na protokołami warstwy transportu i sieci.
 
-tooprovide możesz oparte na protokole HTTP równoważenia obciążenia dla usług opartych na sieci web, platforma Azure udostępnia hello Azure Application Gateway. Hello Azure Application Gateway obsługuje:
+Aby przygotować oparty na protokole HTTP równoważenia obciążenia dla usług opartych na sieci web, platforma Azure udostępnia Azure Application Gateway. Brama aplikacji w usłudze Azure obsługuje:
 
-* Oparte na protokole HTTP Równoważenie obciążenia — decyzje równoważenia obciążenia są wykonywane na podstawie protokołu charakterystyczny toohello specjalne HTTP
-* Koligacji na podstawie plików cookie sesji — ta funkcja sprawdza, czy nawiązywane połączenia tooone serwery hello za ten moduł równoważenia obciążenia pozostaje niezmieniona między powitania klienta i serwera. Dzięki temu stabilności transakcji.
-* Odciążanie protokołu SSL — gdy klienta nawiązaniu połączenia z modułem równoważenia obciążenia hello, że sesja między powitania klienta i usługi równoważenia obciążenia hello jest szyfrowana przy użyciu hello HTTPS (SSL /) protokołu. Jednak w kolejności tooincrease wydajności, masz hello opcja toohave hello połączenie między hello modułu równoważenia obciążenia i serwer sieci web hello za protokół HTTP (bez szyfrowania) hello Użyj hello równoważenia obciążenia. Jest określony tooas "odciążanie protokołu SSL", ponieważ serwerów sieci web hello za usługą równoważenia obciążenia hello nie występują hello procesora koszty związane z szyfrowaniem i dlatego powinien być szybciej tooservice stanie żądania.
-* Adres URL routingu opartego na protokole zawartości — ta funkcja umożliwia decyzji dotyczących toomake usługi równoważenia obciążenia hello na którym tooforward połączenia na podstawie hello docelowego adresu URL. Zapewnia to znacznie większą elastyczność niż rozwiązania, które należy załadować równoważenia decyzje na podstawie adresów IP.
+* Oparte na protokole HTTP Równoważenie obciążenia — decyzje równoważenia obciążenia są wykonywane na podstawie cech specjalne protokołu HTTP
+* Koligacji na podstawie plików cookie sesji — ta funkcja zapewnia, że połączeń ustanowionych z jednym z serwerów za ten moduł równoważenia obciążenia pozostaje niezmieniona między klientem i serwerem. Dzięki temu stabilności transakcji.
+* Odciążanie protokołu SSL — gdy klient nawiązaniu połączenia z modułem równoważenia obciążenia, czy sesji między klientem a usługą równoważenia obciążenia jest szyfrowana przy użyciu protokołu HTTPS (SSL /) protokołu. Jednak aby zwiększyć wydajność, istnieje możliwość połączenia między usługi równoważenia obciążenia i serwer sieci web za użycie protokołu HTTP (bez szyfrowania) usługi równoważenia obciążenia. To jest określane jako "Odciążanie protokołu SSL", ponieważ serwery sieci web związanej z modułem równoważenia obciążenia nie występuje obciążenie procesora związane z szyfrowaniem i w związku z tym powinno być możliwe do obsługi żądań szybciej.
+* Adres URL routingu opartego na protokole zawartości — ta funkcja umożliwia równoważenia obciążenia do podejmowaniu decyzji, dokąd należy przekazywać połączeń, w oparciu o docelowy adres URL. Zapewnia to znacznie większą elastyczność niż rozwiązania, które należy załadować równoważenia decyzje na podstawie adresów IP.
 
 Więcej informacji:
 
 * [Omówienie bramy aplikacji](../application-gateway/application-gateway-introduction.md)
 
 ### <a name="network-level-load-balancing"></a>Równoważenie obciążenia poziomu sieci
-Z kolei na podstawie tooHTTP równoważenia obciążenia, równoważenia obciążenia poziomu sieci sprawia, że obciążenia równoważenia decyzje oparte na adres i port (TCP lub UDP) numery IP.
-Aby uzyskać hello zalet poziomu równoważenia obciążenia sieciowego w Azure przy użyciu hello moduł równoważenia obciążenia Azure. Niektóre właściwości klucza hello modułu równoważenia obciążenia Azure obejmują:
+W przeciwieństwie do równoważenia obciążenia opartą na protokole HTTP, równoważenie obciążenia poziomu sprawia, że decyzje równoważenia obciążenia oparte na adres i port (TCP lub UDP) numery IP.
+Aby uzyskać korzyści wynikające z poziomu równoważenia obciążenia sieciowego w Azure przy użyciu usługi równoważenia obciążenia Azure. Niektóre właściwości klucza usługi równoważenia obciążenia Azure obejmują:
 
 * Równoważenie obciążenia poziomu oparte na numery adres i port IP
 * Obsługa protokołu warstwy żadnych aplikacji
-* Maszyny wirtualne tooAzure równoważy obciążenie i wystąpień roli usług w chmurze
+* Równoważy obciążenia na maszynach wirtualnych platformy Azure i wystąpień roli usług w chmurze
 * Można użyć zarówno internetowy (zewnętrzne Równoważenie obciążenia sieciowego), jak i z systemem innym niż Internet skierowane w aplikacji (równoważenia obciążenia wewnętrznego) i maszyny wirtualne
-* Punkt końcowy monitorowania, które jest używane toodetermine w przypadku usług hello za usługą równoważenia obciążenia hello stały się niedostępne
+* Punkt końcowy monitorowania, który służy do określania, jeśli którakolwiek z nich za usługą równoważenia obciążenia stały się niedostępne
 
 Więcej informacji:
 
@@ -191,11 +191,11 @@ Więcej informacji:
 * [Omówienie usługi równoważenia obciążenia wewnętrznego](../load-balancer/load-balancer-internal-overview.md)
 
 ### <a name="global-load-balancing"></a>Globalnego równoważenia obciążenia
-Niektóre organizacje będzie możliwe hello najwyższy poziom dostępności. Jednym ze sposobów tooreach, ten cel jest globalnie toohost aplikacji w rozproszonych centrów danych. Kiedy aplikacji znajduje się w centrach danych znajdujących się na Witaj świecie, jest możliwe toobecome całego regionu geograficznymi niedostępne i nadal mieć aplikacji hello i działa.
+Niektóre organizacje będzie możliwe najwyższy poziom dostępności. Jednym ze sposobów osiągnięcia tego celu jest umożliwia obsługę aplikacji w rozproszonych globalnie centrach danych. Gdy aplikacja jest obsługiwana w centrach danych znajdujących się na całym świecie, jest możliwe całego regionu geograficznymi może stać się niedostępne, a nadal aplikacji uruchomionych.
 
-Ponadto toohello dostępności korzyści, jakie można uzyskać za pomocą obsługi aplikacji w rozproszonych globalnie centrach danych, również można uzyskać zwiększenia wydajności. Te korzyści wydajności można uzyskać za pomocą mechanizmu, który kieruje żądania hello usługi toohello datacenter, który najbliższego urządzenia toohello, do której wysłano żądanie hello.
+Oprócz korzyści dostępności Ci się obsługi aplikacji w rozproszonych globalnie centrach danych możesz również uzyskać zwiększenia wydajności. Te korzyści wydajności można uzyskać za pomocą mechanizmu, który kieruje żądania usługi do centrum danych, który znajduje się najbliżej urządzenia, do której wysłano żądanie.
 
-Równoważenie obciążenia globalny może umożliwić obu tych korzyści. Na platformie Azure Aby uzyskać hello zalet globalnego równoważenia obciążenia za pomocą usługi Azure Traffic Manager.
+Równoważenie obciążenia globalny może umożliwić obu tych korzyści. Na platformie Azure Aby uzyskać korzyści wynikające z globalnego równoważenia obciążenia za pomocą usługi Azure Traffic Manager.
 
 Więcej informacji:
 
@@ -203,17 +203,17 @@ Więcej informacji:
 
 
 ## <a name="name-resolution"></a>Rozpoznawanie nazw
-Rozpoznawanie nazw jest funkcją krytyczne dla wszystkich usług, które są hostowane na platformie Azure. Z punktu widzenia zabezpieczeń naruszenia funkcja rozpoznawania nazw hello może prowadzić tooan atakująca przekierowania żądania z witryny atakująca tooan witryny. Rozpoznawanie nazw bezpiecznego jest wymagane dla wszystkich usług w chmurze hostowanej.
+Rozpoznawanie nazw jest funkcją krytyczne dla wszystkich usług, które są hostowane na platformie Azure. Z punktu widzenia zabezpieczeń naruszenia funkcja rozpoznawania nazw może prowadzić do przekierowywania żądań z lokacji do lokacji osoba atakująca osoba atakująca. Rozpoznawanie nazw bezpiecznego jest wymagane dla wszystkich usług w chmurze hostowanej.
 
-Istnieją dwa typy rozpoznawania nazw potrzebne tooaddress:
+Istnieją dwa typy rozpoznawania nazw, które należy rozwiązać:
 
-* Rozpoznawania nazw wewnętrznych — rozpoznawania nazw wewnętrznych jest używany przez usługi w sieci wirtualne platformy Azure i/lub sieci lokalnej. Nazwy używane do rozpoznawania nazw wewnętrznych nie są dostępne za pośrednictwem hello Internet. Optymalne zabezpieczeń jest ważne, czy schematem rozpoznawania nazw wewnętrznych nie jest dostępny tooexternal użytkowników.
-* Rozpoznawanie nazw zewnętrznych — rozpoznawanie nazw zewnętrznych jest używany przez osoby i urządzenia poza sieci lokalnej i sieci wirtualnych Azure. Są to nazwy hello, które są widoczne toohello internetowych i używanych toodirect połączenia tooyour usług w chmurze.
+* Rozpoznawania nazw wewnętrznych — rozpoznawania nazw wewnętrznych jest używany przez usługi w sieci wirtualne platformy Azure i/lub sieci lokalnej. Nazwy używane do rozpoznawania nazw wewnętrznych nie są dostępne za pośrednictwem Internetu. Optymalne zabezpieczeń ważne jest schematem rozpoznawania nazw wewnętrznych nie jest dostępna dla użytkowników zewnętrznych.
+* Rozpoznawanie nazw zewnętrznych — rozpoznawanie nazw zewnętrznych jest używany przez osoby i urządzenia poza sieci lokalnej i sieci wirtualnych Azure. Są to nazwy, które są widoczne z Internetem i umożliwia bezpośrednie połączenie z usługami w chmurze.
 
 Do rozpoznawania nazw wewnętrznych dostępne są dwie opcje:
 
-* Serwer DNS sieci wirtualnej platformy Azure — podczas tworzenia nowej sieci wirtualnej Azure, serwer DNS jest tworzony automatycznie. Ten serwer DNS może rozpoznawać nazwy hello maszyn hello znajdujących się w tej sieci wirtualnej platformy Azure. Ten serwer DNS nie jest konfigurowalne i jest zarządzany przez Menedżera sieci szkieletowej Azure hello, co czyni go rozwiązania rozpoznawania nazwy bezpieczne.
-* Przełącz serwer DNS — dostępna opcja hello umieszczenie serwera DNS wybranej przez użytkownika w sieci wirtualnej platformy Azure. Ten serwer DNS może być zintegrowane usługi Active Directory, serwer DNS lub dedykowane rozwiązania serwera DNS podany przez partnera Azure, który można uzyskać z hello Azure Marketplace.
+* Serwer DNS sieci wirtualnej platformy Azure — podczas tworzenia nowej sieci wirtualnej Azure, serwer DNS jest tworzony automatycznie. Ten serwer DNS może rozpoznawania nazw komputerów znajdujących się w tej sieci wirtualnej platformy Azure. Ten serwer DNS nie jest konfigurowalne i jest zarządzany przez Menedżera sieci szkieletowej Azure, co czyni go rozwiązania rozpoznawania nazwy bezpieczne.
+* Przełącz serwer DNS — istnieje możliwość wprowadzenia serwer DNS wybranej przez użytkownika w sieci wirtualnej platformy Azure. Ten serwer DNS może być zintegrowane usługi Active Directory, serwer DNS lub dedykowane rozwiązania serwera DNS podany przez partnera Azure, który można uzyskać w witrynie Azure Marketplace.
 
 Więcej informacji:
 
@@ -225,20 +225,20 @@ Dla zewnętrznych rozpoznawanie nazw DNS dostępne są dwie opcje:
 * Host własne zewnętrznych DNS serwera lokalnego
 * Host własne zewnętrznego serwera DNS z dostawcą usług
 
-W wielu organizacjach dużych będzie obsługiwać własne DNS serwerów lokalnych. Mogą one to robić, ponieważ mają one hello tak sieci wiedzę i toodo globalnego.
+W wielu organizacjach dużych będzie obsługiwać własne DNS serwerów lokalnych. Mogą one to robić ponieważ mają one doświadczenia z sieci i globalnych obecności w tym celu.
 
-W większości przypadków jest lepsze toohost usług programu rozpoznawania nazw DNS z dostawcą usług. Ci dostawcy usług mają hello doświadczenia z sieci i globalnego tooensure bardzo wysoka dostępność dla Twojej usługi rozpoznawania nazw. Dostępność jest niezbędne, usług DNS, ponieważ jeśli programu rozpoznawania nazw usług kończyć się niepowodzeniem, nie będą się mogli tooreach Twojego internetowy usług.
+W większości przypadków najlepiej hosta z usługi rozpoznawania nazw DNS z dostawcą usług. Ci dostawcy usług mają doświadczenia z sieci i globalne obecności w celu zapewnienia bardzo wysoka dostępność dla Twojej usługi rozpoznawania nazw. Dostępność jest istotne dla usługi DNS, ponieważ w przypadku awarii z usługi rozpoznawania nazw, nie będzie mogła nawiązać połączenia z internetowy usług.
 
-Azure zapewnia wysoką dostępność i wydajność zewnętrznych DNS rozwiązanie w formie hello Azure DNS. To rozwiązanie rozpoznawania nazw zewnętrznych wykorzystuje hello na całym świecie infrastruktury usługi Azure DNS. Umożliwia toohost domeny za pomocą usługi Azure hello tego samego poświadczeń, interfejsy API, narzędzia i rozliczeń jak innymi usługami Azure. W ramach platformy Azure również dziedziczy hello silne zabezpieczenie formantów wbudowanych w platformy hello.
+Azure zapewnia wysoką dostępność i wydajność zewnętrznych DNS rozwiązanie w formie usługi Azure DNS. To rozwiązanie rozpoznawania nazw zewnętrznych korzysta z infrastruktury usługi Azure DNS na całym świecie. Umożliwia hostowanie domeny platformy Azure przy użyciu tych samych poświadczeń, interfejsów API, narzędzi i rozliczeń jak innymi usługami Azure. W ramach platformy Azure również dziedziczy formanty silne zabezpieczenie wbudowanych w platformy.
 
 Więcej informacji:
 
 * [Omówienie usługi Azure DNS](../dns/dns-overview.md)
 
 ## <a name="dmz-architecture"></a>Architektura DMZ
-W wielu organizacjach enterprise Użyj toosegment sieci DMZ ich strefę buforu toocreate sieci między hello Internet i swoich usług. część sieci hello w strefie DMZ Hello jest uznawany za strefy niskim poziomie zabezpieczeń i nie zasoby wysokiej wartości są umieszczane w tym segmencie sieci. Zwykle zobaczysz urządzeniach zabezpieczeń sieciowych z karty sieciowej na segment hello DMZ i innej sieci interfejsu tooa połączonych sieci maszyn wirtualnych i usług, które akceptują połączenia przychodzące z Internetu hello.
+W wielu organizacjach enterprise umożliwia segment ich sieci, aby utworzyć strefę buforu od Internetu, a ich usług sieci DMZ. DMZ część sieci jest uznawany za strefy niskim poziomie zabezpieczeń i nie zasoby wysokiej wartości są umieszczane w tym segmencie sieci. Zwykle zobaczysz urządzeń zabezpieczeń sieciowych, karty sieciowej w segmencie DMZ i inny interfejs sieciowy podłączony do sieci z maszyn wirtualnych i usług, które akceptują połączenia przychodzące z Internetu.
 
-Istnieje wiele zmian projektu DMZ i toodeploy decyzji hello strefą DMZ, a następnie jakiego rodzaju DMZ toouse decydując toouse, jest na podstawie wymagań dotyczących zabezpieczeń sieci.
+Istnieje wiele zmian projektu DMZ i decyzja o wdrożeniu strefą DMZ i następnie jakiego rodzaju DMZ do użycia, jeśli zdecydujesz się używać jednego, opiera się na określonych wymagań dotyczących zabezpieczeń sieci.
 
 Więcej informacji:
 
@@ -247,42 +247,42 @@ Więcej informacji:
 
 ## <a name="monitoring-and-threat-detection"></a>Monitorowanie i wykrywania zagrożeń
 
-Platforma Azure oferuje możliwości toohelp można w tym obszarze klucza z wczesnym wykrywania, monitorowania i hello możliwości toocollect i przejrzyj ruchu sieciowego.
+Platforma Azure udostępnia funkcje ułatwiające w tym obszarze klucza z wczesnego wykrywania, monitorowania i możliwość zbierania i przejrzyj ruch sieciowy.
 
 ### <a name="azure-network-watcher"></a>Monitor sieci platformy Azure
-Azure obserwatora sieciowego zawiera wiele funkcji, które pomóc w rozwiązywaniu problemów, a także zapewnić zupełnie nowy zestaw narzędzi tooassist hello identyfikacji problemów z zabezpieczeniami.
+Azure obserwatora sieciowego zawiera wiele funkcji, które pomóc w rozwiązywaniu problemów, a także zapewnić zupełnie nowy zestaw narzędzi ułatwiających identyfikację problemów z zabezpieczeniami.
 
-[Widok grupy zabezpieczeń ](/network-watcher/network-watcher-security-group-view-overview.md) ułatwia utrzymanie zgodności inspekcji i zabezpieczeń maszyn wirtualnych i mogą być używane tooperform programowe inspekcje porównanie hello linie bazowe zasady zdefiniowane przez organizacji tooeffective reguł dla poszczególnych maszyn wirtualnych. Może to pomóc w identyfikacji dowolnego odejście konfiguracji.
+[Widok grupy zabezpieczeń ](/network-watcher/network-watcher-security-group-view-overview.md) ułatwia utrzymanie zgodności inspekcji i zabezpieczeń maszyn wirtualnych i może służyć do wykonywania inspekcji programowe porównanie zasad linii bazowych zdefiniowanych przez organizację do wprowadzenia reguł dla poszczególnych maszyn wirtualnych. Może to pomóc w identyfikacji dowolnego odejście konfiguracji.
 
-[Przechwytywania pakietów](/network-watcher/network-watcher-packet-capture-overview.md) pozwala tooand ruchu sieciowego toocapture z hello maszyny wirtualnej. Oprócz myśl zezwalając statystyk sieciowych toocollect i hello rozwiązywania problemów z aplikacji przechwytywania pakietów problemów może być cenne w hello zbadanie wtargnięcia sieci. Możesz również tej funkcji można używać razem z usługi Azure Functions w odpowiedzi toospecific Azure przechwytywania ruchu sieciowego toostart alertów.
+[Przechwytywania pakietów](/network-watcher/network-watcher-packet-capture-overview.md) służy do przechwytywania ruchu sieciowego do i z maszyny wirtualnej. Oprócz myśl, umożliwiając zbieranie statystyk sieci oraz rozwiązywanie problemów aplikacji przechwytywania pakietów mogą być cenne w badaniu wtargnięcia sieci. Umożliwia także tę funkcję, wraz z usługi Azure Functions można uruchomić przechwytywanie sieci w odpowiedzi na konkretnych alertów platformy Azure.
 
-Aby uzyskać więcej informacji na obserwatora sieciowego Azure oraz jak toostart testowania niektórych funkcji hello w Twojej labs Spójrz na powitania [obserwatora sieciowego Azure monitorowania — omówienie](/network-watcher/network-watcher-monitoring-overview.md)
+Aby uzyskać więcej informacji na obserwatora sieciowego Azure i uruchamiania testów niektórych funkcji w Twojej labs Spójrz na [obserwatora sieciowego Azure monitorowania — omówienie](/network-watcher/network-watcher-monitoring-overview.md)
 
 >[!NOTE]
-Azure obserwatora sieciowego jest wciąż w publicznej wersji zapoznawczej, nie może mieć hello sam poziom dostępności i niezawodności jako usługi, które są zwykle wersji dostępności. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich lokalizacjach Azure. Najbardziej aktualne powiadomień hello na dostępność i stan tej usługi, sprawdź hello [strony aktualizacji platformy Azure](https://azure.microsoft.com/updates/?product=network-watcher)
+Azure obserwatora sieciowego jest nadal w publicznej wersji zapoznawczej, więc może nie dysponować taki sam poziom dostępności i niezawodności jako wersji usług, które są zwykle dostępności. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich lokalizacjach Azure. Najbardziej aktualne powiadomień o dostępności i stan tej usługi, sprawdź [strony aktualizacji platformy Azure](https://azure.microsoft.com/updates/?product=network-watcher)
 
 ### <a name="azure-security-center"></a>Azure Security Center
-Centrum zabezpieczeń pomaga zapobiec, wykrywania i reagowania toothreats i zapewnia zwiększyć widoczność i kontrolę nad, hello zabezpieczeń zasobów platformy Azure. Zapewnia zabezpieczenia zintegrowane monitorowanie i zarządzanie zasadami subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które mogłyby w przeciwnym razie pozostać niezauważone, a także współpracuje z dużym zestawem rozwiązań zabezpieczających.
+Centrum zabezpieczeń ułatwia zapobieganie, wykrywania i reagowania na zagrożenia i zapewnia zwiększyć widoczność i kontrolę nad, zabezpieczeń zasobów platformy Azure. Zapewnia zabezpieczenia zintegrowane monitorowanie i zarządzanie zasadami subskrypcji platformy Azure, pomaga wykrywać zagrożenia, które mogłyby w przeciwnym razie pozostać niezauważone, a także współpracuje z dużym zestawem rozwiązań zabezpieczających.
 
 Centrum zabezpieczeń Azure ułatwia optymalizacji i monitorować przez zabezpieczenia sieci:
 
 * Udostępnia zalecenia dotyczące zabezpieczeń sieci
-* Monitorowanie stanu hello konfiguracji zabezpieczeń sieci
-* Alerty na podstawie toonetwork zagrożenia obu poziomach hello punktu końcowego i sieci
+* Monitorowanie stanu konfiguracji zabezpieczeń sieci
+* Wysyłać alerty o podstawie zagrożenia sieciowe zarówno na poziomie punktu końcowego i sieci
 
 Więcej informacji:
 
-* [Wprowadzenie tooAzure Centrum zabezpieczeń](../security-center/security-center-intro.md)
+* [Wprowadzenie do Centrum zabezpieczeń Azure](../security-center/security-center-intro.md)
 
 
 ### <a name="logging"></a>Rejestrowanie
-Rejestrowanie na poziomie sieci jest funkcją klucza w żadnym scenariuszu zabezpieczeń sieci. Na platformie Azure możesz zalogować się informacjami uzyskanymi na poziomie sieci tooget grup zabezpieczeń sieci rejestrowania informacji. Z rejestrowaniem grupy NSG można uzyskać informacji o:
+Rejestrowanie na poziomie sieci jest funkcją klucza w żadnym scenariuszu zabezpieczeń sieci. Na platformie Azure można rejestrować informacje uzyskane dla grup zabezpieczeń sieci można pobrać sieci poziom rejestrowania informacji. Z rejestrowaniem grupy NSG można uzyskać informacji o:
 
-* [Dzienniki aktywności](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) — te dzienniki są używane tooview wszystkie operacje przesłane tooyour Azure subskrypcji. Te dzienniki są domyślnie włączone i mogą być używane w hello portalu Azure. Zostały one wcześniej znana jako "Dzienników inspekcji" lub "Operacyjne dzienniki".
+* [Dzienniki aktywności](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) — te dzienniki służą do wyświetlania wszystkich operacji przesłane do Twojej subskrypcji platformy Azure. Te dzienniki są domyślnie włączone i może być używana w portalu Azure. Zostały one wcześniej znana jako "Dzienników inspekcji" lub "Operacyjne dzienniki".
 * Dzienniki zdarzeń — te dzienniki zawierają informacje dotyczące reguły NSG, jakie zostały zastosowane.
-* Licznik dzienników — te dzienniki let wiadomo, ile razy każdej reguły NSG został zastosowany toodeny lub zezwolić na ruch.
+* Licznik dzienników — te dzienniki pozwalają wiedzieć, ile razy każdej reguły NSG została zastosowana do odmowy lub zezwolić na ruch.
 
-Można również użyć [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), wizualizację danych zaawansowane narzędzia, tooview i analizować te dzienniki.
+Można również użyć [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), narzędzie wizualizacji zaawansowanych danych, aby przeglądać i analizować te dzienniki.
 
 Więcej informacji:
 

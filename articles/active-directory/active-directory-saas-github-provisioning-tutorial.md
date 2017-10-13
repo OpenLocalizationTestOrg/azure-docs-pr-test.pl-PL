@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Konfigurowanie usługi GitHub dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak konta tooGitHub tooconfigure usługi Azure Active Directory tooautomatically udostępniania i usuwanie użytkowników."
+description: "Dowiedz się, jak skonfigurować usługi Azure Active Directory, aby automatycznie zapewnianie i usuwanie kont użytkowników do usługi GitHub."
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,89 +14,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: c1f0f7a42e4f8a94db3f409cd463e13bb1bc13bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3cc70273e95dbf4913e7bbcd8a37bd9a52987b60
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-configuring-github-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi GitHub dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
 
-Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w GitHub i Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooGitHub. 
+Celem tego samouczka jest opisano czynności, które należy wykonać w witrynie GitHub i usługi Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do usługi GitHub. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
+Scenariusz opisany w tym samouczku założono, że już następujące elementy:
 
 *   Dzierżawy usługi Azure Active directory
-*   Dzierżawcy Github z hello [planu firm](https://help.github.com/articles/organization-billing-plans/#business-plan) lub lepiej jest włączone 
+*   Dzierżawcy Github z [planu firm](https://help.github.com/articles/organization-billing-plans/#business-plan) lub lepiej jest włączone 
 *   Konto użytkownika z uprawnieniami administratora w usłudze GitHub 
 
 > [!NOTE]
-> Hello Azure AD inicjowania obsługi administracyjnej integracji opiera się na powitania [GitHub SCIM API](https://developer.github.com/v3/scim/), które jest dostępne tooGithub zespoły w planie firm hello lub większą.
+> Zależy od usługi Azure AD, inicjowania obsługi administracyjnej integracji [GitHub SCIM API](https://developer.github.com/v3/scim/), który jest dostępny dla zespołów Github dla planu biznesowych lub większą.
 
-## <a name="assigning-users-toogithub"></a>Przypisywanie użytkowników tooGitHub
+## <a name="assigning-users-to-github"></a>Przypisywanie użytkowników do usługi GitHub
 
-Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD jest zsynchronizowany. 
+Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD jest zsynchronizowany. 
 
-Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy toodecide jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy muszą uzyskiwać dostęp do aplikacji GitHub tooyour. Po decyzję, wykonując instrukcje hello w tym miejscu można przypisać tych użytkowników tooyour GitHub aplikacji:
+Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji GitHub. Po decyzję, postępując zgodnie z instrukcjami w tym miejscu można przypisać tych użytkowników do aplikacji GitHub:
 
-[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](active-directory-coreapps-assign-user-azure-portal.md)
+[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](active-directory-coreapps-assign-user-azure-portal.md)
 
-### <a name="important-tips-for-assigning-users-toogithub"></a>Ważne porady dotyczące przypisywania tooGitHub użytkowników
+### <a name="important-tips-for-assigning-users-to-github"></a>Ważne porady dotyczące przypisywania użytkowników do usługi GitHub
 
-*   Zalecane jest jeden użytkownik usługi Azure AD jest przypisany hello tootest tooGitHub inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest pojedynczego użytkownika usługi Azure AD jest przypisana do GitHub, aby przetestować konfigurację inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-*   Podczas przypisywania tooGitHub użytkownika, należy wybrać albo hello **użytkownika** rola, lub inny prawidłowy specyficzne dla aplikacji (jeśli jest dostępny) w oknie dialogowym przydział hello. Witaj **domyślnego dostępu** roli nie działa w przypadku inicjowania obsługi administracyjnej, a użytkownicy są pomijane.
+*   Przypisanie użytkownika do witryny GitHub, należy wybrać opcję **użytkownika** rola, lub inny prawidłowy specyficzne dla aplikacji (jeśli jest dostępny) w oknie dialogowym przypisania. **Domyślnego dostępu** roli nie działa w przypadku inicjowania obsługi administracyjnej, a użytkownicy są pomijane.
 
 
-## <a name="configuring-user-provisioning-toogithub"></a>Konfigurowanie inicjowania obsługi administracyjnej tooGitHub użytkownika 
+## <a name="configuring-user-provisioning-to-github"></a>Konfigurowanie Inicjowanie obsługi użytkowników do usługi GitHub 
 
-Ta sekcja przeprowadzi Cię przez łączenie inicjowania obsługi interfejsu API konta użytkownika tooGitHub programu Azure AD i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz konta użytkowników przypisane w usłudze GitHub, w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkownika GitHub inicjowania obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania konta użytkowników przypisane w usłudze GitHub, w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
 
 > [!TIP]
-> Można też tooenabled na języku SAML logowania jednokrotnego dla GitHub hello instrukcje podane w następujących [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+> Można też włączone na języku SAML logowania jednokrotnego dla GitHub, postępując zgodnie z instrukcjami zawarte w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
 
 
-### <a name="configure-automatic-user-account-provisioning-toogithub-in-azure-ad"></a>Skonfiguruj konto użytkownika automatycznego inicjowania obsługi administracyjnej tooGitHub w usłudze Azure AD
+### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Skonfiguruj automatyczne konta Inicjowanie obsługi użytkowników do usługi GitHub w usłudze Azure AD
 
 
-1. W hello [portalu Azure](https://portal.azure.com), Przeglądaj toohello **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
+1. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
 
-2. Jeśli skonfigurowano już program GitHub dla logowania jednokrotnego, wyszukaj dla swojego wystąpienia usługi GitHub, za pomocą pola wyszukiwania hello. W przeciwnym razie wybierz **Dodaj** i wyszukaj **GitHub** w galerii aplikacji hello. Wybierz GitHub z wyników wyszukiwania hello i dodać go tooyour listę aplikacji.
+2. Jeśli skonfigurowano już program GitHub dla logowania jednokrotnego, wyszukaj dla swojego wystąpienia usługi GitHub, za pomocą pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **GitHub** w galerii aplikacji. Wybierz GitHub z wyników wyszukiwania, a następnie dodaj go do listy aplikacji.
 
-3. Wybierz wystąpienie usługi GitHub, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
+3. Wybierz wystąpienie usługi GitHub, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
 
-4. Zestaw hello **inicjowania obsługi trybu** za**automatyczne**.
+4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**.
 
     ![Inicjowanie obsługi usługi GitHub](./media/active-directory-saas-github-provisioning-tutorial/GitHub1.png)
 
-5. W obszarze hello **poświadczeń administratora** kliknij **autoryzacji**. Ta operacja otwiera okno dialogowe autoryzacji GitHub w nowym oknie przeglądarki. 
+5. W obszarze **poświadczeń administratora** kliknij **autoryzacji**. Ta operacja otwiera okno dialogowe autoryzacji GitHub w nowym oknie przeglądarki. 
 
-6. W nowym oknie hello Zaloguj się do usługi GitHub przy użyciu konta administratora. W hello wynikowy okna dialogowego autoryzacji, wybierz zespół GitHub hello, inicjowanie obsługi tooenable, a następnie wybierz **autoryzacji**. Inicjowanie obsługi konfiguracji hello toocomplete portalu Azure po zakończeniu, zwróć toohello.
+6. W nowym oknie Zaloguj się do usługi GitHub przy użyciu konta administratora. W oknie dialogowym autoryzacji wynikowy, wybierz zespół GitHub, który chcesz włączyć udostępnianie, a następnie wybierz **autoryzacji**. Po ukończeniu, wróć do portalu Azure, aby zakończyć konfigurację inicjowania obsługi administracyjnej.
 
     ![Okno dialogowe autoryzacji](./media/active-directory-saas-github-provisioning-tutorial/GitHub2.png)
 
-7. W portalu Azure hello, wprowadź **adres URL dzierżawy** i kliknij przycisk **Testuj połączenie** tooensure usługi Azure AD można połączyć tooyour GitHub aplikację. Jeśli hello połączenia nie powiedzie się, upewnij się, Twoje konto GitHub ma uprawnienia administratora i **adres URl dzierżawy** jest wprowadzona poprawnie, a następnie spróbuj hello "Autoryzuj" krok ponownie (może stanowić **adres URL dzierżawy** przez regułę: "https : //api.github.com/scim/v2/organizations/ + < Organizations_name > ", można znaleźć Twojej organizacji na koncie usługi GitHub: **ustawienia** > **organizacji**).
+7. W portalu Azure, wprowadź **adres URL dzierżawy** i kliknij przycisk **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji GitHub. Jeśli połączenie nie powiedzie się, upewnij się, Twoje konto GitHub ma uprawnienia administratora i **adres URl dzierżawy** jest wprowadzona poprawnie, a następnie ponownie spróbuj kroku "Autoryzuj" (może stanowić **adres URL dzierżawy** przez regułę: "https:// API.github.com/scim/v2/Organizations/ + < Organizations_name > ", można znaleźć Twojej organizacji na koncie usługi GitHub: **ustawienia** > **organizacji**).
 
     ![Okno dialogowe autoryzacji](./media/active-directory-saas-github-provisioning-tutorial/GitHub3.png)
 
-8. Wprowadź adres e-mail hello osoby lub grupy, które powinny być przesyłane powiadomienia błąd inicjowania obsługi administracyjnej w hello **wiadomość E-mail z powiadomieniem** pola i wyboru hello wyboru "Wyślij wiadomość e-mail z powiadomieniem, gdy wystąpi błąd."
+8. Wprowadź adres e-mail osoby lub grupy, który powinien zostać wyświetlony inicjowania obsługi administracyjnej powiadomienia o błędach w **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail z powiadomieniem, gdy wystąpi błąd".
 
 9. Kliknij pozycję **Zapisz**. 
 
-10. W obszarze hello sekcji mapowania, wybierz **tooGitHub synchronizacji Azure Active Directory użytkowników**.
+10. W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom GitHub**.
 
-11. W hello **mapowań atrybutów** Przejrzyj hello atrybutów użytkowników, które są synchronizowane z usługą Azure AD tooGitHub. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch hello konta w serwisie GitHub operacje aktualizacji. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
+11. W **mapowań atrybutów** Przejrzyj atrybuty użytkowników, które są synchronizowane z usługi Azure AD do usługi GitHub. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w usłudze GitHub dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-12. tooenable hello inicjowania obsługi usługi Azure AD dla usługi GitHub, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w hello **ustawienia** sekcji
+12. Aby włączyć usługi Azure AD, inicjowania obsługi usługi GitHub, zmień **stan inicjowania obsługi administracyjnej** do **na** w **ustawienia** sekcji
 
 13. Kliknij pozycję **Zapisz**. 
 
-Ta operacja spowoduje uruchomienie synchronizacji początkowej hello użytkowników i/lub grupy przypisane tooGitHub w hello użytkowników i grup sekcji. Witaj początkowej synchronizacji ma tooperform dłużej niż kolejne synchronizacje, które występują co około 20 minut, tak długo, jak działa usługa hello. Można użyć hello **szczegóły synchronizacji** sekcji postępu toomonitor i wykonaj łącza tooprovisioning działania raporty, które opisują wszystkie działania wykonywane przez hello inicjowania obsługi usługi.
+Ta operacja uruchamia wstępnej synchronizacji użytkowników i/lub grupy przypisane do usługi GitHub w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej.
 
-Aby uzyskać więcej informacji dotyczących sposobu inicjowania obsługi usługi Azure AD hello tooread logowania, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
@@ -106,4 +106,4 @@ Aby uzyskać więcej informacji dotyczących sposobu inicjowania obsługi usług
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dowiedz się, jak dzienniki tooreview i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](active-directory-saas-provisioning-reporting.md)
+* [Dowiedz się, jak należy przejrzeć dzienniki i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](active-directory-saas-provisioning-reporting.md)

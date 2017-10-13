@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji pakietu IoT — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+title: "Dokumentacja Pakietu IoT Azure — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 description: 
 services: iot-suite
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 83b006447e0d06d49ed7feace16b0db7d04d56f9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9726304918cbbc85e32e2095d2f1d4701fb8a71e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-suite-documentation"></a>Dokumentacja Pakietu IoT
 
-Szybko rozpocznij pracę z Pakietem IoT Microsoft Azure. Użycie wstępnie skonfigurowanych rozwiązań oraz przyspieszyć programowanie hello rozwiązania Internetu rzeczy (IoT). Dodawaj nowe urządzenia — i łącz istniejące — za pomocą zestawów SDK urządzeń dla wielu platform, w tym systemów Linux i Windows oraz systemów operacyjnych czasu rzeczywistego. Łatwo skalować z kilku toomillions czujniki jednocześnie podłączonych urządzeń i zależne od dostępnością globalną hello Azure&mdash;niezależnie od tego, jak duże lub małe projektu.
+Szybko rozpocznij pracę z Pakietem IoT Microsoft Azure. Użyj wstępnie skonfigurowanych rozwiązań i przyspiesz opracowywanie rozwiązań Internetu rzeczy (IoT). Dodawaj nowe urządzenia — i łącz istniejące — za pomocą zestawów SDK urządzeń dla wielu platform, w tym systemów Linux i Windows oraz systemów operacyjnych czasu rzeczywistego. Łatwe skalowanie od kilku czujników do milionów równocześnie połączonych urządzeń. Możesz polegać na globalnej dostępności platformy Azure &mdash; niezależnie od wielkości projektu.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -92,7 +92,7 @@ Szybko rozpocznij pracę z Pakietem IoT Microsoft Azure. Użycie wstępnie skonf
                         <p><a href="/azure/iot-suite/iot-security-architecture">Architektura zabezpieczeń</a></p>
                         <p><a href="/azure/iot-suite/iot-security-best-practices">Najlepsze rozwiązania dotyczące zabezpieczeń</a></p>
                         <p><a href="/azure/iot-suite/iot-suite-security-deployment">Zabezpieczanie wdrożenia IoT</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Zabezpieczeń z hello tła w</a></p>
+                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Zabezpieczenia od podstaw</a></p>
                    </div>
                 </div>
             </div>

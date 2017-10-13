@@ -1,6 +1,6 @@
 ---
-title: "Przegląd architektury przetwarzania komunikatów usługi Service Bus aaaAzure | Dokumentacja firmy Microsoft"
-description: "Zawiera opis architektury przetwarzania wiadomość hello Azure Service Bus."
+title: "Omówienie architektury przetwarzania komunikatów usługi Azure Service Bus | Microsoft Docs"
+description: "Opis architektury przetwarzania komunikatów usługi Azure Service Bus."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.openlocfilehash: f7606e40cdf6db3797a0db2de9365453ff2a158e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-architecture"></a>Architektura usługi Service Bus
-W tym artykule opisano architekturę przetwarzania komunikatu hello Azure Service Bus.
+W tym artykule opisano architekturę przetwarzania komunikatów usługi Azure Service Bus.
 
 ## <a name="service-bus-scale-units"></a>Jednostki skalowania usługi Service Bus
-Usługa Service Bus jest zorganizowana według *jednostek skalowania*. Jednostką skalowania jest jednostką wdrożenia i zawiera wszystkie składniki wymagane hello Uruchom usługę. Każdy region wdraża co najmniej jedną jednostkę skalowania usługi Service Bus.
+Usługa Service Bus jest zorganizowana według *jednostek skalowania*. Jednostka skalowania jest jednostką wdrożenia i zawiera wszystkie składniki wymagane do uruchomienia usługi. Każdy region wdraża co najmniej jedną jednostkę skalowania usługi Service Bus.
 
-Przestrzeń nazw usługi Service Bus jest jednostką skalowania tooa mapowane. Witaj jednostka skalowania obsługuje wszystkie typy jednostek usługi Service Bus (kolejki, tematy, subskrypcje). Jednostki skalowania usługi Service Bus składa się z hello następujące składniki:
+Przestrzeń nazw usługi Service Bus jest mapowana na jednostkę skalowania. Jednostka skalowania obsługuje wszystkie typy jednostek usługi Service Bus (kolejki, tematy, subskrypcje). Jednostka skalowania usługi Service Bus składa się z następujących składników:
 
 * **Zestaw węzłów bramy.** Węzły bramy uwierzytelniają żądania przychodzące. Każdy węzeł bramy ma publiczny adres IP.
 * **Zestaw węzłów brokera komunikatów.** Węzły brokera komunikatów przetwarzają żądania dotyczące jednostek obsługi komunikatów.
-* **Jeden magazyn bramy.** Witaj magazyn bramy przechowuje dane hello dla każdej jednostki, która jest zdefiniowana w tej jednostce skalowania. Magazyn bramy Hello jest wdrażany w oparciu o bazę danych SQL Azure.
-* **Wiele magazynów obsługi komunikatów.** Usługa obsługi komunikatów przechowuje wiadomości powitania kolejki, tematy i subskrypcje, które są zdefiniowane w tej jednostce skalowania. Zawiera również wszystkie dane subskrypcji. O ile [partycjonowania jednostek obsługi komunikatów](service-bus-partitioning.md) jest włączona, kolejka lub temat jest mapowanych tooone magazynie obsługi komunikatów. Subskrypcje są przechowywane w hello samym magazynie obsługi komunikatów jako ich temat nadrzędny. Z wyjątkiem usługi Service Bus [Premium Messaging](service-bus-premium-messaging.md), magazyny obsługi komunikatów hello są wdrażane na podstawie baz danych SQL Azure.
+* **Jeden magazyn bramy.** Magazyn bramy przechowuje dane dla każdej jednostki zdefiniowanej w tej jednostce skalowania. Magazyn bramy jest wdrażany w oparciu o bazę danych SQL Azure.
+* **Wiele magazynów obsługi komunikatów.** Usługa obsługi komunikatów przechowuje komunikaty wszystkich kolejek, tematów i subskrypcji, które są zdefiniowane w tej jednostce skalowania. Zawiera również wszystkie dane subskrypcji. O ile nie włączono opcji [partycjonowanie jednostki do obsługi komunikatów](service-bus-partitioning.md), kolejka lub temat są mapowane na jeden magazyn obsługi komunikatów. Subskrypcje są przechowywane w tym samym magazynie obsługi komunikatów jako ich temat nadrzędny. Z wyjątkiem [obsługi komunikatów w wersji Premium](service-bus-premium-messaging.md) usługi Service Bus, magazyny obsługi komunikatów są wdrażane na podstawie baz danych SQL Azure.
 
 ## <a name="containers"></a>Kontenery
-Każda jednostka obsługi komunikatów ma przypisany określony kontener. Kontener jest konstrukcją logiczną, który używa dokładnie jeden toostore magazynie obsługi komunikatów wszystkich odpowiednich danych dla tego kontenera. Każdy kontener jest przypisany tooa węzła brokera komunikatów. Zazwyczaj kontenerów jest więcej niż węzłów brokera obsługi komunikatów. W związku z tym każdy węzeł brokera obsługi komunikatów ładuje wiele kontenerów. Hello dystrybucja kontenerów węzeł brokera obsługi komunikatów tooa jest zorganizowana w taki sposób, że wszystkie węzły brokera obsługi komunikatów są równo obciążone. Jeśli hello hello obciążenia wzorzec zmiany (na przykład jeden z pobiera kontenery hello jest bardzo zajęty) lub jeśli węzeł brokera obsługi komunikatów staje się tymczasowo niedostępny, kontenery są redystrybuowane między hello węzłów brokera komunikatów.
+Każda jednostka obsługi komunikatów ma przypisany określony kontener. Kontener jest konstrukcją logiczną, która używa jednego magazynu obsługi komunikatów do przechowywania wszystkich odpowiednich danych dla tego kontenera. Każdy kontener jest przypisany do węzła brokera obsługi komunikatów. Zazwyczaj kontenerów jest więcej niż węzłów brokera obsługi komunikatów. W związku z tym każdy węzeł brokera obsługi komunikatów ładuje wiele kontenerów. Dystrybucja kontenerów do węzła brokera obsługi komunikatów jest zorganizowana w taki sposób, że wszystkie węzły brokera obsługi komunikatów są równo obciążone. Jeśli wzorzec obciążenia zmienia się (na przykład jeden z kontenerów staje się bardzo zajęty) lub jeśli węzeł brokera obsługi komunikatów staje się tymczasowo niedostępny, kontenery są redystrybuowane między węzły brokera obsługi komunikatów.
 
 ## <a name="processing-of-incoming-messaging-requests"></a>Przetwarzanie przychodzących żądań obsługi komunikatów
-Gdy klient wysyła żądanie tooService magistrali, hello Azure load balancer kieruje je tooany hello węzłów bramy. Witaj, węzeł bramy autoryzuje żądanie hello. Jeśli hello żądanie dotyczy jednostki obsługi komunikatów (kolejki, tematu, subskrypcji), hello węzeł bramy wyszukuje jednostkę hello w magazynie bramy hello i określa, w których wiadomości powitania magazynu znajduje się jednostki. Następnie wyszukuje które węzeł brokera obsługi komunikatów aktualnie obsługujący ten kontener i wysyła toothat żądania hello węzła brokera komunikatów. węzeł brokera wiadomości powitania przetwarza żądanie hello i aktualizuje stan jednostki hello hello kontenera magazynu. Hello wiadomości węzła brokera następnie wysyła hello odpowiedzi toohello wstecz bramy węzła, który wysyła klientowi wstecz toohello właściwą odpowiedź tego wystawione hello oryginalne żądanie.
+Gdy klient wysyła żądanie do usługi Service Bus, usługa Azure Load Balancer kieruje je do dowolnego z węzłów bramy. Węzeł bramy autoryzuje żądanie. Jeśli żądanie dotyczy jednostki obsługi komunikatów (kolejki, tematu, subskrypcji), węzeł bramy wyszukuje jednostkę w magazynie bramy i określa, w którym magazynie obsługi komunikatów znajduje się ta jednostka. Następnie wyszukuje węzeł brokera obsługi komunikatów aktualnie obsługujący ten kontener i wysyła żądanie do tego węzła brokera obsługi komunikatów. Węzeł brokera obsługi komunikatów przetwarza żądanie i aktualizuje stan jednostki w magazynie kontenera. Węzeł brokera obsługi komunikatów wysyła następnie odpowiedź do węzła bramy wysyłającego z kolei odpowiednią odpowiedź do klienta, który wysłał początkowe, oryginalne żądanie.
 
 ![Przetwarzanie przychodzących żądań obsługi komunikatów](./media/service-bus-architecture/ic690644.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy zostały przeczytane omówienie architektury usługi Service Bus, odwiedź hello następującego łącza Aby uzyskać więcej informacji:
+Teraz, po zapoznaniu się z architekturą usługi Service Bus, skorzystaj z następujących linków, aby uzyskać więcej informacji:
 
 * [Omówienie obsługi komunikatów w usłudze Service Bus](service-bus-messaging-overview.md)
 * [Podstawy usługi Service Bus](service-bus-fundamentals-hybrid-solutions.md)

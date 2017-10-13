@@ -1,6 +1,6 @@
 ---
-title: aaaManage Azure DC/OS klaster z interfejsu API REST platformy Marathon | Dokumentacja firmy Microsoft
-description: "Wdrażanie klastra usługi kontenera platformy Azure DC/OS tooan kontenerów przy użyciu hello interfejsu API REST platformy Marathon."
+title: "Zarządzanie klastrem Azure DC/OS z interfejsu API REST platformy Marathon | Dokumentacja firmy Microsoft"
+description: "Wdrażanie kontenerów do klastra usługi kontenera platformy Azure DC/OS przy użyciu interfejsu API REST platformy Marathon."
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -17,35 +17,35 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: d926b9b90f5d4eda85a015d9ea0d96fea2c4b566
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="dcos-container-management-through-hello-marathon-rest-api"></a>Zarządzanie kontenerem DC/OS przy użyciu hello interfejsu API REST platformy Marathon
-DC/OS udostępnia środowisko wdrażania i skalowania obciążeń klastrowanych, zapewniając jednocześnie abstrakcyjność sprzętu źródłowego hello. Ponad systemem DC/OS istnieje platforma, która zarządza planowaniem i wykonywaniem obciążeń obliczeniowych. Platformy są dostępne dla wielu popularnych zadań, ten dokument stanowi wprowadzenie tworzenia i skalowania wdrożenia kontenerów przy użyciu hello interfejsu API REST platformy Marathon. 
+# <a name="dcos-container-management-through-the-marathon-rest-api"></a>Zarządzanie kontenerem DC/OS przy użyciu interfejsu API REST platformy Marathon
+Platforma DC/OS dostarcza środowisko wdrażania i skalowania obciążeń klastrowanych, zapewniając jednocześnie abstrakcyjność sprzętu bazowego. Ponad systemem DC/OS istnieje platforma, która zarządza planowaniem i wykonywaniem obciążeń obliczeniowych. Platformy są dostępne dla wielu popularnych zadań, ten dokument stanowi wprowadzenie tworzenie i skalować wdrożenia kontenerów przy użyciu interfejsu API REST platformy Marathon. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed przystąpieniem do pracy nad tymi przykładami będziesz potrzebować klastra DC/OS skonfigurowanego w usłudze kontenera platformy Azure. Należy również toohave łączności zdalnej toothis klastra. Aby uzyskać więcej informacji na temat tych elementów zobacz następujące artykuły hello:
+Przed przystąpieniem do pracy nad tymi przykładami będziesz potrzebować klastra DC/OS skonfigurowanego w usłudze kontenera platformy Azure. Potrzebna będzie także zdalna łączność z tym klastrem. Aby uzyskać więcej informacji na temat tych elementów, zobacz następujące artykuły:
 
 * [Wdrażanie klastra usługi Azure Container Service](container-service-deployment.md)
-* [Łączenie tooan klastra usługi kontenera platformy Azure](../container-service-connect.md)
+* [Łączenie z klastrem usługi Azure Container Service](../container-service-connect.md)
 
-## <a name="access-hello-dcos-apis"></a>Witaj dostępu do interfejsów API DC/OS
-Po są połączone toohello klastra usługi kontenera platformy Azure, możesz uzyskać dostęp do hello DC/OS i powiązanych interfejsów API REST, za pośrednictwem portu http://localhost:local. Przykłady Hello w tym dokumencie założono, że tunelowanie korzysta na porcie 80. Na przykład punkty końcowe platformy Marathon hello jest osiągalna na identyfikatory URI rozpoczynające się od `http://localhost/marathon/v2/`. 
+## <a name="access-the-dcos-apis"></a>Dostęp do interfejsów API platformy DC/OS
+Po nawiązaniu połączeniu z klastrem usługi kontenera platformy Azure masz dostęp do platformy DC/OS i powiązanych interfejsów API REST pod adresem http://localhost:local-port. W przykładach przedstawionych w tym dokumencie założono, że tunelowanie korzysta z portu 80. Na przykład punkty końcowe platformy Marathon można połączyć się z na identyfikatory URI rozpoczynające się od `http://localhost/marathon/v2/`. 
 
-Aby uzyskać więcej informacji na temat hello różnych interfejsów API, zobacz hello dokumentację Mesosphere dotyczącą hello [interfejsu API platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) i [Chronos interfejsu API](https://mesos.github.io/chronos/docs/api.html)oraz dokumentację Apache dotyczącą hello [Mesos API harmonogramu ](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Aby uzyskać więcej informacji o różnych interfejsach API, zobacz dokumentację Mesosphere dotyczącą [interfejsu API platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) i [interfejsu API programu Chronos](https://mesos.github.io/chronos/docs/api.html) oraz dokumentację Apache dotyczącą [interfejsu API aplikacji Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Gromadzenie informacji z platform DC/OS i Marathon
-Przed wdrożeniem klastra DC/OS toohello kontenery Zbierz określone informacje o klastrze DC/OS hello, takich jak nazwy hello i stan agentów DC/OS hello. toodo zapytanie tak, hello `master/slaves` punkt końcowy hello interfejsu API REST platformy DC/OS. Jeśli wszystko odbędzie się poprawnie, hello zapytanie zwraca listę agentów DC/OS i szereg właściwości każdego.
+Przed wdrożeniem kontenerów do klastra DC/OS Zbierz określone informacje o klastrze DC/OS, takie jak nazwy i stan agentów DC/OS. W tym celu wykonaj zapytanie w punkcie końcowym `master/slaves` interfejsu API REST platformy DC/OS. Jeśli operacja zostanie wykonana pomyślnie, zapytanie zwróci listę agentów DC/OS i szereg właściwości każdego z nich.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-Teraz, przy użyciu platformy Marathon hello `/apps` toocheck punktu końcowego dla bieżącego klastra DC/OS toohello wdrożeń aplikacji. Jeśli jest to nowy klaster, pojawi się pusta tablica aplikacji.
+Teraz użyj punktu końcowego `/apps` platformy Marathon, aby sprawdzić bieżące wdrożenia aplikacji w klastrze DC/OS. Jeśli jest to nowy klaster, pojawi się pusta tablica aplikacji.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -54,7 +54,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Wdrażanie kontenera w formacie programu Docker
-Kontenery w formacie Docker za pośrednictwem interfejsu API REST platformy Marathon hello wdrażania przy użyciu pliku JSON, który opisuje hello zamierzone wdrożenie. Witaj poniższego przykładu wdraża Nginx kontenera tooa prywatny agenta hello klastra. 
+Kontenery w formacie Docker za pośrednictwem interfejsu API REST platformy Marathon można wdrożyć przy użyciu pliku JSON, który opisuje zamierzone wdrożenie. Poniższy przykład wdraża kontener Nginx prywatny agenta w klastrze. 
 
 ```json
 {
@@ -75,42 +75,42 @@ Kontenery w formacie Docker za pośrednictwem interfejsu API REST platformy Mara
 }
 ```
 
-toodeploy formacie programu Docker kontenerze, przechowywania pliku JSON hello w dostępnej lokalizacji. Następnie toodeploy hello kontener, uruchom następujące polecenie hello. Określ nazwę pliku JSON hello hello (`marathon.json` w tym przykładzie).
+Do wdrożenia kontenera formacie programu Docker, przechowuj plik JSON w dostępnej lokalizacji. Następnie w celu wdrożenia kontenera uruchom następujące polecenie. Określ nazwę pliku JSON (`marathon.json` w tym przykładzie).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
-dane wyjściowe Hello są podobne toohello następujące czynności:
+Dane wyjściowe będą podobne do następujących:
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Teraz po wykonaniu zapytania Marathon dla aplikacji, ta nowa aplikacja pojawi się w danych wyjściowych hello.
+Teraz po wykonaniu zapytania dotyczącego aplikacji na platformie Marathon nowa aplikacja pojawi się w danych wyjściowych.
 
 ```bash
 curl localhost/marathon/v2/apps
 ```
 
-## <a name="reach-hello-container"></a>Osiągnąć hello kontenera
+## <a name="reach-the-container"></a>Osiągnąć kontenera
 
-Możesz zweryfikować tego hello Nginx jest uruchomione w kontenerze na jednym z agentów prywatnej hello w klastrze hello. toofind hello hosta i portu, w którym jest uruchomiona kontenera hello, kwerendy Marathon hello uruchomionych zadań: 
+Aby sprawdzić, czy Nginx działa w kontenerze w jednej z prywatnych agentów w klastrze. Aby znaleźć hosta i portu, na którym jest uruchomiona kontenera, zapytanie Marathon uruchomione zadania: 
 
 ```bash
 curl localhost/marathon/v2/tasks
 ```
 
-Znajdź wartość hello `host` w danych wyjściowych hello (adresów IP podobny zbyt`10.32.0.x`) i wartość hello `ports`.
+Znajdź wartość `host` w danych wyjściowych (podobnie jak adres IP `10.32.0.x`), a wartością `ports`.
 
 
-Teraz należy SSH terminali (nie połączeń tunelowych) toohello zarządzania połączeniami nazwy FQDN klastra hello. Po nawiązaniu połączenia należy hello następujące żądania, zastępując wartości poprawne hello `host` i `ports`:
+Teraz należy terminali połączenia SSH (nie połączeń tunelowych) do zarządzania nazwy FQDN klastra. Po nawiązaniu połączenia, wprowadź następujące żądania, zastępując poprawne wartości `host` i `ports`:
 
 ```bash
 curl http://host:ports
 ```
 
-Hello dane wyjściowe server Nginx jest podobne toohello następujące czynności:
+Dane wyjściowe server Nginx jest podobny do następującego:
 
 ![Nginx z kontenera](./media/container-service-mesos-marathon-rest/nginx.png)
 
@@ -118,16 +118,16 @@ Hello dane wyjściowe server Nginx jest podobne toohello następujące czynnośc
 
 
 ## <a name="scale-your-containers"></a>Skalowanie kontenerów
-W przypadku wdrożeń aplikacji, można użyć tooscale interfejsu API platformy Marathon hello out lub skali. W poprzednim przykładzie hello wdrożono jedno wystąpienie aplikacji. Przeprowadź skalowanie tę możliwość toothree wystąpienia aplikacji. toodo tak, Utwórz plik JSON przy użyciu powitania po tekst JSON i zapisze go w dostępnej lokalizacji.
+Interfejsu API platformy Marathon umożliwia skalowanie w poziomie oraz skalowanie w przypadku wdrożeń aplikacji. W poprzednim przykładzie wdrożono jedno wystąpienie aplikacji. Wykonamy teraz skalowanie w poziomie, aby uzyskać trzy wystąpienia aplikacji. W tym celu utwórz plik JSON zawierający następujący tekst JSON i zapisz go w dostępnej lokalizacji.
 
 ```json
 { "instances": 3 }
 ```
 
-Z połączeniem tunelowane Uruchom hello następujące polecenia tooscale limit aplikacji hello.
+Z tunelowane połączenie uruchom następujące polecenie, aby skalować aplikację w poziomie.
 
 > [!NOTE]
-> Witaj identyfikatora URI jest http://localhost/marathon/v2/apps/ następuje identyfikator hello tooscale aplikacji hello. Jeśli używasz hello przykład Nginx, który znajduje się w tym miejscu, hello identyfikator URI będzie http://localhost/marathon/v2/apps/nginx.
+> Identyfikator URI będzie mieć postać http://localhost/marathon/v2/apps/ z dołączonym identyfikatorem aplikacji do skalowania. W przypadku użycia przedstawionej tutaj przykładowej aplikacji Nginx identyfikator URI będzie mieć postać http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -135,7 +135,7 @@ Z połączeniem tunelowane Uruchom hello następujące polecenia tooscale limit 
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Na koniec wykonaj zapytanie hello punktu końcowego platformy Marathon dla aplikacji. Widoczne będą trzy kontenery Nginx.
+Na koniec wykonaj zapytanie dotyczące aplikacji w punkcie końcowym platformy Marathon. Widoczne będą trzy kontenery Nginx.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -144,13 +144,13 @@ curl localhost/marathon/v2/apps
 ## <a name="equivalent-powershell-commands"></a>Równoważne polecenia programu PowerShell
 Te same akcje można wykonać za pomocą poleceń programu PowerShell w systemie Windows.
 
-toogather informacje o klastrze DC/OS hello, takich jak nazwy i stan agenta, uruchom następujące polecenie hello:
+Aby zebrać informacje dotyczące klastra DC/OS, takie jak nazwy i stan agenta, uruchom następujące polecenie:
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Kontenery w formacie Docker za pośrednictwem platformy Marathon wdrażania przy użyciu pliku JSON, który opisuje hello zamierzone wdrożenie. Witaj następującym przykładowym wdraża hello kontener Nginx, powiązania z portem 80 tooport agenta DC/OS hello 80 kontenera hello.
+Kontenery w formacie programu Docker można wdrażać za pośrednictwem platformy Marathon przy użyciu pliku JSON, który opisuje zamierzone wdrożenie. W poniższym przykładzie wdrożono kontener Nginx, który powiąże port 80 agenta DC/OS z portem 80 kontenera.
 
 ```json
 {
@@ -171,22 +171,22 @@ Kontenery w formacie Docker za pośrednictwem platformy Marathon wdrażania przy
 }
 ```
 
-toodeploy formacie programu Docker kontenerze, przechowywania pliku JSON hello w dostępnej lokalizacji. Następnie toodeploy hello kontener, uruchom następujące polecenie hello. Określ plik JSON toohello ścieżka hello (`marathon.json` w tym przykładzie).
+Do wdrożenia kontenera formacie programu Docker, przechowuj plik JSON w dostępnej lokalizacji. Następnie w celu wdrożenia kontenera uruchom następujące polecenie. Określ ścieżkę do pliku JSON (`marathon.json` w tym przykładzie).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-W przypadku wdrożeń aplikacji, można użyć tooscale interfejsu API platformy Marathon hello out lub skali. W poprzednim przykładzie hello wdrożono jedno wystąpienie aplikacji. Przeprowadź skalowanie tę możliwość toothree wystąpienia aplikacji. toodo tak, Utwórz plik JSON przy użyciu powitania po tekst JSON i zapisze go w dostępnej lokalizacji.
+Interfejs API platformy Marathon umożliwia także skalowanie w poziomie oraz skalowanie na zewnątrz wdrożeń aplikacji. W poprzednim przykładzie wdrożono jedno wystąpienie aplikacji. Wykonamy teraz skalowanie w poziomie, aby uzyskać trzy wystąpienia aplikacji. W tym celu utwórz plik JSON zawierający następujący tekst JSON i zapisz go w dostępnej lokalizacji.
 
 ```json
 { "instances": 3 }
 ```
 
-Witaj uruchom następujące polecenie tooscale limit aplikacji hello:
+Uruchom następujące polecenie, aby skalować aplikację w poziomie:
 
 > [!NOTE]
-> Witaj identyfikatora URI jest http://localhost/marathon/v2/apps/ następuje identyfikator hello tooscale aplikacji hello. Jeśli używasz hello Nginx przykładu dostępnego w tym miejscu, hello identyfikator URI będzie http://localhost/marathon/v2/apps/nginx.
+> Identyfikator URI będzie mieć postać http://localhost/marathon/v2/apps/ z dołączonym identyfikatorem aplikacji do skalowania. W przypadku użycia przedstawionej tutaj przykładowej aplikacji Nginx, identyfikator URI będzie mieć postać http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -195,6 +195,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* [Więcej informacji na temat punktów końcowych HTTP platformy Mesos hello](http://mesos.apache.org/documentation/latest/endpoints/)
-* [Więcej informacji na temat hello interfejsu API REST platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
+* [Więcej informacji na temat punktów końcowych HTTP platformy Mesos](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Więcej informacji na temat interfejsu API REST platformy Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

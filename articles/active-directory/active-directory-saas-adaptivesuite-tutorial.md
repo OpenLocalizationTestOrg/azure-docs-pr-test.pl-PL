@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Azure Active Directory integracji z pakietem adaptacyjną | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i adaptacyjną Suite."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i adaptacyjną Suite."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: af309c27ab74098c1e229c80adb11c96dc2774fb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5d7ba2f4c7d814e3aaa1bf804ddc5030380ccb2d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-suite"></a>Samouczek: Integracji Azure Active Directory z adaptacyjną Suite
 
-Z tego samouczka, dowiesz się, jak toointegrate adaptacyjną Suite w usłudze Azure Active Directory (Azure AD).
+W tym samouczku Dowiedz się integrowanie adaptacyjną pakietu z usługi Azure Active Directory (Azure AD).
 
-Integrowanie adaptacyjną pakiet z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie adaptacyjną pakiet z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp tooAdaptive Suite
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooAdaptive Suite (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, kto ma dostęp do zestawu adaptacyjną
+- Umożliwia użytkownikom automatycznie pobrać zalogowane adaptacyjną pakietu (logowanie jednokrotne) z konta usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z adaptacyjną Suite należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z adaptacyjną Suite, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Pakiet adaptacyjną jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie pakietu adaptacyjną z galerii hello
+1. Dodawanie pakietu adaptacyjną z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-adaptive-suite-from-hello-gallery"></a>Dodawanie pakietu adaptacyjną z galerii hello
-tooconfigure hello zintegrowania pakietu adaptacyjną usługi Azure AD, należy tooadd adaptacyjną pakiet z listy tooyour galerii hello zarządzanych aplikacji SaaS.
+## <a name="adding-adaptive-suite-from-the-gallery"></a>Dodawanie pakietu adaptacyjną z galerii
+Aby skonfigurować integrację usługi Azure AD adaptacyjną pakietu, należy dodać pakiet adaptacyjną z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd adaptacyjną pakiet z galerii hello wykonaj hello następujące kroki:**
+**Aby dodać pakiet adaptacyjną z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **Suite adaptacyjną**.
+4. W polu wyszukiwania wpisz **Suite adaptacyjną**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_search.png)
 
-5. W panelu wyników hello, wybierz **Suite adaptacyjną**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **Suite adaptacyjną**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z adaptacyjną pakietu na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow hello użytkownika odpowiednikiem pakietu adaptacyjną jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi pakietu adaptacyjną musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednikiem pakietu adaptacyjną jest dla użytkownika, w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi pakietu adaptacyjną musi określone.
 
-Adaptacyjną pakietu, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+Adaptacyjną pakietu, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i test usługi Azure AD rejestracji jednokrotnej z adaptacyjną Suite należy hello toocomplete po bloków konstrukcyjnych:
+Do konfigurowania i testowania usługi Azure AD rejestracji jednokrotnej z adaptacyjną pakietu, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego adaptacyjną Suite](#creating-an-adaptive-suite-test-user)**  -toohave odpowiednikiem Simona Britta pakietu adaptacyjną, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego adaptacyjną Suite](#creating-an-adaptive-suite-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta adaptacyjną pakiet, który jest połączony z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne adaptacyjną pakietu aplikacji.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w adaptacyjną pakiet aplikacji.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z adaptacyjną pakiet, wykonaj hello następujące kroki:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z adaptacyjną pakiet, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Suite adaptacyjną** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Suite adaptacyjną** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_samlbase.png)
 
-3. Na powitania **adaptacyjną domeny Suite i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **adaptacyjną domeny Suite i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
 
-    W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     >[!NOTE]
-    > Tę wartość można uzyskać od hello adaptacyjną Suite **ustawienia logowania jednokrotnego SAML** strony.
+    > Tę wartość można uzyskać z adaptacyjną zestawu **ustawienia logowania jednokrotnego SAML** strony.
     >  
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_certificate.png) 
 
@@ -124,35 +124,35 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_general_400.png)
 
-6. Na powitania **adaptacyjną konfiguracji pakietu** kliknij **skonfigurować pakiet adaptacyjną** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+6. Na **adaptacyjną konfiguracji pakietu** , kliknij przycisk **skonfigurować pakiet adaptacyjną** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_configure.png) 
 
-7. W oknie przeglądarki innej witryny sieci web Zaloguj się w witrynie firmy adaptacyjną Suite tooyour jako administrator.
+7. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy adaptacyjną Suite.
 
-8. Przejdź za**Admin**.
+8. Przejdź do **Admin**.
    
     ![Administrator](./media/active-directory-saas-adaptivesuite-tutorial/IC805644.png "administratora")
 
-9. W hello **użytkownikami i rolami** kliknij **Zarządzaj ustawieniami logowania jednokrotnego SAML**.
+9. W **użytkownikami i rolami** kliknij **Zarządzaj ustawieniami logowania jednokrotnego SAML**.
    
     ![Zarządzanie ustawieniami logowania jednokrotnego SAML](./media/active-directory-saas-adaptivesuite-tutorial/IC805645.png "Zarządzanie ustawieniami logowania jednokrotnego SAML")
 
-10. Na powitania **ustawienia logowania jednokrotnego SAML** wykonaj hello następujące kroki:
+10. Na **ustawienia logowania jednokrotnego SAML** wykonaj następujące czynności:
    
     ![Ustawienia logowania jednokrotnego SAML](./media/active-directory-saas-adaptivesuite-tutorial/IC805646.png "ustawienia logowania jednokrotnego SAML")
 
-    a. W hello **Nazwa dostawcy tożsamości** tekstowym, wpisz nazwę dla danej konfiguracji.
+    a. W **Nazwa dostawcy tożsamości** tekstowym, wpisz nazwę dla danej konfiguracji.
     
-    b. Wklej hello **identyfikator jednostki SAML** wartość skopiowany z portalu Azure do hello **dostawcy tożsamości identyfikator jednostki** pola tekstowego.
+    b. Wklej **identyfikator jednostki SAML** wartość skopiowany z portalu Azure do **dostawcy tożsamości identyfikator jednostki** pola tekstowego.
   
-    c. Wklej hello **SAML pojedynczy znak na adres URL usługi** wartość skopiowany z portalu Azure do hello **dostawcy tożsamości adresu URL logowania jednokrotnego** pola tekstowego.
+    c. Wklej **SAML pojedynczy znak na adres URL usługi** wartość skopiowany z portalu Azure do **dostawcy tożsamości adresu URL logowania jednokrotnego** pola tekstowego.
   
-    d. Wklej hello **SAML pojedynczy znak na adres URL usługi** wartość skopiowany z portalu Azure do hello **niestandardowy adres URL wylogowania** pola tekstowego.
+    d. Wklej **SAML pojedynczy znak na adres URL usługi** wartość skopiowany z portalu Azure do **niestandardowy adres URL wylogowania** pola tekstowego.
   
-    e. tooupload pobranego certyfikatu, kliknij przycisk **wybierz plik**.
+    e. Aby przekazać certyfikat pobrany, kliknij przycisk **wybierz plik**.
   
-    f. Wybierz poniżej powitania dla:
+    f. Wykonaj następujące czynności, aby uzyskać:
     * **Identyfikator użytkownika SAML**, wybierz pozycję **nazwy użytkownika adaptacyjną Insights**.
     * **Lokalizacja identyfikator użytkownika SAML**, wybierz pozycję **identyfikatora użytkownika w NameID podmiotu**.
     * **Format SAML NameID**, wybierz pozycję **adres E-mail**.
@@ -161,86 +161,86 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
     g. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adaptivesuite-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adaptivesuite-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adaptivesuite-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-adaptivesuite-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-an-adaptive-suite-test-user"></a>Tworzenie użytkownika testowego adaptacyjną Suite
 
-toolog użytkowników tooenable usługi Azure AD w tooAdaptive Suite muszą mieć przydzielone do adaptacyjnego Suite.  
+Aby umożliwić użytkownikom usługi Azure AD zalogować się do adaptacyjnego Suite, muszą mieć przydzielone do adaptacyjnego Suite.  
 
-* W przypadku hello pakietu adaptacyjną Inicjowanie obsługi to zadanie ręczne.
+* W przypadku adaptacyjną Suite Inicjowanie obsługi to zadanie ręczne.
 
-**tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:** 
+**Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:** 
 
-1. Zaloguj się za tooyour **Suite adaptacyjną** witryny firmy jako administrator.
-2. Przejdź za**Admin**.
+1. Zaloguj się do Twojego **Suite adaptacyjną** witryny firmy jako administrator.
+2. Przejdź do **Admin**.
    
    ![Administrator](./media/active-directory-saas-adaptivesuite-tutorial/IC805644.png "administratora")
-3. W hello **użytkownikami i rolami** kliknij **Dodaj użytkownika**.
+3. W **użytkownikami i rolami** kliknij **Dodaj użytkownika**.
    
    ![Dodaj użytkownika](./media/active-directory-saas-adaptivesuite-tutorial/IC805648.png "Dodaj użytkownika")
-4. W hello **nowego użytkownika** sekcji, wykonaj następujące kroki hello:
+4. W **nowego użytkownika** sekcji, wykonaj następujące czynności:
    
    ![Przedstawia](./media/active-directory-saas-adaptivesuite-tutorial/IC805649.png "przesyłania")   
 
-   a. Hello typu **nazwa**, **logowania**, **E-mail**, **hasło** z prawidłowym użytkownikiem usługi Azure Active Directory ma tooprovision do hello powiązane pola tekstowe.
+   a. Typ **nazwa**, **logowania**, **E-mail**, **hasło** z prawidłowym użytkownikiem usługi Azure Active Directory chcesz udostępnić w odnośnych pola tekstowe.
   
    b. Wybierz **roli**.
   
    c. Kliknij przycisk **przesłać**.
 
 >[!NOTE]
->Możesz użyć innych adaptacyjną Suite użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez tooprovision Suite adaptacyjną kont użytkowników usługi AAD.
+>Możesz użyć innych adaptacyjną Suite użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez pakiet adaptacyjną do kont użytkowników usługi AAD.
 >  
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooAdaptive Suite.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do zestawu adaptacyjną.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooAdaptive Simona Britta pakiet, wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta adaptacyjną pakietu, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Suite adaptacyjną**.
+2. Na liście aplikacji zaznacz **Suite adaptacyjną**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-adaptivesuite-tutorial/tutorial_adaptivesuite_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -248,7 +248,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -256,14 +256,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem Hello w tej sekcji jest tootest z usługi Microsoft Azure AD rejestracji jednokrotnej konfiguracji przy użyciu hello panelu dostępu.
+Celem tej sekcji służy do testowania usługi Microsoft Azure AD rejestracji jednokrotnej konfigurację za pomocą panelu dostępu.
 
-Po kliknięciu kafelka adaptacyjną Suite hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour adaptacyjną pakietu aplikacji.
+Po kliknięciu kafelka adaptacyjną Suite w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane adaptacyjną pakiet aplikacji.
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

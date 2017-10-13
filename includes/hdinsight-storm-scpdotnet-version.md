@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Wersja SCP.Net Hello używany w projekcie musi być zgodna wersja Storm hello jest obecna w klastrze usługi HDInsight. Użyj powitania po toodetermine tabeli, w której wersji należy używać:
+> Wersja SCP.Net używany w projekcie musi odpowiadać wersji Storm występuje w klastrze usługi HDInsight. Skorzystaj z poniższej tabeli w celu określenia którą wersję należy używać:
 > 
 > | Wersja usługi HDInsight | Wersja systemu Apache Storm | Wersja SCP.NET | Domyślna wersja Mono |
 > |:---:|:---:|:---:|:---:|

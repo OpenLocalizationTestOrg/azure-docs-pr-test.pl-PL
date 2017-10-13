@@ -1,5 +1,5 @@
 ---
-title: "toouse aaaHow pamięci podręcznej Redis Azure z językiem Java | Dokumentacja firmy Microsoft"
+title: "Jak używać usługi Azure Redis Cache za pomocą języka Java | Microsoft Docs"
 description: "Rozpoczęcie pracy z usługą Azure Redis Cache za pomocą języka Java"
 services: redis-cache
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 04/13/2017
+ms.date: 08/31/2017
 ms.author: sdanie
-ms.openlocfilehash: 7768e879d71f61585b59cf4bd6634ba3f12e001d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-toouse-azure-redis-cache-with-java"></a>Jak toouse Azure pamięci podręcznej Redis z językiem Java
+# <a name="how-to-use-azure-redis-cache-with-java"></a>Jak używać pamięci podręcznej Redis Azure za pomocą języka Java
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Azure zapewnia pamięci podręcznej Redis dostęp tooa dedykowanej pamięci podręcznej Redis pamięci podręcznej, zarządzany przez firmę Microsoft. Pamięć podręczna jest dostępna z poziomu dowolnej aplikacji na platformie Microsoft Azure.
+Usługa Azure Redis Cache umożliwia dostęp do dedykowanej pamięci podręcznej Redis, zarządzanej przez firmę Microsoft. Pamięć podręczna jest dostępna z poziomu dowolnej aplikacji na platformie Microsoft Azure.
 
-W tym temacie przedstawiono sposób uruchamiania tooget z pamięci podręcznej Redis Azure za pomocą języka Java.
+W tym temacie opisano sposób rozpoczęcia pracy z usługą Azure Redis Cache za pomocą języka Java.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 [Jedis](https://github.com/xetorthio/jedis) — klient Java dla usługi Redis
@@ -42,11 +42,11 @@ W tym samouczku używany jest klient Jedis, ale można użyć dowolnego klienta 
 ## <a name="create-a-redis-cache-on-azure"></a>Tworzenie pamięci podręcznej Redis na platformie Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-hello-host-name-and-access-keys"></a>Pobieranie hello hosta nazwy i dostępu do kluczy
+## <a name="retrieve-the-host-name-and-access-keys"></a>Pobieranie nazwy hosta i kluczy dostępu
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="connect-toohello-cache-securely-using-ssl"></a>Połączenie pamięci podręcznej toohello przy użyciu protokołu SSL
-Najnowsza wersja kompilacji Hello [jedis](https://github.com/xetorthio/jedis) zapewniają obsługę łączenie tooAzure pamięci podręcznej Redis przy użyciu protokołu SSL. Witaj poniższy przykład pokazuje, jak przy użyciu pamięci podręcznej Redis tooAzure tooconnect hello punkt końcowy SSL 6380. Zastąp `<name>` o nazwie hello pamięć podręczną i `<key>` przy użyciu jednej klucz podstawowy lub pomocniczy zgodnie z opisem w hello poprzedniej [pobrać hello nazwy i dostęp za pomocą klucza hosta](#retrieve-the-host-name-and-access-keys) sekcji.
+## <a name="connect-to-the-cache-securely-using-ssl"></a>Bezpieczne łączenie się z pamięcią podręczną przy użyciu protokołu SSL
+Najnowsze kompilacje klienta [jedis](https://github.com/xetorthio/jedis) umożliwiają łączenie się z usługą Azure Redis Cache przy użyciu protokołu SSL. Poniższy przykład przedstawia, jak nawiązać połączenie z usługą Azure Redis Cache przy użyciu punktu końcowego 6380 protokołu SSL. Zastąp parametr `<name>` nazwą Twojej pamięci podręcznej, a parametr `<key>` kluczem podstawowym lub dodatkowym, jak opisano w poprzedniej sekcji [Pobieranie nazwy hosta i kluczy dostępu](#retrieve-the-host-name-and-access-keys).
 
     boolean useSsl = true;
     /* In this line, replace <name> with your cache name: */
@@ -54,11 +54,11 @@ Najnowsza wersja kompilacji Hello [jedis](https://github.com/xetorthio/jedis) za
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
 > [!NOTE]
-> port bez protokołu SSL Hello jest wyłączona dla nowego wystąpienia pamięci podręcznej Redis Azure. Jeśli korzystasz z innego klienta, który nie obsługuje protokołu SSL, zobacz [jak tooenable hello portu bez protokołu SSL](cache-configure.md#access-ports).
+> Port inny niż SSL jest wyłączony w przypadku nowych wystąpień usługi Azure Redis Cache. Jeśli używasz innego klienta, który nie obsługuje protokołu SSL, zobacz [How to enable the non-SSL port](cache-configure.md#access-ports) (Jak włączyć port inny niż SSL).
 > 
 > 
 
-## <a name="add-something-toohello-cache-and-retrieve-it"></a>Dodaj element toohello pamięci podręcznej i pobranie
+## <a name="add-something-to-the-cache-and-retrieve-it"></a>Dodawanie elementu do pamięci podręcznej i pobieranie go
     package com.mycompany.app;
     import redis.clients.jedis.Jedis;
     import redis.clients.jedis.JedisShardInfo;
@@ -79,5 +79,6 @@ Najnowsza wersja kompilacji Hello [jedis](https://github.com/xetorthio/jedis) za
 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Włącz diagnostykę w pamięci podręcznej](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) można więc [monitor](https://msdn.microsoft.com/library/azure/dn763945.aspx) hello kondycji pamięci podręcznej.
-* Oficjalne hello odczytu [Redis dokumentacji](http://redis.io/documentation).
+* [Włącz diagnostykę pamięci podręcznej](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics), aby móc [monitorować](https://msdn.microsoft.com/library/azure/dn763945.aspx) jej kondycję.
+* Przeczytaj oficjalną [dokumentację magazynu Redis](http://redis.io/documentation).
+* Dowiedz się, [jak skonfigurować aplikację Spring Initializr, aby korzystać z usługi Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md).

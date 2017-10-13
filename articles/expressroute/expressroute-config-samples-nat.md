@@ -1,5 +1,5 @@
 ---
-title: "Przykłady konfiguracji routera klienta aaaExpressRoute | Dokumentacja firmy Microsoft"
+title: "Przykłady konfiguracji routera klienta ExpressRoute | Dokumentacja firmy Microsoft"
 description: "Ta strona zawiera przykłady konfiguracji routera dla routerów Cisco i Juniper."
 documentationcenter: na
 services: expressroute
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-ms.openlocfilehash: b5faca0666bda6173e54abb0b6560d5f8bf8bfc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="router-configuration-samples-tooset-up-and-manage-nat"></a>Konfiguracja routera przykłady tooset się i zarządzanie nimi translatora adresów Sieciowych
-Ta strona zawiera przykłady konfiguracji translatora adresów Sieciowych dla Cisco ASA i Juniper SRX routery serii. Służą one przykłady toobe przeznaczone tylko do celów informacyjnych i nie mogą być używane, ponieważ jest. Można pracować z toocome Twojego dostawcy z konfiguracjami odpowiednie dla danej sieci. 
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Przykłady konfiguracji routera do konfigurowania i zarządzania nią translatora adresów Sieciowych
+Ta strona zawiera przykłady konfiguracji translatora adresów Sieciowych dla Cisco ASA i Juniper SRX routery serii. Te powinny być przykłady tylko do celów informacyjnych i nie mogą być używane, ponieważ jest. Możesz pracować z dostawcą pozwoli uzyskać odpowiedni konfiguracji sieci. 
 
 > [!IMPORTANT]
-> Przykłady na tej stronie są toobe przeznaczone wyłącznie w celu uzyskania wskazówek. Należy skontaktować się z zespołu sprzedaży / techniczne z dostawcą i Twojej sieci toocome zespołu się z odpowiedniej konfiguracji toomeet potrzeb. Microsoft nie będzie obsługiwał problemy związane z tooconfigurations wymienione na tej stronie. Należy się z dostawcą urządzenia pomocy technicznej.
+> Przykłady na tej stronie mają być wyłącznie w celu uzyskania wskazówek. Należy skontaktować się z zespołu sprzedaży / techniczne z dostawcą i sieci zespołu pozwoli uzyskać odpowiedni konfiguracji zgodnie z potrzebami. Microsoft nie będzie obsługiwał problemy związane z konfiguracji opisanych w tej strony. Należy się z dostawcą urządzenia pomocy technicznej.
 > 
 > 
 
-* Poniższe przykłady konfiguracji routera mają zastosowanie tooAzure komunikacji równorzędnych publicznego i firmy Microsoft. Nie należy skonfigurować translatora adresów Sieciowych dla platformy Azure prywatnej komunikacji równorzędnej. Przegląd [komunikacji równorzędnych ExpressRoute](expressroute-circuit-peerings.md) i [wymagania ExpressRoute NAT](expressroute-nat.md) więcej szczegółów.
+* Poniższe przykłady konfiguracji routera mają zastosowanie do komunikacji równorzędnych publicznej Azure i firmy Microsoft. Nie należy skonfigurować translatora adresów Sieciowych dla platformy Azure prywatnej komunikacji równorzędnej. Przegląd [komunikacji równorzędnych ExpressRoute](expressroute-circuit-peerings.md) i [wymagania ExpressRoute NAT](expressroute-nat.md) więcej szczegółów.
 
-* Należy użyć oddzielnego pul IP translatora adresów Sieciowych dla toohello połączenie internetowe i ExpressRoute. Za pomocą hello puli sam IP translatora adresów Sieciowych między hello internet i ExpressRoute spowoduje asymetrycznego routingu i utratę łączności.
+* Należy użyć oddzielnych pule adresów IP translatora adresów Sieciowych dla łączności z Internetem i ExpressRoute. Przy użyciu tej samej puli IP translatora adresów Sieciowych przez internet oraz ExpressRoute spowoduje asymetrycznego routingu i utratę łączności.
 
 
 ## <a name="cisco-asa-firewalls"></a>Cisco ASA zapór
-### <a name="pat-configuration-for-traffic-from-customer-network-toomicrosoft"></a>PAWEŁ konfiguracji dla ruchu z tooMicrosoft sieci klienta
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Konfiguracja PAWEŁ ruch z sieci klienta do firmy Microsoft
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
 
@@ -54,12 +54,12 @@ Ta strona zawiera przykłady konfiguracji translatora adresów Sieciowych dla Ci
 
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### <a name="pat-configuration-for-traffic-from-microsoft-toocustomer-network"></a>Konfiguracja PAWEŁ ruch z sieci toocustomer firmy Microsoft
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Konfiguracja PAWEŁ ruch od firmy Microsoft do klienta sieci
 
 **Interfejsy i kierunek:**
 
-    Source Interface (where hello traffic enters hello ASA): inside
-    Destination Interface (where hello traffic exits hello ASA): outside
+    Source Interface (where the traffic enters the ASA): inside
+    Destination Interface (where the traffic exits the ASA): outside
 
 **Konfiguracja:**
 
@@ -87,10 +87,10 @@ Polecenia translatora adresów Sieciowych:
 
 
 ## <a name="juniper-srx-series-routers"></a>Juniper SRX serii routery
-### <a name="1-create-redundant-ethernet-interfaces-for-hello-cluster"></a>1. Tworzenie nadmiarowych interfejsów Ethernet hello klastra
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Tworzenie nadmiarowych interfejsów Ethernet dla klastra
     interfaces {
         reth0 {
-            description "tooInternal Network";
+            description "To Internal Network";
             vlan-tagging;
             redundant-ether-options {
                 redundancy-group 1;
@@ -103,13 +103,13 @@ Polecenia translatora adresów Sieciowych:
             }
         }
         reth1 {
-            description "tooMicrosoft via Edge Router";
+            description "To Microsoft via Edge Router";
             vlan-tagging;
             redundant-ether-options {
                 redundancy-group 2;
             }
             unit 100 {
-                description "tooMicrosoft via Edge Router";
+                description "To Microsoft via Edge Router";
                 vlan-id 100;
                 family inet {
                     address <IP-Address/Subnet-mask>;
@@ -121,8 +121,8 @@ Polecenia translatora adresów Sieciowych:
 
 ### <a name="2-create-two-security-zones"></a>2. Utwórz dwie strefy zabezpieczeń
 * Zaufania strefy do sieci wewnętrznej i niezaufanej sieci zewnętrznych ukierunkowane routery brzegowe
-* Przypisz odpowiednich interfejsów toohello stref
-* Zezwalaj usługom na powitania interfejsów
+* Przypisz odpowiednich interfejsów do strefy
+* Zezwalaj usługom na interfejsach
 
     zabezpieczeń strefy {{zaufania strefy zabezpieczeń {hosta-— ruch przychodzący {systemu services {ping;                   } protokołów {bgp;                   interfejsy}} {reth0.100;               {}} niezaufanej strefy zabezpieczeń {hosta-— ruch przychodzący {systemu services {ping;                   } protokołów {bgp;                   interfejsy}} {reth1.100;               }           }       }   }
 
@@ -159,8 +159,8 @@ Polecenia translatora adresów Sieciowych:
 
 
 ### <a name="4-configure-nat-policies"></a>4. Konfigurowanie zasad translatora adresów Sieciowych
-* Utwórz dwie pule translatora adresów Sieciowych. Microsoft toohello klienta będzie używane tooNAT ruchu wychodzącego tooMicrosoft i inne.
-* Tworzenie reguł ruchu odpowiednich hello tooNAT
+* Utwórz dwie pule translatora adresów Sieciowych. Jeden posłuży do NAT ruchu wychodzącego do firmy Microsoft i innych firmy Microsoft do klienta.
+* Utwórz reguły NAT ruchu odpowiednich
   
        security {
            nat {
@@ -183,7 +183,7 @@ Polecenia translatora adresów Sieciowych:
                    }
                    rule-set Outbound_NAT {
                        from routing-instance Internal;
-                       toorouting-instance External-ExpressRoute;
+                       to routing-instance External-ExpressRoute;
                        rule SNAT-Out {
                            match {
                                source-address 0.0.0.0/0;
@@ -199,7 +199,7 @@ Polecenia translatora adresów Sieciowych:
                    }
                    rule-set Inbound-NAT {
                        from routing-instance External-ExpressRoute;
-                       toorouting-instance Internal;
+                       to routing-instance Internal;
                        rule SNAT-In {
                            match {
                                source-address 0.0.0.0/0;
@@ -217,8 +217,8 @@ Polecenia translatora adresów Sieciowych:
            }
        }
 
-### <a name="5-configure-bgp-tooadvertise-selective-prefixes-in-each-direction"></a>5. Skonfiguruj prefiksy selektywne tooadvertise protokołu BGP w każdym kierunku
-Zobacz toosamples w [przykłady konfiguracji Routing ](expressroute-config-samples-routing.md) strony.
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Konfigurowanie protokołu BGP do anonsowania prefiksów selektywnego w każdym kierunku
+Zapoznaj się próbek w [przykłady konfiguracji Routing ](expressroute-config-samples-routing.md) strony.
 
 ### <a name="6-create-policies"></a>6. Tworzenie zasad
     routing-options {
@@ -316,5 +316,5 @@ Zobacz toosamples w [przykłady konfiguracji Routing ](expressroute-config-sampl
     }
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz hello [ExpressRoute — często zadawane pytania](expressroute-faqs.md) więcej szczegółów.
+Szczegółowe informacje znajdują się w artykule [ExpressRoute FAQ](expressroute-faqs.md) (Usługa ExpressRoute — często zadawane pytania).
 

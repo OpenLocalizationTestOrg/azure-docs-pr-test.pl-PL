@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement interfejsu użytkownika — osiągnąć zawartości"
-description: "Dowiedz się, jak kampanie toomanage hello unikatową zawartość hello różnych typów powiadomień wypychanych w usłudze Azure Mobile Engagement"
+title: "Interfejs użytkownika usługi Azure Mobile Engagement - Reach zawartości"
+description: "Informacje o sposobie zarządzania zawartością unikatowy różnych typów kampanii obejmujących wysyłanie powiadomień wypychanych w usłudze Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: de389eb4368d986ef00135036c26e26a2464663e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-hello-unique-content-of-hello-different-types-of-push-notification-campaigns"></a>Jak toomanage hello unikatową zawartość różnych typów hello kampanii obejmujących wysyłanie powiadomień wypychanych
-Można użyć sekcji zawartości hello nowe reach kampanii toomodify hello zawartości anonse, ankiety, dane wypychane i Kafelki (tylko Windows Phone). ustawienie zawartości Hello kampanie wypychania jest typu toohello określonej kampanii. 
+# <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Jak zarządzać unikatową zawartość różnych typów kampanii obejmujących wysyłanie powiadomień wypychanych
+Sekcji zawartości nową kampanię reach służy do zmiany zawartości anonse, ankiety, dane wypychane i Kafelki (tylko Windows Phone). Ustawienie zawartości kampanie wypychania jest specyficzne dla typu kampanii. 
 
 ### <a name="content-types"></a>Typy zawartości:
 * Anonse
@@ -32,26 +32,26 @@ Można użyć sekcji zawartości hello nowe reach kampanii toomodify hello zawar
 ## <a name="content-of-announcements"></a>Zawartość anonsów
  ![Reach Content1][30] 
 
-### <a name="choose-hello-type-of-your-announcement"></a>Wybierz typ hello anonsu:
-* Tylko powiadomienie: jest proste powiadomień w wersji standard. Co oznacza, że jeśli użytkownik go kliknie, bez dodatkowego widoku będą wyświetlane, ale tylko hello akcji skojarzonych tooit nastąpi.
-* Tekst anonsu: to powiadomienie, które angażujący toohave użytkownika hello przyjrzeć się widoku tekstu.
-* Sieci Web anonsu: to powiadomienie, które angażujący toohave użytkownika hello przyjrzeć się widok sieci web.
+### <a name="choose-the-type-of-your-announcement"></a>Wybierz typ anonsu:
+* Tylko powiadomienie: jest proste powiadomień w wersji standard. Oznacza to, że jeśli użytkownik go kliknie, bez dodatkowego widoku będą wyświetlane, ale zostanie przeprowadzona tylko akcję skojarzoną do niego.
+* Tekst anonsu: to powiadomienie, które angażujący użytkownikowi przyjrzeć widoku tekstu.
+* Sieci Web anonsu: to powiadomienie, które angażujący użytkownikowi przyjrzeć widoku sieci web.
 
 ### <a name="see-also"></a>Zobacz też
 * [Osiągnąć — jak OT - anonsów][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>O anonsach widoku sieci Web:
-Wystąpienia wzorca hello "{deviceid}" w kodzie hello HTML lub kod JavaScript podana tutaj zostaną automatycznie zastąpione hello identyfikator hello urządzenia wyświetlającego anons hello. Jest to identyfikatory urządzeń łatwy sposób tooretrieve usługi Azure Mobile Engagement w zewnętrznej sieci web usługi hostowanej w zapleczu biura.
-Jeśli chcesz, aby toocreate pełnego ekranu widoku sieci web (bez hello domyślnych przycisków akcji i wyjścia udostępniamy) można użyć następujących funkcji z kodu JavaScript anonsu widoku sieci web hello: 
+Wystąpienia wzorca "{deviceid}" w kodzie HTML lub kod JavaScript, podana tutaj będą automatycznie zastępowane identyfikatorem urządzenia wyświetlającego anons. Jest to prosty sposób pobierać identyfikatory urządzeń usługi Azure Mobile Engagement w zewnętrznej usłudze sieci web hostowanej na zapleczu biura.
+Jeśli chcesz utworzyć pełnoekranowy widok sieci Web (bez domyślnych przycisków akcji i wyjścia), możesz użyć następujących funkcji z kodu JavaScript anonsu widoku sieci Web: 
 
-* Wykonaj akcję anonsu hello: ReachContent.actionContent()
-* wyjść z anonsów hello: ReachContent.exitContent()
+* Wykonaj akcję anonsu: ReachContent.actionContent()
+* Wyjdź z anonsu: ReachContent.exitContent()
 
 ### <a name="choose-your-action"></a>Wybierz akcję:
 ### <a name="about-action-urls"></a>O adresach URL akcji:
 Każdy adres URL, który może zostać zinterpretowany przez system operacyjny urządzenia docelowego, może być używany jako adres URL akcji.
-Każdy dedykowany adres URL aplikacji może pomocy technicznej (np. użytkownicy toomake skoku tooa konkretnego ekranu) również może służyć jako adres URL akcji.
-Każde wystąpienie wzorca hello {deviceid} jest automatycznie zastępowane hello identyfikator hello urządzenia wykonującego akcję hello. Może to być identyfikatory urządzeń usługi Azure Mobile Engagement używane tooeasily pobrać za pomocą zewnętrznej usługi sieci web hostowanej na zapleczu biura.
+Każdy dedykowany adres URL obsługiwany przez aplikację (np. umożliwiający użytkownikowi przejście do konkretnego ekranu) również może być używany jako adres URL akcji.
+Każde wystąpienie wzorca {deviceid} jest automatycznie zastępowane identyfikatorem urządzenia wykonującego akcję. To można łatwo pobierać identyfikatory urządzeń usługi Azure Mobile Engagement za pomocą zewnętrznej usługi sieci web hostowanej na zapleczu biura.
 
 * **Android i iOS akcje**
   * Otwórz stronę sieci web
@@ -67,14 +67,14 @@ Każde wystąpienie wzorca hello {deviceid} jest automatycznie zastępowane hell
   * Tel.:\[numer telefonu\] 
   * Przykład: tel:2125551212
 * **Android tylko akcje**
-  * Pobierz aplikację ze sklepu Play hello
+  * Pobierz aplikację ze sklepu Play
   * Market://details?ID=\[pakiet aplikacji\] 
   * Przykład: market://details?id=com.microsoft.office.word
   * Rozpocznij wyszukiwanie z określoną lokalizacją geograficzną
   * Geo:0, 0? q =\[zapytania wyszukiwania\] 
   * Przykład: geo:0, 0? q = starbucks, Paryża
 * **tylko akcje dla systemu iOS**
-  * Pobierz aplikację ze sklepu z aplikacjami hello
+  * Pobierz aplikację ze sklepu App Store
   * http://iTunes.Apple.com/ [Kraj] /app/ [Nazwa aplikacji] /id [identyfikator aplikacji]? mt = 8 
   * Przykład: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Akcje systemu Windows
@@ -90,7 +90,7 @@ Każde wystąpienie wzorca hello {deviceid} jest automatycznie zastępowane hell
   * Wybierz numer telefonu (wymagana jest aplikacja Skype ze Sklepu)
   * Tel.:\[numer telefonu\] 
   * Przykład: tel:2125551212
-  * Pobierz aplikację ze sklepu Play hello
+  * Pobierz aplikację ze sklepu Play
   * MS-windows-magazynu: strony szczegółów projektu? PFN =\[identyfikator pakietu aplikacji\] 
   * Przykład: ms-windows-magazynu: strony szczegółów projektu? PFN = 4d91298a-07cb-40fb-aecc-4cb5615d53c1
   * Rozpocznij wyszukiwanie na mapach Bing
@@ -104,10 +104,10 @@ Każde wystąpienie wzorca hello {deviceid} jest automatycznie zastępowane hell
   * Example:myfolderdata.txt
 
 ### <a name="build-a-tracking-url"></a>Utwórz adres URL śledzenia:
-* Zobacz sekcję "Ustawienia" hello hello <UI Documentation> dla instrukcje dotyczące tworzenia adres URL śledzenia, który umożliwi użytkownikom toodownload jednego z innych aplikacji.
+* Zobacz sekcję "Ustawienia" <UI Documentation> dla instrukcji na temat budowania adres URL śledzenia, który pozwoli użytkownikom na pobranie jednej z innych aplikacji.
 
-### <a name="define-hello-texts-of-your-announcement"></a>Zdefiniuj Teksty anonsu hello
-Wprowadź tytuł hello, zawartość i przycisk teksty anonsu. Możesz zastosować odbiorców przyszłych kampanii na podstawie opinii reach hello o jak użytkownicy odpowiedział toothis kampanii. Określenie grupy docelowej odbiorców może bazować na powitania opinie o czy ta kampania została właśnie wypychana, odpowiedzi, akcje lub Zakończono.
+### <a name="define-the-texts-of-your-announcement"></a>Zdefiniuj teksty anonsu
+Wprowadź tytuł, zawartość i przycisk teksty anonsu. Możesz zastosować odbiorców przyszłych kampanii na podstawie opinii reach o jak użytkownicy odpowiedzi kampanii. Określenie grupy docelowej odbiorców może bazować na informacji zwrotnych dotyczących czy ta kampania została właśnie wypychana, odpowiedzi, akcje lub Zakończono.
 
 ### <a name="see-also"></a>Zobacz też
 * [Nowe kryterium wypychania - Reach — dokumentacja interfejsu użytkownika][Link 28]
@@ -115,8 +115,8 @@ Wprowadź tytuł hello, zawartość i przycisk teksty anonsu. Możesz zastosowa�
 ## <a name="content-of-polls"></a>Zawartość sond
 ![Reach Content2][31] 
 
-Wypełnij hello tytuł, opis i przycisk teksty anonsu. Następnie należy dodać pytania i możliwości tooyour hello odpowiedzi na pytania.
-Możesz zastosować odbiorców przyszłych kampanii na podstawie opinii reach hello o jak użytkownicy odpowiedział toothis kampanii. Określenie grupy docelowej odbiorców może bazować na czy ta kampania została właśnie wypychana, odpowiedzi, akcje lub Zakończono. Określenie grupy docelowej odbiorców mogą być również oparte na sondowania odpowiedzi opinii, gdy wybór pytanie i odpowiedź hello są używane jako kryteria.
+Wprowadź tytuł, opis i przycisk teksty anonsu. Następnie należy dodać pytania i dostępnych wyborów w odpowiedzi na pytania.
+Możesz zastosować odbiorców przyszłych kampanii na podstawie opinii reach o jak użytkownicy odpowiedzi kampanii. Określenie grupy docelowej odbiorców może bazować na czy ta kampania została właśnie wypychana, odpowiedzi, akcje lub Zakończono. Określenie grupy docelowej odbiorców mogą być również oparte na opinii odpowiedzi sondowania, w którym pytanie i odpowiedź wyboru są użyte jako kryteria.
 
 ### <a name="see-also"></a>Zobacz też
 * [Nowe kryterium wypychania - Reach — dokumentacja interfejsu użytkownika][Link 28]
@@ -124,15 +124,15 @@ Możesz zastosować odbiorców przyszłych kampanii na podstawie opinii reach he
 ## <a name="content-of-data-pushes"></a>Zawartość wypychania danych
 ![Reach Content3][32] 
 
-### <a name="choose-hello-type-of-your-data"></a>Wybierz typ hello danych:
+### <a name="choose-the-type-of-your-data"></a>Wybierz typ danych:
 * Tekst
 * Dane binarne
 * Dane w formacie Base64
 
-### <a name="define-hello-content-of-your-data"></a>Zdefiniuj zawartość danych hello
-* Jeśli wybrane dane tekstowe toopush, skopiuj i Wklej hello tekst w polu "zawartość" hello.
-* W przypadku wybrania toopush danych binarnych lub base64, użyj tooupload przycisk "Przekaż plik" hello pliku.
-* Możesz zastosować odbiorców przyszłych kampanii na podstawie opinii reach hello o jak użytkownicy odpowiedział toothis kampanii. Określenie grupy docelowej odbiorców może bazować na czy ta kampania została właśnie wypychana, odpowiedzi, akcje lub Zakończono.
+### <a name="define-the-content-of-your-data"></a>Zdefiniuj zawartość danych
+* W przypadku wybrania do dystrybuowania danych tekst, skopiuj i wklej tekst w polu "zawartość".
+* W przypadku wybrania do dystrybuowania danych binarnych lub base64, użyj przycisku "przesłać plik" Aby przesłać plik.
+* Możesz zastosować odbiorców przyszłych kampanii na podstawie opinii reach o jak użytkownicy odpowiedzi kampanii. Określenie grupy docelowej odbiorców może bazować na czy ta kampania została właśnie wypychana, odpowiedzi, akcje lub Zakończono.
 
 ### <a name="see-also"></a>Zobacz też
 * [Nowe kryterium wypychania - Reach — dokumentacja interfejsu użytkownika][Link 28]
@@ -140,9 +140,9 @@ Możesz zastosować odbiorców przyszłych kampanii na podstawie opinii reach he
 ## <a name="content-of-tiles-windows-phone-only"></a>Zawartość Kafelki (tylko Windows Phone)
 ![Reach Content4][33]
 
-### <a name="define-hello-content-of-your-tile"></a>Zdefiniuj zawartość kafelka hello
-ładunek kafelka Hello jest hello toobe tekst wyświetlany w kafelku hello aplikacji na urządzeniach Windows Phone.
-Wypychania kafelka jest wersja usługi powiadomień wypychanych firmy Microsoft (MPNS) hello natywnych powiadomień wypychanych dla Windows Phone. typu wypychania kafelka Hello jest hello tylko wypychania typ, który nie ma odpowiedzi i tak odbiorców hello przyszłych kampanii nie może być oparty na hello wyniki kampanii wypychania kafelka. 
+### <a name="define-the-content-of-your-tile"></a>Zdefiniuj zawartość kafelka
+Ładunek kafelka jest tekst, który ma być wyświetlane na kafelku aplikacji na urządzeniach Windows Phone.
+Wypychania kafelka jest wersja usługi powiadomień wypychanych firmy Microsoft (MPNS) natywnych powiadomień wypychanych dla Windows Phone. Typu kafelka wypychania jest jedynym typem wypychania, który nie ma odpowiedzi i tak odbiorców przyszłych kampanii nie może być oparty na wyniki kampanii wypychania kafelka. 
 
 ### <a name="see-also"></a>Zobacz też
 * [Natywnych powiadomień wypychanych - API Reach — dokumentacja interfejsu API][Link 4]

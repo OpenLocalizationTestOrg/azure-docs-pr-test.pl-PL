@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure interfejsu API zarządzania dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse toopublish API Management API bezpiecznie i na dużą skalę. Dokumentacji przedstawiono sposób toocreate nowoczesnych interfejsu API bram istniejące usługi wewnętrznej bazy danych."
+title: "Dokumentacja usługi Azure API Management — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak usługa API Management umożliwia bezpieczne publikowanie interfejsów API w skali. W dokumentacji pokazano, jak tworzyć nowoczesne bramy interfejsu API dla istniejących usług zaplecza."
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c2bd5d7dc7c6df3ad01a704fdd28c9437d39a04b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: de56e8b5fb7866183b0f06c4ac877d7b80a282f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-documentation"></a>Dokumentacja usługi API Management
 
-Dowiedz się, jak toouse zarządzanie interfejsami API toopublish API tooexternal partnera i pracownika deweloperzy bezpiecznie i na dużą skalę. Samouczki, odwołania do interfejsu API i dokumentacji przedstawia sposób toocreate i zarządzanie nimi nowoczesnych bram interfejsu API dla istniejącej wewnętrznej bazy danych usług hostowanych dowolnego miejsca.
+Dowiedz się, jak usługa API Management umożliwia bezpieczne publikowanie interfejsów API w skali do deweloperów zewnętrznych, deweloperów będących partnerami i deweloperów będących pracownikami. W samouczkach, dokumentacji interfejsu API i innych dokumentów pokazano, jak tworzyć nowoczesne bramy interfejsu API dla istniejących usług zaplecza hostowanych w dowolnym miejscu oraz jak nimi zarządzać.
 
 <ul class="panelContent cardsFTitle">
     <li>

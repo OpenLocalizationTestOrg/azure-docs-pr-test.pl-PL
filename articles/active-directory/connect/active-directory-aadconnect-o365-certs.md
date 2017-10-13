@@ -1,6 +1,6 @@
 ---
-title: "Odnawianie aaaCertificate dla użytkowników usługi Office 365 i Azure AD | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano tooOffice użytkowników 365 jak tooresolve problemy związane z wiadomościami e-mail powiadamiać użytkowników o odnawiania certyfikatu."
+title: "Certyfikat odnowienia dla użytkowników usługi Office 365 i Azure AD | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano użytkowników usługi Office 365, jak rozwiązać problemy z wiadomości e-mail, które powiadamiają o odnawiania certyfikatu."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: b9b309e06949dc5488cd628650be413f366ed347
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Odnawianie certyfikatów Federacji dla usługi Office 365 i Azure Active Directory
 ## <a name="overview"></a>Omówienie
-Dla pomyślnego federacji między Azure Active Directory (Azure AD) i Active Directory Federation Services (AD FS) hello certyfikatów używanych przez usługi AD FS toosign zabezpieczeń tokeny tooAzure AD powinna odpowiadać co to jest skonfigurowany w usłudze Azure AD. Wszelkie niezgodność może prowadzić toobroken zaufania. Usługi Azure AD zapewnia, że te informacje są utrzymywane w synchronizacji podczas wdrażania usług AD FS i serwera Proxy aplikacji sieci Web (Aby uzyskać dostęp przez ekstranet).
+Do pomyślnego federacji między Azure Active Directory (Azure AD) i Active Directory Federation Services (AD FS) certyfikaty używane przez usługi AD FS do podpisywania tokenów zabezpieczających do usługi Azure AD powinna odpowiadać co to jest skonfigurowany w usłudze Azure AD. Wszelkie niezgodność może prowadzić do zerwaniem relacji zaufania. Usługi Azure AD zapewnia, że te informacje są utrzymywane w synchronizacji podczas wdrażania usług AD FS i serwera Proxy aplikacji sieci Web (Aby uzyskać dostęp przez ekstranet).
 
-Ten artykuł zawiera dodatkowe informacje toomanage token certyfikaty podpisywania i przechowywać w synchronizacji z usługą Azure AD w hello w następujących przypadkach:
+Ten artykuł zawiera dodatkowe informacje na temat zarządzania token certyfikaty podpisywania i zachowania ich synchronizacji z usługą Azure AD w następujących przypadkach:
 
-* Nie wymaga wdrażania powitania serwera Proxy aplikacji sieci Web, a w związku z tym nie jest dostępna w ekstranecie hello hello metadanych federacji.
-* Nie używasz hello domyślnej konfiguracji usług AD FS certyfikaty podpisywania tokenu.
+* Nie wymaga wdrażania serwera Proxy aplikacji sieci Web, a w związku z tym metadanych federacji nie jest dostępna w ekstranetu.
+* Nie używasz domyślnej konfiguracji usług AD FS certyfikaty podpisywania tokenu.
 * Czy przy użyciu dostawcy tożsamości innych firm.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Domyślna konfiguracja usług AD FS dla certyfikatów podpisywania tokenu
-Hello podpisywania tokenu i odszyfrowywania certyfikaty token są zazwyczaj samodzielnie podpisanych certyfikatów i są dobrym przez jeden rok. Domyślnie usługi AD FS obejmują proces automatycznego odnawiania o nazwie **AutoCertificateRollover**. Jeśli korzystasz z usług AD FS 2.0 lub nowszej, usługi Office 365 i Azure AD automatycznie aktualizuje certyfikatu przed jego wygaśnięciem.
+Podpisywania tokenu i odszyfrowywania certyfikaty tokenu są zwykle samodzielnie podpisanych certyfikatów i są dobrym przez jeden rok. Domyślnie usługi AD FS obejmują proces automatycznego odnawiania o nazwie **AutoCertificateRollover**. Jeśli korzystasz z usług AD FS 2.0 lub nowszej, usługi Office 365 i Azure AD automatycznie aktualizuje certyfikatu przed jego wygaśnięciem.
 
-### <a name="renewal-notification-from-hello-office-365-portal-or-an-email"></a>Powiadomienie odnawiania z portalu usługi Office 365 hello lub wiadomości e-mail
+### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Powiadomienie odnawiania z portalu usługi Office 365 lub wiadomości e-mail
 > [!NOTE]
-> Jeśli otrzymanej wiadomości e-mail lub portalu powiadomienie monitem toorenew certyfikat dla pakietu Office, zobacz [Zarządzanie zmienia tootoken certyfikaty podpisywania](#managecerts) toocheck, jeśli potrzebujesz tootake żadnych działań. Firma Microsoft dokłada świadomość możliwy problem, który może prowadzić toonotifications odnowienia certyfikatu są wysyłane, nawet wtedy, gdy nie jest wymagana żadna akcja.
+> W przypadku otrzymania wiadomości e-mail lub portalu powiadomienie monitem o odnawianie certyfikatu dla pakietu Office, zobacz [Zarządzanie zmianami w certyfikaty podpisywania tokenu](#managecerts) do sprawdzenia, czy trzeba wykonywać żadnych czynności. Firma Microsoft dokłada świadomość możliwy problem, który może prowadzić do powiadomienia dotyczące odnawiania certyfikatów, które są wysyłane, nawet wtedy, gdy nie jest wymagana żadna akcja.
 >
 >
 
-Usługi Azure AD podejmuje metadanych Federacji hello toomonitor i certyfikatów podpisywania wskazywany przez te metadane token hello aktualizacji. 30 dni przed wygaśnięciem hello certyfikaty podpisywania tokenu hello Azure AD sprawdza nowe certyfikaty są dostępne przez sondowanie hello metadanych federacji.
+Usługi Azure AD próbuje metadanych Federacji monitorowanie i aktualizowanie certyfikatów podpisywania wskazywany przez te metadane tokenu. 30 dni przed wygaśnięciem tokenu podpisywania certyfikatów, usługi Azure AD sprawdza, czy nowe certyfikaty są dostępne przez sondowanie metadanych federacji.
 
-* Czy można pomyślnie sondowania metadanych Federacji hello i pobrać nowe certyfikaty hello, bez powiadomienia e-mail i ostrzeżenia w portalu usługi Office 365 hello jest wystawiony toohello użytkownika.
-* Jeśli nie może pobrać hello nowych certyfikatów podpisywania tokenu, albo ponieważ hello metadanych federacji nie jest dostępny lub nie włączono automatycznego przerzucania, usługa Azure AD wystawia wiadomość e-mail z powiadomieniem i ostrzeżenie w portalu usługi Office 365 hello.
+* Czy można pomyślnie sondowania metadanych Federacji i pobrać nowe certyfikaty, bez powiadomienia e-mail i ostrzeżenia w portalu usługi Office 365 jest wystawiony dla użytkownika.
+* Jeśli nie może pobrać nowych certyfikatów podpisywania tokenu, albo ponieważ metadanych federacji nie jest dostępny lub nie włączono automatycznego przerzucania, usługa Azure AD wystawia wiadomość e-mail z powiadomieniem i ostrzeżenie w portalu usługi Office 365.
 
 ![Powiadomieniu portalu usługi Office 365](./media/active-directory-aadconnect-o365-certs/notification.png)
 
 > [!IMPORTANT]
-> Jeśli używasz usług AD FS, tooensure ciągłość prowadzenia działalności biznesowej, sprawdź, czy serwery mają powitania po aktualizacji, dzięki czemu nie występują błędy uwierzytelniania pod kątem znanych problemów. Zmniejsza to zagrożenie wynikające znanych problemów dotyczących serwera proxy usług AD FS dla tego odnawiania i okresy przyszłych odnawiania:
+> Jeśli używasz usług AD FS, aby zapewnić ciągłość, sprawdź, czy serwery powinni mieć następujące aktualizacje, dzięki czemu nie występują błędy uwierzytelniania pod kątem znanych problemów. Zmniejsza to zagrożenie wynikające znanych problemów dotyczących serwera proxy usług AD FS dla tego odnawiania i okresy przyszłych odnawiania:
 >
 > Server 2012 R2 — [systemu Windows Server zbiorczy maja 2014](http://support.microsoft.com/kb/2955164)
 >
@@ -55,9 +55,9 @@ Usługi Azure AD podejmuje metadanych Federacji hello toomonitor i certyfikatów
 >
 >
 
-## Sprawdzaj, czy certyfikaty hello wymagają toobe zaktualizowane<a name="managecerts"></a>
-### <a name="step-1-check-hello-autocertificaterollover-state"></a>Krok 1: Sprawdź stan AutoCertificateRollover hello
-Na serwerze usług AD FS Otwórz program PowerShell. Sprawdź, czy hello AutoCertificateRollover wartość tooTrue.
+## Sprawdź, czy certyfikaty muszą zostać zaktualizowane<a name="managecerts"></a>
+### <a name="step-1-check-the-autocertificaterollover-state"></a>Krok 1: Sprawdź stan AutoCertificateRollover
+Na serwerze usług AD FS Otwórz program PowerShell. Sprawdź, czy wartość AutoCertificateRollover jest równa True.
 
     Get-Adfsproperties
 
@@ -67,7 +67,7 @@ Na serwerze usług AD FS Otwórz program PowerShell. Sprawdź, czy hello AutoCer
 >Jeśli korzystasz z usług AD FS 2.0, najpierw uruchom Microsoft.Adfs.Powershell Dodaj-Pssnapin.
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Krok 2: Sprawdź, czy usługi AD FS a usługą Azure AD są zsynchronizowane
-Na serwerze usług AD FS Otwórz hello Azure AD PowerShell wiersza, a następnie połącz tooAzure AD.
+Na serwerze usług AD FS Otwórz wiersz programu Azure AD PowerShell i łączenie z usługą Azure AD.
 
 > [!NOTE]
 > Możesz pobrać program Azure AD PowerShell [tutaj](https://technet.microsoft.com/library/jj151815.aspx).
@@ -76,16 +76,16 @@ Na serwerze usług AD FS Otwórz hello Azure AD PowerShell wiersza, a następnie
 
     Connect-MsolService
 
-Sprawdź certyfikaty hello skonfigurowane w usłudze AD FS i właściwości zaufania usługi Azure AD dla hello określonej domeny.
+Sprawdź certyfikaty, skonfigurowane w usłudze AD FS a usługą Azure AD zaufania właściwości dla określonej domeny.
 
     Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
 
 ![Get-MsolFederationProperty](./media/active-directory-aadconnect-o365-certs/certsync.png)
 
-Jeśli odciski palców hello zarówno hello wyniki zgodne, certyfikaty są zsynchronizowane z usługą Azure AD.
+Jeśli odcisków palca w obu dane wyjściowe są zgodne, certyfikaty są zsynchronizowane z usługą Azure AD.
 
-### <a name="step-3-check-if-your-certificate-is-about-tooexpire"></a>Krok 3: Sprawdź, czy certyfikat o tooexpire
-W danych wyjściowych hello Get MsolFederationProperty lub Get-AdfsCertificate Sprawdź datę hello w obszarze "Nie po." Jeśli data hello jest mniej niż 30 dni nieobecności, należy podjąć akcję.
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Krok 3: Sprawdź, czy certyfikat wygaśnie
+W danych wyjściowych Get MsolFederationProperty lub Get-AdfsCertificate Sprawdź datę w obszarze "Nie po." Jeśli data jest mniej niż 30 dni nieobecności, należy podjąć działania.
 
 | AutoCertificateRollover | Certyfikaty w synchronizacji z usługą Azure AD | Jest dostępny publicznie element metadanych Federacji | Ważność | Akcja |
 |:---:|:---:|:---:|:---:|:---:|
@@ -95,43 +95,43 @@ W danych wyjściowych hello Get MsolFederationProperty lub Get-AdfsCertificate S
 
 \[-] Nie ma znaczenia.
 
-## Odnów certyfikat podpisywania automatycznie token hello (zalecane)<a name="autorenew"></a>
-Nie trzeba tooperform wszelkie wymagane ręczne wykonanie czynności, jeśli spełnione są następujące hello:
+## Odnów certyfikat podpisywania automatycznie tokenu (zalecane)<a name="autorenew"></a>
+Nie trzeba wykonywać żadnych czynności ręcznej, jeśli są spełnione oba poniższe:
 
-* Serwer Proxy aplikacji sieci Web, która może umożliwić metadanych Federacji toohello dostępu z ekstranetu hello została wdrożona.
-* Używasz usług AD FS hello domyślnej konfiguracji (AutoCertificateRollover jest włączona).
+* Należy wdrożyć serwer Proxy aplikacji sieci Web, które można włączyć dostęp do metadanych federacji z ekstranetu.
+* Używania domyślnej konfiguracji usług AD FS (AutoCertificateRollover jest włączona).
 
-Sprawdź, czy powitania po tooconfirm, który hello certyfikatu może być aktualizowana automatycznie.
+Sprawdź następujące polecenie, aby potwierdzić, że certyfikat mogą być automatycznie aktualizowane.
 
-**1. hello właściwości usługi AD FS AutoCertificateRollover musi być ustawiona tooTrue.** Oznacza to, że usługi AD FS automatycznie generuje nowy podpisywania tokenu i certyfikaty odszyfrowywania tokenów, przed hello tych wygaśnie stary.
+**1. Właściwość usług AD FS AutoCertificateRollover musi mieć ustawioną wartość True.** To wskazuje, że usługi AD FS automatycznie generuje nowy token podpisywania i odszyfrowywania tokenów certyfikatów przed stary tych wygaśnie.
 
-**2. metadane Federacji hello usługi AD FS jest dostępny publicznie.** Sprawdź, czy z metadanych federacji jest dostępny publicznie, przechodząc toohello następującego adresu URL z komputera hello publicznego Internetu (poza siecią firmową hello):
+**2. Metadane federacji usług AD FS jest dostępny publicznie.** Sprawdź, czy z metadanych federacji jest dostępny publicznie, przechodząc pod następujący adres URL z komputera w publicznej sieci internet (się z sieci firmowej):
 
 /federationmetadata/2007-06/federationmetadata.xml https:// (your_FS_name)
 
-gdzie `(your_FS_name) `jest zastępowany hello nazwa usługi federacyjnej hosta używa Twojej organizacji, na przykład fs.contoso.com.  Jeśli to możliwe tooverify z tych ustawień pomyślnie, nie dysponujesz toodo inaczej.  
+gdzie `(your_FS_name) `jest zastępowany nazwę hosta usługi federacyjnej, organizacja używa, takich jak fs.contoso.com.  Jeśli możesz zweryfikować oba te ustawienia pomyślnie, nie trzeba nic robić.  
 
 Przykład: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## Odnów token hello ręcznie podpisywania certyfikatu<a name="manualrenew"></a>
-Możesz wybrać toorenew certyfikaty podpisywania tokenu hello ręcznie. Na przykład hello następujące scenariusze mogą działać lepiej odnowienia ręczne:
+## Odnów certyfikat podpisywania ręcznie tokenu<a name="manualrenew"></a>
+Można odnowić certyfikatów podpisywania ręcznie tokenu. Na przykład poniższe scenariusze mogą działać lepiej odnowienia ręczne:
 
-* Certyfikaty podpisywania tokenu to certyfikaty nie podpisem. Hello Najczęstszą przyczyną tego błędu jest to, czy Twoja organizacja zarządza certyfikatów usługi AD FS zarejestrowane od urzędu certyfikacji w organizacji.
-* Zabezpieczenia sieci nie zezwala na toobe metadanych Federacji hello publicznie dostępne.
+* Certyfikaty podpisywania tokenu to certyfikaty nie podpisem. Najczęstszą przyczyną tego jest, że Twoja organizacja zarządza certyfikatów usługi AD FS zarejestrowane od urzędu certyfikacji w organizacji.
+* Zabezpieczenia sieci nie zezwalają na metadanych Federacji, które mają być publicznie dostępne.
 
-W tych scenariuszach za każdym razem, gdy token hello podpisywania certyfikatów, należy również zaktualizować domeną usługi Office 365 za pomocą polecenia programu PowerShell hello, MsolFederatedDomain aktualizacji.
+W tych scenariuszach za każdym razem, gdy certyfikaty podpisywania tokenu należy również zaktualizować domeną usługi Office 365 za pomocą polecenia programu PowerShell, MsolFederatedDomain aktualizacji.
 
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Krok 1: Upewnij się, że usługi AD FS ma nowych certyfikatów podpisywania tokenu
 **Inne niż domyślne konfiguracji**
 
-Jeśli używasz niedomyślna Konfiguracja usług AD FS (gdzie **AutoCertificateRollover** ustawiono zbyt**False**), są prawdopodobnie używa niestandardowych certyfikatów (nie z podpisem własnym). Aby uzyskać więcej informacji dotyczących sposobu toorenew hello AD FS tokenu podpisywania certyfikatów, zobacz [wskazówki dotyczące klientów nie korzystających z usług AD FS certyfikaty z podpisem własnym](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Jeśli używasz niedomyślna Konfiguracja usług AD FS (gdzie **AutoCertificateRollover** ustawiono **False**), są prawdopodobnie używa niestandardowych certyfikatów (nie z podpisem własnym). Aby uzyskać więcej informacji o sposobie odnawiania certyfikatów podpisywania tokenu usług AD FS, zobacz [wskazówki dotyczące klientów nie korzystających z usług AD FS certyfikaty z podpisem własnym](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
 **Metadane federacji nie jest publicznie dostępna**
 
-Na hello drugiej strony, jeśli **AutoCertificateRollover** ustawiono zbyt**True**, ale z metadanych federacji nie jest dostępny publicznie, najpierw upewnij się, że nowe certyfikaty podpisywania tokenu zostały wygenerowane przez usługi AD FS. Upewnij się, że masz nowy token certyfikaty podpisywania przez pobieranie hello następujące kroki:
+Z drugiej strony Jeśli **AutoCertificateRollover** ma ustawioną wartość **True**, ale z metadanych federacji nie jest dostępny publicznie, najpierw upewnij się, że nowe certyfikaty podpisywania tokenu zostały wygenerowane przez usługi AD FS. Upewnij się, że masz nowy token certyfikaty podpisywania, wykonując następujące czynności:
 
-1. Sprawdź, czy użytkownik jest zalogowany toohello głównej usługi AD FS serwera.
-2. Sprawdź hello bieżącego podpisywania certyfikatów w usługach AD FS, otwierając okno polecenia programu PowerShell i uruchamiając hello następujące polecenie:
+1. Sprawdź, czy użytkownik jest zalogowany do podstawowego serwera usług AD FS.
+2. Sprawdź bieżący podpisywania certyfikatów w usługach AD FS, otwierając okno poleceń programu PowerShell i uruchom następujące polecenie:
 
     PS C:\>podpisywania tokenu Get-ADFSCertificate — CertificateType
 
@@ -139,28 +139,28 @@ Na hello drugiej strony, jeśli **AutoCertificateRollover** ustawiono zbyt**True
    > Jeśli korzystasz z usług AD FS 2.0, należy najpierw uruchomić Microsoft.Adfs.Powershell Dodaj-Pssnapin.
    >
    >
-3. Sprawdź dane wyjściowe polecenia hello na wszystkie certyfikaty na liście. Jeśli usługi AD FS wygenerował nowy certyfikat, powinny pojawić się dwa certyfikaty w danych wyjściowych hello: jeden dla których hello **IsPrimary** wartość jest **True** i hello **nie później niż** Data jest w ciągu 5 dni, a drugi, dla którego **IsPrimary** jest **False** i **nie później niż** dotyczy roku w przyszłości hello.
-4. Jeśli tylko jeden certyfikat w temacie i hello **nie później niż** przypada w ciągu 5 dni, należy toogenerate nowego certyfikatu.
-5. toogenerate nowego świadectwa, wykonaj następujące polecenie w wierszu polecenia programu PowerShell hello: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
-6. Sprawdź hello aktualizacji, uruchamiając hello ponownie następujące polecenie: PS C:\>podpisywania tokenu Get-ADFSCertificate — CertificateType
+3. Sprawdź dane wyjściowe polecenia na wszystkie certyfikaty na liście. Jeśli usługi AD FS wygenerował nowy certyfikat, powinny pojawić się dwa certyfikaty w danych wyjściowych: jeden do którego **IsPrimary** wartość jest **True** i **nie później niż** przypada w ciągu 5 dni i na które **IsPrimary** jest **False** i **nie później niż** dotyczy roku w przyszłości.
+4. Jeśli zostanie wyświetlony tylko jeden certyfikat i **nie później niż** przypada w ciągu 5 dni, należy wygenerować nowy certyfikat.
+5. Aby wygenerować nowy certyfikat, uruchom następujące polecenie w wierszu polecenia programu PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+6. Sprawdź aktualizację, uruchamiając następujące polecenie: PS C:\>podpisywania tokenu Get-ADFSCertificate — CertificateType
 
-Powinien być teraz wyświetlany dwa certyfikaty, z których jedna ma **nie później niż** około co roku w przyszłości hello i dla których hello **IsPrimary** wartość jest **False**.
+Powinien być teraz wyświetlany dwa certyfikaty, z których jedna ma **nie później niż** datę w przyszłości około jednego roku i dla których **IsPrimary** wartość jest **False**.
 
-### <a name="step-2-update-hello-new-token-signing-certificates-for-hello-office-365-trust"></a>Krok 2: Zaktualizuj hello podpisywania certyfikatów dla zaufania usługi Office 365 hello nowy token.
-Aktualizacja usługi Office 365 z hello nowy token podpisywania certyfikatów toobe używane dla zaufania hello w następujący sposób.
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Krok 2: Zaktualizuj nowy token podpisywania certyfikatów dla zaufania usługi Office 365
+Aktualizacja usługi Office 365 przy użyciu nowego tokenu podpisywania certyfikatów do zastosowania w przypadku zaufania, w następujący sposób.
 
-1. Otwórz hello Microsoft Azure Active Directory modułu dla środowiska Windows PowerShell.
+1. Otwórz moduł usługi Active Directory platformy Microsoft Azure dla środowiska Windows PowerShell.
 2. Uruchom $cred = Get-Credential. Gdy to polecenie cmdlet wyświetla monit o podanie poświadczeń, wpisz poświadczenia konta administratora usługi chmury.
-3. Uruchom Connect MsolService — $cred poświadczeń. To polecenie cmdlet łączy toohello usługi w chmurze. Tworzenie kontekstu, który łączy użytkownika usługi w chmurze toohello jest wymagana przed uruchomieniem wszelkie dodatkowe polecenia cmdlet hello instalowane przez narzędzie hello.
-4. Jeśli używasz tych poleceń na komputerze, który nie jest hello usług AD FS podstawowy serwer federacyjny, uruchom zestaw MSOLAdfscontext-komputer <AD FS primary server>, gdzie <AD FS primary server> jest hello wewnętrznej nazwy FQDN hello głównej usługi AD FS serwera. To polecenie cmdlet tworzy kontekstu, który łączy tooAD FS.
-5. Uruchom aktualizacji MSOLFederatedDomain — DomainName <domain>. To polecenie cmdlet ustawienia hello z usług AD FS do usługi w chmurze hello aktualizacji i konfiguruje hello relacji zaufania między dwoma hello.
+3. Uruchom Connect MsolService — $cred poświadczeń. To polecenie cmdlet łączy do usługi w chmurze. Tworzenie kontekstu, który łączy do usługi w chmurze jest wymagana przed uruchomieniem dowolnych poleceniach cmdlet dodatkowe zainstalowane przez narzędzie.
+4. Jeśli używasz tych poleceń na komputerze, który nie jest serwerem podstawowym usług AD FS, uruchom zestaw MSOLAdfscontext-komputer <AD FS primary server>, gdzie <AD FS primary server> to wewnętrzna nazwa FQDN podstawowego serwera usług AD FS. To polecenie cmdlet tworzy kontekstu, który łączy użytkownika z usług AD FS.
+5. Uruchom aktualizacji MSOLFederatedDomain — DomainName <domain>. To polecenie cmdlet zaktualizowanie ustawień z usług AD FS do usługi w chmurze i konfiguruje relację zaufania między nimi.
 
 > [!NOTE]
-> Jeśli potrzebujesz toosupport wiele domen najwyższego poziomu, takich jak contoso.com i fabrikam.com, należy użyć hello **SupportMultipleDomain** przełącznik z dowolnego polecenia cmdlet. Aby uzyskać więcej informacji, zobacz [Obsługa wielu domen poziom górnej](active-directory-aadconnect-multiple-domains.md).
+> Jeśli zachodzi konieczność obsługi wielu domen najwyższego poziomu, takich jak contoso.com i fabrikam.com, należy użyć **SupportMultipleDomain** przełącznik z dowolnego polecenia cmdlet. Aby uzyskać więcej informacji, zobacz [Obsługa wielu domen poziom górnej](active-directory-aadconnect-multiple-domains.md).
 >
 >
 
 ## Napraw zaufania usługi Azure AD za pomocą usługi Azure AD Connect<a name="connectrenew"></a>
-Jeśli farma usług AD FS, a relacja zaufania usługi Azure AD są skonfigurowane za pomocą usługi Azure AD Connect, można użyć toodetect Azure AD Connect, jeśli potrzebujesz tootake dowolną akcję dla Twojego certyfikaty podpisywania tokenu. Toorenew hello certyfikatów, należy więc można użyć toodo Azure AD Connect.
+Jeśli farma usług AD FS, a relacja zaufania usługi Azure AD są skonfigurowane za pomocą usługi Azure AD Connect, można użyć usługi Azure AD Connect do wykrywania, jeśli musisz podejmować żadnych działań dla Twojego certyfikaty podpisywania tokenu. Jeśli chcesz odnowić certyfikaty, można użyć Azure AD Connect, aby to zrobić.
 
-Aby uzyskać więcej informacji, zobacz [naprawiania zaufania hello](active-directory-aadconnect-federation-management.md).
+Aby uzyskać więcej informacji, zobacz [naprawiania zaufania](active-directory-aadconnect-federation-management.md).

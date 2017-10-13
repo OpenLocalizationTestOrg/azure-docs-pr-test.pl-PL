@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Jobscience | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Jobscience."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Jobscience."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 4a4c78aad6d324795a15a9569542afc23b4716d1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 66bec35a8f17482433dbf02827b90620d1cff378
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Samouczek: Integracji Azure Active Directory z Jobscience
 
-Z tego samouczka, dowiesz się, jak toointegrate Jobscience w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Jobscience z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Jobscience zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD Jobscience zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooJobscience
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooJobscience (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Jobscience
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Jobscience (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z Jobscience należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Jobscience, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Jobscience logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna tutaj: [oferta wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Jobscience z galerii hello
+1. Dodawanie Jobscience z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-jobscience-from-hello-gallery"></a>Dodawanie Jobscience z galerii hello
-tooconfigure hello integracji Jobscience do usługi Azure AD, należy tooadd Jobscience z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-jobscience-from-the-gallery"></a>Dodawanie Jobscience z galerii
+Aby skonfigurować integrację usługi Azure AD Jobscience, należy dodać Jobscience z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Jobscience z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Jobscience z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **Jobscience**.
+4. W polu wyszukiwania wpisz **Jobscience**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_search.png)
 
-5. W panelu wyników hello zaznacz **Jobscience**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **Jobscience**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Jobscience na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Jobscience jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Jobscience musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Jobscience jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Jobscience musi się.
 
-W Jobscience, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W Jobscience, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Jobscience, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Jobscience, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Jobscience](#creating-a-jobscience-test-user)**  -toohave odpowiednikiem Simona Britta w Jobscience, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Jobscience](#creating-a-jobscience-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Jobscience połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Jobscience.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Jobscience.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Jobscience, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Jobscience, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Jobscience** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Jobscience** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
-3. Na powitania **Jobscience domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **Jobscience domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_url.png)
 
-    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`http://<company name>.my.salesforce.com`
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość z hello rzeczywisty adres URL logowania. Uzyskać tę wartość za pomocą [zespołem pomocy technicznej klienta Jobscience](https://www.jobscience.com/support) lub z profilu rejestracji Jednokrotnej hello zostanie utworzona, który znajduje się w dalszej części samouczka hello. 
+    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Uzyskać tę wartość za pomocą [zespołem pomocy technicznej klienta Jobscience](https://www.jobscience.com/support) lub w profilu rejestracji Jednokrotnej zostanie utworzona, który znajduje się w dalszej części tego samouczka. 
  
-4. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
@@ -123,29 +123,29 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-jobscience-tutorial/tutorial_general_400.png)
 
-6. Na powitania **konfiguracji Jobscience** kliknij **skonfigurować Jobscience** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+6. Na **konfiguracji Jobscience** , kliknij przycisk **skonfigurować Jobscience** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_configure.png) 
 
-7. Zaloguj się za tooyour Jobscience witryny firmy jako administrator.
+7. Zaloguj się do witryny firmy Jobscience jako administrator.
 
-8. Przejdź za**Instalatora**.
+8. Przejdź do **Instalatora**.
    
    ![Instalator](./media/active-directory-saas-jobscience-tutorial/IC784358.png "Instalatora")
 
-9. W okienku nawigacji po lewej stronie powitania w hello **Administruj** , kliknij przycisk **Zarządzanie domenami** tooexpand hello powiązanych sekcji, a następnie kliknij przycisk **Moje domeny** tooopen hello  **Mojej domeny** strony. 
+9. W okienku nawigacji po lewej stronie w **Administruj** , kliknij przycisk **Zarządzanie domenami** rozwiń sekcję powiązane, a następnie kliknij przycisk **Moje domeny** otworzyć **Moje domeny** strony. 
    
    ![Mojej domeny](./media/active-directory-saas-jobscience-tutorial/ic767825.png "mojej domeny")
 
-10. tooverify, który domeny nie został skonfigurowany prawidłowo, upewnij się, że jest on "**krok 4 wdrożone tooUsers**" i zapoznaj się z "**Moje ustawienia domeny**".
+10. Aby sprawdzić, czy domeny nie został skonfigurowany prawidłowo, upewnij się, że jest on "**krok 4 wdrożone dla użytkowników**" i zapoznaj się z "**Moje ustawienia domeny**".
 
-    ![Domeny wdrożono tooUser](./media/active-directory-saas-jobscience-tutorial/ic784377.png "tooUser wdrożone domeny")
+    ![Wdrożonego dla użytkownika domeny](./media/active-directory-saas-jobscience-tutorial/ic784377.png "wdrożonego dla użytkownika domeny")
 
-11. W witrynie hello Jobscience firmy, kliknij przycisk **kontroli bezpieczeństwa**, a następnie kliknij przycisk **ustawień rejestracji jednokrotnej**.
+11. W witrynie firmy Jobscience kliknij przycisk **kontroli bezpieczeństwa**, a następnie kliknij przycisk **ustawień rejestracji jednokrotnej**.
     
     ![Opcje zabezpieczeń](./media/active-directory-saas-jobscience-tutorial/ic784364.png "środki zabezpieczające.")
 
-12. W hello **ustawień rejestracji jednokrotnej** sekcji, wykonaj następujące kroki hello:
+12. W **ustawień rejestracji jednokrotnej** sekcji, wykonaj następujące czynności:
     
     ![Single Sign-On ustawienia](./media/active-directory-saas-jobscience-tutorial/ic781026.png "Single Sign-On ustawienia")
     
@@ -153,141 +153,141 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Kliknij przycisk **Nowy**.
 
-13. Na powitania **SAML pojedynczego logowania jednokrotnego ustawienie Edytuj** okna dialogowego, wykonaj następujące kroki hello:
+13. Na **SAML pojedynczego logowania jednokrotnego ustawienie Edytuj** okna dialogowego, wykonaj następujące czynności:
     
     ![SAML pojedynczy znak na ustawienie](./media/active-directory-saas-jobscience-tutorial/ic784365.png "SAML pojedynczy znak na ustawienie")
     
-    a. W hello **nazwa** tekstowym, wpisz nazwę dla danej konfiguracji.
+    a. W **nazwa** tekstowym, wpisz nazwę dla danej konfiguracji.
 
-    b. W **wystawcy** pole tekstowe, Wklej wartość hello **identyfikator jednostki SAML**, które zostały skopiowane z portalu Azure.
+    b. W **wystawcy** pole tekstowe, Wklej wartość **identyfikator jednostki SAML**, które zostały skopiowane z portalu Azure.
 
-    c. W hello **identyfikator jednostki** pole tekstowe, typ`https://salesforce-jobscience.com`
+    c. W **identyfikator jednostki** pole tekstowe, typ`https://salesforce-jobscience.com`
 
-    d. Kliknij przycisk **Przeglądaj** tooupload certyfikat usługi Azure AD.
+    d. Kliknij przycisk **Przeglądaj** można przekazać certyfikatu usługi Azure AD.
 
-    e. Jako **typ tożsamości SAML**, wybierz pozycję **potwierdzenia zawiera hello identyfikator federacyjnej z obiektu użytkownika hello**.
+    e. Jako **typ tożsamości SAML**, wybierz pozycję **potwierdzenia zawiera identyfikator federacji z obiektu użytkownika**.
 
-    f. Jako **lokalizacji tożsamości SAML**, wybierz pozycję **jest tożsamość w elemencie NameIdentfier hello hello instrukcji podmiotu**.
+    f. Jako **lokalizacji tożsamości SAML**, wybierz pozycję **jest tożsamość w elemencie NameIdentfier instrukcji podmiotu**.
 
-    g. W **adresu URL logowania do dostawcy tożsamości** pole tekstowe, Wklej wartość hello **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure.
+    g. W **adresu URL logowania do dostawcy tożsamości** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure.
 
-    h. W **adres URL wylogowania dostawcy tożsamości** pole tekstowe, Wklej wartość hello **Sign-Out adres URL**, które zostały skopiowane z portalu Azure.
+    h. W **adres URL wylogowania dostawcy tożsamości** pole tekstowe, Wklej wartość **Sign-Out adres URL**, które zostały skopiowane z portalu Azure.
 
     i. Kliknij pozycję **Zapisz**.
 
-14. W okienku nawigacji po lewej stronie powitania w hello **Administruj** , kliknij przycisk **Zarządzanie domenami** tooexpand hello powiązanych sekcji, a następnie kliknij przycisk **Moje domeny** tooopen hello  **Mojej domeny** strony. 
+14. W okienku nawigacji po lewej stronie w **Administruj** , kliknij przycisk **Zarządzanie domenami** rozwiń sekcję powiązane, a następnie kliknij przycisk **Moje domeny** otworzyć **Moje domeny** strony. 
     
     ![Mojej domeny](./media/active-directory-saas-jobscience-tutorial/ic767825.png "mojej domeny")
 
-15. Na powitania **Moje domeny** strony w hello **znakowanie strony logowania** kliknij **Edytuj**.
+15. Na **Moje domeny** strony w **znakowanie strony logowania** kliknij **Edytuj**.
     
     ![Znakowanie strony logowania](./media/active-directory-saas-jobscience-tutorial/ic767826.png "znakowanie strony logowania")
 
-16. Na powitania **znakowanie strony logowania** strony w hello **usługi uwierzytelniania** sekcji, hello nazwę Twojej **ustawienia logowania jednokrotnego SAML** jest wyświetlany. Wybierz go, a następnie kliknij przycisk **zapisać**.
+16. Na **znakowanie strony logowania** strony w **usługi uwierzytelniania** sekcji Nazwa Twojej **ustawienia logowania jednokrotnego SAML** jest wyświetlany. Wybierz go, a następnie kliknij przycisk **zapisać**.
     
     ![Znakowanie strony logowania](./media/active-directory-saas-jobscience-tutorial/ic784366.png "znakowanie strony logowania")
 
-17. tooget hello SP zainicjował jednokrotnego kliknij adres URL logowania na powitania **ustawień rejestracji jednokrotnej** w hello **kontroli bezpieczeństwa** części menu.
+17. Aby uzyskać PS zainicjować funkcji logowania jednokrotnego kliknij adres URL logowania na **ustawień rejestracji jednokrotnej** w **kontroli bezpieczeństwa** części menu.
 
     ![Opcje zabezpieczeń](./media/active-directory-saas-jobscience-tutorial/ic784368.png "środki zabezpieczające.")
     
-    Kliknij profil rejestracji Jednokrotnej hello, utworzony w poprzednim kroku hello. Na tej stronie znajduje hello rejestracji jednokrotnej adres URL dla Twojej firmy (na przykład [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid).    
+    Kliknij profil rejestracji Jednokrotnej, utworzony w poprzednim kroku. Ta strona zawiera rejestracji jednokrotnej na adres URL dla Twojej firmy (na przykład [https://companyname.my.salesforce.com?so=companyid](https://companyname.my.salesforce.com?so=companyid).    
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-jobscience-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-jobscience-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-jobscience-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-jobscience-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-jobscience-test-user"></a>Tworzenie użytkownika testowego Jobscience
 
-W przypadku użytkowników usługi Azure AD toolog kolejności tooenable w tooJobscience muszą mieć przydzielone do Jobscience. W przypadku hello Jobscience Inicjowanie obsługi to zadanie ręczne.
+Aby umożliwić użytkownikom zalogować się do Jobscience usługi Azure AD, musi być przygotowana do Jobscience. W przypadku Jobscience Inicjowanie obsługi to zadanie ręczne.
 
 >[!NOTE]
->Możesz użyć innych Jobscience użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez tooprovision Jobscience usługi Azure Active Directory kont użytkowników.
+>Możesz użyć innych Jobscience użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Jobscience do świadczenia usługi Azure Active Directory kont użytkowników.
 >  
         
-**tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:**
+**Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:**
 
-1. Zaloguj się za tooyour **Jobscience** witryny firmy jako administrator.
+1. Zaloguj się do Twojego **Jobscience** witryny firmy jako administrator.
 
-2. Przejdź tooSetup.
+2. Przejdź do instalacji.
    
    ![Instalator](./media/active-directory-saas-jobscience-tutorial/ic784358.png "Instalatora")
-3. Przejdź za**Zarządzanie użytkownikami \> użytkowników**.
+3. Przejdź do **Zarządzanie użytkownikami \> użytkowników**.
    
    ![Użytkownicy](./media/active-directory-saas-jobscience-tutorial/ic784369.png "użytkowników")
 4. Kliknij przycisk **nowego użytkownika**.
    
    ![Wszyscy użytkownicy](./media/active-directory-saas-jobscience-tutorial/ic784370.png "wszyscy użytkownicy")
-5. Na powitania **Edytowanie użytkownika** okna dialogowego, wykonaj następujące kroki hello:
+5. Na **Edytowanie użytkownika** okna dialogowego, wykonaj następujące czynności:
    
    ![Edycja użytkownika](./media/active-directory-saas-jobscience-tutorial/ic784371.png "Edycja użytkownika")
    
-   a. W hello **imię** tekstowym, wpisz imię użytkownika hello, takich jak Britta.
+   a. W **imię** tekstowym, wpisz imię użytkownika, takich jak Britta.
    
-   b. W hello **nazwisko** tekstowym, wpisz nazwisko użytkownika hello, takich jak Simona.
+   b. W **nazwisko** tekstowym, wpisz nazwisko użytkownika, takich jak Simona.
    
-   c. W hello **Alias** tekstowym, wpisz nazwę aliasu hello użytkownika, takich jak brittas.
+   c. W **Alias** tekstowym, wpisz nazwę użytkownika, takich jak brittas aliasu.
 
-   d. W hello **E-mail** pole tekstowe, typ hello adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
+   d. W **E-mail** tekstowym, wpisz adres e-mail użytkownika, takich jak Brittasimon@contoso.com.
 
-   e. W hello **nazwy użytkownika** tekstowym, wpisz nazwę użytkownika użytkownika, takich jak Brittasimon@contoso.com.
+   e. W **nazwy użytkownika** tekstowym, wpisz nazwę użytkownika użytkownika, takich jak Brittasimon@contoso.com.
 
-   f. W hello **pseudonim** tekstowym, wpisz nazwę użytkownika, takich jak Simona nick.
+   f. W **pseudonim** tekstowym, wpisz nazwę użytkownika, takich jak Simona nick.
 
    g. Kliknij pozycję **Zapisz**.
 
     
 > [!NOTE]
-> Właściciel konta usługi Azure Active Directory Hello otrzymuje wiadomość e-mail i następuje tooconfirm łącze swojego konta, zanim staje się aktywny.
+> Właściciel konta usługi Azure Active Directory otrzymuje wiadomość e-mail i następuje łącze, aby potwierdzić swoje konto, zanim staje się aktywny.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooJobscience.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Jobscience.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooJobscience Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta Jobscience, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Jobscience**.
+2. Na liście aplikacji zaznacz **Jobscience**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -295,7 +295,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -303,14 +303,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Jobscience hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Jobscience aplikacji.
-Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu kafelka Jobscience w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Jobscience.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

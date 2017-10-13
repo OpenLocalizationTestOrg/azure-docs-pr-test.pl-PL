@@ -1,5 +1,5 @@
 ---
-title: "aaaTroubleshooting kompresji plików w usłudze Azure CDN | Dokumentacja firmy Microsoft"
+title: "Rozwiązywanie problemów z kompresji plików w usłudze Azure CDN | Dokumentacja firmy Microsoft"
 description: "Rozwiązywanie problemów z kompresji plików Azure CDN."
 services: cdn
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f00b98beaf6b3b3cd30108ece65a8191edc06ff5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Rozwiązywanie problemów związanych z kompresją pliku CDN
 Ten artykuł ułatwia rozwiązywanie problemów z [kompresji plików CDN](cdn-improve-performance.md).
 
-Jeśli potrzebujesz więcej pomocy w dowolnym momencie, w tym artykule, możesz skontaktować się hello ekspertów platformy Azure na [hello MSDN Azure i hello przepełnienie stosu fora](https://azure.microsoft.com/support/forums/). Alternatywnie można również pliku zdarzenia pomocy technicznej platformy Azure. Przejdź toohello [witrynę pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i kliknij przycisk **Get Support**.
+Jeśli potrzebujesz więcej pomocy w dowolnym momencie, w tym artykule, możesz skontaktować się ekspertów platformy Azure na [MSDN Azure i fora przepełnienie stosu](https://azure.microsoft.com/support/forums/). Alternatywnie można również pliku zdarzenia pomocy technicznej platformy Azure. Przejdź do [witrynę pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) i kliknij przycisk **Get Support**.
 
 ## <a name="symptom"></a>Objaw
 Kompresja dla punktu końcowego jest włączona, ale pliki są zwracane nieskompresowane.
 
 > [!TIP]
-> toocheck czy pliki zostały zwrócone skompresowany, potrzebujesz toouse, takich jak narzędzie [Fiddler](http://www.telerik.com/fiddler) lub przeglądarki [narzędzia dla deweloperów](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Nagłówki odpowiedzi hello HTTP wyboru zwrócone z sieci CDN pamięci podręcznej zawartości.  Jeśli istnieje nagłówek o nazwie `Content-Encoding` o wartości **gzip**, **bzip2**, lub **deflate**, jest skompresowana zawartość.
+> Aby sprawdzić, czy pliki zostały zwrócone skompresowany, należy użyć narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler) lub przeglądarki [narzędzia dla deweloperów](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Nagłówki odpowiedzi HTTP wyboru zwrócone z sieci CDN pamięci podręcznej zawartości.  Jeśli istnieje nagłówek o nazwie `Content-Encoding` o wartości **gzip**, **bzip2**, lub **deflate**, jest skompresowana zawartość.
 > 
 > ![Kodowanie zawartości nagłówka](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -38,21 +38,21 @@ Kompresja dla punktu końcowego jest włączona, ale pliki są zwracane nieskomp
 ## <a name="cause"></a>Przyczyna
 Istnieje kilka możliwych przyczyn, w tym:
 
-* Witaj zażądał zawartości nie jest uprawniony do kompresji.
-* Nie włączono kompresję hello żądany typ pliku.
-* Hello żądania HTTP nie zawiera nagłówka zażądał typu prawidłowy kompresji.
+* Żądana zawartość nie jest uprawniony do kompresji.
+* Kompresja nie jest włączona na żądany typ pliku.
+* Żądanie HTTP nie zawiera nagłówka zażądał typu prawidłowy kompresji.
 
 ## <a name="troubleshooting-steps"></a>Kroki rozwiązywania problemów
 > [!TIP]
-> Podobnie jak w przypadku wdrażania nowych punktów końcowych, zmiany w konfiguracji sieci CDN zająć niektórych toopropagate czas za pośrednictwem sieci hello.  Zwykle zmiany zostaną zastosowane w ciągu 90 minut.  Jeśli jest to powitania po skonfigurowaniu kompresji dla punktu końcowego CDN po raz pierwszy, należy rozważyć oczekuje się, że ustawienia kompresji hello zostaną rozpropagowane POP toohello toobe 1 – 2 godz. 
+> Podobnie jak w przypadku wdrażania nowych punktów końcowych, zmiany w konfiguracji sieci CDN zająć trochę czasu propagację za pośrednictwem sieci.  Zwykle zmiany zostaną zastosowane w ciągu 90 minut.  Jeśli jest to po raz pierwszy po skonfigurowaniu kompresji dla punktu końcowego CDN, należy rozważyć oczekiwania 1 – 2 godz. Aby upewnić się, że ustawienia zostaną rozpropagowane do lokalizacji POP kompresji. 
 > 
 > 
 
-### <a name="verify-hello-request"></a>Sprawdź hello żądania
-Najpierw należy wykonać związane z poprawnością szybkie sprawdzenie hello żądania.  Można użyć przeglądarki [narzędzia dla deweloperów](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) tooview hello żądań wysyłanych.
+### <a name="verify-the-request"></a>Sprawdź żądania
+Najpierw należy wykonać związane z poprawnością szybkie sprawdzenie żądanie.  Można użyć przeglądarki [narzędzia dla deweloperów](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) Przeglądanie żądań wysyłanych.
 
-* Sprawdź wysyłanie żądania hello tooyour adres URL punktu końcowego, `<endpointname>.azureedge.net`, a nie źródła.
-* Sprawdź Żądanie hello zawiera **Accept-Encoding** nagłówka i hello wartość dla nagłówka zawiera **gzip**, **deflate**, lub **bzip2** .
+* Sprawdź, żądanie jest wysyłane na adres URL punktu końcowego `<endpointname>.azureedge.net`, a nie źródła.
+* Sprawdź żądanie zawiera **Accept-Encoding** zawiera nagłówek i wartość tego nagłówka **gzip**, **deflate**, lub **bzip2**.
 
 > [!NOTE]
 > **Azure CDN from Akamai** profile obsługują tylko **gzip** kodowania.
@@ -67,10 +67,10 @@ Najpierw należy wykonać związane z poprawnością szybkie sprawdzenie hello �
 > 
 > 
 
-Przejdź do punktu końcowego tooyour w hello [portalu Azure](https://portal.azure.com) i kliknij przycisk hello **Konfiguruj** przycisku.
+Przejdź do punktu końcowego w [portalu Azure](https://portal.azure.com) i kliknij przycisk **Konfiguruj** przycisku.
 
 * Sprawdź, czy kompresja jest włączona.
-* Sprawdź hello typ MIME dla zawartości toobe skompresowane jest uwzględniona w hello listy formatów skompresowany hello.
+* Sprawdź, czy typ MIME dla zawartości do skompresowania jest uwzględniony na liście formatów skompresowane.
 
 ![Ustawienia kompresji CDN](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
@@ -80,41 +80,41 @@ Przejdź do punktu końcowego tooyour w hello [portalu Azure](https://portal.azu
 > 
 > 
 
-Przejdź do punktu końcowego tooyour w hello [portalu Azure](https://portal.azure.com) i kliknij przycisk hello **Zarządzaj** przycisku.  zostanie otwarta Hello portalu dodatkowym.  Przesuń kursor myszy hello **HTTP dużych** kartę, a następnie przesuń kursor myszy hello **ustawienia pamięci podręcznej** wysuwane okno.  Kliknij przycisk **kompresji**. 
+Przejdź do punktu końcowego w [portalu Azure](https://portal.azure.com) i kliknij przycisk **Zarządzaj** przycisku.  Zostanie otwarty w portalu dodatkowym.  Umieść kursor nad **HTTP dużych** , a następnie umieść kursor nad **ustawienia pamięci podręcznej** wysuwane okno.  Kliknij przycisk **kompresji**. 
 
 * Sprawdź, czy kompresja jest włączona.
-* Sprawdź hello **typów plików** lista zawiera listę rozdzielanych przecinkami (bez spacji) typów MIME.
-* Sprawdź hello typ MIME dla zawartości toobe skompresowane jest uwzględniona w hello listy formatów skompresowany hello.
+* Sprawdź **typów plików** lista zawiera listę rozdzielanych przecinkami (bez spacji) typów MIME.
+* Sprawdź, czy typ MIME dla zawartości do skompresowania jest uwzględniony na liście formatów skompresowane.
 
 ![Ustawienia kompresji sieci CDN w warstwie premium](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-hello-content-is-cached"></a>Sprawdź, czy hello zawartość jest buforowana
+### <a name="verify-the-content-is-cached"></a>Sprawdź, czy zawartość jest buforowana
 > [!NOTE]
 > Ten krok ma zastosowanie tylko, jeśli profil CDN jest **Azure CDN from Verizon** profilu (standardowy lub Premium).
 > 
 > 
 
-Przy użyciu narzędzia dla deweloperów w przeglądarce, sprawdź, czy hello odpowiedzi nagłówki tooensure hello plików jest buforowana w regionie hello, w którym jest on wymagany.
+Przy użyciu narzędzia dla deweloperów w przeglądarce, sprawdź nagłówków odpowiedzi, aby upewnić się, że plik jest buforowany w regionie, w którym jest on wymagany.
 
-* Sprawdź hello **serwera** nagłówka odpowiedzi.  Nagłówek Hello musi mieć hello format **platformy (serwer protokołu POP/ID)**, jak pokazano w hello poniższy przykład.
-* Sprawdź hello **pamięci podręcznej X** nagłówka odpowiedzi.  należy odczytać nagłówka Hello **TRAFIEŃ**.  
+* Sprawdź **serwera** nagłówka odpowiedzi.  Nagłówek powinna mieć format **platformy (serwer protokołu POP/ID)**, jak pokazano w poniższym przykładzie.
+* Sprawdź **pamięci podręcznej X** nagłówka odpowiedzi.  Nagłówek należy przeczytać **TRAFIEŃ**.  
 
 ![Nagłówki odpowiedzi CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-hello-file-meets-hello-size-requirements"></a>Sprawdź, czy plik hello spełnia wymagania dotyczące rozmiaru hello
+### <a name="verify-the-file-meets-the-size-requirements"></a>Sprawdź, czy plik spełnia wymagania dotyczące rozmiaru
 > [!NOTE]
 > Ten krok ma zastosowanie tylko, jeśli profil CDN jest **Azure CDN from Verizon** profilu (standardowy lub Premium).
 > 
 > 
 
-toobe kwalifikuje się do kompresji, plik musi spełniać następujące wymagania dotyczące rozmiaru hello:
+Aby kwalifikować się do kompresji, plik musi spełniać następujące wymagania rozmiar:
 
 * Większe niż 128 bajtów.
 * Mniejszy niż 1 MB.
 
-### <a name="check-hello-request-at-hello-origin-server-for-a-via-header"></a>Sprawdzanie hello żądania na serwerze pochodzenia hello **za pośrednictwem** nagłówka
-Witaj **za pośrednictwem** wskazuje nagłówka HTTP serwera sieci web toohello hello żądania jest przekazywany przez serwer proxy.  Serwery sieci web Microsoft IIS domyślnie nie Kompresuj odpowiedzi, gdy Żądanie hello zawiera **za pośrednictwem** nagłówka.  toooverride to zachowanie, wykonaj następujące hello:
+### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Sprawdzanie żądania na serwerze źródłowym dla **za pośrednictwem** nagłówka
+**Za pośrednictwem** nagłówka HTTP wskazuje na serwerze sieci web, czy żądanie jest przekazywany przez serwer proxy.  Serwery sieci web Microsoft IIS domyślnie nie Kompresuj odpowiedzi, jeśli żądanie zawiera **za pośrednictwem** nagłówka.  Aby zmienić to zachowanie, należy wykonać następujące czynności:
 
-* **IIS 6**: [ustawić HcNoCompressionForProxies = "FALSE" hello właściwości metabazy usług IIS](https://msdn.microsoft.com/library/ms525390.aspx)
-* **Usługi IIS 7 i nowsze**: [wartość **noCompressionForHttp10** i **noCompressionForProxies** tooFalse w konfiguracji serwera hello](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [ustawić HcNoCompressionForProxies = "FALSE" we właściwościach metabazy usług IIS](https://msdn.microsoft.com/library/ms525390.aspx)
+* **Usługi IIS 7 i nowsze**: [wartość **noCompressionForHttp10** i **noCompressionForProxies** na wartość False w konfiguracji serwera](http://www.iis.net/configreference/system.webserver/httpcompression)
 

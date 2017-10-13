@@ -1,6 +1,6 @@
 ---
-title: "elementy języka Transact-SQL magazynu danych aaaSQL | Dokumentacja firmy Microsoft"
-description: "Lista łączy tooreference zawartości dla elementów języka Transact-SQL hello używane dla usługi SQL Data Warehouse."
+title: "Elementy języka Transact-SQL SQL magazynu danych | Dokumentacja firmy Microsoft"
+description: "Lista linków do zawartości referencyjnej dla elementy języka Transact-SQL, które są używane dla usługi SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: db7500b2a1f69a9e3dccddafd27a9cd0d95f9baf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="language-elements"></a>Elementy języka
 ## <a name="core-elements"></a>Elementy podstawowe
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/06/2017
 * [/ (Dzielenie)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
-## <a name="wildcard-characters-toomatch"></a>Toomatch znaki symboli wieloznacznych
+## <a name="wildcard-characters-to-match"></a>Znaki symboli wieloznacznych do dopasowania
 * [= (Równa)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Więcej niż)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Poniżej)](https://msdn.microsoft.com/library/ms179873.aspx)

@@ -16,7 +16,7 @@
 ### [Ustawienia niestandardowe](active-directory-aadconnect-get-started-custom.md)
 ### [Uaktualnianie z narzędzia DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Uaktualnianie z poprzedniej wersji](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [Instalowanie przy użyciu istniejącej bazy danych ADSync](active-directory-aadconnect-existing-database.md)
 
 # Instrukcje
 ## Planowanie i projektowanie
@@ -27,6 +27,7 @@
 ### [Jeśli masz już usługę Azure AD](active-directory-aadconnect-existing-tenant.md)
 ## [Zarządzanie programem Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [Odnawianie certyfikatów dla usług O365 i Azure AD](active-directory-aadconnect-o365-certs.md)
+### [Aktualizowanie certyfikatu SSL dla farmy usług Active Directory Federation Services (AD FS)](active-directory-aadconnectfed-ssl-update.md)
 ### [Włączanie zapisywania zwrotnego urządzeń](active-directory-aadconnect-feature-device-writeback.md)
 ### [Opcje logowania użytkowników](active-directory-aadconnect-user-signin.md)
 #### [Bezproblemowe logowanie jednokrotne](active-directory-aadconnect-sso.md)
@@ -42,6 +43,7 @@
 ##### [Smart Lockout (Inteligentna blokada)](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Często zadawane pytania](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Rozwiązywanie problemów](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
+##### [Szczegółowe informacje o zabezpieczeniach](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
 ### [Obsługa wielu domen do federowania](active-directory-aadconnect-multiple-domains.md)
 ### [Automatycznie uaktualnianie](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Korzystanie z dostawcy tożsamości SAML 2.0 na potrzeby logowania jednokrotnego](active-directory-aadconnect-federation-saml-idp.md)
@@ -53,13 +55,13 @@
 ### [Synchronizacja haseł](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Konto usługi Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Kreator instalacji](active-directory-aadconnectsync-installation-wizard.md)
-### [Zmienianie konfiguracji domyślnej hello](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
+### [Zmienianie konfiguracji domyślnej](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 ### [Konfigurowanie filtrowania](active-directory-aadconnectsync-configure-filtering.md)
 ### [Scheduler](active-directory-aadconnectsync-feature-scheduler.md)
 ### [Rozszerzenia katalogów](active-directory-aadconnectsync-feature-directory-extensions.md)
 
-### [Zmiana hasła do konta usługi Azure AD Sync hello](active-directory-aadconnectsync-change-serviceacct-pass.md)
-### [Zmiana hasła konta hello AD DS](active-directory-aadconnectsync-change-addsacct-pass.md)
+### [Zmienianie hasła konta usługi Azure AD Sync](active-directory-aadconnectsync-change-serviceacct-pass.md)
+### [Zmienianie hasła konta usług AD DS](active-directory-aadconnectsync-change-addsacct-pass.md)
 ### [Włączanie Kosza usługi AD](active-directory-aadconnectsync-recycle-bin.md)
 
 ### [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md)
@@ -80,7 +82,7 @@
 ### [Obiekt nie jest zsynchronizowany](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Synchronizacja haseł](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
 ### [Błąd LargeObject spowodowany przez element userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
-### [Jak toorecover z LocalDB limitu 10 GB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
+### [Jak usunąć limit 10 GB dla lokalnej bazy danych](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
@@ -91,7 +93,7 @@
 ## [Konta i uprawnienia](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect Sync
-### [Atrybuty są synchronizowane tooAzure usługi Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
+### [Atrybuty synchronizowane z usługą Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md)
 ### [Historia wersji łącznika](active-directory-aadconnectsync-connector-version-history.md)
 ### [Informacje ogólne o funkcjach](active-directory-aadconnectsync-functions-reference.md)
 ### [Zagadnienia i zadania operacyjne](active-directory-aadconnectsync-operations.md)
@@ -103,7 +105,7 @@
 
 
 # Powiązane
-## [Monitorowanie lokalnej tożsamości infrastruktury i synchronizacji usług w chmurze hello](../connect-health/active-directory-aadconnect-health.md)
+## [Monitorowanie lokalnej infrastruktury do obsługi tożsamości i usług synchronizacji w chmurze](../connect-health/active-directory-aadconnect-health.md)
 ## [Podręcznik projektowania tożsamości hybrydowej](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 

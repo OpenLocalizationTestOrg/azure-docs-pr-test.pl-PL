@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji wyszukiwania — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooadd niezawodne wyszukiwania możliwości, takie jak działania monitorowania, toocustom sieci web lub aplikacji dla urządzeń przenośnych. Dokumentacja interfejsu API i inne dokumenty."
+title: "Dokumentacja usługi Azure Search — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak dodawać niezawodne możliwości wyszukiwania, w tym monitorowanie aktywności, do niestandardowych aplikacji sieci Web i aplikacji mobilnych. Dokumentacja interfejsu API i inne dokumenty."
 services: search
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 2ef61d7bf68e94c4429ba1b13709ee9b31093b71
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9debfb5c55332836ff721aae08c7d45c811444f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-documentation"></a>Dokumentacja usługi Azure Search
 
-Dowiedz się, jak tooadd wyszukiwania możliwości tooyour niestandardowych w sieci web lub za pomocą usługi Azure Search, Usługa wyszukiwania w chmurze zarządzane aplikacje mobilne. Samouczki, odwołania do interfejsu API i dokumentacji informują jak tooadd skalowalne wyszukiwania pełnotekstowego w wielu języków, wyszukiwania przestrzennych geograficznie, filtrowania i aspektowej nawigacji, Autouzupełnianie zapytań wyróżnianie trafień oraz analizatorów niestandardowych.
+Dowiedz się, jak dodać możliwości wyszukiwania do niestandardowych aplikacji sieci Web lub aplikacji mobilnych za pomocą usługi Azure Search — zarządzanej usługi wyszukiwania w chmurze. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak dodać skalowalne wyszukiwanie pełnotekstowe w wielu językach, wyszukiwanie geoprzestrzenne, filtrowanie i nawigacja aspektowa, zapytania z podpowiedziami pojawiającymi się w trakcie pisania, wyróżnianie trafień oraz analizatory niestandardowe.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak tooadd wyszukiwania możliwości tooyour niestandardowych w si
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do usługi Azure Search przy użyciu hello portalu Azure</h3>
+                        <h3>Rozpoczynanie pracy z usługą Azure Search przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>

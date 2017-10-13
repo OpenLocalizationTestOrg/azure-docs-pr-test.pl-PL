@@ -1,5 +1,5 @@
 ---
-title: "aaaCreate indeksu usługi Azure Search | Microsoft Azure | Usługa wyszukiwania w hostowanej chmurze"
+title: "Tworzenie indeksu usługi Azure Search | Microsoft Azure | Hostowana usługa wyszukiwania w chmurze"
 description: "Czym jest indeks w usłudze Azure Search i jak się z niego korzysta?"
 services: search
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.openlocfilehash: c01cc654ff91427c8f1569b2f5b060a0a0f044c6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index"></a>Tworzenie indeksu usługi Azure Search
 > [!div class="op_single_selector"]
@@ -28,41 +28,41 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="what-is-an-index"></a>Co to jest indeks?
-*Indeks* jest trwałym magazynem *dokumentów* i innych konstrukcji używanych przez usługę Azure Search. Dokument jest pojedynczą jednostką danych, które można wyszukiwać w indeksie. Na przykład sklep internetowy może mieć dokument dla każdego sprzedawanego produktu, a organizacja medialna — dla każdego artykułu itp. Mapowanie te pojęcia toomore znane pojęcia bazodanowe: *indeksu* jest podobny tooa *tabeli*, i *dokumenty* zbyt są w przybliżeniu*wierszy* w tabeli.
+*Indeks* jest trwałym magazynem *dokumentów* i innych konstrukcji używanych przez usługę Azure Search. Dokument jest pojedynczą jednostką danych, które można wyszukiwać w indeksie. Na przykład sklep internetowy może mieć dokument dla każdego sprzedawanego produktu, a organizacja medialna — dla każdego artykułu itp. W przełożeniu na lepiej znane pojęcia bazodanowe: *indeks* jest podobny do *tabeli*, a *dokumenty* są w przybliżeniu równe *wierszom* w tabeli.
 
-Gdy możesz dodawania/przekazywania dokumentów i Prześlij tooAzure zapytania wyszukiwania wyszukiwania, Prześlij określonego żądania indeksu w tooa w swojej usłudze wyszukiwania.
+Podczas dodawania/przekazywania dokumentów i przesyłania zapytań wyszukiwań do usługi Azure Search przesyłasz żądania do konkretnego indeksu w swojej usłudze wyszukiwania.
 
 ## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Typy i atrybuty pól w indeksie usługi Azure Search
-W trakcie definiowania schematu, należy określić nazwę hello, typ i atrybuty każdego pola w indeksie. Witaj typ pola klasyfikuje hello danych przechowywanych w tym polu. Atrybuty są ustawiane dla poszczególnych pól toospecify, jak pole hello jest używany. Witaj poniższych tabelach zostały wyszczególnione typy hello i atrybuty, które można określić.
+W trakcie definiowania schematu musisz określić nazwę, typ i atrybuty każdego pola w indeksie. Typ pola klasyfikuje dane, które są w nim przechowywane. Atrybuty są ustawiane dla poszczególnych pól, aby określić sposób użycia pola. W poniższych tabelach zostały wyszczególnione typy i atrybuty, które możesz określić.
 
 ### <a name="field-types"></a>Typy pól
 | Typ | Opis |
 | --- | --- |
 | *Edm.String* |Tekst, który opcjonalnie można podzielić na tokeny na potrzeby wyszukiwania pełnotekstowego (dzielenie wyrazów, analiza słowotwórcza itp.). |
-| *Collection(Edm.String)* |Lista ciągów, które opcjonalnie można podzielić na tokeny na potrzeby wyszukiwania pełnotekstowego. Nie ma żadnego teoretycznego limitu górnego hello liczby elementów w kolekcji, ale toocollections stosuje hello 16 MB górny limit na rozmiar ładunku. |
+| *Collection(Edm.String)* |Lista ciągów, które opcjonalnie można podzielić na tokeny na potrzeby wyszukiwania pełnotekstowego. Nie ma teoretycznej górnej granicy liczby elementów w kolekcji, ale rozmiar ładunku w kolekcjach jest ograniczony do 16 MB. |
 | *Edm.Boolean* |Zawiera wartości prawda/fałsz. |
 | *Edm.Int32* |32-bitowe wartości całkowite. |
 | *Edm.Int64* |64-bitowe wartości całkowite. |
 | *Edm.Double* |Dane liczbowe o podwójnej precyzji. |
-| *Edm.DateTimeOffset* |Wartości daty i godziny reprezentowane w formacie hello protokołu OData V4 (np. `yyyy-MM-ddTHH:mm:ss.fffZ` lub `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
-| *Edm.GeographyPoint* |Punkt przedstawiający lokalizację geograficzną na świecie hello. |
+| *Edm.DateTimeOffset* |Wartości daty i godziny przedstawione w formacie OData 4 (np. w formacie `yyyy-MM-ddTHH:mm:ss.fffZ` lub `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.GeographyPoint* |Punkt przedstawiający lokalizację geograficzną na świecie. |
 
 Dowiedz się więcej na temat [typów danych obsługiwanych przez usługę Azure Search w tym miejscu](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="field-attributes"></a>Atrybuty pól
 | Atrybut | Opis |
 | --- | --- |
-| *Klucz* |Ciąg, który zawiera hello Unikatowy identyfikator każdego dokumentu, używany do wyszukiwania dokumentu. Każdy indeks musi mieć jeden klucz. Tylko jedno pole może być hello klucza, a jego typu należy ustawić tooEdm.String. |
+| *Klucz* |Ciąg udostępniający unikatowy identyfikator każdego dokumentu, używany do wyszukiwania dokumentu. Każdy indeks musi mieć jeden klucz. Tylko jedno pole może być kluczem i musi ono mieć typ Edm.String. |
 | *Pobieranie* |Określa, czy pole może być zwracane w wynikach wyszukiwania. |
-| *Filtrowanie* |Umożliwia hello toobe pola używane w zapytaniach filtrów. |
-| *Sortowanie* |Umożliwia zapytaniom toosort wyników wyszukiwania za pomocą tego pola. |
-| *Tworzenie aspektów* |Umożliwia toobe pola używane w [nawigacji aspektowej](search-faceted-navigation.md) struktury samodzielnego filtrowania użytkownika. Zazwyczaj pola zawierające powtarzające się wartości, których można używać toogroup razem o wielu dokumentów (na przykład wiele dokumentów podlegających pod jedną markę lub kategorię usługi) jako aspekty najlepiej sprawdzają. |
-| *Wyszukiwanie* |Znaczniki hello pole jako pełnotekstowe wyszukiwanie. |
+| *Filtrowanie* |Umożliwia używanie pola w zapytaniach filtrów. |
+| *Sortowanie* |Umożliwia zapytaniom sortowanie wyników wyszukiwania za pomocą tego pola. |
+| *Tworzenie aspektów* |Umożliwia używanie pola w strukturze [nawigacji aspektowej](search-faceted-navigation.md) podczas samodzielnego filtrowania przez użytkownika. Zwykle jako aspekty najlepiej sprawdzają się pola zawierające powtarzające się wartości, które umożliwiają grupowanie wielu dokumentów (na przykład wiele dokumentów podlegających pod jedną markę lub kategorię usługi). |
+| *Wyszukiwanie* |Oznacza pole jako podlegające wyszukiwaniu pełnotekstowemu. |
 
 Dowiedz się więcej na temat [atrybutów indeksów usługi Azure Search w tym miejscu](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="guidance-for-defining-an-index-schema"></a>Wskazówki dotyczące definiowania schematu indeksu
-Podczas projektowania indeksu Poświęć trochę czasu w hello planowania toothink fazy za pośrednictwem każdej decyzji. Należy pamiętać o Twojej wyszukiwania użytkownika oraz o potrzebach biznesowych na uwadze podczas projektowania indeksu jako każdego pola należy przypisać hello jest [odpowiednie atrybuty](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Wprowadzanie zmian do indeksu po jego wdrożeniu obejmuje ponowne utworzenie i ponowne załadowanie hello danych.
+W fazie planowania projektu indeksu poświęć odpowiednio dużo czasu na przemyślenie każdej decyzji. Podczas projektowania indeksu należy pamiętać o środowisku wyszukiwania użytkownika oraz o potrzebach biznesowych, ponieważ do każdego pola należy przypisać [odpowiednie atrybuty](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Wprowadzanie zmian do indeksu po jego wdrożeniu obejmuje jego ponowne utworzenie i ponownie załadowanie danych.
 
 Jeśli wymagania dotyczące magazynu danych ulegną zmianom, możesz zwiększyć lub zmniejszyć pojemność przez dodanie lub usunięcie partycji. Aby uzyskać szczegółowe informacje, zobacz [Manage your Search service in Azure](search-manage.md) (Zarządzanie usługą wyszukiwania na platformie Azure) lub [Service Limits](search-limits-quotas-capacity.md) (Ograniczenia usługi).
 

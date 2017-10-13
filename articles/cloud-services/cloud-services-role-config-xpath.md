@@ -1,6 +1,6 @@
 ---
-title: "aaaCloud roli usługi konfiguracji XPath ściągawka | Dokumentacja firmy Microsoft"
-description: "Witaj różne ustawienia języka XPath można używać jako zmienną środowiskową w hello chmury usługi roli config tooexpose ustawienia."
+title: "Chmura roli usługi konfiguracji XPath ściągawka | Dokumentacja firmy Microsoft"
+description: "Różne ustawienia języka XPath można w konfiguracji roli usługi w chmurze uwidocznić ustawienia jako zmiennej środowiskowej."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: 27f98f956a1c790c9bb30f9fefe1ab1736b2b150
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Udostępnianie ustawień konfiguracji roli jako zmiennej środowiskowej XPath
-Proces roboczy usług chmury hello lub pliku definicji usługi roli sieci web mogą uwidaczniać wartości konfiguracji środowiska uruchomieniowego jako zmienne środowiskowe. następujące wartości XPath Hello są obsługiwane (co odpowiada wartości tooAPI).
+W chmurze usługi worker lub pliku definicji usługi roli sieci web można uwidocznić wartości konfiguracji środowiska uruchomieniowego jako zmienne środowiskowe. Obsługiwane są następujące wartości XPath, (które odpowiadają wartościom interfejsu API).
 
-Te wartości XPath są również dostępne za pośrednictwem hello [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) biblioteki. 
+Dostępne są także te wartości XPath [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) biblioteki. 
 
 ## <a name="app-running-in-emulator"></a>Aplikacji uruchomionej w emulatorze
-Wskazuje, że danej aplikacji hello działa w emulatorze hello.
+Wskazuje, że aplikacja działa w emulatorze.
 
 | Typ | Przykład |
 | --- | --- |
@@ -34,7 +34,7 @@ Wskazuje, że danej aplikacji hello działa w emulatorze hello.
 | Kod |var x = RoleEnvironment.IsEmulated; |
 
 ## <a name="deployment-id"></a>Identyfikator wdrożenia
-Pobiera identyfikator wdrożenia hello hello wystąpienia.
+Pobiera identyfikator wdrożenia dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
@@ -42,7 +42,7 @@ Pobiera identyfikator wdrożenia hello hello wystąpienia.
 | Kod |var deploymentId = RoleEnvironment.DeploymentId; |
 
 ## <a name="role-id"></a>Identyfikator roli
-Pobiera bieżący identyfikator roli hello hello wystąpienia.
+Pobiera bieżący identyfikator roli dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
@@ -50,7 +50,7 @@ Pobiera bieżący identyfikator roli hello hello wystąpienia.
 | Kod |Identyfikator var = RoleEnvironment.CurrentRoleInstance.Id; |
 
 ## <a name="update-domain"></a>Aktualizowanie domeny
-Pobiera domeny aktualizacji hello hello wystąpienia.
+Pobiera domeny aktualizacji wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
@@ -58,7 +58,7 @@ Pobiera domeny aktualizacji hello hello wystąpienia.
 | Kod |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
 
 ## <a name="fault-domain"></a>Domena awarii
-Pobiera domeny błędów hello hello wystąpienia.
+Pobiera wystąpienia domeny błędów.
 
 | Typ | Przykład |
 | --- | --- |
@@ -66,7 +66,7 @@ Pobiera domeny błędów hello hello wystąpienia.
 | Kod |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
 ## <a name="role-name"></a>Nazwa roli
-Pobiera nazwę roli hello hello wystąpień.
+Pobiera nazwę wystąpienia roli.
 
 | Typ | Przykład |
 | --- | --- |
@@ -74,7 +74,7 @@ Pobiera nazwę roli hello hello wystąpień.
 | Kod |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
 ## <a name="config-setting"></a>Ustawienia konfiguracji
-Pobiera wartość hello hello określone ustawienia konfiguracji.
+Pobiera wartość ustawienia określonej konfiguracji.
 
 | Typ | Przykład |
 | --- | --- |
@@ -82,7 +82,7 @@ Pobiera wartość hello hello określone ustawienia konfiguracji.
 | Kod |Ustawienie var = RoleEnvironment.GetConfigurationSettingValue("Setting1"); |
 
 ## <a name="local-storage-path"></a>Ścieżki do lokalnego magazynu
-Pobiera ścieżkę magazynu lokalnego hello hello wystąpienia.
+Pobiera ścieżkę lokalnej pamięci masowej dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
@@ -90,7 +90,7 @@ Pobiera ścieżkę magazynu lokalnego hello hello wystąpienia.
 | Kod |var localResourcePath = RoleEnvironment.GetLocalResource("LocalStore1"). Właściwość RootPath; |
 
 ## <a name="local-storage-size"></a>Rozmiar magazynu lokalnego
-Pobiera rozmiar hello hello magazynu lokalnego wystąpienia hello.
+Pobiera rozmiar magazynu lokalnego dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
@@ -98,7 +98,7 @@ Pobiera rozmiar hello hello magazynu lokalnego wystąpienia hello.
 | Kod |var localResourceSizeInMB = RoleEnvironment.GetLocalResource("LocalStore1"). MaximumSizeInMegabytes; |
 
 ## <a name="endpoint-protocol"></a>Punkt końcowy protokołu
-Pobiera protokół punktu końcowego hello hello wystąpienia.
+Pobiera protokół punktu końcowego dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
@@ -106,7 +106,7 @@ Pobiera protokół punktu końcowego hello hello wystąpienia.
 | Kod |ochronę var = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"]. Protokół; |
 
 ## <a name="endpoint-ip"></a>Punkt końcowy IP
-Pobiera hello określony adres IP punktu końcowego.
+Pobiera określony punkt końcowy adres IP.
 
 | Typ | Przykład |
 | --- | --- |
@@ -114,7 +114,7 @@ Pobiera hello określony adres IP punktu końcowego.
 | Kod |adres var = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"]. IPEndpoint.Address |
 
 ## <a name="endpoint-port"></a>Port punktu końcowego
-Pobiera hello port punktu końcowego dla hello wystąpienia.
+Pobiera port punktu końcowego dla tego wystąpienia.
 
 | Typ | Przykład |
 | --- | --- |
@@ -122,7 +122,7 @@ Pobiera hello port punktu końcowego dla hello wystąpienia.
 | Kod |var port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"]. IPEndpoint.Port; |
 
 ## <a name="example"></a>Przykład
-Oto przykład roli procesu roboczego, który tworzy zadanie uruchamiania przy użyciu zmiennej środowiskowej o nazwie `TestIsEmulated` ustawić toohello [ @emulated wartość wyrażenia xpath](#app-running-in-emulator). 
+Oto przykład roli procesu roboczego, który tworzy zadanie uruchamiania przy użyciu zmiennej środowiskowej o nazwie `TestIsEmulated` ustawioną [ @emulated wartość wyrażenia xpath](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">
@@ -162,7 +162,7 @@ Oto przykład roli procesu roboczego, który tworzy zadanie uruchamiania przy u�
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o hello [pliku ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) pliku.
+Dowiedz się więcej o [pliku ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) pliku.
 
 Utwórz [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) pakietu.
 

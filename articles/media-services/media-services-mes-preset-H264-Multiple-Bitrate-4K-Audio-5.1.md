@@ -1,6 +1,6 @@
 ---
-title: "aaa264 wielu szybkości transmisji bitów 4K Audio 5.1 | Dokumentacja firmy Microsoft"
-description: "Witaj temat zawiera omówienie hello ** 264 Audio szybkość transmisji bitów 4K 5.1* * ustawienie wstępne zadań."
+title: "264 wiele szybkości transmisji bitów 4K Audio 5.1 | Dokumentacja firmy Microsoft"
+description: "Temat zawiera omówienie ** 264 Audio szybkość transmisji bitów 4K 5.1* * ustawienie wstępne zadań."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: ea0169a86b132002233488ba748a6583fe08d51b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 10e5c41be42b73e3e1458adac9642547c182530b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Wielu szybkości transmisji bitów 4K Audio 5.1
-`Media Encoder Standard`definiuje zestaw kodowania ustawienia używanego podczas tworzenia zadania kodowania. Można użyć `preset name` toospecify do formatu, który chcesz tooencode Twojego pliku multimedialnego. Lub można utworzyć własny JSON lub ustawienia opartych na języku XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie możesz przejdzie hello toohello wstępnie ustawiony niestandardowy koder. Lista hello hello wszystkie ustawienia wstępnego nazw obsługiwanych przez to `Media Encoder Standard` kodera, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definiuje zestaw kodowania ustawienia używanego podczas tworzenia zadania kodowania. Można użyć `preset name` do określenia do formatu, który chcesz kodować pliku nośnika. Lub można utworzyć własny JSON lub ustawienia opartych na języku XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie możesz przejdzie niestandardowe ustawienia do kodera. Aby uzyskać listę wszystkich istniejących nazw obsługiwanych przez to `Media Encoder Standard` kodera, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- W tym temacie przedstawiono hello `H264 Multiple Bitrate 4K Audio 5.1` ustawienia wstępnego w formacie XML i JSON.  
+ W tym temacie przedstawiono `H264 Multiple Bitrate 4K Audio 5.1` ustawienia wstępnego w formacie XML i JSON.  
   
- To ustawienie powoduje utworzenie zestawu plików MP4 wyrównane GOP 12, od 20000 KB/s too1000 KB/s i audio AAC 5.1. Aby uzyskać szczegółowe informacje o profilu szybkości transmisji bitów próbkowania szybkości, itp. tego ustawień, sprawdź hello XML lub JSON określonych poniżej. Wyjaśnienia dotyczące oznacza jakie każdy element i hello prawidłowe wartości dla każdego elementu, można znaleźć hello [Media Encoder Standard schematu](media-services-mes-schema.md).  
-  
-> [!NOTE]
->  Należy pobrać hello Premium zastrzeżone koduje typu jednostki z 4K. Aby uzyskać więcej informacji, zobacz [jak tooScale kodowanie](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+ To ustawienie powoduje utworzenie zestawu plików MP4 wyrównane GOP 12, począwszy od 20000 KB/s do 1000 KB/s i audio AAC 5.1. Aby uzyskać szczegółowe informacje o profilu szybkości transmisji bitów próbkowania szybkości, itp. tego ustawień, sprawdzić XML lub JSON określonych poniżej. Wyjaśnień oznacza jakie każdy element i prawidłowe wartości dla każdego elementu, zobacz [Media Encoder Standard schematu](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Podczas modyfikowania hello `Width` i `Height` wartości warstw, upewnij się, że ten współczynnik proporcji hello pozostaje spójna. Na przykład: 1920 x 1080 pikseli, 1280 x 720, 1080 x 576 640 x 360. Nie należy używać kombinację proporcje, takich jak: 1280 x 720, 720 x 480, 640 x 360.  
+>  Należy pobrać jednostka zarezerwowanego Premium koduje typu z 4K. Aby uzyskać więcej informacji, zobacz [sposób kodowania skali](https://azure.microsoft.com/en-us/documentation/articles/media-services-portal-encoding-units).  
+  
+> [!NOTE]
+>  Podczas modyfikowania `Width` i `Height` wartości warstw, upewnij się, że spójność współczynnik proporcji. Na przykład: 1920 x 1080 pikseli, 1280 x 720, 1080 x 576 640 x 360. Nie należy używać kombinację proporcje, takich jak: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

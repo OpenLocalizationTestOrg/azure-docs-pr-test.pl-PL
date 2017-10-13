@@ -1,5 +1,5 @@
 ---
-title: "aaaCreate nowy zasób usługi Application Insights dla platformy Azure | Dokumentacja firmy Microsoft"
+title: "Utwórz nowy zasób usługi Application Insights dla platformy Azure | Dokumentacja firmy Microsoft"
 description: "Ręcznie skonfiguruj monitorowanie usługi Application Insights dla nowej aplikacji na żywo."
 services: application-insights
 documentationcenter: 
@@ -13,60 +13,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: bwren
-ms.openlocfilehash: 3aba7045e1f8fe43d473f0be01dd52106ab992a8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5f8814ee943424c1c278ab3732129d4459f83819
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
-Azure Application Insights przedstawia dane dotyczące Twojej aplikacji w systemie Microsoft Azure *zasobów*. Tworzenie nowego zasobu w związku z tym jest częścią [konfigurowania usługi Application Insights toomonitor nową aplikację][start]. W wielu przypadkach tworzenie zasobu można automatycznie hello IDE. Jednak w niektórych przypadkach należy Utwórz ręcznie zasób — na przykład toohave oddzielne zasoby do rozwoju i produkcji tworzy aplikacji.
+Azure Application Insights przedstawia dane dotyczące Twojej aplikacji w systemie Microsoft Azure *zasobów*. Tworzenie nowego zasobu w związku z tym jest częścią [konfigurowaniu usługi Application Insights do monitorowania nowej aplikacji][start]. W wielu przypadkach tworzenie zasobu można automatycznie IDE. Ale w niektórych przypadkach należy Utwórz ręcznie zasób — na przykład mieć osobne zasobów dla rozwoju i produkcji kompilacje aplikacji.
 
-Po utworzeniu zasobu hello, możesz pobrać jego klucza Instrumentacji i użyć tego hello tooconfigure zestawu SDK w aplikacji hello. linki do kluczowych zasobów Hello hello telemetrii toohello zasobów.
+Po utworzeniu zasobu uzyskać jego klucza Instrumentacji i używać, aby skonfigurować zestaw SDK w aplikacji. Klucz zasobu łączy dane telemetryczne do zasobu.
 
-## <a name="sign-up-toomicrosoft-azure"></a>Zarejestruj się tooMicrosoft Azure
+## <a name="sign-up-to-microsoft-azure"></a>Zaloguj do systemu Microsoft Azure
 Jeśli nie mam [Microsoft konto, Uzyskaj je teraz](http://live.com). (Jeśli korzystasz z usług takich jak Outlook.com, OneDrive, Windows Phone lub XBox Live, masz już konto Microsoft.)
 
-Należy również subskrypcji zbyt[Microsoft Azure](http://azure.com). Jeśli zespół lub organizacja ma subskrypcję platformy Azure, właściciela hello można dodać możesz tooit, za pomocą identyfikatora Windows Live ID. Tylko są naliczane opłaty za można użyć. podstawowy plan domyślny Hello umożliwia pewnego wykorzystanie eksperymentalne bezpłatnie.
+Należy również subskrypcji [Microsoft Azure](http://azure.com). Jeśli zespół lub organizacja ma subskrypcję platformy Azure, właściciel można do niej dodać, przy użyciu swojego identyfikatora Windows Live. Tylko są naliczane opłaty za można użyć. Podstawowy plan domyślny umożliwia pewnego wykorzystanie eksperymentalne bezpłatnie.
 
-Jeśli masz już dostępu tooa subskrypcji, zaloguj się za tooApplication wgląd w [http://portal.azure.com](https://portal.azure.com)i użyj toologin Twojego Identyfikatora Live.
+Jeśli masz dostęp do subskrypcji, zaloguj się do usługi Application Insights w [http://portal.azure.com](https://portal.azure.com)i używać swojego identyfikatora Live ID do logowania.
 
 ## <a name="create-an-application-insights-resource"></a>Tworzenie zasobu usługi Application Insights
-W hello [portal.azure.com](https://portal.azure.com), Dodaj zasób usługi Application Insights:
+W [portal.azure.com](https://portal.azure.com), Dodaj zasób usługi Application Insights:
 
 ![Kliknij kolejno polecenia Nowy, Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
-* **Typ aplikacji** wpływa na informacje wyświetlane na powitania omówienie bloku i właściwości hello dostępnych w [Eksploratora metryk][metrics]. Jeśli nie widzisz typ aplikacji, wybierz pozycję Ogólne.
+* **Typ aplikacji** wpływa na informacje wyświetlane na bloku omówienie i właściwości, które są dostępne w [Eksploratora metryk][metrics]. Jeśli nie widzisz typ aplikacji, wybierz pozycję Ogólne.
 * **Subskrypcja** Twojego konta płatności na platformie Azure.
-* **Grupa zasobów** jest wygodne właściwości zarządzania, takich jak kontrola dostępu. Jeśli utworzono już innych zasobów platformy Azure, możesz wybrać tooput tego nowego zasobu w hello tej samej grupy.
+* **Grupa zasobów** jest wygodne właściwości zarządzania, takich jak kontrola dostępu. Jeśli utworzono już innych zasobów platformy Azure, można umieścić tego nowego zasobu w tej samej grupie.
 * **Lokalizacja** jest, gdzie możemy przechowywanie danych.
-* **Numer PIN toodashboard** umieszcza kafelka szybkiego dostępu dla zasobu na stronie głównej Azure. Zalecane.
+* **Przypnij do pulpitu nawigacyjnego** umieszcza kafelka szybkiego dostępu dla zasobu na stronie głównej Azure. Zalecane.
 
 Po utworzeniu aplikacji, zostanie otwarty nowy blok. Ten blok jest, gdzie zobaczyć dane wydajności i użycia dotyczące Twojej aplikacji. 
 
-tooit wstecz tooget następnym zalogowaniu tooAzure, poszukaj aplikacji szybki start kafelka na powitania start tablicy (ekranu). Lub kliknij przycisk Przeglądaj toofind go.
+Aby wrócić do niej następnym zalogowaniu się do platformy Azure, poszukaj aplikacji szybki start kafelka na tablicy start (ekranu). Lub kliknij przycisk Przeglądaj, aby go znaleźć.
 
-## <a name="copy-hello-instrumentation-key"></a>Skopiuj klucz Instrumentacji hello
-klucz Instrumentacji Hello identyfikuje hello utworzony zasób. Należy go toohello toogive zestawu SDK.
+## <a name="copy-the-instrumentation-key"></a>Skopiuj klucz Instrumentacji
+Klucz Instrumentacji identyfikatorem zasobu, który został utworzony. Należy go ma zostać przypisany do zestawu SDK.
 
-![Kliknij Essentials, kliknij przycisk hello klucza Instrumentacji klawisze CTRL + C](./media/app-insights-create-new-resource/02-props.png)
+![Kliknij Essentials, kliknij przycisk klucza Instrumentacji klawisze CTRL + C](./media/app-insights-create-new-resource/02-props.png)
 
-## <a name="install-hello-sdk-in-your-app"></a>Zainstaluj hello zestawu SDK w aplikacji
-Zainstaluj zestaw SDK usługi Application Insights hello w aplikacji. Ten krok zależy od silnie hello typu aplikacji. 
+## <a name="install-the-sdk-in-your-app"></a>Zainstaluj zestaw SDK w aplikacji
+Zainstaluj zestaw SDK usługi Application Insights w aplikacji. Ten krok stopniu zależne od typu aplikacji. 
 
-Użyj tooconfigure klucza Instrumentacji hello [SDK zainstalowany w aplikacji hello][start].
+Umożliwia skonfigurowanie klucza Instrumentacji [instalowanej aplikacji zestawu SDK][start].
 
-Hello zestaw SDK zawiera standardowe moduły, które wysłać dane telemetryczne bez konieczności toowrite żadnego kodu. akcje użytkownika tootrack lub diagnozowanie problemów bardziej szczegółowo [za pomocą interfejsu API hello] [ api] toosend własnych danych telemetrycznych.
+Zestaw SDK zawiera standardowe moduły, które wysłać dane telemetryczne bez konieczności pisania kodu. Śledzenie działań użytkownika lub diagnozowanie problemów bardziej szczegółowo [za pomocą interfejsu API] [ api] do wysyłania własnych danych telemetrycznych.
 
 ## <a name="monitor"></a>Zobacz dane telemetryczne
-Zamknij hello szybkie uruchomienie bloku tooreturn tooyour aplikacji bloku w hello portalu Azure.
+Zamknij bloku szybki start, aby powrócić do bloku Twojej aplikacji w portalu Azure.
 
-Kliknij przycisk hello wyszukiwania kafelka toosee [diagnostycznych wyszukiwania][diagnostic], gdzie widoczne hello pierwsze zdarzenia. 
+Kliknij pole wyszukiwania, aby zobaczyć [diagnostycznych wyszukiwania][diagnostic], gdy pojawi się pierwsze zdarzenia. 
 
 Jeśli spodziewasz większej ilości danych, kliknij przycisk **Odśwież** po kilku sekundach.
 
 ## <a name="creating-a-resource-automatically"></a>Automatyczne tworzenie zasobu
-Można napisać [skrypt programu PowerShell](app-insights-powershell.md) toocreate zasobu automatycznie.
+Można napisać [skrypt programu PowerShell](app-insights-powershell.md) automatyczne tworzenie zasobu.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Tworzenie pulpitu nawigacyjnego](app-insights-dashboards.md)

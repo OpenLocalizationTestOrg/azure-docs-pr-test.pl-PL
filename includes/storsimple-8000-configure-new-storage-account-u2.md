@@ -1,33 +1,33 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-#### <a name="tooadd-a-storage-account-credential-in-hello-same-azure-subscription-as-hello-storsimple-device-manager-service"></a>tooadd konto magazynu poświadczeń w hello sam subskrypcji platformy Azure jako hello usługi Menedżer urządzenia StorSimple
+#### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>Aby dodać poświadczenia konta magazynu w tej samej subskrypcji platformy Azure jako usługa Menedżer urządzeń StorSimple
 
-1. Przejdź tooyour usługi Menedżer urządzeń StorSimple. W hello **konfiguracji** kliknij **poświadczeń konta magazynu**.
+1. Przejdź do usługi Menedżer urządzeń StorSimple. W sekcji **Konfiguracja** kliknij pozycję **Poświadczenia konta magazynu**.
 
     ![Poświadczenia konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
-2. Na powitania **poświadczeń konta magazynu** bloku, kliknij przycisk **+ Dodaj**.
+2. W bloku **Poświadczenia konta magazynu** kliknij pozycję **+ Dodaj**.
 
     ![Dodawanie poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct2.png)
 
-3. W hello **dodać poświadczeń konta magazynu** bloku hello następujące kroki:
+3. W bloku **Dodawanie poświadczenia konta magazynu** wykonaj następujące kroki:
 
-    1. Jak w przypadku dodawania poświadczeń konta magazynu w hello tej samej subskrypcji platformy Azure jako usługi, upewnij się, że **bieżącego** jest zaznaczone.
+    1. Ponieważ dodajesz poświadczenie konta magazynu w tej samej subskrypcji platformy Azure co usługa, upewnij się, że pole **Bieżące** zostało zaznaczone.
 
-    2. Z hello **konta magazynu** listy rozwijanej wybierz istniejące konto magazynu.
+    2. Z listy rozwijanej **kont magazynu** wybierz istniejące konto magazynu.
 
-    3. Witaj w oparciu o wybrane konto magazynu hello, **lokalizacji** będą wyświetlane (szary i nie można zmienić w tym miejscu).
+    3. W oparciu o wybrane konto magazynu zostanie wyświetlona **lokalizacja** (wyszarzona— nie można jej zmienić w tym miejscu).
 
-    4. Wybierz **Włącz tryb SSL** toocreate bezpiecznego kanału komunikacji sieciowej między urządzeniami i hello chmury. Wyłącz opcję **Włącz protokół SSL** tylko, jeśli pracujesz w chmurze prywatnej.
+    4. Wybierz opcję **Włącz tryb SSL**, aby utworzyć bezpieczny kanał komunikacji sieciowej między urządzeniem i chmurą. Wyłącz opcję **Włącz protokół SSL** tylko, jeśli pracujesz w chmurze prywatnej.
 
         ![Blok dodawania poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct3.png)
 
-    5. Kliknij przycisk **Dodaj** toostart hello zadania tworzenia dla hello poświadczeń dla konta magazynu. Po pomyślnym utworzeniu hello poświadczeń dla konta magazynu, otrzymasz powiadomienie.
+    5. Kliknij pozycję **Dodaj**, aby uruchomić zadanie tworzenia dla poświadczenia konta magazynu. Po pomyślnym utworzeniu poświadczenia konta magazynu otrzymasz powiadomienie.
 
         ![Powiadomienie o powodzeniu dla poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct5.png)
 
-Hello nowo utworzony poświadczeń dla konta magazynu będzie wyświetlana w obszarze lista hello **poświadczeń konta magazynu**.
+Nowo utworzone konto magazynu zostanie wyświetlone w obszarze listy **Poświadczenia konta magazynu**.
 
 ![Lista poświadczeń konta magazynu](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
 

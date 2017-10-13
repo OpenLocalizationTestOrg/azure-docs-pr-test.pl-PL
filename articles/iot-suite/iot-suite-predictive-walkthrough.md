@@ -1,6 +1,6 @@
 ---
-title: "Przewodnik obsługi aaaPredictive | Dokumentacja firmy Microsoft"
-description: "Przewodnik hello Azure IoT — konserwacja predykcyjna wstępnie skonfigurowane rozwiązanie."
+title: "Przewodnik po rozwiązaniu konserwacji predykcyjnej | Microsoft Docs"
+description: "Przewodnik po wstępnie skonfigurowanym rozwiązaniu Azure IoT do konserwacji predykcyjnej."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,66 +15,66 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 900d6351019489a8e2f4b98908364e3bd14975c5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Przewodnik po wstępnie skonfigurowanym rozwiązaniu konserwacji predykcyjnej
 
-Witaj konserwacji predykcyjnej wstępnie skonfigurowane rozwiązanie to rozwiązanie na trasie dla scenariusza biznesowego, który prognozuje punktu hello jaką awarii jest prawdopodobnie toooccur. To wstępnie skonfigurowane rozwiązanie można aktywnie wykorzystać w celu zoptymalizowania konserwacji. rozwiązanie Hello łączy klucza usług pakiet IoT Azure, takich jak Centrum IoT, Stream analytics i [usługi Azure Machine Learning] [ lnk-machine-learning] obszaru roboczego. Ten obszar roboczy zawiera model, na podstawie zestawu danych przykładowych publiczny, hello toopredict pozostała użytkowania (RUL) aparatu powietrznego. rozwiązanie Hello pełni implementuje scenariusza biznesowego IoT hello jako punkt początkowy dla tooplan możesz i wdrożyć rozwiązanie, który spełnia wymagania firmy.
+Wstępnie skonfigurowane, kompleksowe rozwiązanie konserwacji predykcyjnej, dotyczy scenariusza biznesowego, w którym przewidywany jest moment prawdopodobnego wystąpienia awarii. To wstępnie skonfigurowane rozwiązanie można aktywnie wykorzystać w celu zoptymalizowania konserwacji. Rozwiązanie łączy kluczowe usługi Pakietu IoT Azure, takie jak usługa IoT Hub, analiza strumienia oraz obszar roboczy usługi [Azure Machine Learning][lnk-machine-learning]. Ten obszar roboczy zawiera model oparty na publicznym zestawie przykładowych danych, które umożliwiają prognozowanie pozostałego czasu eksploatacji (RUL, Remaining Useful Life) silnika samolotu. Ponadto w rozwiązaniu w pełni zaimplementowano scenariusz biznesowy IoT jako punkt wyjściowy planowania i wdrażania rozwiązania zgodnego z potrzebami firmy.
 
 ## <a name="logical-architecture"></a>Architektura logiczna
 
-powitania po diagram przedstawia hello logiczne składniki hello wstępnie skonfigurowane rozwiązanie:
+Poniższy diagram przedstawia składniki logiczne wstępnie skonfigurowanego rozwiązania:
 
 ![][img-architecture]
 
-elementy Hello niebieski są udostępniane w regionie hello wdrożonym hello wstępnie skonfigurowane rozwiązanie usług platformy Azure. Wyświetla Hello listę regionów, w którym można wdrożyć hello wstępnie skonfigurowane rozwiązanie na powitania [inicjowania obsługi administracyjnej strony][lnk-azureiotsuite].
+Niebieskie elementy oznaczają usługi platformy Azure zaprowizowane w regionie, w którym wdrożono wstępnie skonfigurowane rozwiązanie. Lista regionów, w których można wdrożyć wstępnie skonfigurowane rozwiązanie, znajduje się na [stronie aprowizacji][lnk-azureiotsuite].
 
-Element zielony Hello jest symulowane urządzenie, które reprezentuje aparat powietrznego. Możesz dodatkowe informacje na temat tych urządzeń symulowane w hello następujących sekcji.
+Zielony element oznacza symulowane urządzenie, które odpowiada silnikowi samolotu. Więcej informacji na temat tych symulowanych urządzeń można znaleźć w poniższej sekcji.
 
-Witaj szarego elementy reprezentują składników, które implementują *zarządzania urządzeniami* możliwości. Witaj bieżącej wersji usługi hello konserwacji predykcyjnej wstępnie skonfigurowane rozwiązanie nie udostępniania tych zasobów. toolearn więcej informacji na temat zarządzania urządzeniami można znaleźć toohello [zdalne monitorowanie wstępnie skonfigurowane rozwiązanie][lnk-remote-monitoring].
+Szare elementy oznaczają składniki z zaimplementowanymi funkcjami *zarządzania urządzeniami*. Bieżąca wersja wstępnie skonfigurowanego rozwiązania konserwacji predykcyjnej nie umożliwia aprowizowania tych zasobów. Aby dowiedzieć się więcej o zarządzaniu urządzeniami, zapoznaj się z [wstępnie skonfigurowanym rozwiązaniem monitorowania zdalnego][lnk-remote-monitoring].
 
 ## <a name="simulated-devices"></a>Symulowane urządzenia
 
-W rozwiązaniu hello wstępnie symulowane urządzenie reprezentuje aparat powietrznego. rozwiązanie Hello jest administracyjnie dwa aparaty mapowane powietrznego pojedynczego tooa. Każdy aparat emituje cztery typy telemetrii: 9 czujnika, 11 czujnik czujnik 14 i 15 czujnik Podaj hello dane niezbędne do hello Machine Learning model toocalculate hello RUL hello przez aparat. Każde symulowane urządzenie wysyła hello następujące dane telemetryczne wiadomości tooIoT Centrum:
+W tym wstępnie skonfigurowanym rozwiązaniu symulowane urządzenie odpowiada silnikowi samolotu. W ramach rozwiązania są aprowizowane dwa silniki (dla jednego samolotu). Każdy silnik emituje cztery rodzaje danych telemetrycznych: z czujnika 9, czujnika 11, czujnika 14 i czujnika 15. Czujniki dostarczają dane wymagane przez model usługi Machine Learning do obliczenia pozostałego czasu eksploatacji silnika. Poszczególne symulowane urządzenia wysyłają następujące komunikaty telemetryczne do usługi IoT Hub:
 
-*Liczba cykli*. Cykl reprezentuje ukończony lot o długości od 2 do 10 godzin. W locie hello dane telemetryczne są przechwytywane co pół godziny.
+*Liczba cykli*. Cykl reprezentuje ukończony lot o długości od 2 do 10 godzin. Podczas lotu dane telemetryczne są przechwytywane co pół godziny.
 
-*Dane telemetryczne*. Są cztery czujniki, które reprezentują parametry silnika. czujniki Hello objęty są oznaczone czujnik 9, 11 czujnik czujnik 14 i czujnik 15. Te cztery czujników reprezentują telemetrii wystarczające tooobtain przydatne wyniki z hello RUL modelu. Witaj modelu używanego w hello wstępnie skonfigurowane rozwiązanie jest tworzona na podstawie publicznego zestawu danych, który zawiera dane czujników rzeczywistych aparatu. Aby uzyskać więcej informacji dotyczących sposobu hello model został utworzony na podstawie hello oryginalnego zestawu danych, zobacz hello [Cortana Intelligence galerii predykcyjnej konserwacji szablonu][lnk-cortana-analytics].
+*Dane telemetryczne*. Są cztery czujniki, które reprezentują parametry silnika. Czujniki te mają ogólne etykiety: czujnik 9, czujnik 11, czujnik 14 i czujnik 15. Te 4 czujniki reprezentują dane telemetryczne, które są wystarczające do uzyskania przydatnych wyników z modelu pozostałego czasu eksploatacji silnika. Model wykorzystywany we wstępnie skonfigurowanym zadaniu został utworzony na podstawie publicznego zestawu danych zawierającego dane z czujników w rzeczywistych silnikach. Aby uzyskać więcej informacji dotyczących tworzenia modelu na podstawie oryginalnego zestawu danych, zobacz [szablon konserwacji predykcyjnej w witrynie Cortana Intelligence Gallery][lnk-cortana-analytics].
 
-urządzenia Hello symulowane może obsłużyć hello następujące polecenia wysyłane z Centrum IoT hello w rozwiązaniu hello:
+Symulowane urządzenia obsługują w rozwiązaniu następujące polecenia wysyłane z centrum IoT:
 
 | Polecenie | Opis |
 | --- | --- |
-| StartTelemetry |Formanty hello stanu hello symulacji.<br/>Urządzenie hello rozpoczyna wysyłanie danych telemetrycznych |
-| StopTelemetry |Formanty hello stanu hello symulacji.<br/>Zatrzymuje hello urządzenia wysyłania danych telemetrycznych |
+| StartTelemetry |Umożliwia sterowanie stanem symulacji.<br/>Włącza przesyłanie danych telemetrycznych przez urządzenie. |
+| StopTelemetry |Umożliwia sterowanie stanem symulacji.<br/>Umożliwia zatrzymanie przesyłania danych telemetrycznych przez urządzenie. |
 
 Usługa IoT Hub udostępnia potwierdzenia poleceń wysyłanych do urządzeń.
 
 ## <a name="azure-stream-analytics-job"></a>Zadanie usługi Azure Stream Analytics
 
-**Zadanie: Telemetrii** działa na powitania urządzenia telemetrii strumienia przychodzącego dwie instrukcje using:
+**Zadanie Telemetria** przetwarza strumień danych telemetrycznych przychodzących z urządzeń przy użyciu dwóch instrukcji:
 
-* Hello najpierw wybiera wszystkie dane telemetryczne z urządzeń hello i wysyła ten tooblob pamięci masowej. W tym miejscu jest wizualizowane w hello aplikacji sieci web.
-* Hello drugi oblicza średnią czujnik wartości na metodzie przesuwanego okna dwuminutowego i wysyła te dane za pośrednictwem tooan Centrum zdarzeń hello **procesora zdarzeń**.
+* Pierwsza z nich pobiera wszystkie dane telemetryczne z urządzeń i wysyła je do magazynu obiektów blob. Stamtąd trafiają one do aplikacji internetowej w celu wizualizacji.
+* Druga instrukcja oblicza średnie wartości z czujników w ramach przesuwającego się okna czasowego trwającego dwie minuty i wysyła te wartości do **procesora zdarzeń** za pośrednictwem centrum zdarzeń.
 
 ## <a name="event-processor"></a>Procesor zdarzeń
-Witaj **hosta procesora zdarzeń** uruchamia zadanie sieci Web platformy Azure. Witaj **procesora zdarzeń** przyjmuje wartości średnia czujnik hello cykl ukończone. Następnie przekazuje te wartości tooan interfejsu API, który udostępnia uczonego modelu toocalculate hello RUL przez aparat. Witaj interfejsu API jest udostępniany przez obszaru roboczego uczenia maszynowego, który jest udostępniony w ramach rozwiązania hello.
+**Host procesora zdarzeń** jest uruchamiany w zadaniu sieci Web Azure. **Procesor zdarzeń** przyjmuje średnie wartości z czujników dla ukończonego cyklu. Następnie przekazuje te wartości do interfejsu API, który dostarcza je nauczonemu modelowi w celu obliczenia pozostałego czasu eksploatacji silnika. Interfejs API jest udostępniany przez obszar roboczy usługi Machine Learning, który jest aprowizowany w ramach rozwiązania.
 
 ## <a name="machine-learning"></a>Usługa Machine Learning
-składnik uczenia maszynowego Hello używa modelu pochodzi od danych zbieranych z aparaty powietrznego rzeczywistych. Można przejść obszaru roboczego uczenia maszynowego toohello z kafelka hello na powitania [azureiotsuite.com] [ lnk-azureiotsuite] strony elastycznie rozwiązania. Witaj kafelka jest dostępna, gdy rozwiązanie hello jest hello **gotowe** stanu.
+Składnik Machine Learning wykorzystuje model opracowany na podstawie danych zebranych z rzeczywistych silników samolotów. Do obszaru roboczego usługi Machine Learning możesz przejść z poziomu kafelka na stronie [azureiotsuite.com][lnk-azureiotsuite] zaprowizowanego rozwiązania. Kafelek jest dostępny, gdy rozwiązanie jest w stanie **Gotowe**.
 
 
 ## <a name="next-steps"></a>Następne kroki
-Skoro już znasz hello najważniejsze składniki hello konserwacji predykcyjnej wstępnie rozwiązania, może być toocustomize go. Zobacz [Przewodnik dostosowywania wstępnie skonfigurowanych rozwiązań][lnk-customize].
+Po zapoznaniu się ze składnikami wstępnie skonfigurowanego rozwiązania do konserwacji zapobiegawczej możesz je dostosować. Zobacz [Przewodnik dostosowywania wstępnie skonfigurowanych rozwiązań][lnk-customize].
 
-Możesz też przeglądać niektóre hello inne funkcje i możliwości rozwiązań pakiet IoT wstępnie hello:
+Możesz także wypróbować niektóre inne funkcje i możliwości wstępnie skonfigurowanych rozwiązań Pakietu IoT:
 
 * [Często zadawane pytania dotyczące Pakietu IoT][lnk-faq]
-* [Zabezpieczenia IoT z hello tła w][lnk-security-groundup]
+* [Zabezpieczenia IoT od podstaw][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 

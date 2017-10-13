@@ -1,6 +1,6 @@
 ---
-title: "aaaQuery wiadomości B2B w Operations Management Suite — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Tworzenie zapytań tootrack AS2, X 12 i EDIFACT wiadomości w hello Operations Management Suite"
+title: "Kwerenda dotycząca wiadomości B2B usługi Operations Management Suite — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Tworzenie zapytań do śledzenia AS2, X 12 i EDIFACT wiadomości w Operations Management Suite"
 author: padmavc
 manager: anneta
 editor: 
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: aee6644ff19add8f074ed5f1725db87b1d3b74b3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2748d3d3daf7c13dca05f663a4a088598e1b3605
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-hello-microsoft-operations-management-suite-oms"></a>Zapytanie o AS2, X 12 i EDIFACT wiadomości powitania programu Microsoft Operations Management Suite (OMS)
+# <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Zapytanie o AS2, X 12 i EDIFACT wiadomości pakiet zarządzania Operations (OMS) firmy Microsoft
 
-toofind hello AS2, X 12 i EDIFACT komunikaty śledzenia z [Azure Log Analytics](../log-analytics/log-analytics-overview.md) w hello [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), można utworzyć kwerendy, które są oparte na określonych akcji filtrowania kryteria. Na przykład można znaleźć na podstawie różnych kontroli określonych wymiany wiadomości.
+Aby znaleźć AS2, X12 lub EDIFACT wiadomości, że podczas śledzenia z [Azure Log Analytics](../log-analytics/log-analytics-overview.md) w [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), można utworzyć kwerendy, które akcje na podstawie określonych kryteriów filtrowania. Na przykład można znaleźć na podstawie różnych kontroli określonych wymiany wiadomości.
 
 ## <a name="requirements"></a>Wymagania
 
-* Aplikację logiki, który został skonfigurowany z rejestrowania diagnostyki. Dowiedz się [jak toocreate aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) i [jak tooset rejestrowanie dla danej aplikacji logiki danych](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+* Aplikację logiki, który został skonfigurowany z rejestrowania diagnostyki. Dowiedz się [sposób tworzenia aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md) i [jak skonfigurować rejestrowanie dla danej aplikacji logiki](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
-* Konta integracji, które skonfigurowano przy użyciu rejestrowania i monitorowania. Dowiedz się [jak toocreate konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) i [jak tooset monitorowania i rejestrowania dla tego konta](../logic-apps/logic-apps-monitor-b2b-message.md).
+* Konta integracji, które skonfigurowano przy użyciu rejestrowania i monitorowania. Dowiedz się [sposobu tworzenia konta integracji](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) i [jak skonfigurować monitorowanie i rejestrowanie dla tego konta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Jeśli nie jest jeszcze, [publikowania danych diagnostycznych tooLog Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) i [Konfigurowanie śledzenia w OMS wiadomości](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Jeśli nie jest jeszcze, [publikowania danych diagnostycznych do analizy dzienników](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) i [Konfigurowanie śledzenia w OMS wiadomości](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Po zostały spełnione wymagania poprzedniej hello, powinien mieć obszar roboczy w hello [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Należy używać tego samego pakietu OMS obszaru roboczego do śledzenia komunikacji B2B w OMS hello. 
+> Po zostały spełnione wymagania poprzedniej, powinien mieć obszar roboczy [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Należy używać tego samego obszaru roboczego OMS śledzenia komunikacji B2B w OMS. 
 >  
-> Dowiedz się, jeśli nie masz obszar roboczy OMS [jak toocreate obszarem roboczym pakietu OMS](../log-analytics/log-analytics-get-started.md).
+> Dowiedz się, jeśli nie masz obszar roboczy OMS [jak Utwórz obszar roboczy OMS](../log-analytics/log-analytics-get-started.md).
 
-## <a name="create-message-queries-with-filters-in-hello-operations-management-suite-portal"></a>Tworzenie kwerend komunikatów z filtrami w portalu usługi Operations Management Suite hello
+## <a name="create-message-queries-with-filters-in-the-operations-management-suite-portal"></a>Tworzenie kwerend komunikatów z filtrami w portalu usługi Operations Management Suite
 
 Ten przykład przedstawia, jak można znaleźć na podstawie ich liczby kontroli wymiany wiadomości.
 
 > [!TIP] 
-> Jeśli znasz nazwę obszar roboczy OMS Przejdź strona główna obszaru roboczego tooyour (`https://{your-workspace-name}.portal.mms.microsoft.com`) i uruchomić w kroku 4. W przeciwnym razie Rozpocznij w kroku 1.
+> Jeśli znasz nazwę obszar roboczy OMS, przejdź do strony głównej obszaru roboczego (`https://{your-workspace-name}.portal.mms.microsoft.com`) i uruchomić w kroku 4. W przeciwnym razie Rozpocznij w kroku 1.
 
-1. W hello [portalu Azure](https://portal.azure.com), wybierz **więcej usług**. Wyszukaj "analizy dzienników", a następnie wybierz pozycję **analizy dzienników** w sposób pokazany poniżej:
+1. W [portalu Azure](https://portal.azure.com), wybierz **więcej usług**. Wyszukaj "analizy dzienników", a następnie wybierz pozycję **analizy dzienników** w sposób pokazany poniżej:
 
    ![Znajdź analizy dzienników](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
@@ -62,51 +62,51 @@ Ten przykład przedstawia, jak można znaleźć na podstawie ich liczby kontroli
 
    — lub —
 
-   ![W menu OMS hello wybierz "Dziennik wyszukiwania"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![W menu OMS wybierz "Dziennik wyszukiwania"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-5. W polu wyszukiwania hello, wprowadź pola, które mają toofind i naciśnij klawisz **Enter**. Po rozpoczęciu wprowadzania, OMS pokazuje, pasujących i operacje, które są dostępne. Dowiedz się więcej o [jak toofind danych analizy dzienników](../log-analytics/log-analytics-log-searches.md).
+5. W polu wyszukiwania wprowadź pola, które chcesz odnaleźć, a następnie naciśnij klawisz **Enter**. Po rozpoczęciu wprowadzania, OMS pokazuje, pasujących i operacje, które są dostępne. Dowiedz się więcej o [jak wyszukiwania danych analizy dzienników](../log-analytics/log-analytics-log-searches.md).
 
    W tym przykładzie wyszukuje zdarzeń o **typu = AzureDiagnostics**.
 
    ![Wpisz ciąg zapytania](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. Na pasku po lewej stronie powitania, wybierz przedział czasu hello, które mają tooview. tooadd kwerendy tooyour filtru, wybierz **+ Dodaj**.
+6. Na pasku po lewej stronie Wybierz przedział czasu, który chcesz wyświetlić. Aby dodać filtr do zapytania, wybierz **+ Dodaj**.
 
-   ![Dodaj filtr tooquery](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
+   ![Dodaj filtr do zapytania](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. W obszarze **Dodaj filtry**, wprowadź nazwę filtru hello, aby umożliwić znalezienie hello filtr ma. Wybierz filtr hello, a następnie wybierz pozycję **+ Dodaj**.
+7. W obszarze **Dodaj filtry**, wprowadź nazwę filtru, aby umożliwić znalezienie filtr ma. Wybierz filtr, a następnie wybierz pozycję **+ Dodaj**.
 
-   toofind numer formantu wymiany hello, w tym przykładzie wyszukuje hello word "wymiany" i wybiera **event_record_messageProperties_interchangeControlNumber_s** jako hello filtru.
+   Aby znaleźć numer formantu wymiany, w tym przykładzie wyszukuje dla słowa "wymiany" i wybiera **event_record_messageProperties_interchangeControlNumber_s** jako filtr.
 
    ![Wybierz filtr](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. Na pasku po lewej stronie powitania, wybierz wartość filtru hello mają toouse i wybierz polecenie **Zastosuj**.
+9. Na pasku po lewej stronie wybierz wartości filtru, który chcesz użyć, a następnie wybierz pozycję **Zastosuj**.
 
-   W tym przykładzie wybiera numer kontroli hello wymiany wiadomości powitania, którą chcemy udostępnić.
+   W tym przykładzie wybiera numer kontroli wymiany wiadomości, którą chcemy udostępnić.
 
    ![Wybierz wartości filtru](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. Teraz wróć toohello zapytania, które tworzysz. Kwerenda została zaktualizowana wybrany filtr zdarzeń i wartość. Poprzednie wyniki teraz są zbyt filtrowane.
+10. Teraz wróć do zapytania, które tworzysz. Kwerenda została zaktualizowana wybrany filtr zdarzeń i wartość. Poprzednie wyniki teraz są zbyt filtrowane.
 
-    ![Zwraca tooyour filtrowane wyniki zapytania](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
+    ![Wróć do filtrowane wyniki zapytania](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 
 <a name="save-oms-query"></a>
 
 ## <a name="save-your-query-for-future-use"></a>Zapisz zapytanie do użytku w przyszłości
 
-1. Z kwerendy na powitania **wyszukiwania dziennika** wybierz pozycję **zapisać**. Nadaj nazwę kwerendy, wybierz kategorię i wybierz **zapisać**.
+1. Z kwerendy na **wyszukiwania dziennika** wybierz pozycję **zapisać**. Nadaj nazwę kwerendy, wybierz kategorię i wybierz **zapisać**.
 
    ![Nadaj zapytania, nazwę i kategorii](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
 
-2. tooview kwerendy, wybierz **ulubione**.
+2. Aby wyświetlić kwerendy, wybierz **ulubione**.
 
    ![Wybierz pozycję "Ulubione"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-favorites.png)
 
-3. W obszarze **zapisane wyszukiwania**, wybierz zapytanie, dzięki czemu można wyświetlić wyniki hello. tooupdate hello zapytania, aby umożliwić znalezienie różne wyniki, Edytuj hello zapytanie.
+3. W obszarze **zapisane wyszukiwania**, wybierz zapytanie, dzięki czemu można wyświetlić wyniki. Aby zaktualizować zapytania, aby umożliwić znalezienie różne wyniki, Edytuj zapytanie.
 
    ![Wybierz zapytanie](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## <a name="find-and-run-saved-queries-in-hello-operations-management-suite-portal"></a>Znajdź i uruchom zapisane kwerendy w portalu usługi Operations Management Suite hello
+## <a name="find-and-run-saved-queries-in-the-operations-management-suite-portal"></a>Znajdź i uruchom zapisane kwerendy w portalu usługi Operations Management Suite
 
 1. Otwórz stronę główną obszar roboczy OMS (`https://{your-workspace-name}.portal.mms.microsoft.com`) i wybierz polecenie **wyszukiwania dziennika**.
 
@@ -114,13 +114,13 @@ Ten przykład przedstawia, jak można znaleźć na podstawie ich liczby kontroli
 
    — lub —
 
-   ![W menu OMS hello wybierz "Dziennik wyszukiwania"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![W menu OMS wybierz "Dziennik wyszukiwania"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-2. Na powitania **wyszukiwania dziennika** strony głównej, wybierz **ulubione**.
+2. Na **wyszukiwania dziennika** strony głównej, wybierz **ulubione**.
 
    ![Wybierz pozycję "Ulubione"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-favorites.png)
 
-3. W obszarze **zapisane wyszukiwania**, wybierz zapytanie, dzięki czemu można wyświetlić wyniki hello. tooupdate hello zapytania, aby umożliwić znalezienie różne wyniki, Edytuj hello zapytanie.
+3. W obszarze **zapisane wyszukiwania**, wybierz zapytanie, dzięki czemu można wyświetlić wyniki. Aby zaktualizować zapytania, aby umożliwić znalezienie różne wyniki, Edytuj zapytanie.
 
    ![Wybierz zapytanie](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 

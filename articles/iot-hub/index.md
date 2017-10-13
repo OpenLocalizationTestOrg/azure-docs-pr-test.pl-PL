@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji Centrum IoT — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse tooconnect Centrum IoT, monitorowanie i sterowanie miliardów zasobów Internetu rzeczy. Samouczki, dokumentacja interfejsu API, filmy wideo i inne dokumenty."
+title: "Dokumentacja usługi Azure IoT Hub — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Internetu rzeczy za pomocą usługi IoT Hub. Samouczki, dokumentacja interfejsu API, filmy wideo i inne dokumenty."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: b4d9e66dad55417cff6b9252379cf7265fb542fb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 270d1aec5855ee3bb9cc121526d311ab78d989c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-documentation"></a>Dokumentacja usługi IoT Hub 
 
-Dowiedz się, jak toouse tooconnect Centrum IoT, monitorowanie i sterowanie miliardów zasobów Internetu rzeczy. Samouczki, dokumentacja interfejsu API, filmy wideo i inne dokumenty ułatwiające wdrażanie niezawodnej komunikacji dwukierunkowej między urządzeniami IoT a zapleczem rozwiązania. 
+Dowiedz się, jak łączyć, monitorować i kontrolować miliardy zasobów Internetu rzeczy za pomocą usługi IoT Hub. Samouczki, dokumentacja interfejsu API, filmy wideo i inne dokumenty ułatwiające wdrażanie niezawodnej komunikacji dwukierunkowej między urządzeniami IoT a zapleczem rozwiązania. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -106,7 +106,7 @@ Dowiedz się, jak toouse tooconnect Centrum IoT, monitorowanie i sterowanie mili
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Przewodnik dewelopera hello odczytu</h3>
+                        <h3>Przeczytaj przewodnik dla deweloperów</h3>
                     </div>
                 </div>
             </div>

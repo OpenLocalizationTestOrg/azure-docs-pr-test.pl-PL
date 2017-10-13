@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate, link, usunąć lub przenieść konta integracji w aplikacjach logiki platformy Azure | Dokumentacja firmy Microsoft"
-description: "Sposób integracji toocreate konta, a następnie połącz go tooyour logic apps"
+title: "Tworzenie, link, usunąć lub przenieść konta integracji w aplikacjach logiki platformy Azure | Dokumentacja firmy Microsoft"
+description: "Jak utworzyć konto integracji i połącz go z aplikacji logiki"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: fda6c91723b3e3624ee176df112ba8b6c9800273
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-an-integration-account"></a>Co to jest konto integracji?
 
-Konta integracji umożliwia aplikacjom integracji przedsiębiorstwa artefaktów toomanage, w tym schematów, map, certyfikaty, partnerzy i umów. Dowolną aplikację integracji, które możesz utworzyć używa tooaccess konta integracji tych schematów, map, certyfikaty i tak dalej.
+Konta integracji umożliwia enterprise integracji aplikacji do zarządzania artefaktów, w tym schematów, map, certyfikaty, partnerzy i umów. Dowolną aplikację integracji, tworzonych przy użyciu konta integracji dostęp do tych schematów, map, certyfikaty i itd.
 
 ## <a name="create-an-integration-account"></a>Tworzenie konta usługi integracji
 
-1.  Zaloguj się toohello [portalu Azure](http://portal.azure.com "portalu Azure"). Wybierz z menu po lewej stronie powitania **więcej usług**.
+1.  Zaloguj się w witrynie [Azure Portal](http://portal.azure.com "Azure Portal"). Wybierz z menu po lewej stronie **więcej usług**.
 
     ![Wybierz pozycję "Więcej usług"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
-2. W polu wyszukiwania hello wpisz "Integracja" filtru. Na liście wyników hello, wybierz **konta integracji**.
+2. W polu wyszukiwania wpisz "Integracja" filtru. Na liście wyników wybierz **konta integracji**.
 
     ![Odfiltruj "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
 
-3. U góry hello hello strony, wybierz **Dodaj**.
+3. W górnej części strony, wybierz **Dodaj**.
 
     ![Wybierz opcję Dodaj](./media/logic-apps-enterprise-integration-accounts/account-3.png)
 
-4. Nadaj nazwę swojego konta integracji i wybierz hello subskrypcji platformy Azure, które mają toouse. Możesz utworzyć nową **grupy zasobów** lub wybierz istniejącą grupę zasobów. Następnie wybierz **lokalizacji** dla Twojego konta integracji hostingu i **warstwy cenowej**. 
+4. Nazwa konta integracji i wybierz subskrypcję platformy Azure, którego chcesz używać. Możesz utworzyć nową **grupy zasobów** lub wybierz istniejącą grupę zasobów. Następnie wybierz **lokalizacji** dla Twojego konta integracji hostingu i **warstwy cenowej**. 
 
     Gdy wszystko jest gotowe, wybierz pozycję **Utwórz**.
 
     ![Podaj szczegóły konta integracji](./media/logic-apps-enterprise-integration-accounts/account-4.png)
 
-    Azure udostępnia konta integracji w lokalizacji hello wybrany powinno zakończyć się w ciągu 1 minuty.
+    Azure udostępnia konta integracji w wybranej lokalizacji, która powinna zakończyć się w ciągu 1 minuty.
 
-5. Odśwież stronę hello. Widzisz konta integracji na liście.
+5. Odśwież stronę. Widzisz konta integracji na liście.
 
     ![Pojawi się nowego konta integracji](./media/logic-apps-enterprise-integration-accounts/account-5.png) 
 
-Następnie połącz konto integracji hello za ten zostanie utworzony tooyour aplikacji logiki. 
+Następnie połącz konto integracji utworzoną aplikację logiki. 
 
-## <a name="link-an-integration-account-tooa-logic-app"></a>Łączenie aplikacji logiki tooa konta integracji
+## <a name="link-an-integration-account-to-a-logic-app"></a>Połącz konto integracji aplikacji logiki
 
-toogive aplikacje logiki dostępu toomaps, schematów, umów oraz pozostałych artefaktów na koncie integracji aplikacji logiki tooyour konta integracji hello łącza.
+Aby zapewnić logiki aplikacji dostęp do map, schematów, umów oraz pozostałych artefaktów na koncie integracji Połącz konto integracji aplikacji logiki.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -62,10 +62,10 @@ toogive aplikacje logiki dostępu toomaps, schematów, umów oraz pozostałych a
 * Aplikacji logiki
 
 > [!NOTE] 
-> Upewnij się, że integracja aplikacji logiki i konta znajdują się w hello *tej samej lokalizacji platformy Azure* przed rozpoczęciem.
+> Upewnij się, że integracja aplikacji logiki i konta znajdują się w *tej samej lokalizacji platformy Azure* przed rozpoczęciem.
 
 
-1. W hello portalu Azure wybierz aplikację logiki i sprawdź lokalizację aplikację logiki.
+1. W portalu Azure wybierz aplikację logiki i sprawdź lokalizację aplikację logiki.
 
     ![Wybierz aplikację logiki, sprawdź lokalizację](./media/logic-apps-enterprise-integration-accounts/linkaccount-1.png)
 
@@ -73,15 +73,15 @@ toogive aplikacje logiki dostępu toomaps, schematów, umów oraz pozostałych a
 
     ![Wybierz opcję "Konto Integration"](./media/logic-apps-enterprise-integration-accounts/linkaccount-2.png)
 
-3. Z hello **wybierz konto integracji** listy, wybierz hello integracji konta toolink tooyour logiki aplikacji. Wybierz toofinish połączeń, **zapisać**.
+3. Z **wybierz konto integracji** listy, wybierz konto integracji, aby połączyć aplikację logiki. Aby zakończyć połączenie, wybierz **zapisać**.
 
     ![Wybierz konto integracji](./media/logic-apps-enterprise-integration-accounts/linkaccount-3.png)
 
-    Otrzymasz powiadomienie, które pokazuje integracją konta jest tooyour połączonej aplikacji logiki, a wszystkie artefakty na koncie integracji są teraz dostępne tooyour aplikacji logiki.
+    Otrzymasz powiadomienie, które pokazuje integracją konto jest połączone z aplikacji logiki, a wszystkie artefakty na koncie integracji są teraz dostępne dla aplikacji logiki.
 
-    ![Aplikację logiki jest połączony tooyour konta integracji](./media/logic-apps-enterprise-integration-accounts/linkaccount-5.png)
+    ![Aplikację logiki jest połączony z kontem integracji](./media/logic-apps-enterprise-integration-accounts/linkaccount-5.png)
 
-Teraz, Twoje konto integracji jest tooyour połączonej aplikacji logiki, można użyć łączników hello B2B w aplikacjach logiki. Niektóre typowe łączniki B2B obejmują sprawdzanie poprawności kodu XML i pliku prostego kodowania/dekodowania.  
+Teraz, kiedy Twoje konto integracji jest połączone z aplikacji logiki, można użyć łączniki B2B w aplikacjach logiki. Niektóre typowe łączniki B2B obejmują sprawdzanie poprawności kodu XML i pliku prostego kodowania/dekodowania.  
 
 ## <a name="delete-your-integration-account"></a>Usuwanie konta integracji
 
@@ -89,40 +89,40 @@ Teraz, Twoje konto integracji jest tooyour połączonej aplikacji logiki, można
 
     ![Wybierz pozycję "Więcej usług"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
-2. W polu wyszukiwania hello wpisz "Integracja" filtru. Na liście wyników hello, wybierz **konta integracji**.
+2. W polu wyszukiwania wpisz "Integracja" filtru. Na liście wyników wybierz **konta integracji**.
 
     ![Odfiltruj "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-accounts/account-2.png)  
 
-3. Wybierz konto integracji hello, które mają toodelete.
+3. Wybierz konto integracji, które chcesz usunąć.
 
-    ![Wybierz toodelete konta integracji](./media/logic-apps-enterprise-integration-accounts/account-5.png)
+    ![Wybierz konto integracji do usunięcia](./media/logic-apps-enterprise-integration-accounts/account-5.png)
 
-4. W hello menu wybierz **usunąć**.
+4. W menu, wybierz **usunąć**.
 
     ![Wybierz pozycję "Delete"](./media/logic-apps-enterprise-integration-accounts/delete.png)
 
-5. Potwierdź konto integracji hello choice toodelete.
+5. Potwierdź zamiar usunięcia konta integracji.
 
 ## <a name="move-your-integration-account"></a>Przenoszenie konta integracji
 
-toomove integracji tooanother konta Azure subskrypcji lub grupy zasobów, wykonaj następujące kroki.
+Aby przenieść konta integracji innego Azure subskrypcji lub grupy zasobów, wykonaj następujące kroki.
 
 > [!IMPORTANT]
-> Należy zaktualizować wszystkie skrypty toouse hello nowy zasób identyfikatory po przeniesieniu konta integracji.
+> Należy zaktualizować wszystkie skrypty do używania nowych identyfikatorów zasobów. po przeniesieniu konta integracji.
 
 1. Wybierz **więcej usług**.
 
     ![Wybierz pozycję "Więcej usług"](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
-2. W polu wyszukiwania hello wpisz "Integracja" filtru. Na liście wyników hello, wybierz **konta integracji**.
+2. W polu wyszukiwania wpisz "Integracja" filtru. Na liście wyników wybierz **konta integracji**.
 
     ![Odfiltruj "integrację", wybierz "Konta integracji"](./media/logic-apps-enterprise-integration-accounts/account-2.png)
 
-3. Wybierz konto integracji hello, które mają toomove. W obszarze **ustawienia**, wybierz **właściwości**.
+3. Wybierz konto integracji, które mają zostać przeniesione. W obszarze **ustawienia**, wybierz **właściwości**.
 
-    ![Wybierz toomove konta integracji. W obszarze Ustawienia wybierz polecenie Właściwości](./media/logic-apps-enterprise-integration-accounts/move.png)
+    ![Wybierz konto integracji można przenieść. W obszarze Ustawienia wybierz polecenie Właściwości](./media/logic-apps-enterprise-integration-accounts/move.png)
 
-5. Zmień hello grupy zasobów lub subskrypcji platformy Azure, który został skojarzony z Twoim kontem integracji.
+5. Zmiana grupy zasobów lub subskrypcji platformy Azure, który został skojarzony z Twoim kontem integracji.
 
     ![Wybierz opcję Zmień grupę zasobów lub zmiany subskrypcji](./media/logic-apps-enterprise-integration-accounts/move-2.png)
 

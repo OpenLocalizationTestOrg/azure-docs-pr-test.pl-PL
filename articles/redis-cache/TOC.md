@@ -12,7 +12,6 @@
 # Rozpoczęcie pracy
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
@@ -25,7 +24,7 @@
 ###[Ochrona pamięci podręcznej przy użyciu sieci wirtualnej](cache-how-to-premium-vnet.md)
 ###[Rozproszenie pamięci podręcznej przez zastosowanie klastrowania](cache-how-to-premium-clustering.md)
 ## Automatyzacja
-###[Wdrażanie i zarządzanie przy użyciu programu PowerShell](cache-howto-manage-redis-cache-powershell.md)
+###[Wdrażanie i zarządzanie przy użyciu programu Azure PowerShell](cache-howto-manage-redis-cache-powershell.md)
 ###[Wdrażanie i zarządzanie przy użyciu interfejsu wiersza polecenia platformy Azure](cli-samples.md)
 ###[Inicjowanie obsługi administracyjnej pamięci podręcznej Redis](cache-redis-cache-arm-provision.md)
 ###[Inicjowanie obsługi administracyjnej aplikacji sieci Web i pamięci podręcznej Redis](cache-web-app-arm-with-redis-cache-provision.md)
@@ -33,25 +32,25 @@
 ###[Dostawca stanu sesji](cache-aspnet-session-state-provider.md)
 ###[Dostawca wyjściowej pamięci podręcznej](cache-aspnet-output-cache-provider.md)
 ## Zarządzanie
-###[Konfigurowanie w portalu hello](cache-configure.md)
+###[Konfigurowanie w witrynie Azure Portal](cache-configure.md)
 ###[Konfigurowanie replikacji geograficznej](cache-how-to-geo-replication.md)
 ###[Importowanie/eksportowanie danych](cache-how-to-import-export-data.md)
 ###[Ponowne uruchamianie](cache-administration.md#reboot)
 ###[Aktualizacje harmonogramu](cache-administration.md#schedule-updates)
 ## Monitorowanie i rozwiązywanie problemów
-###[Monitorowanie w portalu hello](cache-how-to-monitor.md)
+###[Monitorowanie w witrynie Azure Portal](cache-how-to-monitor.md)
 ###[Rozwiązywanie problemów z pamięcią podręczną](cache-how-to-troubleshoot.md)
 ###[Ustawianie alertów dla wyjątków](cache-how-to-monitor.md#operations-and-alerts)
 ## Skalowanie
-###[Aktualizacja tooa inny rozmiar i warstwy](cache-how-to-scale.md)
-###[Użyj tooscale klaster Redis we/wy](cache-how-to-premium-clustering.md)
+###[Aktualizowanie do innego rozmiaru i innej warstwy](cache-how-to-scale.md)
+###[Używanie klastra pamięci podręcznej Redis do skalowania w pionie i w poziomie](cache-how-to-premium-clustering.md)
 ## Integracja ze środowiskiem Spring Boot
 ###[Używanie aplikacji Spring Boot Initializer z usługą Redis Cache](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Interfejs wiersza polecenia platformy Azure 2.0 (wersja zapoznawcza)](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Interfejs wiersza polecenia platformy Azure w wersji zapoznawczej](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Klienci Redis](http://redis.io/clients)

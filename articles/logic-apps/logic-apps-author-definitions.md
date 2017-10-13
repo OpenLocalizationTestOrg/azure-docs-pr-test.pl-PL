@@ -1,6 +1,6 @@
 ---
-title: "przepływy pracy aaaDefine z JSON - Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Jak toowrite definicji przepływu pracy w formacie JSON dla usługi logic apps"
+title: "Definiuje przepływy pracy z JSON - Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Jak napisać definicji przepływu pracy w formacie JSON dla usługi logic apps"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0d69d334ecee9c3e7f8684cfde68ef0e85280358
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>Tworzenie definicji przepływu pracy dla usługi logic apps za pomocą formatu JSON
 
-Można utworzyć definicji przepływu pracy dla [Azure Logic Apps](logic-apps-what-are-logic-apps.md) prosty, deklaratywny języka JSON. Jeśli nie jest jeszcze, najpierw należy przejrzeć [jak toocreate pierwszej aplikacji logiki z projektanta aplikacji logiki](logic-apps-create-a-logic-app.md). Zobacz też hello [pełne informacje dotyczące hello język definicji przepływu pracy](http://aka.ms/logicappsdocs).
+Można utworzyć definicji przepływu pracy dla [Azure Logic Apps](logic-apps-what-are-logic-apps.md) prosty, deklaratywny języka JSON. Jeśli nie jest jeszcze, najpierw należy przejrzeć [tworzenie pierwszej aplikacji logiki z projektanta aplikacji logiki](logic-apps-create-a-logic-app.md). Zobacz też [pełne odwołania dla języka definicji przepływu pracy](http://aka.ms/logicappsdocs).
 
 ## <a name="repeat-steps-over-a-list"></a>Powtórz kroki od listy
 
-tooiterate przez tablicę, która ma too10, 000 elementów i wykonania czynności dla każdego elementu, użyj hello [typu foreach](logic-apps-loops-and-scopes.md).
+Aby wykonać iterację tablicę, która zawiera elementy do 10 000 i wykonania czynności dla każdego elementu, użyj [typu foreach](logic-apps-loops-and-scopes.md).
 
 ## <a name="handle-failures-if-something-goes-wrong"></a>Obsługa błędów, jeśli jakaś nieprawidłowość
 
-Zwykle ma tooinclude *krok korygowania* — niektóre logikę, która wykonuje *tylko wtedy, gdy* co najmniej jednego wywołania zakończyć się niepowodzeniem. W tym przykładzie pobiera dane z różnych miejsc, ale w przypadku niepowodzenia wywołania hello chcemy tooPOST wiadomość gdzieś, firma Microsoft może śledzić awarii później:  
+Zwykle, które chcesz dołączyć *krok korygowania* — niektóre logikę, która wykonuje *tylko wtedy, gdy* co najmniej jednego wywołania zakończyć się niepowodzeniem. W tym przykładzie pobiera dane z różnych miejsc, ale w przypadku niepowodzenia wywołania chcemy, aby wysłać wiadomość gdzieś, dlatego firma Microsoft może śledzić awarii później:  
 
 ```
 {
@@ -66,13 +66,13 @@ Zwykle ma tooinclude *krok korygowania* — niektóre logikę, która wykonuje *
 }
 ```
 
-toospecify który `postToErrorMessageQueue` działa tylko `readData` ma `Failed`, użyj hello `runAfter` właściwości, na przykład toospecify listę możliwych wartości, tak aby `runAfter` może być `["Succeeded", "Failed"]`.
+Aby określić, że `postToErrorMessageQueue` działa tylko `readData` ma `Failed`, użyj `runAfter` właściwości, na przykład, aby określić listę możliwych wartości, tak aby `runAfter` może być `["Succeeded", "Failed"]`.
 
-Na koniec, ponieważ w tym przykładzie obsługuje teraz błąd hello, firma Microsoft nie jest już oznaczyć hello Uruchom jako `Failed`. Ponieważ dodaliśmy hello kroku obsługi tego błędu w tym przykładzie ma hello Uruchom `Succeeded` chociaż jeden krok `Failed`.
+Na koniec, ponieważ w tym przykładzie obsługuje teraz błąd, firma Microsoft nie jest już oznaczyć Uruchom jako `Failed`. Ponieważ dodaliśmy kroku obsługi tego błędu w tym przykładzie ma `Succeeded` chociaż jeden krok `Failed`.
 
 ## <a name="execute-two-or-more-steps-in-parallel"></a>Wykonaj kroki co najmniej dwa równolegle
 
-toorun hello wielu akcji równolegle, `runAfter` właściwości musi być taka sama w czasie wykonywania. 
+Do uruchomienia wielu akcji równolegle, `runAfter` właściwości musi być taka sama w czasie wykonywania. 
 
 ```
 {
@@ -122,13 +122,13 @@ toorun hello wielu akcji równolegle, `runAfter` właściwości musi być taka s
 }
 ```
 
-W tym przykładzie zarówno `branch1` i `branch2` są ustawione toorun po `readData`. W związku z tym obu gałęziach są uruchamiane równolegle. Sygnatura czasowa powitania dla obu gałęziach są identyczne.
+W tym przykładzie zarówno `branch1` i `branch2` są ustawione na uruchamianie `readData`. W związku z tym obu gałęziach są uruchamiane równolegle. Znacznik czasu dla obu gałęziach są identyczne.
 
 ![Równoległe](media/logic-apps-author-definitions/parallel.png)
 
 ## <a name="join-two-parallel-branches"></a>Dołącz do dwóch równoległych gałęziach
 
-Możesz także dołączyć do dwóch akcje, które są ustawione toorun równolegle przez dodanie elementów toohello `runAfter` właściwości, jak w poprzednim przykładzie hello.
+Możesz także dołączyć do dwóch akcje, które są ustawione na uruchamianie równoległe przez dodanie elementów do `runAfter` właściwości co w poprzednim przykładzie.
 
 ```
 {
@@ -199,9 +199,9 @@ Możesz także dołączyć do dwóch akcje, które są ustawione toorun równole
 
 ![Równoległe](media/logic-apps-author-definitions/join.png)
 
-## <a name="map-list-items-tooa-different-configuration"></a>Mapa listy elementów tooa innej konfiguracji
+## <a name="map-list-items-to-a-different-configuration"></a>Mapa elementów listy do innej konfiguracji
 
-Następnie Załóżmy, że chcemy tooget innej zawartości na podstawie hello wartości właściwości. Można utworzyć mapy toodestinations wartości jako parametr:  
+Następnie Załóżmy, że chcemy uzyskać różne zawartości na podstawie wartości właściwości. Można utworzyć mapy wartości do miejsc docelowych jako parametr:  
 
 ```
 {
@@ -271,19 +271,19 @@ Następnie Załóżmy, że chcemy tooget innej zawartości na podstawie hello wa
 }
 ```
 
-W takim przypadku najpierw pobrać listę artykułów. W oparciu o kategorię hello, która została zdefiniowana jako parametru, drugi etap hello używa toolook mapy, zapasowej hello adresu URL pobierania zawartości hello.
+W takim przypadku najpierw pobrać listę artykułów. W oparciu o kategorię, która została zdefiniowana jako parametru, drugi etap używa mapy do wyszukania adres URL pobierania zawartości.
 
-W tym miejscu toonote sytuacje: 
+Sytuacje, w tym miejscu należy pamiętać: 
 
-*   Witaj [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) funkcja sprawdza, czy kategoria hello zgodny jedną hello znane zdefiniowanych kategoriach.
+*   [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) Funkcja sprawdza, czy kategoria zgodny jedną znane zdefiniowanych kategoriach.
 
-*   Po uzyskujemy kategorii hello możemy ściągnięcia hello elementu z użyciem nawiasów kwadratowych mapy hello:`parameters[...]`
+*   Po uzyskujemy kategorii, możemy pobierać elementu z tablicy przy użyciu nawiasy kwadratowe:`parameters[...]`
 
 ## <a name="process-strings"></a>Ciągi procesu
 
-Można użyć różnych funkcji toomanipulate ciągów. Na przykład załóżmy, że mamy ciąg chcemy toopass tooa system, że nie wątpliwości właściwe obsługę kodowania znaków. Jedną z opcji jest toobase64 ten ciąg do zakodowania. Jednak tooavoid anulowanie w adresie URL zamierzamy tooreplace kilku znaków. 
+Można użyć różnych funkcji do manipulowania ciągami. Na przykład załóżmy, że mamy ciąg, który chcemy przekazać do systemu, ale nie wątpliwości właściwe obsługę kodowania znaków. Jedną z opcji jest w formacie base64 ten ciąg do zakodowania. Jednak aby uniknąć anulowanie w adresie URL, zamierzamy Zastąp kilku znaków. 
 
-Również chcemy podciąg nazwy hello kolejności, ponieważ hello pięć pierwszych znaków nie są używane.
+Również chcemy podciąg nazwy zamówienia, ponieważ nie są używane przez pięć pierwszych znaków.
 
 ```
 {
@@ -318,23 +318,23 @@ Również chcemy podciąg nazwy hello kolejności, ponieważ hello pięć pierws
 }
 ```
 
-Pracy z wewnątrz toooutside:
+Praca z wewnątrz do poza:
 
-1. Pobierz hello [ `length()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) o nazwę osoby hello zamawiającej, dlatego firma Microsoft wrócić hello całkowita liczba znaków.
+1. Pobierz [ `length()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) o nazwę osoby zamawiającej, dlatego firma Microsoft wrócić całkowita liczba znaków.
 
 2. Odejmowanie 5, ponieważ chcemy krótszego ciągu.
 
-3. W rzeczywistości zająć hello [ `substring()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Rozpoczniemy pod indeksem `5` i przejdź hello pozostałej części ciąg hello.
+3. W rzeczywistości zająć [ `substring()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Rozpoczniemy pod indeksem `5` i przejdź do końca ciągu.
 
-4. Konwertuj to tooa podciąg [ `base64()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) ciąg.
+4. Konwertuj to podciąg do [ `base64()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) ciąg.
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)wszystkie hello `+` znaków i zawierają `-` znaków.
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)wszystkie `+` znaków i zawierają `-` znaków.
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)wszystkie hello `/` znaków i zawierają `_` znaków.
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)wszystkie `/` znaków i zawierają `_` znaków.
 
 ## <a name="work-with-date-times"></a>Praca z daty i godziny
 
-Daty i godziny mogą być przydatne, szczególnie w przypadku, gdy chcesz toopull danych ze źródła danych, który nie obsługuje naturalnie *wyzwalaczy*. Umożliwia także daty i godziny do znajdowania, jak długo różne kroki są tworzone.
+Daty i godziny mogą być użyteczne, zwłaszcza w przypadku próby pobierania danych ze źródła danych, który nie obsługuje naturalnie *wyzwalaczy*. Umożliwia także daty i godziny do znajdowania, jak długo różne kroki są tworzone.
 
 ```
 {
@@ -386,18 +386,18 @@ Daty i godziny mogą być przydatne, szczególnie w przypadku, gdy chcesz toopul
 }
 ```
 
-W tym przykładzie mamy wyodrębnić hello `startTime` hello w poprzednim kroku. Następnie możemy pobrać hello bieżącego czasu i odjąć 1 sekundy:
+W tym przykładzie mamy wyodrębnić `startTime` z poprzedniego kroku. Następnie możemy pobrać bieżącego czasu i odjąć 1 sekundy:
 
 [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
 
-Inne jednostki czasu, można używać tak samo, jak `minutes` lub `hours`. Na koniec mamy Porównaj te dwie wartości. Jeśli hello pierwsza wartość jest mniejsza niż wartość drugiego hello, a następnie więcej niż jednej sekundy są spełnione, ponieważ najpierw umieszczono hello kolejności.
+Inne jednostki czasu, można używać tak samo, jak `minutes` lub `hours`. Na koniec mamy Porównaj te dwie wartości. Jeśli pierwsza wartość jest mniejsza niż wartość drugiej, a następnie więcej niż jednej sekundy są spełnione, ponieważ najpierw umieszczono kolejności.
 
-tooformat dat, możemy użyć ciągu elementy formatujące. Na przykład hello tooget RFC1123, używamy [ `utcnow('r')` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). toolearn o formatowania daty, zobacz [język definicji przepływu pracy](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
+Do formatowania daty, możemy użyć ciągu elementy formatujące. Na przykład, aby uzyskać RFC1123, używamy [ `utcnow('r')` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Aby uzyskać informacje dotyczące formatowania daty, zobacz [język definicji przepływu pracy](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
 ## <a name="deployment-parameters-for-different-environments"></a>Parametry wdrożenia dla różnych środowisk
 
-Zazwyczaj cyklami życia wdrożenia ma środowiska programowania, środowisku przemieszczania i środowiska produkcyjnego. Na przykład możesz użyć tej samej definicji w tych środowiskach hello, ale Użyj różnych baz danych. Podobnie, może być toouse hello tej samej definicji w różnych regionach, wysokiej dostępności, ale mają każdego logiki aplikacji wystąpienia tootalk toothat regionu bazy danych.
-W tym scenariuszu różni się od podejmowania parametrów w *środowiska uruchomieniowego* gdzie zamiast tego należy używać hello `trigger()` działać jak w poprzednim przykładzie hello.
+Zazwyczaj cyklami życia wdrożenia ma środowiska programowania, środowisku przemieszczania i środowiska produkcyjnego. Na przykład może użyć tej samej definicji w tych środowiskach, ale Użyj różnych baz danych. Podobnie możesz użyć tej samej definicji w różnych regionach, wysokiej dostępności, ale mają każde wystąpienie aplikacji logiki, aby komunikował się z bazą danych tego regionu.
+W tym scenariuszu różni się od podejmowania parametrów w *środowiska uruchomieniowego* gdzie zamiast tego należy używać `trigger()` działać tak jak w poprzednim przykładzie.
 
 Można uruchomić z podstawową definicję, tak jak ten przykład:
 
@@ -429,13 +429,13 @@ Można uruchomić z podstawową definicję, tak jak ten przykład:
 }
 ```
 
-W rzeczywistych hello `PUT` żądania dla aplikacji logiki hello, możesz podać parametr hello `uri`. Ponieważ istnieje już wartość domyślną, ładunku aplikacji logiki hello wymaga tego parametru:
+W rzeczywistym `PUT` żądania dla aplikacji logiki możesz podać parametr `uri`. Ponieważ istnieje już wartość domyślną, ładunku aplikacji logiki wymaga tego parametru:
 
 ```
 {
     "properties": {},
         "definition": {
-          // Use hello definition from above here
+          // Use the definition from above here
         },
         "parameters": {
             "connection": {
@@ -447,6 +447,6 @@ W rzeczywistych hello `PUT` żądania dla aplikacji logiki hello, możesz podać
 }
 ``` 
 
-W każdym środowisku można podać inną wartość dla hello `connection` parametru. 
+W każdym środowisku można podać inną wartość dla `connection` parametru. 
 
-Dla wszystkich hello opcje dotyczące tworzenia i zarządzania aplikacji logiki, zobacz hello [dokumentacja interfejsu API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
+Aby uzyskać wszystkie opcje, które mają do tworzenia i zarządzania aplikacji logiki, zobacz [dokumentacja interfejsu API REST](https://msdn.microsoft.com/library/azure/mt643787.aspx). 

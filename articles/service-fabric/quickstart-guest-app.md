@@ -1,6 +1,6 @@
 ---
-title: "aaaQuickly wdrażanie istniejącego klastra usługi sieć szkieletowa usług Azure tooan aplikacji"
-description: "Sieć szkieletowa usług Azure klastra toohost istniejącą aplikację Node.js za pomocą programu Visual Studio."
+title: "Szybkie wdrażanie istniejącej aplikacji do klastra usługi Azure Service Fabric"
+description: "Użyj klastra usługi Azure Service Fabric do hostowania istniejącej aplikacji w technologii Node.js za pomocą programu Visual Studio."
 services: service-fabric
 documentationcenter: nodejs
 author: thraka
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
-ms.openlocfilehash: 20a3eb4a9206ba465acf96d0976ba241b07158bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hostowanie aplikacji w technologii Node.js w usłudze Azure Service Fabric
 
-Ta opcja szybkiego startu ułatwia wdrożenie klastra usługi sieć szkieletowa istniejących tooa (Node.js w tym przykładzie) aplikacji działających na platformie Azure.
+Przewodnik Szybki start ułatwia wdrożenie istniejącej aplikacji (w tym przykładzie w technologii Node.js) do klastra usługi Service Fabric działającego na platformie Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programowania](service-fabric-get-started.md). W tym zainstalowanie hello zestawu SDK usług sieci szkieletowej i Visual Studio 2017 lub 2015.
+Przed rozpoczęciem upewnij się, że masz [skonfigurowane środowisko programowania](service-fabric-get-started.md). Obejmuje to zainstalowanie zestawu SDK usługi Service Fabric i programu Visual Studio 2017 lub 2015.
 
-Należy również toohave istniejącą aplikację Node.js do wdrożenia. Przewodnik Szybki Start używa prostej witryny sieci Web w technologii Node.js, którą można pobrać [stąd][download-sample]. Wyodrębnij tooyour tego pliku `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` folder po utworzeniu projektu hello w hello następnego kroku.
+Niezbędna jest również aplikacja Node.js do wdrożenia. Przewodnik Szybki Start używa prostej witryny sieci Web w technologii Node.js, którą można pobrać [stąd][download-sample]. W następnym kroku po utworzeniu projektu wyodrębnij ten plik do swojego folderu `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\`.
 
 Jeśli nie masz subskrypcji platformy Azure, utwórz [bezpłatne konto][create-account].
 
-## <a name="create-hello-service"></a>Tworzenie usługi hello
+## <a name="create-the-service"></a>Tworzenie usługi
 
 Uruchom program Visual Studio jako **administrator**.
 
 Tworzenie projektu przy użyciu klawiszy `CTRL`+`SHIFT`+`N`
 
-W hello **nowy projekt** okno dialogowe, wybierz **chmury > aplikacji sieci szkieletowej usług**.
+W oknie dialogowym **Nowy projekt** wybierz kolejno pozycje **Chmura > Aplikacja usługi Service Fabric**.
 
-Nadaj nazwę aplikacji hello **MyGuestApp** i naciśnij klawisz **OK**.
+Nazwij aplikację **MyGuestApp** i naciśnij przycisk **OK**.
 
 >[!IMPORTANT]
->Łatwo mogą być dzielone limit 260 znaków hello dla ścieżek zawierających system windows ma node.js. Użyj krótkiej ścieżki dla projektu hello, takiego jak **c:\code\svc1**.
+>W technologii Node.js można łatwo obejść limit systemu Windows 260 znaków dla ścieżek. Użyj krótkiej ścieżki dla samego projektu, takiej jak **c:\code\svc1**.
    
 ![Okno dialogowe nowego projektu w programie Visual Studio][new-project]
 
-Można utworzyć dowolnego typu usługi sieć szkieletowa usług z hello następnego okna dialogowego. Na potrzeby tego przewodnika Szybki start wybierz pozycję **Wykonywalna gościa**.
+W następnym oknie dialogowym można utworzyć usługę Service Fabric dowolnego typu. Na potrzeby tego przewodnika Szybki start wybierz pozycję **Wykonywalna gościa**.
 
-Nazwa usługi hello **MyGuestService** i ustawianie opcji hello na powitania prawo toohello następujące wartości:
+Nazwij usługę **MyGuestService** i ustaw opcje po prawej stronie na następujące wartości:
 
 | Ustawienie                   | Wartość |
 | ------------------------- | ------ |
-| Folder pakietu kodu       | _&lt;folder Hello z aplikacji Node.js&gt;_ |
-| Zachowanie pakietu kodu     | Skopiuj folder zawartości tooproject |
+| Folder pakietu kodu       | _&lt;folder z aplikacją w technologii Node.js&gt;_ |
+| Zachowanie pakietu kodu     | Skopiuj zawartość folderu do projektu |
 | Program                   | node.exe |
 | Argumenty                 | server.js |
 | Folder roboczy            | CodePackage |
@@ -63,9 +63,9 @@ Naciśnij przycisk **OK**.
 
 ![Okno dialogowe nowej usługi w programie Visual Studio][new-service]
 
-Visual Studio tworzy projekt aplikacji hello i projekt usługi aktora hello i wyświetla je w Eksploratorze rozwiązań.
+Program Visual Studio utworzy projekt aplikacji i projekt usługi aktora, a następnie wyświetli je w Eksploratorze rozwiązań.
 
-Projekt aplikacji Hello (**MyGuestApp**) nie zawiera żadnego kodu bezpośrednio. Zamiast tego odwołuje się do zestawu projektów usług. Ponadto zawiera trzy inne typy zawartości:
+Projekt aplikacji (**MyGuestApp**) nie zawiera bezpośrednio żadnego kodu. Zamiast tego odwołuje się do zestawu projektów usług. Ponadto zawiera trzy inne typy zawartości:
 
 * **Profile publikowania**  
 Preferencje narzędzi dla różnych środowisk.
@@ -74,20 +74,20 @@ Preferencje narzędzi dla różnych środowisk.
 Skrypt programu PowerShell przeznaczony do wdrażania/uaktualniania aplikacji.
 
 * **Definicja aplikacji**  
-Zawiera manifest aplikacji hello w ramach *ApplicationPackageRoot*. Pliki parametru skojarzonej aplikacji znajdują się w obszarze *ApplicationParameters*, który Definiowanie aplikacji hello i pozwala tooconfigure specjalnie dla danego środowiska.
+Zawiera manifest aplikacji w ramach elementu *ApplicationPackageRoot*. Skojarzone pliki parametrów aplikacji znajdują się w ramach elementu *ApplicationParameters*, które definiują aplikację i umożliwiają jej konfigurowanie dla konkretnego środowiska.
     
-Omówienie hello zawartości projektu usługi hello, zobacz [Rozpoczynanie pracy z usługami Reliable Services](service-fabric-reliable-services-quick-start.md).
+Aby zapoznać się z omówieniem zawartości projektu usługi, zobacz [Pierwsze kroki z usługami Reliable Services](service-fabric-reliable-services-quick-start.md).
 
 ## <a name="set-up-networking"></a>Konfigurowanie zasobów sieciowych
 
-przykład Witaj aplikacja Node.js jest wdrażany firma Microsoft korzysta z portu **80** i potrzebujemy tootell usługi Service Fabric, czego potrzebujemy portem udostępnianym.
+Wdrażana przykładowa aplikacja w technologii Node.js korzysta z portu **80** i dlatego trzeba poinformować usługę Service Fabric, że ten port musi być widoczny.
 
-Otwórz hello **ServiceManifest.xml** plik w projekcie hello. Dole hello manifestu hello jest `<Resources> \ <Endpoints>` z wpisu, który został już zdefiniowany. Zmodyfikuj ten wpis tooadd `Port`, `Protocol`, i `Type`. 
+Otwórz plik **ServiceManifest.xml** w projekcie. W dolnej części manifestu znajduje się blok `<Resources> \ <Endpoints>` z już zdefiniowanym wpisem. Zmodyfikuj ten wpis, aby dodać parametry `Port`, `Protocol`, i `Type`. 
 
 ```xml
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by hello communication listener tooobtain hello port on which too
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="MyGuestAppServiceTypeEndpoint" Port="80" Protocol="http" Type="Input" />
@@ -95,45 +95,45 @@ Otwórz hello **ServiceManifest.xml** plik w projekcie hello. Dole hello manifes
   </Resources>
 ```
 
-## <a name="deploy-tooazure"></a>Wdrażanie tooAzure
+## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
 
-Jeśli naciśniesz **F5** i uruchomić projekt hello, jest wdrożone toohello klastra lokalnego. Jednak wdróżmy tooAzure zamiast tego.
+Po naciśnięciu klawisza **F5** i uruchomieniu projektu zostanie on wdrożony w lokalnym klastrze. Zamiast tego wdrożymy go jednak na platformie Azure.
 
-Kliknij prawym przyciskiem myszy na powitania projektu i wybierz polecenie **publikowania...**  otwierający tooAzure toopublish okna dialogowego.
+Kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Publikuj...**. Zostanie otwarte okno dialogowe publikowania na platformie Azure.
 
-![Publikowanie tooazure okno dialogowe Usługa sieci szkieletowej usług][publish]
+![Okno dialogowe Publikuj na platformie Azure dla usługi Service Fabric][publish]
 
-Wybierz hello **PublishProfiles\Cloud.xml** docelowego profilu.
+Wybierz docelowy profil **PublishProfiles\Cloud.xml**.
 
-Jeśli jeszcze nie zostało to wcześniej, wybierz toodeploy konto platformy Azure do. Jeśli nie masz jeszcze konta, [utwórz je][create-account].
+Jeśli nie zostało to wykonane wcześniej, wybierz konto platformy Azure, na którym ma się odbyć wdrożenie. Jeśli nie masz jeszcze konta, [utwórz je][create-account].
 
-W obszarze **punktu końcowego połączenia**, wybierz hello toodeploy klastra sieci szkieletowej usług do. Jeśli nie masz, wybierz  **&lt;Utwórz nowy klaster... &gt;**  który otwiera toohello okna przeglądarki sieci web portalu Azure. Aby uzyskać więcej informacji, zobacz [utworzyć klaster w portalu hello](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+W obszarze **Punkt końcowy połączenia** wybierz klaster usługi Service Fabric do wdrożenia. Jeśli go nie masz, wybierz opcję **&lt;Utwórz nowy klaster...&gt;**. Spowoduje to otwarcie okna przeglądarki sieci Web z witryną Azure Portal. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [tworzenia klastra w portalu](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
-Podczas tworzenia klastra usługi sieć szkieletowa hello, upewnij się, że hello tooset **niestandardowe punkty końcowe** ustawienie zbyt**80**.
+Podczas tworzenia klastra usługi Service Fabric upewnij się, że ustawienie **Niestandardowe punkty końcowe** ma wartość **80**.
 
 ![Konfiguracja typu węzła usługi sieci szkieletowej z niestandardowym punktem końcowym][custom-endpoint]
 
-Tworzenie nowego klastra usługi sieć szkieletowa przyjmuje niektórych toocomplete czasu. Po został utworzony, przejdź wstecz toohello okna dialogowego publikowania i wybierz  **&lt;Odśwież&gt;**. Hello nowy klaster znajduje się w polu listy rozwijanej hello; Wybierz go.
+Tworzenie nowego klastra usługi Service Fabric zajmuje trochę czasu. Po jego utworzeniu wróć do okna dialogowego publikowania i wybierz opcję **&lt;Odśwież&gt;**. Nowy klaster znajduje się w polu listy rozwijanej; wybierz go.
 
-Naciśnij klawisz **publikowania** i poczekaj, aż hello toofinish wdrożenia.
+Naciśnij przycisk **Publikuj** i poczekaj na zakończenie wdrożenia.
 
-Może to potrwać kilka minut. Po jej zakończeniu, może upłynąć kilka minut dla toobe aplikacji hello pełni dostępna.
+Może to potrwać kilka minut. Po zakończeniu instalacji może minąć jeszcze kilka minut, zanim aplikacja stanie się w pełni dostępna.
 
-## <a name="test-hello-website"></a>Test hello witryny sieci Web
+## <a name="test-the-website"></a>Testowanie witryny sieci Web
 
 Po opublikowaniu usługi przetestuj ją w przeglądarce sieci web. 
 
-Najpierw otwórz hello portalu Azure i Znajdź usługi sieć szkieletowa usług.
+Najpierw otwórz witrynę Azure Portal i znajdź swoją usługę Service Fabric.
 
-Przejdź do bloku omówienie hello hello adresu usługi. Użyj nazwy domeny hello z hello _punktu końcowego połączenia klienta_ właściwości. Na przykład `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Sprawdź adres bloku omówienia usługi. Użyj nazwy domeny z właściwości _Punkt końcowy połączenia klienta_. Na przykład `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
-![Usługa sieci szkieletowej omówienie bloku na powitania portalu Azure][overview]
+![Blok omówienia usługi sieci szkieletowej w witrynie Azure Portal][overview]
 
-Przejdź do adresu toothis gdzie zobaczysz hello `HELLO WORLD` odpowiedzi.
+Przejdź do tego adresu, gdy pojawi się odpowiedź `HELLO WORLD`.
 
-## <a name="delete-hello-cluster"></a>Usuń klaster hello
+## <a name="delete-the-cluster"></a>Usuwanie klastra
 
-Nie zapomnij toodelete wszystkie zasoby hello, utworzone dla tego przewodnika Szybki Start, jak naliczane są opłaty za te zasoby.
+Pamiętaj, aby usunąć wszystkie zasoby, które zostały utworzone dla tego przewodnika Szybki start, ponieważ naliczane są za nie opłaty.
 
 ## <a name="next-steps"></a>Następne kroki
 Przeczytaj więcej na temat [plików wykonywalnych gościa](service-fabric-deploy-existing-app.md).

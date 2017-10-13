@@ -1,26 +1,26 @@
 <!--author=SharS last changed: 02/22/16-->
 
-### <a name="tooconfigure-and-register-hello-device"></a>tooconfigure i rejestrowanie urządzenia hello
-1. Dostęp do interfejsu programu Windows PowerShell hello na konsoli szeregowej urządzenia StorSimple. Zobacz [konsolą szeregową urządzenia przy użyciu programu PuTTY tooconnect toohello](#use-putty-to-connect-to-the-device-serial-console) instrukcje. **Można dokładnie procedury hello toofollow się lub nie będą mogli tooaccess hello konsoli.**
-2. Hello otwartej sesji naciśnij klawisz Enter tooget czasu jeden wiersz polecenia. 
-3. Będzie toochoose zostanie wyświetlony monit o hello języka dla danego urządzenia chcesz tooset. Określ język hello, a następnie naciśnij klawisz Enter. 
+### <a name="to-configure-and-register-the-device"></a>Konfigurowanie i rejestrowanie urządzenia
+1. Przejdź do interfejsu programu Windows PowerShell na konsoli szeregowej urządzenia StorSimple. Instrukcje można znaleźć w temacie [Nawiązywanie połączenia z konsolą szeregową urządzenia przy użyciu programu PuTTY](#use-putty-to-connect-to-the-device-serial-console). **Pamiętaj, aby dokładnie wykonać procedurę, w przeciwnym wypadku nie uzyskasz dostępu do konsoli.**
+2. W otwartej sesji naciśnij jednokrotnie klawisz Enter, aby wyświetlić wiersz polecenia. 
+3. Zostanie wyświetlony monit o wybranie języka dla danego urządzenia. Wybierz język, a następnie naciśnij klawisz Enter. 
    
     ![Konfigurowanie i rejestrowanie urządzenia StorSimple 1](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice1-gov-include.png)
-4. W menu konsoli szeregowej hello, które są prezentowane wybierz toolog opcja 1 na z pełnym dostępem. 
+4. W przedstawionym menu konsoli szeregowej wybierz opcję 1, aby zalogować się z pełnymi uprawnieniami dostępu. 
    
     ![Rejestrowanie urządzenia StorSimple 2](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice2-gov-include.png)
-5. Wykonaj następujące kroki tooconfigure hello minimalne wymagane ustawienia sieciowe urządzenia hello.
+5. Wykonaj poniższe kroki, aby skonfigurować minimalne wymagane ustawienia sieciowe urządzenia.
    
    > [!IMPORTANT]
-   > Te kroki konfiguracji należy wykonać na aktywnym kontrolerze urządzenia hello hello toobe. Witaj menu konsoli szeregowej wskazuje stan kontrolera hello w komunikacie transparentu hello. Jeśli nie są podłączone toohello aktywnym kontrolerze, odłącz, a następnie podłącz toohello aktywnym kontrolerze.
+   > Te kroki konfiguracji należy wykonać na aktywnym kontrolerze urządzenia. Menu konsoli szeregowej wskazuje stan kontrolera w komunikacie transparentu. Jeśli nie są łączy się z aktywnym kontrolerem, odłącz, a następnie połącz się z aktywnym kontrolerem.
    > 
    > 
    
-   1. W wierszu polecenia hello wpisz hasło. Witaj domyślne hasło urządzenia to **Password1**.
-   2. Wpisz następujące polecenie hello:
+   1. W wierszu polecenia wpisz hasło. Domyślne hasło urządzenia to **Password1**.
+   2. Wpisz następujące polecenie:
       
         `Invoke-HcsSetupWizard`
-   3. Kreator instalacji zostanie wyświetlony toohelp, skonfigurować ustawienia sieciowe hello hello urządzenia. Witaj Podaj następujące informacje: 
+   3. Zostanie uruchomiony Kreator instalacji, który ułatwi konfigurowanie ustawień sieciowych urządzenia. Podaj następujące informacje: 
       
       * Adres IP interfejsu sieciowego 0 danych
       * Maska podsieci
@@ -29,27 +29,27 @@
       * Adres IP podstawowego serwera NTP
       
       > [!NOTE]
-      > Toowait może mieć kilka minut hello maskę podsieci i zastosować toobe ustawień DNS. 
+      > Może być konieczne Poczekaj kilka minut, aż maski podsieci i zastosowanie ustawień DNS. 
       > 
       > 
    4. Opcjonalnie Skonfiguruj serwer proxy sieci web.
       
       > [!IMPORTANT]
-      > Mimo że konfiguracja serwera proxy sieci web jest opcjonalne, należy pamiętać, że jeśli używasz serwera proxy sieci web, można skonfigurować tylko go tutaj. Aby uzyskać więcej informacji, przejdź zbyt[skonfigurować serwer proxy sieci web dla danego urządzenia](../articles/storsimple/storsimple-configure-web-proxy.md). 
+      > Mimo że konfiguracja serwera proxy sieci web jest opcjonalne, należy pamiętać, że jeśli używasz serwera proxy sieci web, można skonfigurować tylko go tutaj. Aby uzyskać więcej informacji, zobacz temat [Konfigurowanie serwera proxy sieci Web dla urządzenia](../articles/storsimple/storsimple-configure-web-proxy.md). 
       > 
       > 
-6. Naciśnij klawisze Ctrl + C tooexit hello Kreator.
-7. Zainstaluj aktualizacje hello w następujący sposób:
+6. Naciśnij klawisze Ctrl + C, aby zakończyć działanie Kreatora instalacji.
+7. Zainstaluj aktualizacje w następujący sposób:
    
-   1. Użyj następującego polecenia cmdlet tooset adresów IP na obu kontrolerów hello hello:
+   1. Aby ustawić adresy IP na obu kontrolerów, użyj następującego polecenia cmdlet:
       
       `Set-HcsNetInterface -InterfaceAlias Data0 -Controller0IPv4Address <Controller0 IP> -Controller1IPv4Address <Controller1 IP>`
-   2. W wierszu polecenia hello Uruchom `Get-HcsUpdateAvailability`. Możesz powiadamiania o dostępnych aktualizacjach.
-   3. Uruchom polecenie `Start-HcsUpdate`. To polecenie można uruchomić na dowolnym węźle. Aktualizacje zostaną zastosowane na powitania pierwszego kontrolera, kontrolera hello zostaną przełączone awaryjnie i następnie hello aktualizacje zostaną zastosowane na hello inny kontroler.
+   2. W wierszu polecenia Uruchom `Get-HcsUpdateAvailability`. Możesz powiadamiania o dostępnych aktualizacjach.
+   3. Uruchom polecenie `Start-HcsUpdate`. To polecenie można uruchomić na dowolnym węźle. Aktualizacje zostaną zastosowane do pierwszego kontrolera, kontrolera zostaną przełączone awaryjnie i następnie aktualizacje zostaną zastosowane na innym kontrolerze.
       
-      Możesz monitorować postęp hello aktualizacji hello uruchamiając `Get-HcsUpdateStatus`.    
+      Możesz monitorować postęp aktualizacji, uruchamiając `Get-HcsUpdateStatus`.    
       
-      Witaj przykładowe dane wyjściowe wyglądają następująco hello aktualizacji w toku.
+      Następujące przykładowe dane wyjściowe pokazują aktualizację w toku.
       
       ````
       Controller0>Get-HcsUpdateStatus
@@ -60,7 +60,7 @@
       Controller1Events   : 
       ````
       
-      Hello następujące przykładowe dane wyjściowe wskazuje, że aktualizacja hello zostało zakończone.
+      Następujące przykładowe dane wyjściowe wskazują, że aktualizacja została zakończona.
       
       ````
       Controller1>Get-HcsUpdateStatus
@@ -73,68 +73,68 @@
       
       ````
       
-      Może potrwać godziny too11 tooapply hello wszystkie aktualizacje, w tym hello aktualizacje systemu Windows.
+      Może upłynąć do 11 godzin zastosowanie wszystkich aktualizacji, w tym aktualizacje systemu Windows.
 
-8. Po wszystkich hello aktualizacje są pomyślnie zainstalowane, uruchom hello następujące polecenia cmdlet tooconfirm który hello zostały prawidłowo zastosowane aktualizacje oprogramowania:
+8. Po pomyślnym zainstalowaniu wszystkich aktualizacji należy uruchomić następujące polecenie cmdlet, aby upewnić się, że aktualizacje oprogramowania zostały prawidłowo zastosowane:
    
      `Get-HcsSystem`
    
-    Powinny pojawić się hello następujące wersje:
+    Powinny zostać wyświetlone następujące wersje:
    
    * HcsSoftwareVersion: 6.3.9600.17491
    * CisAgentVersion: 1.0.9037.0
    * MdsAgentVersion: 26.0.4696.1433
-9. Hello uruchom następujące polecenia cmdlet tooconfirm, który hello aktualizacji oprogramowania układowego został pomyślnie zastosowany:
+9. Uruchom następujące polecenie cmdlet, aby upewnić się, że aktualizacja oprogramowania układowego zostały poprawnie zastosowane:
    
     `Start-HcsFirmwareCheck`.
    
-     Stan oprogramowania układowego Hello powinien mieć **UpToDate**.
-10. Uruchom hello następującego polecenia cmdlet toopoint hello urządzenia toohello Microsoft Azure dla instytucji rządowych portal (ponieważ domyślnie wskazuje toohello publicznego klasyczny portal Azure). Spowoduje to ponowne uruchomienie obu kontrolerów. Zaleca się użycie dwóch sesji programu PuTTY toosimultaneously połączyć tooboth kontrolerów, tak aby były widoczne po uruchomieniu każdego kontrolera.
+     Stan oprogramowania układowego powinien mieć **UpToDate**.
+10. Uruchom następujące polecenie cmdlet, aby wskazywały na urządzeniu do portalu Microsoft Azure dla instytucji rządowych (ponieważ wskazuje publicznego klasycznego portalu Azure domyślnie). Spowoduje to ponowne uruchomienie obu kontrolerów. Zalecane jest użycie dwóch sesji programu PuTTY można jednocześnie połączyć do obu kontrolerów, tak aby były widoczne po uruchomieniu każdego kontrolera.
     
      `Set-CloudPlatform -AzureGovt_US`
     
-    Zostanie wyświetlony komunikat potwierdzenia. Zaakceptuj domyślną hello (**Y**).
-11. Uruchom powitania po zakończeniu instalacji tooresume polecenia cmdlet:
+    Zostanie wyświetlony komunikat potwierdzenia. Zaakceptuj wartość domyślną (**Y**).
+11. Uruchom następujące polecenie cmdlet, aby wznowić instalację:
     
      `Invoke-HcsSetupWizard`
     
      ![Kreator instalacji Wznów](./media/storsimple-configure-and-register-device-gov/HCS_ResumeSetup-gov-include.png)
     
-    Po wznowieniu instalacji Kreator hello będzie hello Update 1 wersję (odpowiada tooversion 17469). 
-12. Zaakceptuj ustawienia sieciowe hello. Po zaakceptowaniu każdego ustawienia, zobaczą komunikat dotyczący sprawdzania poprawności.
-13. Ze względów bezpieczeństwa hasło administratora urządzenia hello wygasa po pierwszej sesji hello i trzeba będzie toochange teraz. Po wyświetleniu monitu podaj hasło administratora urządzenia. Prawidłowe hasło administratora urządzenia musi zawierać od 8 do 15 znaków. Witaj hasło musi zawierać trzy z następujących hello: małe litery, wielkie litery, liczbowego i znaki specjalne.
+    Po wznowieniu Instalatora, Kreator będzie wersję Update 1 (odpowiadający wersji 17469). 
+12. Zaakceptuj ustawienia sieciowe. Po zaakceptowaniu każdego ustawienia, zobaczą komunikat dotyczący sprawdzania poprawności.
+13. Ze względów bezpieczeństwa hasło administratora urządzenia wygasa po pierwszej sesji i należy je teraz zmienić. Po wyświetleniu monitu podaj hasło administratora urządzenia. Prawidłowe hasło administratora urządzenia musi zawierać od 8 do 15 znaków. Hasło musi zawierać trzy z wymienionych elementów: małe litery, wielkie litery, cyfry i znaki specjalne.
     
     <br/>![Rejestrowanie urządzenia StorSimple 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
-14. Ostatnim krokiem powitania w Kreatorze instalacji hello rejestruje urządzenia z hello usługi Menedżer StorSimple. W tym celu będzie konieczne hello klucz rejestracji usługi uzyskany w [krok 2: Pobierz klucz rejestracji usługi hello](#step-2-get-the-service-registration-key). Po wpisaniu klucz rejestracji hello mogą być potrzebne toowait 2 – 3 minuty przed zarejestrowaniem urządzenia hello.
+14. W ostatnim kroku Kreatora instalacji wykonywana jest rejestracja urządzenia w usłudze StorSimple Manager. W tym celu należy klucz rejestracji usługi uzyskany w [krok 2: pobieranie klucza rejestracji usługi](#step-2-get-the-service-registration-key). Po podaniu klucza rejestracji konieczne może być zaczekanie 2-3 minut, zanim urządzenie zostanie zarejestrowane.
     
     > [!NOTE]
-    > Można nacisnąć klawisze Ctrl + C na wszelkie Kreator hello tooexit czasu. Jeżeli wprowadzono wszystkie ustawienia sieciowe hello (adres IP interfejsu dane 0, maskę podsieci i bramy), wpisy zostaną zachowane.
+    > Możesz nacisnąć klawisze Ctrl + C i zakończyć działanie Kreatora instalacji w dowolnym momencie. Jeżeli wprowadzono wszystkie ustawienia sieciowe (adres IP dla protokołu Data 0, maskę podsieci i bramę), wpisy zostaną zachowane.
     > 
     > 
     
     ![Postęp rejestracji StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
-15. Po hello urządzenie zostało zarejestrowane, zostanie wyświetlony klucz szyfrowania danych usługi. Skopiuj ten klucz i zapisz go w bezpiecznym miejscu. **Ten klucz będzie wymagany razem hello usługi rejestracji klucza tooregister dodatkowych urządzeń z hello usługi Menedżer StorSimple.** Odwołuje się zbyt[zabezpieczenia usługi StorSimple](../articles/storsimple/storsimple-security.md) Aby uzyskać więcej informacji na temat tego klucza.
+15. Po zarejestrowaniu urządzenia zostanie wyświetlony klucz szyfrowania danych usługi. Skopiuj ten klucz i zapisz go w bezpiecznym miejscu. **Ten klucz będzie wymagany razem z kluczem rejestracji usługi w celu rejestracji dodatkowych urządzeń w usłudze StorSimple Manager.** Więcej informacji na temat tego klucza znajduje się w temacie [Zabezpieczenia usługi StorSimple](../articles/storsimple/storsimple-security.md).
     
     ![Rejestrowanie urządzenia StorSimple 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)    
     
     > [!IMPORTANT]
-    > toocopy hello tekst z okna konsoli szeregowej hello, po prostu zaznacz tekst hello. Powinien być toopaste mogli go w Schowku hello lub edytorze tekstu. 
+    > Aby skopiować tekst z okna konsoli szeregowej, po prostu zaznacz tekst. Następnie możesz wkleić go do schowka lub w dowolnym edytorze tekstów. 
     > 
-    > Nie używaj klawiszy Ctrl + klucza szyfrowania danych usługi hello toocopy C. Przy użyciu klawiszy Ctrl + C spowoduje, że użytkownik tooexit hello Kreatora instalacji. W efekcie hasło administratora urządzenia hello nie zostaną zmienione i hello urządzeniu zostanie przywrócone hasło domyślne toohello.
+    > NIE używaj klawiszy Ctrl + C do kopiowania klucza szyfrowania danych usługi. Użycie klawiszy Ctrl + C spowoduje zakończenie działania Kreatora instalacji. W efekcie hasło administratora urządzenia nie zostanie zmienione, a na urządzeniu zostanie przywrócone hasło domyślne.
     > 
     > 
-16. Zakończ hello konsoli szeregowej.
-17. Zwraca toohello Portal Azure dla instytucji rządowych i ukończyć powitalnych następujące kroki:
+16. Zakończ działanie konsoli szeregowej.
+17. Wróć do portalu Azure dla instytucji rządowych i wykonaj następujące czynności:
     
-    1. Kliknij dwukrotnie użytkownika hello tooaccess usługi Menedżer StorSimple **Szybki Start** strony.
+    1. Kliknij dwukrotnie usługę StorSimple Manager, aby przejść do strony **Szybki Start**.
     2. Kliknij pozycję **View connected devices** (Wyświetl połączone urządzenia).
-    3. Na powitania **urządzeń** Sprawdź hello urządzenie pomyślnie nawiązało toohello usługi sprawdzając stan hello. Witaj urządzenie powinno mieć stan **Online**.
+    3. Na stronie **Urządzenia** zweryfikuj, czy urządzenie pomyślnie nawiązało połączenie z usługą, sprawdzając jego stan. Urządzenie powinno mieć stan **Online**.
        
         ![Strona Urządzenia StorSimple](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
        
-        Jeśli urządzenie ma stan hello **Offline**, zaczekaj kilka minut, aż hello urządzenia toocome online. 
+        Jeśli urządzenie ma stan **Offline**, zaczekaj kilka minut, aż urządzenie przejdzie do trybu online. 
        
-        Jeśli urządzenie hello jest wciąż w trybie offline, po upływie kilku minut, a następnie należy się upewnić, czy sieć zapory została skonfigurowana zgodnie z opisem toomake [wymagań sieciowych dotyczących urządzenia StorSimple](../articles/storsimple/storsimple-system-requirements.md). 
+        Jeśli po kilku minutach urządzenie jest wciąż w trybie offline, sprawdź, czy sieć zapory została skonfigurowana zgodnie z opisem [wymagań sieciowych dotyczących urządzenia StorSimple](../articles/storsimple/storsimple-system-requirements.md). 
        
-        Sprawdź, czy port 9354 jest otwarty dla komunikacji wychodzącej, ponieważ jest on używany przez magistralę usług hello komunikacji urządzenie usługi Menedżer StorSimple.
+        Sprawdź, czy port 9354 jest otwarty dla komunikacji wychodzącej, ponieważ jest on używany przez magistralę usług do komunikacji z urządzenia usługi Menedżer StorSimple.
 

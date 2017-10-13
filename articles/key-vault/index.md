@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure klucza magazynu dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse toocreate magazyn kluczy i Obsługa kluczy, które dostępu i szyfrowanie zasobów w chmurze, aplikacji i rozwiązań. Samouczki, dokumentacja interfejsu API i inne materiały."
+title: "Dokumentacja usługi Azure Key Vault — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak za pomocą usługi Key Vault tworzyć i obsługiwać klucze, które umożliwiają uzyskiwanie dostępu do zasobów, aplikacji i rozwiązań przechowywanych w chmurze oraz ich szyfrowanie. Samouczki, dokumentacja interfejsu API i inne materiały."
 services: key-vault
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a7fbebf94b3f345731ccba0ab788c83efa4c021e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3267373f6db336c34d13709cc0392631531313f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="key-vault-documentation"></a>Dokumentacja usługi Key Vault
 
-Dowiedz się, jak toosafeguard Key Vault toouse kluczy kryptograficznych i kluczy tajnych używanych przez usługi i aplikacje w chmurze oraz zarządzania nimi. Samouczki, odwołania do interfejsu API i dokumentacji przedstawia sposób toocreate i Obsługa kluczy, które dostępu i szyfrowanie z zasobów i rozwiązań.
+Dowiedz się, jak za pomocą usługi Key Vault chronić klucze kryptograficzne i klucze tajne używane przez aplikacje i usługi w chmurze oraz zarządzać tymi kluczami. Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób tworzenia i obsługi kluczy, które umożliwiają uzyskiwanie dostępu do zasobów i rozwiązań oraz ich szyfrowanie.
 
 <ul class="panelContent cardsFTitle">
     <li>

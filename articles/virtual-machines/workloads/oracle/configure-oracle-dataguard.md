@@ -1,5 +1,5 @@
 ---
-title: aaaImplement Oracle Data Guard na maszynie wirtualnej platformy Azure w systemie Linux | Dokumentacja firmy Microsoft
+title: Implementowanie Oracle Data Guard na maszynie wirtualnej platformy Azure w systemie Linux | Dokumentacja firmy Microsoft
 description: "Szybko uzyskać Oracle Data Guard zapasowej i uruchamiania w środowisku platformy Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 6bb530098737e3ca7dd8bab3f4306ecbb620f3f8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementowanie Oracle Data Guard na maszynie wirtualnej platformy Azure w systemie Linux 
 
-Interfejs wiersza polecenia platformy Azure jest używane toocreate i zarządzania zasobami Azure z wiersza polecenia hello lub w skryptach. W tym artykule opisano, jak toouse toodeploy wiersza polecenia platformy Azure z bazą danych Oracle 12c bazy danych z hello Azure Marketplace obrazu. W tym artykule następnie przedstawiono, krok po kroku, jak tooinstall i skonfigurować ochrona danych na maszynie wirtualnej platformy Azure (VM).
+Interfejs wiersza polecenia platformy Azure jest używana do tworzenia i zarządzania zasobami Azure z poziomu wiersza polecenia lub w skryptach. W tym artykule opisano sposób wdrażania bazy danych programu Oracle Database 12c z obrazu witryny Marketplace Azure za pomocą wiersza polecenia platformy Azure. W tym artykule następnie pokaże Ci, krok po kroku, jak zainstalować i skonfigurować ochrona danych na maszynie wirtualnej platformy Azure (VM).
 
-Przed rozpoczęciem upewnij się, czy zainstalowano wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz hello [Przewodnik instalacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Przed rozpoczęciem upewnij się, czy zainstalowano wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Przewodnik instalacji interfejsu wiersza polecenia Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="prepare-hello-environment"></a>Przygotowanie środowiska hello
+## <a name="prepare-the-environment"></a>Przygotowanie środowiska
 ### <a name="assumptions"></a>Wartości domyślne
 
-tooinstall Oracle Data Guard należy toocreate dwóch maszyn wirtualnych platformy Azure na powitania tego samego zestawu dostępności:
+Aby zainstalować program Oracle Data Guard, należy utworzyć dwie maszyny wirtualne platformy Azure na tym samym zestawie dostępności:
 
-- Witaj podstawowej maszyny Wirtualnej (myVM1) ma uruchomione wystąpienie programu Oracle.
-- Witaj rezerwy maszyny Wirtualnej (myVM2) są zainstalowane tylko oprogramowanie Oracle hello.
+- Podstawowej maszyny Wirtualnej (myVM1) ma uruchomione wystąpienie programu Oracle.
+- Stan wstrzymania maszyny Wirtualnej (myVM2) są zainstalowane tylko oprogramowanie Oracle.
 
-Witaj obrazu witryny Marketplace, że używasz hello toocreate maszyn wirtualnych jest Oracle: Oracle — bazy danych — Ee:12.1.0.2:latest.
+Obrazu z witryny Marketplace, która służy do tworzenia maszyn wirtualnych jest Oracle: Oracle — bazy danych — Ee:12.1.0.2:latest.
 
-### <a name="sign-in-tooazure"></a>Zaloguj się tooAzure 
+### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure 
 
-Zaloguj się tooyour subskrypcji platformy Azure przy użyciu hello [logowania az](/cli/azure/#login) poleceń i wykonaj hello na ekranie instrukcjami.
+Zaloguj się do subskrypcji platformy Azure przy użyciu [logowania az](/cli/azure/#login) poleceń i wykonaj na ekranie instrukcjami.
 
 ```azurecli
 az login
@@ -47,9 +47,9 @@ az login
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów za pomocą hello [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupy zasobów platformy Azure jest kontenerem logicznym, w której maszyny wirtualne Azure są wdrożone i zarządzane zasoby. 
+Utwórz grupę zasobów za pomocą [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupy zasobów platformy Azure jest kontenerem logicznym, w której maszyny wirtualne Azure są wdrożone i zarządzane zasoby. 
 
-Witaj poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup` w hello `westus` lokalizacji:
+Poniższy przykład tworzy grupę zasobów o nazwie `myResourceGroup` w `westus` lokalizacji:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -69,9 +69,9 @@ az vm availability-set create \
 
 ### <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę Wirtualną za pomocą hello [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. 
+Utwórz maszynę Wirtualną za pomocą [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. 
 
-Witaj poniższy przykład tworzy dwie maszyny wirtualne o nazwach `myVM1` i `myVM2`. Tworzy również kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. toouse określonego zestawu kluczy, należy użyć hello `--ssh-key-value` opcji.
+Poniższy przykład tworzy dwie maszyny wirtualne o nazwach `myVM1` i `myVM2`. Tworzy również kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
 
 Utwórz myVM1 (podstawowe):
 ```azurecli
@@ -85,7 +85,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Po utworzeniu maszyny Wirtualnej hello interfejsu wiersza polecenia Azure zawiera informacje toohello podobnie poniższy przykład. Zanotuj wartość hello z `publicIpAddress`. Możesz użyć tego adresu tooaccess hello maszyny Wirtualnej.
+Po utworzeniu maszyny Wirtualnej Azure CLI pokazuje informacje podobne do poniższego przykładu. Zanotuj wartość ustawienia `publicIpAddress`. Ten adres umożliwia dostęp do maszyny Wirtualnej.
 
 ```azurecli
 {
@@ -112,13 +112,13 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Zanotuj wartość hello z `publicIpAddress` po utworzeniu myVM2.
+Zanotuj wartość ustawienia `publicIpAddress` po utworzeniu myVM2.
 
-### <a name="open-hello-tcp-port-for-connectivity"></a>Otwórz port TCP hello łączności
+### <a name="open-the-tcp-port-for-connectivity"></a>Otwórz port TCP dla łączności
 
-Ten krok obejmuje skonfigurowanie zewnętrzne punkty końcowe, umożliwiających bazą danych Oracle toohello dostępu zdalnego.
+Ten krok obejmuje skonfigurowanie zewnętrzne punkty końcowe, które umożliwiają zdalny dostęp do bazy danych Oracle.
 
-Otwórz hello port myVM1:
+Otwórz port myVM1:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -128,7 +128,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-wynik Hello powinien wyglądać podobnie toohello po odpowiedzi:
+Wynik powinien być podobny do następującego odpowiedzi:
 
 ```bash
 {
@@ -149,7 +149,7 @@ wynik Hello powinien wyglądać podobnie toohello po odpowiedzi:
 }
 ```
 
-Otwórz hello port myVM2:
+Otwórz port myVM2:
 
 ```azurecli
 az network nsg rule create --resource-group myResourceGroup\
@@ -159,25 +159,25 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-### <a name="connect-toohello-virtual-machine"></a>Połącz toohello maszyny wirtualnej
+### <a name="connect-to-the-virtual-machine"></a>Nawiązywanie połączenia z maszyną wirtualną
 
-Użyj hello następujące polecenie toocreate jako sesji SSH z maszyną wirtualną hello. Zamień adres IP hello hello `publicIpAddress` wartość dla maszyny wirtualnej.
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną. Zastąp adres IP z `publicIpAddress` wartość dla maszyny wirtualnej.
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
 ```
 
-### <a name="create-hello-database-on-myvm1-primary"></a>Utwórz bazę danych hello myVM1 (podstawowy)
+### <a name="create-the-database-on-myvm1-primary"></a>Utwórz bazę danych na myVM1 (podstawowy)
 
-oprogramowanie Oracle Hello jest już zainstalowana na hello obrazu z witryny Marketplace, więc hello następnym krokiem jest tooinstall hello w bazie danych. 
+Oprogramowanie Oracle jest już zainstalowana na obrazu z witryny Marketplace, następnym krokiem jest zainstalowanie bazy danych. 
 
-Przełącz toohello Oracle administratora:
+Przełącz się do administratora Oracle:
 
 ```bash
 $ sudo su - oracle
 ```
 
-Utwórz bazę danych hello:
+Tworzenie bazy danych:
 
 ```bash
 $ dbca -silent \
@@ -198,7 +198,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-Dane wyjściowe powinien wyglądać podobnie toohello po odpowiedzi:
+Dane wyjściowe powinny wyglądać podobnie do następującą odpowiedź:
 
 ```bash
 Copying database files
@@ -227,17 +227,17 @@ Completing Database Creation
 Creating Pluggable Databases
 78% complete
 100% complete
-Look at hello log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
+Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for further details.
 ```
 
-Ustaw zmienne ORACLE_SID i ORACLE_HOME hello:
+Ustaw zmienne ORACLE_SID i ORACLE_HOME:
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 $ ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Opcjonalnie można dodać plik /home/oracle/.bashrc toohello ORACLE_HOME i ORACLE_SID, tak, aby te ustawienia są zapisywane dla przyszłych logowania:
+Opcjonalnie można dodać ORACLE_HOME i ORACLE_SID do pliku /home/oracle/.bashrc tak, aby te ustawienia są zapisywane dla przyszłych logowania:
 
 ```bash
 # add oracle home
@@ -279,7 +279,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Włącz Flashback (co ułatwia odzyskiwanie znacznie) i ustawić stan WSTRZYMANIA\_pliku\_tooauto zarządzania. Zakończ SQL * Plus później.
+Włącz Flashback (co ułatwia odzyskiwanie znacznie) i ustawić stan WSTRZYMANIA\_pliku\_zarządzania można automatycznie. Zakończ SQL * Plus później.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -289,9 +289,9 @@ SQL> EXIT;
 
 ### <a name="set-up-service-on-myvm1-primary"></a>Konfigurowanie usługi na myVM1 (podstawowy)
 
-Edytuj lub Utwórz hello tnsnames.ora pliku, który znajduje się w folderze ORACLE_HOME\network\admin $ hello.
+Edytuj lub tworzenia pliku tnsnames.ora, który znajduje się w folderze ORACLE_HOME\network\admin $.
 
-Dodaj hello następujące wpisy:
+Dodaj następujące wpisy:
 
 ```bash
 cdb1 =
@@ -315,9 +315,9 @@ cdb1_stby =
   )
 ```
 
-Edytuj lub Utwórz hello listener.ora pliku, który znajduje się w folderze ORACLE_HOME\network\admin $ hello.
+Edytuj lub Utwórz plik listener.ora, który znajduje się w folderze ORACLE_HOME\network\admin $.
 
-Dodaj hello następujące wpisy:
+Dodaj następujące wpisy:
 
 ```bash
 LISTENER =
@@ -346,7 +346,7 @@ $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
-Uruchomić odbiornik hello:
+Uruchomić odbiornik:
 
 ```bash
 $ lsnrctl stop
@@ -355,7 +355,7 @@ $ lsnrctl start
 
 ### <a name="set-up-service-on-myvm2-standby"></a>Konfigurowanie usługi na myVM2 (rezerwy)
 
-SSH toomyVM2:
+SSH myVM2:
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
@@ -367,9 +367,9 @@ Zaloguj się jako Oracle:
 $ sudo su - oracle
 ```
 
-Edytuj lub Utwórz hello tnsnames.ora pliku, który znajduje się w folderze ORACLE_HOME\network\admin $ hello.
+Edytuj lub tworzenia pliku tnsnames.ora, który znajduje się w folderze ORACLE_HOME\network\admin $.
 
-Dodaj hello następujące wpisy:
+Dodaj następujące wpisy:
 
 ```bash
 cdb1 =
@@ -393,9 +393,9 @@ cdb1_stby =
   )
 ```
 
-Edytuj lub Utwórz hello listener.ora pliku, który znajduje się w folderze ORACLE_HOME\network\admin $ hello.
+Edytuj lub Utwórz plik listener.ora, który znajduje się w folderze ORACLE_HOME\network\admin $.
 
-Dodaj hello następujące wpisy:
+Dodaj następujące wpisy:
 
 ```bash
 LISTENER =
@@ -418,7 +418,7 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-Uruchomić odbiornik hello:
+Uruchomić odbiornik:
 
 ```bash
 $ lsnrctl stop
@@ -426,9 +426,9 @@ $ lsnrctl start
 ```
 
 
-### <a name="restore-hello-database-toomyvm2-standby"></a>Przywróć hello toomyVM2 bazy danych (rezerwy)
+### <a name="restore-the-database-to-myvm2-standby"></a>Przywróć bazę danych do myVM2 (rezerwy)
 
-Utwórz hello parametru pliku /tmp/initcdb1_stby.ora z hello następującej zawartości:
+Utwórz parametr /tmp/initcdb1_stby.ora pliku z następującą zawartość:
 ```bash
 *.db_name='cdb1'
 ```
@@ -447,7 +447,7 @@ Utwórz plik hasła:
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
-Uruchom myVM2 hello bazy danych:
+Uruchom bazę danych na myVM2:
 
 ```bash
 $ export ORACLE_SID=cdb1
@@ -457,13 +457,13 @@ SQL> STARTUP NOMOUNT PFILE='/tmp/initcdb1_stby.ora';
 SQL> EXIT;
 ```
 
-Przywróć bazę danych hello za pomocą narzędzia RMAN hello:
+Przywróć bazę danych za pomocą narzędzia RMAN:
 
 ```bash
 $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
-Uruchom następujące polecenia w RMAN hello:
+Uruchom następujące polecenia w RMAN:
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -474,7 +474,7 @@ DUPLICATE TARGET DATABASE
   NOFILENAMECHECK;
 ```
 
-Po zakończeniu polecenia hello powinny zostać wyświetlone komunikaty podobne toohello następujące. Zakończ RMAN.
+Powinny pojawić się komunikaty podobne do następujących po zakończeniu polecenia. Zakończ RMAN.
 ```bash
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
@@ -483,7 +483,7 @@ Finished Duplicate Db at 29-JUN-17
 RMAN> EXIT;
 ```
 
-Opcjonalnie można dodać plik /home/oracle/.bashrc toohello ORACLE_HOME i ORACLE_SID, tak, aby te ustawienia są zapisywane dla przyszłych logowania:
+Opcjonalnie można dodać ORACLE_HOME i ORACLE_SID do pliku /home/oracle/.bashrc tak, aby te ustawienia są zapisywane dla przyszłych logowania:
 
 ```bash
 # add oracle home
@@ -501,7 +501,7 @@ SQL> EXIT;
 
 ### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Skonfiguruj brokera ochrona danych na myVM1 (podstawowy)
 
-Uruchom Menedżera danych osłony i zaloguj się przy użyciu SYS i hasła. (Nie należy używać uwierzytelniania systemu operacyjnego). Wykonaj następujące hello:
+Uruchom Menedżera danych osłony i zaloguj się przy użyciu SYS i hasła. (Nie należy używać uwierzytelniania systemu operacyjnego). Wykonaj następujące czynności:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -509,7 +509,7 @@ DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome tooDGMGRL, type "help" for information.
+Welcome to DGMGRL, type "help" for information.
 Connected as SYSDBA.
 DGMGRL> CREATE CONFIGURATION my_dg_config AS PRIMARY DATABASE IS cdb1 CONNECT IDENTIFIER IS cdb1;
 Configuration "my_dg_config" created with primary database "cdb1"
@@ -519,7 +519,7 @@ DGMGRL> ENABLE CONFIGURATION;
 Enabled.
 ```
 
-Przejrzyj konfigurację hello:
+Sprawdź konfigurację:
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -536,13 +536,13 @@ Configuration Status:
 SUCCESS   (status updated 26 seconds ago)
 ```
 
-Zakończono hello Oracle Data Guard Instalatora. Witaj następnej części pokazano, jak tootest hello łączności i przełączyć.
+Zakończono instalację Oracle Data Guard. Następnej sekcji opisano testowanie łączności i przełączyć na.
 
-### <a name="connect-hello-database-from-hello-client-machine"></a>Połącz z komputera klienta hello hello bazy danych
+### <a name="connect-the-database-from-the-client-machine"></a>Połączenia bazy danych z komputera klienta
 
-Zaktualizuj lub Utwórz plik tnsnames.ora hello na komputerze klienckim. Ten plik jest zwykle $ORACLE_HOME\network\admin.
+Zaktualizuj lub Utwórz plik tnsnames.ora na komputerze klienckim. Ten plik jest zwykle $ORACLE_HOME\network\admin.
 
-Zastąp hello adresów IP przy użyciu programu `publicIpAddress` wartości myVM1 i myVM2:
+Adresy IP z sieci `publicIpAddress` wartości myVM1 i myVM2:
 
 ```bash
 cdb1=
@@ -582,15 +582,15 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
-## <a name="test-hello-data-guard-configuration"></a>Ochrona danych hello testowym
+## <a name="test-the-data-guard-configuration"></a>Przetestuj konfigurację ochrony danych
 
-### <a name="switch-over-hello-database-on-myvm1-primary"></a>Przełączyć bazy danych hello na myVM1 (podstawowy)
+### <a name="switch-over-the-database-on-myvm1-primary"></a>Przełączyć bazę danych na myVM1 (podstawowy)
 
-tooswitch z głównej toostandby (cdb1 toocdb1_stby):
+Aby przełączyć się z podstawowym stan wstrzymania (cdb1 do cdb1_stby):
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -598,12 +598,12 @@ DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome tooDGMGRL, type "help" for information.
+Welcome to DGMGRL, type "help" for information.
 Connected as SYSDBA.
-DGMGRL> SWITCHOVER toocdb1_stby;
+DGMGRL> SWITCHOVER TO cdb1_stby;
 Performing switchover NOW, please wait...
-Operation requires a connection tooinstance "cdb1" on database "cdb1_stby"
-Connecting tooinstance "cdb1"...
+Operation requires a connection to instance "cdb1" on database "cdb1_stby"
+Connecting to instance "cdb1"...
 Connected as SYSDBA.
 New primary database "cdb1_stby" is opening...
 Operation requires start up of instance "cdb1" on database "cdb1"
@@ -614,7 +614,7 @@ Switchover succeeded, new primary is "cdb1_stby"
 DGMGRL>
 ```
 
-Teraz możesz połączyć toohello wstrzymania bazy danych.
+Teraz można podłączyć do wstrzymania bazy danych.
 
 Uruchom program SQL * Plus:
 
@@ -627,26 +627,26 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
 
-### <a name="switch-over-hello-database-on-myvm2-standby"></a>Przełączyć bazy danych hello na myVM2 (rezerwy)
+### <a name="switch-over-the-database-on-myvm2-standby"></a>Przełączyć bazę danych na myVM2 (rezerwy)
 
-tooswitch, uruchom następujące hello na myVM2:
+Aby przełączyć, uruchom następujące polecenie na myVM2:
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
 
 Copyright (c) 2000, 2013, Oracle. All rights reserved.
 
-Welcome tooDGMGRL, type "help" for information.
+Welcome to DGMGRL, type "help" for information.
 Connected as SYSDBA.
-DGMGRL> SWITCHOVER toocdb1;
+DGMGRL> SWITCHOVER TO cdb1;
 Performing switchover NOW, please wait...
-Operation requires a connection tooinstance "cdb1" on database "cdb1"
-Connecting tooinstance "cdb1"...
+Operation requires a connection to instance "cdb1" on database "cdb1"
+Connecting to instance "cdb1"...
 Connected as SYSDBA.
 New primary database "cdb1" is opening...
 Operation requires start up of instance "cdb1" on database "cdb1_stby"
@@ -656,7 +656,7 @@ Database mounted.
 Switchover succeeded, new primary is "cdb1"
 ```
 
-Ponownie powinno być teraz możliwe tooconnect toohello podstawowej bazy danych.
+Ponownie należy teraz możliwość łączenia z podstawowej bazy danych.
 
 Uruchom program SQL * Plus:
 
@@ -669,17 +669,17 @@ Copyright (c) 1982, 2016, Oracle.  All rights reserved.
 
 Connected to:
 Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
-With hello Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
 
 SQL>
 ```
 
-Po zakończeniu hello instalację i konfigurację danych osłony na Oracle Linux.
+Po zakończeniu instalacji i konfiguracji danych osłony na Oracle Linux.
 
 
-## <a name="delete-hello-virtual-machine"></a>Usuń maszynę wirtualną hello
+## <a name="delete-the-virtual-machine"></a>Usuń maszynę wirtualną
 
-Gdy nie jest już konieczne hello maszyny Wirtualnej, można użyć hello następujące grupy zasobów hello tooremove polecenia, maszyny Wirtualnej i wszystkich powiązanych zasobów:
+Gdy maszyna wirtualna nie jest już potrzebny, służy polecenie Usuń grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby:
 
 ```azurecli
 az group delete --name myResourceGroup

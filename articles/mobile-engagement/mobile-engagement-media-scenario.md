@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure implementacji usługi Mobile Engagement dla aplikacji z nośnika"
-description: "Nośnik aplikacji scenariusza tooimplement usługi Azure Mobile Engagement"
+title: "Azure implementacji usługi Mobile Engagement dla aplikacji z nośnika"
+description: "Nośnik scenariusz aplikacji do wdrożenia usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,81 +14,81 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6a495eb790993a30d5c03802aa9e6404fea983d8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Wdrożenie usługi Mobile Engagement z aplikacji z nośnika
 ## <a name="overview"></a>Omówienie
 Jan jest kierownikiem przenośnych projektu firmy big nośnika. Niedawno on uruchomiony nowej aplikacji, która ma liczbę bardzo duże pobierania. On osiągnęła jego cele do pobrania, ale nadal jego wrócić na Investment(ROI) dla każdego użytkownika spełnia jego wymagania. 
 
-Jan zidentyfikował już dlaczego jego ROI jest zbyt niski. Użytkownicy często Zatrzymaj przy użyciu jego aplikacji po tylko 2 tygodnie, a większość z nich nie wrócić. Maciej chce tooincrease hello przechowywania swoich aplikacji.
+Jan zidentyfikował już dlaczego jego ROI jest zbyt niski. Użytkownicy często Zatrzymaj przy użyciu jego aplikacji po tylko 2 tygodnie, a większość z nich nie wrócić. Chce zwiększyć przechowywanie swoich aplikacji.
 
-Po zakończeniu niektórych początkowego testowania on dowiedziała się po zaangażuje jego użytkowników z powiadomień wypychanych mają zwykle toocontinue przy użyciu jego aplikacji. Również użytkowników, które były nieaktywne często zwróci toohello aplikacji, w zależności od tego powiadomienia, który wysyła on je. Jan decyduje tooinvest w rodzaju Program zaangażowania dla swojej aplikacji, która używa zaawansowane korzystających z powiadomień wypychanych.
+Po początkowej niektórych testów, dowiedziała się on po zaangażuje jego użytkownikom powiadomienia wypychane charakteryzują się kontynuować korzystanie z jego aplikacji. Również użytkowników, które były nieaktywne często powrót do aplikacji, w zależności od tego powiadomienia, który wysyła on je. Jan decyduje się na inwestycji w rodzaju Program zaangażowania dla swojej aplikacji, która używa zaawansowane korzystających z powiadomień wypychanych.
 
-Jan ostatnio zapoznał hello [usługi Azure Mobile Engagement - Getting Started Guide z najlepszymi rozwiązaniami](mobile-engagement-getting-started-best-practices.md) oraz podjęła tooimplement hello zalecenia z podręcznika hello.
+Ostatnio zapoznał Jan [usługi Azure Mobile Engagement - Getting Started Guide z najlepszymi rozwiązaniami](mobile-engagement-getting-started-best-practices.md) i podjęto decyzję o zaimplementować zalecenia z przewodnika.
 
 ## <a name="objectives-and-kpis"></a>Celów i wskaźników KPI
-Spełnia wymagania najważniejszych uczestników Jan w aplikacji. Jak użytkownicy uzyskują dostęp do jego nośnika biznesowa jest generowany na podstawie reklam. Zwiększenie zawartości używane dla każdego użytkownika, Jan zwiększa jego przychodów. Wszystkie zgodzić się na jednym z głównych celów: tooincrease sprzedaży z ads o 25%. Tworzenie one toomeasure firm kluczowych wskaźników wydajności (KPI) i dysk ten cel
+Spełnia wymagania najważniejszych uczestników Jan w aplikacji. Jak użytkownicy uzyskują dostęp do jego nośnika biznesowa jest generowany na podstawie reklam. Zwiększenie zawartości używane dla każdego użytkownika, Jan zwiększa jego przychodów. Wszystkie zgodzić się na jednym z głównych celów: zwiększenie sprzedaży z ads o 25%. Tworzenia biznesowej kluczowych wskaźników wydajności (KPI) do mierzenia i dysk ten cel
 
 * Liczba reklam kliknięty na użytkownika
 * Ile strony artykułu odwiedzone (na użytkownika / sesji / tygodniowo / miesięcznie...)
 * Co to są Ulubione kategorie
 
-Na podstawie jego Jan spotkania z najważniejszych uczestników został on zdefiniowany jego biznesowe wskaźniki KPI dotyczące. Wykonuje, część 1 hello [usługi Azure Mobile Engagement - Getting Started Guide z najlepszymi rozwiązaniami](mobile-engagement-getting-started-best-practices.md). 
+Na podstawie jego Jan spotkania z najważniejszych uczestników został on zdefiniowany jego biznesowe wskaźniki KPI dotyczące. Wykonuje, część 1 z [usługi Azure Mobile Engagement - Getting Started Guide z najlepszymi rozwiązaniami](mobile-engagement-getting-started-best-practices.md). 
 
-Następnie tworzy powitania po tooensure zaangażowania kluczowych wskaźników wydajności, osiągnięcia celów:
+Następnie tworzy następujące kluczowe wskaźniki wydajności zaangażowania zapewniające osiągnięcie celów:
 
-* Monitorowanie przechowywania za pośrednictwem powitania po interwałów: codziennie, co tydzień, co dwa tygodnie i miesięczne.
+* Monitorowanie przechowywania za pośrednictwem następujących odstępach: codziennie, co tydzień, co dwa tygodnie i miesięczne.
 * Liczba aktywnych użytkowników
-* Klasyfikacja aplikacji Hello w aplikacji hello przechowuje
+* Przechowuje Klasyfikacja aplikacji w aplikacji
 
-Na podstawie zaleceń z hello zespół IT, powitania po techniczne kluczowych wskaźników wydajności zostały dodane hello tooanswer następujące pytania:
+Na podstawie zaleceń IT przez zespół, następujące kluczowe wskaźniki wydajności techniczne zostały dodane do odpowiedzieć na następujące pytania:
 
 * Co to jest ścieżka do użytkownika (odwiedzenia strony, która ilu użytkowników czas poświęcony na jego)
 * Liczba awarii (Crash) i zgłaszanie usterek napotkał na sesję?
 * Które wersje systemu operacyjnego działają moich użytkowników?
-* Co to jest hello średni rozmiar ekranu dla moich użytkowników?
+* Co to jest to średni rozmiar ekranu dla moich użytkowników?
 * Jakiego rodzaju połączenia z Internetem masz moich użytkowników?
 
-Dla poszczególnych wskaźników on klasyfikuje dane hello wymagane i on rejestruje w hello właściwego położenia jego podręcznikowym.
+Dla poszczególnych wskaźników on klasyfikuje dane wymagane i on rejestruje w jego podręcznika dotyczącego właściwego położenia.
 
 ## <a name="engagement-program-and-integration"></a>Program zaangażowania i integracja
 Teraz tego Jan zakończył określenie jego wskaźników KPI, przechodzi jego fazy strategia zaangażowania przez definiowanie 4 zaangażowania i ich cele:![][1]
 
 Jan przejdzie głębiej przez wyszczególnieniem powiadomień wypychanych dla każdego programu. Powiadomienia wypychane są definiowane przez pięć elementów:
 
-1. Cel: co to jest celem hello hello powiadomień
-2. Jak można osiągnąć cel hello
-3. Cel: kto otrzyma powiadomienie hello?
-4. Zawartość: Co to jest treść hello i format hello hello powiadomienia (w App/Out z aplikacji)
-5. Po wybraniu: co to jest hello najlepsze toosend obecnie tego powiadomienia wypychane
+1. Cel: nowości w celu powiadomienia.
+2. Jak można osiągnąć cel
+3. Cel: kto otrzyma powiadomienie?
+4. Zawartość: Co to jest treść i format powiadomienia (w App/Out z aplikacji)
+5. Kiedy: co to jest najlepszym chwili wysłania powiadomienia wypychane
    
     ![][2]
 
-Aby uzyskać więcej informacji można znaleźć toohello [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks).
+Więcej informacji można znaleźć w [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks).
 
-Według toohello część 2 hello oficjalny dokument Jan używa toodefine sekcji docelowej danych ma toocollect, jak i zapisów jego Tag planowanie wspólnie z rozwiązaniem hello tooimplement zespołu IT. Po 1 tydzień wdrożenia oraz testów akceptacyjnych przez użytkowników Jan na koniec można uruchamiać swoje programy.
+Zgodnie z części 2 oficjalny dokument Jan używa sekcji docelowej w celu zdefiniowania posiada służąca do gromadzenia danych i zapisuje jego Tag planu wspólnie z zespołu IT wdrożenia rozwiązania. Po 1 tydzień wdrożenia oraz testów akceptacyjnych przez użytkowników Jan na koniec można uruchamiać swoje programy.
 
 ## <a name="program-results"></a>Program wyników
-później, 4 miesięcy Jan przegląda parametrów programy. Hello Program powitalny i tygodniowego Program hello są spełniane jego celów. zmniejsza liczbę Hello użytkownika z tylko jedną sesję, więcej funkcji aplikacji hello są używane i ma podwójny hello liczbę połączeń na tydzień.
+później, 4 miesięcy Jan przegląda parametrów programy. Program powitalny i tygodniowego programu są spełniane jego celów. Zmniejsza liczbę użytkowników z tylko jedną sesję, więcej funkcji aplikacji są używane i podwójny ma liczbę połączeń na tydzień.
 
-Witaj **nieaktywne Program** pomaga zrozumieć tendencji użytkownika John. Wygląda na to, że 15% hello nieaktywnych użytkowników wróć toohello aplikacji. Jednak większość z nich nie pozostają aktywne więcej niż 1 miesiąc. Jan przewiduje potencjalnych optymalizacji sekwencji przy użyciu dodatkowych powiadomień i rozszerzanie jego wybranej zawartości.
+**Nieaktywne Program** pomaga zrozumieć tendencji użytkownika John. Wygląda na to, że 15% nieaktywnych użytkowników wróć do aplikacji. Jednak większość z nich nie pozostają aktywne więcej niż 1 miesiąc. Jan przewiduje potencjalnych optymalizacji sekwencji przy użyciu dodatkowych powiadomień i rozszerzanie jego wybranej zawartości.
 
-Witaj **odnajdywania Program** nie działa prawidłowo. Zwiększa ona cross sprzedaży, ale nie ma wystarczającej ilości tooreach jego celów. Jan Określa, że nie ma wystarczającej ilości danych toomake odpowiednich elementów docelowych i zaproponować odpowiedniej zawartości. On zatrzymuje ten program i koncentruje się na wysyłanie "powiadomień wypychanych redakcyjne" przy użyciu usługi Azure Mobile Engagement. Powiadomienia wypychane toosend rozwiązanie CMS już jego dziennikarze i nie mają toochange.
+**Odnajdywania Program** nie działa prawidłowo. Zwiększa się między sprzedaży, ale mało do osiągnięcia jego celów. Jan identyfikuje adresat nie ma wystarczającej ilości danych, aby odpowiednich elementów docelowych i proponuje odpowiedniej zawartości. On zatrzymuje ten program i koncentruje się na wysyłanie "powiadomień wypychanych redakcyjne" przy użyciu usługi Azure Mobile Engagement. Jego dziennikarze już rozwiązanie CMS do wysyłania powiadomień wypychanych i nie chcesz zmienić.
 
-Jan decyduje hello toouse interfejsu API Reach czyli interfejsu API REST protokołu HTTP, który umożliwia zarządzanie kampanie Zasięgowe bez konieczności interfejs sieci Web AZME toouse. Wybranie tej metody oznacza Jan może zbierać dane hello on musi i umożliwić jego składniki zapisywania tookeep przy użyciu hello rozwiązanie CMS.
+Jan decyduje o tym użyć interfejsu API Reach czyli interfejsu API REST protokołu HTTP, który umożliwia zarządzanie kampanie Zasięgowe, bez konieczności używania interfejsu sieci Web AZME. Z tej metody Jan może zbierać dane on musi i umożliwić jego autorów, aby nadal używać rozwiązanie CMS.
 
-tooensure, że funkcja działa prawidłowo, Jan zapyta czujność toobe zespołu IT na powitania następujące punkty:
+Aby upewnić się, że ta funkcja działa poprawnie, Jan zapyta zespół IT wzmożonej uwagi na następujące kwestie:
 
-1. **Systemy operacyjne** : wszystkie mają własne reguły powiadomień wypychanych tooadministrate, więc Jan decyduje toolist wszystkie przypadki i kontroli jeśli jego obsługa hello interfejsów API.
-   Np.: System Android wypychania umożliwia duży obraz, który nie jest hello z systemem iOS.
-2. **Przedział czasu**: Jacek chce interfejsu API, który hello przedział czasu i ustaw toocampaigns zakończenia. Maciej chce toopreserve użytkowników z dowolnego sabotaż destrukcyjne powiadomień.
-3. **Kategorie**: zespołu marketingu przygotowuje szablonu dla każdego typu alertu. Jan zapyta kategorii tooset zespołu IT w hello interfejsu API.
+1. **Systemy operacyjne** : wszystkie mają własne zasady do administrowania powiadomienia wypychane, tak aby Jan decyduje o tym wyświetlić listę wszystkich przypadkach i sprawdza, czy interfejsy API jego obsługa.
+   Np.: System Android wypychania umożliwia duży obraz, który nie jest w przypadku systemu iOS.
+2. **Przedział czasu**: Jacek chce interfejsu API, który przedział czasu i ustawić zakończenia kampanii. Chce zachować użytkowników z dowolnego sabotaż destrukcyjne powiadomień.
+3. **Kategorie**: zespołu marketingu przygotowuje szablonu dla każdego typu alertu. Jan zapyta, dział IT, aby ustawić kategorii w interfejsie API.
 
-Po niektórych testów Jan jest spełniony. Interfejs API toothis Dziękujemy, dziennikarze nadal może wysyłać powiadomienia wypychane przy użyciu ich CMS i usługi Azure Mobile Engagement zbiera wszystkie dane behawioralnej dla nich
+Po niektórych testów Jan jest spełniony. Dzięki użyciu tego interfejsu API dziennikarze nadal może wysyłać powiadomienia wypychane przy użyciu ich CMS i usługi Azure Mobile Engagement zbiera wszystkie dane behawioralnej dla nich
 
 Po te 4 najpierw miesiące, wyniki odzwierciedlają dobrej ogólnej wydajności oraz zapewnia ufności Jan i jego tablicy ROI na zwiększa użytkownika na 15% i przenośnych sprzedaży reprezentują 17,5 cala % całkowitej sprzedaży, wzrost % 7.5 tylko czterech miesięcy.
 

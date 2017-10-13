@@ -1,7 +1,7 @@
 ## <a name="obtain-an-azure-resource-manager-token"></a>Uzyskaj token usługi Azure Resource Manager
-Usługa Azure Active Directory musi uwierzytelniać wszystkie zadania hello, które należy wykonać na zasobów przy użyciu hello Azure Resource Manager. Witaj przykładzie używa uwierzytelniania hasła można znaleźć inne podejścia [żądań uwierzytelniania usługi Azure Resource Manager][lnk-authenticate-arm].
+Usługa Azure Active Directory musi uwierzytelniać wszystkie zadania, które należy wykonać na zasobów przy użyciu usługi Azure Resource Manager. Tu przykładzie jest używane uwierzytelnianie hasła, aby inne podejścia, zobacz [żądań uwierzytelniania usługi Azure Resource Manager][lnk-authenticate-arm].
 
-1. Dodaj hello następującego kodu toohello **Main** metody w pliku Program.cs tooretrieve token z usługi Azure AD przy użyciu identyfikatora aplikacji hello i hasła.
+1. Dodaj następujący kod do **Main** metody w pliku Program.cs do pobrania tokenu z usługi Azure AD przy użyciu identyfikatora aplikacji i hasła.
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -12,18 +12,18 @@ Usługa Azure Active Directory musi uwierzytelniać wszystkie zadania hello, kt�
    
     if (token == null)
     {
-      Console.WriteLine("Failed tooobtain hello token");
+      Console.WriteLine("Failed to obtain the token");
       return;
     }
     ```
-2. Utworzyć **element ResourceManagementClient** obiektów, że używa hello token przez dodanie hello kod zakończenia toohello hello **Main** metody:
+2. Utwórz **element ResourceManagementClient** obiekt, który używa tokenu, dodając następujący kod na końcu **Main** metody:
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Utwórz lub uzyskać odwołania do hello grupy zasobów, którego używasz:
+3. Utwórz lub uzyskać odwołania do grupy zasobów, którego używasz:
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

@@ -1,6 +1,6 @@
 ---
-title: "połączenie bramy sieci VPN aaaVerify | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak tooverify a wirtualnych sieci połączenie bramy sieci VPN."
+title: "Sprawdź połączenie bramy sieci VPN | Dokumentacja firmy Microsoft"
+description: "W tym artykule przedstawiono sposób sprawdzania, połączenie sieci VPN bramy sieci wirtualnej."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0d3da94a76b36251d629f82b1575328c7ac10b26
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b2d702ecdd5e1fca342e7c84c6e75339097f0bcd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Sprawdź połączenie bramy sieci VPN
 
-W tym artykule opisano sposób tooverify połączenie bramy sieci VPN dla hello klasycznego i modeli wdrażania Menedżera zasobów.
+W tym artykule przedstawiono sposób sprawdzić połączenie bramy sieci VPN dla modeli wdrażania usługi Resource Manager i klasycznym.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -31,13 +31,13 @@ W tym artykule opisano sposób tooverify połączenie bramy sieci VPN dla hello 
 
 ## <a name="powershell"></a>PowerShell
 
-tooverify połączenia bramy sieci VPN dla hello wdrożenie usługi Resource Manager modelu przy użyciu programu PowerShell, należy zainstalować najnowszą wersję hello hello [poleceń cmdlet programu PowerShell usługi Azure Resource Manager](/powershell/azure/overview).
+Aby sprawdzić połączenie bramy sieci VPN dla modelu wdrażania usługi Resource Manager przy użyciu programu PowerShell, należy zainstalować najnowszą wersję [poleceń cmdlet programu PowerShell usługi Azure Resource Manager](/powershell/azure/overview).
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-tooverify połączenia bramy sieci VPN dla hello wdrożenie usługi Resource Manager modelu przy użyciu wiersza polecenia platformy Azure, zainstaluj najnowszą wersję hello hello [polecenia interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 lub nowszej).
+Aby sprawdzić połączenie bramy sieci VPN dla modelu wdrażania usługi Resource Manager przy użyciu wiersza polecenia platformy Azure, zainstaluj najnowszą wersję [polecenia interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 lub nowszej).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
@@ -48,10 +48,10 @@ tooverify połączenia bramy sieci VPN dla hello wdrożenie usługi Resource Man
 
 ## <a name="powershell-classic"></a>PowerShell (klasyczny)
 
-tooverify połączenia bramy sieci VPN dla hello wdrażania klasycznego modelu przy użyciu programu PowerShell, należy zainstalować najnowsze wersje hello hello poleceń cmdlet programu Azure PowerShell. Należy się hello toodownload i zainstaluj [zarządzania usługami](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0) modułu. Użyj "Add-AzureAccount" toolog w toohello klasycznego modelu wdrażania.
+Aby sprawdzić połączenie bramy sieci VPN dla klasycznym modelu wdrażania przy użyciu programu PowerShell, należy zainstalować najnowsze wersje poleceń cmdlet programu Azure PowerShell. Pamiętaj pobrać i zainstalować [zarządzania usługami](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0) modułu. Użyj "Add-AzureAccount", aby zalogować się w klasycznym modelu wdrażania.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Można dodać sieci wirtualnych tooyour maszyn wirtualnych. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Do sieci wirtualnych można dodać maszyny wirtualne. Kroki opisano w sekcji [Tworzenie maszyny wirtualnej](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

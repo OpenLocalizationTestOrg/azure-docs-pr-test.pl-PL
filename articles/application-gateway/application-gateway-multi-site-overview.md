@@ -1,6 +1,6 @@
 ---
-title: aaaHosting wielu witryn w bramie aplikacji Azure | Dokumentacja firmy Microsoft
-description: "Ta strona zawiera omówienie hello pomocy technicznej obejmujący wiele lokacji bramy aplikacji."
+title: "Hostowanie wielu witryn w usłudze Azure Application Gateway | Microsoft Docs"
+description: "Ta strona zawiera omówienie obsługi wielu witryn w usłudze Application Gateway."
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 4ab6faa97f1891d7525affdaa36463681bf99e9f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 645f68d836babf11f32fc391e6dacc9430f0070c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hostowanie wielu witryn usługi Application Gateway
 
-Obsługujący wiele lokacji umożliwia tooconfigure więcej niż jednej aplikacji sieci web na powitania tego samego wystąpienia bramy aplikacji. Ta funkcja umożliwia tooconfigure efektywniejsze topologii wdrożeń sumując too20 witryn sieci Web tooone aplikacji bramy. Każda witryna sieci Web może zostać skierowany tooits właścicielem puli wewnętrznej bazy danych. W hello poniższy przykład bramy aplikacji jest obsługujące ruch contoso.com i fabrikam.com z dwie pule serwera wewnętrznej nazywana ContosoServerPool i FabrikamServerPool.
+Hostowanie wielu witryn pozwala na skonfigurowanie więcej niż jednej aplikacji sieci Web na tym samym wystąpieniu bramy aplikacji. Ta funkcja umożliwia skonfigurowanie bardziej wydajnej topologii dla wdrożeń przez dodanie maksymalnie 20 witryn sieci Web do jednej bramy aplikacji. Każdą witrynę sieci Web można skierować do jej puli zaplecza. W poniższym przykładzie usługa Application Gateway obsługuje ruch dla domen contoso.com i fabrikam.com z dwóch pul serwerów zaplecza o nazwach ContosoServerPool i FabrikamServerPool.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
 > [!IMPORTANT]
-> Reguły są przetwarzane w kolejności hello, są one wyświetlane w portalu hello. Jest odbiorników obejmujący wiele lokacji stanowczo zalecane tooconfigure pierwszy wirusowej tooconfiguring wcześniejsze podstawowe odbiornika.  Zapewni to zakończenie tego ruchu pobiera routingiem toohello powrót. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
+> Reguły są przetwarzane w kolejności, w jakiej znajdują się na liście w portalu. Zdecydowanie zaleca się skonfigurowanie odbiorników obejmujących wiele lokacji przed skonfigurowaniem podstawowego odbiornika.  Zapewni to skierowanie ruchu do odpowiedniego zaplecza. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
 
-Żądania http://contoso.com są tooContosoServerPool routingiem i http://fabrikam.com są tooFabrikamServerPool routingiem.
+Żądania dla adresu http://contoso.com są kierowane do puli ContosoServerPool, a dla adresu http://fabrikam.com — do puli FabrikamServerPool.
 
-Podobnie dwóch poddomen powitalne tej samej domeny nadrzędnej może być hostowana na hello tego samego wdrożenia bramy aplikacji. Przykłady użycia domen podrzędnych mogą obejmować domeny http://blog.contoso.com i http://app.contoso.com hostowane na jednym wdrożeniu usługi Application Gateway.
+Podobnie dwie domeny podrzędne tej samej domeny nadrzędnej mogą być hostowane na tym samym wdrożeniu usługi Application Gateway. Przykłady użycia domen podrzędnych mogą obejmować domeny http://blog.contoso.com i http://app.contoso.com hostowane na jednym wdrożeniu usługi Application Gateway.
 
 ## <a name="host-headers-and-server-name-indication-sni"></a>Nagłówki hosta i oznaczanie nazwy serwera (SNI, Server Name Indication)
 
-Istnieją trzy typowych mechanizmów włączania wielu lokacji hostingu na powitania sam infrastruktury.
+Istnieją trzy popularne mechanizmy włączania hostingu wielu witryn w tej samej infrastrukturze.
 
 1. Hostowanie wielu aplikacji sieci Web — każda z nich na unikatowym adresie IP.
-2. Użyj nazwa toohost wiele aplikacji sieci web na powitania tego samego adresu IP.
-3. Inne porty toohost wiele aplikacji sieci web na powitania tego samego adresu IP.
+2. Użycie nazwy hosta do hostowania wielu aplikacji sieci Web na tym samym adresie IP.
+3. Użycie różnych portów do hostowania wielu aplikacji sieci Web na tym samym adresie IP.
 
-Obecnie usługa Application Gateway pobiera jeden publiczny adres IP, na którym nasłuchuje ruchu. Z tego względu obsługiwanie wielu aplikacji z oddzielnym adresem IP dla każdej z nich nie jest obecnie obsługiwane. Brama aplikacji w obsługuje obsługi wielu aplikacji każdego nasłuchiwania na inne porty, ale ten scenariusz wymaga hello aplikacji tooaccept ruch na portach niestandardowej, a nie często żądaną konfiguracją. Brama aplikacji w korzysta z protokołu HTTP 1.1 toohost nagłówków hosta więcej niż jednej witryny sieci Web na hello sam publiczny adres IP i portu. Witaj witryn hostowanych na bramy aplikacji może również obsługa odciążanie protokołu SSL z rozszerzeniem TLS oznaczenia nazwy serwera (SNI). W tym scenariuszu oznacza, że ten powitania klienta przeglądarki i wewnętrznej bazy danych kolektywu serwerów sieci web musi obsługiwać HTTP/1.1 i TLS rozszerzenia zgodnie z definicją w dokumencie RFC 6066.
+Obecnie usługa Application Gateway pobiera jeden publiczny adres IP, na którym nasłuchuje ruchu. Z tego względu obsługiwanie wielu aplikacji z oddzielnym adresem IP dla każdej z nich nie jest obecnie obsługiwane. Usługa Application Gateway obsługuje hostowanie wielu aplikacji, z których każda nasłuchuje na innym porcie, ale ten scenariusz wymaga, aby aplikacje akceptowały ruch na portach niestandardowych, co często nie jest pożądaną konfiguracją. Usługa Application Gateway bazuje na nagłówkach hosta HTTP 1.1 w celu hostowania więcej niż jednej witryny sieci Web na tym samym publicznym adresie IP i porcie. Witryny hostowane w usłudze Application Gateway mogą także obsługiwać odciążanie protokołu SSL za pomocą rozszerzenia TLS oznaczania nazwy serwera. Ten scenariusz oznacza, że przeglądarka i farma sieci Web zaplecza klienta muszą obsługiwać protokół HTTP/1.1 i rozszerzenie TLS zgodnie ze standardem RFC 6066.
 
 ## <a name="listener-configuration-element"></a>Element konfiguracji odbiornika
 
-Istniejące HTTPListener, który element konfiguracji jest rozszerzony toosupport hosta nazwa serwera Nazwa wskazanie elementów i, używany przez pulę zaplecza tooappropriate ruchu tooroute bramy aplikacji. Witaj następujący przykładowy kod to fragment hello HttpListeners elementu z pliku szablonu.
+Istniejący element konfiguracji HTTPListener został ulepszony na potrzeby obsługi elementów oznaczania nazwy hosta i nazwy serwera, co jest używane przez usługę Application Gateway w celu kierowania ruchu do odpowiedniej puli zaplecza. Poniższy przykład kodu jest fragmentem elementu HttpListeners z pliku szablonu.
 
 ```json
 "httpListeners": [
@@ -83,11 +83,11 @@ Istniejące HTTPListener, który element konfiguracji jest rozszerzony toosuppor
 ],
 ```
 
-Użytkownik może odwiedzić [szablonu usługi Resource Manager przy użyciu wielu lokacji hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) zakończenia tooend na podstawie szablonu wdrożenia.
+Możesz odwiedzić stronę [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) (Szablon usługi Resource Manager z zastosowaniem hostowania wielu witryn), aby zapoznać się z kompleksowym wdrożeniem opartym na szablonie.
 
 ## <a name="routing-rule"></a>Reguła routingu
 
-Nie została zmieniona w reguły routingu hello wymagane. Witaj routingu reguły "Basic" powinno być kontynuowane toobe wybrany tootie hello odpowiedniej lokacji odbiornika toohello odpowiedniej puli adresów zaplecza.
+Reguła routingu nie wymaga żadnej zmiany. Nadal należy wybierać podstawową regułę routingu „Basic” w celu powiązania odpowiedniego odbiornika witryny z właściwą pulą adresów zaplecza.
 
 ```json
 "requestRoutingRules": [
@@ -128,5 +128,5 @@ Nie została zmieniona w reguły routingu hello wymagane. Witaj routingu reguły
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po szkoleniowe dotyczące obsługi wielu lokacji, przejdź zbyt[Utwórz bramę aplikacji przy użyciu wielu lokacji hosting](application-gateway-create-multisite-azureresourcemanager-powershell.md) toocreate bramę aplikacji z możliwością toosupport więcej niż jednej aplikacji sieci web.
+Po zapoznaniu się z informacjami o hostowaniu wielu witryn przejdź do [tworzenia bramy aplikacji przy użyciu hostowania wielu witryn](application-gateway-create-multisite-azureresourcemanager-powershell.md), aby utworzyć bramę aplikacji z możliwością obsługi więcej niż jednej aplikacji sieci Web.
 

@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integrację usługi Azure Active Directory ze ScaleX | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i ScaleX Enterprise."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i ScaleX Enterprise."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,129 +13,129 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: e398b98d9e0957b5f92c82359651c345d22c3a54
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Samouczek: Integrację usługi Azure Active Directory ze ScaleX
 
-Z tego samouczka, dowiesz się, jak toointegrate ScaleX przedsiębiorstwa w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie ScaleX przedsiębiorstwa w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie ScaleX organizacji z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie ScaleX organizacji z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooScaleX przedsiębiorstwa
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooScaleX przedsiębiorstwa (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do ScaleX Enterprise
+- Umożliwia użytkownikom automatycznie pobrać zalogowane ScaleX przedsiębiorstwem (logowanie jednokrotne) z konta usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz. Co to jest dostęp do aplikacji i logowanie jednokrotne z [usługi Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz. Co to jest dostęp do aplikacji i logowanie jednokrotne z [usługi Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z ScaleX Enterprise należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z ScaleX przedsiębiorstwa, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - ScaleX Enterprise jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie ScaleX przedsiębiorstwa z galerii hello
+1. Dodawanie ScaleX przedsiębiorstwa z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-scalex-enterprise-from-hello-gallery"></a>Dodawanie ScaleX przedsiębiorstwa z galerii hello
-tooconfigure hello integracji przedsiębiorstwa ScaleX w tooAzure AD, należy tooadd ScaleX przedsiębiorstwa z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-scalex-enterprise-from-the-gallery"></a>Dodawanie ScaleX przedsiębiorstwa z galerii
+Aby skonfigurować integrację ScaleX przedsiębiorstwa w usłudze Azure AD, należy dodać ScaleX przedsiębiorstwa z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd ScaleX przedsiębiorstwa z galerii hello wykonaj hello następujące kroki:**
+**Aby dodać ScaleX przedsiębiorstwa z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Kliknij przycisk **Dodaj** przycisk u góry hello hello okna dialogowego.
+3. Kliknij przycisk **Dodaj** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **ScaleX Enterprise**.
+4. W polu wyszukiwania wpisz **ScaleX Enterprise**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
-5. W panelu wyników hello, wybierz **ScaleX Enterprise**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **ScaleX Enterprise**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i test usługi Azure AD rejestracji jednokrotnej z ScaleX Enterprise oparte na użytkownika testowego o nazwie "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w przedsiębiorstwie ScaleX jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w przedsiębiorstwie ScaleX musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w przedsiębiorstwie ScaleX jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w przedsiębiorstwie ScaleX musi się.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w przedsiębiorstwie ScaleX.
+Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w przedsiębiorstwie ScaleX.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z ScaleX przedsiębiorstwa, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z ScaleX przedsiębiorstwa, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**  -toohave odpowiednikiem Simona Britta w przedsiębiorstwie ScaleX, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta ScaleX przedsiębiorstwo, które jest połączone z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować rejestracji jednokrotnej w aplikacji przedsiębiorstwa ScaleX.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji przedsiębiorstwa ScaleX.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z ScaleX przedsiębiorstwa, wykonaj hello następujące kroki:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z ScaleX przedsiębiorstwa, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **ScaleX Enterprise** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **ScaleX Enterprise** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
-3. Na powitania **ScaleX domeny przedsiębiorstwa i adres URL** sekcji, wykonaj następujące kroki, jeśli chcesz, aby aplikacja hello tooconfigure w hello **IDP** inicjowane tryb:
+3. Na **ScaleX domeny przedsiębiorstwa i adres URL** sekcji, wykonaj następujące kroki, aby skonfigurować aplikację w **IDP** inicjowane tryb:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
-    a. W hello **identyfikator** pole tekstowe, wartość hello typu przy użyciu hello następującego wzorca:`https://platform.rescale.com/saml2/<company id>/`
+    a. W **identyfikator** tekstowym, wpisz wartość, przy użyciu następującego wzorca:`https://platform.rescale.com/saml2/<company id>/`
 
-    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://platform.rescale.com/saml2/<company id>/acs/`
+    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://platform.rescale.com/saml2/<company id>/acs/`
 
-4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**, jeśli chcesz, aby aplikacja hello tooconfigure w **SP** inicjowane tryb:
+4. Sprawdź **Pokaż zaawansowane ustawienia adresu URL**, jeśli chcesz skonfigurować aplikację w **SP** inicjowane tryb:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
-    W hello **adres URL logowania** pole tekstowe, wartość hello typu przy użyciu hello następującego wzorca:`https://platform.rescale.com/saml2/<company id>/sso/`
+    W **adres URL logowania** tekstowym, wpisz wartość, przy użyciu następującego wzorca:`https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > Nie są hello wartości rzeczywistych. Z hello rzeczywisty identyfikator, adres URL odpowiedzi lub adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta Enterprise ScaleX](http://info.rescale.com/contact_sales) tooget tych wartości. 
+    > Nie są to rzeczywiste wartości. Rzeczywisty identyfikator, adres URL odpowiedzi lub adres URL logowania, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta Enterprise ScaleX](http://info.rescale.com/contact_sales) uzyskać te wartości. 
 
-5. Aplikacja ScaleX oczekuje potwierdzenia SAML hello w określonym formacie wymaga możesz toomodify atrybutu niestandardowego mapowania tooyour SAML tokenu atrybuty konfiguracji. Kliknij przycisk **widoku i edytować wszystkie atrybuty użytkowników** hello tooopen wyboru niestandardowych atrybutów ustawienia.
+5. Aplikacja ScaleX oczekuje potwierdzenia języka SAML w określonym formacie, który wymaga zmodyfikowania mapowań atrybutów niestandardowych do konfiguracji atrybuty tokenu SAML. Kliknij przycisk **widoku i edytować wszystkie atrybuty użytkowników** wyboru umożliwiające otwarcie niestandardowe atrybuty ustawień.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/scalex_attributes.png)
     
-    a. Kliknij prawym przyciskiem myszy atrybut hello **nazwa** i kliknij przycisk Usuń.
+    a. Kliknij prawym przyciskiem myszy atrybut **nazwa** i kliknij przycisk Usuń.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/delete_attribute_name.png)
 
-    b. Kliknij przycisk **emailaddress** okno edycji atrybucie hello tooopen atrybutu. Zmień wartość z **user.mail** za**user.userprincipalname** i kliknij przycisk Ok.
+    b. Kliknij przycisk **emailaddress** atrybutu, aby otworzyć okno edycji atrybucie. Zmień wartość z **user.mail** do **user.userprincipalname** i kliknij przycisk Ok.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
     
-5. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+5. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
@@ -143,99 +143,99 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_400.png)
     
-7. Na powitania **konfiguracja dla przedsiębiorstw ScaleX** , kliknij przycisk **skonfigurować ScaleX Enterprise** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML identyfikator jednostki** i **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+7. Na **konfiguracja dla przedsiębiorstw ScaleX** , kliknij przycisk **skonfigurować ScaleX Enterprise** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML identyfikator jednostki** i **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
-8. tooconfigure rejestracji jednokrotnej w **ScaleX Enterprise** strona, logowania toohello ScaleX Enterprise witryny sieci Web firmy jako administrator.
+8. Aby skonfigurować logowanie jednokrotne w **ScaleX Enterprise** strona, zaloguj się do witryny internetowej firmy ScaleX Enterprise jako administrator.
 
-9. Kliknij menu hello w górnym hello prawo i wybierz **administracji Contoso**.
+9. Kliknij menu w górnym prawym rogu i wybierz pozycję **administracji Contoso**.
 
     > [!NOTE] 
     > Firma Contoso jest tylko przykładowe. Powinno to być rzeczywista nazwa firmy. 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/Test_Admin.png) 
 
-10. Wybierz **integracji** z górnego menu hello i wybierz **rejestracji jednokrotnej**.
+10. Wybierz **integracji** z górnego menu i wybierz **rejestracji jednokrotnej**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/admin_sso.png) 
 
-11. Wypełnij formularz hello w następujący sposób:
+11. Wypełnij formularz w następujący sposób:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/scalex_admin_save.png) 
     
     a. Wybierz **"Utwórz każdy użytkownik, który może uwierzytelniać z logowania jednokrotnego."**
 
-    b. **Saml dostawcy usług**: wkleić wartość hello ***urn: oasis: nazwy: tc: SAML:2.0:nameid-format: stałe***
+    b. **Saml dostawcy usług**: wkleić wartość ***urn: oasis: nazwy: tc: SAML:2.0:nameid-format: stałe***
 
-    c. **Nazwa dostawcy tożsamości pola wiadomości e-mail w odpowiedzi ACS**: wkleić hello wartość`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. **Nazwa dostawcy tożsamości pola wiadomości e-mail w odpowiedzi ACS**: wkleić wartość`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
-    d. **Identyfikator jednostki EntityDescriptor dostawcy tożsamości:** hello Wklej **identyfikator jednostki SAML** kopiuje wartość hello portalu Azure.
+    d. **Identyfikator jednostki EntityDescriptor dostawcy tożsamości:** Wklej **identyfikator jednostki SAML** wartość skopiowany z portalu Azure.
 
-    e. **Adres URL SingleSignOnService dostawcy tożsamości:** hello Wklej **SAML pojedynczy znak na adres URL usługi** z hello portalu Azure.
+    e. **Adres URL SingleSignOnService dostawcy tożsamości:** Wklej **SAML pojedynczy znak na adres URL usługi** z portalu Azure.
 
-    f. **Certyfikat publiczny X509 dostawcy tożsamości:** Otwórz hello X509 certyfikat pobrany z hello Azure w programie Notatnik i Wklej zawartość hello, w tym polu. Upewnij się, Brak Brak wiersza w podziałów hello środkowej hello treści certyfikatu.
+    f. **Certyfikat publiczny X509 dostawcy tożsamości:** Otwórz X509 certyfikat pobrany z platformy Azure w programie Notatnik i Wklej zawartość w tym polu. Upewnić się, że nie podziały wierszy w środku zawartości certyfikatu.
     
-    g. Sprawdź następujące pola wyboru hello: **włączone, NameID szyfrowania i AuthnRequests logowania.**
+    g. Sprawdź poniższe pola wyboru: **włączone, NameID szyfrowania i AuthnRequests logowania.**
 
-    h. Kliknij przycisk **ustawienia logowania jednokrotnego aktualizacji** toosave hello ustawienia.
+    h. Kliknij przycisk **ustawienia logowania jednokrotnego aktualizacji** Aby zapisać ustawienia.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_01.png) 
 
-2. Przejdź za**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** toodisplay hello listy użytkowników.
+2. Przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** do wyświetlenia na liście Użytkownicy.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_02.png) 
 
-3. U góry okna dialogowego hello hello, kliknij przycisk **Dodaj** tooopen hello **użytkownika** okna dialogowego.
+3. W górnej części okna dialogowego, kliknij przycisk **Dodaj** otworzyć **użytkownika** okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-scalexenterprise-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-scalex-enterprise-test-user"></a>Tworzenie użytkownika testowego ScaleX Enterprise
 
-toolog użytkowników tooenable usługi Azure AD w tooScaleX przedsiębiorstwa muszą mieć przydzielone w tooScaleX przedsiębiorstwa. W przypadku hello ScaleX przedsiębiorstwa Inicjowanie obsługi to zadanie automatycznej i nie są wymagane żadne czynności ręcznych. Każdy użytkownik, który może pomyślnie wykonać uwierzytelnienia przy użyciu poświadczeń logowania jednokrotnego będą automatycznie udostępniane na powitania po stronie ScaleX.
+Aby umożliwić użytkownikom usługi Azure AD do logowania do organizacji ScaleX, ich należy udostępnić w ScaleX przedsiębiorstwem. W przypadku organizacji ScaleX Inicjowanie obsługi to zadanie automatycznej i nie są wymagane żadne czynności ręcznych. Każdy użytkownik, który może pomyślnie wykonać uwierzytelnienia przy użyciu poświadczeń logowania jednokrotnego będą automatycznie udostępniane na stronie ScaleX.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie Enterprise tooScaleX dostępu użytkownika.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu użytkownika do ScaleX przedsiębiorstwa.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign Simona Britta tooScaleX przedsiębiorstwa, wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta ScaleX przedsiębiorstwa, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **ScaleX Enterprise**.
+2. Na liście aplikacji zaznacz **ScaleX Enterprise**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -243,7 +243,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -251,14 +251,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Kliknij hello ScaleX Enterprise kafelka w hello Panel dostępu, otrzymasz automatycznie zalogowane tooyour aplikacja całościowa ScaleX. Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](https://msdn.microsoft.com/library/dn308586).
+Kliknij Kafelek ScaleX przedsiębiorstwa w panelu dostępu, można będzie uzyskać automatycznie zalogowane do aplikacji ScaleX przedsiębiorstwa. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://msdn.microsoft.com/library/dn308586).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

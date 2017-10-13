@@ -1,6 +1,6 @@
 ---
 title: "Rozwiązywanie problemów z działanie usługi Azure Active Directory rejestruje błędy pakiet zawartości | Dokumentacja firmy Microsoft"
-description: "Zawiera listę komunikatów o błędach programu hello działanie usługi Azure Active Directory zawartości pakietu i kroki toofix je."
+description: "Udostępnia listę komunikatów o błędach pakiet zawartości działanie usługi Azure Active Directory i kroki rozwiązywania tych problemów."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,56 +15,56 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 325de65ff1572a2f8f8319c0a52350bda03af3de
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c880e9eb6d48bd1e38075fbd867d3906ec67b547
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Rozwiązywanie problemów z działanie usługi Azure Active Directory rejestruje błędy pakiet zawartości 
 
 
-Podczas pracy z hello pakiet zawartości Power BI dla wersji zapoznawczej usługi Azure Active Directory, możliwe jest funkcjonowaniem hello następujące błędy: 
+Podczas pracy z pakiet zawartości Power BI dla wersji zapoznawczej usługi Azure Active Directory, możliwe jest wystąpiły następujące błędy: 
 
 - [Odświeżanie nie powiodło się](active-directory-reporting-troubleshoot-content-pack.md#refresh-failed) 
-- [Poświadczenia źródła danych nie powiodło się tooupdate](active-directory-reporting-troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
+- [Nie można zaktualizować poświadczeń źródła danych](active-directory-reporting-troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
 - [Importowanie danych trwa zbyt długo](active-directory-reporting-troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
  
-Ten temat zawiera informacje o hello możliwe przyczyny i w jaki sposób toofix te błędy.
+Ten temat zawiera informacje o możliwych przyczyn i jak te błędy.
  
 ## <a name="refresh-failed"></a>Odświeżanie nie powiodło się 
  
-**Sposób ten błąd jest udostępniane**: wiadomości E-mail z usługi Power BI lub stan niepowodzenia w historii odświeżania hello. 
+**Sposób ten błąd jest udostępniane**: wiadomości E-mail z usługi Power BI lub stan niepowodzenia w historii odświeżania. 
 
 
-| Przyczyna | Jak toofix |
+| Przyczyna | Jak rozwiązać |
 | ---   | ---        |
-| Odśwież awarii błędy może być spowodowany hello poświadczeń użytkowników hello łączenie pakiet zawartości toohello zostały resetowania, ale nie zostały zaktualizowane w ustawieniach połączenia hello hello hello pakietu zawartości. | W usłudze Power BI zlokalizować odpowiednich toohello dataset hello pulpitu nawigacyjnego dzienniki działanie usługi Azure Active Directory (Dzienniki działanie usługi Azure Active Directory), wybierz pozycję harmonogram odświeżania, a następnie wprowadź poświadczenia usługi Azure AD. |
-| Odświeżanie może zakończyć się niepowodzeniem ze względu na problemy toodata w hello bazowy pakiet zawartości. | Plik biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [jak tooget obsługują usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
+| Odśwież awarii może być spowodowany błędy, gdy poświadczenia użytkowników łączących się pakiet zawartości zostały resetowania, ale nie zostały zaktualizowane w ustawieniach połączenia pakietu zawartości. | W usłudze Power BI zestawu danych odpowiadające pulpitu nawigacyjnego dzienniki działanie usługi Azure Active Directory (Dzienniki działanie usługi Azure Active Directory), wybierz pozycję harmonogram odświeżania, a następnie wprowadź poświadczenia usługi Azure AD. |
+| Odświeżanie może zakończyć się niepowodzeniem z powodu problemów danych w podstawowej pakietu zawartości. | Plik biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [jak uzyskać pomoc techniczną dotyczącą usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
  
  
-## <a name="failed-tooupdate-data-source-credentials"></a>Poświadczenia źródła danych nie powiodło się tooupdate 
+## <a name="failed-to-update-data-source-credentials"></a>Nie można zaktualizować poświadczeń źródła danych 
  
-**Sposób ten błąd jest udostępniane**: W usłudze Power BI, łącząc toohello pakiet zawartości dzienników (wersja zapoznawcza) działanie usługi Azure Active Directory. 
+**Sposób ten błąd jest udostępniane**: W usłudze Power BI, jeśli łączysz się z pakietu zawartości dzienników (wersja zapoznawcza) działanie usługi Azure Active Directory. 
 
-| Przyczyna | Jak toofix |
+| Przyczyna | Jak rozwiązać |
 | ---   | ---        |
-| użytkownik nawiązujący połączenie Hello jest administratorem globalnym, ani czytnika zabezpieczeń ani administratora zabezpieczeń. | Użyj konta, które jest administratorem globalnym lub czytnik zabezpieczeń lub zabezpieczeń administratora tooaccess hello pakietów zawartości. |
-| Dzierżawy nie jest dzierżawa usługi Premium lub nie ma co najmniej jednego użytkownika z licencją Premium pliku. | Plik biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [jak tooget obsługują usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
+| Użytkownik nawiązujący połączenie jest administratorem globalnym, ani czytnika zabezpieczeń ani administratora zabezpieczeń. | Użyj konta, które jest administratorem globalnym lub czytnik zabezpieczeń lub administratora zabezpieczeń można uzyskać dostępu do zawartości pakietów. |
+| Dzierżawy nie jest dzierżawa usługi Premium lub nie ma co najmniej jednego użytkownika z licencją Premium pliku. | Plik biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [jak uzyskać pomoc techniczną dotyczącą usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
  
 
  
 
 ## <a name="importing-of-data-is-taking-too-long"></a>Importowanie danych trwa zbyt długo 
  
-**Sposób ten błąd jest udostępniane**: W usłudze Power BI, po połączeniu pakietu zawartości, proces importowania danych hello uruchamia tooprepare pulpitu nawigacyjnego dla dziennika działanie usługi Azure Active Directory. Zobacz wiadomość hello: "*importowania danych...* "  
+**Sposób ten błąd jest udostępniane**: W usłudze Power BI, po połączeniu pakietu zawartości, proces importowania danych rozpoczyna się przygotować pulpitu nawigacyjnego dla dziennika działanie usługi Azure Active Directory. Zostanie wyświetlony komunikat: "*importowania danych...* "  
 
-| Przyczyna | Jak toofix |
+| Przyczyna | Jak rozwiązać |
 | ---   | ---        |
-| W zależności od rozmiaru hello dzierżawy ten krok może zająć od kilku minut too30 minut. | Właśnie o cierpliwość. Jeśli wiadomość hello nie zmienia tooshowing pulpitu nawigacyjnego w ciągu jednej godziny, zgłoś biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [jak tooget obsługują usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
+| W zależności od wielkości dzierżawy ten krok może potrwać od w ciągu kilku minut do 30 minut. | Właśnie o cierpliwość. Jeśli wiadomość nie zmienia się na wyświetlanie pulpitu nawigacyjnego w ciągu jednej godziny, zgłoś biletu pomocy technicznej. Aby uzyskać więcej informacji, zobacz [jak uzyskać pomoc techniczną dotyczącą usługi Azure Active Directory](active-directory-troubleshooting-support-howto.md).|
 
 ## <a name="next-steps"></a>Następne kroki
 
-Witaj tooinstall pakiet zawartości Power BI dla Azure Active Directory w wersji zapoznawczej, kliknij przycisk [tutaj](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
+Aby zainstalować pakiet zawartości Power BI dla wersji zapoznawczej usługi Azure Active Directory, kliknij przycisk [tutaj](https://powerbi.microsoft.com/en-us/blog/azure-active-directory-meets-power-bi/).
 
 

@@ -24,7 +24,7 @@
 
 ## Bezpieczeństwo
 ### [Monitorowanie zasobów](oms-security-monitoring-resources.md)
-### [Odpowiadanie na alerty toosecurity](oms-security-responding-alerts.md)
+### [Odpowiadanie na alerty zabezpieczeń](oms-security-responding-alerts.md)
 ### [Ocena linii bazowej](oms-security-baseline.md)
 ### [Ocena złośliwego oprogramowania](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Ocena aktualizacji systemu](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

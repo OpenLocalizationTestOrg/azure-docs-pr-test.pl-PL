@@ -1,6 +1,6 @@
 ---
-title: "aaaVulnerabilities wykryta przez usługę Azure Active Directory Identity Protection | Dokumentacja firmy Microsoft"
-description: "Przegląd luk w zabezpieczeniach hello wykrywanych przez usługę Azure Active Directory Identity Protection."
+title: "Luk w zabezpieczeniach wykrywanych przez usługę Azure Active Directory Identity Protection | Dokumentacja firmy Microsoft"
+description: "Przegląd luk w zabezpieczeniach wykryta przez usługę Azure Active Directory Identity Protection."
 services: active-directory
 keywords: "ochronę tożsamości usługi Azure active directory, usługa cloud app discovery, zarządzanie aplikacjami, zabezpieczeń, ryzyka, poziom ryzyka, luki w zabezpieczeniach, zasady zabezpieczeń"
 documentationcenter: 
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5e1cb401f8b566a180eb46e3420a090bcfc66767
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 364873ff54099a6123e40b12e819d1745751f285
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Luk w zabezpieczeniach wykrywanych przez usługę Azure Active Directory Identity Protection
-Luki w zabezpieczeniach występują słabe strony w danym środowisku, które może być wykorzystane przez atakującego. Zaleca się rozwiązać te luki w zabezpieczeniach tooimprove hello stan zabezpieczeń organizacji i uniemożliwić osobom atakującym ich wykorzystania.
+Luki w zabezpieczeniach występują słabe strony w danym środowisku, które może być wykorzystane przez atakującego. Zaleca się rozwiązać te luki w zabezpieczeniach aby poprawić stan zabezpieczeń organizacji i uniemożliwić osobom atakującym ich wykorzystania.
 
 
 ![luki w zabezpieczeniach](./media/active-directory-identityprotection-vulnerabilities/101.png "luk w zabezpieczeniach")
 
 
 
-Hello następujące sekcje zawierają omówienie luk w zabezpieczeniach hello zgłoszone przez ochronę tożsamości.
+Poniższe sekcje zawierają przegląd luk w zabezpieczeniach zgłoszone przez ochronę tożsamości.
 
 ## <a name="multi-factor-authentication-registration-not-configured"></a>Rejestracja usługi Multi-Factor authentication nie jest skonfigurowany
-Ta luka w zabezpieczeniach pomaga kontrolować hello wdrożenia usługi Azure Multi-Factor Authentication w organizacji. 
+Ta luka w zabezpieczeniach ułatwia kontrolowanie wdrażania usługi Azure Multi-Factor Authentication w organizacji. 
 
-Usługa Azure Multi-Factor authentication udostępnia drugą warstwę zabezpieczeń toouser uwierzytelniania. Ułatwia zabezpieczenie dostępu toodata i aplikacje spełniając zapotrzebowanie na prosty proces logowania. Zapewnia silne uwierzytelnianie za pomocą różnych opcji weryfikacji łatwe — połączenie telefoniczne, wiadomość tekstowa lub aplikacji mobilnej weryfikacji lub powiadamiania o kod i 3rd strona tokenów OATH.
+Usługa Azure Multi-Factor authentication udostępnia drugą warstwę zabezpieczeń w celu uwierzytelnienia użytkownika. Go pomaga w zabezpieczaniu dostępu do danych i aplikacji spełniając zapotrzebowanie na prosty proces logowania. Zapewnia silne uwierzytelnianie za pomocą różnych opcji weryfikacji łatwe — połączenie telefoniczne, wiadomość tekstowa lub aplikacji mobilnej weryfikacji lub powiadamiania o kod i 3rd strona tokenów OATH.
 
 Firma Microsoft zaleca wymusić uwierzytelnianie wieloskładnikowe Azure logowania użytkownika. Uwierzytelnianie wieloskładnikowe odgrywa kluczową rolę w zasadach dostępu warunkowego opartego na ryzyko dostępne za pośrednictwem Identity Protection.
 
@@ -43,18 +43,18 @@ Aby uzyskać więcej informacji, zobacz [co to jest uwierzytelnianie wieloskład
 ## <a name="unmanaged-cloud-apps"></a>Aplikacje w chmurze niezarządzane
 Ta luka w zabezpieczeniach pomaga zidentyfikować aplikacje w chmurze niezarządzane w Twojej organizacji.
 
-W nowoczesnych przedsiębiorstwa działów IT są często zna wszystkie aplikacje chmury hello korzystania przez użytkowników w organizacji toodo służbowym. Jest łatwy toosee Dlaczego Administratorzy byłyby danych toocorporate nieautoryzowanym dostępem, wycieku danych oraz inne zagrożenia dla bezpieczeństwa. 
+W przedsiębiorstwach nowoczesnego działu IT są często zna wszystkie aplikacje chmury, które użytkownicy w organizacji korzystają z ich w pracy. To proste zobaczyć, dlaczego Administratorzy byłyby problemów dotyczących nieautoryzowanego dostępu do danych firmowych, wycieku danych i inne zagrożenia dla bezpieczeństwa. 
 
-Firma Microsoft zaleca organizacji do wdrożenia aplikacji w chmurze niezarządzane toodiscover Cloud App Discovery i toomanage te aplikacje przy użyciu usługi Azure Active Directory.
+Firma Microsoft zaleca wdrożenia Cloud App Discovery do wykrywania aplikacji w chmurze niezarządzane oraz do zarządzania te aplikacje przy użyciu usługi Azure Active Directory w organizacji.
 
 Aby uzyskać więcej informacji, zobacz [znajdowania aplikacji w chmurze niezarządzane z usługi Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Alerty zabezpieczeń ze Zarządzanie tożsamościami uprzywilejowanymi
 Ta luka w zabezpieczeniach pomaga wykrywać oraz rozwiązywanie alertów dotyczących tożsamości uprzywilejowanych w Twojej organizacji.  
 
-toocarry użytkowników tooenable operacje uprzywilejowane, organizacje muszą także tymczasowych lub trwałych uprzywilejowanego dostępu w usłudze Azure AD, użytkownicy toogrant zasobów platformy Azure lub usługi Office 365 lub innych aplikacji SaaS. Każdy z tych użytkownicy o odpowiednich uprawnieniach zwiększa hello ataku Twojej organizacji. Tę lukę w zabezpieczeniach pomaga zidentyfikować użytkowników z dostępem uprzywilejowanym zbędne i podjąć odpowiednie działania tooreduce lub wyeliminowanie hello ryzyka, które stanowią one. 
+Aby umożliwić użytkownikom do wykonywania uprzywilejowanych operacji, organizacja musi udzielić użytkownikom tymczasowych lub trwałych uprzywilejowanego dostępu w usłudze Azure AD, Azure lub usługi Office 365 zasobów lub innych aplikacji SaaS. Każdy z tych użytkownicy o odpowiednich uprawnieniach zwiększa obszar narażony Twojej organizacji. Ta luka w zabezpieczeniach pomaga zidentyfikować użytkowników z niepotrzebnych uprzywilejowanego dostępu i podjąć odpowiednie działania w celu ograniczenie lub wyeliminowanie ryzyka, które stanowią one. 
 
-Zaleca się, że Twoja organizacja korzysta z usługi Azure AD Privileged Identity Management toomanage, kontroli i monitor uprzywilejowany tożsamości i ich tooresources dostępu w usłudze Azure AD, jak również innych usług online firmy Microsoft, takich jak usługi Office 365 lub Microsoft Intune.
+Zaleca się Twoja organizacja korzysta z usługi Azure AD Privileged Identity Management w celu zarządzania kontrolą, i monitor uprzywilejowany tożsamości i dostępu do zasobów w usłudze Azure AD, a także innych usług online firmy Microsoft, takich jak usługi Office 365 lub Microsoft Intune.
 
 Aby uzyskać więcej informacji, zobacz [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 

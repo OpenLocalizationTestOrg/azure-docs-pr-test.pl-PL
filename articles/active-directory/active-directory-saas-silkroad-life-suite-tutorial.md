@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Azure Active Directory integracji z pakietem życia SilkRoad | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i SilkRoad życia pakietu."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i SilkRoad życia pakietu."
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -14,133 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 07367282ab42b7332f166d64743b4b447aec4935
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ecf4e31ecea00d003fc47ea4cebb781ca58957f7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Samouczek: Azure Active Directory integracji z pakietem życia SilkRoad
-Celem Hello tego samouczka jest tooshow należy jak toointegrate SilkRoad Suite użytkowania z usługą Azure Active Directory (Azure AD). 
+Celem tego samouczka jest pokazanie sposobu integracji SilkRoad Suite użytkowania z usługą Azure Active Directory (Azure AD). 
 
-Integrowanie SilkRoad Suite użytkowania z usługą Azure AD zapewnia hello następujące korzyści: 
+Integrowanie SilkRoad Suite użytkowania z usługą Azure AD zapewnia następujące korzyści: 
 
-* Można kontrolować w usłudze Azure AD, kto ma dostęp tooSilkRoad Suite życia 
-* Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooSilkRoad życia pakiet rejestracji jednokrotnej (SSO) przy użyciu ich kont usługi Azure AD
+* Można kontrolować w usłudze Azure AD, który ma dostęp do zestawu życia SilkRoad 
+* Umożliwia użytkownikom automatycznie pobrać zalogowane do SilkRoad życia pakiet rejestracji jednokrotnej (SSO) przy użyciu ich kont usługi Azure AD
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-tooconfigure integracji usługi Azure AD z pakietem życia SilkRoad należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z pakietem życia SilkRoad, potrzebne są następujące elementy:
 
 * Subskrypcję usługi Azure AD
 * Subskrypcja SilkRoad życia Suite logowanie Jednokrotne włączone
 
 >[!NOTE]
->tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego. 
+>Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego. 
 > 
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 * Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 * Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać [miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/). 
 
 ## <a name="scenario-description"></a>Opis scenariusza
-Celem Hello tego samouczka jest tooenable możesz tootest logowania jednokrotnego programu Azure AD w środowisku testowym.
+Celem tego samouczka jest umożliwienie test rejestracji Jednokrotnej programu Azure AD w środowisku testowym.
 
-Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie pakietu życia SilkRoad z galerii hello 
+1. Dodawanie pakietu życia SilkRoad z galerii 
 2. Konfigurowanie i testowania logowania jednokrotnego programu Azure AD
 
-## <a name="add-silkroad-life-suite-from-hello-gallery"></a>Dodawanie zestawu życia SilkRoad z galerii hello
-tooconfigure hello integracji pakietu życia SilkRoad do usługi Azure AD, należy tooadd SilkRoad życia pakietu z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="add-silkroad-life-suite-from-the-gallery"></a>Dodawanie zestawu życia SilkRoad z galerii
+Aby skonfigurować integrację usługi Azure AD SilkRoad życia pakietu, należy dodać pakiet życia SilkRoad z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd SilkRoad życia pakietu z galerii hello wykonaj hello następujące kroki:**
+**Aby dodać pakiet życia SilkRoad z galerii, wykonaj następujące czynności:**
 
-1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**. 
+1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**. 
    
     ![Usługa Active Directory][1]
 
-2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
+2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
 
-3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
+3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
    
     ![Aplikacje][2]
 
-4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
+4. Kliknij przycisk **Dodaj** w dolnej części strony.
    
     ![Aplikacje][3]
 
-5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
+5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
    
     ![Aplikacje][4]
 
-6. W polu wyszukiwania hello wpisz **Suite życia SilkRoad**.
+6. W polu wyszukiwania wpisz **Suite życia SilkRoad**.
    
     ![Aplikacje][5]
 
-7. W okienku wyników hello, wybierz **Suite życia SilkRoad**, a następnie kliknij przycisk **Complete** aplikacji hello tooadd.
+7. W okienku wyników wybierz **Suite życia SilkRoad**, a następnie kliknij przycisk **Complete** można dodać aplikację.
    
     ![Aplikacje][50]
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
-Celem Hello w tej sekcji jest tooshow użytkownika jak tooconfigure i Azure AD SSO z pakietem życia SilkRoad testu na podstawie użytkownika testowego o nazwie "Britta Simona".
+Jest celem tej sekcji opisano, jak skonfigurować i przetestować Azure AD SSO z pakietem życia SilkRoad w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla toowork logowania jednokrotnego usługi Azure AD musi tooknow jest użytkownika odpowiednikiem hello w SilkRoad życia Suite tooan użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi pakietu życia SilkRoad musi toobe ustanowione.
+Dla logowania jednokrotnego do pracy usługi Azure AD musi wiedzieć, co to jest odpowiednikiem użytkownikowi pakietu życia SilkRoad użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi pakietu życia SilkRoad musi określone.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** SilkRoad życia pakietu.
+Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** SilkRoad życia pakietu.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z pakietem życia SilkRoad, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z pakietem życia SilkRoad, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego zestawu życia SilkRoad](#creating-a-silkroad-life-suite-test-user)**  -toohave odpowiednikiem Simona Britta życia pakietu SilkRoad, że jego reprezentacja toohello połączonej usługi Azure AD.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego zestawu życia SilkRoad](#creating-a-silkroad-life-suite-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta SilkRoad życia pakiet, który jest połączony z jej reprezentacji usługi Azure AD.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
-Celem Hello w tej sekcji jest tooenable logowania jednokrotnego programu Azure AD w hello klasycznego portalu Azure i tooconfigure logowania jednokrotnego w SilkRoad życia pakietu aplikacji.
+Celem tej sekcji jest do włączenia funkcji logowania jednokrotnego usługi Azure AD w klasycznym portalu Azure i konfigurowania rejestracji Jednokrotnej w SilkRoad życia pakietu aplikacji.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z pakietem życia SilkRoad, wykonaj hello następujące kroki:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z pakietem życia SilkRoad, wykonaj następujące czynności:**
 
-1. Logowania jednokrotnego tooyour SilkRoad witryna firmy jako administrator. 
+1. Logowanie do witryny firmy SilkRoad jako administrator. 
 
   >[!NOTE] 
-  > tooobtain dostępu toohello SilkRoad życia Suite uwierzytelniania aplikacji dla Konfigurowanie Federacji przy użyciu usługi Microsoft Azure AD, skontaktuj się z SilkRoad pomocy technicznej lub Twoim przedstawicielem SilkRoad usług.
+  > Aby uzyskać dostęp do aplikacji uwierzytelniania Suite życia SilkRoad Konfigurowanie Federacji przy użyciu usługi Microsoft Azure AD, skontaktuj się z SilkRoad pomocy technicznej lub Twoim przedstawicielem SilkRoad usług.
   > 
 
-2. Przejdź za**dostawcy usług**, a następnie kliknij przycisk **szczegóły federacyjnego**. 
+2. Przejdź do **usługodawcy**, a następnie kliknij przycisk **szczegóły federacyjnego**. 
    
     ![Azure AD rejestracji jednokrotnej][10] 
 
-3. Kliknij przycisk **pobierania metadanych Federacji**, a następnie zapisz plik metadanych hello na tym komputerze.
+3. Kliknij przycisk **pobierania metadanych Federacji**, a następnie zapisz plik metadanych na tym komputerze.
    
     ![Azure AD rejestracji jednokrotnej][11] 
 
-4. W hello klasycznego portalu Azure na powitania **Suite życia SilkRoad** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować logowanie jednokrotne**  okno dialogowe.
+4. W klasycznym portalu Azure na **Suite życia SilkRoad** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować logowanie jednokrotne** okna dialogowego.
    
     ![Konfigurowanie rejestracji jednokrotnej][6] 
 
-5. Na powitania **jak ma toosign użytkowników na tooSilkRoad Suite życia** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+5. Na **jak chcesz użytkownikom zalogować się do zestawu życia SilkRoad** wybierz pozycję **Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
     ![Azure AD rejestracji jednokrotnej][7] 
 
-6. Na powitania **Konfigurowanie ustawień aplikacji** okna dialogowego wykonaj hello następujące kroki:
+6. Na **Konfigurowanie ustawień aplikacji** okna dialogowego strony, należy wykonać następujące czynności:
    
     ![Azure AD rejestracji jednokrotnej][8]   
- 1. W hello **na adres URL logowania** pole tekstowe, wprowadź adres URL hello używanej przez Twoją witrynę Suite życia SilkRoad toosign na tooyour użytkowników (np.: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).  
- 2. Otwórz hello pobrane **Silkroad** pliku metadanych. 
- 3. Zlokalizuj hello **AssertionConsumerService** tag, a następnie hello kopiowania **lokalizacji** atrybutu.         
+ 1. W **na adres URL logowania** tekstowym, wpisz adres URL używany przez użytkowników do logowania do witryny SilkRoad życia pakietu (np.: *https://defcompanytest-test-redcarpet.silkroad-eng.com/Authentication/*).  
+ 2. Otwórz pobrany **Silkroad** pliku metadanych. 
+ 3. Zlokalizuj **AssertionConsumerService** tag, a następnie skopiuj **lokalizacji** atrybutu.         
    
     ![Azure AD rejestracji jednokrotnej][21] 
- 4. Wklej wartość hello do hello **adres URL odpowiedzi** pola tekstowego.  
+ 4. Wklej wartości do **adres URL odpowiedzi** pola tekstowego.  
  5. Kliknij przycisk **Dalej**.
 
-6. Na powitania **skonfigurować logowanie jednokrotne w SilkRoad życia Suite** wykonaj hello następujące kroki:
+6. Na **skonfigurować logowanie jednokrotne w SilkRoad życia Suite** wykonaj następujące czynności:
    
     ![Azure AD rejestracji jednokrotnej][9]  
- 1. Kliknij przycisk Pobierz certyfikat, a następnie zapisz plik hello na tym komputerze.  
+ 1. Kliknij przycisk Pobierz certyfikat, a następnie zapisz plik na komputerze.  
  2. Kliknij przycisk **Dalej**.
 
 7. W Twojej **SilkRoad** aplikacji, kliknij przycisk **źródeł uwierzytelniania**.
@@ -151,122 +151,122 @@ Celem Hello w tej sekcji jest tooenable logowania jednokrotnego programu Azure A
    
     ![Azure AD rejestracji jednokrotnej][13] 
 
-9. W hello **Dodaj źródło uwierzytelniania** sekcji, wykonaj następujące kroki hello: 
+9. W **Dodaj źródło uwierzytelniania** sekcji, wykonaj następujące czynności: 
    
     ![Azure AD rejestracji jednokrotnej][14]  
- 1. W obszarze **opcja 2 — plik metadanych**, kliknij przycisk **Przeglądaj** tooupload hello pobrany plik metadanych.  
+ 1. W obszarze **opcja 2 — plik metadanych**, kliknij przycisk **Przeglądaj** można przekazać pliku pobranego metadanych.  
  2. Kliknij przycisk **dostawcy tożsamości utworzyć przy użyciu danych pliku**.
 
-10. W hello **źródeł uwierzytelniania** kliknij **Edytuj**. 
+10. W **źródeł uwierzytelniania** kliknij **Edytuj**. 
     
      ![Azure AD rejestracji jednokrotnej][15] 
 
-11. Na powitania **Edytuj źródło uwierzytelniania** okna dialogowego, wykonaj następujące kroki hello: 
+11. Na **Edytuj źródło uwierzytelniania** okna dialogowego, wykonaj następujące czynności: 
     
      ![Azure AD rejestracji jednokrotnej][16] 
  1. Jako **włączone**, wybierz pozycję **tak**.   
- 2. W hello **opis IdP** tekstowym, wpisz opis dla danej konfiguracji (np.: *logowania jednokrotnego programu Azure AD*).  
- 3. W hello **nazwa IdP** tekstowym, wpisz nazwę, która jest tooyour określonej konfiguracji (np.: *Azure SP*).  
+ 2. W **opis IdP** tekstowym, wpisz opis dla danej konfiguracji (np.: *logowania jednokrotnego programu Azure AD*).  
+ 3. W **nazwa IdP** tekstowym, wpisz nazwę, która jest specyficzna dla konfiguracji (np.: *Azure SP*).  
  4. Kliknij pozycję **Zapisz**.
 
 12. Wyłącz wszystkie źródła uwierzytelniania. 
     
      ![Azure AD rejestracji jednokrotnej][17]
 
-13. W hello klasycznego portalu Azure na powitania **pojedynczy znak na potwierdzenie** kliknij przycisk **dalej**.  
+13. W klasycznym portalu Azure na **pojedynczy znak na potwierdzenie** kliknij przycisk **dalej**.  
     
      ![Azure AD rejestracji jednokrotnej][18]
 
-14. Na powitania **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.
+14. Na **pojedynczy znak na potwierdzenie** kliknij przycisk **Complete**.
     
      ![Azure AD rejestracji jednokrotnej][19]
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego w hello klasycznego portalu Azure o nazwie Simona Britta.
+Celem tej sekcji jest tworzenie użytkownika testowego w klasycznym portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][20]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **klasycznego portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Active Directory**.
+1. W **klasycznego portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Active Directory**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png)  
 
-2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
+2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
 
-3. Kliknij toodisplay hello listę użytkowników, w menu hello na górze hello **użytkowników**.
+3. Aby wyświetlić listę użytkowników, w menu u góry, kliknij przycisk **użytkowników**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) 
 
-4. Witaj tooopen **Dodaj użytkownika** kliknij okno dialogowe narzędzi hello na dole hello **Dodaj użytkownika**. 
+4. Aby otworzyć **Dodaj użytkownika** okna dialogowego na pasku narzędzi u dołu, kliknij przycisk **Dodaj użytkownika**. 
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png) 
 
-5. Na powitania **Poinformuj nas o tym użytkowniku** okna dialogowego wykonaj hello następujące kroki: 
+5. Na **Poinformuj nas o tym użytkowniku** okna dialogowego strony, należy wykonać następujące czynności: 
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)  
  1. Jako typ użytkownika wybierz nowego użytkownika w organizacji.  
- 2. W hello nazwy użytkownika **pole tekstowe**, typ **BrittaSimon**. 
+ 2. W nazwie użytkownika **pole tekstowe**, typ **BrittaSimon**. 
  3. Kliknij przycisk **Dalej**.
 
-6. Na powitania **profilu użytkownika** okna dialogowego wykonaj hello następujące kroki: 
+6. Na **profilu użytkownika** okna dialogowego strony, należy wykonać następujące czynności: 
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png)  
- 1. W hello **imię** pole tekstowe, typ **Britta**.    
- 2. W hello **nazwisko** pole tekstowe, typ **Simona**. 
- 3. W hello **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**. 
- 4. W hello **roli** listy, wybierz **użytkownika**.
+ 1. W **imię** pole tekstowe, typ **Britta**.    
+ 2. W **nazwisko** pole tekstowe, typ **Simona**. 
+ 3. W **Nazwa wyświetlana** pole tekstowe, typ **Simona Britta**. 
+ 4. W **roli** listy, wybierz **użytkownika**.
  5. Kliknij przycisk **Dalej**.
 
-7. Na powitania **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
+7. Na **Uzyskaj hasło tymczasowe** strony okna dialogowego, kliknij przycisk **utworzyć**.
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) 
 
-8. Na powitania **Uzyskaj hasło tymczasowe** okna dialogowego wykonaj hello następujące kroki:
+8. Na **Uzyskaj hasło tymczasowe** okna dialogowego strony, należy wykonać następujące czynności:
    
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png)  
- 1. Zanotuj wartość hello hello **nowe hasło**. 
+ 1. Zanotuj wartość **nowe hasło**. 
  2. Kliknij przycisk **Complete** (Zakończ).   
 
 ### <a name="create-a-silkroad-life-suite-test-user"></a>Tworzenie użytkownika testowego SilkRoad życia pakietu
-Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta SilkRoad życia pakietu. Britta firmy musi mieć identyfikator logowania jednokrotnego (czasem określana tooas *AuthParam*), które odpowiadają na Britta **emailaddress** w usłudze Azure AD.
+Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta SilkRoad życia pakietu. Britta firmy musi mieć identyfikator logowania jednokrotnego (czasami określane jako *AuthParam*), które odpowiadają na Britta **emailaddress** w usłudze Azure AD.
 
-**toocreate użytkownika o nazwie Simona Britta SilkRoad życia pakietu, należy wykonać hello następujące kroki:**
+**Aby utworzyć użytkownika o nazwie Simona Britta SilkRoad życia pakietu, wykonaj następujące czynności:**
 
-- Pytaj użytkownika toocreate zespołu pomocy technicznej SilkRoad życia pakietu użytkownika, takiej jak **identyfikator logowania jednokrotnego** hello atrybutu samą wartość jak hello **emailaddress** z Simona Britta w usłudze Azure AD.
+- Skontaktuj się z zespołem pomocy technicznej SilkRoad życia pakietu można utworzyć użytkownika, takiej jak **identyfikator logowania jednokrotnego** atrybutu taką samą wartość jak **emailaddress** z Simona Britta w usłudze Azure AD.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
-Celem Hello w tej sekcji jest tooenable toouse Simona Britta Azure logowania jednokrotnego, przyznając jej tooSilkRoad dostępu Suite życia.
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
+Celem tej sekcji jest umożliwienie Simona Britta się za pomocą logowania jednokrotnego Azure przez udostępnienie jej SilkRoad życia pakietu.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooSilkRoad Simona Britta Suite życia wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta SilkRoad życia pakietu, wykonaj następujące czynności:**
 
-1. Na hello Azure kliknij klasycznego portalu, widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
+1. W klasycznym portalu Azure, aby otworzyć widok aplikacji, w widoku katalogu, kliknij polecenie **aplikacji** w menu u góry.
    
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Suite życia SilkRoad**.
+2. Na liście aplikacji zaznacz **Suite życia SilkRoad**.
    
     ![Przypisz użytkownika][202] 
 
-3. W menu hello na górze hello, kliknij przycisk **użytkowników**.
+3. W menu u góry kliknij **użytkowników**.
    
     ![Przypisz użytkownika][203] 
 
-4. Na liście hello użytkowników, wybierz **Simona Britta**.
+4. Na liście użytkowników wybierz **Simona Britta**.
 
-5. W narzędzi hello na dole powitania kliknij **przypisać**.
+5. Na pasku narzędzi u dołu, kliknij przycisk **przypisać**.
    
     ![Przypisz użytkownika][205]
 
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
-Celem Hello w tej sekcji jest tootest programu Azure AD SSO konfiguracji przy użyciu hello panelu dostępu.  
+Celem tej sekcji służy do testowania konfigurację usługi Azure AD z logowania jednokrotnego za pomocą panelu dostępu.  
 
-Po kliknięciu kafelka Suite życia SilkRoad hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour SilkRoad życia pakietu aplikacji.
+Po kliknięciu kafelka SilkRoad życia pakietu w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane SilkRoad życia pakietu aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

@@ -1,5 +1,5 @@
 ---
-title: "aaaSchema aktualizuje sierpnia-1-2015 preview — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
+title: "Schemat aktualizuje sierpnia-1-2015 preview — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
 description: "Utworzenie definicji JSON dla usługi Azure Logic Apps z wersji schematu 2015-08-01-preview"
 author: stepsic-microsoft-com
 manager: anneta
@@ -15,38 +15,38 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.openlocfilehash: 950cd18a27aa1859c4f0b6116de3fb8699d746c4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Aktualizacje schematu dla usługi Azure Logic Apps - 1 sierpnia 2015 preview
 
-Tego nowego schematu i interfejsu API w wersji dla usługi Azure Logic Apps zawiera kluczowe ulepszenia lepiej aplikacje logiki niezawodnych i łatwiejsze toouse:
+Ten nowy schemat i interfejsu API w wersji dla usługi Azure Logic Apps obejmuje klucza ulepszeniom aplikacje logiki bardziej niezawodne i łatwiejsze w:
 
-*   Witaj **APIApp** typ akcji jest zaktualizowane tooa nowe [ **APIConnection** ](#api-connections) typ akcji.
-*   **Powtórz** jest zmieniana zbyt[**Foreach**](#foreach).
-*   Witaj [ **odbiornik HTTP** aplikacji interfejsu API](#http-listener) nie jest już wymagane.
+*   **APIApp** typ akcji jest aktualizowana do nowej [ **APIConnection** ](#api-connections) typ akcji.
+*   **Powtórz** została zmieniona na [ **Foreach**](#foreach).
+*   [ **Odbiornik HTTP** aplikacji interfejsu API](#http-listener) nie jest już wymagane.
 *   Wywoływanie podrzędnego przepływy pracy używa [nowego schematu](#child-workflows).
 
 <a name="api-connections"></a>
-## <a name="move-tooapi-connections"></a>Przenieś tooAPI połączeń
+## <a name="move-to-api-connections"></a>Przenieś do połączenia interfejsu API
 
-Zmiana największych Hello jest, że nie masz już toodeploy API Apps do Twojej subskrypcji platformy Azure, aby można było używać interfejsów API. Poniżej przedstawiono sposoby hello użyć interfejsów API:
+Największych zmiana jest, że nie masz już do wdrożenia aplikacji interfejsu API w Twojej subskrypcji platformy Azure, aby można było używać interfejsów API. Poniżej przedstawiono sposoby używania interfejsów API:
 
 * Zarządzane interfejsy API
 * Niestandardowych interfejsów API sieci Web
 
-Każdego sposób różni się nieznacznie, ponieważ ich zarządzania i modele obsługi są różne. Jedną z zalet tego modelu jest jest już ograniczone tooresources, które są wdrożone w grupie zasobów platformy Azure. 
+Każdego sposób różni się nieznacznie, ponieważ ich zarządzania i modele obsługi są różne. Jedną z zalet tego modelu jest jest już ograniczona do zasobów, które zostały wdrożone w grupie zasobów platformy Azure. 
 
 ### <a name="managed-apis"></a>Zarządzane interfejsy API
 
 Firma Microsoft zarządza niektórych interfejsów API w Twoim imieniu, takie jak usługi Office 365, Salesforce, Twitter i FTP. Można użyć niektóre zarządzane interfejsy API jako — jest, takich jak Bing tłumaczenia, a inne wymagają konfiguracji. Ta konfiguracja jest nazywana *połączenia*.
 
-Na przykład gdy używasz usługi Office 365, możesz utworzyć połączenie, które zawiera token logowania usługi Office 365. Token ten jest bezpiecznie przechowywane i odświeżania, dzięki czemu aplikację logiki zawsze można wywołać interfejsu API usługi Office 365 hello. Alternatywnie Chcąc tooconnect tooyour SQL lub serwer FTP, należy utworzyć połączenie, które ma hello parametry połączenia. 
+Na przykład gdy używasz usługi Office 365, możesz utworzyć połączenie, które zawiera token logowania usługi Office 365. Token ten jest bezpiecznie przechowywane i odświeżenia, tak aby aplikację logiki zawsze można wywołać interfejsu API usługi Office 365. Alternatywnie Jeśli chcesz się połączyć z serwerem SQL lub FTP, należy utworzyć połączenie, które ma parametry połączenia. 
 
-W tej definicji, te akcje są nazywane `APIConnection`. Oto przykład połączenia, które wywołuje toosend usługi Office 365 wiadomości e-mail:
+W tej definicji, te akcje są nazywane `APIConnection`. Oto przykład połączenia, który wywołuje usługi Office 365, aby wysłać wiadomość e-mail:
 
 ```
 {
@@ -75,17 +75,17 @@ W tej definicji, te akcje są nazywane `APIConnection`. Oto przykład połączen
 }
 ```
 
-Witaj `host` obiekt jest część danych wejściowych jest unikatowy tooAPI połączeń, która zawiera części tow: `api` i `connection`.
+`host` Obiekt jest część danych wejściowych jest unikatowy dla połączenia interfejsu API, która zawiera części tow: `api` i `connection`.
 
-Witaj `api` ma środowiska uruchomieniowego hello znajduje się adres URL gdzie, która zarządza interfejsu API. Widać hello wszystkie dostępne zarządzanych interfejsów API, wywołując `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+`api` Ma środowisko uruchomieniowe znajduje się adres URL gdzie, która zarządza interfejsu API. Widoczne wszystkie dostępne zarządzanych interfejsów API, wywołując `GET https://management.azure.com/subscriptions/{subid}/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
 
-Jeśli korzystasz z interfejsu API hello interfejsu API może lub nie może mieć dowolną *parametry połączenia* zdefiniowane. Jeśli nie hello interfejsu API, nie *połączenia* jest wymagana. Jeśli nie hello interfejsu API, należy utworzyć połączenie. Hello utworzone połączenie ma nazwę hello, którą wybierzesz. Następnie odwoływać się nazwy hello w hello `connection` obiektu wewnątrz hello `host` obiektu. toocreate połączenia w grupie zasobów, rozmów:
+Jeśli korzystasz z interfejsu API interfejsu API może lub nie może mieć dowolną *parametry połączenia* zdefiniowane. Jeśli interfejs API nie jest zaznaczone, nie *połączenia* jest wymagana. Jeśli nie interfejsu API, należy utworzyć połączenie. Utworzone połączenie ma nazwę, którą wybierzesz. Następnie odwoływać się do nazwy w `connection` obiektów wewnątrz `host` obiektu. Aby utworzyć połączenie w grupie zasobów, należy wywołać:
 
 ```
 PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/providers/Microsoft.Web/connections/{name}?api-version=2015-08-01-preview
 ```
 
-Z hello następującej treści:
+O następujących treści:
 
 ```
 {
@@ -94,7 +94,7 @@ Z hello następującej treści:
       "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
     },
     "parameterValues": {
-        "accountName": "{hello name of hello storage account -- hello set of parameters is different for each API}"
+        "accountName": "{The name of the storage account -- the set of parameters is different for each API}"
     }
   },
   "location": "{Logic app's location}"
@@ -104,7 +104,7 @@ Z hello następującej treści:
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>Wdrażanie zarządzanych interfejsów API w szablonie usługi Azure Resource Manager
 
 Można utworzyć pełne zastosowanie szablonu usługi Azure Resource Manager tak długo, jak interakcyjnego logowania nie jest wymagane.
-Jeśli logowanie jest wymagana, można skonfigurować wszystkie elementy z szablonem usługi Azure Resource Manager hello, ale nadal masz toovisit hello portalu tooauthorize hello połączenia. 
+Jeśli logowanie jest wymagana, można skonfigurować wszystko przy użyciu szablonu usługi Azure Resource Manager, ale nadal jest konieczne można znaleźć w portalu w celu autoryzowania połączeń. 
 
 ```
     "resources": [{
@@ -194,13 +194,13 @@ Jeśli logowanie jest wymagana, można skonfigurować wszystkie elementy z szabl
     }]
 ```
 
-Widać w tym przykładzie połączeń hello są tylko zasoby, które znajdują się w grupie zasobów. Odwołujących się do hello zarządzane interfejsy API tooyou dostępne w ramach subskrypcji.
+Widać w tym przykładzie, że połączenia są tylko zasoby, które znajdują się w grupie zasobów. Odwołujących się do zarządzanych interfejsów API dostępne w Twojej subskrypcji.
 
 ### <a name="your-custom-web-apis"></a>Niestandardowych interfejsów API sieci Web
 
-Jeśli używasz własnych interfejsów API, z nich nie zarządzany przez firmę Microsoft, Użyj wbudowanych hello **HTTP** toocall akcji je. Nadaje się doskonale środowisko powinny ujawniać punktu końcowego struktury Swagger dla interfejsu API. Ten punkt końcowy włącza hello projektanta aplikacji logiki toorender hello w danych wejściowych i danych wyjściowych dla interfejsu API. Bez struktury Swagger Projektant hello można tylko wyświetlić hello wejściami i wyjściami jako nieprzezroczyste obiektów JSON.
+Jeśli używasz własnych interfejsów API, z nich nie zarządzany przez firmę Microsoft, użyj wbudowanej **HTTP** akcji do wywołania. Nadaje się doskonale środowisko powinny ujawniać punktu końcowego struktury Swagger dla interfejsu API. Ten punkt końcowy włącza projektanta aplikacji logiki do renderowania danych wejściowych i danych wyjściowych dla interfejsu API. Bez struktury Swagger Projektant można tylko wyświetlić wejściami i wyjściami jako nieprzezroczyste obiektów JSON.
 
-Oto przykład przedstawiający hello nowe `metadata.apiDefinitionUrl` właściwości:
+Oto przykład przedstawiający nowy `metadata.apiDefinitionUrl` właściwości:
 
 ```
 {
@@ -219,13 +219,13 @@ Oto przykład przedstawiający hello nowe `metadata.apiDefinitionUrl` właściwo
 }
 ```
 
-Jeśli na serwerze sieci Web interfejsu API w usłudze Azure App Service interfejsu API sieci Web automatycznie zostanie wyświetlony hello listę dostępnych w Projektancie hello akcji. Jeśli nie masz toopaste w adresie URL hello bezpośrednio. punktu końcowego struktury Swagger Hello musi być nieuwierzytelnione toobe w hello projektanta aplikacji logiki, mimo że można zabezpieczyć hello interfejsu API się z dowolnej metody, które obsługuje struktury Swagger.
+Jeśli na serwerze sieci Web interfejsu API w usłudze Azure App Service, interfejs API sieci Web automatycznie zostanie wyświetlony na liście Akcje dostępne w projektancie. Jeśli nie masz wkleić bezpośrednio w adresie URL. Musi być nieuwierzytelniony punktu końcowego struktury Swagger może być używany w Projektancie aplikacji logiki, mimo że można zabezpieczyć API z dowolnej metody, które obsługuje struktury Swagger.
 
 ### <a name="call-deployed-api-apps-with-2015-08-01-preview"></a>Wywołaj wdrożonej aplikacji interfejsu API za pomocą 2015-08-01-preview
 
-Jeśli wdrożono aplikację interfejsu API można wywołać aplikacji hello z hello **HTTP** akcji.
+Jeśli wdrożono aplikację interfejsu API można wywołać w aplikacji przy użyciu **HTTP** akcji.
 
-Na przykład, jeśli pliki toolist Dropbox Twoje **2014-12-01-preview** definicji wersji schematu może mieć wyglądać mniej więcej tak:
+Na przykład, jeśli używasz usługi Dropbox Aby wyświetlić listę plików z **2014-12-01-preview** definicji wersji schematu może mieć wyglądać mniej więcej tak:
 
 ```
 {
@@ -266,7 +266,7 @@ Na przykład, jeśli pliki toolist Dropbox Twoje **2014-12-01-preview** definicj
 }
 ```
 
-Można utworzyć hello równoważne akcji HTTP, tak jak ten przykład sekcji parametrów hello hello definicję aplikacji logiki pozostaje bez zmian:
+Odpowiednik akcji HTTP, tak jak ten przykład można utworzyć sekcji Parametry definicję aplikacji logiki pozostaje bez zmian:
 
 ```
 {
@@ -298,18 +298,18 @@ Instruktaż te właściwości jeden po drugim:
 | Właściwość Action | Opis |
 | --- | --- |
 | `type` |`Http`Zamiast`APIapp` |
-| `metadata.apiDefinitionUrl` |toouse tej akcji w hello projektanta aplikacji logiki, obejmują punktu końcowego metadanych hello, który jest tworzony z:`{api app host.gateway}/api/service/apidef/{last segment of hello api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
-| `inputs.uri` |Utworzone na podstawie:`{api app host.gateway}/api/service/invoke/{last segment of hello api app host.id}/{api app operation}?api-version=2015-01-14` |
+| `metadata.apiDefinitionUrl` |Aby użyć tej akcji w Projektancie aplikacji logiki, obejmują punktu końcowego metadanych, który jest tworzony z:`{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `inputs.uri` |Utworzone na podstawie:`{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` |Zawsze`POST` |
-| `inputs.body` |Parametry aplikacji identyczne toohello interfejsu API |
-| `inputs.authentication` |Identyczne toohello uwierzytelniania aplikacji interfejsu API |
+| `inputs.body` |Takie same jak parametry aplikacji interfejsu API |
+| `inputs.authentication` |Taki sam jak uwierzytelniania aplikacji interfejsu API |
 
-Ta metoda powinna działać dla wszystkich akcji w aplikacji interfejsu API. Należy jednak pamiętać, że tych poprzedniej aplikacji interfejsu API nie są już obsługiwane. Dlatego należy przenieść tooone hello dwóch innych poprzedniej opcji zarządzanego interfejsu API lub hosting niestandardowego interfejsu API sieci Web.
+Ta metoda powinna działać dla wszystkich akcji w aplikacji interfejsu API. Należy jednak pamiętać, że tych poprzedniej aplikacji interfejsu API nie są już obsługiwane. Dlatego należy przenieść do jednej z dwóch innych poprzednie opcje zarządzanego interfejsu API lub hosting niestandardowego interfejsu API sieci Web.
 
 <a name="foreach"></a>
-## <a name="renamed-repeat-tooforeach"></a>Zmieniono jego nazwę, powtórz too'foreach "
+## <a name="renamed-repeat-to-foreach"></a>Zmieniona "repeat" do "foreach"
 
-Dla wcześniejszych wersji schematu hello Otrzymaliśmy dużo opinie klientów który **Powtórz** było trudne i poprawnie nie przechwytywania, który **Powtórz** jest rzeczywiście dla każdej pętli. W rezultacie firma Microsoft zmieniono `repeat` zbyt`foreach`. Na przykład wcześniej piszesz:
+W poprzedniej wersji schematu Otrzymaliśmy dużo opinie klientów który **Powtórz** było trudne i poprawnie nie przechwytywania, który **Powtórz** jest rzeczywiście dla każdej pętli. W rezultacie firma Microsoft zmieniono `repeat` do `foreach`. Na przykład wcześniej piszesz:
 
 ```
 {
@@ -343,11 +343,11 @@ Teraz możesz zapisać:
 }
 ```
 
-Witaj funkcja `@repeatItem()` został poprzednio tooreference hello bieżący element jest iterowane za pośrednictwem. Ta funkcja jest teraz uproszczone zbyt`@item()`. 
+Funkcja `@repeatItem()` był wcześniej używany do bieżącego elementu trwa iterowane przez odwołanie. Ta funkcja jest teraz uproszczona w celu `@item()`. 
 
 ### <a name="reference-outputs-from-foreach"></a>Odwołanie do danych wyjściowych ze "foreach"
 
-Dla uproszczenia hello danych wyjściowych ze `foreach` akcje nie są ujęte w nazwie obiektu `repeatItems`. Gdy hello danych wyjściowych z poprzednich hello `repeat` zostały przykładzie:
+Dla uproszczenia, dane wyjściowe z `foreach` akcje nie są ujęte w nazwie obiektu `repeatItems`. Podczas gdy dane wyjściowe z poprzedniej `repeat` zostały przykładzie:
 
 ```
 {
@@ -387,7 +387,7 @@ Teraz te dane wyjściowe są:
 ]
 ```
 
-Wcześniej tooget toohello treść hello akcji podczas odwoływania się do tych danych wyjściowych:
+Wcześniej Aby uzyskać dostęp do treści akcji podczas odwoływania się do tych danych wyjściowych:
 
 ```
 {
@@ -423,19 +423,19 @@ Teraz można wykonać zamiast tego:
 }
 ```
 
-Wprowadzone zmiany hello funkcji `@repeatItem()`, `@repeatBody()`, i `@repeatOutputs()` są usuwane.
+Wprowadzone zmiany funkcji `@repeatItem()`, `@repeatBody()`, i `@repeatOutputs()` są usuwane.
 
 <a name="http-listener"></a>
 ## <a name="native-http-listener"></a>Natywny odbiornika HTTP
 
-Witaj możliwości są obecnie wbudowane w odbiornik HTTP. Nie należy więc toodeploy aplikacji interfejsu API odbiornika HTTP. Zobacz [hello pełne szczegóły na temat toomake Twojego logiki aplikacji punktu końcowego można wywołać tutaj](../logic-apps/logic-apps-http-endpoint.md). 
+Odbiornik HTTP funkcji są obecnie wbudowane w. Dlatego nie należy wdrożyć aplikację interfejsu API odbiornika HTTP. Zobacz [szczegółowe instrukcje punkt końcowy aplikacji logiki można wywołać w tym miejscu](../logic-apps/logic-apps-http-endpoint.md). 
 
-Wprowadzone zmiany, firma Microsoft usunęła hello `@accessKeys()` funkcji, która możemy zastąpione hello `@listCallbackURL()` funkcja uzyskania hello punktu końcowego, gdy jest to konieczne. Ponadto teraz należy zdefiniować co najmniej jeden wyzwalacz w aplikacji logiki. Jeśli chcesz zbyt`/run` hello przepływu pracy, musi mieć jeden z tych wyzwalaczy: `manual`, `apiConnectionWebhook`, lub `httpWebhook`.
+Wprowadzone zmiany, firma Microsoft usunęła `@accessKeys()` funkcji, która możemy zastąpione `@listCallbackURL()` funkcja uzyskania punktu końcowego, gdy jest to konieczne. Ponadto teraz należy zdefiniować co najmniej jeden wyzwalacz w aplikacji logiki. Jeśli chcesz `/run` przepływu pracy, musi mieć jeden z tych wyzwalaczy: `manual`, `apiConnectionWebhook`, lub `httpWebhook`.
 
 <a name="child-workflows"></a>
 ## <a name="call-child-workflows"></a>Wywołania podrzędne przepływy pracy
 
-Wcześniej wywoływania podrzędnego przepływów pracy wymagane będzie toohello przepływu pracy, uzyskiwanie hello token dostępu i token hello wklejanie w definicji aplikacji logiki hello miejscu toocall podrzędny przepływ pracy. Hello nowego schematu aplikacji logiki hello aparat automatycznie generuje sygnaturę dostępu Współdzielonego w czasie wykonywania dla hello podrzędny przepływ pracy, nie ma zbyt wklejania żadnych kluczy tajnych w definicji hello. Oto przykład:
+Wcześniej wywoływania podrzędnego przepływów pracy wymagane do przepływu pracy, pobierania tokenu dostępu i wklejania tokenu w definicji aplikacji logiki, którym chcesz się połączyć podrzędny przepływ pracy. Z nowym schematem aparat Logic Apps automatycznie generuje SAS w czasie wykonywania przepływu pracy podrzędny, dzięki czemu nie trzeba Wklej żadnych kluczy tajnych w definicji. Oto przykład:
 
 ```
 "mynestedwf": {
@@ -461,20 +461,20 @@ Wcześniej wywoływania podrzędnego przepływów pracy wymagane będzie toohell
 }
 ```
 
-Drugi poprawy jest udostępniamy możliwość sprawowania podrzędnych hello przychodzące żądanie toohello pełny dostęp przepływów pracy. Oznacza to, że można przekazywać parametrów w hello *zapytania* sekcji w hello *nagłówki* obiekt i który pełni można zdefiniować hello całej treści.
+Drugi poprawy jest udostępniamy możliwość sprawowania podrzędne przepływy pracy pełny dostęp do żądania przychodzącego. Oznacza to, że można przekazać parametr w *zapytania* sekcji i w *nagłówki* obiekt i który pełni można zdefiniować całej treści.
 
-Na koniec są wymagane zmiany toohello podrzędny przepływ pracy. Podczas wcześniej można bezpośrednio wywołać podrzędny przepływ pracy, teraz należy zdefiniować punkt końcowy wyzwalacza w przepływie pracy powitania dla hello toocall nadrzędnego. Ogólnie rzecz biorąc, należy dodać wyzwalacz, który ma `manual` typu, a następnie użyj tego wyzwalacza w definicji nadrzędnej hello. Uwaga hello `host` właściwość specjalnie ma `triggerName` ponieważ należy zawsze określić, której wyzwalacz wywoływania.
+Ponadto istnieją zmiany wymagane w celu podrzędny przepływ pracy. Gdy wcześniej można bezpośrednio wywołać podrzędny przepływ pracy, teraz należy zdefiniować punkt końcowy wyzwalacza w przepływie pracy nadrzędnego do wywołania. Ogólnie rzecz biorąc, należy dodać wyzwalacz, który ma `manual` typu, a następnie użyj tego wyzwalacza w definicji nadrzędnej. Uwaga `host` właściwość specjalnie ma `triggerName` ponieważ należy zawsze określić, której wyzwalacz wywoływania.
 
 ## <a name="other-changes"></a>Inne zmiany
 
 ### <a name="new-queries-property"></a>Nowe właściwości "zapytania"
 
-Wszystkie typy akcji obsługują teraz nowe dane wejściowe o nazwie `queries`. Obiektu strukturalnego, zamiast ponownego ciąg hello tooassemble ręcznie, może być tych danych wejściowych.
+Wszystkie typy akcji obsługują teraz nowe dane wejściowe o nazwie `queries`. Tych danych wejściowych może być obiektu strukturalnego, zamiast konieczności ręcznie utworzyć ciąg.
 
-### <a name="renamed-parse-function-toojson"></a>Zmieniona "parse()" Funkcja too'json() "
+### <a name="renamed-parse-function-to-json"></a>Zmieniono nazwę parse() funkcji "json()"
 
-Dodajemy więcej zawartości typy wkrótce, dlatego firma Microsoft zmieniona hello `parse()` funkcji zbyt`json()`.
+Dodajemy więcej zawartości typy wkrótce, dlatego firma Microsoft zmieniona `parse()` funkcja `json()`.
 
 ## <a name="coming-soon-enterprise-integration-apis"></a>Wkrótce: interfejsy API integracji przedsiębiorstwa
 
-Nie mamy zarządzanej wersji jeszcze hello interfejsów API integracji przedsiębiorstwa, takich jak AS2. W tym samym czasie możesz użyć istniejących wdrożonej BizTalk interfejsów API za pomocą hello akcji HTTP. Aby uzyskać więcej informacji, zobacz "Używanie już raz wdrożonej aplikacji interfejsu API" w hello [plan integracji](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+Nie mamy zarządzanej wersji jeszcze API integracji przedsiębiorstwa, takich jak AS2. W tym samym czasie możesz użyć istniejących wdrożonej BizTalk interfejsów API za pomocą akcji HTTP. Aby uzyskać więcej informacji, zobacz "Używanie już raz wdrożonej aplikacji interfejsu API" w [plan integracji](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

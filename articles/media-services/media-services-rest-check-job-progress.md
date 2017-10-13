@@ -1,6 +1,6 @@
 ---
-title: "postęp zadania toocheck aaaHow przy użyciu interfejsu API REST | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tootrack zadania postępu."
+title: "Jak sprawdzić postęp zadania przy użyciu interfejsu API REST | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak śledzić postęp zadania."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 32f12c81422566d980a7200b1662a3cc3ebc39a8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fea4383e81f3ca21955252cf1d573f1b347b5a38
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-check-job-progress"></a>Porady: sprawdzanie postępu zadania
 > [!div class="op_single_selector"]
@@ -28,14 +28,14 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Po uruchomieniu zadania często wymagają postępu zadania tootrack sposób. Stan zadania hello można sprawdzić za pomocą właściwości stanu zadania hello. Aby uzyskać więcej informacji na powitania Właściwość State, zobacz [właściwości jednostki zadania](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+Po uruchomieniu zadania często wymagają sposób, aby śledzić postęp zadania. Stan zadania można znaleźć przy użyciu właściwości stanu zadania. Aby uzyskać więcej informacji na temat właściwości stanu zobacz [właściwości jednostki zadania](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
-## <a name="connect-toomedia-services"></a>Połączenie usług tooMedia
+## <a name="connect-to-media-services"></a>Łączenie się z usługą Media Services
 
-Aby uzyskać informacje dotyczące tooconnect toohello AMS interfejsu API, zobacz temat [hello dostępu do interfejsu API usługi Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Po pomyślnym połączeniu toohttps://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Należy wykonać kolejne wywołania toohello nowy identyfikator URI.
+>Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
 
 ## <a name="check-job-progress"></a>Sprawdzanie postępu zadania
 
@@ -66,7 +66,7 @@ Odpowiedź:
     DataServiceVersion: 3.0;
     Strict-Transport-Security: max-age=31536000; includeSubDomains
 
-    {"odata.metadata":"https://media.windows.net/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into tooH264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]} 
+    {"odata.metadata":"https://media.windows.net/api/$metadata#Jobs","value":[{"Id":"nb:jid:UUID:f3c43f94-327f-2347-90bb-3bf79f8559f1","Name":"Encoding BigBuckBunny into to H264 Adaptive Bitrate MP4 Set 720p","Created":"2015-02-11T01:46:08.897","LastModified":"2015-02-11T01:46:08.897","EndTime":null,"Priority":0,"RunningDuration":0.0,"StartTime":"2015-02-11T01:46:16.58","State":2,"TemplateId":null,"JobNotificationSubscriptions":[]}]} 
 
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services

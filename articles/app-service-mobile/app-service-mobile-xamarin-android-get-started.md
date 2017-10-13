@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Started with Azure Mobile Apps dotyczących aplikacji platformy Xamarin.Android"
-description: "Postępuj zgodnie z tego samouczka tooget uruchomiony przy użyciu usługi Azure Mobile Apps do tworzenia aplikacji dla systemu Xamarin Android"
+title: "Wprowadzenie do usługi Azure Mobile Apps dla aplikacji platformy Xamarin.Android"
+description: "Wykonaj czynności opisane w tym samouczku, aby rozpocząć używanie usługi Azure Mobile Apps do tworzenia aplikacji platformy Xamarin Android."
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,61 +14,61 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 38710660d9328fe3c068efca972f76aa8b6e049b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6b41fd8090dd771fc40769c134bad258b3d4bd36
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-xamarinandroid-app"></a>Tworzenie aplikacji platformy Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
-Ten samouczek pokazuje, jak tooadd wewnętrznej bazy danych opartej na chmurze usługi tooa aplikacji platformy Xamarin.Android. Aby uzyskać więcej informacji, zobacz artykuł [Co to jest usługa Mobile Apps](app-service-mobile-value-prop.md).
+W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do aplikacji platformy Xamarin.Android. Aby uzyskać więcej informacji, zobacz artykuł [Co to jest usługa Mobile Apps](app-service-mobile-value-prop.md).
 
-Zrzut ekranu aplikacji hello ukończone znajduje się poniżej:
+Zrzut ekranu gotowej aplikacji znajduje się poniżej:
 
 ![][0]
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Mobile Apps dotyczących aplikacji platformy Xamarin.Android.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-toocomplete tego samouczka należy hello następujące wymagania wstępne:
+Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
 
-* Aktywne konto platformy Azure. Jeśli nie masz konta, należy utworzyć konto wersji próbnej platformy Azure i Uzyskaj bezpłatne aplikacje mobilne too10. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktywne konto platformy Azure. Jeśli nie masz konta, skorzystaj z bezpłatnej wersji próbnej platformy Azure i uzyskaj maksymalnie 10 bezpłatnych aplikacji mobilnych. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Visual Studio z programem Xamarin. Instrukcje można znaleźć w temacie [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin).
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Tworzenie zaplecza Aplikacji mobilnej Azure
-Wykonaj te kroki toocreate zaplecza aplikacji mobilnej.
+Wykonaj te kroki, aby utworzyć zaplecze aplikacji mobilnej.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-W ten sposób zainicjowano obsługę zaplecza Aplikacji mobilnej Azure, które może być używane przez aplikacje mobilne klientów. Następnie należy pobrać Projekt serwera dla prostego "Lista czynności do wykonania" wewnętrznej bazy danych i opublikuj go tooAzure.
+W ten sposób zainicjowano obsługę zaplecza Aplikacji mobilnej Azure, które może być używane przez aplikacje mobilne klientów. Następnie należy pobrać projekt serwera dla prostego zaplecza typu „lista czynności do wykonania” i opublikować go na platformie Azure.
 
-## <a name="configure-hello-server-project"></a>Konfigurowanie projektu serwera hello
+## <a name="configure-the-server-project"></a>Konfigurowanie projektu serwera
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-xamarinandroid-app"></a>Pobieranie i uruchamianie aplikacji platformy Xamarin.Android hello
-1. W obszarze **Pobierz i uruchom projekt platformy Xamarin.Android**, kliknij przycisk hello **Pobierz** przycisku.
+## <a name="download-and-run-the-xamarinandroid-app"></a>Pobieranie i uruchamianie aplikacji platformy Xamarin.Android
+1. W obszarze **Pobierz i uruchom projekt platformy Xamarin.Android** kliknij przycisk **Pobierz**.
 
-      Zapisz komputera lokalnego tooyour hello projektu skompresowany plik i zanotuj miejsce jego zapisania.
-2. Naciśnij klawisz hello **F5** klucza toobuild hello projekt i uruchomić aplikacji hello.
-3. W aplikacji hello wpisz znaczący tekst, na przykład *hello ukończenia samouczka* , a następnie kliknij przycisk hello **Dodaj** przycisku.
+      Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
+2. Naciśnij klawisz **F5**, aby skompilować projekt i uruchomić aplikację.
+3. W aplikacji wpisz znaczący tekst, na przykład *Ukończ samouczek*, a następnie kliknij przycisk **Dodaj**.
 
     ![][10]
 
-    Dane z hello żądania zostaną wstawione do tabeli TodoItem hello. Elementy przechowywane w tabeli hello są zwracane przez zaplecze aplikacji mobilnej hello, a dane są wyświetlane na liście hello.
+    Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze aplikacji mobilnej, a dane są wyświetlane na liście.
 
    > [!NOTE]
-   > Możesz przejrzeć kod hello, który uzyskuje dostęp do Twojej aplikacji mobilnej tooquery wewnętrznej bazy danych i wstawiania danych, który znajduje się w hello plik o nazwie ToDoActivity.cs C#.
+   > Możesz przejrzeć kod uzyskujący dostęp do zaplecza aplikacji mobilnej w celu wyszukiwania i wstawiania danych. Znajduje się on w pliku C# ToDoActivity.cs.
    >
    >
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dodaj aplikację tooyour synchronizacji w trybie Offline](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Dodaj aplikację tooyour uwierzytelniania](app-service-mobile-xamarin-android-get-started-users.md)
-* [Dodawanie aplikacji platformy Xamarin.Android tooyour powiadomień wypychanych](app-service-mobile-xamarin-android-get-started-push.md)
-* [Jak toouse hello zarządzanego klienta usługi Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Dodawanie synchronizacji offline do aplikacji](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Dodawanie uwierzytelniania do aplikacji](app-service-mobile-xamarin-android-get-started-users.md)
+* [Dodawanie powiadomień wypychanych do aplikacji platformy Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md)
+* [Jak używać zarządzanego klienta usługi Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png

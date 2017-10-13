@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Jive | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Jive."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Jive."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,89 +13,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b1c0d0bc2d79427c055f577fe5f9d30d10f1bbdd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 957b152fdd40d08a867e788b0cb9f7d57ed481e4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-jive-for-user-provisioning"></a>Samouczek: Konfigurowanie Jive Inicjowanie obsługi użytkowników
 
-Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w Jive i Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooJive.
+Celem tego samouczka jest opisano czynności, które należy wykonać w Jive i Azure AD można automatycznie udostępnić i usuwanie kont użytkowników z usługi Azure AD do Jive.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
+Scenariusz opisany w tym samouczku założono, że już następujące elementy:
 
 *   Dzierżawy usługi Azure Active directory.
 *   Jive jednokrotnego włączone subskrypcji.
 *   Konto użytkownika w Jive z uprawnieniami administratora zespołu.
 
-## <a name="assigning-users-toojive"></a>Przypisywanie użytkowników tooJive
+## <a name="assigning-users-to-jive"></a>Przypisywanie użytkowników do Jive
 
-Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD jest zsynchronizowany.
+Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD jest zsynchronizowany.
 
-Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy toodecide jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy wymagają dostępu tooyour Jive aplikacji. Po decyzję, wykonując instrukcje hello w tym miejscu można przypisać tych użytkowników tooyour Jive aplikacji:
+Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji Jive. Po decyzję, postępując zgodnie z instrukcjami w tym miejscu można przypisać tych użytkowników do aplikacji Jive:
 
-[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toojive"></a>Ważne porady dotyczące przypisywania tooJive użytkowników
+### <a name="important-tips-for-assigning-users-to-jive"></a>Ważne porady dotyczące przypisywania użytkowników do Jive
 
-*   Zalecane jest pojedynczego użytkownika usługi Azure AD można przypisać hello tootest tooJive inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest pojedynczego użytkownika usługi Azure AD można przypisać do Jive do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-*   Podczas przypisywania tooJive użytkownika, należy wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" Hello nie działa w przypadku inicjowania obsługi administracyjnej.
+*   Przypisanie użytkownika do Jive, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" nie działa w przypadku inicjowania obsługi administracyjnej.
 
 ## <a name="enable-user-provisioning"></a>Włącz inicjowanie obsługi użytkowników
 
-Ta sekcja przeprowadzi Cię przez łączenie inicjowania obsługi interfejsu API konta użytkownika tooJive programu Azure AD i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz konta użytkowników przypisane w Jive w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkownika w Jive inicjowania obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania konta użytkowników przypisane w Jive w oparciu o przypisania użytkowników i grup w usłudze Azure AD.
 
 > [!TIP]
-> Można też tooenabled na języku SAML rejestracji jednokrotnej dla Jive hello instrukcje podane w następujących [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+> Można też włączyć na języku SAML rejestracji jednokrotnej dla Jive, wykonując instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
 
-### <a name="tooconfigure-user-account-provisioning"></a>Przypisywanie konta użytkowników tooconfigure:
+### <a name="to-configure-user-account-provisioning"></a>Aby skonfigurować, inicjowanie obsługi konta użytkownika:
 
-Celem Hello w tej sekcji jest toooutline jak tooJive kont tooenable użytkownika usługi Active Directory Inicjowanie obsługi użytkowników.
-W ramach tej procedury jest wymagana tooprovide należy toorequest z Jive.com token zabezpieczeń użytkownika.
+Celem tej sekcji jest przedstawiają sposób włączania kont użytkowników usługi Active Directory do Jive Inicjowanie obsługi użytkowników.
+W ramach tej procedury możesz są wymagane do potrzebnych do żądania od Jive.com token zabezpieczeń użytkownika.
 
-1. W hello [portalu Azure](https://portal.azure.com), Przeglądaj toohello **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
+1. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
 
-2. Jive został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpieniem Jive za pomocą hello pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **Jive** w galerii aplikacji hello. Wybierz Jive z wyników wyszukiwania hello i dodać go tooyour listy aplikacji.
+2. Jeśli Jive został już skonfigurowany dla logowania jednokrotnego, wyszukiwanie wystąpieniem Jive przy użyciu pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **Jive** w galerii aplikacji. Wybierz Jive w wynikach wyszukiwania, a następnie dodaj go do listy aplikacji.
 
-3. Wybierz wystąpienia programu Jive, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
+3. Wybierz wystąpienia programu Jive, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
 
-4. Zestaw hello **inicjowania obsługi trybu** za**automatyczne**. 
+4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**. 
 
     ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-jive-provisioning-tutorial/provisioning.png)
 
-5. W obszarze hello **poświadczeń administratora** sekcji, podaj hello następujące ustawienia konfiguracji:
+5. W obszarze **poświadczeń administratora** sekcji, skonfiguruj następujące ustawienia konfiguracji:
    
-    a. W hello **nazwa użytkownika administratora Jive** tekstowym, wpisz nazwę, która ma hello konta Jive **administratorem** profil Jive.com przypisane.
+    a. W **nazwa użytkownika administratora Jive** pole tekstowe, typ, nazwa, która ma konta Jive **Administrator systemu** profil Jive.com przypisane.
    
-    b. W hello **hasło administratora Jive** tekstowym, wpisz hello hasło dla tego konta.
+    b. W **hasło administratora Jive** tekstowym, wpisz hasło dla tego konta.
    
-    c. W hello **adres URL dzierżawy Jive** pole tekstowe, typ hello Jive — adres URL dzierżawy.
+    c. W **adres URL dzierżawy Jive** tekstowym, wpisz adres URL dzierżawy Jive.
       
       > [!NOTE]
-      > adres URL dzierżawy Jive Hello jest adres URL, który jest używany przez toolog Twojej organizacji w tooJive.  
-      > Zwykle adres URL hello ma hello następującego formatu: **www.\< Organizacja\>. jive.com**.          
+      > Adres URL dzierżawy Jive jest adres URL, który jest używany przez organizację do logowania do Jive.  
+      > Zwykle adres URL ma następujący format: **www.\< Organizacja\>. jive.com**.          
 
-6. W portalu Azure hello, kliknij przycisk **Testuj połączenie** tooensure usługi Azure AD można połączyć tooyour Jive aplikację.
+6. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji Jive.
 
-7. Wprowadź adres e-mail hello osoby lub grupy, które powinny być przesyłane powiadomienia błąd inicjowania obsługi administracyjnej w hello **wiadomość E-mail z powiadomieniem** pola i zaznacz pole wyboru hello poniżej.
+7. Wprowadź adres e-mail osoby lub grupy, który powinien zostać wyświetlony inicjowania obsługi administracyjnej powiadomienia o błędach w **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru poniżej.
 
 8. Kliknij przycisk **zapisać.**
 
-9. W obszarze hello sekcji mapowania, wybierz **tooJive synchronizacji Azure Active Directory użytkowników.**
+9. W sekcji mapowania wybierz **synchronizacji Azure Active Directory użytkownikom Jive.**
 
-10. W hello **mapowań atrybutów** Przejrzyj hello atrybutów użytkowników, które są synchronizowane z usługą Azure AD tooJive. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch hello kontom Jive dla operacji update. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
+10. W **mapowań atrybutów** Przejrzyj atrybutów użytkowników, które są synchronizowane z usługi Azure AD Jive. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w Jive dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-11. tooenable hello inicjowania obsługi usługi Azure AD dla Jive, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w sekcji Ustawienia hello
+11. Aby włączyć usługi Azure AD usługi dla Jive inicjowania obsługi administracyjnej, zmień **stan inicjowania obsługi administracyjnej** do **na** w sekcji Ustawienia
 
 12. Kliknij przycisk **zapisać.**
 
-Rozpoczyna się hello wstępnej synchronizacji użytkowników i/lub grupy przypisane tooJive w hello użytkowników i grup sekcji. Witaj początkowej synchronizacji ma tooperform dłużej niż kolejne synchronizacje, które występują co około 20 minut, tak długo, jak działa usługa hello. Można użyć hello **szczegóły synchronizacji** sekcji postępu toomonitor i wykonaj łącza tooprovisioning działania raporty, które opisują wszystkie działania wykonywane przez hello usługi w aplikacji Jive inicjowania obsługi administracyjnej.
+Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do Jive w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej na Jive aplikacji.
 
-Można teraz utworzyć konta testowego. Poczekaj na górę minut too20 tooverify, który hello konto zostało zsynchronizowane tooJive.
+Można teraz utworzyć konta testowego. Aby sprawdzić, czy konto zostało zsynchronizowane z Jive poczekaj maksymalnie 20 minut.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure przykład DMZ — Tworzenie prostego DMZ z grup NSG | Dokumentacja firmy Microsoft"
+title: "Przykład DMZ Azure — Tworzenie prostego DMZ z grup NSG | Dokumentacja firmy Microsoft"
 description: "Tworzenie DMZ z grup zabezpieczeń sieci (NSG)"
 services: virtual-network
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 11c5c6026da30fbc9c5e585f5c16e2d411d6fd80
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Przykład 1 — Tworzenie prostego DMZ, za pomocą grup NSG z szablonem usługi Azure Resource Manager
-[Zwraca toohello strony najlepsze rozwiązania w zakresie granic zabezpieczeń][HOME]
+[Wróć do strony zabezpieczeń granic najlepsze praktyki][HOME]
 
 > [!div class="op_single_selector"]
 > * [Szablon usługi Resource Manager](virtual-networks-dmz-nsg.md)
@@ -29,61 +29,61 @@ ms.lasthandoff: 10/06/2017
 > 
 >
 
-W tym przykładzie tworzy DMZ pierwotnych z czterech serwerów z systemem Windows i grupy zabezpieczeń sieci. W tym przykładzie przedstawiono każdy hello odpowiedni szablon sekcje tooprovide głębsze zrozumienie każdego kroku. Istnieje również tooprovide sekcji scenariusza ruchu krok po kroku omówiono sposób obejmującego hello warstw zabezpieczeń w strefie DMZ hello ruchu. Na koniec w sekcji odwołań hello jest pełny szablon hello toobuild kodu i instrukcje tego tootest środowiska i doświadczenia z różnych scenariuszy. 
+W tym przykładzie tworzy DMZ pierwotnych z czterech serwerów z systemem Windows i grupy zabezpieczeń sieci. W tym przykładzie przedstawiono sekcjach odpowiedni szablon zapewnienie głębsze zrozumienie każdego kroku. Brak sekcji scenariusza ruchu zapewnienie krok po kroku omówiono sposób ruch będzie kontynuowana za pośrednictwem warstw zabezpieczeń w strefie DMZ. Na koniec w odwołaniach sekcja jest kod pełną szablonu i instrukcje dotyczące tworzenia tego środowiska, aby przetestować i wypróbować różne scenariusze. 
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)] 
 
 ![Przychodzący DMZ z grupy NSG][1]
 
 ## <a name="environment-description"></a>Opis elementu środowiska
-W tym przykładzie subskrypcja zawiera hello następujące zasoby:
+W tym przykładzie subskrypcja zawiera następujące zasoby:
 
 * Pojedyncza grupa zasobów
 * Sieć wirtualną z dwiema podsieciami; "FrontEnd" i "Wewnętrzna"
-* Grupy zabezpieczeń sieci jest stosowane tooboth podsieci
+* Grupy zabezpieczeń sieci jest stosowany do obu podsieci
 * Windows Server, który reprezentuje serwer sieci web aplikacji ("IIS01")
 * Dwóch systemów windows Server, które reprezentują serwery zaplecza aplikacji ("AppVM01", "AppVM02")
 * Windows server, który reprezentuje serwer DNS ("DNS01")
-* Publiczny adres IP skojarzone z serwerem sieci web aplikacji hello
+* Publiczny adres IP skojarzone z serwerem aplikacji sieci web
 
-W sekcji odwołań hello ma szablonu usługi Azure Resource Manager tooan link, który tworzy środowisko hello opisane w tym przykładzie. Maszyny wirtualne hello budynku i sieciami wirtualnymi, mimo że wykonywane przez szablon przykład Witaj, nie opisano szczegółowo w tym dokumencie. 
+W sekcji odwołań ma łącza do szablonu usługi Azure Resource Manager, który tworzy środowisko opisane w tym przykładzie. Tworzenie maszyn wirtualnych i sieci wirtualnych, mimo że wykonywane przez szablon przykład nie opisano szczegółowo w tym dokumencie. 
 
-**toobuild to środowisko** (szczegółowe instrukcje znajdują się w sekcji odwołań hello tego dokumentu);
+**Do tworzenia tego środowiska** (szczegółowe informacje znajdują się w sekcji odwołań tego dokumentu);
 
-1. Wdrażanie hello szablon Menedżera zasobów Azure w: [szablonów Szybki Start Azure][Template]
-2. Zainstaluj hello przykładową aplikację w: [przykładowy skrypt aplikacji][SampleApp]
+1. Wdrażanie szablonu Azure Resource Manager w: [szablonów Szybki Start Azure][Template]
+2. Instalowanie przykładowej aplikacji w: [przykładowy skrypt aplikacji][SampleApp]
 
 >[!NOTE]
->serwerami zaplecza tooany tooRDP w tym wystąpieniu serwera IIS hello jest używany jako "okno przeskoku". Pierwszy serwer IIS toohello RDP i następnie z serwera hello wewnętrznej toohello RDP serwera IIS. Alternatywnie publicznego adresu IP może być skojarzony z każdym serwerem kart interfejsu Sieciowego protokołu RDP łatwiejsze.
+>Dla protokołu RDP do serwerów zaplecza w tym wystąpieniu na serwerze usług IIS jest używana jako "okno przeskoku". Pierwszy RDP do serwera IIS, a następnie z RDP serwera usług IIS do serwera zaplecza. Alternatywnie publicznego adresu IP może być skojarzony z każdym serwerem kart interfejsu Sieciowego protokołu RDP łatwiejsze.
 > 
 >
 
-Witaj poniższe sekcje zawierają szczegółowy opis hello sieciowej grupy zabezpieczeń i jak działa w tym przykładzie przez Instruktaż klucza wierszy hello szablon Menedżera zasobów Azure.
+Poniższe sekcje zawierają szczegółowy opis grupy zabezpieczeń sieci i jak działa w tym przykładzie przez Instruktaż klucza wierszy szablon Menedżera zasobów Azure.
 
 ## <a name="network-security-groups-nsg"></a>Sieciowe grupy zabezpieczeń (NSG)
 Na przykład grupy NSG jest wbudowana i następnie ładowane przy użyciu sześciu reguł. 
 
 >[!TIP]
->Ogólnie rzecz biorąc należy najpierw utworzyć określonych reguł "Zezwalaj" i następnie ostatnio hello bardziej ogólnym reguły "Deny". Witaj priorytetem nakazują reguły są sprawdzane jako pierwsze. Po znalezieniu tooapply tooa określonej reguły ruchu nie dodatkowe reguły są sprawdzane. Reguły NSG można zastosować w hello kierunek ruchu przychodzącego lub wychodzącego (z perspektywy hello hello podsieci).
+>Ogólnie rzecz biorąc należy najpierw utworzyć określonych reguł "Zezwalaj", a następnie ostatni bardziej ogólnym reguły "Deny". Określają priorytetem, do których zasady są oceniane pierwszej. Po znalezieniu ruchu do zastosowania do określonej reguły nie dalsze reguły są sprawdzane. Reguły NSG można zastosować w jednym kierunku ruchu przychodzącego lub wychodzącego (z punktu widzenia podsieci).
 >
 >
 
-Deklaratywnie hello następujące reguły są tworzone dla ruchu przychodzącego:
+Deklaratywnie są tworzone następujące reguły dla ruchu przychodzącego:
 
 1. Wewnętrzny ruch DNS (port 53) jest dozwolony
-2. Ruch protokołu RDP (port 3389) z tooany Internet hello maszyny Wirtualnej jest dozwolony
-3. Ruch HTTP (port 80) z serwera tooweb internetowej hello (IIS01) jest dozwolony
-4. Cały ruch (wszystkie porty) z IIS01 tooAppVM1 jest dozwolona
-5. Cały ruch (wszystkie porty) z hello Internet toohello odmowa całej sieci wirtualnej (obie podsieci)
-6. Cały ruch (wszystkie porty) z podsieci wewnętrznej bazy danych toohello podsieci frontonu hello jest zabroniony
+2. Ruch RDP (port 3389) z Internetu do żadnej maszyny Wirtualnej jest dozwolone.
+3. Ruch HTTP (port 80) z Internetu do serwera sieci web (IIS01) jest dozwolone.
+4. Cały ruch (wszystkie porty) z IIS01 do AppVM1 jest dozwolone.
+5. Cały ruch (wszystkie porty) z Internetu do całej sieci wirtualnej (obie podsieci) jest zabroniony.
+6. Odmowa cały ruch (wszystkie porty) z podsieci frontonu do podsieci wewnętrznej bazy danych
 
-Z tych podsieci tooeach powiązane zasady, jeśli żądanie HTTP zostało ruch przychodzący z serwera sieci web toohello Internet hello zarówno 3 reguły (Zezwalaj) i 5 (odmówić go) będą miały zastosowania, ale ponieważ reguła 3 ma wyższy priorytet tylko będą miały zastosowania i reguły 5 nie przybyły do gry. W związku z tym żądania HTTP hello mogliby toohello serwera sieci web. Jeśli ten sam ruch próbował tooreach hello DNS01 serwer, reguła 5 (odmowa) mogą być hello pierwszy tooapply hello ruch w sieci i nie będzie dozwolone toopass toohello serwera. Reguła 6 (Odmów) blokuje hello podsieci frontonu z mówić toohello podsieci wewnętrznej bazy danych (z wyjątkiem dozwolonego ruchu w regułach 1 i 4), ten zestaw reguł chroni hello sieci wewnętrznej bazy danych w przypadku, gdy osoba atakująca dokonywania hello aplikacji sieci web na powitania serwera sieci Web, osoba atakująca hello czy ograniczona toohello dostępu do sieci (tylko tooresources udostępniane na serwerze AppVM01 hello) wewnętrznej bazy danych "protected".
+Przy użyciu tych reguł powiązany z każdej podsieci, jeśli żądanie HTTP zostało przychodzące z Internetu do serwera sieci web, obie zasady 3 (Zezwalaj) i 5 (odmówić go) będą miały zastosowania, ale ponieważ reguła 3 ma wyższy priorytet tylko będą miały zastosowania i reguły 5 nie przybyły do gry. W związku z tym żądania HTTP będą dozwolone na serwerze sieci web. Jeśli ten sam ruch próbował uzyskać dostęp do serwera DNS01, reguły 5 (odmowa) będzie pierwszy do zastosowania, a ruch będzie niedozwolone do przekazania na serwer. Reguła 6 (Odmów) blokuje podsieci frontonu z rozmowie z podsieci wewnętrznej bazy danych (z wyjątkiem dozwolonego ruchu w regułach 1 i 4), ten zestaw reguł chroni sieć zaplecze w przypadku dokonywania atakująca aplikacja sieci web frontonu, osoba atakująca może mieć ograniczony dostęp do sieci wewnętrznej bazy danych "chronionej" (tylko dla zasobów udostępniane na serwerze AppVM01).
 
-Brak domyślnej regule wychodzącej, która umożliwia ruchu wychodzącego toohello internet. Na przykład firma Microsoft zezwala na ruch wychodzący i nie modyfikowanie reguł wychodzących. tooapply tootraffic zasad zabezpieczeń w obu kierunkach, Routing zdefiniowany przez użytkownika jest wymagany i jest przedstawione w "W przykładzie 3" na powitania [strony najlepsze rozwiązania w zakresie granic zabezpieczeń][HOME].
+Brak domyślnej regule wychodzącej, która umożliwia ruchu wychodzącego do Internetu. Na przykład firma Microsoft zezwala na ruch wychodzący i nie modyfikowanie reguł wychodzących. Aby zastosować zasady zabezpieczeń do ruchu wychodzącego w obu kierunkach, zdefiniowane routingu użytkownika jest wymagana i jest przedstawione w "W przykładzie 3" na [strony najlepsze rozwiązania w zakresie granic zabezpieczeń][HOME].
 
 Każda reguła omówiono bardziej szczegółowo w następujący sposób:
 
-1. Zasób grupy zabezpieczeń sieci musi być skonkretyzowanym toohold hello reguł:
+1. Do przechowywania reguł, można utworzyć wystąpienia zasobu sieciowej grupy zabezpieczeń:
 
     ```JSON
     "resources": [
@@ -97,10 +97,10 @@ Każda reguła omówiono bardziej szczegółowo w następujący sposób:
     ]
     ``` 
 
-2. Pierwsza reguła Hello w tym przykładzie zezwala na ruch DNS między wszystkich serwerów DNS toohello sieciach wewnętrznych hello podsieci wewnętrznej bazy danych. Reguła Hello zawiera niektóre ważne parametry:
-  * "destinationAddressPrefix" - reguły można używać specjalnego typu o nazwie "Domyślna Tag" prefiksu adresu, tagi te są dostarczane przez system identyfikatorów, które umożliwia tooaddress łatwy sposób większych kategorii prefiksy adresów. Ta zasada domyślna Tag "Internet" hello używa toosignify żadnego adresu poza hello sieci wirtualnej. Inne etykiety prefiks są VirtualNetwork i AzureLoadBalancer.
-  * "Direction" oznacza, że w kierunku przepływu ruchu obowiązuje tej reguły. Kierunek Hello jest z punktu widzenia hello hello podsieci lub maszyny wirtualnej (w zależności od tego, gdzie jest powiązany ten NSG). W związku z tym jeśli "Przychodzącego" jest skierowany i ruchu jest wprowadzanie hello podsieci, powinna zostać zastosowana reguła hello i ruchu wychodzącego hello podsieci nie może niekorzystnie wpływać tej reguły.
-  * "Priority" Ustawia kolejność hello, w jakiej są oceniane przepływu ruchu. Witaj niższe hello numer hello wyższy hello priorytet. Jeśli reguła ma zastosowanie tooa przepływu ruchu, żadne dalsze reguły są przetwarzane. W związku z tym jeśli reguła o priorytecie 1 zezwala na ruch i reguły o priorytecie 2 nie zezwala na ruch i tootraffic mają zastosowanie zarówno reguły, a następnie hello ruch będzie dozwolony tooflow (ponieważ reguła 1 ma wyższy priorytet trwało efektu i żadne dodatkowe reguły zostały zastosowane).
+2. Pierwsza reguła w tym przykładzie zezwala na ruch DNS od wszystkich sieci wewnętrznej na serwerze DNS w podsieci wewnętrznej bazy danych. Reguła ma pewne ważne parametry:
+  * "destinationAddressPrefix" - reguły można używać specjalnego typu o nazwie "Domyślna Tag" prefiksu adresu, tagi te są dostarczane przez system identyfikatorów, które umożliwiają łatwe większych kategorię prefiksy adresów. Ta zasada taga domyślna "Internet" oznaczającego dowolny adres poza siecią wirtualną. Inne etykiety prefiks są VirtualNetwork i AzureLoadBalancer.
+  * "Direction" oznacza, że w kierunku przepływu ruchu obowiązuje tej reguły. Kierunek jest z punktu widzenia podsieci lub maszyny wirtualnej (w zależności od tego, gdzie jest powiązany ten NSG). W związku z tym jeśli kierunek jest "Przychodzącego" i ruchu jest wprowadzanie podsieci, reguła powinna zostać zastosowana i ruchu wychodzącego do podsieci nie może mieć wpływ na przez tę regułę.
+  * "Priority" Ustawia kolejność, w jakiej są oceniane przepływu ruchu. Im mniejsza liczba wyższy priorytet. Jeśli reguła ma zastosowanie do określonego ruchu, żadne dalsze reguły są przetwarzane. W związku z tym jeśli reguła o priorytecie 1 zezwala na ruch i reguły o priorytecie 2 nie zezwala na ruch i obie zasady są stosowane do ruchu, a następnie ruch będzie dozwolony przepływ (ponieważ reguła 1 ma wyższy priorytet trwało efektu i żadne dodatkowe reguły zostały zastosowane).
   * "Access" oznacza, że jeśli wpływ ta reguła jest zablokowane ("Deny") lub dozwolonych ("Zezwalaj").
 
     ```JSON
@@ -122,7 +122,7 @@ Każda reguła omówiono bardziej szczegółowo w następujący sposób:
       },
     ```
 
-3. Ta zasada umożliwia tooflow ruchu protokołu RDP z portem RDP toohello internet hello na dowolnym serwerze na powitania powiązany podsieci. 
+3. Ta reguła zezwala na ruch RDP mogą przepływać z Internetu z portem RDP na dowolnym serwerze podsieci powiązania. 
 
     ```JSON
     {
@@ -141,13 +141,13 @@ Każda reguła omówiono bardziej szczegółowo w następujący sposób:
     },
     ```
 
-4. Ta zasada umożliwia przychodzący serwera sieci web hello toohit internet ruchu. Ta zasada nie zmienia hello zachowanie routingu. zasada Hello umożliwia tylko ruch kierowany do IIS01 toopass. W związku z tym jeśli ruch z hello Internet miał powitania serwera sieci web jako miejsca docelowego tej reguły spowoduje zezwolenie i zatrzymać dalsze przetwarzanie reguł. (W regule hello priorytetem 140 wszystkich innych przychodzącego ruchu internetowego jest zablokowane). Jeśli jest tylko przetwarzania ruchu HTTP, ta zasada może być dalsze ograniczeniami tooonly Zezwalaj docelowy Port 80.
+4. Ta zasada umożliwia ruch przychodzący z Internetu trafienie serwera sieci web. Ta zasada nie powoduje zmiany zachowania routingu. Ta reguła zezwala tylko ruch kierowany do IIS01 do przekazania. W związku z tym jeśli ruch z Internetu miał serwera sieci web jako miejsca docelowego tej reguły spowoduje zezwolenie i zatrzymać dalsze przetwarzanie reguł. (W regule priorytetem 140 wszystkich innych przychodzącego ruchu internetowego jest zablokowana). Tylko w przypadku przetwarzania ruchu HTTP, ta zasada można dodatkowo ograniczony umożliwiają tylko docelowy Port 80.
 
     ```JSON
     {
       "name": "enable_web_rule",
       "properties": {
-        "description": "Enable Internet too[variables('VM01Name')]",
+        "description": "Enable Internet to [variables('VM01Name')]",
         "protocol": "Tcp",
         "sourcePortRange": "*",
         "destinationPortRange": "80",
@@ -160,13 +160,13 @@ Każda reguła omówiono bardziej szczegółowo w następujący sposób:
       },
     ```
 
-5. Ta zasada umożliwia toopass ruchu z serwera IIS01 powitania serwera AppVM01 toohello, nowsze reguła blokuje cały ruch tooBackend frontonu. tooimprove tej reguły, jeśli znane jest hello portu, który powinien zostać dodane. Na przykład, jeśli serwer IIS hello jest naciśnięcie tylko programu SQL Server na AppVM01, zakres portów docelowych hello należy zmienić "*" (Any) too1433 (hello SQL port) dzięki czemu mniejsze przychodzących ataki AppVM01 aplikacji sieci web hello kiedykolwiek zagrożenia bezpieczeństwa.
+5. Ta zasada umożliwia ruch z serwera IIS01 na serwerze AppVM01 nowsze bloków reguł innych frontonu dla ruchu wewnętrznej bazy danych. Aby poprawić tej reguły, jeśli znane jest port, który ma zostać dodany. Na przykład, jeśli serwer usług IIS jest naciśnięcie tylko programu SQL Server na AppVM01, zakres portów docelowych należy zmienić "*" (Any) 1433 (SQL port), dzięki czemu mniejsze przychodzących ataki AppVM01 aplikacji sieci web kiedykolwiek zagrożenia bezpieczeństwa.
 
     ```JSON
     {
       "name": "enable_app_rule",
       "properties": {
-        "description": "Enable [variables('VM01Name')] too[variables('VM02Name')]",
+        "description": "Enable [variables('VM01Name')] to [variables('VM02Name')]",
         "protocol": "*",
         "sourcePortRange": "*",
         "destinationPortRange": "*",
@@ -179,13 +179,13 @@ Każda reguła omówiono bardziej szczegółowo w następujący sposób:
     },
      ```
 
-6. Ta reguła nie zezwala na ruch z hello internet tooany serwerów w sieci hello. Przy użyciu reguł hello priorytetem 110 i 120 efekt hello jest tooallow tylko dla ruchu przychodzącego ruchu toohello zapory internetowej i porty protokołu RDP na serwerach i blokuje wszystkie inne elementy. Ta reguła jest "awaryjnie" reguły tooblock wszystkie przepływy nieoczekiwany.
+6. Ta reguła nie zezwala na ruch z Internetu do serwerów w sieci. Z regułami priorytetem 110 i 120 efekt jest umożliwienie tylko internet ruchu przychodzącego zapory i porty protokołu RDP na serwerach i bloków, wszystkie inne elementy. Ta reguła jest regułą "awaryjnego" Aby zablokować wszystkie przepływy nieoczekiwany.
 
     ```JSON
     {
       "name": "deny_internet_rule",
       "properties": {
-        "description": "Isolate hello [variables('VNetName')] VNet from hello Internet",
+        "description": "Isolate the [variables('VNetName')] VNet from the Internet",
         "protocol": "*",
         "sourcePortRange": "*",
         "destinationPortRange": "*",
@@ -198,13 +198,13 @@ Każda reguła omówiono bardziej szczegółowo w następujący sposób:
     },
      ```
 
-7. Reguła końcowego Hello nie zezwala na ruch z podsieci wewnętrznej bazy danych toohello podsieci frontonu hello. Ponieważ ta reguła jest tylko regułę ruchu przychodzącego, odwrotnej ruch jest dozwolony (od toohello zaplecza hello frontonu).
+7. Reguła końcowego nie zezwala na ruch z podsieci frontonu do podsieci wewnętrznej bazy danych. Ponieważ ta reguła jest tylko regułę ruchu przychodzącego, odwrotnej ruch jest dozwolony (z wewnętrznej bazy danych do serwera sieci Web).
 
     ```JSON
     {
       "name": "deny_frontend_rule",
       "properties": {
-        "description": "Isolate hello [variables('Subnet1Name')] subnet from hello [variables('Subnet2Name')] subnet",
+        "description": "Isolate the [variables('Subnet1Name')] subnet from the [variables('Subnet2Name')] subnet",
         "protocol": "*",
         "sourcePortRange": "*",
         "destinationPortRange": "*",
@@ -218,143 +218,143 @@ Każda reguła omówiono bardziej szczegółowo w następujący sposób:
     ```
 
 ## <a name="traffic-scenarios"></a>Scenariusze ruchu
-#### <a name="allowed-internet-tooweb-server"></a>(*Dozwolone*) Internet tooweb serwera
-1. Użytkownik internet zażąda strony HTTP od hello publicznego adresu IP karty Sieciowej skojarzonych z hello kart IIS01 powitalne
-2. Hello publicznego adresu IP przekazuje ruch toohello sieci wirtualnej kierunku IIS01 (powitania serwera sieci web)
+#### <a name="allowed-internet-to-web-server"></a>(*Dozwolone*) Internetu do serwera sieci web
+1. Użytkownik internet zażąda strony HTTP od publicznego adresu IP karty Sieciowej, skojarzonych z IIS01 kart interfejsu Sieciowego
+2. Publiczny adres IP przekazuje ruch do sieci wirtualnej kierunku IIS01 (serwer sieci web)
 3. Podsieci frontonu rozpoczyna przetwarzanie przychodzących reguł:
-  1. Reguły NSG 1 DNS (Domain Name System) nie ma zastosowania, przenieść toonext regułę
-  2. 2 reguły NSG (RDP) nie ma zastosowania, przenieść toonext regułę
-  3. Zastosować grupy NSG zasady 3 (Internet tooIIS01), ruch jest dozwolony, stop reguły przetwarzania
-4. Ruch trafienia wewnętrzny adres IP serwera sieci web hello IIS01 (10.0.1.5)
-5. IIS01 nasłuchuje ruchu w sieci web, otrzymuje tego żądania i rozpoczyna przetwarzanie żądania hello
-6. IIS01 hello programu SQL Server na AppVM01 monituje o podanie informacji
+  1. Reguły NSG 1 DNS (Domain Name System) nie są spełnione, przejść do następnej reguły
+  2. 2 reguły NSG (RDP) nie są spełnione, przejść do następnej reguły
+  3. Zastosować grupy NSG zasady 3 (Internet w celu IIS01), ruch jest dozwolony, stop reguły przetwarzania
+4. Ruch trafienia wewnętrzny adres IP serwera sieci web IIS01 (10.0.1.5)
+5. IIS01 nasłuchuje ruchu w sieci web, otrzymuje tego żądania i rozpoczyna przetwarzanie żądania
+6. IIS01 żąda od serwera SQL na AppVM01 informacji
 7. Nie reguł dla ruchu wychodzącego w podsieci frontonu, ruch jest dozwolony
-8. podsieci wewnętrznej bazy danych Hello rozpoczyna przetwarzanie przychodzącej reguły:
-  1. Reguły NSG 1 DNS (Domain Name System) nie ma zastosowania, przenieść toonext regułę
-  2. 2 reguły NSG (RDP) nie ma zastosowania, przenieść toonext regułę
-  3. Grupa NSG zasady 3 (Internet tooFirewall) nie ma zastosowania, przenieść toonext regułę
-  4. Zastosuj 4 reguły NSG (IIS01 tooAppVM01), ruch jest dozwolony, stop reguły przetwarzania
-9. AppVM01 odbiera hello zapytanie SQL i odpowiada
-10. Ponieważ na powitania podsieci wewnętrznej bazy danych nie ma żadnych reguł dla ruchu wychodzącego, odpowiedź hello jest dozwolona
+8. Podsieci wewnętrznej bazy danych rozpoczyna się przetwarzanie przychodzących reguł:
+  1. Reguły NSG 1 DNS (Domain Name System) nie są spełnione, przejść do następnej reguły
+  2. 2 reguły NSG (RDP) nie są spełnione, przejść do następnej reguły
+  3. Grupy NSG zasady 3 (Internet do zapory) nie są spełnione, przejść do następnej reguły
+  4. 4 reguły NSG zastosować (IIS01 do AppVM01), ruch jest dozwolony, Zatrzymaj przetwarzania zasad
+9. AppVM01 odbiera zapytanie SQL i odpowiada
+10. Ponieważ nie ma żadnych reguł dla ruchu wychodzącego w podsieci wewnętrznej bazy danych, odpowiedzi jest dozwolona
 11. Podsieci frontonu rozpoczyna przetwarzanie przychodzących reguł:
-  1. Nie zasady grupy NSG, stosowanym tooInbound ruchu z podsieci frontonu hello wewnętrznej bazy danych podsieci toohello, więc żaden hello reguły NSG
-  2. Reguła systemowa domyślne Hello zezwala na ruch między podsieciami umożliwia ruch więc hello ruch jest dozwolony.
-12. Serwer usług IIS Hello odbiera odpowiedź SQL hello i kończy odpowiedź HTTP hello i przesyła toohello. strona żądająca
-13. Ponieważ nie ma żadnych reguł dla ruchu wychodzącego w podsieci frontonu hello, odpowiedź hello jest dozwolone i hello Internet użytkownik otrzymuje hello strona sieci web.
+  1. Nie zasady grupy NSG, która ma zastosowanie do przychodzącego ruchu w podsieci wewnętrznej bazy danych do podsieci frontonu, aby żadna grupa NSG zasady stosowane
+  2. Domyślna reguła system zezwala na ruch między podsieciami pozwala tego rodzaju ruch, ruch jest dozwolony.
+12. Serwer usług IIS otrzyma odpowiedź SQL i kończy odpowiedź HTTP i przesyła do osoby żądającej
+13. Ponieważ nie ma żadnych reguł dla ruchu wychodzącego w podsieci frontonu, odpowiedź jest dozwolone i użytkownik Internet otrzymuje żądanej strony sieci web.
 
-#### <a name="allowed-rdp-tooiis-server"></a>(*Dozwolone*) serwera tooIIS RDP
-1. TooIIS01 sesji protokołu RDP na powitania publicznego adresu IP karty Sieciowej skojarzonych z hello IIS01 karty Sieciowej (ten publiczny adres IP znajduje się za pośrednictwem hello portalu lub programu PowerShell) powitalne żąda uprawnień administratora serwera w Internecie
-2. Hello publicznego adresu IP przekazuje ruch toohello sieci wirtualnej kierunku IIS01 (powitania serwera sieci web)
+#### <a name="allowed-rdp-to-iis-server"></a>(*Dozwolone*) RDP do serwera IIS
+1. Administrator serwera w Internecie żądań sesji protokołu RDP do IIS01 na publiczny adres IP karty sieciowej, skojarzonych z kart IIS01 (ten publiczny adres IP znajduje się za pośrednictwem portalu lub programu PowerShell)
+2. Publiczny adres IP przekazuje ruch do sieci wirtualnej kierunku IIS01 (serwer sieci web)
 3. Podsieci frontonu rozpoczyna przetwarzanie przychodzących reguł:
-  1. Reguły NSG 1 DNS (Domain Name System) nie ma zastosowania, przenieść toonext regułę
+  1. Reguły NSG 1 DNS (Domain Name System) nie są spełnione, przejść do następnej reguły
   2. Zastosuj 2 reguły NSG (RDP), ruch jest dozwolony, stop reguły przetwarzania
 4. Z nie reguł dla ruchu wychodzącego Zastosuj reguły domyślne i zwracany ruch jest dozwolony
 5. Włączono sesji protokołu RDP
-6. IIS01 monit o podanie hello nazwy użytkownika i hasła
+6. IIS01 monit o podanie nazwy użytkownika i hasła
 
 >[!NOTE]
->serwerami zaplecza tooany tooRDP w tym wystąpieniu serwera IIS hello jest używany jako "okno przeskoku". Pierwszy serwer IIS toohello RDP i następnie z serwera hello wewnętrznej toohello RDP serwera IIS.
+>Dla protokołu RDP do serwerów zaplecza w tym wystąpieniu na serwerze usług IIS jest używana jako "okno przeskoku". Pierwszy RDP do serwera IIS, a następnie z RDP serwera usług IIS do serwera zaplecza.
 >
 >
 
 #### <a name="allowed-web-server-dns-look-up-on-dns-server"></a>(*Dozwolone*) wyszukiwanie nazwy DNS serwera sieci Web na serwerze DNS
-1. Serwer, IIS01, musi na www.data.gov strumieniowego źródła danych w sieci Web, ale wymaga tooresolve hello adres.
-2. Hello konfiguracji sieci dla listy sieci wirtualnej hello DNS01 (10.0.2.4 podsieci wewnętrznej bazy danych hello) jako podstawowy serwer DNS hello IIS01 wysyła tooDNS01 żądania DNS hello
+1. Sieci Web serwera, IIS01, musi na www.data.gov strumieniowego źródła danych, ale musi rozpoznać adresu.
+2. Konfigurację sieci dla listy sieci wirtualnej DNS01 (10.0.2.4 podsieci wewnętrznej bazy danych) jako podstawowy serwer DNS, IIS01 wysyła żądanie DNS DNS01
 3. Nie reguł dla ruchu wychodzącego w podsieci frontonu, ruch jest dozwolony
 4. Podsieci wewnętrznej bazy danych rozpoczyna się przetwarzanie przychodzących reguł:
   * Zastosuj reguły NSG 1 DNS (Domain Name System), ruch jest dozwolony, stop reguły przetwarzania
-5. Serwer DNS odbiera żądanie hello
-6. Serwer DNS nie ma adresu hello w pamięci podręcznej i prosi o główny serwer DNS na powitania internet
+5. Serwer DNS odbiera żądanie
+6. Serwer DNS nie ma adresu w pamięci podręcznej i prosi o główny serwer DNS w Internecie
 7. Nie reguł dla ruchu wychodzącego w podsieci wewnętrznej bazy danych, ruch jest dozwolony
-8. DNS w Internecie serwer odpowiada, ponieważ ta sesja została zainicjowana wewnętrznie, odpowiedź hello jest dozwolone.
-9. Serwer DNS będzie buforować odpowiedź hello i odpowiada tooIIS01 wstecz toohello żądania początkowego
+8. DNS w Internecie serwer odpowiada, ponieważ ta sesja została zainicjowana wewnętrznie, odpowiedź jest dozwolone.
+9. Serwer DNS będzie buforować odpowiedź i odpowiada na żądania początkowego do IIS01
 10. Nie reguł dla ruchu wychodzącego w podsieci wewnętrznej bazy danych, ruch jest dozwolony
 11. Podsieci frontonu rozpoczyna przetwarzanie przychodzących reguł:
-  1. Nie zasady grupy NSG, stosowanym tooInbound ruchu z podsieci frontonu hello wewnętrznej bazy danych podsieci toohello, więc żaden hello reguły NSG
-  2. Hello domyślna systemu reguła zezwala na ruch między podsieciami umożliwiałyby tego rodzaju ruch, ruch hello jest dozwolony
-12. IIS01 odbiera odpowiedź hello z DNS01
+  1. Nie zasady grupy NSG, która ma zastosowanie do przychodzącego ruchu w podsieci wewnętrznej bazy danych do podsieci frontonu, aby żadna grupa NSG zasady stosowane
+  2. Domyślna reguła system zezwala na ruch między podsieciami pozwala tego rodzaju ruch, ruch jest dozwolony
+12. IIS01 odbiera odpowiedź z DNS01
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Dozwolone*) pliku dostępu do serwera sieci Web na AppVM01
 1. IIS01 żąda pliku na AppVM01
 2. Nie reguł dla ruchu wychodzącego w podsieci frontonu, ruch jest dozwolony
-3. podsieci wewnętrznej bazy danych Hello rozpoczyna przetwarzanie przychodzącej reguły:
-  1. Reguły NSG 1 DNS (Domain Name System) nie ma zastosowania, przenieść toonext regułę
-  2. 2 reguły NSG (RDP) nie ma zastosowania, przenieść toonext regułę
-  3. Grupa NSG zasady 3 (Internet tooIIS01) nie ma zastosowania, przenieść toonext regułę
-  4. Zastosuj 4 reguły NSG (IIS01 tooAppVM01), ruch jest dozwolony, stop reguły przetwarzania
-4. AppVM01 odbiera żądanie hello i wysyła plik (przy założeniu, że autoryzacji dostępu)
-5. Ponieważ na powitania podsieci wewnętrznej bazy danych nie ma żadnych reguł dla ruchu wychodzącego, odpowiedź hello jest dozwolona
+3. Podsieci wewnętrznej bazy danych rozpoczyna się przetwarzanie przychodzących reguł:
+  1. Reguły NSG 1 DNS (Domain Name System) nie są spełnione, przejść do następnej reguły
+  2. 2 reguły NSG (RDP) nie są spełnione, przejść do następnej reguły
+  3. Grupa NSG zasady 3 (Internet w celu IIS01) nie są spełnione, przejść do następnej reguły
+  4. 4 reguły NSG zastosować (IIS01 do AppVM01), ruch jest dozwolony, Zatrzymaj przetwarzania zasad
+4. AppVM01 odbiera żądanie i odpowiada plik (przy założeniu, że autoryzacji dostępu)
+5. Ponieważ nie ma żadnych reguł dla ruchu wychodzącego w podsieci wewnętrznej bazy danych, odpowiedzi jest dozwolona
 6. Podsieci frontonu rozpoczyna przetwarzanie przychodzących reguł:
-  1. Nie zasady grupy NSG, stosowanym tooInbound ruchu z podsieci frontonu hello wewnętrznej bazy danych podsieci toohello, więc żaden hello reguły NSG
-  2. Reguła systemowa domyślne Hello zezwala na ruch między podsieciami umożliwia ruch więc hello ruch jest dozwolony.
-7. Serwer usług IIS Hello odbiera hello pliku
+  1. Nie zasady grupy NSG, która ma zastosowanie do przychodzącego ruchu w podsieci wewnętrznej bazy danych do podsieci frontonu, aby żadna grupa NSG zasady stosowane
+  2. Domyślna reguła system zezwala na ruch między podsieciami pozwala tego rodzaju ruch, ruch jest dozwolony.
+7. Serwer usług IIS odbiera plik
 
-#### <a name="denied-rdp-toobackend"></a>(*Odmowa*) toobackend protokołu RDP
-1. Użytkownik internet próbuje tooRDP tooserver AppVM01
-2. Ponieważ nie ma żadnych publiczne adresy IP skojarzone z tym serwerami kart interfejsu Sieciowego, tego rodzaju ruch nigdy nie wprowadzić hello sieci wirtualnej i nie dostęp powitania serwera
+#### <a name="denied-rdp-to-backend"></a>(*Odmowa*) RDP do wewnętrznej bazy danych
+1. Użytkownik internet próbuje RDP do serwera AppVM01
+2. Ponieważ nie ma żadnych publiczne adresy IP skojarzone z tym serwerami kart interfejsu Sieciowego, tego rodzaju ruch nigdy nie wprowadzić sieci wirtualnej, a nie dociera do serwera
 3. Jednak jeśli do publicznego adresu IP zostały włączone dla jakiegoś powodu, reguły NSG 2 (RDP) umożliwiałyby ten ruch
 
 >[!NOTE]
->serwerami zaplecza tooany tooRDP w tym wystąpieniu serwera IIS hello jest używany jako "okno przeskoku". Pierwszy serwer IIS toohello RDP i następnie z serwera hello wewnętrznej toohello RDP serwera IIS.
+>Dla protokołu RDP do serwerów zaplecza w tym wystąpieniu na serwerze usług IIS jest używana jako "okno przeskoku". Pierwszy RDP do serwera IIS, a następnie z RDP serwera usług IIS do serwera zaplecza.
 >
 >
 
-#### <a name="denied-web-toobackend-server"></a>(*Odmowa*) serwera sieci Web toobackend
-1. Użytkownik internet próbuje tooaccess pliku na AppVM01
-2. Ponieważ nie ma żadnych publiczne adresy IP skojarzone z tym serwerami kart interfejsu Sieciowego, tego rodzaju ruch nigdy nie wprowadzić hello sieci wirtualnej i nie dostęp powitania serwera
-3. Jeśli do publicznego adresu IP zostały włączone dla jakiegoś powodu, reguły NSG 5 (Internet tooVNet) czy zablokować ruch
+#### <a name="denied-web-to-backend-server"></a>(*Odmowa*) do serwera wewnętrznej bazy danych w sieci Web
+1. Użytkownik internet próbuje uzyskać dostęp do pliku na AppVM01
+2. Ponieważ nie ma żadnych publiczne adresy IP skojarzone z tym serwerami kart interfejsu Sieciowego, tego rodzaju ruch nigdy nie wprowadzić sieci wirtualnej, a nie dociera do serwera
+3. Jeśli do publicznego adresu IP zostały włączone dla jakiegoś powodu, reguły NSG 5 (Internet do sieci wirtualnej) czy zablokować ruch
 
 #### <a name="denied-web-dns-look-up-on-dns-server"></a>(*Odmowa*) wyszukiwanie nazwy DNS w sieci Web na serwerze DNS
-1. Użytkownik internet próbuje toolook się wewnętrzny rekord DNS na DNS01
-2. Ponieważ nie ma żadnych publiczne adresy IP skojarzone z tym serwerami kart interfejsu Sieciowego, tego rodzaju ruch nigdy nie wprowadzić hello sieci wirtualnej i nie dostęp powitania serwera
-3. Jeśli do publicznego adresu IP zostały włączone dla jakiegoś powodu, reguły NSG 5 (Internet tooVNet) czy zablokować ruch (Uwaga: Aby reguła 1 (DNS) nie będą miały zastosowania ponieważ hello żądania adresu źródłowego jest hello internet i 1 reguła ma zastosowanie tylko toohello lokalnej sieci wirtualnej jako źródło hello)
+1. Internet próby odszukania wewnętrzny rekord DNS na DNS01
+2. Ponieważ nie ma żadnych publiczne adresy IP skojarzone z tym serwerami kart interfejsu Sieciowego, tego rodzaju ruch nigdy nie wprowadzić sieci wirtualnej, a nie dociera do serwera
+3. Jeśli do publicznego adresu IP zostały włączone dla jakiegoś powodu, reguły NSG 5 (Internet do sieci wirtualnej) czy zablokować ruch (Uwaga: Aby reguła 1 (DNS) nie ma zastosowania, ponieważ adres źródłowy żądania jest internet i 1 reguła ma zastosowanie tylko do lokalnej sieci wirtualnej jako źródło)
 
-#### <a name="denied-sql-access-on-hello-web-server"></a>(*Odmowa*) dostępu SQL na serwerze sieci web hello
+#### <a name="denied-sql-access-on-the-web-server"></a>(*Odmowa*) dostęp SQL na serwerze sieci web
 1. Użytkownik internet żąda danych SQL z IIS01
-2. Ponieważ nie ma żadnych publiczne adresy IP skojarzone z tym serwerami kart interfejsu Sieciowego, tego rodzaju ruch nigdy nie wprowadzić hello sieci wirtualnej i nie dostęp powitania serwera
-3. Jeśli do publicznego adresu IP zostały włączone dla jakiegoś powodu, podsieci frontonu hello rozpoczyna przetwarzanie przychodzącej reguły:
-  1. Reguły NSG 1 DNS (Domain Name System) nie ma zastosowania, przenieść toonext regułę
-  2. 2 reguły NSG (RDP) nie ma zastosowania, przenieść toonext regułę
-  3. Zastosować grupy NSG zasady 3 (Internet tooIIS01), ruch jest dozwolony, stop reguły przetwarzania
-4. Ruch trafienia wewnętrzny adres IP hello IIS01 (10.0.1.5)
-5. IIS01 nie nasłuchuje na porcie 1433, więc nie ma odpowiedzi toohello żądania
+2. Ponieważ nie ma żadnych publiczne adresy IP skojarzone z tym serwerami kart interfejsu Sieciowego, tego rodzaju ruch nigdy nie wprowadzić sieci wirtualnej, a nie dociera do serwera
+3. Jeśli do publicznego adresu IP zostały włączone dla jakiegoś powodu, podsieci frontonu rozpoczyna przetwarzanie przychodzącej reguły:
+  1. Reguły NSG 1 DNS (Domain Name System) nie są spełnione, przejść do następnej reguły
+  2. 2 reguły NSG (RDP) nie są spełnione, przejść do następnej reguły
+  3. Zastosować grupy NSG zasady 3 (Internet w celu IIS01), ruch jest dozwolony, stop reguły przetwarzania
+4. Wewnętrzny adres IP IIS01 trafienia ruchu (10.0.1.5)
+5. IIS01 nie nasłuchuje na porcie 1433, więc nie ma odpowiedzi na żądanie
 
 ## <a name="conclusion"></a>Podsumowanie
-W tym przykładzie jest stosunkowo proste i bezpośrednio do przodu sposobem izolowanie podsieci wewnętrznej hello z ruchu przychodzącego.
+W tym przykładzie jest stosunkowo proste i bezpośrednio do przodu sposobem izolowanie podsieci wewnętrznej z ruchu przychodzącego.
 
 Więcej przykładów i Przegląd granic zabezpieczeń sieci można znaleźć [tutaj][HOME].
 
 ## <a name="references"></a>Dokumentacja
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
-W tym przykładzie używa wstępnie zdefiniowanych szablonów usługi Azure Resource Manager w repozytorium GitHub obsługiwanego przez firmę Microsoft i otworzyć toohello społeczności. Tego szablonu można wdrożyć bezpośrednio z witryny GitHub, lub pobrane i zmodyfikować toofit potrzeb. 
+W tym przykładzie używa wstępnie zdefiniowanych szablonów usługi Azure Resource Manager w repozytorium GitHub obsługiwanego przez firmę Microsoft i dla społeczności. Tego szablonu można wdrożyć bezpośrednio z witryny GitHub, lub pobrać i zmodyfikować odpowiednio do potrzeb. 
 
-Szablon głównego Hello znajduje się w pliku hello o nazwie "azuredeploy.json." Ten szablon może zostać przesłane za pomocą programu PowerShell lub interfejsu wiersza polecenia (z plikiem skojarzone "azuredeploy.parameters.json" hello) toodeploy tego szablonu. Mogę znaleźć hello najprostszą metodą jest hello toouse przycisku "Wdróż tooAzure" na stronie README.md hello w witrynie GitHub.
+Główny szablon znajduje się w pliku o nazwie "azuredeploy.json." Ten szablon może zostać przesłane za pomocą programu PowerShell lub interfejsu wiersza polecenia (przy użyciu pliku skojarzone "azuredeploy.parameters.json") do wdrożenia tego szablonu. Odnalezienie Najprostszym sposobem jest użycie przycisku "Wdrożenia do platformy Azure" na stronie README.md w witrynie GitHub.
 
-toodeploy hello szablon, który tworzy w tym przykładzie z serwisu GitHub i hello portalu Azure, wykonaj następujące kroki:
+Aby wdrożyć szablon, który tworzy w tym przykładzie z serwisu GitHub i portalu Azure, wykonaj następujące kroki:
 
-1. W przeglądarce Przejdź toohello [szablonu][Template]
-2. Kliknij przycisk "Wdróż tooAzure" hello (lub toosee przycisk "Wizualizacja" hello graficzną reprezentację tego szablonu)
-3. Wprowadź w bloku parametrów hello hello konta magazynu, nazwę użytkownika i hasło, a następnie kliknij przycisk **OK**
+1. W przeglądarce przejdź do [szablonu][Template]
+2. Kliknij przycisk "Wdrożenia do platformy Azure" (lub przycisk "Wizualizacja", aby wyświetlić graficzną reprezentację tego szablonu)
+3. Wprowadź konto magazynu, nazwę użytkownika i hasło w bloku parametrów, a następnie kliknij przycisk **OK**
 5. Utwórz grupę zasobów dla tego wdrożenia (można użyć istniejącego, ale zalecane jest nowy, aby uzyskać najlepsze wyniki)
-6. W razie potrzeby zmień ustawienia subskrypcji i lokalizacji hello sieci wirtualnej.
-7. Kliknij przycisk **Przejrzyj postanowienia prawne**, przeczytaj warunki hello i kliknij przycisk **zakupu** tooagree.
-8. Kliknij przycisk **Utwórz** toobegin hello wdrożenia tego szablonu.
-9. Po hello wdrożenie zakończy się pomyślnie, przejdź toohello utworzone dla tego wdrożenia zasobów hello toosee skonfigurowane wewnątrz grupy zasobów.
+6. W razie potrzeby zmień ustawienia subskrypcji i lokalizacji sieci wirtualnej.
+7. Kliknij przycisk **Przejrzyj postanowienia prawne**, przeczytaj warunki i kliknij przycisk **zakupu** do wyrażenia zgody.
+8. Kliknij przycisk **Utwórz** aby rozpocząć wdrażanie tego szablonu.
+9. Po pomyślnym wdrożeniu, przejdź do grupy zasobów utworzonej dla tego wdrożenia do wyświetlania zasobów, skonfigurowane w.
 
 >[!NOTE]
->Ten szablon umożliwia RDP toohello IIS01 serwera tylko (hello Znajdź publicznego adresu IP dla IIS01 na powitania portalu). serwerami zaplecza tooany tooRDP w tym wystąpieniu serwera IIS hello jest używany jako "okno przeskoku". Pierwszy serwer IIS toohello RDP i następnie z serwera hello wewnętrznej toohello RDP serwera IIS.
+>Ten szablon umożliwia RDP tylko serwera IIS01 (Znajdź publicznego adresu IP dla IIS01 w portalu). Dla protokołu RDP do serwerów zaplecza w tym wystąpieniu na serwerze usług IIS jest używana jako "okno przeskoku". Pierwszy RDP do serwera IIS, a następnie z RDP serwera usług IIS do serwera zaplecza.
 >
 >
 
-tooremove tego wdrożenia, Usuń hello grupy zasobów i wszystkie zasoby podrzędne zostaną również usunięte.
+Aby usunąć to wdrożenie, Usuń grupę zasobów i wszystkie zasoby podrzędne zostaną również usunięte.
 
 #### <a name="sample-application-scripts"></a>Przykładowe skrypty aplikacji
-Po pomyślnym uruchomieniu szablonu hello, musisz skonfigurować powitania serwera sieci web i serwera aplikacji tooallow aplikacji sieci web proste, testowanie za pomocą tej konfiguracji DMZ. tooinstall przykładowej aplikacji to i inne przykłady DMZ jedną dostarczono na powitania następującego łącza: [przykładowy skrypt aplikacji][SampleApp]
+Po pomyślnym uruchomieniu szablon, można skonfigurować serwer sieci web i serwerów aplikacji z prostą aplikację sieci web umożliwia testowanie za pomocą tej konfiguracji DMZ. Aby zainstalować przykładową aplikację dla tego i innych przykłady DMZ, jeden podano przy użyciu następującego łącza: [przykładowy skrypt aplikacji][SampleApp]
 
 ## <a name="next-steps"></a>Następne kroki
 
 * W tym przykładzie wdrożenia
-* Tworzenie hello przykładowej aplikacji
+* Tworzenie przykładowej aplikacji
 * Testowanie różnych ruch za pośrednictwem tego DMZ
 
 <!--Image References-->

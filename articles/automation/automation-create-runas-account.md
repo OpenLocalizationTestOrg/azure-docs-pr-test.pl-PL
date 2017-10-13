@@ -1,9 +1,9 @@
 ---
-title: konta automatyzacji Uruchom jako platformy Azure aaaCreate | Dokumentacja firmy Microsoft
-description: "W tym artykule opisano sposób tooupdate automatyzacji Twojego konta, a następnie utworzyć konta Uruchom jako, przy użyciu programu PowerShell lub portalu hello."
+title: "Tworzenie kont Uruchom jako usługi Azure Automation | Microsoft Docs"
+description: "W tym artykule opisano sposób aktualizowania konta usługi Automation i tworzenia kont Uruchom jako przy użyciu programu PowerShell lub w portalu."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 94eb54fa0b518056a726d17146c63411e248273b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8a42f73fbe33b422b7881f8a17a1f421e2b5dfc8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Aktualizowanie uwierzytelniania konta usługi Automation przy użyciu kont Uruchom jako 
-Można aktualizować istniejącego konta automatyzacji z portalu hello lub jeśli za pomocą programu PowerShell:
+Istniejące konto usługi Automation można zaktualizować w portalu lub przy użyciu programu PowerShell, gdy:
 
-* Utwórz konto usługi Automatyzacja, ale odrzucić konta Uruchom jako hello toocreate.
-* Zasoby usługi Resource Manager toomanage konto automatyzacji jest już używana, i chcesz tooupdate hello konta tooinclude hello konta Uruchom jako dla uwierzytelniania elementu runbook.
-* Używasz toomanage konta automatyzacji dla zasoby klasyczne i chcesz tooupdate go hello toouse konta w klasycznym Uruchom jako, zamiast tworzenia nowego konta i migrację z tooit elementy runbook i zasoby.   
-* Ma toocreate Uruchom jako, a konto klasycznego Uruchom jako za pomocą certyfikatu wystawionego przez urząd certyfikacji (CA) przedsiębiorstwa.
+* Użytkownik utworzył konto usługi Automation, ale zrezygnował z tworzenia konta Uruchom jako.
+* Użytkownik używa już konta usługi Automation do zarządzania zasobami usługi Resource Manager i chce je zaktualizować, aby umożliwiało uwierzytelnianie elementu runbook za pomocą konta Uruchom jako.
+* Użytkownik używa już konta usługi Automation do zarządzania zasobami klasycznymi i chce je zaktualizować, aby używać klasycznego konta Uruchom jako, zamiast tworzenia nowego konta i migrowania do niego elementów runbook i zasobów.   
+* Użytkownik chce utworzyć konto Uruchom jako i klasyczne konto Uruchom jako przy użyciu certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* skrypt Hello może być uruchomiony tylko w systemie Windows 10 i Windows Server 2016 z usługi Azure Resource Manager modułów 3.0.0 lub nowszy. Nie jest obsługiwany przez wcześniejsze wersje systemu Windows.
-* Program Azure PowerShell 1.0 lub nowszy. Aby uzyskać informacje o wersji hello PowerShell 1.0, zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Konto automatyzacji, który jest określany jako wartość hello hello *— AutomationAccountName* i *- ApplicationDisplayName* parametrów w hello następującego skryptu programu PowerShell.
+* Skrypt jest obsługiwany tylko w systemach Windows 10 i Windows Server 2016 z modułami usługi Azure Resource Manager w wersji 3.0.0 lub nowszej. Nie jest obsługiwany przez wcześniejsze wersje systemu Windows.
+* Program Azure PowerShell 1.0 lub nowszy. Informacje o wersji PowerShell 1.0 można znaleźć w temacie [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Jak zainstalować i skonfigurować program Azure PowerShell).
+* Konto usługi Automation, które jest przywoływane jako wartość parametrów *–AutomationAccountName* i *-ApplicationDisplayName* w poniższym skrypcie programu PowerShell.
 
-wartości tooget hello *SubscriptionID*, *ResourceGroup*, i *AutomationAccountName*, które są wymagane parametry skryptu hello, hello następujące:
+Aby uzyskać wartości parametrów *SubscriptionID*, *ResourceGroup* i *AutomationAccountName*, które są wymagane w przypadku skryptu, wykonaj następujące czynności:
 
-1. W hello portalu Azure, wybierz konto Automatyzacja na powitania **konto automatyzacji** bloku, a następnie wybierz **wszystkie ustawienia**.  
-2. Na powitania **wszystkie ustawienia** bloku, w obszarze **ustawienia konta**, wybierz pozycję **właściwości**. 
-3. Należy pamiętać, wartości hello na powitania **właściwości** bloku.<br><br> ![Blok "Właściwości" konto automatyzacji Hello](media/automation-create-runas-account/automation-account-properties.png)  
+1. W witrynie Azure Portal wybierz konto usługi Automation w bloku **Konto usługi Automation**, a następnie wybierz pozycję **Wszystkie ustawienia**.  
+2. W bloku **Wszystkie ustawienia** w obszarze **Ustawienia konta** wybierz pozycję **Właściwości**. 
+3. Zwróć uwagę na wartości w bloku **Właściwości**.<br><br> ![Blok „Właściwości” konta usługi Automation](media/automation-create-runas-account/automation-account-properties.png)  
 
-### <a name="required-permissions-tooupdate-your-automation-account"></a>Wymagane uprawnienia tooupdate Twojego konta automatyzacji
-tooupdate konto usługi Automatyzacja, musi mieć powitania po określone uprawnienia i toocomplete wymagane uprawnienia, w tym temacie.   
+### <a name="required-permissions-to-update-your-automation-account"></a>Uprawnienia wymagane do aktualizacji konta usługi Automation
+Aby zaktualizować konto usługi Automation, musisz mieć następujące określone uprawnienia i uprawnienia wymagane do wykonania zadań opisanych w tym temacie.   
  
-* Twoje konto użytkownika AD musi toobe tooa dodano rolę z roli współautora toohello równoważne uprawnienia dla zasobów Microsoft.Automation w sposób opisany w artykule [kontroli dostępu opartej na rolach w automatyzacji Azure](automation-role-based-access-control.md#contributor-role-permissions).  
-* Użytkownicy inni niż administratorzy w Twojej dzierżawie usługi Azure AD mogą [rejestrowania aplikacji AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) Jeśli rejestracji aplikacji hello ustawienie ustawiono zbyt**tak**.  Jeśli ustawienie rejestracji aplikacji hello ustawiono zbyt**nr**, wykonanie tej czynności użytkownika hello musi być administratorem globalnym w usłudze Azure AD. 
+* Twoje konto użytkownika usługi AD musi zostać dodane do roli z uprawnieniami odpowiadającymi roli współautora dla zasobów Microsoft.Automation w sposób opisany w artykule [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md#contributor-role-permissions).  
+* Użytkownicy inni niż administratorzy w dzierżawie usługi Azure AD mogą [rejestrować aplikacje usługi AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions), jeśli wartością ustawienia rejestracji aplikacji jest **Tak**.  Jeśli wartością ustawienia rejestracji aplikacji jest **Nie**, użytkownik wykonujący tę akcję musi być administratorem globalnym w usłudze Azure AD. 
 
-Jeśli nie jesteś członkiem wystąpienia usługi Active Directory hello subskrypcji przed dodaniem toohello globalnego administratora/drugi-administrator roli hello subskrypcji, zostaną dodane tooActive katalogu jako Gość. W takiej sytuacji pojawi się "nie ma uprawnień toocreate..." Ostrzeżenie dotyczące hello **Dodaj konto automatyzacji** bloku. Użytkownicy, którzy zostały dodane toohello globalnego administratora/drugi-administrator roli najpierw można usunąć z wystąpienia usługi Active Directory hello subskrypcji i ponownie dodany toomake ich pełną użytkownika w usłudze Active Directory. tooverify takiej sytuacji z hello **usługi Azure Active Directory** okienka w hello portalu Azure, wybierz opcję **użytkowników i grup**, wybierz pozycję **wszyscy użytkownicy** i po wybraniu hello określony użytkownik, wybierz opcję **profilu**. Witaj wartość hello **typ użytkownika** atrybutu na liście profilów użytkowników hello nie powinna być równa **gościa**.
+Jeśli nie jesteś członkiem wystąpienia usługi Active Directory subskrypcji, przed dodaniem do roli administratora globalnego/współadministratora subskrypcji, dodamy Cię do usługi Active Directory jako gościa. W tej usłudze zobaczysz ostrzeżenie „Nie masz uprawnień do utworzenia...” w bloku **Dodawanie konta usługi Automation**. Użytkownicy dodani do roli administratora globalnego/współadministratora najpierw mogą zostać usunięci z wystąpienia usługi Active Directory dla subskrypcji i ponownie dodani, aby zostać pełnymi użytkownikami w usłudze Active Directory. Aby zweryfikować tę sytuację, w okienku **Azure Active Directory** w witrynie Azure Portal wybierz kolejno pozycje **Użytkownicy i grupy** i **Wszyscy użytkownicy**, a po wybraniu określonego użytkownika wybierz pozycję **Profil**. Wartość atrybutu **Typ użytkownika** na liście profilów użytkowników nie powinna być równa **Gość**.
 
-## <a name="create-run-as-account-from-hello-portal"></a>Utwórz konto Uruchom jako z portalu hello
-W tej sekcji wykonaj następujące kroki tooupdate hello Twoje konto usługi Automatyzacja Azure z hello portalu Azure.  Tworzenia hello konta Uruchom jako i klasycznego Uruchom jako indywidualnie, a jeśli toomanage zasobów w klasycznym portalu Azure hello nie jest konieczne, można utworzyć konta Uruchom jako platformy Azure hello.  
+## <a name="create-run-as-account-from-the-portal"></a>Tworzenie konta Uruchom jako w portalu
+W tej części wykonaj poniższe kroki, aby zaktualizować konto usługi Azure Automation w witrynie Azure Portal.  Konto Uruchom jako i klasyczne konto Uruchom jako są tworzone pojedynczo. Jeśli nie musisz zarządzać zasobami w klasycznej witrynie Azure Portal, wystarczy utworzyć konto Uruchom jako platformy Azure.  
 
-proces Hello tworzy hello następujące elementy na Twoim koncie automatyzacji.
+W trakcie procesu na koncie usługi Automation są tworzone opisane poniżej elementy.
 
 **W przypadku kont Uruchom jako:**
 
-* Tworzy aplikację usługi Azure AD z certyfikatu z podpisem własnym, tworzy konto główne usługi dla aplikacji hello w usłudze Azure AD i przypisuje rolę współautora hello hello konta w Twojej bieżącej subskrypcji. Możesz zmienić to ustawienie tooOwner ani żadnych innych ról. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).
-* Tworzy zasób certyfikatu usługi Automatyzacja o nazwie *AzureRunAsCertificate* hello określono konto automatyzacji. zasób certyfikatu Hello przechowuje hello certyfikatu klucza prywatnego, który jest używany przez aplikację hello Azure AD.
-* Tworzy zasób połączenia usługi Automatyzacja o nazwie *AzureRunAsConnection* hello określono konto automatyzacji. zasób połączenia Hello przechowuje identyfikator aplikacji hello, identyfikatora dzierżawcy, identyfikator subskrypcji i odcisk palca certyfikatu.
+* Tworzy aplikację usługi Azure AD z certyfikatem z podpisem własnym, tworzy konto jednostki usługi dla aplikacji w usłudze Azure AD i przypisuje rolę Współautor dla konta w bieżącej subskrypcji. To ustawienie możesz zmienić na rolę Właściciel lub inną. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).
+* Tworzy zasób certyfikatu usługi Automation o nazwie *AzureRunAsCertificate* na określonym koncie usługi Automation. Zasób certyfikatu zawiera klucz prywatny certyfikatu używany przez aplikację Azure AD.
+* Tworzy zasób połączenia usługi Automation o nazwie *AzureRunAsConnection* na określonym koncie usługi Automation. Zasób połączenia zawiera identyfikator aplikacji, identyfikator dzierżawy, identyfikator subskrypcji i odcisk palca certyfikatu.
 
 **W przypadku klasycznych kont Uruchom jako:**
 
-* Tworzy zasób certyfikatu usługi Automatyzacja o nazwie *AzureClassicRunAsCertificate* hello określono konto automatyzacji. zasób certyfikatu Hello zawiera klucz prywatny certyfikatu hello używane przez hello certyfikat zarządzania.
-* Tworzy zasób połączenia usługi Automatyzacja o nazwie *AzureClassicRunAsConnection* hello określono konto automatyzacji. zasób połączenia Hello przechowuje hello Nazwa subskrypcji, identyfikator subskrypcji i certyfikat nazwa zasobów.
+* Tworzy zasób certyfikatu usługi Automation o nazwie *AzureClassicRunAsCertificate* na określonym koncie usługi Automation. Zasób certyfikatu zawiera klucz prywatny certyfikatu używany przez certyfikat zarządzania.
+* Tworzy zasób połączenia usługi Automation o nazwie *AzureClassicRunAsConnection* na określonym koncie usługi Automation. Zasób połączenia zawiera nazwę subskrypcji, identyfikator subskrypcji i nazwę zasobu certyfikatu.
 
-1. Zaloguj się toohello portalu Azure przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji hello i współadministratorem subskrypcji hello.
-2. W bloku konta usługi Automatyzacja hello, wybierz **konta Uruchom jako** sekcji hello **ustawienia konta**.  
-3. W zależności od tego, które konto jest wymagane, wybierz pozycję **Konto Uruchom jako platformy Azure** lub **Klasyczne konto Uruchom jako platformy Azure**.  Po wybraniu albo hello **dodać Uruchom jako platformy Azure** lub **dodać Azure Classic konta Uruchom jako** bloku pojawia się i po przejrzeniu hello ogólne informacje, kliknij przycisk **Utwórz** tooproceed z Tworzenie konta Uruchom jako.  
-4. Gdy Azure utworzy hello konta Uruchom jako, możesz śledzić postępy hello w obszarze **powiadomienia** z hello menu i transparent wyświetleniem informacją o trwającym tworzeniu konta hello.  Ten proces może potrwać kilka minut toocomplete.  
+1. Zaloguj się do witryny Azure Portal przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
+2. W bloku konta usługi Automation wybierz pozycję **Konta Uruchom jako** w sekcji **Ustawienia konta**.  
+3. W zależności od tego, które konto jest wymagane, wybierz pozycję **Konto Uruchom jako platformy Azure** lub **Klasyczne konto Uruchom jako platformy Azure**.  Po wybraniu danej pozycji zostanie wyświetlony blok **Dodawanie konta Uruchom jako platformy Azure** lub **Dodawanie klasycznego konta Uruchom jako platformy Azure**. Po zapoznaniu się z omówieniem kliknij pozycję **Utwórz**, aby kontynuować tworzenie konta Uruchom jako.  
+4. Gdy platforma Azure tworzy konto Uruchom jako, możesz śledzić postęp w obszarze **Powiadomienia** z poziomu menu. Wyświetlany jest transparent informujący o tworzeniu konta.  Ten proces może potrwać kilka minut.  
 
 ## <a name="create-run-as-account-using-powershell-script"></a>Tworzenie konta Uruchom jako przy użyciu skryptu programu PowerShell
-Ten skrypt programu PowerShell obejmuje obsługę hello następujące konfiguracje:
+Ten skrypt programu PowerShell obsługuje następujące konfiguracje:
 
 * Tworzenie konta Uruchom jako przy użyciu certyfikatu z podpisem własnym.
 * Tworzenie konta Uruchom jako i klasycznego konta Uruchom jako przy użyciu certyfikatu z podpisem własnym.
 * Tworzenie konta Uruchom jako i klasycznego konta Uruchom jako przy użyciu certyfikatu przedsiębiorstwa.
-* Utwórz konto Uruchom jako i konto klasycznego Uruchom jako za pomocą certyfikatu z podpisem własnym w hello chmury Azure dla instytucji rządowych.
+* Tworzenie konta Uruchom jako i klasycznego konta Uruchom jako przy użyciu certyfikatu z podpisem własnym w chmurze usługi Azure Government.
 
-W zależności od opcji konfiguracji hello wybranej hello skrypt tworzy hello następujące elementy.
+W zależności od wybranej opcji konfiguracji skrypt tworzy poniższe elementy.
 
 **W przypadku kont Uruchom jako:**
 
-* Tworzy Azure AD aplikacji toobe wyeksportowany z obu hello z podpisem własnym lub klucz publiczny certyfikatu przedsiębiorstwa, tworzy konto główne usługi dla aplikacji hello w usłudze Azure AD i przypisuje hello roli współautora dla konta hello w bieżącym Subskrypcja. Możesz zmienić to ustawienie tooOwner ani żadnych innych ról. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).
-* Tworzy zasób certyfikatu usługi Automatyzacja o nazwie *AzureRunAsCertificate* hello określono konto automatyzacji. zasób certyfikatu Hello przechowuje hello certyfikatu klucza prywatnego, który jest używany przez aplikację hello Azure AD.
-* Tworzy zasób połączenia usługi Automatyzacja o nazwie *AzureRunAsConnection* hello określono konto automatyzacji. zasób połączenia Hello przechowuje identyfikator aplikacji hello, identyfikatora dzierżawcy, identyfikator subskrypcji i odcisk palca certyfikatu.
+* Tworzy aplikację Azure AD, która będzie eksportowana przy użyciu klucza publicznego certyfikatu z podpisem własnym lub certyfikatu przedsiębiorstwa, tworzy konto dla nazwy głównej usługi dla aplikacji w usłudze Azure AD i przypisuje rolę Współautor dla konta w bieżącej subskrypcji. To ustawienie możesz zmienić na rolę Właściciel lub inną. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w usłudze Azure Automation](automation-role-based-access-control.md).
+* Tworzy zasób certyfikatu usługi Automation o nazwie *AzureRunAsCertificate* na określonym koncie usługi Automation. Zasób certyfikatu zawiera klucz prywatny certyfikatu używany przez aplikację Azure AD.
+* Tworzy zasób połączenia usługi Automation o nazwie *AzureRunAsConnection* na określonym koncie usługi Automation. Zasób połączenia zawiera identyfikator aplikacji, identyfikator dzierżawy, identyfikator subskrypcji i odcisk palca certyfikatu.
 
 **W przypadku klasycznych kont Uruchom jako:**
 
-* Tworzy zasób certyfikatu usługi Automatyzacja o nazwie *AzureClassicRunAsCertificate* hello określono konto automatyzacji. zasób certyfikatu Hello zawiera klucz prywatny certyfikatu hello używane przez hello certyfikat zarządzania.
-* Tworzy zasób połączenia usługi Automatyzacja o nazwie *AzureClassicRunAsConnection* hello określono konto automatyzacji. zasób połączenia Hello przechowuje hello Nazwa subskrypcji, identyfikator subskrypcji i certyfikat nazwa zasobów.
+* Tworzy zasób certyfikatu usługi Automation o nazwie *AzureClassicRunAsCertificate* na określonym koncie usługi Automation. Zasób certyfikatu zawiera klucz prywatny certyfikatu używany przez certyfikat zarządzania.
+* Tworzy zasób połączenia usługi Automation o nazwie *AzureClassicRunAsConnection* na określonym koncie usługi Automation. Zasób połączenia zawiera nazwę subskrypcji, identyfikator subskrypcji i nazwę zasobu certyfikatu.
 
 >[!NOTE]
-> Jeśli wybierzesz opcję tworzenia klasycznego konta Uruchom jako, po wykonaniu skryptu hello, przekazywanie hello publicznego zarządzania toohello (rozszerzenie nazwy pliku cer) magazynu certyfikatów dla subskrypcji hello tego konta automatyzacji hello został utworzony w.
+> Jeśli wybierzesz dowolną opcję tworzenia klasycznego konta Uruchom jako, po wykonaniu skryptu przekaż certyfikat publiczny (z rozszerzeniem nazwy pliku CER) do magazynu zarządzania dla subskrypcji, w ramach której zostało utworzone konto usługi Automation.
 > 
 
-1. Zapisz hello następującego skryptu na komputerze. W tym przykładzie, zapisać go z nazwą pliku hello *RunAsAccount.ps1 nowy*.
+1. Zapisz na komputerze poniższy skrypt. W tym przykładzie zapisz plik pod nazwą *New-RunAsAccount.ps1*.
 
         #Requires -RunAsAdministrator
         Param (
@@ -164,7 +164,7 @@ W zależności od opcji konfiguracji hello wybranej hello skrypt tworzy hello na
         $ServicePrincipal = New-AzureRMADServicePrincipal -ApplicationId $Application.ApplicationId
         $GetServicePrincipal = Get-AzureRmADServicePrincipal -ObjectId $ServicePrincipal.Id
 
-        # Sleep here for a few seconds tooallow hello service principal application toobecome active (ordinarily takes a few seconds)
+        # Sleep here for a few seconds to allow the service principal application to become active (ordinarily takes a few seconds)
         Sleep -s 15
         $NewRole = New-AzureRMRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $Application.ApplicationId -ErrorAction SilentlyContinue
         $Retries = 0;
@@ -195,7 +195,7 @@ W zależności od opcji konfiguracji hello wybranej hello skrypt tworzy hello na
         $AzureRMProfileVersion= (Get-Module AzureRM.Profile).Version
         if (!(($AzureRMProfileVersion.Major -ge 3 -and $AzureRMProfileVersion.Minor -ge 0) -or ($AzureRMProfileVersion.Major -gt 3)))
         {
-            Write-Error -Message "Please install hello latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
+            Write-Error -Message "Please install the latest Azure PowerShell and retry. Relevant doc url : https://docs.microsoft.com/powershell/azureps-cmdlets-docs/ "
             return
         }
 
@@ -222,16 +222,16 @@ W zależności od opcji konfiguracji hello wybranej hello skrypt tworzy hello na
         $PfxCert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @($PfxCertPathForRunAsAccount, $PfxCertPlainPasswordForRunAsAccount)
         $ApplicationId=CreateServicePrincipal $PfxCert $ApplicationDisplayName
 
-        # Create hello Automation certificate asset
+        # Create the Automation certificate asset
         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $CertifcateAssetName $PfxCertPathForRunAsAccount $PfxCertPlainPasswordForRunAsAccount $true
 
-        # Populate hello ConnectionFieldValues
+        # Populate the ConnectionFieldValues
         $SubscriptionInfo = Get-AzureRmSubscription -SubscriptionId $SubscriptionId
         $TenantID = $SubscriptionInfo | Select TenantId -First 1
         $Thumbprint = $PfxCert.Thumbprint
         $ConnectionFieldValues = @{"ApplicationId" = $ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Thumbprint; "SubscriptionId" = $SubscriptionId}
 
-        # Create an Automation connection asset named AzureRunAsConnection in hello Automation account. This connection uses hello service principal.
+        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ConnectionAssetName $ConnectionTypeName $ConnectionFieldValues
 
         if ($CreateClassicRunAsAccount) {
@@ -239,9 +239,9 @@ W zależności od opcji konfiguracji hello wybranej hello skrypt tworzy hello na
              $ClassicRunAsAccountCertifcateAssetName = "AzureClassicRunAsCertificate"
              $ClassicRunAsAccountConnectionAssetName = "AzureClassicRunAsConnection"
              $ClassicRunAsAccountConnectionTypeName = "AzureClassicCertificate "
-             $UploadMessage = "Please upload hello .cer format of #CERT# toohello Management store by following hello steps below." + [Environment]::NewLine +
-                     "Log in toohello Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
-                     "Then click Upload and upload hello .cer format of #CERT#"
+             $UploadMessage = "Please upload the .cer format of #CERT# to the Management store by following the steps below." + [Environment]::NewLine +
+                     "Log in to the Microsoft Azure Management portal (https://manage.windowsazure.com) and select Settings -> Management Certificates." + [Environment]::NewLine +
+                     "Then click Upload and upload the .cer format of #CERT#"
 
               if ($EnterpriseCertPathForClassicRunAsAccount -and $EnterpriseCertPlainPasswordForClassicRunAsAccount ) {
               $PfxCertPathForClassicRunAsAccount = $EnterpriseCertPathForClassicRunAsAccount
@@ -256,22 +256,22 @@ W zależności od opcji konfiguracji hello wybranej hello skrypt tworzy hello na
               CreateSelfSignedCertificate $KeyVaultName $ClassicRunAsAccountCertificateName $PfxCertPlainPasswordForClassicRunAsAccount $PfxCertPathForClassicRunAsAccount $CerCertPathForClassicRunAsAccount $SelfSignedCertNoOfMonthsUntilExpired
         }
 
-        # Create hello Automation certificate asset
+        # Create the Automation certificate asset
         CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
-        # Populate hello ConnectionFieldValues
+        # Populate the ConnectionFieldValues
         $SubscriptionName = $subscription.Subscription.Name
         $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
-        # Create an Automation connection asset named AzureRunAsConnection in hello Automation account. This connection uses hello service principal.
+        # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
         CreateAutomationConnectionAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountConnectionAssetName $ClassicRunAsAccountConnectionTypeName $ClassicRunAsAccountConnectionFieldValues
 
         Write-Host -ForegroundColor red $UploadMessage
         }
 
-2. Na komputerze, należy uruchomić **programu Windows PowerShell** z hello **Start** ekranu z podwyższonym poziomem uprawnień użytkownika.
-3. Z hello z podwyższonym poziomem uprawnień, powłoka wiersza polecenia przejdź toohello folderu, który zawiera hello skryptu, który został utworzony w kroku 1.  
-4. Uruchom skrypt hello przy użyciu wartości parametrów hello hello konfiguracji, które są wymagane.
+2. Na komputerze uruchom program **Windows PowerShell** z ekranu **Start** z podwyższonym poziomem uprawnień użytkownika.
+3. Z powłoki wiersza polecenia z podwyższonym poziomem uprawnień użytkownika przejdź do folderu zawierającego skrypt utworzony w kroku 1.  
+4. Wykonaj skrypt, używając wartości parametrów wymaganej konfiguracji.
 
     **Tworzenie konta Uruchom jako przy użyciu certyfikatu z podpisem własnym**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $false`
@@ -282,19 +282,19 @@ W zależności od opcji konfiguracji hello wybranej hello skrypt tworzy hello na
     **Tworzenie konta Uruchom jako i klasycznego konta Uruchom jako przy użyciu certyfikatu przedsiębiorstwa**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication>  -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true -EnterpriseCertPathForRunAsAccount <EnterpriseCertPfxPathForRunAsAccount> -EnterpriseCertPlainPasswordForRunAsAccount <StrongPassword> -EnterpriseCertPathForClassicRunAsAccount <EnterpriseCertPfxPathForClassicRunAsAccount> -EnterpriseCertPlainPasswordForClassicRunAsAccount <StrongPassword>`
 
-    **Utwórz konto Uruchom jako i konto klasycznego Uruchom jako za pomocą certyfikatu z podpisem własnym w hello chmury Azure dla instytucji rządowych**  
+    **Tworzenie konta Uruchom jako i klasycznego konta Uruchom jako przy użyciu certyfikatu z podpisem własnym w chmurze usługi Azure Government**  
     `.\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment`
 
     > [!NOTE]
-    > Po wykonaniu skryptu hello, będzie tooauthenticate zostanie wyświetlony monit o systemie Azure. Zaloguj się przy użyciu konta, które jest członkiem grupy administratorów subskrypcji hello i współadministratorem subskrypcji hello.
+    > Po wykonaniu skryptu pojawi się monit o uwierzytelnienie na platformie Azure. Zaloguj się przy użyciu konta, które jest członkiem roli Administratorzy subskrypcji i współadministratorem subskrypcji.
     >
     >
 
-Po pomyślnym wykonaniu hello script należy zwrócić uwagę na następujące hello:
-* Jeśli utworzono konto klasycznego Uruchom jako z publicznego certyfikatu z podpisem własnym (plik cer) hello skrypt tworzy i zapisuje go toohello folder plików tymczasowych na komputerze w obszarze profil użytkownika hello *%USERPROFILE%\AppData\Local\Temp*, używany sesji programu PowerShell hello tooexecute.
-* Jeśli zostało utworzone klasyczne konto Uruchom jako z publicznym certyfikatem przedsiębiorstwa (plik CER), użyj tego certyfikatu. Wykonaj instrukcje hello [przekazywania toohello certyfikat interfejsu API zarządzania klasycznego portalu Azure](../azure-api-management-certs.md), a następnie sprawdź poprawność konfiguracji poświadczeń hello o zasoby klasyczne wdrożenia przy użyciu hello [przykładowy kod tooauthenticate z zasobów wdrożenia klasycznego Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
-* Jeśli tak, *nie* Utwórz konto klasycznego Uruchom jako, uwierzytelniania za pomocą zasoby usługi Resource Manager i sprawdzić poprawność konfiguracji poświadczeń hello przy użyciu hello [przykładowy kod w celu uwierzytelniania z usługi zarządzania zasoby](automation-verify-runas-authentication.md#automation-run-as-authentication).
+Po pomyślnym wykonaniu skryptu pamiętaj o następujących kwestiach:
+* Jeśli zostało utworzone klasyczne konto Uruchom jako z certyfikatem publicznym z podpisem własnym (plik CER), skrypt tworzy i zapisuje je w folderze plików tymczasowych na komputerze w ramach profilu użytkownika *%USERPROFILE%\AppData\Local\Temp* użytego do uruchomienia sesji programu PowerShell.
+* Jeśli zostało utworzone klasyczne konto Uruchom jako z publicznym certyfikatem przedsiębiorstwa (plik CER), użyj tego certyfikatu. Postępuj zgodnie z instrukcjami [przekazywania certyfikatu interfejsu API zarządzania do klasycznej witryny Azure Portal](../azure-api-management-certs.md), a następnie zweryfikuj konfigurację poświadczeń za pomocą zasobów klasycznego wdrożenia, używając [przykładowego kodu do uwierzytelniania za pośrednictwem zasobów klasycznego wdrożenia platformy Azure](automation-verify-runas-authentication.md#classic-run-as-authentication). 
+* Jeśli klasyczne konto Uruchom jako *nie* zostało utworzone, uwierzytelnij się za pomocą zasobów usługi Resource Manager i zweryfikuj konfigurację poświadczeń, używając [przykładowego kodu do uwierzytelniania za pośrednictwem zasobów usługi Service Management](automation-verify-runas-authentication.md#automation-run-as-authentication).
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać więcej informacji na temat nazwy główne usług można znaleźć zbyt[obiekty aplikacji i nazwy głównej usługi](../active-directory/active-directory-application-objects.md).
-* Aby uzyskać więcej informacji na temat certyfikatów i usług Azure można znaleźć zbyt[Omówienie certyfikatów dla usług w chmurze Azure](../cloud-services/cloud-services-certs-create.md).
+* Więcej informacji na temat nazw głównych usługi można znaleźć w temacie [Obiekty aplikacji i obiekty nazwę głównej usługi](../active-directory/active-directory-application-objects.md).
+* Aby uzyskać więcej informacji na temat certyfikatów i usług Azure, zobacz [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Omówienie certyfikatów usług Azure Cloud Services).

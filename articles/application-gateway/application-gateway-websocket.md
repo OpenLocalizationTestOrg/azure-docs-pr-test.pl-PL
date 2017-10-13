@@ -1,6 +1,6 @@
 ---
-title: "Obsługa aaaWebSocket bramę aplikacji Azure | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera omówienie hello obsługi protokołu WebSocket bramy aplikacji."
+title: "Obsługa protokołu WebSocket w bramy aplikacji Azure | Dokumentacja firmy Microsoft"
+description: "Ta strona zawiera omówienie obsługi protokołu WebSocket bramy aplikacji."
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: amsriva
-ms.openlocfilehash: 3776117803e8559ad243c2d4c3dd661199c1e48a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 75b06ddd02da231b7813c609c848c75e42116da5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Omówienie obsługi protokołu WebSocket w bramy aplikacji
 
-Brama aplikacji w zapewnia macierzystą obsługę protokołu WebSocket we wszystkich rozmiarów bramy. Nie jest Włącz tooselectively użytkownika można skonfigurować ustawienie ani wyłączyć obsługę protokołu WebSocket. 
+Brama aplikacji w zapewnia macierzystą obsługę protokołu WebSocket we wszystkich rozmiarów bramy. Brak ma użytkownika można skonfigurować ustawienia selektywnie włączać lub wyłączać obsługę protokołu WebSocket. 
 
-Protokół WebSocket standaryzowane w [RFC6455](https://tools.ietf.org/html/rfc6455) umożliwia pełnego dupleksu komunikacji między serwerem klientem za pośrednictwem długo działające połączenia TCP. Ta funkcja służy do większej liczby interaktywnych komunikacji między serwerem sieci web hello i powitania klienta, który może być dwukierunkowe, bez potrzeby hello sondowania jako wymagane w implementacji oparte na protokole HTTP. WebSocket niski ma obciążenie w odróżnieniu od protokołu HTTP i można ponownemu hello sam połączenia TCP dla wielu żądań/odpowiedzi spowodować efektywniejsze wykorzystanie zasobów. Protokoły WebSocket są zaprojektowane toowork za pośrednictwem tradycyjnych HTTP portów 80 i 443.
+Protokół WebSocket standaryzowane w [RFC6455](https://tools.ietf.org/html/rfc6455) umożliwia pełnego dupleksu komunikacji między serwerem klientem za pośrednictwem długo działające połączenia TCP. Ta funkcja służy do większej liczby interaktywnych komunikacji między serwerem sieci web i klienta, który może być dwukierunkowe, bez konieczności sondowania jako wymagane w implementacji oparte na protokole HTTP. Protokół WebSocket niski ma narzut w odróżnieniu od protokołu HTTP i można ponownie użyć tego samego połączenia TCP dla wielu żądań/odpowiedzi spowodować efektywniejsze wykorzystanie zasobów. Protokoły WebSocket są przeznaczone do pracy za pośrednictwem tradycyjnych HTTP portów 80 i 443.
 
-Aby kontynuować, przy użyciu standardowych odbiornika HTTP na port 80 i 443 tooreceive ruchu protokołu WebSocket. Ruch protokołu WebSocket jest to ukierunkowanej toohello WebSocket włączane serwera wewnętrznej bazy danych przy użyciu puli zaplecza odpowiednie hello określonego w zasadach bramy aplikacji. powitania serwera wewnętrznej bazy danych musi odpowiadać toohello aplikacji bramy sond, które zostały opisane w hello [omówienie sondy kondycji](application-gateway-probe-overview.md) sekcji. Sondy kondycji bramy aplikacji są tylko HTTP/HTTPS. Każdy serwer wewnętrznej bazy danych musi odpowiadać sond tooHTTP dla aplikacji bramy tooroute WebSocket ruchu toohello serwera.
+Aby kontynuować, przy użyciu standardowych odbiornika HTTP na porcie 80 i 443 do odbierania ruchu protokołu WebSocket. Ruch protokołu WebSocket jest następnie przekierowywane do serwera zaplecza włączone protokołu WebSocket przy użyciu puli zaplecza odpowiednie określonego w zasadach bramy aplikacji. Serwer wewnętrznej bazy danych musi odpowiadać na sond bramy aplikacji, które zostały opisane w [omówienie sondy kondycji](application-gateway-probe-overview.md) sekcji. Sondy kondycji bramy aplikacji są tylko HTTP/HTTPS. Każdy serwer wewnętrznej bazy danych musi odpowiadać na badania HTTP bramy aplikacji przekierowujący ruch protokołu WebSocket do serwera.
 
 ## <a name="listener-configuration-element"></a>Element konfiguracji odbiornika
 
-Istniejący odbiornik HTTP mogą być używane toosupport ruchu protokołu WebSocket. Hello poniżej przedstawiono fragment element httpListeners z przykładowego pliku szablonu. Czy wymagane toosupport odbiorników HTTP i HTTPS protokołu WebSocket i zabezpieczania ruchu protokołu WebSocket. Podobnie można użyć hello [portal](application-gateway-create-gateway-portal.md) lub [PowerShell](application-gateway-create-gateway-arm.md) toocreate bramę aplikacji z odbiorników na ruch na porcie 80/443 toosupport protokołu WebSocket.
+Istniejący odbiornik HTTP może służyć do obsługi ruchu sieciowego protokołu WebSocket. Poniżej przedstawiono fragment element httpListeners z przykładowego pliku szablonu. Będzie potrzebny odbiorników HTTP i HTTPS do obsługi protokołu WebSocket i zabezpieczania ruchu protokołu WebSocket. Podobnie można użyć [portal](application-gateway-create-gateway-portal.md) lub [PowerShell](application-gateway-create-gateway-arm.md) Aby utworzyć bramę aplikacji za pomocą obiektów nasłuchujących na porcie 80/443 do obsługi ruchu sieciowego protokołu WebSocket.
 
 ```json
 "httpListeners": [
@@ -66,7 +66,7 @@ Istniejący odbiornik HTTP mogą być używane toosupport ruchu protokołu WebSo
 
 ## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool, BackendHttpSetting, konfiguracja usługi Routing i zasady
 
-BackendAddressPool jest używane toodefine puli zaplecza przy użyciu protokołu WebSocket włączone serwerów. Hello backendHttpSetting jest zdefiniowana z portem 80 i 443 wewnętrznej bazy danych. właściwości Hello koligacji na podstawie plików cookie i requestTimeouts nie są istotne tooWebSocket ruchu. Nie ma żadnej zmiany wymagane w regule routingu hello, "Basic" toohello odpowiednie odbiornika hello używane tootie odpowiadający puli adresów zaplecza. 
+BackendAddressPool służy do definiowania puli zaplecza przy użyciu protokołu WebSocket włączone serwerów. BackendHttpSetting jest zdefiniowana z portem 80 i 443 wewnętrznej bazy danych. Właściwości koligacji na podstawie plików cookie i requestTimeouts nie mają znaczenia dla ruchu protokołu WebSocket. Nie ma żadnej zmiany wymagane w regule routingu, "Basic" służy do powiązanie odpowiednie odbiornika do odpowiedniej puli adresów zaplecza. 
 
 ```json
 "requestRoutingRules": [{
@@ -104,7 +104,7 @@ BackendAddressPool jest używane toodefine puli zaplecza przy użyciu protokołu
 
 ## <a name="websocket-enabled-backend"></a>Włączony protokół WebSocket wewnętrznej bazy danych
 
-Z wewnętrzną bazą danych musi być serwerem sieci web HTTP/HTTPS na powitania skonfigurowane portu dla protokołu WebSocket toowork (zazwyczaj 80/443). To wymaganie dotyczy, ponieważ protokół WebSocket wymaga hello toobe początkowego uzgadniania protokołu HTTP z protokołem uaktualnienia tooWebSocket jako pola nagłówka. Witaj, poniżej przedstawiono przykładowy nagłówka:
+Z wewnętrzną bazą danych musi być serwerem sieci web HTTP/HTTPS na skonfigurowanego portu dla protokołu WebSocket do pracy (zazwyczaj 80/443). To wymaganie dotyczy, ponieważ protokół WebSocket wymaga początkowego uzgadniania się wraz z uaktualnieniem protokołu WebSocket jako pole nagłówka HTTP. Poniżej przedstawiono przykład nagłówka:
 
 ```
     GET /chat HTTP/1.1
@@ -117,9 +117,9 @@ Z wewnętrzną bazą danych musi być serwerem sieci web HTTP/HTTPS na powitania
     Sec-WebSocket-Version: 13
 ```
 
-Inną przyczyną tego jest sondy kondycji tej aplikacji bramy wewnętrznej bazy danych obsługuje tylko protokoły HTTP i HTTPS. Jeśli powitania serwera wewnętrznej bazy danych nie odpowiada tooHTTP lub sond protokołu HTTPS, pochodzi z puli zaplecza.
+Inną przyczyną tego jest sondy kondycji tej aplikacji bramy wewnętrznej bazy danych obsługuje tylko protokoły HTTP i HTTPS. Jeśli serwer wewnętrznej bazy danych nie odpowiada na HTTP lub HTTPS, sond, pochodzi z puli zaplecza.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po szkoleniowe dotyczące obsługi protokołu WebSocket, przejdź zbyt[Utwórz bramę aplikacji](application-gateway-create-gateway.md) aplikacji sieci web z obsługą tooget wprowadzenie do protokołu WebSocket.
+Po szkoleniowe dotyczące obsługi protokołu WebSocket, przejdź do [Utwórz bramę aplikacji](application-gateway-create-gateway.md) aby zacząć korzystać z protokołu WebSocket aplikacji sieci web z obsługą.
 

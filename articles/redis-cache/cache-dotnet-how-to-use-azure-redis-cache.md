@@ -1,6 +1,6 @@
 ---
-title: "tooUse aaaHow pamięć podręczna Redis Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooimprove hello wydajności aplikacji platformy Azure z pamięcią podręczną Redis Azure"
+title: "Jak używać usługi Azure Redis Cache | Microsoft Docs"
+description: "Informacje na temat zwiększania wydajności aplikacji Azure za pomocą usługi Azure Redis Cache"
 services: redis-cache,app-service
 documentationcenter: 
 author: steved0x
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: sdanie
-ms.openlocfilehash: 763d70c10972eec9a1885969e8da5bf1c4084727
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3dfc026490093523446650c510dbebdd660e8b6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-toouse-azure-redis-cache"></a>Jak tooUse Azure pamięci podręcznej Redis
+# <a name="how-to-use-azure-redis-cache"></a>Jak używać usługi Azure Redis Cache
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,83 +30,83 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-W tym przewodniku przedstawiono sposób tooget uruchamiania przy użyciu **pamięć podręczna Redis Azure**. Pamięć podręczna Redis Azure firmy Microsoft jest oparta na powitania popularnych typu open source pamięci podręcznej Redis. Daje dostęp do tooa bezpiecznego, dedykowane pamięć podręczna Redis, zarządzany przez firmę Microsoft. Pamięć podręczna utworzona przy użyciu usługi Azure Redis Cache jest dostępna z poziomu dowolnej aplikacji w ramach platformy Microsoft Azure.
+W tym przewodniku przedstawiono, jak rozpocząć pracę z usługą **Azure Redis Cache**. Usługa Microsoft Azure Redis Cache jest oparta na popularnej pamięci podręcznej Redis typu open source. Umożliwia dostęp do bezpiecznej, dedykowanej pamięci podręcznej Redis, zarządzanej przez firmę Microsoft. Pamięć podręczna utworzona przy użyciu usługi Azure Redis Cache jest dostępna z poziomu dowolnej aplikacji w ramach platformy Microsoft Azure.
 
-Pamięć podręczna Redis Azure firmy Microsoft jest dostępna w hello następujące warstwy:
+Usługa Microsoft Azure Redis Cache jest dostępna w następujących warstwach:
 
-* **Podstawowa** — jeden węzeł. Wiele wielkości too53 GB.
-* **Standardowa** — dwa węzły (węzeł podstawowy i węzeł repliki). Wiele wielkości too53 GB. Umowa SLA na poziomie 99,9%.
-* **Premium** — dwa węzły podstawowego/repliki o zapasowej odłamków too10. Różne rozmiary od 6 GB too530 GB. Wszystkie funkcje warstwy Standardowej i dodatkowe funkcje, m.in. obsługa [klastra Redis](cache-how-to-premium-clustering.md), [stanu trwałego pamięci podręcznej Redis](cache-how-to-premium-persistence.md) oraz usługi [Azure Virtual Network](cache-how-to-premium-vnet.md). Umowa SLA na poziomie 99,9%.
+* **Podstawowa** — jeden węzeł. Wiele rozmiarów do 53 GB.
+* **Standardowa** — dwa węzły (węzeł podstawowy i węzeł repliki). Wiele rozmiarów do 53 GB. Umowa SLA na poziomie 99,9%.
+* **Premium** — dwa węzły (węzeł podstawowy i węzeł repliki) zawierające do 10 fragmentów. Wiele rozmiarów od 6 GB do 530 GB. Wszystkie funkcje warstwy Standardowej i dodatkowe funkcje, m.in. obsługa [klastra Redis](cache-how-to-premium-clustering.md), [stanu trwałego pamięci podręcznej Redis](cache-how-to-premium-persistence.md) oraz usługi [Azure Virtual Network](cache-how-to-premium-vnet.md). Umowa SLA na poziomie 99,9%.
 
 Poszczególne warstwy różnią się od siebie pod względem funkcji i cen. Informacje dotyczące cen można znaleźć w artykule [Pamięć podręczna Redis — cennik][Cache Pricing Details].
 
-W tym przewodniku przedstawiono sposób toouse hello [programie StackExchange.Redis] [ StackExchange.Redis] klienta przy użyciu C\# kodu. Witaj omówione scenariusze obejmują **tworzenie i konfigurowanie pamięci podręcznej**, **Konfigurowanie klientów pamięci podręcznej**, i **Dodawanie i usuwanie obiektów z pamięci podręcznej hello**. Aby uzyskać więcej informacji na temat korzystania z usługi Azure Redis Cache, zobacz [Następne kroki][Next Steps]. Krok po kroku samouczek tworzenia aplikacji sieci web z pamięci podręcznej Redis ASP.NET MVC, zobacz [jak toocreate aplikacji sieci Web z pamięci podręcznej Redis](cache-web-app-howto.md).
+W tym przewodniku przedstawiono, jak korzystać z klienta [StackExchange.Redis][StackExchange.Redis] przy użyciu kodu C\#. Opisane scenariusze obejmują **tworzenie i konfigurowanie pamięci podręcznej**, **konfigurowanie klientów pamięci podręcznej** oraz **dodawanie i usuwanie obiektów z pamięci podręcznej**. Aby uzyskać więcej informacji na temat korzystania z usługi Azure Redis Cache, zobacz [Następne kroki][Next Steps]. Samouczek krok po kroku dotyczący tworzenia aplikacji sieci Web ASP.NET MVC z użyciem pamięci podręcznej Redis znajduje się w artykule [Tworzenie aplikacji sieci Web z użyciem pamięci podręcznej Redis](cache-web-app-howto.md).
 
 <a name="getting-started-cache-service"></a>
 
 ## <a name="get-started-with-azure-redis-cache"></a>Rozpoczęcie pracy z usługą Azure Redis Cache
-Rozpoczęcie pracy z usługą Azure Redis Cache jest proste. tooget pracę, należy udostępnić i skonfigurować pamięć podręczną. Następnie należy skonfigurować klientów pamięci podręcznej hello, więc mogą uzyskiwać dostęp do pamięci podręcznej hello. Po skonfigurowaniu hello pamięci podręcznej klientów, można rozpocząć pracę z nimi.
+Rozpoczęcie pracy z usługą Azure Redis Cache jest proste. Aby rozpocząć, należy aprowizować i skonfigurować pamięć podręczną. Następnie należy skonfigurować klientów pamięci podręcznej, aby mogli uzyskać dostęp do pamięci podręcznej. Po skonfigurowaniu klientów pamięci podręcznej można rozpocząć pracę.
 
-* [Tworzenie pamięci podręcznej hello][Create hello cache]
-* [Konfigurowanie klientów pamięci podręcznej hello][Configure hello cache clients]
+* [Tworzenie pamięci podręcznej][Create the cache]
+* [Konfigurowanie klientów pamięci podręcznej][Configure the cache clients]
 
 <a name="create-cache"></a>
 
 ## <a name="create-a-cache"></a>Tworzenie pamięci podręcznej
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-### <a name="tooaccess-your-cache-after-its-created"></a>tooaccess pamięć podręczną po jego utworzeniu
+### <a name="to-access-your-cache-after-its-created"></a>Aby uzyskać dostęp do pamięci podręcznej po jej utworzeniu
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
-Aby uzyskać więcej informacji o konfigurowaniu pamięci podręcznej, zobacz [jak tooconfigure pamięć podręczna Redis Azure](cache-configure.md).
+Więcej informacji na temat konfigurowania pamięci podręcznej znajduje się w temacie [How to configure Azure Redis Cache](cache-configure.md) (Konfigurowanie usługi Azure Redis Cache).
 
 <a name="NuGet"></a>
 
-## <a name="configure-hello-cache-clients"></a>Konfigurowanie klientów pamięci podręcznej hello
+## <a name="configure-the-cache-clients"></a>Konfigurowanie klientów pamięci podręcznej
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
-Gdy projekt klienta zostanie skonfigurowany do buforowania, można użyć hello metod opisanych w hello następujące sekcje zawierają informacje dotyczące pracy z pamięci podręcznej.
+Po skonfigurowaniu projektu klienta do buforowania będzie można pracować z pamięcią podręczną przy użyciu metod opisanych w poniższych sekcjach.
 
 <a name="working-with-caches"></a>
 
 ## <a name="working-with-caches"></a>Praca z pamięciami podręcznymi
-Witaj w tej sekcji opisano sposób tooperform typowe zadania z pamięci podręcznej.
+W tej sekcji opisano sposób wykonywania typowych zadań z pamięcią podręczną.
 
-* [Połącz toohello pamięci podręcznej][Connect toohello cache]
-* [Dodaj i pobrać z pamięci podręcznej hello obiektów][Add and retrieve objects from hello cache]
-* [Praca z obiektami .NET w pamięci podręcznej hello](#work-with-net-objects-in-the-cache)
+* [Łączenie z pamięcią podręczną][Connect to the cache]
+* [Dodawanie i pobieranie obiektów z pamięci podręcznej][Add and retrieve objects from the cache]
+* [Praca z obiektami platformy .NET w pamięci podręcznej](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
 
-## <a name="connect-toohello-cache"></a>Połącz toohello pamięci podręcznej
-tooprogrammatically pracy z pamięci podręcznej, należy buforu toohello odwołań. Dodaj powitania od góry toohello dla dowolnego pliku, z którego chcesz toouse hello programie StackExchange.Redis klienta tooaccess pamięć podręczna Redis Azure.
+## <a name="connect-to-the-cache"></a>Łączenie z pamięcią podręczną
+Aby programowo pracować z pamięcią podręczną, potrzebujesz odwołania do pamięci podręcznej. Dodaj poniższy kod na początku każdego pliku, z którego chcesz użyć klienta StackExchange.Redis, aby uzyskać dostęp do pamięci podręcznej Redis Azure.
 
     using StackExchange.Redis;
 
 > [!NOTE]
-> Witaj programie StackExchange.Redis klienta wymaga programu .NET Framework 4 lub nowszej.
+> Klient StackExchange.Redis wymaga programu .NET Framework 4 lub jego nowszej wersji.
 > 
 > 
 
-Witaj toohello połączenia z pamięcią podręczną Redis Azure jest zarządzana przez hello `ConnectionMultiplexer` klasy. Ta klasa powinny być udostępniane i użyć ponownie w całej aplikacji klienckiej i nie musi toobe utworzone na podstawie na operację. 
+Połączenie z usługą Azure Redis Cache jest zarządzane przez klasę `ConnectionMultiplexer`. Ta klasa powinna być udostępniana i ponownie używana w aplikacji klienta i nie trzeba jej tworzyć w oparciu o operację. 
 
-tooan tooconnect pamięć podręczna Redis Azure i można zwrócić wystąpienia połączonych `ConnectionMultiplexer`, wywołanie hello statycznych `Connect` — metoda i przekaż hello pamięci podręcznej punktu końcowego i klucz. Za pomocą klawisza hello wygenerowane z portalu Azure jako parametr password hello hello.
+Aby połączyć się z usługą Azure Redis Cache i otrzymać wystąpienie połączonej klasy `ConnectionMultiplexer`, wywołaj statyczną metodę `Connect` i przekaż klucz oraz punkt końcowy pamięci podręcznej. Użyj klucza wygenerowanego w witrynie Azure Portal jako parametru hasła.
 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 > [!IMPORTANT]
-> Ostrzeżenie: Nigdy nie przechowuj poświadczeń w kodzie źródłowym. tookeep to prosty przykład I używam wyświetlania ich w kodzie źródłowym hello. Zobacz [jak ciągi aplikacji i pracy ciągów połączenia] [ How Application Strings and Connection Strings Work] informacji na temat toostore poświadczeń.
+> Ostrzeżenie: Nigdy nie przechowuj poświadczeń w kodzie źródłowym. Tutaj zostały one pokazane w kodzie źródłowym, aby uprościć przykład. Informacje na temat przechowywania poświadczeń znajdują się w artykule [How Application Strings and Connection Strings Work][How Application Strings and Connection Strings Work] (Sposób działania ciągów aplikacji i parametrów połączenia).
 > 
 > 
 
-Jeśli nie chcesz toouse SSL, albo ustaw `ssl=false` lub Pomiń hello `ssl` parametru.
+Jeśli nie chcesz używać protokołu SSL, ustaw wartość `ssl=false` lub pomiń parametr `ssl`.
 
 > [!NOTE]
-> port bez protokołu SSL Hello jest domyślnie wyłączona, dla nowych pamięci podręcznych. Aby uzyskać instrukcje na temat włączania portu bez protokołu SSL hello, zobacz [porty dostępu](cache-configure.md#access-ports).
+> Port bez obsługi protokołu SSL jest domyślnie wyłączony w przypadku nowych pamięci podręcznych. Instrukcje dotyczące włączania portu bez obsługi protokołu SSL znajdują się w sekcji [Access Ports](cache-configure.md#access-ports) (Porty dostępu).
 > 
 > 
 
-Jednym z podejść toosharing `ConnectionMultiplexer` toohave statycznej właściwości, która zwraca wystąpienie połączonych toohello podobnie poniższy przykład jest wystąpienie w aplikacji. Metoda ta umożliwia tooinitialize sposób zapewniający obsługę wielowątkowości, tylko jeden połączony `ConnectionMultiplexer` wystąpienia. W tych przykładach `abortConnect` jest zestaw toofalse, co oznacza, nawet jeśli nie zostanie nawiązane połączenie toohello pamięć podręczna Redis Azure powiedzie się hello wywołania. Jedna funkcja klucza `ConnectionMultiplexer` jest on automatycznie przywraca łączności toohello w pamięci podręcznej po hello problem z siecią lub inne przyczyny zostaną rozwiązane.
+Jednym z rozwiązań w zakresie udostępniania wystąpienia klasy `ConnectionMultiplexer` w aplikacji jest korzystanie z właściwości statycznej, która zwraca połączone wystąpienie podobnie jak w poniższym przykładzie. To podejście oferuje bezpieczny wątkowo sposób na inicjowanie tylko jednego połączonego wystąpienia klasy `ConnectionMultiplexer`. W tych przykładach parametr `abortConnect` ma wartość false, co oznacza, że wystąpienie zostanie wykonane pomyślnie, nawet jeśli połączenie z usługą Azure Redis Cache nie zostanie nawiązane. Kluczowa funkcja klasy `ConnectionMultiplexer` polega na automatycznym przywracaniu łączności z pamięcią podręczną po rozwiązaniu problemu z siecią lub usunięciu innych przyczyn.
 
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
@@ -125,50 +125,50 @@ Więcej informacji na temat opcji zaawansowanej konfiguracji połączenia znajdu
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-Po nawiązaniu połączenia hello zwrócić bazy danych pamięci podręcznej redis toohello odwołania przez wywołanie hello `ConnectionMultiplexer.GetDatabase` metody. zwróciła obiekt Hello hello `GetDatabase` metody jest obiektem przekazujące lekkie i nie wymaga toobe przechowywane.
+Po nawiązaniu połączenia zwróć odwołanie do bazy danych pamięci podręcznej Redis przez wywołanie metody `ConnectionMultiplexer.GetDatabase`. Obiekt zwracany z metody `GetDatabase` jest lekkim obiektem przekazującym i nie wymaga przechowywania.
 
-    // Connection refers tooa property that returns a ConnectionMultiplexer
-    // as shown in hello previous example.
+    // Connection refers to a property that returns a ConnectionMultiplexer
+    // as shown in the previous example.
     IDatabase cache = Connection.GetDatabase();
 
-    // Perform cache operations using hello cache object...
-    // Simple put of integral data types into hello cache
+    // Perform cache operations using the cache object...
+    // Simple put of integral data types into the cache
     cache.StringSet("key1", "value");
     cache.StringSet("key2", 25);
 
-    // Simple get of data types from hello cache
+    // Simple get of data types from the cache
     string key1 = cache.StringGet("key1");
     int key2 = (int)cache.StringGet("key2");
 
-Pamięci podręcznej pamięci podręcznej Redis Azure mają można skonfigurować liczbę baz danych (domyślnie 16), które mogą być używane toologically oddzielne hello danych w pamięci podręcznej Redis. Aby uzyskać więcej informacji, zobacz [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Co to są bazy danych Redis?) i [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Domyślna konfiguracja serwera Redis).
+Pamięci podręczne Azure Redis Cache mają konfigurowalną liczbę baz danych (domyślnie 16), których można użyć do logicznego odseparowania danych w pamięci podręcznej Redis Cache. Aby uzyskać więcej informacji, zobacz [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Co to są bazy danych Redis?) i [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Domyślna konfiguracja serwera Redis).
 
-Teraz, gdy wiesz, jak wystąpienia pamięci podręcznej Redis Azure tooan tooconnect i przywracać toohello odwołania pamięci podręcznej bazy danych, Przyjrzyjmy się pracy z pamięci podręcznej hello.
+Teraz gdy wiesz, jak połączyć się z wystąpieniem usługi Azure Redis Cache i zwrócić odwołanie do bazy danych pamięci podręcznej, przyjrzyjmy się pracy z pamięcią podręczną.
 
 <a name="add-object"></a>
 
-## <a name="add-and-retrieve-objects-from-hello-cache"></a>Dodaj i pobrać z pamięci podręcznej hello obiektów
-Elementy można przechowywane w i pobierane z pamięci podręcznej za pomocą hello `StringSet` i `StringGet` metody.
+## <a name="add-and-retrieve-objects-from-the-cache"></a>Dodawanie i pobieranie obiektów z pamięci podręcznej
+Elementy można zapisywać do pamięci podręcznej i pobierać z niej za pomocą metod `StringSet` i `StringGet`.
 
     // If key1 exists, it is overwritten.
     cache.StringSet("key1", "value1");
 
     string value = cache.StringGet("key1");
 
-W pamięci podręcznej redis, większość danych jako ciągi Redis, ale te ciągi mogą zawierać wiele typów danych, w tym serializacji danych binarnych, którego można użyć w przypadku przechowywania .NET obiektów w pamięci podręcznej hello magazynów.
+Usługa Redis przechowuje większość danych w formie ciągów Redis, ale ciągi te mogą zawierać wiele typów danych, w tym serializowane dane binarne, które mogą być używane podczas przechowywania obiektów platformy .NET w pamięci podręcznej.
 
-Podczas wywoływania metody `StringGet`, jeśli obiekt hello istnieje, jest zwracany, a jeśli nie, `null` jest zwracany. Jeśli `null` jest zwracany, można pobrać wartości hello ze źródła danych odpowiednie hello i zapisz go w pamięci podręcznej hello na potrzeby późniejszego wykorzystania. Ten wzorzec użycia jest określany jako hello Zarezerwuj pamięć podręczna wzorzec.
+Podczas wywoływania metody `StringGet`, jeśli obiekt istnieje, jest zwracany, a jeśli nie, zwracana jest wartość `null`. W przypadku zwrócenia wartości `null` można pobrać wartość z żądanego źródła danych i zapisać ją w pamięci podręcznej do późniejszego użytku. Ten wzorzec użycia nazywamy wzorcem z odkładaniem do pamięci podręcznej.
 
     string value = cache.StringGet("key1");
     if (value == null)
     {
-        // hello item keyed by "key1" is not in hello cache. Obtain
-        // it from hello desired data source and add it toohello cache.
+        // The item keyed by "key1" is not in the cache. Obtain
+        // it from the desired data source and add it to the cache.
         value = GetValueFromDataSource();
 
         cache.StringSet("key1", value);
     }
 
-Można również użyć `RedisValue`, jak pokazano w hello poniższy przykład. Typ `RedisValue` ma niejawne operatory do pracy z integralnymi typami danych. To rozwiązanie może być użyteczne, jeśli oczekiwaną wartością dla elementu w pamięci podręcznej jest `null`.
+Alternatywnie możesz użyć typu `RedisValue`, jak pokazano w poniższym przykładzie. Typ `RedisValue` ma niejawne operatory do pracy z integralnymi typami danych. To rozwiązanie może być użyteczne, jeśli oczekiwaną wartością dla elementu w pamięci podręcznej jest `null`.
 
 
     RedisValue value = cache.StringGet("key1");
@@ -179,14 +179,14 @@ Można również użyć `RedisValue`, jak pokazano w hello poniższy przykład. 
     }
 
 
-wygaśnięcie hello toospecify elementu w pamięci podręcznej hello, użyj hello `TimeSpan` parametr `StringSet`.
+Aby określić wygaśnięcie elementu w pamięci podręcznej, użyj parametru `TimeSpan` metody `StringSet`.
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-## <a name="work-with-net-objects-in-hello-cache"></a>Praca z obiektami .NET w pamięci podręcznej hello
-Usługa Azure Redis Cache może buforować obiekty platformy .NET oraz pierwotne typy danych, ale zanim będzie możliwe buforowanie obiektu platformy .NET, trzeba go serializować. Serializację obiektu .NET jest odpowiedzialny za hello Deweloper aplikacji hello i zapewnia elastyczność developer hello hello wyborze hello serializatora.
+## <a name="work-with-net-objects-in-the-cache"></a>Praca z obiektami platformy .NET w pamięci podręcznej
+Usługa Azure Redis Cache może buforować obiekty platformy .NET oraz pierwotne typy danych, ale zanim będzie możliwe buforowanie obiektu platformy .NET, trzeba go serializować. Odpowiedzialność za serializację obiektu .NET spoczywa na deweloperze aplikacji, który ma możliwość wybrania serializatora.
 
-Jeden tooserialize prosty sposób obiektów jest toouse hello `JsonConvert` metody serializacji w [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) i serializacji tooand z formatu JSON. Witaj poniższy przykład przedstawia get i set z `Employee` wystąpienie obiektu.
+Prostym sposobem na wykonywanie serializacji obiektów jest użycie metod serializacji `JsonConvert` w środowisku [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) oraz serializacja do i z formatu JSON. W poniższym przykładzie pokazano metody get i set używające wystąpienia obiektu `Employee`.
 
     class Employee
     {
@@ -200,7 +200,7 @@ Jeden tooserialize prosty sposób obiektów jest toouse hello `JsonConvert` meto
         }
     }
 
-    // Store toocache
+    // Store to cache
     cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
 
     // Retrieve from cache
@@ -209,36 +209,36 @@ Jeden tooserialize prosty sposób obiektów jest toouse hello `JsonConvert` meto
 <a name="next-steps"></a>
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, kiedy znasz już podstawy hello, należy wykonać te dodatkowe informacje o pamięci podręcznej Redis Azure toolearn łącza.
+Teraz, kiedy znasz już podstawy, skorzystaj z poniższych linków i dowiedz się więcej na temat usługi Azure Redis Cache.
 
-* Zapoznaj się z hello dostawcy platformy ASP.NET dla pamięci podręcznej Redis Azure.
+* Sprawdź dostawców programu ASP.NET dla usługi Azure Redis Cache.
   * [Dostawca stanu sesji usługi Azure Redis](cache-aspnet-session-state-provider.md)
   * [Dostawca wyjściowej pamięci podręcznej programu ASP.NET w usłudze Azure Redis Cache](cache-aspnet-output-cache-provider.md)
-* [Włącz diagnostykę w pamięci podręcznej](cache-how-to-monitor.md#enable-cache-diagnostics) można więc [monitor](cache-how-to-monitor.md) hello kondycji pamięci podręcznej. Możesz wyświetlić hello metryki w hello portalu Azure i może również [pobrać i przejrzyj](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) je za pomocą narzędzi hello wybranych przez użytkownika.
-* Zapoznaj się z hello [programie StackExchange.Redis pamięci podręcznej klienta dokumentacji][StackExchange.Redis cache client documentation].
+* [Włącz diagnostykę pamięci podręcznej](cache-how-to-monitor.md#enable-cache-diagnostics), aby móc [monitorować](cache-how-to-monitor.md) jej kondycję. Możesz wyświetlać metryki w witrynie Azure Portal oraz [pobierać i przeglądać](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) je przy użyciu wybranych przez siebie narzędzi.
+* Zapoznaj się z [dokumentacją dotyczącą klienta pamięci podręcznej StackExchange.Redis][StackExchange.Redis cache client documentation].
   * Dostęp do usługi Azure Redis Cache można uzyskać z wielu klientów Redis i przy użyciu wielu języków programowania. Więcej informacji znajduje się na stronie [http://redis.io/clients][http://redis.io/clients].
 * Usługi Azure Redis Cache można również używać z usługami i narzędziami innych firm, takimi jak Redsmin i Redis Desktop Manager.
-  * Aby uzyskać więcej informacji o Redsmin, zobacz [jak tooretrieve połączenia Azure Redis ciąg i korzystania z niego Redsmin][How tooretrieve an Azure Redis connection string and use it with Redsmin].
+  * Więcej informacji na temat usługi Redsmin znajduje się w artykule [How to retrieve an Azure Redis connection string and use it with Redsmin][How to retrieve an Azure Redis connection string and use it with Redsmin] (Jak pobrać parametry połączenia usługi Azure Redis i używać ich w usłudze Redsmin).
   * Dostęp do danych w usłudze Azure Redis Cache oraz możliwość ich inspekcji można uzyskać za pomocą graficznego interfejsu użytkownika, używając usługi [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager).
-* Zobacz hello [redis] [ redis] dokumentacji i przeczytaj temat [redis typy danych] [ redis data types] i [wprowadzenie piętnastu minut typy danych tooRedis][a fifteen minute introduction tooRedis data types].
+* Zapoznaj się z dokumentacją dotyczącą usługi [Redis][redis], przeczytaj o [typach danych usługi Redis][redis data types] oraz poznaj [piętnastominutowe wprowadzenie do typów danych usługi Redis][a fifteen minute introduction to Redis data types].
 
 <!-- INTRA-TOPIC LINKS -->
 [Next Steps]: #next-steps
-[Introduction tooAzure Redis Cache (Video)]: #video
+[Introduction to Azure Redis Cache (Video)]: #video
 [What is Azure Redis Cache?]: #what-is
 [Create an Azure Cache]: #create-cache
 [Which type of caching is right for me?]: #choosing-cache
-[Prepare Your Visual Studio Project tooUse Azure Caching]: #prepare-vs
-[Configure Your Application tooUse Caching]: #configure-app
+[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
 [Get Started with Azure Redis Cache]: #getting-started-cache-service
-[Create hello cache]: #create-cache
-[Configure hello cache]: #enable-caching
-[Configure hello cache clients]: #NuGet
+[Create the cache]: #create-cache
+[Configure the cache]: #enable-caching
+[Configure the cache clients]: #NuGet
 [Working with Caches]: #working-with-caches
-[Connect toohello cache]: #connect-to-cache
-[Add and retrieve objects from hello cache]: #add-object
-[Specify hello expiration of an object in hello cache]: #specify-expiration
-[Store ASP.NET session state in hello cache]: #store-session
+[Connect to the cache]: #connect-to-cache
+[Add and retrieve objects from the cache]: #add-object
+[Specify the expiration of an object in the cache]: #specify-expiration
+[Store ASP.NET session state in the cache]: #store-session
 
 
 <!-- IMAGES -->
@@ -267,7 +267,7 @@ Teraz, kiedy znasz już podstawy hello, należy wykonać te dodatkowe informacje
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
 [Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[How tooretrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
+[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
@@ -276,16 +276,16 @@ Teraz, kiedy znasz już podstawy hello, należy wykonać te dodatkowe informacje
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[How tooConfigure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[How to: Set hello Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
 [StackExchange.Redis configuration model]: https://stackexchange.github.io/StackExchange.Redis/Configuration
 
-[Work with .NET objects in hello cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
@@ -295,16 +295,16 @@ Teraz, kiedy znasz już podstawy hello, należy wykonać te dodatkowe informacje
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
-[Migrate tooAzure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Using Resource groups toomanage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
+[Using Resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
 [Redis data types]: http://redis.io/topics/data-types
-[a fifteen minute introduction tooRedis data types]: http://redis.io/topics/data-types-intro
+[a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 

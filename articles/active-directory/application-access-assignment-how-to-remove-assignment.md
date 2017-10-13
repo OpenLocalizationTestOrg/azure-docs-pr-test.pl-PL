@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooremove użytkownikowi na dostęp do aplikacji tooan | Dokumentacja firmy Microsoft"
-description: "Zrozumienie sposobu tooremove użytkownika dostępu tooan aplikacji"
+title: "Jak usunąć dostępu użytkownika do aplikacji | Dokumentacja firmy Microsoft"
+description: "Zrozumienie sposobu usuwania dostępu użytkownika do aplikacji"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,62 +13,62 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 17017bddb73aad5a0ef3a411ac91bf0423f0b600
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 497429e7bf62f7e1d67ea429d6b858725f843688
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooremove-a-users-access-tooan-application"></a>Jak tooremove użytkownikowi uzyskiwanie dostępu do aplikacji tooan
+# <a name="how-to-remove-a-users-access-to-an-application"></a>Jak usunąć dostępu użytkownika do aplikacji
 
-W tym artykule pomóc toounderstand jak tooremove użytkownika dostępu tooan aplikacji.
+Ten artykuł ułatwia zrozumienie sposobu usuwania dostępu użytkownika do aplikacji.
 
-## <a name="i-want-tooremove-a-specific-users-or-groups-assignment-tooan-application"></a>Chcę tooremove określonego użytkownika lub grupy aplikacji tooan przypisania
+## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Usunąć przypisanie określonego użytkownika lub grupy do aplikacji
 
-tooremove użytkownika lub grupę przypisania tooan aplikację, wykonaj kroki hello na liście hello [Usuń przypisanie użytkownika lub grupy z aplikacji przedsiębiorstwa w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artykułu.
+Aby usunąć przypisanie grupy do aplikacji lub użytkownika, wykonaj czynności opisane w [Usuń przypisanie użytkownika lub grupy z aplikacji przedsiębiorstwa w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artykułu.
 
-. ## Ma toodisable wszystkich aplikacji tooan dostępu dla każdego użytkownika
+. ## chcę wyłączyć dostęp do aplikacji dla każdego użytkownika
 
-toodisable wszystkie użytkownika logowania tooan aplikacji, wykonaj kroki hello na liście hello [wyłączyć logowania użytkowników dla aplikacji przedsiębiorstwa w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artykułu.
+Aby wyłączyć wszystkie logowania użytkownika do aplikacji, wykonaj czynności opisane w [wyłączyć logowania użytkowników dla aplikacji przedsiębiorstwa w usłudze Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artykułu.
 
-## <a name="i-want-toodelete-an-application-entirely"></a>Chcę całkowicie toodelete aplikacji
+## <a name="i-want-to-delete-an-application-entirely"></a>Chcę, aby całkowicie usunąć aplikację
 
-zbyt**usunąć aplikację**, postępuj zgodnie z poniższymi instrukcjami hello:
+Aby **usunąć aplikację**, postępuj zgodnie z instrukcjami poniżej:
 
-1.  Otwórz hello [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
+1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
 
-2.  Otwórz hello **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie powitania hello.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
 
-3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr hello a wybierz hello **usługi Azure Active Directory** elementu.
+3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
-4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie powitania w usłudze Azure Active Directory.
+4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** w menu nawigacji po lewej stronie usługi Azure Active Directory.
 
-5.  Kliknij przycisk **wszystkie aplikacje** tooview listę wszystkich aplikacji.
+5.  Kliknij przycisk **wszystkie aplikacje** Aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie ma aplikacji hello mają być wyświetlane tutaj, użyj hello **filtru** kontroli u góry hello hello **listę wszystkich aplikacji** i zestaw hello **Pokaż** opcję zbyt **Wszystkie aplikacje.**
+   * Jeśli nie ma aplikacji ma tutaj będą wyświetlane, użyj **filtru** kontroli nad **listę wszystkich aplikacji** i ustaw **Pokaż** opcji w celu **wszystkich aplikacji.**
 
-6.  Wybierz aplikację hello ma toodelete.
+6.  Wybierz aplikację, którą chcesz usunąć.
 
-7.  Po załadowaniu aplikacji hello, kliknij przycisk **usunąć** ikony z aplikacji top hello **omówienie** bloku.
+7.  Po załadowaniu aplikacji, kliknij przycisk **usunąć** ikony z najwyższym aplikacji **omówienie** bloku.
 
-## <a name="i-want-toodisable-all-future-user-consent-operations-tooany-application"></a>Chcę toodisable wszystkie przyszłe użytkownika zgody operacji tooany aplikacji
+## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Chcę wyłączyć wszystkie operacje zgody przyszłych użytkownika do aplikacji
 
-Wyłączanie zgody użytkownika dla użytkowników końcowych z aplikacji tooany zgodę zapobiec całego katalogu. Administratorzy mogą nadal oznacza zgodę na behalves użytkownika. zgoda toolearn więcej informacji na temat aplikacji, oraz dlaczego może lub nie możesz toodo tego odczytu [zgody administratora i użytkownika opis](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Wyłączanie zgody użytkownika dla całego katalogu uniemożliwić użytkownikom końcowym zgodę dowolnej aplikacji. Administratorzy mogą nadal oznacza zgodę na behalves użytkownika. Dowiedz się więcej o zgodę aplikacji i dlaczego może lub nie chcesz to zrobić, przeczytaj [zgody administratora i użytkownika opis](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-zbyt**Wyłącz wszystkie operacje zgody użytkownika w przyszłości w katalogu cały**, postępuj zgodnie z poniższymi instrukcjami hello:
+Aby **Wyłącz wszystkie operacje zgody użytkownika w przyszłości w katalogu cały**, postępuj zgodnie z instrukcjami poniżej:
 
-1.  Otwórz hello [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
+1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego.**
 
-2.  Otwórz hello **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie powitania hello.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
 
-3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr hello a wybierz hello **usługi Azure Active Directory** elementu.
+3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
-4.  Kliknij przycisk **użytkowników i grup** w menu nawigacji hello.
+4.  Kliknij przycisk **użytkowników i grup** w menu nawigacji.
 
 5.  Kliknij przycisk **ustawienia użytkownika**.
 
-6.  Wyłącz wszystkie operacje zgody użytkownika w przyszłości przez ustawienie hello **użytkownicy mogą zezwolić aplikacji tooaccess swoje dane** Przełącz zbyt**nr** i kliknij przycisk hello **zapisać** przycisku.
+6.  Wyłącz wszystkie operacje zgody użytkownika w przyszłości przez ustawienie **użytkownicy mogą zezwolić aplikacjom na dostęp do danych** Przełącz, aby **nr** i kliknij przycisk **zapisać** przycisku.
 
 
 # <a name="next-steps"></a>Następne kroki
-[Zarządzanie tooapps dostępu](active-directory-managing-access-to-apps.md)
+[Zarządzanie dostępem do aplikacji](active-directory-managing-access-to-apps.md)

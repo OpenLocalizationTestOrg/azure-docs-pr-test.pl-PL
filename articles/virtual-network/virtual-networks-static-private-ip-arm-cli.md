@@ -1,6 +1,6 @@
 ---
-title: "aaaConfigure prywatnych adresów IP dla maszyn wirtualnych - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconfigure prywatnych adresów IP maszyn wirtualnych za pomocą hello Azure interfejsu wiersza polecenia (CLI) 2.0."
+title: "Konfigurowanie prywatnych adresów IP dla maszyn wirtualnych - Azure CLI 2.0 | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak skonfigurować prywatnych adresów IP maszyn wirtualnych za pomocą interfejsu wiersza polecenia platformy Azure (CLI) 2.0."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,45 +16,45 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e278e6ac63c0cda061cf70ab0edfaff5491c03b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-hello-azure-cli-20"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej z wykorzystaniem hello Azure CLI 2.0
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Konfigurowanie prywatnych adresów IP dla maszyny wirtualnej z wykorzystaniem 2.0 interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 
-## <a name="cli-versions-toocomplete-hello-task"></a>Zadanie hello toocomplete wersje interfejsu wiersza polecenia 
+## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania 
 
-Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące wersje interfejsu wiersza polecenia: 
+Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia: 
 
-- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md) — nasze interfejsu wiersza polecenia dla hello classic i zasobów zarządzania modelami wdrażania 
-- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) -naszej nowej generacji interfejsu wiersza polecenia dla modelu wdrażania zarządzania hello zasobów (w tym artykule)
+- [Interfejs wiersza polecenia platformy Azure w wersji 1.0](virtual-networks-static-private-ip-cli-nodejs.md) — nasz interfejs wiersza polecenia dla klasycznego modelu wdrażania i modelu wdrażania na potrzeby zarządzania zasobami 
+- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) -naszej nowej generacji interfejsu wiersza polecenia do zarządzania model wdrażania zasobów (w tym artykule)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-W tym artykule omówiono modelu wdrażania usługi Resource Manager hello. Możesz również [Zarządzanie statycznego prywatnego adresu IP w hello klasycznego modelu wdrażania](virtual-networks-static-private-ip-classic-cli.md).
+W tym artykule opisano model wdrażania usługi Resource Manager. Możesz również [Zarządzanie statycznego prywatnego adresu IP w klasycznym modelu wdrażania](virtual-networks-static-private-ip-classic-cli.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Poniższe polecenia Azure CLI 2.0 próbki Hello oczekiwać środowisku niezłożonym już utworzone. Jeśli chcesz korzystać z poleceń hello toorun wyświetlaną w tym dokumencie, najpierw utworzyć środowisko testowe hello opisane w [utworzyć sieć wirtualną](virtual-networks-create-vnet-arm-cli.md).
+> Poniższe przykładowe polecenia Azure CLI 2.0 oczekiwać środowisku niezłożonym już utworzone. Aby uruchomić polecenia wyświetlaną w tym dokumencie, najpierw utworzyć środowisko testowe opisane w [utworzyć sieć wirtualną](virtual-networks-create-vnet-arm-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Określanie statycznego prywatnego adresu IP podczas tworzenia maszyny Wirtualnej
 
-toocreate maszyny Wirtualnej o nazwie *DNS01* w hello *frontonu* podsieci sieci wirtualnej o nazwie *TestVNet* z statycznego prywatnego adresu IP z *192.168.1.101*, Wykonaj poniższe kroki hello:
+Aby utworzyć Maszynę wirtualną o nazwie *DNS01* w *frontonu* podsieci sieci wirtualnej o nazwie *TestVNet* z statycznego prywatnego adresu IP z *192.168.1.101*, wykonaj następujące czynności:
 
-1. Jeśli nie zostało jeszcze, instalowania i konfigurowania hello najnowszych [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się za pomocą konta Azure tooan [logowania az](/cli/azure/#login). 
+1. Jeśli nie zostało jeszcze, instalowania i konfigurowania najnowszej [Azure CLI 2.0](/cli/azure/install-az-cli2) i zaloguj się do platformy Azure konta przy użyciu [logowania az](/cli/azure/#login). 
 
-2. Utwórz publiczny adres IP dla hello maszyny Wirtualnej z hello [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#create) polecenia. Lista Hello wyświetlana po danych wyjściowych hello wyjaśniono hello parametry używane.
+2. Tworzenie publicznego adresu IP dla maszyny Wirtualnej z [utworzyć az sieci publicznej ip](/cli/azure/network/public-ip#create) polecenia. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
 
     > [!NOTE]
-    > Może dokonać lub wymagane toouse różne wartości dla argumentów w tej i kolejnych krokach, w zależności od środowiska.
+    > Może być lub muszą używać różnych wartości argumentów w tej i kolejnych krokach, w zależności od środowiska.
    
     ```azurecli
     az network public-ip create \
@@ -78,11 +78,11 @@ toocreate maszyny Wirtualnej o nazwie *DNS01* w hello *frontonu* podsieci sieci 
     }
     ```
 
-   * `--resource-group`: Nazwa grupy zasobów hello, w których toocreate hello publicznego adresu IP.
-   * `--name`: Nazwa hello publicznego adresu IP.
-   * `--location`: Region platformy azure, w których toocreate hello publicznego adresu IP.
+   * `--resource-group`: Nazwa grupy zasobów, w której chcesz utworzyć publiczny adres IP.
+   * `--name`: Nazwa publicznego adresu IP.
+   * `--location`: Region platformy azure, w której chcesz utworzyć publiczny adres IP.
 
-3. Uruchom hello [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create) toocreate polecenia ze statycznego prywatnego adresu IP karty Sieciowej. Lista Hello wyświetlana po danych wyjściowych hello wyjaśniono hello parametry używane. 
+3. Uruchom [tworzenie kart interfejsu sieciowego az](/cli/azure/network/nic#create) polecenie, aby utworzyć z kartą Sieciową za pomocą statycznego prywatnego adresu IP. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów. 
    
     ```azurecli
     az network nic create \
@@ -130,11 +130,11 @@ toocreate maszyny Wirtualnej o nazwie *DNS01* w hello *frontonu* podsieci sieci 
     
     Parametry:
 
-    * `--private-ip-address`: Statycznego prywatnego adresu IP dla hello karty sieciowej.
-    * `--vnet-name`: Name hello sieci wirtualnej, w których toocreate hello karty sieciowej.
-    * `--subnet`: Name hello podsieci, w których hello toocreate karty sieciowej.
+    * `--private-ip-address`: Statycznego prywatnego adresu IP dla karty sieciowej.
+    * `--vnet-name`: Nazwa sieci wirtualnej, w której chcesz utworzyć karty sieciowej.
+    * `--subnet`: Nazwa podsieci, w której chcesz utworzyć karty sieciowej.
 
-4. Uruchom hello [tworzenia maszyny wirtualnej azure](/cli/azure/vm/nic#create) hello toocreate polecenia przy użyciu hello publicznego adresu IP i karty Sieciowej maszyny Wirtualnej utworzone powyżej. Lista Hello wyświetlana po danych wyjściowych hello wyjaśniono hello parametry używane.
+4. Uruchom [tworzenia maszyny wirtualnej azure](/cli/azure/vm/nic#create) polecenie, aby utworzyć maszynę Wirtualną za pomocą publicznego adresu IP i NIC utworzone powyżej. Lista wyświetlana po danych wyjściowych zawiera opis używanych parametrów.
    
     ```azurecli
     az vm create \
@@ -162,14 +162,14 @@ toocreate maszyny Wirtualnej o nazwie *DNS01* w hello *frontonu* podsieci sieci 
     }
     ```
    
-   Parametrów innych niż podstawowe hello [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) parametrów.
+   Parametrów innych niż podstawowe [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) parametrów.
 
-   * `--nics`: Nazwa hello kart toowhich hello maszyny Wirtualnej jest dołączony.
+   * `--nics`: Nazwa karty Sieciowej, do której jest dołączona maszyna wirtualna.
    
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Pobrać statycznych prywatne informacje o adresie IP dla maszyny Wirtualnej
 
-tooview hello statycznego prywatnego adresu IP, który został utworzony, uruchom następujące polecenie z wiersza polecenia platformy Azure hello i sprawdź wartości hello *metody alokacji prywatnego adresu IP* i *prywatny adres IP*:
+Aby wyświetlić statycznego prywatnego adresu IP, który został utworzony, uruchom następujące polecenie z wiersza polecenia platformy Azure i sprawdź wartości *metody alokacji prywatnego adresu IP* i *prywatny adres IP*:
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -181,7 +181,7 @@ Oczekiwane dane wyjściowe:
 "192.168.1.101"
 ```
 
-toodisplay hello określone informacje IP hello karty Sieciowej dla tej maszyny Wirtualnej, zapytania hello karty Sieciowej, w szczególności:
+Aby wyświetlić określone informacje IP karty interfejsu sieciowego dla tej maszyny Wirtualnej, w szczególności kwerendy karty Sieciowej:
 
 ```azurecli
 az network nic show \
@@ -191,7 +191,7 @@ az network nic show \
 rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 ```
 
-dane wyjściowe Hello to wyglądać mniej więcej tak:
+Dane wyjściowe wyglądają mniej więcej tak:
 
 ```json
 {
@@ -206,11 +206,11 @@ dane wyjściowe Hello to wyglądać mniej więcej tak:
 
 Nie można usunąć statycznego prywatnego adresu IP z karty Sieciowej w wiersza polecenia platformy Azure dla wdrożenia Menedżera zasobów. Należy:
 - Utwórz nowy kartę Sieciową, która korzysta z dynamicznego adresu IP
-- Hello karty Sieciowej na powitania hello maszyny Wirtualnej nowo utworzony zestaw kart sieciowych. 
+- Ustawić karty Sieciowej dla maszyny Wirtualnej nowo utworzonej karty sieciowej. 
 
-toochange hello kart interfejsu Sieciowego dla powitalne wirtualna używana w hello poleceń powyżej, wykonaj kroki hello poniżej.
+Aby zmienić karty Sieciowej dla maszyny Wirtualnej, używany w powyższych poleceń, wykonaj poniższe kroki.
 
-1. Uruchom hello **tworzenie kart interfejsu sieciowego azure** polecenia toocreate nowej karty Sieciowej, za pomocą alokacji dynamicznego adresu IP za pomocą nowego adresu IP. Należy pamiętać, że żaden adres IP, ponieważ określono metodę alokacji hello **dynamiczne**.
+1. Uruchom **tworzenie kart interfejsu sieciowego azure** polecenie, aby utworzyć nowe przy użyciu alokacji dynamicznego adresu IP za pomocą nowego adresu IP karty Sieciowej. Należy pamiętać, że żaden adres IP, ponieważ określono metodę alokacji **dynamiczne**.
 
     ```azurecli
     az network nic create     \
@@ -255,7 +255,7 @@ toochange hello kart interfejsu Sieciowego dla powitalne wirtualna używana w he
     }
     ```
 
-2. Uruchom hello **zestawu azure vm** hello toochange polecenia używane przez hello maszyny Wirtualnej karty Sieciowej.
+2. Uruchom **zestawu azure vm** polecenie, aby zmienić używane przez maszynę Wirtualną kartę Sieciową.
    
     ```azurecli
     azure vm set -g TestRG -n DNS01 -N TestNIC2
@@ -274,10 +274,10 @@ toochange hello kart interfejsu Sieciowego dla powitalne wirtualna używana w he
     ```
 
     > [!NOTE]
-    > Jeśli hello maszyna wirtualna jest wystarczająco duży toohave więcej niż jedną kartę Sieciową, uruchom hello **usunąć kart interfejsu sieciowego azure** polecenia toodelete hello starego karty sieciowej.
+    > Jeśli maszyna wirtualna jest wystarczająco duży, aby mieć więcej niż jedną kartę Sieciową, uruchom **usunąć kart interfejsu sieciowego azure** polecenie, aby usunąć stare karty sieciowej.
    
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej o [zastrzeżone publicznego adresu IP](virtual-networks-reserved-public-ip.md) adresów.
 * Dowiedz się więcej o [poziomie wystąpienia publicznego adresu IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresów.
-* Zapoznaj się hello [zastrzeżonego adresu IP interfejsów API REST](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Zapoznaj się [zastrzeżone interfejsów API REST IP](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

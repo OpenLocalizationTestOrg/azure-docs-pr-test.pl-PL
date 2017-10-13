@@ -1,6 +1,6 @@
 ---
-title: "aaaCollect wydajność aplikacji systemu Linux w OMS Log Analytics | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera szczegółowe informacje dotyczące konfigurowania hello Agent pakietu OMS liczników wydajności systemu Linux toocollect MySQL i Apache HTTP Server."
+title: "Zbieranie Linux wydajność aplikacji w OMS Log Analytics | Dokumentacja firmy Microsoft"
+description: "Ten artykuł zawiera szczegółowe informacje dotyczące konfigurowania agenta pakietu OMS dla systemu Linux można zebrać liczników wydajności dla MySQL i Apache HTTP Server."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 51105c6add5c7941a004570a76a4d94c02fc8a71
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Zbieraj liczniki wydajności dla aplikacji systemu Linux w analizy dzienników 
-Ten artykuł zawiera szczegółowe informacje dotyczące konfigurowania hello [Agent pakietu OMS Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) toocollect liczniki wydajności dla określonych aplikacji.  aplikacji Hello zawarte w tym artykule przedstawiono:  
+Ten artykuł zawiera szczegółowe informacje dotyczące konfigurowania [Agent pakietu OMS Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) można zebrać liczników wydajności dla określonych aplikacji.  Aplikacje zawarte w tym artykule są:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Jeśli serwer MySQL lub MariaDB serwer zostanie wykryte na powitania komputera po zainstalowaniu agenta pakietu OMS hello, zostanie automatycznie zainstalowana dostawcy dla serwera MySQL monitorowania wydajności. Ten dostawca łączy toohello lokalnego MySQL/MariaDB tooexpose Statystyka wydajności serwera. Poświadczenia użytkownika MySQL musi być skonfigurowany tak, aby hello dostawcy mogą uzyskiwać dostęp do powitania serwera MySQL.
+Jeśli serwer MySQL lub MariaDB serwer zostanie wykryta na komputerze jest zainstalowany agent pakietu OMS, zostanie automatycznie zainstalowana dostawcy dla serwera MySQL monitorowania wydajności. Ten dostawca nawiązuje połączenie z lokalnym serwerem MySQL/MariaDB do udostępnienia statystyki. Poświadczenia użytkownika MySQL musi być skonfigurowany tak, aby dostawca dostęp do serwera MySQL.
 
 ### <a name="configure-mysql-credentials"></a>Skonfiguruj poświadczenia MySQL
-Hello MySQL OMI dostawcy wymaga wstępnie skonfigurowane użytkownika MySQL i zainstalowane w kolejności tooquery hello wydajności i informacje o kondycji z wystąpienia MySQL hello bibliotek klienta MySQL.  Te poświadczenia są przechowywane w pliku uwierzytelniania, który jest przechowywany na powitania agenta systemu Linux.  Plik authentication Hello określa jakiego adresu wiązania i nasłuchuje portu hello MySQL wystąpienia co poświadczenia toouse toogather metryki.  
+Dostawca MySQL OMI wymaga wstępnie skonfigurowane użytkownika MySQL i zainstalowania bibliotek klienta MySQL wydajności oraz informacje o kondycji z wystąpienia MySQL zapytania.  Te poświadczenia są przechowywane w pliku uwierzytelniania, który jest przechowywany na agenta systemu Linux.  Plik uwierzytelniania określa, jakie bind adres i port wystąpienia MySQL nasłuchuje na i jakie poświadczenia, które będzie używane do zbierania metryk.  
 
-Podczas instalacji hello Agent pakietu OMS dla systemu Linux hello MySQL OMI dostawcy rozpocznie skanowanie plików konfiguracyjnych my.cnf MySQL (lokalizacje domyślne) bind adres i port i częściowo hello zestaw plików uwierzytelniania MySQL OMI.
+Podczas instalacji agenta pakietu OMS Linux MySQL OMI dostawca skanowania MySQL my.cnf pliki konfiguracji (lokalizacje domyślne) dla wiązania adres i port i plik authentication częściowo zestawu MySQL OMI.
 
-Plik authentication MySQL Hello jest przechowywany w `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
+Plik authentication MySQL jest przechowywany w `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
 
 ### <a name="authentication-file-format"></a>Format pliku uwierzytelniania
-Poniżej przedstawiono hello format hello plik authentication MySQL OMI
+Poniżej przedstawiono format pliku uwierzytelniania MySQL OMI
 
     [Port]=[Bind-Address], [username], [Base64 encoded Password]
     (Port)=(Bind-Address), (username), (Base64 encoded Password)
     (Port)=(Bind-Address), (username), (Base64 encoded Password)
     AutoUpdate=[true|false]
 
-Witaj wpisy w pliku uwierzytelniania hello są opisane w hello w poniższej tabeli.
+Wpisy w pliku uwierzytelniania są opisane w poniższej tabeli.
 
 | Właściwość | Opis |
 |:--|:--|
-| Port | Reprezentuje hello bieżącego portu hello MySQL nasłuchuje wystąpienie. Port 0 określa, czy następujące właściwości hello są używane dla domyślnego wystąpienia. |
+| Port | Reprezentuje bieżący port, który nasłuchuje wystąpienie MySQL. Port 0 określa, że następujące właściwości dla domyślnego wystąpienia. |
 | Adres BIND| Bieżący bind MySQL — adres. |
-| nazwa użytkownika| Wystąpienie serwera MySQL hello toomonitor toouse używać użytkownika MySQL. |
-| Hasło kodowane w formacie Base64| Hasło użytkownika monitorowania MySQL hello zakodowane w formacie Base64. |
-| Aktualizacje automatyczne| Określa czy toorescan dla zmian w pliku my.cnf hello i zastąpić plik MySQL OMI Authentication hello, gdy hello MySQL OMI dostawcy jest uaktualniany. |
+| nazwa użytkownika| Aby monitorować wystąpienia serwera MySQL używany użytkownika MySQL. |
+| Hasło kodowane w formacie Base64| Hasło użytkownika monitorowania MySQL zakodowane w formacie Base64. |
+| Aktualizacje automatyczne| Określa, czy Skanuj ponownie zmiany w pliku my.cnf i nadpisać plik MySQL OMI Authentication, po uaktualnieniu dostawcy OMI MySQL. |
 
 ### <a name="default-instance"></a>Domyślne wystąpienie
-Hello MySQL OMI uwierzytelniania pliku można określić domyślnego wystąpienia i toomake numer portu wielu wystąpień MySQL na jednym hoście Linux łatwiejsze zarządzanie.  wystąpienie domyślne Hello jest oznaczona przez wystąpienie o portu 0. Wszystkie dodatkowe wystąpienia będzie dziedziczyć właściwości ustawione z hello domyślnego wystąpienia, chyba że określają różne wartości. Na przykład jeśli wystąpienie MySQL nasłuchiwanie na porcie "3308" zostanie dodany, powiązanego adresu hello domyślnego wystąpienia, username i password kodowany w standardzie Base64 będzie można tootry używane i monitorowanie wystąpienia hello nasłuchiwanie 3308. Jeśli wystąpienie hello na 3308 jest adresem tooanother powiązane i używa hello nazwa_użytkownika MySQL tego samego hasła pary tylko hello bind — adres jest niezbędny i hello inne właściwości dziedziczone.
+Plik authentication MySQL OMI można określić domyślnego wystąpienia oraz numer portu do wielu wystąpień MySQL na jednym hoście Linux łatwiejsze zarządzanie.  Domyślne wystąpienie jest wskazywane przez wystąpienie o portu 0. Wszystkie dodatkowe wystąpienia będzie dziedziczyć właściwości ustawić domyślnego wystąpienia, chyba że określają różne wartości. Na przykład jeśli wystąpienie MySQL nasłuchiwanie na porcie "3308" zostanie dodany, adres powiązania domyślnego wystąpienia, username i password kodowany w standardzie Base64 będzie służyć monitorowanie wystąpienia nasłuchiwanie 3308 i spróbuj. Jeśli wystąpienie na 3308 jest powiązany z innym adresem i korzysta z tej samej pary nazwa użytkownika i hasło MySQL tylko adres bind jest niezbędny, a dziedziczone przez inne właściwości.
 
-Witaj w poniższej tabeli ma przykład wystąpienia ustawienia 
+Poniższa tabela zawiera przykład wystąpienia ustawienia 
 
 | Opis | Plik |
 |:--|:--|
@@ -67,53 +67,53 @@ Witaj w poniższej tabeli ma przykład wystąpienia ustawienia
 
 
 ### <a name="mysql-omi-authentication-file-program"></a>Uwierzytelnianie programu MySQL OMI
-Dołączone do instalacji hello hello MySQL OMI dostawca jest program pliku uwierzytelniania MySQL OMI, które mogą być używane tooedit hello MySQL OMI uwierzytelniania pliku. Hello uwierzytelniania programu można znaleźć w następującej lokalizacji hello.
+Dołączone do instalacji dostawcy MySQL OMI jest program pliku uwierzytelniania MySQL OMI, która może służyć do edycji plik MySQL OMI Authentication. Uwierzytelnianie programu plików można znaleźć w następującej lokalizacji.
 
     /opt/microsoft/mysql-cimprov/bin/mycimprovauth
 
 > [!NOTE]
-> Plik poświadczeń Hello musi być do odczytu przez konto omsagent hello. Zalecane jest uruchomienie polecenia mycimprovauth hello jako omsgent.
+> Musi być do odczytu przez konto omsagent pliku poświadczeń. Zalecane jest uruchomienie polecenia mycimprovauth jako omsgent.
 
-Witaj Poniższa tabela zawiera szczegółowe informacje na powitania składni poświęcone mycimprovauth.
+Poniższa tabela zawiera szczegółowe informacje o składni dla przy użyciu mycimprovauth.
 
 | Operacja | Przykład | Opis
 |:--|:--|:--|
-| AutoUpdate * false\|wartość true * | mycimprovauth autoupdate false | Ustawia, czy plik authentication hello zostanie automatycznie zaktualizowana na ponowne uruchomienie lub zaktualizować. |
-| domyślne *powiązanego adresu nazwa_użytkownika hasło* | pwd głównych domyślnego 127.0.0.1 mycimprovauth | Ustawia hello domyślnego wystąpienia w hello plik authentication MySQL OMI.<br>pole hasła Hello powinny być wprowadzane w formacie zwykłego tekstu — hasło hello w hello MySQL OMI uwierzytelniania pliku będzie zakodowanych w Base 64. |
-| Usuń * default\|numer_portu * | mycimprovauth 3308 | Usuwa określone wystąpienie hello albo domyślnie lub numer portu. |
-| Pomoc | mycimprov pomocy | Drukuje listę poleceń toouse. |
-| Drukuj | mycimprov drukowania | Drukuje łatwe tooread plik authentication MySQL OMI. |
-| Zaktualizuj numer_portu *powiązanego adresu nazwa_użytkownika hasło* | mycimprov aktualizacji 3307 127.0.0.1 głównego pwd | Aktualizuje określone wystąpienie hello lub dodaje hello wystąpienia, jeśli nie istnieje. |
+| AutoUpdate * false\|wartość true * | mycimprovauth autoupdate false | Ustawia, czy plik authentication zostanie automatycznie zaktualizowana na ponowne uruchomienie lub zaktualizować. |
+| domyślne *powiązanego adresu nazwa_użytkownika hasło* | pwd głównych domyślnego 127.0.0.1 mycimprovauth | Ustawia domyślnego wystąpienia MySQL OMI plik uwierzytelniania.<br>Pole hasła powinny być wprowadzane w formacie zwykłego tekstu — hasło w pliku authentication MySQL OMI będzie zakodowanych w Base 64. |
+| Usuń * default\|numer_portu * | mycimprovauth 3308 | Usuwa określone wystąpienie albo domyślnie lub numer portu. |
+| Pomoc | mycimprov pomocy | Drukuje listę poleceń do użycia. |
+| Drukuj | mycimprov drukowania | Drukuje łatwo odczytać pliku uwierzytelniania MySQL OMI. |
+| Zaktualizuj numer_portu *powiązanego adresu nazwa_użytkownika hasło* | mycimprov aktualizacji 3307 127.0.0.1 głównego pwd | Aktualizuje określone wystąpienie lub dodaje wystąpienie, jeśli nie istnieje. |
 
-Witaj przedstawiono przykładowe polecenia zdefiniować domyślne konto użytkownika serwera MySQL hello localhost.  pole hasła Hello powinny być wprowadzane w formacie zwykłego tekstu — hasło hello w hello MySQL OMI uwierzytelniania pliku będzie zakodowanych w Base 64
+Poniższe przykładowe polecenia zdefiniować domyślne konto użytkownika serwera MySQL localhost.  Pole hasła powinny być wprowadzane w formacie zwykłego tekstu — hasło w pliku authentication MySQL OMI będzie zakodowanych w Base 64
 
     sudo su omsagent -c '/opt/microsoft/mysql-cimprov/bin/mycimprovauth default 127.0.0.1 <username> <password>'
     sudo /opt/omi/bin/service_control restart
 
 ### <a name="database-permissions-required-for-mysql-performance-counters"></a>Uprawnienia bazy danych wymagane dla liczników wydajności MySQL
-Witaj MySQL użytkownika wymaga następującego zapytania toocollect dane dotyczące wydajności serwera MySQL toohello dostępu. 
+Użytkownika MySQL wymaga dostępu do następujących zapytań, aby zbierać dane dotyczące wydajności serwera MySQL. 
 
     SHOW GLOBAL STATUS;
     SHOW GLOBAL VARIABLES:
 
 
-Witaj MySQL użytkownika wymaga również toohello dostępu wybierz następujące domyślne tabele.
+Użytkownik MySQL wymaga również wybierz dostęp do poniższych tabelach domyślne.
 
 - INFORMATION_SCHEMA
 - MySQL. 
 
-Te uprawnienia można otrzymać, uruchamiając następujące polecenia grant hello.
+Te uprawnienia można otrzymać, uruchamiając następujące polecenia grant.
 
-    GRANT SELECT ON information_schema.* too‘monuser’@’localhost’;
-    GRANT SELECT ON mysql.* too‘monuser’@’localhost’;
+    GRANT SELECT ON information_schema.* TO ‘monuser’@’localhost’;
+    GRANT SELECT ON mysql.* TO ‘monuser’@’localhost’;
 
 
 > [!NOTE]
-> tooa uprawnienia toogrant MySQL monitorowania hello użytkowników, udzielanie użytkownika musi mieć uprawnienie "GRANT option" hello, jak również udzielenia uprawnienia hello.
+> Aby udzielić uprawnień MySQL monitorowania użytkownik udzielającym użytkownika musi mieć uprawnienie "GRANT option", a także udzielenia uprawnienia.
 
 ### <a name="define-performance-counters"></a>Zdefiniuj liczniki wydajności
 
-Po skonfigurowaniu hello Agent pakietu OMS dla systemu Linux toosend danych tooLog Analytics, należy skonfigurować toocollect liczniki wydajności hello.  Użyj procedury hello [systemu Windows i Linux źródła danych wydajności w analizy dzienników](log-analytics-data-sources-windows-events.md) z licznikami hello w hello w poniższej tabeli.
+Po skonfigurowaniu Agent pakietu OMS dla systemu Linux w celu wysyłania danych do analizy dzienników, należy skonfigurować liczniki wydajności do.  Użyj procedury [systemu Windows i Linux źródła danych wydajności w analizy dzienników](log-analytics-data-sources-windows-events.md) liczników w poniższej tabeli.
 
 | Nazwa obiektu | Nazwa licznika |
 |:--|:--|
@@ -137,19 +137,19 @@ Po skonfigurowaniu hello Agent pakietu OMS dla systemu Linux toosend danych tooL
 | Serwer MySQL | Protokół Pct rywalizacji blokady tabeli |
 
 ## <a name="apache-http-server"></a>Apache HTTP Server 
-W przypadku wykrycia Apache HTTP Server na komputerze powitania po zainstalowaniu pakietu omsagent hello, zostanie automatycznie zainstalowana dostawcy dla Apache HTTP Server monitorowania wydajności. Ten dostawca zależy od modułu Apache, które muszą zostać załadowane do hello Apache HTTP Server w kolejności tooaccess danych dotyczących wydajności. Moduł Hello mogą być ładowane z hello następujące polecenie:
+W przypadku wykrycia Apache HTTP Server na komputerze jest zainstalowany pakiet omsagent, zostanie automatycznie zainstalowana dostawcy dla Apache HTTP Server monitorowania wydajności. Ten dostawca zależy od modułu Apache, które muszą zostać załadowane do Apache HTTP Server w celu uzyskania dostępu do danych dotyczących wydajności. Moduł mogą być ładowane przy użyciu następującego polecenia:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -c
 ```
 
-toounload hello Apache modułu monitorowania, uruchom następujące polecenie hello:
+Aby zwolnić modułu monitorowania Apache, uruchom następujące polecenie:
 ```
 sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 ```
 
 ### <a name="define-performance-counters"></a>Zdefiniuj liczniki wydajności
 
-Po skonfigurowaniu hello Agent pakietu OMS dla systemu Linux toosend danych tooLog Analytics, należy skonfigurować toocollect liczniki wydajności hello.  Użyj procedury hello [systemu Windows i Linux źródła danych wydajności w analizy dzienników](log-analytics-data-sources-windows-events.md) z licznikami hello w hello w poniższej tabeli.
+Po skonfigurowaniu Agent pakietu OMS dla systemu Linux w celu wysyłania danych do analizy dzienników, należy skonfigurować liczniki wydajności do.  Użyj procedury [systemu Windows i Linux źródła danych wydajności w analizy dzienników](log-analytics-data-sources-windows-events.md) liczników w poniższej tabeli.
 
 | Nazwa obiektu | Nazwa licznika |
 |:--|:--|
@@ -167,4 +167,4 @@ Po skonfigurowaniu hello Agent pakietu OMS dla systemu Linux toosend danych tooL
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zebrać liczników wydajności](log-analytics-data-sources-performance-counters.md) z agentów systemu Linux.
-* Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) tooanalyze hello dane zebrane ze źródeł danych i rozwiązań. 
+* Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) analizować dane zebrane ze źródeł danych i rozwiązania. 

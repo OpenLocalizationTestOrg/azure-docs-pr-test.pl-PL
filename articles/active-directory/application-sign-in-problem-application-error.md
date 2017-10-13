@@ -1,6 +1,6 @@
 ---
-title: "aaaError na stronie aplikacji po zalogowaniu się | Dokumentacja firmy Microsoft"
-description: "Jak tooresolve problemy z usługą Azure AD Zaloguj się, gdy sama aplikacja hello emituje błąd"
+title: "Błąd na stronie aplikacji po zalogowaniu się | Dokumentacja firmy Microsoft"
+description: "Jak rozwiązać problemy z logowaniem usługi Azure AD po zgłoszeniu emituje błąd"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 317b6f8e6417520ead80ae4e26c591ba6b134683
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a8cd93256f79ece268ec3411dfbdf590f4b24447
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Błąd na stronie aplikacji po zalogowaniu
 
-W tym scenariuszu usługi Azure AD podpisała hello użytkownika w, ale aplikacja hello jest wyświetlany błąd nie zezwala hello toosuccessfully Zakończ hello podczas rejestracji w przepływie. W tym scenariuszu aplikacja hello nie akceptuje hello problem odpowiedzi przez usługę Azure AD.
+W tym scenariuszu usługi Azure AD podpisała użytkownika w, ale aplikacja jest wyświetlany błąd nie zezwala na użytkownika do pomyślnego zakończenia logowania w przepływie. W tym scenariuszu aplikacja nie akceptuje problem odpowiedzi przez usługę Azure AD.
 
-Istnieje kilka możliwych przyczyn Dlaczego aplikacji hello zaakceptował hello odpowiedzi z usługi Azure AD. Jeśli błąd hello w aplikacji hello nie jest wystarczająco wyczyść tooknow co Brak odpowiedzi hello następnie:
+Istnieje kilka możliwych przyczyn Dlaczego ta aplikacja nie akceptuje odpowiedzi z usługi Azure AD. Jeśli ten błąd w aplikacji nie jest jasne, aby dowiedzieć się, czego brakuje w odpowiedzi, następnie:
 
--   Jeśli aplikacja hello jest galerii hello Azure AD, sprawdź zostały wykonane wszystkie kroki hello w artykule hello [jak toodebug SAML na podstawie pojedynczego logowania jednokrotnego tooapplications w usłudze Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Jeśli aplikacja jest w galerii Azure AD, sprawdź zostały wykonane wszystkie kroki opisane w artykule [debugowanie na języku SAML logowanie jednokrotne do aplikacji w usłudze Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Użyj narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler) toocapture SAML żądania, odpowiedzi SAML i tokenu SAML.
+-   Użyj narzędzia, takiego jak [Fiddler](http://www.telerik.com/fiddler) przechwytywania SAML żądania, odpowiedzi SAML i tokenu SAML.
 
--   Udostępnij odpowiedzi SAML hello tooknow dostawcy aplikacji hello brakujących.
+-   Udostępnianie odpowiedzi SAML z dostawcą aplikacji, aby dowiedzieć się, czego brakuje.
 
-## <a name="missing-attributes-in-hello-saml-response"></a>Brak atrybutów w hello odpowiedzi SAML
+## <a name="missing-attributes-in-the-saml-response"></a>Brak atrybutów w odpowiedzi SAML
 
-tooadd atrybutu w toobe konfiguracji usługi Azure AD hello wysyłany w odpowiedzi hello Azure AD, wykonaj poniższe kroki hello:
+Aby dodać atrybut w konfiguracji usługi Azure AD do wysłania w odpowiedzi usługi Azure AD, wykonaj następujące czynności:
 
-1.  Otwórz hello [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
+1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
 
-2.  Otwórz hello **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie powitania hello.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
 
-3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr hello a wybierz hello **usługi Azure Active Directory** elementu.
+3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
-4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie powitania w usłudze Azure Active Directory.
+4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** w menu nawigacji po lewej stronie usługi Azure Active Directory.
 
-5.  Kliknij przycisk **wszystkie aplikacje** tooview listę wszystkich aplikacji.
+5.  Kliknij przycisk **wszystkie aplikacje** Aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie ma aplikacji hello mają być wyświetlane tutaj, użyj hello **filtru** kontroli u góry hello hello **listę wszystkich aplikacji** i zestaw hello **Pokaż** opcję zbyt **Wszystkie aplikacje.**
+   * Jeśli nie ma aplikacji ma tutaj będą wyświetlane, użyj **filtru** kontroli nad **listę wszystkich aplikacji** i ustaw **Pokaż** opcji w celu **wszystkich aplikacji.**
 
-6.  Wybierz aplikację hello ma tooconfigure rejestracji jednokrotnej.
+6.  Wybierz aplikację, aby skonfigurować logowanie jednokrotne.
 
-7.  Po załadowaniu aplikacji hello, kliknij przycisk hello **logowanie jednokrotne** z menu nawigacji po lewej stronie powitania aplikacji.
+7.  Po załadowaniu aplikacji, kliknij przycisk **logowanie jednokrotne** z menu nawigacji po lewej stronie aplikacji.
 
-8.  Kliknij przycisk **wyświetlanie i edytowanie użytkownika wszystkie inne atrybuty w obszarze** hello **atrybuty użytkownika** hello tooedit sekcji atrybutów aplikacji toohello toobe wysyłane w tokenie SAML powitania po zalogowaniu się użytkownika.
+8.  Kliknij przycisk **wyświetlanie i edytowanie użytkownika wszystkie inne atrybuty w obszarze** **atrybuty użytkownika** sekcji atrybuty przesyłany do aplikacji w tokenie SAML podczas logowania użytkownika.
 
-   tooadd atrybutu:
+   Aby dodać atrybutu:
 
-   * Kliknij przycisk **Dodaj atrybut**. Wprowadź hello **nazwa** i wybierz hello hello **wartość** z listy rozwijanej hello.
+   * Kliknij przycisk **Dodaj atrybut**. Wprowadź **nazwa** i wybierz **wartość** z listy rozwijanej.
 
-   * Kliknij przycisk **zapisać.** Zostanie wyświetlony nowy atrybut hello hello tabeli.
+   * Kliknij przycisk **zapisać.** Zostanie wyświetlony nowy atrybut w tabeli.
 
-9.  Zapisz konfigurację hello.
+9.  Zapisz konfigurację.
 
-Następnym zalogowaniu użytkownika hello toohello aplikacji, usługi Azure AD Wyślij nowy atrybut hello w hello odpowiedzi SAML.
+Następnym razem, gdy użytkownik loguje się do aplikacji usługi Azure AD wysyłanie nowy atrybut w odpowiedzi SAML.
 
-## <a name="hello-application-expects-a-different-user-identifier-value-or-format"></a>Aplikacja Hello oczekuje na format lub inną wartość identyfikatora użytkownika
+## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>Aplikacja oczekuje na format lub inną wartość identyfikatora użytkownika
 
-Witaj toohello logowania aplikacji kończy się niepowodzeniem ponieważ hello odpowiedzi SAML nie ma atrybutów, takich jak role lub aplikacji hello oczekuje inny format hello EntityID atrybutu.
+Logowanie do aplikacji kończy się niepowodzeniem, ponieważ brak odpowiedzi SAML atrybutów, takich jak role lub aplikacja oczekuje innego formatu dla atrybutu EntityID.
 
-## <a name="add-an-attribute-in-hello-azure-ad-application-configuration"></a>Dodaj atrybut w konfiguracji aplikacji hello Azure AD:
+## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Dodaj atrybut w konfiguracji aplikacji usługi Azure AD:
 
-hello toochange wartość identyfikatora użytkownika, wykonaj poniższe kroki hello:
+Aby zmienić wartość identyfikatora użytkownika, wykonaj następujące czynności:
 
-1.  Otwórz hello [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
+1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
 
-2.  Otwórz hello **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie powitania hello.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
 
-3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr hello a wybierz hello **usługi Azure Active Directory** elementu.
+3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
-4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie powitania w usłudze Azure Active Directory.
+4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** w menu nawigacji po lewej stronie usługi Azure Active Directory.
 
-5.  Kliknij przycisk **wszystkie aplikacje** tooview listę wszystkich aplikacji.
+5.  Kliknij przycisk **wszystkie aplikacje** Aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie ma aplikacji hello mają być wyświetlane tutaj, użyj hello **filtru** kontroli u góry hello hello **listę wszystkich aplikacji** i zestaw hello **Pokaż** opcję zbyt **Wszystkie aplikacje.**
+   * Jeśli nie ma aplikacji ma tutaj będą wyświetlane, użyj **filtru** kontroli nad **listę wszystkich aplikacji** i ustaw **Pokaż** opcji w celu **wszystkich aplikacji.**
 
-6.  Wybierz aplikację hello ma tooconfigure rejestracji jednokrotnej.
+6.  Wybierz aplikację, aby skonfigurować logowanie jednokrotne.
 
-7.  Po załadowaniu aplikacji hello, kliknij przycisk hello **logowanie jednokrotne** z menu nawigacji po lewej stronie powitania aplikacji.
+7.  Po załadowaniu aplikacji, kliknij przycisk **logowanie jednokrotne** z menu nawigacji po lewej stronie aplikacji.
 
-8.  W obszarze hello **atrybuty użytkownika**, wybierz hello Unikatowy identyfikator dla użytkowników w hello **identyfikator użytkownika** listy rozwijanej.
+8.  W obszarze **atrybuty użytkownika**, wybierz Unikatowy identyfikator dla użytkowników w **identyfikator użytkownika** listy rozwijanej.
 
 ## <a name="change-entityid-user-identifier-format"></a>Zmiana formatu EntityID (identyfikator użytkownika)
 
-Jeśli aplikacja hello oczekuje innego formatu hello EntityID atrybutu. Następnie będzie format EntityID (identyfikator użytkownika) hello stanie tooselect usługi Azure AD wysyła toohello aplikacji hello odpowiedzi po uwierzytelnieniu użytkownika.
+Jeśli aplikacja oczekuje innego formatu dla atrybutu EntityID. Następnie nie będzie mógł wybrać format EntityID (identyfikator użytkownika), który wysyła usługi Azure AD do aplikacji w odpowiedzi po uwierzytelnieniu użytkownika.
 
-Azure AD hello wybierz format dla atrybutu NameID hello (identyfikator użytkownika) oparte na wybranej wartości hello lub hello żądany przez aplikację hello w hello SAML AuthRequest format. Aby uzyskać więcej informacji można znaleźć w artykule hello [protokołu SAML rejestracji jednokrotnej](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) w hello sekcja NameIDPolicy.
+Wybrano Azure wybierz AD format dla atrybutu NameID (identyfikator użytkownika) na podstawie wartości lub format żądany przez aplikację w SAML AuthRequest. Aby uzyskać więcej informacji można znaleźć w artykule [protokołu SAML rejestracji jednokrotnej](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) w sekcji NameIDPolicy.
 
-## <a name="hello-application-expects-a-different-signature-method-for-hello-saml-response"></a>Aplikacja Hello oczekuje inny podpis metody hello odpowiedzi SAML
+## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>Aplikacja oczekuje metody inny podpis dla odpowiedzi SAML
 
-toochange, które części tokenu SAML hello są podpisane cyfrowo przez usługę Azure Active Directory. Wykonaj poniższe kroki hello:
+Aby zmienić, które części tokenu SAML są podpisane cyfrowo przez usługę Azure Active Directory. Wykonaj poniższe kroki:
 
-1.  Otwórz hello [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
+1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
 
-2.  Otwórz hello **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie powitania hello.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
 
-3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr hello a wybierz hello **usługi Azure Active Directory** elementu.
+3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
-4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie powitania w usłudze Azure Active Directory.
+4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** w menu nawigacji po lewej stronie usługi Azure Active Directory.
 
-5.  Kliknij przycisk **wszystkie aplikacje** tooview listę wszystkich aplikacji.
+5.  Kliknij przycisk **wszystkie aplikacje** Aby wyświetlić listę wszystkich aplikacji.
 
-  * Jeśli nie ma aplikacji hello mają być wyświetlane tutaj, użyj hello **filtru** kontroli u góry hello hello **listę wszystkich aplikacji** i zestaw hello **Pokaż** opcję zbyt **Wszystkie aplikacje.**
+  * Jeśli nie ma aplikacji ma tutaj będą wyświetlane, użyj **filtru** kontroli nad **listę wszystkich aplikacji** i ustaw **Pokaż** opcji w celu **wszystkich aplikacji.**
 
-6.  Wybierz aplikację hello ma tooconfigure rejestracji jednokrotnej.
+6.  Wybierz aplikację, aby skonfigurować logowanie jednokrotne.
 
-7.  Po załadowaniu aplikacji hello, kliknij przycisk hello **logowanie jednokrotne** z menu nawigacji po lewej stronie powitania aplikacji.
+7.  Po załadowaniu aplikacji, kliknij przycisk **logowanie jednokrotne** z menu nawigacji po lewej stronie aplikacji.
 
-8.  Kliknij przycisk **Pokaż zaawansowane ustawienia podpisywania certyfikatu** w obszarze hello **certyfikat podpisywania SAML** sekcji.
+8.  Kliknij przycisk **Pokaż zaawansowane ustawienia podpisywania certyfikatu** w obszarze **certyfikat podpisywania SAML** sekcji.
 
-9.  Wybierz odpowiednie hello **opcja podpisywania** oczekiwany przez aplikacji hello:
+9.  Wybierz odpowiednie **opcja podpisywania** oczekiwany przez aplikację:
 
   * Odpowiedzi SAML logowania
 
@@ -125,35 +125,35 @@ toochange, które części tokenu SAML hello są podpisane cyfrowo przez usług�
 
   * Potwierdzenia języka SAML logowania
 
-Następnym zalogowaniu użytkownika hello toohello aplikacji, rejestrowania usługi Azure AD hello część odpowiedzi SAML hello wybrane.
+Następnym razem, gdy użytkownik loguje się do aplikacji usługi Azure AD podpisać części odpowiedzi SAML wybrane.
 
-## <a name="hello-application-expects-hello-signing-algorithm-toobe-sha-1"></a>Aplikacja Hello oczekuje hello podpisywania toobe algorytmu SHA-1
+## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>Aplikacja oczekuje podpisywania algorytmu SHA-1
 
-Domyślnie program Azure AD podpisuje token SAML hello przy użyciu hello większości algorytmu zabezpieczeń. Zmiana algorytmu znak hello tooSHA-1 nie jest zalecane, chyba że wymagane przez aplikację hello.
+Domyślnie usługi Azure AD zaloguje się przy użyciu algorytmu większości zabezpieczeń tokenu SAML. Zmiana logowania algorytmu SHA-1 nie jest zalecane, chyba że wymagane przez aplikację.
 
-toochange hello algorytm podpisywania, wykonaj poniższe kroki hello:
+Aby zmienić algorytm podpisywania, wykonaj następujące czynności:
 
-1.  Otwórz hello [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
+1.  Otwórz [ **Azure Portal** ](https://portal.azure.com/) i zaloguj się jako **administratora globalnego** lub **ko-administratora.**
 
-2.  Otwórz hello **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie powitania hello.
+2.  Otwórz **rozszerzenia usług Azure Active Directory** klikając **więcej usług** u dołu menu nawigacji głównego po lewej stronie.
 
-3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr hello a wybierz hello **usługi Azure Active Directory** elementu.
+3.  Wpisz w **"Azure Active Directory**" w polu wyszukiwania filtr a wybierz **usługi Azure Active Directory** elementu.
 
-4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** z menu nawigacji po lewej stronie powitania w usłudze Azure Active Directory.
+4.  Kliknij przycisk **aplikacje dla przedsiębiorstw** w menu nawigacji po lewej stronie usługi Azure Active Directory.
 
-5.  Kliknij przycisk **wszystkie aplikacje** tooview listę wszystkich aplikacji.
+5.  Kliknij przycisk **wszystkie aplikacje** Aby wyświetlić listę wszystkich aplikacji.
 
-   * Jeśli nie ma aplikacji hello mają być wyświetlane tutaj, użyj hello **filtru** kontroli u góry hello hello **listę wszystkich aplikacji** i zestaw hello **Pokaż** opcję zbyt **Wszystkie aplikacje.**
+   * Jeśli nie ma aplikacji ma tutaj będą wyświetlane, użyj **filtru** kontroli nad **listę wszystkich aplikacji** i ustaw **Pokaż** opcji w celu **wszystkich aplikacji.**
 
-6.  Wybierz aplikację hello ma tooconfigure rejestracji jednokrotnej.
+6.  Wybierz aplikację, aby skonfigurować logowanie jednokrotne.
 
-7.  Po załadowaniu aplikacji hello, kliknij przycisk hello **logowanie jednokrotne** z menu nawigacji po lewej stronie powitania aplikacji.
+7.  Po załadowaniu aplikacji, kliknij przycisk **logowanie jednokrotne** z menu nawigacji po lewej stronie aplikacji.
 
-8.  Kliknij przycisk **Pokaż zaawansowane ustawienia podpisywania certyfikatu** w obszarze hello **certyfikat podpisywania SAML** sekcji.
+8.  Kliknij przycisk **Pokaż zaawansowane ustawienia podpisywania certyfikatu** w obszarze **certyfikat podpisywania SAML** sekcji.
 
-9.  Wybierz algorytm SHA-1, hello **algorytm podpisywania**.
+9.  Wybierz algorytm SHA-1, **algorytm podpisywania**.
 
-Loguje użytkownika toohello aplikacji hello następnym, rejestrowania usługi Azure AD hello tokenu SAML przy użyciu algorytmu SHA-1.
+Następnym razem, gdy użytkownik loguje się do aplikacji usługi Azure AD Zaloguj się przy użyciu algorytmu SHA-1 tokenu SAML.
 
 ## <a name="next-steps"></a>Następne kroki
-[Jak toodebug SAML na podstawie pojedynczego logowania jednokrotnego tooapplications w usłudze Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+[Debugowanie na języku SAML logowanie jednokrotne do aplikacji w usłudze Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate na platformie Azure przy użyciu szablonu aplikacji logiki | Dokumentacja firmy Microsoft"
-description: "Użyj usługi Azure Resource Manager toodeploy szablon aplikacji logiki do definiowania przepływów pracy."
+title: "Tworzenie aplikacji logiki na platformie Azure przy użyciu szablonu | Dokumentacja firmy Microsoft"
+description: "Wdrażanie aplikacji logiki do definiowania przepływów pracy za pomocą szablonu usługi Azure Resource Manager."
 services: logic-apps
 documentationcenter: 
 author: MandiOhlinger
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: efbacb534fc7f11e9b593aae4383480ce3a1752f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>Tworzenie aplikacji logiki przy użyciu szablonu
-Szablony zapewniają toouse szybko różnych łączników w aplikacji logiki. Usługa Logic apps udostępnia szablony usługi Azure Resource Manager toocreate aplikacji logiki, które mogą być używane toodefine przepływów pracy firmowych. Można zdefiniować zasobów, do których zostały wdrożone, jak i toodefine parametrów podczas wdrażania aplikacji logiki. Ten szablon służy do scenariuszy biznesowych lub dostosować go toomeet wymagań.
+Szablony umożliwiają szybkie użyć różnych łączników w aplikacji logiki. Aplikacje logiki zawiera szablony usługi Azure Resource Manager umożliwia tworzenie aplikacji logiki, który może służyć do definiowania przepływów pracy firmowych. Można zdefiniować zasobów, do których są wdrażane, a także sposób definiowania parametrów podczas wdrażania aplikacji logiki. Możesz użyć tego szablonu dla scenariuszy biznesowych lub dostosować go do potrzeb.
 
-Więcej szczegółów na właściwości aplikacji hello logiki, zobacz [API zarządzania przepływu pracy aplikacji logiki](https://msdn.microsoft.com/library/azure/mt643788.aspx). 
+Więcej szczegółów na właściwości aplikacji logiki, zobacz [API zarządzania przepływu pracy aplikacji logiki](https://msdn.microsoft.com/library/azure/mt643788.aspx). 
 
-Przykłady samą powitalnych definicję można znaleźć [definicjami aplikacji logiki autora](logic-apps-author-definitions.md). 
+Aby uzyskać przykłady samą definicję, zobacz [definicjami aplikacji logiki autora](logic-apps-author-definitions.md). 
 
 Aby uzyskać więcej informacji na temat tworzenia szablonów, zobacz [Authoring Azure Resource Manager szablony](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Hello pełną szablonu, zobacz [szablon aplikacji logiki](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
+Zakończenie szablonu, zobacz [szablon aplikacji logiki](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
 ## <a name="what-you-deploy"></a>Możesz wdrożyć
 W przypadku tego szablonu wdrażania aplikacji logiki.
 
-wdrożenia hello toorun automatycznie, wybierz powitania po przycisku:  
+Aby automatycznie uruchamiać wdrożenie, przycisk:  
 
-[![Wdrażanie tooAzure](media/logic-apps-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure](media/logic-apps-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametry
 [!INCLUDE [app-service-logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
@@ -47,13 +47,13 @@ wdrożenia hello toorun automatycznie, wybierz powitania po przycisku:
         "defaultValue": "http://azure.microsoft.com/en-us/status/feed/"
       }
 
-## <a name="resources-toodeploy"></a>Toodeploy zasobów
+## <a name="resources-to-deploy"></a>Zasoby wymagające wdrożenia
 ### <a name="logic-app"></a>Aplikacji logiki
-Tworzy hello aplikacji logiki.
+Tworzenie aplikacji logiki.
 
-Szablony Hello używa wartości parametru Nazwa aplikacji hello logiki. Ustawia lokalizację hello toohello aplikacji logiki hello tej samej lokalizacji co hello grupy zasobów. 
+Szablony używa wartości parametru Nazwa aplikacji logiki. Ustawia lokalizację aplikacji logiki do tej samej lokalizacji co grupy zasobów. 
 
-Tej konkretnej definicji jest uruchamiana raz na godzinę, a polecenia ping hello lokalizacji określonej w hello **testUri** parametru. 
+Tej konkretnej definicji jest uruchamiana raz na godzinę, a następnie wysyła pakiet usługi ping do lokalizacji określonej w **testUri** parametru. 
 
     {
       "type": "Microsoft.Logic/workflows",
@@ -99,7 +99,7 @@ Tej konkretnej definicji jest uruchamiana raz na godzinę, a polecenia ping hell
     }
 
 
-## <a name="commands-toorun-deployment"></a>Polecenia toorun wdrożenia
+## <a name="commands-to-run-deployment"></a>Polecenia umożliwiające uruchomienie wdrożenia
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell

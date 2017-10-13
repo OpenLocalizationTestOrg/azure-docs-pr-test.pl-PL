@@ -1,6 +1,6 @@
 ---
 title: "Tożsamość hybrydowa: porównanie narzędzi do integracji katalogów | Microsoft Docs"
-description: "To jest strona zawiera kompleksowe tabelę, która porównuje hello różnych narzędzi integracji katalogów, których można użyć do integracji katalogów."
+description: "Na tej stronie udostępniona jest kompleksowa tabela zawierająca porównanie różnych narzędzi integracji katalogów, których można użyć do integracji katalogów."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 18ac0a0f58726eceb85510df516e8db71429b313
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f87b5837c7a786c8b309a6a52e69b53c0ad4c9d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Tożsamość hybrydowa: porównanie narzędzi do integracji katalogów
-Latach hello hello narzędzia do integracji katalogów były rozbudowywane i.  Ten dokument jest toohelp skonsolidowanego widoku tych narzędzi i porównanie funkcji hello, które są dostępne w każdym.
+Narzędzia do integracji katalogów były rozbudowywane i rozwijane przez wiele lat.  Ten dokument zapewnia skonsolidowany widok tych narzędzi i ułatwia porównanie funkcji, które są w nich dostępne.
 
-<!-- hello hardcoded link is a workaround for campaign ids not working in acom links-->
+<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
 > [!NOTE]
-> Azure AD Connect obejmuje składniki hello i funkcje wcześniej wydane jako narzędzia Dirsync i AAD Sync. Te narzędzia nie są udostępniane oddzielnie, a wszystkie przyszłe ulepszenia będą uwzględniane w tooAzure aktualizacje AD Connect, aby zawsze wiedzieć, gdzie tooget hello najnowsze funkcje.
+> Program Azure AD Connect obejmuje składniki i funkcje wcześniej wydane jako narzędzia Dirsync i AAD Sync. Te narzędzia nie są już udostępniane oddzielnie, a wszystkie przyszłe ulepszenia będą dołączane do aktualizacji programu Azure AD Connect, dzięki czemu zawsze będzie wiadomo, gdzie można uzyskać najnowsze funkcje.
 > 
 > Narzędzia DirSync i Azure AD Sync są przestarzałe. Więcej informacji można znaleźć [tutaj](active-directory-aadconnect-dirsync-deprecated.md).
 > 
 > 
 
-Użyj powitania po klucz dla każdej z tabel hello.
+Poniższy klucz ma zastosowanie do wszystkich tabel.
 
 ● = dostępna teraz  
 PW = w przyszłym wydaniu  
 PZ = publiczna wersja zapoznawcza  
 
-## <a name="on-premises-toocloud-synchronization"></a>TooCloud lokalnymi synchronizacji
+## <a name="on-premises-to-cloud-synchronization"></a>Synchronizacja danych lokalnych z chmurą
 | Funkcja | Azure Active Directory Connect | Usługi synchronizacji usługi Azure Active Directory (AAD Sync) | Narzędzie do synchronizacji z usługą Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| Połącz toosingle w lokalnym lesie usługi Active Directory |● |● |● |● |● |
-| Połącz toomultiple lokalnych lasów usługi AD |● |● | |● |● |
-| Połącz toomultiple lokalnej organizacjami Exchange |● | | | | |
-| Połącz toosingle lokalnego katalogu LDAP |PW | | |● |● |
-| Połącz toomultiple w lokalnych katalogach LDAP |PW | | |● |● |
-| Połączenie lokalne tooon AD i lokalnymi katalogami LDAP |PW | | |● |● |
-| Łączenie systemów toocustom (np. SQL, Oracle, MySQL itp.) |PW | | |● |● |
+| Połączenie z pojedynczym lokalnym lasem usługi AD |● |● |● |● |● |
+| Połączenie z wieloma lokalnymi lasami usługi AD |● |● | |● |● |
+| Połączenie z wieloma lokalnymi organizacjami Exchange |● | | | | |
+| Połączenie z pojedynczym lokalnym katalogiem LDAP |PW | | |● |● |
+| Połączenie z wieloma lokalnymi katalogami LDAP |PW | | |● |● |
+| Połączenie z lokalnymi katalogami usługi AD i lokalnymi katalogami LDAP |PW | | |● |● |
+| Połączenie z systemami niestandardowymi (np. SQL, Oracle, MySQL itp.) |PW | | |● |● |
 | Synchronizowanie atrybutów zdefiniowanych przez klienta (rozszerzenia katalogów) |● | | | | |
-| Połączenie lokalne tooon HR (np. SAP, Oracle eBusiness, PeopleSoft) |PW | | |● |● |
-| Inicjowanie obsługi systemów lokalnych tooon obsługuje reguły synchronizacji programu FIM i łączniki. | | | |● |● |
+| Połączenie z lokalnymi systemami kadr (np. SAP, Oracle eBusiness, PeopleSoft) |PW | | |● |● |
+| Obsługuje reguły synchronizacji programu FIM i łączniki do aprowizowania dla systemów lokalnych | | | |● |● |
 
-## <a name="cloud-tooon-premises-synchronization"></a>Synchronizacja lokalnych tooOn chmury
+## <a name="cloud-to-on-premises-synchronization"></a>Synchronizacja chmury z danymi lokalnymi
 | Funkcja | Azure Active Directory Connect | Usługi synchronizacji usługi Azure Active Directory | Narzędzie do synchronizacji z usługą Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Zapisywanie zwrotne urządzeń |● | |● | | |
@@ -74,8 +74,8 @@ PZ = publiczna wersja zapoznawcza
 | Obsługuje instalację na kontrolerze domeny |● |● |● | |
 | Obsługuje instalację przy użyciu programu SQL Express |● |● |● | |
 | Łatwe uaktualnienie z narzędzia DirSync |● | | | |
-| Lokalizacja środowiska użytkownika administratora tooWindows języków serwera |● |● |● | |
-| Lokalizacja użytkownika końcowego UX tooWindows języków serwera | | | |● |
+| Lokalizacja środowiska użytkownika administratora na języki systemu Windows Server |● |● |● | |
+| Lokalizacja środowiska użytkownika końcowego na języki systemu Windows Server | | | |● |
 | Obsługa systemu Windows Server 2008 i Windows Server 2008 R2 |● dla synchronizacji, nie dla federacji |● |● |● |
 | Obsługa systemu Windows Server 2012 i Windows Server 2012 R2 |● |● |● |● |
 
@@ -84,9 +84,9 @@ PZ = publiczna wersja zapoznawcza
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filtrowanie według domen i jednostek organizacyjnych |● |● |● |● |● |
 | Filtrowanie według wartości atrybutów obiektów |● |● |● |● |● |
-| Zezwalaj na minimalny zbiór synchronizowane toobe atrybutów (MinSync) |● |● | | | |
-| Zezwalaj na inną usługę toobe szablony zostały zastosowane do przepływów atrybutów |● |● | | | |
-| Umożliwia usuwanie atrybutów z przepływu z usługi AD tooAzure AD |● |● | | | |
+| Umożliwia synchronizowanie minimalnego zestawu atrybutów (MinSync) |● |● | | | |
+| Umożliwia stosowanie różnych szablonów usług dla przepływów atrybutów |● |● | | | |
+| Umożliwia usuwanie atrybutów z przepływu z usługi AD do usługi Azure AD |● |● | | | |
 | Umożliwia zaawansowane dostosowywanie przepływów atrybutów |● |● | |● |● |
 
 ## <a name="next-steps"></a>Następne kroki

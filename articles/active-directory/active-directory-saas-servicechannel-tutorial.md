@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z obiektu ServiceChannel | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i obiektu ServiceChannel."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i obiektu ServiceChannel."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,138 +13,138 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: 956371a1e99dcba4137c271ecfe8a62b9ec64a99
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Samouczek: Integracji Azure Active Directory z obiektu ServiceChannel
 
-Z tego samouczka, dowiesz się, jak toointegrate kanale usługi z usługą Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się sposobu integracji z usługą Azure Active Directory (Azure AD) obiektu ServiceChannel.
 
-Integrowanie kanale usługi z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie kanale usługi z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooServiceChannel
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooServiceChannel (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu zarządzania Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do obiektu ServiceChannel
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do obiektu ServiceChannel (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu zarządzania Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z obiektu ServiceChannel należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z obiektu ServiceChannel, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Obiektu ServiceChannel jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie obiektu ServiceChannel z galerii hello
+1. Dodawanie obiektu ServiceChannel z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-servicechannel-from-hello-gallery"></a>Dodawanie obiektu ServiceChannel z galerii hello
-tooconfigure hello integracji kanale usługi z usługą Azure AD, należy tooadd obiektu ServiceChannel z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-servicechannel-from-the-gallery"></a>Dodawanie obiektu ServiceChannel z galerii
+Aby skonfigurować integrację usługi Azure AD obiektu ServiceChannel, należy dodać obiektu ServiceChannel z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd obiektu ServiceChannel z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać obiektu ServiceChannel z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu zarządzania Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu zarządzania Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Kliknij przycisk **Dodaj** przycisk u góry hello hello okna dialogowego.
+3. Kliknij przycisk **Dodaj** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **obiektu ServiceChannel**.
+4. W polu wyszukiwania wpisz **obiektu ServiceChannel**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_000.png)
 
-5. W panelu wyników hello zaznacz **obiektu ServiceChannel**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **obiektu ServiceChannel**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_2.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z obiektu ServiceChannel w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w kanale usługi jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w kanale usługi musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w kanale usługi jest dla użytkownika, w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w kanale usługi.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w kanale usługi.
+Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w kanale usługi.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z obiektu ServiceChannel, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z obiektu ServiceChannel, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego obiektu ServiceChannel](#creating-a-servicechannel-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego obiektu ServiceChannel](#creating-a-servicechannel-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu zarządzania Azure hello i skonfigurować logowanie jednokrotne w aplikacji obiektu ServiceChannel.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu zarządzania Azure i skonfigurować logowanie jednokrotne w aplikacji obiektu ServiceChannel.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z obiektu ServiceChannel, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z obiektu ServiceChannel, wykonaj następujące czynności:**
 
-1. W portalu zarządzania Azure hello na powitania **obiektu ServiceChannel** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu zarządzania Azure na **obiektu ServiceChannel** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** tooenable logowania jednokrotnego.
+2. Na **logowanie jednokrotne** okna dialogowego, jako **tryb** wybierz **na języku SAML logowania jednokrotnego** Włącz funkcji logowania jednokrotnego.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_01.png)
 
-3. Na powitania **adresy URL i domeny obiektu ServiceChannel** sekcji, wykonaj następujące kroki hello:
+3. Na **adresy URL i domeny obiektu ServiceChannel** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_urls.png)
 
-    a. W hello **identyfikator** pole tekstowe, wartość hello typu jako:`http://adfs.<domain>.com/adfs/service/trust`
+    a. W **identyfikator** tekstowym, wpisz wartość, jak:`http://adfs.<domain>.com/adfs/service/trust`
 
-    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<customer domain>.servicechannel.com/saml/acs`
+    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<customer domain>.servicechannel.com/saml/acs`
 
     > [!NOTE] 
-    > Należy pamiętać, że nie są one hello wartości rzeczywistych. Masz tooupdate tych wartości za pomocą hello rzeczywisty identyfikator i odpowiedzi adresu URL. W tym miejscu zalecamy możesz toouse hello unikatową wartość ciągu w hello identyfikator. Skontaktuj się z [zespołem pomocy technicznej obiektu ServiceChannel](https://servicechannel.zendesk.com/hc/en-us) tooget tych wartości.
+    > Należy pamiętać, że nie są one rzeczywiste wartości. Należy zaktualizować te wartości z rzeczywistego identyfikatora i adres URL odpowiedzi. W tym miejscu zalecamy można używać unikatowej wartości ciągu w identyfikatorze. Skontaktuj się z [zespołem pomocy technicznej obiektu ServiceChannel](https://servicechannel.zendesk.com/hc/en-us) uzyskać te wartości.
 
-4. Aplikacja obiektu ServiceChannel oczekuje potwierdzenia SAML hello w określonym formacie wymaga możesz tooadd atrybutu niestandardowego mapowania tooyour SAML tokenu atrybuty konfiguracji. powitania po zrzut ekranu przedstawia przykład tego. **NameIdentifier (identyfikator użytkownika)** hello tylko obowiązkowe oświadczeń i hello wartość domyślna to **user.userprincipalname** , ale ta toobe zamapowana oczekuje obiektu ServiceChannel **user.mail**. Jeśli planujesz Inicjowanie obsługi użytkowników tylko w czasie tooenable, należy dodać powitania po oświadczenia, jak pokazano poniżej. **Rola** oświadczeń musi toobe mapowane za**user.assignedroles** zawierającą hello roli użytkownika hello.  
+4. Aplikacja obiektu ServiceChannel oczekuje potwierdzenia języka SAML w określonym formacie, musisz dodać mapowania atrybutu niestandardowego do konfiguracji atrybuty tokenu SAML. Poniższy zrzut ekranu przedstawia przykład tego. **NameIdentifier (identyfikator użytkownika)** jest tylko obowiązkowe oświadczeń, a wartość domyślna to **user.userprincipalname** , ale oczekuje obiektu ServiceChannel, aby być mapowane z **user.mail**. Jeśli planujesz włączyć tylko w czasie Inicjowanie obsługi użytkowników, następnie należy dodać następujące oświadczeń w sposób przedstawiony poniżej. **Rola** oświadczeń musi być zamapowany na **user.assignedroles** zawierającą roli użytkownika.  
 
     Może się odwoływać przewodnik obiektu ServiceChannel [tutaj](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) więcej wskazówki dotyczące oświadczeń.
     
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 
-    > Kliknij [tutaj](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) tooknow jak tooconfigure **roli** w usłudze Azure AD
+    > Kliknij [tutaj](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) wiedzieć, jak skonfigurować **roli** w usłudze Azure AD
 
-5. W **atrybuty użytkownika** kliknij **widoku i edytować wszystkie atrybuty użytkowników** i ustaw hello atrybuty.
+5. W **atrybuty użytkownika** kliknij **widoku i edytować wszystkie atrybuty użytkowników** i ustawić atrybutów.
 
     | Nazwa atrybutu | Wartość atrybutu |
     | --- | --- |    
     | Rola| User.assignedroles |
 
-    a. Kliknij przycisk **Dodaj atrybut** tooopen hello **Dodawanie atrybutu** okna dialogowego.
+    a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_04.png)
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_05.png)
     
-    b. W hello **nazwa** pole tekstowe, nazwa atrybutu hello typu wyświetlany dla danego wiersza.
+    b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
     
-    c. Z hello **wartość** listy wartości atrybutu hello typ wyświetlanego dla tego wiersza.
+    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
     
     d. Kliknij przycisk **Ok**
     
-6. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+6. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_05.png) 
 
@@ -152,62 +152,62 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicechannel-tutorial/tutorial_general_400.png)
 
-8. Na powitania **konfiguracji obiektu ServiceChannel** kliknij **skonfigurować obiektu ServiceChannel** tooopen **Konfigurowanie logowania jednokrotnego** okna. Należy pamiętać, hello **identyfikator jednostka SAML** z hello **krótkimi opisami** sekcji.
+8. Na **konfiguracji obiektu ServiceChannel** , kliknij przycisk **skonfigurować obiektu ServiceChannel** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Należy pamiętać, **identyfikator jednostka SAML** z **krótkimi opisami** sekcji.
 
-9. tooconfigure rejestracji jednokrotnej w **obiektu ServiceChannel** strony, należy pobrać hello toosend **certyfikatu (Base64)** i **identyfikator jednostki SAML** zbyt[ Zespołem pomocy technicznej obiektu ServiceChannel](https://servicechannel.zendesk.com/hc/en-us). One będzie skonfigurowanie tego numeru w kolejności toohave hello prawidłowo po obu stronach połączenia logowania jednokrotnego SAML.
+9. Skonfigurować logowanie jednokrotne w **obiektu ServiceChannel** stronie, musisz wysłać pobrany **certyfikatu (Base64)** i **identyfikator jednostki SAML** do [obiektu ServiceChannel obsługuje zespołu](https://servicechannel.zendesk.com/hc/en-us). One będzie skonfigurowanie tego numeru w celu połączenia logowania jednokrotnego SAML prawidłowo po obu stronach.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu zarządzania Azure hello o nazwie Simona Britta.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu zarządzania Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu zarządzania Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu zarządzania Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_01.png) 
 
-2. Przejdź za**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** toodisplay hello listy użytkowników.
+2. Przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy** do wyświetlenia na liście Użytkownicy.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_02.png) 
 
-3. U góry okna dialogowego hello powitania kliknij **Dodaj** tooopen hello **użytkownika** okna dialogowego.
+3. W górnej części okna dialogowego kliknij **Dodaj** otworzyć **użytkownika** okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-servicechannel-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**. 
 
 ### <a name="creating-a-servicechannel-test-user"></a>Tworzenie użytkownika testowego obiektu ServiceChannel
 
-Aplikacja obsługuje tylko w czasie Inicjowanie obsługi użytkowników i uwierzytelnianie użytkowników zostaną utworzone w aplikacji hello automatycznie. Aby Inicjowanie obsługi użytkowników pełne, skontaktuj się z [obiektu ServiceChannel zespołem pomocy technicznej](https://servicechannel.zendesk.com/hc/en-us)
+Aplikacja obsługuje tylko w czasie Inicjowanie obsługi użytkowników i uwierzytelnianie użytkowników zostaną utworzone w aplikacji automatycznie. Aby Inicjowanie obsługi użytkowników pełne, skontaktuj się z [obiektu ServiceChannel zespołem pomocy technicznej](https://servicechannel.zendesk.com/hc/en-us)
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie jej tooServiceChannel dostępu.
+W tej sekcji można włączyć Simona Britta do użycia usługi Azure logowania jednokrotnego za udostępnienie jej do obiektu ServiceChannel.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooServiceChannel Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta obiektu ServiceChannel, wykonaj następujące czynności:**
 
-1. W portalu zarządzania Azure hello, otwórz widok aplikacji hello, a następnie przejdź widok katalogu toohello i go za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. Otwórz widok aplikacji w portalu zarządzania Azure, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **obiektu ServiceChannel**.
+2. Na liście aplikacji zaznacz **obiektu ServiceChannel**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_app01.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -215,7 +215,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -223,13 +223,13 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka obiektu ServiceChannel hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour obiektu ServiceChannel aplikacji.
+Po kliknięciu kafelka obiektu ServiceChannel w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji obiektu ServiceChannel.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

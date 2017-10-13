@@ -1,6 +1,6 @@
 ---
-title: "aaaSafety dla urządzenia StorSimple | Dokumentacja firmy Microsoft"
-description: "Opisano konwencje bezpieczeństwa, wskazówki i uwagi i wyjaśniono, jak toosafely zainstalowania i obsługi urządzenia StorSimple."
+title: "Bezpieczeństwa dla urządzenia StorSimple | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano konwencje bezpieczeństwa, wskazówki i uwagi i wyjaśniono, jak bezpiecznie zainstalowania i obsługi urządzenia StorSimple."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 68523216beab75e2b1f78c3cca23f149f5879dae
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e45b09a62f33fd9811714febd63a74149784980d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Bezpiecznie zainstalowania i obsługi urządzenia StorSimple
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png)
 ![odczytu ikony powiadomień bezpieczeństwa](./media/storsimple-safety/IC740885.png) **przeczytać informacje dotyczące bezpieczeństwa i kondycji**
 
-Odczytywanie wszystkich hello bezpieczeństwa i informacje o kondycji, w tym artykule, którego dotyczy urządzeń Microsoft Azure StorSimple tooyour. Zachowaj wszystkie hello drukowanymi przewodniki dostarczone z urządzeniem StorSimple do użytku w przyszłości. Błąd toofollow instrukcje i poprawnie skonfigurować, używanie i szczególną uwagę dla tego produktu może spowodować zagrożenie hello poważnej szkody lub śmierci, lub uszkodzenia toohello urządzenie lub urządzenia. A [w wersji do pobrania tego przewodnika](http://www.microsoft.com/download/details.aspx?id=44233) jest również dostępna.
+Przeczytać wszystkie informacje DS w tym artykule, która ma zastosowanie do Twojego urządzenia Microsoft Azure StorSimple. Zachowaj wszystkie prowadnice drukowanymi dostarczone z urządzeniem StorSimple do użytku w przyszłości. Niepowodzenie postępuj zgodnie z instrukcjami i poprawnie skonfigurować, używanie i szczególną uwagę na ten produkt można zwiększyć ryzyko wystąpienia poważnej szkody lub śmierci lub uszkodzenie urządzenie lub urządzenia. A [w wersji do pobrania tego przewodnika](http://www.microsoft.com/download/details.aspx?id=44233) jest również dostępna.
 
 ## <a name="safety-icon-conventions"></a>Konwencje ikona bezpieczeństwa
-Poniżej przedstawiono hello ikony, że można znaleźć po przejrzeniu toobe środki ostrożności bezpieczeństwa hello w przypadku konfigurowania i uruchamiania urządzenia Microsoft Azure StorSimple.
+Oto ikony, które znajdują się po przejrzeniu ostrożności należy przestrzegać podczas konfigurowania i uruchamiania urządzenia Microsoft Azure StorSimple.
 
 | Ikona | Opis |
 |:--- |:--- |
-| ![Ikona zagrożenie](./media/storsimple-safety/IC740879.png) **zagrożenia!** |Wskazuje niebezpiecznych sytuacji, który nie uniknąć spowoduje śmierci lub poważnej szkody. Ten wyraz sygnału jest toobe ograniczone toohello najbardziej skrajne sytuacji. |
+| ![Ikona zagrożenie](./media/storsimple-safety/IC740879.png) **zagrożenia!** |Wskazuje niebezpiecznych sytuacji, który nie uniknąć spowoduje śmierci lub poważnej szkody. Ten wyraz sygnału jest ograniczony do najbardziej skrajne sytuacji. |
 | ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) **ostrzeżenie!** |Wskazuje niebezpiecznych sytuację, w której, jeśli nie jest to uniknąć, może spowodować śmierci lub poważnej szkody. |
 | ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) **Uwaga!** |Wskazuje sytuację zagrożenia co, jeśli nie jest to uniknąć, może spowodować szkody drobne lub średniego. |
 | ![Ikony](./media/storsimple-safety/IC740881.png) **POWIADOMIEŃ:** |Wskazuje informacje uznawane za ważne, ale nie zagrożenia związane z. |
@@ -44,87 +44,87 @@ Poniżej przedstawiono hello ikony, że można znaleźć po przejrzeniu toobe ś
 ## <a name="handling-precautions"></a>Obsługa środki ostrożności
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) ![ikona ciężki](./media/storsimple-safety/IC740883.png) **ostrzeżenie!** 
 
-tooreduce hello ryzyko uszkodzenia:
+Aby zmniejszyć ryzyko uszkodzenia:
 
-* Obudowa pełni skonfigurowany można porównać się too32 kg (70 kg); Nie próbuj toolift ją samodzielnie.
-* Przed przenoszenie hello obudowy zawsze zapewnia dwie osoby wagi hello toohandle dostępne. Należy pamiętać, kilku osób próby toolift tego wagi może wytrzymać uszkodzenia.
-* Nie Podnieś obudowa hello uchwytami hello na powitania zasilania i chłodzenia modułów (PCMs) znajduje się tyłu hello hello jednostki. Nie są one przeznaczone tootake hello wagi.
+* Obudowa pełni skonfigurowany można porównać do 32 kg (70 kg); nie należy próbować podnieś go samodzielnie.
+* Przed przeniesieniem obudowa, należy zawsze upewnij się, że dwie osoby są dostępne do obsługi wagą. Należy pamiętać, że próba przyrostu to wagi kilku osób może wytrzymać uszkodzenia.
+* Obudowa nie powodują podniesienie uchwytami zasilania i chłodzenia modułów (PCMs) znajdujący się na tylnej części urządzenia. Te nie mają wagi.
 
 ## <a name="connection-precautions"></a>Środki ostrożności połączenia
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) ![ikona uderzenia elektrycznego](./media/storsimple-safety/IC740882.png) **ostrzeżenie!**
 
-prawdopodobieństwo hello tooreduce szkody, elektrycznego uderzenia lub śmierci:
+Aby zmniejszyć prawdopodobieństwo szkody, elektrycznego uderzenia lub śmierci:
 
 * Gdy zasilane z wielu źródeł AC, odłącz wszystkie power dostaw dla pełnej izolacji.
-* Trwale odłączyć jednostki hello przed jego przeniesieniem lub jeśli uważasz, że ma uszkodzony w dowolny sposób.
-* Podaj informacje o przewody zasilacz toohello połączenie bezpieczne ziemi elektrycznego. Sprawdź, czy hello uziemiający spełnia bardzo załącznika hello spełnia wymagania dotyczące krajowych i lokalne powitania przed zastosowaniem zasilania.
-* Upewnij się, że hello zasilania jest zawsze połączenia toohello wcześniejszego usunięcia PCM z obudowy hello.
-* Biorąc pod uwagę, że hello plug na powitania zasilający dostaw jest głównym hello odłączyć urządzenie, sprawdź, czy gniazda hello znajdują się w pobliżu hello sprzętu i są łatwo dostępne.
+* Trwale odłączyć jednostki przed jego przeniesieniem lub jeśli uważasz, że ma uszkodzony w dowolny sposób.
+* Podaj połączenie bezpieczne ziemi elektrycznego kable dostaw. Sprawdź, czy uziemiający spełnia bardzo komory spełnia wymagania krajowych i lokalnych przed zastosowaniem zasilania.
+* Upewnij się, że przed usunięciem PCM z obudowy zawsze następuje rozłączenie połączenia zasilania.
+* Biorąc pod uwagę, że wtyczka na dostaw zasilający jest głównym odłączyć urządzenie, upewnij się, że gniazda znajdują się w pobliżu urządzenia i są łatwo dostępne.
 
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) ![ikona uderzenia elektrycznego](./media/storsimple-safety/IC740882.png) **ostrzeżenie!**
 
-tooreduce prawdopodobieństwo hello przegrzaniu lub fire z połączeń elektrycznego hello:
+Aby zmniejszyć prawdopodobieństwo przegrzaniu lub uruchomienie z elektrycznego połączeń:
 
-* Hello wymagania wyszczególnione w specyfikacji technicznej hello zapewnić odpowiednie zasilania toomeet ochrony elektrycznego przeciążenia.
+* Zapewnić odpowiednie zasilania elektrycznego przeciążenia protection, aby spełniać wymagania wyszczególnione w specyfikacji technicznej.
 * Nie należy używać bifurcated kable (potencjalnych klientów "Y").
-* toocomply z odpowiednich bezpieczeństwa, emisji i wymagania cieplna, nie obejmuje powinna zostać usunięta i wszystkie kieszeni musi być wypełniane przy użyciu wtyczki lub dysk puste wartości.
-* Upewnij się, że sprzęt hello jest używany w sposób określony przez producenta hello. Jeśli urządzenie jest używany w sposób, który nie został określony przez producenta hello, hello zapewniany przez hello sprzętu może być ograniczony.
+* Do wykonania odpowiednich bezpieczeństwa, emisji i cieplna wymagania, należy usunąć nie obejmuje i wszystkie kieszeni musi być wypełniane przy użyciu wtyczki lub dysk puste wartości.
+* Upewnij się, że urządzenie jest używana w sposób określony przez producenta. Jeśli urządzenie jest używany w sposób, który nie został określony przez producenta tego komputera, może być ograniczony zapewniany przez urządzenie.
 
 ![Ikony](./media/storsimple-safety/IC740881.png) **POWIADOMIEŃ:**
 
-Witaj działania dla Twojego urządzenia i tooprevent uszkodzenia produktu:
+Aby zapewnić prawidłowe działanie sprzętu i aby zapobiec uszkodzeniu produktu:
 
-* porty RJ45 Hello na powitania obu hello urządzenia są tylko połączenia Ethernet. Nie muszą to być satelitarnych tooa połączonych.
-* Należy się, że urządzenie hello tooinstall w stojaku, które może obsłużyć projektu chłodzenia przodu do tyłu.
-* Wszystkie wtyczki i pustych płyt są częścią hello załącznik systemowy. Takie tylko muszą zostać usunięte, gdy natychmiast dodawane zastępczy. nie wolno uruchamiać Hello system bez wszystkich modułów lub puste wartości w miejscu.
+* Porty RJ45 z tyłu urządzenia są tylko połączenia Ethernet. Te muszą nie być połączony z siecią telekomunikacyjną.
+* Należy zainstalować w stojaku, które może obsłużyć projektu chłodzenia przodu do tyłu na urządzeniu.
+* Wszystkie wtyczki i pustych płyt są częścią załącznik systemowy. Takie tylko muszą zostać usunięte, gdy natychmiast dodawane zastępczy. System nie muszą być uruchamiane bez wszystkich modułów lub puste wartości w miejscu.
 
 ## <a name="rack-system-precautions"></a>Środki ostrożności systemu stojak
-Witaj następujące wymagania dotyczące zabezpieczeń, należy rozważyć w przypadku zainstalowania urządzenia hello w stojaku pliku cabinet.
+W przypadku zainstalowania urządzenia w stojaku cabinet należy rozważyć następujące wymagania bezpieczeństwa.
 
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) ![zagrożenia ikona porady](./media/storsimple-safety/IC740886.png) **ostrzeżenie!**
 
-prawdopodobieństwo hello tooreduce szkody z Porada przez:
+Aby zmniejszyć prawdopodobieństwo szkody w etykietce przez:
 
-* Projekt stojak Hello powinna obsługiwać hello całkowitej wagi obudów hello zainstalowane i powinny uwzględniać utrwalający stojak hello tooprevent odpowiednie funkcje wyrzucanie lub przekazywanej za pośrednictwem podczas instalacji lub użytkowania.
-* Podczas ładowania w stojaku, wypełnij stojak powitania od dołu hello w górę i od góry do dołu hello puste.
-* Slajd nie więcej niż jeden załącznik poza stojak hello na niebezpieczeństwo hello tooavoid czasu stojak hello toppling za pośrednictwem.
+* Projekt stojak powinien obsługi wagą całkowitą zainstalowanych obudów i powinien dołączyć funkcje utrwalający może uniemożliwić stojaku wyrzucanie lub przekazywanej za pośrednictwem podczas instalacji lub użytkowania.
+* Podczas ładowania stojak, wypełnij stojak od dołu do góry, a pusty od góry w dół.
+* Nie slajd więcej niż jeden załącznik poza stojaku w czasie, aby uniknąć zagrożenia toppling stojaku.
 
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) ![ikona uderzenia elektrycznego](./media/storsimple-safety/IC740882.png) **ostrzeżenie!**
 
-prawdopodobieństwo hello tooreduce szkody, elektrycznego uderzenia lub śmierci:
+Aby zmniejszyć prawdopodobieństwo szkody, elektrycznego uderzenia lub śmierci:
 
-* Stojak Hello powinny mieć system bezpiecznej dystrybucji elektrycznego. Musi zapewnić ochronę uwierzytelniając bieżącego hello obudowy, a nie musi być przeciążone hello całkowitej liczby obudów zainstalowane. Ocena zużycia energii elektrycznej Hello wyświetlany na powitania tablica umieszczona powinien być uwzględniony.
-* system dystrybucji elektrycznego Hello podać niezawodnej podstaw każdej obudowy w stojaku hello.
-* Hello układ hello elektrycznego dystrybucji musi uwzględniać wycieku całkowita podstaw hello brany pod uwagę bieżące z wszystkich zasilacze w obudowach do wszystkich. Pamiętaj, że każdy zasilacz w każdej obudowie ma bieżącej wycieku podstaw 1.0 maksymalnego mA w 60 Hz 264 v. Stojak Hello może wymagać etykietowania z "BIEŻĄCĄ WYCIEKU wysoki. Zwarcie (ziemi) jest przed połączeniem dostawy."
-* Witaj stojak, gdy skonfigurowano hello obudów, musi spełniać wymagania dotyczące zabezpieczeń hello UL 60950-1 i IEC 60950-1/EN 60950-1.
+* Stojaku powinny mieć system bezpiecznej dystrybucji elektrycznego. Należy zapewnić ochronę uwierzytelniając bieżącego obudowa, a nie musi być przeciążony przez całkowitą liczbę obudów zainstalowane. Ocena zużycia energii elektrycznej wyświetlany na tablica umieszczona powinien być uwzględniony.
+* System elektrycznego dystrybucji należy podać niezawodnej podstaw każdej obudowy w stojaku.
+* Podczas projektowania systemu elektrycznego dystrybucji musi wziąć pod uwagę wycieku całkowita podstaw bieżącego z wszystkich zasilacze w obudowach do wszystkich. Pamiętaj, że każdy zasilacz w każdej obudowie ma bieżącej wycieku podstaw 1.0 maksymalnego mA w 60 Hz 264 v. Stojaku może wymagać etykietowania z "BIEŻĄCĄ WYCIEKU wysoki. Zwarcie (ziemi) jest przed połączeniem dostawy."
+* Stojak, gdy skonfigurowano obudów, musi spełniać wymagania dotyczące zabezpieczeń UL 60950-1 i IEC 60950-1/EN 60950-1.
 
 ![Ikony](./media/storsimple-safety/IC740881.png) **POWIADOMIEŃ:**
 
-Aby uzyskać odpowiednie chłodzenia systemu stojak hello:
+Do prawidłowego chłodzenia systemu stojaku:
 
-* Upewnij się, że hello stojak projektu bierze pod uwagę hello maksymalną obudowa otoczenia temperatura 35 stopni c (95 stopni f).
-* Hello system jest obsługiwany z instalacją Niskociśnieniowa, spalin tyłu (wstecz wykorzystania utworzonego przez drzwi stojaku i wąskich gardeł nie tooexceed 5 Pascal [0,5 mm słupa wody]).
+* Upewnij się, że projekt stojak uwzględnia obudowa maksymalna temperatura otoczenia 35 stopni c (95 stopni f).
+* System jest obsługiwany z instalacją Niskociśnieniowa, spalin tyłu (utworzony przez drzwi stojaku i przeszkód nie przekracza 5 Pascal [0,5 mm słupa wody] wykorzystania wstecz).
 
 ## <a name="power-cooling-module-pcm-precautions"></a>Środki ostrożności chłodzenia modułu (PCM) zasilania
-urządzenie Hello jest zaprojektowana toooperate z dwóch PCMs. Każdy z hello PCMs ma źródło zasilania i wentylator podwójnego osi. Podczas krytycznego stanu systemu hello umożliwia awarii jednego zasilania, pozostawiając normalnych operacji. Dwa PCMs (i dlatego zasilania) zawsze musi być zainstalowany. Pojedynczy PCM nie zapewnia nadmiarowy. W związku z tym hello awarii nawet jednego PCM może spowodować przestoje lub możliwa utrata danych.
+Urządzenie jest przeznaczony do działania z dwiema PCMs. Każdy PCMs ma źródło zasilania i wentylator podwójnego osi. Podczas krytycznego stanu systemu umożliwia awarii jednego zasilania, pozostawiając normalnych operacji. Dwa PCMs (i dlatego zasilania) zawsze musi być zainstalowany. Pojedynczy PCM nie zapewnia nadmiarowy. W związku z tym niepowodzenia PCM nawet co może spowodować przestoje lub możliwa utrata danych.
 
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) ![ikona uderzenia elektrycznego](./media/storsimple-safety/IC740882.png) **ostrzeżenie!**
 
-prawdopodobieństwo hello tooreduce szkody, elektrycznego uderzenia lub śmierci:
+Aby zmniejszyć prawdopodobieństwo szkody, elektrycznego uderzenia lub śmierci:
 
-* Nie należy usuwać obejmuje hello z hello PCM. Brak zagrożenie uderzenia elektrycznego wewnątrz. tooreturn hello PCM i uzyskiwanie zastąpienia, [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md).
+* Nie usuwaj obejmuje z PCM. Brak zagrożenie uderzenia elektrycznego wewnątrz. Zwraca PCM i uzyskanie zastąpienia, [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md).
 
 ![Ikony](./media/storsimple-safety/IC740881.png) **POWIADOMIEŃ:**
 
-Witaj działania dla Twojego urządzenia i tooprevent uszkodzenia produktu:
+Aby zapewnić prawidłowe działanie sprzętu i aby zapobiec uszkodzeniu produktu:
 
-* Należy zastąpić hello PCM nie powiodło się w ciągu 24 godzin. Po usunięciu PCM do zastąpienia hello zastąpienie musi nastąpić w ciągu 10 minut po usunięciu.
-* Nie usuwaj PCM, o ile nie zastępuje ona instalowana natychmiast. nie należy uruchamiać obudowa Hello bez wszystkich modułów w miejscu.
+* Należy zastąpić PCM nie powiodło się w ciągu 24 godzin. Po usunięciu PCM do zastąpienia zastąpienia należy wykonać w ciągu 10 minut po usunięciu.
+* Nie usuwaj PCM, o ile nie zastępuje ona instalowana natychmiast. Nie należy uruchamiać obudowa bez wszystkich modułów w miejscu.
 
 ## <a name="electrostatic-discharge-esd-precautions"></a>Środki ostrożności elektrostatyczne (ESD)
 ![Ikony](./media/storsimple-safety/IC740881.png) **POWIADOMIEŃ:**
 
-Obserwować hello następujących kroków związanych z ESD.
+Sprawdź następujące ostrzeżenia dotyczące ESD.
 
 * Sprawdź zainstalowane i sprawdzane odpowiedniego antistatic paska nadgarstka lub kostki.
 * Sprawdź wszelkie środki ostrożności z konwencjonalnej ESD podczas obsługi modułów i składniki.
@@ -132,23 +132,23 @@ Obserwować hello następujących kroków związanych z ESD.
 * Uszkodzenie ESD nie pasuje do żadnego gwarancji.
 
 ## <a name="battery-disposal-precautions"></a>Środki ostrożności usuwania baterii
-zasilacz Hello używa baterii specjalne tooprotect hello zawartość pamięci podczas awarie zasilania tymczasowego, krótkoterminowej. baterii Hello jest umieszczona w hello PCM. Zachowaj hello następujących informacji pamiętać o hello baterii.
+Zasilacz używa baterii specjalne do ochrony zawartości pamięci podczas awarie zasilania tymczasowego, krótkoterminowej. Bateria jest umieszczona w PCM. Należy pamiętać o baterii następujące informacje.
 
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png) **ostrzeżenie!**
 
-tooreduce ryzyko hello szorty fire, masowego, szkody albo śmierci:
+Aby zmniejszyć ryzyko szorty fire, masowego, szkody albo śmierci:
 
 * Usuwa używane baterie zgodnie z przepisami krajowych i regionalnych.
-* Nie dezasemblować, rozdrobnić, ogrzewać ponad 60 stopni c (140 stopni f) lub spalania. Zastąp baterii PCM hello tylko podany baterii. Użyj innego poziomu energii baterii może stanowić ryzyko fire lub rozłożenia.
-* Użyj ochronnych zakończenia z baterii hello, jeśli te są usuwane z hello zasilania.
+* Nie dezasemblować, rozdrobnić, ogrzewać ponad 60 stopni c (140 stopni f) lub spalania. Zastąp baterii PCM tylko podany baterii. Użyj innego poziomu energii baterii może stanowić ryzyko fire lub rozłożenia.
+* Użyj ochronnych zakończenia z baterii, jeśli są one usuwane z zasilania.
 
 ![Ikony](./media/storsimple-safety/IC740881.png) **POWIADOMIEŃ:**
 
-Podczas wysyłania lub w przeciwnym razie transportowania baterie hello lotniczego, wykonaj hello IATA litu baterii wytycznych dostępne pod adresem [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
+Podczas wysyłania lub w przeciwnym razie transportowania baterie lotniczego, wykonaj IATA litu baterii wytycznych dostępne pod adresem [http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx](http://www.iata.org/whatwedo/cargo/dgr/Pages/lithium-batteries.aspx)
 
-Po przejrzeniu tych ogłoszeniach bezpieczeństwa hello kolejne kroki są toounpack, stojaku i Podłączanie kabli do urządzenia.
+Po przejrzeniu tych ogłoszeniach bezpieczeństwa następne kroki są Rozpakowywanie, należy zainstalować w stojaku i Podłączanie kabli do urządzenia.
 
 ## <a name="next-steps"></a>Następne kroki
-* Na urządzeniu 8100 Przejdź zbyt[zainstalować do urządzenia StorSimple 8100](storsimple-8100-hardware-installation.md).
-* Dla urządzenia 8600 Przejdź zbyt[zainstalować do urządzenia StorSimple 8600](storsimple-8600-hardware-installation.md).
+* Przejdź do urządzenia 8100 [zainstalować do urządzenia StorSimple 8100](storsimple-8100-hardware-installation.md).
+* Przejdź do urządzenia 8600 [zainstalować do urządzenia StorSimple 8600](storsimple-8600-hardware-installation.md).
 

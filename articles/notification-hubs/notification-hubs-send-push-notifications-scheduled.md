@@ -1,5 +1,5 @@
 ---
-title: aaaHow toosend zaplanowane powiadomienia | Dokumentacja firmy Microsoft
+title: "Jak wysyłać powiadomienia zaplanowane | Dokumentacja firmy Microsoft"
 description: "W tym temacie opisano, w usłudze Azure Notification Hubs przy użyciu powiadomienia zaplanowane."
 services: notification-hubs
 documentationcenter: .net
@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 9b3ba715dad6f5d824a615e83f2863b0db47b533
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Porady: Wysyłanie powiadomień według harmonogramu
 ## <a name="overview"></a>Omówienie
-Jeśli scenariusz, w którym mają toosend powiadomienie w pewnym momencie hello przyszłych, ale nie ma toowake łatwo się powiadomienia hello toosend kod zaplecza. Centra powiadomień w warstwie standardowa obsługuje funkcja umożliwiająca powiadomienia tooschedule się too7 dni w przyszłości hello.
+Jeśli scenariusz, w którym chcesz wysłać powiadomienie w pewnym momencie w przyszłości, ale nie mają w prosty sposób wake zapasowej swój kod zaplecza, aby wysłać powiadomienie. Centra powiadomień w warstwie standardowa obsługuje funkcja, która umożliwia planowanie powiadomienia w górę do 7 dni w przyszłości.
 
-Podczas wysyłania powiadomienia, po prostu użyć hello [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) klasy w hello zestaw SDK usługi Notification Hubs, jak pokazano w hello poniższy przykład:
+Podczas wysyłania powiadomienia, po prostu użyć [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) klasy w zestaw SDK usługi Notification Hubs, jak pokazano w poniższym przykładzie:
 
     Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
     var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
@@ -34,5 +34,5 @@ Ponadto można anulować wcześniej zaplanowanym powiadomienia za pomocą jego n
 
     await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
-Nie ma żadnych limitów na powitania liczba zaplanowanych powiadomień, możesz wysłać.
+Nie ma żadnych limitów liczby zaplanowanych powiadomienia, który można wysłać.
 

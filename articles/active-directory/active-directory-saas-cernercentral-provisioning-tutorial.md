@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Konfigurowanie centralnego Cerner dla użytkownika automatycznego inicjowania obsługi administracyjnej z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooautomatically usługi Azure Active Directory tooconfigure obsługi administracyjnej użytkowników tooa spisu w środkowej Cerner."
+description: "Dowiedz się, jak skonfigurować usługi Azure Active Directory, aby automatycznie udostępnić użytkownikom spisu w środkowej Cerner."
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: e96da98e783d24e7f34ae924824f909eead75f54
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 84613b7f8d7bd031d492a62da0bc53be96ac45a3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="tutorial-configuring-cerner-central-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie centralnego Cerner dla użytkownika automatycznego inicjowania obsługi administracyjnej.
 
-Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w środkowej Cerner i usługi Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooa użytkownika spisu w środkowej Cerner. 
+Celem tego samouczka jest opisano czynności, które należy wykonać w środkowej Cerner i usługi Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do spisu użytkownika, Indie środkowe Cerner. 
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
+Scenariusz opisany w tym samouczku założono, że już następujące elementy:
 
 *   Dzierżawy usługi Azure Active Directory
 *   Dzierżawy Cerner środkowe 
 
 > [!NOTE]
-> Usługa Azure Active Directory integruje się z centralnego Cerner przy użyciu hello [SCIM](http://www.simplecloud.info/) protokołu.
+> Usługa Azure Active Directory integruje się z centralnego Cerner przy użyciu [SCIM](http://www.simplecloud.info/) protokołu.
 
-## <a name="assigning-users-toocerner-central"></a>Przypisywanie użytkowników tooCerner środkowe
+## <a name="assigning-users-to-cerner-central"></a>Przypisywanie użytkowników do centralnego Cerner
 
-Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD są synchronizowane. 
+Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD są synchronizowane. 
 
-Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy podjąć decyzję dotyczącą jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy wymagają dostępu tooCerner centralnego. Po decyzję, można przypisać tych użytkowników tooCerner centralnego, wykonując instrukcje hello tutaj:
+Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy podjąć decyzję dotyczącą jakie użytkowników i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do centralnego Cerner. Po decyzję, można przypisać tych użytkowników do centralnego Cerner, postępując zgodnie z instrukcjami poniżej:
 
-[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](active-directory-coreapps-assign-user-azure-portal.md)
+[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](active-directory-coreapps-assign-user-azure-portal.md)
 
-### <a name="important-tips-for-assigning-users-toocerner-central"></a>Ważne porady dotyczące przypisywania użytkowników tooCerner środkowe
+### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Ważne porady dotyczące przypisywania użytkowników do centralnego Cerner
 
-*   Zalecane jest pojedynczego użytkownika usługi Azure AD można przypisać hello centralnej tootest tooCerner inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
+*   Zalecane jest pojedynczego użytkownika usługi Azure AD można przypisać do centralnego Cerner do testowania konfiguracji inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-* Po zakończeniu testowania początkowej dla pojedynczego użytkownika centralnego Cerner zaleca przypisywanie hello całą listę użytkowników przeznaczonych tooaccess żadnych Cerner rozwiązanie (nie tylko Cerner centralnego) toobe elastycznie tooCerner przez użytkownika spisu.  Inne rozwiązania Cerner korzystać z tej listy użytkowników w hello użytkownika spisu.
+* Po zakończeniu testowania początkowej dla pojedynczego użytkownika centralnego Cerner zaleca przypisywanie całą listę użytkownicy mają dostęp do wszelkich rozwiązań Cerner (nie tylko Cerner centralnego) być przygotowana do Cerner przez użytkownika spisu.  Inne rozwiązania Cerner korzystać z tej listy użytkowników w spisu użytkownika.
 
-*   Podczas przypisywania tooCerner użytkownika środkowe, musisz wybrać hello **użytkownika** roli w oknie dialogowym przydział hello. Użytkownicy z rolą "Domyślnego dostępu" hello są wykluczone z inicjowania obsługi administracyjnej.
+*   Przypisanie użytkownika do centralnego Cerner, należy wybrać **użytkownika** roli w oknie dialogowym przypisania. Użytkownicy z rolą "Domyślnego dostępu" są wykluczone z inicjowania obsługi administracyjnej.
 
 
-## <a name="configuring-user-provisioning-toocerner-central"></a>Konfigurowanie inicjowania obsługi administracyjnej tooCerner centralnego użytkownika
+## <a name="configuring-user-provisioning-to-cerner-central"></a>Konfigurowanie do centralnego Cerner Inicjowanie obsługi użytkowników
 
-Ta sekcja przeprowadzi Cię przez łączenie spisu użytkownika centralnego tooCerner usługi Azure AD przy użyciu konta użytkownika SCIM Cerner przez Inicjowanie obsługi interfejsu API i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz przypisany użytkownik kont w środkowej Cerner oparte na przydziału użytkowników i grup w usłudze Azure AD.
+Ta sekcja przeprowadzi użytkownika przez łączenie usługi Azure AD z centralnego Cerner spisu użytkownika przy użyciu konta użytkownika SCIM Cerner przez Inicjowanie obsługi interfejsu API i konfigurowanie inicjowania obsługi usługi do tworzenia, aktualizacji i wyłączania przypisany użytkownik, na podstawie kont w środkowej Cerner Przypisywanie użytkowników i grup w usłudze Azure AD.
 
 > [!TIP]
-> Można też tooenabled na języku SAML logowania jednokrotnego dla siedziby Cerner, zgodnie z instrukcjami hello [portalu Azure (https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, że te dwie funkcje uzupełniają. Aby uzyskać więcej informacji, zobacz hello [Cerner centralnego pojedynczego logowania jednokrotnego samouczek](active-directory-saas-cernercentral-tutorial.md).
+> Można też włączyć na języku SAML logowania jednokrotnego dla siedziby Cerner, zgodnie z instrukcjami podanymi w [portalu Azure (https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, że te dwie funkcje uzupełniają. Aby uzyskać więcej informacji, zobacz [Cerner centralnego pojedynczego logowania jednokrotnego samouczek](active-directory-saas-cernercentral-tutorial.md).
 
 
-### <a name="tooconfigure-automatic-user-account-provisioning-toocerner-central-in-azure-ad"></a>konto użytkownika automatyczne tooconfigure udostępniania tooCerner centralnego w usłudze Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Aby skonfigurować użytkownika automatyczne Inicjowanie obsługi konta do centralnego Cerner w usłudze Azure AD:
 
 
-W kolejności tooprovision użytkownika konta tooCerner środkowa będzie muszą toorequest konto systemowe centralnego Cerner z Cerner, a Generowanie usługi Azure AD za pomocą punktu końcowego SCIM tooconnect tooCerner tokenu elementu nośnego OAuth. Zalecane jest również, że hello integracji można wykonać w środowisku piaskownicy Cerner przed wdrożeniem tooproduction.
+Aby udostępnić konta użytkowników do centralnego Cerner, należy poprosić konta systemu centralnego Cerner Cerner oraz do generowania tokenu elementu nośnego OAuth używanego przez usługi Azure AD do nawiązania połączenia przez Cerner SCIM endpoint. Zalecane jest również, że integracji można wykonać w środowisku piaskownicy Cerner przed wdrożeniem w środowisku produkcyjnym.
 
-1.  pierwszym krokiem Hello jest osób hello tooensure Zarządzanie hello Cerner i integracji z usługą Azure AD ma konto CernerCare, która jest wymagana tooaccess hello dokumentacji niezbędne toocomplete hello instrukcje. W razie potrzeby użyj adresów URL hello poniżej toocreate CernerCare kont w każdym środowisku zastosowania.
+1.  Pierwszym krokiem jest zapewnienie osobom Zarządzanie Cerner i integracji z usługą Azure AD ma konto CernerCare, co jest wymagane, aby uzyskać dostęp do dokumentacji, które należy wykonać instrukcje. Jeśli to konieczne, umożliwiają utworzenie kont CernerCare w każdym środowisku dotyczy poniżej adresy URL.
 
    * Piaskownicy: https://sandboxcernercare.com/accounts/create
 
    * Produkcji: https://cernercare.com/accounts/create  
 
-2.  Następnie należy utworzyć konta systemu dla usługi Azure AD. Skorzystaj z instrukcji hello poniżej toorequest konto systemowe środowiska izolowanego i produkcji.
+2.  Następnie należy utworzyć konta systemu dla usługi Azure AD. Poniższe instrukcje umożliwiają żądania konto systemowe dla środowiska izolowanego i produkcji.
 
    * Instrukcje: https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
@@ -79,7 +79,7 @@ W kolejności tooprovision użytkownika konta tooCerner środkowa będzie muszą
 
    * Produkcji: https://cernercentral.com/system-accounts/
 
-3.  Następnie można wygenerować tokenu elementu nośnego OAuth dla każdego konta użytkownika systemu. toodo tego hello wykonaj instrukcje poniżej.
+3.  Następnie można wygenerować tokenu elementu nośnego OAuth dla każdego konta użytkownika systemu. Aby to zrobić, postępuj zgodnie z poniższymi instrukcjami.
 
    * Instrukcje: https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
@@ -87,43 +87,43 @@ W kolejności tooprovision użytkownika konta tooCerner środkowa będzie muszą
 
    * Produkcji: https://cernercentral.com/system-accounts/
 
-4. Na koniec należy tooacquire identyfikatory obszaru spisu dla obu hello piaskownicy i środowiska produkcyjne w Cerner toocomplete hello konfiguracji. Aby uzyskać informacje na temat tooacquire tego, zobacz: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
+4. Na koniec należy uzyskać identyfikatory obszaru spisu użytkownika dla środowisk zarówno piaskownicy, jak i produkcji w Cerner, aby zakończyć konfigurację. Aby uzyskać informacje dotyczące sposobu uzyskania to, zobacz: https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+SCIM. 
 
-5. Teraz można skonfigurować tooCerner konta użytkownika tooprovision usługi Azure AD. Zaloguj się toohello [portalu Azure](https://portal.azure.com)i Przeglądaj toohello **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
+5. Teraz można skonfigurować usługi Azure AD do kont użytkowników należy Cerner. Zaloguj się do [portalu Azure](https://portal.azure.com), a następnie przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
 
-6. Środkowe Cerner został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpienia przy użyciu pola wyszukiwania hello środkowej Cerner. W przeciwnym razie wybierz **Dodaj** i wyszukaj **centralnego Cerner** w galerii aplikacji hello. Wybierz Cerner centralnego z wyników wyszukiwania hello i dodać tooyour listę aplikacji.
+6. Środkowe Cerner został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpienia środkowej Cerner przy użyciu pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **centralnego Cerner** w galerii aplikacji. Wybierz Cerner centralnego w wynikach wyszukiwania i dodaj ją do listy aplikacji.
 
-7.  Wybierz wystąpienie Cerner środkowej, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
+7.  Wybierz wystąpienie Cerner środkowej, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
 
-8.  Zestaw hello **inicjowania obsługi trybu** za**automatyczne**.
+8.  Ustaw **tryb obsługi administracyjnej** do **automatyczne**.
 
    ![Środkowe Cerner inicjowania obsługi administracyjnej](./media/active-directory-saas-cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9.  Wypełnij następujące pola w obszarze hello **poświadczeń administratora**:
+9.  Wypełnij następujące pola w obszarze **poświadczeń administratora**:
 
-   * W hello **adres URL dzierżawy** wprowadź adres URL w formacie hello poniżej, zastępując "Użytkownik-spisu-obszaru-ID" z Identyfikatorem obszaru hello uzyskaną w kroku #4.
+   * W **adres URL dzierżawy** wprowadź adres URL w formacie poniżej, zastępując "Użytkownik-spisu-obszaru-ID" z Identyfikatorem obszaru uzyskaną w kroku #4.
 
 > Piaskownicy: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
 > Produkcji: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
-   * W hello **klucz tajny tokenu** wprowadź token elementu nośnego OAuth hello wygenerowany w kroku #3 i kliknij przycisk **Testuj połączenie**.
+   * W **klucz tajny tokenu** wprowadź token elementu nośnego OAuth wygenerowany w kroku #3 i kliknij przycisk **Testuj połączenie**.
 
-   * Powiadomienie Powodzenie powinna zostać wyświetlona po stronie upperright hello portalu usługi.
+   * Powiadomienie o Powodzenie powinna zostać wyświetlona po stronie upperright portalu usługi.
 
-10. Wprowadź adres e-mail hello osoby lub grupy, które powinny być przesyłane powiadomienia błąd inicjowania obsługi administracyjnej w hello **wiadomość E-mail z powiadomieniem** pola i zaznacz pole wyboru hello poniżej.
+10. Wprowadź adres e-mail osoby lub grupy, który powinien zostać wyświetlony inicjowania obsługi administracyjnej powiadomienia o błędach w **wiadomość E-mail z powiadomieniem** pola, a następnie zaznacz pole wyboru poniżej.
 
 11. Kliknij pozycję **Zapisz**. 
 
-12. W hello **mapowań atrybutów** Przejrzyj hello użytkowników i grupy atrybutów toobe synchronizowane z usługi Azure AD tooCerner centralnego. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch hello kont i grup użytkowników w centralnych Cerner dla operacji update. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
+12. W **mapowań atrybutów** Przejrzyj atrybuty użytkowników i grup, które mają być synchronizowane z usługi Azure AD do centralnego Cerner. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników i grup w środkowej Cerner dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-13. tooenable hello inicjowania obsługi usługi Azure AD dla siedziby Cerner, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w hello **ustawienia** sekcji
+13. Aby włączyć usługi Azure AD usługi dla siedziby Cerner inicjowania obsługi administracyjnej, zmień **stan inicjowania obsługi administracyjnej** do **na** w **ustawienia** sekcji
 
 14. Kliknij pozycję **Zapisz**. 
 
-Spowoduje to uruchomienie synchronizacji początkowej hello żadnych użytkowników i/lub grupy przypisane tooCerner centralnego w sekcji hello użytkowników i grup. Witaj początkowej synchronizacji ma tooperform dłużej niż kolejne synchronizacje, które występują co około 20 minut, jak długo działa hello inicjowania obsługi usługi Azure AD. Można użyć hello **szczegóły synchronizacji** sekcji postępu toomonitor i wykonaj łącza tooprovisioning działania raporty, które opisują wszystkie akcje wykonywane przez hello świadczenie usługi w aplikacji Cerner centralnego.
+Spowoduje to uruchomienie synchronizacji początkowej użytkowników i/lub grupy przypisane do centralnego Cerner w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, jak długo działa usługi Azure AD, inicjowania obsługi usługi. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji Cerner centralnego.
 
-Aby uzyskać więcej informacji dotyczących sposobu inicjowania obsługi usługi Azure AD hello tooread logowania, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Aby uzyskać więcej informacji na temat usługi Azure AD, inicjowanie obsługi dzienników do odczytu, zobacz [raportowania na użytkownika automatyczne Inicjowanie obsługi konta](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
@@ -133,4 +133,4 @@ Aby uzyskać więcej informacji dotyczących sposobu inicjowania obsługi usług
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dowiedz się, jak dzienniki tooreview i get raport dotyczący inicjowania obsługi administracyjnej działania](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+* [Dowiedz się, jak należy przejrzeć dzienniki i Uzyskaj raporty dotyczące inicjowania obsługi administracyjnej działania](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).

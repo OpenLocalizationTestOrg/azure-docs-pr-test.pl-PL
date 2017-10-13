@@ -3,9 +3,13 @@
 # Rozpoczęcie pracy
 ## [Zarządzanie pierwszym interfejsem API](api-management-get-started.md)
 ## [Ochrona interfejsu API dzięki limitom szybkości](api-management-howto-product-with-rules.md)
-## [Dodaj buforowania tooimprove wydajności](api-management-howto-cache.md)
+## [Dodawanie pamięci podręcznej w celu podniesienia wydajności](api-management-howto-cache.md)
 ## [Często zadawane pytania](api-management-faq.md)
 # Instrukcje
+## Konfigurowanie usługi APIM
+### [Tworzenie wystąpienia usługi APIM](get-started-create-service-instance.md)
+### [Uaktualnienie i skalowanie](upgrade-and-scale.md)
+### [Konfigurowanie domeny niestandardowej](configure-custom-domain.md)
 ## Tworzenie interfejsów API
 ### [Dodawanie i publikowanie produktu interfejsu API](api-management-howto-add-products.md)
 ### [Dodawanie operacji](api-management-howto-add-operations.md)
@@ -13,8 +17,8 @@
 ### [Importowanie definicji interfejsu API](api-management-howto-import-api.md)
 ## Zabezpieczanie zaplecza
 ### [Ochrona zaplecza interfejsu API sieci Web za pomocą usługi AAD](api-management-howto-protect-backend-with-aad.md)
-### [Połączenie wirtualnej sieci tooa](api-management-using-with-vnet.md)
-### [Połącz tooan wewnętrzna sieć wirtualna](api-management-using-with-internal-vnet.md)
+### [Łączenie z siecią wirtualną](api-management-using-with-vnet.md)
+### [Łączenie z wewnętrzną siecią wirtualną](api-management-using-with-internal-vnet.md)
 ### [Integracja usługi Application Gateway w wewnętrznej sieci wirtualnej](api-management-howto-integrate-internal-vnet-appgateway.md)
 ### [Wzajemne uwierzytelnianie certyfikatów](api-management-howto-mutual-certificates.md)
 ## Konfigurowanie zasad
@@ -26,7 +30,7 @@
 ### [Omówienie zasad](api-management-howto-policies.md)
 ### [Zarządzanie kluczami tajnymi za pomocą właściwości](api-management-howto-properties.md)
 ### [Zabezpieczanie interfejsów API przy użyciu uwierzytelniania certyfikatów klientów](api-management-howto-mutual-certificates-for-clients.md)
-## Dostosowanie środowiska dewelopera hello
+## Dostosowywanie środowiska deweloperów
 ### [Modyfikowanie zawartości i układu strony](api-management-modify-content-layout.md)
 ### [Dostosowywanie stylów elementów strony](api-management-customize-styles.md)
 ### [Dostosowywanie stron systemowych za pomocą szablonów](api-management-developer-portal-templates.md)
@@ -37,10 +41,10 @@
 ### [Włączanie obsługi uwierzytelniania OAuth w konsoli](api-management-howto-oauth2.md)
 ## Zarządzanie w produkcji
 ### [Zarządzanie grupami](api-management-howto-create-groups.md)
-### [Wdrażanie toomultiple Azure regionów](api-management-howto-deploy-multi-region.md)
-### [Dziennika zdarzeń tooAzure centra zdarzeń](api-management-howto-log-event-hubs.md)
+### [Wdrażanie w wielu regionach platformy Azure](api-management-howto-deploy-multi-region.md)
+### [Rejestrowanie zdarzeń w usłudze Azure Event Hubs](api-management-howto-log-event-hubs.md)
 ### [Konfigurowanie odzyskiwania po awarii przy użyciu funkcji wykonywania/przywracania kopii zapasowej](api-management-howto-disaster-recovery-backup-restore.md)
-### [Śledzenie wywołań z hello inspektora interfejsu API](api-management-howto-api-inspector.md)
+### [Śledzenie wywołań przy użyciu Inspektora interfejsów API](api-management-howto-api-inspector.md)
 ### [Zarządzanie kontami użytkowników](api-management-howto-create-or-invite-developers.md)
 ### [Zarządzanie przy użyciu automatyzacji](automation-manage-api-management.md)
 ### [Konfigurowanie przy użyciu narzędzia Git](api-management-configuration-repository-git.md)
@@ -51,7 +55,7 @@
 #### [Szybki start](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # Dokumentacja
-## [Program PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (oryginalny)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [Zasady](api-management-policies.md)
@@ -81,14 +85,14 @@
 ## [API Management — efektywnie współpracuje z innymi usługami platformy Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [Wtyczka API Management dla interfejsu SmartBear Ready! Interfejs API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
-## [Łączenie usługi Event Hubs tooAPI zarządzania](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
+## [Łączenie usługi Event Hubs z usługą API Management](http://weblogs.asp.net/cschittko/connecting-eventhubs-to-api-management)
 ## [Używanie usług SOAP WCF przy użyciu protokołu HTTP](http://mostlydotnetdev.blogspot.nl/2015/03/azure-api-management-apim-consuming.html)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Cennik](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Kalkulator cen](https://azure.microsoft.com/pricing/calculator/)
-## [Podaj dostęp RBAC przy użyciu hello interfejsu API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
+## [Udostępnianie dostępu typu RBAC przy użyciu interfejsu API REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Aktualizacje usług](https://azure.microsoft.com/updates/?product=api-management)
-## [Konfigurowanie toocall PostMan interfejsów API Management API](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
+## [Konfigurowanie narzędzia PostMan w celu wywoływania interfejsów API usługi API Management](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
 ## [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
 ## [Oficjalny dokument: Usługa API Management oparta na chmurze](http://j.mp/ms-apim-whitepaper)

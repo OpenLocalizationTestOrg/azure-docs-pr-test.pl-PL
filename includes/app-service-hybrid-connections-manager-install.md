@@ -1,22 +1,22 @@
 
-1. W hello **połączeń hybrydowych** bloku, kliknij połączenie hybrydowe hello właśnie utworzony, a następnie kliknij przycisk **konfiguracji odbiornika**.
+1. W **połączeń hybrydowych** bloku, kliknij połączenie hybrydowe właśnie utworzony, kliknięcie **konfiguracji odbiornika**.
    
     ![Kliknij przycisk Ustawienia odbiornika](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-2. Witaj **właściwości połączenia hybrydowe** zostanie otwarty blok. W obszarze **Menedżera połączeń hybrydowych lokalnymi**, wybierz **pobrać i skonfigurować ręcznie**, zapisać pakiet HybridConnectionManager.msi hello pobrane i skopiuj parametry połączenia bramy hello.
+2. **Właściwości połączenia hybrydowe** zostanie otwarty blok. W obszarze **Menedżera połączeń hybrydowych lokalnymi**, wybierz **pobrać i skonfigurować ręcznie**, Zapisz pobrany pakiet HybridConnectionManager.msi i skopiuj parametry połączenia bramy.
    
-    ![Kliknij tutaj tooinstall](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-3. Z wiersza polecenia administratora wpisz hello następujące polecenia toostart hello Instalatora:
+    ![Kliknij tutaj, aby zainstalować](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+3. Z wiersza polecenia administratora wpisz następujące polecenie, aby uruchomić Instalatora:
    
         start HybridConnectionManager.msi
-4. Po hello jest uruchamiany Instalator, kliknij przycisk **nie teraz**, a następnie wyszukaj toohello %ProgramFiles%\Microsoft\HybridConnectionManager folder, uruchom HCMConfigWizard.exe i kliknij przycisk **tak** w hello **użytkownika Kontrola konta** okna dialogowego.
-5. Wklej parametry połączenia hybrydowe hello, które wcześniej zostały skopiowane, a następnie kliknij przycisk **OK**. 
+4. Po uruchomieniu Instalatora, kliknij przycisk **nie teraz**, następnie przejdź do folderu %ProgramFiles%\Microsoft\HybridConnectionManager, uruchom HCMConfigWizard.exe i kliknij przycisk **tak** w **konta użytkownika Formant** okna dialogowego.
+5. Wklej parametry połączenia hybrydowe, które wcześniej zostały skopiowane, a następnie kliknij przycisk **OK**. 
    
     ![Instalowanie](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-6. Po zakończeniu instalacji powitania kliknij przycisk **Zamknij**.
+6. Po zakończeniu instalacji kliknij przycisk **Zamknij**.
    
     ![Kliknij przycisk Zamknij](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
    
-    Na powitania **połączeń hybrydowych** bloku, hello **stan** zawiera obecnie kolumnę **połączony**. 
+    Na **połączeń hybrydowych** bloku **stan** zawiera obecnie kolumnę **połączony**. 
    
     ![Stan połączenia](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 

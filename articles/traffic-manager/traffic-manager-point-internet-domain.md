@@ -1,6 +1,6 @@
 ---
-title: "aaaPoint nazwę domeny firmy Internet domeny tooa Traffic Manager | Dokumentacja firmy Microsoft"
-description: "Ten artykuł pomoże Ci wskaż nazwę domeny firmowej domeny nazwa tooa Menedżera ruchu."
+title: "Ustawianie firmowej domeny internetowej tak, aby wskazywała nazwę domeny usługi Traffic Manager | Microsoft Docs"
+description: "Ten artykuł pomoże Ci skonfigurować nazwę domeny firmowej w taki sposób, aby wskazywała nazwę domeny usługi Traffic Manager."
 services: traffic-manager
 documentationcenter: 
 author: kumudd
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
-ms.openlocfilehash: 84c428f60a1dc70452bf957d98a68c95e0b51715
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0322b3510cfd4f94031d8c1db8f1cc032b997fa8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="point-a-company-internet-domain-tooan-azure-traffic-manager-domain"></a>Ustawianie firmowej domeny usługi Azure Traffic Manager tooan domeny Internet
+# <a name="point-a-company-internet-domain-to-an-azure-traffic-manager-domain"></a>Ustawianie firmowej domeny internetowej tak, aby wskazywała domenę usługi Azure Traffic Manager
 
-Podczas tworzenia profilu usługi Traffic Manager platforma Azure automatycznie przypisuje nazwę DNS dla danego profilu. toouse nazwę strefy DNS, utworzyć rekord CNAME DNS, który mapuje nazwę domeny profilu usługi Traffic Manager toohello. Nazwa domeny usługi Traffic Manager hello można znaleźć w hello **ogólne** sekcji na stronie konfiguracji hello hello profilu usługi Traffic Manager.
+Podczas tworzenia profilu usługi Traffic Manager platforma Azure automatycznie przypisuje nazwę DNS dla danego profilu. Aby użyć nazwy z bieżącej strefy DNS, należy utworzyć rekord DNS CNAME, który będzie mapowany na nazwę domeny profilu usługi Traffic Manager. Nazwa domeny usługi Traffic Manager jest wyświetlana w sekcji **Ogólne** na stronie konfiguracji profilu usługi Traffic Manager.
 
-Na przykład toopoint nazwy www.contoso.com toohello contoso.trafficmanager.net nazwy DNS Menedżera ruchu, należy utworzyć powitania po rekord zasobu DNS:
+Na przykład: aby nazwa www.contoso.com wskazywała nazwę DNS usługi Traffic Manager contoso.trafficmanager.net, należy utworzyć następujący rekord zasobu DNS:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
-Wszystkie żądania ruchu za*www.contoso.com* uzyskać kierowane za*contoso.trafficmanager.net*.
+Wszystkie żądania ruchu do domeny *www.contoso.com* będą kierowane do domeny *contoso.trafficmanager.net*.
 
 > [!IMPORTANT]
-> Nie może wskazywać domeny drugiego poziomu, takich jak *contoso.com*, toohello domeny usługi Traffic Manager. Standardy protokołu DNS nie zezwalają na ustanawianie rekordów CNAME dla nazw domen drugiego poziomu.
+> Domena drugiego poziomu, na przykład *contoso.com*, nie może wskazywać domeny usługi Traffic Manager. Standardy protokołu DNS nie zezwalają na ustanawianie rekordów CNAME dla nazw domen drugiego poziomu.
 
 ## <a name="next-steps"></a>Następne kroki
 

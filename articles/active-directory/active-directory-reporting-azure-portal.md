@@ -1,5 +1,5 @@
 ---
-title: "Raportowanie usługi Active Directory aaaAzure | Dokumentacja firmy Microsoft"
+title: "Raporty usługi Azure Active Directory | Microsoft Docs"
 description: "Zawiera ogólne omówienie raportów usługi Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -15,22 +15,22 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c91813acbdc4b0bfcd164169b0b575accac227d3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 738c8f4a56586b87f03973ec258b0a3023affa60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-reporting"></a>Raporty w usłudze Azure Active Directory
 
 Dzięki raportom usługi Azure Active Directory możesz uzyskać szczegółowe informacje na temat działania środowiska.  
-dane podane Hello umożliwia:
+Na podstawie udostępnionych danych można:
 
 - Określać, jak usługi i aplikacje są wykorzystywane przez użytkowników
-- Wykrywanie potencjalnych zagrożeń wpływających na powitania kondycji środowiska
+- Wykrywać potencjalne zagrożenia wpływające na kondycję środowiska
 - Rozwiązywać problemy uniemożliwiające użytkownikom wykonywanie pracy  
 
-Architektura raportowania Hello opiera się na dwóch głównych filarach:
+Architektura raportów opiera się na dwóch głównych filarach:
 
 - Raporty dotyczące zabezpieczeń
 - Raporty dotyczące działań
@@ -41,79 +41,79 @@ Architektura raportowania Hello opiera się na dwóch głównych filarach:
 
 ## <a name="security-reports"></a>Raporty dotyczące zabezpieczeń
 
-Hello raporty dotyczące zabezpieczeń w usłudze Azure Active Directory pomocy można tooprotect tożsamości organizacji.  
+Raporty dotyczące zabezpieczeń w usłudze Azure Active Directory pomagają chronić tożsamości w organizacji.  
 W usłudze Azure Active Directory istnieją dwa typy raportów dotyczących zabezpieczeń:
 
-- **Oflagowani użytkownicy ryzyka** — z hello [użytkownicy oflagowani zagrożenia zabezpieczeń raportu](active-directory-reporting-security-user-at-risk.md), zapoznaj się z omówieniem, kont użytkowników, które może być zagrożone.
+- **Użytkownicy oflagowani w związku z ryzykiem** — [raport zabezpieczeń dotyczący użytkowników oflagowanych w związku z ryzykiem](active-directory-reporting-security-user-at-risk.md) zawiera omówienie kont użytkowników, których zabezpieczenia mogły zostać naruszone.
 
-- **Ryzykowne logowania** — z hello [raport ryzykowne logowania zabezpieczeń](active-directory-reporting-security-risky-sign-ins.md), możesz uzyskać wskaźnik prób logowania, które mogły zostać wykonane przez osobę, która jest nie hello uzasadnionych właściciela konta użytkownika. 
+- **Ryzykowne logowania** — [raport zabezpieczeń dotyczący ryzykownych logowań](active-directory-reporting-security-risky-sign-ins.md) jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
 
-**Jakie licencji usługi Azure AD potrzebujesz tooaccess raport zabezpieczeń?**  
+**Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu zabezpieczeń?**  
 Wszystkie wersje usługi Azure Active Directory zapewniają dostęp do raportów użytkowników oflagowanych w związku z ryzykiem oraz ryzykownych logowań.  
-Jednak hello poziom szczegółowości raportu różni się między wersjami hello: 
+Jednak poziom szczegółowości raportu zależy od wersji: 
 
-- W hello **wersje usługi Azure Active Directory wolnego i Basic**, otrzymasz listę oflagowane ryzyka i ryzykowne logowania użytkowników. 
+- W **usłudze Azure Active Directory w wersji Bezpłatna i Podstawowa** masz już dostęp do listy użytkowników oflagowanych w związku z ryzykiem i ryzykownych logowań. 
 
-- Witaj **Azure Active Directory Premium 1** edition rozszerza tego modelu, należy również włączyć tooexamine niektóre hello podstawowy zdarzenia ryzyka, które zostały wykryte dla każdego raportu. 
+- Wersja **Azure Active Directory Premium 1** rozszerza ten model, umożliwiając również badanie niektórych podstawowych zdarzeń związanych z ryzykiem, które uwzględniono w poszczególnych raportach. 
 
-- Witaj **Azure Active Directory Premium 2** edition udostępnia program hello najbardziej szczegółowe informacje na temat hello podstawowy zdarzenia o podwyższonym ryzyku i pozwala także tooconfigure zasady zabezpieczeń, które automatycznie odpowiadać tooconfigured poziomów ryzyka.
+- Wersja **Azure Active Directory Premium 2** oferuje najbardziej szczegółowe informacje na temat zdarzeń związanych z ryzykiem i umożliwia również konfigurowanie zasad zabezpieczeń, które automatycznie reagują na wystąpienie skonfigurowanych poziomów ryzyka.
 
 
 ## <a name="activity-reports"></a>Raporty dotyczące działań
 
 W usłudze Azure Active Directory istnieją dwa typy raportów dotyczących działań:
 
-- **Dzienniki inspekcji** — Witaj [dzienniki inspekcji, raport aktywności](active-directory-reporting-activity-audit-logs.md) zapewnia dostęp do historii toohello każde zadanie wykonywane w dzierżawie.
+- **Dzienniki inspekcji** — [raport działań dotyczący dzienników inspekcji](active-directory-reporting-activity-audit-logs.md) zapewnia dostęp do historii wszystkich zadań wykonanych w dzierżawie.
 
-- **Logowania** — z hello [raport aktywności logowania](active-directory-reporting-activity-sign-ins.md), można określić, kto wykonał zadania hello zgłoszone przez raport dzienniki inspekcji hello.
-
-
-
-Witaj **dzienniki inspekcji, raport** umożliwia rekordów działania systemu zgodności.
-Między innymi hello pod warunkiem, że dane pozwala tooaddress typowych scenariuszy takich jak:
-
-- Ktoś jest w mojej dzierżawy otrzymano grupy administracyjnej tooan dostępu. Kto udzielił tej osobie prawa dostępu? 
-
-- Chcę tooknow hello listę Użytkownicy logujący się do określonej aplikacji od czasu I ostatnio został załadowany hello aplikacji i mają tooknow, jeśli jest również sposób
-
-- Chcę tooknow ile hasła resetuje są wykonywane w mojej dzierżawy
-
-
-**Jakie licencji usługi Azure AD potrzebujesz raportu dzienniki inspekcji hello tooaccess?**  
-Raport dotyczący dzienniki inspekcji Hello jest dostępna dla funkcji, do których posiadasz licencje. Jeśli masz licencję dla określonych funkcji, masz również dostęp toohello informacje dziennika inspekcji.
-
-Aby uzyskać więcej informacji, zobacz **porównanie funkcji ogólnie dostępna hello wolne, Basic i Premium Edition** w [usługi Azure Active Directory, funkcje i możliwości](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+- **Logowania** — przy użyciu [raportu działań dotyczącego logowań](active-directory-reporting-activity-sign-ins.md) można określić, kto wykonał zadania zgłoszone w raporcie dzienników inspekcji.
 
 
 
-Witaj **raport aktywności logowania** tootoofind umożliwia odpowiedzi tooquestions, takich jak:
+**Raport dzienników inspekcji** dostarcza informacji na temat aktywności systemu pod kątem zgodności.
+Między innymi udostępnione dane pozwalają obsługę typowych scenariuszy, takich jak:
 
-- Co to jest hello logowania wzorzec użytkownika?
+- Ktoś w mojej dzierżawie uzyskał dostęp do grupy administratorów. Kto udzielił tej osobie prawa dostępu? 
+
+- Chcę zobaczyć listę użytkowników, którzy logowali się do określonej aplikacji od momentu jej dołączenia oraz sprawdzić, jak działa aplikacja
+
+- Chcę wiedzieć, ile operacji resetowania hasła jest wykonywanych w mojej dzierżawie
+
+
+**Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu dzienników inspekcji?**  
+Raport dzienników inspekcji jest dostępny w przypadku funkcji, do których masz licencje. Jeśli masz licencję określonej funkcji, masz również dostęp do informacji z dotyczącego jej dziennika inspekcji.
+
+Aby uzyskać więcej informacji, zobacz sekcję **Porównanie ogólnie dostępnych funkcji w wersjach Bezpłatna, Podstawowa i Premium** na stronie [funkcji i możliwości usługi Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
+
+
+
+**Raport działań związanych z logowaniem** zawiera odpowiedzi na pytania, takie jak:
+
+- Co to jest wzorzec logowania użytkownika?
 - Ilu użytkowników zalogowało się w ciągu tygodnia?
-- Co to jest hello stan tych logowania?
+- Jaki jest stan tych logowań?
 
 
-**Czy licencji usługi Azure AD, jakie muszą tooaccess hello raport aktywności logowania?**  
-tooaccess hello raport aktywności logowania, dzierżawy musi mieć licencji usługi Azure AD Premium skojarzonych z nim.
+**Jaka licencja usługi Azure AD jest wymagana w celu uzyskania dostępu do raportu działań związanych z logowaniem?**  
+Aby uzyskać dostęp do raportu działań związanych z logowaniem, dzierżawa musi mieć skojarzoną licencję usługi Azure AD w wersji Premium.
 
 
 ## <a name="programmatic-access"></a>Dostęp programowy
 
-W interfejsie użytkownika toohello dodanie raportowania usługi Azure Active Directory zapewnia [dostęp programistyczny](active-directory-reporting-api-getting-started-azure-portal.md) toohello danych raportowania. Hello dane z tych raportów mogą być bardzo przydatne tooyour aplikacji, takich jak systemów SIEM, inspekcji i narzędzia do analizy biznesowej. interfejsy API zapewniają dostęp programistyczny toohello danych za pomocą zestawu opartego na interfejsie REST API raportowania Hello Azure AD. Te interfejsy API można wywoływać przy użyciu różnych języków i narzędzi do programowania. 
+Oprócz interfejsu użytkownika funkcja raportowania w usłudze Azure Active Directory zapewnia [dostęp programowy ](active-directory-reporting-api-getting-started-azure-portal.md) do danych raportów. Dane z tych raportów mogą być bardzo przydatne w aplikacjach, takich jak systemy SIEM oraz narzędzia do inspekcji i analizy biznesowej. Interfejsy API raportów usługi Azure AD umożliwiają dostęp programowy do danych za pomocą zestawu interfejsów API opartych na architekturze REST. Te interfejsy API można wywoływać przy użyciu różnych języków i narzędzi do programowania. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Więcej informacji na temat hello tooknow różne typy raportów w usłudze Azure Active Directory, zobacz:
+Jeśli chcesz dowiedzieć się więcej o różnych typach raportów w usłudze Azure Active Directory, zobacz:
 
 - [Raport dotyczący użytkowników oflagowanych w związku z ryzykiem](active-directory-reporting-security-user-at-risk.md)
 - [Raport dotyczący ryzykownych logowań](active-directory-reporting-security-risky-sign-ins.md)
 - [Raport dotyczący dzienników inspekcji](active-directory-reporting-activity-audit-logs.md)
 - [Raport dotyczący dzienników logowania](active-directory-reporting-activity-sign-ins.md)
 
-Więcej informacji na temat uzyskiwania dostępu do raportowania danych przy użyciu interfejsu API raportowania hello hello hello tooknow, zobacz: 
+Jeśli chcesz dowiedzieć się więcej na temat uzyskiwania dostępu do danych raportowania przy użyciu interfejsu API raportów, zobacz: 
 
-- [Wprowadzenie do korzystania z hello interfejsem API raportowania usługi Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
+- [Wprowadzenie do interfejsu API raportów usługi Azure Active Directory](active-directory-reporting-api-getting-started-azure-portal.md)
 
 
 <!--Image references-->

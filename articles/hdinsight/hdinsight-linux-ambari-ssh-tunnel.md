@@ -1,6 +1,6 @@
 ---
-title: "tunelowania SSH aaaUse — tooaccess Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse toosecurely tunelu SSH Przeglądaj zasobów sieci web znajdujących się na węzły HDInsight opartych na systemie Linux."
+title: "Używanie protokołu SSH tunneling można uzyskać dostępu do usługi Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak bezpiecznie przeglądać zasobów sieci web znajdujących się na węzły HDInsight opartych na systemie Linux za pomocą tunelu SSH."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/21/2017
 ms.author: larryfr
-ms.openlocfilehash: 8a315c53751bbe6950a182674f4108c67c2f2f8e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-ssh-tunneling-tooaccess-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Użyj tunelowania SSH tooaccess interfejsu użytkownika sieci web Ambari, JobHistory, NameNode, Oozie i innych sieci web UI
+# <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Użyj tunelowania SSH, aby uzyskać dostęp do interfejsu użytkownika sieci web Ambari, JobHistory, NameNode, Oozie i innych sieci web UI
 
-Klastry usługi HDInsight opartej na systemie Linux zapewniają dostęp tooAmbari interfejsu użytkownika sieci web za pośrednictwem Internetu hello, ale niektóre funkcje hello interfejsu użytkownika nie są. Na przykład hello interfejsu użytkownika sieci web dla innych usług, które są udostępniane za pośrednictwem narzędzia Ambari. Funkcje programu hello interfejsu użytkownika sieci web Ambari należy użyć SSH tunelu toohello klastra head.
+Klastry usługi HDInsight opartej na systemie Linux zapewniają dostęp do interfejsu użytkownika sieci web Ambari w Internecie, ale nie są niektóre funkcje interfejsu użytkownika. Na przykład interfejsu użytkownika sieci web dla innych usług, które są udostępniane za pośrednictwem narzędzia Ambari. Aby uzyskać pełną funkcjonalność interfejsu użytkownika sieci web Ambari należy użyć tunelu SSH nagłówek klastra.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Dlaczego warto korzystać z tunelowania SSH
 
-Tylko kilka Ambari hello menu pracy za pośrednictwem tunelu SSH. Tych menu korzystają z witryny sieci web i usług działających na inne typy węzłów, takich jak węzłów procesu roboczego. Często tych witryn sieci web nie są zabezpieczone, więc nie toodirectly bezpieczne Uwidacznianie hello je na internet.
+Tylko kilka Ambari menu pracy za pośrednictwem tunelu SSH. Tych menu korzystają z witryny sieci web i usług działających na inne typy węzłów, takich jak węzłów procesu roboczego. Często tych witryn sieci web nie są zabezpieczone, więc nie można bezpiecznie udostępnić je bezpośrednio w Internecie.
 
-powitania po UI sieci Web wymagają tunelu SSH:
+Następujące UI sieci Web wymagają tunelu SSH:
 
 * JobHistory
 * NameNode
@@ -37,118 +37,118 @@ powitania po UI sieci Web wymagają tunelu SSH:
 * Oozie interfejsu użytkownika sieci web
 * Główna baza danych HBase i dzienniki interfejsu użytkownika
 
-Jeśli używasz toocustomize akcji skryptu klastra żadnych usług ani narzędzi, które można zainstalować z użyciem interfejsu użytkownika sieci web wymagają tunelu SSH. Na przykład po zainstalowaniu aplikacji Hue za pomocą akcji skryptu, należy użyć SSH tunelu tooaccess hello Hue interfejsu użytkownika sieci web.
+Jeśli akcji skryptu można użyć do dostosowania z klastrem, usługi lub narzędzi, które można zainstalować z użyciem interfejsu użytkownika sieci web wymagają tunelu SSH. Na przykład po zainstalowaniu aplikacji Hue za pomocą akcji skryptu, można użyć tunelu SSH dostępu do sieci web aplikacji Hue interfejsu użytkownika.
 
 > [!IMPORTANT]
-> Jeśli masz tooHDInsight bezpośredni dostęp do sieci wirtualnej, nie trzeba toouse tuneli SSH. Przykład bezpośredni dostęp do usługi HDInsight za pośrednictwem sieci wirtualnej, zobacz hello [sieć lokalną tooyour połączyć HDInsight](connect-on-premises-network.md) dokumentu.
+> Jeśli masz bezpośredni dostęp do usługi HDInsight za pośrednictwem sieci wirtualnej jest konieczne używanie tunelu SSH. Przykład bezpośredni dostęp do usługi HDInsight za pośrednictwem sieci wirtualnej, zobacz [HDInsight połączyć się z siecią lokalną](connect-on-premises-network.md) dokumentu.
 
 ## <a name="what-is-an-ssh-tunnel"></a>Co to jest tunelu SSH
 
-[Secure Shell (SSH) tunelowania](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) kieruje ruch przesyłany portu tooa na lokalnej stacji roboczej. Witaj, ruch jest kierowany przez SSH połączenia tooyour HDInsight węzła głównego klastra. Żądanie hello jest rozwiązywany tak, jakby pochodziły hello węzła głównego. odpowiedź Hello jest następnie kierowane za pośrednictwem stacji roboczej tooyour tunelu hello.
+[Secure Shell (SSH) tunelowania](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) kieruje ruch wysyłany do znajdującego się na lokalnej stacji roboczej. Ruch jest kierowany przez połączenie SSH do węzła głównego klastra usługi HDInsight. Żądanie zostanie rozwiązany, tak jakby jego występowania w węźle głównym. Odpowiedź jest następnie kierowane wstecz przez tunel do stacji roboczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Klient SSH. Aby uzyskać więcej informacji, zobacz [Używanie protokołu SSH w usłudze HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Przeglądarki sieci web, które mogą być skonfigurowane toouse SOCKS5 serwera proxy.
+* Przeglądarka sieci web, które mogą być skonfigurowane do korzystania z serwera proxy SOCKS5.
 
     > [!WARNING]
-    > Obsługa serwera proxy SOCKS Hello wbudowanych w system Windows nie obsługuje SOCKS5 i nie działa z hello kroków w tym dokumencie. Witaj następujące przeglądarki zależą od ustawień serwera proxy systemu Windows, a nie obecnie pracy hello kroków w tym dokumencie:
+    > Obsługa serwera proxy SOCKS wbudowanych w system Windows nie obsługuje SOCKS5 i nie działa z kroki opisane w tym dokumencie. Następujące przeglądarki zależą od ustawień serwera proxy systemu Windows i obecnie nie współpracujesz z kroki opisane w tym dokumencie:
     >
     > * Przeglądarka Microsoft Edge
     > * Program Microsoft Internet Explorer
     >
-    > Google Chrome również zależy od ustawień serwera proxy systemu Windows hello. Można jednak zainstalować rozszerzenia, które obsługują SOCKS5. Firma Microsoft zaleca [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
+    > Google Chrome również korzysta z ustawień serwera proxy systemu Windows. Można jednak zainstalować rozszerzenia, które obsługują SOCKS5. Firma Microsoft zaleca [FoxyProxy Standard](https://chrome.google.com/webstore/detail/foxyproxy-standard/gcknhkkoolaabfmlnjonogaaifnjlfnp).
 
-## <a name="usessh"></a>Tworzenie tunelu przy użyciu polecenia SSH hello
+## <a name="usessh"></a>Tworzenie tunelu przy użyciu polecenia SSH
 
-Użyj hello następujące polecenie toocreate tunelu SSH za pomocą hello `ssh` polecenia. Zastąp **USERNAME** użytkownika SSH dla klastra usługi HDInsight i Zastąp **CLUSTERNAME** o nazwie hello klastra usługi HDInsight:
+Użyj tunelowania następujące polecenie, aby utworzyć SSH za pomocą `ssh` polecenia. Zastąp **USERNAME** użytkownika SSH dla klastra usługi HDInsight i Zastąp **CLUSTERNAME** o nazwie z klastrem usługi HDInsight:
 
 ```bash
 ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
-To polecenie tworzy połączenia, który przekierowuje ruch toolocal portu 9876 toohello klastra za pomocą protokołu SSH. dostępne są opcje Hello:
+To polecenie tworzy połączenie kieruje ruchem do portu lokalnego 9876 do klastra za pomocą protokołu SSH. Dostępne opcje to:
 
-* **D 9876** — Witaj port lokalny, który przekierowuje ruch za pośrednictwem tunelu hello.
+* **D 9876** — port lokalny, który przekierowuje ruch za pośrednictwem tunelu.
 * **C** -Kompresuj wszystkich danych, ponieważ ruchu w sieci web jest przeważnie tekstu.
-* **2** -force SSH tootry protocol w wersji 2 tylko.
+* **2** -force SSH próby tylko w wersji 2 protokołu.
 * **q** — tryb cichy.
 * **T** — Wyłącz pseudo-tty alokacji, ponieważ będziemy są po prostu przekazywania portu.
 * **n**— Wartość pola Zapobiegaj odczytu STDIN, ponieważ będziemy są po prostu przekazywania portu.
 * **N** -nie wykonuj polecenia zdalnego, ponieważ będziemy są po prostu przekazywania portu.
-* **f** -wykonywane w tle hello.
+* **f** -uruchomione w tle.
 
-Po zakończeniu działania polecenia hello ruch wysyłany tooport 9876 na komputerze lokalnym hello jest kierowany toohello węzła głównego klastra.
+Po zakończeniu działania polecenia ruch wysyłany do portu 9876 na komputerze lokalnym jest przekierowywane do węzła głównego klastra.
 
 ## <a name="useputty"></a>Tworzenie tunelu przy użyciu programu PuTTY
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) graficznego klienta SSH dla systemu Windows. Użyj hello następujące kroki toocreate tunelu SSH przy użyciu programu PuTTY:
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) graficznego klienta SSH dla systemu Windows. Poniższe kroki umożliwiają utworzenie tunelu SSH przy użyciu programu PuTTY:
 
-1. Otwórz program PuTTY i wprowadzić informacje o połączeniu. Jeśli nie masz doświadczenia w obsłudze programu PuTTY, zobacz hello [programu PuTTY dokumentacji (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+1. Otwórz program PuTTY i wprowadzić informacje o połączeniu. Jeśli nie masz doświadczenia w obsłudze programu PuTTY, zobacz [programu PuTTY dokumentacji (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
 
-2. W hello **kategorii** toohello sekcji lewej strony okna dialogowego hello, rozwiń **połączenia**, rozwiń węzeł **SSH**, a następnie wybierz **tuneli**.
+2. W **kategorii** z lewej strony okna dialogowego, rozwiń **połączenia**, rozwiń węzeł **SSH**, a następnie wybierz **tuneli**.
 
-3. Podaj następujące informacje na powitania hello **przekierowanie portów opcje kontrolujące SSH** formularza:
+3. Podaj następujące informacje w **przekierowanie portów opcje kontrolujące SSH** formularza:
    
-   * **Port źródłowy** — Witaj port na powitania klienta, że chcesz tooforward. Na przykład **9876**.
+   * **Source port** (Port źródłowy) — port na komputerze klienckim, który ma być przekierowany. Na przykład **9876**.
 
-   * **Docelowy** — Witaj adres SSH dla klastra usługi HDInsight opartej na systemie Linux hello. Na przykład **mójklaster-ssh.azurehdinsight.net**.
+   * **Docelowy** — adres SSH dla klastra usługi HDInsight opartej na systemie Linux. Na przykład **mójklaster-ssh.azurehdinsight.net**.
 
    * **Dynamic** (Dynamiczny) — umożliwia dynamiczny routing serwera proxy SOCKS.
      
      ![Obraz tunelowania opcje](./media/hdinsight-linux-ambari-ssh-tunnel/puttytunnel.png)
 
-4. Kliknij przycisk **Dodaj** tooadd hello ustawienia, a następnie kliknij przycisk **Otwórz** tooopen połączenie SSH.
+4. Kliknij przycisk **Dodaj** dodać ustawienia, a następnie kliknij przycisk **Otwórz** można otworzyć połączenia SSH.
 
-5. Po wyświetleniu monitu zaloguj się na serwerze toohello.
+5. Po wyświetleniu monitu zaloguj się do serwera.
 
-## <a name="use-hello-tunnel-from-your-browser"></a>Użyj tunelu hello z przeglądarki
+## <a name="use-the-tunnel-from-your-browser"></a>Użyj tunelu z przeglądarki
 
 > [!IMPORTANT]
-> Witaj kroki w tej sekcji hello użyj przeglądarki Mozilla FireFox, ponieważ tworzy ona hello tych samych ustawień serwera proxy na wszystkich platformach. Inne nowoczesne przeglądarki, takich jak Google Chrome, mogą wymagać rozszerzenia, takie jak toowork FoxyProxy z hello tunelu.
+> Kroki opisane w tej sekcji Korzystanie z przeglądarki Mozilla FireFox, ponieważ zapewnia te same ustawienia serwera proxy na wszystkich platformach. Inne nowoczesne przeglądarki, takich jak Google Chrome, mogą wymagać rozszerzenia, takie jak FoxyProxy do pracy z tunelu.
 
-1. Skonfiguruj hello przeglądarki toouse **localhost** i portu hello używane podczas tworzenia tunelu hello jako **SOCKS v5** serwera proxy. Poniżej przedstawiono wygląd hello Firefox ustawienia. Jeśli użyto innego portu niż 9876 zmienić toohello portu hello, używanego jednego:
+1. Skonfiguruj przeglądarkę, aby użyć **localhost** i port używany podczas tworzenia tunelu jako **SOCKS v5** serwera proxy. Poniżej przedstawiono wygląd ustawienia przeglądarki Firefox. Jeśli użyto innego portu niż 9876 zmienić port ten, który został użyty:
    
     ![Obraz ustawień przeglądarki Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
    > [!NOTE]
-   > Wybieranie **DNS zdalnego** rozpoznaje żądania systemu nazw domen (DNS, Domain Name System) przy użyciu hello klastra usługi HDInsight. To ustawienie jest rozpoznawany jako DNS za pomocą węzła głównego hello hello klastra.
+   > Wybieranie **DNS zdalnego** rozpoznaje żądania systemu nazw domen (DNS, Domain Name System) przy użyciu klastra usługi HDInsight. To ustawienie jest rozpoznawany jako DNS za pomocą węzła głównego klastra.
 
-2. Weryfikowanie działania tego tunelu hello odwiedzając witrynę, takich jak [http://www.whatismyip.com/](http://www.whatismyip.com/). Hello IP zwrócił powinna być jeden używana przez hello Microsoft Azure w centrum danych.
+2. Sprawdź, czy tunelu działa odwiedzając witrynę, takich jak [http://www.whatismyip.com/](http://www.whatismyip.com/). Adres IP zwrócony powinien być używany przez centrum danych Microsoft Azure.
 
 ## <a name="verify-with-ambari-web-ui"></a>Weryfikacja Ambari web UI
 
-Po ustanowieniu hello klastra, użyj hello następujące kroki tooverify, czy są dostępne usługi sieci web UI hello Ambari Web:
+Po ustanowieniu klastra, wykonaj następujące kroki, aby sprawdzić, czy są dostępne usługi sieci web UI sieci Ambari Web:
 
-1. W przeglądarce Przejdź toohttp://headnodehost:8080. Witaj `headnodehost` adres są wysyłane za pośrednictwem hello tunelu toohello klastra i rozwiązać headnode toohello, który Ambari działa na. Po wyświetleniu monitu wprowadź nazwę użytkownika hello admin (Administrator) i hasło dla klastra. Może pojawić się prośba po raz drugi przez hello Ambari web UI. Jeśli tak, należy ponownie wprowadzić informacje o hello.
+1. W przeglądarce przejdź do http://headnodehost:8080. `headnodehost` Adres są wysyłane za pośrednictwem tunelu do klastra i Rozwiąż, aby headnode, uruchomionym Ambari. Po wyświetleniu monitu wprowadź nazwę użytkownika admin (Administrator) i hasło dla klastra. Może pojawić się prośba po raz drugi przez interfejs użytkownika sieci web Ambari. Jeśli tak, należy ponownie wprowadzić informacje.
 
    > [!NOTE]
-   > Używając hello http://headnodehost:8080 adres tooconnect toohello klastra jest nawiązywane za pośrednictwem tunelu hello. Komunikat jest zabezpieczony przy użyciu tunelu SSH hello zamiast protokołu HTTPS. tooconnect ponad hello internet przy użyciu protokołu HTTPS, należy użyć https://CLUSTERNAME.azurehdinsight.net, gdzie **CLUSTERNAME** jest nazwą hello hello klastra.
+   > Połącz się z klastrem za pomocą adresu http://headnodehost:8080, jest nawiązywane za pośrednictwem tunelu. Komunikacja jest zabezpieczone przy użyciu tunelu SSH, a nie protokołu HTTPS. Aby połączyć się przez internet przy użyciu protokołu HTTPS, należy użyć https://CLUSTERNAME.azurehdinsight.net, gdzie **CLUSTERNAME** jest nazwą klastra.
 
-2. Hello Interfejsu sieci Web Ambari zaznacz na liście hello na powitania po lewej stronie powitania systemu plików HDFS.
+2. Z poziomu interfejsu użytkownika sieci Web Ambari wybierz system plików HDFS z listy po lewej stronie.
 
     ![Obraz o wybrany system plików HDFS](./media/hdinsight-linux-ambari-ssh-tunnel/hdfsservice.png)
 
-3. Po wyświetleniu hello informacje o systemie plików HDFS usługi wybierz **szybkie linki**. Zostanie wyświetlona lista hello głównymi węzłami klastra. Wybierz jeden z węzłów głównych hello, a następnie wybierz **interfejsu użytkownika NameNode**.
+3. Podczas wyświetlania informacji usług systemu plików HDFS wybierz **szybkie linki**. Zostanie wyświetlona lista głównymi węzłami klastra. Wybierz jeden z węzłów głównych, a następnie wybierz **interfejsu użytkownika NameNode**.
 
-    ![Obraz powitania QuickLinks menu rozwinięty](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
+    ![Obraz menu QuickLinks rozwinięty](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
    > [!NOTE]
-   > Po wybraniu __szybkie linki__, mogą wystąpić wskaźnik oczekiwania. Ten stan może wystąpić, jeśli masz wolne połączenie internetowe. Zaczekaj minutę lub dwie na toobe danych hello otrzymany z serwera hello, a następnie spróbuj ponownie hello listy.
+   > Po wybraniu __szybkie linki__, mogą wystąpić wskaźnik oczekiwania. Ten stan może wystąpić, jeśli masz wolne połączenie internetowe. Zaczekaj minutę lub dwie danych z serwera, a następnie spróbuj ponownie listy.
    >
-   > Niektóre wpisy w hello **szybkie linki** menu może zostać przerwane przez hello prawej krawędzi ekranu hello. Jeśli tak, rozwiń menu hello przy użyciu myszy i użyj hello strzałki w prawo klucza tooscroll hello ekranu toohello prawo toosee hello reszty hello menu.
+   > Niektóre wpisy w **szybkie linki** menu mogą obcięty z prawej strony ekranu. Jeśli tak, rozwiń menu za pomocą myszy, a następnie użyj klawisza Strzałka w prawo, aby przewiń ekran w prawo, aby zobaczyć pozostałą część menu.
 
-4. Jest wyświetlana strona toohello podobne, po obrazu:
+4. Wyświetlane są stronę podobną do poniższej ilustracji:
 
-    ![Obraz powitania NameNode interfejsu użytkownika](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
+    ![Obraz NameNode interfejsu użytkownika](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > Zwróć uwagę, adres URL hello na tej stronie; powinien być podobny zbyt**http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/klaster**. Ten identyfikator URI używa hello wewnętrzny pełną nazwę domeny (FQDN) węzła hello i jest dostępny tylko przy użyciu tunelu SSH.
+   > Zwróć uwagę, adres URL dla tej strony; powinna być podobna do **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/klaster**. Ten identyfikator URI węzła przy użyciu wewnętrznego pełną nazwę domeny (FQDN) i jest dostępny tylko przy użyciu tunelu SSH.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, kiedy znasz już toocreate i używania tunelu SSH, zobacz temat powitania po dokumentu do innych metod toouse Ambari:
+Teraz, kiedy znasz sposobu tworzenia i używania tunelu SSH, można znaleźć w dokumencie następujące inne sposoby używania narzędzia Ambari:
 
 * [Zarządzanie klastrami usługi HDInsight przy użyciu Ambari](hdinsight-hadoop-manage-ambari.md)
 

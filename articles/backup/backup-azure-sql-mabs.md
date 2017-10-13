@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure kopii zapasowej dla obciążeń programu SQL Server za pomocą serwera usługi Azure Backup | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie toobacking zapasową baz danych programu SQL Server za pomocą serwera usługi Kopia zapasowa Azure"
+title: "Kopia zapasowa Azure dla obciążeń programu SQL Server za pomocą serwera usługi Azure Backup | Dokumentacja firmy Microsoft"
+description: "Wprowadzenie do tworzenia kopii zapasowej bazy danych programu SQL Server za pomocą serwera usługi Kopia zapasowa Azure"
 services: backup
 documentationcenter: 
 author: pvrk
@@ -14,145 +14,145 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 3a94338e8aca3f9d8611a72bcd223397ffb96f3c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2af9ebaa8f52690ed63406cbd85b77544d2d900d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="back-up-sql-server-tooazure-with-azure-backup-server"></a>Wykonaj kopię zapasową tooAzure programu SQL Server z kopii zapasowej serwera usługi Azure
-W tym artykule poprowadzi Cię przez kroki konfiguracji hello do utworzenia kopii zapasowej bazy danych programu SQL Server przy użyciu programu Microsoft Azure kopii zapasowej serwera (MABS).
+# <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Wykonywanie kopii zapasowej serwera SQL do platformy Azure z Azure kopii zapasowej serwera
+W tym artykule poprowadzi Cię przez kroki konfiguracyjne do wykonania kopii zapasowej bazy danych programu SQL Server przy użyciu programu Microsoft Azure kopii zapasowej serwera (MABS).
 
-Zarządzanie Hello tooAzure kopii zapasowej bazy danych programu SQL Server i odzyskiwania z platformy Azure obejmuje trzy kroki:
+Zarządzanie kopii zapasowej bazy danych programu SQL Server na platformie Azure oraz odzyskiwania z platformy Azure obejmuje trzy kroki:
 
-1. Utwórz tooAzure baz danych programu SQL Server dotyczących tooprotect zasad tworzenia kopii zapasowej.
-2. Tworzenie kopii zapasowych na żądanie tooAzure.
-3. Odzyskiwanie bazy danych hello z platformy Azure.
+1. Tworzenie zasad tworzenia kopii zapasowej w celu ochrony baz danych serwera SQL na platformie Azure.
+2. Tworzenie kopii zapasowych na żądanie w systemie Azure.
+3. Odzyskiwanie bazy danych z platformy Azure.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
-Przed rozpoczęciem upewnij się, że masz [zainstalowany i przygotowane hello serwer kopii zapasowej Azure](backup-azure-microsoft-azure-backup.md).
+Przed rozpoczęciem upewnij się, że masz [zainstalowane i przygotować serwer kopii zapasowej Azure](backup-azure-microsoft-azure-backup.md).
 
-## <a name="create-a-backup-policy-tooprotect-sql-server-databases-tooazure"></a>Utwórz tooAzure baz danych programu SQL Server dotyczących tooprotect zasad tworzenia kopii zapasowej
-1. Polecenie hello interfejsu użytkownika serwera kopii zapasowej Azure hello **ochrony** obszaru roboczego.
-2. Na wstążce narzędzi hello, kliknij przycisk **nowy** toocreate nowej grupy ochrony.
+## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Tworzenie zasad tworzenia kopii zapasowej w celu ochrony baz danych serwera SQL na platformie Azure
+1. W Interfejsie użytkownika serwera kopii zapasowej Azure, kliknij polecenie **ochrony** obszaru roboczego.
+2. Na wstążce narzędzi kliknij **nowy** do tworzenia nowej grupy ochrony.
 
     ![Tworzenie grupy ochrony](./media/backup-azure-backup-sql/protection-group.png)
-3. MABS pokazuje ekranu startowego hello hello wskazówek dotyczących tworzenia **grupy ochrony**. Kliknij przycisk **Dalej**.
+3. MABS pokazuje ekranu startowego z wskazówki dotyczące tworzenia **grupy ochrony**. Kliknij przycisk **Dalej**.
 4. Wybierz **serwerów**.
 
     ![Wybierz typ grupy ochrony — "Serwery"](./media/backup-azure-backup-sql/pg-servers.png)
-5. Rozszerzenia hello maszyn programu SQL Server, gdzie znajdują się hello toobe baz danych kopii zapasowej. MABS pokazuje różnych źródeł danych, których kopię zapasową można z tego serwera. Rozwiń węzeł hello **wszystkie udziały SQL** i wybrać hello bazy danych (w tym przypadku Wybraliśmy ReportServer$ MSDPM2012 i ReportServer$ MSDPM2012TempDB) toobe kopii zapasowej. Kliknij przycisk **Dalej**.
+5. Rozwiń węzeł maszyna programu SQL Server, gdzie znajdują się bazy danych do wykonania kopii zapasowej. MABS pokazuje różnych źródeł danych, których kopię zapasową można z tego serwera. Rozwiń węzeł **wszystkie udziały SQL** i wybierz bazy danych (w tym przypadku Wybraliśmy ReportServer$ MSDPM2012 i ReportServer$ MSDPM2012TempDB) do wykonania kopii zapasowej. Kliknij przycisk **Dalej**.
 
     ![Wybierz bazy danych SQL.](./media/backup-azure-backup-sql/pg-databases.png)
-6. Podaj nazwę grupy ochrony hello i wybierz hello **chcę uzyskać ochronę online** wyboru.
+6. Podaj nazwę grupy ochrony i wybierz **chcę uzyskać ochronę online** wyboru.
 
     ![Metodę ochrony danych - dysku krótkoterminowa & Online Azure](./media/backup-azure-backup-sql/pg-name.png)
-7. W hello **Określ cele krótkoterminowe** ekranu, obejmują hello niezbędnych składników toocreate punktów kopii zapasowej toodisk.
+7. W **Określ cele krótkoterminowe** ekranu, zawierają niezbędne dane wejściowe, aby utworzyć punktów kopii zapasowej na dysku.
 
-    Tutaj przedstawiono który **zakres przechowywania** ustawiono zbyt*5 dni*, **częstotliwość synchronizacji** ustawiono tooonce co *15 minut* czyli hello częstotliwość, przy którym wykonywana jest kopia zapasowa. **Ekspresowa pełna kopia zapasowa** ustawiono zbyt*godzinach od 8:00*.
+    Tutaj przedstawiono który **zakres przechowywania** ustawiono *5 dni*, **częstotliwość synchronizacji** ma ustawioną wartość raz co *15 minut* czyli częstotliwości, w którym wykonywana jest kopia zapasowa. **Ekspresowa pełna kopia zapasowa** ustawiono *godzinach od 8:00*.
 
     ![Cele krótkoterminowe](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > Od 8:00 PM (zgodnie z danych wejściowych ekranu toohello) punktu kopii zapasowej jest tworzona codziennie przez przeniesienie danych hello, który został zmodyfikowany z hello punktu kopii zapasowej poprzedniego dnia 8:00 PM. Ten proces jest nazywany **Express pełnej kopii zapasowej**. Podczas dzienników transakcji hello są synchronizowane co 15 minut, w przypadku bazy danych należy toorecover hello na 21:00:00 –, a następnie punktu hello jest tworzony przez odtwarzanie hello dzienniki hello express ostatniego punktu pełnej kopii zapasowej (20: 00 w tym przypadku).
+   > Na 8:00 PM (zgodnie z danych wejściowych ekranu) punktu kopii zapasowej jest tworzony codziennie przez transferu danych, który został zmodyfikowany od punktu kopii zapasowej poprzedniego dnia 8:00 PM. Ten proces jest nazywany **Express pełnej kopii zapasowej**. Podczas transakcji, dzienniki są synchronizowane co 15 minut Jeśli konieczne jest odzyskanie bazy danych na 21:00:00 – punkt jest stworzony przez powtarzanie dzienniki w ciągu ostatnich express punktu pełnej kopii zapasowej (20: 00 w tym przypadku).
    >
    >
 
 8. Kliknij przycisk **Dalej**
 
-    Pokazuje MABS hello ogólną dostępnego miejsca w magazynie i hello potencjalnych wykorzystanie miejsca na dysku.
+    MABS przedstawia ogólną miejsca do magazynowania dostępne i potencjalne wykorzystanie miejsca na dysku.
 
     ![Przydział dysku](./media/backup-azure-backup-sql/pg-storage.png)
 
-    Domyślnie MABS tworzy jednego woluminu dla źródła danych (bazy danych programu SQL Server), używanej do hello początkowej kopii zapasowej. W ten sposób hello Menedżera dysków logicznych (LDM) ogranicza MABS ochrony źródeł danych too300 (baz danych programu SQL Server). toowork wokół to ograniczenie, wybierz hello **kolokuj dane w puli magazynu DPM**, opcja. Użycie tej opcji, MABS używa pojedynczy wolumin wiele źródeł danych, dzięki czemu tooprotect MABS zapasowych too2000 baz danych SQL.
+    Domyślnie MABS tworzy jednego woluminu dla źródła danych (bazy danych programu SQL Server), który służy do początkowej kopii zapasowej. W ten sposób Menedżer dysków logicznych (LDM) ogranicza MABS ochrony źródeł danych 300 (baz danych programu SQL Server). Aby obejść to ograniczenie, wybierz **kolokuj dane w puli magazynu DPM**, opcja. Użycie tej opcji, MABS używa pojedynczy wolumin wiele źródeł danych, dzięki czemu MABS chronić maksymalnie 2000 baz danych.
 
-    Jeśli **automatycznie rozszerzaj woluminy hello** opcja jest zaznaczona, MABS można konta dla kopii zapasowej woluminu hello zwiększona, wraz z rozwojem hello danych produkcyjnych. Jeśli **automatycznie rozszerzaj woluminy hello** opcja nie jest zaznaczona, MABS limity źródeł danych toohello hello magazynu kopii zapasowych używane w grupie ochrony hello.
-9. Umożliwia nadanie administratorom wybór hello transferowania tej początkowej kopii zapasowej ręcznie (Wyłącz sieciowych) tooavoid przeciążenie przepustowości lub za pośrednictwem sieci hello. Można również skonfigurować hello czasu, w którym hello początkowy transfer może się zdarzyć. Kliknij przycisk **Dalej**.
+    Jeśli **automatycznie rozszerzaj woluminy** opcja jest zaznaczona, MABS można uwzględnić zwiększenia woluminu kopii zapasowej wraz z rozwojem danych produkcyjnych. Jeśli **automatycznie rozszerzaj woluminy** opcja nie jest zaznaczona, MABS ogranicza magazynu kopii zapasowych, używany do źródeł danych w grupie ochrony.
+9. Umożliwia nadanie administratorom wybór transferowania tej początkowej kopii zapasowej ręcznie (Wyłącz sieciowych) aby uniknąć przeciążenia przepustowości lub za pośrednictwem sieci. Można również skonfigurować czasu, jaką początkowy transfer może się zdarzyć. Kliknij przycisk **Dalej**.
 
     ![Replikacja początkowa — metoda](./media/backup-azure-backup-sql/pg-manual.png)
 
-    Początkowa kopia zapasowa Hello wymaga transferu hello całego źródła danych (bazy danych programu SQL Server) z produkcji tooMABS server (SQL Server komputer). Te dane mogą być duże i przesyłania danych hello za pośrednictwem sieci hello może przekroczyć przepustowości. Z tego powodu, Administratorzy mogą wybrać początkowa kopia zapasowa tootransfer hello: **ręcznie** (przy użyciu nośnika wymiennego) tooavoid przeciążenie przepustowości, lub **automatycznie przez sieć hello** (o określonej czas).
+    Początkowa kopia zapasowa wymaga przesyłanie całego źródła danych (bazy danych programu SQL Server) z serwera produkcyjnego (komputer serwera SQL) do MABS. Te dane mogą być duże i przesyłania danych za pośrednictwem sieci może przekroczyć przepustowości. Z tego powodu, Administratorzy mogą wybrać opcję transferu początkowa kopia zapasowa: **ręcznie** (przy użyciu nośnika wymiennego) aby uniknąć przeciążenia przepustowości lub **automatycznie przez sieć** (w określonym czasie).
 
-    Po zakończeniu tworzenia początkowej kopii zapasowej hello hello pozostałe kopie zapasowe hello są przyrostowe kopie zapasowe na powitania początkowej kopii zapasowej. Przyrostowe kopie zapasowe często małych toobe i łatwo są transferowane za pośrednictwem sieci hello.
-10. Wybierz, kiedy zechcesz toorun sprawdzania spójności hello i kliknij przycisk **dalej**.
+    Po zakończeniu tworzenia początkowej kopii zapasowej pozostałe kopie zapasowe są przyrostowych kopii zapasowych w początkowej kopii zapasowej. Przyrostowe kopie zapasowe są małe i łatwo są transferowane za pośrednictwem sieci.
+10. Wybrać podczas sprawdzania spójności do uruchomienia, a następnie kliknij przycisk **dalej**.
 
     ![Sprawdzanie spójności](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    MABS może wykonywać spójności wyboru toocheck hello integralności hello punktu kopii zapasowej. Obliczanie sum kontrolnych hello pliku kopii zapasowej hello na serwerze produkcyjnym hello (SQL Server maszyny w tym scenariuszu) i hello kopia zapasowa danych dla tego pliku w MABS. W przypadku hello konflikt, zakłada się, że hello MABS pliku kopii zapasowej jest uszkodzony. MABS rectifies hello kopię zapasową danych, wysyłając bloki hello odpowiadającego toohello błąd sumy kontrolnej. Hello Sprawdzanie spójności jest operacją intensywnie wydajności, Administratorzy mają możliwość hello Planowanie sprawdzania spójności hello lub automatycznemu uruchamianiu.
-11. toospecify ochrony w trybie online hello źródeł danych, wybierz hello toobe baz danych chronionych tooAzure, a następnie kliknij przycisk **dalej**.
+    MABS można przeprowadzić spójności wyboru do sprawdzania integralności punktu kopii zapasowej. Obliczanie sumy kontrolnej pliku kopii zapasowej na serwerze produkcyjnym (SQL Server maszyny w tym scenariuszu) i kopia zapasowa danych dla tego pliku w MABS. W przypadku konfliktu zakłada się, że plik kopii zapasowej na MABS jest uszkodzony. MABS rectifies kopię zapasową danych, wysyłając bloki odpowiadający błąd sumy kontrolnej. Sprawdzanie spójności jest operacją intensywnie wydajności, Administratorzy mają możliwość Planowanie sprawdzania spójności lub uruchomić je automatycznie.
+11. Do określania ochrony źródeł danych w trybie online, wybierz bazy danych mają być chronione na platformie Azure oraz kliknij **dalej**.
 
     ![Wybierz źródła danych](./media/backup-azure-backup-sql/pg-sqldatabases.png)
 12. Administratorzy mogą określić harmonogramy tworzenia kopii zapasowej i zasady przechowywania, które wskazują ich zasady organizacji.
 
     ![Harmonogram i przechowywania](./media/backup-azure-backup-sql/pg-schedule.png)
 
-    W tym przykładzie kopie zapasowe są przyjmowane raz dziennie na 12:00 a 20: 00 (dolnej części ekranu hello)
+    W tym przykładzie kopie zapasowe są przyjmowane raz dziennie na 12:00 a 20: 00 (dolnej części ekranu)
 
     > [!NOTE]
-    > Toohave dobrym rozwiązaniem jest kilka punktów odzyskiwania krótkoterminowego na dysku, aby uzyskać szybkie odzyskiwanie. Te punkty odzyskiwania są używane do "operacyjnych dotyczących odzyskiwania". Azure służy jako lokalizacji dobrej poza siedzibą firmy o wyższych SLA i gwarancji dostępności.
+    > Jest dobrą praktyką jest ma kilka punktów odzyskiwania krótkoterminowego na dysku, aby uzyskać szybkie odzyskiwanie. Te punkty odzyskiwania są używane do "operacyjnych dotyczących odzyskiwania". Azure służy jako lokalizacji dobrej poza siedzibą firmy o wyższych SLA i gwarancji dostępności.
     >
     >
 
-    **Najlepsze praktyki**: Upewnij się, że zaplanowane kopie zapasowe Azure po zakończeniu hello kopii zapasowych na dysku lokalnym za pomocą programu DPM. Dzięki temu hello najnowsze tooAzure kopii zapasowej toobe skopiowane dysku.
+    **Najlepsze praktyki**: Upewnij się, że zaplanowane kopie zapasowe Azure po ukończeniu tworzenia kopii zapasowych na dysku lokalnym za pomocą programu DPM. Dzięki temu najnowszej kopii zapasowej do skopiowania na platformie Azure.
 
-13. Wybierz harmonogram zasad przechowywania hello. Witaj szczegóły dotyczące sposobu działania zasad przechowywania hello są udostępniane na [tooreplace użycie usługi Kopia zapasowa Azure artykuł infrastruktury taśmy](backup-azure-backup-cloud-as-tape.md).
+13. Wybierz harmonogram zasad przechowywania. Szczegółowe informacje dotyczące sposobu działania zasad przechowywania są udostępniane na [kopia zapasowa Azure używany do zastąpienia infrastruktury taśm artykuł](backup-azure-backup-cloud-as-tape.md).
 
     ![Zasady przechowywania](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     W tym przykładzie:
 
-    * Kopie zapasowe są przyjmowane raz dziennie na 12:00 a 20: 00 (dolnej części ekranu hello) i są przechowywane przez 180 dni.
-    * Kopia zapasowa Hello na sobotę o godzinie 12:00 w dniu został zachowany na potrzeby 104 tygodni
-    * Kopia zapasowa Hello na ostatnich sobotę o godzinie 12:00 w dniu są przechowywane przez 60 miesięcy
-    * Kopia zapasowa Hello na Ostatnia sobota marca, 12:00 w dniu jest zachowywana 10 lat
-14. Kliknij przycisk **dalej** i wybierz hello odpowiednią opcję transferowania hello tooAzure początkowej kopii zapasowej. Możesz wybrać **automatycznie przez sieć hello** lub **w trybie Offline z kopii zapasowej**.
+    * Kopie zapasowe są przyjmowane raz dziennie na 12:00 a 20: 00 (dolnej części ekranu) i są przechowywane przez 180 dni.
+    * Tworzenie kopii zapasowej sobotę o godzinie 12:00 w dniu został zachowany na potrzeby 104 tygodni
+    * Tworzenie kopii zapasowej ostatniego sobotę o godzinie 12:00 w dniu są przechowywane przez 60 miesięcy
+    * Tworzenie kopii zapasowej Ostatnia sobota marca, 12:00 w dniu jest zachowywana 10 lat
+14. Kliknij przycisk **dalej** i wybierz odpowiednią opcję w celu przekazania początkowa kopia zapasowa Azure. Możesz wybrać **automatycznie przez sieć** lub **w trybie Offline z kopii zapasowej**.
 
-    * **Automatycznie przez sieć hello** transferów hello tooAzure dane kopii zapasowej zgodnie z harmonogramem hello wybrany dla kopii zapasowej.
+    * **Automatycznie przez sieć** przesyła dane kopii zapasowej Azure zgodnie z harmonogramem wybranym dla kopii zapasowej.
     * Jak **w trybie Offline z kopii zapasowej** works opisanej w [przepływu pracy w trybie Offline z kopii zapasowej w programie Kopia zapasowa Azure](backup-azure-backup-import-export.md).
 
-    Wybierz odpowiednie transfer hello mechanizm toosend hello początkowa kopia zapasowa tooAzure, a następnie kliknij przycisk **dalej**.
-15. Po Przejrzyj szczegóły zasad hello w hello **Podsumowanie** kliknij na powitania **Utwórz grupę** przycisk toocomplete hello w przepływie pracy. Możesz kliknąć hello **Zamknij** przycisk i monitorowanie postępu zadania hello w monitorowaniu obszaru roboczego.
+    Wybierz mechanizm transferu odpowiednie do wysłania początkowej kopii zapasowej do platformy Azure i kliknij przycisk **dalej**.
+15. Po szczegółowe zasady w **Podsumowanie** ekranu, kliknij pozycję **Utwórz grupę** przycisk, aby zakończyć przepływ pracy. Możesz kliknąć **Zamknij** przycisk i monitorować postęp zadania monitorowania obszaru roboczego.
 
     ![Tworzenie grupy ochrony w toku](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>Na żądanie kopii zapasowej bazy danych programu SQL Server
-Witaj poprzednie kroki tworzenia zasad tworzenia kopii zapasowej, "punkt odzyskiwania" jest tworzony tylko wtedy, gdy występuje hello pierwszej kopii zapasowej. Zamiast oczekiwania na powitania tookick harmonogramu w, hello kroki tworzenia hello wyzwalania odzyskiwania punktu ręcznie.
+Poprzednie kroki tworzenia zasad tworzenia kopii zapasowej, "punkt odzyskiwania" jest tworzony tylko wtedy, gdy występuje pierwszej kopii zapasowej. Zamiast oczekiwania na zaczną działać harmonogramu, czynności wyzwalacza tworzenie odzyskiwania punktu ręcznie.
 
-1. Poczekaj, aż stan grupy ochrony hello **OK** hello bazy danych, przed utworzeniem punktu odzyskiwania hello.
+1. Poczekaj, aż stan grupy ochrony **OK** dla bazy danych przed utworzeniem punktu odzyskiwania.
 
     ![Członkowie grupy ochrony](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
-2. Kliknij prawym przyciskiem myszy na powitania bazy danych i wybierz **Utwórz punkt odzyskiwania**.
+2. Kliknij prawym przyciskiem myszy na bazę danych i wybierz **Utwórz punkt odzyskiwania**.
 
     ![Tworzenie punktu odzyskiwania Online](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. Wybierz **ochrony w trybie Online** w menu rozwijanym hello i kliknij **OK**. Spowoduje to uruchomienie hello Tworzenie punktu odzyskiwania na platformie Azure.
+3. Wybierz **ochrony w trybie Online** menu rozwijanego i kliknij przycisk **OK**. Spowoduje to uruchomienie tworzenia punktu odzyskiwania na platformie Azure.
 
     ![Utwórz punkt odzyskiwania](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-4. Można wyświetlić postęp zadania hello w hello **monitorowanie** obszaru roboczego, gdzie można znaleźć w toku zadania, takie jak jedną przedstawione na rysunku dalej hello hello.
+4. Możesz wyświetlić postęp zadania w **monitorowanie** zadania obszaru roboczego, gdzie można znaleźć w toku, tak jak to przedstawiono następny rysunek.
 
     ![Konsola monitorowania](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Odzyskiwanie bazy danych programu SQL Server z platformy Azure
-Witaj poniższe kroki są wymagane toorecover jednostki chronionej (baza danych programu SQL Server) z platformy Azure.
+Poniższe kroki są wymagane do odzyskania jednostki chronionej (baza danych programu SQL Server) z platformy Azure.
 
-1. Serwer DPM hello Otwórz konsolę zarządzania. Przejdź za**odzyskiwania** obszaru roboczego, gdzie można zobaczyć serwery hello kopii zapasowej przez program DPM. Przeglądaj hello wymaganej bazy danych (w tym przypadku ReportServer$ MSDPM2012). Wybierz **odzyskanie** czas, który kończy się **Online**.
+1. Otwórz konsolę zarządzania serwera programu DPM. Przejdź do **odzyskiwania** roboczym, w którym można zobaczyć serwery kopii zapasowej przez program DPM. Przeglądaj wymaganej bazy danych (w tym przypadku ReportServer$ MSDPM2012). Wybierz **odzyskanie** czas, który kończy się **Online**.
 
     ![Wybierz punkt odzyskiwania](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-2. Kliknij prawym przyciskiem myszy hello Nazwa bazy danych, a następnie kliknij przycisk **odzyskać**.
+2. Kliknij prawym przyciskiem myszy nazwę bazy danych, a następnie kliknij przycisk **odzyskać**.
 
     ![Odzyskiwanie z platformy Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. Program DPM Wyświetla szczegóły hello hello punktu odzyskiwania. Kliknij przycisk **Dalej**. toooverwrite hello bazy danych typu odzyskiwania wybierz hello **Odzyskaj toooriginal wystąpienia programu SQL Server**. Kliknij przycisk **Dalej**.
+3. Program DPM Wyświetla szczegóły punktu odzyskiwania. Kliknij przycisk **Dalej**. Aby zastąpić bazy danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia programu SQL Server**. Kliknij przycisk **Dalej**.
 
-    ![Odzyskaj tooOriginal lokalizacji](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
+    ![Odzyskaj do oryginalnej lokalizacji](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    W tym przykładzie program DPM umożliwia odzyskiwanie wystąpienia programu SQL Server tooanother bazy danych hello lub folderu sieciowego autonomiczny tooa.
-4. W hello **opcji odzyskiwania określ** ekranu, można wybrać opcje odzyskiwania hello jak ograniczenie przepustowości toothrottle hello przepustowość dla odzyskiwania. Kliknij przycisk **Dalej**.
-5. W hello **Podsumowanie** ekranu, zobacz wszystkie konfiguracje odzyskiwania hello dostarczony do tej pory. Kliknij przycisk **odzyskać**.
+    W tym przykładzie program DPM umożliwia odzyskiwanie bazy danych do innego wystąpienia programu SQL Server lub do autonomicznej folderu sieciowego.
+4. W **opcji odzyskiwania określ** ekranu, można wybrać opcje odzyskiwania takie jak ograniczanie wykorzystania przepustowości sieci do ograniczania przepustowości, używany przez odzyskiwania. Kliknij przycisk **Dalej**.
+5. W **Podsumowanie** ekranu, zobacz wszystkie konfiguracje odzyskiwania dostarczony do tej pory. Kliknij przycisk **odzyskać**.
 
-    Witaj stanu odzyskiwania zawiera hello bazy danych ma zostać przeprowadzone odzyskiwanie. Możesz kliknąć **Zamknij** tooclose hello kreatora i widoku hello postęp w hello **monitorowanie** obszaru roboczego.
+    Stan odzyskiwania zawiera bazy danych ma zostać przeprowadzone odzyskiwanie. Możesz kliknąć **zamknąć** aby zamknąć kreatora i wyświetlić informację o postępie w **monitorowanie** obszaru roboczego.
 
     ![Zainicjuj proces odzyskiwania](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 
-    Po ukończeniu odzyskiwania hello hello przywrócona baza danych jest zgodny.
+    Po ukończeniu odzyskiwania przywróconej bazy danych jest zgodny.
 
 ### <a name="next-steps"></a>Następne kroki:
 • [Azure często zadawane pytania dotyczące tworzenia kopii zapasowej](backup-azure-backup-faq.md)

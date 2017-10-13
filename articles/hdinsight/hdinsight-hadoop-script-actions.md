@@ -1,6 +1,6 @@
 ---
-title: "aaaScript programowanie akcji z usługą HDInsight - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocustomize Hadoop clusters z akcji skryptu. Akcja skryptu można dodatkowe oprogramowanie używane tooinstall systemem Hadoop klastra lub toochange hello konfiguracji aplikacji instalowanych w klastrze."
+title: "Skrypt programowanie akcji z usługą HDInsight - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak dostosować klastry Hadoop za pomocą akcji skryptu. Akcja skryptu można zainstalować dodatkowe oprogramowanie uruchomione w klastrze Hadoop lub zmienić konfigurację aplikacji zainstalowany w klastrze."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,36 +16,36 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4fc3a389df8a003f7129ab00b4cd9bc7ad81a419
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0e182e6b43fd2d17524c1da36cf4c204bb1b865a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Tworzenie skryptów akcji skryptu dla klastrów usługi HDInsight w systemie Windows
-Dowiedz się, jak skrypty toowrite akcji skryptu dla usługi HDInsight. Uzyskać informacji na temat używania skryptów akcji skryptu, zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster.md). Aby hello tego samego artykułu zapisywane w klastrach usługi HDInsight opartej na systemie Linux, zobacz [skryptów tworzenie akcji skryptu dla usługi HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Dowiedz się, jak napisać skrypty akcji skryptu dla usługi HDInsight. Uzyskać informacji na temat używania skryptów akcji skryptu, zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster.md). Aby uzyskać ten sam artykuł, przeznaczony dla klastrów usługi HDInsight opartych na systemie Linux, zobacz [skryptów tworzenie akcji skryptu dla usługi HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 
 
 > [!IMPORTANT]
-> Witaj czynnościach w ramach tego dokumentu działa tylko w przypadku klastrów usługi HDInsight opartej na systemie Windows. HDInsight jest dostępna tylko w systemie Windows dla wersji starszej niż HDInsight 3.4. Linux jest hello tylko system operacyjny używany w usłudze HDInsight w wersji 3.4 lub nowszej. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows). Uzyskać przy użyciu akcji skryptu z klastrów z systemem Linux, zobacz [programowanie akcji z usługą HDInsight (Linux) w skrypcie](hdinsight-hadoop-script-actions-linux.md).
+> Kroki opisane w tym dokumencie działa tylko w przypadku klastrów usługi HDInsight opartych na systemie Windows. HDInsight jest dostępna tylko w systemie Windows dla wersji starszej niż HDInsight 3.4. Linux jest jedynym systemem operacyjnym używanym w połączeniu z usługą HDInsight w wersji 3.4 lub nowszą. Aby uzyskać więcej informacji, zobacz sekcję [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Wycofanie usługi HDInsight w systemie Windows). Uzyskać przy użyciu akcji skryptu z klastrów z systemem Linux, zobacz [programowanie akcji z usługą HDInsight (Linux) w skrypcie](hdinsight-hadoop-script-actions-linux.md).
 >
 >
 
 
 
-Akcja skryptu można dodatkowe oprogramowanie używane tooinstall systemem Hadoop klastra lub toochange hello konfiguracji aplikacji instalowanych w klastrze. Akcje skryptu to skrypty, których uruchamianie w węzłach klastra hello w przypadku klastrów usługi HDInsight i są wykonywane po węzłach w klastrze hello Zakończ konfigurację usługi HDInsight. Akcja skryptu jest wykonywane w ramach uprawnień konta administratora systemu i zapewnia pełne prawa dostępu toohello węzłów klastra. Każdy klaster można podać listę skryptu toobe akcje wykonywane w kolejności hello, w którym zostały określone.
+Akcja skryptu można zainstalować dodatkowe oprogramowanie uruchomione w klastrze Hadoop lub zmienić konfigurację aplikacji zainstalowany w klastrze. Akcje skryptu to skrypty uruchamiane w węzłach klastra, gdy klastry usługi HDInsight są wdrażane i są wykonywane po węzłów w klastrze Zakończ konfigurację usługi HDInsight. Akcja skryptu jest wykonywane w ramach uprawnień konta administratora systemu i zapewnia pełne prawa dostępu do węzłów klastra. Każdy klaster można podać listę akcji skryptu do wykonania w kolejności, w jakiej zostały określone.
 
 > [!NOTE]
-> Jeśli wystąpią hello następujący komunikat o błędzie:
+> Jeśli wystąpi następujący komunikat o błędzie:
 >
-> System.Management.Automation.CommandNotFoundException; ExceptionMessage: hello termin "Zapisz HDIFile" nie został rozpoznany jako hello nazwę polecenia cmdlet, funkcji, pliku skryptu lub program wykonywalny. Sprawdź pisownię nazwy hello hello, lub jeśli ścieżki został uwzględniony, sprawdź, czy ścieżka tego hello jest poprawna i spróbuj ponownie.
-> Istnieje, ponieważ nie zawiera metody pomocnicze hello.  Zobacz [metody pomocnicze dla niestandardowych skryptów](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
+> System.Management.Automation.CommandNotFoundException; ExceptionMessage: Termin "Zapisz HDIFile" nie został rozpoznany jako nazwa polecenia cmdlet, funkcji, pliku skryptu lub program wykonywalny. Sprawdź pisownię nazwy lub jeśli ścieżki został uwzględniony, sprawdź, czy ścieżka jest poprawna i spróbuj ponownie.
+> Jest on, ponieważ nie włączono metody pomocnicze.  Zobacz [metody pomocnicze dla niestandardowych skryptów](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >
 >
 
 ## <a name="sample-scripts"></a>Przykładowe skrypty
-Do tworzenia klastrów usługi HDInsight w systemie operacyjnym Windows, hello akcji skryptu jest skrypt programu PowerShell systemu Azure. Witaj poniższy skrypt to przykład dla konfigurowania plików konfiguracji lokacji hello:
+Do tworzenia klastrów usługi HDInsight w systemie operacyjnym Windows, akcja skryptu jest skrypt programu PowerShell systemu Azure. Poniższy skrypt to przykład dla konfigurowania plików konfiguracji lokacji:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -69,7 +69,7 @@ Do tworzenia klastrów usługi HDInsight w systemie operacyjnym Windows, hello a
     }
 
     if (!($hdiConfigFiles[$ConfigFileName])) {
-        Write-HDILog "Unable tooconfigure $ConfigFileName because it is not part of hello HDI configuration files."
+        Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
         return
     }
 
@@ -92,15 +92,15 @@ Do tworzenia klastrów usługi HDInsight w systemie operacyjnym Windows, hello a
 
     Write-HDILog "$configFileName has been configured."
 
-skrypt Hello przyjmuje cztery parametry, nazwa pliku konfiguracji hello, właściwość hello ma toomodify, wartość hello tooset i opis. Na przykład:
+Skrypt przyjmuje cztery parametry, nazwę pliku konfiguracji, właściwości, aby zmodyfikować wartość, którą chcesz skonfigurować oraz opis. Na przykład:
 
     hive-site.xml hive.metastore.client.socket.timeout 90
 
-Te parametry ustawia hello hive.metastore.client.socket.timeout wartość too90 w pliku gałęzi site.xml hello.  Witaj, wartość domyślna to 60 sekund.
+Te parametry ustawia wartość hive.metastore.client.socket.timeout 90 w pliku gałęzi site.xml.  Wartość domyślna to 60 sekund.
 
 Ten przykładowy skrypt można znaleźć w [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
 
-Usługa HDInsight zapewnia kilka skryptów tooinstall dodatkowe składniki w klastrach HDInsight:
+Usługa HDInsight zapewnia kilka skryptów do instalowania dodatkowych składników w klastrach HDInsight:
 
 | Nazwa | Skrypt |
 | --- | --- |
@@ -109,15 +109,15 @@ Usługa HDInsight zapewnia kilka skryptów tooinstall dodatkowe składniki w kla
 | **Zainstaluj Solr** |https://hdiconfigactions.blob.Core.Windows.NET/solrconfigactionv01/solr-Installer-v01.ps1. Zobacz [instalacji i używania Solr w usłudze HDInsight clusters](hdinsight-hadoop-solr-install.md). |
 | - **Zainstaluj Giraph** |https://hdiconfigactions.blob.Core.Windows.NET/giraphconfigactionv01/giraph-Installer-v01.ps1. Zobacz [instalacji i używania Giraph w usłudze HDInsight clusters](hdinsight-hadoop-giraph-install.md). |
 
-Akcja skryptu można wdrożyć z hello portalu Azure, programu Azure PowerShell lub przy użyciu hello zestawu .NET SDK usługi HDInsight.  Aby uzyskać więcej informacji, zobacz [HDInsight dostosować klastry za pomocą akcji skryptu][hdinsight-cluster-customize].
+Akcja skryptu można wdrożyć przy użyciu portalu Azure, programu Azure PowerShell lub przy użyciu zestawu .NET SDK usługi HDInsight.  Aby uzyskać więcej informacji, zobacz [HDInsight dostosować klastry za pomocą akcji skryptu][hdinsight-cluster-customize].
 
 > [!NOTE]
-> Witaj przykładowe skrypty działa tylko z klastra usługi HDInsight w wersji 3.1 lub nowszy. Aby uzyskać więcej informacji o wersjach klastra usługi HDInsight, zobacz [wersji klastra usługi HDInsight](hdinsight-component-versioning.md).
+> Przykładowe skrypty działa tylko z klastra usługi HDInsight w wersji 3.1 lub nowszy. Aby uzyskać więcej informacji o wersjach klastra usługi HDInsight, zobacz [wersji klastra usługi HDInsight](hdinsight-component-versioning.md).
 >
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a>Metody pomocnicze dla niestandardowych skryptów
-Metody pomocnicze akcji skryptu są narzędzia, które można użyć podczas pisania skryptów niestandardowych. Te metody są zdefiniowane w [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)i może być uwzględniony w użyciu hello następujące przykładowe skrypty:
+Metody pomocnicze akcji skryptu są narzędzia, które można użyć podczas pisania skryptów niestandardowych. Te metody są zdefiniowane w [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)i może być uwzględniony w skryptach przy użyciu poniższego polecenia:
 
     # Download config action module from a well-known directory.
     $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
@@ -125,84 +125,84 @@ Metody pomocnicze akcji skryptu są narzędzia, które można użyć podczas pis
     $webclient = New-Object System.Net.WebClient;
     $webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
 
-    # (TIP) Import config action helper method module toomake writing config action easy.
+    # (TIP) Import config action helper method module to make writing config action easy.
     if (Test-Path ($CONFIGACTIONMODULE))
     {
         Import-Module $CONFIGACTIONMODULE;
     }
     else
     {
-        Write-Output "Failed tooload HDInsightUtilities module, exiting ...";
+        Write-Output "Failed to load HDInsightUtilities module, exiting ...";
         exit;
     }
 
-Poniżej przedstawiono hello metody pomocnicze, które są udostępniane przez ten skrypt:
+Poniżej przedstawiono metody pomocnicze, które są udostępniane przez ten skrypt:
 
 | Metoda pomocnika | Opis |
 | --- | --- |
-| **Zapisz HDIFile** |Pobierz plik z hello określonej lokalizacji tooa identyfikator URI (Uniform Resource) na dysku lokalnym hello skojarzony z hello maszyny Wirtualnej Azure węzła przypisanej toohello klastra. |
+| **Zapisz HDIFile** |Pobierz plik z określonego identyfikatora URI (Uniform Resource) do lokalizacji na dysku lokalnym, który jest skojarzony z węzłem maszyny Wirtualnej Azure przypisana do klastra. |
 | **Rozwiń węzeł HDIZippedFile** |Rozpakuj plik z rozszerzeniem zip. |
 | **Wywołanie HDICmdScript** |Uruchom skrypt z cmd.exe. |
-| **HDILog zapisu** |Zapisywania danych wyjściowych z niestandardowego skryptu hello używanych w przypadku akcji skryptu. |
-| **Get-Services** |Pobierz listę usługi działające na maszynie hello, w którym hello skrypt jest wykonywany. |
-| **Get-Service** |O nazwie określonej usługi hello jako dane wejściowe, uzyskać szczegółowe informacje dla określonej usługi (nazwy usługi, przetworzyć identyfikator, stan, itp.) na maszynie hello gdzie hello skrypt jest wykonywany. |
-| **Get-HDIServices** |Pobierz listę usług HDInsight działającego na komputerze hello, w którym hello skrypt jest wykonywany. |
-| **Get-HDIService** |Przy hello HDInsight usługi nazwy określonej jako dane wejściowe, uzyskać szczegółowe informacje dla określonej usługi (nazwy usługi, przetworzyć identyfikator, stan, itp.) na maszynie hello gdzie hello skrypt jest wykonywany. |
-| **Get-ServicesRunning** |Pobierz listę usług, które są uruchomione na komputerze hello, w którym hello skrypt jest wykonywany. |
-| **Get-ServiceRunning** |Sprawdź, czy określonej usługi (według nazwy) jest uruchomiony na komputerze hello gdzie hello skrypt jest wykonywany. |
-| **Get-HDIServicesRunning** |Pobierz listę usług HDInsight działającego na komputerze hello, w którym hello skrypt jest wykonywany. |
-| **Get-HDIServiceRunning** |Sprawdź, czy określonej usługi HDInsight (według nazwy) jest uruchomiony na komputerze hello gdzie hello skrypt jest wykonywany. |
-| **Get-HDIHadoopVersion** |Pobierz wersję hello Hadoop zainstalowany na komputerze hello gdzie hello skrypt jest wykonywany. |
-| **IsHDIHeadNode testu** |Sprawdź, czy komputer hello gdzie hello skrypt jest wykonywany jest węzła głównego. |
-| **IsActiveHDIHeadNode testu** |Sprawdź, czy komputer hello gdzie hello skrypt jest wykonywany jest aktywnego węzła głównego. |
-| **IsHDIDataNode testu** |Sprawdź, czy komputer hello gdzie hello skrypt jest wykonywany jest węzeł danych. |
-| **Edytuj HDIConfigFile** |Edytuj pliki konfiguracji hello hive-site.xml, core-site.xml, system plików hdfs-site.xml, mapred-site.xml lub yarn-site.xml. |
+| **HDILog zapisu** |Zapisywania danych wyjściowych skryptu niestandardowego używanych w przypadku akcji skryptu. |
+| **Get-Services** |Pobierz listę usług uruchomionych na komputerze, w którym skrypt jest wykonywany. |
+| **Get-Service** |Przy użyciu nazwy określonej usługi jako dane wejściowe, uzyskać szczegółowe informacje dla określonej usługi (nazwy usługi, przetworzyć identyfikator, stan, itp.) na komputerze, na którym skrypt jest wykonywany. |
+| **Get-HDIServices** |Pobierz listę uruchomionych na komputerze, w którym skrypt jest wykonywany usługi HDInsight. |
+| **Get-HDIService** |O określonej nazwie usługi HDInsight jako dane wejściowe, uzyskać szczegółowe informacje dla określonej usługi (nazwy usługi, przetworzyć identyfikator, stan, itp.) na komputerze, na którym skrypt jest wykonywany. |
+| **Get-ServicesRunning** |Pobierz listę usług, które są uruchomione na komputerze, na którym skrypt jest wykonywany. |
+| **Get-ServiceRunning** |Sprawdź, czy określonej usługi (według nazwy) działa na komputerze, którym skrypt jest wykonywany. |
+| **Get-HDIServicesRunning** |Pobierz listę uruchomionych na komputerze, w którym skrypt jest wykonywany usługi HDInsight. |
+| **Get-HDIServiceRunning** |Sprawdź, czy określonej usługi HDInsight (według nazwy) działa na komputerze, którym skrypt jest wykonywany. |
+| **Get-HDIHadoopVersion** |Pobierz wersję platformy Hadoop zainstalowany na komputerze, na którym skrypt jest wykonywany. |
+| **IsHDIHeadNode testu** |Sprawdź, czy komputer, na którym skrypt jest wykonywany jest węzła głównego. |
+| **IsActiveHDIHeadNode testu** |Sprawdź, czy komputer, na którym skrypt jest wykonywany jest aktywnego węzła głównego. |
+| **IsHDIDataNode testu** |Sprawdź, czy komputer, na którym skrypt jest wykonywany jest węzeł danych. |
+| **Edytuj HDIConfigFile** |Edytuj pliki konfiguracji hive-site.xml, core-site.xml, system plików hdfs-site.xml, mapred-site.xml lub yarn-site.xml. |
 
 ## <a name="best-practices-for-script-development"></a>Najlepsze rozwiązania dotyczące tworzenia skryptów
-Podczas opracowywania niestandardowego skryptu dla klastra usługi HDInsight są kilka tookeep najlepszych praktyk pamiętać:
+Podczas opracowywania niestandardowego skryptu dla klastra usługi HDInsight, istnieje kilka najlepszych rozwiązań, które należy wziąć pod uwagę:
 
-* Sprawdź, czy wersja Hadoop hello
+* Sprawdź, czy wersja usługi Hadoop
 
-    HDInsight w wersji 3.1 (Hadoop 2.4) lub nowszym obsługa przy użyciu akcji skryptu tooinstall niestandardowych składników w klastrze. W skrypcie niestandardowe, należy użyć hello **Get HDIHadoopVersion** pomocnika metody toocheck hello Hadoop wersji przed kontynuowaniem wykonywania innych zadań w skrypcie hello.
-* Znajdują się stabilne łączy tooscript zasoby
+    HDInsight w wersji 3.1 (Hadoop 2.4) lub nowszym pomocy technicznej, aby zainstalować składniki niestandardowe w klastrze za pomocą akcji skryptu. W skrypcie niestandardowe, należy użyć **Get HDIHadoopVersion** metody pomocniczej, aby sprawdzić wersję platformy Hadoop, przed kontynuowaniem wykonywania innych zadań w skrypcie.
+* Podaj stabilna linki do zasobów skryptu
 
-    Upewnij się, wszystkie skrypty hello i innych artefaktów używane w dostosowania hello klastra pozostają dostępne przez cały okres istnienia hello hello klastra i hello wersje tych plików nie należy zmieniać na czas trwania hello użytkowników. Te zasoby są wymagane, jeśli hello ponownym węzłów w klastrze hello jest wymagana. Witaj, najlepszym rozwiązaniem jest toodownload i zarchiwizowanie wszystkich na koncie magazynu, który hello kontrolki użytkownika. Może to być hello domyślne konto magazynu lub dowolnym hello określone w chwili hello wdrożenia klastra dostosowane dodatkowych kont magazynu.
-    W hello Spark i R dostosować klastra przykłady podane w dokumentacji hello, na przykład wprowadzono lokalną kopię hello zasobów tego konta magazynu: https://hdiconfigactions.blob.core.windows.net/.
-* Upewnij się, że hello klastra dostosowywania skryptu jest idempotentności
+    Użytkownicy upewnij się, że wszystkie skrypty i inne artefaktów używane w dostosowania klastra nadal dostępne w okresie istnienia klastra i wersje tych plików nie należy zmieniać na czas trwania. Te zasoby są wymagane, jeśli wymagana jest ponownym węzłów w klastrze. Najlepszym rozwiązaniem jest pobrać i zarchiwizowanie wszystkich na koncie magazynu, która kontroluje użytkownika. Może to być domyślne konto magazynu ani żadnych dodatkowych kont magazynu określony w czasie wdrażania dostosowanego klastra.
+    Spark i R dostosowane klastra przykłady podane w dokumentacji, na przykład wprowadzono lokalną kopię zasoby na tym koncie magazynu: https://hdiconfigactions.blob.core.windows.net/.
+* Upewnij się, że skrypt dostosowywania klastra jest idempotentności
 
-    Należy oczekiwać, że hello węzłów klastra usługi HDInsight zostanie odtworzone z obrazu okres istnienia klastra hello. Witaj klastra dostosowania skrypt jest uruchamiany, gdy klaster zostanie odtworzone z obrazu. Ten skrypt musi być idempotentności toobe zaprojektowane w hello sensie, że po ponownej instalacji systemu, skrypt hello powinien zapewnić, że klastra hello jest zwracany toohello dostosowanej sam tuż po hello skryptu dla hello pierwszego uruchomienia podczas hello klastra został początkowo był w stanie utworzony. Na przykład, jeśli skryptu niestandardowego zainstalować aplikację na D:\AppLocation na pierwszym Uruchom, a następnie przy każdym uruchomieniu kolejne, po ponownym, skrypt hello należy sprawdzić, czy aplikacja hello istnieje na powitania D:\AppLocation lokalizacji przed kontynuowaniem z innymi kroki w skrypcie hello.
-* Zainstaluj składniki niestandardowe w lokalizacji optymalne hello
+    Należy oczekiwać, że węzły klastra usługi HDInsight zostanie odtworzone z obrazu okres istnienia klastra. Skrypt dostosowywania klastra jest uruchamiane przy każdym klastrze zostanie odtworzone z obrazu. Ten skrypt muszą być zaprojektowane jako idempotentności w tym sensie, że po ponownej instalacji systemu, skrypt należy upewnij się, że klaster jest zwracana do tej samej dostosowywać stan, który znajdował się tuż po skrypt został uruchomiony po raz pierwszy, gdy klaster został utworzony. Na przykład, jeżeli skryptu niestandardowego zainstalować aplikację na D:\AppLocation przy pierwszym uruchomieniu, następnie przy każdym uruchomieniu kolejne, po ponownym, skrypt należy sprawdzić, czy aplikacja znajduje się w lokalizacji D:\AppLocation przed kontynuowaniem z innymi kroki opisane w temacie skrypt.
+* Zainstaluj składniki niestandardowe w optymalny lokalizacji
 
-    Jeśli węzły klastra są odtworzyć z obrazu, hello C:\ zasobów dysku i dysk systemowy D:\ można ponownie sformatowany, co grozi utratą hello danych i aplikacji, które były zainstalowane na tych dyskach. Może to również nastąpić, jeśli węzeł maszyny wirtualnej platformy Azure (VM), który jest częścią klastra hello ulegnie awarii i zostało zastąpione przez nowy węzeł. Składniki można zainstalować na dysku D:\ hello lub w lokalizacji C:\apps hello na powitania klastra. Wszystkich innych lokalizacji na dysku C:\ hello są zastrzeżone. Określ lokalizację hello gdzie biblioteki lub aplikacje są toobe zainstalowane w hello klastra dostosowywania skryptu.
-* Zapewni to wysoką dostępność hello architektury klastra
+    Jeśli węzły klastra są odtworzyć z obrazu, dysku C:\ zasobów i dysku D:\ system można ponownie sformatowany, co grozi utratą danych i aplikacji, które były zainstalowane na tych dyskach. Może to również nastąpić, jeśli węzeł maszyny wirtualnej platformy Azure (VM), który jest częścią klastra ulegnie awarii i zostało zastąpione przez nowy węzeł. Składniki można zainstalować na dysku D:\, lub w lokalizacji C:\apps w klastrze. Wszystkich innych lokalizacji na dysku C:\ są zastrzeżone. Określ lokalizację, w których aplikacje lub biblioteki ma być zainstalowany w klastrze dostosowywania skryptu.
+* Zapewni to wysoką dostępność architektury klastra
 
-    HDInsight ma architekturę aktywny / pasywny wysokiej dostępności, w których jednego węzła głównego jest w trybie aktywnym (w którym jest uruchamiana hello usługi HDInsight) i innych hello węzła głównego jest w trybie rezerwy (w którym HDInsight usługi nie działają). węzły Hello przełącznika tryby aktywnym i pasywnym, jeśli usługi HDInsight są przerywane. Akcja skryptu w przypadku usługi tooinstall używane na obu węzłach głównych wysokiej dostępności, należy pamiętać, że tego hello mechanizm pracy awaryjnej usługi HDInsight nie jest tooautomatically może zakończyć się niepowodzeniem przy użyciu tych usług zainstalowane przez użytkownika. Dlatego użytkownik zainstalował usługi na węzłach head HDInsight, które są oczekiwane toobe wysokiej dostępności musisz mieć własne mechanizm pracy awaryjnej w trybie aktywny / pasywny lub być w trybie aktywny / aktywny.
+    HDInsight ma architekturę aktywny / pasywny wysokiej dostępności, jednego z węzła głównego w trybie aktywnym (w którym są uruchomione usługi HDInsight) i innych węzła głównego jest w trybie rezerwy (w którym HDInsight usługi nie działają). Węzły przełącznika tryby aktywnym i pasywnym, jeśli usługi HDInsight są przerywane. Jeśli akcja skryptu jest używany do instalowania usług na obu węzłach głównych wysokiej dostępności, należy pamiętać, mechanizm pracy awaryjnej usługi HDInsight nie jest automatycznie awaryjnie tych usług zainstalowane przez użytkownika. Dlatego użytkownik zainstalował usług na HDInsight węzłów głównych, które powinny być wysokiej dostępności musisz mieć własne mechanizm pracy awaryjnej w trybie aktywny / pasywny lub być w trybie aktywny / aktywny.
 
-    Akcja skryptu HDInsight polecenie jest uruchamiane na obu węzłach głównych, gdy roli węzła head hello jest określona jako wartość hello *ClusterRoleCollection* parametru. Tak podczas projektowania niestandardowego skryptu, upewnij się, że skrypt jest świadome tego Instalatora. Nie należy uruchamiać na problemy z którym hello tej samej usługi są zainstalowane i uruchomione na obu węzłów head hello i ich przechodzili konkurujących ze sobą. Pamiętaj też, że dane zostały utracone podczas ponownej instalacji systemu, tak oprogramowania zainstalowanych za pomocą akcji skryptu ma toobe odporność toosuch zdarzeń. Aplikacje powinny być zaprojektowane toowork o wysokiej dostępności danych, który będzie rozmieszczona na wielu węzłach. Należy pamiętać, że maksymalnie 1/5 hello węzłów w klastrze mogą można odtworzyć z obrazu na powitania tym samym czasie.
-* Konfigurowanie magazynu obiektów Blob platformy Azure toouse niestandardowych składników hello
+    Akcja skryptu HDInsight polecenie jest uruchamiane na obu węzłach głównych, gdy rola head węzła jest określony jako wartość *ClusterRoleCollection* parametru. Tak podczas projektowania niestandardowego skryptu, upewnij się, że skrypt jest świadome tego Instalatora. Nie należy uruchamiać do problemów, gdy te same usługi są zainstalowane i uruchomione na obu węzłów głównych i ich przechodzili konkurujących ze sobą. Pamiętaj też, że dane zostały utracone podczas ponownej instalacji systemu, więc oprogramowania zainstalowanych za pomocą akcji skryptu musi być odporny na takie zdarzenia. Aplikacje powinny zaprojektowane w taki sposób, aby pracować z danymi wysokiej dostępności, która jest dystrybuowana do wielu węzłów. Należy pamiętać, że maksymalnie 1/5 węzłów w klastrze mogą można odtworzyć z obrazu w tym samym czasie.
+* Konfigurowanie niestandardowych składników można używać magazynu obiektów Blob platformy Azure
 
-    Hello niestandardowych składników, które należy zainstalować na węzłach klastra hello może być domyślny toouse konfiguracji magazynu systemu Distributed plików Hadoop (HDFS). Zamiast tego należy zmienić hello toouse konfiguracji magazynu obiektów Blob platformy Azure. Na klastrze odtworzenia z obrazu pobiera sformatowany w systemie plików HDFS hello i zostaną utracone wszystkie dane są przechowywane. Zamiast tego przy użyciu magazynu obiektów Blob platformy Azure zapewnia, że dane są przechowywane.
+    Niestandardowych składników, które należy zainstalować na węzłach klastra może być domyślna konfiguracja korzystania z magazynu systemu Distributed plików Hadoop (HDFS). Należy zmienić konfigurację, aby zamiast tego użyj magazynu obiektów Blob platformy Azure. Na odtworzenia z obrazu klastra sformatowany pobiera system plików HDFS i zostaną utracone wszystkie dane są przechowywane. Zamiast tego przy użyciu magazynu obiektów Blob platformy Azure zapewnia, że dane są przechowywane.
 
 ## <a name="common-usage-patterns"></a>Wspólne wzorce użycia
-Ta sekcja zawiera wskazówki dotyczące implementowania niektóre hello typowe wzorce użycia, które możesz napotkać podczas pisania skryptu niestandardowego.
+Ta sekcja zawiera wskazówki dotyczące implementowania niektóre typowe wzorce użycia, które możesz napotkać podczas pisania skryptu niestandardowego.
 
 ### <a name="configure-environment-variables"></a>Skonfiguruj zmienne środowiskowe
-Często w rozwoju akcji skryptu, uważasz, że hello muszą tooset zmiennych środowiskowych. Na przykład najbardziej prawdopodobnym scenariuszem jest podczas pobierania pliku binarnego z witryny zewnętrznej, ją zainstalować w klastrze hello i Dodaj lokalizację hello, gdzie jest zmienna środowiskowa "PATH" tooyour zainstalowanych. powitania po fragment kodu przedstawia sposób tooset zmienne środowiskowe w hello skryptu niestandardowego.
+Często w rozwoju akcji skryptu, uważasz, że trzeba ustawić zmienne środowiskowe. Na przykład najbardziej prawdopodobnym scenariuszem jest podczas pobierania pliku binarnego z zewnętrznej witryny, zainstaluj go w klastrze i Dodaj lokalizację miejsca do Twojej zmiennej środowiskowej "PATH", w którym jest zainstalowany. Poniższy fragment kodu pokazano, jak ustawić zmienne środowiskowe w skryptu niestandardowego.
 
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Ta instrukcja ustawia zmienną środowiskową hello **MDS_RUNNER_CUSTOM_CLUSTER** toohello wartość "true", a także ustawia hello zakresu tej zmiennej toobe komputera. W czasie ważne jest, że zmienne środowiskowe są ustawiane w zakresie odpowiedniego hello — komputera lub użytkownika. Zobacz [tutaj] [ 1] Aby uzyskać więcej informacji na temat ustawiania zmiennych środowiskowych.
+Ta instrukcja ustawia zmienną środowiskową **MDS_RUNNER_CUSTOM_CLUSTER** na wartość "true", a także ustawia zakres tej zmiennej jako komputera. W czasie ważne jest, że zmienne środowiskowe są ustawiane na odpowiedni zakres — komputera lub użytkownika. Zobacz [tutaj] [ 1] Aby uzyskać więcej informacji na temat ustawiania zmiennych środowiskowych.
 
-### <a name="access-toolocations-where-hello-custom-scripts-are-stored"></a>Gdzie są przechowywane niestandardowe skrypty hello toolocations dostępu
-Skrypty używane toocustomize tooeither potrzeb klastra można hello domyślne konto magazynu dla klastra hello lub publicznego kontenera tylko do odczytu na inne konto magazynu. Jeśli skrypt uzyskuje dostęp do zasobów znajdujących się w innym miejscu te czynności toobe w publicznie dostępnym (co najmniej publiczne tylko do odczytu). Na przykład może tooaccess pliku i zapisz go przy użyciu polecenia hello SaveFile HDI.
+### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Dostęp do lokalizacji, w którym są przechowywane niestandardowe skrypty
+Skrypty używane w celu dostosowania klastra musi być albo w domyślne konto magazynu dla klastra lub w publicznego kontenera tylko do odczytu na inne konto magazynu. Jeśli skrypt uzyskuje dostęp do zasobów znajdujących się w innym miejscu te muszą być publicznie dostępny (co najmniej publiczne tylko do odczytu). Na przykład można uzyskać dostępu do pliku i zapisz go przy użyciu polecenia SaveFile HDI.
 
     Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
-W tym przykładzie musisz zapewnić, że kontenera "somecontainer" na koncie magazynu "somestorageaccount" hello jest dostępny publicznie. W przeciwnym razie hello skrypt zgłasza wyjątek nie znaleziono i zakończyć się niepowodzeniem.
+W tym przykładzie należy się upewnić, że kontener "somecontainer" na koncie magazynu "somestorageaccount" jest dostępny publicznie. W przeciwnym razie skrypt zgłasza wyjątek nie znaleziono i zakończyć się niepowodzeniem.
 
-### <a name="pass-parameters-toohello-add-azurermhdinsightscriptaction-cmdlet"></a>Polecenie cmdlet Add-AzureRmHDInsightScriptAction toohello parametry do przekazania
-toopass wiele parametrów polecenia cmdlet toohello Dodaj AzureRmHDInsightScriptAction, należy toocontain wartość ciąg hello tooformat wszystkie parametry dla hello skryptu. Na przykład:
+### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Przekazania parametrów do polecenia cmdlet Add-AzureRmHDInsightScriptAction
+Aby przekazać wiele parametrów polecenia cmdlet Add-AzureRmHDInsightScriptAction, należy sformatować wartość ciągu zawiera wszystkie parametry skryptu. Na przykład:
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 
@@ -212,7 +212,7 @@ lub
 
 
 ### <a name="throw-exception-for-failed-cluster-deployment"></a>Zgłoszenie wyjątku dla wdrożenia klastra nie powiodło się
-Wtedy, gdy tooget dokładnie powiadomienie faktu hello dostosowywania tego klastra nie powiodła się zgodnie z oczekiwaniami, jest ważne toothrow wyjątek i niepowodzenie hello tworzenia klastra. Na przykład możesz mają tooprocess pliku, jeśli istnieje i obsługę w przypadku błędu hello, gdzie hello plik nie istnieje. Może to zapewnić hello skrypt zakończy pracę bezpiecznie i hello stan klastra hello poprawnie jest znany. Witaj następujący fragment kodu przedstawiono przykładowy sposób tooachieve to:
+Aby dokładnie bądź na bieżąco z faktu, że klaster dostosowanie nie powiodło się zgodnie z oczekiwaniami, ważne jest, aby zgłosić wyjątek, niepowodzeniem tworzenia klastra. Na przykład można przetworzyć pliku, jeśli istnieje i obsługę w przypadku błędu, gdy plik nie istnieje. Może to zapewnić skrypt zakończy pracę bezpiecznie i stan klastra jest poprawnie znany. Poniższy fragment kodu przedstawiono przykładowy sposób można to osiągnąć:
 
     If(Test-Path($SomePath)) {
         #Process file in some way
@@ -222,7 +222,7 @@ Wtedy, gdy tooget dokładnie powiadomienie faktu hello dostosowywania tego klast
     exit
     }
 
-W tym fragmencie Jeśli hello plik nie istnieje, jej doprowadziłoby stanu tooa gdzie skryptu hello faktycznie opuszcza bezpiecznie po wydrukowaniu komunikat o błędzie hello i klastra hello osiągnie uruchomiona przy założeniu, że "pomyślnie" ukończyć procesu dostosowywania klastra. Wtedy, gdy toobe dokładnie powiadomienie faktu hello dostosowywania tego klastra zasadniczo nie powiodło się zgodnie z oczekiwaniami ze względu na Brak pliku, jest bardziej odpowiednia toothrow wyjątek i niepowodzenie kroku dostosowania klastra hello. tooachieve to hello następującego fragmentu kodu przykładowej zamiast tego należy użyć.
+W tym fragmencie Jeśli plik nie istnieje, spowodowałoby to stan, w którym skrypt faktycznie opuszcza bezpiecznie po wydrukowaniu komunikat o błędzie, a klastra osiągnie uruchomiona przy założeniu, że "pomyślnie" ukończyć procesu dostosowywania klastra. Aby dokładnie powiadamianych fakt, że klaster dostosowania zasadniczo nie powiodło się zgodnie z oczekiwaniami ze względu na Brak pliku, więcej należy zgłosić wyjątek, niepowodzeniem, krok dostosowania klastra. Aby to zrobić, należy użyć poniższy fragment kodu przykładowej zamiast tego.
 
     If(Test-Path($SomePath)) {
         #Process file in some way
@@ -234,27 +234,27 @@ W tym fragmencie Jeśli hello plik nie istnieje, jej doprowadziłoby stanu tooa 
 
 
 ## <a name="checklist-for-deploying-a-script-action"></a>Lista kontrolna wdrażania akcji skryptu
-Poniżej przedstawiono kroki hello Wybraliśmy podczas przygotowywania toodeploy te skrypty:
+Poniżej przedstawiono kroki, które Wybraliśmy podczas przygotowania do wdrożenia tych skryptów:
 
-1. Umieść hello pliki, które zawierają hello niestandardowych skryptów w miejscu, który jest dostępny dla węzłów klastra hello podczas wdrażania. Może to być domyślny hello lub dodatkowych kont magazynu określony w momencie hello wdrożenie klastra lub innych kontenera magazynu publicznie.
-2. Dodaj kontroli do skryptów toomake się upewnić, że są one wykonywane idempotently, tak, aby skrypt hello mogą być wykonywane wiele razy na powitania tym samym węźle.
-3. Użyj hello **Write-Output** tooSTDOUT tooprint polecenia cmdlet programu Azure PowerShell, a także STDERR. Nie używaj **Write-Host**.
-4. Użyj folder plików tymczasowych, takich jak $env: TEMP, tookeep hello pobrany plik używany przez skrypty hello, a następnie wyczyść je po wykonaniu skryptów.
-5. Zainstaluj oprogramowanie niestandardowe tylko na D:\ lub C:\apps. Nie należy używać innych lokalizacji na dysku C: hello są one zastrzeżone. Należy pamiętać, że instalowanie plików na dysku C: hello poza folderem C:\apps hello może spowodować błędy instalacji podczas reimages hello węzła.
-6. W przypadku hello zostały zmienione ustawienia na poziomie systemu operacyjnego lub plików konfiguracyjnych usługi Hadoop możesz toorestart usługi HDInsight, dzięki czemu użytkownik może wybrać wszystkie ustawienia poziomu systemu operacyjnego, takich jak hello zmienne środowiskowe w hello skryptów.
+1. Umieścić pliki, które zawierają niestandardowe skrypty w miejscu, który jest dostępny dla węzłów klastra podczas wdrażania. Może to być domyślne lub dodatkowych kont magazynu określony w czasie wdrażania klastra lub innych kontenera magazynu publicznie.
+2. Dodaj kontroli w skryptach, aby upewnić się, że są one wykonywane idempotently, dzięki czemu skrypt mogą być wykonywane wiele razy w tym samym węźle.
+3. Użyj **Write-Output** polecenia cmdlet programu Azure PowerShell do drukowania do STDOUT, a także STDERR. Nie używaj **Write-Host**.
+4. Użyj folder plików tymczasowych, takich jak $env: TEMP, aby zachować pobrany plik używany przez skrypty i następnie wyczyść je po wykonaniu skryptów.
+5. Zainstaluj oprogramowanie niestandardowe tylko na D:\ lub C:\apps. Są one zastrzeżone nie należy używać innych lokalizacji na dysku C:. Należy pamiętać, że instalowanie plików na dysku C: poza folderem C:\apps może spowodować błędy instalacji podczas reimages węzła.
+6. W przypadku, gdy zmieniono ustawienia na poziomie systemu operacyjnego lub plików konfiguracyjnych usługi Hadoop, możesz ponownie uruchomić usługi HDInsight, dzięki czemu mogą one odbierać wszystkie ustawienia poziomu systemu operacyjnego, takich jak zmiennych środowiskowych w skryptach.
 
 ## <a name="debug-custom-scripts"></a>Debugowanie skryptów niestandardowych
-dzienniki błędów skryptu Hello są przechowywane wraz z innymi dane wyjściowe w hello domyślnego konta magazynu określony dla hello klastra podczas jego tworzenia. Witaj dzienniki są przechowywane w tabeli o nazwie hello *u < \cluster-name-fragment >< \time-stamp > setuplog*. Są to dzienniki zagregowane, które rekordy z wszystkich węzłów hello (węzła głównego i węzły procesów roboczych) na które hello skrypt jest uruchamiany w klastrze hello.
-Łatwe toocheck hello dzienników jest toouse HDInsight Tools dla programu Visual Studio. Do zainstalowania narzędzia hello, zobacz [rozpocząć korzystanie z narzędzi Visual Studio Hadoop dla usługi HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
+Dzienniki błędów skryptów są przechowywane wraz z innymi dane wyjściowe w domyślne konto magazynu określone dla klastra podczas jego tworzenia. Dzienniki są przechowywane w tabeli o nazwie *u < \cluster-name-fragment >< \time-stamp > setuplog*. Są to dzienniki zagregowane, które rekordy z wszystkie węzły (węzła głównego i węzły procesów roboczych), na których skrypt jest uruchamiany w klastrze.
+Jest łatwy sposób Sprawdź dzienniki do użycia narzędzi HDInsight Tools for Visual Studio. Dla instalacji narzędzi, zobacz [rozpocząć korzystanie z narzędzi Visual Studio Hadoop dla usługi HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio)
 
-**toocheck hello dziennika za pomocą programu Visual Studio**
+**Aby sprawdzić dziennika za pomocą programu Visual Studio**
 
 1. Otwórz program Visual Studio.
 2. Kliknij przycisk **widoku**, a następnie kliknij przycisk **Eksploratora serwera**.
-3. Kliknij prawym przyciskiem myszy "Azure", kliknij przycisk Połącz za**subskrypcji platformy Microsoft Azure**, a następnie wprowadź swoje poświadczenia.
-4. Rozwiń węzeł **magazynu**, rozwiń konto usługi Azure storage hello używany jako domyślny system plików hello, rozwiń węzeł **tabel**, a następnie kliknij dwukrotnie nazwę tabeli hello.
+3. Kliknij prawym przyciskiem myszy "Azure", kliknij przycisk Połącz z **subskrypcji platformy Microsoft Azure**, a następnie wprowadź swoje poświadczenia.
+4. Rozwiń węzeł **magazynu**, rozwiń konto magazynu Azure używany jako domyślny system plików, rozwiń **tabel**, a następnie kliknij dwukrotnie nazwę tabeli.
 
-Możesz również zdalnego do toosee węzłów klastra hello zarówno STDOUT i STDERR niestandardowych skryptów. Witaj dzienniki w każdym węźle są określonego węzła tylko toothat i logują się do **C:\HDInsightLogs\DeploymentAgent.log**. Te pliki dziennika rejestrować wszystkie dane wyjściowe z hello niestandardowego skryptu. Przykład fragment dziennika akcji skryptu Spark wygląda następująco:
+Można również zdalnego w węzłach klastra, aby wyświetlić zarówno STDOUT i STDERR niestandardowych skryptów. Dzienniki w każdym węźle są specyficzne tylko dla tego węzła i logują się do **C:\HDInsightLogs\DeploymentAgent.log**. Te pliki dziennika rejestrować wszystkie dane wyjściowe skryptu niestandardowego. Przykład fragment dziennika akcji skryptu Spark wygląda następująco:
 
     Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
     Version : 2.1.0.0;
@@ -294,9 +294,9 @@ Możesz również zdalnego do toosee węzłów klastra hello zarówno STDOUT i S
     Exception : ;
 
 
-W tym dzienniku jest jasne, czy wykonano akcji skryptu Spark hello na powitania maszyny Wirtualnej o nazwie HEADNODE0 i że nie zwrócono wyjątek podczas wykonywania hello.
+W tym dzienniku jest jasne, czy akcja skryptu Spark zostało wykonane na Maszynie wirtualnej o nazwie HEADNODE0 i że nie zwrócono wyjątek podczas wykonywania.
 
-W zdarzeniu hello, która występuje błąd wykonania dane wyjściowe hello opisujące go również znajduje się w tym pliku dziennika. Witaj informacji dostępnych w tych dziennikach powinna być pomocnych w debugowaniu problemów skryptu, które mogą wystąpić.
+W przypadku, gdy wystąpi błąd wykonania, dane wyjściowe opisujące on również znajduje się w tym pliku dziennika. Informacje zawarte w tych dziennikach powinna być pomocnych w debugowaniu problemów skryptu, które mogą wystąpić.
 
 ## <a name="see-also"></a>Zobacz też
 * [Dostosowywanie klastrów usługi HDInsight przy użyciu akcji skryptu][hdinsight-cluster-customize]

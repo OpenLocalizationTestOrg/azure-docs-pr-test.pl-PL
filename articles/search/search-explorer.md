@@ -1,6 +1,6 @@
 ---
-title: "AAA \"Tworzenie zapytań względem indeksu (portal — usługi Azure Search) | Dokumentacja firmy Microsoft\""
-description: "Generowanie zapytań wyszukiwania w Eksploratorze wyszukiwania portalu Azure hello."
+title: "Tworzenie zapytań względem indeksu (portal — usługa Azure Search) | Dokumentacja firmy Microsoft"
+description: "Generowanie zapytań wyszukiwania w Eksploratorze wyszukiwania witryny Azure Portal."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 07/10/2017
 ms.author: ashmaka
-ms.openlocfilehash: 56bab3ef8a66eeb053fbbeb6d322acb6824fb34b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-hello-azure-portal"></a>Zapytanie indeksu usługi Azure Search przy użyciu Eksploratora wyszukiwania w hello portalu Azure
+# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Tworzenie zapytań względem indeksu usługi Azure Search przy użyciu Eksploratora wyszukiwania w witrynie Azure Portal
 > [!div class="op_single_selector"]
 > * [Omówienie](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -28,41 +28,41 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-W tym artykule opisano, jak tooquery usługi Azure Search index przy użyciu **Eksplorator wyszukiwania** w hello portalu Azure. Eksplorator wyszukiwania toosubmit prostą, jak i pełne Lucene zapytania ciągów tooany istniejącego indeksu można użyć w usłudze.
+W tym artykule opisano sposób tworzenia zapytań względem indeksu usługi Azure Search przy użyciu **Eksploratora wyszukiwania** w witrynie Azure Portal. Eksploratora wyszukiwania można użyć do przesyłania prostych lub pełnych ciągów zapytań Lucene do dowolnego istniejącego indeksu w usłudze.
 
-## <a name="open-hello-service-dashboard"></a>Witaj Otwórz pulpit nawigacyjny usługi
-1. Kliknij przycisk **wszystkie zasoby** paska szybkiego dostępu hello na powitania po lewej stronie powitania [portalu Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+## <a name="open-the-service-dashboard"></a>Otwórz pulpit nawigacyjny usługi
+1. Na pasku dostępu po lewej stronie w witrynie [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) kliknij opcję **Wszystkie zasoby**.
 2. Wybierz swoją usługę Azure Search.
 
 ## <a name="select-an-index"></a>Wybierz indeks
 
-Wybierz hello indeks ma toosearch z hello **indeksów** kafelka.
+Z kafelka **Indeksy** wybierz indeks, który chcesz przeszukać.
 
    ![](./media/search-explorer/pick-index.png)
 
 ## <a name="open-search-explorer"></a>Otwórz Eksplorator wyszukiwania
 
-Kliknij na powitania pasek wyszukiwania hello Otwórz Eksplorator wyszukiwania kafelka tooslide i w okienku wyników.
+Kliknij kafelek Eksplorator wyszukiwania, aby wysunąć pasek wyszukiwania i okienko wyników.
 
    ![](./media/search-explorer/search-explorer-tile.png)
 
 ## <a name="start-searching"></a>Rozpocznij wyszukiwanie
 
-Korzystając z hello Eksplorator wyszukiwania, możesz określić [parametry zapytania](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) tooformulate hello zapytania.
+Podczas używania Eksploratora wyszukiwania możesz określić dowolne [parametry zapytania](https://docs.microsoft.com/rest/api/searchservice/Search-Documents), aby sformułować zapytanie.
 
 1. W polu **Ciąg zapytania** wpisz zapytanie, a następnie naciśnij klawisz **Wyszukaj**. 
 
-   Ciąg zapytania Hello jest automatycznie przekształcany do żądania prawidłowego hello toosubmit adres URL żądania HTTP hello interfejsu API REST wyszukiwanie Azure.   
+   Ciąg zapytania jest automatycznie przekształcany do odpowiedniego adresu URL żądania w celu przesłania żądania HTTP do interfejsu API REST usługi Azure Search.   
    
-   Można użyć dowolnego prawidłowy prostą, jak i pełne Lucene składni toocreate hello żądania kwerendy. Witaj `*` znak jest wyszukiwania pusta lub nieokreślona równoważne tooan, które zwraca wszystkie dokumenty w określonej kolejności.
+   Do utworzenia żądania możesz użyć dowolnej poprawnej prostej lub pełnej składni zapytań Lucene. Znak `*` jest odpowiednikiem pustego lub nieokreślonego wyszukiwania, które zwraca wszystkie dokumenty w losowej kolejności.
 
-2. W **wyniki**, wyniki zapytania są prezentowane w nieprzetworzone dane JSON, ładunek toohello identyczne zwracane w treści odpowiedzi HTTP podczas wystawiania żądania programowo.
+2. Wyniki zapytania są prezentowane w obszarze **Wyniki** w niesformatowanej strukturze JSON, w taki sam sposób, jak ładunek zwracany w treści odpowiedzi HTTP podczas programowego wystawiania żądań.
 
    ![](./media/search-explorer/search-bar.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Hello następujące zasoby zawierają dodatkowe informacje o składni i przykłady.
+W następujących zasobach udostępniono dodatkowe informacje o składni oraz przykłady.
 
  + [Prosta składnia zapytań](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
  + [Składnia zapytań Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 

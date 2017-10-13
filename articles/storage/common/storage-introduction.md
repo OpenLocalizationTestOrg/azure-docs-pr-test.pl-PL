@@ -1,9 +1,9 @@
 ---
-title: tooAzure aaaIntroduction magazynu | Dokumentacja firmy Microsoft
-description: Wprowadzenie tooAzure magazynu, przechowywanie danych firmy Microsoft w chmurze hello.
+title: "Wprowadzenie do usługi Azure Storage | Microsoft Docs"
+description: "Wprowadzenie do usługi Azure Storage — magazynu danych w chmurze firmy Microsoft."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,89 +13,82 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
-ms.openlocfilehash: f61324f98d0a8eb24023e4344acdb4ca58bb27f8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-<!-- this is hello same version that is in hello MVC branch -->
-# <a name="introduction-toomicrosoft-azure-storage"></a>Wprowadzenie tooMicrosoft usługi Azure Storage
+# <a name="introduction-to-microsoft-azure-storage"></a>Wprowadzenie do usługi Microsoft Azure Storage
 
 Microsoft Azure Storage to zarządzana przez firmę Microsoft usługa w chmurze zapewniająca bezpieczny, trwały, skalowalny i nadmiarowy magazyn o wysokiej dostępności. Firma Microsoft zajmuje się konserwacją oraz rozwiązywaniem krytycznych problemów. 
 
-Usługa Azure Storage składa się z trzech usług danych: Blob Storage, File Storage i Queue Storage. Blob storage obsługuje zarówno warstwy standardowa i premium magazynu, z magazyn w warstwie premium za pomocą tylko dyski SSD dla hello najszybszym możliwą wydajność. Inna funkcja jest magazynu chłodnego, dzięki czemu toostorage dużych ilości danych rzadko używanych obniżenia kosztów.
+Usługa Azure Storage składa się z trzech usług danych: Blob Storage, File Storage i Queue Storage. Usługa Blob Storage obsługuje magazyn zarówno w warstwie Standardowa, jak i Premium, przy czym w warstwie Premium używane są tylko dyski SSD zapewniające największą wydajność. Kolejną funkcją jest magazyn chłodny, który umożliwia przechowywanie dużych ilości rzadko używanych danych w niższej cenie.
 
-W tym artykule opisano następujące hello:
-* Witaj usług magazynu Azure
-* Witaj typy kont magazynu
+W tym artykule omówiono następujące zagadnienia:
+* Usługi Azure Storage
+* Typy kont magazynu
 * Uzyskiwanie dostępu do obiektów blob, kolejek i plików
 * Szyfrowanie
 * Replikacja 
 * Transferowanie danych z lub do magazynu
-* Witaj wiele biblioteki klienta magazynu dostępne. 
+* Liczne dostępne biblioteki klienta magazynu 
 
+Aby szybko rozpocząć pracę z usługą Azure Storage, zapoznaj się z jednym z poradników szybkiego startu:
+* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Tworzenie konta magazynu za pomocą programu PowerShell)
+* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md) (Tworzenie konta magazynu za pomocą interfejsu wiersza polecenia)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-tooget up and running with Azure Storage quickly, check out one of hello following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+## <a name="introducing-the-azure-storage-services"></a>Wprowadzenie do usług Azure Storage
 
-
-## <a name="introducing-hello-azure-storage-services"></a>Wprowadzenie do usługi Azure Storage hello
-
-toouse podane hello usług przez usługi Azure Storage — magazynu obiektów Blob, Magazyn plików i magazynu kolejek — należy najpierw utworzyć konto magazynu, a następnie mogą przesłać dane z określonej usługi na tym koncie magazynu. 
+Aby móc korzystać z usług udostępnianych przez usługę Azure Storage — Blob Storage, File Storage i Queue Storage — należy najpierw utworzyć konto magazynu, co umożliwi transferowanie danych do/z określonej usługi w ramach tego konta magazynu. 
 
 ## <a name="blob-storage"></a>Blob Storage
 
-Obiekty blob to pliki podobne do tych, które przechowujesz na komputerze (lub tablecie, urządzeniu przenośnym itp.). Mogą to być obrazy, pliki programu Microsoft Excel, pliki HTML, wirtualne dyski twarde (VHD), dane big data, kopie zapasowe baz danych — w zasadzie dowolny rodzaj danych. Obiekty BLOB są przechowywane w kontenerach, które są podobne toofolders. 
+Obiekty blob to pliki podobne do tych, które przechowujesz na komputerze (lub tablecie, urządzeniu przenośnym itp.). Mogą to być obrazy, pliki programu Microsoft Excel, pliki HTML, wirtualne dyski twarde (VHD), dane big data, kopie zapasowe baz danych — w zasadzie dowolny rodzaj danych. Obiekty blob są przechowywane w kontenerach, które są podobne do folderów. 
 
-Po przechowywanie plików w magazynie obiektów Blob, użytkownik może uzyskiwać do nich dostęp z dowolnego miejsca w Witaj świecie przy użyciu adresów URL, hello interfejsu REST lub jednego z biblioteki klienta magazynu Azure SDK hello. Biblioteki klienta magazynu są dostępne dla wielu języków, w tym Node.js, Java, PHP, Ruby, Python i .NET. 
+Po umieszczeniu plików w usłudze Blob Storage możesz uzyskać do nich dostęp z dowolnego miejsca na świecie przy użyciu adresów URL, interfejsu REST lub jednej z bibliotek klienta zestawu SDK usługi Azure Storage. Biblioteki klienta magazynu są dostępne dla wielu języków, w tym Node.js, Java, PHP, Ruby, Python i .NET. 
 
-Istnieją trzy typy obiektów blob: blokowe obiekty blob, uzupełnialne obiekty blob i stronicowe obiekty blob (używane w przypadku plików VHD).
+Istnieją trzy typy obiektów blob: blokowe obiekty blob, stronicowe obiekty blob (używane w przypadku plików VHD) oraz uzupełnialne obiekty blob.
 
-* Blokowe obiekty BLOB są używane toohold zwykłe pliki zapasowej tooabout 4,7 TB. 
-* Stronicowe obiekty BLOB są plikami dostęp losowy toohold używane zapasowej TB too8 rozmiar. Są one używane dla hello plików VHD, które wykonują kopie maszyn wirtualnych.
-* Dołącz obiekty BLOB składają się z bloków, takich jak hello blokowych obiektów blob, lecz są zoptymalizowane pod kątem operacji dołączania. Są one używane dla elementów, jak rejestrowanie informacji toohello sam obiektu blob z wieloma maszynami wirtualnymi.
+* Blokowe obiekty blob są używane do przechowywania zwykłych plików o rozmiarze do około 4,7 TB. 
+* Stronicowe obiekty blob są używane do przechowywania plików o dostępie losowym o rozmiarze do 8 TB. Są one stosowane w przypadku plików VHD wspierających maszyny wirtualne.
+* Uzupełnialne obiekty blob składają się z bloków, podobnie jak blokowe obiekty blob, lecz są zoptymalizowane pod kątem operacji dołączania. Są one używane na przykład na potrzeby rejestrowania informacji w tym samym obiekcie blob z różnych maszyn wirtualnych.
 
-Dla bardzo dużych zestawów danych, gdy ograniczenia sieci uniemożliwić przekazanie lub pobranie tooBlob pamięci masowej w wypadku przewodowy hello możesz wysłać zestaw dysków twardych tooMicrosoft tooimport lub Eksportuj dane bezpośrednio z centrum danych hello. Zobacz [Użyj hello usługi Import/Eksport Microsoft Azure tooTransfer danych tooBlob magazynu](../storage-import-export-service.md).
+W przypadku bardzo dużych zestawów danych, gdy ograniczenia sieci mogą w praktyce uniemożliwić przekazanie lub pobranie danych do usługi Blob Storage, możesz przesłać zestaw dysków twardych do firmy Microsoft, aby zaimportować dane bezpośrednio do centrum danych lub wyeksportować je stamtąd. Zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](../storage-import-export-service.md).
 
-## <a name="file-storage"></a>File Storage
+## <a name="azure-files"></a>Azure Files
+Usługa [Azure Files](../files/storage-files-introduction.md) umożliwia konfigurowanie wysoce dostępnych udziałów plików sieciowych, do których można uzyskiwać dostęp przy użyciu standardowego protokołu bloku komunikatów serwera (SMB, Server Message Block). Oznacza to, że wiele maszyn wirtualnych może współdzielić te same pliki z dostępem zarówno do odczytu, jak i do zapisu. Pliki można także odczytywać przy użyciu interfejsu REST lub bibliotek klienckich magazynu. 
 
-Witaj usługi pliki Azure umożliwia tooset zapasowej udziałów plików sieciowych wysokiej dostępności, które są dostępne przy użyciu standardowego protokołu bloku komunikatów serwera (SMB) hello. Oznacza, że wiele maszyn wirtualnych można udostępniać hello same pliki z odczytu i zapisu. Możesz przeczytać hello plików przy użyciu interfejsu REST hello lub bibliotek klienckich magazynu hello. 
-
-Rzecz, która odróżnia magazyn plików Azure z plików w udziale plików firmowych jest, że masz dostęp hello plików z dowolnego miejsca w Witaj świecie przy użyciu adresu URL, który wskazuje plik toohello i zawiera token sygnatury dostępu Współdzielonego dostępu współdzielonego. Można generować tokeny sygnatury dostępu Współdzielonego; umożliwiają one zasobów prywatnej tooa określonym dostępu dla określonego przedziału czasu. 
+Jedną z różnic między usługą Azure Files i plikami w firmowym udziale plików jest możliwość dostępu do plików z dowolnego miejsca na świecie przy użyciu adresu URL, który wskazuje plik i zawiera token sygnatury dostępu współdzielonego. Tokeny sygnatury dostępu współdzielonego można generować. Umożliwiają one uzyskanie określonego dostępu do prywatnego zasobu przez określony czas. 
 
 Udziałów plików można używać w wielu typowych scenariuszach: 
 
-* Wiele aplikacji lokalnych korzysta z udziałów plików. Ta funkcja umożliwia łatwiejsze toomigrate tych aplikacji, które mają tooAzure danych. W przypadku instalowania hello sama litera który hello toohello udziału pliku lokalnego aplikacja używa, hello część aplikacji, który uzyskuje dostęp do udziału plików hello powinien współpracować z minimalne ewentualne zmiany.
+* Wiele aplikacji lokalnych korzysta z udziałów plików. Dzięki temu migracja tych aplikacji współdzielących dane na platformę Azure jest łatwiejsza. Jeśli zainstalujesz udział plików przy użyciu tej samej litery dysku, która jest używana przez aplikację lokalną, część aplikacji uzyskująca dostęp do udziału plików powinna działać bez konieczności wprowadzania zmian lub jedynie z minimalnymi zmianami.
 
-* Pliki konfiguracji można przechowywać w udziale plików i uzyskiwać do nich dostęp z wielu maszyn wirtualnych. Narzędzi używanych przez wielu deweloperów w grupie mogą być przechowywane w udziale plików, zapewniając, że każdy można je znaleźć, i że używają one hello tej samej wersji.
+* Pliki konfiguracji można przechowywać w udziale plików i uzyskiwać do nich dostęp z wielu maszyn wirtualnych. W udziale plików można przechowywać narzędzia i programy narzędziowe używane przez wielu deweloperów w grupie, dzięki czemu wszyscy będą mogli je znaleźć oraz będą używać tych samych wersji.
 
-* Dzienniki diagnostyczne, metryki i zrzuty awaryjne są tylko trzy przykłady, danych, które jest zapisywane tooa udziału plików i przetwarzany lub przeanalizowane później.
+* Dzienniki diagnostyczne, metryki i zrzuty awaryjne to tylko trzy przykłady danych, które można zapisywać w udziale plików i przetwarzać lub analizować później.
 
-W tym czasie, uwierzytelnianie oparte na usłudze Active Directory i dostępu formantu listy (kontroli dostępu ACL) nie są obsługiwane, ale będzie na pewien czas w przyszłości hello. poświadczenia konta magazynu Hello są używane tooprovide uwierzytelniania dla udziału plików toohello dostępu. Oznacza to, każdy z udziałem hello zainstalowane będzie miał pełne odczytu/zapisu dostępu toohello udziału.
+Obecnie uwierzytelnianie oparte na usłudze Active Directory i listy kontroli dostępu (ACL, access control list) nie są obsługiwane, ale ich obsługa zostanie dodana w przyszłości. W celu uwierzytelniania dostępu do udziału plików są używane poświadczenia konta magazynu. Oznacza to, że każda osoba z zainstalowanym udziałem będzie miała do niego pełny dostęp do odczytu i zapisu.
 
 ## <a name="queue-storage"></a>Queue Storage
 
-Witaj usługi kolejek platformy Azure jest używana toostore i pobieranie wiadomości. Wiadomości w kolejce może być się o rozmiarze too64 KB, a kolejka może zawierać miliony komunikatów. Kolejki są zazwyczaj używane toostore listę toobe komunikaty przetwarzane asynchronicznie. 
+Usługa Azure Queue jest używana do przechowywania i pobierania komunikatów. Komunikaty kolejek mogą mieć rozmiar do 64 KB, a jedna kolejka może zawierać miliony komunikatów. Kolejki są zazwyczaj używane do przechowywania list komunikatów, które mają zostać przetworzone asynchronicznie. 
 
-Na przykład chcesz obrazów stanie tooupload toobe klientów i ma toocreate miniatur dla każdego obrazu. Może mieć klienta oczekuje na miniaturach hello toocreate podczas przekazywania hello obrazów. Alternatywą jest toouse kolejki. Po zakończeniu jego przekazywania powitania klienta zapisu toohello kolejki komunikatów. Następnie ma funkcję platformy Azure Pobierz wiadomość hello z kolejki hello i tworzenie miniatur hello. Elementy hello tego przetwarzania może być skalowana oddzielnie, zapewniając większą kontrolę podczas dostrajania go dla Ciebie.
+Przykładowo załóżmy, że chcesz, aby klienci mogli przekazywać obrazy, i chcesz utworzyć miniatury dla każdego obrazu. Klient może poczekać, aż utworzysz miniatury podczas przekazywania zdjęcia. Alternatywą jest zastosowanie kolejki. Gdy klient zakończy przekazywanie, zapisz komunikat w kolejce. Następnie funkcja usługi Azure Functions pobierze ten komunikat z kolejki i utworzy miniatury. Każdą część tego przetwarzania można skalować oddzielnie, co daje większą kontrolę podczas dostosowywania.
 
-<!-- this bookmark is used by other articles; you'll need tooupdate them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>Magazyn tabel
-<!-- add a link toohello old table storage toothis paragraph once it's moved -->
-Usługa Azure Table Storage w warstwie Podstawowa jest teraz częścią usługi Cosmos DB. Niemniej usługa Azure Table Storage jest też dostępna w warstwie Premium, która zapewnia tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. toolearn więcej i wypróbowywać hello nowe środowisko premium, zapoznaj się [bazy danych Azure rozwiązania Cosmos: Tabela interfejsu API](https://aka.ms/premiumtables).
+
+Usługa Azure Table Storage w warstwie Podstawowa jest teraz częścią usługi Cosmos DB. Aby zapoznać się z tą dokumentacją, przejdź do artykułu [Omówienie usługi Azure Table Storage](../../cosmos-db/table-storage-overview.md). Niemniej usługa Azure Table Storage jest też dostępna w warstwie Premium, która zapewnia tabele zoptymalizowane pod kątem przepływności, globalną dystrybucję i automatyczne indeksy pomocnicze. Aby dowiedzieć się więcej i wypróbować nowe środowisko wersji Premium, zobacz [Azure Cosmos DB: interfejs API tabel](https://aka.ms/premiumtables).
 
 ## <a name="disk-storage"></a>Przechowywanie na dysku
 
-Zespół usługi Azure Storage Hello jest także właścicielem dysków, zawierający wszystkie hello zarządzane i niezarządzane dysku możliwości używanych przez maszyny wirtualne. Aby uzyskać więcej informacji o tych funkcjach, zobacz hello [dokumentację usługi obliczeniowe](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Usługa Azure Storage obejmuje również wszystkie funkcje dysków zarządzanych i niezarządzanych, z których korzystają maszyny wirtualne. Aby uzyskać więcej informacji na temat tych funkcji, zobacz [dokumentację usług Compute](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Typy kont magazynu 
 
-W poniższej tabeli przedstawiono hello różne rodzaje kont magazynu i obiekty, które mogą być używane z każdego.
+W poniższej tabeli przedstawiono różne rodzaje kont magazynu i obiekty, których można używać z każdym z nich.
 
 |**Typ konta magazynu**|**Przeznaczenie ogólne w warstwie Standardowa**|**Przeznaczenie ogólne w warstwie Premium**|**Usługa Blob Storage w gorącej i chłodnej warstwie dostępu**|
 |-----|-----|-----|-----|
@@ -108,105 +101,105 @@ Istnieją dwa rodzaje kont magazynu ogólnego przeznaczenia.
 
 #### <a name="standard-storage"></a>Standard Storage 
 
-konta magazynu Hello najczęściej używane są konta magazynu w warstwie standardowa, które mogą być używane dla wszystkich typów danych. Konta magazynu w warstwie standardowa używać nośnika magnetycznego toostore danych.
+Najczęściej używane konta magazynu to konta usługi Standard Storage, których można używać dla wszystkich typów danych. W ramach kont usługi Standard Storage dane są przechowywane na nośnikach magnetycznych.
 
 #### <a name="premium-storage"></a>Premium Storage
 
-Usługa Premium Storage zapewnia magazyn o wysokiej wydajności dla stronicowych obiektów blob, które są najczęściej używane w przypadku plików VHD. Konta Premium magazynu używać dysków SSD toostore danych. Firma Microsoft zaleca używanie usługi Premium Storage dla wszystkich maszyn wirtualnych.
+Usługa Premium Storage zapewnia magazyn o wysokiej wydajności dla stronicowych obiektów blob, które są najczęściej używane w przypadku plików VHD. W ramach kont usługi Premium Storage dane są przechowywane na dyskach SSD. Firma Microsoft zaleca używanie usługi Premium Storage dla wszystkich maszyn wirtualnych.
 
 ### <a name="blob-storage-accounts"></a>Konta usługi Blob Storage
 
-Konto magazynu obiektów Blob Hello to specjalne konto magazynu używane toostore blokowych obiektów blob i uzupełnialnych obiektów blob. Na tych kontach nie można przechowywać stronicowych obiektów blob, a zatem nie można też przechowywać plików VHD. Te konta pozwalają tooset tooHot warstwy dostępu lub chłodnej; Warstwa Hello można zmienić w dowolnym momencie. 
+Konto usługi Blob Storage to specjalne konto magazynu używane do przechowywania blokowych obiektów blob i uzupełnialnych obiektów blob. Na tych kontach nie można przechowywać stronicowych obiektów blob, a zatem nie można też przechowywać plików VHD. Te konta umożliwiają ustawienie warstwy dostępu Gorąca lub Chłodna. Warstwę można zmienić w dowolnym momencie. 
 
-warstwy dostępu dynamicznej Hello jest używany dla plików, których dostęp jest uzyskiwany często — płacisz wyższy koszt dla magazynu, ale koszt hello uzyskiwania dostępu do obiektów blob hello jest znacznie niższa. Dla obiektów blob przechowywanych w warstwie dostępu do chłodnych hello płacisz wyższe koszty dostępu do obiektów blob hello, ale hello koszt magazynowania jest znacznie niższa.
+Warstwa dostępu Gorąca jest używana w przypadku często używanych plików — koszt magazynowania jest wyższy, ale koszt uzyskiwania dostępu do obiektów blob jest znacznie niższy. W przypadku obiektów blob przechowywanych w warstwie dostępu Chłodna koszt uzyskiwania dostępu do obiektów blob jest wyższy, ale koszt magazynowania jest znacznie niższy.
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Uzyskiwanie dostępu do obiektów blob, plików i kolejek
 
-Każde konto magazynu ma dwa klucze uwierzytelniania, przy czym każdego z nich można użyć do dowolnej operacji. Istnieją dwa klucze, aby zebrać na powitania od czasu do czasu kluczy tooenhance zabezpieczeń. Bardzo ważne, aby klucze były przechowywane bezpiecznego ponieważ zapoznały wraz z nazwy konta hello umożliwia nieograniczony dostęp tooall danych na koncie magazynu hello jest. 
+Każde konto magazynu ma dwa klucze uwierzytelniania, przy czym każdego z nich można użyć do dowolnej operacji. Klucze są dwa, więc od czasu do czasu można je przerzucić w celu zwiększenia poziomu bezpieczeństwa. Zabezpieczenie tych kluczy jest bardzo ważne, ponieważ posiadanie ich wraz z nazwą konta daje nieograniczony dostęp do wszystkich danych na koncie magazynu. 
 
-W tej sekcji wygląda dwa sposoby toosecure hello konto magazynu i jego dane. Aby uzyskać szczegółowe informacje na temat zabezpieczania konta magazynu i danych, zobacz hello [przewodnik zabezpieczeń usługi Azure Storage](storage-security-guide.md).
+W tej sekcji omówiono dwa sposoby zabezpieczania konta magazynu i jego danych. Aby uzyskać szczegółowe informacje na temat zabezpieczania konta magazynu i jego danych, zobacz [Przewodnik po zabezpieczeniach usługi Azure Storage](storage-security-guide.md).
 
-### <a name="securing-access-toostorage-accounts-using-azure-ad"></a>Zabezpieczanie dostępu do konta toostorage przy użyciu usługi Azure AD
+### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Zabezpieczanie dostępu do kont magazynu przy użyciu usługi Azure AD
 
-Jednym ze sposobów toosecure dostępu tooyour magazynu danych jest kontrolowanie klucze konta magazynu toohello dostępu. Za pomocą Menedżera zasobów kontroli dostępu opartej na rolach (RBAC) można przypisać role toousers, grupy lub aplikacji. Te role są również powiązane tooa określony zbiór akcji, które ma być dozwolony lub niedozwolony. Przy użyciu funkcji RBAC konta magazynu tooa dostępu toogrant obsługuje tylko operacje zarządzania powitania dla tego konta magazynu, takich jak zmiana warstwy dostępu hello. Nie można użyć RBAC toogrant dostępu toodata obiektów, takich jak określonego kontenera lub w udziale plików. Można jednak RBAC toogrant dostępu toohello klucze konta magazynu, które mogą być następnie używane tooread hello danych obiektów. 
+Jednym ze sposobów na zabezpieczenie danych magazynu jest kontrolowanie dostępu do kluczy konta magazynu. Dzięki kontroli dostępu opartej na rolach (RBAC, Role-Based Access Control) w usłudze Resource Manager możesz przypisywać role użytkownikom, grupom i aplikacjom. Te role są powiązane z określonym zestawem akcji, które są dozwolone lub niedozwolone. Udzielanie dostępu przy użyciu kontroli dostępu opartej na rolach obsługuje tylko operacje zarządzania dla tego konta magazynu, na przykład zmianę warstwy dostępu. Przy użyciu kontroli dostępu opartej na rolach nie można udzielać dostępu do obiektów danych takich jak określony kontener lub udział plików. Za pomocą kontroli dostępu opartej na rolach można natomiast udzielać dostępu do kluczy konta magazynu, przy użyciu których można następnie odczytać obiekty danych. 
 
 ### <a name="securing-access-using-shared-access-signatures"></a>Zabezpieczanie dostępu przy użyciu sygnatur dostępu współdzielonego 
 
-Można użyć sygnatur dostępu współdzielonego i przechowywane toosecure zasady dostępu do obiektów danych. Sygnatury dostępu współdzielonego (SAS) to ciąg zawierający token zabezpieczający, który może być dołączony toohello identyfikatora URI dla zasobu, który pozwala toodelegate dostępu toospecific magazynu obiektów i ograniczenia toospecify, takich jak uprawnienia i hello daty/godziny zakresu dostępu. Ta funkcja ma rozbudowane możliwości. Aby uzyskać szczegółowe informacje, zobacz zbyt[przy użyciu dostępu sygnatur dostępu Współdzielonego](storage-dotnet-shared-access-signature-part-1.md).
+Obiekty danych możesz zabezpieczyć przy użyciu sygnatur dostępu współdzielonego i przechowywanych zasad dostępu. Sygnatura dostępu współdzielonego to ciąg zawierający token zabezpieczający, który można dołączyć do identyfikatora URI dla zasobu, co umożliwia delegowanie dostępu do określonych obiektów oraz określanie ograniczeń takich jak uprawnienia oraz zakres dat/godzin dostępu. Ta funkcja ma rozbudowane możliwości. Zobacz [Używanie sygnatur dostępu współdzielonego (SAS)](storage-dotnet-shared-access-signature-part-1.md), aby uzyskać szczegółowe informacje.
 
-### <a name="public-access-tooblobs"></a>Tooblobs dostępu publicznego
+### <a name="public-access-to-blobs"></a>Dostęp publiczny do obiektów blob
 
-Usługa Blob Hello umożliwia tooprovide dostępu publicznego tooa kontenera i jego obiektów blob lub konkretnego obiektu blob. Po wskazaniu, że kontener lub obiekt blob jest publiczny, dowolny użytkownik może go anonimowo odczytać — uwierzytelnianie nie jest wymagane. Przykład kiedy warto toodo to w przypadku witryny sieci Web korzystających z obrazów, wideo lub dokumentami z magazynu obiektów Blob. Aby uzyskać więcej informacji, zobacz [Zarządzanie toocontainers anonimowy dostęp do odczytu i obiektów blob](../blobs/storage-manage-access-to-resources.md) 
+Usługa Blob umożliwia zapewnienie publicznego dostępu do kontenera i jego obiektów blob lub do konkretnego obiektu blob. Po wskazaniu, że kontener lub obiekt blob jest publiczny, dowolny użytkownik może go anonimowo odczytać — uwierzytelnianie nie jest wymagane. Można to zrobić na przykład w przypadku witryny internetowej korzystającej z obrazów, klipów wideo lub dokumentów z usługi Blob Storage. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem anonimowym w trybie odczytu do kontenerów i obiektów blob](../blobs/storage-manage-access-to-resources.md) 
 
 ## <a name="encryption"></a>Szyfrowanie
 
-Brak dostępnych kilka podstawowych typów szyfrowania dla usług magazynu hello. 
+W przypadku usług Storage dostępnych jest kilka podstawowych rodzajów szyfrowania. 
 
 ### <a name="encryption-at-rest"></a>Szyfrowanie w spoczynku 
 
-Można włączyć szyfrowanie usługi Magazyn (SSE) w usłudze plików albo hello (wersja zapoznawcza) lub hello usługi obiektów Blob dla konta magazynu platformy Azure. Jeśli opcja jest włączona, wszystkie dane zapisane toohello określonej usługi są szyfrowane przed zapisaniem. Podczas odczytu danych hello, zostaje odszyfrowywany przed zwróceniem. 
+W usłudze Files (wersja zapoznawcza) lub usłudze Blob dla konta usługi Azure Storage możesz włączyć szyfrowanie usługi Storage. Jeśli szyfrowanie zostanie włączone, wszystkie dane zapisane w określonej usłudze będą szyfrowane przed zapisaniem. Podczas odczytywania dane są odszyfrowywane, a następnie zwracane. 
 
 ### <a name="client-side-encryption"></a>Szyfrowania po stronie klienta
 
-Witaj biblioteki klienta magazynu ma można wywołać metody tooprogrammatically szyfrowania danych przed wysłaniem przez hello przewodowy z powitania klienta tooAzure. Przechowywane dane są zaszyfrowane, co oznacza, że w stanie spoczynku również są zaszyfrowane. Podczas odczytywania danych hello Wstecz, odszyfrowywania informacji powitania po jego otrzymania. 
+Biblioteki klienta magazynu posiadają metody, które możesz wywołać, aby programowo szyfrować dane przed wysłaniem ich z klienta do platformy Azure. Przechowywane dane są zaszyfrowane, co oznacza, że w stanie spoczynku również są zaszyfrowane. Podczas odczytywania informacji są one odszyfrowywane po ich otrzymaniu. 
 
 ### <a name="encryption-in-transit-with-azure-file-shares"></a>Szyfrowanie podczas transferu przy użyciu udziałów plików platformy Azure
 
-Zobacz [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji o sygnaturach dostępu współdzielonego. Zobacz [Zarządzanie toocontainers anonimowy dostęp do odczytu i obiekty BLOB](../blobs/storage-manage-access-to-resources.md) i [uwierzytelniania dla usług magazynu Azure hello](https://msdn.microsoft.com/library/azure/dd179428.aspx) Aby uzyskać więcej informacji na koncie magazynu tooyour bezpiecznego dostępu.
+Zobacz [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md) (Używanie sygnatur dostępu współdzielonego), aby uzyskać więcej informacji o sygnaturach dostępu współdzielonego. Aby uzyskać więcej informacji na temat bezpiecznego dostępu do konta magazynu, zobacz [Manage anonymous read access to containers and blobs](../blobs/storage-manage-access-to-resources.md) (Zarządzanie anonimowym dostępem do odczytu do kontenerów i obiektów blob) i [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) (Uwierzytelnianie dla usług Azure Storage).
 
-Aby uzyskać więcej informacji na temat zabezpieczania konta magazynu i szyfrowania, zobacz hello [przewodnik zabezpieczeń usługi Azure Storage](storage-security-guide.md).
+Aby uzyskać więcej informacji na temat zabezpieczania konta magazynu i szyfrowania, zobacz [Azure Storage security guide](storage-security-guide.md) (Przewodnik po zabezpieczeniach usługi Azure Storage).
 
 ## <a name="replication"></a>Replikacja
 
-Tooensure kolejności, że dane są trwałe magazyn Azure ma hello możliwości tookeep (i zarządzania nimi) wiele kopii danych. Jest to nazywane replikacją lub czasami nadmiarowością. Podczas konfigurowania konta magazynu należy określić typ replikacji. W większości przypadków można zmodyfikować to ustawienie po skonfigurowaniu hello konta magazynu. 
+Aby zapewnić trwałość danych, usługa Azure Storage ma możliwość przechowywania kilku kopii danych (i zarządzania nimi). Jest to nazywane replikacją lub czasami nadmiarowością. Podczas konfigurowania konta magazynu należy określić typ replikacji. W większości przypadków to ustawienie można zmodyfikować po skonfigurowaniu konta magazynu. 
 
-Wszystkie konta magazynu mają **magazyn lokalnie nadmiarowy (LRS, locally redundant storage)**. Oznacza to, trzy kopie danych są zarządzane przez usługi Azure Storage w centrum danych hello określić, kiedy hello konta magazynu zostały skonfigurowane. Podczas zmiany zostaną zatwierdzone tooone skopiować, Witaj dwie kopie są aktualizowane przed zwróceniem Powodzenie. Oznacza to, że repliki trzy hello zawsze są zsynchronizowane. Ponadto hello trzy kopie znajdują się w domenach awarii oddzielne i uaktualnienia domen, co oznacza, że dane są dostępne, nawet w przypadku awarii węzła Magazyn zawierający dane lub zaktualizowaniu podjęte toobe w trybie offline. 
+Wszystkie konta magazynu mają **magazyn lokalnie nadmiarowy (LRS, locally redundant storage)**. To oznacza, że trzy kopie danych są zarządzane przez usługę Azure Storage w centrum danych określonym podczas konfigurowania konta magazynu. Gdy zmiany zostaną zatwierdzone w jednej kopii, pozostałe kopie są aktualizowane i zwracany jest komunikat o powodzeniu. To oznacza, że trzy repliki są zawsze zsynchronizowane. Ponadto te trzy kopie znajdują się w oddzielnych domenach błędów i domenach uaktualnień, co oznacza, że dane są dostępne nawet wtedy, gdy węzeł magazynu, na którym są przechowywane, ulegnie awarii lub zostanie przełączony w tryb offline w celu aktualizacji. 
 
 **Magazyn lokalnie nadmiarowy (LRS)**
 
-Jak wyjaśniono powyżej, dzięki magazynowi LRS masz trzy kopie danych w jednym centrum danych. Obsługuje problem hello danych staje się niedostępny, jeśli węzeł magazynu nie powiedzie się lub jest pobierana w trybie offline toobe zaktualizowane, ale nie hello przypadku całe centrum danych staje się niedostępna.
+Jak wyjaśniono powyżej, dzięki magazynowi LRS masz trzy kopie danych w jednym centrum danych. Rozwiązuje to problem niedostępności danych w przypadku awarii węzła magazynu lub przełączenia go w tryb offline w celu aktualizacji, ale nie w przypadku niedostępności całego centrum danych.
 
 **Magazyn strefowo nadmiarowy (ZRS, Zone redundant storage)**
 
-Magazyn strefowo nadmiarowy (ZRS) przechowuje trzy kopie lokalne powitania danych, a także innego zestawu trzy kopie danych. Hello drugi zestaw trzy kopie są replikowane asynchronicznie w centrach danych w ramach jednego lub dwóch regionach. Należy pamiętać, że magazyn ZRS jest dostępny tylko w przypadku blokowych obiektów blob na kontach magazynu ogólnego przeznaczenia. Ponadto po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go toouse tooany innych wpisz replikacji lub na odwrót.
+Magazyn strefowo nadmiarowy przechowuje trzy kopie danych oraz jeszcze jeden zestaw trzech kopii danych. Drugi zestaw trzech kopii danych jest replikowany asynchronicznie między centrami danych w jednym lub w dwóch regionach. Należy pamiętać, że magazyn ZRS jest dostępny tylko w przypadku blokowych obiektów blob na kontach magazynu ogólnego przeznaczenia. Ponadto po utworzeniu konta magazynu i wybraniu magazynu ZRS nie można przekonwertować go w celu użycia żadnego innego typu replikacji ani odwrotnie.
 
 Konta magazynu ZRS zapewniają większą trwałość niż magazyn LRS, ale konta magazynu ZRS nie mają metryk ani funkcji rejestrowania. 
 
 **Magazyn geograficznie nadmiarowy (GRS)**
 
-Magazyn geograficznie nadmiarowy (GRS) przechowuje trzy kopie lokalne powitania danych w regionie podstawowym plus inny zestaw trzy kopie danych w regionie pomocniczym setki odległości od regionu podstawowego hello. W przypadku hello awaria w regionie podstawowym hello usługi Azure Storage zakończy się niepowodzeniem w regionie pomocniczym toohello. 
+Magazyn geograficznie nadmiarowy przechowuje trzy lokalne kopie danych w regionie podstawowym oraz jeszcze jeden zestaw trzech kopii danych w regionie pomocniczym oddalonym o setki kilometrów od regionu podstawowego. Jeśli w regionie podstawowym wystąpi awaria, usługa Azure Storage przejdzie w tryb failover w regionie pomocniczym. 
 
 **Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)** 
 
-Dostęp do odczytu magazynu geograficznie nadmiarowego jest dokładnie takie same jak grs w warstwie, z wyjątkiem tego, aby uzyskać dostęp do odczytu toohello danych w dodatkowej lokalizacji hello. Jeśli centrum danych podstawowych hello jest tymczasowo niedostępny, można kontynuować tooread hello danych z lokalizacji dodatkowej hello. Może to być bardzo przydatne. Na przykład można masz aplikacji sieci web, której zmiany w trybie tylko do odczytu i wskazuje toohello pomocniczej kopii, nawet jeśli nie są dostępne aktualizacje, dzięki czemu dostęp. 
+Magazyn geograficznie nadmiarowy dostępny do odczytu jest dokładnie taki sam jak magazyn GRS, ale zapewnia jedynie dostęp do odczytu danych w lokalizacji pomocniczej. Jeśli podstawowe centrum danych stanie się tymczasowo niedostępne, możesz nadal odczytywać dane z lokalizacji pomocniczej. Może to być bardzo przydatne. Na przykład aplikacja internetowa może przechodzić w tryb tylko do odczytu i wskazywać kopię pomocniczą, zapewniając w ten sposób pewien poziom dostępu, mimo iż aktualizacje nie są dostępne. 
 
 > [!IMPORTANT]
-> Możesz zmienić sposób replikacji danych po utworzeniu konta magazynu, o ile nie określono ZRS, podczas tworzenia konta hello. Jednak należy pamiętać, że może pociągnąć za sobą dodatkowe jednorazowo koszty transferu danych po przełączeniu z LRS tooGRS lub RA-GRS.
+> Możesz zmienić sposób replikacji danych po utworzeniu konta magazynu, o ile jest on inny niż ZRS. Zwróć jednak uwagę, że w wypadku przejścia z replikacji LRS na GRS lub RA-GRS mogą zostać naliczone dodatkowo i jednorazowo koszty transferu danych.
 >
 
 Aby uzyskać więcej informacji na temat replikacji, zobacz [Replikacja usługi Azure Storage](storage-redundancy.md).
 
-Aby uzyskać informacje odzyskiwania po awarii, zobacz [jakie toodo w przypadku wystąpienia awarii usługi Azure Storage](storage-disaster-recovery-guidance.md).
+Aby uzyskać informacje na temat odzyskiwania po awarii, zobacz [Co zrobić po wystąpieniu awarii usługi Azure Storage](storage-disaster-recovery-guidance.md).
 
-Na przykład jak tooleverage RA-GRS tooensure wysoka dostępność magazynu, zobacz [projektowania wysokiej dostępności aplikacji przy użyciu RA-GRS](storage-designing-ha-apps-with-ragrs.md).
+Aby zapoznać się z przykładem zapewniania wysokiej dostępności przy użyciu magazynu RA-GRS, zobacz [Projektowanie wysoko dostępnych aplikacji przy użyciu magazynu RA-GRS](storage-designing-ha-apps-with-ragrs.md).
 
-## <a name="transferring-data-tooand-from-azure-storage"></a>Transfer danych tooand z usługi Azure Storage
+## <a name="transferring-data-to-and-from-azure-storage"></a>Transferowanie danych do i z usługi Azure Storage
 
-Używając blob toocopy narzędzia wiersza polecenia AzCopy hello oraz danych plików w ramach konta magazynu lub wielu kont magazynu. Zobacz jedną z następujących hello artykuły pomocy:
+Za pomocą narzędzia wiersza polecenia AzCopy możesz kopiować obiekty blob, pliki i dane w ramach jednego lub wielu kont magazynu. Zobacz jeden z następujących artykułów, aby uzyskać pomoc:
 
 * [Transferowanie danych za pomocą narzędzia AzCopy dla systemu Windows](storage-use-azcopy.md)
 * [Transferowanie danych za pomocą narzędzia AzCopy dla systemu Linux](storage-use-azcopy-linux.md)
 
-Narzędzie AzCopy jest oparty na powitania [Biblioteka przenoszenia danych Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), która jest aktualnie dostępna w wersji zapoznawczej.
+Podstawą narzędzia AzCopy jest [biblioteka przenoszenia danych platformy Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), która jest aktualnie dostępna w wersji zapoznawczej.
 
-Witaj usługi Import/Eksport Azure mogą być używane tooimport lub eksportu dużych ilości tooor danych obiektów blob z konta magazynu. Przygotowanie i poczty wielu dysków twardych tooan centrum danych Azure, gdzie zostaną przeniesione hello danych z dysków twardych hello i wysłanie tooyou kopii hello dysków twardych. Aby uzyskać więcej informacji na temat hello usługi Import/eksport, zobacz [Użyj hello usługi Import/Eksport Microsoft Azure tooTransfer danych tooBlob magazynu](../storage-import-export-service.md).
+Przy użyciu usługi Azure Import/Export można importować lub eksportować duże ilości danych obiektów blob do lub z konta magazynu. Należy przygotować wiele dysków twardych i wysłać je do centrum danych platformy Azure. Dane zostaną przetransferowane z dysków twardych lub na dyski twarde, po czym dyski zostaną odesłane. Aby uzyskać więcej informacji o usłudze Import/Export, zobacz [Przesyłanie danych do usługi Blob Storage za pomocą usługi Microsoft Azure Import/Export](../storage-import-export-service.md).
 
 ## <a name="pricing"></a>Cennik
 
-Aby uzyskać szczegółowe informacje na temat cen usługi Azure Storage, zobacz hello [strony cennik](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Aby uzyskać szczegółowe informacje o cenach usługi Azure Storage, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="storage-apis-libraries-and-tools"></a>Narzędzia, biblioteki oraz interfejsy API usługi Storage
-Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który obsługuje żądania HTTP/HTTPS. Dodatkowo Magazyn Azure oferuje biblioteki programistyczne dla kilku popularnych języków. Te biblioteki upraszczają wiele aspektów pracy z usługą Azure Storage dzięki obsłudze szczegółów, takich jak wywołania synchroniczne i asynchroniczne, przetwarzanie wsadowe operacji, zarządzanie wyjątkami, automatyczne ponawianie, zachowania podczas działania itd. Biblioteki są obecnie dostępne dla następujących języków hello i platform, a kolejne hello potoku:
+Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który obsługuje żądania HTTP/HTTPS. Dodatkowo Magazyn Azure oferuje biblioteki programistyczne dla kilku popularnych języków. Te biblioteki upraszczają wiele aspektów pracy z usługą Azure Storage dzięki obsłudze szczegółów, takich jak wywołania synchroniczne i asynchroniczne, przetwarzanie wsadowe operacji, zarządzanie wyjątkami, automatyczne ponawianie, zachowania podczas działania itd. Biblioteki są obecnie dostępne dla następujących języków i platform, a kolejne są planowane:
 
 ### <a name="azure-storage-data-services"></a>Usługi danych usługi Azure Storage
 * [Interfejs API REST usług Storage](/rest/api/storageservices/)
@@ -226,15 +219,13 @@ Zasoby usługi Azure Storage są dostępne za pomocą dowolnego języka, który 
 * [Dowiedz się więcej o usłudze File Storage](../storage-files-introduction.md)
 * [Dowiedz się więcej o usłudze Queue Storage](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-tooget up and running with Azure Storage quickly, check out one of hello following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Aby szybko rozpocząć pracę z usługą Azure Storage, zapoznaj się z jednym z poradników szybkiego startu:
+* [Create a storage account using PowerShell](storage-quickstart-create-storage-account-powershell.md) (Tworzenie konta magazynu za pomocą programu PowerShell)
+* [Create a storage account using CLI](storage-quickstart-create-storage-account-cli.md) (Tworzenie konta magazynu za pomocą interfejsu wiersza polecenia)
 
-<!-- FIGURE OUT WHAT tooDO WITH ALL THESE LINKS.
+<!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
-Azure Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for hello following languages and platforms, with others in hello pipeline:
+Azure Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
 ### Azure Storage data services
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
@@ -258,7 +249,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### Tools and utilities
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you toowork visually with Azure Storage data on Windows, macOS, and Linux.
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage Client Tools](../storage-explorers.md)
 * [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
 * [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
@@ -266,15 +257,12 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
 
 ## Next steps
-toolearn more about Azure Storage, explore these resources:
+To learn more about Azure Storage, explore these resources:
 
 ### Documentation
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link tooone of those. 
-Had tooremove this article, it refers toohello VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>Dla administratorów
@@ -283,34 +271,33 @@ Had tooremove this article, it refers toohello VS quickstarts, and they've stopp
 
 ### <a name="for-net-developers"></a>Dla deweloperów .NET
 * [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [Tworzenie oprogramowania dla usługi Azure Files przy użyciu platformy .NET](../files/storage-dotnet-how-to-use-files.md)
 * [Rozpoczynanie pracy z usługą Azure Table Storage przy użyciu platformy .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [Rozpoczynanie pracy z usługą Azure Queue Storage przy użyciu platformy .NET](../storage-dotnet-how-to-use-queues.md)
-* [Rozpoczynanie pracy z usługą Azure File Storage w systemie Windows](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Dla deweloperów języka Java w systemie Android
-* [Jak toouse magazynu obiektów Blob w języku Java](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Jak toouse magazynu tabel w języku Java](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Jak toouse magazynu kolejek w języku Java](../storage-java-how-to-use-queue-storage.md)
-* [Jak toouse magazyn plików za pomocą języka Java](../storage-java-how-to-use-file-storage.md)
+* [Używanie usługi Blob Storage w języku Java](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Develop for Azure Files with Java](../files/storage-java-how-to-use-file-storage.md) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Java)
+* [Używanie usługi Table Storage w języku Java](../../cosmos-db/table-storage-how-to-use-java.md)
+* [Używanie usługi Queue Storage w języku Java](../storage-java-how-to-use-queue-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Dla deweloperów oprogramowania Node.js
-* [Jak toouse magazynu obiektów Blob w oprogramowaniu Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Jak toouse magazynu tabel w oprogramowaniu Node.js](../../cosmos-db/table-storage-how-to-use-nodejs.md)
-* [Jak toouse magazynu kolejek w oprogramowaniu Node.js](../storage-nodejs-how-to-use-queues.md)
+* [Używanie usługi Blob Storage w oprogramowaniu Node.js](../blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [Używanie usługi Table Storage w oprogramowaniu Node.js](../../cosmos-db/table-storage-how-to-use-nodejs.md)
+* [Używanie usługi Queue Storage w oprogramowaniu Node.js](../storage-nodejs-how-to-use-queues.md)
 
 ### <a name="for-php-developers"></a>Dla deweloperów języka PHP
-* [Jak toouse magazynu obiektów Blob w języku PHP](../blobs/storage-php-how-to-use-blobs.md)
-* [Jak toouse magazynu tabel w języku PHP](../../cosmos-db/table-storage-how-to-use-php.md)
-* [Jak toouse magazynu kolejek w języku PHP](../storage-php-how-to-use-queues.md)
+* [Używanie usługi Blob Storage w języku PHP](../blobs/storage-php-how-to-use-blobs.md)
+* [Używanie usługi Table Storage w języku PHP](../../cosmos-db/table-storage-how-to-use-php.md)
+* [Używanie usługi Queue Storage w języku PHP](../storage-php-how-to-use-queues.md)
 
 ### <a name="for-ruby-developers"></a>Dla deweloperów języka Ruby
-* [Jak toouse magazynu obiektów Blob w języku Ruby](../blobs/storage-ruby-how-to-use-blob-storage.md)
-* [Jak toouse magazynu tabel w języku Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
-* [Jak toouse magazynu kolejek w języku Ruby](../storage-ruby-how-to-use-queue-storage.md)
+* [Używanie usługi Blob Storage w języku Ruby](../blobs/storage-ruby-how-to-use-blob-storage.md)
+* [Używanie usługi Table Storage w języku Ruby](../../cosmos-db/table-storage-how-to-use-ruby.md)
+* [Używanie usługi Queue Storage w języku Ruby](../storage-ruby-how-to-use-queue-storage.md)
 
 ### <a name="for-python-developers"></a>Dla deweloperów języka Python
-* [Jak toouse magazynu obiektów Blob w języku Python](../blobs/storage-python-how-to-use-blob-storage.md)
-* [Jak toouse magazynu tabel w języku Python](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Jak toouse magazynu kolejek w języku Python](../storage-python-how-to-use-queue-storage.md)   
-* [Jak toouse magazynu plików w języku Python](../storage-python-how-to-use-file-storage.md) 
--->
+* [Używanie usługi Blob Storage w języku Python](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Develop for Azure Files with Python](../files/storage-python-how-to-use-file-storage.md) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python)
+* [Używanie usługi Table Storage w języku Python](../../cosmos-db/table-storage-how-to-use-python.md)
+* [Używanie usługi Queue Storage w języku Python](../storage-python-how-to-use-queue-storage.md)

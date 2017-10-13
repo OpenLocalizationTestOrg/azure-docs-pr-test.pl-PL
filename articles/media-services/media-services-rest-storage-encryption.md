@@ -1,6 +1,6 @@
 ---
-title: "aaaEncrypting zawartości przy użyciu szyfrowania magazynu przy użyciu interfejsu API REST usług AMS"
-description: "Dowiedz się, jak tooencrypt zawartości przy użyciu szyfrowania magazynu przy użyciu interfejsów API REST usługi AMS."
+title: "Szyfrowanie zawartości przy użyciu szyfrowania magazynu przy użyciu interfejsu API REST usług AMS"
+description: "Dowiedz się, jak szyfrowanie zawartości przy użyciu szyfrowania magazynu przy użyciu interfejsów API REST usługi AMS."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: d5f8cb8dd1dcded76c9fededccc772d8102ccbad
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Szyfrowanie zawartości przy użyciu szyfrowania magazynu
 
-Zdecydowanie zaleca się tooencrypt treści lokalnie przy użyciu standardu AES 256-bitowy szyfrowania, a następnie przekaż tooAzure magazynu, w którym będzie przechowywany szyfrowane, gdy.
+Zdecydowanie zaleca się do szyfrowania treści lokalnie przy użyciu standardu AES 256-bitowego i przekaż go do magazynu Azure którym będzie przechowywany szyfrowane, gdy.
 
-Ten artykuł zawiera omówienie usług AMS szyfrowanie magazynu i pokazuje, jak magazynu hello tooupload zaszyfrowana zawartość:
+Ten artykuł zawiera omówienie usług AMS szyfrowanie magazynu i pokazuje, jak przekazywać zawartość szyfrowany w magazynie:
 
 * Utwórz klucz zawartości.
-* Utwórz zasób. Ustaw hello AssetCreationOption tooStorageEncryption podczas tworzenia hello zasobów.
+* Utwórz zasób. Ustaw AssetCreationOption StorageEncryption podczas tworzenia zasobu.
   
-     Zasoby zaszyfrowanych ma toobe związane z kluczy zawartości.
-* Łącze hello toohello klucza zawartości zasobów.  
-* Ustawianie parametrów na jednostkach AssetFile hello dotyczących hello szyfrowania.
+     Zaszyfrowane zasoby ma zostać skojarzony z kluczy zawartości.
+* Połącz klucz zawartości do elementu zawartości.  
+* Szyfrowanie zestawu parametrów na jednostkach AssetFile dotyczących.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia 
 
-Chcąc toodeliver zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania zasobów hello. Przed zawartości mogą być przesyłane strumieniowo, hello i przesyłania strumieniowego szyfrowania magazynu hello usuwa strumieni zawartości przy użyciu hello określone zasady dostarczania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania zasobów](media-services-rest-configure-asset-delivery-policy.md).
+Jeśli chcesz dostarczyć zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania elementu zawartości. Przed zawartości mogą być przesyłane strumieniowo, serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i strumieni zawartości przy użyciu zasady dostarczania określony. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zasad dostarczania zasobów](media-services-rest-configure-asset-delivery-policy.md).
 
 Podczas uzyskiwania dostępu do obiektów w usłudze Media Services, należy ustawić określonych pól nagłówka i wartości w Twoich żądań HTTP. Aby uzyskać więcej informacji, zobacz [ustawień dla rozwoju interfejsu API REST usługi Media](media-services-rest-how-to-use.md). 
 
-## <a name="connect-toomedia-services"></a>Połączenie usług tooMedia
+## <a name="connect-to-media-services"></a>Łączenie się z usługą Media Services
 
-Aby uzyskać informacje dotyczące tooconnect toohello AMS interfejsu API, zobacz temat [hello dostępu do interfejsu API usługi Azure Media Services przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Aby uzyskać informacje na temat nawiązywania połączenia z interfejsu API usług AMS, zobacz [dostępu Azure Media Services API przy użyciu uwierzytelniania usługi Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Po pomyślnym połączeniu toohttps://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Należy wykonać kolejne wywołania toohello nowy identyfikator URI.
+>Po pomyślnym połączeniu się https://media.windows.net, otrzymasz 301 przekierowanie, określając inny identyfikator URI usługi multimediów. Upewnij się kolejne wywołania nowy identyfikator URI.
 
 ## <a name="storage-encryption-overview"></a>Omówienie szyfrowania magazynu
-zastosowanie szyfrowania magazynu Hello AMS **Ewidencyjne AES** tryb szyfrowania toohello cały plik.  Tryb Ewidencyjne AES jest szyfry blokowe, który można zaszyfrować dane o dowolnej długości bez potrzeby dopełnienia. Jego działa przez szyfrowanie bloku licznika z hello algorytmu AES, a następnie używać XOR hello dane wyjściowe AES z tooencrypt danych hello lub odszyfrować.  Blok licznika Hello używany jest tworzony przez skopiowanie wartości hello hello InitializationVector toobytes 0 too7 wartości licznika hello i 8 bajtów too15 wartości licznika hello są ustawione toozero. Witaj 16 bajtów licznika bloku, too15 8 bajtów (tj. hello najmniej znaczący w bajtach) są używane jak proste 64-bitowa liczba całkowita bez znaku jest zwiększany o jeden dla każdego kolejnych bloku danych przetwarzanych, który jest przechowywany w sieci kolejności bajtów. Należy pamiętać, że jeśli ta liczba całkowita osiągnie wartość maksymalna hello (0xFFFFFFFFFFFFFFFF) o wartości on następnie resetuje hello bloku licznika toozero (8 bajtów too15) bez wpływu na inne hello 64-bitowy hello licznika (tj. 0 bajtów too7).   W kolejności toomaintain hello zabezpieczeń hello Ewidencyjne AES tryb szyfrowania hello InitializationVector wartość dla podanego identyfikatora klucza do każdego klucz zawartości jest unikatowy dla każdego pliku i plików jest mniejsza niż wartość 2 ^ 64 bloki o długości.  Jest to tooensure, że wartość licznika nigdy nie jest ponownie z danym kluczem. Aby uzyskać więcej informacji o trybie Ewidencyjne hello, zobacz [tej strony typu wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (Artykuł typu wiki hello używa hello termin "Nonce" zamiast "InitializationVector").
+Zastosowanie szyfrowania magazynu AMS **Ewidencyjne AES** tryb szyfrowanie całego pliku.  Tryb Ewidencyjne AES jest szyfry blokowe, który można zaszyfrować dane o dowolnej długości bez potrzeby dopełnienia. Działa on tak szyfrując z algorytmu AES, a następnie używać XOR dane wyjściowe AES z danymi można zaszyfrować lub odszyfrować bloku licznika.  Blok licznika używany jest tworzony przez skopiowanie wartości InitializationVector bajtów 0 do 7 wartość licznika i bajtów 8 do 15 wartość licznika jest ustawiana wartość zero. 16 bajtów bloku licznika bajtów 8 do 15 (tj. najmniej znaczący bajtów) są używane jako proste 64-bitowych unsigned liczba całkowita, która jest zwiększany o jeden dla każdego kolejnych bloków danych przetwarzane i jest przechowywany w kolejności bajtów sieci. Należy pamiętać, że jeśli ta liczba całkowita osiągnie wartość maksymalna (0xFFFFFFFFFFFFFFFF) zwiększanie go po Resetuje licznik bloku zero (bajtów 8 do 15) bez wpływu na inne 64-bitowy licznika (tj. w bajtach 0-7).   Aby zachować bezpieczeństwo szyfrowania tryb Ewidencyjne AES, wartość InitializationVector danym identyfikatorem klucza dla każdego klucza zawartości jest unikatowy dla każdego pliku i plików jest mniejsza niż wartość 2 ^ 64 bloki o długości.  To, aby upewnić się, że wartość licznika nigdy nie jest ponownie z danym kluczem. Aby uzyskać więcej informacji o trybie kont Zobacz [tej strony typu wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (Artykuł typu wiki używany jest termin "Nonce" zamiast "InitializationVector").
 
-Użyj **szyfrowanie magazynu** tooencrypt zawartości lokalnie przy użyciu standardu AES 256-bitowy szyfrowania, a następnie przekaż tooAzure magazynu, w którym są przechowywane szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie bez szyfrowania i umieszczana w poprzednich tooencoding systemu szyfrowania plików i opcjonalnie ponownie szyfrowane przed toouploading zwrotnym w formie nowego elementu zawartości wyjściowej. Witaj pierwotnym zastosowaniem szyfrowania magazynu jest toosecure Twojego wysokiej jakości multimedialnych plików wejściowych pomocą silnego szyfrowania rest na dysku.
+Użyj **szyfrowanie magazynu** do zaszyfrowania zawartości lokalnie przy użyciu standardu AES 256-bitowy szyfrowania i przekaż go do magazynu Azure gdzie jest przechowywana szyfrowane, gdy. Elementy zawartości chronione przy użyciu szyfrowania magazynu są automatycznie odszyfrowywane i umieszczane w systemie szyfrowania plików przed kodowaniem, a następnie opcjonalnie ponownie szyfrowane przed przesłaniem zwrotnym w formie nowego elementu zawartości wyjściowej. Pierwotnym zastosowaniem szyfrowania magazynu jest, gdy chcesz zabezpieczyć z wysokiej jakości multimedialnych plików wejściowych pomocą silnego szyfrowania przechowywanych na dysku.
 
-W kolejności toodeliver zasób zaszyfrowanych magazynu należy skonfigurować zasady dostarczania zasobów hello będzie wówczas traktował Media Services sposób toodeliver zawartości. Aby mogła być przesłana strumieniowo zawartości, hello i przesyłania strumieniowego szyfrowania magazynu hello usuwa strumieni zawartości przy użyciu hello określone zasady dostarczania (na przykład AES, wspólnego szyfrowania lub bez szyfrowania).
+Aby dostarczyć zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania elementu zawartości będzie wówczas traktował Media Services sposób dostarczania zawartości. Przed zawartości mogą być przesyłane strumieniowo, serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i strumieni zawartości za pomocą zasad określonym dostarczania (na przykład AES, wspólnego szyfrowania lub bez szyfrowania).
 
 ## <a name="create-contentkeys-used-for-encryption"></a>Utwórz ContentKeys używany do szyfrowania
-Zasoby zaszyfrowanych ma toobe skojarzone z klucz szyfrowania magazynu. Należy utworzyć hello zawartości toobe klucza szyfrowania przed utworzeniem hello plików zasobów. W tej sekcji opisano sposób toocreate klucz zawartości.
+Zaszyfrowanych zasoby ma zostać skojarzony z klucz szyfrowania magazynu. Należy utworzyć klucz zawartości do użycia dla szyfrowania przed utworzeniem plików zasobów. Ta sekcja zawiera opis sposobu tworzenia klucza zawartości.
 
-Witaj poniżej przedstawiono ogólne kroki podczas generowania zawartości kluczy, które skojarzysz z zasobów, które mają toobe szyfrowane. 
+Poniżej przedstawiono ogólne kroki podczas generowania zawartości kluczy, które skojarzysz z zasobów, które mają być szyfrowane. 
 
 1. Do szyfrowania magazynu losowego generowania klucza AES 32 bajtów. 
    
-    Są to hello klucz zawartości dla zawartości, co oznacza wszystkie pliki skojarzone z tym zawartości będzie konieczne toouse hello tego samego klucza zawartości podczas odszyfrowywania. 
-2. Wywołaj hello [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) tooget metody hello poprawne certyfikatu X.509, który musi być używane tooencrypt klucz zawartości.
-3. Zaszyfrowanie klucza zawartości z klucza publicznego hello hello certyfikatu X.509. 
+    Są to klucz zawartości dla zawartości, co oznacza, że wszystkie pliki skojarzone z tym zasobów będą musieli używać tego samego klucza zawartości podczas odszyfrowywania. 
+2. Wywołanie [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) i [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) metod, aby uzyskać poprawny certyfikat X.509 używany do szyfrowania klucza zawartości.
+3. Zaszyfrowanie klucza zawartości z kluczem publicznym certyfikatu X.509. 
    
-   .NET SDK usługi Media Services używa algorytmu RSA z OAEP podczas szyfrowania hello.  Widoczny jest przykład .NET w hello [funkcja EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Utwórz wartość sumy kontrolnej obliczane przy użyciu identyfikatora klucza hello i klucz zawartości. Poniższy przykład .NET Hello oblicza sumę kontrolną hello przy użyciu identyfikatora GUID hello część identyfikatora klucza hello i hello wyczyść klucz zawartości.
+   .NET SDK usługi Media Services używa algorytmu RSA z OAEP podczas operacji szyfrowania.  Widoczny jest przykład .NET w [funkcja EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Utwórz wartość sumy kontrolnej obliczane przy użyciu klucza identyfikator i klucz zawartości. W poniższym przykładzie .NET oblicza sumę kontrolną, używając identyfikatora GUID części klucza identyfikator i klucz czyszczenie zawartości.
 
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
         {
@@ -74,8 +74,8 @@ Witaj poniżej przedstawiono ogólne kroki podczas generowania zawartości klucz
 
             byte[] encryptedKeyId = null;
 
-            // Checksum is computed by AES-ECB encrypting hello KID
-            // with hello content key.
+            // Checksum is computed by AES-ECB encrypting the KID
+            // with the content key.
             using (AesCryptoServiceProvider rijndael = new AesCryptoServiceProvider())
             {
                 rijndael.Mode = CipherMode.ECB;
@@ -93,22 +93,22 @@ Witaj poniżej przedstawiono ogólne kroki podczas generowania zawartości klucz
             return Convert.ToBase64String(retVal);
         }
 
-1. Utwórz klucz zawartości hello z hello **EncryptedContentKey** (przekonwertować ciąg kodowany w formacie toobase64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, i **sumy kontrolnej** wartości otrzymany w poprzednich krokach.
+1. Utwórz klucz zawartości z **EncryptedContentKey** (konwertowana na ciąg kodowany w formacie base64), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, i **sumy kontrolnej** wartości otrzymany w poprzednich krokach.
 
-    Do szyfrowania magazynu hello powinny znajdować się następujące właściwości w treści żądania hello.
+    Do szyfrowania magazynu powinien znajdować się następujące właściwości, w treści żądania.
 
     Właściwość treść żądania    | Opis
     ---|---
-    Identyfikator | Hello ContentKey identyfikator, który mamy Generowanie nad powitania po użyciu formatu, "nb:kid:UUID:<NEW GUID>".
-    ContentKeyType | Typ klucza zawartości hello jest jako liczba całkowita dla tego klucza zawartości. Wartość hello 1 szyfrowania magazynu jest przekazywana.
-    EncryptedContentKey | Utworzymy nową wartość klucza zawartości, która jest wartością 256-bitowego (32 bajtów). klucz Hello jest szyfrowana przy użyciu certyfikatu X.509 szyfrowania magazynu hello, którego możemy pobrać Microsoft Azure Media Services, wykonując żądanie HTTP GET dla hello GetProtectionKeyId i metod GetProtectionKey. Na przykład zobacz hello następującego kodu platformy .NET: hello **EncryptSymmetricKeyData** metody zdefiniowanej [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | To jest hello ochrony identyfikator klucza certyfikatu X.509 szyfrowania magazynu hello, który był używany tooencrypt naszych klucz zawartości.
-    ProtectionKeyType | Jest to typ szyfrowania hello hello ochrony klucza, który był używany tooencrypt hello zawartości klucz. Ta wartość jest StorageEncryption(1) w naszym przykładzie.
-    Sumy kontrolnej |Witaj MD5 obliczeniowej sumy kontrolnej dla hello klucz zawartości. Jest ona obliczana przez szyfrowanie hello identyfikatora zawartości z hello klucz zawartości. Witaj przykładowy kod pokazuje, jak toocalculate hello sumy kontrolnej.
+    Identyfikator | Identyfikator ContentKey, który mamy nad Generowanie w następującym formacie, "nb:kid:UUID:<NEW GUID>".
+    ContentKeyType | Typ klucza zawartości jest liczbą całkowitą dla tego klucza zawartości. Wartość 1 dla szyfrowania magazynu jest przekazywana.
+    EncryptedContentKey | Utworzymy nową wartość klucza zawartości, która jest wartością 256-bitowego (32 bajtów). Klucz jest zaszyfrowany przy użyciu certyfikatu X.509 szyfrowania magazynu, którego możemy pobrać Microsoft Azure Media Services, wykonując żądanie HTTP GET dla GetProtectionKeyId i metod GetProtectionKey. Na przykład zobacz następujący kod .NET: **EncryptSymmetricKeyData** metody zdefiniowanej [tutaj](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    ProtectionKeyId | To jest identyfikator klucza ochrony dla magazynu certyfikatu X.509 szyfrowania, który został użyty do zaszyfrowania naszych klucz zawartości.
+    ProtectionKeyType | Jest to typ szyfrowania dla klucza ochrony, który był używany do szyfrowania klucza zawartości. Ta wartość jest StorageEncryption(1) w naszym przykładzie.
+    Sumy kontrolnej |Obliczony sumy kontrolnej MD5 dla klucza zawartości. Jest ona obliczana przez szyfrowanie identyfikatora zawartości przy użyciu klucza zawartości. Przykład kodu pokazuje, jak można obliczyć sumy kontrolnej.
 
 
-### <a name="retrieve-hello-protectionkeyid"></a>Pobrać hello ProtectionKeyId
-Witaj poniższy przykład pokazuje, jak tooretrieve hello ProtectionKeyId, odcisk palca certyfikatu, hello certyfikatu, który należy użyć w przypadku szyfrowania kluczem zawartości. Wykonaj ten krok toomake upewnić się, że już hello odpowiedniego certyfikatu na tym komputerze.
+### <a name="retrieve-the-protectionkeyid"></a>Pobrać ProtectionKeyId
+Poniższy przykład pokazuje, jak pobrać ProtectionKeyId, odcisk palca certyfikatu, dla certyfikatu, którego należy użyć w przypadku szyfrowania kluczem zawartości. Wykonaj ten krok, aby się upewnić, że już ma odpowiedniego certyfikatu na tym komputerze.
 
 Żądanie:
 
@@ -138,8 +138,8 @@ Odpowiedź:
 
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-### <a name="retrieve-hello-protectionkey-for-hello-protectionkeyid"></a>Pobrać hello ProtectionKey dla hello ProtectionKeyId
-Witaj poniższy przykład przedstawia sposób certyfikatu X.509 hello tooretrieve przy użyciu hello ProtectionKeyId otrzymany hello poprzedniego kroku.
+### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Pobrać ProtectionKey ProtectionKeyId
+Poniższy przykład pokazuje, jak można pobrać certyfikatu X.509 przy użyciu ProtectionKeyId otrzymanego w poprzednim kroku.
 
 Żądanie:
 
@@ -172,12 +172,12 @@ Odpowiedź:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-### <a name="create-hello-content-key"></a>Utwórz klucz zawartości hello
-Po pobrać certyfikat X.509 hello i używać jej tooencrypt klucza publicznego klucza zawartości należy utworzyć **ContentKey** jednostki i ustaw jej właściwość odpowiednio wartości.
+### <a name="create-the-content-key"></a>Utwórz klucz zawartości
+Po pobrać certyfikat X.509 i używać swojego klucza publicznego do szyfrowania klucza zawartości należy utworzyć **ContentKey** jednostki i ustaw jej właściwość odpowiednio wartości.
 
-Jedna z wartości hello, że należy ustawić podczas tworzenia zawartości, że klucz jest typu hello hello. W przypadku szyfrowania magazynu hello wartość hello jest '1'. 
+Jedna z wartości, że należy ustawić podczas tworzenia zawartości klucza jest typem. W przypadku szyfrowania magazynu wartość "1". 
 
-powitania po przykładzie pokazano, jak toocreate **ContentKey** z **ContentKeyType** Konfiguracja do szyfrowania magazynu ("1") i hello **ProtectionKeyType** ustawiona zbyt "0" tooindicate, który hello ochrony klucza identyfikator jest odcisk palca certyfikatu X.509 hello.  
+Poniższy przykład przedstawia sposób tworzenia **ContentKey** z **ContentKeyType** ustawić szyfrowania magazynu ("1") i **ProtectionKeyType** ustawioną wartość "0", aby wskazać, że Klucz ochrony identyfikator jest odcisk palca certyfikatu X.509.  
 
 Żądanie
 
@@ -227,7 +227,7 @@ Odpowiedź:
     "Checksum":"calculated checksum"}
 
 ## <a name="create-an-asset"></a>Utwórz zasób
-powitania po przykładzie pokazano, jak toocreate zasób.
+Poniższy przykład pokazuje, jak utworzyć element zawartości.
 
 **Żądania HTTP**
 
@@ -245,7 +245,7 @@ powitania po przykładzie pokazano, jak toocreate zasób.
 
 **Odpowiedź HTTP**
 
-W przypadku powodzenia zwrócono hello następujące czynności:
+Jeśli to się powiedzie, jest zwracany następujące czynności:
 
     HTP/1.1 201 Created
     Cache-Control: no-cache
@@ -273,8 +273,8 @@ W przypadku powodzenia zwrócono hello następujące czynności:
        "StorageAccountName":"storagetestaccount001"
     }
 
-## <a name="associate-hello-contentkey-with-an-asset"></a>Skojarz hello ContentKey z zasobów
-Po utworzeniu hello ContentKey, skojarzyć ją z zawartości przy użyciu operacji hello $links, jak pokazano w hello poniższy przykład:
+## <a name="associate-the-contentkey-with-an-asset"></a>Skojarz ContentKey z zasobów
+Po utworzeniu ContentKey, skojarzyć ją z zawartości przy użyciu operacji $links, jak pokazano w poniższym przykładzie:
 
 Żądanie:
 
@@ -295,11 +295,11 @@ Odpowiedź:
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Utwórz AssetFile
-Witaj [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) jednostki reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów blob. Plik zasobów zawsze jest skojarzony z zasobem i zasobów może zawierać jeden lub wiele plików zasobów. Witaj Media Encoder usług zadanie nie powiedzie się, jeśli obiekt pliku zasobu nie jest skojarzony z pliku cyfrowego w kontenerze obiektów blob.
+[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) jednostki reprezentuje plik wideo lub audio, który jest przechowywany w kontenerze obiektów blob. Plik zasobów zawsze jest skojarzony z zasobem i zasobów może zawierać jeden lub wiele plików zasobów. Zadanie Media Encoder usługi nie powiedzie się, jeśli obiekt pliku zasobu nie jest skojarzony z pliku cyfrowego w kontenerze obiektów blob.
 
-Należy pamiętać, że hello **AssetFile** wystąpienia oraz plik multimedialna hello są dwa różne obiekty. wystąpienia AssetFile Hello zawiera metadane dotyczące plików multimedialnych hello, a plik multimedialny hello zawiera zawartość multimedialna hello.
+Należy pamiętać, że **AssetFile** wystąpienia oraz plik multimedialna są dwa różne obiekty. Wystąpienia AssetFile zawiera metadanych dotyczących pliku nośnika, a plik nośnika zawiera zawartość multimedialna.
 
-Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, użyje hello **scalania** żądania HTTP tooupdate hello AssetFile informacje o pliku nośnika (niewidoczny w tym temacie). 
+Po przekazaniu pliku nośnika cyfrowego do kontenera obiektów blob, którego użyjesz **scalania** żądania HTTP w celu zaktualizowania AssetFile informacje o pliku nośnika (niewidoczny w tym temacie). 
 
 **Żądania HTTP**
 

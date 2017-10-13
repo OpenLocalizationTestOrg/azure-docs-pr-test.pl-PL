@@ -1,32 +1,32 @@
 
-1. Zaloguj się na toohello [Azure Portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Kliknij kolejno pozycje **New** (Nowe), **Web + Mobile** (Sieci Web i mobilność), **Mobile Engagement**.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)
-3. W hello **nową kolekcję aplikacji usługi Engagement Mobile** wyświetlonym bloku, zostanie utworzony Kolekcja aplikacji zamiast aplikacji, takich jak w hello klasycznego portalu Azure. Wprowadź hello następujących informacji:
+3. W wyświetlonym bloku **New Mobile Engagement App Collection** (Nowa kolekcja aplikacji usługi Mobile Engagement) zostanie utworzona kolekcja aplikacji zamiast aplikacji, jak to ma miejsce w przypadku klasycznej witryny Azure Portal. Wprowadź następujące informacje:
    
     ![](./media/mobile-engagement-create-app-in-portal-new/new-azme-app.png)
    
    * **Name** (Nazwa): nazwa *kolekcji aplikacji* 
-   * **Platformy**: Wybierz platformy docelowe dla twojej aplikacji w bloku platform hello, który zostanie otwarty. Na przykład Jeśli chcesz utworzyć aplikację zarówno dla systemu iOS, jak i systemu Android, wybierz obie platformy, a otrzymasz dwie aplikacje utworzone w tej kolekcji aplikacji. 
+   * **Platforms** (Platformy): w otwartym bloku Platforms (Platformy) wybierz docelowe platformy dla swojej aplikacji. Na przykład Jeśli chcesz utworzyć aplikację zarówno dla systemu iOS, jak i systemu Android, wybierz obie platformy, a otrzymasz dwie aplikacje utworzone w tej kolekcji aplikacji. 
      
       ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
-   * **Subskrypcja**: Wybierz hello subskrypcji platformy Azure. 
-   * **Grupa zasobów**: grupy zasobów Azure hello wybierz, w której ma zostać tego zasobów platformy Azure (Mobile Engagement App kolekcji). Toocreate można wybrać nowe hasło.  
-   * **Lokalizacja**: regionu, gdzie będą przechowywane dane hello o tej aplikacji kolekcji & aplikacji.
-4. Przeglądać kolekcje aplikacji usługi Mobile Engagement hello klikając **Przeglądaj** i wyszukaj **Mobile Engagement**
+   * **Subscription** (Subskrypcja): wybierz subskrypcję platformy Azure. 
+   * **Resource group** (Grupa zasobów): wybierz grupę zasobów platformy Azure, w której chcesz umieścić określony zasób platformy Azure (kolekcja aplikacji usługi Mobile Engagement). Możesz też utworzyć nową grupę zasobów.  
+   * **Location** (Lokalizacja): region, w którym będą przechowywane dane dotyczące danej kolekcji aplikacji i samej aplikacji.
+4. Przeglądaj kolekcje aplikacji usługi Mobile Engagement, klikając pozycję **Przeglądaj**, i wyszukaj usługę **Mobile Engagement**
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-mobile-engagement-menu.png)
-5. Zostanie wyświetlona lista Mobile Engagement App kolekcji - upewnij się, że masz hello tej samej subskrypcji platformy Azure, w którym utworzono kolekcji aplikacji.
+5. Zostanie wyświetlona lista kolekcji aplikacji usługi Mobile Engagement — upewnij się, że masz tę samą subskrypcję platformy Azure, w której utworzono kolekcję aplikacji.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-mobile-engagement.png)
-6. Polecenie hello Kolekcja aplikacji, utworzony w tooopen poprzedniego kroku hello zapasowej hello bloku zasobów aplikacji kolekcji, który będzie widoczny hello różnych aplikacji istnieje w tej kolekcji aplikacji. 
+6. Kliknij kolekcję aplikacji utworzoną w poprzednim kroku, aby otworzyć blok zasobów kolekcji aplikacji, w którym będą wyświetlane różne aplikacje obecne w tej kolekcji. 
    
     ![](./media/mobile-engagement-create-app-in-portal-new/mobile-engagement-app-collection.png)
-7. Polecenie hello utworzone hello platformy, które tworzysz dla aplikacji. 
+7. Kliknij aplikację utworzoną dla platformy, dla której tworzysz oprogramowanie. 
    
     ![](./media/mobile-engagement-create-app-in-portal-new/mobile-engagement-app.png)
-8. Polecenie **informacje o połączeniu** przycisku polecenia w górnym tooopen hello zapasowej hello informacje o połączeniu bloku i skopiuj hello parametry połączenia z tego miejsca. 
+8. Kliknij przycisk polecenia **Informacje o połączeniu** znajdujący się u góry bloku, aby otworzyć blok Informacje o połączeniu, a następnie skopiuj parametry połączenia z tej lokalizacji. 
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 

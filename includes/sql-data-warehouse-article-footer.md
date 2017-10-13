@@ -1,6 +1,6 @@
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-Chcesz toostay się toodate wiadomości produktu? Czytaj nasz [blog] lub obserwuj nas w serwisie [Twitter] </br>
+Chcesz być na bieżąco z nowościami dotyczącymi produktów? Czytaj nasz [blog] lub obserwuj nas w serwisie [Twitter] </br>
 Masz wniosek dotyczący funkcji usługi SQL DW? Opublikuj go w witrynie [UserVoice] </br>
 Masz pytanie dotyczące produktu? Rozważ zadanie go w witrynie [MSDN] </br>
 Masz pytanie techniczne? Zadaj je w witrynie [StackOverflow]</br>

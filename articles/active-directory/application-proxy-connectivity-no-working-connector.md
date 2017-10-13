@@ -1,6 +1,6 @@
 ---
-title: "Znaleziono aaaNo pracy łącznika grupy dla aplikacji serwera Proxy aplikacji | Dokumentacja firmy Microsoft"
-description: "Rozwiąż problemy, które mogą wystąpić po nie pracy łącznika w grupie łącznika dla aplikacji z powitania serwera Proxy aplikacji usługi Azure AD"
+title: "Znaleziono żadnej grupy łącznika pracy dla aplikacji serwera Proxy aplikacji | Dokumentacja firmy Microsoft"
+description: "Rozwiąż problemy, które mogą wystąpić po nie pracy łącznika w grupie łącznika dla aplikacji z serwer Proxy aplikacji usługi Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,56 +13,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 4c4baf296b316db131929c9a7c618fb9960713e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4945958deedc8a1d9989ff901192c03a5363b4dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Nie znaleziono aplikacji serwera Proxy aplikacji grupy łącznika pracy
 
-Ten artykuł pomocy możesz tooresolve hello typowych problemów, które muszą ponieść gdy nie jest łącznika dla aplikacji serwera Proxy aplikacji wykryte zintegrowane z usługą Azure Active Directory.
+Ten artykuł pomocy można rozwiązywać typowe problemy, które muszą ponieść gdy nie jest łącznika dla aplikacji serwera Proxy aplikacji wykryte zintegrowane z usługą Azure Active Directory.
 
 ## <a name="overview-of-steps"></a>Omówienie kroków
-Jeśli nie ma żadnych pracy łącznika w grupie łącznika dla aplikacji, istnieje kilka sposobów tooresolve hello problemu:
+Jeśli nie ma żadnych pracy łącznika w grupie łącznika dla aplikacji, istnieje kilka sposobów, aby rozwiązać ten problem:
 
--   Jeśli w grupie hello nie łączników, można:
+-   Jeśli nie łączniki do grupy, można:
 
-    -   Pobierz nowy łącznik na powitania serwera lokalnego prawo i przypisz go toothis grupy
+    -   Pobierz nowy łącznik na serwerze lokalnego prawo i przypisz je do tej grupy
 
-    -   Przenieś do grupy hello łącznika usługi active
+    -   Przenieś łącznika usługi active do grupy
 
--   Jeśli nie łączniki active w grupie hello, można:
+-   Jeśli nie łączniki active w grupie, można:
 
-    -   Zidentyfikowanie przyczyny hello Twojego łącznika jest nieaktywny i rozwiązanie
+    -   Zidentyfikowanie przyczyny, dla której Twojego łącznika jest nieaktywny i rozwiązanie
 
-    -   Przenieś do grupy hello łącznika usługi active
+    -   Przenieś łącznika usługi active do grupy
 
-tooknow, który z nich jest hello problem, otwórz menu "Serwer Proxy aplikacji" hello w aplikacji i przyjrzyj komunikat ostrzegawczy hello grupy łącznika. Określ ją tej grupy hello wymaga co najmniej jeden łącznik (użytkownik nie masz żadnej grupy hello) lub że nie ma żadnych aktywnych łączników (Jeśli masz prawdopodobnie nieaktywne łączniki).
+Aby wiedzieć, który z nich jest problem, otwórz menu "Serwer Proxy aplikacji" w aplikacji i przyjrzyj się komunikat ostrzegawczy grupy łącznika. Określ go, że grupy wymaga co najmniej jeden łącznik (użytkownik nie masz żadnej grupy) lub że nie ma żadnych aktywnych łączników (Jeśli masz prawdopodobnie nieaktywne łączniki).
 
    ![Wybór grupy łącznika w portalu Azure](./media/application-proxy-connectivity-no-working-connector/no-active-connector.png)
 
-Aby uzyskać szczegółowe informacje na każdej z tych opcji zobacz hello odpowiedniej sekcji poniżej. Każdy z tych przyjęto założenie, uruchamiasz ze strony Zarządzanie hello łącznika. Jeśli przeglądasz hello komunikat o błędzie powyżej, można przejść przez kliknięcie komunikatu ostrzegawczego hello toothis strony. W przeciwnym razie ten znajduje się zbyt przechodząc**usługi Azure Active Directory**, klikając pozycję na **aplikacje dla przedsiębiorstw**, następnie **serwera Proxy aplikacji.**
+Aby uzyskać szczegółowe informacje na każdej z tych opcji zobacz odpowiedniej sekcji poniżej. Każdy z tych założono uruchamiasz na stronie zarządzania łącznika. Jeśli jest wyświetlany komunikat o błędzie powyżej, można przejść do tej strony, klikając w komunikacie ostrzegawczym. W przeciwnym razie to można znaleźć, przechodząc do **usługi Azure Active Directory**, klikając pozycję na **aplikacje dla przedsiębiorstw**, następnie **serwera Proxy aplikacji.**
 
    ![Łącznik grupy zarządzania w portalu Azure](./media/application-proxy-connectivity-no-working-connector/app-proxy.png)
 
 ## <a name="download-a-new-connector"></a>Pobierz nowy łącznik
 
-toodownload nowy łącznik, użyj przycisku "Pobierz łącznik" hello u góry hello hello strony.
+Aby pobrać nowy łącznik, przycisk "Pobierz łącznik" w górnej części strony.
 
-Uwaga hello łącznika potrzeb toobe zainstalowany na komputerze z aplikacją zaplecza toohello bezpośredniego procesów z wiersza i zwykle znajduje się na hello tym samym serwerze co aplikacja hello. Po pobraniu hello łącznika powinna pojawić się w tym menu. Kliknij hello łącznika, a następnie użyj toomake listy rozwijanej "Łącznik grupy" hello się, że należy toohello prawo grupy. Zapisz zmiany hello.
+Uwaga łącznika musi być zainstalowany na komputerze z bezpośredniego procesów of wiersza do wewnętrznej bazy danych aplikacji i zwykle znajduje się na tym samym serwerze co aplikacja. Po pobraniu, łącznik powinna pojawić się w tym menu. Kliknij łącznik i używając listy rozwijanej "łącznik grupy" Upewnij się, że należy on do grupy prawo. Zapisz zmiany.
 
-   ![Pobierz łącznik hello z hello portalu Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
+   ![Pobierz łącznik z portalu Azure](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
 ## <a name="move-an-active-connector"></a>Przenieś łącznika usługi Active
 
-Jeśli masz łącznika usługi active muszą należeć do grupy toohello i ma aplikacji zaplecza docelowej toohello procesów z wiersza hello łącznika można przenieść do grupy hello przypisane. toodo tak, kliknij przycisk hello łącznika. W polu "Łącznik grupy" hello Użyj hello tooselect listy rozwijanej hello prawidłowej grupy, a następnie kliknij przycisk Zapisz.
+Jeśli masz łącznika usługi active powinna należeć do grupy i ma procesów z wiersza do zaplecza aplikacji docelowej, można przenieść łącznika w przypisanej grupie. Aby to zrobić, kliknij przycisk łącznika. W polu "Łącznik grupy" Użyj listy rozwijanej wybierz poprawną grupę, a następnie kliknij przycisk Zapisz.
 
 ## <a name="resolve-an-inactive-connector"></a>Rozwiąż nieaktywne łącznika
 
-Czy hello tylko łączników w grupie hello są nieaktywne, mogą mieć na komputerze, na którym nie ma odblokowany wszystkie porty niezbędne hello.
+Jeśli nie są aktywne tylko łączników w grupie, prawdopodobnie na komputerze, na którym nie ma wszystkie niezbędne porty odblokowany.
 
-Zobacz porty hello dokumentu rozwiązywanie szczegółowe informacje dotyczące badania ten problem.
+znaleźć w dokumencie Rozwiązywanie problemów dotyczących portów szczegółowe badanie tego problemu.
 
 ## <a name="next-steps"></a>Następne kroki
 [Zrozumienie łączniki serwera Proxy aplikacji usługi Azure AD](application-proxy-understand-connectors.md)

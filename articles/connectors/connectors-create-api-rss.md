@@ -1,6 +1,6 @@
 ---
-title: "Łącznik aaaRSS w programie Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Łącznik RSS umożliwia hello toopublish użytkowników i pobieranie elementów strumieniowego źródła danych. Użytkownicy mogą również hello operacji tootrigger przypadku nowy element opublikowanych toohello źródła danych."
+title: "Łącznik RSS w programie Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Tworzenie aplikacji logiki z usługi aplikacji Azure. Łącznik RSS umożliwia użytkownikom publikowanie i pobieranie elementów strumieniowego źródła danych. Umożliwia również użytkownikom wyzwalanie operacji po opublikowaniu nowego elementu do źródła danych."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 973ce930f5fa7226a918feebe0f9addef14f34e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 308d78550e9e60303b70d591eb4e6bfff3e49ce7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-rss-connector"></a>Rozpoczynanie pracy z hello łącznik RSS
-Funkcja RSS jest toopublish format używany zespolony popularnym sieci web często aktualizowana zawartości, takich jak wpisy blogu i nagłówki wiadomości.  Wielu dostawców zawartości znajdują się tooallow użytkowników toosubscribe tooit źródła danych RSS.  Użyj tooretrieve łącznik RSS hello źródła danych informacji i wyzwalacz przepływu, gdy nowe elementy są publikowane w źródła danych RSS.
+# <a name="get-started-with-the-rss-connector"></a>Rozpoczynanie pracy z łącznik RSS
+Funkcja RSS jest formacie zespolonego popularnych sieci web używany do publikowania zawartości często aktualizowanych — takich jak wpisy blogu i nagłówki wiadomości.  Wiele wydawcom Podaj źródło danych RSS, aby użytkownicy mogli go subskrybować.  Łącznik RSS umożliwia pobrać źródła informacji i wyzwalacz przepływu, gdy nowe elementy są publikowane w źródła danych RSS.
 
 Rozpoczynanie pracy przez teraz tworzenie aplikacji logiki, zobacz [tworzenie aplikacji logiki](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-toorss"></a>Tworzenie tooRSS połączenia
-> [!INCLUDE [Steps toocreate a connection tooan RSS feed](../../includes/connectors-create-api-rss.md)]
+## <a name="create-a-connection-to-rss"></a>Utwórz połączenie danych RSS
+> [!INCLUDE [Steps to create a connection to an RSS feed](../../includes/connectors-create-api-rss.md)]
 > 
 
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
-Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w hello swagger i zobacz też żadnych limitów w hello [szczegóły łącznika](/connectors/rss/).
+Wyświetl wszystkie wyzwalacze i akcje zdefiniowane w swagger i zobacz też żadnych limitów w [szczegóły łącznika](/connectors/rss/).
 
 ## <a name="more-connectors"></a>Więcej łączników
-Przejdź wstecz toohello [listy interfejsów API](apis-list.md).
+Wróć do [listy interfejsów API](apis-list.md).

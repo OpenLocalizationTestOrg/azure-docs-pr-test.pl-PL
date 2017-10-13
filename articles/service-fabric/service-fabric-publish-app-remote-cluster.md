@@ -1,6 +1,6 @@
 ---
-title: aaaPublish klastra zdalnego tooa aplikacji z programem Visual Studio | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak toopublish sieci szkieletowej zdalny tooa aplikacji klastra za pomocą programu Visual Studio."
+title: Publikowanie aplikacji do zdalnego klastra z programem Visual Studio | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak opublikować aplikację do zdalnej usługi klastra sieci szkieletowej w programie Visual Studio."
 services: service-fabric
 documentationcenter: na
 author: cawams
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/29/2016
 ms.author: cawa
-ms.openlocfilehash: d0f06f120cc7e22f3f8e73ce0970e1da5823e647
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c440c520d84fc503ff9e705555449e92555d4721
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-and-remove-applications-using-visual-studio"></a>Wdrażanie i usunąć aplikacje przy użyciu programu Visual Studio
 > [!div class="op_single_selector"]
@@ -30,82 +30,82 @@ ms.lasthandoff: 10/06/2017
 
 <br/>
 
-Hello rozszerzenia sieć szkieletowa usług Azure dla programu Visual Studio udostępnia toopublish łatwe, powtarzalnych i skryptowe sposób klastra sieci szkieletowej usług tooa aplikacji.
+Rozszerzenia sieć szkieletowa usług Azure dla programu Visual Studio zapewnia łatwe, powtarzalnych i skryptowe sposób publikowania aplikacji do klastra usługi sieć szkieletowa usług.
 
-## <a name="hello-artifacts-required-for-publishing"></a>Artefakty Hello wymagane do opublikowania
+## <a name="the-artifacts-required-for-publishing"></a>Artefakty wymagane do opublikowania
 ### <a name="deploy-fabricapplicationps1"></a>Wdrażanie FabricApplication.ps1
-Jest to skrypt PowerShell, który używa ścieżkę profilu publikowania jako parametr do publikowania aplikacji sieci szkieletowej usług. Ponieważ ten skrypt jest częścią aplikacji, są toomodify powitalnej go odpowiednio do potrzeb aplikacji.
+Jest to skrypt PowerShell, który używa ścieżkę profilu publikowania jako parametr do publikowania aplikacji sieci szkieletowej usług. Ponieważ ten skrypt jest częścią aplikacji, to Zapraszamy zmodyfikuj go odpowiednio do potrzeb aplikacji.
 
 ### <a name="publish-profiles"></a>Profilów publikowania
-Folder w projekt aplikacji hello sieci szkieletowej usług o nazwie **PublishProfiles** zawiera pliki XML, które przechowują informacje niezbędne do publikowania aplikacji, takich jak:
+Folder projektu aplikacji sieci szkieletowej usług o nazwie **PublishProfiles** zawiera pliki XML, które przechowują informacje niezbędne do publikowania aplikacji, takich jak:
 
 * Parametry połączenia klastra sieci szkieletowej usług
-* Plik parametrów aplikacji tooan ścieżki
+* Ścieżka do pliku parametrów aplikacji
 * Ustawienia uaktualniania
 
-Domyślnie aplikacja obejmuje trzy profilów publikowania: Local.1Node.xml, Local.5Node.xml i Cloud.xml. Możesz dodać więcej profilów kopiując i wklejając jedną hello domyślnych plików.
+Domyślnie aplikacja obejmuje trzy profilów publikowania: Local.1Node.xml, Local.5Node.xml i Cloud.xml. Można dodać więcej profilów, kopiując i wklejając jedną z domyślnych plików.
 
 ### <a name="application-parameter-files"></a>Pliki parametrów aplikacji
-Folder w projekt aplikacji hello sieci szkieletowej usług o nazwie **ApplicationParameters** zawiera pliki XML dla wartości parametru manifestu aplikacji określone przez użytkownika. Pliki manifestu aplikacji mogą nadać parametry, dzięki czemu można użyć innych wartości dla ustawienia wdrażania. Zobacz toolearn więcej informacji na temat aplikacji, ustawianie [Zarządzanie wiele środowisk w sieci szkieletowej usług](service-fabric-manage-multiple-environment-app-configuration.md).
+Folder projektu aplikacji sieci szkieletowej usług o nazwie **ApplicationParameters** zawiera pliki XML dla wartości parametru manifestu aplikacji określone przez użytkownika. Pliki manifestu aplikacji mogą nadać parametry, dzięki czemu można użyć innych wartości dla ustawienia wdrażania. Aby dowiedzieć się więcej na temat parametryzacja aplikacji, zobacz [Zarządzanie wiele środowisk w sieci szkieletowej usług](service-fabric-manage-multiple-environment-app-configuration.md).
 
 > [!NOTE]
-> Dla usług aktora powinno utworzyć projekt hello najpierw przed podjęciem próby wykonania tooedit hello plik w edytorze lub za pośrednictwem hello opublikować okno dialogowe. Jest to spowodowane część pliki manifestu hello zostanie wygenerowana podczas kompilacji hello.
+> Dla usług aktora należy utworzyć przed próbą wykonania można edytować plik w edytorze lub za pomocą okna dialogowego publikowania projektu. Jest to spowodowane część pliki manifestu zostanie wygenerowana podczas kompilacji.
 
-## <a name="toopublish-an-application-using-hello-publish-service-fabric-application-dialog-box"></a>toopublish aplikacji przy użyciu okno dialogowe hello publikowania aplikacji sieci szkieletowej usług
-Witaj następująca procedura przedstawia sposób hello toopublish aplikacji przy użyciu **publikowania aplikacji sieci szkieletowej usług** okno dialogowe podał hello Visual Studio Service Fabric Tools.
+## <a name="to-publish-an-application-using-the-publish-service-fabric-application-dialog-box"></a>Aby opublikować aplikację przy użyciu okna dialogowego publikowanie aplikacji sieci szkieletowej usług
+Następująca procedura przedstawia sposób publikowania aplikacji przy użyciu **publikowania aplikacji sieci szkieletowej usług** okno dialogowe dostarczane za pomocą narzędzi Visual Studio usługi sieci szkieletowej.
 
-1. W menu skrótów hello hello projektu aplikacji sieci szkieletowej usług, wybierz **publikowania...** Witaj tooview **publikowania aplikacji sieci szkieletowej usług** okno dialogowe.
+1. W menu skrótów projektu aplikacji sieci szkieletowej usług wybierz **publikowania...** Aby wyświetlić **publikowania aplikacji sieci szkieletowej usług** okno dialogowe.
    
-    ![Witaj ** opublikować usługi sieci szkieletowej aplikacji ** — okno dialogowe][0]
+    ![** Opublikować usługi sieci szkieletowej aplikacji ** — okno dialogowe][0]
    
-    Hello pliku wybranego w hello **docelowego profilu** jest lista rozwijana, gdy wszystkie ustawienia hello, z wyjątkiem **manifestu wersji**, są zapisywane. Można ponownie użyć istniejącego profilu lub utworzyć nową, wybierając **<... zarządzania profilami >** w hello **docelowego profilu** pole listy rozwijanej. Po wybraniu profilu publikowania, jego zawartość jest wyświetlana w odpowiednie pola hello hello okna dialogowego. toosave zmiany w dowolnym momencie, wybierz hello **Zapisz profil** łącza.    
-2. W hello **punktu końcowego połączenia** Określ punkt końcowy publikowania lokalnego lub zdalnego klastra sieci szkieletowej usług firmy. tooadd lub zmień hello punktu końcowego połączenia, kliknij na powitania **punktu końcowego połączenia** listy rozwijanej. Witaj przedstawiono hello dostępne sieci szkieletowej usług klastrowania połączenia punkty końcowe toowhich, który można opublikować oparte na subskrypcjach platformy Azure. Należy zauważyć, że jeśli tooVisual Studio nie jest już zalogowany, będzie zostanie wyświetlony monit o toodo tak.
+    Wybrany plik w **docelowe profilu** jest lista rozwijana, gdy wszystkie ustawienia, z wyjątkiem **manifestu wersji**, są zapisywane. Można ponownie użyć istniejącego profilu lub utworzyć nową, wybierając **<... zarządzania profilami >** w **docelowego profilu** pole listy rozwijanej. Po wybraniu profilu publikowania, jego zawartość jest wyświetlana w odpowiednich polach okna dialogowego. Aby zapisać zmiany w dowolnym momencie, wybierz **Zapisz profil** łącza.    
+2. W **punktu końcowego połączenia** Określ punkt końcowy publikowania lokalnego lub zdalnego klastra sieci szkieletowej usług firmy. Aby dodać lub zmienić punktu końcowego połączenia, kliknij na **punktu końcowego połączenia** listy rozwijanej. Lista zawiera klastra usługi sieć szkieletowa dostępne punkty końcowe połączenia do których można opublikować oparte na subskrypcjach platformy Azure. Należy pamiętać, że jeśli użytkownik nie jest już zalogowany do programu Visual Studio, pojawi się monit Aby to zrobić.
    
-    Użyj hello toochoose pole okna dialogowego wyboru klastra z zestawu hello dostępnych subskrypcji i klastrów.
+    Użyj okna dialogowego wyboru klastra do wyboru zbiór dostępnych subskrypcji i klastrów.
    
-    ![Witaj ** okno dialogowe Wybieranie usługi sieć szkieletowa klastra **][1]
+    ![** Okno dialogowe Wybieranie usługi sieć szkieletowa klastra **][1]
    
    > [!NOTE]
-   > Jeśli chcesz toopublish tooan dowolnego punktu końcowego (na przykład strona klastra), zobacz hello **publikowania punktu końcowego dowolnego klastra tooan** poniższej sekcji.
+   > Jeśli chcesz opublikować do dowolnego punktu końcowego (na przykład strona klastra), zobacz **publikowania do punktu końcowego dowolnego klastra** poniższej sekcji.
    > 
    > 
    
-    Po wybraniu punktu końcowego programu Visual Studio weryfikuje klastra sieci szkieletowej usług toohello wybrane połączenia hello. Jeśli hello klastra nie jest bezpieczne, Visual Studio można połączyć z tooit natychmiast. Jednak jeśli klaster hello jest bezpieczne, konieczne będzie tooinstall certyfikatu na komputerze lokalnym przed kontynuowaniem. Zobacz [jak tooconfigure bezpiecznych połączeń](service-fabric-visualstudio-configure-secure-connections.md) Aby uzyskać więcej informacji. Gdy wszystko będzie gotowe, wybierz hello **OK** przycisku. Witaj wybranego klastra jest wyświetlana w hello **publikowania aplikacji sieci szkieletowej usług** okno dialogowe.
-3. W hello **plik parametrów aplikacji** listy rozwijanej wybierz plik parametrów aplikacji tooan. Plik parametrów aplikacji zostały określone przez użytkownika wartości dla parametrów w pliku manifestu aplikacji hello. tooadd lub zmień parametr, wybierz hello **Edytuj** przycisku. Wprowadź lub zmień wartość parametru hello hello **parametrów** siatki. Gdy wszystko będzie gotowe, wybierz hello **zapisać** przycisku.
+    Po wybraniu punktu końcowego programu Visual Studio weryfikuje połączenie wybrany klaster sieci szkieletowej usług. Jeśli klaster nie jest bezpieczne, Visual Studio można się z nim połączyć natychmiast. Jednak jeśli klaster jest bezpieczne, należy zainstalować certyfikat na komputerze lokalnym przed kontynuowaniem. Zobacz [jak skonfigurować bezpieczne połączenia](service-fabric-visualstudio-configure-secure-connections.md) Aby uzyskać więcej informacji. Gdy wszystko będzie gotowe, wybierz pozycję **OK** przycisku. Wybrany klaster jest wyświetlana w **publikowania aplikacji sieci szkieletowej usług** okno dialogowe.
+3. W **plik parametrów aplikacji** listy rozwijanej wybierz opcję plik parametrów aplikacji. Plik parametrów aplikacji zostały określone przez użytkownika wartości dla parametrów w pliku manifestu aplikacji. Aby dodać lub zmienić parametr, wybierz **Edytuj** przycisku. Wprowadź lub zmień wartość parametru **parametrów** siatki. Gdy wszystko będzie gotowe, wybierz pozycję **zapisać** przycisku.
    
-    ![Witaj ** okno dialogowe Edytowanie parametrów **][2]
-4. Użyj hello **hello uaktualniania aplikacji** toospecify wyboru czy opublikować to działanie jest uaktualnienie. Uaktualnienie publikowania akcje różnią się od normalnego publikowania akcje. Zobacz [uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md) listę różnic. Ustawienia uaktualniania tooconfigure, wybierz hello **skonfigurować ustawienia uaktualnienia** łącza. zostanie wyświetlony Hello Edytor parametr uaktualnienia. Zobacz [skonfigurować hello uaktualnienie aplikacji usługi sieć szkieletowa](service-fabric-visualstudio-configure-upgrade.md) toolearn więcej informacji na temat uaktualniania parametrów.
-5. Wybierz hello **wersji manifestu...** przycisk tooview hello **edytować wersji** okno dialogowe. Dla miejsca tootake uaktualnienia należy tooupdate aplikacji i wersji usługi. Zobacz [samouczek uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade-tutorial.md) toolearn jak aplikacji i wersji manifestu usługi wpływ procesu uaktualniania.
+    ![** Okno dialogowe Edytowanie parametrów **][2]
+4. Użyj **uaktualnienie aplikacji** pole wyboru, aby określić, czy publikować to działanie jest uaktualnienie. Uaktualnienie publikowania akcje różnią się od normalnego publikowania akcje. Zobacz [uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade.md) listę różnic. Aby skonfigurować ustawienia uaktualnienia, wybierz **skonfigurować ustawienia uaktualnienia** łącza. Zostanie wyświetlony Edytor parametr uaktualnienia. Zobacz [skonfigurować uaktualniania aplikacji usługi Service Fabric](service-fabric-visualstudio-configure-upgrade.md) Aby dowiedzieć się więcej na temat uaktualniania parametrów.
+5. Wybierz **wersji manifestu...** przycisk, aby wyświetlić **edytować wersji** okno dialogowe. Musisz zaktualizować wersje aplikacji i usługi do uaktualnienia została wykonana. Zobacz [samouczek uaktualniania aplikacji sieci szkieletowej usług](service-fabric-application-upgrade-tutorial.md) Aby dowiedzieć się więcej, wpływ procesu uaktualniania aplikacji i wersji manifestu usługi.
    
-    ![Witaj ** okno dialogowe Edytowanie wersji **][3]
+    ![** Okno dialogowe Edytowanie wersji **][3]
    
-    Użycie aplikacji hello i wersji usługi wersjonowania semantycznego, takie jak 1.0.0 lub wartości liczbowe w formacie hello 1.0.0.0, wybierz hello **automatycznie Aktualizuj wersje aplikacji i usługi** opcji. Jeśli możesz wybrać tę opcję, usługa hello i numery wersji aplikacji są automatycznie aktualizowane przy każdym code, config lub wersja pakietu danych jest aktualizowany. Jeśli wolisz wersji hello tooedit ręcznie, wyczyść toodisable wyboru hello tej funkcji.
+    Użycie aplikacji i wersji usługi wersjonowania semantycznego, takie jak 1.0.0 lub wartości liczbowe w formacie 1.0.0.0, wybierz **automatycznie Aktualizuj wersje aplikacji i usługi** opcji. Po wybraniu tej opcji, usługi i numery wersji aplikacji są automatycznie aktualizowane przy każdym wersja pakietu kodu, konfiguracji lub danych jest aktualizowana. Jeśli wolisz edytować wersje ręcznie, wyczyść pole wyboru, aby wyłączyć tę funkcję.
    
    > [!NOTE]
-   > Na wszystkich tooappear wpisy pakiet w projekcie aktora najpierw utworzyć toogenerate projektu hello hello wpisów w plikach manifestu usługi hello.
+   > W przypadku wszystkich wpisów pakietu się pojawić w projekcie aktora najpierw Skompiluj projekt, aby wygenerować zapisów w plikach manifestu usługi.
    > 
    > 
-6. Po zakończeniu określania wszystkie niezbędne ustawienia hello, wybierz hello **publikowania** przycisk toopublish Twojego toohello aplikacji wybrany klaster sieci szkieletowej usług. są stosowane ustawienia Hello toohello publikowania procesu.
+6. Po zakończeniu określania wszystkie niezbędne ustawienia, wybierz **publikowania** przycisk, aby opublikować aplikację do wybranej klastra sieci szkieletowej usług. Określone ustawienia są stosowane do proces publikowania.
 
-## <a name="publish-tooan-arbitrary-cluster-endpoint-including-party-clusters"></a>Opublikuj punkt końcowy dowolnego klastra tooan (w tym klastrów firmy)
-Witaj publikowania środowiska Visual Studio jest zoptymalizowana pod kątem publikowania klastry tooremote skojarzone z jednej z Twoich subskrypcji platformy Azure. Jednak jest możliwe toopublish tooarbitrary z punktów końcowych (takich jak klastry strona usługi Service Fabric) przez bezpośredniej edycji hello publikowania profilu XML. Zgodnie z powyższym opisem trzech profilów publikowania znajdują się domyślnie —**Local.1Node.xml**, **Local.5Node.xml**, i **Cloud.xml**—, ale są toocreate-Zapraszamy! dodatkowe profile dla różnych środowisk. Na przykład może być toocreate profil publikowania tooparty klastrów, być może o nazwie **Party.xml**.
+## <a name="publish-to-an-arbitrary-cluster-endpoint-including-party-clusters"></a>Publikowanie do dowolnego klastra punktu końcowego (w tym klastrów firmy)
+Visual Studio publikowania środowisko jest zoptymalizowany do publikowania w zdalnych klastrów skojarzone z jednej z Twoich subskrypcji platformy Azure. Jednak istnieje możliwość publikowania do dowolnych punktów końcowych (takich jak klastry strona usługi Service Fabric), bezpośrednio edytując format XML profilu publikowania. Zgodnie z powyższym opisem trzech profilów publikowania znajdują się domyślnie —**Local.1Node.xml**, **Local.5Node.xml**, i **Cloud.xml**— ale można utworzyć — Zapraszamy dodatkowe profile dla różnych środowisk. Na przykład możesz utworzyć profil publikowania do klastrów firm, być może o nazwie **Party.xml**.
 
-Jeśli łączysz tooan niezabezpieczone klastra hello punktu końcowego połączenia klastra, wszystkie, która jest wymagana jest takie jak `partycluster1.eastus.cloudapp.azure.com:19000`. W tym przypadku hello punktu końcowego połączenia w hello publikowania profil powinien wyglądać mniej więcej tak:
+Jeśli łączysz się z niezabezpieczoną klastra punktu końcowego połączenia klastra, wszystkie, która jest wymagana jest takich jak `partycluster1.eastus.cloudapp.azure.com:19000`. W takim przypadku punktu końcowego połączenia w profilu publikowania wyglądać mniej więcej tak:
 
 ```XML
 <ClusterConnectionParameters ConnectionEndpoint="partycluster1.eastus.cloudapp.azure.com:19000" />
 ```
 
-  Jeśli łączysz tooa zabezpieczonych klastra konieczne będzie również szczegóły hello tooprovide hello certyfikatu klienta z toobe magazynu lokalnego hello używany do uwierzytelniania. Aby uzyskać więcej informacji, zobacz [klastra sieci szkieletowej usług tooa bezpiecznych połączeń Konfigurowanie](service-fabric-visualstudio-configure-secure-connections.md).
+  Jeśli łączysz się zabezpieczonych klastra, należy również podać szczegóły certyfikatu klienta z lokalnego magazynu mają być używane do uwierzytelniania. Aby uzyskać więcej informacji, zobacz [Konfigurowanie bezpiecznych połączeń do klastra usługi sieć szkieletowa](service-fabric-visualstudio-configure-secure-connections.md).
 
-  Po skonfigurowaniu swój profil publikowania, możesz odwoływać się do niej w hello okno dialogowe publikowanie, jak pokazano poniżej.
+  Po skonfigurowaniu swój profil publikowania, możesz odwoływać się do niej w oknie dialogowym Publikowanie w sposób przedstawiony poniżej.
 
   ![Nowy profil publikowania w publikowania — okno dialogowe][4]
 
-  Należy pamiętać, że w takim przypadku hello nowego profilu publikowania punktów tooone pliki parametrów aplikacji hello w domyślnej. Jest to odpowiednie, jeśli chcesz toopublish hello numer tooa konfiguracji aplikacji tego samego środowiska. Z kolei w przypadkach, w którym ma toohave różne konfiguracje dla poszczególnych środowisk, który ma toopublish do Czy rozsądne toocreate znaczeniu plik parametrów aplikacji.
+  Należy pamiętać, że w takim przypadku nowy profil publikowania punktów do jednego z domyślnych plików parametr aplikacji. Jest to odpowiednie, jeśli chcesz opublikować taką samą konfigurację aplikacji w wielu środowiskach. Z kolei w przypadkach, gdy mają różne konfiguracje dla poszczególnych środowisk, który chcesz opublikować, powinna mieć Aby utworzyć plik parametrów aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
-proces publikowania hello tooautomate w środowisku ciągłej integracji, zobacz temat toolearn [Konfigurowanie ciągłej integracji usługi sieć szkieletowa](service-fabric-set-up-continuous-integration.md).
+Aby dowiedzieć się, jak zautomatyzować proces publikowania w środowisku ciągłej integracji, zobacz [Konfigurowanie ciągłej integracji usługi sieć szkieletowa](service-fabric-set-up-continuous-integration.md).
 
 [0]: ./media/service-fabric-publish-app-remote-cluster/PublishDialog.png
 [1]: ./media/service-fabric-publish-app-remote-cluster/SelectCluster.png

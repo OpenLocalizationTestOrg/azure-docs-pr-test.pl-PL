@@ -1,5 +1,5 @@
-1. W Twojej **aplikacji** projektu, hello Otwórz plik `AndroidManifest.xml`. W kodzie hello w hello następne dwa kroki, Zastąp  *`**my_app_package**`*  o nazwie hello hello pakietu aplikacji dla projektu. Jest to wartość hello hello `package` atrybutu hello `manifest` tagu.
-2. Dodaj następujące nowe uprawnienia po istniejących hello hello `uses-permission` elementu:
+1. W Twojej **aplikacji** projekt, otwórz plik `AndroidManifest.xml`. W kodzie następne dwa kroki, Zastąp  *`**my_app_package**`*  z nazwą pakietu aplikacji dla projektu. Jest to wartość `package` atrybutu `manifest` znacznika.
+2. Dodaj następujące nowe uprawnienia po istniejącej `uses-permission` elementu:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE"
             android:protectionLevel="signature" />
@@ -7,7 +7,7 @@
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
-3. Dodaj następującego kodu po hello hello `application` tagu początkowego:
+3. Dodaj następujący kod po `application` tagu początkowego:
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
                                          android:permission="com.google.android.c2dm.permission.SEND">
@@ -16,24 +16,24 @@
                 <category android:name="**my_app_package**" />
             </intent-filter>
         </receiver>
-4. Otwórz hello pliku *ToDoActivity.java*i Dodaj powitania po instrukcji importu:
+4. Otwórz plik *ToDoActivity.java*i dodaj następującą instrukcję import:
 
         import com.microsoft.windowsazure.notifications.NotificationsManager;
-5. Dodaj następujące klasy prywatnej zmiennej toohello hello. Zastąp  *`<PROJECT_NUMBER>`*  numerem projektu hello przypisane przez aplikację tooyour Google w hello powyższej procedury.
+5. Dodaj następujące prywatne zmienną do klasy. Zastąp  *`<PROJECT_NUMBER>`*  numer projektu przypisany przez firmę Google do aplikacji w poprzedniej procedurze.
 
         public static final String SENDER_ID = "<PROJECT_NUMBER>";
-6. Zmiana definicji hello *MobileServiceClient* z **prywatnej** za**publiczne statyczne**, więc teraz wygląda następująco:
+6. Zmień definicję *MobileServiceClient* z **prywatnej** do **publiczne statyczne**, więc teraz wygląda następująco:
 
         public static MobileServiceClient mClient;
-7. Dodawanie nowych powiadomień toohandle klasy. W Eksploratorze projektu otwórz hello **src** > **głównego** > **java** węzłów, a następnie kliknij prawym przyciskiem myszy hello pakietu Nazwa węzła. Kliknij przycisk **nowy**, a następnie kliknij przycisk **Klasa Java**.
+7. Dodaj nową klasę do obsługi powiadomień. Otwórz w Eksploratorze projektu **src** > **głównego** > **java** węzłów, a następnie kliknij prawym przyciskiem myszy węzeł nazwę pakietu. Kliknij przycisk **nowy**, a następnie kliknij przycisk **Klasa Java**.
 8. W **nazwa**, typ `MyHandler`, a następnie kliknij przycisk **OK**.
 
     ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
 
-9. W pliku MyHandler hello Zastąp hello deklaracji klasy z:
+9. W pliku MyHandler Zastąp deklaracji klasy z:
 
         public class MyHandler extends NotificationsHandler {
-10. Dodaj następujące instrukcje importu dla hello hello `MyHandler` klasy:
+10. Dodaj następujące instrukcje importu dla `MyHandler` klasy:
 
         import com.microsoft.windowsazure.notifications.NotificationsHandler;
         import android.app.NotificationManager;
@@ -43,10 +43,10 @@
         import android.os.AsyncTask;
         import android.os.Bundle;
         import android.support.v4.app.NotificationCompat;
-11. Następnie dodać ten element członkowski toohello `MyHandler` klasy:
+11. Następnie dodać ten element członkowski do `MyHandler` klasy:
 
         public static final int NOTIFICATION_ID = 1;
-12. W hello `MyHandler` klasy, Dodaj hello następującego kodu toooverride hello **onRegistered** metodę, która rejestruje urządzenie z Centrum powiadomień hello usługi mobilnej.
+12. W `MyHandler` klasy, Dodaj następujący kod, aby zastąpić **onRegistered** metodę, która rejestruje urządzenie w Centrum powiadomień usługi mobilnej.
 
         @Override
         public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -66,7 +66,7 @@
                }
            }.execute();
        }
-13. W hello `MyHandler` klasy, Dodaj hello następującego kodu toooverride hello **zdarzenia onReceive** metodę, która powoduje, że toodisplay powiadomień powitania po odebraniu.
+13. W `MyHandler` klasy, Dodaj następujący kod, aby zastąpić **zdarzenia onReceive** metodę, która powoduje, że powiadomienie, aby wyświetlić po odebraniu.
 
         @Override
         public void onReceive(Context context, Bundle bundle) {
@@ -89,8 +89,8 @@
                        context.getSystemService(Context.NOTIFICATION_SERVICE);
                notificationManager.notify(NOTIFICATION_ID, notification);
        }
-14. W pliku TodoActivity.java hello, zaktualizuj hello **onCreate** metody hello *ToDoActivity* klasy tooregister hello powiadomień obsługi klasy. Upewnij się, że tooadd ten kod po hello *MobileServiceClient* zostanie uruchomiony.
+14. W pliku TodoActivity.java aktualizacji **onCreate** metody *ToDoActivity* klasy można zarejestrować klasy obsługi powiadomień. Upewnij się, że Dodaj ten kod po *MobileServiceClient* zostanie uruchomiony.
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-    Aplikacja jest teraz zaktualizowane toosupport powiadomień wypychanych.
+    Aplikacja jest teraz zaktualizowana do obsługi powiadomień wypychanych.

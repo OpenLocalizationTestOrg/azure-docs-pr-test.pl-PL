@@ -1,6 +1,6 @@
 ---
-title: Rozpoczynanie pracy z katalogu hello U-SQL | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak hello toouse U-SQL w katalogu tooshare kodu i danych."
+title: Rozpoczynanie pracy z katalogu U-SQL | Dokumentacja firmy Microsoft
+description: "Informacje o sposobie korzystania z katalogu U-SQL do udostępniania kodu i danych."
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: edmaca
-ms.openlocfilehash: 559bb7a3879031eb290a3e82946d7bf42ac9f553
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 08364c6c7bea53807844e3b1cc327dc3742e0487
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-u-sql-catalog"></a>Rozpoczynanie pracy z hello katalogu U-SQL
+# <a name="get-started-with-the-u-sql-catalog"></a>Rozpoczynanie pracy z katalogu U-SQL
 
 ## <a name="create-a-tvf"></a>Tworzenie funkcji TVF
 
-W poprzednich skryptu U-SQL hello powtarzany hello stosowania tooread WYODRĘBNIANIA z hello tego samego pliku źródłowego. Z hello U-SQL funkcji zwracającej tabelę (TVF) umożliwiająca Hermetyzowanie hello danych w celu wykorzystania w przyszłości.  
+W poprzednich skryptu U-SQL powtarza się użycie WYODRĘBNIANIA do odczytu z tego samego pliku źródłowego. Funkcją U-SQL zwracającej tabelę (TVF) umożliwiająca Hermetyzowanie danych w celu wykorzystania w przyszłości.  
 
-Witaj poniższy skrypt tworzy funkcji TVF o nazwie `Searchlog()` hello domyślnej bazy danych i schematu:
+Poniższy skrypt tworzy funkcji TVF o nazwie `Searchlog()` w domyślnej bazy danych i schemat:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -57,7 +57,7 @@ RETURN;
 END;
 ```
 
-Witaj następującego skryptu pokazuje, jak toouse hello funkcji TVF, która została zdefiniowana w skrypcie poprzedniej hello:
+Poniższy skrypt pokazuje, jak używać funkcji TVF zdefiniowanego w poprzedniej skryptu:
 
 ```
 @res =
@@ -69,16 +69,16 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    too"/output/SerachLog-use-tvf.csv"
+    TO "/output/SerachLog-use-tvf.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
 ## <a name="create-views"></a>Tworzenie widoków
 
-Jeśli masz wyrażenia jednego zapytania, zamiast funkcji TVF możesz użyć tooencapsulate U-SQL WIDOKU tego wyrażenia.
+Jeśli masz wyrażenia jednego zapytania, zamiast funkcji TVF możesz użyć WIDOKU U-SQL hermetyzacji tego wyrażenia.
 
-Witaj poniższy skrypt tworzy widok o nazwie `SearchlogView` hello domyślnej bazy danych i schematu:
+Poniższy skrypt tworzy widok o nazwie `SearchlogView` w domyślnej bazy danych i schemat:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -95,7 +95,7 @@ CREATE VIEW SearchlogView AS
 USING Extractors.Tsv();
 ```
 
-Hello następującego skryptu przedstawiono użycie hello hello definicja widoku:
+Poniższy skrypt pokazuje użycie zdefiniowano widoku:
 
 ```
 @res =
@@ -107,15 +107,15 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    too"/output/Searchlog-use-view.csv"
+    TO "/output/Searchlog-use-view.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
 ## <a name="create-tables"></a>Tworzenie tabel
-Zgodnie z tabelami relacyjnej bazy danych z U-SQL można utworzyć tabelę z wstępnie zdefiniowanych schematów lub utworzyć tabelę, która wnioskuje schemat hello hello zapytania, które wypełnia tabelę hello (znanej także jako CREATE TABLE AS SELECT lub CTAS).
+Zgodnie z tabelami relacyjnej bazy danych z U-SQL można utworzyć tabelę z wstępnie zdefiniowanych schematów lub utworzyć tabelę, która wnioskuje schemat z kwerendy, który wypełnia tabeli (znanej także jako CREATE TABLE AS SELECT lub CTAS).
 
-Utwórz bazę danych i tabel za pomocą hello następującego skryptu:
+Utwórz bazę danych i tabel za pomocą następującego skryptu:
 
 ```
 DROP DATABASE IF EXISTS SearchLogDb;
@@ -147,9 +147,9 @@ CREATE TABLE SearchLog2(
 ```
 
 ## <a name="query-tables"></a>Tabele kwerendy
-Można zbadać tabelami, takie jak te utworzone w poprzednim skryptu hello w hello wykonywania zapytań hello danych plików tak samo. Zamiast tworzenia zestawu wierszy za pomocą WYODRĘBNIANIA, teraz można się odwołać toohello nazwy tabeli.
+Umożliwia wysyłanie zapytań tabel, takich jak te utworzone w poprzednim skryptu w taki sam sposób wykonywania zapytań plików danych. Zamiast tworzenia zestawu wierszy za pomocą WYODRĘBNIANIA, możesz teraz mogą odwoływać się do nazwy tabeli.
 
-tooread z tabel hello zmodyfikować skrypt transformacji hello, wcześniej używany:
+Aby odczytać z tabel, zmodyfikuj skrypt transformacji wcześniej używany:
 
 ```
 @rs1 =
@@ -166,13 +166,13 @@ GROUP BY Region;
     FETCH 5 ROWS;
 
 OUTPUT @res
-    too"/output/Searchlog-query-table.csv"
+    TO "/output/Searchlog-query-table.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
  >[!NOTE]
- >Obecnie nie można uruchomić SELECT w tabeli w hello sam skrypt jako jeden hello, w którym utworzono hello tabeli.
+ >Obecnie nie można uruchomić SELECT w tabeli w tym samym skrypcie, której utworzono tabelę.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

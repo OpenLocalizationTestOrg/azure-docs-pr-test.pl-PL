@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z piaskownicy Salesforce | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i usług Salesforce piaskownicy."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i usług Salesforce piaskownicy."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,116 +13,116 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 7539f08356568a17ebfcee2764bbbefa129b0553
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 90e08b9cf2feb93de4877bec9734352949896dca
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Samouczek: Integracji Azure Active Directory z piaskownicy usług Salesforce
 
-Z tego samouczka, dowiesz się, jak toointegrate piaskownicy usługi Salesforce z usługą Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie piaskownicy usługi Salesforce z usługą Azure Active Directory (Azure AD).
 
-Integrowanie piaskownicy usługi Salesforce z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie piaskownicy usługi Salesforce z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooSalesforce piaskownicy
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooSalesforce piaskownicy (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do usług Salesforce piaskownicy
+- Umożliwia użytkownikom automatycznie pobrać podpisany w przypadku piaskownicy Salesforce (logowanie jednokrotne) z konta usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z piaskownicy Salesforce należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z piaskownicy Salesforce, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Piaskownica Salesforce jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie piaskownicy usługi Salesforce z galerii hello
+1. Dodawanie piaskownicy usługi Salesforce z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-salesforce-sandbox-from-hello-gallery"></a>Dodawanie piaskownicy usługi Salesforce z galerii hello
-tooconfigure hello integracji piaskownicy usługi Salesforce z usługą Azure AD, należy tooadd piaskownicy usługi Salesforce z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Dodawanie piaskownicy usługi Salesforce z galerii
+Aby skonfigurować integrację piaskownicy usługi Salesforce z usługą Azure AD, należy dodać piaskownicy usługi Salesforce z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd piaskownicy usługi Salesforce z galerii hello wykonaj hello następujące kroki:**
+**Aby dodać piaskownicy usługi Salesforce z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. Kliknij przycisk **nowej aplikacji** przycisk u góry hello hello okna dialogowego.
+3. Kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **piaskownicy Salesforce**.
+4. W polu wyszukiwania wpisz **piaskownicy Salesforce**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_search.png)
 
-5. W panelu wyników hello, wybierz **piaskownicy Salesforce**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **piaskownicy Salesforce**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i test usługi Azure AD rejestracji jednokrotnej z piaskownicy Salesforce oparte na użytkownika testowego o nazwie "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w piaskownicy Salesforce jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w piaskownicy Salesforce musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w piaskownicy Salesforce jest dla użytkownika, w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i danemu użytkownikowi w piaskownicy Salesforce musi określone.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w piaskownicy Salesforce.
+Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w piaskownicy Salesforce.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z piaskownicy Salesforce, należy po bloków konstrukcyjnych hello toocomplete:
+Do konfigurowania i testowania usługi Azure AD rejestracji jednokrotnej z piaskownicy Salesforce, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego piaskownicy Salesforce](#creating-a-salesforce-sandbox-test-user)**  -toohave odpowiednikiem Simona Britta w piaskownicy Salesforce, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego piaskownicy Salesforce](#creating-a-salesforce-sandbox-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta piaskownicy Salesforce, połączonej z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Salesforce piaskownicy.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne do aplikacji Salesforce piaskownicy.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z piaskownicy Salesforce, wykonaj hello następujące kroki:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z piaskownicy Salesforce, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **piaskownicy Salesforce** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **piaskownicy Salesforce** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
 
-3. Na powitania **Salesforce piaskownicy domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **Salesforce piaskownicy domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_url.png)
 
-     W hello **adres URL logowania** pole tekstowe, wartość hello typu przy użyciu hello następującego wzorca:`https://<subdomain>.my.salesforce.com`
+     W **adres URL logowania** tekstowym, wpisz wartość, przy użyciu następującego wzorca:`https://<subdomain>.my.salesforce.com`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe hello. Zaktualizuj tę wartość przy hello rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta piaskownicy Salesforce](https://help.salesforce.com/support) tooget tej wartości.
+    > Ta wartość nie jest rzeczywistym. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta piaskownicy Salesforce](https://help.salesforce.com/support) aby zyskać tę wartość.
 
 
-4. Jeśli skonfigurowano już program rejestracji jednokrotnej dla innego wystąpienia usług Salesforce piaskownicy w katalogu, a następnie należy także skonfigurować hello **identyfikator** toohave hello tę samą wartość jak hello **Zaloguj się na adres URL**. 
+4. Jeśli skonfigurowano już program rejestracji jednokrotnej dla innego wystąpienia usług Salesforce piaskownicy w katalogu, a następnie należy także skonfigurować **identyfikator** mają taką samą wartość jak **Zaloguj się na adres URL**. 
     
     >[!Note]
-    >Witaj **identyfikator** pola można znaleźć, sprawdzając hello **Pokaż zaawansowane ustawienia** wyboru na powitania **Konfigurowanie adresu URL aplikacji** stronę hello okna dialogowego 
+    >**Identyfikator** można znaleźć pola sprawdzając **Pokaż zaawansowane ustawienia** wyboru na **Konfigurowanie adresu URL aplikacji** strony okna dialogowego 
 
 
-5. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+5. Na **certyfikat podpisywania SAML** kliknij **certyfikatu** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_certificate.png) 
 
@@ -130,43 +130,43 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_general_400.png)
 
-7. Na powitania **konfiguracji piaskownicy Salesforce** kliknij **skonfigurować piaskownicy Salesforce** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+7. Na **konfiguracji piaskownicy Salesforce** , kliknij przycisk **skonfigurować piaskownicy Salesforce** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_configure.png) 
 <CS>
-8. Otwórz nową kartę w przeglądarce i zaloguj tooyour konto administratora usług Salesforce piaskownicy.
+8. Otwórz nową kartę w przeglądarce i zaloguj się do konta administratora usługi Salesforce piaskownicy.
 
-9. W menu hello na górze hello, kliknij przycisk **Instalatora**.
+9. W menu u góry kliknij **Instalatora**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/IC781024.png)
-10. W okienku nawigacji hello po lewej stronie powitania kliknij **kontroli bezpieczeństwa**, a następnie kliknij przycisk **ustawień rejestracji jednokrotnej**.
+10. W okienku nawigacji po lewej stronie kliknij **kontroli bezpieczeństwa**, a następnie kliknij przycisk **ustawień rejestracji jednokrotnej**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/IC781025.png)
-11. Na hello w sekcji Ustawienia rejestracji jednokrotnej, wykonaj następujące kroki hello: ![skonfigurować logowanie jednokrotne](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png)
+11. W sekcji Ustawienia rejestracji jednokrotnej, wykonaj następujące kroki: ![skonfigurować logowanie jednokrotne](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png)
      
      a.  Wybierz **SAML włączone**. 
 
      b.  Kliknij przycisk **Nowy**.
 
-12. Witaj SAML pojedynczy znak w sekcji Ustawienia wykonywanie hello następujące kroki:
+12. W sekcji SAML jednego ustawienia rejestracji wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/IC781027.png)
 
-    pole tekstowe Nazwa hello a.In, hello nazwę typu konfiguracji hello (np.: *SPSSOWAAD\_testu*). 
+    a.In pole tekstowe Nazwa wpisz nazwę konfiguracji (np.: *SPSSOWAAD\_testu*). 
 
-    b. Wklej **identyfikator jednostki SMAL** wartości do hello **wystawcy** pola tekstowego.
+    b. Wklej **identyfikator jednostki SMAL** wartości do **wystawcy** pola tekstowego.
 
-    c. W hello **identyfikator jednostki** pole tekstowe, typ **https://test.salesforce.com** przypadku hello pierwszego wystąpienia usług Salesforce piaskownicy dodajesz tooyour katalogu. Jeśli masz już dodany wystąpienia usług Salesforce piaskownicy, a następnie dla hello **identyfikator jednostki** typu w hello **na adres URL logowania**, która powinna być w następującym formacie:`http://company.my.salesforce.com`  
+    c. W **identyfikator jednostki** pole tekstowe, typ **https://test.salesforce.com** Jeśli pierwsze wystąpienie piaskownicy Salesforce, które ma zostać dodane do katalogu. Jeśli masz już dodany wystąpienia usług Salesforce piaskownicy, następnie dla **identyfikator jednostki** wpisz **na adres URL logowania**, która powinna być w następującym formacie:`http://company.my.salesforce.com`  
  
-    d. Kliknij przycisk **Przeglądaj** tooupload hello pobrać certyfikatu.  
+    d. Kliknij przycisk **Przeglądaj** przekazywania pobranego certyfikatu.  
 
-    e. Jako **typ tożsamości SAML**, wybierz pozycję **potwierdzenia zawiera hello identyfikator federacyjnej z obiektu użytkownika hello**.
+    e. Jako **typ tożsamości SAML**, wybierz pozycję **potwierdzenia zawiera identyfikator federacji z obiektu użytkownika**.
  
-    f. Jako **lokalizacji tożsamości SAML**, wybierz pozycję **jest tożsamość w elemencie NameIdentifier hello hello instrukcji podmiotu**.
+    f. Jako **lokalizacji tożsamości SAML**, wybierz pozycję **jest tożsamość w elemencie NameIdentifier instrukcji podmiotu**.
 
-    g. Wklej **pojedynczy znak na adres URL usługi** do hello **adresu URL logowania do dostawcy tożsamości** pola tekstowego. 
+    g. Wklej **pojedynczy znak na adres URL usługi** do **adresu URL logowania do dostawcy tożsamości** pola tekstowego. 
 
-    h. SFDC nie obsługuje SAML wylogowania.  Jako obejście, Wklej "https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0" go do hello **adres URL wylogowania dostawcy tożsamości** pola tekstowego.
+    h. SFDC nie obsługuje SAML wylogowania.  Jako obejście, Wklej "https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0" go do **adres URL wylogowania dostawcy tożsamości** pola tekstowego.
 
     i. Jako **dostawcy zainicjował żądanie powiązania usługi**, wybierz pozycję **HTTP POST**. 
 
@@ -175,80 +175,80 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 ### <a name="enable-your-domain"></a>Włącz domeny
 W tej sekcji założono, że już utworzono domeny.  Aby uzyskać więcej informacji, zobacz [Definiowanie Twojej nazwy domeny](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
-**tooenable domeny, wykonaj następujące kroki hello:**
+**Aby włączyć domeny, wykonaj następujące czynności:**
 
-1. W okienku nawigacji po lewej stronie powitania kliknij **Zarządzanie domenami**, a następnie kliknij przycisk **Moje domeny.**
+1. W okienku nawigacji po lewej stronie kliknij **Zarządzanie domenami**, a następnie kliknij przycisk **Moje domeny.**
    
      ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/IC781029.png)
    
    >[!NOTE]
    >Upewnij się, że poprawnie skonfigurowano domenę. 
 
-2. W hello **ustawienia strony logowania** , kliknij przycisk **Edytuj**, następnie jako **usługi uwierzytelniania**, wybierz nazwę hello hello SAML pojedynczego logowania jednokrotnego ustawienia z poprzednich hello sekcja, a na koniec kliknij **zapisać**.
+2. W **ustawienia strony logowania** kliknij **Edytuj**, następnie jako **usługi uwierzytelniania**, wybierz nazwę SAML pojedynczy znak na ustawienie z poprzedniej sekcji, a na koniec kliknij przycisk **zapisać**.
    
    ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/IC781030.png)
 
-Jak masz domenę skonfigurowane, użytkownicy należy używać hello domeny adres URL toologin toohello Salesforce piaskownicy.  
+Jak masz domenę skonfigurowane, użytkownicy należy używać URL domeny na potrzeby logowania do usługi Salesforce piaskownicy.  
 
-wartość hello tooget hello adresu URL, kliknij profil rejestracji Jednokrotnej hello, utworzony w poprzedniej sekcji hello.    
+Aby uzyskać wartość adresu URL, kliknij profil rejestracji Jednokrotnej, utworzony w poprzedniej sekcji.    
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-salesforcesandbox-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-salesforcesandbox-tutorial/create_aaduser_02.png) 
 
-3. U góry okna dialogowego hello hello, kliknij przycisk **Dodaj** tooopen hello **użytkownika** okna dialogowego.
+3. W górnej części okna dialogowego, kliknij przycisk **Dodaj** otworzyć **użytkownika** okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-salesforcesandbox-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-salesforcesandbox-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-salesforce-sandbox-test-user"></a>Tworzenie użytkownika testowego piaskownicy usług Salesforce
 
 W tej sekcji użytkownika o nazwie Simona Britta jest tworzony w piaskownicy Salesforce. Piaskownica SalesForce obsługę w czasie, który jest domyślnie włączona.
-Nie ma elementu akcji można w tej sekcji. Jeśli użytkownik nie istnieje w piaskownicy Salesforce, nowy jest tworzony podczas próby tooaccess piaskownicy Salesforce.
+Nie ma elementu akcji można w tej sekcji. Jeśli użytkownik nie istnieje w piaskownicy Salesforce, nowy jest tworzony przy próbie uzyskania dostępu do piaskownicy Salesforce.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooSalesforce piaskownicy.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do piaskownicy Salesforce.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooSalesforce Simona Britta piaskownicy, wykonaj następujące kroki hello:**
+**Aby przypisać Simona Britta piaskownicy Salesforce, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **piaskownicy Salesforce**.
+2. Na liście aplikacji zaznacz **piaskownicy Salesforce**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -256,7 +256,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -264,11 +264,11 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Jeśli chcesz tootest ustawienia logowania jednokrotnego, otwórz hello panelu dostępu. Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Jeśli chcesz przetestować ustawienia logowania jednokrotnego, otwórz Panel dostępu. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Skonfiguruj Inicjowanie obsługi użytkowników](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)
 

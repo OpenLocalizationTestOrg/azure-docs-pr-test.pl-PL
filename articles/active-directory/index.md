@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
-description: "Dowiedz się, jak toosynchronize katalogów i Włącz logowanie jednokrotne. Dokumentacji przedstawiono toointegrate całą gamę możliwości zarządzania tożsamościami."
-title: "aaaAzure Active Directory dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak synchronizować katalogi i włączyć logowanie jednokrotne. Dokumentacja przedstawiająca sposób integracji pełnego zestawu możliwości zarządzania tożsamościami."
+title: "Dokumentacja usługi Azure Active Directory — samouczki i dokumentacja interfejsu API | Microsoft Docs"
 services: active-directory
-author: carolz
+author: czeumault
 manager: carolz
 ms.assetid: 
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a99aa3cc979a518c5b53cb1540f037b6776fb157
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a0a9b69824829d0b7a07583210eaddb1f39bcf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-documentation"></a>Dokumentacja usługi Azure Active Directory
 
-Dowiedz się, jak toosynchronize katalogów i Włącz logowanie jednokrotne z usługą Azure Active Directory (Azure AD). Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób możliwości zarządzania tożsamościami toointegrate takich jak uwierzytelnianie wieloskładnikowe, rejestracji urządzenia, dostępu opartej na rolach kontroli i monitorowania zabezpieczeń i alertów.
+Dowiedz się, jak synchronizować katalogi i włączyć logowanie jednokrotne przy użyciu usługi Azure Active Directory (Azure AD). Samouczki, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób integracji możliwości zarządzania tożsamościami, w tym uwierzytelnianiem wieloskładnikowym, rejestracją urządzeń, kontrolą dostępu opartą na rolach, monitorowaniem zabezpieczeń oraz tworzeniem alertów.
 
 <ul class="panelContent cardsFTitle">
     <li>

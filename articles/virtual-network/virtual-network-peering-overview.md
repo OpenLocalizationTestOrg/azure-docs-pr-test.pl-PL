@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure sieci wirtualnej komunikacji równorzędnej | Dokumentacja firmy Microsoft"
+title: "Wirtualne sieci równorzędne platformy Azure | Microsoft Docs"
 description: "Dowiedz się więcej na temat wirtualnych sieci równorzędnych na platformie Azure."
 services: virtual-network
 documentationcenter: na
@@ -12,80 +12,125 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: narayan
-ms.openlocfilehash: 46a14b416a7d4389f79a3cd7c55e388b5d312577
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.date: 09/25/2017
+ms.author: narayan;anavin
+ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-peering"></a>Wirtualne sieci równorzędne
-Umożliwia komunikacji równorzędnej sieci wirtualnej można tooconnect dwie sieci wirtualne w hello tego samego regionu za pośrednictwem hello Azure szkieletu sieci. Po połączyć za pomocą, Witaj dwie sieci wirtualne są wyświetlane jako na potrzeby łączności. Witaj dwie sieci wirtualne są nadal zarządzane jako oddzielne zasoby, ale maszyn wirtualnych w hello połączyć za pomocą sieci wirtualne mogą komunikować się ze sobą bezpośrednio, przy użyciu prywatnych adresów IP.
 
-Witaj ruchu między maszynami wirtualnymi w hello połączyć za pomocą sieci wirtualnych jest kierowany przez infrastrukturę platformy Azure, w taki sam sposób, jak ruch jest przekierowywany między maszynami wirtualnymi w hello hello tej samej sieci wirtualnej. Zalety hello przy użyciu sieci wirtualnej komunikacji równorzędnej między innymi:
+[Sieć wirtualna platformy Azure](virtual-networks-overview.md) to własna prywatna przestrzeń sieciowa na platformie Azure, która umożliwia bezpieczne łączenie ze sobą zasobów platformy Azure.
 
+Komunikacja równorzędna między sieciami wirtualnymi umożliwia bezproblemowe łączenie sieci wirtualnych. Po nawiązaniu połączenia równorzędnego sieci wirtualne są traktowane jako jedna sieć. Maszyny wirtualne w równorzędnych sieciach wirtualnych mogą komunikować się ze sobą bezpośrednio.
+Ruch między maszynami wirtualnymi w wirtualnych sieciach równorzędnych odbywa się za pośrednictwem sieci szkieletowej firmy Microsoft — tak jak ruch między maszynami wirtualnymi w tej samej sieci wirtualnej tylko za pośrednictwem *prywatnych* adresów IP.
+
+>[!IMPORTANT]
+> Za pomocą komunikacji równorzędnej można łączyć sieci wirtualne z różnych regionów świadczenia usługi Azure. Ta funkcja jest obecnie dostępna w wersji zapoznawczej. Możesz [zarejestrować subskrypcję w celu korzystania z wersji zapoznawczej](virtual-network-create-peering.md). Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tych samych regionach jest ogólnie dostępne.
+>
+
+Korzystanie z wirtualnych sieci równorzędnych zapewnia m.in. następujące korzyści:
+
+* Ruch przechodzący przez połączenia sieci wirtualnych za pomocą komunikacji równorzędnej jest całkowicie prywatny. Przechodzi on przez sieć szkieletową firmy Microsoft bez angażowania bram publicznych ani Internetu.
 * Połączenie o małych opóźnieniach i dużej przepustowości między zasobami w różnych sieciach wirtualnych.
-* możliwość Hello toouse zasobów, takich jak urządzenia sieciowe i bramy sieci VPN jako punkty przesyłanych w sieci wirtualnej peered.
-* Witaj możliwości toopeer dwie sieci wirtualne utworzone za pośrednictwem modelu wdrażania usługi Azure Resource Manager hello lub toopeer jednej sieci wirtualnych utworzonych za pomocą Menedżera zasobów tooa sieci wirtualnej została utworzona za pośrednictwem hello klasycznego modelu wdrażania. Hello odczytu [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) toolearn artykułu więcej informacji na temat hello różnice między hello dwa modele wdrażania platformy Azure.
+* Możliwość używania zasobów w jednej sieci wirtualnej z poziomu innej sieci wirtualnej po nawiązaniu połączenia za pośrednictwem komunikacji równorzędnej.
+* Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej ułatwia przesyłanie danych między subskrypcjami platformy Azure, modelami wdrażania i regionami platformy Azure (wersja zapoznawcza).
+* Możliwość połączenia sieci wirtualnych utworzonych przy użyciu usługi Azure Resource Manager lub połączenia jednej sieci wirtualnej utworzonej za pomocą usługi Resource Manager z drugą siecią wirtualną utworzoną za pomocą klasycznego modelu wdrażania. Zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informacje na temat modeli wdrażania platformy Azure), aby dowiedzieć się więcej o różnicach między tymi dwoma modelami wdrażania.
 
 ## <a name="requirements-constraints"></a>Wymagania i ograniczenia
 
-* Witaj połączyć za pomocą sieci wirtualnych muszą istnieć w hello sam region platformy Azure. Sieci wirtualne z różnych regionów platformy Azure można połączyć za pomocą usługi [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
-* Witaj połączyć za pomocą sieci wirtualnych muszą mieć-nakładającymi się obszarami adresów IP.
-* Nie można dodać ani usunąć przestrzeni adresowych z sieci wirtualnej po połączeniu sieci wirtualnej z inną siecią wirtualną za pomocą komunikacji równorzędnej.
-* Wirtualne sieci równorzędne obejmują dwie sieci wirtualne. Nie istnieje żadna pochodna relacja przechodnia między tymi sieciami. Na przykład, jeśli virtualNetworkA jest połączyć za pomocą z virtualNetworkB i virtualNetworkB jest połączyć za pomocą z virtualNetworkC, jest virtualNetworkA *nie* połączyć za pomocą toovirtualNetworkC.
-* Można elementów równorzędnych sieci wirtualnych, które istnieją w dwóch różnych subskrypcji, jak długo użytkownika uprzywilejowanego (zobacz [określonych uprawnień](create-peering-different-deployment-models-subscriptions.md#permissions)) zarówno subskrypcje autoryzuje równorzędna hello i subskrypcje hello są skojarzone toohello tego samego Dzierżawy usługi Azure Active Directory. Można użyć [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) tooconnect sieci wirtualnych w ramach subskrypcji skojarzone toodifferent dzierżawcy usługi Active Directory.
-* Można można połączyć za pomocą sieci wirtualnych, jeśli są tworzone za pomocą modelu wdrażania usługi Resource Manager hello lub jedną sieć wirtualną utworzono za pomocą modelu wdrażania usługi Resource Manager hello i hello innych jest tworzony za pomocą hello klasycznego modelu wdrażania. Dwie sieci wirtualne utworzone za pośrednictwem hello klasycznego modelu wdrażania nie może być jednak połączyć za pomocą tooeach inne. Można użyć [bramy sieci VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) tooconnect dwie sieci wirtualne utworzone za pośrednictwem hello klasycznego modelu wdrażania.
-* Chociaż hello komunikacji między maszynami wirtualnymi w połączyć za pomocą sieci wirtualne nie ma żadnych ograniczeń dodatkowe ograniczenie użycia przepustowości, maksymalna przepustowość sieci jest w zależności od rozmiaru maszyny wirtualnej hello, które nadal mają zastosowanie. więcej informacji na temat maksymalną przepustowość sieci dla rozmiarów inną maszynę wirtualną, przeczytaj hello toolearn [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) lub [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykuły rozmiary maszyny wirtualnej.
-* Usługa rozpoznawania wewnętrznych nazw DNS na platformie Azure dla maszyn wirtualnych nie działa w sieciach wirtualnych połączonych za pomocą komunikacji równorzędnej. Maszyny wirtualne mają wewnętrznej nazwy DNS, które są rozpoznawalną tylko w obrębie hello lokalną sieć wirtualną. Można jednak skonfigurować sieci wirtualne toopeered maszyny wirtualne podłączone jako serwery DNS dla sieci wirtualnej. Aby uzyskać szczegółowe informacje, przeczytaj hello [rozpoznawanie nazw przy użyciu serwera DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) artykułu.
+* Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w tym samym regionie jest ogólnie dostępne. Łączenie sieci wirtualnych za pomocą komunikacji równorzędnej w różnych regionach jest obecnie dostępne w wersji zapoznawczej w następujących regionach: Zachodnio-środkowe stany USA, Kanada Środkowa i Zachodnie stany USA 2. Możesz [zarejestrować subskrypcję w celu korzystania z wersji zapoznawczej](virtual-network-create-peering.md).
+    > [!WARNING]
+    > Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej, które utworzono w tym scenariuszu, mogą nie mieć takiego samego poziomu dostępności i niezawodności jak scenariusze w wersji ogólnodostępnej. Połączenia sieci wirtualnych za pomocą komunikacji równorzędnej mogą mieć ograniczone możliwości i mogą nie być dostępne we wszystkich regionach platformy Azure. Najbardziej aktualne powiadomienia dotyczące dostępności i stanu tej funkcji można znaleźć na stronie [aktualizacji usługi Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
-![Podstawowe wirtualne sieci równorzędne](./media/virtual-networks-peering-overview/figure01.png)
+* Wirtualne sieci równorzędne muszą mieć nienakładające się przestrzenie adresów IP.
+* Nie można dodać ani usunąć przestrzeni adresowych z sieci wirtualnej po połączeniu sieci wirtualnej z inną siecią wirtualną za pomocą komunikacji równorzędnej.
+* Wirtualne sieci równorzędne obejmują dwie sieci wirtualne. Nie istnieje żadna pochodna relacja przechodnia między tymi sieciami. Na przykład: jeśli wirtualna sieć A jest połączona z wirtualną siecią B, a wirtualna sieć B jest połączona z wirtualną siecią C, to sieć A *nie* jest połączona z siecią C.
+* Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi istniejącymi w dwóch różnych subskrypcjach, o ile połączenie zostanie autoryzowane przez uprawnionego użytkownika (zobacz [konkretne uprawnienia](create-peering-different-deployment-models-subscriptions.md#permissions)) w obu subskrypcjach, a subskrypcje będą skojarzone z tą samą dzierżawą usługi Azure Active Directory. Do łączenia sieci wirtualnych w ramach subskrypcji skojarzonych z różnymi dzierżawcami usługi Active Directory można użyć usługi [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
+* Komunikacja równorzędna może zostać nawiązana między sieciami wirtualnymi, jeśli obie sieci zostały utworzone za pomocą modelu wdrażania przy użyciu usługi Resource Manager lub jeśli jedna z nich została utworzona w ten sposób, a druga za pomocą klasycznego modelu wdrażania. Nie można jednak nawiązać komunikacji równorzędnej między sieciami wirtualnymi utworzonymi za pomocą klasycznego modelu wdrażania. Do połączenia sieci wirtualnych utworzonych za pomocą klasycznego modelu wdrażania można użyć usługi [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
+* Chociaż komunikacja między maszynami wirtualnymi w wirtualnych sieciach równorzędnych nie ma żadnych dodatkowych ograniczeń co do przepustowości, należy pamiętać, że nadal obowiązuje ograniczenie maksymalnej przepustowości sieci uzależnione od rozmiaru maszyny wirtualnej. Aby dowiedzieć się więcej o maksymalnej przepustowości dla różnych rozmiarów maszyn wirtualnych, przeczytaj artykuły dotyczące rozmiarów maszyn wirtualnych w systemach [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+     ![Podstawowe wirtualne sieci równorzędne](./media/virtual-networks-peering-overview/figure03.png)
 
 ## <a name="connectivity"></a>Łączność
-Po dwóch sieci wirtualne są połączyć za pomocą, zasobów w każdej sieci wirtualnej mogą bezpośrednio łączyć z zasobami w sieci wirtualnej połączyć za pomocą hello. Witaj dwie sieci wirtualne mają pełnego adresu IP na poziomie połączenia.
 
-Opóźnienie sieci Hello jest podróż między dwóch maszyn wirtualnych w sieciach wirtualnych połączyć za pomocą hello takie same jak w przypadku podróż w ramach jednej sieci wirtualnej. przepustowość sieci Hello jest oparta na przepustowość hello jest dozwolona dla maszyny wirtualnej hello, rozmiar proporcjonalne tooits. Nie ma żadnych dodatkowych ograniczenia przepustowości w ramach komunikacji równorzędnej hello.
+Po połączeniu sieci wirtualnych za pomocą komunikacji równorzędnej zasoby w dowolnej z tych sieci wirtualnych mogą łączyć się bezpośrednio z innymi zasobami w równorzędnej sieci wirtualnej.
 
-Hello ruch między maszynami wirtualnymi w sieciach wirtualnych połączyć za pomocą jest kierowany bezpośrednio za pomocą hello Azure infrastruktury zaplecza, nie za pośrednictwem bramy.
+Opóźnienie sieciowe między maszynami wirtualnymi w równorzędnych sieciach wirtualnych w tym samym regionie jest takie samo jak w przypadku pojedynczej sieci wirtualnej. Przepływność sieci zależy od przepustowości dozwolonej dla maszyny wirtualnej proporcjonalnie do jej rozmiaru. Nie ma żadnych dodatkowych ograniczeń przepustowości w obrębie komunikacji równorzędnej.
 
-Maszyny wirtualne tooa połączenia wirtualnej sieci mogą uzyskiwać dostęp hello wewnętrznych równoważeniem obciążenia punktów końcowych w hello połączyć za pomocą sieci wirtualnej. Grupy zabezpieczeń sieci można zastosować w sieci wirtualne sieci wirtualnej tooblock dostępu tooother lub podsieci, w razie potrzeby.
+Ruch między maszynami wirtualnymi w równorzędnych sieciach wirtualnych odbywa się bezpośrednio za pomocą infrastruktury sieci szkieletowej firmy Microsoft, a nie przy użyciu bramy lub publicznego internetu.
 
-Podczas konfigurowania sieci wirtualnej komunikacji równorzędnej, możesz otwierać i zamykać hello reguły grupy zabezpieczeń sieci między sieciami wirtualnymi hello. Po otwarciu pełną łączność między połączyć za pomocą sieci wirtualnych, (co jest hello opcja domyślna), można zastosować sieci zabezpieczeń grupy toospecific podsieci lub maszyn wirtualnych tooblock lub zablokowania dostępu określonych. więcej informacji o toolearn sieciowej grupy zabezpieczeń, przeczytaj hello [Przegląd grup zabezpieczeń sieci](virtual-networks-nsg.md) artykułu.
+Maszyny wirtualne w sieci wirtualnej mogą uzyskiwać dostęp do wewnętrznego modułu równoważenia obciążenia w równorzędnej sieci wirtualnej w tym samym regionie. Obsługa wewnętrznego modułu równoważenia obciążenia w wersji zapoznawczej nie jest rozszerzana na globalne równorzędne sieci wirtualne. W wersji ogólnodostępnej globalne sieci wirtualne połączone za pomocą komunikacji równorzędnej będą oferować obsługę wewnętrznego modułu równoważenia obciążenia.
+
+Sieciowe grupy zabezpieczeń można stosować w dowolnych sieciach wirtualnych, aby w razie potrzeby zablokować dostęp do innych sieci wirtualnych lub podsieci.
+Podczas konfigurowania wirtualnych sieci równorzędnych można otwierać i zamykać reguły grupy zabezpieczeń sieci między sieciami wirtualnymi. W przypadku otwarcia pełnej łączności między równorzędnymi sieciami wirtualnymi (jest to opcja domyślna) można zastosować sieciowe grupy zabezpieczeń w określonych podsieciach lub maszynach wirtualnych w celu zablokowania lub odmowy danego rodzaju dostępu. Aby dowiedzieć się więcej na temat sieciowych grup zabezpieczeń, zapoznaj się z artykułem [Omówienie sieciowych grup zabezpieczeń](virtual-networks-nsg.md).
 
 ## <a name="service-chaining"></a>Tworzenie łańcuchów usług
-Można skonfigurować tras zdefiniowanych przez użytkownika tej maszyny toovirtual punktu w sieciach wirtualnych połączyć za pomocą jako Witaj, "następnego przeskoku" IP address tooenable usługi łańcucha. Tworzenie łańcuchów usługi umożliwia możesz toodirect ruchu z jednej sieci wirtualnej tooa urządzenie wirtualne w peered sieci wirtualnej za pomocą trasy zdefiniowane przez użytkownika.
 
-Można również skutecznie tworzyć typu gwiazda środowiskach, w którym Centrum hello może obsługiwać składników infrastruktury, takiego jak urządzenie wirtualne sieci. Wszystkie sieci wirtualne gwiazdy hello można następnie elementu równorzędnego z siecią wirtualną hello koncentratora. Ruch mógł przepływać za pośrednictwem sieci wirtualnych urządzeń działających w sieci wirtualnej hello koncentratora. Krótko mówiąc równorzędna sieci wirtualnej umożliwia hello następnego przeskoku adresu IP na adresie IP hello zdefiniowane przez użytkownika tras toobe hello maszyny wirtualnej w hello połączyć za pomocą sieci wirtualnej. więcej informacji na temat trasy zdefiniowane przez użytkownika, odczytać hello toolearn [trasy zdefiniowane przez użytkownika — omówienie](virtual-networks-udr-overview.md) artykułu.
+Użytkownicy mogą konfigurować trasy zdefiniowane przez użytkownika prowadzące do maszyn wirtualnych w wirtualnych sieciach równorzędnych jako adresy IP „kolejnego przeskoku”, aby umożliwić tworzenie łańcucha usług. Tworzenie łańcucha usług umożliwia bezpośrednie kierowanie ruchu z jednej sieci wirtualnej do urządzenia wirtualnego w wirtualnej sieci równorzędnej przy użyciu tras zdefiniowanych przez użytkownika.
+
+Można również skutecznie tworzyć środowiska typu gwiazdy, w których serwer centralny jest hostem składników infrastruktury, takich jak sieciowe urządzenie wirtualne. Następnie wszystkie sieci wirtualne typu gwiazda można połączyć za pomocą komunikacji równorzędnej z centralną siecią wirtualną. Ruch może przepływać za pośrednictwem wirtualnych urządzeń sieciowych działających w centralnej sieci wirtualnej. Krotko mówiąc, wirtualne sieci równorzędne umożliwiają użycie jako adresu IP kolejnego przeskoku w trasie zdefiniowanej przez użytkownika adresu IP maszyny wirtualnej w wirtualnej sieci równorzędnej. Aby dowiedzieć się więcej o trasach definiowanych przez użytkownika, zapoznaj się z omówieniem [tras definiowanych przez użytkownika](virtual-networks-udr-overview.md). Dowiedz się jak, utworzyć [topologię sieciową typu gwiazda](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Bramy i łączność lokalna
-Każdej sieci wirtualnej, niezależnie od tego, czy jest połączyć z inną siecią wirtualną, za pomocą nadal mieć własną bramę i używać go tooconnect tooan lokalnej sieci. Można również skonfigurować [połączeń sieci do wirtualnych sieci wirtualnej](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) przy użyciu bram, mimo że sieci wirtualne hello są połączyć za pomocą.
 
-Gdy obie opcje wzajemne połączenia wirtualnej sieci są skonfigurowane, hello ruchu między sieciami wirtualnymi hello przechodzi przez konfiguracji komunikacji równorzędnej hello (oznacza to, za pomocą hello Azure szkielet).
+Każda sieć wirtualna — niezależnie od tego, czy jest połączona za pomocą komunikacji równorzędnej z inną siecią wirtualną — może mieć własną bramę i używać jej do łączenia się z lokalną infrastrukturą sieciową. Użytkownicy mogą również konfigurować [połączenia między sieciami wirtualnymi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) przy użyciu bram, nawet jeśli te sieci wirtualne zostały połączone za pomocą komunikacji równorzędnej.
 
-Podczas połączyć się za pomocą sieci wirtualnych, można również skonfigurować hello bramy w hello połączyć za pomocą sieci wirtualnej jako sieci lokalnej tooan punktu przesyłania. W takim przypadku hello sieci wirtualnej, który używa bramy zdalnego nie może mieć własną bramę. Jedna sieć wirtualna może mieć tylko jedną bramę. Hello bramy można bramy lokalnego lub zdalnego (w hello połączyć za pomocą sieci wirtualnej), pokazane na poniższej ilustracji hello:
+Po skonfigurowaniu obu opcji łączności między sieciami wirtualnymi ruch między tymi sieciami wirtualnymi jest oparty na konfiguracji komunikacji równorzędnej (to znaczy odbywa się za pośrednictwem sieci szkieletowej platformy Azure).
 
-![Tranzyt w komunikacji równorzędnej w sieci wirtualnej](./media/virtual-networks-peering-overview/figure02.png)
+Gdy sieci wirtualne są połączone za pomocą komunikacji równorzędnej w tym samym regionie, użytkownicy mogą również skonfigurować bramę w wirtualnej sieci równorzędnej jako punkt tranzytowy do infrastruktury lokalnej. W tym przypadku sieć wirtualna korzystająca z bramy zdalnej nie może mieć własnej bramy. Jedna sieć wirtualna może mieć tylko jedną bramę. Brama może być lokalna lub zdalna (w wirtualnej sieci równorzędnej), jak przedstawiono na poniższej ilustracji:
 
-Brama przesyłania nie jest obsługiwana w komunikacji równorzędnej relacji hello między sieciami wirtualnymi utworzone przez różne modele wdrażania. Obie sieci wirtualne w komunikacji równorzędnej relacji hello utworzonych za pomocą Menedżera zasobów dla toowork przesyłania bramy.
+![przesyłanie w równorzędnych sieciach wirtualnych](./media/virtual-networks-peering-overview/figure04.png)
 
-Gdy hello sieci wirtualne, które współużytkują jedno połączenie Azure ExpressRoute są połączyć za pomocą, hello ruch między nimi przechodzi przez hello komunikacji równorzędnej relacji (oznacza to, za pomocą hello sieci szkieletu Azure). Można nadal używać bramy lokalnej w każdym obwodzie lokalnymi toohello tooconnect sieci wirtualnej. Można również użyć bramy współdzielonej i skonfigurować tranzyt dla łączności lokalnej.
+Przesyłanie danych za pomocą bramy nie jest obsługiwane w relacji komunikacji równorzędnej między sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania lub różnych regionów. Aby przesyłanie danych za pomocą bramy działało, obie sieci wirtualne będące w relacji komunikacji równorzędnej muszą zostać utworzone za pomocą usługi Resource Manager i muszą znajdować się w tym samym regionie. Sieci wirtualne globalnie połączone za pomocą sieci równorzędnych obsługują przesyłanie danych za pomocą bramy.
 
-## <a name="provisioning"></a>Inicjowanie obsługi
-Wirtualne sieci równorzędne wymagają odpowiednich uprawnień. Jest to funkcja oddzielne w przestrzeni nazw VirtualNetworks hello. Użytkownik może uzyskać równorzędna tooauthorize określonych praw. Użytkownik, który ma dostęp do odczytu zapisu toohello wirtualnej sieci automatycznie dziedziczy tych praw.
+W przypadku połączenia za pomocą komunikacji równorzędnej sieci wirtualnych współużytkujących jedno połączenie sługi Azure ExpressRoute ruch między nimi jest oparty na relacji komunikacji równorzędnej (to znaczy odbywa się za pośrednictwem sieci szkieletowej platformy Azure). Użytkownicy mogą nadal korzystać z bram lokalnych w poszczególnych sieciach wirtualnych, aby łączyć się z obwodem lokalnym. Można również użyć bramy współdzielonej i skonfigurować tranzyt dla łączności lokalnej.
 
-Użytkownik, który jest albo administratora lub użytkownika uprzywilejowanego możliwości komunikacji równorzędnej hello można zainicjować komunikacji równorzędnej operację na innej sieci wirtualnej. W przypadku dopasowania żądania dla komunikacji równorzędnej hello drugiej stronie, a jeśli spełnione są inne wymagania, hello komunikacja równorzędna została ustanowiona.
+## <a name="permissions"></a>Uprawnienia
+
+Wirtualne sieci równorzędne wymagają odpowiednich uprawnień. Jest to oddzielna funkcja w przestrzeni nazw VirtualNetworks. Użytkownik może uzyskać określone uprawnienia do autoryzowania komunikacji równorzędnej. Użytkownik mający dostęp do odczytu i zapisu do sieci wirtualnej automatycznie dziedziczy te uprawnienia.
+
+Użytkownik będący administratorem lub użytkownikiem mającym uprawienia do komunikacji równorzędnej może zainicjować operację komunikacji równorzędnej w innej sieci wirtualnej. Wymagany minimalny poziom uprawnień to współautor sieci. Jeśli po drugiej stronie istnieje zgodne żądanie komunikacji równorzędnej i spełnione są pozostałe wymagania, połączenie za pomocą komunikacji równorzędnej zostanie nawiązane.
+
+Jeśli na przykład łączysz sieci wirtualne o nazwach myvirtual networkA i myvirtual networkB, do konta musisz przypisać minimalnie następującą rolę lub uprawnienia dla każdej sieci wirtualnej:
+
+|Sieć wirtualna|Model wdrażania|Rola|Uprawnienia|
+|---|---|---|---|
+|myvirtual networkA|Resource Manager|[Współautor sieci](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+| |Wdrożenie klasyczne|[Współautor klasycznej sieci](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Nie dotyczy|
+|myvirtual networkB|Resource Manager|[Współautor sieci](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+||Wdrożenie klasyczne|[Współautor klasycznej sieci](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+
+## <a name="monitor"></a>Monitorowanie
+
+W przypadku łączenia dwóch sieci wirtualnych utworzonych w usłudze Resource Manager za pomocą komunikacji równorzędnej należy skonfigurować komunikację równorzędną dla każdej objętej nią sieci wirtualnej.
+Możesz monitorować stan połączenia za pomocą komunikacji równorzędnej. Stan komunikacji równorzędnej może być następujący:
+
+* **Zainicjowano**: podczas tworzenia połączenia za pomocą komunikacji równorzędnej z drugą siecią wirtualną z poziomu pierwszej sieci wirtualnej stan komunikacji równorzędnej to Zainicjowano.
+
+* **Połączono**: po utworzeniu połączenia za pomocą komunikacji równorzędnej z drugą siecią wirtualną z poziomu pierwszej sieci wirtualnej stan komunikacji równorzędnej to Połączono. Jeśli wyświetlisz stan komunikacji równorzędnej dla pierwszej sieci wirtualnej, zobaczysz, że zmienił się z Zainicjowano na Połączono. Komunikacja równorzędna nie zostanie pomyślnie nawiązana, aż do momentu, gdy stanem połączeń obydwu sieci wirtualnych będzie Połączono.
+
+* **Rozłączono**: jeśli jeden z linków komunikacji równorzędnej zostanie usunięty po nawiązaniu połączenia, stanem komunikacji równorzędnej będzie Rozłączono.
+
+## <a name="troubleshoot"></a>Rozwiązywanie problemów
+
+Aby rozwiązać problemy z ruchem przechodzącym przez połączenie komunikacji równorzędnej, możesz [sprawdzić skuteczne trasy](virtual-network-routes-troubleshoot-portal.md).
+
+Problemy dotyczące łączności z maszyną wirtualną w równorzędnej sieci wirtualnej można również rozwiązywać przy użyciu funkcji [sprawdzania łączności](../network-watcher/network-watcher-connectivity-portal.md) usługi Network Watcher. Sprawdzanie łączności umożliwia zbadanie, jak jest ona kierowana bezpośrednio z interfejsu sieciowego źródłowej maszyny wirtualnej do interfejsu sieciowego docelowej maszyny wirtualnej.
 
 ## <a name="limits"></a>Limity
-Istnieją ograniczenia dotyczące liczby hello komunikacji równorzędnych dozwoloną dla pojedynczego sieci wirtualnej. Aby uzyskać więcej informacji, przejrzyj hello [ograniczenia sieci Azure](../azure-subscription-service-limits.md#networking-limits).
+
+Istnieją limity liczby dozwolonych połączeń za pomocą komunikacji równorzędnej dla jednej sieci wirtualnej. Domyślna liczba połączeń za pomocą komunikacji równorzędnej to 50. Liczbę takich połączeń można zwiększyć. Więcej informacji zawiera temat [Limity dotyczące sieci platformy Azure](../azure-subscription-service-limits.md#networking-limits).
 
 ## <a name="pricing"></a>Cennik
-Istnieje nominalna opłata za ruch przychodzący i wychodzący w wirtualnych sieciach równorzędnych. Aby uzyskać więcej informacji, zobacz hello [cennikiem](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Istnieje nominalna opłata za ruch przychodzący i wychodzący w połączeniach wirtualnych sieciach równorzędnych. Aby uzyskać więcej informacji, odwiedź [stronę cennika](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Ukończ samouczek dotyczący równorzędnych sieci wirtualnych. Utworzeniu sieci wirtualnej komunikacji równorzędnej między sieciami wirtualnymi, została utworzona za pośrednictwem hello takie same lub różne modele wdrażania znajdujące się w hello tych samych lub różnych subskrypcji. Ukończenie samouczka jednego hello następujące scenariusze:
- 
+* Ukończ samouczek dotyczący równorzędnych sieci wirtualnych. Równorzędne sieci wirtualne tworzy się między sieciami wirtualnymi utworzonymi za pomocą tych samych lub różnych modeli wdrażania istniejących w tej samej lub w różnych subskrypcjach. Ukończ samouczek dla jednego z następujących scenariuszy:
+
     |Model wdrażania platformy Azure  | Subskrypcja  |
     |---------|---------|
     |Resource Manager — w obu przypadkach |[Ta sama](virtual-network-create-peering.md)|
@@ -93,5 +138,5 @@ Istnieje nominalna opłata za ruch przychodzący i wychodzący w wirtualnych sie
     |Jedna sieć — Resource Manager, druga — model klasyczny     |[Ta sama](create-peering-different-deployment-models.md)|
     | |[Różne](create-peering-different-deployment-models-subscriptions.md)|
 
-* Dowiedz się, jak toocreate [gwiazdy topologii sieci](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) 
-* Więcej informacji na temat wszystkich [komunikacji równorzędnej ustawień sieci wirtualnej i w jaki sposób toochange ich](virtual-network-manage-peering.md)
+* Dowiedz się jak, utworzyć [topologię sieciową typu gwiazda](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Zapoznaj się ze wszystkimi [ustawieniami równorzędnych sieci wirtualnych oraz sposobami ich zmiany](virtual-network-manage-peering.md)

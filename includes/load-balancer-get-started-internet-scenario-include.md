@@ -1,7 +1,7 @@
-w tym scenariuszu zostaną wykonane Hello następujące zadania:
+W tym scenariuszu zostaną wykonane następujące zadania:
 
-* Tworzenie usługi równoważenia obciążenia, który odbiera ruch sieciowy na porcie 80 i wysyłanie maszyny toovirtual sieci Web ruchu o zrównoważonym obciążeniu "1" i "Web 2"
-* Tworzenie reguł NAT dla zdalnego pulpitu dostępu/SSH dla maszyny wirtualnej za usługą równoważenia obciążenia hello
+* Utworzenie modułu równoważenia obciążenia, który odbiera ruch sieciowy na porcie 80 i wysyła go do maszyn wirtualnych „web1” i „web2”, równoważąc ich obciążenie.
+* Utworzenie reguł NAT dotyczących dostępu do pulpitu zdalnego lub dostępu SSH na maszynach wirtualnych za modułem równoważenia obciążenia.
 * Utworzenie sond kondycji.
 
 ![Scenariusz modułu równoważenia obciążenia](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)

@@ -1,5 +1,5 @@
 ---
-title: "Limity aaaScheduler oraz wartości domyślnych"
+title: "Limity harmonogramu oraz wartości domyślnych"
 description: "Limity harmonogramu oraz wartości domyślnych"
 services: scheduler
 documentationcenter: .NET
@@ -14,27 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 6fe0600d3ce3249d5aab1b877369b175316b5437
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-limits-and-defaults"></a>Limity harmonogramu oraz wartości domyślnych
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Przydziały harmonogramu, limity ustawień domyślnych i limity
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="hello-x-ms-request-id-header"></a>Witaj x-ms-request-id nagłówka
-Każde żądanie dotyczące hello usługa Harmonogram zwraca nagłówka odpowiedzi o nazwie**x-ms-request-id**. Ten nagłówek zawiera wartości nieprzezroczystej, który unikatowo identyfikuje hello żądania.
+## <a name="the-x-ms-request-id-header"></a>Nagłówek x-ms-request-id
+Każde żądanie dotyczące usługi harmonogramu zwraca nagłówka odpowiedzi o nazwie**x-ms-request-id**. Ten nagłówek zawiera wartości nieprzezroczystej, który unikatowo identyfikuje żądania.
 
-Jeśli żądanie jest stale się niepowodzeniem, a ma zweryfikowaniu, że Żądanie hello jest poprawnie sformułowany, możesz użyć tej wartości tooreport hello błąd tooMicrosoft. W raporcie, uwzględniania hello wartości x-ms-request-id hello przybliżony czas tego hello żądanie, hello identyfikator subskrypcji hello, kolekcji zadań i/lub zadania i hello typ operacji, która hello próby żądania.
+Jeśli żądanie jest zawsze kończy się niepowodzeniem i upewnieniu się, że żądanie jest poprawnie sformułowany, można użyć tej wartości na raport o błędzie do firmy Microsoft. W raporcie zawiera wartość x-ms-request-id, przybliżony czas, który odebrał żądanie, identyfikator subskrypcji, kolekcji zadań i/lub zadania i typ operacji, które próbowało żądania.
 
 ## <a name="see-also"></a>Zobacz też
  [Co to jest Scheduler?](scheduler-intro.md)
 
  [Pojęcia i terminologia dotyczące usługi Azure Scheduler oraz hierarchia jednostek](scheduler-concepts-terms.md)
 
- [Rozpoczynanie pracy przy użyciu harmonogramu w hello portalu Azure](scheduler-get-started-portal.md)
+ [Rozpoczynanie pracy z usługą Scheduler w witrynie Azure Portal](scheduler-get-started-portal.md)
 
  [Plany i rozliczenia w usłudze Azure Scheduler](scheduler-plans-billing.md)
 

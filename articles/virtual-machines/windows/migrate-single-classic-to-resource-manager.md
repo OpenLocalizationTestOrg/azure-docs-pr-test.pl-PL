@@ -1,6 +1,6 @@
 ---
-title: "aaaMigrate tooan klasyczne maszyny Wirtualnej VM dysku zarządzanego ARM | Dokumentacja firmy Microsoft"
-description: "Migrację jednej maszyny Wirtualnej platformy Azure z hello wdrażania klasycznego modelu tooManaged dysków w modelu wdrażania usługi Resource Manager hello."
+title: "Migrowanie klasyczne maszyny Wirtualnej do dysków zarządzanych w ARM maszyny Wirtualnej | Dokumentacja firmy Microsoft"
+description: "Przeprowadź migrację jednej maszyny Wirtualnej platformy Azure z klasycznym modelu wdrażania do zarządzanych dysków w modelu wdrażania usługi Resource Manager."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d8c4b9431f5dd8a071fcbc2ee36581a33f76ba62
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 82389834d85981c0ed71bdcc891fbfdbe1377654
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="manually-migrate-a-classic-vm-tooa-new-arm-managed-disk-vm-from-hello-vhd"></a>Ręcznej migracji tooa klasycznego wirtualna nowej ARM zarządzane dysku maszyny Wirtualnej z hello wirtualnego dysku twardego 
+# <a name="manually-migrate-a-classic-vm-to-a-new-arm-managed-disk-vm-from-the-vhd"></a>Ręcznie Migrowanie klasyczne maszyny Wirtualnej do nowej ARM zarządzane dysku maszyny Wirtualnej z dysku VHD 
 
 
-Ta sekcja pomoże toomigrate możesz istniejących maszyn wirtualnych platformy Azure z hello klasycznego modelu wdrażania zbyt[dysków zarządzanych](managed-disks-overview.md) w modelu wdrażania usługi Resource Manager hello.
+Ta sekcja pomoże Ci do dokonania migracji istniejących maszyn wirtualnych platformy Azure z klasycznym modelu wdrażania do [dysków zarządzanych](managed-disks-overview.md) w modelu wdrażania usługi Resource Manager.
 
 
-## <a name="plan-for-hello-migration-toomanaged-disks"></a>Planowanie migracji hello tooManaged dysków
+## <a name="plan-for-the-migration-to-managed-disks"></a>Planowanie migracji do zarządzanych dysków
 
-Ta sekcja pomoże toomake hello najlepszych decyzji w typach maszyny Wirtualnej i dysku.
+Ta sekcja umożliwia podjęcie najlepszych decyzji w typach maszyny Wirtualnej i dysku.
 
 
 ### <a name="location"></a>Lokalizacja
 
-Wybierz lokalizację, w której są dostępne dyski zarządzanych Azure. W przypadku migracji dysków zarządzanych tooPremium, upewnij się również magazyn w warstwie Premium jest dostępna w regionie hello planowanego toomigrate do. Zobacz [byRegion usług Azure](https://azure.microsoft.com/regions/#services) aktualne informacje o dostępnych lokalizacji.
+Wybierz lokalizację, w której są dostępne dyski zarządzanych Azure. W przypadku migracji dysków zarządzanych w warstwie Premium również upewnij się, że magazyn w warstwie Premium jest dostępna w regionie, w którym jest planowana migracja do. Zobacz [byRegion usług Azure](https://azure.microsoft.com/regions/#services) aktualne informacje o dostępnych lokalizacji.
 
 ### <a name="vm-sizes"></a>Rozmiary maszyn wirtualnych
 
-W przypadku migracji dysków zarządzanych tooPremium masz tooupdate rozmiar hello hello wirtualna tooPremium rozmiar możliwością magazynu dostępnych w regionie hello, w którym znajduje się maszyna wirtualna. Przejrzyj hello rozmiarów maszyn wirtualnych, które są funkcją Magazyn w warstwie Premium. specyfikacje rozmiaru maszyny Wirtualnej Azure Hello są wymienione w [rozmiary maszyn wirtualnych](sizes.md).
-Przejrzyj hello charakterystyki wydajności maszyn wirtualnych, które pracować z magazyn w warstwie Premium i wybierz polecenie hello najbardziej odpowiedni rozmiar maszyny Wirtualnej najlepiej pasujące do obciążenia. Upewnij się, czy Brak dostępnej wystarczającą przepustowość na ruchu dysku hello toodrive maszyny Wirtualnej.
+W przypadku migracji dysków zarządzanych w warstwie Premium, należy zaktualizować rozmiaru maszyny wirtualnej do magazyn w warstwie Premium obsługuje rozmiaru dostępna w regionie, w którym znajduje się maszyna wirtualna. Przejrzyj rozmiarów maszyn wirtualnych, które są funkcją Magazyn w warstwie Premium. Specyfikacje rozmiaru maszyny Wirtualnej platformy Azure są wymienione w [rozmiary maszyn wirtualnych](sizes.md).
+Przejrzyj charakterystyki wydajności maszyn wirtualnych, które pracy z magazyn w warstwie Premium i wybierz najbardziej odpowiedni rozmiar maszyny Wirtualnej, który najlepiej odpowiada obciążenie. Należy upewnić się, że wystarczającą przepustowość dostępne na maszynie Wirtualnej do kierowania ruchu dysku.
 
 ### <a name="disk-sizes"></a>Rozmiary dysków
 
 **Dysków zarządzanych w warstwie Premium**
 
-Istnieje siedem typów dysków zarządzane premium, które mogą być używane z maszyny Wirtualnej i każdy ma określonych IOPs i przepływność limity. W przypadku wybrania hello Premium typ dysku dla maszyny Wirtualnej na podstawie hello potrzeb aplikacji pod względem wydajności, wydajności, skalowalności i ładuje szczytu, należy wziąć pod uwagę te limity.
+Istnieje siedem typów dysków zarządzane premium, które mogą być używane z maszyny Wirtualnej i każdy ma określonych IOPs i przepływność limity. Należy wziąć pod uwagę następujące limity podczas wybierania typu dysku Premium dla maszyny Wirtualnej na podstawie potrzeb aplikacji pod względem wydajności, wydajności, skalowalności i ładuje godzinami szczytu.
 
 | Typ dysków Premium  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -55,7 +55,7 @@ Istnieje siedem typów dysków zarządzane premium, które mogą być używane z
 
 **Dyski standardowe zarządzanych**
 
-Istnieje siedem typów zarządzane standardowych dysków, które mogą być używane z maszyny Wirtualnej. Każdej z nich ma inną wydajności, ale ma tego samego IOPS i limity przepustowości. Wybierz typ hello dyski standardowe zarządzane na podstawie hello pojemności potrzeb aplikacji.
+Istnieje siedem typów zarządzane standardowych dysków, które mogą być używane z maszyny Wirtualnej. Każdej z nich ma inną wydajności, ale ma tego samego IOPS i limity przepustowości. Wybierz typ dyski standardowe zarządzane na podstawie potrzeb wydajność aplikacji.
 
 | Typ dysku standardowego  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
@@ -68,32 +68,32 @@ Istnieje siedem typów zarządzane standardowych dysków, które mogą być uży
 
 **Dysków zarządzanych w warstwie Premium**
 
-Domyślnie jest dyskowej pamięci podręcznej zasad *tylko do odczytu* dla wszystkich hello dysków danych w warstwie Premium i *odczytu i zapisu* dla dysku systemu operacyjnego Premium hello dołączony toohello maszyny Wirtualnej. To ustawienie konfiguracji jest zalecane tooachieve hello optymalnej wydajności dla aplikacji systemu IOs. W przypadku dysków ciężki zapisu lub w trybie tylko do zapisu danych (takich jak pliki dziennika programu SQL Server) Wyłącz buforowanie dysku, dzięki czemu można osiągnąć lepszą wydajność aplikacji.
+Domyślnie jest dyskowej pamięci podręcznej zasad *tylko do odczytu* dla wszystkich danych dysków Premium i *odczytu i zapisu* dla dysku systemu operacyjnego Premium dołączony do maszyny Wirtualnej. To ustawienie konfiguracji jest zalecane w celu osiągnięcia optymalnej wydajności dla aplikacji systemu IOs. W przypadku dysków ciężki zapisu lub w trybie tylko do zapisu danych (takich jak pliki dziennika programu SQL Server) Wyłącz buforowanie dysku, dzięki czemu można osiągnąć lepszą wydajność aplikacji.
 
 ### <a name="pricing"></a>Cennik
 
-Przejrzyj hello [ceny dysków zarządzanych](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Cen dysków zarządzanych w warstwie Premium jest taka sama jak hello niezarządzane dysków Premium. Ale ceny dyski standardowe zarządzanych jest inny niż dyski standardowe niezarządzane.
+Przegląd [ceny dysków zarządzanych](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Cen dysków zarządzanych w warstwie Premium jest taka sama jak niezarządzane dysków Premium. Ale ceny dyski standardowe zarządzanych jest inny niż dyski standardowe niezarządzane.
 
 
 ## <a name="checklist"></a>Lista kontrolna
 
-1.  W przypadku migracji dysków zarządzanych tooPremium, upewnij się, że jest dostępna w regionie hello, które w przypadku migracji do.
+1.  W przypadku migracji do zarządzanych dysków Premium upewnij się, że jest dostępna w regionie, który w przypadku migracji do.
 
-2.  Zdecyduj, hello nowej serii maszyn wirtualnych, które będą używane. Jeśli przeprowadzasz migrację dysków zarządzanych tooPremium powinno być funkcją Magazyn w warstwie Premium.
+2.  Zdecyduj, nowej serii maszyny Wirtualnej, który będzie używany. Magazyn w warstwie Premium obsługuje powinno być migrowania do dysków zarządzanych w warstwie Premium.
 
-3.  Zdecyduj, hello dokładny rozmiar maszyny Wirtualnej, który będzie używany, które są dostępne w regionie hello, które w przypadku migracji do. Rozmiar maszyny Wirtualnej musi toobe toosupport wystarczająco duży hello liczba dysków danych, do których masz. Na przykład jeśli masz cztery dyski danych hello maszyna wirtualna musi mieć co najmniej dwa rdzenie. Należy również rozważyć przetwarzania zasilania, pamięci i musi przepustowości sieci.
+3.  Określ dokładnie rozmiar maszyny Wirtualnej, który będzie używany, które są dostępne w regionie, w którym w przypadku migracji do. Rozmiar maszyny Wirtualnej musi być wystarczająco duży, aby obsługiwał liczba dysków danych, do których masz. Na przykład jeśli masz cztery dysków danych maszyny Wirtualnej musi mieć co najmniej dwa rdzenie. Należy również rozważyć przetwarzania zasilania, pamięci i musi przepustowości sieci.
 
-4.  Ma hello wirtualna szczegóły bieżącej przydatną tym hello listę dysków i odpowiednie obiekty BLOB dysków VHD.
+4.  Mieć bieżące szczegóły maszyny Wirtualnej pod ręką, w tym listę dysków i odpowiednie obiekty BLOB dysków VHD.
 
-Przygotowanie aplikacji dla przestoju. toodo czystą migracji należy toostop przetwarzania hello w bieżącym systemie hello. Następnie możesz pobrać go tooconsistent stanu, które można migrować toohello na nowej platformie. Czas trwania przestoju zależy od hello ilości danych w hello toomigrate dysków.
-
-
-## <a name="migrate-hello-vm"></a>Migrowanie hello maszyny Wirtualnej
-
-Przygotowanie aplikacji dla przestoju. toodo czystą migracji należy toostop przetwarzania hello w bieżącym systemie hello. Następnie możesz pobrać go tooconsistent stanu, które można migrować toohello na nowej platformie. Czas trwania przestoju zależy od hello ilości danych w hello toomigrate dysków.
+Przygotowanie aplikacji dla przestoju. Przeprowadzenie czystej migracji, należy zatrzymać wszystkie przetwarzania w systemie. Następnie możesz pobrać go do spójnego stanu, które można migrować do nowej platformie. Czas trwania przestoju zależy od ilości danych na dyskach, aby przeprowadzić migrację.
 
 
-1.  Najpierw należy ustawić hello typowe parametry:
+## <a name="migrate-the-vm"></a>Migrowanie maszyny Wirtualnej
+
+Przygotowanie aplikacji dla przestoju. Przeprowadzenie czystej migracji, należy zatrzymać wszystkie przetwarzania w systemie. Następnie możesz pobrać go do spójnego stanu, które można migrować do nowej platformie. Czas trwania przestoju zależy od ilości danych na dyskach, aby przeprowadzić migrację.
+
+
+1.  Najpierw należy ustawić wspólne parametry:
 
     ```powershell
     $resourceGroupName = 'yourResourceGroupName'
@@ -119,9 +119,9 @@ Przygotowanie aplikacji dla przestoju. toodo czystą migracji należy toostop pr
     $dataDiskName = 'dataDisk1'
     ```
 
-2.  Tworzenie zarządzanego dysku systemu operacyjnego przy użyciu hello wirtualnego dysku twardego z hello klasyczne maszyny Wirtualnej.
+2.  Tworzenie zarządzanego dysku systemu operacyjnego przy użyciu wirtualnego dysku twardego z klasycznym maszyny Wirtualnej.
 
-    Upewnij się, że masz pod warunkiem hello ukończyć URI hello parametru toohello $osVhdUri wirtualnego dysku twardego systemu operacyjnego. Wprowadź też **- AccountType** jako **PremiumLRS** lub **StandardLRS** na podstawie typu dysków (Premium lub Standard) w przypadku migracji do.
+    Upewnij się, że podano pełny identyfikator URI wirtualnego dysku twardego systemu operacyjnego do parametru $osVhdUri. Wprowadź też **- AccountType** jako **PremiumLRS** lub **StandardLRS** na podstawie typu dysków (Premium lub Standard) w przypadku migracji do.
 
     ```powershell
     $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk (New-AzureRmDiskConfig '
@@ -129,7 +129,7 @@ Przygotowanie aplikacji dla przestoju. toodo czystą migracji należy toostop pr
     -ResourceGroupName $resourceGroupName
     ```
 
-3.  Dołącz toohello dysku systemu operacyjnego hello nowej maszyny Wirtualnej.
+3.  Dołączenie dysku systemu operacyjnego do nowej maszyny Wirtualnej.
 
     ```powershell
     $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
@@ -137,7 +137,7 @@ Przygotowanie aplikacji dla przestoju. toodo czystą migracji należy toostop pr
     -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption Attach -Windows
     ```
 
-4.  Utwórz dysk danych zarządzanych z pliku VHD danych hello i dodaj go toohello nowej maszyny Wirtualnej.
+4.  Tworzenie dysku danych zarządzanych z pliku VHD danych i dodaj go do nowej maszyny Wirtualnej.
 
     ```powershell
     $dataDisk1 = New-AzureRmDisk -DiskName $dataDiskName -Disk (New-AzureRmDiskConfig '
@@ -148,7 +148,7 @@ Przygotowanie aplikacji dla przestoju. toodo czystą migracji należy toostop pr
     -CreateOption Attach -ManagedDiskId $dataDisk1.Id -Lun 1
     ```
 
-5.  Utwórz hello nowej maszyny Wirtualnej przez ustawienie publicznego adresu IP, sieci wirtualnej i karty sieciowej.
+5.  Tworzenie nowej maszyny Wirtualnej przez ustawienie publicznego adresu IP, sieci wirtualnej i karty sieciowej.
 
     ```powershell
     $publicIp = New-AzureRmPublicIpAddress -Name ($VirtualMachineName.ToLower()+'_ip') '
@@ -166,11 +166,11 @@ Przygotowanie aplikacji dla przestoju. toodo czystą migracji należy toostop pr
     ```
 
 > [!NOTE]
->Może być konieczne toosupport dodatkowe kroki aplikacji, która jest nie obejmuje się w tym przewodniku.
+>Mogą istnieć dodatkowe kroki niezbędne do obsługi tej aplikacji, która jest nie obejmuje się w tym przewodniku.
 >
 >
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Połącz toohello maszyny wirtualnej. Aby uzyskać instrukcje, zobacz [jak dziennika na tooan wirtualnej platformy Azure i tooconnect maszyny, systemem operacyjnym Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Połączenie z maszyną wirtualną. Aby uzyskać instrukcje, zobacz [jak połączenia i zaloguj się do maszyny wirtualnej platformy Azure systemem Windows](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

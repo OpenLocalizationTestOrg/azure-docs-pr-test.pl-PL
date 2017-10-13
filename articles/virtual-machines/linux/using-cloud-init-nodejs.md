@@ -1,6 +1,6 @@
 ---
-title: aaaUsing toocustomize init chmury maszyny Wirtualnej systemu Linux, podczas tworzenia na platformie Azure | Dokumentacja firmy Microsoft
-description: Jak toouse toocustomize init chmury a Linux VM podczas tworzenia z hello Azure CLI w wersji 1.0
+title: "Dostosowywanie maszyny Wirtualnej systemu Linux podczas tworzenia na platformie Azure za pomocą init chmurze | Dokumentacja firmy Microsoft"
+description: "Jak użyć init chmury w celu dostosowania Maszynę wirtualną systemu Linux podczas tworzenia z interfejsu wiersza polecenia platformy Azure w wersji 1.0"
 services: virtual-machines-linux
 documentationcenter: 
 author: vlivech
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
-ms.openlocfilehash: b9f480bd04029956d0593bbef931795733cbc2f6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0b6150bca333188666935b3c9aa02c4b33690db9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-cloud-init-toocustomize-a-linux-vm-during-creation-with-hello-azure-cli-10"></a>Użyj toocustomize init chmury maszyny Wirtualnej systemu Linux podczas tworzenia z hello Azure CLI w wersji 1.0
-W tym artykule przedstawiono sposób toomake tooset skryptu init chmury hello hostname zainstalowanych pakietów aktualizacji i zarządzanie kontami użytkowników.  skrypty chmurze init Hello są wywoływane podczas hello tworzenie maszyny Wirtualnej za pomocą wiersza polecenia platformy Azure.  wymaga artykułu Hello:
+# <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Użyć init chmury w celu dostosowania Maszynę wirtualną systemu Linux podczas tworzenia z interfejsu wiersza polecenia platformy Azure w wersji 1.0
+W tym artykule przedstawiono sposób wprowadzania skryptu init chmury, ustawiania nazwy hosta, zainstalowano aktualizację pakietów i zarządzanie kontami użytkowników.  Skrypty chmurze init wywoływane podczas tworzenia maszyny Wirtualnej z wiersza polecenia platformy Azure.  Wykonanie czynności opisanych w tym artykule wymaga:
 
 * konta platformy Azure ([skorzystaj z bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/));
-* Witaj [interfejsu wiersza polecenia Azure](../../cli-install-nodejs.md) logowania `azure login`.
-* Hello Azure CLI *musi znajdować się w* tryb usługi Azure Resource Manager `azure config mode arm`.
+* dostępu do [interfejsu wiersza polecenia platformy Azure](../../cli-install-nodejs.md) (po zalogowaniu przy użyciu `azure login`).
+* Interfejs wiersza polecenia platformy Azure *musi działać w* trybie usługi Azure Resource Manager`azure config mode arm`.
 
-## <a name="cli-versions-toocomplete-hello-task"></a>Zadanie hello toocomplete wersje interfejsu wiersza polecenia
-Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące wersje interfejsu wiersza polecenia:
+## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
+Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
 
-- [Azure CLI 1.0](#quick-commands) — nasze interfejsu wiersza polecenia dla hello classic i zasobów zarządzania wdrażania modeli (w tym artykule)
-- [Azure CLI 2.0](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -naszej nowej generacji interfejsu wiersza polecenia dla modelu wdrażania zarządzania zasobów hello
+- [Azure CLI 1.0](#quick-commands) — nasze interfejsu wiersza polecenia dla klasycznego i zasobów zarządzania wdrażania modeli (w tym artykule)
+- [Interfejs wiersza polecenia platformy Azure w wersji 2.0](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami
 
 ## <a name="quick-commands"></a>Szybkie polecenia
-Utwórz skrypt init.txt chmury, który ustawia hello hostname, wszystkie pakiety aktualizacji i dodaje tooLinux użytkownika sudo.
+Utwórz skrypt init.txt chmury, który ustawia nazwę hosta, wszystkie pakiety aktualizacji i dodaje użytkownika sudo do systemu Linux.
 
 ```sh
 #cloud-config
@@ -49,13 +49,13 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myVM
 ```
-Tworzenie maszyn wirtualnych do toolaunch grupy zasobów.
+Utwórz grupę zasobów do maszyn wirtualnych do uruchomienia.
 
 ```azurecli
 azure group create myResourceGroup westus
 ```
 
-Utwórz Maszynę wirtualną systemu Linux przy użyciu chmury init tooconfigure go podczas rozruchu.
+Utwórz Maszynę wirtualną systemu Linux przy użyciu chmury init ją skonfigurować podczas rozruchu.
 
 ```azurecli
 azure vm create \
@@ -76,23 +76,23 @@ azure vm create \
 
 ## <a name="detailed-walkthrough"></a>Szczegółowy przewodnik
 ### <a name="introduction"></a>Wprowadzenie
-Podczas uruchamiania nowej maszyny Wirtualnej systemu Linux, w przypadku uzyskiwania standard maszyny Wirtualnej systemu Linux niczego nie dostosowane lub gotowy do własnych potrzeb. [Init chmury](https://cloudinit.readthedocs.org) jest tooinject standardowy sposób skryptu lub ustawień konfiguracyjnych do tej maszyny Wirtualnej systemu Linux jest uruchamiany dla powitania po raz pierwszy.
+Podczas uruchamiania nowej maszyny Wirtualnej systemu Linux, w przypadku uzyskiwania standard maszyny Wirtualnej systemu Linux niczego nie dostosowane lub gotowy do własnych potrzeb. [Init chmury](https://cloudinit.readthedocs.org) jest standardowym sposobem wstrzyknąć skryptu lub ustawień konfiguracyjnych do tej maszyny Wirtualnej systemu Linux, jak jest uruchamiany dla po raz pierwszy.
 
-Na platformie Azure, istnieją trzy różne sposoby toomake zmiany na Maszynę wirtualną systemu Linux, ponieważ jest on wdrożony lub rozruchu.
+Na platformie Azure, aby wprowadzić zmiany na Maszynę wirtualną systemu Linux, ponieważ jest on są trzy różne sposoby wdrażania lub rozruchu.
 
 * Wstaw skrypty przy użyciu inicjowania chmury.
-* Wstaw skrypty przy użyciu hello Azure [rozszerzenia VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Wstaw skrypty przy użyciu platformy Azure [rozszerzenia VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Szablonu platformy Azure przy użyciu inicjowania chmury.
 * Przy użyciu szablonu Azure [CustomScriptExtention](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-skrypty tooinject w dowolnym momencie po rozruchu:
+Do dodania skryptów w dowolnym momencie po rozruchu:
 
-* SSH toorun bezpośrednio poleceń
-* Wstaw skrypty przy użyciu hello Azure [rozszerzenia VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), imperatively lub szablonu platformy Azure
+* SSH do uruchamiania poleceń, bezpośrednio
+* Wstaw skrypty przy użyciu platformy Azure [rozszerzenia VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), imperatively lub szablonu platformy Azure
 * Narzędzia zarządzania konfiguracją, takie jak Ansible, wartość Zaburzająca, Chef i Puppet.
 
 > [!NOTE]
-> : Rozszerzenia VMAccess wykonuje skrypt główny w hello takie same jak przy użyciu protokołu SSH może.  Jednak używanie hello rozszerzenia maszyny Wirtualnej umożliwia kilka funkcji tej oferty Azure, które mogą być przydatne, w zależności od danego scenariusza.
+> : Rozszerzenia VMAccess wykonuje skryptu, tak jak w głównym w taki sam sposób, przy użyciu protokołu SSH.  Jednak przy użyciu rozszerzenia maszyny Wirtualnej umożliwia kilka funkcji tej oferty Azure, które mogą być przydatne, w zależności od danego scenariusza.
 > 
 > 
 
@@ -106,18 +106,18 @@ skrypty tooinject w dowolnym momencie po rozruchu:
 | RHEL |Redhat |RHEL |7.2 |najnowsza |Brak |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |najnowsza |Tak |
 
-Firma Microsoft jest praca z naszych partnerów tooget chmury inicjowania uwzględnione pracy w obrazach hello udostępniają one tooAzure.
+Firma Microsoft współpracuje z partnerami uzyskanie init chmury uwzględnione i Praca w obrazach, zapewniające na platformie Azure.
 
-## <a name="adding-a-cloud-init-script-toohello-vm-creation-with-hello-azure-cli"></a>Dodawanie utworzenie init chmury skryptu toohello maszyny Wirtualnej z hello wiersza polecenia platformy Azure
-toolaunch skryptu chmury init, podczas tworzenia maszyny Wirtualnej na platformie Azure, określ plik init chmury hello przy użyciu interfejsu wiersza polecenia Azure hello `--custom-data` przełącznika.
+## <a name="adding-a-cloud-init-script-to-the-vm-creation-with-the-azure-cli"></a>Dodawanie skryptu init chmury do tworzenia maszyny Wirtualnej z wiersza polecenia platformy Azure
+Aby uruchomić skrypt init chmury, podczas tworzenia maszyny Wirtualnej na platformie Azure, określ plik init chmury przy użyciu interfejsu wiersza polecenia Azure `--custom-data` przełącznika.
 
-Tworzenie maszyn wirtualnych do toolaunch grupy zasobów.
+Utwórz grupę zasobów do maszyn wirtualnych do uruchomienia.
 
 ```azurecli
 azure group create myResourceGroup westus
 ```
 
-Utwórz Maszynę wirtualną systemu Linux przy użyciu chmury init tooconfigure go podczas rozruchu.
+Utwórz Maszynę wirtualną systemu Linux przy użyciu chmury init ją skonfigurować podczas rozruchu.
 
 ```azurecli
 azure vm create \
@@ -136,8 +136,8 @@ azure vm create \
   --custom-data cloud-init.txt
 ```
 
-## <a name="creating-a-cloud-init-script-tooset-hello-hostname-of-a-linux-vm"></a>Tworzenie chmury init skryptu tooset hello nazwa hosta maszyny wirtualnej systemu Linux
-Jedną z najważniejszych ustawień żadnej maszyny Wirtualnej systemu Linux i hello najprostszym byłoby hello nazwy hosta. Firma Microsoft łatwo tę można skonfigurować przy użyciu inicjowania chmury za pomocą tego skryptu.  
+## <a name="creating-a-cloud-init-script-to-set-the-hostname-of-a-linux-vm"></a>Tworzenie skrypt init chmurze hostname maszyny wirtualnej systemu Linux
+Jedno z ustawień najprostszym i najważniejszych żadnej maszyny Wirtualnej systemu Linux jest nazwą hosta. Firma Microsoft łatwo tę można skonfigurować przy użyciu inicjowania chmury za pomocą tego skryptu.  
 
 ### <a name="example-cloud-init-script-named-cloudconfighostnametxt"></a>Przykładowy skrypt init chmury o nazwie `cloud_config_hostname.txt`.
 ```sh
@@ -145,7 +145,7 @@ Jedną z najważniejszych ustawień żadnej maszyny Wirtualnej systemu Linux i h
 hostname: myservername
 ```
 
-Podczas hello wstępnego uruchamiania hello maszyny Wirtualnej, ten skrypt init chmury ustawia hello hostname zbyt`myservername`.
+Podczas wstępnego uruchamiania maszyny Wirtualnej, ten skrypt init chmury ustawia nazwę hosta `myservername`.
 
 ```azurecli
 azure vm create \
@@ -164,7 +164,7 @@ azure vm create \
   --custom-data cloud_config_hostname.txt
 ```
 
-Logowania i sprawdź nazwę hosta hello hello nowej maszyny Wirtualnej.
+Logowania i sprawdź nazwę hosta nowej maszyny Wirtualnej.
 
 ```bash
 ssh myVM
@@ -172,16 +172,16 @@ hostname
 myservername
 ```
 
-## <a name="creating-a-cloud-init-script-tooupdate-linux"></a>Tworzenie chmury init tooupdate skryptu systemu Linux
-Dla bezpieczeństwa ma tooupdate Twojej maszyny Wirtualnej systemu Ubuntu przy pierwszym hello.  Przy użyciu chmury init możemy, z hello Wykonaj skrypt, w zależności od hello dystrybucja systemu Linux, którego używasz.
+## <a name="creating-a-cloud-init-script-to-update-linux"></a>Tworzenie chmury init skryptu aktualizującego systemu Linux
+Dla bezpieczeństwa ma maszyny Wirtualnej systemu Ubuntu aktualizacji po pierwszym uruchomieniu komputera.  Przy użyciu chmury init robimy można przy użyciu skryptu wykonaj, w zależności od używanych dystrybucji systemu Linux.
 
-### <a name="example-cloud-init-script-cloudconfigaptupgradetxt-for-hello-debian-family"></a>Przykładowy skrypt init chmury `cloud_config_apt_upgrade.txt` dla hello Debian rodziny
+### <a name="example-cloud-init-script-cloudconfigaptupgradetxt-for-the-debian-family"></a>Przykładowy skrypt init chmury `cloud_config_apt_upgrade.txt` Debian rodziny
 ```sh
 #cloud-config
 apt_upgrade: true
 ```
 
-Po uruchomieniu systemu Linux, wszystkich pakietów hello zainstalowane są aktualizowane za pośrednictwem `apt-get`.
+Po uruchomieniu systemu Linux, wszystkie zainstalowane pakiety są aktualizowane za pośrednictwem `apt-get`.
 
 ```azurecli
 azure vm create \
@@ -209,13 +209,13 @@ Reading package lists... Done
 Building dependency tree
 Reading state information... Done
 Calculating upgrade... Done
-hello following packages have been kept back:
+The following packages have been kept back:
   linux-generic linux-headers-generic linux-image-generic
-0 upgraded, 0 newly installed, 0 tooremove and 0 not upgraded.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 
-## <a name="creating-a-cloud-init-script-tooadd-a-user-toolinux"></a>Tworzenie tooadd skryptu init chmury tooLinux użytkownika
-Jeden z pierwszego zadania hello na nowej maszyny Wirtualnej z systemem Linux jest tooadd użytkownika dla siebie lub przy użyciu tooavoid `root`. SSH klucze są najlepsze rozwiązanie dotyczące zabezpieczeń i użyteczność i są dodawane toohello `~/.ssh/authorized_keys` plików za pomocą tego skryptu init chmury.
+## <a name="creating-a-cloud-init-script-to-add-a-user-to-linux"></a>Tworzenie skryptu init chmury, aby dodać użytkownika do systemu Linux
+Jedno z pierwszym zadań na nowej maszyny Wirtualnej z systemem Linux jest dodać użytkownika dla siebie lub unikać `root`. SSH klucze są najlepsze rozwiązanie dotyczące zabezpieczeń i użyteczność i są dodawane do `~/.ssh/authorized_keys` plików za pomocą tego skryptu init chmury.
 
 ### <a name="example-cloud-init-script-cloudconfigadduserstxt-for-debian-family"></a>Przykładowy skrypt init chmury `cloud_config_add_users.txt` Debian rodziny
 ```sh
@@ -229,7 +229,7 @@ users:
       - ssh-rsa AAAAB3<snip>==myAdminUser@myUbuntuVM
 ```
 
-Po uruchomieniu systemu Linux, wszyscy użytkownicy hello wymienione są utworzone i dodać toohello sudo grupy.
+Po uruchomieniu systemu Linux, wyświetlani użytkownicy są tworzone i dodawane do grupy sudo.
 
 ```azurecli
 azure vm create \
@@ -248,7 +248,7 @@ azure vm create \
   --custom-data cloud_config_add_users.txt
 ```
 
-Logowania i weryfikacji hello nowo utworzonego użytkownika.
+Logowania i Sprawdź nowo utworzonego użytkownika.
 
 ```bash
 ssh myVM
@@ -266,9 +266,9 @@ myCloudInitAddedAdminUser:x:1000:
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Init chmurze staje się jeden toomodify standardowy sposób przy rozruchu maszyny Wirtualnej systemu Linux. Platforma Azure ma rozszerzenia maszyny Wirtualnej, które pozwalają toomodify Twojego LinuxVM przy rozruchu lub jest uruchomiona. Na przykład można użyć hello Azure VMAccessExtension tooreset SSH lub informacje o użytkowniku hello maszyna wirtualna jest uruchomiona. Z inicjowaniem chmury będzie potrzebny hasła hello tooreset ponowne uruchomienie komputera.
+Init chmurze staje się coraz standardowy sposób zmodyfikować maszyny Wirtualnej systemu Linux na rozruchu. Platforma Azure ma rozszerzenia maszyny Wirtualnej, które umożliwiają modyfikowanie użytkownika LinuxVM przy rozruchu lub jest uruchomiona. Na przykład można użyć Azure VMAccessExtension można zresetować informacje o użytkowniku lub SSH uruchomionej maszyny Wirtualnej. Z inicjowaniem chmury może być konieczne ponowne uruchomienie w celu zresetowania hasła.
 
 [Temat funkcji i rozszerzeń maszyny wirtualnej](../windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Zarządzanie użytkownikami, SSH i wyboru lub naprawy dysków na maszynach wirtualnych systemu Linux platformy Azure przy użyciu hello rozszerzenia VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Zarządzanie użytkownikami, SSH i wyboru lub napraw dyski na maszynach wirtualnych systemu Linux platformy Azure przy użyciu rozszerzenia VMAccess](using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

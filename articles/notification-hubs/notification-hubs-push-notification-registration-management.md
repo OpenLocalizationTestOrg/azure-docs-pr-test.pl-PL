@@ -1,6 +1,6 @@
 ---
-title: "aaaRegistration zarządzania"
-description: "W tym temacie wyjaśniono, jak tooregister urządzeniami przy użyciu usługi notification hubs w kolejności tooreceive powiadomienia wypychane."
+title: "Zarządzanie rejestracji"
+description: "W tym temacie wyjaśniono, jak zarejestrować urządzenia z usługą notification hubs w celu odbierania powiadomień wypychanych."
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
@@ -14,34 +14,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76471a45c7a0da1614ceed82b73cdb3319979ff7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="registration-management"></a>Zarządzanie rejestracją
 ## <a name="overview"></a>Omówienie
-W tym temacie wyjaśniono, jak tooregister urządzeniami przy użyciu usługi notification hubs w kolejności tooreceive powiadomienia wypychane. Hello tematu opisano rejestracji na wysokim poziomie, a następnie wprowadza hello dwa główne wzorców do rejestracji urządzeń: rejestrowanie na urządzeniu hello bezpośrednio toohello Centrum powiadomień i rejestrowanie za pomocą wewnętrznej bazy danych aplikacji. 
+W tym temacie wyjaśniono, jak zarejestrować urządzenia z usługą notification hubs w celu odbierania powiadomień wypychanych. Temat opisuje rejestracji na wysokim poziomie, a następnie wprowadza dwa główne wzorce do rejestracji urządzeń: rejestrację z urządzenia bezpośrednio w Centrum powiadomień i rejestrowanie za pomocą wewnętrznej bazy danych aplikacji. 
 
 ## <a name="what-is-device-registration"></a>Co to jest rejestracja urządzenia
 Rejestracja urządzenia z Centrum powiadomień odbywa się przy użyciu **rejestracji** lub **instalacji**.
 
 #### <a name="registrations"></a>Rejestracje
-Rejestracja kojarzy powitalne obsługi usługi powiadomień platformy (PNS) dla urządzeń z tagami i prawdopodobnie szablonu. dojście systemu powiadomień platformy Hello można ChannelURI, token urządzenia lub identyfikator rejestracji usługi GCM. Tagi są używane tooroute powiadomienia toohello poprawny zestaw dojść urządzeń. Aby uzyskać więcej informacji, zobacz [routingu i wyrażeń tagów](notification-hubs-tags-segment-push-message.md). Szablony są używane tooimplement na rejestracji przekształcenia. Aby uzyskać więcej informacji, zobacz [szablony](notification-hubs-templates-cross-platform-push-messages.md).
+Rejestracja kojarzy dojścia usługi powiadomień platformy (PNS) dla urządzenia z tagami i prawdopodobnie szablonu. Dojście systemu powiadomień platformy można ChannelURI, token urządzenia lub identyfikator rejestracji usługi GCM. Tagi są używane do kierowania powiadomień do poprawny zestaw dojść urządzeń. Aby uzyskać więcej informacji, zobacz [routingu i wyrażeń tagów](notification-hubs-tags-segment-push-message.md). Szablony są używane do implementowania na rejestracji przekształcenia. Aby uzyskać więcej informacji, zobacz [szablony](notification-hubs-templates-cross-platform-push-messages.md).
 
 #### <a name="installations"></a>Instalacje
-Instalacja jest rozszerzonych właściwości powiązanych z rejestrację, która zawiera zbiór wypychania. Jest hello tooregistering najnowsze i najlepsze rozwiązania z urządzenia. Jednak nie jest obsługiwany przez klienta po stronie zestawu SDK programu .NET ([SDK Centrum powiadomień dla wewnętrznej bazy danych operacji](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) jeszcze.  Oznacza to, w przypadku rejestracji powitania klienta urządzenia, konieczne będzie toouse hello [interfejsu API REST centra powiadomień](https://msdn.microsoft.com/library/mt621153.aspx) podejścia toosupport instalacji. Jeśli używasz usługi wewnętrznej bazy danych powinno być możliwe toouse [SDK Centrum powiadomień dla wewnętrznej bazy danych operacji](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Instalacja jest rozszerzonych właściwości powiązanych z rejestrację, która zawiera zbiór wypychania. Jest to najnowsze i najlepsze rozwiązanie z rejestracją urządzenia. Jednak nie jest obsługiwany przez klienta po stronie zestawu SDK programu .NET ([SDK Centrum powiadomień dla wewnętrznej bazy danych operacji](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) jeszcze.  Oznacza to, w przypadku rejestracji na urządzeniu klienckim, należy użyć [interfejsu API REST centra powiadomień](https://msdn.microsoft.com/library/mt621153.aspx) podejście do obsługi instalacji. Jeśli używasz usługi wewnętrznej bazy danych powinno być możliwe do użycia [SDK Centrum powiadomień dla wewnętrznej bazy danych operacji](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Witaj poniżej przedstawiono niektóre instalacje toousing podstawowych zalet:
+Poniżej przedstawiono niektóre kluczowe zalety korzystania z instalacji:
 
 * Tworzenie lub aktualizowanie instalacji jest w pełni idempotentności. Dlatego możesz ponowić próbę jej bez żadnych problemów dotyczących rejestracji duplikatów.
-* model instalacji Hello umożliwia łatwe toodo poszczególnych wypchnięć - przeznaczonych dla określonego urządzenia. Tag systemu **"$InstallationId: [identyfikator installationId]"** jest automatycznie dodawany z każdej instalacji na podstawie rejestracji. Dlatego można wywołać wysyłania toothis tag tootarget określonego urządzenia bez konieczności toodo dodatkowy kod.
-* Przy użyciu instalacji umożliwia również należy toodo rejestracji częściowej aktualizacji. Witaj częściowej aktualizacji instalacji zażądano za pomocą metody poprawki przy użyciu hello [standard JSON poprawki](https://tools.ietf.org/html/rfc6902). Jest to szczególnie przydatne, należy tagi tooupdate na powitania rejestracji. Nie masz toopull dół całej rejestracji hello i ponownie Wyślij wszystkie tagi poprzedniej hello ponownie.
+* Model instalacji ułatwia czy poszczególnych wypchnięć - przeznaczonych dla określonego urządzenia. Tag systemu **"$InstallationId: [identyfikator installationId]"** jest automatycznie dodawany z każdej instalacji na podstawie rejestracji. Dlatego należy wywołać Wyślij do tego znacznika do określonego urządzenia bez konieczności dodatkowe kodowania.
+* Przy użyciu instalacji umożliwia także aktualizacje częściowe rejestracji. Zażądano częściowej aktualizacji instalacji z metody poprawki przy użyciu [standard JSON poprawki](https://tools.ietf.org/html/rfc6902). Jest to szczególnie przydatne, jeśli chcesz zaktualizować tagów do rejestracji. Nie trzeba rozwiń całego rejestracji, a następnie ponownie Wyślij ponownie wszystkie poprzednie tagi.
 
-Instalacja produktu może zawierać hello hello następujące właściwości. Aby uzyskać pełną listę, zobacz właściwości instalacji hello [utworzyć ani zastąpić instalacji z interfejsu API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) lub [właściwości instalacji](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) dla hello.
+Instalacja produktu może zawierać następujące właściwości. Aby uzyskać pełną listę można znaleźć właściwości instalacji, [utworzyć ani zastąpić instalacji z interfejsu API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) lub [właściwości instalacji](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx) dla.
 
-    // Example installation format tooshow some supported properties
+    // Example installation format to show some supported properties
     {
         installationId: "",
         expirationTime: "",
@@ -77,37 +77,37 @@ Instalacja produktu może zawierać hello hello następujące właściwości. Ab
 
 
 
-Jest ważne toonote, którego rejestracji i instalacje domyślnie nie wygaśnie.
+Należy pamiętać, że rejestracji i instalacje domyślnie nie wygasają już.
 
-Rejestracje i instalacji musi zawierać prawidłowe dojście systemu powiadomień platformy dla każdego urządzenia/kanału. Ponieważ dojść systemu powiadomień platformy można uzyskać tylko w aplikacji klienta na powitania urządzeniu, jeden wzorzec jest tooregister bezpośrednio na tym urządzeniu z powitania klienta aplikacji. Na powitania inne strony, zagadnienia dotyczące zabezpieczeń i logiki biznesowej związanych z tootags może wymagać toomanage rejestracji urządzeń w zaplecze aplikacji hello. 
+Rejestracje i instalacji musi zawierać prawidłowe dojście systemu powiadomień platformy dla każdego urządzenia/kanału. Ponieważ dojść systemu powiadomień platformy można uzyskać tylko w aplikacji klienta, na urządzeniu, jeden wzorzec jest zarejestrować bezpośrednio na tym urządzeniu z aplikacji klienckiej. Z drugiej strony, zagadnienia dotyczące zabezpieczeń i powiązane z tagami logiki biznesowej może być konieczne umożliwia zarządzanie rejestracją urządzeń w aplikacji zaplecza. 
 
 #### <a name="templates"></a>Szablony
-Jeśli chcesz, aby toouse [szablony](notification-hubs-templates-cross-platform-push-messages.md), instalacja urządzenia hello również przechowywać wszystkie szablony skojarzone z tym urządzeniem w formacie JSON formatu (Zobacz przykład powyżej). Witaj nazwy szablonów pomocy target różnych szablonów dla hello tego samego urządzenia.
+Jeśli chcesz użyć [szablony](notification-hubs-templates-cross-platform-push-messages.md), instalacja urządzenia również przechowywać wszystkie szablony skojarzone z tym urządzeniem w formacie JSON formatu (Zobacz przykład powyżej). Nazwy szablonów pomocy różnych szablonów docelowego dla tego samego urządzenia.
 
-Należy pamiętać, że nazwa każdego szablonu mapuje treści szablonu tooa i opcjonalny zestaw tagów. Ponadto każdej z platform może mieć właściwości dodatkowe szablonu. Dla Sklepu Windows (przy użyciu usługi WNS) i Windows Phone 8 (przy użyciu usługi MPNS) dodatkowych zestawu nagłówków może być częścią hello szablonu. W przypadku hello APN można ustawić tooeither właściwości wygaśnięcia stałą lub tooa wyrażenia szablonu. Aby uzyskać pełną listę, zobacz właściwości instalacji hello [Tworzenie lub Zastąp instalacji REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) tematu.
+Należy pamiętać, że każda nazwa szablonu jest mapowana treści szablonu i opcjonalny zestaw tagów. Ponadto każdej z platform może mieć właściwości dodatkowe szablonu. Dla Sklepu Windows (przy użyciu usługi WNS) i Windows Phone 8 (przy użyciu usługi MPNS) dodatkowe ustawienia nagłówków może być częścią szablonu. W przypadku usługi APNs można ustawić właściwości wygaśnięcia stałą lub wyrażeniem szablonu. Aby uzyskać pełną listę można znaleźć właściwości instalacji, [Tworzenie lub Zastąp instalacji REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) tematu.
 
 #### <a name="secondary-tiles-for-windows-store-apps"></a>Dodatkowej Kafelki aplikacji do Sklepu Windows
-Dla aplikacji ze Sklepu Windows klienta wysyłania powiadomień jest Kafelki toosecondary hello takie same jak wysyłanie ich toohello główną. Ta jest obsługiwana w przypadku instalacji. Należy zauważyć, że dodatkowej Kafelki różnych ChannelUri, które hello zestawu SDK w aplikacji klienta obsługuje przezroczysty.
+Dla aplikacji ze Sklepu Windows klienta wysyłanie powiadomień do dodatkowej Kafelki jest taka sama jak ich wysłaniem do główną. Ta jest obsługiwana w przypadku instalacji. Należy zauważyć, że dodatkowej Kafelki różnych ChannelUri, która zestawu SDK w aplikacji klienta obsługuje przezroczysty.
 
-używa słownika SecondaryTiles Hello hello tego samego TileId, który jest obiektem SecondaryTiles hello toocreate używane w aplikacji ze Sklepu Windows.
-Zgodnie z hello ChannelUri podstawowego, ChannelUris dodatkowej Kafelki można zmienić w dowolnym momencie. W przypadku kolejności tookeep hello instalacji w Centrum powiadomień hello zaktualizowane hello urządzenia należy odświeżyć je z hello bieżącego ChannelUris hello dodatkowej kafelków.
+Słownik SecondaryTiles używa tego samego TileId, który służy do tworzenia obiektu SecondaryTiles w aplikacji ze Sklepu Windows.
+Podobnie jak w przypadku podstawowego ChannelUri, ChannelUris dodatkowej Kafelki można zmienić w dowolnym momencie. Aby zachować instalacje zaktualizowano Centrum powiadomień, urządzenia należy odświeżyć je bieżącego ChannelUris dodatkowej kafelków.
 
-## <a name="registration-management-from-hello-device"></a>Zarządzanie rejestrację z urządzenia hello
-Podczas zarządzania rejestracji urządzeń z aplikacji klienta, hello wewnętrznej bazy danych tylko jest odpowiedzialny za wysyłanie powiadomień. Aplikacje klienta zachować dojść systemu powiadomień platformy się toodate i zarejestruj tagów. Witaj, na poniższej ilustracji przedstawiono ten wzorzec.
+## <a name="registration-management-from-the-device"></a>Zarządzanie rejestrację z urządzenia
+Podczas zarządzania rejestracji urządzeń z aplikacji klienta, wewnętrznej bazy danych tylko jest odpowiedzialny za wysyłanie powiadomień. Aplikacje klienta aktualności dojść systemu powiadomień platformy i zarejestruj tagów. Poniżej przedstawiono tego wzorca.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
-urządzenie Hello najpierw pobiera powitalne systemu powiadomień platformy obsługi z hello systemu powiadomień platformy, a następnie rejestruje z Centrum powiadomień hello bezpośrednio. Po pomyślnym rejestracji hello zaplecza aplikacji hello można wysłać powiadomienia targeting tej rejestracji. Aby uzyskać więcej informacji o tym, jak toosend powiadomień, zobacz [routingu i wyrażeń tagów](notification-hubs-tags-segment-push-message.md).
-Należy pamiętać, że w takim przypadku użyjesz nasłuchiwał tylko tooaccess praw użytkownika usługi notification hubs z hello urządzenia. Aby uzyskać więcej informacji, zobacz [zabezpieczeń](notification-hubs-push-notification-security.md).
+Urządzenia najpierw pobiera dojście systemu powiadomień platformy z systemu powiadomień platformy, a następnie rejestruje bezpośrednio z Centrum powiadomień. Po pomyślnym rejestracji zaplecze aplikacji może wysłać powiadomienia targeting tej rejestracji. Aby uzyskać więcej informacji na temat wysyłania powiadomień, zobacz [routingu i wyrażeń tagów](notification-hubs-tags-segment-push-message.md).
+Należy pamiętać, że w takim przypadku użyjesz nasłuchiwał tylko prawa dostępu z urządzenia z usługi notification hubs. Aby uzyskać więcej informacji, zobacz [zabezpieczeń](notification-hubs-push-notification-security.md).
 
-Rejestracja urządzenia hello jest hello najprostszą metodą, ale ma kilka wad.
-Witaj pierwszy wadą jest to, że aplikacja kliencka tylko aktualizowania jego tagi, gdy aplikacja hello jest aktywna. Na przykład jeśli użytkownik ma dwa urządzenia zarejestrować zespoły toosport powiązane tagi, gdy hello pierwszego urządzenia rejestruje dodatkowe tagów (na przykład Seahawks), hello drugiego urządzenia nie otrzymają powiadomienia hello o hello Seahawks do aplikacji hello na powitania drugie urządzenie jest wykonywany po raz drugi. Ogólnie rzecz biorąc gdy tagi jest narażony na wielu urządzeniach, zarządzanie tagów z zaplecza hello jest pożądane opcji.
-drugi zwrot zarządzania rejestracji z powitania klienta aplikacji Hello jest, ponieważ aplikacje mogą być zaatakowane, zabezpieczanie rejestracji hello tagi toospecific wymaga szczególną uwagę, zgodnie z objaśnieniem w hello sekcję "zabezpieczenia poziomu znacznika."
+Rejestracja urządzenia jest najprostszą metodą, ale ma kilka wad.
+Pierwszy wadą jest to, że aplikacja kliencka aktualizować tylko jego tagi, gdy aplikacja jest aktywna. Na przykład jeśli użytkownik ma dwa urządzenia, które rejestrować tagi związane z zespołów sport przy pierwszym urządzeniem rejestruje dodatkowe tagów (na przykład Seahawks), drugiego urządzenia nie otrzymają powiadomienia o Seahawks momentu aplikacji na drugiego urządzenia wykonywane po raz drugi. Ogólnie rzecz biorąc gdy tagi jest narażony na wielu urządzeniach, zarządzanie tagów z wewnętrznej bazy danych jest pożądane opcji.
+Drugi zwrot management rejestracji w aplikacji klienta jest, ponieważ aplikacje mogą być zaatakowane, zabezpieczanie rejestracji w znacznikach wymaga szczególną uwagę, zgodnie z objaśnieniem w sekcji "zabezpieczenia na poziomie tagu."
 
-#### <a name="example-code-tooregister-with-a-notification-hub-from-a-device-using-an-installation"></a>Przykład kodu tooregister z Centrum powiadomień z urządzeniem przy użyciu instalacji
-W tej chwili obsługiwane wyłącznie przy użyciu hello [interfejsu API REST centra powiadomień](https://msdn.microsoft.com/library/mt621153.aspx).
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Przykładowy kod zarejestrować się w Centrum powiadomień z urządzeniem przy użyciu instalacji
+W tej chwili ta jest obsługiwana tylko przy użyciu [interfejsu API REST centra powiadomień](https://msdn.microsoft.com/library/mt621153.aspx).
 
-Umożliwia także metodę PATCH hello przy użyciu hello [standard JSON poprawki](https://tools.ietf.org/html/rfc6902) aktualizowania hello instalacji.
+Można również użyć przy użyciu metody poprawki [standard JSON poprawki](https://tools.ietf.org/html/rfc6902) aktualizacji instalacji.
 
     class DeviceInstallation
     {
@@ -128,7 +128,7 @@ Umożliwia także metodę PATCH hello przy użyciu hello [standard JSON poprawki
         string hubResource = "installations/" + deviceInstallation.installationId + "?";
         string apiVersion = "api-version=2015-04";
 
-        // Determine hello targetUri that we will sign
+        // Determine the targetUri that we will sign
         string uri = connectionSaSUtil.Endpoint + hubName + "/" + hubResource + apiVersion;
 
         //=== Generate SaS Security Token for Authorization header ===
@@ -186,17 +186,17 @@ Umożliwia także metodę PATCH hello przy użyciu hello [standard JSON poprawki
 
 
 
-#### <a name="example-code-tooregister-with-a-notification-hub-from-a-device-using-a-registration"></a>Przykład kodu tooregister z Centrum powiadomień z urządzenia przy użyciu rejestracji
-Te metody Utwórz lub zaktualizuj rejestracji dla urządzenia hello, na którym są one nazywane. Oznacza to, że w kolejności tooupdate hello dojścia lub hello tagów, musi zastąpić hello całego rejestracji. Należy pamiętać, że rejestracje przejściowe, więc powinien zawsze mieć niezawodnej magazynu z hello bieżącego tagi, które wymaga określonego urządzenia.
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration"></a>Przykładowy kod zarejestrować się w Centrum powiadomień z urządzenia przy użyciu rejestracji
+Te metody Utwórz lub zaktualizuj rejestracji dla urządzenia, na którym są one nazywane. Oznacza to, że aby można było zaktualizować, dojście lub znaczniki, musi zastąpić cały rejestracji. Należy pamiętać, że rejestracje przejściowy, dlatego powinien zawsze mieć niezawodny magazyn z bieżącym tagi, które wymaga określonego urządzenia.
 
-    // Initialize hello Notification Hub
+    // Initialize the Notification Hub
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-    // hello Device id from hello PNS
+    // The Device id from the PNS
     var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-    // If you are registering from hello client itself, then store this registration id in device
-    // storage. Then when hello app starts, you can check if a registration id already exists or not before
+    // If you are registering from the client itself, then store this registration id in device
+    // storage. Then when the app starts, you can check if a registration id already exists or not before
     // creating.
     var settings = ApplicationData.Current.LocalSettings.Values;
 
@@ -240,21 +240,21 @@ Te metody Utwórz lub zaktualizuj rejestracji dla urządzenia hello, na którym 
 
 
 ## <a name="registration-management-from-a-backend"></a>Zarządzanie rejestracji z poziomu zaplecza
-Zarządzanie rejestracje z zaplecza hello wymaga zapisywania dodatkowy kod. Witaj aplikacji z urządzenia hello podać hello zaktualizowane zaplecza toohello dojście systemu powiadomień platformy w każdym uruchomieniu aplikacji hello (wraz z tagami i szablonów) i hello wewnętrznej bazy danych należy zaktualizować ta dojścia na powitania Centrum powiadomień. Witaj, na poniższej ilustracji przedstawiono ten projekt.
+Zarządzanie rejestracje z wewnętrznej bazy danych wymaga zapisywania dodatkowy kod. Zaktualizowane systemu powiadomień platformy dojścia do wewnętrznej bazy danych zawsze uruchomieniu aplikacji (wraz z tagami i szablonów) i wewnętrznej bazy danych należy zaktualizować ta dojścia w Centrum powiadomień, należy podać aplikacji z urządzenia. Poniżej przedstawiono w tym projekcie.
 
 ![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
-Zalety Hello Zarządzanie rejestracje z zaplecza hello obejmują hello możliwości toomodify tagi tooregistrations nawet wtedy, gdy hello odpowiednich aplikacji na urządzeniu hello jest nieaktywny i tooauthenticate powitania klienta aplikacji przed dodaniem rejestracji tooits tagu.
+Zalety zarządzania z wewnętrznej bazy danych rejestracji obejmują możliwość modyfikowania tagów do rejestracji, nawet wtedy, gdy jest nieaktywne z odpowiedniej aplikacji na urządzeniu i uwierzytelniania aplikacji klienckiej przed dodaniem tag do rejestracji.
 
-#### <a name="example-code-tooregister-with-a-notification-hub-from-a-backend-using-an-installation"></a>Przykład kodu tooregister z Centrum powiadomień z zaplecza, przy użyciu instalacji
-powitania klienta urządzenia nadal pobiera jego dojście systemu powiadomień platformy i właściwości instalacji w odpowiednich jak wcześniej, a następnie wywołania niestandardowego interfejsu API hello wewnętrznej bazy danych, można dokonać rejestracji hello i autoryzować znaczniki wewnętrznej bazy danych itp. hello można wykorzystać hello [SDK Centrum powiadomień dla operacje zaplecza](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>Przykładowy kod zarejestrować się w Centrum powiadomień z zaplecza, przy użyciu instalacji
+Urządzenie klienckie nadal pobiera jego dojście systemu powiadomień platformy i właściwości instalacji w odpowiednich jako przed i wywołuje niestandardowego interfejsu API do wewnętrznej bazy danych, można dokonać rejestracji i autoryzować tagi itp. Wewnętrznej bazy danych można wykorzystać [SDK Centrum powiadomień dla wewnętrznej bazy danych operacji](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Umożliwia także metodę PATCH hello przy użyciu hello [standard JSON poprawki](https://tools.ietf.org/html/rfc6902) aktualizowania hello instalacji.
+Można również użyć przy użyciu metody poprawki [standard JSON poprawki](https://tools.ietf.org/html/rfc6902) aktualizacji instalacji.
 
-    // Initialize hello Notification Hub
+    // Initialize the Notification Hub
     NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
-    // Custom API on hello backend
+    // Custom API on the backend
     public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
     {
 
@@ -282,7 +282,7 @@ Umożliwia także metodę PATCH hello przy użyciu hello [standard JSON poprawki
         }
 
 
-        // In hello backend we can control if a user is allowed tooadd tags
+        // In the backend we can control if a user is allowed to add tags
         //installation.Tags = new List<string>(deviceUpdate.Tags);
         //installation.Tags.Add("username:" + username);
 
@@ -292,12 +292,12 @@ Umożliwia także metodę PATCH hello przy użyciu hello [standard JSON poprawki
     }
 
 
-#### <a name="example-code-tooregister-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Przykład kodu tooregister z Centrum powiadomień z urządzenia przy użyciu identyfikatora rejestracji
+#### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-a-registration-id"></a>Przykładowy kod zarejestrować się w Centrum powiadomień z urządzenia przy użyciu identyfikatora rejestracji
 Z poziomu zaplecza aplikacji można wykonywać podstawowe operacje CRUDS rejestracji. Na przykład:
 
     var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
-    // create a registration description object of hello correct type, e.g.
+    // create a registration description object of the correct type, e.g.
     var reg = new WindowsRegistrationDescription(channelUri, tags);
 
     // Create
@@ -316,5 +316,5 @@ Z poziomu zaplecza aplikacji można wykonywać podstawowe operacje CRUDS rejestr
     await hub.DeleteRegistrationAsync(r);
 
 
-Witaj wewnętrznej bazy danych musi obsługiwać współbieżności między aktualizacjami rejestracji. Usługa Service Bus udostępnia optymistyczne sterowanie współbieżnością zarządzania rejestracji. Na poziomie hello HTTP ten sposób jest implementowany z użyciem hello ETag na operacji zarządzania rejestracji. Ta funkcja służy niewidocznie SDKs firmy Microsoft, które zgłosić wyjątek, jeśli aktualizacji zostało odrzucone ze względów współbieżności. zaplecze aplikacji Hello jest odpowiedzialny za obsługę tych wyjątków i ponowienie próby hello aktualizacji, jeśli jest to wymagane.
+Wewnętrznej bazy danych musi obsługiwać współbieżności między aktualizacjami rejestracji. Usługa Service Bus udostępnia optymistyczne sterowanie współbieżnością zarządzania rejestracji. Na poziomie protokołu HTTP ten sposób jest implementowany z użyciem ETag na operacji zarządzania rejestracji. Ta funkcja służy niewidocznie SDKs firmy Microsoft, które zgłosić wyjątek, jeśli aktualizacji zostało odrzucone ze względów współbieżności. Zaplecze aplikacji jest odpowiedzialny za obsługę tych wyjątków i ponawianie próby aktualizacji, jeśli jest to wymagane.
 

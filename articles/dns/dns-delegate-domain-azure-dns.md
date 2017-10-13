@@ -1,6 +1,6 @@
 ---
-title: aaaDelegate Twojego tooAzure domeny DNS | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak toochange, delegowanie domeny i używanie usługi Azure DNS nazwy hosting domeny tooprovide serwerów."
+title: "Delegowanie domeny do usługi Azure DNS | Microsoft Docs"
+description: "Dowiedz się, jak zmienić delegowanie domeny i korzystać z serwerów nazw usługi Azure DNS do zapewniania hostingu domeny."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,62 +13,62 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-ms.openlocfilehash: f780bdaa416150e5e3afe6c6845dc75ba54b6203
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="delegate-a-domain-tooazure-dns"></a>Delegat tooAzure domeny DNS
+# <a name="delegate-a-domain-to-azure-dns"></a>Delegowanie domeny do usługi Azure DNS
 
-Usługa DNS platformy Azure pozwala toohost strefy DNS i zarządzanie nimi hello rekordy DNS dla domeny na platformie Azure. Aby zapytania DNS dotyczące tooreach domeny usługi Azure DNS, hello domena ma toobe delegowane z domeny nadrzędnej hello tooAzure DNS. Należy pamiętać, że usługi Azure DNS nie jest hello rejestratora domen. W tym artykule opisano sposób toodelegate Twojego tooAzure domeny DNS.
+Usługa Azure DNS umożliwia hostowanie strefy DNS i zarządzanie rekordami DNS dla domeny na platformie Azure. Aby zapytania DNS dla domeny miały dostęp do usługi Azure DNS, należy delegować domenę do usługi Azure DNS z domeny nadrzędnej. Należy pamiętać, że usługa Azure DNS nie jest rejestratorem domen. W tym artykule wyjaśniono, jak delegować domenę do usługi Azure DNS.
 
-W przypadku domen zakupionych u rejestratora rejestratora oferuje hello opcja tooset tych rekordów NS. Nie masz tooown toocreate domeny strefę DNS z tą nazwą domeny w usłudze Azure DNS. Jednak należy tooown hello domeny tooset się hello tooAzure delegowania DNS w rejestrze hello.
+W przypadku domen zakupionych u rejestratora domen rejestrator zaoferuje opcję skonfigurowania tych rekordów NS. Nie musisz być właścicielem domeny, aby utworzyć strefę DNS z tą nazwą domeny w usłudze Azure DNS. Musisz być jednak właścicielem domeny, aby skonfigurować delegowanie do usługi Azure DNS u rejestratora.
 
-Załóżmy na przykład, zakupu domeny hello "contoso.net" i tworzysz strefę o nazwie hello "contoso.net" w usłudze Azure DNS. Właściciel hello domeny hello rejestratora oferuje hello adresów serwerów nazw hello tooconfigure opcji (czyli rekordów hello NS) dla domeny. Rejestrator Hello przechowuje te rekordy NS w domenie nadrzędnej hello, w tym przypadku ".net". Klienci na całym świecie hello można następnie ukierunkowanej tooyour domeny w strefie DNS platformy Azure, podczas próby tooresolve rekordów DNS w "contoso.net".
+Załóżmy na przykład, że masz zakupioną domenę „contoso.net” i tworzysz strefę o nazwie „contoso.net” w usłudze Azure DNS. Jako właścicielowi domeny rejestrator oferuje Ci opcję skonfigurowania adresów serwerów nazw (czyli rekordów NS) dla domeny. Rejestrator przechowuje te rekordy NS w domenie nadrzędnej (w tym przypadku „.net”). Klienci na całym świecie mogą być kierowani do Twojej domeny w strefie usługi Azure DNS podczas próby rozpoznania rekordów DNS w strefie „contoso.net”.
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-1. Zaloguj się toohello portalu Azure
-1. W menu centralnym hello, kliknij polecenie, a następnie kliknij przycisk **nowy > Sieć >** , a następnie kliknij przycisk **strefy DNS** bloku strefy DNS Utwórz hello tooopen.
+1. Logowanie się do witryny Azure Portal
+1. W menu Centrum kliknij pozycję **Nowa > Sieć >** , a następnie kliknij pozycję **Strefa DNS**, aby otworzyć blok Tworzenie strefy DNS.
 
     ![Strefa DNS](./media/dns-domain-delegation/dns.png)
 
-1. Na powitania **strefy DNS Utwórz** bloku wprowadź hello następujące wartości, a następnie kliknij przycisk **Utwórz**:
+1. W bloku **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
-   |**Nazwa**|contoso.net|Nazwa Hello hello strefy DNS|
-   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz bramę aplikacji hello toocreate subskrypcji w.|
-   |**Grupa zasobów**|**Utwórz nową:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów Hello musi być unikatowa w ramach subskrypcji hello, wybranych. więcej informacji na temat grup zasobów, przeczytaj hello toolearn [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) artykuł z omówieniem.|
+   |**Nazwa**|contoso.net|Nazwa strefy DNS|
+   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć bramę aplikacji.|
+   |**Grupa zasobów**|**Utwórz nową:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Lokalizacja**|Zachodnie stany USA||
 
 > [!NOTE]
-> Grupa zasobów Hello odwołuje się lokalizacji toohello hello grupy zasobów, a nie ma wpływu na powitania strefy DNS. Lokalizacja strefy DNS Hello jest zawsze "globalne" i nie jest wyświetlany.
+> Ustawienie Grupa zasobów dotyczy lokalizacji grupy zasobów i nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
 
 ## <a name="retrieve-name-servers"></a>Pobieranie serwerów nazw
 
-Aby móc delegować Twojej tooAzure DNS w strefie DNS, należy najpierw tooknow hello nazw serwerów nazw dla swojej strefy. Usługa Azure DNS przydziela serwery nazw z puli za każdym razem, gdy tworzona jest strefa.
+Aby móc delegować swoją strefę DNS do usługi Azure DNS, musisz najpierw znać nazwy serwerów nazw dla swojej strefy. Usługa Azure DNS przydziela serwery nazw z puli za każdym razem, gdy tworzona jest strefa.
 
-1. Strefy DNS hello utworzone w portalu Azure hello **ulubione** okienku, kliknij przycisk **wszystkie zasoby**. Kliknij przycisk hello **contoso.net** strefę DNS w hello **wszystkie zasoby** bloku. Jeśli subskrypcja hello już ma kilka zasobów, możesz wprowadzić **contoso.net** w hello filtru według nazwy... Brama aplikacji w polu tooeasily dostępu hello. 
+1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku **Wszystkie zasoby** kliknij strefę DNS **contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contoso.net** w polu Filtruj według nazwy..., aby łatwo uzyskać dostęp do bramy aplikacji. 
 
-1. Serwery nazw hello należy pobrać z bloku strefy DNS hello. W tym przykładzie hello strefie "contoso.net" przypisano serwery nazw "ns1-01.azure-dns.com", "ns2-01.azure-DNS.NET", "ns3-01.azure-dns.org", i "ns4-01.azure-dns.info":
+1. W bloku Strefa DNS pobierz serwery nazw. W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw hello.  Serwer nazw hello toosee nazwy za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia Azure, wystarczy tooretrieve tych rekordów.
+Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw.  Aby wyświetlić nazwy serwerów nazw za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz po prostu pobrać te rekordy.
 
-Witaj następujące przykłady stanowią Ponadto kroki hello serwery nazw hello tooretrieve strefę w usłudze Azure DNS za pomocą programu PowerShell i interfejsu wiersza polecenia Azure.
+W poniższych przykładach udostępniono również instrukcje pobierania serwerów nazw dla strefy w usłudze Azure DNS przy użyciu programu PowerShell i interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-# hello record name "@" is used toorefer toorecords at hello top of hello zone.
+# The record name "@" is used to refer to records at the top of the zone.
 $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
 ```
 
-Poniższy przykład Hello jest hello odpowiedzi.
+Odpowiedzią jest poniższy przykład.
 
 ```
 Name              : @
@@ -88,7 +88,7 @@ Metadata          :
 az network dns record-set show --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
-Poniższy przykład Hello jest hello odpowiedzi.
+Odpowiedzią jest poniższy przykład.
 
 ```json
 {
@@ -116,25 +116,25 @@ Poniższy przykład Hello jest hello odpowiedzi.
 }
 ```
 
-## <a name="delegate-hello-domain"></a>Delegat hello domeny
+## <a name="delegate-the-domain"></a>Delegowanie domeny
 
-Strefy DNS hello jest tworzony, a masz serwery nazw hello, domena nadrzędna hello musi toobe zaktualizowane z serwerów nazw usługi Azure DNS hello. Każdy rejestrator ma swoje własne DNS zarządzania narzędzia toochange hello rekordy serwera nazw dla domeny. Na stronie zarządzania DNS rejestratora hello Edytuj rekordy NS hello i Zastąp rekordy NS hello hello te usługę Azure DNS.
+Po utworzeniu strefy DNS i pobraniu serwerów nazw domena nadrzędna powinna zostać zaktualizowana przy użyciu informacji o serwerach nazw usługi Azure DNS. Każdy rejestrator ma swoje własne narzędzia do zarządzania systemem DNS służące do zmiany rekordów serwerów nazw dla domeny. Na stronie zarządzania systemem DNS rejestratora edytuj rekordy NS i zastąp je rekordami utworzonymi przez usługę Azure DNS.
 
-Podczas delegowania tooAzure domeny DNS, należy użyć hello nazwy serwerów nazw udostępnionych przez usługę Azure DNS. Zalecane jest toouse wszystkie cztery nazw serwera, niezależnie od hello nazwę domeny. Delegowanie domeny nie wymaga hello name server name toouse hello tej samej domeny najwyższego poziomu jako domenę.
+Podczas delegowania domeny do usługi Azure DNS należy użyć nazw serwerów nazw udostępnionych przez usługę Azure DNS. Zaleca się używanie wszystkich czterech nazw serwerów nazw, niezależnie od nazwy domeny. Delegowanie domeny nie wymaga, aby nazwa serwera nazw korzystała z tej samej domeny najwyższego poziomu, co domena użytkownika.
 
-Nie należy używać "przyklej rekordów" toopoint toohello usługi Azure DNS nazwy serwera adresów IP, ponieważ te adresy IP mogą ulec zmianie w przyszłych. Delegowanie z wykorzystaniem nazw serwerów nazw we własnej strefie, niekiedy nazywanych „serwerami nazw znaczących”, nie jest obecnie obsługiwane w usłudze Azure DNS.
+Nie należy używać rekordów sklejki do wskazywania adresów IP serwerów nazw usługi Azure DNS, ponieważ te adresy IP mogą ulec zmianie w przyszłości. Delegowanie z wykorzystaniem nazw serwerów nazw we własnej strefie, niekiedy nazywanych „serwerami nazw znaczących”, nie jest obecnie obsługiwane w usłudze Azure DNS.
 
 ## <a name="verify-name-resolution-is-working"></a>Sprawdzanie prawidłowego rozpoznawania nazw
 
-Po zakończeniu delegowania hello, można sprawdzić, czy rozpoznawanie nazw działa przy użyciu narzędzia, takiego jak "nslookup" hello tooquery rekord SOA dla swojej strefy (który jest tworzony automatycznie podczas tworzenia strefy hello).
+Po zakończeniu delegowania możesz sprawdzić, czy rozpoznawanie nazw działa, uruchamiając zapytanie o rekord SOA dla swojej strefy (który również jest tworzony automatycznie podczas tworzenia strefy) za pomocą narzędzia takiego jak „nslookup”.
 
-Nie masz serwery toospecify hello Azure DNS, jeśli hello delegowanie zostało skonfigurowane prawidłowo, hello normalny proces rozpoznawania DNS znajdzie serwery nazw hello automatycznie.
+Nie musisz określać serwerów nazw usługi Azure DNS, jeśli delegowanie zostało skonfigurowane prawidłowo, ponieważ normalny proces rozpoznawania nazw DNS znajdzie serwery nazw automatycznie.
 
 ```
 nslookup -type=SOA contoso.com
 ```
 
-Witaj poniżej znajduje się przykład odpowiedzi z hello poprzedzających polecenia:
+Poniżej zamieszczono przykładową odpowiedź na poprzednie polecenie:
 
 ```
 Server: ns1-04.azure-dns.com
@@ -152,81 +152,81 @@ default TTL = 300 (5 mins)
 
 ## <a name="delegate-sub-domains-in-azure-dns"></a>Delegowanie domen podrzędnych w usłudze Azure DNS
 
-Jeśli chcesz tooset się oddzielną strefę podrzędną, możesz delegować domenę podrzędną w usłudze Azure DNS. Na przykład po skonfigurowaniu i delegowanego "contoso.net" w usłudze Azure DNS, załóżmy, że chcesz tooset się oddzielną strefę podrzędną, "partners.contoso.net".
+Jeśli chcesz skonfigurować oddzielną strefę podrzędną, możesz delegować domenę podrzędną w usłudze Azure DNS. Załóżmy na przykład, że po skonfigurowaniu i delegowaniu domeny „contoso.net” w usłudze Azure DNS chcesz skonfigurować oddzielną strefę podrzędną „partners.contoso.net”.
 
-1. Tworzenie strefy podrzędnej hello "partners.contoso.net" w usłudze Azure DNS.
-2. Wyszukiwanie hello autorytatywne rekordy NS w hello podrzędnych strefy tooobtain hello serwery nazw hostujące strefę podrzędną hello w usłudze Azure DNS.
-3. Delegowanie strefy podrzędnej hello przez skonfigurowanie rekordów NS w strefie nadrzędnej hello wskazującej strefę podrzędną toohello.
+1. Utwórz strefę podrzędną „partners.contoso.net” w usłudze Azure DNS.
+2. Wyszukaj autorytatywne rekordy NS w strefie podrzędnej, aby uzyskać serwery nazw hostujące strefę podrzędną w usłudze Azure DNS.
+3. Deleguj strefę podrzędną przez skonfigurowanie rekordów NS w strefie nadrzędnej wskazującej strefę podrzędną.
 
 ### <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-1. Zaloguj się toohello portalu Azure
-1. W menu centralnym hello, kliknij polecenie, a następnie kliknij przycisk **nowy > Sieć >** , a następnie kliknij przycisk **strefy DNS** bloku strefy DNS Utwórz hello tooopen.
+1. Logowanie się do witryny Azure Portal
+1. W menu Centrum kliknij pozycję **Nowa > Sieć >** , a następnie kliknij pozycję **Strefa DNS**, aby otworzyć blok Tworzenie strefy DNS.
 
     ![Strefa DNS](./media/dns-domain-delegation/dns.png)
 
-1. Na powitania **strefy DNS Utwórz** bloku wprowadź hello następujące wartości, a następnie kliknij przycisk **Utwórz**:
+1. W bloku **Tworzenie strefy DNS** wprowadź następujące wartości, a następnie kliknij pozycję **Utwórz**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
-   |**Nazwa**|partners.contoso.net|Nazwa Hello hello strefy DNS|
-   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz bramę aplikacji hello toocreate subskrypcji w.|
-   |**Grupa zasobów**|**Użyj istniejącej:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów Hello musi być unikatowa w ramach subskrypcji hello, wybranych. więcej informacji na temat grup zasobów, przeczytaj hello toolearn [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) artykuł z omówieniem.|
+   |**Nazwa**|partners.contoso.net|Nazwa strefy DNS|
+   |**Subskrypcja**|[Twoja subskrypcja]|Wybierz subskrypcję, w której chcesz utworzyć bramę aplikacji.|
+   |**Grupa zasobów**|**Użyj istniejącej:** contosoRG|Utwórz grupę zasobów. Nazwa grupy zasobów musi być unikatowa w obrębie wybranej subskrypcji. Aby dowiedzieć się więcej na temat grup zasobów, zapoznaj się z artykułem [Omówienie usługi Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Lokalizacja**|Zachodnie stany USA||
 
 > [!NOTE]
-> Grupa zasobów Hello odwołuje się lokalizacji toohello hello grupy zasobów, a nie ma wpływu na powitania strefy DNS. Lokalizacja strefy DNS Hello jest zawsze "globalne" i nie jest wyświetlany.
+> Ustawienie Grupa zasobów dotyczy lokalizacji grupy zasobów i nie ma wpływu na strefę DNS. Lokalizacja strefy DNS jest zawsze „globalna” i nie jest wyświetlana.
 
 ### <a name="retrieve-name-servers"></a>Pobieranie serwerów nazw
 
-1. Strefy DNS hello utworzone w portalu Azure hello **ulubione** okienku, kliknij przycisk **wszystkie zasoby**. Kliknij przycisk hello **partners.contoso.net** strefę DNS w hello **wszystkie zasoby** bloku. Jeśli subskrypcja hello już ma kilka zasobów, możesz wprowadzić **partners.contoso.net** w hello filtru według nazwy... Witaj strefy DNS pole tooeasily dostępu.
+1. Gdy utworzysz strefę DNS, w okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku **Wszystkie zasoby** kliknij strefę DNS **partners.contoso.net**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **partners.contoso.net** w polu Filtruj według nazwy..., aby łatwo uzyskać dostęp do strefy DNS.
 
-1. Serwery nazw hello należy pobrać z bloku strefy DNS hello. W tym przykładzie hello strefie "contoso.net" przypisano serwery nazw "ns1-01.azure-dns.com", "ns2-01.azure-DNS.NET", "ns3-01.azure-dns.org", i "ns4-01.azure-dns.info":
+1. W bloku Strefa DNS pobierz serwery nazw. W tym przykładzie strefie „contoso.net” przypisano serwery nazw „ns1-01.azure-dns.com”, „ns2-01.azure-dns.net”, „ns3-01.azure-dns.org” i „ns4-01.azure-dns.info”:
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw hello.  Serwer nazw hello toosee nazwy za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia Azure, wystarczy tooretrieve tych rekordów.
+Usługa Azure DNS automatycznie tworzy autorytatywne rekordy NS w strefie zawierającej przypisane serwery nazw.  Aby wyświetlić nazwy serwerów nazw za pomocą programu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz po prostu pobrać te rekordy.
 
 ### <a name="create-name-server-record-in-parent-zone"></a>Tworzenie rekordu serwera nazw w strefie nadrzędnej
 
-1. Przejdź toohello **contoso.net** strefę DNS w hello portalu Azure.
+1. W witrynie Azure Portal przejdź do strefy DNS **contoso.net**.
 1. Kliknij pozycję **+ Zestaw rekordów**.
-1. Na powitania **dodać zestaw rekordów** bloku, wprowadź następujące wartości hello, a następnie kliknij przycisk **OK**:
+1. W bloku **Dodaj zestaw rekordów** wprowadź następujące wartości, a następnie kliknij przycisk **OK**:
 
    | **Ustawienie** | **Wartość** | **Szczegóły** |
    |---|---|---|
-   |**Nazwa**|partners|Witaj Nazwa strefy DNS podrzędnych hello|
+   |**Nazwa**|partners|Nazwa podrzędnej strefy DNS|
    |**Typ**|NS|Użyj wartości NS w przypadku rekordów serwera nazw.|
-   |**Czas wygaśnięcia**|1|Czas toolive.|
-   |**Jednostka czasu wygaśnięcia**|Godziny|Ustawia toohours toolive jednostkę czasu|
-   |**SERWER NAZW**|{serwery nazw ze strefy partners.contoso.net}|Wprowadź wszystkie 4 serwerów nazw hello ze strefy partners.contoso.net. |
+   |**Czas wygaśnięcia**|1|Czas wygaśnięcia.|
+   |**Jednostka czasu wygaśnięcia**|Godziny|Ustawia jednostkę czasu wygaśnięcia na godziny|
+   |**SERWER NAZW**|{serwery nazw ze strefy partners.contoso.net}|Wprowadź wszystkie 4 serwery nazw ze strefy partners.contoso.net. |
 
    ![Dns-nameserver](./media/dns-domain-delegation/partnerzone.png)
 
 
 ### <a name="delegating-sub-domains-in-azure-dns-with-other-tools"></a>Delegowanie domen podrzędnych w usłudze Azure DNS za pomocą innych narzędzi
 
-Witaj poniższe przykłady zapewniają kroki hello toodelegate domenami podrzędnymi w usłudze Azure DNS za pomocą programu PowerShell i interfejsu wiersza polecenia:
+Poniższe przykłady zawierają instrukcje delegowania domen podrzędnych w usłudze Azure DNS przy użyciu programu PowerShell i interfejsu wiersza polecenia:
 
 #### <a name="powershell"></a>PowerShell
 
-Poniższy przykład PowerShell Hello pokazano, jak to działa. Witaj, te same kroki można wykonać za pomocą portalu Azure hello lub za pośrednictwem hello wiersza polecenia platformy Azure i platform.
+W poniższym przykładzie programu PowerShell pokazano, jak to działa. Te same czynności można wykonać w witrynie Azure Portal lub międzyplatformowym interfejsie wiersza polecenia platformy Azure.
 
 ```powershell
-# Create hello parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
 $parent = New-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 $child = New-AzureRmDnsZone -Name partners.contoso.net -ResourceGroupName contosoRG
 
-# Retrieve hello authoritative NS records from hello child zone as shown in hello next example. This contains hello name servers assigned toohello child zone.
+# Retrieve the authoritative NS records from the child zone as shown in the next example. This contains the name servers assigned to the child zone.
 $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-# Create hello corresponding NS record set in hello parent zone toocomplete hello delegation. hello record set name in hello parent zone matches hello child zone name, in this case "partners".
+# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name, in this case "partners".
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 $parent_ns_recordset.Records = $child_ns_recordset.Records
 Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 ```
 
-Użyj `nslookup` tooverify, że wszystko jest poprawnie skonfigurowane, wyszukiwanie hello rekord SOA strefy podrzędnej hello.
+Użyj polecenia `nslookup` w celu sprawdzenia poprawności skonfigurowania wszystkich elementów przez wyszukanie rekordu SOA strefy podrzędnej.
 
 ```
 nslookup -type=SOA partners.contoso.com
@@ -251,12 +251,12 @@ partners.contoso.com
 ```azurecli
 #!/bin/bash
 
-# Create hello parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
 az network dns zone create -g contosoRG -n contoso.net
 az network dns zone create -g contosoRG -n partners.contoso.net
 ```
 
-Pobrać hello serwerów nazw dla hello `partners.contoso.net` strefy z hello danych wyjściowych.
+Z danych wyjściowych pobierz serwery nazw dla strefy `partners.contoso.net`.
 
 ```
 {
@@ -278,12 +278,12 @@ Pobrać hello serwerów nazw dla hello `partners.contoso.net` strefy z hello dan
 }
 ```
 
-Utwórz hello zestawu rekordów i rekordy NS dla każdego serwera nazw.
+Utwórz zestaw rekordów i rekordy NS dla poszczególnych serwerów nazw.
 
 ```azurecli
 #!/bin/bash
 
-# Create hello record set
+# Create the record set
 az network dns record-set ns create --resource-group contosorg --zone-name contoso.net --name partners
 
 # Create a ns record for each name server.
@@ -295,11 +295,11 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 ## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
 
-toodelete wszystkie zasoby są tworzone w tym artykule pełną hello następujące kroki:
+Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
 
-1. W portalu Azure hello **ulubione** okienku, kliknij przycisk **wszystkie zasoby**. Kliknij przycisk hello **contosorg** grupa zasobów w hello wszystkich bloku zasobów. Jeśli subskrypcja hello już ma kilka zasobów, możesz wprowadzić **contosorg** w hello **filtrować według nazwy...** Grupa zasobów pole tooeasily dostępu hello.
-1. W hello **contosorg** bloku, kliknij przycisk hello **usunąć** przycisku.
-1. Witaj portal wymaga nazwy hello tootype tooconfirm grupy zasobów hello, które mają toodelete go. Typ *contosorg* hello Nazwa grupy zasobów, klikając **usunąć**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w grupie zasobów hello, więc zawsze tooconfirm się, że zawartość hello grupy zasobów przed jego usunięciem. Hello portal usuwa wszystkie zasoby zawarte w grupie zasobów hello, a następnie usuwa samej grupy zasobów hello. Ten proces trwa kilka minut.
+1. W okienku **Ulubione** witryny Azure Portal kliknij pozycję **Wszystkie zasoby**. W bloku Wszystkie zasoby kliknij grupę zasobów **contosorg**. Jeśli wybrana subskrypcja zawiera kilka zasobów, możesz wpisać **contosorg** w polu **Filtruj według nazwy...**, aby łatwo uzyskać dostęp do grupy zasobów.
+1. W bloku **contosorg** kliknij przycisk **Usuń**.
+1. Portal wymaga wpisania nazwy grupy zasobów w celu potwierdzenia zamiaru jej usunięcia. Wpisz nazwę grupy zasobów *contosorg*, po czym kliknij przycisk **Usuń**. Usunięcie grupy zasobów powoduje usunięcie wszystkich zasobów w niej zawartych, dlatego zawsze należy sprawdzić zawartość grupy zasobów przed jej usunięciem. Portal usuwa wszystkie zasoby zawarte w grupie zasobów, a następnie usuwa tę grupę zasobów. Ten proces trwa kilka minut.
 
 ## <a name="next-steps"></a>Następne kroki
 

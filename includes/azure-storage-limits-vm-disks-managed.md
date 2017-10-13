@@ -21,4 +21,4 @@
 | Maksymalna liczba operacji wejścia/wyjścia na sekundę na maszynę wirtualną |80 000 operacji wejścia/wyjścia na sekundę na maszynie wirtualnej GS5<sup>1</sup> |
 | Maksymalna przepływność na maszynę wirtualną |2000 operacji wejścia/wyjścia na maszynie wirtualnej GS5<sup>1</sup> |
 
-<sup>1</sup>odwoływać się za[rozmiar maszyny Wirtualnej](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) limitów na innych rozmiarów maszyn wirtualnych. 
+<sup>1</sup>Limity innych rozmiarów maszyn wirtualnych można znaleźć w temacie [Rozmiar maszyny wirtualnej](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 

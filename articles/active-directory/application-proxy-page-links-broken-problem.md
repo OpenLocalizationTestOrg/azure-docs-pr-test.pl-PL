@@ -1,6 +1,6 @@
 ---
-title: "aaaLinks na stronie powitania nie działają dla aplikacji serwera Proxy aplikacji | Dokumentacja firmy Microsoft"
-description: "Jak tootroubleshoot problemy związane z uszkodzonych łączy w przypadku aplikacji serwera Proxy aplikacji, który jest zintegrowany z usługą Azure AD"
+title: "Łącza na stronie nie działają dla aplikacji serwera Proxy aplikacji | Dokumentacja firmy Microsoft"
+description: "Jak rozwiązywać problemy z uszkodzonych łączy w przypadku aplikacji serwera Proxy aplikacji, który jest zintegrowany z usługą Azure AD"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 77c1e22d27c7a6436d8e57e105037c2328180481
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 83c4261fab0498541591c01f9bb692b396c7b751
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="links-on-hello-page-dont-work-for-an-application-proxy-application"></a>Łącza na stronie powitania nie działają dla aplikacji serwera Proxy aplikacji
+# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Łącza na stronie nie działają dla aplikacji serwera Proxy aplikacji
 
-W tym artykule pomocy tootroubleshoot Dlaczego łącza dla aplikacji serwera Proxy usługi Azure Active Directory aplikacji nie działa prawidłowo.
+W tym artykule ułatwiają rozwiązywanie problemów z powodu łącza dla aplikacji serwera Proxy usługi Azure Active Directory aplikacji nie działa prawidłowo.
 
 ## <a name="overview"></a>Omówienie 
-Po opublikowaniu aplikacji serwera Proxy aplikacji, linki tylko hello czy pracy domyślnie w aplikacji hello są zawarte w hello toodestinations łącza opublikowane głównego adresu URL. Hello łączy w obrębie aplikacji hello nie działają, hello wewnętrzny adres URL dla aplikacji hello prawdopodobnie nie zawiera wszystkich hello miejsc docelowych łączy w obrębie aplikacji hello.
+Po opublikowaniu aplikacji serwera Proxy aplikacji, tylko łącza, które działają domyślnie w aplikacji są łącza do miejsc docelowych zawartych w opublikowanej głównego adresu URL. Łączy w obrębie aplikacje nie działają, wewnętrzny adres URL dla aplikacji, prawdopodobnie nie zawiera wszystkich miejsc docelowych łączy w obrębie aplikacji.
 
-**Dlaczego to możliwe?** Po kliknięciu linku w aplikacji, serwer Proxy aplikacji prób tooresolve hello URL jako wewnętrzne URL w hello sam aplikację, lub jako adres URL dostępny zewnętrznie. Jeśli hello link wskazuje tooan wewnętrzny adres URL, który nie jest w hello same należy tooeither tych zasobników i nie powoduje błędu nie znaleziono aplikacji.
+**Dlaczego to możliwe?** Po kliknięciu linku w aplikacji, serwer Proxy aplikacji próbuje rozpoznać adres URL jako wewnętrzne URL w tej samej aplikacji lub jako adres URL dostępny zewnętrznie. Jeśli link wskazuje wewnętrzny adres URL, który nie jest w tej samej aplikacji, nie należy do żadnego z tych zasobników i powoduje błędu nie znaleziono.
 
 ## <a name="ways-you-can-resolve-broken-links"></a>Sposoby, możesz rozwiązać przerwane łącza
 
-Istnieją trzy sposoby tooresolve ten problem. Hello poniżej są wymienione w rosnącej złożoności.
+Istnieją trzy sposoby, aby rozwiązać ten problem. W opcji poniżej są wyświetlane w rosnącej złożoności.
 
-1.  Upewnij się, że głównego, który zawiera wszystkie hello łącza do aplikacji hello jest hello wewnętrznego adresu URL. Dzięki temu wszystkie toobe łącza rozpoznać publikowanej zawartości w ramach hello sam aplikacji.
+1.  Upewnij się, że wewnętrzny adres URL jest głównego, który zawiera wszystkie łącza do aplikacji. Dzięki temu wszystkie linki zostać rozpoznane jako zawartość opublikowane w tej samej aplikacji.
 
-    Jeśli zmiany hello wewnętrznego adresu URL, ale nie mają hello toochange początkowej strony dla użytkowników, zmień hello adres URL strony głównej toohello wcześniej publikowane wewnętrznego adresu URL. Można to zrobić, przechodząc zbyt "Azure Active Directory" -&gt; rejestracji aplikacji -&gt; wybierz aplikacja hello —&gt; właściwości. Na tej karcie właściwości jest widoczny hello pole "adres URL strony głównej", który można dostosować toobe hello potrzeby strony docelowej.
+    Jeśli zmiany wewnętrznego adresu URL, ale nie chcesz zmienić strona docelowa dla użytkowników, należy zmienić adres URL strony głównej na wydane wcześniej wewnętrznego adresu URL. Można to zrobić przy przechodzeniu "Azure Active Directory" -&gt; rejestracji aplikacji -&gt; wybierz aplikację, -&gt; właściwości. Na tej karcie właściwości jest widoczny pole "adres URL strony głównej", który można dostosować jako strona docelowa żądany.
 
-2.  Jeśli aplikacje Użyj w pełni kwalifikowanych nazw domen (FQDN), użyj [domen niestandardowych](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) toopublish aplikacji. Ta funkcja umożliwia hello tego samego adresu URL toobe używana zarówno wewnętrznie i zewnętrznie.
+2.  Jeśli aplikacje Użyj w pełni kwalifikowanych nazw domen (FQDN), użyj [domen niestandardowych](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) do publikowania aplikacji. Ta funkcja umożliwia ten sam adres URL do użycia zarówno wewnętrznie i zewnętrznie.
 
-    Tej opcji zapewnia, że hello łącza do aplikacji są dostępne z zewnątrz za pośrednictwem serwera Proxy aplikacji, ponieważ hello łączy w obrębie adresu URL toointernal aplikacji hello również są rozpoznawane zewnętrznie. Należy pamiętać, że wszystkie linki nadal potrzebujesz toobelong tooa opublikowana aplikacja. Z tej opcji hello łącza muszą jednak toobelong toohello tej samej aplikacji i może należeć toomultiple aplikacji.
+    Tej opcji zapewnia, że łącza do aplikacji są dostępne z zewnątrz za pośrednictwem serwera Proxy aplikacji, ponieważ łączy w aplikacji do wewnętrznych adresów URL również są rozpoznawane zewnętrznie. Należy zauważyć, że wszystkie linki nadal należy do opublikowanej aplikacji. Jednak ta opcja łączy nie muszą należeć do tej samej aplikacji i może należeć do wielu aplikacji.
 
-3.  Jeśli żadna z tych opcji jest to możliwe, przyłącz się podgląd hello nowa funkcja, która Wykonaj translację/poprawiania adresu URL. Po wybraniu tej opcji wewnętrzne adresy URL lub łącza, który istnieje w treści hello HTML w aplikacji można przetłumaczyć lub "mapowane", toohello opublikowane zewnętrzne adresy URL serwera Proxy aplikacji. Działa to tylko w przypadku łączy w hello HTML i CSS, a to pomaga czy łącze jest generowany przez JS. 
+3.  Jeśli żadna z tych opcji jest to możliwe, przyłącz się podgląd nowa funkcja, która wykonaj adres URL tłumaczenia/ponowne zapisywanie. Po wybraniu tej opcji wewnętrznych adresów URL łącza, który istnieje w treści HTML w aplikacji translacji, lub "mapowane", do opublikowanej zewnętrznego serwera Proxy adresy URL aplikacji. Działa to tylko łączy HTML i CSS, a to pomaga czy łącze jest generowany przez JS. 
 
-W związku z tym zdecydowanie zaleca się używanie hello [domen niestandardowych](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) rozwiązanie, jeśli to możliwe. Jeśli mają toojoin hello podglądu, Wyślij wiadomość e-mail < aadapfeedback@microsoft.com > z hello applicationId(s).
+W związku z tym zdecydowanie zaleca się używanie [domen niestandardowych](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) rozwiązanie, jeśli to możliwe. Jeśli chcesz dołączyć do wersji zapoznawczej, Wyślij wiadomość e-mail < aadapfeedback@microsoft.com > z applicationId(s).
 
 ## <a name="next-steps"></a>Następne kroki
 [Praca z istniejącym lokalnych serwerów proxy](application-proxy-working-with-proxy-servers.md)

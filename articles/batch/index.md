@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentację partii — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse partii toorun równolegle na dużą skalę i wysokowydajne aplikacje komputerowe wydajnie. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+title: "Dokumentacja usługi Azure Batch — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak przy użyciu usługi Batch wydajnie uruchamiać aplikacje równoległe oraz aplikacje do obliczeń o wysokiej wydajności na dużą skalę. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 25172c7b3462794643d1cba539fcd0d9a6c4c62e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 31e15ecb995f0a5b1164296132db15e8de7e4363
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="batch-documentation"></a>Dokumentacja usługi Batch
 
-Dowiedz się, jak toouse partii toorun na dużą skalę równoległe i wysokowydajne aplikacje komputerowe wydajnie w hello chmury. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób toodefine hello Azure obliczeniowe tooexecute zasoby aplikacji równolegle lub na dużą skalę bez ręczne konfigurowanie i zarządzanie infrastrukturą.
+Dowiedz się, jak przy użyciu usługi Batch wydajnie uruchamiać aplikacje równoległe oraz aplikacje do obliczeń o wysokiej wydajności na dużą skalę w chmurze. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak zdefiniować zasoby obliczeniowe platformy Azure, aby uruchamiać aplikacje równolegle lub w odpowiedniej skali bez ręcznego konfigurowania i zarządzania infrastrukturą.
 
 <ul class="panelContent cardsFTitle">
     <li>

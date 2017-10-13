@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z AirWatch | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i AirWatch."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i AirWatch."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,115 +14,115 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: e5230d5a36824778a4d9804dadf9f13a0d11a68d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1996ec97e7c0d94c5606ca43bb5956548f1f3712
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Samouczek: Integracji Azure Active Directory z AirWatch
 
-Z tego samouczka, dowiesz się, jak toointegrate AirWatch w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie AirWatch z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD AirWatch zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD AirWatch zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooAirWatch
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooAirWatch (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do AirWatch
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do AirWatch (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z AirWatch należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z AirWatch, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - AirWatch jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie AirWatch z galerii hello
+1. Dodawanie AirWatch z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-airwatch-from-hello-gallery"></a>Dodawanie AirWatch z galerii hello
-tooconfigure hello integracji AirWatch do usługi Azure AD, należy tooadd AirWatch z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-airwatch-from-the-gallery"></a>Dodawanie AirWatch z galerii
+Aby skonfigurować integrację usługi Azure AD AirWatch, należy dodać AirWatch z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd AirWatch z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać AirWatch z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **AirWatch**.
+4. W polu wyszukiwania wpisz **AirWatch**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_search.png)
 
-5. W panelu wyników hello zaznacz **AirWatch**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **AirWatch**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z AirWatch na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w AirWatch jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w AirWatch musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w AirWatch jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w AirWatch musi się.
 
-Ta relacja łącza zostanie nawiązane, przypisując wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** w AirWatch.
+Ta relacja łącza zostanie nawiązane, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w AirWatch.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z AirWatch, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z AirWatch, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego AirWatch](#creating-a-airwatch-test-user)**  -toohave odpowiednikiem Simona Britta w AirWatch, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego AirWatch](#creating-a-airwatch-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta AirWatch połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji AirWatch.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji AirWatch.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z AirWatch, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z AirWatch, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **AirWatch** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **AirWatch** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_samlbase.png)
 
-3. Na powitania **AirWatch domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **AirWatch domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_url.png)
 
-    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<subdomain>.awmdm.com/AirWatch/Login?gid=companycode`
 
-    b. W hello **identyfikator** pole tekstowe, wartość hello typu jako`AirWatch`
+    b. W **identyfikator** tekstowym, wpisz wartość jako`AirWatch`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe hello. Zaktualizuj tę wartość przy hello rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta AirWatch](http://www.air-watch.com/company/contact-us/) tooget tej wartości. 
+    > Ta wartość nie jest rzeczywistym. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta AirWatch](http://www.air-watch.com/company/contact-us/) aby zyskać tę wartość. 
  
-4. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik XML hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik XML na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_certificate.png) 
 
-5. Na powitania **konfiguracji AirWatch** kliknij **skonfigurować AirWatch** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+5. Na **konfiguracji AirWatch** , kliknij przycisk **skonfigurować AirWatch** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_configure.png) 
 
@@ -130,25 +130,25 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-airwatch-tutorial/tutorial_general_400.png)
 <CS>
-7. W oknie przeglądarki innej witryny sieci web Zaloguj się w witrynie firmy AirWatch tooyour jako administrator.
+7. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy AirWatch.
 
-8. W okienku nawigacji po lewej stronie powitania kliknij **kont**, a następnie kliknij przycisk **Administratorzy**.
+8. W okienku nawigacji po lewej stronie kliknij **kont**, a następnie kliknij przycisk **Administratorzy**.
    
    ![Administratorzy](./media/active-directory-saas-airwatch-tutorial/ic791920.png "administratorów")
 
-9. Rozwiń węzeł hello **ustawienia** menu, a następnie kliknij przycisk **usług katalogowych**.
+9. Rozwiń węzeł **ustawienia** menu, a następnie kliknij przycisk **usług katalogowych**.
    
    ![Ustawienia](./media/active-directory-saas-airwatch-tutorial/ic791921.png "ustawienia")
 
-10. Kliknij przycisk hello **użytkownika** na karcie hello **bazowa nazwa Wyróżniająca** tekstowym, wpisz nazwę domeny, a następnie kliknij przycisk **zapisać**.
+10. Kliknij przycisk **użytkownika** karcie **bazowa nazwa Wyróżniająca** tekstowym, wpisz nazwę domeny, a następnie kliknij przycisk **zapisać**.
    
    ![Użytkownik](./media/active-directory-saas-airwatch-tutorial/ic791922.png "użytkownika")
 
-11. Kliknij przycisk hello **serwera** kartę.
+11. Kliknij przycisk **serwera** kartę.
    
    ![Serwer](./media/active-directory-saas-airwatch-tutorial/ic791923.png "serwera")
 
-12. Wykonaj następujące kroki hello:
+12. Wykonaj następujące czynności:
     
     ![Przekaż](./media/active-directory-saas-airwatch-tutorial/ic791924.png "Przekaż")   
     
@@ -156,117 +156,117 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Wybierz **SAML jest używany do uwierzytelniania**.
 
-    c. tooupload hello pobranego certyfikatu, kliknij przycisk **przekazać**.
+    c. Aby przekazać pobranego certyfikatu, kliknij przycisk **przekazać**.
 
-13. W hello **żądania** sekcji, wykonaj następujące kroki hello:
+13. W **żądania** sekcji, wykonaj następujące czynności:
     
     ![Żądanie](./media/active-directory-saas-airwatch-tutorial/ic791925.png "żądania")  
 
     a. Jako **żądania typu powiązania**, wybierz pozycję **POST**.
 
-    b. W portalu Azure na powitania hello **skonfigurować logowanie jednokrotne w Airwatch** strony okna dialogowego, hello kopiowania **SAML pojedynczy znak na adres URL usługi** wartość, a następnie wklej go do hello **dostawcy tożsamości Pojedynczy znak na adres URL** pola tekstowego.
+    b. W portalu Azure na **skonfigurować logowanie jednokrotne w Airwatch** strony okna dialogowego, kopiowania **SAML pojedynczy znak na adres URL usługi** wartość, a następnie wklej ją do **tożsamości pojedynczy znak na adres URL dostawcy** pola tekstowego.
 
     c. Jako **NameID Format**, wybierz pozycję **adres E-mail**.
 
     d. Kliknij pozycję **Zapisz**.
 
-14. Kliknij przycisk hello **użytkownika** karcie ponownie.
+14. Kliknij przycisk **użytkownika** karcie ponownie.
     
     ![Użytkownik](./media/active-directory-saas-airwatch-tutorial/ic791926.png "użytkownika")
 
-15. W hello **atrybutu** sekcji, wykonaj następujące kroki hello:
+15. W **atrybutu** sekcji, wykonaj następujące czynności:
     
     ![Atrybut](./media/active-directory-saas-airwatch-tutorial/ic791927.png "atrybutu")
 
-    a. W hello **identyfikator obiektu** pole tekstowe, typ **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+    a. W **identyfikator obiektu** pole tekstowe, typ **http://schemas.microsoft.com/identity/claims/objectidentifier**.
 
-    b. W hello **Username** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    b. W **Username** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
-    c. W hello **Nazwa wyświetlana** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    c. W **Nazwa wyświetlana** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    d. W hello **imię** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    d. W **imię** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
 
-    e. W hello **nazwisko** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    e. W **nazwisko** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
 
-    f. W hello **E-mail** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    f. W **E-mail** pole tekstowe, typ **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
 
     g. Kliknij pozycję **Zapisz**.
 
 <CE>
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-airwatch-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z Simona Britta.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z Simona Britta.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-airwatch-test-user"></a>Tworzenie użytkownika testowego AirWatch
 
-toolog użytkowników tooenable usługi Azure AD w tooAirWatch, muszą mieć przydzielone w tooAirWatch.
+Aby umożliwić użytkownikom usługi Azure AD zalogować się do AirWatch, ich należy udostępnić w celu AirWatch.
 
 * Gdy AirWatch, inicjowanie obsługi to zadanie ręczne.
 
-**tooprovision konta użytkownika, należy wykonać hello następujące kroki:**
+**Aby udostępnić konta użytkownika, wykonaj następujące czynności:**
 
-1. Zaloguj się za tooyour **AirWatch** witryny firmy jako administrator.
-2. W okienku nawigacji hello po lewej stronie powitania kliknij **kont**, a następnie kliknij przycisk **użytkowników**.
+1. Zaloguj się do Twojego **AirWatch** witryny firmy jako administrator.
+2. W okienku nawigacji po lewej stronie kliknij **kont**, a następnie kliknij przycisk **użytkowników**.
    
    ![Użytkownicy](./media/active-directory-saas-airwatch-tutorial/ic791929.png "użytkowników")
-3. W hello **użytkowników** menu, kliknij przycisk **widok listy**, a następnie kliknij przycisk **Dodaj \> Dodaj użytkownika**.
+3. W **użytkowników** menu, kliknij przycisk **widok listy**, a następnie kliknij przycisk **Dodaj \> Dodaj użytkownika**.
    
    ![Dodaj użytkownika](./media/active-directory-saas-airwatch-tutorial/ic791930.png "Dodaj użytkownika")
-4. Na powitania **Dodaj / Edytuj użytkownika** okna dialogowego, wykonaj następujące kroki hello:
+4. Na **Dodaj / Edytuj użytkownika** okna dialogowego, wykonaj następujące czynności:
 
    ![Dodaj użytkownika](./media/active-directory-saas-airwatch-tutorial/ic791931.png "Dodaj użytkownika")   
-   1. Typ hello **Username**, **hasło**, **Potwierdź hasło**, **imię**, **nazwisko**,  **Adres e-mail** prawidłowy Azure związanych z kontem usługi Active Directory, mają tooprovision w hello pól tekstowych.
+   1. Typ **Username**, **hasło**, **Potwierdź hasło**, **imię**, **nazwisko**, **adres E-mail** poprawnego konta usługi Azure Active Directory ustanawiane do powiązanych pól tekstowych.
    2. Kliknij pozycję **Zapisz**.
 
 >[!NOTE]
->Możesz użyć innych AirWatch użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez AirWatch tooprovision kont użytkowników usługi AAD.
+>Możesz użyć innych AirWatch użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez AirWatch do kont użytkowników usługi AAD.
 >  
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooAirWatch.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu AirWatch.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooAirWatch Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta AirWatch, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **AirWatch**.
+2. Na liście aplikacji zaznacz **AirWatch**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -274,7 +274,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -282,14 +282,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Jeśli chcesz tootest jednego ustawienia logowania jednokrotnego, otwórz hello panelu dostępu. Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Jeśli chcesz przetestować jednego ustawienia logowania jednokrotnego, otwórz Panel dostępu. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

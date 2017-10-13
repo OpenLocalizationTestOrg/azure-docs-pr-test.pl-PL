@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z O.C. Napisu Czarnecka - AppreciateHub | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i O.C. Napisu Czarnecka - AppreciateHub."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i O.C. Napisu Czarnecka - AppreciateHub."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,119 +13,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 45052cf56e35746d7df5910162e40e3bbcad1aca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9af12372b30d9ee1575e46be3b4144fc3b73ec69
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Samouczek: Integracji Azure Active Directory z O.C. Napisu Czarnecka - AppreciateHub
 
-Z tego samouczka, dowiesz się, jak toointegrate O.C. Napisu Czarnecka - AppreciateHub z usługi Azure Active Directory (Azure AD).
+W tym samouczku opisano sposób integracji O.C. Napisu Czarnecka - AppreciateHub z usługi Azure Active Directory (Azure AD).
 
-Integrowanie O.C. Napisu Czarnecka - AppreciateHub z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie O.C. Napisu Czarnecka - AppreciateHub z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooO.C. Napisu Czarnecka - AppreciateHub
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooO.C. Napisu Czarnecka - AppreciateHub (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do O.C. Napisu Czarnecka - AppreciateHub
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do O.C. Napisu Czarnecka - AppreciateHub (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z O.C. Napisu Czarnecka - AppreciateHub, potrzebujesz hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z O.C. Napisu Czarnecka - AppreciateHub, potrzebne następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - O.C. Napisu Czarnecka - AppreciateHub logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie O.C. Napisu Czarnecka - AppreciateHub z galerii hello
+1. Dodawanie O.C. Napisu Czarnecka - AppreciateHub z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-oc-tanner---appreciatehub-from-hello-gallery"></a>Dodawanie O.C. Napisu Czarnecka - AppreciateHub z galerii hello
-Integracja hello tooconfigure O.C. Napisu Czarnecka - AppreciateHub do usługi Azure AD, należy tooadd O.C. Napisu Czarnecka - AppreciateHub z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-oc-tanner---appreciatehub-from-the-gallery"></a>Dodawanie O.C. Napisu Czarnecka - AppreciateHub z galerii
+Aby skonfigurować integrację O.C. Napisu Czarnecka - AppreciateHub do usługi Azure AD, należy dodać O.C. Napisu Czarnecka - AppreciateHub z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd O.C. Napisu Czarnecka - AppreciateHub z galerii hello wykonać hello następujące kroki:**
+**Aby dodać O.C. Napisu Czarnecka - AppreciateHub z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **O.C. Napisu Czarnecka - AppreciateHub**.
+4. W polu wyszukiwania wpisz **O.C. Napisu Czarnecka - AppreciateHub**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_search.png)
 
-5. Wybierz w panelu wyników hello **O.C. Napisu Czarnecka - AppreciateHub**, a następnie kliknij przycisk **Dodaj** przycisk tooadd hello aplikacji.
+5. W panelu wyników wybierz **O.C. Napisu Czarnecka - AppreciateHub**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z O.C. Napisu Czarnecka - AppreciateHub w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD wymaga tooknow użytkownika odpowiednikiem hello w O.C. Napisu Czarnecka - AppreciateHub jest tooa użytkownika w usłudze Azure AD. Innymi słowy relacja linku między użytkownika usługi Azure AD i hello użytkownikowi w O.C. Napisu Czarnecka - AppreciateHub musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, jaki użytkownik odpowiednika w O.C. Napisu Czarnecka - AppreciateHub jest użytkownikiem w usłudze Azure AD. Innymi słowy relacja linku między użytkownika usługi Azure AD i danemu użytkownikowi w O.C. Napisu Czarnecka - AppreciateHub musi się.
 
-W O.C. Napisu Czarnecka - AppreciateHub, przypisz hello wartość hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W O.C. Napisu Czarnecka - AppreciateHub, przypisz wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z O.C. Napisu Czarnecka - AppreciateHub, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z O.C. Napisu Czarnecka - AppreciateHub, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie O.C. Napisu Czarnecka - użytkownika testowego AppreciateHub](#creating-a-oc-tanner---appreciatehub-test-user)**  -toohave odpowiednikiem Simona Britta w O.C. Napisu Czarnecka - AppreciateHub, który jest połączony toohello reprezentacja użytkownika usługi Azure AD.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie O.C. Napisu Czarnecka - użytkownika testowego AppreciateHub](#creating-a-oc-tanner---appreciatehub-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta O.C. Napisu Czarnecka - AppreciateHub połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować rejestracji jednokrotnej w sieci O.C. Napisu Czarnecka - AppreciateHub aplikacji.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w sieci O.C. Napisu Czarnecka - AppreciateHub aplikacji.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z O.C. Napisu Czarnecka - AppreciateHub, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z O.C. Napisu Czarnecka - AppreciateHub, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **O.C. Napisu Czarnecka - AppreciateHub** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **O.C. Napisu Czarnecka - AppreciateHub** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_samlbase.png)
 
-3. Na powitania **O.C. Napisu Czarnecka - AppreciateHub domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **O.C. Napisu Czarnecka - AppreciateHub domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
 
-    a. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`
+    a. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy hello rzeczywisty adres URL odpowiedzi służący. Skontaktuj się z [O.C. Napisu Czarnecka - zespołem pomocy technicznej AppreciateHub](mailto:sso@octanner.com) tooget tej wartości.
+    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL odpowiedzi. Skontaktuj się z [O.C. Napisu Czarnecka - zespołem pomocy technicznej AppreciateHub](mailto:sso@octanner.com) aby zyskać tę wartość.
 
-    b. Plik metadanych hello Otwórz za pomocą hello następującego łącza: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
+    b. Otwórz plik metadanych, korzystając z następującego łącza: [https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata).
    
-    c. Zlokalizuj hello **md:AssertionConsumerService** węzła. 
+    c. Zlokalizuj **md:AssertionConsumerService** węzła. 
    
-    d. Skopiuj wartość hello hello **lokalizacji** atrybutu. 
+    d. Skopiuj wartość **lokalizacji** atrybutu. 
    
     ![Konfiguruj ustawienia aplikacji][12]
    
-    e. W hello **na adres URL logowania** pole tekstowe po uzyskaniu w poprzednim kroku hello wartość hello.
+    e. W **na adres URL logowania** pole tekstowe poza wartości zostały uzyskane w poprzednim kroku.
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_certificate.png) 
 
@@ -133,68 +133,68 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_400.png)
 
-6. tooconfigure rejestracji jednokrotnej w **O.C. Napisu Czarnecka - AppreciateHub** strony, należy pobrać hello toosend **XML metadanych** zbyt[O.C. Napisu Czarnecka - zespołem pomocy technicznej AppreciateHub](mailto:sso@octanner.com).
+6. Aby skonfigurować logowanie jednokrotne w **O.C. Napisu Czarnecka - AppreciateHub** stronie, musisz wysłać pobrany **XML metadanych** do [O.C. Napisu Czarnecka - zespołem pomocy technicznej AppreciateHub](mailto:sso@octanner.com).
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-oc-tanner-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-oc-tanner---appreciatehub-test-user"></a>Tworzenie O.C. Napisu Czarnecka - AppreciateHub użytkownika testowego
 
-Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w O.C. Napisu Czarnecka - AppreciateHub.
+Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w O.C. Napisu Czarnecka - AppreciateHub.
 
-**toocreate użytkownik wywołuje Simona Britta O.C. Napisu Czarnecka - AppreciateHub, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika o nazwie Simona Britta w O.C. Napisu Czarnecka - AppreciateHub, wykonaj następujące czynności:**
 
-Skontaktuj się z [O.C. Napisu Czarnecka - zespołem pomocy technicznej AppreciateHub](mailto:sso@octanner.com) toocreate użytkownika, takiej jak hello atrybutu nameID samą wartość jak nazwa użytkownika hello Simona Britta w usłudze Azure AD.
+Skontaktuj się z [O.C. Napisu Czarnecka - zespołem pomocy technicznej AppreciateHub](mailto:sso@octanner.com) można utworzyć użytkownika, który ma atrybut nameID taką samą wartość jak nazwa użytkownika Simona Britta w usłudze Azure AD.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooO.C. Napisu Czarnecka - AppreciateHub.
+W tej sekcji Włącz Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu O.C. Napisu Czarnecka - AppreciateHub.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooO.C Simona Britta. Napisu Czarnecka - AppreciateHub, wykonaj następujące kroki hello:**
+**Aby przypisać Simona Britta O.C. Napisu Czarnecka - AppreciateHub, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **O.C. Napisu Czarnecka - AppreciateHub**.
+2. Na liście aplikacji zaznacz **O.C. Napisu Czarnecka - AppreciateHub**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -202,7 +202,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -210,12 +210,12 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.  
-Po kliknięciu hello O.C. Napisu Czarnecka - AppreciateHub kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour O.C. Napisu Czarnecka - AppreciateHub aplikacji.
+Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.  
+Po kliknięciu O.C. Napisu Czarnecka - AppreciateHub kafelka w panelu dostępu użytkownik powinien uzyskać automatycznie podpisany w przypadku O.C. Twojego Napisu Czarnecka - AppreciateHub aplikacji.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

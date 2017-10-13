@@ -1,6 +1,6 @@
 ---
-title: "aaaGet wprowadzenie do usługi Azure Mobile Engagement dla aplikacji sieci Web | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse usługi Azure Mobile Engagement z analizy i powiadomieniami wypychanymi dla aplikacji sieci Web."
+title: "Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji sieci Web | Microsoft Docs"
+description: "Dowiedz się, jak używać usługi Azure Mobile Engagement z funkcją analizy i powiadomieniami wypychanymi na potrzeby aplikacji sieci Web."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,52 +14,52 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: a84c96cac13bf3b85e72aef55da5c91693e1766c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Wprowadzenie do usługi Azure Mobile Engagement dla aplikacji sieci Web
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-W tym temacie opisano sposób toounderstand usługi Azure Mobile Engagement toouse użycia aplikacji sieci Web.
+W tym temacie pokazano, jak używać usługi Azure Mobile Engagement, aby zrozumieć Twój sposób użycia aplikacji sieci Web.
 
 > [!NOTE]
-> Usługa Azure Mobile Engagement Hello zostaną wycofane 2018 marca i jest obecnie tylko dostępne tooexisting klientów. Aby uzyskać więcej informacji, zobacz [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Usługa Azure Mobile Engagement zostanie wycofana w marcu 2018 r. i jest obecnie dostępna wyłącznie dla dotychczasowych klientów. Aby uzyskać więcej informacji, zobacz [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
-Ten samouczek wymaga następujących hello:
+Dla tego samouczka wymagane są następujące elementy:
 
 * Visual Studio 2015 lub dowolny inny edytor
 * [Zestaw SDK sieci Web](http://aka.ms/P7b453)
 
-Zestaw SDK sieci Web jest w wersji zapoznawczej i tylko obsługuje analityka w chwili hello i wysyłania powiadomień wypychanych w aplikacji lub przeglądarka nie obsługuje jeszcze. 
+Ten zestaw SDK sieci Web jest w wersji Preview i w tej chwili obsługuje tylko analizę, natomiast nie obsługuje jeszcze wysyłania powiadomień wypychanych w przeglądarce ani w aplikacji. 
 
 > [!NOTE]
-> toocomplete tego samouczka, musi mieć aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+> Do wykonania kroków tego samouczka potrzebne jest aktywne konto platformy Azure. Jeśli go nie masz, możesz utworzyć bezpłatne konto próbne w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
 > 
 > 
 
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Konfigurowanie usługi Mobile Engagement dla aplikacji sieci Web
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Połączenie z zapleczem usługi Mobile Engagement toohello aplikacji
-Ten samouczek przedstawia "podstawową integrację," będący hello minimalny zestaw wymagany toocollect danych.
+## <a id="connecting-app"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement
+Ten samouczek przedstawia „podstawową integrację”, tj. minimalny zestaw wymagany do zbierania danych.
 
-Utworzymy aplikację sieci web podstawowe z integracji programu Visual Studio toodemonstrate hello chociaż hello kroki można wykonać z dowolnej aplikacji sieci web również utworzone poza Visual Studio. 
+Utworzymy podstawową aplikację sieci Web w programie Visual Studio, aby zademonstrować integrację, ale kolejne czynności można również wykonać za pomocą dowolnej aplikacji sieci Web utworzonej poza programem Visual Studio. 
 
 ### <a name="create-a-new-web-app"></a>Tworzenie nowej aplikacji sieci Web
-Hello następujących krokach założono użycie hello programu Visual Studio 2015 chociaż hello kroki są podobne we wcześniejszych wersjach programu Visual Studio. 
+W następujących krokach założono korzystanie z programu Visual Studio 2015, chociaż kroki są podobne także w przypadku wcześniejszych wersji programu Visual Studio. 
 
-1. Uruchom program Visual Studio w hello **Home** ekranu wybierz **nowy projekt**.
-2. W oknie podręcznym hello wybierz **Web** -> **aplikacji sieci Web ASP.Net**. Wypełnij aplikacji hello **nazwa**, **lokalizacji** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
-3. W hello **wybierz szablon** menu podręczne, wybierz **pusty** w obszarze **ASP.Net 4.5 szablony** i kliknij przycisk **OK**. 
+1. Uruchom program Visual Studio i na ekranie **Strona główna** wybierz pozycję **Nowy projekt**.
+2. W oknie podręcznym wybierz pozycję **Sieć Web** -> **Aplikacja sieci Web ASP.Net**. Wypełnij pola **Nazwa****Lokalizacja** i **Nazwa rozwiązania**, a następnie kliknij przycisk **OK**.
+3. W oknie podręcznym **Wybierz szablon** wybierz pozycję **Pusty** w obszarze **Szablony ASP.Net 4.5** i kliknij przycisk **OK**. 
 
-Został utworzony nowy pusty projekt aplikacji sieci Web do której zostanie zintegrowana hello zestaw SDK usługi Azure Mobile Engagement w sieci Web.
+Został utworzony nowy pusty projekt aplikacji sieci Web, z którym zostanie zintegrowany zestaw SDK sieci Web usługi Azure Mobile Engagement.
 
-### <a name="connect-your-app-toomobile-engagement-backend"></a>Połącz zapleczu swojej aplikacji tooMobile zaangażowania
-1. Utwórz nowy folder o nazwie **javascript** w rozwiązaniu i Dodaj plik sieci Web node.js SDK hello **azure engagement.js** do niego. 
-2. Dodaj nowy plik o nazwie **main.js** w tym folderze javascript z hello następującego kodu. Upewnij się, że parametry połączenia hello tooupdate. To `azureEngagement` obiekt będzie używana tooaccess metody zestawu SDK sieci Web. 
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Łączenie aplikacji z zapleczem usługi Mobile Engagement 
+1. Utwórz w swoim rozwiązaniu nowy folder o nazwie **javascript** i dodaj do niego plik JS zestawu SDK sieci Web **azure-engagement.js**. 
+2. Do tego folderu javascript dodaj nowy plik o nazwie **main.js** zawierający poniższy kod. Nie zapomnij zaktualizować parametrów połączenia. Ten obiekt `azureEngagement` umożliwi uzyskiwanie dostępu do metod zestawu SDK sieci Web. 
    
         var azureEngagement = {
             debug: true,
@@ -69,14 +69,14 @@ Został utworzony nowy pusty projekt aplikacji sieci Web do której zostanie zin
     ![Program Visual Studio z plikami js][1]
 
 ## <a name="enable-real-time-monitoring"></a>Włączanie monitorowania w czasie rzeczywistym
-W kolejności toostart wysyłanie danych i zapewnienie, że hello użytkownicy są aktywni konieczne jest wysłanie co najmniej jeden zapleczem usługi Mobile Engagement toohello działania. Działania w kontekście hello aplikacji sieci web to strona sieci web. 
+Aby rozpocząć wysyłanie danych i upewnić się, że użytkownicy są aktywni, konieczne jest wysłanie co najmniej jednego działania do zaplecza usługi Mobile Engagement. Działanie w kontekście aplikacji sieci Web to strona sieci Web. 
 
-1. Utwórz nową stronę o nazwie **home.html** w rozwiązaniu i ustaw go jako rozpoczęciem powitalne strony dla aplikacji sieci web. 
-2. Zawierają hello dwa skrypty JavaScript, dodana przez dodanie następujących hello w tagu treści hello we wcześniejszej części tej strony. 
+1. Utwórz w swoim rozwiązaniu nową stronę o nazwie **home.html** i ustaw ją jako stronę początkową dla aplikacji sieci Web. 
+2. Dołącz dwa skrypty JavaScript, które dodaliśmy wcześniej na tej stronie, przez dodanie poniższego kodu w tagu treści. 
    
         <script type="text/javascript" src="javascript/main.js"></script>
         <script type="text/javascript" src="javascript/azure-engagement.js"></script>
-3. Zaktualizuj hello treści tag toocall EngagementAgent w `startActivity` — metoda
+3. Zaktualizuj tag treści, aby wywołać metodę `startActivity` obiektu EngagementAgent.
    
         <body onload="engagement.agent.startActivity('Home')">
 4. Twoja strona **home.html** będzie wyglądać tak:
@@ -97,7 +97,7 @@ W kolejności toostart wysyłanie danych i zapewnienie, że hello użytkownicy s
   ![][2]
 
 ## <a name="extend-analytics"></a>Poszerzanie analizy
-W tym miejscu wszystkie metody hello są obecnie dostępne z zestawu SDK sieci Web służącego do analizy:
+Oto wszystkie metody dostępne obecnie w zestawie SDK sieci Web, których można używać do analizy:
 
 1. Działania/strony sieci Web:
    

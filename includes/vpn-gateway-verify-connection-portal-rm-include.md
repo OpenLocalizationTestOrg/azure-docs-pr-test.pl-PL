@@ -1,7 +1,7 @@
-W portalu Azure hello można wyświetlić stan połączenia hello bramy sieci VPN usługi Resource Manager przechodząc toohello połączenia. Witaj następujące kroki Pokaż jednokierunkowej toonavigate tooyour połączenia i sprawdź.
+Przechodząc w witrynie Azure Portal do połączenia, można sprawdzić stan połączenia bramy VPN Gateway usługi Resource Manager. Poniższe kroki pokazują jeden ze sposobów nawigacji do połączenia oraz jego weryfikacji.
 
-1. W hello [portalu Azure](http://portal.azure.com), kliknij przycisk **wszystkie zasoby** i przejdź tooyour bramy sieci wirtualnej.
-2. W bloku hello bramy sieci wirtualnej, kliknij **połączenia**. Można wyświetlić stan hello każdego połączenia.
-3. Kliknij nazwę hello hello połączenia, które mają tooverify tooopen **Essentials**. W bloku Podstawy możesz wyświetlić więcej informacji o połączeniu. Witaj **stan** jest "Powodzenie" i "Połączony", po pomyślnym połączeniu.
+1. W [portalu Azure](http://portal.azure.com) kliknij przycisk **Wszystkie zasoby** i przejdź do bramy sieci wirtualnej.
+2. W bloku bramy sieci wirtualnej kliknij opcję **Połączenia**. Zostanie pokazany stan każdego połączenia.
+3. Kliknij nazwę połączenia, które chcesz sprawdzić, aby otworzyć blok **Podstawy**. W bloku Podstawy możesz wyświetlić więcej informacji o połączeniu. Po pomyślnym nawiązaniu połączenia **Stan** jest wyświetlany jako „Powodzenie” i „Połączono”.
 
   ![Sprawdzanie połączenia bramy VPN Gateway za pomocą witryny Azure Portal](./media/vpn-gateway-verify-connection-portal-rm-include/connectionsucceeded.png)

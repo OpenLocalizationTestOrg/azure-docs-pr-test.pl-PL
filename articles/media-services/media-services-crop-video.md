@@ -1,6 +1,6 @@
 ---
-title: aaaHow toocrop wideo z Media Encoder Standard - Azure | Dokumentacja firmy Microsoft
-description: "W tym artykule przedstawiono sposób toocrop wideo przy użyciu Media Encoder Standard."
+title: Jak przycinanie wideo z Media Encoder Standard - Azure | Dokumentacja firmy Microsoft
+description: "W tym artykule przedstawiono sposób przycięcia wideo z Media Encoder Standard."
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -14,31 +14,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: anilmur;juliako;
-ms.openlocfilehash: 2b4ac3d96228b93c890a38c57c4913988de1e8bb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 60d0ce14a271fcbe698559da95ca011cb888b221
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Przycinanie wideo za pomocą usługi Media Encoder Standard
-Możesz użyć toocrop Media Encoder Standard (rynkowej) wejściowego pliku wideo. Przycinanie jest proces hello wybierając prostokątne okna w ramce wideo hello i kodowanie tylko hello pikseli w danym przedziale. powitania po diagram ułatwia ilustrują hello procesu.
+Aby przyciąć dane wejściowe wideo, można użyć Media Encoder Standard (rynkowej). Przycinanie to proces wyboru prostokątne okna w ramce wideo i kodowanie tylko pikseli w danym przedziale. Poniższy diagram ułatwia zilustrowanie tego procesu.
 
 ![Przytnij wideo](./media/media-services-crop-video/media-services-crop-video01.png)
 
-Załóżmy, że masz wideo ma rozdzielczość 1920 x 1080 pikseli (współczynnik proporcji 16:9), ale ma czarne paski (słupka pola) na powitania lewy i prawy, tak aby tylko okna 4:3 lub 1440 x 1080 pikseli zawiera aktywne wideo jako dane wejściowe. Można użyć toocrop rynkowej lub Edytuj limit hello czarne paski i kodowanie hello 1440 x 1080 regionu.
+Załóżmy, że masz jako dane wejściowe wideo ma rozdzielczość 1920 x 1080 pikseli (współczynnik proporcji 16:9), ale ma czarne paski (pola słupka) w lewo i w prawo, tak aby tylko okna 4:3 lub 1440 x 1080 pikseli zawiera aktywne wideo. Użyj rynkowej Aby przyciąć lub edytować limit czarne paski i kodowanie region 1440 x 1080 pikseli.
 
-Przycinanie w rynkowej jest przetwarzania wstępnego etap, więc hello parametry przycinania w ustawienie wstępne kodowania hello stosuje się toohello oryginalnego wejściowy plik wideo. Kodowanie jest dalszym etapie i hello szerokość i wysokość ustawienia mają zastosowanie toohello *wstępnie przetworzonych* wideo, a nie toohello oryginalnego wideo. Podczas projektowania ustawienia potrzebne następujące hello toodo: () wybierz parametry przycięcia hello oparte na powitania oryginalnego wejściowy plik wideo i (b) wybierz Twoje kodowania ustawienia oparte na powitania przycięte wideo. Jeśli nie są zgodne z kodowania toohello ustawienia przycięte wideo, nie będą dane wyjściowe hello, zgodnie z oczekiwaniami.
+Przycinanie w rynkowej jest przetwarzania wstępnego etap, więc przycinania parametry w ustawienie wstępne kodowania stosuje się do oryginalnej wejściowy plik wideo. Kodowanie jest dalszym etapie i ustawienia szerokości i wysokości dotyczą *wstępnie przetworzonych* wideo, a nie do oryginalnego wideo. Podczas projektowania ustawienia należy wykonać następujące czynności: () wybierz parametrów przycięcia oparty na oryginalnym wejściowy plik wideo i (b) wybierz Twoje kodowania ustawienia oparte na przycięte wideo. Jeśli nie są zgodne z kodowania ustawienia przycięte wideo, nie będą dane wyjściowe, zgodnie z oczekiwaniami.
 
-Witaj [następujące](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) temacie pokazano, jak toocreate zadania kodowania z rynkowej i jak toospecify niestandardowego ustawienia wstępnego dla hello kodowania zadań. 
+[Następujące](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) temacie przedstawiono sposób tworzenia zadania kodowania rynkowej oraz sposób określania niestandardowej ustawienie wstępne kodowania zadania. 
 
 ## <a name="creating-a-custom-preset"></a>Tworzenie animacji niestandardowej
-W przykładzie hello na diagramie hello:
+W przykładzie przedstawionym w diagramie:
 
 1. Oryginalne dane wejściowe są 1920 x 1080 pikseli
-2. Musi on toobe przycięte dane wyjściowe tooan 1440 x 1080 pikseli, który skupia się w ramce wejściowych hello
+2. Należy go przycięte do wyjścia 1440 x 1080 pikseli, który skupia się w ramce wejściowych
 3. Oznacza to Przesunięcie X (1920 — 1440) / 2 = 240 i Y przesunięcia o wartości zero
-4. Hello szerokość i wysokość prostokąta przycięcia hello otrzymują 1440 1080, odpowiednio i
-5. W hello kodowania etapie hello pytanie, jest tooproduce trzy warstwy, są odpowiednio rozdzielczości 1440 x 1080 pikseli, 960 x 720 i 480 x 360
+4. Szerokość i wysokość prostokąta przycięcia są 1440 i 1080, w odpowiednio
+5. W fazie Koduj Zadaj jest przygotowanie trzy warstwy, są odpowiednio rozdzielczości 1440 x 1080 pikseli, 960 x 720 i 480 x 360
 
 ### <a name="json-preset"></a>Ustawienie wstępne JSON
     {
@@ -126,19 +126,19 @@ W przykładzie hello na diagramie hello:
 
 
 ## <a name="restrictions-on-cropping"></a>Ograniczenia dotyczące przycinanie
-Przycinanie funkcji Hello oznacza toobe ręcznego. Będzie potrzebny tooload dane wejściowe wideo do odpowiedniego narzędzia edycji umożliwiające zaznacz ramki zainteresowań, umieść hello kursora toodetermine przesunięć hello przycinanie prostokąta, toodetermine hello ustawienie wstępne kodowania, które dostosowana pod kątem tego konkretnego wideo, itp. Ta funkcja nie jest przeznaczona tooenable np: automatyczne wykrywanie i usuwanie granic czarny letterbox/pillarbox w wejściowego pliku wideo.
+Oznacza, że funkcja przycinania można ręcznie. Musisz załadować wejściowy plik wideo do odpowiedniej edycji narzędzie, które pozwala wybrać ramki zainteresowań, umieść kursor ustalenie przesunięć prostokąta kadrowania, aby określić ustawienie wstępne kodowania, które dostosowana pod kątem tego konkretnego wideo, itp. Ta funkcja nie jest przeznaczona do elementów, jak włączyć: automatyczne wykrywanie i usuwanie granic czarny letterbox/pillarbox w wejściowego pliku wideo.
 
-Przycinanie funkcji toohello obowiązują następujące ograniczenia. Jeśli te nie są spełnione, hello kodowania zadań może się nie powieść lub wygenerować nieoczekiwane dane wyjściowe.
+Następujące ograniczenia dotyczące funkcji przycinania. Te nie są spełnione, kodowanie zadań mogą zakończyć się niepowodzeniem, czy wygenerować nieoczekiwane dane wyjściowe.
 
-1. Witaj współrzędne i rozmiar prostokąta przycięcia hello mają toofit w hello wejściowy plik wideo
-2. Jak wspomniano powyżej, hello szerokość i wysokość w hello kodowania ustawień ma toohello toocorrespond przycięte wideo
-3. Przycinanie stosuje toovideos przechwycone w trybie krajobraz (tj. nie dotyczy toovideos pamięci zarejestrowane z smartphone przechowywanych w pionie lub w trybie portret)
+1. Współrzędne i Rozmiar przycięcia musi mieścić się w wejściowy plik wideo
+2. Jak wspomniano powyżej, szerokość i wysokość w ustawieniach Koduj musi odpowiadać przycięte wideo
+3. Przycinanie dotyczy wideo przechwycone w trybie krajobraz (tj. nie dotyczy filmy wideo z smartphone zapisywane przechowywanych w pionie lub w trybie portret)
 4. Działa najlepiej z obiektem wideo przechwycone kwadratowy pikseli
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Następny krok
-Zobacz usługi Azure Media Services learning toohelp ścieżek, które Dowiedz się więcej o funkcje oferowane przez usługi AMS.  
+Zobacz usługi Azure Media Services ścieżki szkoleniowe dotyczące Aby uzyskać więcej informacji o funkcje oferowane przez usługi AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

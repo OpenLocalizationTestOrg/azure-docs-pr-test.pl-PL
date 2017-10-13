@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2016
 ms.author: 
-ms.openlocfilehash: 60bc0cc392b332cc4e9741ddb97dfa58e68ed420
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9472cb01eb713e297053727b1a314293574bb657
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Usługa Azure Active Directory B2C: Zarządzanie zagrożeniami
 
-Zarządzanie zagrożeniami obejmuje planowanie dotyczące ochrony przed atakami systemu i sieci. Ataki typu "odmowa usługi" może spowodować zasobów niedostępny toointended użytkowników. Hasło ataków realizacji toounauthorized dostępu tooresources. Usługa Azure Active Directory B2C (Azure AD B2C) ma wbudowane funkcje, które mogą pomóc chronić dane przed zagrożeniami tych na wiele sposobów.
+Zarządzanie zagrożeniami obejmuje planowanie dotyczące ochrony przed atakami systemu i sieci. Ataki typu "odmowa usługi" może spowodować zasobów niedostępny uprawnionych użytkowników. Złamania hasła prowadzić do nieautoryzowanego dostępu do zasobów. Usługa Azure Active Directory B2C (Azure AD B2C) ma wbudowane funkcje, które mogą pomóc chronić dane przed zagrożeniami tych na wiele sposobów.
 
 ## <a name="denial-of-service-attacks"></a>Ataki typu "odmowa usługi"
 
-Wykrywanie i zapobieganie technik, takich jak pliki cookie SYN i szybkość i połączenia tooprotect limity bazowy zasobów przed atakami typu "odmowa usługi" korzysta z usługi Azure AD B2C.
+Azure AD B2C używa wykrywanie i zapobieganie technik, takich jak pliki cookie SYN i limitów szybkości i połączenia w celu ochrony zasobów przed atakami typu "odmowa usługi".
 
 ## <a name="password-attacks"></a>Złamania hasła
 
-Usługa Azure AD B2C ma również techniki środki zaradcze w przypadku złamania hasła. Środki zaradcze obejmuje ataków siłowych hasła i słownikowymi hasła. Hasła, które są ustawiane przez użytkowników są wymagane toobe rozsądnych złożonych. Za pomocą różnych sygnałów, usługi Azure AD B2C analizuje hello integralności żądań. Usługa Azure AD B2C zaprojektowano toointelligently rozróżnianie uprawnionych użytkowników przed hakerami i zakłócanych. Usługa Azure AD B2C zawiera toolock rozbudowanych strategii oparte na powitania haseł wpisanych prawdopodobieństwo atak powitania kont.
+Usługa Azure AD B2C ma również techniki środki zaradcze w przypadku złamania hasła. Środki zaradcze obejmuje ataków siłowych hasła i słownikowymi hasła. Hasła, które są ustawiane przez użytkowników muszą być rozsądnych złożonych. Za pomocą różnych sygnałów, usługi Azure AD B2C analizuje integralności żądań. Usługa Azure AD B2C jest przeznaczona do inteligentnie rozróżnianie uprawnionych użytkowników przed hakerami i zakłócanych. Usługi Azure AD B2C udostępnia zaawansowane strategii blokady konta oparte na wprowadzone w prawdopodobieństwo ataku hasła.
 
-Aby uzyskać więcej informacji, odwiedź stronę hello [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/threatmanagement).
+Aby uzyskać więcej informacji, odwiedź stronę [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/threatmanagement).

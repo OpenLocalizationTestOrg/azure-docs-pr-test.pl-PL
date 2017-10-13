@@ -1,4 +1,4 @@
-Użyj hello [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) forum sugestie opinii i udostępnić tooprovide w sposób tooimprove usługi Azure Media Services. Można także przejść bezpośrednio tooone hello następujące kategorie:
+Skorzystaj z forum [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409), aby przekazać opinie i sugestie dotyczące sposobów usprawnienia usługi Azure Media Services. Możesz także przejść bezpośrednio do jednej z następujących kategorii:
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [Biblioteki zestawu SDK klienta](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
@@ -7,4 +7,4 @@ Użyj hello [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x4
 * [Analiza multimediów](https://feedback.azure.com/forums/169396-media-services/category/146181-media-analytics)
 * [Witryna Azure Portal](https://feedback.azure.com/forums/169396-media-services/category/144432-portal/)
 * [Interfejs API REST i platforma](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
-* [Transmisja strumieniowa VoD](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
+* [Przesyłanie strumieniowe wideo na żądanie](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)

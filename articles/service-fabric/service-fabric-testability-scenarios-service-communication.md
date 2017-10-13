@@ -14,45 +14,45 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 4a8f941c1e8e641384a9ee3a1149dabaaf9983cc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c182cc2062ada40029504de5b2b64b021c614ce6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Scenariusze testowania usługi Service Fabric: komunikacji usługi
-Powierzchnia zorientowane na usługę architektury style naturalnie w sieci szkieletowej usług Azure i Mikrousług. W tych typów architektury rozproszonej składnikowa mikrousługi aplikacji zwykle składają się z wielu usług, które wymagają tootalk tooeach innych. W przypadku najprostszym nawet hello zazwyczaj masz co najmniej usługi bezstanowej sieci web i usługi magazynu danych stanowe wymagającym toocommunicate.
+Powierzchnia zorientowane na usługę architektury style naturalnie w sieci szkieletowej usług Azure i Mikrousług. W tych typach rozproszonej architektury mikrousługi składnikowa aplikacji zwykle składają się z wielu usług, które muszą komunikować się ze sobą. W nawet sytuacjach najprostszym zazwyczaj masz co najmniej bezstanowych usługą sieci web i usługi magazynu danych stanowe potrzebne do komunikowania się.
 
-Usługi do komunikacji jest punktem krytyczne integracji aplikacji, ponieważ każda usługa przedstawia zdalnej usługi tooother interfejsu API. Praca z zestawu granice interfejsu API, które zwykle obejmuje we/wy wymaga niektórych opieki z dobrym ilością testowania i weryfikacji.
+Usługi do komunikacji jest punktem krytyczne integracji aplikacji, ponieważ każda usługa przedstawia zdalnego interfejsu API z innymi usługami. Praca z zestawu granice interfejsu API, które zwykle obejmuje we/wy wymaga niektórych opieki z dobrym ilością testowania i weryfikacji.
 
-Gdy granice te usługi są połączone ze sobą w rozproszonym systemie są liczne toomake zagadnienia:
+Istnieje wiele uwagi, aby podczas granice te usługi są połączone ze sobą w rozproszonym systemie:
 
 * *Protokół transportu*. Maksymalnej przepływności zostanie użyty HTTP współdziałania zwiększone lub binarne protokołu niestandardowego?
-* *Obsługa błędów*. Sposób trwałe i przejściowych błędów obsługi? Co się stanie, jeśli usługa jest przenoszony tooa inny węzeł?
-* *Limity czasu i opóźnienia*. W aplikacjach rozwiązania jak każdej warstwy usług obsłuży opóźnienia za pośrednictwem hello stosu i toohello użytkowników?
+* *Obsługa błędów*. Sposób trwałe i przejściowych błędów obsługi? Co się stanie, jeśli usługa jest przenoszony do innego węzła?
+* *Limity czasu i opóźnienia*. W aplikacjach rozwiązania jak każdej warstwy usług obsłuży opóźnienia przez stos i dla użytkownika?
 
-Czy używany jest jeden składniki komunikacji wbudowanej usługi hello dostarczony przez sieć szkieletowa usług lub tworzenia własnych, testowanie hello interakcje między usług jest odporność tooensuring krytyczne w aplikacji.
+Czy użyć jednego ze składników komunikacji wbudowanej usługi udostępniane przez usługi sieć szkieletowa lub tworzenia, testowania interakcje między usług jest istotny dla zapewnienia odporności w aplikacji.
 
-## <a name="prepare-for-services-toomove"></a>Przygotowanie do toomove usług
-Wystąpienie usługi może poruszanie się w czasie. Jest to szczególnie istotne, skonfigurowanymi metryki dostosowane niestandardowych zasobów optymalne równoważenia obciążenia. Sieć szkieletowa usług przenosi Twojej toomaximize wystąpień usługi ich dostępności nawet podczas uaktualnienia, praca awaryjna skalowalnego w poziomie i innych sytuacjach, w których odbywa się za pośrednictwem istnienia hello rozproszonego systemu.
+## <a name="prepare-for-services-to-move"></a>Przygotuj się do usługi, aby przenieść
+Wystąpienie usługi może poruszanie się w czasie. Jest to szczególnie istotne, skonfigurowanymi metryki dostosowane niestandardowych zasobów optymalne równoważenia obciążenia. Sieć szkieletowa usług przenosi swoich wystąpień usługi, aby zmaksymalizować ich dostępności nawet podczas uaktualnienia, praca awaryjna skalowalnego w poziomie i innych sytuacjach, które występują w okresie istnienia systemu rozproszonego.
 
-Jak usługi poruszanie się w klastrze hello, klientów i innych usług powinny być przygotowane toohandle dwa scenariusze one mówiąc tooa usługi:
+Jak usługi poruszanie się w klastrze, klientów i innych usług powinna być przygotowana do obsługi dwa scenariusze, gdy są one komunikować się z usługą:
 
-* repliki wystąpienia lub partycji usługi Hello zostały przeniesione od czasu ostatniego należy zawsze mówię tooit hello. Jest to normalne część cyklu życia usług, a powinien być oczekiwany toohappen okres istnienia hello aplikacji.
-* repliki wystąpienia lub partycji usługi Hello jest hello proces przechodzenia. Mimo że w sieci szkieletowej usług występuje bardzo szybko pracy awaryjnej usługi z jednego węzła tooanother, mogą występować opóźnienia w dostępności Jeśli hello komunikacji składnik usługi jest powolne toostart.
+* Repliki wystąpienia lub partycji usługi zostały przeniesione od czasu ostatniego zawsze mówię można do niego. Jest to normalne część cyklu życia usług i można się spodziewać się stać się przez cały okres istnienia aplikacji.
+* Repliki wystąpienia lub partycji usługi jest w trakcie przenoszenia. Mimo że w sieci szkieletowej usług występuje bardzo szybko pracy awaryjnej usługi z jednego węzła do innego, mogą występować opóźnienia w dostępności Jeśli składnik komunikacji z usługą przebiega powoli rozpocząć.
 
-Bezpiecznie obsługi tych scenariuszy jest ważna w przypadku systemu smooth uruchomiona. toodo tak, należy pamiętać, że:
+Bezpiecznie obsługi tych scenariuszy jest ważna w przypadku systemu smooth uruchomiona. Aby to zrobić, należy pamiętać, że:
 
-* Każda usługa, które mogą być połączone toohas *adres* nasłuchującej na (na przykład HTTP lub Websocket). Przenosi wystąpienie usługi lub partycję, zmienia jego adres punktu końcowego. (Przesyłane tooa inny węzeł, używając innego adresu IP). Jeśli używasz składniki komunikacji wbudowanej hello one obsłuży ponowne rozpoznawania adresów usługi dla Ciebie.
-* Prawdopodobnie wystąpił tymczasowy wzrost opóźnienia usługi podczas uruchamiania wystąpienia usługi hello się jego odbiornika ponownie. Zależy to od jak szybko usługi hello otwiera odbiornika powitania po przeniesieniu hello wystąpienie usługi.
-* Istniejących połączeń muszą toobe zamknięte i otwarte ponownie po hello usługi zostanie otwarty w nowym węźle. Bezpieczne węzła zamknięcia lub ponownego uruchomienia umożliwia czas dla istniejących toobe połączeń prawidłowe zamknięcie.
+* Każda usługa, która jest połączona z ma *adres* nasłuchującej na (na przykład HTTP lub Websocket). Przenosi wystąpienie usługi lub partycję, zmienia jego adres punktu końcowego. (Powoduje przeniesienie do innego węzła, używając innego adresu IP.) Jeśli używasz składniki komunikacji wbudowanej one obsłuży ponowne rozpoznawania adresów usługi dla Ciebie.
+* Prawdopodobnie wystąpił tymczasowy wzrost opóźnienia usługi podczas uruchamiania wystąpienia usługi się jego odbiornika ponownie. Zależy to od jak szybko usługi otwiera odbiornika po przeniesieniu wystąpienia usługi.
+* Istniejących połączeń, należy zamknąć i otworzyć ponownie po usługi zostanie otwarty w nowym węźle. Bezpieczne węzła zamknięcia lub ponownego uruchomienia umożliwia czas dla istniejących połączeń, które można bezpiecznie zamknąć.
 
 ### <a name="test-it-move-service-instances"></a>Należy przeprowadzić test: Przenieś wystąpienia usługi
-Za pomocą narzędzia do testowania usługi Service Fabric, można tworzyć tootest scenariusza testu tych sytuacji na różne sposoby:
+Za pomocą narzędzia do testowania usługi Service Fabric, można tworzyć scenariusza testu do przetestowania tych sytuacji na różne sposoby:
 
 1. Przenieś usługi stanowej repliki podstawowej.
    
-    Witaj repliki podstawowej partycji usługi stanowej można przenieść dla dowolnej liczby powodów. Użyj tego tootarget hello replikę podstawową toosee określonej partycji, jak przenieść Twojej usługi w bibliotece react toohello w bardzo kontrolowany sposób.
+    Repliki podstawowej partycji usługi stanowej można przenieść dla dowolnej liczby powodów. Służy do docelowego repliką podstawową określonej partycji, aby zobaczyć, jak usługi reagują na przeniesienie w bardzo kontrolowany sposób.
    
     ```powershell
    
@@ -61,9 +61,9 @@ Za pomocą narzędzia do testowania usługi Service Fabric, można tworzyć toot
     ```
 2. Zatrzymanie węzła.
    
-    Po zatrzymaniu węzeł sieci szkieletowej usług przenosi wszystkie hello wystąpień lub partycje, które były na tym tooone węzeł z usługi hello inne dostępne węzły w klastrze hello. Użyj tej sytuacji, gdy węzeł ma utracone z klastra i wszystkich wystąpień usługi hello i replik w tym węźle ma toomove tootest.
+    Po zatrzymaniu węzeł sieci szkieletowej usług przenosi wszystkie wystąpienia usługi lub partycje, które były w tym węźle do jednego z innych dostępnych węzłów w klastrze. Umożliwia testowanie sytuacji, gdy węzeł ma utracone z klastra i wszystkich wystąpień usługi i replik w tym węźle ma przenoszenia.
    
-    Węzeł można zatrzymać za pomocą programu PowerShell hello **Stop ServiceFabricNode** polecenia cmdlet:
+    Węzeł można wyłączyć przy użyciu programu PowerShell **Stop ServiceFabricNode** polecenia cmdlet:
    
     ```powershell
    
@@ -72,14 +72,14 @@ Za pomocą narzędzia do testowania usługi Service Fabric, można tworzyć toot
     ```
 
 ## <a name="maintain-service-availability"></a>Obsługa dostępność usługi
-Jako platforma usługi sieć szkieletowa jest zaprojektowana tooprovide wysoką dostępność usług. Ale w ekstremalnych przypadkach problemy związane z infrastrukturą podstawowej nadal powodują niedostępności. Zbyt jest ważne tootest dla tych scenariuszy.
+Jako platforma usługi sieć szkieletowa zaprojektowano w celu zapewnienia wysokiej dostępności usług. Ale w ekstremalnych przypadkach problemy związane z infrastrukturą podstawowej nadal powodują niedostępności. Należy przetestować w tych sytuacjach zbyt.
 
-Usługi stanowej korzystania ze stanu tooreplicate systemu kworum wysokiej dostępności. Oznacza to, że kworum replik wymaga operacje zapisu dla toobe tooperform dostępne. W rzadkich przypadkach, takich jak awaria sprzętu powszechnie kworum replik nie mogą być dostępne. W takich przypadkach nie będą mogli tooperform operacji zapisu, ale nadal będzie można tooperform operacji odczytu.
+Usługi stanowej używać systemu kworum w celu replikowania stanu wysokiej dostępności. Oznacza to, że kworum replik musi być dostępna do wykonania operacji zapisu. W rzadkich przypadkach, takich jak awaria sprzętu powszechnie kworum replik nie mogą być dostępne. W takich przypadkach nie można wykonać operacji zapisu, ale nadal będzie mógł wykonywać operacji odczytu.
 
 ### <a name="test-it-write-operation-unavailability"></a>Należy przeprowadzić test: niedostępności operację zapisu
-Przy użyciu narzędzia do testowania hello w sieci szkieletowej usług, można wstrzyknąć błędów, która powoduje utratę kworum jako test. Mimo że takiej sytuacji jest rzadko, ważne jest, czy klienci i usługi, które są zależne od usługi stanowej są przygotowywane toohandle sytuacji, gdy nie może podjąć tooit żądań zapisu. Ważne jest również czy sama usługa hello stanowe zna tej możliwości i można bezpiecznie powiadamia toocallers.
+Przy użyciu narzędzia do testowania w sieci szkieletowej usług, można wstrzyknąć błędów, która powoduje utratę kworum jako test. Mimo że takiej sytuacji jest rzadko, ważne jest, klientów i usług, które są zależne od usługi stanowej są przygotowywane do obsługi sytuacji, gdy nie może podjąć żądań zapisu do niego. Ważne jest również czy samej usługi stanowej zna tej możliwości i bezpiecznie można przekazać do wywoływania.
 
-Utrata kworum może wywołać przy użyciu programu PowerShell hello **Invoke ServiceFabricPartitionQuorumLoss** polecenia cmdlet:
+Utrata kworum może wywołać przy użyciu programu PowerShell **Invoke ServiceFabricPartitionQuorumLoss** polecenia cmdlet:
 
 ```powershell
 
@@ -87,7 +87,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-W tym przykładzie ustawiliśmy `QuorumLossMode` zbyt`QuorumReplicas` tooindicate, która ma utraty kworum tooinduce bez konieczności przełączania w dół wszystkie repliki. W ten sposób operacje odczytu są nadal możliwe. Scenariusz, w którym cały partycji jest niedostępny, tootest tego przełącznika można ustawić także`AllReplicas`.
+W tym przykładzie ustawiliśmy `QuorumLossMode` do `QuorumReplicas` wskazująca chęć wywołać wyniku utraty kworum bez konieczności przełączania w dół wszystkich replik. W ten sposób operacje odczytu są nadal możliwe. Aby przetestować scenariusz, w którym cały partycji jest niedostępna, można ustawić ten przełącznik `AllReplicas`.
 
 ## <a name="next-steps"></a>Następne kroki
 [Dowiedz się więcej na temat testowania czynności](service-fabric-testability-actions.md)

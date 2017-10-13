@@ -1,18 +1,18 @@
 ### <a name="prerequisites"></a>Wymagania wstępne
 * Konto Wunderlist  
 
-Zanim użyjesz swojego konta Wunderlist w aplikacji logiki, musisz autoryzować hello logiki aplikacji tooconnect tooyour Wunderlist konta. Na szczęście można w tym z aplikacji logiki na powitania portalu Azure. 
+Zanim użyjesz swojego konta Wunderlist w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem Wunderlist. Na szczęście można w tym z aplikacji logiki w portalu Azure. 
 
-Oto hello kroki tooauthorize tooyour tooconnect konta Wunderlist Twojego logiki aplikacji:
+Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem Wunderlist:
 
-1. Wybierz tooWunderlist połączenia, w Projektancie aplikacji logiki hello, toocreate **Pokaż Microsoft zarządzanych interfejsów API** w hello listy rozwijanej, a następnie wprowadź *Wunderlist* w polu wyszukiwania hello. Wybierz wyzwalacz hello lub Ci się spodoba toouse akcji:  
+1. Aby utworzyć połączenie Wunderlist, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *Wunderlist* w polu wyszukiwania. Wybierz wyzwalacz lub akcja będzie chcesz użyć:  
    ![](./media/connectors-create-api-wunderlist/wunderlist-0.png)
-2. Jeśli nie utworzono żadnych tooWunderlist połączenia przed, uzyskasz tooprovide zostanie wyświetlony monit o poświadczenia Wunderlist. Te poświadczenia można używane tooauthorize Twojego tooconnect aplikacji logiki do i uzyskać dostęp do danych konta Wunderlist:   
+2. Jeśli nie utworzono żadnych połączeń Wunderlist przed będzie zostanie wyświetlony monit o podanie poświadczeń Wunderlist. Te poświadczenia będą używane do autoryzacji aplikację logiki, aby nawiązać połączenie i dostęp do danych konta Wunderlist:   
    ![](./media/connectors-create-api-wunderlist/wunderlist-1.png)  
-3. Podaj poświadczenia, wybierz toosign przycisk hello w  
+3. Podaj poświadczenia, a następnie kliknij przycisk, aby zarejestrować się w  
    ![](./media/connectors-create-api-wunderlist/wunderlist-2.png)  
-4. Użytkownik będzie następnie informację, jakie hello aplikacji logiki będzie mieć uprawnienia toodo z Twoim kontem Wunderlist. Jeśli akceptujesz, wybierz tooindicate przycisk hello umowy. 
+4. Użytkownik będzie następnie informację, co aplikacji logiki będzie uprawnień z konta Wunderlist. Jeśli akceptujesz, kliknij przycisk do zgodę. 
    ![](./media/connectors-create-api-wunderlist/wunderlist-4.png)  
-5. Na koniec wybierz hello **autoryzacji** przycisku  
+5. Na koniec wybierz **autoryzacji** przycisku  
    ![](./media/connectors-create-api-wunderlist/wunderlist-5.png)  
 

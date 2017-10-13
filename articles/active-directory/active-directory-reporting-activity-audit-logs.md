@@ -1,6 +1,6 @@
 ---
-title: "działanie aaaAudit raportów w portalu usługi Azure Active Directory hello | Dokumentacja firmy Microsoft"
-description: "Raporty dotyczące działań w portalu usługi Azure Active Directory hello inspekcji toohello wprowadzenie"
+title: "Raporty dotyczące inspekcji w portalu usługi Azure Active Directory | Microsoft Docs"
+description: "Wprowadzenie do raportów dotyczących inspekcji w portalu usługi Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,66 +15,66 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1567673f5030fc707b017c069f2ba7587962e5cb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="audit-activity-reports-in-hello-azure-active-directory-portal"></a>Raporty dotyczące działań w portalu usługi Azure Active Directory hello inspekcji 
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Raporty dotyczące inspekcji w portalu usługi Azure Active Directory 
 
-Z raportowaniem w usłudze Azure Active Directory (Azure AD), można uzyskać informacji hello potrzebne toodetermine jak robi środowiska.
+Dzięki raportom w usłudze Azure Active Directory (Azure AD) możesz uzyskać wszystkie informacje, które pomogą ustalić działanie środowiska.
 
-Witaj raportowania architektury w usłudze Azure AD składa się z hello następujące składniki:
+Architektura raportowania w usłudze Azure AD obejmuje następujące składniki:
 
 - **Działanie** 
-    - **Działania logowania** — informacje na temat użycia hello zarządzanych aplikacji i aktywności logowania użytkowników
+    - **Działania związane z logowaniem** — informacje na temat użycia zarządzanych aplikacji i działania użytkownika związane z logowaniem
     - **Dzienniki inspekcji** — informacje o aktywności systemu obejmujące zarządzanie użytkownikami i grupami oraz zarządzane aplikacje i działania dotyczące katalogu.
 - **Bezpieczeństwo** 
-    - **Ryzykowne logowania** -ryzykowne logowanie jest wskaźnik prób logowania, które mogły zostać wykonane przez osobę, która nie jest właścicielem uzasadnionych hello konta użytkownika. Aby uzyskać więcej informacji, zobacz Ryzykowne logowania.
+    - **Ryzykowne logowania** — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. Aby uzyskać więcej informacji, zobacz Ryzykowne logowania.
     - **Użytkownicy oflagowani w związku z ryzykiem** — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. Aby uzyskać więcej informacji, zobacz Użytkownicy oflagowani w związku z ryzykiem.
 
-Ten temat zawiera omówienie hello inspekcji działań.
+Ten temat zawiera przegląd działań dotyczących inspekcji.
  
-## <a name="who-can-access-hello-data"></a>Kto ma dostęp do danych hello?
-* Użytkowników w roli administratora zabezpieczeń lub czytnika zabezpieczeń hello
+## <a name="who-can-access-the-data"></a>Kto ma dostęp do danych?
+* Użytkownicy w roli administratora zabezpieczeń lub czytelnika zabezpieczeń
 * Administratorzy globalni
 * Poszczególni użytkownicy (inni niż administratorzy) mogą wyświetlać dane na temat własnych działań
 
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 
-Hello dzienników inspekcji w usłudze Azure Active Directory zawierają rekordy działania systemu dla zgodności.  
-Pierwszy tooall w punkcie wejścia inspekcja danych jest **dzienniki inspekcji** w hello **działania** sekcji **usługi Azure Active Directory**.
+Dzienniki inspekcji w usłudze Azure Active Directory dostarczają informacji na temat aktywności systemu pod kątem zgodności.  
+Pierwszym punktem wejścia do wszystkich danych inspekcji jest pozycja **Dzienniki inspekcji** znajdująca się w sekcji **Aktywność** usługi **Azure Active Directory**.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/61.png "Dzienniki inspekcji")
 
 Dziennik inspekcji zawiera domyślny widok listy, który pokazuje:
 
-- Witaj Data i godzina wystąpienia hello
-- Witaj inicjatora / aktora (*kto*) działania 
-- Witaj działania (*co*) 
-- docelowy Hello
+- datę i godzinę wystąpienia,
+- inicjatora/aktora (*kto*) działania, 
+- działanie (*co*), 
+- element docelowy.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/18.png "Dzienniki inspekcji")
 
-Można dostosować widok listy hello klikając **kolumn** hello w pasku narzędzi.
+Możesz dostosować widok listy, klikając pozycję **Kolumny** na pasku narzędzi.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/19.png "Dzienniki inspekcji")
 
-To pozwala toodisplay dodatkowe pola lub usuń pola, które są już wyświetlane.
+Dzięki temu możesz wyświetlić dodatkowe pola lub usunąć pola, które są już wyświetlane.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/21.png "Dzienniki inspekcji")
 
 
-Po kliknięciu elementu w widoku listy hello, otrzymasz wszystkich dostępnych informacji o nim.
+Klikając pozycję w widoku listy, możesz uzyskać wszystkie szczegóły na jej temat.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/22.png "Dzienniki inspekcji")
 
 
 ## <a name="filtering-audit-logs"></a>Dzienniki inspekcji filtrowania
 
-toonarrow dół hello zgłoszone poziom tooa danych czy działa dla Ciebie, dane można filtrować hello inspekcji przy użyciu hello następujące pola:
+Aby zawęzić zgłaszane dane do odpowiedniego poziomu, możesz odfiltrować dane inspekcji przy użyciu następujących pól:
 
 - Zakres dat
 - Zainicjowane przez (aktor)
@@ -85,7 +85,7 @@ toonarrow dół hello zgłoszone poziom tooa danych czy działa dla Ciebie, dane
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/23.png "Dzienniki inspekcji")
 
 
-Witaj **zakresu dat** filtru umożliwia tooyou toodefine przedział czasu dla hello zwróciła dane.  
+Filtr **Zakres dat** umożliwia zdefiniowanie przedziału czasu dla zwracanych danych.  
 Możliwe wartości:
 
 - 1 miesiąc
@@ -95,9 +95,9 @@ Możliwe wartości:
 
 Po wybraniu niestandardowego przedziału czasu możesz skonfigurować godzinę rozpoczęcia i zakończenia.
 
-Witaj **inicjowane przez** filtr włącza toodefine możesz aktora nazwy lub jej uniwersalnych głównej nazwy (UPN).
+Filtr **Zainicjowane przez** umożliwia określenie nazwy aktora lub jego głównej nazwy użytkownika (UPN, user principal name).
 
-Witaj **kategorii** filtr włącza tooselect hello następującego filtru:
+Filtr **Kategoria** umożliwia wybranie jednego z następujących filtrów:
 
 - Wszystkie
 - Kategoria podstawowa
@@ -110,7 +110,7 @@ Witaj **kategorii** filtr włącza tooselect hello następującego filtru:
 - Identity Protection
 - B2C
 
-Witaj **typu zasobu działania** filtr włącza tooselect jedną z następujących hello filtry:
+Filtr **Typ zasobu działania** umożliwia wybranie jednego z następujących filtrów:
 
 - Wszystkie 
 - Grupa
@@ -121,29 +121,29 @@ Witaj **typu zasobu działania** filtr włącza tooselect jedną z następujący
 - Urządzenie
 - Inne
 
-Po wybraniu **grupy** jako **typu zasobu działania**, Pobierz kategorii dodatkowy filtr, który umożliwia tooalso podaj **źródła**:
+Jeśli wybierzesz opcję **Grupa** w pozycji **Typ zasobu działania**, uzyskasz dostęp do dodatkowej kategorii filtru umożliwiającej podanie wartości **Źródło**:
 
 - Azure AD
 - O365
 
 
-Witaj **działania** filtru jest oparta na powitania kategorii i wybór typów zasobów działania podejmowane. Można wybrać określonego mają toosee lub wybierz wszystkie działania. 
+Filtr **Działanie** jest oparty na wybranej kategorii i typie zasobu działania. Możesz wybrać konkretne działanie, które chcesz zobaczyć, lub wybrać wszystkie działania. 
 
-Można pobrać listy hello wszystkich działań inspekcji przy użyciu interfejsu API programu Graph https://graph.windows.net/$ hello tenantdomain/działań/auditActivityTypes? api-version = beta, gdzie $tenantdomain = nazwę domeny, lub zobacz artykuł toohello [inspekcji raportu zdarzenia](active-directory-reporting-audit-events.md).
+Listę wszystkich działań związanych z inspekcją można uzyskać przy użyciu interfejsu API programu Graph https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta, gdzie $tenantdomain = nazwa Twojej domeny. Jest ona również przedstawiona w artykule [Zdarzenia raportów inspekcji](active-directory-reporting-audit-events.md).
 
 
 ## <a name="audit-logs-shortcuts"></a>Skróty dzienników inspekcji
 
-Ponadto zbyt**usługi Azure Active Directory**, hello Azure portal udostępnia dwa dodatkowe punkty wejścia tooaudit danych:
+Poza usługą **Azure Active Directory** witryna Azure Portal zapewnia dwa dodatkowe punkty wejścia do danych inspekcji:
 
 - Użytkownicy i grupy
 - Aplikacje dla przedsiębiorstw
 
 ### <a name="users-and-groups-audit-logs"></a>Dzienniki inspekcji użytkowników i grup
 
-Z użytkownika i raporty dotyczące inspekcji na podstawie grupy można uzyskać odpowiedzi tooquestions, takich jak:
+Za pomocą raportów inspekcji opartych na użytkownikach i grupach można uzyskać odpowiedzi na pytania, takie jak:
 
-- Jakie rodzaje aktualizacje zostały zastosowane hello użytkowników?
+- Jakie typy aktualizacji zostały zastosowane przez użytkowników?
 
 - Ilu użytkowników zostało zmienionych?
 
@@ -151,38 +151,38 @@ Z użytkownika i raporty dotyczące inspekcji na podstawie grupy można uzyskać
 
 - Jakich zmian dokonał administrator w katalogu?
 
-- Co to są hello grup, które zostały dodane?
+- Jakie grupy zostały dodane?
 
 - Czy istnieją grupy, w których dokonano zmiany członkostwa?
 
-- Zostały zmienione hello właścicieli grupy?
+- Czy właściciele grup zostali zmienieni?
 
-- Jakie licencje zostały przypisane tooa grupy lub użytkownika?
+- Jakie licencje zostały przypisane do grupy lub użytkownika?
 
-Jeśli chcesz tooreview inspekcji dane, które są powiązane toousers i grup, można znaleźć widok filtrowany w obszarze **dzienniki inspekcji** w hello **działania** sekcji hello **użytkowników i grup**. Ten punkt wejścia ma wartość **Użytkownicy i grupy** wstępnie wybraną dla opcji **Typ zasobu działania**.
+Jeśli chcesz przeglądać dane inspekcji dotyczące użytkowników i grup, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** na stronie **Użytkownicy i grupy**. Ten punkt wejścia ma wartość **Użytkownicy i grupy** wstępnie wybraną dla opcji **Typ zasobu działania**.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/93.png "Dzienniki inspekcji")
 
 ### <a name="enterprise-applications-audit-logs"></a>Dzienniki inspekcji aplikacji dla przedsiębiorstw
 
-Raporty dotyczące inspekcji, z aplikacji, możesz uzyskać tooquestions odpowiedzi, takich jak:
+Za pomocą raportów inspekcji opartych na aplikacjach można uzyskać odpowiedzi na pytania, takie jak:
 
-* Co to są aplikacje hello, które zostały dodane lub zaktualizowane?
-* Co to są aplikacje hello, które zostały usunięte?
+* Jakie aplikacje zostały dodane lub zaktualizowane?
+* Jakie aplikacje zostały usunięte?
 * Czy usługa w ramach aplikacji została zmieniona?
-* Zostały zmienione nazwy aplikacji hello?
-* Kto udzielił zgody tooan aplikacji?
+* Czy nazwy aplikacji zostały zmienione?
+* Kto udzielił zezwolenia dla aplikacji?
 
-Jeśli chcesz tooreview inspekcji dane, które są powiązane tooyour aplikacji, można znaleźć widok filtrowany w obszarze **dzienniki inspekcji** w hello **działania** sekcji hello **aplikacje dla przedsiębiorstw**  bloku. Ten punkt wejścia ma wartość **Aplikacje dla przedsiębiorstw** wstępnie wybraną dla opcji **Typ zasobu działania**.
+Jeśli chcesz przeglądać dane inspekcji dotyczące aplikacji, możesz skorzystać z widoku filtrowanego znajdującego się w obszarze **Dzienniki inspekcji** w sekcji **Aktywność** bloku **Aplikacje dla przedsiębiorstw**. Ten punkt wejścia ma wartość **Aplikacje dla przedsiębiorstw** wstępnie wybraną dla opcji **Typ zasobu działania**.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/134.png "Dzienniki inspekcji")
 
-Można filtrować tego widoku dalsze dół toojust **grup** lub po prostu **użytkowników**.
+Możesz odfiltrować ten widok, aby wyświetlić tylko **grupy** lub **użytkowników**.
 
 ![Dzienniki inspekcji](./media/active-directory-reporting-activity-audit-logs/25.png "Dzienniki inspekcji")
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Omówienie raportowania patrz hello [raportowania usługi Azure Active Directory](active-directory-reporting-azure-portal.md).
+Omówienie funkcji raportowania można znaleźć w temacie [Raporty w usłudze Azure Active Directory](active-directory-reporting-azure-portal.md).
 

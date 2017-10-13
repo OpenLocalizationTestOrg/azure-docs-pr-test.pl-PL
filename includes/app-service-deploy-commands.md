@@ -1,8 +1,8 @@
 
-tooAzure zasobów hello toodeploy, należy być zalogowanym tooyour konto platformy Azure i musi być hello moduł usługi Azure Resource Manager. toolearn o korzystaniu z usługi Azure Resource Manager z programu Azure PowerShell lub interfejsu wiersza polecenia Azure, zobacz:
+Aby wdrożyć zasoby na platformie Azure, musisz wcześniej zalogować się na swoje konto Azure i korzystać z modułu Azure Resource Manager. Aby dowiedzieć się, jak używać usługi Azure Resource Manager z programem Azure PowerShell lub interfejsem wiersza polecenia platformy Azure, zobacz:
 
 * [Używanie programu Azure PowerShell z usługą Azure Resource Manager](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
-* [Przy użyciu hello Azure CLI for Mac, Linux i Windows z usługą Azure Resource Management](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
+* [Używanie interfejsu wiersza polecenia platformy Azure dla systemów Mac, Linux i Windows z usługą Azure Resource Management](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).
 
-Następujące przykłady Hello przyjęto założenie, że masz już grupę zasobów na koncie przy użyciu określonej nazwy hello. 
+W następujących przykładach założono, że na swoim koncie masz już grupę zasobów o określonej nazwie. 
 

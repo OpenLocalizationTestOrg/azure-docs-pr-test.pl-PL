@@ -1,6 +1,6 @@
 ---
-title: rozmiar maszyny Wirtualnej systemu Linux aaaAzure - GPU | Dokumentacja firmy Microsoft
-description: "Wyświetla listę hello innego procesora GPU zoptymalizowanych pod kątem dostępnych rozmiarów maszyn wirtualnych systemu Linux na platformie Azure."
+title: Rozmiar maszyny Wirtualnej systemu Linux platformy Azure - GPU | Dokumentacja firmy Microsoft
+description: "Wyświetla różne procesora GPU zoptymalizowanych pod kątem dostępne dla maszyn wirtualnych systemu Linux na platformie Azure."
 services: virtual-machines-linux
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: e98f720499be37df4048aeb513aa4f6b187b7335
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5c9bf89feba519147b07f2810fe4da882664e89e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="gpu-linux-vm-sizes"></a>Rozmiary maszyn wirtualnych systemu Linux procesora GPU
 
@@ -34,7 +34,7 @@ Sterownik instalacji i weryfikacja kroki opisane w artykule [N-series sterownik 
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* Nie zaleca się instalowanie X serwera lub innych systemów, które używają sterownika nouveau hello na maszynach wirtualnych NC Ubuntu. Przed zainstalowaniem wersji sterowników procesora GPU NVIDIA, potrzebujesz toodisable hello nouveau sterownika.  
+* Nie zaleca się instalowanie X serwera lub innych systemów, które używają sterownika nouveau na maszynach wirtualnych NC Ubuntu. Przed zainstalowaniem wersji sterowników procesora GPU NVIDIA, należy wyłączyć sterownik nouveau.  
 
 ## <a name="other-sizes"></a>Innych rozmiarach
 - [Zastosowania ogólne](sizes-general.md)

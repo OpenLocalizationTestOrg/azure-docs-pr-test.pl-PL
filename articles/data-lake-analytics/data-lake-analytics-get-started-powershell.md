@@ -1,6 +1,6 @@
 ---
-title: "wprowadzenie do usługi Azure Data Lake Analytics przy użyciu programu Azure PowerShell aaaGet | Dokumentacja firmy Microsoft"
-description: "Użyj programu Azure PowerShell toocreate konto usługi Data Lake Analytics, Utwórz zadanie usługi Data Lake Analytics przy użyciu języka U-SQL i przesłać zadanie hello. "
+title: "Rozpoczynanie pracy z usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell | Microsoft Docs"
+description: "Utwórz konto usługi Data Lake Analytics przy użyciu programu Azure PowerShell oraz utwórz zadanie usługi Data Lake Analytics przy użyciu języka U-SQL i prześlij je. "
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/04/2017
 ms.author: edmaca
-ms.openlocfilehash: cb9b35352d1cc9a78337448b1d6835875a212e08
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4f73e27c733edae658d1ea3bdabe48076328279b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Wprowadzenie do pracy z usługą Azure Data Lake Analytics przy użyciu programu Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Dowiedz się, jak toouse toocreate programu Azure PowerShell usługi Azure Data Lake Analytics kont, a następnie przesłać i uruchamianie zadań U-SQL. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Dowiedz się, jak za pomocą programu Azure PowerShell tworzyć konta usługi Azure Data Lake Analytics, a następnie przesyłać i uruchamiać zadania U-SQL. Więcej informacji na temat usługi Data Lake Analytics można znaleźć w artykule [Omówienie usługi Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed rozpoczęciem tego samouczka, musi mieć hello następujących informacji:
+Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku musisz mieć poniższe:
 
 * **Konto usługi Azure Data Lake Analytics**. Zobacz [Wprowadzenie do usługi Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* **Stacja robocza z programem Azure PowerShell**. Zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+* **Stacja robocza z programem Azure PowerShell**. Zobacz artykuł [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
-## <a name="log-in-tooazure"></a>Zaloguj się za tooAzure
+## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
-W tym samouczku założono, że użytkownik wie już, jak korzystać z programu Azure PowerShell. W szczególności należy tooknow jak toolog w tooAzure. Zobacz hello [wprowadzenie do programu Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps) Jeśli potrzebujesz pomocy.
+W tym samouczku założono, że użytkownik wie już, jak korzystać z programu Azure PowerShell. W szczególności musi wiedzieć, jak zalogować się do platformy Azure. Jeśli potrzebujesz dodatkowych informacji zobacz temat [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps).
 
-toolog się przy użyciu nazwy subskrypcji:
+Aby zalogować się przy użyciu nazwy subskrypcji:
 
 ```
 Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
 ```
 
-Zamiast nazwy subskrypcji hello można także użyć toolog identyfikator subskrypcji w:
+Podczas logowania zamiast nazwy subskrypcji można także użyć identyfikatora subskrypcji:
 
 ```
 Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-W przypadku powodzenia hello dane wyjściowe tego polecenia wygląda hello następującego tekstu:
+Jeśli to się powiedzie, dane wyjściowe tego polecenia mają mniej więcej taką formę:
 
 ```
 Environment           : AzureCloud
@@ -59,9 +59,9 @@ SubscriptionName      : ContosoSubscription
 CurrentStorageAccount :
 ```
 
-## <a name="preparing-for-hello-tutorial"></a>Przygotowywanie do samouczka hello
+## <a name="preparing-for-the-tutorial"></a>Przygotowanie do samouczka
 
-Witaj wstawki programu PowerShell w tym samouczku te informacje służą toostore następujące zmienne:
+We fragmentach kodu programu PowerShell w ramach tego samouczka do przechowywania tych informacji są używane następujące zmienne:
 
 ```
 $rg = "<ResourceGroupName>"
@@ -78,7 +78,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla
 
 ## <a name="submit-a-u-sql-job"></a>Przesyłanie zadania U-SQL
 
-Utwórz skrypt programu PowerShell zmiennej toohold hello U-SQL.
+Utwórz zmienną środowiska PowerShell do przechowywania skryptu U-SQL.
 
 ```
 $script = @"
@@ -90,19 +90,19 @@ $script = @"
         ) AS 
               D( customer, amount );
 OUTPUT @a
-    too"/data.csv"
+    TO "/data.csv"
     USING Outputters.Csv();
 
 "@
 ```
 
-Przedstawia hello skryptu.
+Prześlij skrypt.
 
 ```
 $job = Submit-AdlJob -AccountName $adla –Script $script
 ```
 
-Alternatywnie można zapisać jako plik skryptu hello i przesłać o hello następujące polecenie:
+Możesz również zapisać skrypt jako plik i przesłać go za pomocą następującego polecenia:
 
 ```
 $filename = "d:\test.usql"
@@ -111,25 +111,25 @@ $job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
 ```
 
 
-Pobierz stan hello danego zadania. Nadal używać tego polecenia cmdlet, aż zobaczysz, że hello pracę.
+Uzyskaj stan określonego zadania. Używaj tego polecenia cmdlet, dopóki zadanie nie zostanie wykonane.
 
 ```
 $job = Get-AdlJob -AccountName $adla -JobId $job.JobId
 ```
 
-Zamiast samodzielnego wywołanie Get-AdlAnalyticsJob zakończenie zadania, możesz użyć polecenia cmdlet AdlJob oczekiwania hello.
+Zamiast wielokrotnie wykonywać polecenie Get-AdlAnalyticsJob do momentu zakończenia zadania, możesz użyć polecenia cmdlet Wait-AdlJob.
 
 ```
 Wait-AdlJob -Account $adla -JobId $job.JobId
 ```
 
-Pobierz plik wyjściowy hello.
+Pobierz plik wyjściowy.
 
 ```
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Zobacz też
-* toosee hello sam samouczek przy użyciu innych narzędzi, kliknij przycisk hello selektor karty w górnej części hello hello strony.
-* toolearn U-SQL, zobacz [wprowadzenie do języka Azure Data Lake Analytics U-SQL](data-lake-analytics-u-sql-get-started.md).
+* Aby wyświetlić ten samouczek przy użyciu innych narzędzi, kliknij odpowiedni selektor karty w górnej części strony.
+* Aby dowiedzieć się więcej o języku U-SQL, zobacz [Wprowadzenie do języka U-SQL w usłudze Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md).
 * Informacje o zadaniach zarządzania znajdziesz w artykule [Zarządzanie usługą Azure Data Lake Analytics przy użyciu witryny Azure Portal](data-lake-analytics-manage-use-portal.md).

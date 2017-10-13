@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Mobile Engagement dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooget wgląd w użycie aplikacji mobilnej i segmentację użytkowników w czasie rzeczywistym oraz jak tooenable kontekstowe wypychanie powiadomień i funkcji komunikatów w aplikacji."
+title: "Dokumentacja usługi Azure Mobile Engagement — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak uzyskać wgląd w dane dotyczące użycia aplikacji mobilnych i segmentowania użytkowników w czasie rzeczywistym oraz jak włączyć kontekstowe powiadomienia wypychane i komunikaty w aplikacjach."
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c9d9dd859914d620b6e3c287bbde1906142f4736
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-engagement-documentation"></a>Dokumentacja usługi Mobile Engagement
 
-Dowiedz się, jak tooincrease hello użycia, przechowywania i dodatkowych aplikację mobilną z usługi Mobile Engagement. Samouczki, zestawy SDK i dokumentacji przedstawia sposób tooget wgląd w użycie aplikacji i segmentację użytkowników w czasie rzeczywistym oraz jak tooenable kontekstowe wypychanie powiadomień i funkcji komunikatów w aplikacji.
+Dowiedz się, jak zwiększyć użycie aplikacji, utrzymanie użytkowników oraz zyski z aplikacji mobilnych za pomocą usługi Mobile Engagement. W samouczkach, zestawach SDK i innej dokumentacji pokazano, jak uzyskać wgląd w dane dotyczące użycia aplikacji i segmentowania użytkowników w czasie rzeczywistym oraz jak włączyć kontekstowe powiadomienia wypychane i komunikaty w aplikacjach.
 
 <ul class="panelContent cardsFTitle">
     <li>

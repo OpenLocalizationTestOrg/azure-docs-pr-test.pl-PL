@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooperform transmisja strumieniowa na żywo z lokalnymi koderów przy użyciu platformy .NET | Dokumentacja firmy Microsoft"
-description: "W tym temacie przedstawiono, jak żywe toouse .NET tooperform kodowania za pomocą koderów lokalnych."
+title: "Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu platformy .NET | Dokumentacja firmy Microsoft"
+description: "W tym temacie pokazano, jak kodowanie na żywo za pomocą koderów lokalnych przy użyciu platformy .NET."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 332582c9f925f8b9270929b3fa8140fce010bbf9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3ef6065f5b9e05e0ea5716548699943a2c877bc4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooperform-live-streaming-with-on-premises-encoders-using-net"></a>Jak tooperform przesyłanie strumieniowe na żywo za pomocą koderów lokalnych przy użyciu platformy .NET
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Jak wykonać transmisję strumieniową na żywo za pomocą koderów lokalnych przy użyciu platformy .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -28,46 +28,46 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Ten samouczek przedstawia kroki hello przy użyciu hello zestawu .NET SDK usługi Azure Media Services toocreate **kanału** skonfigurowanego do dostarczania w formie przekazywania. 
+Ten samouczek przedstawia kroki tworzenia przy użyciu zestawu SDK .NET usługi Azure Media Services **kanału** skonfigurowanego do dostarczania w formie przekazywania. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Samouczek hello toocomplete wymagane są następujące Hello:
+Do wykonania czynności przedstawionych w tym samouczku są niezbędne następujące elementy:
 
 * Konto platformy Azure.
-* Konto usługi Media Services.    Zobacz toocreate konto usługi Media Services [jak tooCreate konta usługi Media Services](media-services-portal-create-account.md).
+* Konto usługi Media Services.    Aby utworzyć konto usługi Media Services, zobacz temat [Jak utworzyć konto usługi Media Services](media-services-portal-create-account.md).
 * Konfigurowanie środowiska deweloperów. Aby uzyskać więcej informacji, zobacz [konfigurowania środowiska](media-services-set-up-computer.md).
 * Kamera internetowa. Na przykład [koder Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
-Zalecane tooreview hello następujące artykuły:
+Zaleca się następujące artykuły:
 
 * [Obsługa protokołu RTMP i kodery na żywo w usłudze Azure Media Services](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Transmisja strumieniowa na żywo za pomocą koderów lokalnych tworzących strumienie o różnej szybkości transmisji bitów](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-Konfigurowanie środowiska projektowego i wypełnić plik app.config hello o informacje dotyczące połączenia, zgodnie z opisem w [tworzenia usługi Media Services z platformą .NET](media-services-dotnet-how-to-use.md). 
+Skonfiguruj środowisko projektowe i wypełnij plik app.config przy użyciu informacji dotyczących połączenia, zgodnie z opisem w sekcji [Projektowanie usługi Media Services na platformie .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Przykład
-Witaj poniższy przykład kodu pokazuje, jak hello tooachieve następujące zadania:
+W poniższym przykładzie pokazano, jak wykonać następujące zadania:
 
-* Połączenie usług tooMedia
+* Łączenie się z usługą Media Services
 * Tworzenie kanału
-* Kanał hello aktualizacji
-* Pobrać hello kanał wejściowy punkt końcowy. Witaj wejściowy punkt końcowy należy podawać toohello lokalny koder na żywo. Witaj kodera na żywo konwertuje sygnały z toostreams aparatu hello, który są wysyłane dane wejściowe kanału toohello (pozyskiwania) punktu końcowego.
-* Pobieranie punktu końcowego kanału hello podglądu
+* Aktualizacja kanału
+* Pobrać wejściowy punkt końcowy kanału. Wejściowy punkt końcowy należy przekazać do kodera na żywo w sieci lokalnej. Kodera na żywo konwertuje sygnały z kamery do strumieni, które są wysyłane do tego kanału danych wejściowych (pozyskiwania) punktu końcowego.
+* Pobieranie punktu końcowego podglądu kanału
 * Tworzenie i uruchamianie programu
-* Utwórz Lokalizator potrzebne tooaccess hello programu
+* Utwórz Lokalizator musiał uzyskać dostęp do programu
 * Tworzenie i uruchamianie StreamingEndpoint
-* Zaktualizuj hello punktu końcowego przesyłania strumieniowego
+* Aktualizowanie punktu końcowego przesyłania strumieniowego
 * Zamknij zasobów
 
 >[!IMPORTANT]
->Upewnij się, że jest hello, z którego mają zostać toostream zawartości punktu końcowego przesyłania strumieniowego w hello **systemem** stanu. 
+>Upewnij się, że punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, ma stan **Uruchomiony**. 
     
 >[!NOTE]
->Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać hello tym samym identyfikatorze zasad, jeśli używasz zawsze hello sam dni / dostęp uprawnień, na przykład zasady dla lokalizatorów, które są przeznaczone tooremain w miejscu przez długi czas (zasady — przekazywanie). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
+>Limit różnych zasad usługi AMS wynosi 1 000 000 (na przykład zasad lokalizatorów lub ContentKeyAuthorizationPolicy). Należy używać tego samego identyfikatora zasad, jeśli zawsze są używane uprawnienia dotyczące tych samych dni lub tego samego dostępu, na przykład dla lokalizatorów przeznaczonych do długotrwałego stosowania (nieprzekazywanych zasad). Aby uzyskać więcej informacji, zobacz [ten](media-services-dotnet-manage-entities.md#limit-access-policies) temat.
 
-Aby uzyskać informacje na temat tooconfigure kodera na żywo, zobacz [Obsługa protokołu RTMP usługi multimediów Azure i kodery na żywo](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Aby uzyskać informacje na temat konfigurowania kodera na żywo, zobacz [Obsługa protokołu RTMP usługi multimediów Azure i kodery na żywo](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
     using System;
     using System.Collections.Generic;
@@ -86,7 +86,7 @@ Aby uzyskać informacje na temat tooconfigure kodera na żywo, zobacz [Obsługa 
         private const string AssetlName = "asset001";
         private const string ProgramlName = "program001";
 
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -103,11 +103,11 @@ Aby uzyskać informacje na temat tooconfigure kodera na żywo, zobacz [Obsługa 
 
             IChannel channel = CreateAndStartChannel();
 
-            // Set hello Live Encoder toopoint toohello channel's input endpoint:
+            // Set the Live Encoder to point to the channel's input endpoint:
             string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
 
-            // Use hello previewEndpoint toopreview and verify
-            // that hello input from hello encoder is actually reaching hello Channel.
+            // Use the previewEndpoint to preview and verify
+            // that the input from the encoder is actually reaching the Channel.
             string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
 
             IProgram program = CreateAndStartProgram(channel);
@@ -120,7 +120,7 @@ Aby uzyskać informacje na temat tooconfigure kodera na żywo, zobacz [Obsługa 
 
         public static IChannel CreateAndStartChannel()
         {
-            //If you want toochange hello Smooth fragments tooHLS segment ratio, you would set hello ChannelCreationOptions’s Output property.
+            //If you want to change the Smooth fragments to HLS segment ratio, you would set the ChannelCreationOptions’s Output property.
 
             IChannel channel = _context.Channels.Create(
             new ChannelCreationOptions
@@ -130,7 +130,7 @@ Aby uzyskać informacje na temat tooconfigure kodera na żywo, zobacz [Obsługa 
             Preview = CreateChannelPreview()
             });
 
-            //Starting and stopping Channels can take some time tooexecute. toodetermine hello state of operations after calling Start or Stop, query hello IChannel.State .
+            //Starting and stopping Channels can take some time to execute. To determine the state of operations after calling Start or Stop, query the IChannel.State .
 
             channel.Start();
 
@@ -150,7 +150,7 @@ Aby uzyskać informacje na temat tooconfigure kodera na żywo, zobacz [Obsługa 
                     {
                     Name = "TestChannelInput001",
                     // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                    // will allow access tooIP addresses.
+                    // will allow access to IP addresses.
                     Address = IPAddress.Parse("0.0.0.0"),
                     SubnetPrefixLength = 0
                     }
@@ -171,7 +171,7 @@ Aby uzyskać informacje na temat tooconfigure kodera na żywo, zobacz [Obsługa 
                     {
                     Name = "TestChannelPreview001",
                     // Setting 0.0.0.0 for Address and 0 for SubnetPrefixLength
-                    // will allow access tooIP addresses.
+                    // will allow access to IP addresses.
                     Address = IPAddress.Parse("0.0.0.0"),
                     SubnetPrefixLength = 0
                     }
@@ -213,7 +213,7 @@ Aby uzyskać informacje na temat tooconfigure kodera na żywo, zobacz [Obsługa 
         {
             IAsset asset = _context.Assets.Create(AssetlName, AssetCreationOptions.None);
 
-            // Create a Program on hello Channel. You can have multiple Programs that overlap or are sequential;
+            // Create a Program on the Channel. You can have multiple Programs that overlap or are sequential;
             // however each Program must have a unique name within your Media Services account.
             IProgram program = channel.Programs.Create(ProgramlName, TimeSpan.FromHours(3), asset.Id);
             program.Start();

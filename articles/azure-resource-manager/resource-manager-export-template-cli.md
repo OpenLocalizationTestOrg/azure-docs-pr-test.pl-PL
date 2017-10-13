@@ -1,6 +1,6 @@
 ---
-title: "aaaExport szablonu usługi Resource Manager z wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Za pomocą usługi Azure Resource Manager i interfejsu wiersza polecenia Azure tooexport szablonu z grupą zasobów."
+title: "Eksportowanie szablonu usługi Resource Manager z wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Użyj usługi Azure Resource Manager i interfejsu wiersza polecenia Azure, aby wyeksportować szablon na podstawie grupy zasobów."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2d44a0a6e9717504d4c2a01254d826679b381f22
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Eksportowanie szablonów usługi Azure Resource Manager z wiersza polecenia platformy Azure
 
-Menedżer zasobów pozwala tooexport szablonem usługi Resource Manager z istniejących zasobów w ramach subskrypcji. Możesz użyć tego toolearn wygenerowanego szablonu o hello szablonu składni lub tooautomate hello ponowne wdrożenie rozwiązania zgodnie z potrzebami.
+Usługa Resource Manager umożliwia wyeksportowanie szablonu usługi Resource Manager z istniejących zasobów w ramach subskrypcji. Możesz użyć wygenerowanego szablonu, aby dowiedzieć się więcej o składni szablonu lub aby zautomatyzować ponowne wdrożenie rozwiązania, w razie potrzeby.
 
-Jest ważne toonote, że istnieją dwa różne sposoby tooexport szablonu:
+Należy pamiętać, że istnieją dwa różne sposoby eksportowania szablonu:
 
-* Można wyeksportować szablon rzeczywiste hello używany we wdrożeniu. Hello wyeksportowanego szablonu obejmuje wszystkie hello parametry i zmienne, dokładnie tak, jak znalazły się na oryginalnym szablonie hello. Takie podejście jest przydatne, gdy będziesz potrzebować tooretrieve szablonu.
-* Można wyeksportować szablon, który reprezentuje bieżący stan hello hello grupy zasobów. Witaj wyeksportowanego szablonu nie jest oparta na dowolnego szablonu, który został użyty do wdrożenia. Zamiast tego tworzy szablon, który jest migawką hello grupy zasobów. Witaj wyeksportowanego szablonu ma wiele wartości stałe i prawdopodobnie nie jako wiele parametrów, jak zwykle należy zdefiniować. Takie podejście jest przydatne, gdy zmieniono hello grupy zasobów. Teraz należy grupy zasobów hello toocapture jako szablon.
+* Możesz wyeksportować szablon, który faktycznie został użyty na potrzeby wdrożenia. W wyeksportowanym szablonie wszystkie parametry i zmienne występują dokładnie tak, jak w oryginalnym szablonie. Takie podejście jest przydatne, gdy jest potrzebne do pobierania szablonu.
+* Możesz wyeksportować szablon, który reprezentuje bieżący stan grupy zasobów. Wyeksportowany szablon nie jest oparty na żadnym szablonie użytym do wdrożenia. Utworzony szablon będzie stanowić migawkę grupy zasobów. W wyeksportowanym szablonie zawartych jest wiele zakodowanych wartości i prawdopodobnie mniej parametrów, niż się zwykle definiuje. Takie rozwiązanie jest przydatne, gdy zostały zmodyfikowane grupy zasobów. Będzie więc trzeba przechwycić grupę zasobów jako szablon.
 
 W tym temacie opisano obie te metody.
 
 ## <a name="deploy-a-solution"></a>Wdrażanie rozwiązania
 
-tooillustrate zarówno zbliża się do eksportowania szablonu, Zacznijmy poprzez wdrożenie rozwiązania tooyour subskrypcji. Jeśli masz już grupę zasobów w ramach subskrypcji, które mają tooexport, nie masz toodeploy tego rozwiązania. Jednak hello dalszej części tego artykułu odwołuje się szablon toohello dla tego rozwiązania. skrypt przykładowy Hello wdraża konta magazynu.
+Aby zilustrować obu podejść eksportowania szablonu, Zacznijmy od wdrażanie rozwiązania do subskrypcji. Jeśli masz już grupę zasobów w ramach subskrypcji, który chcesz wyeksportować, nie trzeba wdrożyć to rozwiązanie. Jednak w dalszej części tego artykułu odwołuje się do szablonu dla tego rozwiązania. Przykładowy skrypt wdraża konta magazynu.
 
 ```azurecli
 az group create --name ExampleGroup --location "Central US"
@@ -44,24 +44,24 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Zapisz szablon z historii wdrożenia
 
-Można pobrać szablonu z historii wdrożenia przy użyciu hello [eksportowanie wdrożenia grupy az](/cli/azure/group/deployment#export) polecenia. następujące przykładowe zapisuje hello szablon, który wcześniej wdrażanie Hello:
+Można pobrać szablonu z historii wdrożenia za pomocą [eksportowanie wdrożenia grupy az](/cli/azure/group/deployment#export) polecenia. Poniższy przykład zapisuje szablon, który wcześniej wdrażania:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
 ```
 
-Zwraca hello szablonu. Skopiuj hello JSON i Zapisz jako plik. Zwróć uwagę, jest hello dokładne szablon, który można użyć do wdrożenia. Witaj, parametry i zmienne odpowiada hello szablonu z serwisu GitHub. Tego szablonu można wdrożyć ponownie.
+Zwraca szablonu. Skopiuj kod JSON i Zapisz jako plik. Zwróć uwagę, że jest dokładne szablon, którego można użyć do wdrożenia. Parametry i zmienne pasuje do szablonu z serwisu GitHub. Tego szablonu można wdrożyć ponownie.
 
 
 ## <a name="export-resource-group-as-template"></a>Eksportowanie grupy zasobów jako szablon
 
-Zamiast pobierania szablonu z historii wdrożenia hello, można pobrać szablonu, który reprezentuje hello bieżący stan grupy zasobów przy użyciu hello [eksportowanie grupy az](/cli/azure/group#export) polecenia. Użyj tego polecenia, gdy wprowadzono wiele zmian tooyour zasobów grupy, a nie istniejący szablon reprezentuje wszystkie zmiany hello.
+Zamiast pobierania szablonu z historii wdrażania, można pobrać szablonu, która reprezentuje bieżący stan grupy zasobów za pomocą [eksportowanie grupy az](/cli/azure/group#export) polecenia. Użyj tego polecenia, gdy wprowadzono wiele zmian w danej grupie zasobów, a nie istniejący szablon reprezentuje wszystkie zmiany.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Zwraca hello szablonu. Skopiuj hello JSON i Zapisz jako plik. Należy zauważyć, że różni się od szablonu hello w serwisie GitHub. Zawiera różne parametry i żadnych zmiennych. Magazyn Hello jednostki SKU i lokalizacji są toovalues ustalony. Witaj poniższy przykład przedstawia hello wyeksportowanego szablonu, ale szablon ma nazwę parametru nieco inne:
+Zwraca szablonu. Skopiuj kod JSON i Zapisz jako plik. Należy zauważyć, że różni się od szablonu w witrynie GitHub. Zawiera różne parametry i żadnych zmiennych. Magazyn jednostki SKU i lokalizacji są zakodowane na stałe wartości. W poniższym przykładzie przedstawiono wyeksportowanego szablonu, ale szablon ma nazwę parametru nieco inne:
 
 ```json
 {
@@ -93,7 +93,7 @@ Zwraca hello szablonu. Skopiuj hello JSON i Zapisz jako plik. Należy zauważyć
 }
 ```
 
-Można ponownie wdrożyć tego szablonu, ale wymaga to odgadnięcie unikatową nazwę konta magazynu hello. Nazwa parametru Hello różni się nieznacznie.
+Można ponownie wdrożyć tego szablonu, ale wymaga to odgadnięcie unikatową nazwę konta magazynu. Nazwa parametru jest nieco inne.
 
 ```azurecli
 az group deployment create --name NewStorage --resource-group ExampleGroup \
@@ -103,13 +103,13 @@ az group deployment create --name NewStorage --resource-group ExampleGroup \
 
 ## <a name="customize-exported-template"></a>Dostosowywanie wyeksportowanego szablonu
 
-Toomake tego szablonu można modyfikować jej toouse łatwiejsze i bardziej elastyczne. tooallow więcej lokalizacje, zmień hello lokalizacji właściwości toouse hello tej samej lokalizacji co hello grupy zasobów:
+Można zmodyfikować tego szablonu, aby była łatwiejsza w użyciu i bardziej elastyczne. Aby umożliwić więcej lokalizacji, zmień właściwość lokalizacji do użycia w tej samej lokalizacji co grupa zasobów:
 
 ```json
 "location": "[resourceGroup().location]",
 ```
 
-tooavoid o tooguess uniques nazwę konta magazynu, Usuń parametr hello nazwy konta magazynu hello. Dodaj parametr sufiks nazwy magazynu oraz Magazyn wersji:
+Aby uniknąć konieczności odgadnąć uniques nazwę konta magazynu, należy usunąć parametr nazwy konta magazynu. Dodaj parametr sufiks nazwy magazynu oraz Magazyn wersji:
 
 ```json
 "parameters": {
@@ -132,7 +132,7 @@ tooavoid o tooguess uniques nazwę konta magazynu, Usuń parametr hello nazwy ko
 },
 ```
 
-Dodaj zmienną, który konstruuje hello nazwy konta magazynu z funkcją uniqueString hello:
+Dodawanie zmiennej, która tworzy nazwę konta magazynu przy użyciu funkcji uniqueString:
 
 ```json
 "variables": {
@@ -140,13 +140,13 @@ Dodaj zmienną, który konstruuje hello nazwy konta magazynu z funkcją uniqueSt
   },
 ```
 
-Ustaw nazwę hello zmiennej toohello konta magazynu hello:
+Do zmiennej, należy ustawić nazwę konta magazynu:
 
 ```json
 "name": "[variables('storageAccountName')]",
 ```
 
-Ustaw parametr toohello SKU hello:
+Jednostka SKU zestawu do parametru:
 
 ```json
 "sku": {
@@ -201,9 +201,9 @@ Twój szablon wygląda teraz następująco:
 }
 ```
 
-Należy ponownie wdrożyć hello zmodyfikowany szablon.
+Należy ponownie wdrożyć zmodyfikowany szablon.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się, jak za pomocą portalu tooexport hello szablonu, zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
-* Parametry toodefine w szablonie, zobacz [tworzenia szablonów](resource-group-authoring-templates.md#parameters).
+* Aby uzyskać informacje dotyczące korzystania z portalu, aby wyeksportować szablon, zobacz [Eksportowanie szablonu usługi Azure Resource Manager z istniejących zasobów](resource-manager-export-template.md).
+* Aby określić parametry w szablonie, zobacz [tworzenia szablonów](resource-group-authoring-templates.md#parameters).
 * Aby uzyskać wskazówki dotyczące rozwiązania typowych błędów wdrażania, zobacz [Rozwiąż typowe błędy wdrożenia usługi Azure z usługą Azure Resource Manager](resource-manager-common-deployment-errors.md).

@@ -1,6 +1,6 @@
 ---
-title: "Przepływność aaaProvision dla bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooset elastycznie przepływności containsers bazy danych Azure rozwiązania Cosmos, kolekcje, wykresów i tabel."
+title: "Przepływność udostępniania dla bazy danych Azure rozwiązania Cosmos | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak ustawić udostępnionej przepływności dla containsers bazy danych Azure rozwiązania Cosmos, kolekcje, wykresów i tabel."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.openlocfilehash: c143f4aace466b7109168a50e2eb80ddeca6400e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Ustaw przepustowość dla kontenerów bazy danych Azure rozwiązania Cosmos
 
-Można określić przepustowość dla kontenerów bazy danych Azure rozwiązania Cosmos w hello portalu Azure lub za pomocą hello zestawy SDK klientów. 
+Przepływność można ustawić dla kontenerów bazy danych Azure rozwiązania Cosmos w portalu Azure lub za pomocą zestawów SDK klienta. 
 
-Witaj w poniższej tabeli wymieniono hello przepustowości dostępnej dla kontenerów:
+W poniższej tabeli wymieniono dostępne dla kontenerów przepływności:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -46,43 +46,43 @@ Witaj w poniższej tabeli wymieniono hello przepustowości dostępnej dla konten
     </tbody>
 </table>
 
-## <a name="tooset-hello-throughput-by-using-hello-azure-portal"></a>Przepływność hello tooset przy użyciu hello portalu Azure
+## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Aby ustawić przepływność przy użyciu portalu Azure
 
-1. W nowym oknie, otwórz hello [portalu Azure](https://portal.azure.com).
-2. Na pasku po lewej stronie powitania kliknij **bazy danych Azure rozwiązania Cosmos**, lub kliknij przycisk **więcej usług** u dołu hello następnie przewiń zbyt**baz danych**, a następnie kliknij przycisk **bazy danych Azure rozwiązania Cosmos**.
+1. Otwórz w nowym oknie, [portalu Azure](https://portal.azure.com).
+2. Na pasku po lewej stronie kliknij **bazy danych Azure rozwiązania Cosmos**, lub kliknij przycisk **więcej usług** u dołu, następnie przewiń do **baz danych**, a następnie kliknij przycisk **bazy danych Azure rozwiązania Cosmos**.
 3. Wybierz konto DB rozwiązania Cosmos.
-4. W nowym oknie powitania kliknij **Eksploratora danych (wersja zapoznawcza)** w menu nawigacji hello.
-5. W nowym oknie hello, rozwiń węzeł bazy danych i kontener, a następnie kliknij przycisk **& Ustawienia skalowania**.
-6. W nowym oknie hello, wpisz nową wartość przepływności hello w hello **przepływności** , a następnie kliknij przycisk **zapisać**.
+4. W nowym oknie kliknij **Eksploratora danych (wersja zapoznawcza)** w menu nawigacji.
+5. W nowym oknie, rozwiń węzeł bazy danych i kontener, a następnie kliknij przycisk **& Ustawienia skalowania**.
+6. W nowym oknie, wpisz nową wartość przepływności w **przepływności** , a następnie kliknij przycisk **zapisać**.
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="tooset-hello-throughput-by-using-hello-documentdb-api-for-net"></a>Przepływność hello tooset przy użyciu hello interfejsu API usługi DocumentDB dla platformy .NET
+## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>Aby ustawić przepływność przy użyciu interfejsu API usługi DocumentDB dla platformy .NET
 
 ```C#
-//Fetch hello resource toobe updated
+//Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
     .SingleOrDefault();
 
-// Set hello throughput toohello new value, for example 12,000 request units per second
+// Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes toohello database by replacing hello original resource
+//Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
 
 ## <a name="throughput-faq"></a>Przepływność — często zadawane pytania
 
-**Można ustawić Mój tooless przepływności niż 400 RU/s?**
+**Można ustawić Moje przepływności na mniej niż 400 RU/s?**
 
-400 RU/s jest hello minimalną przepustowość na kolekcje z jedną partycją DB rozwiązania Cosmos (minimum dla kolekcji partycjonowanych hello jest 2500 RU/s). Żądanie jednostki są ustawiane w 100 RU/s odstępach czasu, ale przepływności nie można ustawić too100 RU/s lub dowolna wartość mniejszą niż 400 RU/s. Jeśli szukasz toodevelop ekonomiczne — metoda i przetestować rozwiązania Cosmos bazy danych, możesz użyć hello wolnego [Azure rozwiązania Cosmos DB emulatora](local-emulator.md), które można wdrożyć lokalnie bez ponoszenia kosztów. 
+400 RU/s jest minimalna przepływność dostępne na kolekcje z jedną partycją DB rozwiązania Cosmos (minimum dla kolekcji partycjonowanych to 2500 RU/s). Żądanie jednostki są ustawiane w 100 RU/s odstępach czasu, ale przepływności nie można ustawić na 100 RU/s lub dowolną wartość mniejszą niż 400 RU/s. Jeśli szukasz ekonomiczne metody umożliwiające opracowanie i przetestowanie rozwiązania Cosmos DB mogą korzystać z BEZPŁATNEJ [Azure rozwiązania Cosmos DB emulatora](local-emulator.md), które można wdrożyć lokalnie bez ponoszenia kosztów. 
 
-**Jak ustawić througput przy użyciu hello bazy danych MongoDB interfejsu API?**
+**Jak ustawić througput przy użyciu interfejsu API bazy danych MongoDB?**
 
-Nie ma żadnych przepływności tooset rozszerzenia interfejsu API bazy danych MongoDB. Witaj zalecane jest hello toouse interfejsu API usługi DocumentDB, jak pokazano w [tooset hello przepływność przy użyciu hello interfejsu API usługi DocumentDB dla platformy .NET](#set-throughput-sdk).
+Brak bez rozszerzenia interfejsu API bazy danych MongoDB, można ustawić przepływności. Zalecane jest używanie interfejsu API usługi DocumentDB, jak pokazano w [można ustawić przepływność przy użyciu interfejsu API usługi DocumentDB dla platformy .NET](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zobacz toolearn więcej informacji na temat udostępniania i skali planety będzie DB rozwiązania Cosmos [dzielenia na partycje i skalowania rozwiązania Cosmos DB](partition-data.md).
+Aby dowiedzieć się więcej o zasięgu planety będzie DB rozwiązania Cosmos i udostępniania, zobacz [dzielenia na partycje i skalowania rozwiązania Cosmos DB](partition-data.md).

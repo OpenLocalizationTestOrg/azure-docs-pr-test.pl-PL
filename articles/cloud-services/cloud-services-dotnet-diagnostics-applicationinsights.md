@@ -1,6 +1,6 @@
 ---
-title: "Usługi w chmurze przy użyciu usługi Application Insights aaaTroubleshoot | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak usługa w chmurze tootroubleshoot problemy przy użyciu usługi Application Insights tooprocess danych z diagnostyki Azure."
+title: "Rozwiązywanie problemów z usługi w chmurze przy użyciu usługi Application Insights | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak rozwiązywanie problemów dotyczących usługi w chmurze przy użyciu usługi Application Insights do przetwarzania danych z diagnostyki Azure."
 services: cloud-services
 documentationcenter: .net
 author: sbtron
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: saurabh
-ms.openlocfilehash: 972924d9e6d1fe33d5c19b006d482de52ffb0ef7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4001ca908ff00b1a40829d687589080e9b07b18a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-cloud-services-using-application-insights"></a>Rozwiązywanie problemów z usługi w chmurze przy użyciu usługi Application Insights
-Z [Azure SDK 2.8](https://azure.microsoft.com/downloads/) i rozszerzenie diagnostycznych platformy Azure w wersji 1.5, może wysyłać dane diagnostyczne platformy Azure dla usługi w chmurze bezpośrednio tooApplication szczegółowych informacji. Witaj dzienników zebranych przez diagnostyki Azure&mdash;w tym dzienniki aplikacji, dzienniki zdarzeń systemu Windows, dzienniki zdarzeń systemu Windows i liczniki wydajności&mdash;mogą być wysyłane tooApplication szczegółowych informacji. Następnie można zwizualizować te informacje w portalu usługi Application Insights hello interfejsu użytkownika. Następnie można użyć hello zestaw SDK usługi Application Insights tooget wgląd w dzienniki, które pochodzą z aplikacji, a także hello systemu i danych na poziomie infrastruktury, która pochodzi z diagnostyki Azure i metryki.
+Z [Azure SDK 2.8](https://azure.microsoft.com/downloads/) i rozszerzenie diagnostycznych platformy Azure w wersji 1.5, możesz wysłać dane diagnostyczne platformy Azure dla usługi w chmurze bezpośrednio z usługą Application Insights. Dzienniki są zbierane przez diagnostyki Azure&mdash;w tym dzienniki aplikacji, dzienniki zdarzeń systemu Windows, dzienniki zdarzeń systemu Windows i liczniki wydajności&mdash;mogą być wysyłane do usługi Application Insights. Następnie można zwizualizować te informacje w portalu usługi Application Insights interfejsu użytkownika. Zestaw SDK usługi Application Insights umożliwia następnie Uzyskaj wgląd w dzienniki, które pochodzą z aplikacji, a także systemu i danych na poziomie infrastruktury, która pochodzi z diagnostyki Azure i metryki.
 
-## <a name="configure-azure-diagnostics-toosend-data-tooapplication-insights"></a>Skonfiguruj diagnostyki Azure toosend danych tooApplication Insights
-Wykonaj te kroki tooset się z chmury usługi projektu toosend diagnostyki Azure danych tooApplication szczegółowych informacji.
+## <a name="configure-azure-diagnostics-to-send-data-to-application-insights"></a>Skonfiguruj diagnostyki Azure w celu wysyłania danych do usługi Application Insights
+Wykonaj następujące kroki, aby skonfigurować projekt usługi w chmurze na wysyłanie danych diagnostycznych Azure do usługi Application Insights.
 
-1. W Eksploratorze rozwiązań programu Visual Studio, kliknij prawym przyciskiem myszy rolę i wybierz **właściwości** tooopen hello roli projektanta.
+1. W Eksploratorze rozwiązań programu Visual Studio, kliknij prawym przyciskiem myszy rolę i wybierz **właściwości** można otworzyć projektanta roli.
 
     ![Właściwości roli Eksploratora rozwiązań][1]
 
-2. W hello **diagnostyki** sekcji hello roli projektanta, wybierz hello **wysyłania tooApplication danych diagnostycznych Insights** opcji.
+2. W **diagnostyki** sekcji projektanta roli, wybierz opcję **Wyślij dane diagnostyczne do usługi Application Insights** opcji.
 
-    ![Projektant roli wysyłanie danych diagnostycznych wgląd tooapplication danych][2]
+    ![Projektant roli Wyślij dane diagnostyczne do usługi application insights][2]
 
-3. W hello okno dialogowe, które pojawia się wybierz zasób usługi Application Insights hello, który ma toosend hello Azure diagnostyki danych. okno dialogowe Hello umożliwia tooselect istniejący zasób usługi Application Insights z subskrypcji lub toomanually określ klucz instrumentacji dla zasobu usługi Application Insights. Aby uzyskać więcej informacji na temat tworzenia zasobu usługi Application Insights, zobacz [utworzyć nowy zasób usługi Application Insights](../application-insights/app-insights-create-new-resource.md).
+3. W wyskakującym oknie dialogowym Wybierz zasób usługi Application Insights, które chcesz wysyłać dane diagnostyczne platformy Azure. Okno dialogowe umożliwia wybierz istniejący zasób usługi Application Insights z subskrypcji lub ręcznie określić klucz instrumentacji dla zasobu usługi Application Insights. Aby uzyskać więcej informacji na temat tworzenia zasobu usługi Application Insights, zobacz [utworzyć nowy zasób usługi Application Insights](../application-insights/app-insights-create-new-resource.md).
 
     ![Wybierz zasób usługi application insights][3]
 
-    Po dodaniu zasobu usługi Application Insights hello hello klucza instrumentacji dla tego zasobu jest przechowywana jako ustawienia konfiguracji usługi o nazwie hello **APPINSIGHTS_INSTRUMENTATIONKEY**. Można zmienić tego ustawienia konfiguracji dla każdej konfiguracji usługi lub środowiska. toodo tak, wybierz inną konfigurację z hello **konfiguracji usługi** listę i określenie nowego klucza Instrumentacji w takiej konfiguracji.
+    Po dodaniu zasobu usługi Application Insights klucza instrumentacji dla tego zasobu jest przechowywana jako ustawienia konfiguracji usługi o nazwie **APPINSIGHTS_INSTRUMENTATIONKEY**. Można zmienić tego ustawienia konfiguracji dla każdej konfiguracji usługi lub środowiska. Aby to zrobić, wybierz inną konfigurację z **konfiguracji usługi** listę i określenie nowego klucza Instrumentacji w takiej konfiguracji.
 
     ![Wybierz konfigurację usługi][4]
 
-    Witaj **APPINSIGHTS_INSTRUMENTATIONKEY** ustawienie konfiguracji jest używany przez rozszerzenie Diagnostyka programu Visual Studio tooconfigure hello hello odpowiednie usługi Application Insights informacje o zasobach podczas publikowania. Ustawienie konfiguracji Hello to wygodny sposób definiowania różnych Instrumentacji kluczy w przypadku konfiguracji z innej usługi. Visual Studio będzie tłumaczenie tego ustawienia i wstawić go w publiczna Konfiguracja rozszerzenia diagnostyki hello podczas hello procesu publikowania. proces hello toosimplify konfigurowania rozszerzenia diagnostyki hello przy użyciu programu PowerShell, hello pakietu wyjście z programu Visual Studio zawiera także hello publicznej konfiguracji XML z hello odpowiedni klucz Instrumentacji usługi Application Insights. pliki konfiguracji publicznego Hello są tworzone w folderze rozszerzenia hello i wykonaj wzorzec hello *PaaSDiagnostics.&lt; RoleName&gt;. PubConfig.xml*. Wszystkie wdrożenia oparte na środowisku PowerShell można użyć tego wzorca toomap każdej roli tooa konfiguracji.
+    **APPINSIGHTS_INSTRUMENTATIONKEY** ustawienie konfiguracji jest używany przez program Visual Studio do konfigurowania rozszerzenia diagnostyki odpowiednie informacje zasobu usługi Application Insights podczas publikowania. Ustawienie konfiguracji jest to wygodny sposób definiowania różnych Instrumentacji kluczy w przypadku konfiguracji z innej usługi. Programu Visual Studio będzie Przetłumacz ustawienie i wstawić je do diagnostyki publiczna Konfiguracja rozszerzenia podczas procesu publikowania. Aby uprościć proces konfigurowania rozszerzenia diagnostyki przy użyciu programu PowerShell, dane wyjściowe pakietu z programu Visual Studio zawiera publicznej konfiguracji XML przy użyciu odpowiedniego klucza Instrumentacji usługi Application Insights. Pliki konfiguracji publicznego są tworzone w folderze rozszerzenia i postępuj zgodnie ze wzorcem *PaaSDiagnostics.&lt; RoleName&gt;. PubConfig.xml*. Wszystkie wdrożenia oparte na środowisku PowerShell można używać tego wzorca do mapowania każdej konfiguracji do roli.
 
-4) toosend diagnostyki Azure tooconfigure wszystkie dzienniki poziom błędów i liczniki wydajności zebrane przez hello Azure diagnostics agenta tooApplication szczegółowych informacji, Włącz hello **wysyłania tooApplication danych diagnostycznych Insights** opcji. 
+4) Aby skonfigurować diagnostycznych platformy Azure, aby wysłać wszystkie dzienniki poziom błędu zbieranych przez agenta diagnostyki Azure do usługi Application Insights i liczniki wydajności, należy włączyć **Wyślij dane diagnostyczne do usługi Application Insights** opcji. 
 
-    Jeśli chcesz toofurther skonfigurować, jakie dane są wysyłane tooApplication szczegółowe informacje, należy ręcznie zmienić hello *diagnostics.wadcfgx* plik dla każdej roli. Zobacz [skonfigurować diagnostyki Azure toosend danych tooApplication Insights](#configure-azure-diagnostics-to-send-data-to-application-insights) toolearn więcej informacji na temat ręcznego aktualizowania konfiguracji hello.
+    Jeśli chcesz dodatkowo skonfigurować, jakie dane są wysyłane do usługi Application Insights, należy ręcznie zmienić *diagnostics.wadcfgx* plik dla każdej roli. Zobacz [skonfigurować diagnostyki Azure do przesyłania danych do usługi Application Insights](#configure-azure-diagnostics-to-send-data-to-application-insights) Aby dowiedzieć się więcej na temat ręcznego aktualizowania konfiguracji.
 
-Gdy usługa w chmurze hello jest wgląd tooapplication danych diagnostycznych platformy Azure toosend skonfigurowany, można ją wdrożyć tooAzure normalnie, sprawdzając, czy hello rozszerzenie Azure diagnostics jest włączona. Aby uzyskać więcej informacji, zobacz [publikowania usługi w chmurze przy użyciu programu Visual Studio](../vs-azure-tools-publishing-a-cloud-service.md).  
+Gdy usługa w chmurze jest skonfigurowany do wysyłania danych diagnostycznych platformy Azure do usługi application insights, można wdrożyć go na platformie Azure zazwyczaj zagwarantowanie, że rozszerzenie Azure diagnostics jest włączone. Aby uzyskać więcej informacji, zobacz [publikowania usługi w chmurze przy użyciu programu Visual Studio](../vs-azure-tools-publishing-a-cloud-service.md).  
 
 ## <a name="viewing-azure-diagnostics-data-in-application-insights"></a>Wyświetlanie danych diagnostycznych platformy Azure w usłudze Application Insights
-Hello Azure telemetrii diagnostycznych zostaną wyświetlone w hello zasób skonfigurowany dla usługi w chmurze usługi Application Insights.
+Azure telemetrii diagnostycznych zostaną wyświetlone w zasobu usługi Application Insights skonfigurowany dla usługi w chmurze.
 
-Typy dziennika diagnostyki Azure mapy tooApplication pojęcia wgląd w następujący sposób:
+Mapa typy dziennika diagnostyki Azure do koncepcji usługi Application Insights w następujący sposób:
 
 * Liczniki wydajności są wyświetlane jako metryki niestandardowe w usłudze Application Insights.
 * Dzienniki zdarzeń systemu Windows są wyświetlane jako śladów i zdarzeń niestandardowych w usłudze Application Insights.
 * Dzienniki aplikacji, dzienniki zdarzeń systemu Windows i żadnych dzienników diagnostycznych infrastruktury są wyświetlane jako dane śledzenia w usłudze Application Insights.
 
-tooview dane diagnostyczne platformy Azure w usłudze Application Insights, wykonaj jedną z następujących hello:
+Aby wyświetlić dane diagnostyczne platformy Azure w usłudze Application Insights, wykonaj jedną z następujących czynności:
 
-* Użyj [Eksploratora metryk](../application-insights/app-insights-metrics-explorer.md) toovisualize liczniki wszelkie niestandardowe wydajności lub liczby różnych rodzajów zdarzeń w dzienniku zdarzeń systemu Windows.
+* Użyj [Eksploratora metryk](../application-insights/app-insights-metrics-explorer.md) do wizualizacji wszelkie niestandardowe liczniki wydajności lub liczby różnych rodzajów zdarzeń w dzienniku zdarzeń systemu Windows.
 
     ![Metryki niestandardowe w Eksploratorze metryk][5]
 
-* Użyj [wyszukiwania](../application-insights/app-insights-diagnostic-search.md) toosearch między dzienniki śledzenia hello wysyłane przez diagnostyki Azure. Na przykład, jeśli wystąpił nieobsługiwany wyjątek spowodował hello roli toocrash i odtworzenia, informacje o wyjątku hello zostaną wyświetlone w hello *aplikacji* kanału *dziennika zdarzeń systemu Windows*. Można użyć wyszukiwania toolook na powitania błędu dziennika zdarzeń systemu Windows i uzyskać ślad stosu pełne hello hello wyjątek toohelp Znajdź hello przyczyna problemu hello.
+* Użyj [wyszukiwania](../application-insights/app-insights-diagnostic-search.md) można przeszukiwać dzienniki śledzenia wysyłane przez diagnostyki Azure. Na przykład, jeśli wystąpił nieobsługiwany wyjątek spowodował roli awarii i Odtwórz, informacje o wyjątku zostaną wyświetlone w *aplikacji* kanału *dziennika zdarzeń systemu Windows*. Wyszukiwania można używać, aby znaleźć w dzienniku zdarzeń systemu Windows i pobranie śladu stosu pełny wyjątek ustalić przyczynę problemu.
 
     ![Ślady wyszukiwania][6]
 
 ## <a name="next-steps"></a>Następne kroki
-* [Dodawanie usługi w chmurze tooyour zestaw SDK usługi Application Insights hello](../application-insights/app-insights-cloudservices.md) toosend dane dotyczące żądań, wyjątków, zależności i wszelkie niestandardowe dane telemetryczne z aplikacji. W połączeniu z danymi diagnostyki Azure hello, te informacje można uzyskać pełny widok aplikacji i systemu, w hello tego samego zasobu szczegółowe informacje o aplikacji.  
+* [Dodaj zestaw SDK usługi Application Insights do usługi w chmurze](../application-insights/app-insights-cloudservices.md) Aby wysłać dane dotyczące żądań, wyjątków, zależności i wszelkie niestandardowe dane telemetryczne z aplikacji. W połączeniu z danymi diagnostyki Azure, te informacje można uzyskać pełny widok aplikacji i systemu, w tej samej zasobów szczegółowe informacje o aplikacji.  
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/solution-explorer-properties.png

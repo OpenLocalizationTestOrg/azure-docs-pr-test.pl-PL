@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Active Directory Identity Protection — jak użytkownicy toounblock | Dokumentacja firmy Microsoft"
+title: "Azure Active Directory Identity Protection — sposób odblokowania użytkowników | Dokumentacja firmy Microsoft"
 description: "Dowiedz się, jak odblokować użytkowników, które zostały zablokowane przez zasady usługi Azure Active Directory Identity Protection."
 services: active-directory
 keywords: "ochronę tożsamości usługi Azure active directory, Odblokuj użytkownika"
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: cdda2808822888f76aa75cf46478738c94df51a1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ce6b2805e7281dff7752a73ada86be11d7e01fc3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="azure-active-directory-identity-protection---how-toounblock-users"></a>Azure Active Directory Identity Protection — jak toounblock użytkowników
-Azure Active Directory ochronę tożsamości można skonfigurować zasady, które użytkownicy tooblock skonfigurowanie hello warunki są spełnione. Zazwyczaj zablokowany użytkownik kontaktów pomocy technicznej toobecome odblokowany. Tematy to wyjaśniono również hello można wykonywać toounblock zablokowany użytkownik.
+# <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection — sposób odblokowania użytkowników
+Z usługi Azure Active Directory Identity Protection można skonfigurować zasady blokowania użytkowników skonfigurowanych warunków. Zazwyczaj zablokowany użytkownik kontaktów pomocy technicznej, aby stać się odblokowany. Tematy to omówiono kroki można wykonać, aby odblokować zablokowanego użytkownika.
 
-## <a name="determine-hello-reason-for-blocking"></a>Określ przyczynę hello dotyczące blokowania
-Jako pierwszy krok toounblock użytkownika należy toodetermine hello typ zasad, który zablokował hello użytkownika, ponieważ Twoje następne kroki są od niego zależne.
+## <a name="determine-the-reason-for-blocking"></a>Określić przyczynę zablokowania
+Pierwszym krokiem do odblokowanie użytkownika należy określić typ zasad, który został zablokowany użytkownik, ponieważ Twoje następne kroki są od niego zależne.
 Azure Active Directory Identity Protection użytkownik może zostać albo zablokowana przez zasady logowania ryzyko lub zasad ryzyka dla użytkownika.
 
-Można pobrać typu hello zasady, które zablokował użytkownika z pozycji hello w oknie dialogowym hello, który został przedstawiony toohello użytkowników podczas prób logowania:
+Możesz uzyskać typ zasad, który zablokował użytkownika z nagłówkiem w oknie dialogowym, który został przedstawiony użytkownikowi podczas próby logowania:
 
 | Zasady | Okno dialogowe użytkownika |
 | --- | --- |
@@ -41,19 +41,19 @@ Użytkownik, który jest zablokowany przez:
 * Zasad ryzyka dla użytkownika jest także znana jako konto na ryzyko
 
 ## <a name="unblocking-suspicious-sign-ins"></a>Odblokowywanie podejrzane logowania
-toounblock podejrzane logowanie, masz hello następujące opcje:
+Aby odblokować podejrzane logowanie, masz następujące opcje:
 
-1. **Logowania z lokalizacji znanych lub urządzenia** -typową przyczyną zablokowanych podejrzane logowania są próby logowania z nieznanych lokalizacji lub urządzeń. Użytkownicy może szybko określić, czy jest to hello blokuje Przyczyna podejmując toosign w znanych lokalizacji lub urządzenia.
-2. **Wyklucz z zasad** — Jeśli uważasz, że hello bieżącej konfiguracji zasad logowania powoduje problemy dotyczące konkretnych użytkowników, użytkownicy hello można wykluczyć z niej. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
-3. **Wyłącz zasady** — Jeśli uważasz, że konfigurację zasad powoduje problemy dotyczące wszystkich użytkowników, możesz wyłączyć hello zasad. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
+1. **Logowania z lokalizacji znanych lub urządzenia** -typową przyczyną zablokowanych podejrzane logowania są próby logowania z nieznanych lokalizacji lub urządzeń. Użytkownicy może szybko określić, czy jest to blokowania powód próba logowania z lokalizacji znanych lub urządzenia.
+2. **Wyklucz z zasad** — Jeśli uważasz, że bieżąca konfiguracja zasad logowania powoduje problemy dotyczące konkretnych użytkowników, można wykluczyć użytkowników z niego. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
+3. **Wyłącz zasady** — Jeśli uważasz, że konfigurację zasad powoduje problemy dotyczące wszystkich użytkowników, możesz wyłączyć zasady. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
 
 ## <a name="unblocking-accounts-at-risk"></a>Odblokowywanie kont na ryzyko
-toounblock konta zagrożone, masz hello następujące opcje:
+Aby odblokować konto zagrożone, masz następujące opcje:
 
-1. **Zresetuj hasło** — można zresetować hasło użytkownika hello. Zobacz [resetowania ręcznego bezpiecznego hasła](active-directory-identityprotection.md#manual-secure-password-reset) więcej szczegółów.
-2. **Odrzuć wszystkie zdarzenia o podwyższonym ryzyku** -zasad ryzyka użytkownika hello blokuje użytkownika, jeśli został osiągnięty poziom ryzyka użytkownika hello skonfigurowany do blokowania dostępu. Użytkownik może zmniejszyć jego poziom ryzyka przez ręczne zamknięcie zgłoszone zdarzenia ryzyka. Aby uzyskać więcej informacji, zobacz [zamknięcie zdarzenia o podwyższonym ryzyku ręcznie](active-directory-identityprotection.md#closing-risk-events-manually).
-3. **Wyklucz z zasad** — Jeśli uważasz, że hello bieżącej konfiguracji zasad logowania powoduje problemy dotyczące konkretnych użytkowników, użytkownicy hello można wykluczyć z niej. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
-4. **Wyłącz zasady** — Jeśli uważasz, że konfigurację zasad powoduje problemy dotyczące wszystkich użytkowników, możesz wyłączyć hello zasad. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
+1. **Zresetuj hasło** — można zresetować hasło użytkownika. Zobacz [resetowania ręcznego bezpiecznego hasła](active-directory-identityprotection.md#manual-secure-password-reset) więcej szczegółów.
+2. **Odrzuć wszystkie zdarzenia o podwyższonym ryzyku** — bloki zasad ryzyka użytkownika użytkownika, jeśli użytkownik skonfigurowany ryzyka poziom blokuje dostęp został osiągnięty. Użytkownik może zmniejszyć jego poziom ryzyka przez ręczne zamknięcie zgłoszone zdarzenia ryzyka. Aby uzyskać więcej informacji, zobacz [zamknięcie zdarzenia o podwyższonym ryzyku ręcznie](active-directory-identityprotection.md#closing-risk-events-manually).
+3. **Wyklucz z zasad** — Jeśli uważasz, że bieżąca konfiguracja zasad logowania powoduje problemy dotyczące konkretnych użytkowników, można wykluczyć użytkowników z niego. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
+4. **Wyłącz zasady** — Jeśli uważasz, że konfigurację zasad powoduje problemy dotyczące wszystkich użytkowników, możesz wyłączyć zasady. Zobacz [Azure Active Directory Identity Protection](active-directory-identityprotection.md) więcej szczegółów.
 
 ## <a name="next-steps"></a>Następne kroki
- Czy chcesz, aby tooknow więcej informacji na temat usługi Azure AD Identity Protection? Zapoznaj się z [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+ Czy chcesz dowiedzieć się więcej o usłudze Azure AD Identity Protection? Zapoznaj się z [Azure Active Directory Identity Protection](active-directory-identityprotection.md).

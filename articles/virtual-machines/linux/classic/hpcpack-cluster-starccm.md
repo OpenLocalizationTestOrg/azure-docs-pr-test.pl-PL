@@ -1,5 +1,5 @@
 ---
-title: "aaaRun GWIAZDKĘ — CCM + pakietem HPC na maszynach wirtualnych systemu Linux | Dokumentacja firmy Microsoft"
+title: "Uruchomienie GWIAZDĘ — CCM + pakietem HPC na maszynach wirtualnych systemu Linux | Dokumentacja firmy Microsoft"
 description: "Wdrażanie klastra Microsoft HPC Pack na platformie Azure i uruchomienie GWIAZDĘ — CCM + zadania w systemie Linux w wielu węzłach obliczeniowych przez sieć RDMA."
 services: virtual-machines-linux
 documentationcenter: 
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.openlocfilehash: 8265013cb295f53d6d4354ab2f100ef20d9f4c8c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Uruchomienie GWIAZDĘ — CCM + z pakietem Microsoft HPC na Linux RDMA klaster na platformie Azure
-W tym artykule opisano, jak toodeploy Microsoft HPC Pack klastra na platformie Azure i uruchom [GWIAZDKĘ CD adapco-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) zadania na wielu węzłach obliczeniowych Linux, które są wzajemnie InfiniBand.
+W tym artykule przedstawiono sposób wdrażania klastra Microsoft HPC Pack na platformie Azure i uruchom [GWIAZDKĘ CD adapco-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) zadania na wielu węzłach obliczeniowych Linux, które są wzajemnie InfiniBand.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-Microsoft HPC Pack udostępnia funkcje toorun różnych HPC na dużą skalę i równoległych aplikacji, w tym aplikacji MPI w klastrach maszyny wirtualne Microsoft Azure. HPC Pack również umożliwia uruchamianie aplikacji HPC systemu Linux na węźle obliczeń maszyn wirtualnych systemu Linux, które zostały wdrożone w klastrze HPC Pack. Aby toousing wprowadzenie Linux obliczeniowe węzłów z pakietem HPC, zobacz [wprowadzenie węzły obliczeniowe systemu Linux w klastrze HPC Pack na platformie Azure](hpcpack-cluster.md).
+Microsoft HPC Pack udostępnia funkcje, aby obsługiwał różne HPC na dużą skalę i równoległych aplikacji, w tym aplikacji MPI w klastrach maszyny wirtualne Microsoft Azure. HPC Pack również umożliwia uruchamianie aplikacji HPC systemu Linux na węźle obliczeń maszyn wirtualnych systemu Linux, które zostały wdrożone w klastrze HPC Pack. Aby obejrzeć wprowadzenie do pomocą Linux węzły obliczeniowe HPC Pack zobacz [wprowadzenie węzły obliczeniowe systemu Linux w klastrze HPC Pack na platformie Azure](hpcpack-cluster.md).
 
 ## <a name="set-up-an-hpc-pack-cluster"></a>Konfigurowanie klastra HPC Pack
-Pobierz skrypty wdrażania HPC Pack IaaS hello z hello [Centrum pobierania](https://www.microsoft.com/en-us/download/details.aspx?id=44949) i wyodrębnić je lokalnie.
+Pobierz skrypty wdrażania HPC Pack IaaS z [Centrum pobierania](https://www.microsoft.com/en-us/download/details.aspx?id=44949) i wyodrębnić je lokalnie.
 
-Program Azure PowerShell jest wymagane. Jeśli nie skonfigurowano programu PowerShell na komputerze lokalnym, przeczytaj artykuł hello [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+Program Azure PowerShell jest wymagane. Jeśli nie skonfigurowano programu PowerShell na komputerze lokalnym, przeczytaj artykuł na temat [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
 
-W chwili hello pisania tego dokumentu hello Linux obrazów z hello Azure Marketplace, (zawierający sterowniki InfiniBand hello Azure) są SLES 12, CentOS 6.5 i CentOS 7.1. W tym artykule jest oparta na użycie hello SLES 12. Nazwa hello tooretrieve wszystkie obrazy systemu Linux obsługujących HPC w hello Marketplace, możesz uruchomić hello następującego polecenia programu PowerShell:
+W momencie pisania tego dokumentu obrazy systemu Linux z portalu Azure Marketplace, (zawierający sterowniki InfiniBand dla platformy Azure) są SLES 12, CentOS 6.5 i CentOS 7.1. W tym artykule jest na podstawie użycia SLES 12. Aby pobrać nazwy wszystkich obrazów systemu Linux, które obsługują HPC w witrynie Marketplace, można uruchomić następujące polecenie programu PowerShell:
 
 ```
     get-azurevmimage | ?{$_.ImageName.Contains("hpc") -and $_.OS -eq "Linux" }
 ```
 
-dane wyjściowe Hello wymieniono hello lokalizacji, w którym te obrazy są dostępne i hello nazwa obrazu (**Nazwa_obrazu**) toobe używany w szablonie wdrożenia hello później.
+Wyświetla dane wyjściowe, lokalizacji, w których te obrazy są dostępne i nazwa obrazu (**Nazwa_obrazu**) do użycia w szablonie wdrożenia później.
 
-Przed wdrożeniem klastra hello masz toobuild pliku HPC Pack wdrażania szablonu. Ponieważ firma Microsoft docelowych małych klastra, węzłem głównym hello zostanie hello kontrolera domeny i hosta lokalnego bazy danych SQL.
+Przed wdrożeniem klastra, masz do utworzenia pliku szablonu wdrożenia HPC Pack. Ponieważ firma Microsoft docelowych małych klastra, węzłem głównym zostanie kontrolera domeny i hosta lokalnego bazy danych SQL.
 
-Witaj następujący szablon będzie wdrażanie węzła głównego, Utwórz plik XML o nazwie **MyCluster.xml**i Zastąp wartości hello **SubscriptionId**, **StorageAccount**,  **Lokalizacja**, **VMName**, i **ServiceName** z Twoimi zmianami.
+Następujący szablon będzie wdrażanie węzła głównego, Utwórz plik XML o nazwie **MyCluster.xml**i Zastąp wartości **SubscriptionId**, **StorageAccount**,  **Lokalizacja**, **VMName**, i **ServiceName** z Twoimi zmianami.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <IaaSClusterConfig>
@@ -79,138 +79,138 @@ Witaj następujący szablon będzie wdrażanie węzła głównego, Utwórz plik 
       </LinuxComputeNodes>
     </IaaSClusterConfig>
 
-Rozpocznij tworzenie węzłem head hello uruchamiając hello polecenia programu PowerShell z wiersza polecenia o podniesionych uprawnieniach:
+Rozpocznij tworzenie węzłem head za pomocą polecenia programu PowerShell w wiersza polecenia o podniesionych uprawnieniach:
 
 ```
     .\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml
 ```
 
-Po upływie 20 minut too30 węzłem głównym hello powinno być gotowe. Możesz połączyć tooit z hello portalu Azure, klikając hello **Connect** ikona hello maszyny wirtualnej.
+Po upływie 20-30 minut zapewne zechcesz węzła głównego. Można połączyć się go w portalu Azure, klikając **Connect** ikona maszyny wirtualnej.
 
-Po pewnym czasie może być toofix hello DNS usługa przesyłania dalej. toodo tak, uruchom Menedżera DNS.
+Po pewnym czasie może być konieczne napraw usługę przesyłania dalej DNS. Aby to zrobić, uruchom Menedżera DNS.
 
-1. Nazwa serwera powitania kliknij prawym przyciskiem myszy w Menedżerze DNS, wybierz **właściwości**, a następnie kliknij przycisk hello **usług przesyłania dalej** kartę.
-2. Kliknij przycisk hello **Edytuj** przycisk tooremove żadnych usług przesyłania dalej, a następnie kliknij przycisk **OK**.
-3. Upewnij się, że hello **Użyj wskazówek dotyczących serwerów głównych, jeśli są dostępne nie usług przesyłania dalej** pole wyboru jest zaznaczone, a następnie kliknij przycisk **OK**.
+1. Kliknij prawym przyciskiem myszy nazwę serwera w Menedżerze DNS, wybierz **właściwości**, a następnie kliknij przycisk **usług przesyłania dalej** kartę.
+2. Kliknij przycisk **Edytuj** przycisk, aby usunąć wszystkie usługi przesyłania dalej, a następnie kliknij przycisk **OK**.
+3. Upewnij się, że **Użyj wskazówek dotyczących serwerów głównych, jeśli są dostępne nie usług przesyłania dalej** pole wyboru jest zaznaczone, a następnie kliknij przycisk **OK**.
 
 ## <a name="set-up-linux-compute-nodes"></a>Konfigurowanie węzłów obliczeniowych systemu Linux
-Możesz wdrożyć węzły obliczeniowe hello systemu Linux przy użyciu hello tego samego szablonu wdrożenia użytą węzła głównego hello toocreate.
+Możesz wdrożyć węzły obliczeniowe systemu Linux przy użyciu tego samego szablonu wdrażania, która pozwala utworzyć węzła głównego.
 
-Kopiuj plik hello **MyCluster.xml** z węzłem głównym toohello komputera lokalnego, a aktualizacja hello **NodeCount** oznaczanie numerami hello węzłów, które mają toodeploy (< = 20). Można dokładne toohave za mało dostępnych rdzeni limitu Azure, ponieważ każde wystąpienie A9 będą korzystać z 16 rdzeni w ramach subskrypcji. Można użyć wystąpienia A8 (8 rdzeni) zamiast A9, jeśli chcesz toouse więcej maszyn wirtualnych w hello samego budżetu.
+Skopiuj plik **MyCluster.xml** z komputera lokalnego do węzła głównego i aktualizacja **NodeCount** tag o liczbie węzłów, które mają zostać wdrożone (< = 20). Należy zachować ostrożność ma za mało dostępnych rdzeni limitu Azure, ponieważ każde wystąpienie A9 będą korzystać z 16 rdzeni w ramach subskrypcji. Jeśli chcesz użyć więcej maszyn wirtualnych w tej samej budżetu, można użyć wystąpienia A8 (8 rdzeni) zamiast A9.
 
-W węźle głównym hello skopiuj skryptów wdrażania hello HPC Pack IaaS.
+W węźle głównym skopiuj HPC Pack IaaS skryptów wdrażania.
 
-Uruchom następujące polecenia programu PowerShell systemu Azure w wiersza polecenia o podniesionych uprawnieniach hello:
+Uruchom następujące polecenia programu PowerShell systemu Azure w wiersza polecenia o podniesionych uprawnieniach:
 
-1. Uruchom **Add-AzureAccount** tooyour tooconnect subskrypcji platformy Azure.
-2. Jeśli masz wiele subskrypcji, uruchom **Get-AzureSubscription** toolist je.
-3. Wartość domyślna subskrypcja, uruchamiając hello **xxxx wybierz AzureSubscription — Nazwa subskrypcji — domyślna** polecenia.
-4. Uruchom **.\New-HPCIaaSCluster.ps1 - ConfigFile MyCluster.xml** toostart wdrażania węzłów obliczeniowych systemu Linux.
+1. Uruchom **Add-AzureAccount** nawiązać połączenia z subskrypcją platformy Azure.
+2. Jeśli masz wiele subskrypcji, uruchom **Get AzureSubscription** wyświetlić je.
+3. Wartość domyślna subskrypcja, uruchamiając **xxxx wybierz AzureSubscription — Nazwa subskrypcji — domyślna** polecenia.
+4. Uruchom **.\New-HPCIaaSCluster.ps1 - ConfigFile MyCluster.xml** rozpocząć wdrażanie węzły obliczeniowe systemu Linux.
    
    ![Wdrażanie węzła HEAD w akcji][hndeploy]
 
-Otwórz narzędzie Menedżer klastra HPC Pack hello. Po kilku minutach węzły obliczeniowe Linux regularnie pojawi się lista węzły klastra obliczeniowego. W trybie klasycznym wdrożenia hello maszyn wirtualnych IaaS są tworzone po kolei. Tak hello liczba węzłów jest ważne, pobieranie wszystkie wdrożone może zająć dużo czasu.
+Otwórz narzędzie Menedżer klastra HPC Pack. Po kilku minutach węzły obliczeniowe Linux regularnie pojawi się lista węzły klastra obliczeniowego. W trybie klasycznym wdrażania maszyn wirtualnych IaaS są tworzone po kolei. Dlatego jeśli ważne jest liczba węzłów, pobieranie wszystkie wdrożone może zająć znaczną ilość czasu.
 
 ![Linux węzłów w Menedżerze klastra HPC Pack][clustermanager]
 
-Teraz, wszystkie węzły są gotowe do działania w klastrze hello, istnieją toomake ustawień dodatkowej infrastruktury.
+Teraz wszystkie węzły są gotowe do działania w klastrze, czy ustawienia dodatkowej infrastruktury, aby się upewnić.
 
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>Konfigurowanie udziału plików platformy Azure dla systemu Windows i Linux węzłów
-Można użyć skryptów toostore usługi plików Azure hello, pakiety aplikacji i plików danych. Plików na platformę Azure zapewnia możliwości CIFS u góry magazynu obiektów Blob platformy Azure jako magazynu trwałego. Należy pamiętać, że nie jest to najbardziej skalowalne rozwiązanie hello, ale jest hello jeden najprostszym i nie wymaga dedykowanych maszyn wirtualnych.
+Usługa Azure plików służy do przechowywania plików danych, pakiety aplikacji i skryptów. Plików na platformę Azure zapewnia możliwości CIFS u góry magazynu obiektów Blob platformy Azure jako magazynu trwałego. Należy pamiętać, że nie jest to najbardziej skalowalne rozwiązanie, ale jest to najprostsza i nie wymaga dedykowanych maszyn wirtualnych.
 
-Tworzenie udziału plików Azure, wykonując następujące instrukcje hello w artykule hello [Rozpoczynanie pracy z magazynem plików Azure w systemie Windows](../../../storage/files/storage-dotnet-how-to-use-files.md).
+Tworzenie udziału plików platformy Azure zgodnie z instrukcjami w artykule [Rozpoczynanie pracy z magazynem plików Azure w systemie Windows](../../../storage/files/storage-dotnet-how-to-use-files.md).
 
-Zachowaj hello nazwę konta magazynu jako **saname**, nazwa udziału plików hello jako **sharename**i klucz konta magazynu hello jako **sakey**.
+Zachowaj nazwę konta magazynu jako **saname**, nazwa udziału plików jako **sharename**i klucz konta magazynu jako **sakey**.
 
-### <a name="mount-hello-azure-file-share-on-hello-head-node"></a>Instalowanie udziału plików Azure hello na powitania węzła głównego
-Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie toostore hello poświadczeń w magazynie komputera lokalnego hello hello:
+### <a name="mount-the-azure-file-share-on-the-head-node"></a>Instalowanie udziału plików Azure w węźle głównym
+Otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie, aby zapisać poświadczenia w magazynie komputera lokalnego:
 
 ```
     cmdkey /add:<saname>.file.core.windows.net /user:<saname> /pass:<sakey>
 ```
 
-Następnie toomount hello Azure udziału plików, uruchom:
+Następnie Aby zainstalować udział plików Azure, uruchom polecenie:
 
 ```
     net use Z: \\<saname>.file.core.windows.net\<sharename> /persistent:yes
 ```
 
-### <a name="mount-hello-azure-file-share-on-linux-compute-nodes"></a>Instalowanie udziału plików Azure hello na węzły obliczeniowe systemu Linux
-Jeden przydatne narzędzie dołączoną HPC Pack to narzędzie clusrun hello. To narzędzie wiersza polecenia toorun hello, same polecenia można użyć jednocześnie na zestaw węzłów obliczeniowych. W tym przypadku został użyty udział plików Azure hello toomount i utrwalić go toosurvive jest uruchamiany ponownie.
-W podniesionego wiersza poleceń na powitania węzła głównego uruchom następujące polecenia hello.
+### <a name="mount-the-azure-file-share-on-linux-compute-nodes"></a>Instalowanie udziału plików Azure w węzłach obliczeniowych systemu Linux
+Jeden przydatne narzędzie dołączoną HPC Pack to narzędzie clusrun. To narzędzie wiersza polecenia umożliwia jednoczesną tego samego polecenia na zestaw węzłów obliczeniowych. W tym przypadku służy do udziałów plików Azure i utrwala go przetrwać ponowne uruchomienia.
+W podniesionego wiersza poleceń w węźle głównym uruchom następujące polecenia.
 
-katalog instalacji hello toocreate:
+Aby utworzyć katalog instalacji:
 
 ```
     clusrun /nodegroup:LinuxNodes mkdir -p /hpcdata
 ```
 
-Witaj toomount udziału plików platformy Azure:
+Aby zainstalować udział plików Azure:
 
 ```
     clusrun /nodegroup:LinuxNodes mount -t cifs //<saname>.file.core.windows.net/<sharename> /hpcdata -o vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777
 ```
 
-toopersist hello instalacji udziału:
+Aby zachować udziału instalacji:
 
 ```
     clusrun /nodegroup:LinuxNodes "echo //<saname>.file.core.windows.net/<sharename> /hpcdata cifs vers=2.1,username=<saname>,password='<sakey>',dir_mode=0777,file_mode=0777 >> /etc/fstab"
 ```
 
 ## <a name="install-star-ccm"></a>Zainstaluj GWIAZDKĘ — CCM +
-Azure wystąpień maszyna wirtualna A8 i A9 świadczenie obsługi InfiniBand i funkcji RDMA. Hello jądra sterowniki, które włączają te funkcje są dostępne dla systemu Windows Server 2012 R2, SUSE 12 CentOS 6.5 i CentOS 7.1 obrazów w hello Azure Marketplace. Microsoft MPI i MPI firmy Intel (wersji 5.x) są Witaj dwie MPI bibliotek, które obsługują te sterowniki na platformie Azure.
+Azure wystąpień maszyna wirtualna A8 i A9 świadczenie obsługi InfiniBand i funkcji RDMA. Sterowniki jądra, które włączają te funkcje są dostępne dla systemu Windows Server 2012 R2, SUSE 12 CentOS 6.5 i CentOS 7.1 obrazów w portalu Azure Marketplace. Microsoft MPI i MPI firmy Intel (wersji 5.x) są dwie biblioteki MPI, które obsługują te sterowniki w usłudze Azure.
 
 GWIAZDKĘ CD adapco — CCM + wersji 11.x i później jest powiązane z wersją Intel MPI 5.x, więc InfiniBand obsługę Azure jest dołączony.
 
-Pobierz hello Linux64 GWIAZDKĘ — CCM + pakietu z hello [CD adapco portal](https://steve.cd-adapco.com). W naszym przykładzie użyliśmy wersji 11.02.010 w mieszanych dokładności.
+Pobierz Linux64 GWIAZDKĘ — CCM + pakietu z [CD adapco portal](https://steve.cd-adapco.com). W naszym przykładzie użyliśmy wersji 11.02.010 w mieszanych dokładności.
 
-Na powitania węzła głównego w hello **/hpcdata** plików Azure udostępnić, utworzyć skrypt powłoki o nazwie **setupstarccm.sh** z powitania po zawartości. Ten skrypt będzie uruchamiany na każdym tooset węzła obliczeń się GWIAZDKĄ — CCM + lokalnie.
+W węźle głównym w **/hpcdata** plików Azure udostępnić, utworzyć skrypt powłoki o nazwie **setupstarccm.sh** o następującej zawartości. Ten skrypt będzie uruchamiany w każdym węźle obliczeń, aby skonfigurować GWIAZDKĘ — CCM + lokalnie.
 
 #### <a name="sample-setupstarcmsh-script"></a>Przykładowy skrypt setupstarcm.sh
 ```
     #!/bin/bash
-    # setupstarcm.sh tooset up STAR-CCM+ locally
+    # setupstarcm.sh to set up STAR-CCM+ locally
 
-    # Create hello CD-adapco main directory
+    # Create the CD-adapco main directory
     mkdir -p /opt/CD-adapco
 
-    # Copy hello STAR-CCM package from hello file share toohello local directory
+    # Copy the STAR-CCM package from the file share to the local directory
     cp /hpcdata/StarCCM/STAR-CCM+11.02.010_01_linux-x86_64.tar.gz /opt/CD-adapco/
 
-    # Extract hello package
+    # Extract the package
     tar -xzf /opt/CD-adapco/STAR-CCM+11.02.010_01_linux-x86_64.tar.gz -C /opt/CD-adapco/
 
-    # Start a silent installation of STAR-CCM without hello FLEXlm component
+    # Start a silent installation of STAR-CCM without the FLEXlm component
     /opt/CD-adapco/starccm+_11.02.010/STAR-CCM+11.02.010_01_linux-x86_64-2.5_gnu4.8.bin -i silent -DCOMPUTE_NODE=true -DNODOC=true -DINSTALLFLEX=false
 
     # Update memory limits
     echo "*               hard    memlock         unlimited" >> /etc/security/limits.conf
     echo "*               soft    memlock         unlimited" >> /etc/security/limits.conf
 ```
-Teraz, tooset się GWIAZDKĄ — CCM + na wszystkich systemu Linux węzły obliczeniowe, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie hello:
+Teraz, aby skonfigurować GWIAZDKĘ — CCM + na wszystkich systemu Linux węzły obliczeniowe, otwórz wiersz polecenia z podwyższonym poziomem uprawnień i uruchom następujące polecenie:
 
 ```
     clusrun /nodegroup:LinuxNodes bash /hpcdata/setupstarccm.sh
 ```
 
-Polecenie hello jest uruchomiona, można monitorować użycie procesora CPU hello za pomocą hello Mapa cieplna z Menedżera klastra. Po kilku minutach wszystkie węzły powinny zostać poprawnie skonfigurowane.
+Po uruchomieniu polecenia można monitorować użycie procesora CPU za pomocą Mapa cieplna z Menedżera klastra. Po kilku minutach wszystkie węzły powinny zostać poprawnie skonfigurowane.
 
 ## <a name="run-star-ccm-jobs"></a>Uruchomienie GWIAZDĘ — CCM + zadania
-HPC Pack służy do jego możliwości harmonogramu zadań w kolejności toorun GWIAZDKĘ — CCM + zadania. toodo tak, należy hello obsługę kilku skrypty, które są używane toostart hello zadania i uruchomienie GWIAZDĘ — CCM +. dane wejściowe Hello pozostaje w udziale plików Azure hello pierwszy dla uproszczenia.
+HPC Pack służy do jego możliwości harmonogram zadania uruchomienie GWIAZDĘ — CCM + zadania. Aby to zrobić, potrzebujemy obsługę kilku skryptów, które są używane do uruchamiania zadania i uruchomienie GWIAZDĘ — CCM +. Dane wejściowe pozostaje w udziale plików Azure pierwszy dla uproszczenia.
 
-Witaj następującego skryptu programu PowerShell jest używane tooqueue GWIAZDY — CCM + zadania. Trwa trzech argumentów:
+Poniższy skrypt programu PowerShell jest używany do kolejki GWIAZDY — CCM + zadania. Trwa trzech argumentów:
 
-* Nazwa modelu Hello
-* Witaj liczba węzłów toobe używane
-* Witaj liczba rdzeni w każdej toobe węzła używane
+* Nazwa modelu
+* Liczba węzłów do użycia
+* Liczba rdzeni w każdym węźle ma być używany
 
-Ponieważ GWIAZDKĘ — CCM + wpisać hello pamięci przepustowość, jego zazwyczaj lepiej toouse mniej rdzenie na węzłach obliczeniowych i Dodaj nowe węzły. Witaj dokładna liczba rdzeni przypadająca na węzeł będzie zależeć od hello Rodzina procesorów i szybkość między połączeniami wzajemnymi hello.
+Ponieważ GWIAZDKĘ — CCM + wpisać przepustowości pamięci jest lepiej jest użyć mniejszej liczby rdzeni w jednym węzłów obliczeniowych i dodać nowe węzły. Dokładna liczba rdzeni w jednym węźle zależy od rodziny procesorów i szybkość połączenia.
 
-węzły Hello są przydzielane wyłącznie dla zadania hello i nie może być współużytkowana z innymi zadaniami. Witaj zadania nie jest uruchomiona jako zadanie MPI bezpośrednio. Witaj **runstarccm.sh** skrypt powłoki rozpocznie hello MPI uruchamiania.
+Węzły są przydzielane wyłącznie dla zadania i nie może być współużytkowana z innymi zadaniami. Zadanie nie jest uruchomiona jako zadanie MPI bezpośrednio. **Runstarccm.sh** skrypt powłoki rozpocznie uruchamiania MPI.
 
-Hello danych wejściowych, model i hello **runstarccm.sh** skryptu są przechowywane w hello **/hpcdata** udziału, który został wcześniej zainstalowany.
+Wejściowy modelu i **runstarccm.sh** skryptu są przechowywane w **/hpcdata** udziału, który został wcześniej zainstalowany.
 
-Pliki dziennika są nazywane hello zadania o identyfikatorze i są przechowywane w hello **udziału /hpcdata**, wraz z hello GWIAZDKĘ — CCM + plików wyjściowych.
+Pliki dziennika są nazywane z Identyfikatorem zadania i są przechowywane w **udziału /hpcdata**, wraz z GWIAZDY — CCM + plików wyjściowych.
 
 #### <a name="sample-submitstarccmjobps1-script"></a>Przykładowy skrypt SubmitStarccmJob.ps1
 ```
@@ -221,13 +221,13 @@ Pliki dziennika są nazywane hello zadania o identyfikatorze i są przechowywane
     $nbNodes=$args[1]
 
     #---------------------------------------------------------------------------------------------------------
-    # Create a new job; this will give us hello job ID that's used tooidentify hello name of hello uploaded package in Azure
+    # Create a new job; this will give us the job ID that's used to identify the name of the uploaded package in Azure
     #
     $job = New-HpcJob -Name "$modelName $nbNodes $nbCoresPerNode" -Scheduler $scheduler -NumNodes $nbNodes -NodeGroups "LinuxNodes" -FailOnTaskFailure $true -Exclusive $true
     $jobId = [String]$job.Id
 
     #---------------------------------------------------------------------------------------------------------
-    # Submit hello job     
+    # Submit the job     
     $workdir =  "/hpcdata"
     $execName = "$nbCoresPerNode runner.java $modelName.sim"
 
@@ -242,10 +242,10 @@ Zastąp **runner.java** z Twojej preferowanych GWIAZDKĄ — CCM + Java modelu u
 ```
     #!/bin/bash
     echo "start"
-    # hello path of this script
+    # The path of this script
     SCRIPT_PATH="$( dirname "${BASH_SOURCE[0]}" )"
     echo ${SCRIPT_PATH}
-    # Set hello mpirun runtime environment
+    # Set the mpirun runtime environment
     export CDLMD_LICENSE_FILE=1999@flex.cd-adapco.com
 
     # mpirun command
@@ -256,11 +256,11 @@ Zastąp **runner.java** z Twojej preferowanych GWIAZDKĄ — CCM + Java modelu u
     COUNT=${#NODESCORES[@]}
     NBCORESPERNODE=$1
 
-    # Create hello hostfile file
+    # Create the hostfile file
     NODELIST_PATH=${SCRIPT_PATH}/hostfile_$$
     echo ${NODELIST_PATH}
 
-    # Get every node name and write into hello hostfile file
+    # Get every node name and write into the hostfile file
     I=1
     NBNODES=0
     while [ ${I} -lt ${COUNT} ]
@@ -271,7 +271,7 @@ Zastąp **runner.java** z Twojej preferowanych GWIAZDKĄ — CCM + Java modelu u
     done
     let "NBCORES=${NBNODES}*${NBCORESPERNODE}"
 
-    # Run STAR-CCM with hello hostfile argument
+    # Run STAR-CCM with the hostfile argument
     #  
     ${STARCCM} -np ${NBCORES} -machinefile ${NODELIST_PATH} \
         -power -podkey "<yourkey>" -rsh ssh \
@@ -284,11 +284,11 @@ Zastąp **runner.java** z Twojej preferowanych GWIAZDKĄ — CCM + Java modelu u
     exit ${RTNSTS}
 ```
 
-W naszym teście użyliśmy token licencji zasilania na żądanie. Dla tego tokenu masz tooset hello **$CDLMD_LICENSE_FILE** zmiennej środowiskowej zbyt **1999@flex.cd-adapco.com**  i klucz hello w hello **- podkey** opcji wiersza polecenia hello .
+W naszym teście użyliśmy token licencji zasilania na żądanie. Token, należy ustawić **$CDLMD_LICENSE_FILE** zmienną środowiskową  **1999@flex.cd-adapco.com**  i klucz w **- podkey** opcji wiersza polecenia.
 
-Po zainicjowaniu niektórych skryptu hello wyodrębnia — z hello **$CCP_NODES_CORES** zmienne środowiskowe, które HPC Pack — Witaj listy węzłów toobuild używa hostfile, który hello uruchamiania MPI. Ta hostfile będzie zawierać hello listę nazw węzła obliczeń, które są używane do hello zadania, nazwa jeden na wiersz.
+Po zainicjowaniu niektórych skrypt wyodrębnia — od **$CCP_NODES_CORES** zmienne środowiskowe tego pakietu HPC ustawiane — Lista węzłów do tworzenia hostfile, używającej uruchamiania MPI. Ta hostfile będzie zawierać listę nazw węzła obliczeń, które są używane do zadania, nazwa jeden na wiersz.
 
-Hello format **$CCP_NODES_CORES** następuje tego wzorca:
+Format **$CCP_NODES_CORES** następuje tego wzorca:
 
 ```
 <Number of nodes> <Name of node1> <Cores of node1> <Name of node2> <Cores of node2>...`
@@ -296,28 +296,28 @@ Hello format **$CCP_NODES_CORES** następuje tego wzorca:
 
 Gdzie:
 
-* `<Number of nodes>`jest hello liczba węzłów przydzielone toothis zadania.
-* `<Name of node_n_...>`jest nazwą hello każdego węzła przydzielone toothis zadania.
-* `<Cores of node_n_...>`jest hello liczba rdzeni w węźle hello przydzielone toothis zadania.
+* `<Number of nodes>`jest to liczba węzłów przydzielone do tego zadania.
+* `<Name of node_n_...>`to nazwa każdego węzła przydzielone do tego zadania.
+* `<Cores of node_n_...>`jest to liczba rdzeni w węźle przydzielone do tego zadania.
 
-Witaj liczby rdzeni (**$NBCORES**) jest również obliczeniowej hello na podstawie liczby węzłów (**$NBNODES**) i hello liczba rdzeni przypadająca na węzeł (podać jako parametr **$NBCORESPERNODE**).
+Liczba rdzeni (**$NBCORES**) jest obliczana na podstawie liczby węzłów (**$NBNODES**) i liczba rdzeni przypadająca na węzeł (podać jako parametr **$NBCORESPERNODE**).
 
-Opcje MPI hello hello te, które są używane z Intel MPI na platformie Azure są:
+Dla opcji MPI te, które są używane z Intel MPI na platformie Azure są:
 
-* `-mpi intel`toospecify Intel MPI.
-* `-fabric UDAPL`toouse Azure InfiniBand zleceń.
-* `-cpubind bandwidth,v`przepustowość toooptimize MPI z GWIAZDKĄ — CCM +.
-* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`toomake Intel MPI współpracować Azure InfiniBand i tooset hello wymagana liczba rdzeni przypadająca na węzeł.
-* `-batch`toostart GWIAZDKĘ — CCM + w trybie wsadowym z bez interfejsu użytkownika.
+* `-mpi intel`Aby określić Intel MPI.
+* `-fabric UDAPL`do korzystania z poleceń Azure InfiniBand.
+* `-cpubind bandwidth,v`w celu zoptymalizowania przepustowości dla MPI z GWIAZDKĄ — CCM +.
+* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`Aby pracować z Azure InfiniBand MPI Intel i ustawić wymaganej liczby rdzeni w jednym węźle.
+* `-batch`Aby uruchomić GWIAZDKĘ — CCM + w trybie wsadowym z bez interfejsu użytkownika.
 
-Na koniec toostart zadania, upewnij się, że węzły są gotowe do działania i są w trybie online w Menedżerze klastra. Następnie w wierszu polecenia programu PowerShell, uruchom to:
+Na koniec można uruchomić zadania, upewnij się, że węzły są gotowe do działania i są w trybie online w Menedżerze klastra. Następnie w wierszu polecenia programu PowerShell, uruchom to:
 
 ```
     .\ SubmitStarccmJob.ps1 <model> <nbNodes> <nbCoresPerNode>
 ```
 
 ## <a name="stop-nodes"></a>Zatrzymaj węzłów
-Później po wykonaniu tych testów, można użyć następującego toostop polecenia środowiska PowerShell klastra HPC Pack hello i rozpocząć węzłów:
+Później po wykonaniu tych testów, służy następujące polecenia środowiska PowerShell klastra HPC Pack do zatrzymywania i uruchamiania węzłów:
 
 ```
     Stop-HPCIaaSNode.ps1 -Name <prefix>-00*

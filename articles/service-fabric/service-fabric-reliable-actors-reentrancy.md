@@ -1,6 +1,6 @@
 ---
-title: "aaaReentrancy w podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
-description: "Tooreentrancy wprowadzenie do usługi sieci szkieletowej Reliable Actors"
+title: "Ponownego rozpoczęcia w podstawie aktora Azure mikrousług | Dokumentacja firmy Microsoft"
+description: "Wprowadzenie do ponownego rozpoczęcia dla elementów Reliable Actors sieci szkieletowej usług"
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 61c69bcf0f100e075d19ba155954c05789b71761
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 00fcccb379bf1ba3875fbaba57a05b00fa228622
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reliable-actors-reentrancy"></a>Niezawodne wielobieżność złośliwych użytkowników
-środowisko uruchomieniowe Reliable Actors Hello, domyślnie umożliwia ponowne wejście wywołania logiczną na podstawie kontekstu. Dzięki temu wielobieżna toobe złośliwych użytkowników, jeśli są one hello sam wywołać kontekstu łańcucha. Na przykład aktora A wysyła tooActor komunikat B, który wysyła wiadomości tooActor C. W ramach przetwarzania wiadomość hello C aktora wywołuje aktora A, wiadomość hello jest współużytkowane, więc będą dozwolone. Komunikaty, które są częścią kontekstu wywołania różnych zostaną zablokowane na aktora A zakończenie przetwarzania.
+Środowisko uruchomieniowe Reliable Actors, domyślnie umożliwia wywołanie logiczną na podstawie kontekstu wielobieżność. Dzięki temu podmiotów być współużytkowane, jeśli są w tym samym łańcuchu kontekstu wywołania. Na przykład aktora A wysyła komunikat do aktora B, który wysyła wiadomość do aktora. Podczas przetwarzania komunikatu C aktora wywołuje aktora A, wiadomość jest współużytkowane, więc może być. Komunikaty, które są częścią kontekstu wywołania różnych zostaną zablokowane na aktora A zakończenie przetwarzania.
 
-Dostępne są dwie opcje do ponownego rozpoczęcia aktora zdefiniowane w hello `ActorReentrancyMode` wyliczenia:
+Dostępne są dwie opcje do ponownego rozpoczęcia aktora zdefiniowane w `ActorReentrancyMode` wyliczenia:
 
 * `LogicalCallContext`(domyślnie)
 * `Disallowed`— Wyłącza ponowne wejście
@@ -42,9 +42,9 @@ public enum ActorReentrancyMode
     Disallowed(2)
 }
 ```
-Wielobieżność można skonfigurować w `ActorService`tego ustawienia podczas rejestracji. Ustawienie Hello dotyczy tooall aktora wystąpienia utworzone w hello usługi aktora.
+Wielobieżność można skonfigurować w `ActorService`tego ustawienia podczas rejestracji. Ustawienie ma zastosowanie do wszystkich wystąpień aktora utworzone w usłudze aktora.
 
-Witaj poniższy przykład przedstawia usługa aktora, która ustawia tryb wielobieżność hello zbyt`ActorReentrancyMode.Disallowed`. W tym przypadku aktora wysyła komunikat współużytkowane aktora tooanother, wyjątek typu `FabricException` zostanie wygenerowany.
+W poniższym przykładzie przedstawiono usługi aktora, która ustawia tryb wielobieżność `ActorReentrancyMode.Disallowed`. W tym przypadku aktora wysyła komunikat współużytkowane do innego aktora, wyjątek typu `FabricException` zostanie wygenerowany.
 
 ```csharp
 static class Program
@@ -110,4 +110,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej na temat ponownego rozpoczęcia w hello [dokumentacji interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Dowiedz się więcej na temat ponownego rozpoczęcia w [dokumentacji interfejsu API aktora](https://msdn.microsoft.com/library/azure/dn971626.aspx)

@@ -1,6 +1,6 @@
 ---
-title: "narzędzia sqlcmd SQL Data Warehouse tooAzure aaaConnect | Dokumentacja firmy Microsoft"
-description: "Użyj [sqlcmd] [sqlcmd] narzędzie wiersza polecenia tooconnect tooand zapytania usługi Azure SQL Data Warehouse."
+title: "Nawiązywanie połączenia z usługą Azure SQL Data Warehouse — narzędzie sqlcmd | Microsoft Docs"
+description: "Użyj narzędzia wiersza polecenia [sqlcmd][sqlcmd], aby połączyć się z usługą Azure SQL Data Warehouse i utworzyć zapytanie."
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: 0334df7b969da1966ba29c97f835a2dc9e383e29
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5a3fe1046c3417070ba8ff5bd18a0485e2152eff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-toosql-data-warehouse-with-sqlcmd"></a>Połącz tooSQL hurtowni danych przy użyciu narzędzia sqlcmd
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Nawiązywanie połączenia z usługą SQL Data Warehouse przy użyciu narzędzia sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -31,43 +31,43 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Użyj [sqlcmd] [ sqlcmd] tooand tooconnect narzędzia wiersza polecenia zapytań usługi Azure SQL Data Warehouse.  
+Użyj narzędzia wiersza polecenia [sqlcmd][sqlcmd], aby połączyć się z usługą Azure SQL Data Warehouse i utworzyć zapytanie.  
 
 ## <a name="1-connect"></a>1. Połączenie
-wprowadzenie tooget [sqlcmd][sqlcmd], otwórz wiersz polecenia hello i wprowadź **sqlcmd** następuje hello parametry połączenia bazy danych SQL Data Warehouse. Parametry połączenia Hello wymaga hello następujące parametry:
+Aby rozpocząć pracę z narzędziem [sqlcmd][sqlcmd], otwórz wiersz polecenia i wpisz **sqlcmd**, a następnie podaj parametry połączenia z bazą danych usługi SQL Data Warehouse. Wymagane parametry połączenia to:
 
-* **Serwer (-S):** serwera w formie hello `<`nazwy serwera`>`. database.windows.net
+* **Serwer (-S):** serwer w postaci `<`nazwa_serwera`>`.database.windows.net
 * **Baza danych (-d):** nazwa bazy danych.
-* **Włącz cytowane identyfikatory (-I):** cytowane identyfikatory musi być wystąpieniem usługi SQL Data Warehouse tooa tooconnect włączone.
+* **Włącz cytowane identyfikatory (-I):** cytowane identyfikatory muszą być włączone w celu połączenia z wystąpieniem usługi SQL Data Warehouse.
 
-toouse uwierzytelniania programu SQL Server, należy tooadd hello nazwy użytkownika i hasła parametry:
+Aby użyć uwierzytelniania programu SQL Server, należy dodać parametry nazwy użytkownika/hasła:
 
-* **Użytkownik (-U):** użytkownik serwera w formie hello `<`użytkownika`>`
-* **Hasło (-P):** hasło skojarzone z hello użytkownika.
+* **Użytkownik (-U):** użytkownik serwera w formie `<`Użytkownik`>`
+* **Hasło (-P):** hasło skojarzone z użytkownikiem.
 
-Na przykład ciąg połączenia może wyglądać hello następujące czynności:
+Na przykład parametry połączenia mogą wyglądać następująco:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-Azure Active Directory Integrated authentication toouse, należy tooadd hello Azure Active Directory parametry:
+Aby użyć zintegrowanego uwierzytelniania usługi Azure Active Directory, należy dodać parametry usługi Azure Active Directory:
 
 * **Uwierzytelnianie usługi Azure Active Directory (-G):** używaj usługi Azure Active Directory do uwierzytelniania
 
-Na przykład ciąg połączenia może wyglądać hello następujące czynności:
+Na przykład parametry połączenia mogą wyglądać następująco:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> Należy zbyt[Włącz uwierzytelnianie usługi Azure Active Directory](sql-data-warehouse-authentication.md) tooauthenticate przy użyciu usługi Active Directory.
+> Musisz [włączyć uwierzytelnianie usługi Azure Active Directory](sql-data-warehouse-authentication.md), aby uwierzytelniać przy użyciu usługi Active Directory.
 > 
 > 
 
 ## <a name="2-query"></a>2. Zapytanie
-Po połączeniu można wystawiać żadnych obsługiwane instrukcje języka Transact-SQL przed wystąpieniem hello.  W tym przykładzie zapytania są przesyłane w trybie interaktywnym.
+Po nawiązaniu połączenia można wydawać dowolne obsługiwane instrukcje języka Transact-SQL dotyczące wystąpienia.  W tym przykładzie zapytania są przesyłane w trybie interaktywnym.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -76,7 +76,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-Pokazują powyższe przykłady dalej sposób wykonywania zapytań w trybie wsadowym przy użyciu opcji -Q hello lub przekazanie w potoku toosqlcmd Twojego SQL.
+W następnych przykładach przedstawiono, jak można uruchamiać zapytania w trybie wsadowym przy użyciu opcji -Q lub przesyłania potokiem instrukcji języka SQL do narzędzia sqlcmd.
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -87,7 +87,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zobacz [dokumentacji narzędzia sqlcmd] [ sqlcmd] więcej informacji o szczegółowe informacje o hello opcje dostępne w przypadku użycia programu sqlcmd.
+Aby uzyskać więcej informacji na temat opcji dostępnych w narzędziu sqlcmd, zobacz [dokumentację narzędzia sqlcmd][sqlcmd].
 
 <!--Image references-->
 

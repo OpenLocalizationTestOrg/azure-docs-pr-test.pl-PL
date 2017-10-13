@@ -1,6 +1,6 @@
 ---
-title: przetwarzanie przez dodanie jednostek kodowania - Azure media aaaScale |  Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak toohow tooadd kodowania jednostki z platformą .NET"
+title: Skalowanie przetwarzania przez dodanie jednostek kodowania - Azure media |  Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak sposób dodawania kodowania jednostki z platformą .NET"
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;milangada;
-ms.openlocfilehash: b9f71a6487c5d136319a38a1598d60edfaa81b9e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 72a8729d22a9e76c8076d7a3347619a2163e4f09
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooscale-encoding-with-net-sdk"></a>Jak tooscale kodowanie przy użyciu zestawu .NET SDK
+# <a name="how-to-scale-encoding-with-net-sdk"></a>Skalowanie kodowania za pomocą zestawu .NET SDK
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
@@ -32,14 +32,14 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="overview"></a>Omówienie
 > [!IMPORTANT]
-> Upewnij się, że hello tooreview [omówienie](media-services-scale-media-processing-overview.md) tooget tematu więcej informacji na temat skalowania przetwarzania tematu nośnika.
+> Upewnij się przejrzeć [omówienie](media-services-scale-media-processing-overview.md) tematu, aby uzyskać więcej informacji na temat skalowania przetwarzania tematu nośnika.
 > 
 > 
 
-toochange hello zastrzeżone jednostki typu i hello liczbę zastrzeżone jednostki przy użyciu zestawu .NET SDK kodowania hello następujące:
+Aby zmienić typ jednostki zarezerwowane i liczba zastrzeżone jednostki przy użyciu zestawu .NET SDK kodowania, wykonaj następujące czynności:
 
     IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
-    encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds tooS1
+    encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
     encodingS1ReservedUnit.Update();
     Console.WriteLine("Reserved Unit Type: {0}", encodingS1ReservedUnit.ReservedUnitType);
 
@@ -49,20 +49,20 @@ toochange hello zastrzeżone jednostki typu i hello liczbę zastrzeżone jednost
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
 ## <a name="opening-a-support-ticket"></a>Otwarcie biletu pomocy technicznej
-Domyślnie co konto usługi Media Services można skalować tooup too25 kodowania i 5 na żądanie jednostek zarezerwowanego przesyłania strumieniowego. Wyższy limit mogą żądać przez otwarcie biletu pomocy technicznej.
+Domyślnie co konto usługi Media Services można skalować do maksymalnie 25, kodowanie i 5 na żądanie jednostek zarezerwowanego przesyłania strumieniowego. Wyższy limit mogą żądać przez otwarcie biletu pomocy technicznej.
 
 ### <a name="open-a-support-ticket"></a>Otwórz bilet pomocy technicznej
-tooopen biletu pomocy technicznej hello następujące:
+Aby otworzyć obsługi biletów, wykonaj następujące czynności:
 
-1. Kliknij przycisk [uzyskać pomoc techniczną](https://manage.windowsazure.com/?getsupport=true). Jeśli użytkownik nie jest zalogowany, będzie można tooenter zostanie wyświetlony monit o poświadczenia.
+1. Kliknij przycisk [uzyskać pomoc techniczną](https://manage.windowsazure.com/?getsupport=true). Jeśli użytkownik nie jest zalogowany, pojawi się monit o podanie poświadczeń.
 2. Wybierz subskrypcję.
 3. Wybierz pozycję "Technical" w obszarze typu pomocy technicznej.
 4. Kliknij pozycję "Utwórz bilet".
-5. Wybierz "Azure Media Services" w liście produktów hello wyświetlone na następnej stronie powitania.
+5. Wybierz "Azure Media Services" w liście produktów wyświetlone na następnej stronie.
 6. Wybierz opcję "Typ problemu" odpowiednią dla tego problemu.
 7. Kliknij przycisk Kontynuuj.
 8. Postępuj zgodnie z instrukcjami wyświetlanymi na następnej stronie, a następnie wprowadź szczegóły problemu.
-9. Kliknij przycisk Zatwierdź tooopen hello biletu.
+9. Kliknij przycisk Zatwierdź, aby otworzyć bilet.
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

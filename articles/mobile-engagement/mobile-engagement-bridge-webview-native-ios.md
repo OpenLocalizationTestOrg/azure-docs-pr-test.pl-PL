@@ -1,6 +1,6 @@
 ---
-title: iOS aaaBridge widoku sieci Web z natywnego Mobile Engagement iOS SDK
-description: "Opisuje sposób toocreate mostka między systemem obsługi języka Javascript i hello natywnego Mobile Engagement iOS SDK w widoku sieci Web"
+title: Mostek iOS widoku sieci Web z natywnego Mobile Engagement iOS SDK
+description: "Opisuje sposób tworzenia mostka między systemem obsługi języka Javascript i natywnego Mobile Engagement iOS SDK widoku sieci Web"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 089ed8484722cb5ba624e5dce0e670ab56de514d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35f7bdbeb480122513ae2a0b04a6d8cfd426802a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="bridge-ios-webview-with-native-mobile-engagement-ios-sdk"></a>Mostek iOS widoku sieci Web z natywnego Mobile Engagement iOS SDK
 > [!div class="op_single_selector"]
@@ -27,25 +27,25 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy aplikacja hello jest utworzony przy użyciu opracowywania aplikacji systemu iOS natywnego języka Objective-C, ale niektóre lub nawet wszystkich ekranów powitalnych są renderowane w widoku sieci Web z systemem iOS. Możesz nadal korzystać z usługi Mobile Engagement iOS SDK w ramach tych aplikacji i w tym samouczku opisano sposób toogo o tej czynności. 
+Niektóre aplikacje mobilne są zaprojektowane jako aplikacji hybrydowych, gdy aplikacja jest utworzony przy użyciu opracowywania aplikacji systemu iOS natywnego języka Objective-C, ale niektóre lub nawet wszystkich ekranów są renderowane w widoku sieci Web z systemem iOS. Możesz nadal korzystać z usługi Mobile Engagement iOS SDK w ramach tych aplikacji i w tym samouczku opisano sposób Przejdź o tej czynności. 
 
-Istnieją dwa podejścia tooachieve to chociaż są nieudokumentowanej:
+Istnieją dwie metody, można to osiągnąć, chociaż są nieudokumentowanej:
 
 * Najpierw jeden opisane w tym [łącze](http://stackoverflow.com/questions/9826792/how-to-invoke-objective-c-method-from-javascript-and-send-back-data-to-javascrip) który obejmuje rejestrowanie `UIWebViewDelegate` w widoku sieci web i catch i natychmiast Anuluj zmiany lokalizacji wykonywane w języku Javascript. 
-* Drugi jedną opiera się na tym [sesji WWDC 2013](https://developer.apple.com/videos/play/wwdc2013/615), podejście, które jest bardziej czytelny niż hello najpierw i firma Microsoft przestrzega tego przewodnika. Należy pamiętać, że ta metoda działa tylko w systemie iOS7 i nowszych. 
+* Drugi jedną opiera się na tym [sesji WWDC 2013](https://developer.apple.com/videos/play/wwdc2013/615), podejście, które jest bardziej czytelny niż pierwszy i firma Microsoft przestrzega tego przewodnika. Należy pamiętać, że ta metoda działa tylko w systemie iOS7 i nowszych. 
 
-Wykonaj poniższe kroki hello dla hello iOS zestawiania próbki:
+Dla systemu iOS zestawiania próbki, wykonaj następujące czynności:
 
-1. Przede wszystkim należy tooensure, który ma przeszli naszych [Wprowadzenie — samouczek](mobile-engagement-ios-get-started.md) hello toointegrate Mobile Engagement iOS SDK w aplikacji hybrydowych. Opcjonalnie można również włączyć, testu w następujący sposób rejestrowania, aby mogli przeglądać hello SDK metod, zgodnie z ich wyzwalana hello widok sieci Web. 
+1. Po pierwsze, należy się upewnić, że przeszły naszych [Wprowadzenie — samouczek](mobile-engagement-ios-get-started.md) integracja Mobile Engagement iOS SDK w aplikacji hybrydowych. Opcjonalnie można również włączyć, testu w następujący sposób rejestrowania, dzięki czemu można wyświetlić metody zestawu SDK, jak wyzwalana je z widoku sieci Web. 
    
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
            ....
              [EngagementAgent setTestLogEnabled:YES];
            ....
         }
-2. Teraz upewnij się, że aplikacji hybrydowych ma ekran z widoku sieci Web na nim. Można dodać toohello `Main.storyboard` aplikacji hello. 
-3. Skojarz ten widok sieci Web z Twojej **ViewController** klikając i przeciągając hello widoku sieci Web z hello sceny kontrolera widoku toohello `ViewController.h` Edytuj ekranu umieszczenia go poniżej hello `@interface` wiersza. 
-4. Po wykonaniu tej czynności okno dialogowe będzie wyskakujące monitowania o nazwę. Podaj nazwę hello jako **webView**. Twoje `ViewController.h` plik powinien wyglądać jak poniżej hello:
+2. Teraz upewnij się, że aplikacji hybrydowych ma ekran z widoku sieci Web na nim. Można dodać go do `Main.storyboard` aplikacji. 
+3. Skojarz ten widok sieci Web z Twojej **ViewController** klikając i przeciągając widoku sieci Web z scenę kontrolera widoku w celu `ViewController.h` ekranu umieszczenia go edytować tylko poniżej `@interface` wiersza. 
+4. Po wykonaniu tej czynności okno dialogowe będzie wyskakujące monitowania o nazwę. Podaj nazwę jako **webView**. Twoje `ViewController.h` pliku powinna wyglądać następująco:
    
         #import <UIKit/UIKit.h>
         #import "EngagementViewController.h"
@@ -54,7 +54,7 @@ Wykonaj poniższe kroki hello dla hello iOS zestawiania próbki:
         @property (strong, nonatomic) IBOutlet UIWebView *webView;
    
         @end
-5. Firma Microsoft będzie aktualizować hello `ViewController.m` pliku później, ale najpierw utworzymy hello Mostek pliku, który tworzy otokę przez niektóre typowe Mobile Engagement iOS SDK metody. Utwórz nowy plik nagłówka o nazwie **EngagementJsExports.h** , który używa hello `JSExport` mechanizm opisane w wyżej wymienionym hello [sesji](https://developer.apple.com/videos/play/wwdc2013/615) tooexpose hello natywnego iOS metody. 
+5. Firma Microsoft będzie aktualizować `ViewController.m` pliku później, ale najpierw utworzymy pliku mostek, który tworzy otokę przez niektóre typowe Mobile Engagement iOS SDK metody. Utwórz nowy plik nagłówka o nazwie **EngagementJsExports.h** używający `JSExport` mechanizm opisane w powyższym formularzu [sesji](https://developer.apple.com/videos/play/wwdc2013/615) do udostępnienia metody natywnej dla systemu iOS. 
    
         #import <Foundation/Foundation.h>
         #import <JavaScriptCore/JavascriptCore.h>
@@ -72,7 +72,7 @@ Wykonaj poniższe kroki hello dla hello iOS zestawiania próbki:
         @interface EngagementJs : NSObject <EngagementJsExports>
    
         @end
-6. Następnie utworzymy hello drugiej części hello Mostek pliku. Utwórz plik o nazwie **EngagementJsExports.m** zawierający implementację hello tworzenia otoki rzeczywiste hello wywoływania hello Mobile Engagement iOS SDK metod. Należy także zauważyć, że firma Microsoft hello są analizowania `extras` przekazywany z hello webview javascript i który do umieszczania `NSMutableDictionary` toobe obiektu przekazany z hello metodę Engagement SDK wywołania.  
+6. Następnie utworzymy drugiej części pliku mostek. Utwórz plik o nazwie **EngagementJsExports.m** zawierający implementację tworzenia otoki rzeczywiste przez wywołanie usługi Mobile Engagement iOS SDK metody. Należy także zauważyć, że firma Microsoft podczas analizowania `extras` przekazywany z poziomu języka javascript widoku sieci Web i który do umieszczania `NSMutableDictionary` obiekt przekazywany z wywołań metody Engagement SDK.  
    
         #import <UIKit/UIKit.h>
         #import "EngagementAgent.h"
@@ -113,7 +113,7 @@ Wykonaj poniższe kroki hello dla hello iOS zestawiania próbki:
         }
    
         @end
-7. Teraz możemy następnie wróć toohello **ViewController.m** i zaktualizować go z hello następującego kodu: 
+7. Teraz możemy wróć do **ViewController.m** i zaktualizować go następującym kodem: 
    
         #import <JavaScriptCore/JavaScriptCore.h>
         #import "ViewController.h"
@@ -158,11 +158,11 @@ Wykonaj poniższe kroki hello dla hello iOS zestawiania próbki:
         }
    
         @end
-8. Uwaga hello następujące kwestie dotyczące hello **ViewController.m** pliku:
+8. Należy zwrócić uwagę następujące kwestie dotyczące **ViewController.m** pliku:
    
-   * W hello `loadWebView` metody, możemy ładowania lokalnego pliku o nazwie **LocalPage.html** którego kod Zapoznamy się obok. 
-   * W hello `webViewDidFinishLoad` metody, możemy są dane hello `JsContext` i kojarzenie z nim naszej klasy otoki. Umożliwi to wywołanie naszych otoki metod SDK przy użyciu dojścia hello **EngagementJs** hello widok sieci Web. 
-9. Utwórz plik o nazwie **LocalPage.html** z hello następującego kodu:
+   * W `loadWebView` metody, możemy ładowania lokalnego pliku o nazwie **LocalPage.html** którego kod Zapoznamy się obok. 
+   * W `webViewDidFinishLoad` metody, możemy są dane `JsContext` i kojarzenie z nim naszej klasy otoki. Umożliwi to wywołanie naszych otoki metod SDK przy użyciu dojścia **EngagementJs** z widoku sieci Web. 
+9. Utwórz plik o nazwie **LocalPage.html** następującym kodem:
    
         <!doctype html>
         <html>
@@ -186,7 +186,7 @@ Wykonaj poniższe kroki hello dla hello iOS zestawiania próbki:
                    if(input)
                    {
                        var value = input.value;
-                       // Example of how extras info can be passed with hello Engagement logs
+                       // Example of how extras info can be passed with the Engagement logs
                        var extras = '{"CustomerId":"MS290011"}';
                    }
    
@@ -248,16 +248,16 @@ Wykonaj poniższe kroki hello dla hello iOS zestawiania próbki:
                </div>
            </body>
         </html>
-10. Uwaga hello następujące kwestie dotyczące pliku HTML hello powyżej:
+10. Należy uwzględnić następujące kwestie dotyczące pliku w formacie HTML powyżej:
     
-    * Zawiera zestaw wejściowy pól, w którym można podać toobe danych używane jako nazwy dla zdarzeń, zadania, błąd, AppInfo. Po kliknięciu hello przycisku Dalej tooit toohello Javascript, który ostatecznie wywołuje metody hello z hello Mostek pliku toopass toohello to wywołanie usługi Mobile Engagement iOS SDK jest nawiązane połączenie. 
-    * Czy firma Microsoft znakowanie na niektóre zdarzenia toohello statycznych dodatkowe informacje, zadań i nawet błędy toodemonstrate jak można to zrobić. Te dodatkowe informacje są wysyłane jako JSON ciąg, który w hello `EngagementJsExports.m` pliku, jest analizowana i przekazywane wraz ze zdarzeń, zadań, błędy wysyłania. 
-    * Zadanie Mobile Engagement zostało rozpoczęte o nazwie hello określonej w polu wejściowym hello, uruchom na 10 sekund i zamknąć. 
-    * Mobile Engagement appinfo lub znacznik jest przekazywany z "customer_name" hello statyczny klucz i wartość hello, wprowadzone w danych wejściowych hello jako wartość hello hello tagu. 
-11. Hello wykonywania aplikacji i zobaczą hello poniżej. Teraz niektóre nazwy zdarzenie testowe, takich jak powitania po i kliknij przycisk **wysyłania** tooit dalej. 
+    * Zawiera zestaw wejściowy pól, w którym można podać dane mają być używane jako nazwy dla zdarzeń, zadania, błąd, AppInfo. Po kliknięciu przycisku Dalej, aby go połączenie jest nawiązywane w przypadku Javascript, który ostatecznie wywołuje metody z pliku mostek do przekazania to wywołanie usługi Mobile Engagement iOS SDK. 
+    * Firma Microsoft są znakowanie na niektórych statycznych dodatkowe informacje do zdarzeń, zadania i nawet błędów, aby zademonstrować, jak można to zrobić. Te dodatkowe informacje są wysyłane jako JSON ciąg, który w `EngagementJsExports.m` pliku, jest analizowana i przekazywane wraz ze zdarzeń, zadań, błędy wysyłania. 
+    * Zadanie Mobile Engagement zostało rozpoczęte o nazwie określonej w polu wejściowym, uruchom na 10 sekund i zamknąć. 
+    * Usługa Mobile Engagement appinfo lub znacznik jest przekazywany z "customer_name" jako statyczny klucz i wartość wprowadzona w danych wejściowych jako wartość tagu. 
+11. Uruchom aplikację i pojawi się poniżej. Teraz niektóre nazwy zdarzenie testowe, podobnie jak poniżej i kliknij przycisk **wysyłania** obok niej. 
     
      ![][1]
-12. Obecnie przejście toohello **Monitor** kartę aplikacji i wyglądu w obszarze **zdarzenia -> Szczegóły**, zobaczysz tego zdarzenia wyświetlane wraz z hello statyczne informacje o aplikacji, które firma Microsoft wysyłania. 
+12. Teraz, jeśli przejdziesz do **Monitor** kartę aplikacji i wyglądu w obszarze **zdarzenia -> Szczegóły**, zobaczysz tego zdarzenia wyświetlane wraz ze statycznego aplikacji — informacje, które firma Microsoft wysyłania. 
     
     ![][2]
 

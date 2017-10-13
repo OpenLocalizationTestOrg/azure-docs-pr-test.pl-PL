@@ -1,6 +1,6 @@
 ---
-title: "toocreate aaaHow biletu pomocy technicznej dla usługi SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Jak toocreate obsługi biletu w usłudze Azure SQL Data Warehouse."
+title: "Tworzenie biletu pomocy technicznej dotyczącej usługi SQL Data Warehouse | Microsoft Docs"
+description: "Tworzenie biletu pomocy technicznej w usłudze Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,70 +15,70 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 72f7eac82112fb7f1bfb05abca4ce40aeb3c828c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 058ff1229acee5d03db7c0305c5565ae95a85758
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-toocreate-a-support-ticket-for-sql-data-warehouse"></a>Jak toocreate obsługi biletu usługi SQL Data Warehouse
+# <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Tworzenie biletu pomocy technicznej dotyczącej usługi SQL Data Warehouse
 Jeśli masz problemy z usługą SQL Data Warehouse, utwórz bilet pomocy technicznej, aby umożliwić naszemu zespołowi inżynierów udzielenie pomocy.
 
 > [!NOTE] 
-> Począwszy od 12 20 2016-sprawdzenie kondycji zasobów hello w portalu Azure hello jest niedokładna. Obecnie pracujemy toofix ten problem. 
+> Począwszy od 20.12.2016 r., sprawdzenie kondycji zasobów w witrynie Azure Portal nie jest dokładne. Pracujemy nad rozwiązaniem tego problemu. 
 
 
 ## <a name="create-a-support-ticket"></a>Tworzenie biletu pomocy technicznej
-1. Otwórz hello [portalu Azure][Azure portal].
-2. Na ekranie głównej powitania kliknij hello **Pomoc i obsługa techniczna** kafelka.
+1. Otwórz witrynę [Azure Portal][Azure portal].
+2. Na ekranie głównym kliknij kafelek **Pomoc i obsługa techniczna**.
    
     ![Pomoc i obsługa techniczna](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
-3. Na hello pomoc + Obsługa bloku, kliknij przycisk **Utwórz żądanie obsługi**.
+3. W bloku Pomoc i obsługa techniczna kliknij opcję **Utwórz żądanie obsługi**.
    
     ![Nowe żądanie pomocy technicznej](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
    
     <a name="request-quota-change"></a> 
-4. Wybierz hello **żądania typu**.
+4. Wybierz typ żądania w polu **Typ żądania**.
    
     ![Typ żądania](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
    
    > [!NOTE]
-   > Domyślnie każdy serwer SQL (np. myserver.database.windows.net) ma **limit przydziału jednostek DTU** wynoszący 45 000. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Tworzenie biletu pomocy technicznej i wybierając można zwiększyć limitu przydziału *przydziału* jako typ żądania hello. toocalculate Twojego jednostek dtu w warstwie musi należy pomnożyć hello 7.5 przez hello całkowita [DWU] [ DWU] potrzebne. Na przykład chcesz toohost dwa DW6000s na jeden serwer SQL server, możesz zażądać limit przydziału jednostek DTU z 90,000.  Twoje bieżące użycie jednostek DTU z bloku serwera SQL hello można wyświetlić w portalu hello. Zarówno wstrzymana i cofanie wstrzymania bazy danych są wliczane do limitu przydziału jednostek dtu w warstwie hello. 
+   > Domyślnie każdy serwer SQL (np. myserver.database.windows.net) ma **limit przydziału jednostek DTU** wynoszący 45 000. Ten limit przydziału jest po prostu limitem bezpieczeństwa. Możesz zwiększyć limit przydziału, tworząc bilet pomocy technicznej i wybierając pozycję *Limit przydziału* jako typ żądania. Aby obliczyć zapotrzebowanie na jednostki DTU, należy pomnożyć 7,5 przez łączną wymaganą liczbę jednostek [DWU][DWU]. Jeśli na przykład chcesz hostować dwie bazy danych z poziomem celu usługi DW6000 na jednym serwerze SQL, zażądaj limitu przydziału wynoszącego 90 000.  Aktualne użycie jednostek DTU możesz zobaczyć z poziomu bloku serwera SQL w portalu. Limit przydziału jednostek DTU obejmuje zarówno wstrzymane, jak i niewstrzymane bazy danych. 
    > 
    > 
-5. Wybierz hello **subskrypcji** czy hosty hello bazy danych z problemem hello są raportowania.
+5. W polu **Subskrypcja** wybierz subskrypcję obejmującą problematyczną bazę danych.
    
     ![Subskrypcja](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
-6. Wybierz **SQL Data Warehouse** jako hello zasobów.
+6. Wybierz opcję **SQL Data Warehouse** jako zasób.
    
     ![Zasób](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 7. Wybierz odpowiedni [Plan pomocy technicznej platformy Azure][Azure support plan].
    
    * Pomoc techniczna związana z **rozliczeniami, limitami przydziałów i zarządzaniem subskrypcjami** jest dostępna na wszystkich poziomach pomocy technicznej.
-   * **Naprawa w razie awarii** jest oferowana w ramach pomocy technicznej na poziomach [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] i [Premium][Premier]. Naprawa w razie awarii problemów są problemów napotykanych przez klientów podczas korzystania z usługi Azure w przypadku, gdy istnieje uzasadniona możliwość hello Microsoft spowodował problem.
-   * **Wsparcie dla deweloperów** i **usługi doradcze** są dostępne pod adresem hello [Professional Direct] [ Professional Direct] i [Premier] [ Premier] poziomach pomocy technicznej. 
+   * **Naprawa w razie awarii** jest oferowana w ramach pomocy technicznej na poziomach [Developer][Developer], [Standard][Standard], [Professional Direct][Professional Direct] i [Premium][Premier]. Naprawa w razie awarii dotyczy problemów napotykanych przez klientów podczas korzystania z platformy Azure, jeśli istnieje uzasadnione podejrzenie, że problem leży po stronie firmy Microsoft.
+   * **Wsparcie dla deweloperów** i **usługi doradcze** są dostępne na poziomach pomocy technicznej [Professional Direct][Professional Direct] i [Premium][Premier]. 
      
-     Jeśli masz plan pomocy technicznej Premium, możesz zgłaszać także usługi SQL Data Warehouse problemy na powitania związane z [Microsoft Premier online portalu][Microsoft Premier online portal].  Zobacz [plany pomocy technicznej platformy Azure] [ Azure support plan] toolearn więcej informacji na temat hello obsługuje różne plany, ich zakresach, czasach reakcji, cenach, itp.  Często zadawane pytania na temat pomocy technicznej platformy Azure można znaleźć w temacie [Pomoc techniczna platformy Azure — często zadawane pytania][Azure support FAQs].  
+     Jeśli masz plan pomocy technicznej Premium, możesz zgłaszać problemy związane z usługą SQL Data Warehouse także w portalu [Microsoft Premier Online][Microsoft Premier online portal].  Zobacz temat [Plany pomocy technicznej platformy Azure][Azure support plan], aby dowiedzieć się więcej o różnych planach pomocy technicznej, ich zakresach, czasach reakcji, cenach itp.  Często zadawane pytania na temat pomocy technicznej platformy Azure można znaleźć w temacie [Pomoc techniczna platformy Azure — często zadawane pytania][Azure support FAQs].  
      
      ![Plan pomocy technicznej](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Wybierz hello **typ problemu** i **kategorii**. W tym przykładzie Wybraliśmy "Narzędzia" jako hello typ problemu i "klient" hello kategorii. 
+8. Wybierz odpowiednie wartości w polach **Typ problemu** i **Kategoria**. W tym przykładzie wybraliśmy typ problemu „Narzędzia” oraz kategorię „Narzędzia klienta”. 
    
     ![Typ problemu i kategoria](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
-9. Opisz hello problem i wybierz poziom hello wpływ na prowadzoną działalność.
+9. Opisz problem i wybierz poziom jego wpływu na prowadzoną działalność.
    
     ![Opis problemu](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
 10. Twoje **informacje kontaktowe** dotyczące tego biletu pomocy technicznej zostaną wstępnie wypełnione. Zaktualizuj je w razie potrzeby.
     
     ![Informacje kontaktowe](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
-11. Kliknij przycisk **Utwórz** toosubmit hello obsługi żądania.
+11. Kliknij przycisk **Utwórz**, aby przesłać żądanie pomocy technicznej.
 
 ## <a name="monitor-a-support-ticket"></a>Monitorowanie biletu pomocy technicznej
-Gdy prześlesz żądanie pomocy technicznej hello hello zespołu pomocy technicznej platformy Azure skontaktuje się z Tobą. toocheck stan żądania i uzyskać więcej informacji, kliknij przycisk **Zarządzaj żądaniami obsługi** na powitania pulpitu nawigacyjnego.
+Po przesłaniu żądania pomocy technicznej zespół pomocy technicznej platformy Azure skontaktuje się z Tobą. Aby sprawdzić stan żądania i szczegółowe informacje, kliknij opcję **Zarządzaj żądaniami obsługi** na pulpicie nawigacyjnym.
 
 ![Sprawdzanie stanu](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 ## <a name="other-resources"></a>Inne zasoby
-Ponadto można połączyć z hello społeczności SQL Data Warehouse w [przepełnienie stosu] [ Stack Overflow] lub na powitania [forum MSDN magazynu danych SQL Azure] [ Azure SQL Data Warehouse MSDN forum].
+Ponadto można nawiązać kontakt ze społecznością usługi SQL Data Warehouse w witrynie [Stack Overflow][Stack Overflow] lub na [forum MSDN dotyczącym usługi Azure SQL Data Warehouse][Azure SQL Data Warehouse MSDN forum].
 
 <!--Image references--> 
 

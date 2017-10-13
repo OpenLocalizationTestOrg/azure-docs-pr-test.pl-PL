@@ -1,6 +1,6 @@
 ---
-title: "Dodatek dla programu Eclipse sieci szkieletowej usług aaaAzure | Dokumentacja firmy Microsoft"
-description: "Rozpoczynanie pracy z hello wtyczki sieci szkieletowej usług dla programu Eclipse."
+title: "Wtyczka usługi Azure Service Fabric dla środowiska Eclipse | Microsoft Docs"
+description: "Rozpocznij pracę z wtyczką usługi Service Fabric dla środowiska Eclipse."
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -14,39 +14,43 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
 ms.author: saysa
-ms.openlocfilehash: 4ba5a28a6282387249a2bd4e62314e891ff04162
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4fa77da8665908553072792d7f2ede47bf5567dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Wtyczka usługi Service Fabric na potrzeby tworzenia aplikacji Java w środowisku Eclipse
-Środowisko Eclipse jest jednym z hello najczęściej używane zintegrowane środowisk deweloperskich (IDE) dla deweloperów języka Java. W tym artykule opisano sposób tooset się toowork środowisko rozwoju Eclipse, tak z sieci szkieletowej usług Azure. Dowiedz się, jak utworzyć aplikację sieci szkieletowej usług hello tooinstall wtyczki sieci szkieletowej usług i wdrażanie z sieci szkieletowej usług aplikacji tooa lokalnego lub zdalnego klastra sieci szkieletowej usług w środowisku Eclipse Neon.
+Eclipse jest jednym z najczęściej używanych zintegrowanych środowisk projektowych (IDE, integrated development environment) przez programistów języka Java. W tym artykule omówiono konfigurowanie środowiska projektowego Eclipse do pracy z usługą Azure Service Fabric. Dowiedz się, jak zainstalować wtyczkę usługi Service Fabric oraz utworzyć aplikację usługi Service Fabric i wdrożyć ją w lokalnym lub zdalnym klastrze usługi Service Fabric w środowisku Eclipse Neon.
 
-## <a name="install-or-update-hello-service-fabric-plug-in-in-eclipse-neon"></a>Zainstaluj lub zaktualizuj hello wtyczki w środowisku Eclipse Neon sieci szkieletowej usług
-W środowisku Eclipse można zainstalować wtyczkę usługi Service Fabric. Wtyczka Hello może ułatwić proces hello tworzenie i wdrażanie usług Java.
+## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Instalowanie lub aktualizowanie wtyczki usługi Service Fabric w środowisku Eclipse Neon
+W środowisku Eclipse można zainstalować wtyczkę usługi Service Fabric. Wtyczka może pomóc w uproszczeniu procesu kompilowania i wdrażania usług Java.
 
-1.  Upewnij się, czy masz najnowszą wersję programu Eclipse Neon hello i hello najnowszą wersję Buildship zainstalowany (1.0.17 lub nowszy):
-    -   toocheck hello wersje zainstalowanych składników w Eclipse Neon Przejdź zbyt**pomocy** > **szczegółowe informacje dotyczące instalacji**.
-    -   Zobacz tooupdate Buildship, [Eclipse Buildship: Eclipse wtyczek dla narzędzia Gradle][buildship-update].
-    -   toocheck dla i instalacja aktualizacji dla programu Eclipse Neon, go za**pomocy** > **Sprawdź aktualizacje**.
+1.  Upewnij się, że masz zainstalowaną najnowszą wersję środowiska Eclipse Neon i zestawu Buildship (wersję 1.0.17 lub nowszą):
+    -   Aby sprawdzić wersje zainstalowanych składników, w środowisku Eclipse Neon wybierz pozycję **Help** > **Installation Details** (Pomoc — Szczegóły instalacji).
+    -   Aby zaktualizować zestaw Buildship, zobacz [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update] (Eclipse Buildship: wtyczki środowiska Eclipse dla narzędzia Gradle).
+    -   Aby sprawdzić i zainstalować aktualizacje środowiska Eclipse Neon, wybierz opcję **Help** > **Check for Updates** (Pomoc — Sprawdź dostępność aktualizacji).
 
-2.  tooinstall hello usługi sieć szkieletowa wtyczki w Eclipse Neon Przejdź zbyt**pomocy** > **zainstalować nowe oprogramowanie**.
-  1.    W hello **pracować z** wprowadź **http://dl.microsoft.com/eclipse**.
+2.  Aby zainstalować wtyczkę usługi Service Fabric, w środowisku Eclipse Neon wybierz pozycję **Help** > **Install New Software** (Pomoc — Instaluj nowe oprogramowanie).
+  1.    W polu **Work with** (Pracuj z) wprowadź adres **http://dl.microsoft.com/eclipse**.
   2.    Kliknij pozycję **Dodaj**.
 
          ![Wtyczka usługi Service Fabric dla środowiska Eclipse Neon][sf-eclipse-plugin-install]
-  3.    Wybierz hello wtyczki sieci szkieletowej usług, a następnie kliknij przycisk **dalej**.
-  4.    Wykonaj kroki instalacji hello, a następnie zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft hello.
+  3.    Wybierz wtyczkę usługi Service Fabric, a następnie kliknij przycisk **Next** (Dalej).
+  4.    Wykonaj kroki instalacji, a następnie zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft.
 
-Jeśli masz już hello usługi sieć szkieletowa wtyczki zainstalowane, upewnij się, że masz hello najnowszej wersji. toocheck dostępnych aktualizacji, przejdź zbyt**pomocy** > **szczegółowe informacje dotyczące instalacji**. Witaj listy zainstalowanych wtyczek, wybierz sieć szkieletowa usług, a następnie kliknij **aktualizacji**. Dostępne aktualizacje zostaną zainstalowane.
+Jeśli wtyczka usługi Service Fabric jest już zainstalowana, upewnij się, że używasz najnowszej wersji. Aby sprawdzić, czy są dostępne aktualizacje, wybierz pozycję **Help** > **Installation Details** (Pomoc — Szczegóły instalacji). Na liście zainstalowanych wtyczek wybierz usługę Service Fabric, a następnie kliknij pozycję **Update** (Aktualizuj). Dostępne aktualizacje zostaną zainstalowane.
 
 > [!NOTE]
-> Jeśli instalację lub aktualizację hello wtyczki sieci szkieletowej usług przebiega powoli, może to być spowodowane tooan Eclipse ustawienie. Eclipse zbiera metadanych we wszystkich lokacjach tooupdate zmiany, które są zarejestrowane z wystąpieniem programu Eclipse. toospeed proces hello wyszukiwanie i instalowanie aktualizacji wtyczki w sieci szkieletowej usług Przejdź zbyt**dostępnych lokacji oprogramowania**. Usuń zaznaczenie pól wyboru hello dla wszystkich lokacji, z wyjątkiem hello, który wskazuje lokalizację wtyczki toohello sieci szkieletowej usług (http://dl.microsoft.com/eclipse/azure/servicefabric).
+> Jeśli instalowanie lub aktualizowanie wtyczki usługi Service Fabric przebiega wolno, przyczyną może być ustawienie środowiska Eclipse. Środowisko Eclipse zbiera metadane dotyczące wszystkich zmian w witrynach aktualizowania, które są zarejestrowane w wystąpieniu środowiska Eclipse. Aby przyspieszyć proces sprawdzania i instalowania aktualizacji wtyczki usługi Service Fabric, wybierz pozycję **Available Software Sites** (Dostępne witryny z oprogramowaniem). Usuń zaznaczenie pól wyboru dla wszystkich witryn poza witryną wskazującą lokalizację wtyczki usługi Service Fabric (http://dl.microsoft.com/eclipse/azure/servicefabric).
+
+> [!NOTE]
+>Jeśli środowisko Eclipse nie działa zgodnie z oczekiwaniami na komputerze Mac (lub wymagane są uprawnienia administratora), przejdź do folderu **ECLIPSE_INSTALLATION_PATH**, a następnie do podfolderu **Eclipse.app/Contents/MacOS**. Uruchom środowisko Eclipse, uruchamiając element `./eclipse`.
+
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Tworzenie aplikacji usługi Service Fabric w środowisku Eclipse
 
-1.  Eclipse Neon zbyt Przejdź**pliku** > **nowy** > **innych**. Wybierz pozycję **Service Fabric Project** (Projekt usługi Service Fabric), a następnie kliknij przycisk **Next** (Dalej).
+1.  W środowisku Eclipse Neon wybierz opcję **File** > **New** > **Other** (Plik — Nowy — Inne). Wybierz pozycję **Service Fabric Project** (Projekt usługi Service Fabric), a następnie kliknij przycisk **Next** (Dalej).
 
     ![Nowy projekt usługi Service Fabric — strona 1][create-application/p1]
 
@@ -54,15 +58,15 @@ Jeśli masz już hello usługi sieć szkieletowa wtyczki zainstalowane, upewnij 
 
     ![Nowy projekt usługi Service Fabric — strona 2][create-application/p2]
 
-3.  Witaj listy szablonów, wybierz **szablonu usługi**. Wybierz typ szablonu usługi — Actor (Aktor), Stateless (Bezstanowa), Container (Kontener) lub Guest Binary (Binarna gościa) — a następnie kliknij przycisk **Next** (Dalej).
+3.  Na liście szablonów wybierz pozycję **Service Template** (Szablon usługi). Wybierz typ szablonu usługi — Actor (Aktor), Stateless (Bezstanowa), Container (Kontener) lub Guest Binary (Binarna gościa) — a następnie kliknij przycisk **Next** (Dalej).
 
     ![Nowy projekt usługi Service Fabric — strona 3][create-application/p3]
 
-4.  Wprowadź nazwę usługi hello i szczegóły dotyczące usługi, a następnie kliknij przycisk **Zakończ**.
+4.  Wprowadź nazwę usługi i jej szczegóły, a następnie kliknij przycisk **Finish** (Zakończ).
 
     ![Nowy projekt usługi Service Fabric — strona 4][create-application/p4]
 
-5. Po utworzeniu pierwszego projektu sieci szkieletowej usług, hello **perspektywy skojarzonych Otwórz** okno dialogowe, kliknij przycisk **tak**.
+5. Podczas tworzenia pierwszego projektu usługi Service Fabric w oknie dialogowym **Open Associated Perspective** (Otwieranie skojarzonej perspektywy) kliknij przycisk **Yes** (Tak).
 
     ![Nowy projekt usługi Service Fabric — strona 5][create-application/p5]
 
@@ -76,77 +80,77 @@ Jeśli masz już hello usługi sieć szkieletowa wtyczki zainstalowane, upewnij 
 
     ![Menu prawego przycisku myszy usługi Service Fabric][publish/RightClick]
 
-2. Wybierz odpowiednią opcję hello podmenu hello:
-    -   Aplikacja hello toobuild bez czyszczenia, kliknij przycisk **kompilacji aplikacji**.
-    -   Kliknij przycisk toodo czystą kompilację aplikacji hello **odbudować aplikacji**.
-    -   Kliknij aplikacji hello tooclean wbudowanych artefaktów **czystą aplikacji**.
+2. W podmenu wybierz odpowiednią opcję:
+    -   Aby skompilować aplikację bez czyszczenia, kliknij opcję **Build Application** (Kompiluj aplikację).
+    -   Aby skompilować aplikację z wcześniejszym czyszczeniem, kliknij opcję **Rebuild Application** (Kompiluj ponownie aplikację).
+    -   Aby wyczyścić aplikację z artefaktów kompilacji, kliknij opcję **Clean Application** (Wyczyść aplikację).
 
 3.  To menu umożliwia także wdrożenie, cofnięcie wdrożenia i opublikowanie aplikacji:
-    -   Klaster lokalny tooyour toodeploy, kliknij przycisk **wdrażanie aplikacji**.
-    -   W hello **publikowania aplikacji** oknie dialogowym Wybierz profil publikowania:
+    -   Aby wdrożyć w klastrze lokalnym, kliknij opcję **Deploy Application** (Wdróż aplikację).
+    -   W oknie dialogowym **Publish Application** (Publikowanie aplikacji) wybierz profil publikowania:
         -  **Local.json**
         -  **Cloud.json**
 
-     Te pliki JavaScript Object Notation (JSON) przechowywania informacji (takich jak punkty końcowe połączenia i informacji o zabezpieczeniach), która jest wymagana tooconnect tooyour lokalnego lub w klastrze chmury (Azure).
+     Te pliki JSON (JavaScript Object Notation) służą do przechowywania informacji (takich jak punkty końcowe połączenia i informacje o zabezpieczeniach) wymaganych do nawiązania połączenia z klastrem lokalnym lub w chmurze (Azure).
 
   ![Menu publikowania usługi Service Fabric][publish/Publish]
 
-Toodeploy alternatywny sposób aplikacji sieci szkieletowej usług za pomocą programu Eclipse uruchomieniu konfiguracje.
+Alternatywnym sposobem wdrażania aplikacji usługi Service Fabric jest użycie konfiguracji uruchamiania środowiska Eclipse.
 
-  1.    Przejdź za**Uruchom** > **konfiguracje wykonywania**.
-  2.    W obszarze **projektu Gradle**, wybierz pozycję hello **ServiceFabricDeployer** Uruchom konfigurację.
-  3.    W prawym okienku hello na powitania **argumenty** karcie dla **publishProfile**, wybierz pozycję **lokalnego** lub **chmury**.  Domyślnie Hello **lokalnego**. tooa toodeploy zdalnego lub chmury klastra, wybierz opcję **chmury**.
-  4.    tooensure czy hello odpowiednie informacje są umieszczane w hello profilów publikowania, Edytuj **Local.json** lub **Cloud.json** zgodnie z potrzebami. Możesz dodać lub zaktualizować szczegóły punktu końcowego i poświadczenia zabezpieczeń.
-  5.    Upewnij się, że **katalog roboczy** punktów toohello aplikacji ma toodeploy. toochange hello aplikacji, kliknij przycisk hello **obszaru roboczego** przycisk, a następnie wybierz aplikację hello.
+  1.    Wybierz opcję **Run** > **Run Configurations** (Uruchom — Konfiguracje uruchamiania).
+  2.    W obszarze **Gradle Project** (Projekt narzędzia Gradle) wybierz konfigurację uruchamiania **ServiceFabricDeployer**.
+  3.    W okienku po prawej stronie na karcie **Arguments** (Argumenty) dla pozycji **publishProfile** wybierz opcję **local** (lokalne) lub **cloud** (w chmurze).  Wartość domyślna to **local** (lokalne). Aby wdrożyć w klastrze zdalnym lub w chmurze wybierz opcję **cloud** (w chmurze).
+  4.    Aby upewnić się, że w profilach publikowania zostały podane prawidłowe informacje, edytuj plik **Local.json** lub **Cloud.json** zgodnie z potrzebami. Możesz dodać lub zaktualizować szczegóły punktu końcowego i poświadczenia zabezpieczeń.
+  5.    Upewnij się, że pozycja **Working Directory** (Katalog roboczy) wskazuje aplikację do wdrożenia. Aby zmienić aplikację, kliknij przycisk **Workspace** (Obszar roboczy) i wybierz odpowiednią aplikację.
   6.    Kliknij przycisk **Apply** (Zastosuj), a następnie kliknij przycisk **Run** (Uruchom).
 
-Aplikacja zostanie skompilowana i wdrożona w ciągu kilku minut. Można monitorować stan wdrożenia hello w narzędziu Service Fabric Explorer.  
+Aplikacja zostanie skompilowana i wdrożona w ciągu kilku minut. Stan wdrażania możesz monitorować w narzędziu Service Fabric Explorer.  
 
-## <a name="add-a-service-fabric-service-tooyour-service-fabric-application"></a>Dodaj tooyour usługi sieć szkieletowa usług aplikacji sieci szkieletowej usług
+## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Dodawanie usługi Service Fabric do aplikacji usługi Service Fabric
 
-tooadd sieci szkieletowej usług tooan istniejącej sieci szkieletowej usług aplikacji usługi, hello następujące kroki:
+Aby dodać usługę Service Fabric do istniejącej aplikacji usługi Service Fabric, wykonaj następujące kroki:
 
-1.  Kliknij prawym przyciskiem myszy hello projektu mają tooadd usługi, a następnie kliknij przycisk **sieci szkieletowej usług**.
+1.  Kliknij prawym przyciskiem myszy projekt, do którego chcesz dodać usługę, a następnie kliknij polecenie **Service Fabric**.
 
     ![Dodawanie usługi Service Fabric — strona 1][add-service/p1]
 
-2.  Kliknij przycisk **dodać Usługa sieci szkieletowej usług**, i hello pełny zestaw tooadd kroki projekt toohello usługi.
-3.  Hello wybierz szablon usługi ma tooadd tooyour projektu, a następnie kliknij przycisk **dalej**.
+2.  Kliknij pozycję **Add Service Fabric Service** (Dodaj usługę Service Fabric) i wykonaj zestaw czynności, aby dodać usługę do projektu.
+3.  Wybierz szablon usługi, który chcesz dodać do projektu, a następnie kliknij przycisk **Next** (Dalej).
 
     ![Dodawanie usługi Service Fabric — strona 2][add-service/p2]
 
-4.  Wprowadź nazwę usługi hello (i inne szczegóły, w razie potrzeby), a następnie kliknij przycisk hello **Dodaj usługę** przycisku.  
+4.  Wprowadź nazwę usługi (i inne szczegóły, zgodnie z potrzebami), a następnie kliknij przycisk **Add Service** (Dodaj usługę) przycisku.  
 
     ![Dodawanie usługi Service Fabric — strona 3][add-service/p3]
 
-5.  Po dodaniu usługi hello ogólną strukturę projektu wygląda podobnie toohello następującego projektu:
+5.  Po dodaniu usługi ogólna struktura projektu powinna wyglądać podobnie do poniższej:
 
     ![Dodawanie usługi Service Fabric — strona 4][add-service/p4]
 
 ## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Edytowanie wersji manifestu aplikacji Java usługi Service Fabric
 
-tooedit wersji manifestu, kliknij prawym przyciskiem myszy projekt hello, przejdź zbyt**sieci szkieletowej usług** i wybierz **edytować wersji manifestu...**  z hello menu rozwijanym. W Kreatorze hello można aktualizować hello wersji manifestu dla manifest usługi manifestu, aplikacji i wersji hello **kod**, **Config** i **danych** pakietów.
+Aby edytować wersje manifestu, kliknij prawym przyciskiem myszy projekt, przejdź do lokalizacji **Service Fabric** i wybierz z menu rozwijanego pozycję **Edytuj wersje manifestu**. W kreatorze możesz zaktualizować wersje manifestu aplikacji i manifestu usługi oraz wersje pakietów **Kod**, **Konfiguracja** i **Dane**.
 
-Jeśli zaznaczysz opcję hello **automatycznie Aktualizuj wersje aplikacji i usługi** , a następnie zaktualizuj wersję, następnie wersji manifestu hello zostanie automatycznie zaktualizowana. toogive przykładem, należy najpierw wybrać hello pole wyboru, a następnie aktualizacji wersji hello **kod** wersji z 0.0.0 too0.0.1 i kliknij pozycję **Zakończ**, następnie usługi wersji manifestu i manifest aplikacji wersja będzie too0.0.1 automatycznie aktualizowane.
+Jeśli zaznaczysz opcję **Automatycznie aktualizuj wersje aplikacji i usługi**, a następnie zaktualizujesz wersję, wersje manifestu zostaną automatycznie zaktualizowane. Przykład: najpierw musisz zaznaczyć pole wyboru, a następnie zaktualizować wersję pakietu **Kod** z 0.0.0 na 0.0.1 i kliknąć przycisk **Zakończ**. Następnie wersja manifestu usługi i wersja manifestu aplikacji zostaną automatycznie zaktualizowane do wersji 0.0.1.
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Uaktualnianie aplikacji Java usługi Service Fabric
 
-Scenariusz uaktualnienia, powiedz utworzone hello **App1** projektu przy użyciu hello wtyczki w środowisku Eclipse sieci szkieletowej usług. Wdrożono go za pomocą wtyczki toocreate hello aplikacji o nazwie **fabric: / App1Application**. Typ aplikacji Hello jest **App1AppicationType**, i wersja aplikacji hello jest 1.0. Teraz ma tooupgrade aplikacji bez zakłócania ich dostępności.
+Na potrzeby scenariusza uaktualniania przyjmijmy, że utworzono projekt **App1** za pomocą wtyczki usługi Service Fabric w środowisku Eclipse. Wdrożono go za pomocą wtyczki w celu utworzenia aplikacji o nazwie **fabric:/App1Application**. Typ aplikacji to **App1ApplicationType**, a jej wersja to 1.0. Teraz chcesz uaktualnić aplikację bez przerw w dostępności.
 
-Najpierw należy wprowadzać żadnych zmian w aplikacji tooyour i skompiluj go ponownie zmodyfikować hello usługi. Aktualizacja hello modyfikacji pliku manifestu usługi (ServiceManifest.xml) z hello zaktualizowane wersje hello usługi (i kodu, konfiguracji lub danych w formie odpowiednich). Ponadto zmodyfikuj manifest aplikacji hello (ApplicationManifest.xml) z numerem wersji hello zaktualizowane dla aplikacji hello i hello modyfikacji usługi.  
+Najpierw wprowadź zmiany w aplikacji i ponownie skompiluj zmodyfikowaną usługę. Zaktualizuj plik manifestu zmodyfikowanej usługi (ServiceManifest.xml) za pomocą zaktualizowanych wersji usługi (i kodu, konfiguracji lub danych — odpowiednio do potrzeb). Zmodyfikuj także manifest aplikacji (ApplicationManifest.xml), określając zaktualizowany numer wersji dla aplikacji i zmodyfikowaną usługę.  
 
-tooupgrade aplikacji przy użyciu Eclipse Neon, możesz utworzyć profil zduplikowane wykonywania konfiguracji. Następnie należy użyć go tooupgrade aplikacji zgodnie z potrzebami.
+Aby uaktualnić aplikację przy użyciu środowiska Eclipse Neon, możesz utworzyć zduplikowany profil konfiguracji uruchamiania. Następnie użyj go do uaktualnienia aplikacji zgodnie z potrzebami.
 
-1.  Przejdź za**Uruchom** > **konfiguracje wykonywania**. W okienku po lewej stronie powitania kliknij hello małą strzałkę toohello lewej strony **projektu Gradle**.
+1.  Wybierz opcję **Run** > **Run Configurations** (Uruchom — Konfiguracje uruchamiania). W lewym okienku kliknij małą strzałkę po lewej stronie pozycji **Gradle Project** (Projekt narzędzia Gradle).
 2.  Kliknij prawym przyciskiem myszy pozycję **ServiceFabricDeployer** i wybierz polecenie **Duplicate** (Duplikuj). Wprowadź nową nazwę dla tej konfiguracji, na przykład **ServiceFabricUpgrader**.
-3.  W prawym panelu hello na powitania **argumenty** Zmień **- Pconfig = "wdrażania"** za**- Pconfig = "Uaktualnij"**, a następnie kliknij przycisk **Zastosuj**.
+3.  W prawym panelu na karcie **Arguments** (Argumenty) zmień wartość **-Pconfig='deploy'** na wartość **-Pconfig='upgrade'** i kliknij przycisk **Apply** (Zastosuj).
 
-Ten proces tworzy i zapisuje profil uruchamiania konfiguracji można w dowolnym tooupgrade czasu aplikacji. Zapewnia również hello najnowsze wersje typu aplikacji zaktualizowane z pliku manifestu aplikacji hello.
+Ten proces umożliwia utworzenie i zapisanie profilu konfiguracji uruchamiania, za pomocą którego można w dowolnym momencie uaktualnić aplikację. W jego ramach pobierana jest również najnowsza zaktualizowana wersja typu aplikacji z pliku manifestu aplikacji.
 
-Uaktualnianie aplikacji Hello zajmuje kilka minut. Można monitorować hello uaktualniania aplikacji w narzędziu Service Fabric Explorer.
+Uaktualnienie aplikacji zajmuje kilka minut. Narzędzie Service Fabric Explorer umożliwia monitorowanie uaktualniania aplikacji.
 
-## <a name="migrating-old-service-fabric-java-applications-toobe-used-with-maven"></a>Migrowanie starego toobe aplikacji Java sieci szkieletowej usług używany z Maven
-Biblioteki usługi sieć szkieletowa Java niedawno został przeniesiony z repozytorium tooMaven zestawu SDK Java sieci szkieletowej usług. Gdy hello nowe aplikacje, które można wygenerować za pomocą programu Eclipse, spowoduje wygenerowanie najnowsze zaktualizowane projekty (które będą mogli toowork z Maven), można aktualizacji istniejącej sieci szkieletowej usług bezstanowych lub aplikacji Java aktora, które były używane hello zestawu SDK Java sieci szkieletowej usług wcześniej, toouse hello usługi sieć szkieletowa Java zależności z Maven. Wykonaj kroki hello wymienione [tutaj](service-fabric-migrate-old-javaapp-to-use-maven.md) tooensure starszych aplikacji współdziała z Maven.
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Migrowanie starych aplikacji Java usługi Service Fabric na potrzeby użycia z narzędziem Maven
+Ostatnio przenieśliśmy biblioteki Java usługi Service Fabric z zestawu SDK Java usługi Service Fabric do repozytorium narzędzia Maven. Nowe aplikacje generowane za pomocą środowiska Eclipse będą generować najnowsze, zaktualizowane projekty (mogące działać z narzędziem Maven), ale możesz zaktualizować swoje istniejące bezstanowe aplikacje Java lub aplikacje Java aktora usługi Service Fabric, które wcześniej korzystały z zestawu SDK Java usługi Service Fabric, aby używały zależności języka Java usługi Service Fabric z narzędzia Maven. Wykonaj kroki wymienione [tutaj](service-fabric-migrate-old-javaapp-to-use-maven.md), aby zapewnić działanie Twojej starszej aplikacji z narzędziem Maven.
 
 <!-- Images -->
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaGet pracę z usługą Mobile Apps za pomocą platformy Xamarin.Forms"
-description: "Postępuj zgodnie z tego samouczka toostart używanie Mobile Apps do tworzenia aplikacji platformy Xamarin.Forms"
+title: "Rozpoczynanie pracy z funkcją Mobile Apps za pomocą platformy Xamarin.Forms"
+description: "Wykonaj czynności opisane w tym samouczku, aby rozpocząć używanie funkcji Mobile Apps do tworzenia aplikacji platformy Xamarin.Forms"
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,172 +14,172 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: af6b1c1ce4cf91c397552aa3d8ee40728129238c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-xamarinforms-app"></a>Tworzenie aplikacji platformy Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
-Ten samouczek pokazuje, jak tooadd oparte na chmurze usługi zaplecza tooa aplikacji mobilnej platformy Xamarin.Forms przy użyciu hello funkcji Mobile Apps Azure App Service jako hello zaplecza. Tworzysz nowe zaplecze funkcji Mobile Apps oraz prostą aplikację platformy Xamarin.Forms typu Lista czynności do wykonania, która przechowuje dane aplikacji na platformie Azure.
+W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do aplikacji mobilnej platformy Xamarin.Forms przy użyciu funkcji Mobile Apps usługi Azure App Service jako zaplecza. Tworzysz nowe zaplecze funkcji Mobile Apps oraz prostą aplikację platformy Xamarin.Forms typu Lista czynności do wykonania, która przechowuje dane aplikacji na platformie Azure.
 
 Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wszystkich innych samouczków usługi Mobile Apps dotyczących aplikacji platformy Xamarin.Forms.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-toocomplete tego samouczka należy hello następujące:
+Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* Aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto wersji próbnej platformy Azure i Uzyskaj too10 bezpłatnych aplikacji mobilnych, które możesz korzystać nawet po próbnej. Aby uzyskać więcej informacji, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Aktywne konto platformy Azure. Jeśli nie masz konta, możesz utworzyć konto wersji próbnej platformy Azure i uzyskać maksymalnie 10 bezpłatnych aplikacji mobilnych, z których możesz korzystać nawet po zakończeniu okresu ważności wersji próbnej. Aby uzyskać więcej informacji, zobacz [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* Visual Studio z programem Xamarin. Aby uzyskać informacje, zobacz hello [ustawić Konfigurowanie i instalowanie programu Visual Studio i Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) strony.
+* Visual Studio z programem Xamarin. Aby uzyskać informacje, zobacz stronę [Set up and install for Visual Studio and Xamarin (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin)](https://msdn.microsoft.com/library/mt613162.aspx).
 
 * Komputer Mac z zainstalowanym środowiskiem Xcode v7.0 lub nowszym i rozwiązaniem Xamarin Studio Community. Aby uzyskać informacje, zobacz tematy [Set up and install for Visual Studio and Xamarin (Konfigurowanie i instalowanie dla programów Visual Studio i Xamarin)](https://msdn.microsoft.com/library/mt613162.aspx) oraz [Set up, install, and verify for Mac users (Konfigurowanie, instalowanie i weryfikowanie dla użytkowników komputerów Mac)](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Tworzenie nowego zaplecza funkcji Mobile Apps
 
-toocreate zakończyć nowych aplikacji mobilnych w Wstecz, hello następujące:
+Aby utworzyć nowe zaplecze funkcji Mobile Apps, wykonaj następujące czynności:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Masz teraz zdefiniowane zaplecze funkcji Mobile Apps, którego mogą używać mobilne aplikacje klienckie. Następnie należy pobrać Projekt serwera dla wewnętrznej listy zadań do wykonania prostego, a następnie opublikuj go tooAzure.
+Masz teraz zdefiniowane zaplecze funkcji Mobile Apps, którego mogą używać mobilne aplikacje klienckie. Teraz pobierasz projekt serwera dla prostego zaplecza typu „lista czynności do wykonania” i publikujesz go na platformie Azure.
 
-## <a name="configure-hello-server-project"></a>Konfigurowanie projektu serwera hello
+## <a name="configure-the-server-project"></a>Konfigurowanie projektu serwera
 
-tooconfigure powitania serwera projektu toouse hello zaplecza Node.js lub .NET, hello następujące:
+Aby skonfigurować projekt serwera do użycia zaplecza Node.js lub .NET, wykonaj następujące czynności:
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-xamarinforms-solution"></a>Pobierz i uruchom hello rozwiązania platformy Xamarin.Forms
+## <a name="download-and-run-the-xamarinforms-solution"></a>Pobieranie i uruchamianie platformy Xamarin.Forms
 
-Możesz pobrać rozwiązanie hello na dwa sposoby. Pobrać tooa Mac i otworzyć go w programie Xamarin Studio lub pobrać tooa komputer z systemem Windows i otworzyć go w programie Visual Studio za pomocą sieci Mac do tworzenia aplikacji dla systemu iOS hello. Aby uzyskać więcej informacji, zobacz stronę [Set up and install Visual Studio and Xamarin (Konfigurowanie i instalowanie programów Visual Studio i Xamarin)](https://msdn.microsoft.com/library/mt613162.aspx).
+Możesz pobrać rozwiązanie na dwa sposoby. Pobierz rozwiązanie na komputer Mac i otwórz je w środowisku Xamarin Studio lub pobierz rozwiązanie na komputer z systemem Windows i otwórz je w programie Visual Studio przy użyciu podłączonego do sieci komputera Mac w celu skompilowania aplikacji dla systemu iOS. Aby uzyskać więcej informacji, zobacz stronę [Set up and install Visual Studio and Xamarin (Konfigurowanie i instalowanie programów Visual Studio i Xamarin)](https://msdn.microsoft.com/library/mt613162.aspx).
 
-Na komputerze Mac lub Windows hello następujące:
+Na komputerze Mac lub w systemie Windows wykonaj następujące czynności:
 
-1. Przejdź toohello [portalu Azure].
+1. Przejdź do witryny [Azure Portal].
 
-2. Na powitania **ustawienia** bloku dla aplikacji mobilnej, w obszarze **Mobile**, wybierz pozycję **wprowadzenie** > **platformy Xamarin.Forms**. W **kroku 3** wybierz pozycję **Utwórz nową aplikację**, a następnie wybierz pozycję **Pobierz**.
+2. W bloku **Ustawienia** aplikacji mobilnej w obszarze **Mobilne** wybierz pozycję **Wprowadzenie** > **Xamarin.Forms**. W **kroku 3** wybierz pozycję **Utwórz nową aplikację**, a następnie wybierz pozycję **Pobierz**.
 
-   Ta akcja spowoduje pobranie projektu, który zawiera aplikację klienta, który jest połączony tooyour aplikacji mobilnej. Zapisz komputera lokalnego tooyour hello projektu skompresowany plik i zanotuj miejsce jego zapisania.
+   Ta akcja spowoduje pobranie projektu zawierającego aplikację klienta połączoną z aplikacją mobilną. Zapisz skompresowany plik projektu na komputerze lokalnym i zapamiętaj, gdzie został on zapisany.
 
-3. Wyodrębnij pobrany projekt hello, a następnie otwórz go w programie Xamarin Studio (Mac) lub programu Visual Studio (z systemem Windows).
+3. Wyodrębnij pobrany projekt, a następnie otwórz go w programie Xamarin Studio (Mac) lub Visual Studio (Windows).
 
    ![Projekt wyodrębniony w programie Xamarin Studio][9]
 
    ![Projekt wyodrębniony w programie Visual Studio][8]
 
-## <a name="optional-run-hello-ios-project"></a>(Opcjonalnie) Uruchom projekt dla systemu iOS hello
-W tej sekcji możesz uruchomić projektu hello Xamarin iOS dla urządzeń z systemem iOS. Jeśli nie pracujesz z urządzeniami z systemem iOS, możesz pominąć tę sekcję.
+## <a name="optional-run-the-ios-project"></a>(Opcjonalnie) Uruchamianie projektu iOS
+W tej sekcji uruchamiasz projekt Xamarin iOS dla urządzeń z systemem iOS. Jeśli nie pracujesz z urządzeniami z systemem iOS, możesz pominąć tę sekcję.
 
 #### <a name="in-xamarin-studio"></a>W programie Xamarin Studio
-1. Kliknij prawym przyciskiem myszy projekt iOS hello, a następnie wybierz **Ustaw jako projekt startowy**.
+1. Kliknij prawym przyciskiem myszy projekt iOS, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
 
-2. Na powitania **Uruchom** menu, wybierz opcję **Rozpocznij debugowanie** toobuild hello projekt i uruchomić aplikacji hello w emulatorze urządzenia iPhone hello.
+2. W menu **Uruchom** wybierz pozycję **Rozpocznij debugowanie** w celu skompilowania projektu i uruchomienia aplikacji w emulatorze urządzenia iPhone.
 
 #### <a name="in-visual-studio"></a>W programie Visual Studio
-1. Kliknij prawym przyciskiem myszy projekt iOS hello, a następnie wybierz **Ustaw jako projekt startowy**.
+1. Kliknij prawym przyciskiem myszy projekt iOS, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
 
-2. Na powitania **kompilacji** menu, wybierz opcję **programu Configuration Manager**.
+2. W menu **Kompilacja** wybierz pozycję **Configuration Manager**.
 
-3. W hello **programu Configuration Manager** okno dialogowe, wybierz opcję hello **kompilacji** i **Wdróż** projektu iOS toohello dalej pola wyboru.
+3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** obok projektu iOS.
 
-4. toobuild hello projekt i uruchomić aplikacji hello w emulatorze urządzenia iPhone hello, wybierz hello **F5** klucza.
+4. Aby skompilować projekt i uruchomić aplikację w emulatorze urządzenia iPhone, naciśnij klawisz **F5**.
 
    > [!NOTE]
-   > Jeśli masz problemy z kompilacją hello projektu, uruchom hello NuGet pakietu manager i aktualizacji toohello najnowszą wersję hello Xamarin obsługi pakietów. Projekty Szybki Start może być wolne tooupdate toohello najnowszych wersji.    
+   > Jeśli masz problemy z kompilowaniem projektu, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Aktualizowanie projektów typu Szybki start do najnowszej wersji może odbywać się wolno.    
    >
    >
 
-5. W aplikacji hello wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a następnie wybierz hello znak plus (**+**).
+5. W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a wybierz znak plusa (**+**).
 
     ![][10]
 
-    Ta akcja wysyła toohello żądania post, nowe aplikacje mobilne zaplecza, która jest hostowana na platformie Azure. Dane z hello żądania zostaną wstawione do tabeli TodoItem hello. Elementy, które są przechowywane w tabeli hello są zwracane przez hello Mobile Apps ponownie zakończyć i hello się, że dane są wyświetlane na liście hello.
+    Ta akcja spowoduje wysłanie żądania POST do nowego zaplecza funkcji Mobile Apps, które jest hostowane na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze funkcji Mobile Apps, a dane są wyświetlane na liście.
 
     > [!NOTE]
-    > Znajdziesz hello kodu, który uzyskuje dostęp do Twojego Mobile Apps zaplecza w hello pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych hello rozwiązania.
+    > Kod uzyskujący dostęp do zaplecza funkcji Mobile Apps można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
     >
     >
 
-## <a name="optional-run-hello-android-project"></a>(Opcjonalnie) Uruchom projekt dla systemu Android hello
-W tej sekcji możesz uruchomić hello Xamarin droid projektu dla systemu Android. Jeśli nie pracujesz z urządzeniami z systemem Android, możesz pominąć tę sekcję.
+## <a name="optional-run-the-android-project"></a>(Opcjonalnie) Uruchamianie projektu systemu Android
+W tej sekcji uruchamiasz projekt Xamarin (droid) dla systemu Android. Jeśli nie pracujesz z urządzeniami z systemem Android, możesz pominąć tę sekcję.
 
 #### <a name="in-xamarin-studio"></a>W programie Xamarin Studio
 
-1. Kliknij prawym przyciskiem myszy projekt Android hello, a następnie wybierz **Ustaw jako projekt startowy**.
+1. Kliknij prawym przyciskiem myszy projekt Android, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
 
-2. toobuild hello projekt i uruchomić aplikacji hello w emulatorze systemu Android, na powitania **Uruchom** menu, wybierz opcję **Rozpocznij debugowanie**.
+2. W celu skompilowania projektu i uruchomienia aplikacji w emulatorze systemu Android w menu **Uruchom** wybierz pozycję **Rozpocznij debugowanie**.
 
 #### <a name="in-visual-studio"></a>W programie Visual Studio
 
-1. Kliknij prawym przyciskiem myszy projekt Android (Droid) hello, a następnie wybierz **Ustaw jako projekt startowy**.
+1. Kliknij prawym przyciskiem myszy projekt Android (Droid), a następnie wybierz pozycję **Ustaw jako projekt startowy**.
 
-2. Na powitania **kompilacji** menu, wybierz opcję **programu Configuration Manager**.
+2. W menu **Kompilacja** wybierz pozycję **Configuration Manager**.
 
-3. W hello **programu Configuration Manager** okno dialogowe, wybierz opcję hello **kompilacji** i **Wdróż** pola wyboru dalej toohello projekt systemu Android.
+3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** obok projektu Android.
 
-4. toobuild hello projekt i uruchomić aplikacji hello w emulatorze systemu Android wybierz opcję hello **F5** klucza.
+4. Aby skompilować projekt i uruchomić aplikację w emulatorze systemu Android, naciśnij klawisz **F5**.
 
    > [!NOTE]
-   > Jeśli masz problemy z kompilacją hello projektu, uruchom hello NuGet pakietu manager i aktualizacji toohello najnowszą wersję hello Xamarin obsługi pakietów. Projekty Szybki Start może być wolne tooupdate toohello najnowszych wersji.    
+   > Jeśli masz problemy z kompilowaniem projektu, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Aktualizowanie projektów typu Szybki start do najnowszej wersji może odbywać się wolno.    
    >
    >
 
-5. W aplikacji hello wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a następnie wybierz hello znak plus (**+**).
+5. W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a wybierz znak plusa (**+**).
 
     ![][11]
     
-    Ta akcja wysyła toohello żądania post, nowe aplikacje mobilne zaplecza, która jest hostowana na platformie Azure. Dane z hello żądania zostaną wstawione do tabeli TodoItem hello. Elementy, które są przechowywane w tabeli hello są zwracane przez hello Mobile Apps ponownie zakończyć i hello się, że dane są wyświetlane na liście hello.
+    Ta akcja spowoduje wysłanie żądania POST do nowego zaplecza funkcji Mobile Apps, które jest hostowane na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze funkcji Mobile Apps, a dane są wyświetlane na liście.
     
     > [!NOTE]
-    > Znajdziesz hello kodu, który uzyskuje dostęp do Twojego Mobile Apps zaplecza w hello pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych hello rozwiązania.
+    > Kod uzyskujący dostęp do zaplecza funkcji Mobile Apps można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
     >
     >
 
-## <a name="optional-run-hello-windows-project"></a>(Opcjonalnie) Uruchom projekt dla systemu Windows hello
+## <a name="optional-run-the-windows-project"></a>(Opcjonalnie) Uruchamianie projektu Windows
 
-W tej sekcji służy do uruchamiania projektu Xamarin WinApp dla urządzeń z systemem Windows hello. Jeśli nie pracujesz z urządzeniami z systemem Windows, możesz pominąć tę sekcję.
+W tej sekcji uruchamiasz projekt Xamarin WinApp dla urządzeń z systemem Windows. Jeśli nie pracujesz z urządzeniami z systemem Windows, możesz pominąć tę sekcję.
 
 #### <a name="in-visual-studio"></a>W programie Visual Studio
 
-1. Kliknij prawym przyciskiem myszy projekty systemu Windows hello, a następnie wybierz **Ustaw jako projekt startowy**.
+1. Kliknij prawym przyciskiem myszy dowolny projekt Windows, a następnie wybierz pozycję **Ustaw jako projekt startowy**.
 
-2. Na powitania **kompilacji** menu, wybierz opcję **programu Configuration Manager**.
+2. W menu **Kompilacja** wybierz pozycję **Configuration Manager**.
 
-3. W hello **programu Configuration Manager** okno dialogowe, wybierz opcję hello **kompilacji** i **Wdróż** pola wyboru dalej toohello Windows wybranego projektu.
+3. W oknie dialogowym **Configuration Manager** zaznacz pola wyboru **Kompiluj** i **Wdróż** obok wybranego projektu Windows.
 
-4. toobuild hello projekt i uruchomić aplikacji hello w emulatorze systemu Windows, wybierz opcję hello **F5** klucza.
+4. Aby skompilować projekt i uruchomić aplikację w emulatorze systemu Windows, naciśnij klawisz **F5**.
 
    > [!NOTE]
-   > Jeśli masz problemy z kompilacją hello projektu, uruchom hello NuGet pakietu manager i aktualizacji toohello najnowszą wersję hello Xamarin obsługi pakietów. Projekty Szybki Start może być wolne tooupdate toohello najnowszych wersji.    
+   > Jeśli masz problemy z kompilowaniem projektu, uruchom menedżera pakietów NuGet i przeprowadź aktualizację do najnowszej wersji pakietów obsługi programu Xamarin. Aktualizowanie projektów typu Szybki start do najnowszej wersji może odbywać się wolno.    
    >
    >
 
-5. W aplikacji hello wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a następnie wybierz hello znak plus (**+**).
+5. W aplikacji wpisz znaczący tekst, na przykład *Poznaj program Xamarin*, a wybierz znak plusa (**+**).
 
-    Ta akcja wysyła toohello żądania post, nowe aplikacje mobilne zaplecza, która jest hostowana na platformie Azure. Dane z hello żądania zostaną wstawione do tabeli TodoItem hello. Elementy, które są przechowywane w tabeli hello są zwracane przez hello Mobile Apps ponownie zakończyć i hello się, że dane są wyświetlane na liście hello.
+    Ta akcja spowoduje wysłanie żądania POST do nowego zaplecza funkcji Mobile Apps, które jest hostowane na platformie Azure. Dane z żądania zostaną wstawione do tabeli TodoItem. Elementy przechowywane w tabeli są zwracane przez zaplecze funkcji Mobile Apps, a dane są wyświetlane na liście.
     
     ![][12]
     
     > [!NOTE]
-    > Znajdziesz hello kodu, który uzyskuje dostęp do Twojego Mobile Apps zaplecza w hello pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych hello rozwiązania.
+    > Kod uzyskujący dostęp do zaplecza funkcji Mobile Apps można znaleźć w pliku C# TodoItemManager.cs projektu biblioteki klas przenośnych rozwiązania.
     >
     >
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dodaj aplikację tooyour uwierzytelniania](app-service-mobile-xamarin-forms-get-started-users.md)  
-  Dowiedz się, jak tooauthenticate użytkowników aplikacji przy użyciu dostawcy tożsamości.
+* [Dodawanie uwierzytelniania do aplikacji](app-service-mobile-xamarin-forms-get-started-users.md)  
+  Dowiedz się, jak uwierzytelniać użytkowników aplikacji przy użyciu dostawcy tożsamości.
 
-* [Dodaj aplikację tooyour powiadomień wypychanych](app-service-mobile-xamarin-forms-get-started-push.md)  
-  Dowiedz się, jak powiadomień wypychanych tooadd obsługują tooyour aplikacji i Konfigurowanie powiadomień wypychanych Mobile Apps zaplecza toouse usługi Azure Notification Hubs toosend hello.
+* [Dodawanie powiadomień wypychanych do aplikacji](app-service-mobile-xamarin-forms-get-started-push.md)  
+  Dowiedz się, jak dodać obsługę powiadomień wypychanych do aplikacji i skonfigurować zaplecze funkcji Mobile Apps na potrzeby wysyłania powiadomień wypychanych przy użyciu usługi Azure Notification Hubs.
 
 * [Włączanie synchronizacji w trybie offline dla aplikacji](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Dowiedz się, jak zaplecza tooadd obsługi w trybie offline dla aplikacji przy użyciu aplikacji mobilnej. Synchronizacja w trybie offline umożliwia wyświetlanie, dodawanie lub modyfikowanie danych aplikacji mobilnej, nawet w przypadku braku połączenia sieciowego.
+  Dowiedz się, jak dodać obsługę aplikacji w trybie offline przy użyciu zaplecza funkcji Mobile Apps. Synchronizacja w trybie offline umożliwia wyświetlanie, dodawanie lub modyfikowanie danych aplikacji mobilnej, nawet w przypadku braku połączenia sieciowego.
 
-* [Użyj hello zarządzanego klienta dla aplikacji mobilnych](app-service-mobile-dotnet-how-to-use-client-library.md)  
-  Dowiedz się, jak toowork z hello zarządzanego klienta SDK w aplikacji platformy Xamarin.
+* [Używanie zarządzanego klienta funkcji Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)  
+  Dowiedz się, jak pracować z zestawem SDK zarządzanego klienta w aplikacji platformy Xamarin.
 
 <!-- Anchors. -->
 [Get started with Mobile Apps back ends]:#getting-started
@@ -199,4 +199,4 @@ W tej sekcji służy do uruchamiania projektu Xamarin WinApp dla urządzeń z sy
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[portalu Azure]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

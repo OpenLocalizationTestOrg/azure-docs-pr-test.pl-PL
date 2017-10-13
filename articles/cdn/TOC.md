@@ -6,11 +6,11 @@
 
 # Instrukcje
 ## Integracja
-### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Storage](cdn-create-a-storage-account-with-cdn.md)
 ### [Współużytkowanie zasobów między źródłami](cdn-cors.md)
-### [Mapa tooCDN domeny niestandardowej](cdn-map-content-to-custom-domain.md)
+### [Mapowanie domeny niestandardowej do sieci CDN](cdn-map-content-to-custom-domain.md)
 ### [Włączanie protokołu HTTPS w domenie niestandardowej](cdn-custom-ssl.md)
 ## Optymalizowanie zawartości
 ### [Omówienie optymalizacji](cdn-optimization-overview.md)
@@ -19,7 +19,7 @@
 ####[Przyspieszanie witryn dynamicznych](cdn-dynamic-site-acceleration.md)
  
 ## Zarządzanie
-### [Zarządzanie przy użyciu programu PowerShell](cdn-manage-powershell.md)
+### [Zarządzanie przy użyciu programu Azure PowerShell](cdn-manage-powershell.md)
 ### Konfigurowanie czasu wygaśnięcia
 #### [Zawartość usług Web Apps/Cloud Services, ASP.NET lub IIS](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Zawartość usługi Storage Blob](cdn-manage-expiration-of-blob-content.md)
@@ -37,11 +37,13 @@
 ### [Obsługa protokołu HTTP/2](cdn-http2.md)
 
 ## Analiza
-### [Analizowanie wzorców użycia](cdn-analyze-usage-patterns.md)
-### [Generowanie zaawansowanych raportów HTTP](cdn-advanced-http-reports.md)
-### [Wyświetlanie statystyk w czasie rzeczywistym](cdn-real-time-stats.md)
-### [Analizowanie wydajności węzła krawędzi](cdn-edge-performance.md)
-### [Eksportowanie metryk z dziennikami diagnostyki](cdn-log-analysis.md)
+### [Analizowanie wzorców użycia usługi Azure CDN](cdn-log-analysis.md)
+#### [Raporty podstawowe z usługi Verizon](cdn-analyze-usage-patterns.md)
+#### [Dzienniki diagnostyczne platformy Azure](cdn-azure-diagnostic-logs.md)
+### Narzędzia do analizy dla usługi Azure CDN świadczonej przez firmę Verizon
+#### [Generowanie zaawansowanych raportów HTTP](cdn-advanced-http-reports.md)
+#### [Wyświetlanie statystyk w czasie rzeczywistym](cdn-real-time-stats.md)
+#### [Analizowanie wydajności węzła krawędzi](cdn-edge-performance.md)
 
 ## Programowanie
 ### [.NET](cdn-app-dev-net.md)
@@ -53,7 +55,7 @@
 
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

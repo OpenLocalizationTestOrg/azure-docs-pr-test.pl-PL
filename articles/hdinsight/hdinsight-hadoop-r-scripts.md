@@ -1,6 +1,6 @@
 ---
-title: aaaUse R w klastrach toocustomize HDInsight - Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak tooinstall R przy użyciu skryptu akcji i użyj R w klastrach usługi HDInsight."
+title: "Użyj języka R w usłudze HDInsight, aby dostosować klastry - Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak zainstalować język R za pomocą akcji skryptu, a następnie użyj języka R w klastrach usługi HDInsight."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: bf5adf2e18dc43a743b29fd1567fad731b9c3ab7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5b9b793d49217acd9f0c6c518596a7afb5600d69
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>Instalowanie i używanie języka R w klastrach usługi Hadoop w usłudze HDInsight
 
-Dowiedz się, jak toocustomize systemu Windows na podstawie klastra usługi HDInsight przy użyciu akcji skryptu języka R, oraz jak klastrów toouse R w usłudze HDInsight. Witaj [oferty HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) obejmuje R Server w ramach klastra usługi HDInsight. Dzięki temu skrypty R toouse MapReduce i Spark toorun rozproszone obliczenia. Aby uzyskać więcej informacji, zobacz temat [Rozpoczęcie pracy z platformą R Server w usłudze HDInsight](hdinsight-hadoop-r-server-get-started.md). Uzyskać informacji na temat używania R z systemem Linux klastrem, zobacz [instalacji i używania R w klastrach HDinsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md).
+Dowiedz się, dostosowywanie systemu Windows na podstawie klastra usługi HDInsight przy użyciu akcji skryptu języka R i sposobu użycia języka R w usłudze HDInsight clusters. [Oferty HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) obejmuje R Server w ramach klastra usługi HDInsight. Dzięki temu R skryptów na potrzeby uruchamiania rozproszone obliczenia MapReduce i Spark. Aby uzyskać więcej informacji, zobacz temat [Rozpoczęcie pracy z platformą R Server w usłudze HDInsight](hdinsight-hadoop-r-server-get-started.md). Uzyskać informacji na temat używania R z systemem Linux klastrem, zobacz [instalacji i używania R w klastrach HDinsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md).
 
-Można zainstalować język R w klastrze (na platformie Hadoop, Storm, HBase, Spark) w usłudze Azure HDInsight dowolnego typu za pomocą *akcji skryptu*. Przykładowy skrypt tooinstall R w klastrze usługi HDInsight jest dostępna z obiektu blob magazynu Azure w trybie tylko do odczytu w [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+Można zainstalować język R w klastrze (na platformie Hadoop, Storm, HBase, Spark) w usłudze Azure HDInsight dowolnego typu za pomocą *akcji skryptu*. Przykładowy skrypt, aby zainstalować język R w klastrze usługi HDInsight jest dostępna z obiektu blob magazynu Azure w trybie tylko do odczytu w [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 **Pokrewne artykuły**
 
@@ -36,45 +36,45 @@ Można zainstalować język R w klastrze (na platformie Hadoop, Storm, HBase, Sp
 * [Tworzenie skryptów akcji skryptu dla usługi HDInsight](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-r"></a>Co to jest R?
-Witaj <a href="http://www.r-project.org/" target="_blank">R projektu do statystycznego przetwarzania danych</a> jest otwarty języka źródłowego i środowiska do statystycznego przetwarzania danych. R zawiera setki kompilacji funkcji statystycznych i własnej język programowania, łączącą aspekty funkcjonalne i zorientowanym obiektowo programowania. Umożliwia także rozbudowane funkcje graficzne. R jest hello preferowanych środowisko programowania najbardziej professional chi i służące w wielu różnych pól.
+<a href="http://www.r-project.org/" target="_blank">R projektu do statystycznego przetwarzania danych</a> jest otwarty języka źródłowego i środowiska do statystycznego przetwarzania danych. R zawiera setki kompilacji funkcji statystycznych i własnej język programowania, łączącą aspekty funkcjonalne i zorientowanym obiektowo programowania. Umożliwia także rozbudowane funkcje graficzne. R jest preferowanym środowisko programowania najbardziej professional chi i służące w wielu różnych pól.
 
 R jest zgodny z magazynu obiektów Blob Azure (WASB), aby dane przechowywane mogą być przetwarzane przy użyciu języka R w usłudze HDInsight.  
 
 ## <a name="install-r"></a>Zainstalować język R
-A [przykładowy skrypt](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) tooinstall R w klastrze usługi HDInsight jest dostępny w trybie tylko do odczytu obiektów blob w usłudze Azure Storage. Ta sekcja zawiera instrukcje dotyczące sposobu toouse hello przykładowy skrypt podczas tworzenia klastra hello przy użyciu hello portalu Azure.
+A [przykładowy skrypt](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) zainstalować język R w usłudze HDInsight klastra jest dostępny w trybie tylko do odczytu obiektów blob w usłudze Azure Storage. Ta sekcja zawiera instrukcje dotyczące sposobu użyć przykładowego skryptu podczas tworzenia klastra przy użyciu portalu Azure.
 
 > [!NOTE]
-> Witaj przykładowy skrypt został wprowadzony z klastra usługi HDInsight w wersji 3.1. Aby uzyskać więcej informacji o wersjach klastra usługi HDInsight, zobacz [wersji klastra usługi HDInsight](hdinsight-component-versioning.md).
+> Przykładowy skrypt został wprowadzony z klastra usługi HDInsight w wersji 3.1. Aby uzyskać więcej informacji o wersjach klastra usługi HDInsight, zobacz [wersji klastra usługi HDInsight](hdinsight-component-versioning.md).
 >
 >
 
-1. Po utworzeniu klastra usługi HDInsight z hello portalu kliknij **konfiguracji opcjonalnej**, a następnie kliknij przycisk **akcji skryptu**.
-2. Na powitania **akcji skryptu** wprowadź hello następujące wartości:
+1. Podczas tworzenia klastra usługi HDInsight w portalu, kliknij przycisk **konfiguracji opcjonalnej**, a następnie kliknij przycisk **akcji skryptu**.
+2. Na **akcji skryptu** strony, wprowadź następujące wartości:
 
-    ![Użyj akcji skryptu toocustomize klastra](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "toocustomize akcji skryptu Użyj klastra")
+    ![Aby dostosować klastra, użyj akcji skryptu](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "użyj akcji skryptu, aby dostosować klastra")
 
     <table border='1'>
         <tr><th>Właściwość</th><th>Wartość</th></tr>
         <tr><td>Nazwa</td>
-            <td>Określ nazwę hello akcji skryptu, na przykład <b>zainstalować R</b>.</td></tr>
+            <td>Na przykład określić nazwę akcji skryptu <b>zainstalować R</b>.</td></tr>
         <tr><td>Identyfikator URI skryptu</td>
-            <td>Określ hello URI toohello skrypt, który jest wywołana toocustomize hello klastra, na przykład <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
+            <td>Określ identyfikator URI do skryptu, które jest wywoływane, aby dostosować klastra, na przykład <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
         <tr><td>Typ węzła</td>
-            <td>Określ hello węzłów, na których uruchomiono hello dostosowywania skryptu. Możesz wybrać <b>we wszystkich węzłach</b>, <b>tylko węzły główne</b>, lub <b>węzłów procesu roboczego</b> tylko.
+            <td>Określ węzły, na których uruchomiono skryptu dostosowania. Możesz wybrać <b>we wszystkich węzłach</b>, <b>tylko węzły główne</b>, lub <b>węzłów procesu roboczego</b> tylko.
         <tr><td>Parametry</td>
-            <td>Określ parametry hello, jeśli są wymagane przez skrypt hello. Jednak hello tooinstall skryptu języka R nie wymaga żadnych parametrów, dzięki czemu można to pole pozostanie puste.</td></tr>
+            <td>Określ parametry, jeśli jest to wymagane przez skrypt. Jednak skryptu, aby zainstalować język R nie wymaga żadnych parametrów, dzięki czemu można to pole pozostanie puste.</td></tr>
     </table>
 
-    Więcej niż jeden tooinstall akcji skryptu można dodać wiele składników w klastrze hello. Po dodaniu hello skryptów, kliknij przycisk toostart znacznik wyboru hello crating hello klastra.
+    Można dodać więcej niż jedna akcja skryptu, aby zainstalować wiele składników w klastrze. Po dodaniu skryptów, kliknij znacznik wyboru, aby uruchomić crating klastra.
 
-Umożliwia także hello tooinstall skryptu języka R w usłudze HDInsight przy użyciu programu Azure PowerShell lub hello zestawu .NET SDK usługi HDInsight. Instrukcje dotyczące tych procedur znajdują się w dalszej części tego artykułu.
+Można także użyć skryptu zainstalować język R w usłudze HDInsight przy użyciu programu Azure PowerShell lub zestawu .NET SDK usługi HDInsight. Instrukcje dotyczące tych procedur znajdują się w dalszej części tego artykułu.
 
 ## <a name="run-r-scripts"></a>Uruchom skrypty języka R
-W tej sekcji opisano, jak skrypt toorun R na powitania Hadoop klastra z usługą HDInsight.
+W tej sekcji opisano sposób uruchamiania skryptu języka R w klastrze Hadoop z usługą HDInsight.
 
-1. **Ustanowić klastra toohello połączenia pulpitu zdalnego**: Z hello portalu, Włącz pulpit zdalny dla klastra hello zostały utworzone z języka R zainstalowanego, a następnie połącz toohello klastra. Aby uzyskać instrukcje, zobacz [połączyć za pomocą protokołu RDP klastrów tooHDInsight](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
-2. **Otwórz hello R konsoli**: hello R instalacji umieszcza konsoli toohello R łącza na pulpicie hello hello węzła głównego. Kliknij go tooopen hello R konsoli.
-3. **Uruchom skrypt hello R**: hello R skrypt można uruchomić bezpośrednio z konsoli hello R wklejenie go, wybierając ją i naciskając klawisz ENTER. Poniżej przedstawiono prosty przykład skrypt generuje hello too100 liczb od 1 i mnoży je przez 2.
+1. **Ustanów połączenie pulpitu zdalnego w klastrze**: Z portalu włączenie pulpitu zdalnego dla klastra zostały utworzone z języka R zainstalowanego, a następnie połącz się z klastrem. Aby uzyskać instrukcje, zobacz [Connect do klastrów usługi HDInsight za pomocą protokołu RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+2. **Otwórz konsolę R**: instalacji języka R umieszcza łącze do konsoli R na pulpicie węzła głównego. Kliknij, aby otworzyć konsolę R.
+3. **Uruchom skrypt języka R**: skrypt języka R można uruchomić bezpośrednio z konsoli R wklejenie go, wybierając ją i naciskając klawisz ENTER. Poniżej przedstawiono prosty przykład skrypt generuje liczb od 1 do 100 i mnoży je przez 2.
 
         library(rmr2)
         library(rhdfs)
@@ -82,7 +82,7 @@ W tej sekcji opisano, jak skrypt toorun R na powitania Hadoop klastra z usługą
         calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
         from.dfs(calc)
 
-Witaj pierwsze dwa wiersze wywołania hello RHadoop bibliotek, które są instalowane z R. hello wiersza końcowego odbitek hello wyniki toohello konsoli. dane wyjściowe Hello powinien wyglądać następująco:
+Pierwsze dwa wiersze wywołania bibliotek RHadoop, które są instalowane z R. Końcowego wiersza drukuje wyniki w konsoli. Dane wyjściowe powinny wyglądać następująco:
 
     [1,]  1 2
     [2,]  2 4
@@ -95,10 +95,10 @@ Witaj pierwsze dwa wiersze wywołania hello RHadoop bibliotek, które są instal
 
 
 ## <a name="install-r-using-aure-powershell"></a>Zainstalować język R przy użyciu programu Azure PowerShell
-Zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Witaj w przykładzie pokazano, jak tooinstall Spark przy użyciu programu Azure PowerShell. Należy toocustomize hello skryptu toouse [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+Zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Przykład pokazuje, jak zainstalować Spark przy użyciu programu Azure PowerShell. Należy dostosować skrypt, aby użyć [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 ## <a name="install-r-using-net-sdk"></a>Zainstalować język R przy użyciu zestawu .NET SDK
-Zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Witaj w przykładzie pokazano, jak tooinstall Spark przy użyciu hello zestawu .NET SDK. Należy toocustomize hello skryptu toouse [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
+Zobacz [HDInsight dostosować klastry za pomocą akcji skryptu](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Przykład pokazuje, jak zainstalować Spark przy użyciu zestawu .NET SDK. Należy dostosować skrypt, aby użyć [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
 ## <a name="see-also"></a>Zobacz też
 * [Zainstaluj i użyj języka R w klastrach HDinsight Hadoop (Linux)](hdinsight-hadoop-r-scripts-linux.md)

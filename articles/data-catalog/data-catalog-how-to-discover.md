@@ -1,6 +1,6 @@
 ---
-title: "źródła danych toodiscover aaaHow w usłudze Azure Data Catalog | Dokumentacja firmy Microsoft"
-description: "W tym artykule prezentuje sposób toodiscover zarejestrowanych zasobów danych z usługi Azure Data Catalog, w tym wyszukiwania i filtrowania i przy użyciu hello trafień wyróżnienia możliwości hello portalu wykazu danych Azure."
+title: "Jak odnajdować źródła danych w usłudze Azure Data Catalog | Dokumentacja firmy Microsoft"
+description: "W tym artykule omówiono sposób odnajdowania zarejestrowanych zasobów danych z wykazu danych Azure, w tym wyszukiwanie i filtrowanie przy użyciu trafień wyróżnienia możliwości portalu wykazu danych Azure."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,54 +15,54 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 624834b8895dd50c8931c9d3e6f8dc217927c617
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9ff67dcb5ecb00440f73f979fd8d2b79a570c674
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toodiscover-data-sources-in-azure-data-catalog"></a>Jak źródła danych toodiscover w wykazie danych Azure
+# <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Jak odnajdować źródła danych w usłudze Azure Data Catalog
 ## <a name="introduction"></a>Wprowadzenie
-Wykaz danych Azure to usługa w chmurze pełni zarządzana, która służy jako system rejestracji i odnajdywania źródeł danych przedsiębiorstwa. Innymi słowy Data Catalog pomaga użytkownikom odnajdywania, zrozumienia i używania źródeł danych, a także pomaga organizacjom osiąganie większych zysków z ich istniejących danych. Po zarejestrowaniu źródła danych z wykazu danych metadanych jest indeksowany przez usługę hello, dzięki czemu można łatwo wyszukiwanie potrzebnych danych hello toodiscover.
+Wykaz danych Azure to usługa w chmurze pełni zarządzana, która służy jako system rejestracji i odnajdywania źródeł danych przedsiębiorstwa. Innymi słowy Data Catalog pomaga użytkownikom odnajdywania, zrozumienia i używania źródeł danych, a także pomaga organizacjom osiąganie większych zysków z ich istniejących danych. Po zarejestrowaniu źródła danych z wykazu danych jego metadane jest indeksowany przez usługę, dzięki czemu można łatwo wyszukiwać odnajdywanie potrzebnych danych.
 
 ## <a name="searching-and-filtering"></a>Wyszukiwanie i filtrowanie
 Odnajdywania w wykazie danych używa dwóch mechanizmów podstawowego: wyszukiwanie i filtrowanie.
 
-Wyszukiwanie jest zaprojektowana toobe intuicyjny i wydajne. Domyślnie terminy wyszukiwania są dopasowywane do żadnej właściwości w katalogu hello, łącznie z adnotacjami dostarczane przez użytkownika.
+Wyszukiwanie zaprojektowano pod kątem intuicyjnej obsługi i zaawansowanych możliwości. Domyślnie wyszukiwane terminy są dopasowywane do wszystkich właściwości w wykazie, w tym adnotacji wprowadzonych przez użytkownika.
 
-Filtrowanie zaprojektowano toocomplement wyszukiwania. Można wybrać określone właściwości, takie jak ekspertów, typ źródła danych typu obiektu i tagów. Wyświetlanie tylko pasujących zasobów danych i ograniczyć zasoby toomatching wyników wyszukiwania.
+Filtrowanie służy jako uzupełnienie wyszukiwania. Można wybrać określone właściwości, takie jak ekspertów, typ źródła danych typu obiektu i tagów. Wyświetlanie tylko pasujących zasobów danych i ograniczyć wyniki wyszukiwania do dopasowania zasoby.
 
-Przy użyciu kombinacji wyszukiwania i filtrowania, można szybko przejść hello źródeł danych, które zostały zarejestrowane ze źródłami danych hello toodiscover wykazu danych, które są potrzebne.
+Przy użyciu kombinacji wyszukiwania i filtrowania, można szybko przejść źródeł danych, które zostały zarejestrowane w wykazie danych odnajdywania źródeł danych, które są potrzebne.
 
 ## <a name="search-syntax"></a>Wyszukiwanie w składni
-Mimo że hello domyślne niezależnych wyszukiwanie jest proste i intuicyjne, umożliwia także składni wyszukiwania w wykazie danych uzyskać większą kontrolę nad hello wyniki wyszukiwania. Dane katalogu wyszukiwania obsługuje hello następujące techniki:
+Mimo że domyślne wyszukiwanie niezależnych proste i intuicyjne, umożliwia także składni wyszukiwania w wykazie danych uzyskać większą kontrolę nad wyniki wyszukiwania. Wyszukiwanie w wykazie danych obsługuje następujące techniki:
 
 | Technika | Użycie | Przykład |
 | --- | --- | --- |
-| Wyszukiwanie podstawowe |Wyszukiwania podstawowego, który korzysta z jednego lub większej liczby terminów wyszukiwania. Wyniki są dowolny zbiór, który pasuje do żadnej właściwości z co najmniej jednego z warunków hello określony. |`sales data` |
-| Wyznaczanie zakresu właściwości |Zwracany tylko źródeł danych, w którym hello wyszukiwany termin jest zgodny z hello określona wartość właściwości. |`name:finance` |
+| Wyszukiwanie podstawowe |Wyszukiwania podstawowego, który korzysta z jednego lub większej liczby terminów wyszukiwania. Wyniki są żadnych zasobów, które pasuje do żadnej właściwości z co najmniej jednego z określonych warunków. |`sales data` |
+| Wyznaczanie zakresu właściwości |Zwróć tylko źródła danych, gdy wyszukiwany termin jest zgodny z określonej właściwości. |`name:finance` |
 | Operatory logiczne |Poszerzają lub zawężają wyszukiwanie przy użyciu operacji logicznych. |`finance NOT corporate` |
-| Grupowanie za pomocą nawiasów |Użyj nawiasów toogroup części hello zapytania tooachieve izolacji logicznej, szczególnie w połączeniu z operatorami logicznymi. |`name:finance AND (tags:Q1 OR tags:Q2)` |
+| Grupowanie za pomocą nawiasów |Użyj nawiasów do grupowania części zapytania w celu uzyskania izolacji logicznej, szczególnie w połączeniu z operatorami logicznymi. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Operatory porównania |Użyj porównań innych niż równość dla właściwości, które mają numeryczne i datowe typy danych. |`modifiedTime > "11/05/2014"` |
 
-Aby uzyskać więcej informacji na temat wyszukiwania w wykazie danych, zobacz hello [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) artykułu.
+Aby uzyskać więcej informacji na temat wyszukiwania w wykazie danych, zobacz [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) artykułu.
 
 ## <a name="hit-highlighting"></a>Wyróżnianie trafień
-Podczas wyświetlania wyników wyszukiwania wyświetlone dowolne właściwości spełniających określone hello terminy wyszukiwania (takich jak nazwa zasobów danych hello, opisie i tagach) są wyróżnione toomake go łatwiejsze tooidentify Dlaczego zasobów podanych danych został zwrócony przez podanym wyszukiwaniem.
+Podczas wyświetlania wyników wyszukiwania, wszelkie wyświetlane są wyróżnione właściwości, które pasują do określonych kryteriów wyszukiwania (takich jak nazwa zasobów danych, opisie i tagach), aby była ułatwia zidentyfikowanie przyczyny zasobów podanych danych zwrócił podanym wyszukiwaniem.
 
 > [!NOTE]
-> tooturn poza trafień wyróżnianie hello użyj **zaznacz** przełącznika w hello portalu wykazu danych.
+> Aby wyłączyć wyróżnianie trafień, należy użyć **zaznacz** przełącznika w portalu wykazu danych.
 >
 >
 
-Podczas wyświetlania wyników wyszukiwania, może nie zawsze być oczywista Dlaczego zasobu danych są uwzględnione, nawet w przypadku wyróżnianie trafień włączone. Ponieważ wszystkie właściwości są przeszukiwane domyślnie, zasobu danych może być zwrócony z powodu dopasowania właściwości na poziomie kolumny. I ponieważ wielu użytkowników może dodawać adnotacje do zarejestrowanych zasobów danych z tagami i opisy, nie wszystkie metadane mogą być wyświetlane w hello listy wyników wyszukiwania.
+Podczas wyświetlania wyników wyszukiwania, może nie zawsze być oczywista Dlaczego zasobu danych są uwzględnione, nawet w przypadku wyróżnianie trafień włączone. Ponieważ wszystkie właściwości są przeszukiwane domyślnie, zasobu danych może być zwrócony z powodu dopasowania właściwości na poziomie kolumny. I ponieważ wielu użytkowników może dodawać adnotacje do zarejestrowanych zasobów danych z tagami i opisy, nie wszystkie metadane mogą być wyświetlane na liście wyników wyszukiwania.
 
-W widoku tile domyślne hello, zawiera każdego kafelka wyświetlane w wynikach wyszukiwania hello **widoku wyszukiwany termin jest zgodny** ikony, dzięki czemu można szybko wyświetlić hello liczbę dopasowań i ich lokalizacji oraz toojump toothem, jeśli chcesz.
+Widok kafelków w domyślnym, zawiera każdego kafelka wyświetlane w wynikach wyszukiwania **widoku wyszukiwany termin jest zgodny** ikony, dzięki czemu można szybko wyświetlić liczbę dopasowań i ich lokalizacji oraz do szybkiego dostępu do nich, jeśli chcesz.
 
- ![Wyróżnianie trafień i wyszukiwanie ma uwzględniać w portalu Azure Data Catalog hello](./media/data-catalog-how-to-discover/search-matches.png)
+ ![Wyróżnianie trafień i wyszukiwanie ma uwzględniać w portalu wykazu danych Azure](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Podsumowanie
-Ponieważ rejestrowanie źródła danych z kopiami wykazu danych strukturalnych i opisowy metadanych z danych hello źródło toohello katalogu usług, hello źródła danych staje się łatwiejsze toodiscover i zrozumieć. Po źródła danych został zarejestrowany, można go odnaleźć za pomocą filtrowania i wyszukiwanie z poziomu portalu wykazu danych hello.
+Ponieważ rejestrowania źródła danych za pomocą usługi Data Catalog kopiuje metadane strukturalne i opisowy ze źródła danych z usługą wykazu, źródła danych staje się łatwiejsze do odnalezienia i zrozumienia. Po źródła danych został zarejestrowany, można go odnaleźć za pomocą filtrowania i wyszukiwanie z poziomu portalu wykazu danych.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać szczegółowe informacje krok po kroku na temat toodiscover źródeł danych, zobacz [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md).
+* Aby uzyskać szczegółowe informacje krok po kroku dotyczące odnajdywania źródeł danych, zobacz [Rozpoczynanie pracy z usługą Azure Data Catalog](data-catalog-get-started.md).

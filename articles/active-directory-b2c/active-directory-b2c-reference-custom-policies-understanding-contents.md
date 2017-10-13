@@ -1,5 +1,5 @@
 ---
-title: "Usługa Azure Active Directory B2C: Opis zasad niestandardowych hello początkowego pakietu | Dokumentacja firmy Microsoft"
+title: "Usługa Azure Active Directory B2C: Opis zasady niestandardowe pakietu starter | Dokumentacja firmy Microsoft"
 description: "Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
@@ -14,89 +14,89 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: 3484e8cc6fa6a9d57c2aa14c0cc9616065892d10
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9847bcfcc139a769847678c1cca6a8b9c3a30e93
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="understanding-hello-custom-policies-of-hello-azure-ad-b2c-custom-policy-starter-pack"></a>Opis zasad niestandardowych hello hello Azure AD B2C zasady niestandardowe początkowego pakietu
+# <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Opis zasad niestandardowych początkowego pakietu Azure AD B2C niestandardowych zasad
 
-Ta sekcja zawiera listę wszystkich elementów podstawowych hello hello B2C_1A_base zasady, które pochodzą z hello **pakiet początkowy** i która jest wykorzystywana do tworzenia własnych zasad za pomocą hello dziedziczenie hello *B2C_1A_base_ rozszerzenia zasad*.
+Ta sekcja zawiera listę wszystkich elementów podstawowych zasad B2C_1A_base, który jest dostarczany z **pakiet początkowy** i która jest wykorzystywana do tworzenia własnych zasad za pomocą dziedziczenia obiektu *B2C_1A_base_extensions zasad* .
 
-Tak on więcej szczególnie skupia się na powitania już zdefiniowane oświadczeń, typów, przekształcenia oświadczeń, definicje zawartości, dostawców oświadczeń z ich profile technicznych i hello podróże użytkownika core.
+Tak on bardziej szczegółowo skupia się na typy oświadczeń już zdefiniowane, przekształcenia oświadczeń, definicje zawartości, dostawców oświadczeń z ich profile technicznych i podróże użytkownika core.
 
 > [!IMPORTANT]
-> Microsoft nie udziela żadnych gwarancji, wyrażonych lub domniemanych, względem toohello informacje podane poniżej. Zmiany mogą być wprowadzane w dowolnym momencie przed upływem terminu GA w czasie GA lub po.
+> Microsoft nie udziela żadnych gwarancji, wprost względem z informacji podanych poniżej lub. Zmiany mogą być wprowadzane w dowolnym momencie przed upływem terminu GA w czasie GA lub po.
 
-Zarówno własnych zasad i hello B2C_1A_base_extensions zasad można zastąpić te definicje i rozszerzyć te zasady nadrzędnego zgodnie z potrzebami, podając te dodatkowe.
+Zarówno własnych zasad, jak i zasady B2C_1A_base_extensions można zastąpić te definicje i rozszerzyć te zasady nadrzędnego zgodnie z potrzebami, podając te dodatkowe.
 
-Witaj podstawowe elementy hello *zasad B2C_1A_base* są typy oświadczeń, przekształcenia oświadczeń i definicje zawartości. Te elementy można toobe wrażliwych, do którego odwołuje się własnych zasad, a także jak hello *zasad B2C_1A_base_extensions*.
+Elementy podstawowe *zasad B2C_1A_base* są typy oświadczeń, przekształcenia oświadczeń i definicje zawartości. Te elementy można wrażliwych odwoływać się do własnych zasad, a także jako w *zasad B2C_1A_base_extensions*.
 
 ## <a name="claims-schemas"></a>Schematy oświadczeń
 
 Oświadczenia to schematów jest podzielone na trzy części:
 
-1.  Pierwsza sekcja Lista oświadczeń minimalna hello, które są wymagane dla toowork podróże użytkownika hello poprawnie.
-2.  Druga sekcja list hello oświadczenia wymagane dla parametrów ciągu zapytania, a inne toobe specjalne parametry przekazane tooother dostawców oświadczeń, szczególnie login.microsoftonline.com do uwierzytelniania. **Nie Modyfikuj tych oświadczeń**.
-3.  I po pewnym czasie trzeci sekcja, która wyświetla wszelkie dodatkowe, opcjonalne oświadczenia, które mogą być zbierane od użytkownika hello przechowywanych w katalogu hello i wysłane w tokenach podczas logowania. W tej sekcji można dodawać nowych oświadczeń toobe typu zbierane od użytkownika hello i/lub wysyłane w tokenie hello.
+1.  Pierwsza sekcja wymieniono minimalne oświadczenia, które są wymagane dla podróże użytkownika do poprawnego działania.
+2.  Drugiej sekcji lista oświadczeń wymagany w przypadku parametrów ciągu zapytania i inne specjalne parametry do przekazania do innych dostawców oświadczeń, szczególnie login.microsoftonline.com do uwierzytelniania. **Nie Modyfikuj tych oświadczeń**.
+3.  I po pewnym czasie trzeci sekcja, która wyświetla wszelkie dodatkowe, opcjonalne oświadczenia, które mogą być zbierane od użytkownika, przechowywane w katalogu i wysłane w tokenach podczas logowania. W tej sekcji można dodać nowy typ oświadczenia zbierane od użytkownika i/lub w tokenie.
 
 > [!IMPORTANT]
-> Schemat oświadczeń Hello zawiera ograniczenia dotyczące określonych oświadczeń, takich jak nazwy użytkowników i hasła. Hello zasady zaufania Framework (TF) traktuje usługi Azure AD jako innego dostawcy oświadczeń i wszystkie jego ograniczenia są modelowany w hello premium zasad. Zasady można być zmodyfikowane tooadd więcej ograniczeń, lub użyj innego dostawcy oświadczeń do magazynu poświadczeń, który ma własną ograniczenia.
+> Schemat oświadczeń zawiera ograniczenia dotyczące określonych oświadczeń, takich jak nazwy użytkowników i hasła. Zasady zaufania Framework (TF) traktuje usługi Azure AD jako innego dostawcy oświadczeń i wszystkie jego ograniczenia są modelowany w zasadach premium. Aby dodać więcej ograniczeń, lub użyj innego dostawcy oświadczeń dla magazynu poświadczeń, który ma własną ograniczenia mogły zostać zmodyfikowane zasady.
 
-Poniżej przedstawiono typy oświadczeń dostępne Hello.
+Poniżej przedstawiono typy oświadczeń dostępne.
 
-### <a name="claims-that-are-required-for-hello-user-journeys"></a>Oświadczenia, które są wymagane dla hello podróże użytkownika
+### <a name="claims-that-are-required-for-the-user-journeys"></a>Oświadczenia, które są wymagane w przypadku podróży użytkownika
 
-powitania po oświadczenia są wymagane dla użytkownika podróże toowork prawidłowo:
+Następujące oświadczenia są wymagane dla użytkownika podróże do poprawnego działania:
 
 | Typ oświadczenia | Opis |
 |-------------|-------------|
 | *Nazwa użytkownika* | Nazwa użytkownika |
 | *signInName* | Zaloguj się w nazwie |
-| *dla identyfikatora dzierżawcy* | Identyfikator dzierżawy (ID) hello obiektu użytkownika w usłudze Azure AD B2C w warstwie Premium |
-| *Identyfikator obiektu* | Identyfikator obiektu (ID) hello obiektu użytkownika w usłudze Azure AD B2C w warstwie Premium |
+| *dla identyfikatora dzierżawcy* | Identyfikator dzierżawy (ID) obiektu użytkownika w usłudze Azure AD B2C w warstwie Premium |
+| *Identyfikator obiektu* | Identyfikator obiektu (ID) obiektu użytkownika w usłudze Azure AD B2C w warstwie Premium |
 | *hasło* | Hasło |
 | *NoweHasło* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Zasady haseł używanych przez siły hasła toodetermine Premium usługi Azure AD B2C, wygaśnięcia itp. |
+| *passwordPolicies* | Zasady haseł używane przez usługi Azure AD B2C Premium do określenia siły hasła, wygaśnięcia itp. |
 | *Sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
 | *Nazwa wyświetlana* | |
 | *strongAuthenticationPhoneNumber* | Numer telefonu użytkownika |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *Adres e-mail* | Adres e-mail, które mogą być używane toocontact hello użytkownika |
-| *signInNamesInfo.emailAddress* | Adres e-mail, który hello użytkownika można użyć toosign w |
-| *otherMails* | Adresy e-mail, które mogą być używane toocontact hello użytkownika |
-| *userPrincipalName* | Nazwa użytkownika zapisaną w hello Premium usługi Azure AD B2C |
+| *Adres e-mail* | Adres e-mail, który może służyć do kontaktowania się z użytkownika |
+| *signInNamesInfo.emailAddress* | Adres e-mail, który użytkownik może użyć do logowania |
+| *otherMails* | Adresy e-mail, które mogą być używane do kontaktu użytkownik |
+| *userPrincipalName* | Nazwa użytkownika zapisaną w warstwie Premium usługi Azure AD B2C |
 | *upnUserName* | Nazwa użytkownika do tworzenia głównej nazwy użytkownika |
-| *mailNickName* | Nazwa użytkownika poczty nick zapisanymi hello Premium usługi Azure AD B2C |
+| *mailNickName* | Nazwa użytkownika poczty nick przechowywanej w usłudze Azure AD B2C — wersja Premium |
 | *newUser* | |
-| *Wykonano SelfAsserted — dane wejściowe* | Oświadczenie, które określa, czy atrybuty zostały pobrane z hello użytkownika |
-| *Wykonano PhoneFactor — dane wejściowe* | Oświadczenie, które określa, czy nowy numer telefonu został zebrany hello użytkownika |
-| *authenticationSource* | Określa, czy uwierzytelnienia użytkownika hello społecznościowych dostawcy tożsamości, login.microsoftonline.com lub konto lokalne |
+| *Wykonano SelfAsserted — dane wejściowe* | Oświadczenie, które określa, czy atrybuty zostały zebrane przez użytkownika |
+| *Wykonano PhoneFactor — dane wejściowe* | Oświadczenie, które określa, czy nowy numer telefonu został zebrany przez użytkownika |
+| *authenticationSource* | Określa, czy użytkownik został uwierzytelniony w społecznościowych dostawcy tożsamości, login.microsoftonline.com lub lokalnego konta |
 
 ### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Oświadczenia wymagane w celu parametrów ciągu zapytania i inne parametry specjalne
 
-Witaj następujące oświadczenia są wymagane toopass na dostawców oświadczeń tooother specjalne parametry (w tym niektórych parametrów ciągu zapytania):
+Następujące oświadczenia są wymagane do przekazania na specjalne parametry (w tym niektórych parametrów ciągu zapytania) do innych dostawców oświadczeń:
 
 | Typ oświadczenia | Opis |
 |-------------|-------------|
-| *nux* | Specjalne parametr przekazany do konta lokalnego uwierzytelniania toologin.microsoftonline.com |
-| *Asystent łączności sieciowej* | Specjalne parametr przekazany do konta lokalnego uwierzytelniania toologin.microsoftonline.com |
-| *wiersz* | Specjalne parametr przekazany do konta lokalnego uwierzytelniania toologin.microsoftonline.com |
-| *mkt* | Specjalne parametr przekazany do konta lokalnego uwierzytelniania toologin.microsoftonline.com |
-| *LC* | Specjalne parametr przekazany do konta lokalnego uwierzytelniania toologin.microsoftonline.com |
-| *Typ grant_type* | Specjalne parametr przekazany do konta lokalnego uwierzytelniania toologin.microsoftonline.com |
-| *zakres* | Specjalne parametr przekazany do konta lokalnego uwierzytelniania toologin.microsoftonline.com |
-| *client_id* | Specjalne parametr przekazany do konta lokalnego uwierzytelniania toologin.microsoftonline.com |
-| *objectIdFromSession* | Parametr systemu hello domyślne sesji zarządzania dostawcy tooindicate który hello identyfikator obiektu ma zostały pobrane z sesji rejestracji Jednokrotnej |
-| *isActiveMFASession* | Parametr dostarczanej przez hello MFA sesji zarządzania tooindicate, które użytkownik hello ma aktywnej sesji usługi MFA |
+| *nux* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *Asystent łączności sieciowej* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *wiersz* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *mkt* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *LC* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *Typ grant_type* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *zakres* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *client_id* | Specjalne parametr przekazany do uwierzytelniania konta lokalnego do login.microsoftonline.com |
+| *objectIdFromSession* | Parametr udostępniane przez dostawcę zarządzania sesji domyślnej, aby wskazać, że identyfikator obiektu zostały pobrane z sesji rejestracji Jednokrotnej |
+| *isActiveMFASession* | Udostępniony parametr przez Zarządzanie sesjami MFA wskazująca, czy użytkownik ma aktywnej sesji usługi MFA |
 
 ### <a name="additional-optional-claims-that-can-be-collected"></a>Dodatkowe oświadczenia (opcjonalnie), które mogą być zbierane
 
-następujące Hello oświadczeń są dodatkowe oświadczenia, które mogą być zbierane od użytkowników hello przechowywanych w katalogu hello i wysyłane w tokenie hello. Zgodnie z opisem przed, dodatkowe oświadczenia mogą być dodawane toothis listy.
+Następujące oświadczenia są dodatkowe oświadczenia, które mogą być zebrane od użytkowników, przechowywane w katalogu i wysłane w tokenie. Zgodnie z opisem przed, dodatkowe oświadczeń można dodać do tej listy.
 
 | Typ oświadczenia | Opis |
 |-------------|-------------|
@@ -106,7 +106,7 @@ następujące Hello oświadczeń są dodatkowe oświadczenia, które mogą być 
 
 ## <a name="claim-transformations"></a>Przekształcenia oświadczeń
 
-przekształcenia oświadczeń dostępnych Hello są wymienione poniżej.
+Przekształcenia oświadczeń dostępne są wymienione poniżej.
 
 | Przekształcania oświadczeń | Opis |
 |----------------------|-------------|
@@ -119,7 +119,7 @@ przekształcenia oświadczeń dostępnych Hello są wymienione poniżej.
 
 ## <a name="content-definitions"></a>Definicje zawartości
 
-W tej sekcji opisano hello definicje zawartości już zadeklarowany w hello *B2C_1A_base* zasad. Te definicje zawartości są podatne toobe odwołania, przesłonięcia i/lub rozszerzony zgodnie z potrzebami w własnych zasad, a także jak hello *B2C_1A_base_extensions* zasad.
+W tej sekcji opisano zawartości definicje już zadeklarowany w *B2C_1A_base* zasad. Te definicje zawartości są podatne na odwołuje się do, przesłonięcia i rozszerzony w własnych zasad, a także jako w miarę potrzeb *B2C_1A_base_extensions* zasad.
 
 | Dostawcy oświadczeń | Opis |
 |-----------------|-------------|
@@ -136,7 +136,7 @@ W tej sekcji opisano hello definicje zawartości już zadeklarowany w hello *B2C
 
 ## <a name="technical-profiles"></a>Profile techniczne
 
-W tej sekcji przedstawiono hello profile techniczne już zadeklarowana dla dostawcy oświadczeń w hello *B2C_1A_base* zasad. Te profile techniczne są wrażliwych toobe dalsze odwołuje się do, przesłonięcia i/lub rozszerzony zgodnie z potrzebami w własnych zasad, a także jak hello *B2C_1A_base_extensions* zasad.
+W tej sekcji przedstawiono techniczne profile już zadeklarowana dla dostawcy oświadczeń w *B2C_1A_base* zasad. Te profile techniczne są podatne na dalsze odwołuje się do, zastąpiona, i/lub być rozszerzony w własnych zasad, a także jako w miarę potrzeb *B2C_1A_base_extensions* zasad.
 
 ### <a name="technical-profiles-for-facebook"></a>Profile techniczne dla usługi Facebook
 
@@ -162,7 +162,7 @@ W tej sekcji przedstawiono hello profile techniczne już zadeklarowana dla dosta
 
 | Profil techniczne | Opis |
 |-------------------|-------------|
-| *Typowe usługi AAD* | Profil techniczne uwzględnionych hello innych profilów techniczne AAD xxx |
+| *Typowe usługi AAD* | Techniczne dołączonego przez innych profilów techniczne AAD xxx profilu |
 | *UserWriteUsingAlternativeSecurityId usługi AAD* | Profil techniczne dla logowania społecznościowych |
 | *UserReadUsingAlternativeSecurityId usługi AAD* | Profil techniczne dla logowania społecznościowych |
 | *AAD-UserReadUsingAlternativeSecurityId-brak błędu* | Profil techniczne dla logowania społecznościowych |
@@ -171,7 +171,7 @@ W tej sekcji przedstawiono hello profile techniczne już zadeklarowana dla dosta
 | *UserWriteProfileUsingObjectId usługi AAD* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
 | *UserWritePhoneNumberUsingObjectId usługi AAD* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
 | *UserWritePasswordUsingObjectId usługi AAD* | Profil techniczne aktualizowania rekordu użytkownika przy użyciu objectId |
-| *UserReadUsingObjectId usługi AAD* | Techniczne profilu jest używane tooread danych po uwierzytelnia użytkownika |
+| *UserReadUsingObjectId usługi AAD* | Techniczne profil jest używany do odczytywania danych po uwierzytelnia użytkownika |
 
 ### <a name="technical-profiles-for-self-asserted"></a>Profile techniczne dla potwierdzone samoobsługowego
 
@@ -192,13 +192,13 @@ W tej sekcji przedstawiono hello profile techniczne już zadeklarowana dla dosta
 |-------------------|-------------|
 | *Operacja SM* | |
 | *SM AAD* | |
-| *SM SocialSignup* | Nazwa profilu jest są używane toodisambiguate AAD sesji między logowania się i zaloguj się |
+| *SM SocialSignup* | Nazwa profilu jest używana do odróżniania sesji AAD między logowania się i zaloguj się |
 | *SM SocialLogin* | |
 | *UWIERZYTELNIANIE WIELOSKŁADNIKOWE SM* | |
 
 ### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Profile techniczne dla TechnicalProfiles aparatu zasad Trustframework
 
-Obecnie brak techniczne profilów są definiowane dla hello **TechnicalProfiles aparatu zasad Trustframework** dostawcy oświadczeń.
+Obecnie brak techniczne profilów są definiowane dla **TechnicalProfiles aparatu zasad Trustframework** dostawcy oświadczeń.
 
 ### <a name="technical-profiles-for-token-issuer"></a>Profile techniczne dla wystawcy tokenów
 
@@ -208,7 +208,7 @@ Obecnie brak techniczne profilów są definiowane dla hello **TechnicalProfiles 
 
 ## <a name="user-journeys"></a>Podróże użytkownika
 
-W tej sekcji przedstawiono podróże użytkownika hello już zadeklarowany w hello *B2C_1A_base* zasad. Te podróże użytkownika są wrażliwych toobe dalsze odwołuje się do, przesłonięcia i/lub rozszerzony zgodnie z potrzebami w własnych zasad, a także jak hello *B2C_1A_base_extensions* zasad.
+W tej sekcji przedstawiono podróże użytkownik już zadeklarowany w *B2C_1A_base* zasad. Te podróże użytkownika są podatne na dalsze odwołuje się do, zastąpiona, i/lub być rozszerzony w własnych zasad, a także jako w miarę potrzeb *B2C_1A_base_extensions* zasad.
 
 | Przebieg użytkownika | Opis |
 |--------------|-------------|

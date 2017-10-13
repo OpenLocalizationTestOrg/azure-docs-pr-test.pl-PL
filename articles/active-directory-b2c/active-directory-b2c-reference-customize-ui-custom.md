@@ -1,5 +1,5 @@
 ---
-title: "Usługa Azure Active Directory B2C: Odwołanie: dostosowywanie hello interfejsu użytkownika podróży użytkownika z zasady niestandardowe | Dokumentacja firmy Microsoft"
+title: "Usługa Azure Active Directory B2C: Odwołanie: Dostosowywanie interfejsu użytkownika w podróży użytkownika z zasady niestandardowe | Dokumentacja firmy Microsoft"
 description: "Temat dotyczący zasad niestandardowych usługi Azure Active Directory B2C"
 services: active-directory-b2c
 documentationcenter: 
@@ -14,39 +14,39 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: 11f2a7575b95a186399d83266850fe44d650371b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="customize-hello-ui-of-a-user-journey-with-custom-policies"></a>Dostosowywanie hello interfejsu użytkownika podróży użytkownika przy użyciu zasad niestandardowych
+# <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Dostosowywanie interfejsu użytkownika w podróży użytkownika przy użyciu zasad niestandardowych
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> W tym artykule jest zaawansowane opis działania dostosowywania interfejsu użytkownika i jak tooenable z zasady niestandardowe B2C, przy użyciu hello Framework obsługi tożsamości
+> W tym artykule jest zaawansowane opis działania dostosowywania interfejsu użytkownika i jak włączyć za pomocą zasad niestandardowych B2C, przy użyciu platformy obsługi tożsamości
 
 
-Nie zakłóca pracy użytkowników jest kluczem dla dowolnego rozwiązania biznesowe z klientem. Przez nie zakłóca pracy użytkowników możemy oznacza środowisko na urządzeniu lub w przeglądarce, której przebieg użytkownika za pomocą naszej usługi nie mogą być wyodrębnione z powitania klienta usługi, którego używają.
+Nie zakłóca pracy użytkowników jest kluczem dla dowolnego rozwiązania biznesowe z klientem. Przez nie zakłóca pracy użytkowników możemy oznacza środowisko na urządzeniu lub w przeglądarce, której przebieg użytkownika za pomocą naszej usługi nie wyodrębnione od obsługi klienta, którego używają.
 
-## <a name="understand-hello-cors-way-for-ui-customization"></a>Zrozumieć sposób CORS hello do dostosowania interfejsu użytkownika
+## <a name="understand-the-cors-way-for-ui-customization"></a>Zrozumienie sposobu CORS do dostosowania interfejsu użytkownika
 
-Usługa Azure AD B2C umożliwia możesz toocustomize hello wyglądu i działania środowisko użytkownika (UX) hello różne strony, które mogą potencjalnie obsłużonych i wyświetlane przez usługę Azure AD B2C za pomocą niestandardowych zasad.
+Usługa Azure AD B2C umożliwia dostosowanie wyglądu i działania środowisko użytkownika (UX) na różnych stronach, które mogą potencjalnie obsłużonych i wyświetlane przez usługę Azure AD B2C za pomocą niestandardowych zasad.
 
-W tym celu usługi Azure AD B2C uruchamia kod w przeglądarce sieci użytkownika i używa hello nowoczesnych oraz standardowe metody [udostępniania zasobów między źródłami (CORS)](http://www.w3.org/TR/cors/) tooload niestandardowej zawartości z określonego adresu URL, określonym w zasadach niestandardowych Szablony HTML5/CSS tooyour toopoint. CORS jest mechanizm umożliwiający ograniczone zasoby, takie jak czcionki na toobe strony sieci web, żądanie z innej domeny spoza domeny hello, z którego pochodzi hello zasobów.
+W tym celu usługi Azure AD B2C kod w przeglądarce sieci klienta, korzysta z podejścia nowoczesnych i standard [udostępniania zasobów między źródłami (CORS)](http://www.w3.org/TR/cors/) załadować niestandardowej zawartości z określonym adresem URL określonym w zasadach niestandardowych, aby wskazywał szablonów HTML5/CSS. CORS jest mechanizm umożliwiający ograniczone zasoby, takie jak czcionki, na stronie sieci web wymagane z innej domeny spoza domeny, z którego pochodzi zasobu.
 
-W porównaniu toohello starego tradycyjny sposób, gdzie strony szablonów są własnością rozwiązania hello gdzie podane ograniczone tekstu i obrazów, gdzie ograniczone kontrolę nad układ i działanie zostało oferowane wiodące toomore niż tooachieve trudności bezproblemowe, hello CORS sposób obsługuje HTML5 i CSS i umożliwiają:
+W porównaniu do starego tradycyjny sposób, gdzie strony szablonu należą do firmy przy użyciu rozwiązania, gdzie podane ograniczone tekstu i obrazów, w którym została przyjęta ograniczone kontrolę nad układ i sposób działania prowadzące do więcej niż trudności do osiągnięcia bezproblemowej występują, sposób CORS obsługuje HTML5 i CSS i umożliwiają:
 
-- Hostowanie zawartości hello i hello rozwiązania injects jego formantów za pomocą skryptu po stronie klienta.
+- Hostowanie zawartości i rozwiązanie injects jego formantów za pomocą skryptu po stronie klienta.
 - Mają pełną kontrolę nad każdego piksela układ i działania.
 
 Możesz podać przez obsługuje tworzenie pliki HTML5/CSS, takich jak dowolną liczbę stron zawartości.
 
 > [!NOTE]
-> Ze względów bezpieczeństwa hello użycie JavaScript jest obecnie zablokowany do dostosowania. wymagany jest toounblock JavaScript, użycie nazwy domeny niestandardowej dla dzierżawy usługi Azure AD B2C.
+> Ze względów bezpieczeństwa użycie JavaScript jest obecnie zablokowany do dostosowania. Aby odblokować JavaScript, nazwy domeny niestandardowej dla dzierżawy usługi Azure AD B2C są potrzebne.
 
-W każdej z szablonów HTML5/CSS, można zapewnić *zakotwiczenia* element, który odpowiada toohello wymagane `<div id=”api”>` elementu hello HTML lub hello zawartości stronie jako ilustrują poniżej. Usługa Azure AD B2C musi mieć wszystkie strony z zawartością tego określonego div.
+W każdej z szablonów HTML5/CSS, można zapewnić *zakotwiczenia* element, który odpowiada wymaganych `<div id=”api”>` element w kodzie HTML lub strony zawartości, jak ilustrują poniżej. Usługa Azure AD B2C musi mieć wszystkie strony z zawartością tego określonego div.
 
 ```
 <!DOCTYPE html>
@@ -60,11 +60,11 @@ W każdej z szablonów HTML5/CSS, można zapewnić *zakotwiczenia* element, któ
 </html>
 ```
 
-Azure AD B2C związane z zawartości dla strony hello zostaną dodane do tego div podczas hello reszty strony hello jest Twój toocontrol. kod JavaScript Hello Azure AD B2C ściąga zawartości i injects naszych HTML do tego elementu div określone. Usługa Azure AD B2C injects powitania po formanty odpowiednio: konta formantu selektora, kontrolek logowania, wieloskładnikowego formantów (obecnie telefoniczny) i atrybutu kolekcji formantów. Usługa Azure AD B2C zapewnia, że wszystkie formanty hello są HTML5 zgodne i jest dostępny, wszystkie formanty hello można całkowicie stylem i że nie będzie zbadanie kontroli wersji.
+Azure AD B2C związane z zawartości dla strony zostaną dodane do tego div podczas pozostałej części strony jest Twój do formantu. Kod JavaScript usługi Azure AD B2C ściąga zawartości i injects naszych HTML do tego elementu div określone. Usługa Azure AD B2C injects następujące formanty odpowiednio: konta formantu selektora, kontrolek logowania, wieloskładnikowego formantów (obecnie telefoniczny) i atrybutu kolekcji formantów. Usługa Azure AD B2C zapewnia, że wszystkie formanty są HTML5 zgodne i jest dostępny, wszystkie formanty można całkowicie stylem i czy nie będzie zbadanie kontroli wersji.
 
-Hello scaloną zawartość jest ostatecznie wyświetlana jako hello dynamiczne dokumentu tooyour konsumenta.
+Scalone zawartości ostatecznie jest wyświetlana jako dynamiczny dokumentu z klientem.
 
-tooensure hello powyżej działa zgodnie z oczekiwaniami, należy:
+Aby zapewnić postąpić, zgodnie z oczekiwaniami, należy:
 
 - Upewnij się, że zawartość jest HTML5 zgodne i jest dostępny
 - Upewnij się, że serwer zawartości jest włączona dla CORS.
@@ -72,74 +72,74 @@ tooensure hello powyżej działa zgodnie z oczekiwaniami, należy:
 - Używać bezwzględnych adresów URL, takie jak https://yourdomain/content dla wszystkich łączy i zawartość arkusza CSS.
 
 > [!TIP]
-> tooverify, który hello lokacji, które prowadzą hosting zawartości na ma włączonego mechanizmu CORS i żądań CORS testu, można użyć hello http://test-cors.org/ lokacji. Dziękujemy toothis lokacji, można po prostu wyślij hello CORS tooa serwer zdalny żądania (tootest, jeśli jest obsługiwana przez CORS), lub wysłać hello CORS żądania tooa testu serwera (tooexplore niektórych funkcji CORS).
+> Aby sprawdzić, czy w lokacji, które prowadzą hosting zawartości na włączonego mechanizmu CORS i żądań CORS testu, można użyć http://test-cors.org/ lokacji. Dzięki tej lokacji możesz po prostu Wyślij żądanie CORS do serwera zdalnego (do testowania, jeśli jest obsługiwana przez CORS), lub wysłać żądania CORS na serwerze testowym (aby eksplorować niektórych funkcji CORS).
 
 > [!TIP]
-> http://enable-cors.org/ lokacji Hello stanowi również ponad przydatne zasoby na CORS.
+> Http://enable-cors.org/ lokacji stanowi również ponad przydatne zasoby na CORS.
 
-Dzięki toothis opartego na CORS, użytkownicy końcowi hello będzie miał spójne działanie od aplikacji i strony hello obsługiwanych przez usługę Azure AD B2C.
+Dzięki tej metody na podstawie specyfikacji CORS użytkownicy końcowi będzie miał spójne działanie pomiędzy aplikacją i stron obsługiwanych przez usługę Azure AD B2C.
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Jako warunek wstępny należy toocreate konta magazynu. Konieczne będzie toocreate subskrypcji platformy Azure konta magazynu obiektów Blob Azure. Możesz utworzyć konto bezpłatnej wersji próbnej na powitania [witryny sieci Web Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
+Warunkiem wstępnym musisz utworzyć konto magazynu. Konieczne będzie subskrypcji platformy Azure, aby utworzyć konto magazynu obiektów Blob Azure. Możesz utworzyć konto bezpłatnej wersji próbnej na [witryny sieci Web Azure](https://azure.microsoft.com/en-us/pricing/free-trial/).
 
-1. Otwórz sesję przeglądania i przejdź toohello [portalu Azure](https://portal.azure.com).
+1. Otwórz sesję przeglądania i przejdź do [portalu Azure](https://portal.azure.com).
 2. Zaloguj się przy użyciu poświadczeń administracyjnych.
 3. Kliknij przycisk **nowy** > **dane i magazyn** > **konta magazynu**.  A **utworzyć konto magazynu** Otwiera blok.
-4. W **nazwa**, podaj nazwę konta magazynu hello, na przykład *contoso369b2c*. Ta wartość zostanie później określonego jako zbyt*storageAccountName*.
-5. Wybierz hello opcji odpowiednich dla hello warstwa cenowa, grupy zasobów hello i hello subskrypcji. Upewnij się, że masz hello **tooStartboard numeru Pin** zaznaczoną opcją. Kliknij przycisk **Utwórz**.
-6. Przejdź wstecz toohello tablicy startowej, a następnie kliknij przycisk hello konta magazynu, który został właśnie utworzony.
-7. W hello **usług** kliknij **obiekty BLOB**. A **bloku usługi Blob** otwiera.
+4. W **nazwa**, podaj nazwę konta magazynu, na przykład *contoso369b2c*. Ta wartość będzie później określane jako *storageAccountName*.
+5. Wybierz odpowiednie opcje dla warstwy cenowej, grupy zasobów i subskrypcji. Upewnij się, że masz **Przypnij do tablicy startowej** zaznaczoną opcją. Kliknij przycisk **Utwórz**.
+6. Wróć do tablicy startowej, a następnie kliknij konto magazynu, który został właśnie utworzony.
+7. W **usług** kliknij **obiekty BLOB**. A **bloku usługi Blob** otwiera.
 8. Kliknij przycisk **+ kontener**.
-9. W **nazwa**, na przykład Podaj nazwę kontenera hello *b2c*. Ta wartość będzie później określonego tooas *containerName*.
-9. Wybierz **obiektu Blob** jako hello **dostęp typu**. Kliknij przycisk **Utwórz**.
-10. na liście hello na powitania pojawi się Hello kontenera, w którym utworzono **bloku usługi Blob**.
-11. Zamknij hello **obiekty BLOB** bloku.
-12. Na powitania **bloku konto magazynu**, kliknij przycisk hello **klucza** ikony. **Bloku klucze dostępu** otwiera.  
-13. Zanotuj wartość hello **klucz1**. Ta wartość zostanie później określonego jako *klucz1*.
+9. W **nazwa**, podaj nazwę kontenera, na przykład *b2c*. Ta wartość zostanie później określane jako *containerName*.
+9. Wybierz **obiektu Blob** jako **dostęp typu**. Kliknij przycisk **Utwórz**.
+10. Kontener, w którym utworzono będą wyświetlane na liście na **bloku usługi Blob**.
+11. Zamknij **obiekty BLOB** bloku.
+12. Na **bloku konto magazynu**, kliknij przycisk **klucza** ikony. **Bloku klucze dostępu** otwiera.  
+13. Zanotuj wartość **klucz1**. Ta wartość zostanie później określonego jako *klucz1*.
 
-## <a name="downloading-hello-helper-tool"></a>Pobieranie narzędzia pomocnika hello
+## <a name="downloading-the-helper-tool"></a>Pobranie narzędzia pomocy
 
-1.  Pobierz narzędzie Pomocnik hello z [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
-2.  Zapisz hello *B2C-AzureBlobStorage-klienta master.zip* plik na komputerze lokalnym.
-3.  Wyodrębnij zawartość hello hello B2C-AzureBlobStorage-klienta master.zip pliku na dysku lokalnym, na przykład w obszarze hello **pakietu w przypadku dostosowania interfejsu użytkownika** folderu. Spowoduje to utworzenie *B2C-AzureBlobStorage-klienta master* folderu poniżej.
-4.  Otwórz ten folder i Wyodrębnij zawartość hello pliku archiwum hello *B2CAzureStorageClient.zip* w nim.
+1.  Pobierz narzędzie Pomocnik z [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip).
+2.  Zapisz *B2C-AzureBlobStorage-klienta master.zip* plik na komputerze lokalnym.
+3.  Wyodrębnij zawartość pliku B2C-AzureBlobStorage-klienta master.zip na lokalnym dysku, na przykład w obszarze **pakietu w przypadku dostosowania interfejsu użytkownika** folderu. Spowoduje to utworzenie *B2C-AzureBlobStorage-klienta master* folderu poniżej.
+4.  Otwórz ten folder i Wyodrębnij zawartość pliku archiwum *B2CAzureStorageClient.zip* w nim.
 
-## <a name="upload-hello-ui-customization-pack-sample-files"></a>Przekaż pliki przykładowe hello pakietu w przypadku dostosowania interfejsu użytkownika
+## <a name="upload-the-ui-customization-pack-sample-files"></a>Przekaż przykładowych plików pakietu w przypadku dostosowania interfejsu użytkownika
 
-1.  Przy użyciu Eksploratora Windows przejdź do folderu toohello *B2C-AzureBlobStorage-klienta master* znajduje się w obszarze hello *pakietu w przypadku dostosowania interfejsu użytkownika* folder utworzony w poprzedniej sekcji hello.
-2.  Uruchom hello *B2CAzureStorageClient.exe* pliku. Ten program po prostu przekazać wszystkie pliki hello w katalogu hello Określ konto magazynu tooyour i włączyć CORS dostęp do tych plików.
-3.  Po wyświetleniu monitu podaj:.  Witaj nazwę konta magazynu *storageAccountName*, na przykład *contoso369b2c*.
-    b.  Witaj podstawowy klucz dostępu magazynu obiektów blob platformy azure, *klucz1*, na przykład *contoso369b2c*.
-    c.  Witaj nazwa kontenera magazynu obiektów blob z magazynu *containerName*, na przykład *b2c*.
-    d.  Ścieżka Hello hello *początkowego pakietu* próbki plików, na przykład *... \B2CTemplates\wingtiptoys*.
+1.  Przy użyciu Eksploratora Windows przejdź do folderu *B2C-AzureBlobStorage-klienta master* znajduje się w obszarze *pakietu w przypadku dostosowania interfejsu użytkownika* folder utworzony w poprzedniej sekcji.
+2.  Uruchom *B2CAzureStorageClient.exe* pliku. Ten program będzie po prostu Przekaż wszystkie pliki w katalogu wskazanym na koncie magazynu i włączyć CORS dostęp do tych plików.
+3.  Po wyświetleniu monitu podaj:.  Nazwa konta magazynu *storageAccountName*, na przykład *contoso369b2c*.
+    b.  Podstawowy klucz dostępu magazynu obiektów blob platformy azure, *klucz1*, na przykład *contoso369b2c*.
+    c.  Nazwa kontenera magazynu obiektów blob z magazynu *containerName*, na przykład *b2c*.
+    d.  Ścieżka *początkowego pakietu* próbki plików, na przykład *... \B2CTemplates\wingtiptoys*.
 
-Po wykonaniu powyższych kroków hello hello pliki CSS i HTML5 hello *pakietu w przypadku dostosowania interfejsu użytkownika* dla fikcyjnej firmy hello **wingtiptoys** teraz wskazanie tooyour konta magazynu.  Możesz sprawdzić, czy zawartość hello został przesłany poprawnie przez otwarcie bloku pokrewne kontenera hello w hello portalu Azure. Alternatywnie można sprawdzić, czy zawartość hello został przesłany prawidłowo po zalogowaniu się do strony hello w przeglądarce. Aby uzyskać więcej informacji, zobacz [usługi Azure Active Directory B2C: Narzędzie Pomocnik użyć funkcji dostosowanie interfejsu użytkownika strony hello toodemonstrate](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Po wykonaniu kroków powyżej pliki CSS i HTML5 *pakietu w przypadku dostosowania interfejsu użytkownika* w fikcyjnej firmie **wingtiptoys** teraz będzie wskazywać na koncie magazynu.  Aby sprawdzić, czy zawartość, został przesłany poprawnie przez otwarcie bloku pokrewne kontenera w portalu Azure. Alternatywnie można sprawdzić, czy zawartość, został przesłany prawidłowo po zalogowaniu się do strony w przeglądarce. Aby uzyskać więcej informacji, zobacz [usługi Azure Active Directory B2C: Narzędzie Pomocnik, używany do przedstawiania funkcji dostosowywania interfejsu użytkownika strony](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
-## <a name="ensure-hello-storage-account-has-cors-enabled"></a>Upewnij się, że konto magazynu hello ma włączonego mechanizmu CORS
+## <a name="ensure-the-storage-account-has-cors-enabled"></a>Upewnij się, że konto magazynu ma włączonego mechanizmu CORS
 
-CORS (Cross-Origin Resource Sharing) musi być włączona na punkt końcowy dla usługi Azure AD B2C Premium tooload zawartości. Jest to spowodowane zawartości znajduje się w innej domenie niż domeny hello Premium usługi Azure AD B2C będzie obsługująca hello strony z.
+CORS (Cross-Origin Resource Sharing) musi być włączona punktu końcowego dla usługi Azure AD B2C Premium w celu załadowania zawartości. Jest to spowodowane zawartości znajduje się w innej domenie niż domeny Premium usługi Azure AD B2C będzie obsługująca stronę z.
 
-tooverify z CORS włączone, hello magazynu, które prowadzą hosting zawartości na kontynuować hello następujące kroki:
+Aby sprawdzić, czy magazyn, które prowadzą hosting zawartości na ma włączonego mechanizmu CORS, kontynuować następujące czynności:
 
-1. Otwórz sesję przeglądania i przejdź do strony toohello *unified.html* przy użyciu hello pełny adres URL lokalizacji na koncie magazynu `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Na przykład https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
-2. Przejdź toohttp://test-cors.org. Ta witryna umożliwia tooverify możesz który hello strony, którego używasz ma włączonego mechanizmu CORS.  
+1. Otwórz sesję przeglądania i przejdź do strony *unified.html* przy użyciu pełny adres URL lokalizacji na koncie magazynu `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Na przykład https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+2. Przejdź do http://test-cors.org. Tej lokacji pozwala sprawdzić, czy strona, której używasz ma włączonego mechanizmu CORS.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->
 
-3. W **zdalnego adresu URL**, wprowadź pełny adres URL hello zawartości unified.html i kliknij przycisk **Wyślij żądanie**.
-4. Sprawdź te dane wyjściowe hello w hello **wyniki** sekcja zawiera *stan XHR: 200*. Oznacza to, że włączono CORS.
+3. W **zdalnego adresu URL**, wprowadź pełny adres URL dla zawartości unified.html i kliknij przycisk **Wyślij żądanie**.
+4. Sprawdź, czy dane wyjściowe w **wyniki** sekcja zawiera *stan XHR: 200*. Oznacza to, że włączono CORS.
 <!--
 ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
 -->
-Konto magazynu Hello teraz powinna zawierać kontenera obiektów blob o nazwie *b2c* naszych ilustracji, który zawiera hello poniższych szablonów wingtiptoys z hello *początkowego pakietu*.
+Konto magazynu powinien zawierać teraz kontenera obiektów blob o nazwie *b2c* naszych ilustracji, który zawiera następujące szablony wingtiptoys z *początkowego pakietu*.
 
 <!--
 ![Correctly configured storage account](../../articles/active-directory-b2c/media/active-directory-b2c-reference-customize-ui-custom/storage-account-final.png)
 -->
 
-Witaj poniższej tabeli opisano hello celem hello powyżej stron HTML5.
+W poniższej tabeli opisano celem powyżej stron HTML5.
 
 | Szablon HTML5 | Opis |
 |----------------|-------------|
@@ -149,26 +149,26 @@ Witaj poniższej tabeli opisano hello celem hello powyżej stron HTML5.
 | *Unified.HTML* | Ta strona może służyć jako szablon ujednoliconego strony rejestracji lub logowania. |
 | *updateprofile.HTML* | Ta strona może służyć jako szablon strony aktualizacji profilu. |
 
-## <a name="add-a-link-tooyour-html5css-templates-tooyour-user-journey"></a>Dodaj łącze tooyour HTML5/CSS szablony tooyour użytkownika podróży
+## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>Dodaj łącze do szablonów HTML5/CSS do podróży użytkownika
 
-Można dodać łącza tooyour HTML5/CSS szablony tooyour użytkownika podróży bezpośrednio edytując zasad niestandardowych.
+Można dodać łącza do szablonów HTML5/CSS do podróży użytkownika bezpośrednio edytując zasadę niestandardową.
 
-toouse Hello do szablonów niestandardowych HTML5/CSS w podróży użytkownika mają toobe określone na liście definicji zawartości, które mogą być używane w podróży tych użytkowników. W tym celu opcjonalny  *<ContentDefinitions>*  — element XML musi być zadeklarowana w obszarze hello  *<BuildingBlocks>*  sekcji w pliku XML zasady niestandardowe.
+Szablony niestandardowe HTML5/CSS do użycia w podróży użytkownika ma określonych na liście zawartości definicje, które mogą być używane w podróży tych użytkowników. W tym celu opcjonalny  *<ContentDefinitions>*  — element XML musi być zadeklarowana w obszarze  *<BuildingBlocks>*  sekcji w pliku XML zasady niestandardowe.
 
-Witaj poniższej tabeli opisano zestaw hello rozpoznawany przez aparat obsługi tożsamości hello Azure AD B2C i typ hello stron odnosi się toothem identyfikatorów definicji zawartości.
+W poniższej tabeli opisano zestaw identyfikatorów definicji zawartości rozpoznawany przez aparat obsługi tożsamości usługi Azure AD B2C i typ strony, które odnoszą się do nich.
 
 | Identyfikator definicji zawartości | Opis |
 |-----------------------|-------------|
 | *API.error* | **Strona błędu**. Ta strona jest wyświetlana po napotkaniu wyjątku lub wystąpił błąd. |
-| *API.idpselections* | **Strona wyboru dostawcy tożsamości**. Ta strona zawiera listę tożsamość, którą można wybrać dostawców, którzy hello użytkownika podczas logowania. Są to przedsiębiorstwa dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook i Google + lub kont lokalnych (w oparciu nazwa użytkownika lub adres e-mail). |
-| *API.idpselections.Signup* | **Wybór dostawcy tożsamości dla rejestracji**. Ta strona zawiera listę dostawców, którzy hello użytkownika można wybrać podczas tworzenia konta tożsamości. Są to przedsiębiorstwa dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook i Google + lub kont lokalnych (w oparciu nazwa użytkownika lub adres e-mail). |
-| *API.localaccountpasswordreset* | **Nie pamiętasz hasła strony**. Ta strona zawiera formularza, które użytkownik hello ma tooinitiate toofill zresetować swoje hasło.  |
-| *API.localaccountsignin* | **Strona logowania konta lokalnego**. Ta strona zawiera formularz logowania hello, które użytkownik ma toofill przy logowaniu się za pomocą konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz Hello może zawierać pola do wprowadzania tekstu, a w polu wprowadzania hasła. |
-| *API.localaccountsignup* | **Stronę tworzenia konta lokalnego konta**. Ta strona zawiera formularz zapisów hello, które użytkownik ma toofill przypadku skorzystania z konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz Hello może zawierać różne kontrolki wejściowe, takich jak pola do wprowadzania tekstu, pole wprowadzania hasła przycisk radiowy, jednokrotnym zaznaczeniem pola listy rozwijanej i pól wyboru wielokrotnego wyboru. |
+| *API.idpselections* | **Strona wyboru dostawcy tożsamości**. Ta strona zawiera listę dostawców tożsamości, które użytkownik może wybrać podczas logowania. Są to przedsiębiorstwa dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook i Google + lub kont lokalnych (w oparciu nazwa użytkownika lub adres e-mail). |
+| *API.idpselections.Signup* | **Wybór dostawcy tożsamości dla rejestracji**. Ta strona zawiera listę dostawców tożsamości, które użytkownik może wybrać podczas tworzenia konta. Są to przedsiębiorstwa dostawców tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook i Google + lub kont lokalnych (w oparciu nazwa użytkownika lub adres e-mail). |
+| *API.localaccountpasswordreset* | **Nie pamiętasz hasła strony**. Ta strona zawiera formularz, który użytkownik ma do wypełnienia zainicjować ich resetowania hasła.  |
+| *API.localaccountsignin* | **Strona logowania konta lokalnego**. Ta strona zawiera formularz logowania, który użytkownik musi podać podczas logowania się za pomocą konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać pola do wprowadzania tekstu, a w polu wprowadzania hasła. |
+| *API.localaccountsignup* | **Stronę tworzenia konta lokalnego konta**. Ta strona zawiera wypełnieniu formularza, który użytkownik musi podać podczas zapisywania się do konta lokalnego, która jest oparta na adres e-mail lub nazwę użytkownika. Formularz może zawierać różne kontrolki wejściowe, takich jak pola do wprowadzania tekstu, pole wprowadzania hasła przycisk radiowy, jednokrotnym zaznaczeniem pola listy rozwijanej i pól wyboru wielokrotnego wyboru. |
 | *API.phonefactor* | **Strona uwierzytelniania wieloskładnikowego**. Na tej stronie użytkowników można sprawdzić ich numery telefonów (przy użyciu tekstowych lub głosowych) podczas tworzenia konta lub logowania. |
-| *API.selfasserted* | **Strony rejestracji społecznościowych konta**. Ta strona zawiera formularza tworzenia konta, które użytkownik hello ma toofill w podczas rejestracji przy użyciu istniejącego konta od dostawcy tożsamości społecznościowych, takich jak Facebook lub Google +. Ta strona jest podobne toohello powyżej kont społecznościowych stronę tworzenia konta, z wyjątkiem hello pola wprowadzania hasła hello. |
-| *API.selfasserted.profileupdate* | **Strona aktualizacji profilu**. Ta strona zawiera formularz użytkownika hello służy tooupdate swój profil. Ta strona jest podobne toohello powyżej kont społecznościowych stronę tworzenia konta, z wyjątkiem hello pola wprowadzania hasła hello. |
+| *API.selfasserted* | **Strony rejestracji społecznościowych konta**. Ta strona zawiera wypełnieniu formularza, który użytkownik musi podać podczas logowania przy użyciu istniejącego konta od dostawcy tożsamości społecznościowych, takich jak Facebook lub Google +. Ta strona jest podobny do powyżej społecznego konta stronę tworzenia konta, z wyjątkiem hasło pola wejścia. |
+| *API.selfasserted.profileupdate* | **Strona aktualizacji profilu**. Ta strona zawiera formularz, który użytkownik może użyć do zaktualizowania swój profil. Ta strona jest podobny do powyżej społecznego konta stronę tworzenia konta, z wyjątkiem hasło pola wejścia. |
 | *API.signuporsignin* | **Ujednolicone stronę tworzenia konta lub logowania**.  Ta strona obsługuje zarówno rejestracji i logowania użytkowników, którzy można używać w organizacji dostawcy tożsamości, dostawców tożsamości społecznościowych, takich jak Facebook lub Google + lub kont lokalnych.
 
 ## <a name="next-steps"></a>Następne kroki
-[Odwołanie: Zrozumieć, jak niestandardowe zasady pracować z hello Framework obsługi tożsamości w B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[Odwołanie: Zrozumieć, jak niestandardowe zasady współpracują w ramach obsługi tożsamości w B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

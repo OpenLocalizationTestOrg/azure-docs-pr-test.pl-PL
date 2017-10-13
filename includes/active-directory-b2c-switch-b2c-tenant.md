@@ -1,5 +1,3 @@
-Edytowany przez Sipi.
+Aby przełączyć się do swojej dzierżawy usługi Azure AD B2C, wybierz katalog usługi B2C w prawym górnym rogu portalu.
 
-tooyour tooswitch dzierżawy usługi Azure AD B2C, wybierz katalog B2C hello w hello prawym górnym rogu portalu hello.
-
-![Przełącz dzierżawy usługi Azure AD B2C tooyour](./media/active-directory-b2c-switch-b2c-tenant/switch-to-b2c-tenant.png)
+![Przełączanie się do swojej dzierżawy usługi Azure AD B2C](./media/active-directory-b2c-switch-b2c-tenant/switch-to-b2c-tenant.png)

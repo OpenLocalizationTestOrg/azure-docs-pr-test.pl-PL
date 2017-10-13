@@ -11,8 +11,8 @@
 ## Konfigurowanie
 ### [Ograniczanie przepływności](biztalk-throttling-thresholds.md)
 ### [Ustawienia usługi i monitorowania](biztalk-dashboard-monitor-scale-tabs.md)
-## Migrate (Migracja)
-### [Usługi BizTalk Server EDI tooBizTalk rozwiązań](biztalk-migrating-to-edi-guide.md)
+## Migracja
+### [Rozwiązań EDI serwera BizTalk Server do usługi BizTalk Services](biztalk-migrating-to-edi-guide.md)
 ## Monitorowanie
 ### [Zadania, które zależą od stanu usługi](biztalk-service-state-chart.md)
 ## Bezpieczeństwo

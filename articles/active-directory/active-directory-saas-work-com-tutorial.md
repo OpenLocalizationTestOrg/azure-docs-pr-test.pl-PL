@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Work.com | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Work.com."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Work.com."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,108 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: dcdc51c884abd78c945b649de99f942d32373cf6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7cfec8e9ac12d43095483696a15c0580776d3114
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Samouczek: Integracji Azure Active Directory z Work.com
 
-Z tego samouczka, dowiesz się, jak toointegrate Work.com w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Work.com z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Work.com zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD Work.com zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooWork.com
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooWork.com (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Work.com
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Work.com (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z Work.com należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Work.com, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Work.com logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodaj Work.com z galerii hello
+1. Dodaj Work.com z galerii
 2. Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
-## <a name="add-workcom-from-hello-gallery"></a>Dodaj Work.com z galerii hello
-tooconfigure hello integracji Work.com do usługi Azure AD, należy tooadd Work.com z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="add-workcom-from-the-gallery"></a>Dodaj Work.com z galerii
+Aby skonfigurować integrację usługi Azure AD Work.com, należy dodać Work.com z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Work.com z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Work.com z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **Work.com**, wybierz pozycję **Work.com** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+4. W polu wyszukiwania wpisz **Work.com**, wybierz pozycję **Work.com** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
     ![Dodaj z galerii](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_addfromgallery.png)
 
 ##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Work.com w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Work.com jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Work.com musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Work.com jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Work.com musi się.
 
-W Work.com, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W Work.com, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Work.com, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Work.com, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Work.com](#create-a-workcom-test-user)**  -toohave odpowiednikiem Simona Britta w Work.com, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Work.com](#create-a-workcom-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Work.com połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Work.com.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Work.com.
 
 >[!NOTE]
->tooconfigure logowanie jednokrotne, należy toosetup niestandardową nazwę domeny Work.com jeszcze. Należy toodefine co najmniej domeny nazwy, przetestować nazwę domeny i wdrożyć ją tooyour całej organizacji.
+>Aby skonfigurować logowanie jednokrotne, należy skonfigurować niestandardową nazwę domeny Work.com jeszcze. Należy zdefiniować co najmniej nazwę domeny, sprawdzenie nazwę domeny i wdrożyć ją w całej organizacji.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Work.com, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Work.com, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Work.com** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Work.com** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Na podstawie SAML logowania jednokrotnego](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_samlbase.png)
 
-3. Na powitania **Work.com domeny i adres URL** sekcji, wykonaj następujące hello:
+3. Na **Work.com domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Sekcja Work.com domeny i adresy URL](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_url.png)
 
-    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`http://<companyname>.my.salesforce.com`
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`http://<companyname>.my.salesforce.com`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość z hello rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Work.com](https://help.salesforce.com/articleView?id=000159855&type=3) tooget tej wartości. 
+    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Work.com](https://help.salesforce.com/articleView?id=000159855&type=3) aby zyskać tę wartość. 
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Sekcja certyfikat podpisywania SAML](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_certificate.png) 
 
@@ -123,34 +123,34 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Przycisk Zapisz](./media/active-directory-saas-work-com-tutorial/tutorial_general_400.png)
 
-6. Na powitania **konfiguracji Work.com** kliknij **skonfigurować Work.com** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+6. Na **konfiguracji Work.com** , kliknij przycisk **skonfigurować Work.com** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Sekcja konfiguracji Work.com](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_configure.png) 
-7. Zaloguj się za tooyour Work.com dzierżawy jako administrator.
+7. Zaloguj się jako administrator dzierżawy Work.com.
 
-8. Przejdź za**Instalatora**.
+8. Przejdź do **Instalatora**.
    
     ![Instalator](./media/active-directory-saas-work-com-tutorial/ic794108.png "Instalatora")
 
-9. W okienku nawigacji po lewej stronie powitania w hello **Administruj** , kliknij przycisk **Zarządzanie domenami** tooexpand hello powiązanych sekcji, a następnie kliknij przycisk **Moje domeny** tooopen hello  **Mojej domeny** strony. 
+9. W okienku nawigacji po lewej stronie w **Administruj** , kliknij przycisk **Zarządzanie domenami** rozwiń sekcję powiązane, a następnie kliknij przycisk **Moje domeny** otworzyć **Moje domeny** strony. 
    
     ![Mojej domeny](./media/active-directory-saas-work-com-tutorial/ic767825.png "mojej domeny")
 
-10. tooverify, który domeny nie został skonfigurowany prawidłowo, upewnij się, że jest on "**krok 4 wdrożone tooUsers**" i zapoznaj się z "**Moje ustawienia domeny**".
+10. Aby sprawdzić, czy domeny nie został skonfigurowany prawidłowo, upewnij się, że jest on "**krok 4 wdrożone dla użytkowników**" i zapoznaj się z "**Moje ustawienia domeny**".
    
-    ![Domeny wdrożono tooUser](./media/active-directory-saas-work-com-tutorial/ic784377.png "tooUser wdrożone domeny")
+    ![Wdrożonego dla użytkownika domeny](./media/active-directory-saas-work-com-tutorial/ic784377.png "wdrożonego dla użytkownika domeny")
 
-11. Zaloguj się za tooyour Work.com dzierżawy.
+11. Zaloguj się do dzierżawy Work.com.
 
-12. Przejdź za**Instalatora**.
+12. Przejdź do **Instalatora**.
     
     ![Instalator](./media/active-directory-saas-work-com-tutorial/ic794108.png "Instalatora")
 
-13. Rozwiń węzeł hello **kontroli bezpieczeństwa** menu, a następnie kliknij przycisk **ustawień rejestracji jednokrotnej**.
+13. Rozwiń węzeł **kontroli bezpieczeństwa** menu, a następnie kliknij przycisk **ustawień rejestracji jednokrotnej**.
     
     ![Single Sign-On ustawienia](./media/active-directory-saas-work-com-tutorial/ic794113.png "Single Sign-On ustawienia")
 
-14. Na powitania **ustawień rejestracji jednokrotnej** okna dialogowego wykonaj hello następujące kroki:
+14. Na **ustawień rejestracji jednokrotnej** okna dialogowego strony, należy wykonać następujące czynności:
     
     ![Włączone SAML](./media/active-directory-saas-work-com-tutorial/ic781026.png "SAML włączone")
     
@@ -158,90 +158,90 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     
     b. Kliknij przycisk **Nowy**.
 
-15. W hello **SAML pojedynczego logowania jednokrotnego ustawienia** sekcji, wykonaj następujące kroki hello:
+15. W **SAML pojedynczego logowania jednokrotnego ustawienia** sekcji, wykonaj następujące czynności:
     
     ![SAML pojedynczy znak na ustawienie](./media/active-directory-saas-work-com-tutorial/ic794114.png "SAML pojedynczy znak na ustawienie")
     
-    a. W hello **nazwa** tekstowym, wpisz nazwę dla danej konfiguracji.  
+    a. W **nazwa** tekstowym, wpisz nazwę dla danej konfiguracji.  
        
     > [!NOTE]
-    > Wartość dla **nazwa** automatycznie wypełnić hello **Nazwa interfejsu API** pola tekstowego.
+    > Wartość dla **nazwa** automatycznie wypełnić **Nazwa interfejsu API** pola tekstowego.
     
-    b. W **wystawcy** pole tekstowe, Wklej wartość hello **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
+    b. W **wystawcy** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
     
-    c. tooupload certyfikatu hello pobrany z portalu Azure, kliknij przycisk **Przeglądaj**.
+    c. Aby przekazać certyfikat pobrany z portalu Azure, kliknij przycisk **Przeglądaj**.
     
-    d. W hello **identyfikator jednostki** pole tekstowe, typ `https://salesforce-work.com`.
+    d. W **identyfikator jednostki** pole tekstowe, typ `https://salesforce-work.com`.
     
-    e. Jako **typ tożsamości SAML**, wybierz pozycję **potwierdzenia zawiera hello identyfikator federacyjnej z obiektu użytkownika hello**.
+    e. Jako **typ tożsamości SAML**, wybierz pozycję **potwierdzenia zawiera identyfikator federacji z obiektu użytkownika**.
     
-    f. Jako **lokalizacji tożsamości SAML**, wybierz pozycję **jest tożsamość w elemencie NameIdentfier hello hello instrukcji podmiotu**.
+    f. Jako **lokalizacji tożsamości SAML**, wybierz pozycję **jest tożsamość w elemencie NameIdentfier instrukcji podmiotu**.
     
-    g. W **adresu URL logowania do dostawcy tożsamości** pole tekstowe, Wklej wartość hello **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
+    g. W **adresu URL logowania do dostawcy tożsamości** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
 
-    h. W **adres URL wylogowania dostawcy tożsamości** pole tekstowe, Wklej wartość hello **Sign-Out URL** którego została skopiowana z portalu Azure.
+    h. W **adres URL wylogowania dostawcy tożsamości** pole tekstowe, Wklej wartość **Sign-Out URL** którego została skopiowana z portalu Azure.
     
     i. Jako **dostawcy zainicjował żądanie powiązania usługi**, wybierz pozycję **HTTP Post**.
     
     j. Kliknij pozycję **Zapisz**.
 
-16. W portalu klasycznym Work.com, w okienku nawigacji po lewej stronie powitania kliknij **Zarządzanie domenami** tooexpand hello powiązanych sekcji, a następnie kliknij przycisk **Moje domeny** tooopen hello **Moje domeny**strony. 
+16. W portalu klasycznym Work.com, w okienku nawigacji po lewej stronie kliknij **Zarządzanie domenami** rozwiń sekcję powiązane, a następnie kliknij przycisk **Moje domeny** otworzyć **Moje domeny** strony. 
     
     ![Mojej domeny](./media/active-directory-saas-work-com-tutorial/ic794115.png "mojej domeny")
 
-17. Na powitania **Moje domeny** strony w hello **znakowanie strony logowania** kliknij **Edytuj**.
+17. Na **Moje domeny** strony w **znakowanie strony logowania** kliknij **Edytuj**.
     
     ![Znakowanie strony logowania](./media/active-directory-saas-work-com-tutorial/ic767826.png "znakowanie strony logowania")
 
-14. Na powitania **znakowanie strony logowania** strony w hello **usługi uwierzytelniania** sekcji, hello nazwę Twojej **ustawienia logowania jednokrotnego SAML** jest wyświetlany. Wybierz go, a następnie kliknij przycisk **zapisać**.
+14. Na **znakowanie strony logowania** strony w **usługi uwierzytelniania** sekcji Nazwa Twojej **ustawienia logowania jednokrotnego SAML** jest wyświetlany. Wybierz go, a następnie kliknij przycisk **zapisać**.
     
     ![Znakowanie strony logowania](./media/active-directory-saas-work-com-tutorial/ic784366.png "znakowanie strony logowania")
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-work-com-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Użytkownicy i grupy -> Wszyscy użytkownicy](./media/active-directory-saas-work-com-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Add](./media/active-directory-saas-work-com-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Strony okna dialogowego użytkownika](./media/active-directory-saas-work-com-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-workcom-test-user"></a>Tworzenie użytkownika testowego Work.com
-Dla usługi Azure Active Directory użytkowników toobe stanie toosign w muszą być tooWork.com elastycznie. W przypadku hello Work.com Inicjowanie obsługi to zadanie ręczne.
+Dla usługi Azure Active Directory aby użytkownicy mogli się zalogować muszą one być przygotowana do Work.com. W przypadku Work.com Inicjowanie obsługi to zadanie ręczne.
 
-### <a name="tooconfigure-user-provisioning-perform-hello-following-steps"></a>tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:
-1. Rejestracja tooyour Work.com witryny firmy jako administrator.
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:
+1. Zalogować się do witryny firmy Work.com jako administrator.
 
-2. Przejdź za**Instalatora**.
+2. Przejdź do **Instalatora**.
    
     ![Instalator](./media/active-directory-saas-work-com-tutorial/IC794108.png "Instalatora")
-3. Przejdź za**Zarządzanie użytkownikami \> użytkowników**.
+3. Przejdź do **Zarządzanie użytkownikami \> użytkowników**.
    
     ![Zarządzaj użytkownikami](./media/active-directory-saas-work-com-tutorial/IC784369.png "Zarządzanie użytkownikami")
 
@@ -249,48 +249,48 @@ Dla usługi Azure Active Directory użytkowników toobe stanie toosign w muszą 
    
     ![Wszyscy użytkownicy](./media/active-directory-saas-work-com-tutorial/IC794117.png "wszyscy użytkownicy")
 
-5. W hello sekcji Edytuj użytkowników, wykonaj następujące kroki w przypadku atrybutów elementów prawidłową Azure hello konta AD mają tooprovision w hello związane z pól tekstowych:
+5. W sekcji Edycja użytkownika należy wykonać następujące czynności, w przypadku atrybutów elementów prawidłową Azure AD konta chcesz udostępnić do powiązanych pól tekstowych:
    
     ![Edycja użytkownika](./media/active-directory-saas-work-com-tutorial/ic794118.png "Edycja użytkownika")
    
-    a. W hello **imię** pole tekstowe, hello typu **imię** użytkownika hello **Britta**.
+    a. W **imię** pole tekstowe, typ **imię** użytkownika **Britta**.
     
-    b. W hello **nazwisko** pole tekstowe, hello typu **nazwisko** użytkownika hello **Simona**.
+    b. W **nazwisko** pole tekstowe, typ **nazwisko** użytkownika **Simona**.
     
-    c. W hello **Alias** pole tekstowe, hello typu **nazwa** użytkownika hello **BrittaS**.
+    c. W **Alias** pole tekstowe, typ **nazwa** użytkownika **BrittaS**.
     
-    d. W hello **E-mail** pole tekstowe, hello typu **adres e-mail** użytkownika  **Brittasimon@contoso.com** .
+    d. W **E-mail** pole tekstowe, typ **adres e-mail** użytkownika  **Brittasimon@contoso.com** .
     
-    e. W hello **nazwy użytkownika** tekstowym, wpisz nazwę użytkownika użytkownika, takich jak  **Brittasimon@contoso.com** .
+    e. W **nazwy użytkownika** tekstowym, wpisz nazwę użytkownika użytkownika, takich jak  **Brittasimon@contoso.com** .
     
-    f. W hello **pseudonim** pola tekstowego, a typ **pseudonim** użytkownika **Simona**.
+    f. W **pseudonim** pola tekstowego, a typ **pseudonim** użytkownika **Simona**.
     
     g. Wybierz **roli**, **licencji użytkownika**, i **profilu**.
     
     h. Kliknij pozycję **Zapisz**.  
       
     > [!NOTE]
-    > Właściciel konta usługi Azure AD Hello otrzymają wiadomość e-mail z tym kontem hello tooconfirm łącze zanim staje się aktywny.
+    > Właściciel konta usługi Azure AD otrzyma wiadomość e-mail, łącznie z łączem do potwierdzenia konta, zanim staje się aktywny.
     > 
     > 
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooWork.com.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Work.com.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooWork.com Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta Work.com, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Work.com**.
+2. Na liście aplikacji zaznacz **Work.com**.
 
     ![Work.com na liście aplikacji](./media/active-directory-saas-work-com-tutorial/tutorial_work-com_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -298,7 +298,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -306,14 +306,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Work.com hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Work.com aplikacji.
-Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu kafelka Work.com w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Work.com.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

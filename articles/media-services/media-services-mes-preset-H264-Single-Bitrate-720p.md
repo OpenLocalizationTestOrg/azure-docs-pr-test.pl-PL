@@ -1,6 +1,6 @@
 ---
-title: "aaaH264 pojedynczej szybkości transmisji bitów 720p ustawienia standardu Media Encoder Standard - Azure | Dokumentacja firmy Microsoft"
-description: "Witaj temat zawiera omówienie hello ** ustawienie wstępne pojedynczej szybkości transmisji bitów H264 720 p ** zadań."
+title: "H264 pojedynczej szybkości transmisji bitów 720p ustawienia standardu Media Encoder Standard - Azure | Dokumentacja firmy Microsoft"
+description: "Temat zawiera omówienie ** ustawienie wstępne pojedynczej szybkości transmisji bitów H264 720 p ** zadań."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 38229713b4c88cd78acbd597870bfa144f10ae1f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5ca683db654a5adda6e15e1761579c7e81438417
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="h264-single-bitrate-720p"></a>H264 Pojedynczej szybkości transmisji bitów 720p
-`Media Encoder Standard`definiuje zestaw kodowania ustawienia używanego podczas tworzenia zadania kodowania. Można użyć `preset name` toospecify do formatu, który chcesz tooencode Twojego pliku multimedialnego. Lub można utworzyć własny JSON lub ustawienia opartych na języku XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie możesz przejdzie hello toohello wstępnie ustawiony niestandardowy koder. Lista hello hello wszystkie ustawienia wstępnego nazw obsługiwanych przez to `Media Encoder Standard` kodera, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](media-services-mes-presets-overview.md).  
+`Media Encoder Standard`definiuje zestaw kodowania ustawienia używanego podczas tworzenia zadania kodowania. Można użyć `preset name` do określenia do formatu, który chcesz kodować pliku nośnika. Lub można utworzyć własny JSON lub ustawienia opartych na języku XML (przy użyciu kodowania UTF-8 lub UTF-16. Następnie możesz przejdzie niestandardowe ustawienia do kodera. Aby uzyskać listę wszystkich istniejących nazw obsługiwanych przez to `Media Encoder Standard` kodera, zobacz [ustawień wstępnych zadań dla standardu Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- W tym temacie przedstawiono hello `H264 Single Bitrate 720p` ustawienia wstępnego w formacie XML i JSON.  
+ W tym temacie przedstawiono `H264 Single Bitrate 720p` ustawienia wstępnego w formacie XML i JSON.  
   
- Ten plik wstępnie zdefiniowane i tworzy jednej MP4 o szybkości transmisji bitów 4500 KB/s i stereo AAC audio. Aby uzyskać szczegółowe informacje o profilu szybkości transmisji bitów próbkowania szybkości, itp. tego ustawień, sprawdź hello XML lub JSON określonych poniżej. Dla wyjaśnienia, jaki każdego elementu w tych oznacza, że ustawienia i hello prawidłowe wartości dla każdego elementu, zobacz hello [Media Encoder Standard schematu](media-services-mes-schema.md) tematu.  
+ Ten plik wstępnie zdefiniowane i tworzy jednej MP4 o szybkości transmisji bitów 4500 KB/s i stereo AAC audio. Aby uzyskać szczegółowe informacje o profilu szybkości transmisji bitów próbkowania szybkości, itp. tego ustawień, sprawdzić XML lub JSON określonych poniżej. Wyjaśnień jakie każdego elementu w sposób te ustawienia i prawidłowe wartości dla każdego elementu, zobacz [Media Encoder Standard schematu](media-services-mes-schema.md) tematu.  
   
  XML  
   

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 5/06/2017
 ms.author: parakhj
-ms.openlocfilehash: 28a39f282488b81fc9e2ab7841b5f2cb4cd58715
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: Rejestrowanie i logowanie użytkowników w aplikacjach za pomocą zasad niestandardowych
-Zasady niestandardowe są pliki konfiguracji, które określają zachowanie hello dzierżawy usługi Azure AD B2C. Mogą to być całkowicie zmieniony przez toocomplete developer tożsamości near nieograniczoną liczbę zadań.
+Zasady niestandardowe to pliki konfiguracji definiujące zachowanie Twojej dzierżawy usługi Azure AD B2C. Mogą być w pełni edytowane przez dewelopera tożsamości, dzięki czemu mogą wykonywać niemal nieograniczoną liczbę zadań.
 
-## <a name="how-tooarticles"></a>Jak tooarticles
-Dowiedz się, jak toouse określonych funkcji usługi Azure Active Directory B2C:
+## <a name="how-to-articles"></a>Instrukcje
+Informacje o sposobie korzystania z określonych funkcji usługi Azure Active Directory B2C:
 
-* [Rozpoczęcie pracy](active-directory-b2c-overview-custom.md)
+* [Wprowadzenie](active-directory-b2c-overview-custom.md)
 * Konfigurowanie dostawców uwierzytelniania OIDC, takich jak usługa [Azure AD](active-directory-b2c-setup-aad-custom.md).
 * Konfigurowanie dostawców uwierzytelniania SAML, takich jak usługa [Salesforce](active-directory-b2c-setup-sf-app-custom.md).
 * Integrowanie interfejsów API RESTful:
@@ -39,7 +39,7 @@ Dowiedz się, jak toouse określonych funkcji usługi Azure Active Directory B2C
 * Rozwiązywanie problemów przez [zbieranie dzienników przy użyciu usługi Application Insights](active-directory-b2c-troubleshoot-custom.md).
 
 ## <a name="whats-new"></a>Co nowego
-Zaglądaj tu często toolearn o nadchodzących zmianach toohello Azure Active Directory B2C. Będziemy również tweetować o wszystkich aktualizacjach, korzystając z @AzureAD.
+Zaglądaj tu często, aby dowiadywać się o nadchodzących zmianach w usłudze Azure Active Directory B2C. Będziemy również tweetować o wszystkich aktualizacjach, korzystając z @AzureAD.
 
 
 

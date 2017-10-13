@@ -1,46 +1,63 @@
 ---
-title: aaa "samouczek lekcji dodatkowych usług Azure Analysis Services: wiersze szczegółów | Opis elementu Microsoft Docs": w tym artykule opisano, jak toocreate, a wyrażenie wiersze szczegółów w hello Samouczek usług Azure Analysis Services.
-usługi: documentationcenter usług analysis services: "Autor: minewiskan Menedżera: Edytor erikre:" tagów: "
-
-MS.AssetID: ms.service: ms.devlang usług analysis services: NA ms.topic: get-started-article ms.tgt_pltfrm: NA ms.workload: na ms.date: 05/26/2017 ms.author: owend
+title: "Samouczek Azure Analysis Services: lekcja uzupełniająca — wiersze szczegółów | Microsoft Docs"
+description: "Opisuje sposób tworzenia wyrażenia wierszy szczegółów w samouczku usług Azure Analysis Services."
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.openlocfilehash: 9995ad39d9e3fd1a211c513d4097398e99eefc54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lekcja uzupełniająca — wiersze szczegółów
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-W tej lekcji uzupełniające służą hello toodefine edytora języka DAX wyrażenia niestandardowego wiersze szczegółów. Wyrażenie wiersze szczegółów jest właściwością w miarę, zapewniając użytkownikom końcowym więcej informacji na temat wyników hello agregować miary. 
+W tej lekcji uzupełniającej zdefiniujesz niestandardowe wyrażenie wierszy szczegółów przy użyciu edytora języka DAX. Wyrażenie wierszy szczegółów jest właściwością miary, która dostarcza użytkownikom końcowym więcej informacji na temat zagregowanych wyników miary. 
   
-Szacowany czas toocomplete tej lekcji: **10 minut**  
+Szacowany czas trwania lekcji: **10 minut**  
   
 ## <a name="prerequisites"></a>Wymagania wstępne  
-Ta lekcja uzupełniająca stanowi część samouczka modelowania tabelarycznego. Przed wykonaniem zadania hello w tym uzupełniające lekcji, powinno mieć ukończone wszystkie poprzednie — lekcje lub zakończonych projektu modelu przykładowej firmy Adventure Works Internet sprzedaży.  
+Ta lekcja uzupełniająca stanowi część samouczka modelowania tabelarycznego. Przed wykonaniem zadań w tej lekcji uzupełniającej należy ukończyć wszystkie poprzednie lekcje lub wykonać przykładowy projekt modelu Adventure Works Internet Sales.  
   
-## <a name="what-do-we-need-toosolve"></a>Co zrobić, potrzebujemy toosolve?
-Przyjrzyjmy się hello szczegóły naszych miary InternetTotalSales przed dodaniem wyrażenia do szczegółów wierszy.
+## <a name="what-do-we-need-to-solve"></a>Jaki problem chcemy rozwiązać?
+Przed dodaniem wyrażenia wierszy szczegółów przyjrzyjmy się szczegółowym informacjom na temat miary InternetTotalSales.
 
-1.  Programu SSDT, kliknij przycisk hello **modelu** menu > **analizy w programie Excel** tooopen programu Excel i Utwórz pustą tabelę przestawną.
+1.  W programie SSDT kliknij menu **Model** > **Analiza w programie Excel**, aby otworzyć program Excel i utworzyć pustą tabelę przestawną.
   
-2.  W **pól tabeli przestawnej**, Dodaj hello **InternetTotalSales** miarę Tabela FactInternetSales hello zbyt**wartości**, **CalendarYear**z hello DimDate tabeli zbyt**kolumn**, i **EnglishCountryRegionName** za**wierszy**. Nasze tabeli przestawnej teraz daje wyników zagregowany z miary InternetTotalSales hello regiony i roku. 
+2.  W obszarze **Pola tabeli przestawnej** dodaj miarę **InternetTotalSales** z tabeli FactInternetSales do pola **Wartości**, element **CalendarYear** z tabeli DimDate do pola **Kolumny** oraz element **EnglishCountryRegionName** do pola **Wiersze**. Tabela przestawna zawiera teraz zagregowane wyniki miary InternetTotalSales według regionów i lat. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
-3. W tabeli przestawnej hello kliknij dwukrotnie wartość zagregowana roku i nazwę regionu. W tym miejscu możemy podwójnie hello wartość dla klientów w Australii i hello 2014 roku. Otwarty został nowy arkusz zawierający dane, które jednak nie są użyteczne.
+3. W tabeli przestawnej kliknij dwukrotnie zagregowaną wartość dla roku i nazwy regionu. W przykładzie dwukrotnie kliknęliśmy wartość dla Australii i roku 2014. Otwarty został nowy arkusz zawierający dane, które jednak nie są użyteczne.
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-sheet.png)
   
-Co mamy ma tutaj toosee to tabela zawierająca kolumn i wierszy współtworzenia toohello agregowana wynik naszych InternetTotalSales miary. toodo, że wyrażenie wiersze szczegółów można dodać jako właściwość hello miary.
+Chcielibyśmy uzyskać tabelę zawierającą kolumny i wiersze danych składające się na zagregowany wynik naszej miary InternetTotalSales. W tym celu możemy dodać wyrażenie wierszy szczegółów jako właściwość miary.
 
 ## <a name="add-a-detail-rows-expression"></a>Dodawanie wyrażenia wierszy szczegółów
 
-#### <a name="toocreate-a-detail-rows-expression"></a>toocreate wyrażenie wiersze szczegółów 
+#### <a name="to-create-a-detail-rows-expression"></a>Dodanie wyrażenia wierszy szczegółów 
   
-1. Programu SSDT, w siatce miar Tabela FactInternetSales hello, kliknij przycisk hello **InternetTotalSales** miary. 
+1. W programie SSDT, w siatce miar tabeli FactInternetSales kliknij miarę **InternetTotalSales**. 
 
-2. W **właściwości** > **wyrażenie wiersze szczegółów**, kliknij przycisk hello Edytor przycisk tooopen hello edytora języka DAX.
+2. W obszarze **Właściwości** > **Wyrażenie wierszy szczegółów** kliknij przycisk edytora, aby otworzyć edytor języka DAX.
 
     ![aas-lesson-detail-rows-ellipse](../tutorials/media/aas-lesson-detail-rows-ellipse.png)
 
-3. W edytorze języka DAX wprowadź powitania po wyrażeniu:
+3. W edytorze języka DAX wprowadź następujące wyrażenie:
 
     ```
     SELECTCOLUMNS(
@@ -55,9 +72,9 @@ Co mamy ma tutaj toosee to tabela zawierająca kolumn i wierszy współtworzenia
 
     ```
 
-    To wyrażenie określa nazwy kolumny i miary z powiązanych tabel i tabela FactInternetSales hello są zwracane, gdy użytkownik kliknie dwukrotnie wyników zagregowany w tabeli przestawnej lub raportu.
+    To wyrażenie określa nazwy, kolumny i wyniki miary z tabeli FactInternetSales i tabel powiązanych, które będą zwracane po dwukrotnym kliknięciu zagregowanych wyników w tabeli przestawnej lub raporcie.
 
-4. W programie Excel Usuń arkusz hello utworzony w kroku 3, a następnie kliknij dwukrotnie wartość zagregowana. Tym razem z właściwością wyrażenie wiersze szczegółów zdefiniowane dla miary hello, nowy arkusz zostanie otwarty zawierający przydatne znacznie więcej danych.
+4. Po powrocie do programu Excel usuń arkusz utworzony w kroku 3, a następnie kliknij dwukrotnie zagregowaną wartość. Tym razem dzięki zdefiniowaniu dla miary właściwości wyrażenia wierszy szczegółów nowy arkusz po otwarciu będzie zawierać znacznie więcej przydatnych danych.
 
     ![aas-lesson-detail-rows-detailsheet](../tutorials/media/aas-lesson-detail-rows-detailsheet.png)
 

@@ -42,7 +42,7 @@
 #### [Uruchamianie zadań i podzadań](./scripts/batch-cli-sample-run-job.md)
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [Interfejs wiersza polecenia platformy Azure](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
@@ -63,12 +63,11 @@
 
 # Powiązane
 ## [Usługa Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [Przetwarzanie danych za pomocą usług Batch i Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Rozwiązania partii i HPC w hello chmury Azure](batch-hpc-solutions.md)
+## [Przetwarzanie danych za pomocą usług Batch i Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Rozwiązania usługi Batch i HPC w chmurze Azure](batch-hpc-solutions.md)
 
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
-## [Zasoby dużych wystąpień obliczeniowych](big-compute-resources.md)
 ## [Blog](https://blogs.technet.microsoft.com/windowshpc/)
 ## [Przykłady kodu języka C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

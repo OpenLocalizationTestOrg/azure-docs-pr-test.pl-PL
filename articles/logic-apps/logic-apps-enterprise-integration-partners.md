@@ -1,6 +1,6 @@
 ---
-title: "partnerzy aaaCreate wiadomości między firmami (B2B) - Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak konto tooadd partnerów tooyour integracji z hello pakiet integracyjny dla przedsiębiorstw i Logic Apps"
+title: "Utwórz partnerów wiadomości między firmami (B2B) - Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak dodać partnerów do swojego konta integracji z pakiet integracyjny dla przedsiębiorstw i Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: MandiOhlinger
@@ -15,75 +15,75 @@ ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8dc70a8f441fcf228ed178029dcdbac940d794b3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 950cb449b53f400f0f0f860caf5415bbb5212269
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-or-update-partners-in-business-to-business-agreements-in-your-workflow"></a>Dodaj lub zaktualizuj partnerów w umowach business-to-business w przepływie pracy
 
-Partnerzy to podmiotom uczestniczenie w transakcjach (B2B) business-to-business i wymiany wiadomości między sobą. Przed utworzeniem partnerów, które reprezentują i innej organizacji w tych transakcji, należy najpierw zarówno udostępnianie informacji, która identyfikuje i weryfikuje komunikatów wysłanych przez siebie nawzajem. Po omówiono te informacje i są gotowe toostart Twojego relacji biznesowej, można utworzyć partnerów w Twojej toorepresent konta integracji obie.
+Partnerzy to podmiotom uczestniczenie w transakcjach (B2B) business-to-business i wymiany wiadomości między sobą. Przed utworzeniem partnerów, które reprezentują i innej organizacji w tych transakcji, należy najpierw zarówno udostępnianie informacji, która identyfikuje i weryfikuje komunikatów wysłanych przez siebie nawzajem. Po omówiono te szczegóły i zacząć z firmą, można utworzyć partnerów na koncie integracji do reprezentowania obie.
 
 ## <a name="what-roles-do-partners-have-in-your-integration-account"></a>Jakie role partnerów masz na koncie integracji?
 
-Szczegóły toodefine wiadomości powitania wymieniane między partnerami, Utwórz umów tych partnerów. Jednak przed utworzeniem umowę, należy dodać co najmniej dwie firmy partnerskie tooyour integracji konta. Twoja organizacja musi być częścią umowy hello jako hello **partnera hosta**. Witaj drugiego partnera lub **partnera gościa** reprezentuje hello organizacji, który wymienia wiadomości w swojej organizacji. Hello partnera gościa może być innej firmy lub nawet działów w organizacji.
+Zdefiniuj szczegóły wiadomości wymieniane między partnerami, utworzysz umów tych partnerów. Jednakże przed utworzeniem umowę, należy dodać co najmniej dwie firmy partnerskie do swojego konta integracji. Twoja organizacja musi być częścią umowy jako **partnera hosta**. Drugiego partnera, lub **partnera gościa** to organizacja, który wymienia wiadomości w swojej organizacji. Partner gościa może być innej firmy lub nawet działów w organizacji.
 
 Po dodaniu tych partnerów, można utworzyć umowy.
 
-Odbierania i wysyłania, ustawienia są obiektowe z hello punktu widzenia hello hostowana partnera. Na przykład hello odbierają ustawienia w umowie określić sposób partnera hello hostowanej odbiera wiadomości wysyłane z partnerem gościa. Podobnie, hello wysyłania ustawienia na umowie hello wskazują, jak hello hostowanej partner wysyła wiadomości toohello gościa partnera.
+Odbierania i wysyłania, ustawienia są obiektowe z punktu widzenia hostowanej partnera. Na przykład odbierania ustawienia w umowie określają sposób hostowanej partnera odbiera wiadomości wysyłane z partnerem gościa. Podobnie, Wyślij ustawienia na umowie wskazują, jak hostowanej partner wysyła komunikaty do partnera gościa.
 
-## <a name="how-toocreate-a-partner"></a>Jak toocreate partnera?
+## <a name="how-to-create-a-partner"></a>Jak utworzyć partnera?
 
-1. Hello portalu Azure, wybierz **Przeglądaj**.
+1. W portalu Azure wybierz **Przeglądaj**.
 
     ![](./media/logic-apps-enterprise-integration-overview/overview-1.png)
 
-2. W polu wyszukiwania filtr hello, wprowadź **integracji**, a następnie wybierz pozycję **konta integracji** hello listy wyników.
+2. W polu filtru wyszukiwania wprowadź **integracji**, a następnie wybierz pozycję **konta integracji** na liście wyników.
 
     ![](./media/logic-apps-enterprise-integration-overview/overview-2.png)
 
-3. Wybierz konto integracji hello miejscu tooadd partnerów.
+3. Wybierz konto integracji, w której chcesz dodać partnerów.
 
     ![](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
-4. Wybierz hello **partnerów** kafelka.
+4. Wybierz **partnerów** kafelka.
 
     ![](./media/logic-apps-enterprise-integration-partners/partner-1.png)
 
-5. W bloku partnerów hello, wybierz **Dodaj**.
+5. W bloku partnerów, wybierz **Dodaj**.
 
     ![](./media/logic-apps-enterprise-integration-partners/partner-2.png)
 
-6. Wprowadź nazwę dla partnera, a następnie wybierz **kwalifikator**. Na koniec, wprowadź **wartość** toohelp określenie dokumentów, które pochodzą ze swoimi aplikacjami.
+6. Wprowadź nazwę dla partnera, a następnie wybierz **kwalifikator**. Na koniec, wprowadź **wartość** ułatwia zidentyfikowanie dokumentów, które pochodzą ze swoimi aplikacjami.
 
     ![](./media/logic-apps-enterprise-integration-partners/partner-3.png)
 
-7. postęp hello toosee partnera proces tworzenia, wybierz hello *dzwonka* ikonę powiadomienia.
+7. Aby wyświetlić postęp procesu tworzenia partnera, wybierz *dzwonka* ikonę powiadomienia.
 
     ![](./media/logic-apps-enterprise-integration-partners/partner-4.png)
 
-8. tooconfirm, który partnerów nowe pomyślnie zostały dodane, wybierz hello **partnerów** kafelka.
+8. Aby potwierdzić pomyślnie dodano nowe partnerów, wybierz **partnerów** kafelka.
 
     ![](./media/logic-apps-enterprise-integration-partners/partner-5.png)
 
-    Po wybraniu kafelka partnerów hello sekcji omówiono również, nowo dodanego partnerów w bloku partnerów hello.
+    Po wybraniu kafelka partnerów, widoczny będzie również nowo dodanego partnerów w bloku partnerów.
 
     ![](./media/logic-apps-enterprise-integration-partners/partner-6.png)
 
-## <a name="how-tooedit-existing-partners-in-your-integration-account"></a>Jak istniejące tooedit partnerzy na koncie integracji
+## <a name="how-to-edit-existing-partners-in-your-integration-account"></a>Jak edytować istniejących partnerów w ramach konta integracji
 
-1. Wybierz hello **partnerów** kafelka.
-2. Po otwarciu bloku partnerów hello wybierz partnera hello ma tooedit.
-3. Na powitania **partnera aktualizacji** kafelka, wprowadź zmiany.
-4. Po zakończeniu wybierz **zapisać**, lub wybierz zmiany, toocancel **odrzucić**.
+1. Wybierz **partnerów** kafelka.
+2. Po otwarciu bloku partnerów, wybierz partnera, który chcesz edytować.
+3. Na **partnera aktualizacji** kafelka, wprowadź zmiany.
+4. Po zakończeniu wybierz **zapisać**, lub Anuluj zmiany, wybierz **odrzucić**.
 
     ![](./media/logic-apps-enterprise-integration-partners/edit-1.png)
 
-## <a name="how-toodelete-a-partner"></a>Jak toodelete partnera
+## <a name="how-to-delete-a-partner"></a>Jak usunąć partnera
 
-1. Wybierz hello **partnerów** kafelka.
-2. Po otwarciu bloku partnera hello wybierz hello partnera, które mają toodelete.
+1. Wybierz **partnerów** kafelka.
+2. Po otwarciu bloku partnera, wybierz partnera, którego chcesz usunąć.
 3. Wybierz **usunąć**.
 
     ![](./media/logic-apps-enterprise-integration-partners/delete-1.png)

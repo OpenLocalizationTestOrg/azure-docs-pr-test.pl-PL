@@ -1,5 +1,5 @@
 ---
-title: "Połączenie sieci wirtualnej platformy Azure tooanother sieci wirtualnej: programu PowerShell | Dokumentacja firmy Microsoft"
+title: "Łączenie sieci wirtualnej platformy Azure z inną siecią wirtualną: PowerShell | Microsoft Docs"
 description: "W tym artykule przedstawiono procedurę łączenia sieci wirtualnych przy użyciu usługi Azure Resource Manager i programu PowerShell."
 services: vpn-gateway
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2da30c76867cc3f71d040e63e0dd15d153e15c10
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 537e80937289d6b46283843c2ee0725e7e08fefc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu programu PowerShell
 
-W tym artykule opisano sposób toocreate połączenie bramy sieci VPN między sieciami wirtualnymi. Witaj sieci wirtualne mogą być w hello tych samych lub różnych regionów, a z hello takie same lub różnych subskrypcji. Podczas łączenia sieci wirtualne z różnych subskrypcji, subskrypcje hello nie ma potrzeby toobe skojarzone z hello tej samej dzierżawy usługi Active Directory. 
+Ten artykuł pokazuje, jak utworzyć połączenie bramy sieci VPN między sieciami wirtualnymi. Sieci wirtualne mogą być zlokalizowane w tych samych lub różnych regionach i mogą funkcjonować w ramach tej samej lub różnych subskrypcji. W przypadku łączenia sieci wirtualnych z różnych subskrypcji subskrypcje nie muszą być skojarzone z tą samą dzierżawą usługi Active Directory. 
 
-Witaj opisanych w tym artykule mają zastosowanie modelu wdrażania usługi Resource Manager toohello i przy użyciu programu PowerShell. Można również utworzyć tę konfigurację za pomocą narzędzia wdrażania różnych lub model wdrożenia, wybierając inną opcję z hello następującej listy:
+Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager i używania programu PowerShell. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -37,45 +37,45 @@ Witaj opisanych w tym artykule mają zastosowanie modelu wdrażania usługi Reso
 >
 >
 
-Połączenie wirtualnej sieci tooanother sieć wirtualną (VNet-VNet) jest podobne tooconnecting lokalizacji sieci wirtualnej tooan lokalnej lokacji. Oba typy łączności Użyj tooprovide bramy sieci VPN przy użyciu protokołu IPsec/IKE bezpiecznego tunelu. Jeśli Twoje sieci wirtualne są w hello tego samego regionu, może być tooconsider łącząc je przy użyciu sieci wirtualnej komunikacji równorzędnej. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
+Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Jeśli Twoje sieci wirtualne znajdują się w tym samym regionie, warto rozważyć połączenie ich za pomocą komunikacji równorzędnej sieci wirtualnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
 
-Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obejmującymi wiele lokacji. Dzięki temu można ustanowić topologii sieci, łączące łączności między lokalizacjami z połączeniem sieciowym między wirtualnych, jak pokazano w powitania po diagramu:
+Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi, jak pokazano na poniższym diagramie.
 
 ![Informacje o połączeniach](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
 
 ### <a name="why-connect-virtual-networks"></a>Dlaczego łączy się sieci wirtualne?
 
-Warto sieci wirtualnych tooconnect hello z następujących powodów:
+Sieci wirtualne można łączyć z następujących powodów:
 
 * **Niezależna od regionu nadmiarowość i obecność geograficzna**
 
   * Można tworzyć własne replikacje geograficzne lub przeprowadzać synchronizację z bezpiecznym połączeniem bez przechodzenia przez punkty końcowe dostępne z Internetu.
-  * Usługi Azure Traffic Manager i Load Balancer pozwalają skonfigurować obciążenie o wysokiej dostępności z nadmiarowością geograficzną w wielu regionach świadczenia usługi Azure. Przykładem ważne jest tooset się SQL zawsze włączone grupy dostępności rozsyłanie się w różnych regionach platformy Azure.
+  * Usługi Azure Traffic Manager i Load Balancer pozwalają skonfigurować obciążenie o wysokiej dostępności z nadmiarowością geograficzną w wielu regionach świadczenia usługi Azure. Istotnym przykładem jest konfiguracja ustawienia SQL Zawsze włączone, w przypadku którego grupy dostępności rozciągają się na wiele regionów świadczenia usługi Azure.
 * **Regionalne aplikacje wielowarstwowe z izolacją lub granicami administracyjnymi**
 
-  * Poziomu hello sam region, możesz skonfigurować aplikacje wielowarstwowe z wieloma sieciami wirtualnymi, połączonych ze sobą tooisolation lub wymagań administracyjnych.
+  * W ramach jednego regionu można skonfigurować aplikacje wielowarstwowe z wielu połączonych ze sobą sieci wirtualnych, korzystając z izolacji lub wymagań administracyjnych.
 
-Aby uzyskać więcej informacji o połączeniach sieci wirtualnej do sieci wirtualnej, zobacz hello [wirtualnymi — często zadawane pytania dotyczące](#faq) na końcu hello w tym artykule.
+Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu.
 
 ## <a name="which-set-of-steps-should-i-use"></a>Która instrukcje mają zastosowanie w moim przypadku?
 
-W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw kroków [sieci wirtualnych, które znajdują się w hello tej samej subskrypcji](#samesub)i drugi dla [sieci wirtualnych, które znajdują się w różnych subskrypcji](#difsub). Witaj Najważniejsza różnica między zestawami hello jest Określa, czy można tworzyć i konfigurować wszystkie wirtualne zasoby sieciowe i bramy w hello tej samej sesji programu PowerShell.
+W tym artykule przedstawiono dwa różne zestawy kroków. Jeden zestaw dla [sieci wirtualnych znajdujących się w tej samej subskrypcji](#samesub), a drugi dla [sieci wirtualnych znajdujących się w różnych subskrypcjach](#difsub). Kluczowa różnica między wspomnianymi zestawami czynności polega na możliwości bądź braku możliwości konfiguracji i tworzenia wszystkich zasobów sieci wirtualnej i bramy w ramach tej samej sesji programu PowerShell.
 
-Hello kroki opisane w tym artykule używać zmiennych zadeklarowanych na początku hello każdej sekcji. Jeśli już korzystasz z istniejących sieciach wirtualnych, należy zmodyfikować hello zmienne tooreflect hello ustawienia we własnym środowisku. Jeśli chcesz, aby w sieciach wirtualnych działało rozpoznawanie nazw, zobacz artykuł o [rozpoznawaniu nazw](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Kroki opisane w tym artykule używają zmiennych, które są zadeklarowane na początku każdej sekcji. Jeśli pracujesz z istniejącymi sieciami wirtualnymi, zmodyfikuj zmienne, aby uwzględnić ustawienia we własnym środowisku. Jeśli chcesz, aby w Twoich sieciach wirtualnych działało rozpoznawanie nazw, zobacz [Rozpoznawanie nazw](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-## <a name="samesub"></a>Jak tooconnect sieci wirtualnych należących hello tej samej subskrypcji
+## <a name="samesub"></a>Łączenie sieci wirtualnych, które należą do tej samej subskrypcji
 
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Przed rozpoczęciem, należy tooinstall hello najnowszej wersji hello Azure Resource Manager poleceń cmdlet programu PowerShell, co najmniej 4.0 lub nowszy. Aby uzyskać więcej informacji o instalowaniu hello poleceń cmdlet programu PowerShell, zobacz [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview).
+Przed rozpoczęciem należy zainstalować najnowszą wersję poleceń cmdlet programu PowerShell usługi Azure Resource Manager (co najmniej wersję 4.0). Aby uzyskać więcej informacji na temat instalowania poleceń cmdlet programu PowerShell, zobacz artykuł [How to install and configure Azure PowerShell](/powershell/azure/overview) (Instalowanie i konfigurowanie programu Azure PowerShell).
 
 ### <a name="Step1"></a>Krok 1 — Planowanie zakresów adresów IP
 
-Hello następujące kroki utworzymy dwie sieci wirtualne wraz z ich bramy odpowiednich podsieci i konfiguracji. Następnie utworzymy połączenie sieci VPN między Witaj dwie sieci wirtualne. Jest ważne tooplan zakresów adresów IP powitania dla konfiguracji sieci. Niezbędne jest upewnienie się, że zakresy sieci wirtualnej ani sieci lokalnej nie zachodzą na siebie w jakikolwiek sposób. W tych przykładach nie uwzględniamy serwera DNS. Jeśli chcesz, aby w sieciach wirtualnych działało rozpoznawanie nazw, zobacz artykuł o [rozpoznawaniu nazw](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+W poniższych krokach utworzymy dwie sieci wirtualne wraz z odpowiednimi konfiguracjami oraz podsieciami bram. Następnie utworzymy połączenie sieci VPN między dwiema sieciami wirtualnymi. Ważne, aby zaplanować zakresy adresów IP dla konfiguracji sieci. Niezbędne jest upewnienie się, że zakresy sieci wirtualnej ani sieci lokalnej nie zachodzą na siebie w jakikolwiek sposób. W tych przykładach nie uwzględniamy serwera DNS. Jeśli chcesz, aby w sieciach wirtualnych działało rozpoznawanie nazw, zobacz artykuł o [rozpoznawaniu nazw](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-Używamy hello następujące wartości w przykładach hello:
+W przykładach stosujemy następujące wartości:
 
 **Wartości dla sieci TestVNet1:**
 
@@ -111,7 +111,7 @@ Używamy hello następujące wartości w przykładach hello:
 
 ### <a name="Step2"></a>Krok 2 — Tworzenie i konfigurowanie sieci TestVNet1
 
-1. Zadeklaruj swoje zmienne. W tym przykładzie deklaruje zmienne hello używania hello wartości w tym ćwiczeniu. W większości przypadków należy zastąpić własnymi hello wartości. Jednak można używać tych zmiennych, jeśli używasz za pośrednictwem toobecome kroki hello zapoznać się z tym typem konfiguracji. Modyfikuj zmienne hello w razie potrzeby, a następnie skopiuj i wklej je w konsoli programu PowerShell.
+1. Zadeklaruj swoje zmienne. W poniższym przykładzie zmienne są deklarowane przy użyciu wartości podanych dla tego ćwiczenia. W większości przypadków należy zastąpić wartości własnymi. Można jednak użyć tych zmiennych, aby wykonać opisane kroki w celu zapoznania się z tego typu konfiguracją. Jeśli jest taka konieczność, zmodyfikuj zmienne, a następnie skopiuj je i wklej do konsoli programu PowerShell.
 
   ```powershell
   $Sub1 = "Replace_With_Your_Subcription_Name"
@@ -133,19 +133,19 @@ Używamy hello następujące wartości w przykładach hello:
   $Connection15 = "VNet1toVNet5"
   ```
 
-2. Połącz tooyour konta. Użyj powitania po toohelp przykład, gdy nawiązujesz połączenie:
+2. Połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-  Sprawdź subskrypcje hello hello konta.
+  Sprawdź subskrypcje dostępne na koncie.
 
   ```powershell
   Get-AzureRmSubscription
   ```
 
-  Określ, które mają toouse subskrypcji hello.
+  Wskaż subskrypcję, której chcesz użyć.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub1
@@ -155,9 +155,9 @@ Używamy hello następujące wartości w przykładach hello:
   ```powershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-4. Utwórz hello konfiguracje podsieci dla TestVNet1. Poniższy przykład pozwala utworzyć sieć wirtualną o nazwie TestVNet1 oraz trzy podsieci noszące kolejno nazwy GatewaySubnet, FrontEnd i Backend. Podczas zastępowania wartości ważne jest, aby podsieć bramy zawsze nosiła nazwę GatewaySubnet. W przypadku nadania jej innej nazwy proces tworzenia bramy zakończy się niepowodzeniem.
+4. Utwórz konfiguracje podsieci dla sieci TestVNet1. Poniższy przykład pozwala utworzyć sieć wirtualną o nazwie TestVNet1 oraz trzy podsieci noszące kolejno nazwy GatewaySubnet, FrontEnd i Backend. Podczas zastępowania wartości ważne jest, aby podsieć bramy zawsze nosiła nazwę GatewaySubnet. W przypadku nadania jej innej nazwy proces tworzenia bramy zakończy się niepowodzeniem.
 
-  Witaj poniższym przykładzie użyto hello zmienne, które należy wcześniej. W tym przykładzie podsieć bramy hello używa /27. Mimo że jest możliwe toocreate jak /29 podsieć bramy, zaleca się utworzenie większej podsieć, która zawiera więcej adresów, wybierając co najmniej /28 lub /27. Umożliwi to za mało adresów tooaccommodate możliwe dodatkowe konfiguracje, które można w hello przyszłych.
+  W poniższym przykładzie użyto zmiennych, które zostały ustawione wcześniej. W tym przykładzie użyto podsieci bramy /27. Chociaż możliwe jest utworzenie małej podsieci bramy /29, zaleca się utworzenie większej podsieci zawierającej więcej adresów, wybierając podsieć przynajmniej /28 lub /27. Zapewni to wystarczająco dużo adresów, aby możliwe były dodatkowe konfiguracje, które mogą być potrzebne w przyszłości.
 
   ```powershell
   $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -170,13 +170,13 @@ Używamy hello następujące wartości w przykładach hello:
   New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
   ```
-6. Żądaj publicznego adresu IP adres toobe toohello przydzielone bramy utworzone sieci wirtualnej. Należy zauważyć, że hello AllocationMethod jest dynamiczny. Nie można określić hello adresu IP, które mają toouse. Jest dynamicznie przydzielonego tooyour bramy. 
+6. Następnie zostaje przesłane żądanie przydzielenia publicznego adresu IP do bramy, która zostanie utworzona dla sieci wirtualnej. Należy zauważyć, że metoda AllocationMethod jest dynamiczna. Nie możesz określić adresu IP, którego chcesz użyć. Jest on przydzielany dynamicznie do bramy. 
 
   ```powershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWIPName1 -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
   ```
-7. Utwórz hello konfigurację bramy. Konfiguracja bramy Hello definiuje podsieć hello oraz hello toouse w publicznych adresów IP. Użyj toocreate przykład hello konfigurację bramy.
+7. Utwórz konfigurację bramy. W ramach konfiguracji bramy zostaje zdefiniowana podsieć i publiczny adres IP do użycia. Poniższy przykład umożliwia utworzenie konfiguracji bramy.
 
   ```powershell
   $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
@@ -184,7 +184,7 @@ Używamy hello następujące wartości w przykładach hello:
   $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 `
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
-8. Utwórz bramę powitania dla TestVNet1. W tym kroku utworzysz hello bramy sieci wirtualnej dla programu TestVNet1. Konfiguracje połączeń między sieciami wirtualnymi wymagają zastosowania wartości RouteBased obiektu VpnType. Tworzenie bramy może potrwać często 45 minut lub dłużej, w zależności od hello bramy wybranej jednostki SKU.
+8. Utwórz bramę dla sieci TestVNet1. W tym kroku zostaje utworzona brama sieci wirtualnej TestVNet1. Konfiguracje połączeń między sieciami wirtualnymi wymagają zastosowania wartości RouteBased obiektu VpnType. Tworzenie bramy często może trwać 45 minut lub dłużej, w zależności od wybranej jednostki SKU bramy.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
@@ -194,9 +194,9 @@ Używamy hello następujące wartości w przykładach hello:
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>Krok 3 — Tworzenie i konfigurowanie sieci TestVNet4
 
-Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki hello poniżej, zastępując wartości hello własne w razie potrzeby. Ten krok może odbywać się w obrębie hello sama sesja programu PowerShell, ponieważ jest on hello sam subskrypcji.
+Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki opisane poniżej, w razie potrzeby zastępując podane wartości własnymi. Ten krok można przeprowadzić w tej samej sesji programu PowerShell ze względu na przynależność do tej samej subskrypcji.
 
-1. Zadeklaruj swoje zmienne. Należy się tooreplace hello wartościami hello te mają toouse dla danej konfiguracji.
+1. Zadeklaruj swoje zmienne. Należy pamiętać o zastąpieniu przykładowych wartości tymi, które mają zostać użyte w danej konfiguracji.
 
   ```powershell
   $RG4 = "TestRG4"
@@ -220,7 +220,7 @@ Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki hello 
   ```powershell
   New-AzureRmResourceGroup -Name $RG4 -Location $Location4
   ```
-3. Utwórz hello konfiguracje podsieci dla TestVNet4.
+3. Utwórz konfiguracje podsieci dla sieci TestVNet4.
 
   ```powershell
   $fesub4 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
@@ -239,14 +239,14 @@ Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki hello 
   $gwpip4 = New-AzureRmPublicIpAddress -Name $GWIPName4 -ResourceGroupName $RG4 `
   -Location $Location4 -AllocationMethod Dynamic
   ```
-6. Utwórz hello konfigurację bramy.
+6. Utwórz konfigurację bramy.
 
   ```powershell
   $vnet4 = Get-AzureRmVirtualNetwork -Name $VnetName4 -ResourceGroupName $RG4
   $subnet4 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet4
   $gwipconf4 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName4 -Subnet $subnet4 -PublicIpAddress $gwpip4
   ```
-7. Utwórz bramę TestVNet4 hello. Tworzenie bramy może potrwać często 45 minut lub dłużej, w zależności od hello bramy wybranej jednostki SKU.
+7. Utworzenie bramy sieci TestVNet4. Tworzenie bramy często może trwać 45 minut lub dłużej, w zależności od wybranej jednostki SKU bramy.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
@@ -254,43 +254,43 @@ Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4. Wykonaj kroki hello 
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-### <a name="step-4---create-hello-connections"></a>Krok 4 — Utwórz hello połączenia
+### <a name="step-4---create-the-connections"></a>Krok 4 — Tworzenie połączeń
 
-1. Użyj obu bram sieci wirtualnej. Jeśli oba hello bramy znajdują się w hello tej samej subskrypcji, ponieważ są one przykład Witaj, można wykonać ten krok w hello tej samej sesji programu PowerShell.
+1. Użyj obu bram sieci wirtualnej. Jeśli obie bramy znajdują się w tej samej subskrypcji, jak ma to miejsce w przykładzie, możesz wykonać ten krok w tej samej sesji programu PowerShell.
 
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   $vnet4gw = Get-AzureRmVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4
   ```
-2. Utwórz połączenie tooTestVNet4 TestVNet1 hello. W tym kroku utworzysz hello połączenia z TestVNet1 tooTestVNet4. Zobaczysz przywoływany w przykładach hello klucza wspólnego. Możesz użyć własnych wartości dla klucza udostępnionego hello. ważne, czy element jest klucz udostępniony hello Hello muszą być zgodne, dla obu połączeń. Tworzenie połączenia może zająć chwilę podczas toocomplete.
+2. Utwórz połączenie z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet4. W tym kroku zostanie utworzone połączenie z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet4. W przykładach zastosowano odwołania do klucza współużytkowanego. Możesz wybrać własne wartości dla klucza współużytkowanego. Ważne jest, aby klucz współużytkowany był zgodny z obydwoma połączeniami. Tworzenie połączenia może nieco potrwać.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection14 -ResourceGroupName $RG1 `
   -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet4gw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-3. Utwórz połączenie tooTestVNet1 TestVNet4 hello. Ten krok jest podobne toohello, jeden powyżej, z wyjątkiem połączeń hello jest tworzony z TestVNet4 tooTestVNet1. Upewnij się, że klucze hello udostępnionych pasują do siebie. zostanie nawiązane połączenie powitania po kilku minutach.
+3. Utwórz połączenie z sieci wirtualnej TestVNet4 do sieci wirtualnej TestVNet1. Ten krok jest podobny do powyższego, jednak w jego przypadku tworzy się połączenie od sieci TestVNet4 do sieci TestVNet1. Upewnij się, że klucze współużytkowane są zgodne. Po kilku minutach połączenie zostanie ustanowione.
 
   ```powershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection41 -ResourceGroupName $RG4 `
   -VirtualNetworkGateway1 $vnet4gw -VirtualNetworkGateway2 $vnet1gw -Location $Location4 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-4. Weryfikowanie połączenia. Zobacz sekcję hello [jak tooverify połączenia](#verify).
+4. Weryfikowanie połączenia. Zobacz sekcję [Weryfikowanie połączenia](#verify).
 
-## <a name="difsub"></a>Jak tooconnect sieci wirtualne będące w ramach różnych subskrypcji
+## <a name="difsub"></a>Łączenie sieci wirtualnych, które należą do różnych subskrypcji
 
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
-W tym scenariuszu nawiązywane jest połączenie między sieciami wirtualnymi TestVNet1 i TestVNet5. Sieci TestVNet1 i TestVNet5 znajdują się w innych subskrypcjach. Subskrypcje Hello nie są skojarzone z hello toobe tej samej dzierżawy usługi Active Directory. Witaj różnica między te czynności i poprzedniego zestawu hello jest, niektóre kroki konfiguracji hello potrzeby toobe wykonywane w osobnej sesji programu PowerShell w kontekście hello hello drugi subskrypcji. Szczególnie gdy hello dwa subskrypcji należy toodifferent organizacji.
+W tym scenariuszu nawiązywane jest połączenie między sieciami wirtualnymi TestVNet1 i TestVNet5. Sieci TestVNet1 i TestVNet5 znajdują się w innych subskrypcjach. Subskrypcje nie muszą być skojarzone z tą samą dzierżawą usługi Active Directory. Różnica między tymi krokami a poprzednim zestawem polega na tym, że w kontekście drugiej subskrypcji część czynności konfiguracyjnych należy wykonać w osobnej sesji programu PowerShell. Szczególnie, jeśli obie subskrypcje należą do różnych organizacji.
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Krok 5 — Tworzenie i konfigurowanie sieci TestVNet1
 
-Należy wykonać [krok 1](#Step1) i [krok 2](#Step2) z hello poprzedniej sekcji toocreate i skonfiguruj TestVNet1 oraz hello bramy sieci VPN dla TestVNet1. W przypadku tej konfiguracji nie jest wymagane toocreate TestVNet4 z poprzedniej sekcji hello, mimo że, jeśli tworzysz, nie będzie ona konflikt z tych kroków. Po wykonaniu kroku 1 i 2 Kontynuuj krok 6 toocreate TestVNet5. 
+Należy wykonać [Krok 1](#Step1) i [Krok 2](#Step2) z poprzedniej sekcji, aby utworzyć i skonfigurować sieć TestVNet1 i bramę VPN Gateway dla tej sieci. W przypadku tej konfiguracji nie trzeba tworzyć sieci TestVNet4 z poprzedniej sekcji, chociaż jeśli zostanie ona utworzona, nie będzie powodować żadnych konfliktów z tymi krokami. Po ukończeniu kroków 1 i 2 kontynuuj krok 6, aby utworzyć sieć wirtualną TestVNet5. 
 
-### <a name="step-6---verify-hello-ip-address-ranges"></a>Krok 6 - Sprawdź, czy zakresy adresów IP hello
+### <a name="step-6---verify-the-ip-address-ranges"></a>Krok 6 — Weryfikowanie zakresów adresów IP
 
-Jest ważne toomake się, że przestrzeń adresów IP hello nowej sieci wirtualnej hello, TestVNet5, nakłada się ze wszystkimi zakresy sieci wirtualnej lub zakresy bramy sieci lokalnej. W tym przykładzie hello sieci wirtualne mogą należeć toodifferent organizacji. W tym ćwiczeniu program hello następujące wartości hello TestVNet5:
+Należy upewnić się, że przestrzeń adresów IP nowej sieci wirtualnej o nazwie TestVNet5 nie nakłada się na żaden z zakresów sieci wirtualnych ani na żaden z zakresów bramy sieci lokalnej. W tym przykładzie sieci wirtualne mogą należeć do różnych organizacji. Na potrzeby tego ćwiczenia można zastosować następujące wartości dla sieci wirtualnej TestVNet5:
 
 **Wartości dla sieci TestVNet5:**
 
@@ -309,9 +309,9 @@ Jest ważne toomake się, że przestrzeń adresów IP hello nowej sieci wirtualn
 
 ### <a name="step-7---create-and-configure-testvnet5"></a>Krok 7 — Tworzenie i konfigurowanie sieci TestVNet5
 
-Ten krok należy wykonać w kontekście hello hello nową subskrypcję. Ta część może zostać wykonana przez administratora hello w innej organizacji, który jest właścicielem hello subskrypcji.
+Ten krok należy wykonać w kontekście nowej subskrypcji. Tę część procedury może wykonać administrator w innej organizacji, która jest właścicielem subskrypcji.
 
-1. Zadeklaruj swoje zmienne. Należy się tooreplace hello wartościami hello te mają toouse dla danej konfiguracji.
+1. Zadeklaruj swoje zmienne. Należy pamiętać o zastąpieniu przykładowych wartości tymi, które mają zostać użyte w danej konfiguracji.
 
   ```powershell
   $Sub5 = "Replace_With_the_New_Subcription_Name"
@@ -331,19 +331,19 @@ Ten krok należy wykonać w kontekście hello hello nową subskrypcję. Ta czę�
   $GWIPconfName5 = "gwipconf5"
   $Connection51 = "VNet5toVNet1"
   ```
-2. Połącz toosubscription 5. Otwórz konsolę programu PowerShell i Połącz konto tooyour. Użyj następujących hello przykładowe toohelp, gdy nawiązujesz połączenie:
+2. Połącz z subskrypcją 5. Otwórz konsolę programu PowerShell i połącz się ze swoim kontem. Użyj poniższego przykładu w celu łatwiejszego nawiązania połączenia:
 
   ```powershell
   Login-AzureRmAccount
   ```
 
-  Sprawdź subskrypcje hello hello konta.
+  Sprawdź subskrypcje dostępne na koncie.
 
   ```powershell
   Get-AzureRmSubscription
   ```
 
-  Określ, które mają toouse subskrypcji hello.
+  Wskaż subskrypcję, której chcesz użyć.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName $Sub5
@@ -353,7 +353,7 @@ Ten krok należy wykonać w kontekście hello hello nową subskrypcję. Ta czę�
   ```powershell
   New-AzureRmResourceGroup -Name $RG5 -Location $Location5
   ```
-4. Utwórz hello konfiguracje podsieci dla TestVNet5.
+4. Utwórz konfiguracje podsieci dla sieci TestVNet5.
 
   ```powershell
   $fesub5 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName5 -AddressPrefix $FESubPrefix5
@@ -372,38 +372,38 @@ Ten krok należy wykonać w kontekście hello hello nową subskrypcję. Ta czę�
   $gwpip5 = New-AzureRmPublicIpAddress -Name $GWIPName5 -ResourceGroupName $RG5 `
   -Location $Location5 -AllocationMethod Dynamic
   ```
-7. Utwórz hello konfigurację bramy.
+7. Utwórz konfigurację bramy.
 
   ```powershell
   $vnet5 = Get-AzureRmVirtualNetwork -Name $VnetName5 -ResourceGroupName $RG5
   $subnet5  = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet5
   $gwipconf5 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfName5 -Subnet $subnet5 -PublicIpAddress $gwpip5
   ```
-8. Utwórz bramę TestVNet5 hello.
+8. Utwórz bramę sieci TestVNet5.
 
   ```powershell
   New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-### <a name="step-8---create-hello-connections"></a>Krok 8 — Utwórz hello połączenia
+### <a name="step-8---create-the-connections"></a>Krok 8 — Tworzenie połączeń
 
-W tym przykładzie hello bramy znajdują się w różnych subskrypcji hello, możemy zostały podzielone w tym kroku dwóch sesji programu PowerShell oznaczony jako [subskrypcji 1] i [subskrypcji 5].
+Jako że bramy należą do różnych subskrypcji, w tym przykładzie zastosowano rozbicie na dwie sesje programu PowerShell oznaczone jako [Subskrypcja 1] i [Subskrypcja 5].
 
-1. **[Subskrypcji 1]**  Bramy sieci wirtualnej hello get dla 1 subskrypcji. Zaloguj się i połącz tooSubscription 1 przed uruchomieniem hello poniższy przykład:
+1. **[Subskrypcja 1]** Pobierz bramę sieci wirtualnej dla Subskrypcji 1. Zaloguj się i połącz z subskrypcją 1 przed uruchomieniem następującego przykładu:
 
   ```powershell
   $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
   ```
 
-  Skopiuj dane wyjściowe hello hello następujące elementy i wysłać te administratora toohello 5 subskrypcji za pośrednictwem poczty e-mail lub innej metody.
+  Skopiuj dane wyjściowe z następujących elementów i wyślij je do administratora Subskrypcji 5 pocztą e-mail lub w inny sposób.
 
   ```powershell
   $vnet1gw.Name
   $vnet1gw.Id
   ```
 
-  Te dwa elementy mają wartości toohello podobne następujące przykładowe dane wyjściowe:
+  Te dwa elementy mają wartości podobne do następujących przykładowych danych wyjściowych:
 
   ```
   PS D:\> $vnet1gw.Name
@@ -411,20 +411,20 @@ W tym przykładzie hello bramy znajdują się w różnych subskrypcji hello, mo�
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[Subskrypcji 5]**  Bramy sieci wirtualnej hello get 5 subskrypcji. Zaloguj się i połącz tooSubscription 5 przed uruchomieniem hello poniższy przykład:
+2. **[Subskrypcja 5]** Pobierz bramę sieci wirtualnej dla Subskrypcji 5. Zaloguj się i połącz z subskrypcją 5 przed uruchomieniem następującego przykładu:
 
   ```powershell
   $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
   ```
 
-  Skopiuj dane wyjściowe hello hello następujące elementy i wysłać te administratora toohello 1 subskrypcji za pośrednictwem poczty e-mail lub innej metody.
+  Skopiuj dane wyjściowe z następujących elementów i wyślij je do administratora Subskrypcji 1 pocztą e-mail lub w inny sposób.
 
   ```powershell
   $vnet5gw.Name
   $vnet5gw.Id
   ```
 
-  Te dwa elementy mają wartości toohello podobne następujące przykładowe dane wyjściowe:
+  Te dwa elementy mają wartości podobne do następujących przykładowych danych wyjściowych:
 
   ```
   PS C:\> $vnet5gw.Name
@@ -432,9 +432,9 @@ W tym przykładzie hello bramy znajdują się w różnych subskrypcji hello, mo�
   PS C:\> $vnet5gw.Id
   /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
   ```
-3. **[Subskrypcji 1]**  Utworzyć hello TestVNet1 tooTestVNet5 połączenia. W tym kroku utworzysz hello połączenia z TestVNet1 tooTestVNet5. Witaj różnica polega na tym, że vnet5gw $ nie można uzyskać bezpośrednio, ponieważ znajduje się w innej subskrypcji. Należy toocreate nowy obiekt programu PowerShell z wartościami hello przekazywane z zakresu od 1 do subskrypcji w powyższych krokach hello. Przykład Witaj Użyj poniżej. Zamień na powitania nazwa, identyfikator i klucz udostępniony własne wartości. ważne, czy element jest klucz udostępniony hello Hello muszą być zgodne, dla obu połączeń. Tworzenie połączenia może zająć chwilę podczas toocomplete.
+3. **[Subskrypcja 1]** Utwórz połączenie z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet5. W tym kroku zostanie utworzone połączenie z sieci wirtualnej TestVNet1 do sieci wirtualnej TestVNet5. Różnica polega na tym, że wartości $vnet5gw nie można pobrać w sposób bezpośredni, ponieważ należy ona do innej subskrypcji. Należy utworzyć nowy obiekt programu PowerShell z wartościami przekazywanymi z Subskrypcji 1 w sposób przedstawiony w powyższych krokach. Skorzystaj z poniższego przykładu. Zastąp nazwę, identyfikator i klucz współużytkowany własnymi wartościami. Ważne jest, aby klucz współużytkowany był zgodny z obydwoma połączeniami. Tworzenie połączenia może nieco potrwać.
 
-  Połącz tooSubscription 1 przed uruchomieniem hello poniższy przykład:
+  Połącz się z subskrypcją 1 przed uruchomieniem następującego przykładu:
 
   ```powershell
   $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -443,9 +443,9 @@ W tym przykładzie hello bramy znajdują się w różnych subskrypcji hello, mo�
   $Connection15 = "VNet1toVNet5"
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
-4. **[Subskrypcji 5]**  Utworzyć hello TestVNet5 tooTestVNet1 połączenia. Ten krok jest podobne toohello, jeden powyżej, z wyjątkiem połączeń hello jest tworzony z TestVNet5 tooTestVNet1. Witaj, sam proces tworzenia obiekt programu PowerShell, na podstawie wartości hello uzyskane z 1 subskrypcji w tym miejscu dotyczy również. W tym kroku upewnij się, że hello udostępnionych klucze pasują do siebie.
+4. **[Subskrypcja 5]** Utwórz połączenie z sieci wirtualnej TestVNet5 do sieci wirtualnej TestVNet1. Ten krok jest podobny do powyższego, jednak w jego przypadku tworzy się połączenie z sieci TestVNet5 do sieci TestVNet1. Ten sam proces tworzenia obiektu programu PowerShell na podstawie wartości uzyskanych z Subskrypcji 1 ma zastosowanie także w tym przypadku. W tym kroku należy upewnić się, czy klucze współużytkowane są zgodne.
 
-  Połącz tooSubscription 5 przed uruchomieniem hello poniższy przykład:
+  Połącz się z subskrypcją 5 przed uruchomieniem następującego przykładu:
 
   ```powershell
   $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -454,7 +454,7 @@ W tym przykładzie hello bramy znajdują się w różnych subskrypcji hello, mo�
   New-AzureRmVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
 
-## <a name="verify"></a>Jak tooverify połączenia
+## <a name="verify"></a>Jak zweryfikować połączenie
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
@@ -462,9 +462,9 @@ W tym przykładzie hello bramy znajdują się w różnych subskrypcji hello, mo�
 
 ## <a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Po zakończeniu połączenia można dodać sieci wirtualnych tooyour maszyn wirtualnych. Zobacz hello [dokumentacji maszyn wirtualnych](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) Aby uzyskać więcej informacji.
-* Uzyskać informacji na temat protokołu BGP, zobacz hello [Omówienie protokołu BGP](vpn-gateway-bgp-overview.md) i [jak tooconfigure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Zobacz [dokumentację dotyczącą maszyn wirtualnych](https://docs.microsoft.com/azure/#pivot=services&panel=Compute), aby uzyskać więcej informacji.
+* Informacje na temat protokołu BGP można znaleźć w artykułach [BGP Overview](vpn-gateway-bgp-overview.md) (Omówienie protokołu BGP) i [How to configure BGP](vpn-gateway-bgp-resource-manager-ps.md) (Konfigurowanie protokołu BGP).

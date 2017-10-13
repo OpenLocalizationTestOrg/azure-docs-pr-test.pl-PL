@@ -1,6 +1,6 @@
 ---
-title: "aaaMultiple adresów IP dla maszyn wirtualnych platformy Azure - PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooassign wielu adresów IP maszyny wirtualnej tooa przy użyciu programu PowerShell | Menedżer zasobów."
+title: "Wiele adresów IP dla maszyn wirtualnych platformy Azure - PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak można przypisać wiele adresów IP do maszyny wirtualnej przy użyciu programu PowerShell | Menedżer zasobów."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: df54c4386ce13521e660a3e7208c8c1ab1459bc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="assign-multiple-ip-addresses-toovirtual-machines-using-powershell"></a>Przypisz wielu adresów IP maszyny toovirtual przy użyciu programu PowerShell
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Przypisz wielu adresów IP do maszyn wirtualnych przy użyciu programu PowerShell
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-W tym artykule opisano, jak toocreate maszynę wirtualną (VM) do wdrożenia usługi Azure Resource Manager hello modelu przy użyciu programu PowerShell. Wiele adresów IP nie można przypisać tooresources został utworzony za pomocą hello klasycznego modelu wdrażania. więcej informacji na temat modeli wdrażania platformy Azure, przeczytaj hello toolearn [zrozumieć modele wdrażania](../resource-manager-deployment-model.md) artykułu.
+W tym artykule opisano sposób tworzenia maszyny wirtualnej (VM) za pośrednictwem modelu wdrażania usługi Azure Resource Manager przy użyciu programu PowerShell. Nie można przypisać wiele adresów IP do zasobów została utworzona za pośrednictwem klasycznego modelu wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, przeczytaj [zrozumieć modele wdrażania](../resource-manager-deployment-model.md) artykułu.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Utwórz maszynę Wirtualną z wielu adresów IP
 
-Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną za pomocą wielu IP adresów, zgodnie z opisem w scenariuszu hello. Zmienianie wartości zmiennych, co jest wymagane dla implementacji.
+Czynności, które wykonują wyjaśniono, jak utworzyć przykładowy maszyny Wirtualnej z wielu adresów IP, zgodnie z opisem w scenariuszu. Zmienianie wartości zmiennych, co jest wymagane dla implementacji.
 
-1. Otwórz wiersz polecenia programu PowerShell i pełny hello pozostałe kroki opisane w tej sekcji w ramach jednej sesji programu PowerShell. Jeśli nie masz jeszcze programu PowerShell zainstalowany i skonfigurowany, pełną hello etapami hello [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
-2. Konto logowania tooyour z hello `login-azurermaccount` polecenia.
+1. Otwórz wiersz polecenia programu PowerShell i wykonaj pozostałe kroki w tej sekcji w ramach jednej sesji programu PowerShell. Jeśli nie masz jeszcze programu PowerShell zainstalowany i skonfigurowany, wykonaj kroki [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
+2. Zaloguj się do konta z `login-azurermaccount` polecenia.
 3. Zastąp *myResourceGroup* i *westus* przy użyciu nazwy i lokalizacji wybrane. Utwórz grupę zasobów. Grupa zasobów to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi.
 
     ```powershell
@@ -46,7 +46,7 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     -Location $Location
     ```
 
-4. Utwórz sieć wirtualną (VNet) i podsieci w hello tej samej lokalizacji co hello grupy zasobów:
+4. Utwórz sieć wirtualną (VNet) i podsieci w tej samej lokalizacji co grupa zasobów:
 
     ```powershell
     
@@ -63,11 +63,11 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     -AddressPrefix 10.0.0.0/16 `
     -Subnet $subnetConfig
 
-    # Get hello subnet object
+    # Get the subnet object
     $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
     ```
 
-5. Utwórz grupę zabezpieczeń sieci (NSG) i zasady. Witaj NSG zabezpiecza hello maszyny Wirtualnej za pomocą reguł ruchu przychodzącego i wychodzącego. W tym przypadku jest tworzona reguła ruchu przychodzącego dla portu 3389, która umożliwia nawiązywanie przychodzących połączeń pulpitu zdalnego.
+5. Utwórz grupę zabezpieczeń sieci (NSG) i zasady. Grupa NSG zabezpiecza maszyny Wirtualnej za pomocą reguł ruchu przychodzącego i wychodzącego. W tym przypadku jest tworzona reguła ruchu przychodzącego dla portu 3389, która umożliwia nawiązywanie przychodzących połączeń pulpitu zdalnego.
 
     ```powershell
     
@@ -91,9 +91,9 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     -SecurityRules $NSGRule
     ```
 
-6. Zdefiniuj hello podstawową konfigurację protokołu IP dla hello karty sieciowej. Zmień 10.0.0.4 tooa prawidłowy adres w podsieci hello zostało utworzone, jeśli nie użyto wartości hello wcześniej zdefiniowane. Przed przypisaniem statycznego adresu IP, zalecane jest, że należy najpierw upewnij się, że nie jest już używana. Wprowadź polecenie hello `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Jeśli adres hello jest dostępny, hello output zwraca *True*. Jeśli nie jest dostępna, hello output zwraca *False* oraz listę adresów, które są dostępne. 
+6. Zdefiniuj podstawową konfigurację protokołu IP dla karty sieciowej. Zmień 10.0.0.4 na prawidłowy adres w podsieci, w której zostały utworzone, jeśli nie używasz wartość zdefiniowana wcześniej. Przed przypisaniem statycznego adresu IP, zalecane jest, że należy najpierw upewnij się, że nie jest już używana. Wprowadź polecenie `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Jeśli adres jest dostępny, zwraca dane wyjściowe *True*. Jeśli nie jest dostępna, zwraca dane wyjściowe *False* oraz listę adresów, które są dostępne. 
 
-    W następujące polecenia, hello **Zamień < Zamień z your unikatowy nazwa-> hello unikatowy toouse nazwy DNS.** Nazwa Hello musi być unikatowa we wszystkich publicznych adresów IP w obrębie regionu platformy Azure. Jest to parametr opcjonalny. Można usunąć, jeśli chcesz tylko toohello tooconnect maszyny Wirtualnej przy użyciu hello publicznego adresu IP.
+    W poniższych poleceniach **Zamień < Zamień z your unikatowy nazwa-> unikatowa nazwa DNS do użycia.** Nazwa musi być unikatowa w publicznych adresów IP w obrębie regionu platformy Azure. Jest to parametr opcjonalny. Można usunąć, jeśli chcesz się połączyć z maszyną wirtualną za pomocą publicznego adresu IP.
 
     ```powershell
     
@@ -105,7 +105,7 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     -DomainNameLabel <replace-with-your-unique-name> `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign hello public IP ddress tooit
+    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
     $IpConfigName1 = "IPConfig-1"
     $IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName1 `
@@ -115,12 +115,12 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     -Primary
     ```
 
-    Po przypisaniu wielu tooa konfiguracji adresu IP karty Sieciowej, jednej konfiguracji musi być przypisany jako hello *— podstawowy*.
+    Po przypisaniu wielu konfiguracji adresów IP do karty Sieciowej, należy przypisać jedną konfigurację jako *— podstawowy*.
 
     > [!NOTE]
-    > Publiczne adresy IP ma nominalnego opłatą. więcej informacji o IP adresów o cenach, toolearn odczytu hello [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses) strony. Brak limitu toohello liczba publicznych adresów IP, których można użyć w ramach subskrypcji. więcej informacji na temat limitów hello, przeczytaj hello toolearn [Azure ogranicza](../azure-subscription-service-limits.md#networking-limits) artykułu.
+    > Publiczne adresy IP ma nominalnego opłatą. Aby dowiedzieć się więcej o cenach adresu IP, przeczytaj [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses) strony. Istnieje ograniczona liczba publicznych adresów IP, których można użyć w ramach subskrypcji. Aby uzyskać więcej informacji o limitach, przeczytaj artykuł dotyczący [limitów platformy Azure](../azure-subscription-service-limits.md#networking-limits).
 
-7. Zdefiniuj hello dodatkowej konfiguracji adresów IP hello karty sieciowej. Można dodawać i usuwać konfiguracje w razie potrzeby. Każdej konfiguracji adresu IP musi mieć przypisany prywatny adres IP. Każdej konfiguracji opcjonalnie może mieć przypisany jeden publiczny adres IP.
+7. Zdefiniuj dodatkowej konfiguracji adresów IP dla karty sieciowej. Można dodawać i usuwać konfiguracje w razie potrzeby. Każdej konfiguracji adresu IP musi mieć przypisany prywatny adres IP. Każdej konfiguracji opcjonalnie może mieć przypisany jeden publiczny adres IP.
 
     ```powershell
     
@@ -131,7 +131,7 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     -Location $Location `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign hello public IP ddress tooit
+    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
     $IpConfigName2 = "IPConfig-2"
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName2 `
@@ -146,7 +146,7 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     -PrivateIpAddress 10.0.0.6
     ```
 
-8. Utworzyć hello kartę Sieciową i skojarzyć hello trzy tooit konfiguracji adresu IP:
+8. Utwórz kartę Sieciową i skojarz trzech konfiguracji IP do niej:
 
     ```powershell
     
@@ -159,13 +159,13 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     ```
 
     >[!NOTE]
-    >Chociaż wszystkie konfiguracje są przypisane tooone karty Sieciowej, w tym artykule, można przypisać toohello kartę Sieciową podłączoną tooevery konfiguracji IP wiele maszyn wirtualnych. jak toocreate Maszynę wirtualną z wieloma kartami sieciowymi, przeczytaj toolearn hello [tworzenia maszyn wirtualnych z wieloma kartami sieciowymi](virtual-network-deploy-multinic-arm-ps.md) artykułu.
+    >Chociaż wszystkie konfiguracje są przypisane do jednej karty Sieciowej, w tym artykule, można przypisać wielu konfiguracji adresów IP do każdej karty Sieciowej podłączony do maszyny Wirtualnej. Aby dowiedzieć się, jak utworzyć Maszynę wirtualną z wieloma kartami sieciowymi, przeczytaj [tworzenia maszyn wirtualnych z wieloma kartami sieciowymi](virtual-network-deploy-multinic-arm-ps.md) artykułu.
 
-9. Utwórz hello maszyny Wirtualnej, wprowadzając hello następującego polecenia:
+9. Tworzenie maszyny Wirtualnej, wprowadzając następujące polecenia:
 
     ```powershell
     
-    # Define a credential object. When you run these commands, you're prompted tooenter a sername and password for hello VM you're reating.
+    # Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
     $cred = Get-Credential
     
     # Create a virtual machine configuration
@@ -183,21 +183,21 @@ Hello przestrzeganie objaśniono sposób toocreate przykład maszynę Wirtualną
     Add-AzureRmVMNetworkInterface `
     -Id $NIC.Id
     
-    # Create hello VM
+    # Create the VM
     New-AzureRmVM `
     -ResourceGroupName $RgName `
     -Location $Location `
     -VM $VmConfig
     ```
 
-10. Dodaj hello prywatnego adresu IP dotyczy systemu operacyjnego maszyny Wirtualnej toohello, wykonując kroki hello systemu operacyjnego w hello [adresów IP Dodaj system operacyjny maszyny Wirtualnej tooa](#os-config) sekcji tego artykułu. Nie należy dodawać hello publicznego adresu IP adresów toohello systemu operacyjnego.
+10. Dodaj prywatnych adresów IP do systemu operacyjnego maszyny Wirtualnej, wykonując kroki odpowiednie dla systemu operacyjnego w [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](#os-config) sekcji tego artykułu. Nie dodawaj publiczne adresy IP do systemu operacyjnego.
 
-## <a name="add"></a>Dodaj tooa adresów IP maszyny Wirtualnej
+## <a name="add"></a>Dodaj adresy IP do maszyny Wirtualnej
 
-Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publicznych tooa adresy IP karty Sieciowej. Witaj przykłady w hello następujące sekcje założono, że już istnieje Maszynę wirtualną z konfiguracji adresów IP hello trzech opisanych w hello [scenariusza](#Scenario) w tym artykule, ale nie jest to wymagane wykonanie.
+Prywatne i publiczne adresy IP można dodać do karty Sieciowej, wykonując kroki, które należy wykonać. Przykłady w poniższych sekcjach założono, że już istnieje maszyna wirtualna z tych trzech konfiguracji adresu IP, opisane w [scenariusza](#Scenario) w tym artykule, ale nie jest to wymagane wykonanie.
 
-1. Otwórz wiersz polecenia programu PowerShell i pełny hello pozostałe kroki opisane w tej sekcji w ramach jednej sesji programu PowerShell. Jeśli nie masz jeszcze programu PowerShell zainstalowany i skonfigurowany, pełną hello etapami hello [jak tooinstall i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
-2. Zmień hello "wartości" hello nazwę toohello $Variables hello karta sieciowa ma tooadd IP address tooand hello zasobu lokalizacji i grupy powitalne karta sieciowa istnieje w następujących:
+1. Otwórz wiersz polecenia programu PowerShell i wykonaj pozostałe kroki w tej sekcji w ramach jednej sesji programu PowerShell. Jeśli nie masz jeszcze programu PowerShell zainstalowany i skonfigurowany, wykonaj kroki [jak instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/overview) artykułu.
+2. Zmień nazwę karty Sieciowej, aby dodać adres IP do grupy zasobów i lokalizacja, którą karta sieciowa istnieje w "wartości" $Variables następujące:
 
     ```powershell
     $NicName  = "MyNIC"
@@ -205,38 +205,38 @@ Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publ
     $Location = "westus"
     ```
 
-    Jeśli nie znasz nazwę hello hello ma toochange karty Sieciowej, wprowadź hello następujące polecenia, a następnie zmień hello wartości zmiennych poprzedniej hello:
+    Jeśli nie znasz nazwy karty sieciowej, aby zmienić, wpisz następujące polecenia, następnie zmienić wartości zmiennych poprzedniego:
 
     ```powershell
     Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
     ```
-3. Utwórz zmienną i ustaw ją toohello istniejących kart interfejsu Sieciowego, wpisując następujące polecenie hello:
+3. Utwórz zmienną i ustaw ją istniejącej karty NIC, wpisując następujące polecenie:
 
     ```powershell
     $MyNIC = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
     ```
-4. W hello następujące polecenia, zmień *MyVNet* i *MySubnet* toohello nazwy hello sieci wirtualnej i podsieci hello jest połączona karta sieciowa. Wprowadź hello polecenia tooretrieve hello sieci wirtualnej i podsieci obiektów hello podłączenia karty Sieciowej:
+4. W poniższych poleceniach zmienić *MyVNet* i *MySubnet* do nazwy sieci wirtualnej i karty interfejsu Sieciowego jest podłączony do podsieci. Wprowadź poleceń, aby pobrać obiekty sieci wirtualnej i podsieci, karta sieciowa jest połączona z:
 
     ```powershell
     $MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
     $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
     ```
-    Jeśli nie znasz hello sieci wirtualnej lub podsieci nazwę hello podłączenia karty Sieciowej, wprowadź hello następujące polecenie:
+    Jeśli nie znasz nazwy sieci wirtualnej lub podsieci, karta sieciowa jest połączona z, wprowadź następujące polecenie:
     ```powershell
     $MyNIC.IpConfigurations
     ```
-    W danych wyjściowych hello Wyszukaj tekst toohello podobne następujące przykładowe dane wyjściowe:
+    W wynikach wyszukiwania tekstu, podobnie jak w poniższym przykładzie danych wyjściowych:
     
     ```
     "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
     ```
-    W tym danych wyjściowych *MyVnet* jest hello sieci wirtualnej i *MySubnet* jest hello podsieci hello jest połączona karta sieciowa.
+    W tym danych wyjściowych *MyVnet* jest sieci wirtualnej i *MySubnet* jest karta sieciowa jest podłączony do podsieci.
 
-5. Wykonaj kroki hello w jednym z następujących sekcji, w zależności od wymagań hello:
+5. Wykonaj kroki jednego z następujących sekcji, w zależności od wymagań:
 
     **Dodaj prywatnego adresu IP**
 
-    tooadd prywatnej tooa adresu IP karty Sieciowej, należy utworzyć konfigurację protokołu IP. Witaj następujące polecenie tworzy konfiguracji ze statycznym adresem IP 10.0.0.7. Określanie statycznego adresu IP, musi być nieużywany adres podsieci hello. Zaleca się przetestowanie tooensure adres hello jest dostępna, wprowadzając hello `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` polecenia. Jeśli adres IP hello jest dostępny, hello output zwraca *True*. Jeśli nie jest dostępna, hello output zwraca *False*oraz listę adresów, które są dostępne.
+    Aby dodać prywatnego adresu IP do karty Sieciowej, należy utworzyć konfigurację protokołu IP. Poniższe polecenie tworzy konfiguracji ze statycznym adresem IP 10.0.0.7. Określanie statycznego adresu IP, musi być nieużywany adres podsieci. Zaleca się przetestowanie adres, aby upewnić się, jest dostępna, wprowadzając `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` polecenia. Jeśli adres IP jest dostępny, zwraca dane wyjściowe *True*. Jeśli nie jest dostępna, zwraca dane wyjściowe *False*oraz listę adresów, które są dostępne.
 
     ```powershell
     Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -244,19 +244,19 @@ Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publ
     ```
     Tworzenie konfiguracji tyle, ile potrzebujesz, przy użyciu nazwy konfiguracji unikatowy i prywatnych adresów IP (w przypadku konfiguracji statycznych adresów IP).
 
-    Dodaj hello prywatnego adresu IP adres toohello maszyny Wirtualnej systemu operacyjnego, wykonując kroki hello systemu operacyjnego w hello [adresów IP Dodaj system operacyjny maszyny Wirtualnej tooa](#os-config) sekcji tego artykułu.
+    Dodaj prywatnego adresu IP do systemu operacyjnego maszyny Wirtualnej, wykonując kroki odpowiednie dla systemu operacyjnego w [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](#os-config) sekcji tego artykułu.
 
     **Dodaj publiczny adres IP**
 
-    Publiczny adres IP jest dodawany przez skojarzenie publicznego tooeither zasobów adresu IP nowej konfiguracji IP lub istniejącej konfiguracji adresu IP. Wykonaj kroki hello w jednym z hello kolejnych sekcjach, ile potrzebujesz.
+    Publiczny adres IP jest dodawany przez skojarzenie publicznego zasobu adresu IP do nowej konfiguracji IP lub istniejącej konfiguracji adresu IP. Wykonaj kroki opisane w sekcji, które należy wykonać, ile potrzebujesz.
 
     > [!NOTE]
-    > Publiczne adresy IP ma nominalnego opłatą. więcej informacji o IP adresów o cenach, toolearn odczytu hello [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses) strony. Brak limitu toohello liczba publicznych adresów IP, których można użyć w ramach subskrypcji. więcej informacji na temat limitów hello, przeczytaj hello toolearn [Azure ogranicza](../azure-subscription-service-limits.md#networking-limits) artykułu.
+    > Publiczne adresy IP ma nominalnego opłatą. Aby dowiedzieć się więcej o cenach adresu IP, przeczytaj [cennik adres IP](https://azure.microsoft.com/pricing/details/ip-addresses) strony. Istnieje ograniczona liczba publicznych adresów IP, których można użyć w ramach subskrypcji. Aby uzyskać więcej informacji o limitach, przeczytaj artykuł dotyczący [limitów platformy Azure](../azure-subscription-service-limits.md#networking-limits).
     >
 
-    - **Skojarz hello publicznej konfiguracji adresu IP zasobu tooa nowego adresu IP**
+    - **Skojarz zasób publicznego adresu IP nowej konfiguracji adresu IP**
     
-        Po dodaniu publicznego adresu IP w nowej konfiguracji adresu IP, musisz również dodać prywatnego adresu IP, ponieważ wszystkie konfiguracje adresów IP muszą mieć prywatnego adresu IP. Możesz dodać istniejący zasób publiczny adres IP lub Utwórz nową. toocreate nową, wprowadź następujące polecenie hello:
+        Po dodaniu publicznego adresu IP w nowej konfiguracji adresu IP, musisz również dodać prywatnego adresu IP, ponieważ wszystkie konfiguracje adresów IP muszą mieć prywatnego adresu IP. Możesz dodać istniejący zasób publiczny adres IP lub Utwórz nową. Aby utworzyć nową, wprowadź następujące polecenie:
     
         ```powershell
         $myPublicIp3 = New-AzureRmPublicIpAddress `
@@ -266,7 +266,7 @@ Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publ
         -AllocationMethod Static
         ```
 
-        toocreate nowej konfiguracji IP przy użyciu statycznego prywatnego adresu IP i hello skojarzone *myPublicIp3* publicznego adresu IP adresów zasobów, wpisz następujące polecenie hello:
+        Aby utworzyć nową konfigurację adresu IP za pomocą statycznego prywatnego adresu IP oraz skojarzonych z nimi *myPublicIp3* publicznego adresu IP adresów zasobów, wprowadź następujące polecenie:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -277,15 +277,15 @@ Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publ
         -PublicIpAddress $myPublicIp3
         ```
 
-    - **Skojarz hello publicznej konfiguracji adresu IP zasobu tooan istniejącego adresu IP**
+    - **Skojarz zasób publicznego adresu IP do istniejącej konfiguracji adresu IP**
 
-        Zasób publicznego adresu IP może być tylko skojarzone tooan konfiguracji adresów IP, który nie ma jeszcze skojarzone. Można określić, czy konfiguracja IP ma skojarzone publicznego adresu IP, wprowadzając następujące polecenie hello:
+        Zasób publicznego adresu IP może być skojarzony tylko konfiguracją protokołu IP, który nie ma jeszcze skojarzone. Można określić, czy konfiguracja IP ma skojarzone publicznego adresu IP, wprowadzając następujące polecenie:
 
         ```powershell
         $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
         ```
 
-        Zostaną wyświetlone dane wyjściowe podobne toohello poniżej:
+        Zostaną wyświetlone dane wyjściowe podobne do następującego:
 
         ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
@@ -295,7 +295,7 @@ Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publ
         IpConfig-3 10.0.0.6                                                                     False
         ```
 
-        Ponieważ hello **publicznego adresu IP** kolumny dla *IpConfig 3* jest puste, zasobu bez publicznego adresu IP jest obecnie skojarzone tooit. Można dodać istniejącego publicznego adresu IP adres zasobów tooIpConfig-3, lub wprowadź powitania po toocreate polecenia, co:
+        Ponieważ **publicznego adresu IP** kolumny dla *IpConfig 3* jest puste, żaden z zasobów publiczny adres IP jest obecnie z nią skojarzona. Dodaj istniejący zasób publicznego adresu IP do IpConfig 3 lub wprowadź następujące polecenie, aby go utworzyć:
 
         ```powershell
         $MyPublicIp3 = New-AzureRmPublicIpAddress `
@@ -304,7 +304,7 @@ Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publ
         -Location $Location -AllocationMethod Static
         ```
 
-        Wprowadź następujące polecenie publicznego adresu IP tooassociate hello adresów zasobów toohello istniejącej konfiguracji IP o nazwie hello *IpConfig 3*:
+        Wprowadź następujące polecenie, aby skojarzyć zasób publicznego adresu IP do istniejącej konfiguracji IP o nazwie *IpConfig 3*:
     
         ```powershell
         Set-AzureRmNetworkInterfaceIpConfig `
@@ -314,17 +314,17 @@ Wykonując kroki hello, które należy wykonać, można dodać prywatnych i publ
         -PublicIpAddress $myPublicIp3
         ```
 
-6. Ustaw hello kart przy użyciu nowej konfiguracji IP hello wprowadzając hello następujące polecenie:
+6. Ustaw kartę Sieciową przy użyciu nowej konfiguracji adresu IP, wprowadzając następujące polecenie:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $MyNIC
     ```
 
-7. Wyświetlanie hello prywatnych adresów IP i hello publicznego adresu IP adres zasobów przypisanych toohello hello karty Sieciowej, wprowadzając następujące polecenie:
+7. Wyświetl prywatnych adresów IP i zasoby adresów publicznych adresów IP przypisanych do karty Sieciowej, wprowadzając następujące polecenie:
 
     ```powershell   
     $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-8. Dodaj hello prywatnego adresu IP adres toohello maszyny Wirtualnej systemu operacyjnego, wykonując kroki hello systemu operacyjnego w hello [adresów IP Dodaj system operacyjny maszyny Wirtualnej tooa](#os-config) sekcji tego artykułu. Nie należy dodawać hello publicznego adresu IP address toohello systemu operacyjnego.
+8. Dodaj prywatnego adresu IP do systemu operacyjnego maszyny Wirtualnej, wykonując kroki odpowiednie dla systemu operacyjnego w [adresów IP Dodaj do systemu operacyjnego maszyny Wirtualnej](#os-config) sekcji tego artykułu. Publiczny adres IP nie należy dodawać do systemu operacyjnego.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

@@ -1,6 +1,6 @@
 ---
-title: "aaaUsing Eksploratora usługi Storage (wersja zapoznawcza) z usługą Magazyn plików Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak Dowiedz się, jak toouse toowork Eksploratora usługi Storage (wersja zapoznawcza) z plików, udziały i pliki."
+title: "Korzystanie z programu Storage Explorer (wersja zapoznawcza) za pośrednictwem usługi Azure File Storage | Microsoft Docs"
+description: "Dowiedz się, jak korzystać z programu Storage Explorer (wersja zapoznawcza) w celu pracy z udziałami plików i plikami."
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,129 +14,129 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 98eb3cde711ae3dbfdb6ffaec23ae24f822370e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Korzystanie z programu Storage Explorer (wersja zapoznawcza) za pośrednictwem usługi Azure File Storage
 
-Plik Azure magazynu znajduje się, że usługa, która umożliwia pliku udziałów w chmurze hello przy użyciu hello standardowego protokołu bloku komunikatów serwera (SMB). Obsługiwane są wersje 2.1 i 3.0 protokołu SMB. Magazyn plików Azure można migrować starsze aplikacje korzystające z tooAzure udziały plików szybko i bez kosztownych modyfikacji oprogramowania. Możesz użyć pliku magazynu tooexpose danych publicznie toohello world lub toostore danych aplikacji prywatnie. W tym artykule dowiesz się, jak toouse toowork Eksploratora usługi Storage (wersja zapoznawcza) z plików, udziały i pliki.
+Azure File Storage to usługa, która umożliwia korzystanie z udziałów plików w chmurze przy użyciu standardowego protokołu bloku komunikatów serwera (SMB, Server Message Block). Obsługiwane są wersje 2.1 i 3.0 protokołu SMB. W usłudze Magazyn plików Azure można migrować starsze aplikacje korzystające z udziałów plików na platformę Azure szybko i bez kosztownych modyfikacji oprogramowania. Usługa File Storage może być używana do udostępniania danych publicznie lub do przechowywania danych aplikacji prywatnie. Ten artykuł zawiera informacje dotyczące sposobu korzystania z programu Storage Explorer (wersja zapoznawcza) w celu pracy z udziałami plików i plikami.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-toocomplete hello kroki opisane w tym artykule, będą potrzebne następujące hello:
+Do wykonania kroków opisanych w tym artykule konieczne jest wykonanie kroków znajdujących się w następujących artykułach:
 
 - [Pobieranie i instalowanie Eksploratora usługi Storage (wersja zapoznawcza)](http://www.storageexplorer.com/)
 
-- [Połącz tooa kontem magazynu platformy Azure lub usługi](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Łączenie się z usługą lub kontem magazynu platformy Azure](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Tworzenie udziału plików
 
 Wszystkie pliki muszą znajdować się w udziale plików, który jest po prostu logiczną grupą plików. Konto może zawierać nieograniczoną liczbę udziałów plików, a każdy udział może obejmować nieograniczoną liczbę plików.
 
-Witaj następujące kroki pokazują, jak toocreate, udostępniania plików, w ramach Eksploratora usługi Storage (wersja zapoznawcza).
+Poniższe kroki ilustrują tworzenie udziału plików w programie Storage Explorer (wersja zapoznawcza).
 
 1. Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
 
-2. W okienku po lewej stronie hello rozwiń hello konta magazynu w ramach którego ma zostać hello toocreate udziału plików
+2. W okienku po lewej stronie rozwiń konto magazynu, w którym chcesz utworzyć udział plików
 
-3. Kliknij prawym przyciskiem myszy **udziałów plików**i z menu kontekstowego hello — wybierz pozycję **Utwórz udział plików**.
+3. Kliknij prawym przyciskiem myszy pozycję **Udziały plików**, a następnie z menu kontekstowego wybierz pozycję **Utwórz udział plików**.
 
     ![Tworzenie udziału plików](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. Pole tekstowe pojawi się poniżej hello **udziałów plików** folderu. Wprowadź nazwę hello udziału plików. Zobacz hello [udostępnianie reguły nazewnictwa](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) sekcja zawiera listę reguł i ograniczenia dotyczące nazewnictwa udziałów plików.
+4. Poniżej folderu **Udziały plików** zostanie wyświetlone pole tekstowe. Wprowadź nazwę udziału plików. Lista reguł i ograniczeń dotyczących nazewnictwa udziałów plików znajduje się w sekcji [Reguły nazewnictwa udziałów](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container).
 
-    ![Nazewnictwo hello udziału](media/vs-azure-tools-storage-explorer-files/image2.png)
+    ![Nazywanie udziału](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Naciśnij klawisz **Enter** podczas done toocreate hello udziału plików lub **Esc** toocancel. Po pomyślnie utworzono udział plików hello, będzie on wyświetlany w obszarze hello **udziałów plików** folder hello wybranego konta magazynu.
+5. Naciśnij klawisz **Enter** po zakończeniu tworzenia udziału plików lub klawisz **Esc**, aby anulować. Po pomyślnym utworzeniu udział plików zostanie wyświetlony w folderze **Udziały plików** dla wybranego konta magazynu.
 
-    ![Witaj nowego udziału.](media/vs-azure-tools-storage-explorer-files/image3.png)
+    ![Nowy udział](media/vs-azure-tools-storage-explorer-files/image3.png)
 
 ## <a name="view-a-file-shares-contents"></a>Wyświetlanie zawartości udziału plików
 
 Udziały plików zawierają pliki i foldery (które mogą również zawierać pliki).
 
-Hello następujące kroki ilustrują sposób udostępnienia tooview hello zawartości pliku w Eksploratora usługi Storage (wersja zapoznawcza): +
+Poniższe kroki ilustrują wyświetlanie zawartości udziału plików w programie Storage Explorer (wersja zapoznawcza):
 
 1. Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
 
-2. W okienku po lewej stronie powitania rozwiń konto magazynu hello zawierające hello udziału plików mają tooview.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające udział plików, który chcesz wyświetlić.
 
-3. Rozwiń konto magazynu hello **udziałów plików**.
+3. Rozwiń pozycję **Udziały plików** konta magazynu.
 
-4. Udział plików kliknij prawym przyciskiem myszy hello konieczność tooview i — wybierz z menu kontekstowego hello - **Otwórz**. Można także kliknąć dwukrotnie hello udziału plików mają tooview.
+4. Kliknij prawym przyciskiem myszy udział plików, który chcesz wyświetlić, a następnie z menu kontekstowego wybierz pozycję **Otwórz**. Możesz także kliknąć dwukrotnie udział plików, który chcesz wyświetlić.
 
     ![Otwieranie udziału](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. Witaj głównego okienku zostaną wyświetlone udziału plików hello zawartość.
+5. W okienku głównym zostanie wyświetlona zawartość udziału plików.
     
-    ![Witaj udziału zawartości](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Zawartość udziału](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>Usuwanie udziału plików
 
-Udziały plików można łatwo tworzyć i usuwać. (toosee jak toodelete poszczególnych plików, można znaleźć w sekcji toohello [zarządzania plikami w udziale plików](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Udziały plików można łatwo tworzyć i usuwać. Informacje na temat sposobu usuwania pojedynczych plików zawiera sekcja [Managing files in a file share](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Zarządzanie plikami w udziale plików).
 
-następujące kroki Hello ilustrują sposób toodelete, udostępniania plików, w ramach Eksploratora usługi Storage (wersja zapoznawcza):
+Poniższe kroki ilustrują usuwanie udziału plików w programie Storage Explorer (wersja zapoznawcza):
 
 1. Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
 
-2. W okienku po lewej stronie powitania rozwiń konto magazynu hello zawierające hello udziału plików mają tooview.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające udział plików, który chcesz wyświetlić.
 
-3. Rozwiń konto magazynu hello **udziałów plików**.
+3. Rozwiń pozycję **Udziały plików** konta magazynu.
 
-4. Udział plików kliknij prawym przyciskiem myszy hello konieczność toodelete i — wybierz z menu kontekstowego hello - **usunąć**. Można również nacisnąć **usunąć** toodelete hello aktualnie wybranego pliku udziału.
+4. Kliknij prawym przyciskiem myszy udział plików, który chcesz usunąć, a następnie z menu kontekstowego wybierz pozycję **Usuń**. Możesz również nacisnąć klawisz **Delete**, aby usunąć aktualnie wybrany udział plików.
 
     ![Usuwanie](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Wybierz **tak** toohello okno dialogowe potwierdzenia.
+5. Wybierz pozycję **Tak** w oknie dialogowym potwierdzenia.
     
     ![Okno dialogowe potwierdzenia](media/vs-azure-tools-storage-explorer-files/image7.png)
 
 ## <a name="copy-a-file-share"></a>Kopiowanie udziału plików
 
-Eksplorator usługi Storage (wersja zapoznawcza) umożliwia toocopy Schowek toohello udziału pliku, a następnie wklej tego udziału pliku do innego konta magazynu. (toosee jak toocopy poszczególnych plików, można znaleźć w sekcji toohello [zarządzania plikami w udziale plików](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Program Storage Explorer (wersja zapoznawcza) umożliwia kopiowanie udziału pliku do schowka, a następnie wklejanie go do innego konta magazynu. Informacje na temat sposobu kopiowania pojedynczych plików zawiera sekcja [Managing files in a file share](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) (Zarządzanie plikami w udziale plików).
 
-Witaj następujące kroki pokazują, jak udostępnić toocopy plik z jednym tooanother konta magazynu.
+Poniższe kroki ilustrują kopiowanie udziału plików z jednego konta magazynu do innego.
 
 1. Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
 
-2. W okienku po lewej stronie powitania rozwiń konto magazynu hello zawierające hello udziału plików mają toocopy.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające udział plików, który chcesz skopiować.
 
-3. Rozwiń konto magazynu hello **udziałów plików**.
+3. Rozwiń pozycję **Udziały plików** konta magazynu.
 
-4. Udział plików kliknij prawym przyciskiem myszy hello konieczność toocopy i — wybierz z menu kontekstowego hello - **udział plików kopii**.
+4. Kliknij prawym przyciskiem myszy udział plików, który chcesz skopiować, a następnie z menu kontekstowego wybierz pozycję **Kopiuj udział plików**.
 
     ![Kopiowanie udziału plików](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Kliknij prawym przyciskiem myszy konto magazynu Witaj "wartość", do którego chcesz udziału plików hello toopaste, a — wybierz z menu kontekstowego hello - **udział plików Wklej**.
+5. Kliknij prawym przyciskiem myszy żądane „docelowe” konto magazynu, do którego chcesz wkleić udział plików, a następnie z menu kontekstowego wybierz pozycję **Wklej udział plików**.
 
     ![Wklejanie udziału plików](media/vs-azure-tools-storage-explorer-files/image9.png)
 
-## <a name="get-hello-sas-for-a-file-share"></a>Pobierz hello sygnatury dostępu Współdzielonego dla udziału plików
+## <a name="get-the-sas-for-a-file-share"></a>Uzyskiwanie sygnatury dostępu współdzielonego dla udziału plików
 
-A [sygnatury dostępu współdzielonego (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) zapewnia dostęp delegowany tooresources na koncie magazynu. Oznacza to, że można udzielać się, że klient ograniczone uprawnienia tooobjects na koncie magazynu w określonym przedziale czasu i z określonym zestawem uprawnień, bez konieczności tooshare klucze dostępu do Twojego konta.
+[Sygnatura dostępu współdzielonego (SAS, shared access signature)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) zapewnia delegowany dostęp do zasobów w ramach konta magazynu. Oznacza to, że możliwe jest przyznanie klientowi ograniczonych uprawnień do obiektów w ramach konta magazynu na określony czas i z określonym zestawem uprawnień bez konieczności udostępniania kluczy dostępu do konta.
 
-Witaj poniższe kroki przedstawiają sposób toocreate sygnatury dostępu Współdzielonego dla pliku udziału: +
+Poniższe kroki ilustrują tworzenie sygnatury dostępu współdzielonego dla udziału plików:
 
 1. Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
 
-2. W okienku po lewej stronie powitania rozwiń konto magazynu hello zawierające hello udziału plików, dla którego chcesz tooget sygnatury dostępu Współdzielonego.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające udział plików, dla którego ma zostać uzyskana sygnatura dostępu współdzielonego.
 
-3. Rozwiń konto magazynu hello **udziałów plików**.
+3. Rozwiń pozycję **Udziały plików** konta magazynu.
 
-4. Kliknij prawym przyciskiem myszy hello udziału żądanego pliku i z menu kontekstowego hello — wybierz pozycję **Uzyskaj sygnaturę dostępu współdzielonego**.
+4. Kliknij prawym przyciskiem myszy żądany udział plików, a następnie z menu kontekstowego wybierz pozycję **Uzyskaj sygnaturę dostępu współdzielonego**.
 
     ![Uzyskiwanie sygnatury dostępu współdzielonego](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. W hello **sygnatura dostępu współdzielonego** okna dialogowego, określ hello zasad, daty rozpoczęcia i wygaśnięcia, strefy czasowej, a dla zasobu hello poziomy dostępu.
+5. W oknie dialogowym **Sygnatura dostępu współdzielonego** określ zasady, daty rozpoczęcia i wygaśnięcia, strefę czasową oraz poziomy dostępu dla zasobu.
 
     ![Okno dialogowe sygnatury dostępu współdzielonego](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. Po zakończeniu określenie opcji SAS hello wybierz **Utwórz**.
+6. Po zakończeniu określania opcji sygnatury dostępu współdzielonego wybierz pozycję **Utwórz**.
 
-7. Drugi **sygnatura dostępu współdzielonego** okna dialogowego zostanie następnie wyświetlona, że listy hello udziału plików wraz z adresu URL hello i QueryStrings można użyć tooaccess hello zasobów magazynu. Wybierz **kopiowania** dalej toohello adres URL ma toocopy toohello Schowka.
+7. Zostanie wyświetlone drugie okno dialogowe **Sygnatura dostępu współdzielonego** zawierające listę udziałów plików wraz z adresami URL i ciągami zapytań umożliwiającymi dostęp do zasobu magazynu. Wybierz pozycję **Kopiuj** obok adres URL, który chcesz skopiować do schowka.
     
     ![Drugie okno dialogowe Sygnatura dostępu współdzielonego](media/vs-azure-tools-storage-explorer-files/image12.png)
 
@@ -144,31 +144,31 @@ Witaj poniższe kroki przedstawiają sposób toocreate sygnatury dostępu Wspó�
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Zarządzanie zasadami dostępu dla udziału plików
 
-Witaj poniższe kroki przedstawiają sposób toomanage (Dodaj i Usuń) zasady dla udziału plików dostępu: +. Zasady dostępu Hello jest używane do tworzenia adresów URL SAS za pośrednictwem której osoby mogą używać hello tooaccess zasobu magazynu plików w zdefiniowanym okresie.
+Poniższe kroki ilustrują zarządzanie (dodawanie i usuwanie) zasadami dostępu dla udziału plików. Zasady dostępu są używane do tworzenia adresów URL sygnatur dostępu współdzielonego, za pomocą których użytkownicy mogą uzyskiwać dostęp do zasobów pliku magazynu przez zdefiniowany okres.
 
 1. Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
 
-2. W okienku po lewej stronie powitania rozwiń konto magazynu hello zawierające udziału plików hello zasad dostępu, którego chcesz toomanage.
+2. W okienku po lewej stronie rozwiń konto magazynu zawierające udział plików, którego zasadami dostępu chcesz zarządzać.
 
-3. Rozwiń konto magazynu hello **udziałów plików**.
+3. Rozwiń pozycję **Udziały plików** konta magazynu.
 
-4. Wybierz udział żądanego pliku hello i — wybierz z menu kontekstowego hello - **Zarządzanie zasadami dostępu**.
+4. Wybierz żądany udział plików, a następnie z menu kontekstowego wybierz pozycję **Zarządzaj zasadami dostępu**.
 
     ![Menu kontekstowe Zarządzanie zasadami dostępu](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. Witaj **zasady dostępu** okno dialogowe wyświetla wszystkie zasady dostępu dla udziału plików wybranych hello już utworzony.
+5. W oknie dialogowym **Zasady dostępu** zostanie wyświetlona lista wszystkich zasad dostępu, które zostały już utworzone dla wybranego udziału plików.
     
     ![Zasady dostępu](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Wykonaj następujące kroki w zależności od zadania zarządzania zasadami dostępu hello:
+6. Wykonaj następujące kroki w zależności od zadania zarządzania zasadami dostępu:
     
-    - **Dodawanie nowych zasad dostępu** — wybierz pozycję **Dodaj**. Wygenerowany hello **zasady dostępu** hello nowo dodanych do wyświetlenia okna dialogowego dostęp zasad (przy użyciu ustawień domyślnych).
+    - **Dodawanie nowych zasad dostępu** — wybierz pozycję **Dodaj**. Po wygenerowaniu w oknie dialogowym **Zasady dostępu** będą wyświetlane nowo dodane zasady dostępu (przy użyciu ustawień domyślnych).
 
     - **Edytowanie zasad dostępu** — wykonaj wszystkie żądane operacje edycji, a następnie wybierz pozycję **Zapisz**.
 
-    - **Usuń zasady dostępu** — wybierz tę opcję **Usuń** dalej toohello zasady dostępu mają tooremove.
+    - **Usuwanie zasad dostępu** — wybierz pozycję **Usuń** obok zasad dostępu, które chcesz usunąć.
 
-7. Utwórz nowy adres URL sygnatury dostępu Współdzielonego przy użyciu hello utworzoną wcześniej zasad dostępu:
+7. Utwórz nowy adres URL sygnatury dostępu współdzielonego za pomocą utworzonych wcześniej zasad dostępu:
     
     ![Pobieranie sygnatury dostępu współdzielonego](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -176,88 +176,88 @@ Witaj poniższe kroki przedstawiają sposób toomanage (Dodaj i Usuń) zasady dl
 
 ## <a name="managing-files-in-a-file-share"></a>Zarządzanie plikami w udziale plików
 
-Po utworzeniu udziału plików można przekazać pliku toothat udziału plików, Pobierz plik tooyour komputera lokalnego, otwórz plik na komputerze lokalnym i wiele innych.
+Po utworzeniu udziału plików można do niego przekazać plik, pobrać plik na komputer lokalny, otworzyć plik na komputerze lokalnym i wykonać wiele innych operacji.
 
-Witaj poniższe kroki przedstawiają jak udostępnić toomanage hello plików (i foldery) w pliku.
+Poniższe kroki ilustrują zarządzanie plikami (i folderami) w udziale plików.
 
 1.  Otwórz Eksploratora usługi Storage (wersja zapoznawcza).
 
-2.  W okienku po lewej stronie powitania rozwiń konto magazynu hello zawierające hello udziału plików mają toomanage.
+2.  W okienku po lewej stronie rozwiń konto magazynu zawierające udział plików, którym chcesz zarządzać.
 
-3.  Rozwiń konto magazynu hello **udziałów plików**.
+3.  Rozwiń pozycję **Udziały plików** konta magazynu.
 
-4.  Kliknij dwukrotnie hello udziału plików mają tooview.
+4.  Dwukrotnie kliknij udział plików, który chcesz wyświetlić.
 
-5.  Witaj głównego okienku zostaną wyświetlone udziału plików hello zawartość.
+5.  W okienku głównym zostanie wyświetlona zawartość udziału plików.
 
-    ![Witaj udziału zawartości](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Zawartość udziału](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  Witaj głównego okienku zostaną wyświetlone udziału plików hello zawartość.
+6.  W okienku głównym zostanie wyświetlona zawartość udziału plików.
 
-7.  Wykonaj następujące kroki w zależności od zadania hello mają tooperform:
+7.  Wykonaj następujące kroki w zależności od zadania, które chcesz wykonać:
 
-    - **Przekaż udziału plików tooa plików**
+    - **Przekazywanie plików do udziału plików**
 
-        a.  W okienku głównym hello narzędzi, wybierz **przekazać**, a następnie **Przekaż** z menu rozwijanego hello.
+        a.  Na pasku narzędzi okienka głównego wybierz pozycję **Przekaż**, a następnie z menu rozwijanego wybierz pozycję **Przekaż pliki**.
 
         ![Przekazywanie plików](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. W hello **przekazać pliki** okno dialogowe, wybierz hello wielokropka (**...** ) przycisku po prawej stronie powitania hello **pliki** tooselect hello pliki mają tooupload polu tekstowym.
+        b. W oknie dialogowym **Przekazywanie plików** wybierz przycisk wielokropka (**...**) po prawej stronie pola tekstowego **Pliki**, aby wybrać pliki do przekazania.
 
         ![Dodawanie plików](media/vs-azure-tools-storage-explorer-files/image19.png)
 
         c. Wybierz pozycję **Przekaż**.
 
-    - **Przekaż udziału plików tooa folderu**
+    - **Przekazywanie folderu do udziału plików**
         
-        a. Na pasku narzędzi w okienku głównym hello, wybierz **przekazać**, a następnie **przekazać folderu** z menu rozwijanego hello.
+        a. Na pasku narzędzi okienka głównego wybierz pozycję **Przekaż**, a następnie z menu rozwijanego wybierz pozycję **Przekaż folder**.
 
         ![Menu Przekaż folder](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. W hello **folder przekazywania** okno dialogowe, wybierz hello wielokropka (**...** ) przycisku po prawej stronie powitania hello **folderu** tekst pola tooselect hello folder zawartości, którego chcesz tooupload.
+        b. W oknie dialogowym **Przekazywanie folderu** wybierz przycisk wielokropka (**...**) po prawej stronie pola tekstowego **Folder**, aby wybrać folder, którego zawartość chcesz przekazać.
 
-        c. Opcjonalnie określ folder docelowy, w których hello zostanie przekazany zawartość wybranego folderu. Witaj, folder docelowy nie istnieje, zostanie utworzona.
+        c. Opcjonalnie określ folder docelowy, do którego zawartość wybranego folderu zostanie przekazana. Jeśli folder docelowy nie istnieje, zostanie on utworzony.
 
         d. Wybierz pozycję **Przekaż**.
 
-    - **Pobierz plik tooyour komputera lokalnego**
+    - **Pobieranie pliku na komputer lokalny**
         
-        a. Wybierz plik hello mają toodownload.
+        a. Wybierz plik, który chcesz pobrać.
         
-        b. W okienku głównym hello narzędzi wybierz **Pobierz**.
+        b. Na pasku narzędzi okienka głównego wybierz pozycję **Pobierz**.
         
-        c. W hello **Określ, gdzie toosave hello pobrany plik** okna dialogowego, określ hello lokalizację pliku hello pobrane i hello nazwę mają toogive go.
+        c. W oknie dialogowym **Określanie lokalizacji, w której zapisać pobrany plik** określ lokalizację, w której ma zostać zapisany pobrany plik, oraz nazwę tego pliku.
 
         d. Wybierz pozycję **Zapisz**.
 
     - **Otwieranie pliku na komputerze lokalnym**
         
-        a.  Wybierz plik hello mają tooopen.
+        a.  Wybierz plik, który chcesz otworzyć.
         
-        b.  W okienku głównym hello narzędzi wybierz **Otwórz**.
+        b.  Na pasku narzędzi okienka głównego wybierz pozycję **Otwórz**.
         
-        c.  Plik Hello zostaną pobrane i otworzyć przy użyciu aplikacji hello skojarzonej z hello podstawowy typ pliku.
+        c.  Plik zostanie pobrany i otwarty przy użyciu aplikacji skojarzonej z typem pliku źródłowego.
 
-    - **Skopiuj plik toohello Schowka**
+    - **Kopiowanie pliku do Schowka**
 
-        a. Wybierz plik hello mają toocopy.
+        a. Wybierz plik, który chcesz skopiować.
 
-        b. W okienku głównym hello narzędzi wybierz **kopiowania**.
+        b. Na pasku narzędzi okienka głównego wybierz pozycję **Kopiuj**.
 
-        c. W okienku po lewej stronie powitania, przejdź do udziału plików tooanother i kliknij ją dwukrotnie tooview w okienku głównym hello.
+        c. W lewym okienku przejdź do innego udziału plików i kliknij go dwukrotnie, aby wyświetlić go w okienku głównym.
 
-        d. W okienku głównym hello narzędzi wybierz **Wklej** toocreate kopię pliku hello.
+        d. Na pasku narzędzi okienka głównego wybierz pozycję **Wklej**, aby utworzyć kopię pliku.
 
     - **Usuwanie pliku**
 
-        a. Wybierz plik hello mają toodelete.
+        a. Wybierz plik, który chcesz usunąć.
 
-        b. W okienku głównym hello narzędzi wybierz **usunąć**.
+        b. Na pasku narzędzi okienka głównego wybierz pozycję **Usuń**.
 
-        c. Wybierz **tak** toohello okno dialogowe potwierdzenia.
+        c. Wybierz pozycję **Tak** w oknie dialogowym potwierdzenia.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Widok hello [najnowsze informacje o wersji Eksploratora usługi Storage (wersja zapoznawcza) i filmy wideo](http://www.storageexplorer.com/).
+- Zobacz [najnowsze informacje o wersji i filmy wideo dotyczące programu Storage Explorer (wersja zapoznawcza)](http://www.storageexplorer.com/).
 
-- Dowiedz się, jak za[tworzenie aplikacji przy użyciu Azure blob, tabel, kolejek i plików](https://azure.microsoft.com/documentation/services/storage/).
+- Dowiedz się, jak [tworzyć aplikacje przy użyciu obiektów Blob, tabel, kolejek i plików platformy Azure](https://azure.microsoft.com/documentation/services/storage/).

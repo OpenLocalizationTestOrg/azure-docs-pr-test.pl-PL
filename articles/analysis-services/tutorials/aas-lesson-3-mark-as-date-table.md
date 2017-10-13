@@ -1,7 +1,25 @@
 ---
-title: aaa "lekcji samouczka usług Azure Analysis Services 3: Oznacz jako tabelę dat | Opis elementu Microsoft Docs": w tym artykule opisano, jak toomark datę w tabeli projekt samouczka hello Azure Analysis Services. usługi: documentationcenter usług analysis services: "Autor: minewiskan Menedżera: Edytor erikre:" tagów: "
-
-MS.AssetID: ms.service: ms.devlang usług analysis services: NA ms.topic: get-started-article ms.tgt_pltfrm: NA ms.workload: na ms.date: ms.author 2017-06/01: owend
+title: "Samouczek Azure Analysis Services: lekcja 3 — oznaczanie jako tabeli dat | Microsoft Docs"
+description: "Opisuje sposób oznaczania jako tabeli dat w projekcie samouczka usług Azure Analysis Services."
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/20/2017
+ms.author: owend
+ms.openlocfilehash: 94ea44091c8a7befaf0c82349c47dce7a36c1fd8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-3-mark-as-date-table"></a>Lekcja 3. Oznaczanie jako tabeli dat
 
@@ -11,29 +29,29 @@ W lekcji 2 dotyczącej pobierania danych została zaimportowana tabela wymiarów
   
 Zawsze gdy używasz funkcji analizy czasowej języka DAX (np. podczas opisanego poniżej tworzenia miar), należy określić właściwości, które obejmują *tabelę dat* i unikatowy identyfikator *kolumny dat* w tej tabeli.
   
-W tej lekcji oznaczyć hello DimDate tabeli jako hello *tabelę dat* i kolumnę dat hello (w tabeli danych hello) jako hello *kolumnę dat* (unikatowy identyfikator).  
+W tej lekcji oznaczysz tabelę DimDate jako *tabelę dat* i kolumnę Date Column (w tabeli dat) jako *kolumnę dat* (unikatowy identyfikator).  
 
-Zanim oznaczenie kolumny tabeli i Data Data hello jest toodo odpowiedni moment, nieco housekeeping toomake Twojego toounderstand łatwiejsze modelu. Zwróć uwagę, w tabeli DimDate hello kolumny o nazwie **FullDateAlternateKey**. Ta kolumna zawiera jeden wiersz dla każdego dnia w każdym roku kalendarzowym uwzględnione w tabeli hello. Ta kolumna jest bardzo często używana w formułach miar i w raportach. Jednak „FullDateAlternateKey” nie jest najlepszym identyfikatorem dla tej kolumny. Możesz zmienić jego nazwę za**data**, dzięki czemu można łatwiej tooidentify i obejmują w formułach. Jeśli to możliwe, jest toorename dobrze obiekty takie jak tabele i kolumny toomake je łatwiej tooidentify SSDT i klientach raportowania aplikacji, takich jak usługi Power BI i Excel. 
+Zanim oznaczysz tabelę dat i kolumnę dat, warto uporządkować nieco model, aby ułatwić jego zrozumienie. Zwróć uwagę na kolumnę **FullDateAlternateKey** w tabeli DimDate. Zawiera ona jeden wiersz dla każdego dnia w każdym roku kalendarzowym ujętym w tabeli. Ta kolumna jest bardzo często używana w formułach miar i w raportach. Jednak „FullDateAlternateKey” nie jest najlepszym identyfikatorem dla tej kolumny. Możesz zmienić jej nazwę na **Date** (Data), aby móc ją łatwiej zidentyfikować i uprościć sobie dołączanie tej kolumny do formuł. O ile to możliwe, zaleca się zmianę nazw obiektów takich jak tabele i kolumny, aby ułatwić sobie ich identyfikację w programie SSDT i klienckich aplikacjach raportowania (np. Power BI i Excel). 
   
-Szacowany czas toocomplete tej lekcji: **trzy minuty**  
+Szacowany czas trwania lekcji: **3 minuty**  
   
 ## <a name="prerequisites"></a>Wymagania wstępne  
-Ten temat stanowi część samouczka modelowania tabelarycznego, który należy wykonać w podanej kolejności. Przed wykonaniem zadania hello w tej lekcji, powinno mieć ukończone poprzedniej lekcji hello: [Lekcja 2: pobieranie danych](../tutorials/aas-lesson-2-get-data.md). 
+Ten temat stanowi część samouczka modelowania tabelarycznego, który należy wykonać w podanej kolejności. Przed przystąpieniem do wykonywania zadań w tej lekcji należy ukończyć poprzednią lekcję ([Lekcja 2. Pobieranie danych](../tutorials/aas-lesson-2-get-data.md)). 
 
-### <a name="toorename-hello-fulldatealternatekey-column"></a>toorename hello FullDateAlternateKey kolumny
+### <a name="to-rename-the-fulldatealternatekey-column"></a>Aby zmienić nazwę kolumny FullDateAlternateKey
 
-1.  W Konstruktorze modelu powitania kliknij hello **DimDate** tabeli.
+1.  W projektancie modeli kliknij tabelę **DimDate**.
 
-2.  Kliknij dwukrotnie nagłówek hello hello **FullDateAlternateKey** kolumny, a następnie zmień zbyt**data**.
+2.  Kliknij dwukrotnie nagłówek kolumny **FullDateAlternateKey**, a następnie zmień jego nazwę na **Date**.
 
   
-### <a name="tooset-mark-as-date-table"></a>tooset Oznacz jako tabela dat.  
+### <a name="to-set-mark-as-date-table"></a>Aby oznaczyć jako tabelę dat  
   
-1.  Wybierz hello **data** kolumny, a następnie w hello **właściwości** okna, w obszarze **— typ danych**, upewnij się, że **data** wybrano.  
+1.  Wybierz kolumnę **Date**, a następnie w oknie **Właściwości** w obszarze **Typ danych** upewnij się, że pole **Date** jest zaznaczone.  
   
-2.  Kliknij hello **tabeli** menu, następnie kliknij przycisk **data**, a następnie kliknij przycisk **Oznacz jako tabelę dat**.  
+2.  Kliknij menu **Tabela**, a następnie kliknij przycisk **Date**, po czym kliknij przycisk **Oznacz jako tabelę dat**.  
   
-3.  W hello **Oznacz jako tabelę dat** okno dialogowe, w hello **data** listbox, zaznacz hello **data** kolumny hello Unikatowy identyfikator. Zazwyczaj jest ona zaznaczona domyślnie. Kliknij przycisk **OK**. 
+3.  W oknie dialogowym **Oznaczanie jako tabeli dat**, w polu listy **Date** zaznacz kolumnę **Date** jako unikatowy identyfikator kolumny. Zazwyczaj jest ona zaznaczona domyślnie. Kliknij przycisk **OK**. 
 
     ![aas-lesson3-date-table](../tutorials/media/aas-lesson3-date-table.png)
   

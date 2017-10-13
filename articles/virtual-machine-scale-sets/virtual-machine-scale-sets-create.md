@@ -1,5 +1,5 @@
 ---
-title: zestaw skalowania maszyny wirtualnej platformy Azure aaaCreate | Dokumentacja firmy Microsoft
+title: "Utwórz zestaw skali maszyny wirtualnej platformy Azure | Dokumentacja firmy Microsoft"
 description: "Tworzenie i wdrażanie skali maszyny wirtualnej systemu Linux lub Windows Azure ustawiony za pomocą interfejsu wiersza polecenia Azure, programu PowerShell, szablonu lub Visual Studio."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,25 +15,25 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: adegeo
-ms.openlocfilehash: 73de25c1dd2424e64655b3accfea848926e72f69
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>Tworzenie i wdrażanie zestaw skali maszyny wirtualnej
-Zestawy skalowania maszyn wirtualnych ułatwiają możesz toodeploy i zarządzaj nimi wiele identycznych maszyn wirtualnych jako zestaw. Zestawy skalowania w przypadku aplikacji o dużej skali zapewnić warstwy obliczeniowej wysoce skalowalnemu i dostosowania i obsługują obrazów platformy systemu Windows, Linux platformy obrazów niestandardowych obrazów i rozszerzenia. Aby uzyskać więcej informacji na temat zestawów skalowania, zobacz [zestawy skalowania maszyny wirtualnej](virtual-machine-scale-sets-overview.md).
+Zestawy skalowania maszyny wirtualnej ułatwiają wdrażanie i zarządzanie maszynami wirtualnymi identyczne jako zestaw. Zestawy skalowania w przypadku aplikacji o dużej skali zapewnić warstwy obliczeniowej wysoce skalowalnemu i dostosowania i obsługują obrazów platformy systemu Windows, Linux platformy obrazów niestandardowych obrazów i rozszerzenia. Aby uzyskać więcej informacji na temat zestawów skalowania, zobacz [zestawy skalowania maszyny wirtualnej](virtual-machine-scale-sets-overview.md).
 
-Ten samouczek pokazuje, jak toocreate zestawu skalowania maszyn wirtualnych **bez** przy użyciu hello portalu Azure. Aby uzyskać informacje o sposobie toouse hello portalu Azure, zobacz [jak toocreate, zestawu skalowania maszyn wirtualnych, z portalu Azure hello](virtual-machine-scale-sets-portal-create.md).
+W tym samouczku przedstawiono sposób tworzenia zestawu skali maszyny wirtualnej **bez** przy użyciu portalu Azure. Aby uzyskać informacje o tym, jak korzystać z portalu Azure, zobacz [tworzenie skalowania maszyny wirtualnej zestawu z portalu Azure](virtual-machine-scale-sets-portal-create.md).
 
 >[!NOTE]
 >Aby uzyskać więcej informacji na temat zasobów usługi Azure Resource Manager, zobacz [usługi Azure Resource Manager, a wdrożenie klasyczne](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="sign-in-tooazure"></a>Zaloguj się tooAzure
+## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Jeśli używasz interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub Azure PowerShell toocreate skali ustawiona, należy najpierw toosign w tooyour subskrypcji.
+Jeśli używasz interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub Azure PowerShell do utworzenia zestawu skalowania, należy najpierw zalogować się do subskrypcji.
 
-Aby uzyskać więcej informacji na temat sposobu tooinstall, konfigurowanie i zaloguj się tooAzure z wiersza polecenia platformy Azure lub programu PowerShell, zobacz [wprowadzenie Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) lub [wprowadzenie do poleceń cmdlet programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji o sposobie instalowania, konfigurowania i logowanie do platformy Azure z wiersza polecenia platformy Azure lub programu PowerShell, zobacz [wprowadzenie Azure CLI 2.0](/cli/azure/get-started-with-azure-cli.md) lub [wprowadzenie do poleceń cmdlet programu Azure PowerShell](/powershell/azure/overview).
 
 ```azurecli
 az login
@@ -45,7 +45,7 @@ Login-AzureRmAccount
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Należy najpierw toocreate grupę zasobów, której zestawu skalowania maszyn wirtualnych hello jest skojarzony z.
+Najpierw należy utworzyć grupę zasobów skojarzonego z zestawu skalowania maszyn wirtualnych.
 
 ```azurecli
 az group create --location westus2 --name MyResourceGroup1
@@ -57,46 +57,46 @@ New-AzureRmResourceGroup -Location westus2 -Name MyResourceGroup1
 
 ## <a name="create-from-azure-cli"></a>Tworzenie z interfejsu wiersza polecenia platformy Azure
 
-Z wiersza polecenia platformy Azure można utworzyć ustawianie przy minimalnym nakładzie pracy skali maszyny wirtualnej. W przypadku pominięcia wartości domyślne, są one udostępniane dla Ciebie. Na przykład jeśli nie określisz żadnych informacji sieci wirtualnej, sieci wirtualnej jest tworzony automatycznie. W przypadku pominięcia hello następujące części, ich są tworzone automatycznie: 
+Z wiersza polecenia platformy Azure można utworzyć ustawianie przy minimalnym nakładzie pracy skali maszyny wirtualnej. W przypadku pominięcia wartości domyślne, są one udostępniane dla Ciebie. Na przykład jeśli nie określisz żadnych informacji sieci wirtualnej, sieci wirtualnej jest tworzony automatycznie. W przypadku pominięcia następujące części, ich są tworzone automatycznie: 
 - Moduł równoważenia obciążenia
 - Sieć wirtualna
 - Publiczny adres IP
 
-Podczas wybierania hello obraz maszyny wirtualnej, które mają toouse na zestaw skali maszyny wirtualnej hello, masz kilka opcji:
+W przypadku wybrania obrazu maszyny wirtualnej, który ma być używany w zestawie skalowania maszyn wirtualnych, masz kilka opcji:
 
 - URN  
-Witaj identyfikator zasobu:  
+Identyfikator zasobu:  
 **Win2012R2Datacenter**
 
 - URN alias  
-Witaj przyjaznej nazwy URN:  
+Przyjazna nazwa URN:  
 **MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest**
 
 - Identyfikator zasobu niestandardowego  
-Ścieżka tooan Hello zasobów platformy Azure:  
+Ścieżka do zasobów platformy Azure:  
 **/Subscriptions/Subscription-GUID/resourceGroups/MyResourceGroup/Providers/Microsoft.COMPUTE/images/MyImage**
 
 - Zasób sieci Web  
-Ścieżka tooan Hello identyfikator URI protokołu HTTP:  
+Ścieżka do identyfikatora URI HTTP:  
 **http://contoso.blob.Core.Windows.NET/vhds/osdiskimage.VHD**
 
 >[!TIP]
 >Można uzyskać listę dostępnych obrazów z `az vm image list`.
 
-Ustawianie skalowania maszyny wirtualnej toocreate, należy określić następujące hello:
+Aby utworzyć zestaw skali maszyny wirtualnej, należy określić następujące czynności:
 
 - Grupa zasobów 
 - Nazwa
 - Obraz systemu operacyjnego
 - Informacje dotyczące uwierzytelniania 
  
-Witaj poniższy przykład tworzy zestaw skalowania podstawowej maszyny wirtualnej (ten krok może potrwać kilka minut).
+Poniższy przykład tworzy zestaw skalowania podstawowej maszyny wirtualnej (ten krok może potrwać kilka minut).
 
 ```azurecli
 az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
 ```
 
-Po zakończeniu działania polecenia hello trzeba będzie teraz Twojego zestaw utworzony skalowania maszyny wirtualnej. Adres IP hello tooget hello maszyny wirtualnej może być konieczne, dzięki czemu można łączyć tooit. Wiele różnych informacji o maszynie wirtualnej hello (łącznie z adresem IP hello) można uzyskać z hello następujące polecenia. 
+Po zakończeniu działania polecenia trzeba będzie teraz Twojego zestaw utworzony skalowania maszyny wirtualnej. Należy uzyskać adres IP maszyny wirtualnej, dzięki czemu można łączyć się go. Wiele różnych informacji o maszynie wirtualnej (łącznie z adresem IP) można uzyskać za pomocą następującego polecenia. 
 
 ```azurecli
 az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name MyScaleSet
@@ -104,13 +104,13 @@ az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name M
 
 ## <a name="create-from-powershell"></a>Utwórz na podstawie programu PowerShell
 
-PowerShell jest bardziej skomplikowany toouse niż wiersza polecenia platformy Azure. Interfejsu wiersza polecenia Azure zawiera ustawienia domyślne dla zasobów związanych z siecią (na przykład usługi równoważenia obciążenia, adresów IP i sieci wirtualne), natomiast nie obsługuje programu PowerShell. Odwołanie do obrazu przy użyciu programu PowerShell jest zbyt nieco bardziej skomplikowane. Obrazy można uzyskać z hello następującego polecenia cmdlet:
+PowerShell jest bardziej skomplikowany w użyciu niż wiersza polecenia platformy Azure. Interfejsu wiersza polecenia Azure zawiera ustawienia domyślne dla zasobów związanych z siecią (na przykład usługi równoważenia obciążenia, adresów IP i sieci wirtualne), natomiast nie obsługuje programu PowerShell. Odwołanie do obrazu przy użyciu programu PowerShell jest zbyt nieco bardziej skomplikowane. Możesz uzyskać obrazów za pomocą następujących poleceń cmdlet:
 
 1. Get-AzureRMVMImagePublisher
 2. Get-AzureRMVMImageOffer
 3. Get-AzureRmVMImageSku
 
-Hello pracy polecenia cmdlet mogą być przekazywane w potoku w sekwencji. Poniżej przedstawiono przykład sposobu tooget wszystkie obrazy dla hello **zachodnie stany USA 2** region z wydawcą o nazwie hello **microsoft** w nim.
+Pracy polecenia cmdlet mogą być przekazywane w potoku w sekwencji. Poniżej przedstawiono przykład sposobu uzyskania wszystkie obrazy dla **zachodnie stany USA 2** region z wydawcą o nazwie **microsoft** w nim.
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location WestUS2 | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
@@ -129,13 +129,13 @@ MicrosoftBizTalkServer     BizTalk-Server           2016-Enterprise
 ...
 ```
 
-Witaj przepływ pracy tworzenia zestawu skali maszyny wirtualnej jest następujący:
+Przepływ pracy tworzenia zestawu skali maszyny wirtualnej jest następujący:
 
-1. Utwórz obiekt konfiguracji, który przechowuje informacje o zestawie skali hello.
-2. Odwołanie hello podstawowy obraz systemu operacyjnego.
-3. Skonfiguruj ustawienia systemu operacyjnego hello: uwierzytelnianie, prefiks nazwy maszyny Wirtualnej i użytkownika/hasło.
+1. Utwórz obiekt konfiguracji, który przechowuje informacje o zestawie skali.
+2. Odwoływać się do obrazu podstawowego systemu operacyjnego.
+3. Skonfiguruj ustawienia systemu operacyjnego: uwierzytelnianie, prefiks nazwy maszyny Wirtualnej i użytkownika/hasło.
 4. Konfigurowanie sieci.
-5. Utwórz zestaw skali hello.
+5. Utwórz zestaw skali.
 
 W tym przykładzie tworzy zestaw na komputerze, na którym został zainstalowany program Windows Server 2016 podstawowe skalowania dwa wystąpienia.
 
@@ -147,13 +147,13 @@ $location = "WestUS2"
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig -Location $location -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
 
-# Reference a virtual machine image from hello gallery
+# Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
 
-# Set up information for authenticating with hello virtual machine
+# Set up information for authenticating with the virtual machine
 Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssw0rd! -ComputerNamePrefix myvmssvm
 
-# Create hello virtual network resources
+# Create the virtual network resources
 
 ## Basics
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
@@ -172,38 +172,38 @@ New-AzureRmLoadBalancer -ResourceGroupName $rg -Name "LB1" -Location $location -
 ## IP address config
 $ipConfig = New-AzureRmVmssIpConfig -Name "my-ipaddress" -LoadBalancerBackendAddressPoolsId $backendPool.Id -SubnetId $vnet.Subnets[0].Id -LoadBalancerInboundNatPoolsId $inboundNATPool1.Id
 
-# Attach hello virtual network toohello IP object
+# Attach the virtual network to the IP object
 Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig -Name "network-config" -Primary $true -IPConfiguration $ipConfig
 
-# Create hello scale set with hello config object (this step might take a few minutes)
+# Create the scale set with the config object (this step might take a few minutes)
 New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
 ```
 
 ### <a name="using-a-custom-virtual-machine-image"></a>Przy użyciu obrazu niestandardowego maszyny wirtualnej
-Jeśli tworzysz skali ustawiony na podstawie własny obraz niestandardowy, zamiast odwołujące się do obrazu maszyny wirtualnej z galerii hello hello _AzureRmVmssStorageProfile zestaw_ polecenie będzie wyglądać następująco:
+Jeśli tworzysz skali ustawiony na podstawie własny obraz niestandardowy, zamiast odwołujące się do obrazu maszyny wirtualnej z galerii _AzureRmVmssStorageProfile zestaw_ polecenie będzie wyglądać następująco:
 ```PowerShell
 Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
 ```
 
 ## <a name="create-from-a-template"></a>Tworzenie na podstawie szablonu
 
-Można wdrożyć skali maszyny wirtualnej ustawić przy użyciu szablonu usługi Azure Resource Manager. Można utworzyć własny szablon lub użyj jednej z hello [repozytorium szablonu](https://azure.microsoft.com/resources/templates/?term=vmss). Szablony te można wdrożyć bezpośrednio tooyour subskrypcji platformy Azure.
+Można wdrożyć skali maszyny wirtualnej ustawić przy użyciu szablonu usługi Azure Resource Manager. Można utworzyć własny szablon lub użyj jednej z [repozytorium szablonu](https://azure.microsoft.com/resources/templates/?term=vmss). Szablony te można wdrożyć bezpośrednio do subskrypcji platformy Azure.
 
 >[!NOTE]
->toocreate własny szablon, Utwórz plik tekstowy w formacie JSON. Aby uzyskać ogólne informacje o tym, jak toocreate i dostosować szablon, zobacz [szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+>Aby utworzyć własny szablon, należy utworzyć plik tekstowy w formacie JSON. Aby uzyskać ogólne informacje o sposobie tworzenia i dostosowywania szablonu, zobacz [szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Dostępny jest przykładowy szablon [w serwisie GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). Aby uzyskać więcej informacji na temat sposobu toocreate i użyj tego przykładowe, zobacz [zestaw wielkości co najmniej](.\virtual-machine-scale-sets-mvss-start.md).
+Dostępny jest przykładowy szablon [w serwisie GitHub](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). Aby uzyskać więcej informacji dotyczących sposobu tworzenia i korzystać z tej próbki, zobacz [zestaw wielkości co najmniej](.\virtual-machine-scale-sets-mvss-start.md).
 
 ## <a name="create-from-visual-studio"></a>Utwórz w programie Visual Studio
 
-Z programem Visual Studio można Tworzenie projektu grupy zasobów platformy Azure i dodać szablon tooit zestawu skalowania maszyny wirtualnej. Można wybrać, czy ma tooimport go z usługi GitHub lub hello Galeria aplikacji sieci Web platformy Azure. Wdrożenie skryptu PowerShell zostanie również wygenerowany automatycznie. Aby uzyskać więcej informacji, zobacz [jak toocreate, zestawu skalowania maszyn wirtualnych, z programem Visual Studio](virtual-machine-scale-sets-vs-create.md).
+Z programem Visual Studio można Tworzenie projektu grupy zasobów platformy Azure i dodać zestawu skalowania maszyny wirtualnej szablonu do niego. Można wybrać, czy chcesz importować go z usługi GitHub lub Galeria aplikacji sieci Web platformy Azure. Wdrożenie skryptu PowerShell zostanie również wygenerowany automatycznie. Aby uzyskać więcej informacji, zobacz [tworzenie skalowania maszyny wirtualnej zestawu z programem Visual Studio](virtual-machine-scale-sets-vs-create.md).
 
-## <a name="create-from-hello-azure-portal"></a>Utwórz na podstawie hello portalu Azure
+## <a name="create-from-the-azure-portal"></a>Tworzenie przy użyciu portalu Azure
 
-Witaj portalu Azure oferują wygodny sposób tooquickly utworzyć zestaw skali. Aby uzyskać więcej informacji, zobacz [jak toocreate, zestawu skalowania maszyn wirtualnych, z portalu Azure hello](virtual-machine-scale-sets-portal-create.md).
+Azure portal udostępnia wygodny sposób, aby szybko utworzyć zestaw skali. Aby uzyskać więcej informacji, zobacz [tworzenie skalowania maszyny wirtualnej zestawu z portalu Azure](virtual-machine-scale-sets-portal-create.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o [dysków z danymi](virtual-machine-scale-sets-attached-disks.md).
 
-Dowiedz się, jak za[zarządzania aplikacjami](virtual-machine-scale-sets-deploy-app.md).
+Dowiedz się, jak [zarządzania aplikacjami](virtual-machine-scale-sets-deploy-app.md).

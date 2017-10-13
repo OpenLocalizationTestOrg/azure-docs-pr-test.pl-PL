@@ -1,6 +1,6 @@
 ---
-title: "aaaManaging grup w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Jak toocreate i Zarządzaj grupami toomanage Azure użytkowników przy użyciu usługi Azure Active Directory."
+title: "Zarządzanie grupami w usłudze Azure Active Directory | Microsoft Docs"
+description: "Jak tworzyć grupy i zarządzać nimi, aby zarządzać użytkownikami platformy Azure przy użyciu usługi Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,96 +12,95 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/24/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 9bee224655639740b3dd99983892b30c3c537aa0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a29bc68e966a3706af557af0c626d369d04149aa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>Zarządzanie grupami w usłudze Azure Active Directory
 > [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-groups-create-azure-portal.md)
-> * [Klasyczna witryna Azure Portal](active-directory-accessmanagement-manage-groups.md)
+> * [Witryna Azure Portal](active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
 
-Jedną z funkcji hello zarządzania użytkownika usługi Azure Active Directory (Azure AD) jest hello możliwości toocreate grup użytkowników. Możesz użyć zadania zarządzania tooperform grupy, takich jak przypisywanie licencji lub uprawnienia tooa liczbę użytkowników jednocześnie. Można również użyć grup tooassign uprawnienia do dostępu
+Jedną z funkcji zarządzania użytkownikami w usłudze Azure Active Directory (Azure AD) jest tworzenie grup użytkowników. Grupa służy do wykonywania zadań zarządzania, takich jak przypisywanie licencji lub uprawnień do kilku użytkowników jednocześnie. Za pomocą grup można także przypisywać uprawnienia dostępu do:
 
-* Zasoby, takie jak obiekty w katalogu hello
-* Zasoby zewnętrzne toohello katalogu, takiego jak aplikacji SaaS, usług platformy Azure, witryn programu SharePoint lub zasobów lokalnych
+* zasobów takich jak obiekty w katalogu
+* Zasobów spoza katalogu, na przykład aplikacji SaaS, usług platformy Azure, witryn programu SharePoint lub zasobów lokalnych
 
-Ponadto właściciel zasobu można również przypisywać właścicielem dostępu tooa zasobów tooan usługi Azure AD grupy. To przypisanie daje członkom hello zasobu toohello dostęp do tej grupy. Następnie hello właściciela grupy hello zarządza członkostwo w grupie hello. Ostatecznie hello zasobów właściciela delegatów toohello właściciel hello grupy hello uprawnienia tooassign użytkowników tootheir zasobu.
+Ponadto właściciel zasobu może także przypisać dostęp do tego zasobu do grupy usługi Azure AD należącej do innej osoby. To przypisanie spowoduje przydzielenie dostępu do zasobu członkom tej grupy. Następnie właściciel grupy może zarządzać członkostwem w grupie. Zatem w praktyce właściciel zasobu przekazuje właścicielowi grupy uprawnienie do przypisywania użytkowników do swojego zasobu.
 
 > [!IMPORTANT]
-> Firma Microsoft zaleca się, że zarządzania usługi Azure AD przy użyciu hello [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w hello portalu Azure zamiast hello klasycznego portalu Azure, do którego odwołuje się w tym artykule. Aby uzyskać jak toomanage grupuje się w Centrum administracyjnym hello Azure AD, zobacz [Utwórz grupy i Dodaj elementy członkowskie w usłudze Azure Active Directory](active-directory-groups-create-azure-portal.md).
+> Firma Microsoft zaleca zarządzanie usługą Azure AD przy użyciu [centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) w witrynie Azure Portal zamiast korzystania z klasycznej witryny Azure Portal przywołanej w niniejszym artykule. Aby dowiedzieć się, jak zarządzać grupami w centrum administracyjnym usługi Azure AD, zobacz [Create a group and add members in Azure Active Directory (Tworzenie grupy i dodawanie elementów członkowskich w usłudze Azure Active Directory)](active-directory-groups-create-azure-portal.md).
 
 ## <a name="how-do-i-create-a-group"></a>Jak utworzyć grupę?
-W zależności od hello toowhich usług, które zostały zasubskrybowane przez organizację można utworzyć grupę przy użyciu jednej z następujących hello:
+W zależności od usług, które subskrybuje Twoja organizacja, możesz utworzyć grupę w jednym z następujących miejsc:
 
-* Witaj klasycznego portalu Azure
-* portal konta Hello usługi Office 365
-* Witaj w portalu konta Windows Intune
+* Klasyczny portal Azure
+* Portal konta usługi Office 365
+* Portal konta usługi Windows Intune
 
-Opiszemy zadania, jak wykonywać w hello klasycznego portalu Azure. Aby uzyskać więcej informacji o użyciu portali innych niż Azure toomanage katalogu usługi Azure AD, zobacz [administrowanie katalogiem usługi Azure AD](active-directory-administer.md).
+Zadania opiszemy w taki sposób, jakby były wykonywane w klasycznym portalu Azure. Aby uzyskać więcej informacji na temat zarządzania katalogiem Azure AD przy użyciu portali innych niż Azure, zobacz [Administrowanie katalogiem usługi Azure AD](active-directory-administer.md).
 
-1. W hello [klasycznego portalu Azure](https://manage.windowsazure.com), wybierz pozycję **usługi Active Directory**, a następnie wybierz nazwę hello hello katalogu organizacji.
-2. Wybierz hello **grup** kartę.
+1. W [klasycznym portalu Azure](https://manage.windowsazure.com) wybierz pozycję **Active Directory**, a następnie wybierz nazwę katalogu swojej organizacji.
+2. Wybierz kartę **Grupy**.
 3. Wybierz polecenie **Dodaj grupę**.
-4. W hello **Dodaj grupę** okna, określ nazwę hello i hello opis grupy.
+4. W oknie **Dodawanie grupy** podaj nazwę i opis grupy.
 
 ## <a name="how-do-i-add-or-remove-individual-users-in-a-security-group"></a>Jak dodawać i usuwać pojedynczych użytkowników w grupie zabezpieczeń?
-**tooadd grupy tooa użytkownika**
+**Aby dodać użytkownika do grupy**
 
-1. W hello [klasycznego portalu Azure](https://manage.windowsazure.com), wybierz pozycję **usługi Active Directory**, a następnie wybierz nazwę hello hello katalogu organizacji.
-2. Wybierz hello **grup** kartę.
-3. Otwórz toowhich grupy hello tooadd członkowie. Otwórz hello **członków** kartę hello wybrane grupy, jeśli go jeszcze nie wyświetlanie.
+1. W [klasycznym portalu Azure](https://manage.windowsazure.com) wybierz pozycję **Active Directory**, a następnie wybierz nazwę katalogu swojej organizacji.
+2. Wybierz kartę **Grupy**.
+3. Otwórz grupę, do której chcesz dodać członków. Otwórz kartę **Członkowie** wybranej grupy, jeśli nie jest jeszcze wyświetlana.
 4. Wybierz polecenie **Dodaj członków**.
-5. Na powitania **Dodaj członków** strony, wybierz opcję hello nazwę hello użytkownik lub grupa ma tooadd członkiem tej grupy. Upewnij się, że nazwa została dodana toohello **wybrane** okienka.
+5. Na stronie **Dodawanie członków** wybierz nazwę użytkownika, którego chcesz dodać jako członka grupy, lub nazwę grupy takich użytkowników. Upewnij się, że nazwa została dodana do okienka **Wybrane**.
 
-**tooremove użytkownika z grupy**
+**Aby usunąć użytkownika z grupy**
 
-1. W hello [klasycznego portalu Azure](https://manage.windowsazure.com), wybierz pozycję **usługi Active Directory**, a następnie wybierz nazwę hello hello katalogu organizacji.
-2. Wybierz hello **grup** kartę.
-3. Otwórz grupę hello, z którego mają być członkami tooremove.
-4. Wybierz hello **członków** kartę, wybierz hello nazwę elementu członkowskiego hello mają tooremove z tej grupy, a następnie kliknij przycisk **Usuń**.
-5. Potwierdzenie w wierszu hello tooremove tego elementu członkowskiego z grupy hello.
+1. W [klasycznym portalu Azure](https://manage.windowsazure.com) wybierz pozycję **Active Directory**, a następnie wybierz nazwę katalogu swojej organizacji.
+2. Wybierz kartę **Grupy**.
+3. Otwórz grupę, z której chcesz usunąć członków.
+4. Wybierz kartę **Członkowie**, wybierz nazwę członka, którego chcesz usunąć z grupy, a następnie kliknij polecenie **Usuń**.
+5. Po wyświetleniu monitu potwierdź, że chcesz usunąć tego członka z grupy.
 
-## <a name="how-can-i-manage-hello-membership-of-a-group-dynamically"></a>Jak dynamicznie zarządzać hello członkostwa w grupie?
-W usłudze Azure AD można bardzo łatwo skonfigurować toodetermine Prosta reguła, użytkowników, którzy są członkami toobe hello grupy. Prosta reguła to taka, która wykonuje tylko jedno porównanie. Na przykład jeśli grupa jest przypisana tooa aplikacji SaaS, można ustawić reguły użytkowników tooadd, mających stanowisko "Przedstawiciel". Ta reguła jest następnie udziela dostępu użytkowników tooall aplikacji SaaS toothis stanowisko w katalogu.
+## <a name="how-can-i-manage-the-membership-of-a-group-dynamically"></a>Jak dynamicznie zarządzać członkostwem w grupie?
+W usłudze Azure AD można bardzo łatwo skonfigurować prostą regułę w celu określenia, którzy użytkownicy powinni być członkami grupy. Prosta reguła to taka, która wykonuje tylko jedno porównanie. Jeśli na przykład grupa jest przypisana do aplikacji SaaS, możesz skonfigurować regułę dodającą użytkowników, którzy mają stanowisko „Przedstawiciel handlowy”. Następnie ta reguła udziela dostępu do tej aplikacji SaaS wszystkim użytkownikom mającym to stanowisko w katalogu.
 
-Gdy atrybuty zmian użytkownika, powitalne system ocenia wszystkie reguły grupy dynamicznej w toosee katalogu, jeśli zmiany atrybutu hello hello użytkownika spowoduje wywołanie żadnej grupy dodaje lub usuwa. Jeśli użytkownika spełnia zasady grupy, są dodawane jako członek grupy toothat. Jeśli nie spełniają hello zasady grupy, które są członkami, są usuwane jako elementy członkowskie z tej grupy.
+Po zmianie dowolnych atrybutów użytkownika system ocenia wszystkie zasady dotyczące grup dynamicznych w katalogu, aby ustalić, czy zmiana atrybutów użytkownika spowoduje dodanie elementów do grupy lub usunięcie ich z niej. Jeśli użytkownik spełnia wymagania zasad grupy, jest dodawany jako członek do tej grupy. Jeśli użytkownicy nie spełniają już zasad grupy, której są członkami, są usuwani z tej grupy.
 
 > [!NOTE]
-> Możesz skonfigurować reguły dynamicznego zarządzania członkostwem w grupach zabezpieczeń lub w grupach usługi Office 365. Członkostwo grup zagnieżdżonych nie są obecnie obsługiwane dla tooapplications przypisywania na podstawie grupy.
+> Możesz skonfigurować reguły dynamicznego zarządzania członkostwem w grupach zabezpieczeń lub w grupach usługi Office 365. Aktualnie w ramach przypisywania do aplikacji na podstawie grup nie jest obsługiwane członkostwo w grupach zagnieżdżonych.
 >
-> Dynamiczne zarządzanie członkostwem w grupach wymaga toobe licencji Azure AD Premium, przypisane do
+> Dynamiczne zarządzanie członkostwem w grupach wymaga przypisania licencji usługi Azure AD w wersji Premium do:
 >
-> * Witaj administratora, który zarządza hello regułą grupy
-> * Wszyscy członkowie grupy hello
+> * administratora zarządzającego regułą grupy
+> * Wszyscy członkowie grupy
 >
 >
 
-**tooenable członkostwo dynamiczne w grupie**
+**Aby włączyć dynamiczne zarządzanie członkostwem w grupie**
 
-1. W hello [klasycznego portalu Azure](https://manage.windowsazure.com), wybierz pozycję **usługi Active Directory**, a następnie wybierz nazwę hello hello katalogu organizacji.
-2. Wybierz hello **grup** kartę i hello Otwórz grupę tooedit.
-3. Wybierz hello **Konfiguruj** karcie, a następnie ustaw **Włącz członkostwo dynamiczne** za**tak**.
-4. Skonfiguruj prostą regułę dla toocontrol grupy hello członkostwo dynamiczne w grupie. Upewnij się, że hello **dodawania użytkowników gdzie** opcja jest zaznaczona, a następnie wybierz właściwość użytkownika z listy hello (na przykład dział, stanowisko, itp.),
+1. W [klasycznym portalu Azure](https://manage.windowsazure.com) wybierz pozycję **Active Directory**, a następnie wybierz nazwę katalogu swojej organizacji.
+2. Wybierz kartę **Grupy** i otwórz grupę, którą chcesz edytować.
+3. Wybierz kartę **Konfiguracja**, a następnie wybierz ustawienie **Tak** dla opcji **Włącz członkostwo dynamiczne**.
+4. Skonfiguruj prostą regułę grupy, aby sterować sposobem działania członkostwa dynamicznego w grupie. Upewnij się, że jest zaznaczona opcja **Dodaj użytkowników, dla których**, a następnie wybierz właściwość użytkownika z listy (na przykład dział, stanowisko itp.).
 5. Następnie wybierz warunek (Nie równa się, Równa się, Nie rozpoczyna się od, Rozpoczyna się od, Nie zawiera, Zawiera, Nie jest zgodne, Jest zgodne).
-6. Określ wartość porównania hello wybrane właściwości użytkownika.
+6. Podaj wartość porównania wybranej właściwości użytkownika.
 
-toolearn o tym, jak toocreate *zaawansowane* reguły (zasady, które mogą zawierać więcej niż jedno porównanie) na dynamiczne członkostwo w grupie, zobacz [przy użyciu atrybutów toocreate zaawansowane zasady](active-directory-accessmanagement-groups-with-advanced-rules.md).
+Aby dowiedzieć się, jak tworzyć reguły *zaawansowane* (czyli takie, które mogą zawierać więcej niż jedno porównanie) na potrzeby dynamicznego zarządzania członkostwem w grupach, zobacz [Tworzenie reguł zaawansowanych za pomocą atrybutów](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
 ## <a name="additional-information"></a>Dodatkowe informacje
 Te artykuły zawierają dodatkowe informacje o usłudze Azure Active Directory.
 
-* [Zarządzanie tooresources dostępu za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
+* [Zarządzanie dostępem do zasobów za pomocą grup usługi Azure Active Directory](active-directory-manage-groups.md)
 * [Polecenia cmdlet usługi Azure Active Directory służące do konfigurowania ustawień grupy](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Co to jest usługa Azure Active Directory?](active-directory-whatis.md)

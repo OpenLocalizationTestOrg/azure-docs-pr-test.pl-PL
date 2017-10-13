@@ -1,6 +1,6 @@
 ---
-title: aaaMonitor operacje, zdarzenia i liczniki dla grup NSG | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak tooenable liczników, zdarzeń i operacyjne rejestrowania dla grupy NSG"
+title: "Monitorowanie działań, zdarzenia i liczniki dla grup NSG | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak włączyć operacyjne rejestrowanie dla grup NSG, zdarzenia i liczniki"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,59 +15,59 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: f16f1a0ad693028ee7aba21574b5c8ddfcd27096
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Usługa Log Analytics dla sieciowych grup zabezpieczeń
 
-Możesz włączyć następujące kategorie dzienników diagnostycznych dla grup NSG hello:
+Grupy NSG można włączyć następujące kategorie dzienników diagnostycznych:
 
-* **Zdarzenie:** zawiera wpisy, dla których NSG reguły są stosowane tooVMs i wystąpienia ról na podstawie adresu MAC. Stan Hello te reguły są gromadzone co 60 sekund.
-* **Licznik reguł:** zawiera wpisy dla ile razy każda grupa NSG do reguły jest stosowane toodeny lub zezwolić na ruch.
+* **Zdarzenie:** zawiera wpisy, dla których NSG reguły są stosowane do maszyn wirtualnych i wystąpień ról na podstawie adresu MAC. Stan zasady te są gromadzone co 60 sekund.
+* **Licznik reguł:** reguł zawiera wpisy dla ile razy każda grupa NSG jest stosowana do odmowy lub zezwolić na ruch.
 
 > [!NOTE]
-> Dzienniki diagnostyczne są dostępne tylko dla grup NSG wdrożone za pośrednictwem modelu wdrażania usługi Azure Resource Manager hello. Nie można włączyć rejestrowania diagnostycznego w celu grup NSG wdrożone za pośrednictwem hello klasycznego modelu wdrażania. W celu lepszego zrozumienia hello dwóch modeli, odwołanie hello [modele wdrażania Azure opis](../resource-manager-deployment-model.md) artykułu.
+> Dzienniki diagnostyczne są dostępne tylko dla grup NSG wdrożone za pośrednictwem modelu wdrażania usługi Azure Resource Manager. Nie można włączyć rejestrowania diagnostycznego w celu grup NSG wdrożone za pośrednictwem klasycznego modelu wdrażania. W celu lepszego zrozumienia dwóch modeli, odwołanie [modele wdrażania Azure opis](../resource-manager-deployment-model.md) artykułu.
 
-Rejestrowanie aktywności (wcześniej znane jako inspekcji lub operacyjne dzienniki) jest domyślnie włączone dla grup NSG, został utworzony za pomocą obu modelu wdrożenia usługi Azure. toodetermine, jakie operacje zostały zakończone na grup NSG w hello dziennik aktywności, Wyszukaj wpisy zawierające hello następujące typy zasobów: 
+Rejestrowanie aktywności (wcześniej znane jako inspekcji lub operacyjne dzienniki) jest domyślnie włączone dla grup NSG, został utworzony za pomocą obu modelu wdrożenia usługi Azure. Aby ustalić, jakie operacje zostały zakończone na grup NSG w dzienniku aktywności, Wyszukaj wpisy zawierające następujących zasobów: 
 
 - Microsoft.ClassicNetwork/networkSecurityGroups 
 - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
 - Microsoft.Network/networkSecurityGroups
 - Microsoft.Network/networkSecurityGroups/securityRules 
 
-Witaj odczytu [omówienie hello dziennika aktywności platformy Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) toolearn artykułu więcej o Dzienniki aktywności. 
+Odczyt [Omówienie dziennika aktywności platformy Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) artykuł, aby dowiedzieć się więcej o Dzienniki aktywności. 
 
 ## <a name="enable-diagnostic-logging"></a>Włączanie rejestrowania diagnostycznego
 
-Należy włączyć rejestrowanie diagnostyczne *każdego* NSG ma toocollect danych. Witaj [Omówienie programu Azure dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) wyjaśniono wysyłania dzienników diagnostycznych. Jeśli nie masz istniejącej grupy NSG, pełną hello etapami hello [Utwórz grupę zabezpieczeń sieci](virtual-networks-create-nsg-arm-pportal.md) toocreate artykułu, jeden. Można włączyć NSG przy użyciu dowolnej z następujących metod hello diagnostyczne:
+Należy włączyć rejestrowanie diagnostyczne *każdego* NSG, które mają być zbierane dane. [Omówienie programu Azure dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) wyjaśniono wysyłania dzienników diagnostycznych. Jeśli nie masz istniejącej grupy NSG, wykonaj kroki [Utwórz grupę zabezpieczeń sieci](virtual-networks-create-nsg-arm-pportal.md) artykuł, aby go utworzyć. Można włączyć NSG diagnostycznych rejestrowanie przy użyciu dowolnej z następujących metod:
 
 ### <a name="azure-portal"></a>Azure Portal
 
-toouse hello portalu tooenable rejestrowania, logowanie toohello [portal](https://portal.azure.com). Kliknij przycisk **więcej usług**, wpisz *sieciowej grupy zabezpieczeń*. Wybierz hello NSG ma tooenable rejestrowania. Wykonaj instrukcje hello zasobów z systemem innym niż obliczeń w hello [Włączanie dzienników diagnostycznych w portalu hello](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artykułu. Wybierz **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, lub oba rodzaje dzienników.
+Aby włączyć rejestrowanie, zaloguj się za pomocą portalu [portal](https://portal.azure.com). Kliknij przycisk **więcej usług**, wpisz *sieciowej grupy zabezpieczeń*. Wybierz grupy NSG, aby włączyć rejestrowanie. Postępuj zgodnie z instrukcjami dla zasobów obliczeniowych z systemem innym niż w [Włączanie dzienników diagnostycznych w portalu](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artykułu. Wybierz **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, lub oba rodzaje dzienników.
 
 ### <a name="powershell"></a>PowerShell
 
-toouse tooenable PowerShell rejestrowanie, wykonaj te instrukcje hello hello [Włączanie dzienników diagnostycznych za pomocą programu PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artykułu. Sprawdź następujące informacje przed wprowadzeniem polecenie z artykułu hello hello:
+Aby włączyć rejestrowanie za pomocą programu PowerShell, postępuj zgodnie z instrukcjami [Włączanie dzienników diagnostycznych za pomocą programu PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artykułu. Oceny przed wprowadzeniem polecenia z tego artykułu następujące informacje:
 
-- Można określić hello toouse wartość dla hello `-ResourceId` parametru zastępując powitania po [tekst], zgodnie z potrzebami, następnie wpisując polecenie hello `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. Hello identyfikator dane wyjściowe polecenia hello wygląda podobnie zbyt*/subscriptions/ [Nazwa subskrypcji Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG]*.
-- Tylko dane toocollect z kategorii dziennika należy dodać `-Categories [category]` toohello koniec polecenia hello w artykule hello, gdzie kategorii jest *NetworkSecurityGroupEvent* lub *NetworkSecurityGroupRuleCounter*. Jeśli nie używasz hello `-Categories` parametru, zbierania danych jest włączona dla dziennika kategorii.
+- Można określić wartość dla `-ResourceId` parametru zastępując następujące [tekst], odpowiednio, następnie wpisując polecenie `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. Identyfikator dane wyjściowe polecenia wygląda podobnie do */subscriptions/ [Nazwa subskrypcji Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG]*.
+- Jeśli chcesz zbierać dane z kategorii dziennika Dodaj `-Categories [category]` na końcu polecenia w artykule, w którym kategorii jest *NetworkSecurityGroupEvent* lub *NetworkSecurityGroupRuleCounter*. Jeśli nie używasz `-Categories` parametru, zbierania danych jest włączona dla dziennika kategorii.
 
 ### <a name="azure-command-line-interface-cli"></a>Azure interfejsu wiersza polecenia (CLI)
 
-toouse hello rejestrowania tooenable interfejsu wiersza polecenia, wykonaj te instrukcje hello hello [Włączanie dzienników diagnostycznych za pomocą interfejsu wiersza polecenia](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artykułu. Sprawdź następujące informacje przed wprowadzeniem polecenie z artykułu hello hello:
+Aby korzystać z interfejsu wiersza polecenia, aby włączyć rejestrowanie, postępuj zgodnie z instrukcjami [Włączanie dzienników diagnostycznych za pomocą interfejsu wiersza polecenia](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) artykułu. Oceny przed wprowadzeniem polecenia z tego artykułu następujące informacje:
 
-- Można określić hello toouse wartość dla hello `-ResourceId` parametru zastępując powitania po [tekst], zgodnie z potrzebami, następnie wpisując polecenie hello `azure network nsg show [resource-group-name] [nsg-name]`. Hello identyfikator dane wyjściowe polecenia hello wygląda podobnie zbyt*/subscriptions/ [Nazwa subskrypcji Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG]*.
-- Tylko dane toocollect z kategorii dziennika należy dodać `-Categories [category]` toohello koniec polecenia hello w artykule hello, gdzie kategorii jest *NetworkSecurityGroupEvent* lub *NetworkSecurityGroupRuleCounter*. Jeśli nie używasz hello `-Categories` parametru, zbierania danych jest włączona dla dziennika kategorii.
+- Można określić wartość dla `-ResourceId` parametru zastępując następujące [tekst], odpowiednio, następnie wpisując polecenie `azure network nsg show [resource-group-name] [nsg-name]`. Identyfikator dane wyjściowe polecenia wygląda podobnie do */subscriptions/ [Nazwa subskrypcji Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG]*.
+- Jeśli chcesz zbierać dane z kategorii dziennika Dodaj `-Categories [category]` na końcu polecenia w artykule, w którym kategorii jest *NetworkSecurityGroupEvent* lub *NetworkSecurityGroupRuleCounter*. Jeśli nie używasz `-Categories` parametru, zbierania danych jest włączona dla dziennika kategorii.
 
 ## <a name="logged-data"></a>Zarejestrowane dane
 
-Dane w formacie JSON jest przeznaczony dla obu dzienników. określone dane Hello zapisywane dla każdego typu dziennika ma na liście hello następujące sekcje:
+Dane w formacie JSON jest przeznaczony dla obu dzienników. Określone dane, które są przeznaczone dla każdego typu dziennika znajduje się w następujących sekcjach:
 
 ### <a name="event-log"></a>Dziennik zdarzeń
-Ten dziennik zawiera informacje o NSG, które zasady są stosowane tooVMs i wystąpień roli usługi, na podstawie adresu MAC w chmurze. następujące przykładowe dane Hello jest rejestrowane dla każdego zdarzenia:
+Ten dziennik zawiera informacje o NSG, które zasady są stosowane do maszyn wirtualnych i wystąpień roli usługi, na podstawie adresu MAC w chmurze. Rejestrowane są następujące dane przykładowe dla każdego zdarzenia:
 
 ```json
 {
@@ -98,7 +98,7 @@ Ten dziennik zawiera informacje o NSG, które zasady są stosowane tooVMs i wyst
 
 ### <a name="rule-counter-log"></a>Zasada dziennika liczników
 
-Ten dziennik zawiera informacje o każdym tooresources reguły. Witaj przykład rejestrowane są następujące dane każdym razem, gdy reguła jest stosowana:
+Ten dziennik zawiera informacje o poszczególnych regułach stosowane do zasobów. Następujące przykładowe dane jest rejestrowane za każdym razem, których dotyczy reguła:
 
 ```json
 {
@@ -122,4 +122,4 @@ Ten dziennik zawiera informacje o każdym tooresources reguły. Witaj przykład 
 
 ## <a name="view-and-analyze-logs"></a>Wyświetlanie i analizowanie dzienników
 
-toolearn, w jaki sposób dane, rejestrować działania tooview odczytu hello [omówienie hello dziennika aktywności platformy Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artykułu. toolearn, jak dane, rejestrować Diagnostyka tooview odczytu hello [Omówienie programu Azure dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artykułu. Po wysłaniu diagnostyki danych tooLog Analytics można użyć hello [analytics sieciowej grupy zabezpieczeń usługi Azure](../log-analytics/log-analytics-azure-networking-analytics.md) rozszerzone szczegółowe informacje o rozwiązania do zarządzania (wersja zapoznawcza). 
+Aby dowiedzieć się, jak wyświetlać dane dziennika aktywności, przeczytaj [Omówienie dziennika aktywności platformy Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artykułu. Aby dowiedzieć się jak wyświetlać dane dziennika diagnostycznego, przeczytaj [Omówienie programu Azure dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) artykułu. Po wysłaniu danych diagnostycznych do analizy dzienników można użyć [analytics sieciowej grupy zabezpieczeń usługi Azure](../log-analytics/log-analytics-azure-networking-analytics.md) rozszerzone szczegółowe informacje o rozwiązania do zarządzania (wersja zapoznawcza). 

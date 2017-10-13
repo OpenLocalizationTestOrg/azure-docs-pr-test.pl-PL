@@ -1,6 +1,6 @@
 ---
-title: "zasobu podrzędnego aaaDefine szablonu Azure | Dokumentacja firmy Microsoft"
-description: "Pokazuje, jak tooset hello typ zasobu i nazwę zasobu podrzędnego w szablonie usługi Azure Resource Manager"
+title: "Definicja zasobu podrzędnego w szablonie Azure | Dokumentacja firmy Microsoft"
+description: "Pokazuje, jak ustawić typ zasobu i nazwę zasobu podrzędnego w szablonie usługi Azure Resource Manager"
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: c502c589100d7ae864d7fb01b5ba10ddfaf92592
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-name-and-type-for-child-resource-in-resource-manager-template"></a>Ustaw nazwę i typ zasobu podrzędnego w szablonie usługi Resource Manager
-Podczas tworzenia szablonu, należy często tooinclude zasobu podrzędnego, który jest zasobem nadrzędnej tooa powiązane. Na przykład do szablonu może zawierać programu SQL server i bazy danych. Hello programu SQL server jest zasobem nadrzędnej hello i zasobu podrzędnego hello jest hello bazy danych. 
+Podczas tworzenia szablonu, często konieczne jest uwzględnienie zasobu podrzędnego, która jest powiązana z zasobem nadrzędnej. Na przykład do szablonu może zawierać programu SQL server i bazy danych. Serwer SQL jest zasobem nadrzędnej, a baza danych jest zasobu podrzędnego. 
 
-format Hello typu zasobu podrzędnego hello jest:`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+Format podrzędny typ zasobu jest:`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-format nazwy zasobu podrzędnego hello Hello jest:`{parent-resource-name}/{child-resource-name}`
+Format podrzędny Nazwa zasobu jest:`{parent-resource-name}/{child-resource-name}`
 
-Można jednak określić hello typem i nazwą w szablonie inaczej na podstawie tego, czy jest zagnieżdżony w obrębie zasobu nadrzędnego hello, lub na jego własnej na najwyższym poziomie hello. W tym temacie przedstawiono, jak zbliża się toohandle obu.
+Jednak należy określić typ i nazwa w szablonie inaczej na podstawie tego, czy jest zagnieżdżony w obrębie zasobu nadrzędnego, lub na jego własnej na najwyższym poziomie. W tym temacie przedstawiono sposób obsługi obu podejść.
 
-Podczas tworzenia zasobu tooa odwołanie w pełni kwalifikowana, toocombine kolejności hello segmenty z typu hello i nazwa nie jest po prostu złączeniem hello dwa.  Po hello przestrzeni nazw, użyj sekwencji *typ/nazwa* pary z najmniej specyficznych toomost określonych:
+Podczas konstruowania pełni kwalifikowane odwołanie do zasobu, aby połączyć segmenty z typem i nazwą nie jest po prostu składa się z dwóch.  Po obszarze nazw, użyj sekwencji *typ/nazwa* pary z najmniej specyficznych, które specyficzny:
 
 ```json
 {resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
@@ -40,7 +40,7 @@ Na przykład:
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`jest poprawna `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` jest nieprawidłowy
 
 ## <a name="nested-child-resource"></a>Zasób zagnieżdżonych elementów podrzędnych
-Witaj najprostszy sposób toodefine zasobu podrzędnego jest toonest jej w ciągu zasobu nadrzędnego hello. Witaj poniższy przykład przedstawia bazy danych SQL zagnieżdżone w obrębie w programie SQL Server.
+Najprostszym sposobem definiowania zasobu podrzędnego jest zagnieździć w obrębie zasobu nadrzędnego. W poniższym przykładzie przedstawiono bazy danych SQL zagnieżdżone w obrębie w programie SQL Server.
 
 ```json
 {
@@ -59,10 +59,10 @@ Witaj najprostszy sposób toodefine zasobu podrzędnego jest toonest jej w ciąg
 }
 ```
 
-Dla zasobu podrzędnego hello, hello ustawiono zbyt`databases` , ale jego typ zasobu pełne jest `Microsoft.Sql/servers/databases`. Nie podawaj `Microsoft.Sql/servers/` ponieważ zakłada się od typu zasobu nadrzędnego hello. Nazwa zasobu podrzędnego Hello ustawiono zbyt`exampledatabase` , ale hello imię i nazwisko zawiera nazwę nadrzędnego hello. Nie podawaj `exampleserver` ponieważ zakłada się od zasobu nadrzędnego hello.
+Dla zasobu podrzędnego ustawiono typ `databases` , ale jego typ zasobu pełne jest `Microsoft.Sql/servers/databases`. Nie podawaj `Microsoft.Sql/servers/` ponieważ zakłada się z nadrzędnego typu zasobu. Ustawiono nazwę zasobu podrzędnego `exampledatabase` , ale imię i nazwisko zawiera nazwę nadrzędnej. Nie podawaj `exampleserver` ponieważ zakłada się od zasobu nadrzędnego.
 
 ## <a name="top-level-child-resource"></a>Zasobu podrzędnego najwyższego poziomu
-Można zdefiniować zasobu podrzędnego hello hello najwyższego poziomu. Można użyć tej metody, gdy hello zasobu nadrzędnego nie została wdrożona w hello tego samego szablonu lub, jeśli chcesz toouse `copy` toocreate wielu zasoby podrzędne. Z tej metody musi podać typ zasobu pełne hello i poddać Nazwa zasobu nadrzędnego hello nazwy zasobu podrzędnego hello.
+Można zdefiniować zasobu podrzędnego na najwyższym poziomie. Tej metody może użyć, jeśli zasobu nadrzędnego nie została wdrożona w tym samym szablonie, lub jeśli chcesz użyć `copy` utworzyć wiele podrzędnych zasobów. Z tej metody należy udostępniają typ zasobu pełne i nazwy zasobu podrzędne zawierają nazwę zasobu nadrzędnego.
 
 ```json
 {
@@ -81,8 +81,8 @@ Można zdefiniować zasobu podrzędnego hello hello najwyższego poziomu. Można
 }
 ```
 
-Hello bazy danych jest podrzędny serwer toohello zasobów, nawet jeśli są zdefiniowane na poziomie samo w szablonie hello hello.
+Baza danych jest zasobu podrzędnego z serwerem, nawet jeśli są one zdefiniowane w tym samym poziomie w szablonie.
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby uzyskać zalecenia dotyczące toocreate szablonów, zobacz [najlepszych rozwiązań dotyczących tworzenia szablonów usługi Azure Resource Manager](resource-manager-template-best-practices.md).
+* Aby uzyskać zalecenia dotyczące tworzenia szablonów, zobacz [najlepszych rozwiązań dotyczących tworzenia szablonów usługi Azure Resource Manager](resource-manager-template-best-practices.md).
 * Przykład tworzenia wielu podrzędnych zasobów, zobacz [wdrażanie wielu wystąpień zasobów w szablonach usługi Azure Resource Manager](resource-group-create-multiple.md).

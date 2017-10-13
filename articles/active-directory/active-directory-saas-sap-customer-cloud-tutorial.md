@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracji Azure Active Directory z chmurą SAP dla klienta | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i w chmurze SAP dla klienta."
+description: "Dowiedz się, jak skonfigurować logowanie jednokrotne między usługą Azure Active Directory i w chmurze SAP dla klienta."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,120 +13,120 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 0525ea81122458ab3ac24a5bdb0b5f628405dd05
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e4d945525a45704f34e1d9e742220928a516f341
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Samouczek: Integracji Azure Active Directory z chmurą SAP dla klienta
 
-Z tego samouczka, dowiesz się, jak SAP toointegrate chmury dla klienta w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie SAP chmury dla klienta w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie SAP chmury dla klienta z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie SAP chmury dla klienta z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD mającego dostęp tooSAP chmury dla klienta
-- Twoje użytkowników tooautomatically get zalogowane tooSAP chmury można włączyć dla klienta (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do chmury SAP dla klienta
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do chmury SAP dla klienta (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z chmurą SAP dla klienta, należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z chmurą SAP dla odbiorcy, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Chmurę SAP do klienta logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna tutaj: [oferta wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie SAP chmury dla klienta z galerii hello
+1. Dodawanie SAP chmury dla klienta z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-sap-cloud-for-customer-from-hello-gallery"></a>Dodawanie SAP chmury dla klienta z galerii hello
-tooconfigure hello integracji SAP chmury dla klienta do usługi Azure AD, należy tooadd SAP chmury dla klienta z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-sap-cloud-for-customer-from-the-gallery"></a>Dodawanie SAP chmury dla klienta z galerii
+Aby skonfigurować integrację SAP chmury dla klienta do usługi Azure AD, należy dodać SAP chmury dla klienta z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd chmurę SAP do klienta z galerii hello wykonaj hello następujące kroki:**
+**Aby dodać SAP chmury dla klienta z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **SAP chmury dla klienta**.
+4. W polu wyszukiwania wpisz **SAP chmury dla klienta**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_search.png)
 
-5. W panelu wyników hello, wybierz **SAP chmury dla klienta**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **SAP chmury dla klienta**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z chmurą SAP dla klienta w oparciu o użytkownika testowego o nazwie "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w chmurze SAP dla klienta jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w chmurze SAP dla klienta musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w chmurze SAP dla klienta jest dla użytkownika, w usłudze Azure AD. Innymi słowy musi można ustanowić łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w chmurze SAP dla klienta.
 
-W chmurze SAP dla klienta, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W chmurze SAP dla klienta, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z chmurą SAP dla klienta, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z chmurą SAP dla klienta, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie chmury SAP dla użytkownika testowego klienta](#creating-a-sap-cloud-for-customer-test-user)**  -toohave odpowiednikiem Simona Britta w chmurze SAP dla klienta, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie chmury SAP dla użytkownika testowego klienta](#creating-a-sap-cloud-for-customer-test-user)**  — aby odpowiednikiem Simona Britta w chmurze SAP dla klienta, który jest połączony z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować rejestracji jednokrotnej w chmurze SAP dla aplikacji klienta.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w chmurze SAP dla aplikacji klienta.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z chmurą SAP dla klienta, należy wykonać hello następujące kroki:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z chmurą SAP dla klienta, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **SAP chmury dla klienta** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **SAP chmury dla klienta** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_samlbase.png)
 
-3. Na powitania **chmury SAP do domeny klienta i adresy URL** sekcji, wykonaj następujące kroki hello:
+3. Na **chmury SAP do domeny klienta i adresy URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_url.png)
 
-    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<server name>.crm.ondemand.com`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<server name>.crm.ondemand.com`
 
-    b. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<server name>.crm.ondemand.com`
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<server name>.crm.ondemand.com`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator. Skontaktuj się z [chmurę SAP do zespołu pomocy technicznej klienta klienta](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) tooget tych wartości. 
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [chmurę SAP do zespołu pomocy technicznej klienta klienta](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) uzyskać te wartości. 
 
-4. Na powitania **atrybuty użytkownika** sekcji, wykonaj następujące kroki hello:
+4. Na **atrybuty użytkownika** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_attribute.png)
 
-    a. W **identyfikator użytkownika** listy, wybierz opcję hello **ExtractMailPrefix()** funkcji.
+    a. W **identyfikator użytkownika** listy, wybierz **ExtractMailPrefix()** funkcji.
 
-    b. Z hello **poczty** listy, wybierz hello atrybut użytkownika ma toouse implementacji.
-    Na przykład jeśli wartość atrybutu hello są przechowywane w hello ExtensionAttribute2 ma hello toouse identyfikator pracownika jako identyfikator unikatowy użytkownika, wybierz user.extensionattribute2.  
+    b. Z **poczty** wybierz atrybut użytkownika, którego chcesz użyć implementacji.
+    Na przykład jeśli ma być używany jako identyfikator użytkownika unikatowy identyfikator pracownika, a wartość atrybutu są przechowywane w ExtensionAttribute2, wybierz user.extensionattribute2.  
 
-5. Na powitania **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych hello na tym komputerze.
+5. Na **certyfikat podpisywania SAML** kliknij **XML metadanych** , a następnie zapisz plik metadanych na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_certificate.png) 
 
@@ -134,27 +134,27 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_general_400.png)
 
-7. Na powitania **SAP chmury dla konfiguracji klienta** kliknij **skonfigurować chmurę SAP do klienta** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+7. Na **SAP chmury dla konfiguracji klienta** , kliknij przycisk **skonfigurować chmurę SAP do klienta** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_configure.png) 
 
-8. tooget logowania jednokrotnego skonfigurowane, wykonaj hello następujące kroki:
+8. Aby uzyskać dostęp skonfigurowane logowania jednokrotnego, wykonaj następujące czynności:
    
     a. Zaloguj się w chmurze SAP do portalu klienta z prawami administratora.
    
-    b. Przejdź toohello **aplikacji i typowych zadań zarządzania użytkownika** i kliknij przycisk hello **dostawcy tożsamości** kartę.
+    b. Przejdź do **aplikacji i typowych zadań zarządzania użytkownika** i kliknij przycisk **dostawcy tożsamości** kartę.
    
-    c. Kliknij przycisk **nowego dostawcy tożsamości** i pliku XML metadanych hello wybierz zostały pobrane z hello portalu Azure. Importując hello metadanych systemu hello automatyczne przekazywanie hello wymagany podpis certyfikatu i certyfikat szyfrowania.
+    c. Kliknij przycisk **nowego dostawcy tożsamości** i wybierz plik XML metadanych został pobrany z portalu Azure. Przez importowanie metadanych, system automatycznie wysyła certyfikat wymagany podpis, jak i certyfikat szyfrowania.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_54.png)
    
-    d. Element hello adres URL usługi klienta potwierdzenia w żądaniu SAML hello wymaga usługi Azure Active Directory, dlatego wybierz hello **zawierają potwierdzenie konsumenta adres URL usługi** wyboru.
+    d. Usługa Azure Active Directory wymaga elementu adres URL usługi klienta potwierdzenia w żądaniu SAML, dlatego wybierz **zawierają potwierdzenie konsumenta adres URL usługi** wyboru.
    
     e. Kliknij przycisk **aktywacji rejestracji jednokrotnej**.
    
     f. Zapisz zmiany.
    
-    g. Kliknij przycisk hello **systemie** kartę.
+    g. Kliknij przycisk **systemie** kartę.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_52.png)
    
@@ -162,84 +162,84 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_53.png)
    
-    i. Określ, czy pracownika hello ręcznie wybrać między zalogowanie się przy użyciu Identyfikatora użytkownika i hasła lub logowania jednokrotnego, wybierając hello **wybór dostawcy tożsamości ręcznego**.
+    i. Określ, czy pracownik może ręcznie wybrać między zalogowanie się przy użyciu Identyfikatora użytkownika i hasła lub logowania jednokrotnego, wybierając **wybór dostawcy tożsamości ręcznego**.
    
-    j. W hello **adres URL logowania jednokrotnego** sekcji, podaj adres URL hello, które mają być używane przez użytkownika toosign pracowników w systemie toohello. 
-    W hello **wysyłane na adres URL tooEmployee** listy, możesz wybrać hello następujące opcje:
+    j. W **adres URL logowania jednokrotnego** sekcji, podaj adres URL, które mają być używane przez pracowników do logowania do systemu. 
+    W **adres URL wysyłane do pracowników** liście, można wybrać jedną z następujących opcji:
    
     **Adres URL — Usługa rejestracji Jednokrotnej**
    
-    Hello system wysyła tylko hello system normalny adres URL toohello pracownika. pracowników Hello nie może zalogować się przy użyciu logowania jednokrotnego i musi użyć hasła lub zamiast tego certyfikatu.
+    System wysyła tylko adres URL normalne systemu do pracownika. Pracownik nie może zalogować się przy użyciu logowania jednokrotnego i musi użyć hasła lub zamiast tego certyfikatu.
    
     **ADRES URL LOGOWANIA JEDNOKROTNEGO** 
    
-    Hello system wysyła tylko hello pracownika toohello adres URL logowania jednokrotnego. Pracownik Hello można zalogować się przy użyciu logowania jednokrotnego. Za pomocą hello IdP kierowane jest żądanie uwierzytelniania.
+    System wysyła tylko adres URL logowania jednokrotnego do pracownika. Pracownik może zalogować się przy użyciu logowania jednokrotnego. Żądanie uwierzytelnienia jest przekierowywane przez dostawców tożsamości.
    
     **Automatyczne wybieranie**
    
-    Jeśli logowania jednokrotnego nie jest aktywne, hello system wysyła hello system normalny adres URL toohello pracownika. Jeśli rejestracji Jednokrotnej jest aktywny, hello system sprawdza, czy hello pracownik ma hasło. Jeśli hasło jest dostępny, zarówno adres URL logowania jednokrotnego i adres URL logowania jednokrotnego nie są wysyłane toohello pracownika. Jednak jeśli pracownik hello nie ma hasła, hello adres URL logowania jednokrotnego są wysyłane toohello pracownika.
+    Jeśli logowania jednokrotnego nie jest aktywne, system wysyła system normalny adres URL do pracownika. Jeśli usługa rejestracji Jednokrotnej jest aktywny, system sprawdza, czy pracownik ma hasło. Jeśli hasło jest dostępny, zarówno adres URL logowania jednokrotnego i adres URL logowania jednokrotnego nie są wysyłane do pracownika. Jeśli pracownik nie ma hasła, adres URL logowania jednokrotnego są wysyłane do pracownika.
    
     k. Zapisz zmiany.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sap-customer-cloud-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-sap-cloud-for-customer-test-user"></a>Tworzenie chmury SAP dla użytkownika testowego klienta
 
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w chmurze SAP dla klienta. We współpracy z [SAP chmury zespół obsługi klienta](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) tooadd hello użytkowników w hello SAP chmurze dla platformy klienta. 
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w chmurze SAP dla klienta. We współpracy z [SAP chmury zespół obsługi klienta](https://www.sap.com/about/agreements.sap-cloud-services-customers.html) Aby dodać użytkowników w chmurze SAP platformy klienta. 
 
 > [!NOTE]
-> Upewnij się, wartość NameID powinny być zgodne z pole username hello w hello SAP chmurze dla platformy klienta.
+> Upewnij się, wartość NameID powinny być zgodne z pola Nazwa użytkownika w chmurze SAP dla klienta platformy.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooSAP chmury dla klienta.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do chmury SAP dla klienta.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooSAP Simona Britta chmury dla klienta, należy wykonać hello następujące kroki:**
+**Aby przypisać Simona Britta SAP chmury dla klienta, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **SAP chmury dla klienta**.
+2. Na liście aplikacji zaznacz **SAP chmury dla klienta**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sap-customer-cloud-tutorial/tutorial_sapcloudforcustomer_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -247,7 +247,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -255,14 +255,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu hello SAP chmury dla klienta kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour SAP chmury dla aplikacji klienta.
-Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu chmury SAP do klienta kafelka w panelu dostępu należy należy pobrać automatycznie zalogowane z Twoją chmurą SAP dla aplikacji klienta.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

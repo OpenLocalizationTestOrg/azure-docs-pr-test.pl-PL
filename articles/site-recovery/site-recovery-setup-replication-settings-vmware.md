@@ -1,6 +1,6 @@
 ---
-title: "aaaSet ustawienia replikacji dla usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak tooAzure chmur toodeploy usługi Site Recovery tooorchestrate replikacji, trybu failover i odzyskiwania maszyn wirtualnych funkcji Hyper-V w programie VMM."
+title: "Konfigurowanie ustawień replikacji dla usługi Azure Site Recovery | Microsoft Docs"
+description: "Opis sposobu wdrożenia usługi Site Recovery w celu zaaranżowania replikacji, pracy w trybie failover i odzyskiwania maszyn wirtualnych funkcji Hyper-V w chmurach VMM do platformy Azure."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.openlocfilehash: 618e92e42411732a2a1bb75c5e5ea8a433cd7d58
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-replication-policy-for-vmware-tooazure"></a>Zarządzanie zasadami replikacji dla VMware tooAzure
+# <a name="manage-replication-policy-for-vmware-to-azure"></a>Zarządzanie zasadami replikacji oprogramowania VMware na platformie Azure
 
 
 ## <a name="create-a-replication-policy"></a>Tworzenie zasad replikacji
@@ -31,58 +31,58 @@ ms.lasthandoff: 10/06/2017
 
     ![Tworzenie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
-4. Wprowadź nazwę zasad hello.
+4. Wprowadź nazwę zasad.
 
-5. W **próg RPO**, określ hello RPO limit. Przekroczenie tego limitu przez replikację ciągłą będzie powodować generowanie alertów.
-6. W **przechowywania punktu odzyskiwania**, określ (w godzinach) hello hello przechowywania przedział czasu dla każdego punktu odzyskiwania. Chronione maszyny można odzyskać tooany punkt w obrębie okna przechowywania.
+5. W polu **Wartość progowa celu punktu odzyskiwania** określ limit celu punktu odzyskiwania. Przekroczenie tego limitu przez replikację ciągłą będzie powodować generowanie alertów.
+6. W obszarze **Przechowywanie punktów odzyskiwania** określ w godzinach, jak długie będzie okno przechowywania dla każdego punktu odzyskiwania. Chronione maszyny można odzyskać do dowolnego punktu w tym oknie przechowywania.
 
     > [!NOTE]
-    > Zapasowej too24 godzin przechowywania jest obsługiwana dla maszyn toopremium replikowanego magazynu. Zapasowej too72 godzin przechowywania jest obsługiwana dla maszyn toostandard replikowanego magazynu.
+    > W przypadku maszyn replikowanych do magazynu w warstwie Premium jest obsługiwany czas przechowywania do 24 godzin. W przypadku maszyn replikowanych do magazynu w warstwie Standardowa jest obsługiwany czas przechowywania do 72 godzin.
 
     > [!NOTE]
     > Zasady replikacji na potrzeby powrotu po awarii są tworzone automatycznie.
 
 7. W obszarze **Częstotliwość wykonywania migawek na poziomie aplikacji** określ, jak często (w minutach) będą tworzone punkty odzyskiwania zawierające migawki spójne z aplikacjami.
 
-8. Kliknij przycisk **OK**. Witaj zasady powinny zostać utworzone w too60 30-sekundowym.
+8. Kliknij przycisk **OK**. Tworzenie zasad powinno potrwać od 30 do 60 sekund.
 
 ![Generowanie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
 ## <a name="associate-a-configuration-server-with-a-replication-policy"></a>Kojarzenie serwera konfiguracji z zasadami replikacji
-1. Wybierz toowhich zasad replikacji hello ma tooassociate hello konfiguracji serwera.
+1. Wybierz zasady replikacji, z którymi chcesz skojarzyć serwer konfiguracji.
 2. Kliknij pozycję **Skojarz**.
 ![Kojarzenie serwera konfiguracji](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
-3. Wybierz serwer konfiguracji hello hello liście serwerów.
-4. Kliknij przycisk **OK**. Serwer konfiguracji Hello powinna być skojarzona jeden tootwo minut.
+3. Z listy serwerów wybierz serwer konfiguracji.
+4. Kliknij przycisk **OK**. Kojarzenie serwera konfiguracji powinno potrwać od 1 do 2 minut.
 
 ![Kojarzenie serwera konfiguracji](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
 ## <a name="edit-a-replication-policy"></a>Edytowanie zasad replikacji
-1. Wybierz zasady replikacji hello, dla której ma zostać tooedit ustawień replikacji.
+1. Wybierz zasady replikacji, dla których chcesz edytować ustawienia replikacji.
 ![Edytowanie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
 
 2. Kliknij pozycję **Edytuj ustawienia**.
 ![Edytowanie ustawień zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
-3. Zmień ustawienia hello oparte na potrzeby.
-4. Kliknij pozycję **Zapisz**. zasady Hello powinny być zapisywane w dwóch minut toofive, w zależności od liczby maszyn wirtualnych korzystają z tej zasady replikacji.
+3. Zmień ustawienia zgodnie z Twoimi wymaganiami.
+4. Kliknij pozycję **Zapisz**. Zapisywanie zasad powinno potrwać od 2 do 5 minut w zależności od tego, ile maszyn wirtualnych korzysta z tych zasad replikacji.
 
 ![Zapisywanie zasad replikacji](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
 ## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a>Usuwanie skojarzenia serwera konfiguracji z zasad replikacji
-1. Wybierz toowhich zasad replikacji hello ma tooassociate hello konfiguracji serwera.
+1. Wybierz zasady replikacji, z którymi chcesz skojarzyć serwer konfiguracji.
 2. Kliknij pozycję **Usuń skojarzenie**.
-3. Wybierz serwer konfiguracji hello hello liście serwerów.
-4. Kliknij przycisk **OK**. Serwer konfiguracji Hello powinien można usunąć skojarzenia minut tootwo jeden.
+3. Z listy serwerów wybierz serwer konfiguracji.
+4. Kliknij przycisk **OK**. Usuwanie skojarzenia serwera konfiguracji powinno potrwać od 1 do 2 minut.
 
     > [!NOTE]
-    > Jeśli istnieje co najmniej jeden element replikowane za pomocą zasad hello nie może usunąć skojarzenie serwera konfiguracji. Upewnij się, nie ma żadnych zreplikowanych towarów przy użyciu zasad hello przed skojarzenie powitania serwera konfiguracji.
+    > Nie można usunąć skojarzenia serwera konfiguracji, jeśli co najmniej jeden zreplikowany element korzysta z zasad. Przed usunięciem skojarzenia serwera konfiguracji upewnij się, że żadne zreplikowane elementy nie korzystają z zasad.
 
 ## <a name="delete-a-replication-policy"></a>Usuwanie zasad replikacji
 
-1. Wybierz zasady replikacji hello, które mają toodelete.
-2. Kliknij polecenie **Usuń**. Witaj zasady powinny zostać usunięte w ciągu 30 sekund too60.
+1. Wybierz zasady replikacji, które chcesz usunąć.
+2. Kliknij polecenie **Usuń**. Usuwanie zasad powinno potrwać od 30 do 60 sekund.
 
     > [!NOTE]
-    > Nie można usunąć zasad replikacji, jeśli ma ona co najmniej jeden tooit skojarzone serwerem konfiguracji. Upewnij się, że nie ma żadnych zreplikowanych elementów za pomocą zasad hello i usunąć wszystkie hello skojarzone serwery konfiguracji przed usunięciem hello zasad.
+    > Nie można usunąć zasad replikacji, jeśli jest z nimi skojarzony co najmniej jeden serwer konfiguracji. Przed usunięciem zasad upewnij się, że żadne zreplikowane elementy nie korzystają z zasad, i usuń wszystkie skojarzone serwery konfiguracji.

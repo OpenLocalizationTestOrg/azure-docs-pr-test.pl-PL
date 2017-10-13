@@ -1,6 +1,6 @@
 ---
-title: Funkcje bazy danych SQL w formacie JSON aaaAzure | Dokumentacja firmy Microsoft
-description: "Baza danych SQL Azure umożliwia tooparse, zapytań i formatowanie danych w notacji języka JavaScript Object Notation (JSON)."
+title: Funkcje JSON bazy danych SQL platformy Azure | Dokumentacja firmy Microsoft
+description: "Baza danych SQL Azure umożliwia analizy, zapytań i formatowanie danych w notacji języka JavaScript Object Notation (JSON)."
 services: sql-database
 documentationcenter: 
 author: jovanpop-msft
@@ -15,11 +15,11 @@ ms.author: jovanpop
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 30a31a1b01482ec276646b6fd6ca0c1f581168d4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 883e661107dd838f5c381cdef2c7f891b9a9389c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Wprowadzenie do korzystania z funkcji JSON w bazie danych SQL Azure
 Azure umożliwia bazy danych SQL, analizy i zapytania dane reprezentowane w notacji obiektu JavaScript [(JSON)](http://www.json.org/) sformatowanie i wyeksportuj dane relacyjne jako tekstu JSON.
@@ -29,16 +29,16 @@ JSON to format popularnych danych używane do wymiany danych w nowoczesnych witr
 Baza danych SQL Azure pozwala łatwo pracować z danych JSON i integrowania bazy danych z usługami nowoczesnych.
 
 ## <a name="overview"></a>Omówienie
-Baza danych SQL Azure zapewnia następujące funkcje do pracy z danymi JSON hello:
+Baza danych SQL Azure udostępnia następujące funkcje do pracy z danymi JSON:
 
 ![Funkcje JSON](./media/sql-database-json-features/image_1.png)
 
-Jeśli masz tekst JSON można wyodrębnić dane z JSON lub sprawdź, czy JSON jest prawidłowo sformatowany za pomocą funkcji wbudowanych hello [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), i [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx) . Witaj [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) funkcja pozwala zaktualizować wartość w tekście JSON. Więcej zaawansowane zapytania i analizy, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) funkcji można przekształcić na tablicę obiektów JSON do zestawu wierszy. Każde zapytanie SQL mogą być wykonywane na powitania zwrócił zestaw wyników. Na koniec istnieje [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) klauzuli, które umożliwia formatowanie danych przechowywane w tabelach relacyjne jako tekstu JSON.
+Jeśli masz tekst JSON można wyodrębnić dane z JSON lub sprawdzić, czy JSON jest prawidłowo sformatowane przy użyciu wbudowanych funkcji [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), i [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). [JSON_MODIFY](https://msdn.microsoft.com/library/dn921892.aspx) funkcja pozwala zaktualizować wartość w tekście JSON. Więcej zaawansowane zapytania i analizy, [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) funkcji można przekształcić na tablicę obiektów JSON do zestawu wierszy. Każde zapytanie SQL mogą być wykonywane na zestaw wyników zwrócony. Na koniec istnieje [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) klauzuli, które umożliwia formatowanie danych przechowywane w tabelach relacyjne jako tekstu JSON.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Formatowanie danych relacyjnych w formacie JSON
-Jeśli masz usługi sieci web, że format pobiera dane z bazy danych hello warstwy i udostępnia odpowiedź w formacie JSON lub struktury języka JavaScript po stronie klienta lub bibliotek, które akceptują dane w formacie JSON zawartości bazy danych można sformatować jako JSON bezpośrednio w zapytaniu SQL. Nie masz toowrite kodu aplikacji, które formatuje wyników z bazy danych SQL Azure w postaci JSON, lub Dołącz wyniki niektórych JSON serializacji biblioteki tooconvert zapytanie tabelaryczne i następnie serializować obiektów tooJSON format. Można użyć hello uzyskania wyników kwerendy SQL tooformat klauzuli JSON jako JSON w usłudze Azure SQL Database i użyj go bezpośrednio w aplikacji.
+Jeśli masz usługi sieci web, że format pobiera dane z bazy danych warstwy i udostępnia odpowiedź w formacie JSON lub struktury języka JavaScript po stronie klienta lub bibliotek, które akceptują dane w formacie JSON zawartości bazy danych można sformatować jako JSON bezpośrednio w zapytaniu SQL. Możesz już trzeba napisać kod aplikacji, które formatuje wyników z bazy danych SQL Azure w formacie JSON lub dodać niektóre Biblioteka serializacji JSON do przekonwertowania wyników zapytań tabelarycznych, a następnie serializacji obiektów do formatu JSON. Zamiast tego można w klauzuli FOR JSON wyników zapytania SQL w formacie JSON w usłudze Azure SQL Database i używać go bezpośrednio w aplikacji.
 
-W hello poniższy przykład wiersze z tabeli Sales.Customer hello są sformatowane jako JSON za pomocą klauzuli FOR JSON hello:
+W poniższym przykładzie wierszy z tabeli Sales.Customer formacie JSON przy użyciu klauzuli FOR JSON:
 
 ```
 select CustomerName, PhoneNumber, FaxNumber
@@ -46,7 +46,7 @@ from Sales.Customers
 FOR JSON PATH
 ```
 
-Klauzula FOR JSON PATH Hello formatuje hello wyniki zapytania hello jako tekstu JSON. Nazwy kolumn są używane jako klucze, gdy wartości komórek hello są generowane jako wartości JSON:
+Klauzula FOR JSON PATH formatuje wyniki zapytania jako tekst w formacie JSON. Nazwy kolumn są używane jako klucze, gdy wartości komórek są generowane jako wartości JSON:
 
 ```
 [
@@ -56,9 +56,9 @@ Klauzula FOR JSON PATH Hello formatuje hello wyniki zapytania hello jako tekstu 
 ]
 ```
 
-zestaw wyników Hello jest formatowana jako tablica JSON, w którym każdy wiersz jest formatowana jako oddzielny obiekt JSON.
+Zestaw wyników jest formatowana jako tablica JSON, w którym każdy wiersz jest formatowana jako oddzielny obiekt JSON.
 
-ŚCIEŻKA wskazuje, że możesz dostosować hello format wyjściowy wyniku JSON przy użyciu kropkowego w aliasów kolumn. następujące zapytanie Hello zmienia nazwę hello klucza "CustomerName" hello, w formacie JSON dane wyjściowe hello i umieszcza numer telefonu i faksu w obiektu podrzędnego "Kontaktu" hello:
+ŚCIEŻKA wskazuje, że format wyjściowy wyniku JSON można dostosować za pomocą kropkowego w aliasów kolumn. Następujące zapytanie powoduje zmianę klucza "CustomerName" w formacie JSON dane wyjściowe i umieszcza numer telefonu i faksu w obiekcie podrzędne "Skontaktuj się z":
 
 ```
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
@@ -67,7 +67,7 @@ where CustomerID = 931
 FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 ```
 
-dane wyjściowe Hello to zapytanie wygląda następująco:
+Dane wyjściowe tego zapytania wygląda następująco:
 
 ```
 {
@@ -79,9 +79,9 @@ dane wyjściowe Hello to zapytanie wygląda następująco:
 }
 ```
 
-W tym przykładzie firma Microsoft zwracany pojedynczy obiekt JSON zamiast tablicy, określając hello [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) opcji. Można użyć tej opcji, jeśli wiadomo, że zwróconego pojedynczy obiekt wyniku zapytania.
+W tym przykładzie firma Microsoft zwracany pojedynczy obiekt JSON zamiast tablicy, określając [WITHOUT_ARRAY_WRAPPER](https://msdn.microsoft.com/library/mt631354.aspx) opcji. Można użyć tej opcji, jeśli wiadomo, że zwróconego pojedynczy obiekt wyniku zapytania.
 
-Hello głównego wartość hello klauzuli FOR JSON jest, że umożliwia zwracanie złożonych hierarchiczne dane z bazy danych w formacie zagnieżdżonych obiektów JSON lub tablicą. powitania po przykładzie pokazano sposób porządkuje tooinclude, należące toohello klienta jako tablica zagnieżdżona zleceń:
+Głównym wartość w klauzuli FOR JSON jest, że umożliwia zwracanie złożonych hierarchiczne dane z bazy danych w formacie zagnieżdżonych obiektów JSON lub tablicą. Poniższy przykład przedstawia sposób Uwzględnij zamówienia, które należą do klienta jako tablica zagnieżdżona zleceń:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -94,7 +94,7 @@ FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 
 ```
 
-Zamiast wysyłać dane klienta tooget oddzielne zapytania, a następnie toofetch listę zleceń powiązane, można uzyskać wszystkie hello niezbędne dane z pojedynczego zapytania, jak pokazano w hello następujące przykładowe dane wyjściowe:
+Zamiast wysyłać oddzielne kwerendy w celu uzyskania danych klienta, a następnie pobrać listę zleceń powiązane, można znaleźć wszystkie niezbędne dane z pojedynczego zapytania, jak pokazano w poniższych przykładowych danych wyjściowych:
 
 ```
 {
@@ -110,7 +110,7 @@ Zamiast wysyłać dane klienta tooget oddzielne zapytania, a następnie toofetch
 ```
 
 ## <a name="working-with-json-data"></a>Praca z danymi w formacie JSON
-Jeśli nie masz ściśle strukturalnych danych w przypadku złożonych obiektów podrzędnych, tablic lub hierarchiczne dane, lub jeśli rozwijać struktury danych użytkownika w czasie, hello JSON format pomagają toorepresent żadnej struktury danych złożonych.
+Złożone obiekty podrzędne, tablic lub danymi hierarchicznymi braku ściśle strukturalnych danych lub rozwijać struktury danych użytkownika w czasie, w formacie JSON może pomóc do reprezentowania żadnej struktury danych złożonych.
 
 JSON to tekstowy format, którego można używać innych typów ciągu w bazie danych SQL Azure. Możesz wysłać lub przechowywać dane JSON jako standardowa NVARCHAR:
 
@@ -128,18 +128,18 @@ AS BEGIN
 END
 ```
 
-Witaj w tym przykładzie dane JSON jest reprezentowana przez przy użyciu typu NVARCHAR(MAX) hello. JSON można wstawiać do tej tabeli lub podana jako wartość argumentu procedury hello przechowywane przy użyciu standardowej składni języka Transact-SQL, jak pokazano w hello poniższy przykład:
+Dane JSON, w tym przykładzie odpowiada za pomocą typu NVARCHAR(MAX). JSON można wstawiać do tej tabeli lub podana jako wartość argumentu procedury składowanej przy użyciu standardowej składni języka Transact-SQL, jak pokazano w poniższym przykładzie:
 
 ```
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Język klienta lub biblioteki, która współdziała z ciągu danych w bazie danych SQL Azure będzie również współpracować z danych JSON. JSON mogą być przechowywane w dowolnej tabeli, która obsługuje typ NVARCHAR hello, takich jak zoptymalizowanych pod kątem pamięci tabeli lub tabeli z systemową kontrolą wersji. JSON nie zapewnia żadnych ograniczenia w kodzie po stronie klienta hello lub hello warstwy bazy danych.
+Język klienta lub biblioteki, która współdziała z ciągu danych w bazie danych SQL Azure będzie również współpracować z danych JSON. JSON mogą być przechowywane w dowolnej tabeli, która obsługuje typ NVARCHAR, takich jak zoptymalizowanych pod kątem pamięci tabeli lub tabeli z systemową kontrolą wersji. JSON nie zapewnia żadnych ograniczeń w kodzie po stronie klienta lub w warstwie bazy danych.
 
 ## <a name="querying-json-data"></a>Wykonywanie zapytania na danych JSON
 Jeśli masz dane w formacie JSON przechowywane w tabelach Azure SQL, JSON funkcje umożliwiają używanie tych danych w dowolnym zapytania SQL.
 
-Funkcje JSON, które są dostępne w let bazy danych Azure SQL Traktuj dane w formacie JSON jako inny typ danych SQL. Możesz łatwo wyodrębniania wartości z hello tekst JSON i użyć dane JSON w dowolnej kwerendy:
+Funkcje JSON, które są dostępne w let bazy danych Azure SQL Traktuj dane w formacie JSON jako inny typ danych SQL. Możesz łatwo Wyodrębnij wartości w tekście JSON i użyć danych JSON w dowolnej kwerendy:
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -151,13 +151,13 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-Funkcja JSON_VALUE Hello wyodrębnianie wartości w tekście JSON przechowywanych w kolumnie danych hello. Ta funkcja używa tooreference ścieżka notacji języka JavaScript wartość tooextract tekst JSON. wartość Hello wyodrębnione może być używana w dowolnej części zapytania SQL.
+Funkcja JSON_VALUE wyodrębnianie wartości w tekście JSON przechowywanych w kolumnie danych. Funkcja ta używa ścieżki notacji języka JavaScript odwoływać się do wartości w tekście JSON do wyodrębnienia. Wyodrębnionego wartość może być używana w dowolnej części zapytania SQL.
 
-Funkcja JSON_QUERY Hello jest tooJSON_VALUE podobne. W odróżnieniu od JSON_VALUE ta funkcja wyodrębnia złożonych obiektu podrzędnego, takiego jak tablice lub obiektów, które są umieszczane w tekście JSON.
+Funkcja JSON_QUERY jest podobny do JSON_VALUE. W odróżnieniu od JSON_VALUE ta funkcja wyodrębnia złożonych obiektu podrzędnego, takiego jak tablice lub obiektów, które są umieszczane w tekście JSON.
 
-Funkcja JSON_MODIFY Hello pozwala określić ścieżkę hello wartości hello w hello tekst JSON, który powinien zostać zaktualizowany, a także nową wartość, która spowoduje zastąpienie hello stare hasło. Dzięki temu można łatwo aktualizować tekst JSON bez ponownej analizy hello całą strukturę.
+Funkcja JSON_MODIFY pozwala określić ścieżkę do wartości w tekście JSON, który powinien zostać zaktualizowany, a także nową wartość, która zastąpi stare hasło. Dzięki temu można łatwo aktualizować tekst JSON bez ponownej analizy całego struktury.
 
-Ponieważ JSON są przechowywane w postaci zwykłego tekstu, nie ma żadnych gwarancji, że hello wartościami przechowywanymi w tekst kolumny są poprawnie sformatowana. Można sprawdzić, czy tekst w formacie JSON przechowywane jest poprawnie sformatowana przy użyciu standardowych ograniczenia sprawdzania bazy danych SQL Azure i hello ISJSON funkcji:
+Ponieważ JSON są przechowywane w postaci zwykłego tekstu, nie ma żadnych gwarancji, że wartościami przechowywanymi w kolumnach tekstu są prawidłowo sformatowane. Aby sprawdzić, czy tekst w formacie JSON przechowywane jest poprawnie sformatowana przy użyciu standardowych ograniczenia sprawdzania bazy danych SQL Azure i funkcja ISJSON:
 
 ```
 ALTER TABLE Products
@@ -165,18 +165,18 @@ ALTER TABLE Products
         CHECK (ISJSON(Data) > 0)
 ```
 
-Jeśli tekst wejściowy hello jest poprawnie sformatowana JSON, hello ISJSON funkcja zwraca wartość hello 1. Na każdym insert lub update kolumny JSON to ograniczenie zweryfikuje, że nowe wartości tekstowej nie jest nieprawidłowo sformatowany kod JSON.
+Jeśli tekst wejściowy jest poprawnie sformatowana JSON, funkcja ISJSON zwraca wartość 1. Na każdym insert lub update kolumny JSON to ograniczenie zweryfikuje, że nowe wartości tekstowej nie jest nieprawidłowo sformatowany kod JSON.
 
 ## <a name="transforming-json-into-tabular-format"></a>Przekształcania JSON w formacie tabelarycznym
 Baza danych SQL Azure umożliwia również przekształcenie kolekcji JSON do danych JSON format i obciążenia lub zapytań tabelarycznych.
 
-OPENJSON to funkcja wartościami przechowywanymi w tabeli, która analizuje tekst JSON, lokalizuje jest Tablica obiektów JSON iteruje hello elementy tablicy hello i zwraca jeden wiersz w wyniku dane wyjściowe powitania dla każdego elementu tablicy hello.
+OPENJSON to funkcja wartościami przechowywanymi w tabeli, która analizuje tekst JSON, lokalizuje jest Tablica obiektów JSON iterację elementów tablicy i zwraca jeden wiersz w wyniku danych wyjściowych dla każdego elementu tablicy.
 
 ![Tabelaryczne JSON](./media/sql-database-json-features/image_2.png)
 
-W powyższym przykładzie hello można określić gdzie toolocate hello tablicy JSON, który powinien zostać otwarty (w hello $. Ścieżka zamówienia), które kolumny ma zostać zwrócony jako wynik, a w przypadku, gdy toofind hello wartości JSON, które zostaną zwrócone jako komórki.
+W powyższym przykładzie można określić gdzie umieścić tablicy JSON, który powinien zostać otwarty (w $. Ścieżka zamówienia), które kolumny ma zostać zwrócony jako wynik i gdzie można znaleźć wartości JSON, które zostaną zwrócone jako komórki.
 
-Firma Microsoft można przekształcać tablica JSON w hello @orders zmienną do zestawu wierszy, analizować ten zestaw wyników lub wstawić wierszy do tabeli standardowe:
+Firma Microsoft można przekształcać tablica JSON w @orders zmienną do zestawu wierszy, analizować ten zestaw wyników lub wstawić wierszy do tabeli standardowe:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
@@ -194,14 +194,14 @@ AS BEGIN
 
 END
 ```
-Kolekcja Hello zamówień formatowane jako tablica JSON i podać jako parametr procedury przechowywane toohello można przeanalizować i wstawione do tabeli zamówienia hello.
+Kolekcja zamówień formatowane jako tablica JSON i podać jako parametr do procedury składowanej można analizować i wstawione do tabeli zamówienia.
 
 ## <a name="next-steps"></a>Następne kroki
-toolearn jak toointegrate JSON do aplikacji, zapoznaj się z tymi zasobami:
+Aby dowiedzieć się, jak zintegrować JSON aplikacji, zapoznaj się z tymi zasobami:
 
 * [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
 * [Dokumentacji MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Channel 9 wideo](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-toolearn o różnych scenariuszy integracji JSON do aplikacji, zobacz pokazy hello na tym [wideo z witryny Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) lub znaleźć scenariusz, który jest zgodny z zastosowaniem w [ogłoszeń blogu JSON](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+Informacje na temat różnych scenariuszy integracji JSON do aplikacji, zobacz pokazy w tym [wideo z witryny Channel 9](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) lub znaleźć scenariusz, który jest zgodny z zastosowaniem w [ogłoszeń blogu JSON](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

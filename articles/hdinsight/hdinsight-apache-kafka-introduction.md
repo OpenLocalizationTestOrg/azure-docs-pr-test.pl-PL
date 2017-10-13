@@ -1,6 +1,6 @@
 ---
-title: "aaaAn wprowadzenie tooApache Kafka w usłudze HDInsight - Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o Kafka Apache na HDInsight: co to jest, działanie i gdzie toofind przykłady i pierwsze kroki informacji."
+title: "Wprowadzenie do platformy Apache Kafka w usłudze HDInsight Azure | Microsoft Docs"
+description: "Uzyskaj informacje o platformie Apache Kafka w usłudze HDInsight: artykuł zawiera opis platformy, jej działania oraz informacje o tym, gdzie można znaleźć przykłady i informacje ułatwiające rozpoczęcie pracy."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,58 +13,67 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1bc198d4cf93a4682030d4fa5f71030f49ad64be
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Wprowadzenie do platformy Apache Kafka w usłudze HDInsight (wersja zapoznawcza)
 
-[Apache Kafka](https://kafka.apache.org) jest open source rozproszonej przesyłania strumieniowego platforma, która może być używany w czasie rzeczywistym toobuild przesyłania strumieniowego, potoki danych i aplikacji. Kafka również zapewnia funkcje podobne tooa kolejki komunikatów, których można Publikuj i Subskrybuj toonamed strumieni danych brokera komunikatów. Kafka w usłudze HDInsight zapewnia zarządzanych, wysokiej skalowalności i wysokiej dostępności usługi w chmurze Microsoft Azure hello.
+[Apache Kafka](https://kafka.apache.org) to rozproszona platforma przesyłania strumieniowego typu „open source”, która umożliwia tworzenie aplikacji i potoków danych przesyłania strumieniowego w czasie rzeczywistym. Ponadto platforma Kafka oferuje funkcję brokera komunikatów, która działa podobnie do kolejki komunikatów. Pozwala ona publikować i subskrybować w nazwanych strumieniach danych. Platforma Kafka w usłudze HDInsight to zarządzana wysoce skalowalna usługa o wysokiej dostępności, która działa w chmurze platformy Microsoft Azure.
 
 ## <a name="why-use-kafka-on-hdinsight"></a>Dlaczego warto używać platformy Kafka w usłudze HDInsight?
 
-Kafka zapewnia hello następujące funkcje:
+Platforma Kafka oferuje następujące funkcje:
 
-* Wzorzec przesyłania komunikatów publikowania / subskrypcji: Kafka udostępnia interfejs API producent publikowania rekordów tooa Kafka tematu. powitania klienta interfejsu API jest używany podczas subskrybowania tooa tematu.
+* Wzorzec przesyłania komunikatów dotyczących publikowania i subskrybowania: platforma Kafka udostępnia interfejs API producenta do publikowania rekordów w temacie platformy Kafka. Interfejs API klienta jest używany podczas subskrybowania tematu.
 
-* Przetwarzanie strumienia: platforma Kafka jest często używana z systemem Apache Storm lub platformą Spark na potrzeby przetwarzania strumienia w czasie rzeczywistym. Kafka 0.10.0.0 (usługi HDInsight w wersji 3.5) wprowadzono interfejs API przesyłania strumieniowego, umożliwiający toobuild przesyłania strumieniowego rozwiązań bez konieczności Storm i Spark.
+* Przetwarzanie strumienia: platforma Kafka jest często używana z systemem Apache Storm lub platformą Spark na potrzeby przetwarzania strumienia w czasie rzeczywistym. Na platformie Kafka 0.10.0.0 (HDInsight 3.5) wprowadzono interfejs API przesyłania strumieniowego, który umożliwia tworzenie rozwiązań do transmisji strumieniowej bez konieczności stosowania rozwiązań Storm i Spark.
 
-* Skalowanie w poziomie: Kafka partycje strumieni w węzłach klastra usługi HDInsight hello hello. Procesy użytkownika może być skojarzony z równoważeniem obciążenia tooprovide pojedynczych partycji, podczas używania rekordów.
+* Skalowanie w poziomie: platforma Kafka dzieli strumienie na partycje w różnych węzłach klastra usługi HDInsight. Procesy klientów mogą być kojarzone z poszczególnymi partycjami, aby umożliwić równoważenie obciążenia podczas korzystania z rekordów.
 
-* Dostarczanie w kolejności: w ramach każdej partycji rekordy są przechowywane w strumieniu hello w kolejności hello, że zostały odebrane. Skojarzenie jednego procesu klienta z jedną partycją pozwala zagwarantować, że rekordy są przetwarzane we właściwej kolejności.
+* Dostarczanie w określonej kolejności: rekordy na każdej partycji są przechowywane w strumieniu w tej samej kolejności, w której zostały odebrane. Skojarzenie jednego procesu klienta z jedną partycją pozwala zagwarantować, że rekordy są przetwarzane we właściwej kolejności.
 
-* Odpornej na uszkodzenia: Partycji mogą być replikowane między węzłami tooprovide odporność na uszkodzenia.
+* Odporność na uszkodzenia: partycje mogą być replikowane między węzłami w celu zapewnienia odporności na uszkodzenia.
 
-* Integracja z usługą Azure zarządzanych dysków: zarządzane dyski zapewnia większej skali i przepływności hello dysków używanych przez hello maszyny wirtualne w klastrze HDInsight hello.
+* Integracja z usługą Azure Managed Disks: usługa Managed Disks zapewnia wyższą skalowalność i przepływność dysków używanych przez maszyny wirtualne w klastrze usługi HDInsight.
 
-    Zarządzane dyski są domyślnie włączone dla Kafka w usłudze HDInsight i hello liczba dysków używanych w każdym węźle można skonfigurować podczas tworzenia usługi HDInsight. Aby uzyskać więcej informacji o usłudze Managed Disks, zobacz artykuł [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+    Usługa Managed Disks jest domyślnie włączona dla platformy Kafka w usłudze HDInsight. Liczbę dysków w węźle można skonfigurować podczas tworzenia usługi HDInsight. Aby uzyskać więcej informacji o usłudze Managed Disks, zobacz artykuł [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
     Aby uzyskać informacje dotyczące konfigurowania usługi Managed Disks na platformie Kafka w usłudze HDInsight, zobacz artykuł [Increase scalability of Kafka on HDInsight](hdinsight-apache-kafka-scalability.md) (Zwiększanie skalowalności platformy Kafka w usłudze HDInsight).
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 
-* **Obsługa wiadomości**: ponieważ obsługuje on hello komunikatów publikowania / subskrypcji, Kafka jest często używana jako brokera komunikatów.
+* **Komunikaty**: platforma Kafka obsługuje wzorzec przesyłania komunikatów dotyczących publikowania i subskrybowania, dlatego jest często używana jako broker komunikatów.
 
-* **Monitorowanie aktywności**: ponieważ Kafka umożliwia rejestrowanie w kolejności rekordów, można go tootrack używane i ponownie utwórz działań. Mogą to być na przykład działania użytkownika w witrynie sieci Web lub aplikacji.
+* **Śledzenie działań**: platforma Kafka rejestruje rekordy w określonej kolejności, dlatego może służyć do śledzenia i ponownego tworzenia działań. Mogą to być na przykład działania użytkownika w witrynie sieci Web lub aplikacji.
 
-* **Agregacja**: przy użyciu przetwarzania strumienia, możesz agregować informacji z różnych strumieni toocombine i scentralizowanie hello informacji w danych operacyjnych.
+* **Agregacja**: przetwarzanie strumienia pozwala agregować informacje z różnych strumieni w celu łączenia i centralizowania informacji w formie danych operacyjnych.
 
 * **Przekształcanie**: przetwarzanie strumienia umożliwia łączenie i urozmaicanie danych z wielu tematów wejściowych w formie tematów wyjściowych.
 
+## <a name="architecture"></a>Architektura
+
+![Konfiguracja klastra Kafka](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+Ten diagram przedstawia typową konfigurację platformy Kafka korzystającą z grup konsumentów, partycjonowania i replikacji w celu zapewnienia równoległego odczytu zdarzeń przy zachowaniu odporności na uszkodzenia. Usługę Apache ZooKeeper, która zarządza stanem klastra platformy Kafka, zaprojektowano pod kątem obsługi jednoczesnych, odpornych transakcji o małych opóźnieniach. Platforma Kafka przechowuje rekordy w *tematach*. Rekordy są tworzone przez *producentów* i używane przez *odbiorców*. Producenci pobierają rekordy z *brokerów* platformy Kafka. Każdy węzeł procesu roboczego w klastrze usługi HDInsight jest brokerem platformy Kafka. Dla każdego użytkownika jest tworzona jedna partycja, co umożliwia równoległe przetwarzanie danych przesyłanych strumieniowo. Dzięki replikacji zapewniono dystrybucję partycji na węzłach, co gwarantuje ochronę przed awariami węzła (brokera). Partycja wiodąca jest oznaczona symbolem *(L)*. Ruch producenta jest kierowany do partycji wiodącej w każdym węźle przy użyciu stanu zarządzanego przez usługę ZooKeeper.
+
+> [!IMPORTANT]
+> Platforma Kafka nie uwzględnia sprzętu podstawowego (montowanego w stelażu) w centrum danych platformy Azure. Aby zapewnić odpowiednie równoważenie partycji w sprzęcie podstawowym, zobacz [Configure high availability of data (Kafka) (Konfigurowanie wysokiej dostępności danych [platforma Kafka])](hdinsight-apache-kafka-high-availability.md).
+
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj następujących hello łączy toolearn jak toouse Kafka Apache na HDInsight:
+Aby dowiedzieć się, jak korzystać z platformy Apache Kafka w usłudze HDInsight, użyj następujących linków:
 
 * [Wprowadzenie do platformy Kafka w usłudze HDInsight](hdinsight-apache-kafka-get-started.md)
 
-* [Użyj toocreate MirrorMaker repliki Kafka w usłudze HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Tworzenie repliki platformy Kafka w usłudze HDInsight przy użyciu narzędzia MirrorMaker](hdinsight-apache-kafka-mirroring.md)
 
 * [Używanie systemu Apache Storm z platformą Kafka w usłudze HDInsight](hdinsight-apache-storm-with-kafka.md)
 
 * [Używanie platformy Apache Spark z platformą Kafka w usłudze HDInsight](hdinsight-apache-spark-with-kafka.md)
 
-* [Łączenie się tooKafka za pośrednictwem sieci wirtualnej platformy Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [Nawiązywanie połączenia z platformą Kafka za pośrednictwem sieci wirtualnej platformy Azure](hdinsight-apache-kafka-connect-vpn-gateway.md)

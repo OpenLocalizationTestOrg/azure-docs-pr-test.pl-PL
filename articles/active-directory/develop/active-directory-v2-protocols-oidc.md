@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure usługi Active Directory w wersji 2.0 i hello protokołu OpenID Connect | Dokumentacja firmy Microsoft"
-description: "Tworzenie aplikacji sieci web przy użyciu hello Azure AD w wersji 2.0 implementacji protokołu uwierzytelniania OpenID Connect hello."
+title: "V2.0 usługi Azure Active Directory i protokołu OpenID Connect | Dokumentacja firmy Microsoft"
+description: "Tworzenie aplikacji sieci web przy użyciu usługi Azure AD w wersji 2.0 implementacji protokołu uwierzytelniania OpenID Connect."
 services: active-directory
 documentationcenter: 
 author: dstrockis
@@ -15,44 +15,44 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 277bb406dbb24ccefb09e4e4c928f0421755cf61
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d63692f02b3dec50a1e7df034b8915bb450b4cfd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# Azure Active Directory w wersji 2.0 i hello protokołu OpenID Connect
-OpenID Connect to protokół uwierzytelniania, oparty na OAuth 2.0, w której można toosecurely logowania w aplikacji sieci web tooa użytkownika. Użycie końcowego v2.0 hello wdrażania protokołu OpenID Connect, możesz dodać logowania i interfejsu API dostępu tooyour aplikacji sieci web. W tym artykule zostanie przedstawiony zostanie sposób toodo tym niezależny od języka. Opisano sposób toosend i odbieranie wiadomości HTTP bez korzystania z żadnych bibliotek open source firmy Microsoft.
+# V2.0 usługi Azure Active Directory i protokołu OpenID Connect
+OpenID Connect to protokół uwierzytelniania, oparty na OAuth 2.0, który służy do bezpiecznego logowania użytkownika do aplikacji sieci web. Korzystając z punktem końcowym v2.0 wdrażania protokołu OpenID Connect, logowania i dostępu do interfejsu API można dodać do aplikacji opartych na sieci web. W tym artykule firma Microsoft opisano, jak zrobić to niezależny od języka. Opisano sposób wysyłania i odbierania wiadomości HTTP bez korzystania z żadnych bibliotek open source firmy Microsoft.
 
 > [!NOTE]
-> punktu końcowego v2.0 Hello nie obsługuje wszystkich scenariuszy Azure Active Directory i funkcji. toodetermine, czy należy używać punktu końcowego v2.0 hello, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
+> Punktu końcowego v2.0 nie obsługuje wszystkich scenariuszy Azure Active Directory i funkcji. Aby ustalić, czy należy używać punktu końcowego v2.0, przeczytaj o [ograniczenia v2.0](active-directory-v2-limitations.md).
 > 
 > 
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) rozszerza hello OAuth 2.0 *autoryzacji* toouse protokołu jako *uwierzytelniania* protokołu, dzięki czemu można wykonywać z jednego logowania w trybie OAuth. OpenID Connect wprowadzono pojęcie hello *token Identyfikatora*, który jest tokenu zabezpieczającego, która umożliwia klientowi hello tooverify hello tożsamości użytkownika hello. token Identyfikatora Hello pobiera również profilu podstawowe informacje o użytkowniku hello. Ponieważ OpenID Connect rozszerza protokół OAuth 2.0, aplikacje mogą bezpiecznie uzyskiwać *tokenów dostępu*, które mogą być używane tooaccess zasoby, które są zabezpieczone przez [serwera autoryzacji](active-directory-v2-protocols.md#the-basics). Zaleca się, że używasz OpenID Connect, jeśli tworzysz [aplikacji sieci web](active-directory-v2-flows.md#web-apps) który jest hostowany na serwerze i dostępne za pośrednictwem przeglądarki.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) rozszerza protokół OAuth 2.0 *autoryzacji* protokół do użycia jako *uwierzytelniania* protokołu, dzięki czemu można wykonywać z jednego logowania w trybie OAuth. OpenID Connect pojęcia związane z *token Identyfikatora*, który jest token zabezpieczający, który umożliwia klientowi zweryfikowania tożsamości danego użytkownika. Token Identyfikatora pobiera również podstawowych informacji o profilu użytkownika. Ponieważ OpenID Connect rozszerza protokół OAuth 2.0, aplikacje mogą bezpiecznie uzyskiwać *tokenów dostępu*, które mogą służyć do dostępu do zasobów, które są zabezpieczone przez [serwera autoryzacji](active-directory-v2-protocols.md#the-basics). Zaleca się, że używasz OpenID Connect, jeśli tworzysz [aplikacji sieci web](active-directory-v2-flows.md#web-apps) który jest hostowany na serwerze i dostępne za pośrednictwem przeglądarki.
 
 ## Diagram protokołu: logowania
-Witaj najprostsze przepływu logowania ma hello kroki opisane w diagramie dalej hello. Opisano każdy krok szczegółowo w tym artykule.
+Najbardziej podstawowa przepływu logowania ma kroki opisane w następnej diagramu. Opisano każdy krok szczegółowo w tym artykule.
 
 ![Protokołu OpenID Connect: logowania](../../media/active-directory-v2-flows/convergence_scenarios_webapp.png)
 
-## Pobierz hello OpenID Connect dokument metadanych
-OpenID Connect zawiera opis dokument metadanych zawiera większość informacji hello wymagane dla aplikacji tooperform logowania. Dotyczy to również informacje, takie jak hello toouse adresy URL i lokalizację hello hello usługi publiczne klucze podpisywania. Dla punktu końcowego v2.0 hello to hello OpenID Connect metadanych dokument, który należy używać:
+## Pobrać dokumentu metadanych OpenID Connect
+OpenID Connect zawiera opis dokument metadanych zawiera większość informacji wymaganych dla aplikacji wykonać logowania. W tym informacje, takie jak adresy URL do użycia i lokalizację usługi publiczne klucze podpisywania. Dla punktu końcowego v2.0 jest OpenID Connect dokument metadanych, które powinny być używane:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 
-Witaj `{tenant}` można wykonać jedną z czterech wartości:
+`{tenant}` Można wykonać jedną z czterech wartości:
 
 | Wartość | Opis |
 | --- | --- |
-| `common` |Użytkownicy z osobistego konta Microsoft i konto służbowe z usługi Azure Active Directory (Azure AD) można się zalogować w toohello aplikacji. |
-| `organizations` |Tylko użytkownicy z pracy lub kont służbowych z usługi Azure AD można zarejestrować się w aplikacji toohello. |
-| `consumers` |Tylko użytkownicy z osobistego konta Microsoft zalogować toohello aplikacji. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` lub `contoso.onmicrosoft.com` |Tylko użytkownicy przy użyciu konta służbowego z określonej usługi Azure AD dzierżawy może zalogować toohello aplikacji. Nazwa domeny przyjazną hello hello dzierżawy usługi Azure AD, albo identyfikator GUID dzierżawy hello może służyć. |
+| `common` |Użytkownicy z osobistego konta Microsoft i konto służbowe z usługi Azure Active Directory (Azure AD) można zalogować się do aplikacji. |
+| `organizations` |Tylko użytkownicy z pracy lub kont służbowych z usługi Azure AD można zalogować się do aplikacji. |
+| `consumers` |Tylko użytkownicy z osobistego konta Microsoft można zalogować się do aplikacji. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` lub `contoso.onmicrosoft.com` |Tylko użytkownicy przy użyciu konta służbowego z określonej usługi Azure AD dzierżawy może zalogować się do aplikacji. Można użyć nazwy domeny przyjazną dzierżawy usługi Azure AD lub identyfikator GUID dzierżawy. |
 
-metadane Hello jest proste dokumentu JavaScript Object Notation (JSON). Zobacz powitania po fragment, na przykład. Witaj zawartość fragment kodu w pełni opisanym w hello [OpenID Connect specyfikacji](https://openid.net).
+Metadane są proste dokumentu JavaScript Object Notation (JSON). Zobacz poniższy fragment kodu, na przykład. Fragment treści są szczegółowo opisane [OpenID Connect specyfikacji](https://openid.net).
 
 ```
 {
@@ -69,14 +69,14 @@ metadane Hello jest proste dokumentu JavaScript Object Notation (JSON). Zobacz p
 }
 ```
 
-Zazwyczaj będzie używać tego tooconfigure dokumentu metadanych biblioteki OpenID Connect lub zestawu SDK; Biblioteka Hello użyje toodo metadanych hello swojej pracy. Jednak jeśli nie używasz biblioteki OpenID Connect wstępnej kompilacji, można wykonać kroki hello w pozostałych hello tego artykułu tooperform logowania w aplikacji sieci web przy użyciu punktu końcowego v2.0 hello.
+Zazwyczaj należy użyć ten dokument metadanych, aby skonfigurować OpenID Connect biblioteki lub zestawu SDK; biblioteki użyje metadanych, aby wykonać swoją pracę. Jednak jeśli nie używasz biblioteki OpenID Connect wstępnej kompilacji, można wykonać kroki opisane w dalszej części tego artykułu, aby wykonać logowania w aplikacji sieci web przy użyciu punktu końcowego v2.0.
 
-## Wysyłanie żądania logowania hello
-Gdy aplikacja sieci web musi tooauthenticate hello użytkownika, można kierować hello użytkownika toohello `/authorize` punktu końcowego. To żądanie jest podobne pierwszego etap toohello hello [przepływu kodu autoryzacji protokołu OAuth 2.0](active-directory-v2-protocols-oauth-code.md), z tych istotne różnice:
+## Wyślij żądanie logowania
+Gdy aplikacja sieci web musi uwierzytelnić użytkownika, można kierować użytkownikowi `/authorize` punktu końcowego. To żądanie jest podobny do pierwszego etap [przepływu kodu autoryzacji protokołu OAuth 2.0](active-directory-v2-protocols-oauth-code.md), z tych istotne różnice:
 
-* Witaj żądanie musi zawierać hello `openid` zakres hello `scope` parametru.
-* Witaj `response_type` musi zawierać parametr `id_token`.
-* Witaj żądanie musi zawierać hello `nonce` parametru.
+* Żądanie musi zawierać `openid` zakresu w `scope` parametru.
+* `response_type` Musi zawierać parametr `id_token`.
+* Żądanie musi zawierać `nonce` parametru.
 
 Na przykład:
 
@@ -94,28 +94,28 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Kliknij następujące łącze tooexecute hello tego żądania. Po zalogowaniu w przeglądarce będzie przekierowanego toohttps://localhost/myapp/, z tokenem identyfikator na pasku adresu hello. Należy pamiętać, że używa tego żądania `response_mode=query` (tylko w celach demonstracyjnych). Firma Microsoft zaleca użycie `response_mode=form_post`.
+> Kliknij poniższe łącze, aby wykonać tego żądania. Po zalogowaniu w przeglądarce zostanie przekierowany do https://localhost/myapp/ z tokenem identyfikator na pasku adresu. Należy pamiętać, że używa tego żądania `response_mode=query` (tylko w celach demonstracyjnych). Firma Microsoft zaleca użycie `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=query&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
 > 
 > 
 
 | Parametr | Warunek | Opis |
 | --- | --- | --- |
-| Dzierżawy |Wymagane |Można użyć hello `{tenant}` wartość hello ścieżka hello toocontrol żądania, który mógł zalogować się w aplikacji toohello. Witaj dozwolone wartości to `common`, `organizations`, `consumers`i dzierżawców identyfikatorów. Aby uzyskać więcej informacji, zobacz [protokołu podstawy](active-directory-v2-protocols.md#endpoints). |
-| client_id |Wymagane |hello tego IDENTYFIKATORA aplikacji Hello [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisane tooyour aplikacji. |
+| Dzierżawy |Wymagane |Można użyć `{tenant}` wartość w polu Ścieżka żądania w celu kontrolowania, kto może zalogować się do aplikacji. Dozwolone wartości `common`, `organizations`, `consumers`i dzierżawców identyfikatorów. Aby uzyskać więcej informacji, zobacz [protokołu podstawy](active-directory-v2-protocols.md#endpoints). |
+| client_id |Wymagane |Identyfikator aplikacji, która [portalu rejestracji aplikacji](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) przypisany do aplikacji. |
 | response_type |Wymagane |Musi zawierać `id_token` OpenID Connect logowaniu. Może również zawierać inne `response_types` wartości, takich jak `code`. |
-| redirect_uri |Zalecane |Identyfikator URI aplikacji, gdzie można wysyłanych i odbieranych przez aplikację uwierzytelniania odpowiedzi przekierowania Hello. Dokładnie musi odpowiadać jeden hello przekierowania URI został zarejestrowany w portalu hello z tą różnicą, że adres URL musi być zakodowany. |
-| Zakres |Wymagane |Rozdzieloną spacjami listę zakresów. Dla protokołu OpenID Connect, musi on zawierać zakres hello `openid`, co przekłada się uprawnienie "Logowanie się w" toohello w zgody hello interfejsu użytkownika. Mogą również obejmować innych zakresach, w tym żądaniu żądanych zgody. |
-| Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu hello, generowane przez hello aplikacji, która zostanie uwzględniona w wynikowej wartości żądaniu hello jako oświadczenia. Aplikacja Hello sprawdzić, czy ataki powtórzeń tokenów toomitigate wartość. wartość Hello jest zwykle losowego, unikatowy ciąg, który może być używane tooidentify hello pochodzenia hello żądania. |
-| response_mode |Zalecane |Określa metodę hello, który ma być używane toosend hello wynikowy autoryzacji kodu wstecz tooyour aplikacji. Może być jednym z `query`, `form_post`, lub `fragment`. Dla aplikacji sieci web, zaleca się używanie `response_mode=form_post`, tooensure hello najbardziej bezpieczny transfer tokenów tooyour aplikacji. |
-| state |Zalecane |Wartość zawarte w żądaniu hello, które również zostaną zwrócone w odpowiedzi tokenu hello. Można go ciągiem żadnej zawartości, który ma. Losowo generowany unikatowy używana jest wartość zwykle zbyt[zapobiec fałszerstwie żądania międzywitrynowego](http://tools.ietf.org/html/rfc6749#section-10.12). Stan Hello również jest używane tooencode informacji na temat stanu hello użytkownika w aplikacji hello przed wystąpieniem hello żądania uwierzytelniania, takich jak użytkownika hello hello stronę lub widok został na. |
-| wiersz |Optional (Opcjonalność) |Wskazuje typ hello interakcji z użytkownikiem, który jest wymagany. Witaj prawidłowe są tylko wartości w tej chwili `login`, `none`, i `consent`. Witaj `prompt=login` oświadczeń wymusza hello tooenter użytkownika poświadczeń na żądanie i Negacja rejestracji jednokrotnej. Witaj `prompt=none` oświadczenia jest przeciwny hello. To oświadczenie gwarantuje, że użytkownik hello nie zobaczy jakiejkolwiek monitu interakcyjnego. Jeśli nie można ukończyć żądania hello dyskretnie za pośrednictwem rejestracji jednokrotnej, punktu końcowego v2.0 hello zwraca błąd. Witaj `prompt=consent` oświadczeń wyzwalaczy hello OAuth zgody w oknie dialogowym po zalogowaniu użytkownika hello. Witaj w oknie dialogowym z pytaniem, hello użytkownika toogrant uprawnienia toohello aplikacji. |
-| login_hint |Optional (Opcjonalność) |Ten parametr toopre wypełnienia hello nazwy użytkownika i wiadomości e-mail adres pole służy hello logowania strony hello użytkownika, jeśli znasz nazwę użytkownika hello wcześniejsze. Często aplikacje tego parametru należy użyć podczas ponownego uwierzytelniania po już wyodrębniania hello username z wcześniejszych logowanie przy użyciu hello `preferred_username` oświadczeń. |
-| domain_hint |Optional (Opcjonalność) |Ta wartość może być `consumers` lub `organizations`. Jeśli uwzględniona, pomija hello procesu odnajdywania opartych na poczcie e-mail tego użytkownika hello przechodzi przez na powitania v2.0 strony logowania, wymaga nieco więcej udoskonalone środowisko użytkownika. Często aplikacje tego parametru należy użyć podczas ponownego uwierzytelniania wyodrębniając hello `tid` oświadczeń z hello Identyfikatora tokenu. Jeśli hello `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, użyj `domain_hint=consumers`. W przeciwnym razie użyj `domain_hint=organizations`. |
+| redirect_uri |Zalecane |Identyfikator URI przekierowania w aplikacji, w którym można wysłanych i odebranych przez aplikację odpowiedzi uwierzytelniania. Go musi dokładnie odpowiadać jeden przekierowania URI zarejestrowany w portalu, z wyjątkiem tego, że musi być zakodowane w adresie URL. |
+| Zakres |Wymagane |Rozdzieloną spacjami listę zakresów. Dla protokołu OpenID Connect, musi zawierać zakres `openid`, co przekłada się uprawnienie "Logowanie się w" w zgody interfejsu użytkownika. Mogą również obejmować innych zakresach, w tym żądaniu żądanych zgody. |
+| Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu wygenerowany przez aplikację, która zostanie uwzględniona w wynikowej wartości żądaniu jako oświadczenia. Aplikację można sprawdzić tę wartość, aby ograniczyć ataków powtórzeń tokenów. Wartość jest zazwyczaj losowego, unikatowy ciąg, który może służyć do identyfikowania pochodzenia żądania. |
+| response_mode |Zalecane |Określa metodę, które mają być używane do odesłania wynikowy kod autoryzacji do aplikacji. Może być jednym z `query`, `form_post`, lub `fragment`. Dla aplikacji sieci web, zaleca się używanie `response_mode=form_post`, aby zapewnić najbardziej bezpieczny transfer tokenów do aplikacji. |
+| state |Zalecane |Wartość zawarte w żądaniu, które również zostaną zwrócone w odpowiedzi tokenu. Można go ciągiem żadnej zawartości, który ma. Losowo generowany unikatową wartość jest zazwyczaj używane do [zapobiec fałszerstwie żądania międzywitrynowego](http://tools.ietf.org/html/rfc6749#section-10.12). Stan jest również używany do kodowania informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takich jak strony lub widok, który użytkownik był na. |
+| wiersz |Optional (Opcjonalność) |Wskazuje typ interakcji z użytkownikiem, który jest wymagany. W tej chwili jedynymi prawidłowymi wartościami są `login`, `none`, i `consent`. `prompt=login` Oświadczeń wymusza użytkownika o wprowadzenie poświadczeń na żądanie i Negacja rejestracji jednokrotnej. `prompt=none` Oświadczenia jest przeciwieństwem. Tego oświadczenia gwarantuje, że użytkownik nie zobaczy jakiejkolwiek monitu interakcyjnego. Jeśli żądanie nie można ukończyć w trybie dyskretnym za pośrednictwem rejestracji jednokrotnej, punktu końcowego v2.0 zwraca błąd. `prompt=consent` Oświadczeń wyzwala okno dialogowe zgoda OAuth, gdy użytkownik się zaloguje. Okno dialogowe z monitem o uprawnienia do aplikacji. |
+| login_hint |Optional (Opcjonalność) |Aby wstępnie wypełnić pola Nazwa użytkownika i adres e-mail adres strony logowania dla użytkownika, jeśli znasz nazwę użytkownika wcześniejsze, można użyć tego parametru. Często aplikacje tego parametru należy użyć podczas ponownego uwierzytelniania po już wyodrębniania nazwy użytkownika z wcześniejszych logowanie przy użyciu `preferred_username` oświadczeń. |
+| domain_hint |Optional (Opcjonalność) |Ta wartość może być `consumers` lub `organizations`. Jeśli uwzględniona, pominie proces odnajdywania pocztą e-mail, które użytkownik przechodzi przez na v2.0 strony logowania, wymaga nieco więcej udoskonalone środowisko użytkownika. Często aplikacje tego parametru należy użyć podczas ponownego uwierzytelniania wyodrębniając `tid` oświadczeń z Identyfikatora tokenu. Jeśli `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, użyj `domain_hint=consumers`. W przeciwnym razie użyj `domain_hint=organizations`. |
 
-W tym momencie hello użytkownika jest tooenter zostanie wyświetlony monit o ich poświadczeń i uwierzytelniania hello ukończone. Witaj punktu końcowego v2.0 sprawdza hello użytkownik zgodził uprawnienia toohello wskazane hello `scope` parametr zapytania. Jeśli użytkownik hello nie zgodził tooany te uprawnienia, punktu końcowego v2.0 hello monituje hello użytkownika tooconsent toohello wymagane uprawnienia. Możesz przeczytać dodatkowe informacje [uprawnień, zgody i aplikacje wielodostępne](active-directory-v2-scopes.md).
+W tym momencie użytkownik jest monitowany o wprowadzenie poświadczeń i wykonania uwierzytelnienia. Punktu końcowego v2.0 sprawdza, czy użytkownik zgodził się na uprawnienia wskazanych w `scope` parametr zapytania. Jeśli użytkownik zgodził się nie do dowolnego z tych uprawnień, punktu końcowego v2.0 monituje użytkownika o zgodę na wymagane uprawnienia. Możesz przeczytać dodatkowe informacje [uprawnień, zgody i aplikacje wielodostępne](active-directory-v2-scopes.md).
 
-Po hello użytkownik jest uwierzytelniany i udziela zgody, zwraca punktu końcowego v2.0 hello aplikacji tooyour odpowiedzi w momencie hello wskazany identyfikator URI przekierowania za pomocą metody hello określonej w hello `response_mode` parametru.
+Po uwierzytelnia użytkownika, a przyznaje zgody, punktu końcowego v2.0 zwraca odpowiedź do aplikacji na wskazany identyfikator URI przekierowania za pomocą metody określonej w `response_mode` parametru.
 
 ### Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie, korzystając z `response_mode=form_post` wygląda podobnie do następującej:
@@ -130,11 +130,11 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Parametr | Opis |
 | --- | --- |
-| żądaniu |Witaj identyfikator token, aplikacja hello żądanie. Można użyć hello `id_token` tooverify parametru hello tożsamości użytkownika i rozpocząć sesję przy użyciu hello użytkownika. Aby uzyskać więcej informacji o identyfikatorze tokeny i ich zawartość, zobacz hello [punktu końcowego v2.0 tokeny odwołanie](active-directory-v2-tokens.md). |
-| state |Jeśli `state` parametru jest częścią żądania hello hello tę samą wartość powinna być widoczna w odpowiedzi hello. Aplikacja Hello sprawdzić, czy wartości stanu hello hello żądań i odpowiedzi są identyczne. |
+| żądaniu |Token ID żądanej aplikacji. Można użyć `id_token` parametr do weryfikacji tożsamości użytkownika i rozpocząć sesję użytkownika. Aby uzyskać więcej szczegółów o identyfikatorze tokeny i ich zawartość, zobacz [punktu końcowego v2.0 tokeny odwołanie](active-directory-v2-tokens.md). |
+| state |Jeśli `state` parametru jest zawarte w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikacja powinna Sprawdź, czy wartości stan żądania i odpowiedzi są identyczne. |
 
 ### Odpowiedzi na błąd
-Odpowiedzi na błędy mogą również wysłane identyfikator URI przekierowania toohello tak, aby hello aplikacji można je obsłużyć. Odpowiedzi na błąd wygląda następująco:
+Odpowiedzi na błędy mogą być również wysyłane do identyfikatora URI przekierowania, dzięki czemu aplikacja może obsłużyć ich. Odpowiedzi na błąd wygląda następująco:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -146,42 +146,42 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, który można używać typów tooclassify o błędach i tooreact tooerrors. |
-| error_description |Komunikat o błędzie, który ułatwia identyfikowanie hello głównej przyczyny błędu uwierzytelniania. |
+| error |Ciąg kodu błędu, który służy do klasyfikowania typy błędów występujących i reagowanie na błędy. |
+| error_description |Komunikat o błędzie, które mogą pomóc Określ przyczynę błędu uwierzytelniania. |
 
 ### Kody błędów dla błędów punktu końcowego autoryzacji
-Witaj poniższej tabeli opisano kody błędów, które mogą być zwracane w hello `error` parametru hello odpowiedzi komunikat o błędzie:
+W poniższej tabeli opisano kody błędów, które mogą być zwracane w `error` parametru odpowiedzi o błędzie:
 
 | Kod błędu: | Opis | Akcja klienta |
 | --- | --- | --- |
-| invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie hello. Jest to błąd programistyczny, zwykle przechwycone podczas testowania początkowej. |
-| unauthorized_client |Aplikacja kliencka Hello nie można żądać kod autoryzacji. |Zazwyczaj dzieje się tak, gdy aplikacja kliencka hello nie jest zarejestrowany w usłudze Azure AD lub dzierżawy usługi Azure AD toohello użytkownika nie została dodana. Aplikacja Hello można hello Monituj o aplikacji hello tooinstall instrukcje, a następnie dodaj go tooAzure AD. |
-| ACCESS_DENIED |właściciel zasobu Hello odmowa zgody. |Aplikacja kliencka Hello powiadamiać hello użytkownika, którego nie można kontynuować, chyba że użytkownik hello zgadza. |
-| unsupported_response_type |w żądaniu hello powitania serwera autoryzacji nie obsługuje hello typ odpowiedzi. |Usuń i ponownie prześlij żądanie hello. Jest to błąd programistyczny, zwykle przechwycone podczas testowania początkowej. |
-| server_error |Witaj serwer napotkał nieoczekiwany błąd. |Ponów żądanie hello. Te błędy może wynikać z tymczasowego warunków. Aplikacja kliencka Hello może wyjaśnić toohello użytkownika czy ze względu na tymczasowy błąd tooa jest opóźnione odpowiedzi. |
-| temporarily_unavailable |Serwer Hello tymczasowo jest zbyt zajęty toohandle hello żądania. |Ponów żądanie hello. Aplikacja kliencka Hello może wyjaśnić toohello użytkownika czy ze względu na tymczasowy warunek tooa jest opóźnione odpowiedzi. |
-| invalid_resource |zasób docelowy Hello jest nieprawidłowy, ponieważ nie istnieje, nie można znaleźć usługi Azure AD, lub nie jest poprawnie skonfigurowana. |Oznacza to, że hello zasobu, jeśli istnieje, nie został skonfigurowany w dzierżawie powitalnych. Aplikacja Hello można Monituj użytkownika hello instrukcje dotyczące instalowania aplikacji hello i dodanie go tooAzure AD. |
+| invalid_request |Błąd protokołu, takie jak brak wymaganego parametru. |Usuń i ponownie prześlij żądanie. Jest to błąd programistyczny, zwykle przechwycone podczas testowania początkowej. |
+| unauthorized_client |Aplikacja kliencka nie może zażądać kod autoryzacji. |Dzieje się tak zazwyczaj, gdy aplikacja kliencka nie jest zarejestrowany w usłudze Azure AD lub nie została dodana do dzierżawy usługi Azure AD przez użytkownika. Aplikację można wyświetlony monit z instrukcjami instalowania aplikacji i dodaj go do usługi Azure AD. |
+| ACCESS_DENIED |Właściciel zasobu odmowa zgody. |Aplikacja kliencka powiadamiać użytkownika, którego nie można kontynuować, chyba że użytkownik zgadza. |
+| unsupported_response_type |Serwer autoryzacji w żądaniu nie obsługuje typ odpowiedzi. |Usuń i ponownie prześlij żądanie. Jest to błąd programistyczny, zwykle przechwycone podczas testowania początkowej. |
+| server_error |Serwer napotkał nieoczekiwany błąd. |Ponów żądanie. Te błędy może wynikać z tymczasowego warunków. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedzi jest opóźnione z powodu tymczasowy błąd. |
+| temporarily_unavailable |Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądania. |Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że odpowiedzi jest opóźniony ze względu na tymczasowy warunek. |
+| invalid_resource |Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, nie można znaleźć usługi Azure AD, lub nie jest poprawnie skonfigurowana. |Oznacza to, że zasób, jeśli istnieje, nie został skonfigurowany w dzierżawie. Aplikacja może być monitowany instrukcje dotyczące instalowania aplikacji i dodanie go do usługi Azure AD. |
 
-## Sprawdź poprawność hello identyfikator tokenu
-Odbieranie token identyfikator nie jest wystarczające tooauthenticate hello użytkownika. Musisz również zweryfikować podpisu tokenu identyfikator hello i sprawdzić hello oświadczenia w tokenie hello na wymagania dotyczące Twojej aplikacji. korzysta z punktu końcowego v2.0 Hello [tokenów sieci Web JSON (Jwt)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) i publicznego klucza szyfrowania tokenów toosign i sprawdź, czy są prawidłowe.
+## Zweryfikuj token Identyfikatora
+Odbieranie token identyfikator nie jest wystarczające do uwierzytelnienia użytkownika. Musisz również zweryfikować podpisu tokenu identyfikator i sprawdzić oświadczenia w tokenie na wymagania dotyczące Twojej aplikacji. Korzysta z punktu końcowego v2.0 [tokenów sieci Web JSON (Jwt)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) i kryptografii klucza publicznego do podpisywania tokenów i sprawdź, czy są prawidłowe.
 
-Można wybrać toovalidate hello Identyfikatora tokenu w kodu klienta, ale popularną praktyką jest toosend hello identyfikator tokenu tooa wewnętrznego serwera i sprawdzania poprawności hello istnieje. Po upewnieniu się hello podpisu tokenu identyfikator hello, musisz tooverify kilka oświadczeń. Aby uzyskać więcej informacji, tym więcej o [sprawdzanie poprawności tokenów](active-directory-v2-tokens.md#validating-tokens) i [ważnych informacji na temat podpisywania Przerzucanie klucza](active-directory-v2-tokens.md#validating-tokens), zobacz hello [v2.0 tokeny odwołanie](active-directory-v2-tokens.md). Firma Microsoft zaleca używanie tooparse biblioteki i sprawdzania poprawności tokenów. Istnieje co najmniej jeden z tych bibliotek dostępne dla większości języków i platform.
-<!--TODO: Improve hello information on this-->
+Można sprawdzić poprawności Identyfikatora tokenu w kodu klienta, ale jest typowym rozwiązaniem do wysyłania Identyfikatora token do serwera zaplecza i sprawdzania poprawności. Po upewnieniu podpisu tokenu Identyfikatora, należy sprawdzić kilka oświadczeń. Aby uzyskać więcej informacji, tym więcej o [sprawdzanie poprawności tokenów](active-directory-v2-tokens.md#validating-tokens) i [ważnych informacji na temat podpisywania Przerzucanie klucza](active-directory-v2-tokens.md#validating-tokens), zobacz [v2.0 tokeny odwołanie](active-directory-v2-tokens.md). Firma Microsoft zaleca, aby przeanalizować i sprawdzania poprawności tokenów przy użyciu biblioteki. Istnieje co najmniej jeden z tych bibliotek dostępne dla większości języków i platform.
+<!--TODO: Improve the information on this-->
 
-Można również toovalidate dodatkowe roszczenia, w zależności od danego scenariusza. Niektóre typowe operacje sprawdzania poprawności obejmują:
+Można również sprawdzić dodatkowe roszczenia, w zależności od danego scenariusza. Niektóre typowe operacje sprawdzania poprawności obejmują:
 
-* Upewnij się, że użytkownik hello lub organizacji po zarejestrowaniu aplikacji hello.
-* Upewnij się, że użytkownik hello ma wymagane uprawnienia lub autoryzacji.
+* Upewnij się, że użytkownik lub organizacja po zarejestrowaniu aplikacji.
+* Upewnij się, że użytkownik ma wymagane uprawnienia lub autoryzacji.
 * Upewnij się, że niektóre siły uwierzytelniania wystąpił, takich jak uwierzytelnianie wieloskładnikowe.
 
-Aby uzyskać więcej informacji na temat hello oświadczenia w tokenie identyfikator Zobacz hello [punktu końcowego v2.0 tokeny odwołanie](active-directory-v2-tokens.md).
+Aby uzyskać więcej informacji na temat oświadczenia w tokenie identyfikator, zobacz [punktu końcowego v2.0 tokeny odwołanie](active-directory-v2-tokens.md).
 
-Po całkowicie poprawności hello identyfikator tokenu można rozpocząć sesji hello użytkownika. Użyj hello oświadczeń w hello identyfikator tokenu tooget informacje o użytkowniku hello w aplikacji. Te informacje służy do wyświetlania, rekordy, autoryzacje i tak dalej.
+Po całkowicie poprawności tokenu identyfikator można rozpocząć sesji z użytkownikiem. Użyj oświadczenia w tokenie identyfikator, aby uzyskać informacje o użytkowniku w aplikacji. Te informacje służy do wyświetlania, rekordy, autoryzacje i tak dalej.
 
 ## Wyślij żądanie wylogowania
-Z aplikacji, należy toosign limit hello użytkownika nie jest wystarczające tooclear plików cookie aplikacji lub w przeciwnym razie kończenie sesji użytkownika hello. Należy również przekierować toosign toohello użytkownika hello punktu końcowego v2.0 wychodzących. Jeśli nie zrobisz, użytkownik hello ponownie uwierzytelnia tooyour aplikacji bez ponownego wprowadzania poświadczeń, ponieważ mają one nieprawidłowy jednej sesji logowania z punktem końcowym v2.0 hello.
+Jeśli chcesz się wylogować użytkownika z aplikacji, nie jest wystarczające, aby wyczyścić pliki cookie aplikacji lub w przeciwnym razie kończenie sesji użytkownika. Należy również przekierować użytkownika do punktu końcowego v2.0, aby się wylogować. Jeśli nie zrobisz, użytkownik ponownie uwierzytelnia do aplikacji bez konieczności wprowadzania poświadczeń, ponieważ mają one nieprawidłowy jednej sesji logowania z punktem końcowym v2.0.
 
-Można przekierować hello użytkownika toohello `end_session_endpoint` dokument metadanych OpenID Connect hello na liście:
+Można przekierować użytkownika do `end_session_endpoint` wymienione w dokumencie metadanych OpenID Connect:
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
@@ -190,20 +190,20 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parametr | Warunek | Opis |
 | ----------------------- | ------------------------------- | ------------ |
-| post_logout_redirect_uri | Zalecane | adres URL Hello hello użytkownika jest przekierowane tooafter pomyślnie wylogowywania. Jeśli nie dołączono parametru hello, hello użytkownika jest wyświetlany ogólny komunikat, który jest generowany przez hello punktu końcowego v2.0. Ten adres URL musi pasować hello przekierowania dla aplikacji w portalu rejestracji aplikacji hello zarejestrowane identyfikatory URI.  |
+| post_logout_redirect_uri | Zalecane | Adres URL, który jest przekierowywany użytkownik po wylogowaniu się pomyślnie. Jeśli parametr nie jest dołączony, użytkownik jest wyświetlany ogólny komunikat, który jest generowany przez punktu końcowego v2.0. Ten adres URL musi odpowiadać nazwie przekierowania, który zarejestrowane identyfikatory URI aplikacji w portalu rejestracji aplikacji.  |
 
 ## Wylogowanie jednokrotne
-Podczas przekierowywania hello użytkownika toohello `end_session_endpoint`, punktu końcowego v2.0 hello czyści hello sesja z hello przeglądarki. Jednak hello użytkownik nadal może być podpisana tooother aplikacji, które używają kont Microsoft do uwierzytelniania. tooenable te aplikacje toosign hello użytkownika wychodzących jednocześnie hello punktu końcowego v2.0 wysyła HTTP GET żądania toohello zarejestrowany `LogoutUrl` wszystkich aplikacji hello hello użytkownik jest aktualnie zalogowany. Aplikacje musi odpowiadać toothis żądania przez wyczyszczenie wszelkich sesji, która identyfikuje użytkownika hello i zwracanie `200` odpowiedzi.  Jeśli chcesz toosupport funkcji logowania jednokrotnego, limit w aplikacji, musisz zaimplementować takie `LogoutUrl` w kodzie aplikacji.  Można ustawić hello `LogoutUrl` z portalu rejestracji aplikacji hello.
+Jeśli przekierowanie użytkownika do `end_session_endpoint`, punktu końcowego v2.0 czyści sesji użytkownika z przeglądarki. Jednak użytkownik może nadal być zalogowany do innych aplikacji, które używają kont Microsoft do uwierzytelniania. Aby włączyć te aplikacje do podpisania użytkownika wychodzących jednocześnie v2.0 punktu końcowego wysyła żądanie HTTP GET do zarejestrowaną `LogoutUrl` wszystkich aplikacji, które użytkownik jest aktualnie zalogowany. Aplikacje należy odpowiedzieć na to żądanie przez wyczyszczenie wszelkich sesji, który identyfikuje użytkownika i zwracanie `200` odpowiedzi.  Jeśli chcesz limit obsługi funkcji logowania jednokrotnego do aplikacji, musisz zaimplementować takie `LogoutUrl` w kodzie aplikacji.  Można ustawić `LogoutUrl` z portalu rejestracji aplikacji.
 
 ## Diagram protokołu: Token nabycia
-Wiele aplikacji sieci web należy toonot tylko znak hello użytkownika, ale także tooaccess usługi sieci web w imieniu użytkownika hello przy użyciu uwierzytelniania OAuth. W tym scenariuszu łączy OpenID Connect do uwierzytelniania użytkowników jednocześnie uzyskanie autoryzacji kod służy dostępu tooget tokeny używania przepływu kodu autoryzacji OAuth hello.
+Wiele aplikacji sieci web należy nie tylko zalogować użytkownika w, ale również dostęp do usługi sieci web w imieniu użytkownika przy użyciu uwierzytelniania OAuth. W tym scenariuszu łączy OpenID Connect do uwierzytelniania użytkowników jednocześnie uzyskanie kodu autoryzacji, która umożliwia pobieranie tokenów dostępu, jeśli używasz przepływu kodu autoryzacji OAuth.
 
-Witaj pełna OpenID Connect logowania i przepływu tokenu nabycia wygląda podobnie toohello diagram dalej. Opisano każdy krok szczegółowo w kolejnych sekcjach hello hello artykułu.
+Pełnego przepływu logowania i tokenu nabycia OpenID Connect wygląda podobnie do następnego diagramu. Opisano każdy krok szczegółowo w następnej sekcji tego artykułu.
 
 ![Protokołu OpenID Connect: Token nabycia](../../media/active-directory-v2-flows/convergence_scenarios_webapp_webapi.png)
 
 ## Pobieranie tokenów dostępu
-tooacquire tokenów dostępu, należy zmodyfikować hello żądania logowania:
+Uzyskanie tokenów dostępu, należy zmodyfikować żądanie logowania:
 
 ```
 // Line breaks are for legibility only.
@@ -221,12 +221,12 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 ```
 
 > [!TIP]
-> Kliknij następujące łącze tooexecute hello tego żądania. Po zalogowaniu w przeglądarce jest przekierowane toohttps://localhost/myapp/, ID token i kod na pasku adresu hello. Należy pamiętać, że używa tego żądania `response_mode=query` (tylko w celach demonstracyjnych). Firma Microsoft zaleca użycie `response_mode=form_post`.
+> Kliknij poniższe łącze, aby wykonać tego żądania. Po zalogowaniu w przeglądarce jest przekierowywany do https://localhost/myapp/ z tokenem ID i kod na pasku adresu. Należy pamiętać, że używa tego żądania `response_mode=query` (tylko w celach demonstracyjnych). Firma Microsoft zaleca użycie `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/Authorize...</a>
 > 
 > 
 
-Włączając zakresy uprawnień w żądaniu hello i za pomocą `response_type=id_token code`, punktu końcowego v2.0 hello zapewnia hello użytkownik zgodził uprawnienia toohello wskazane hello `scope` parametr zapytania. Zwraca tooexchange autoryzacji kodu tooyour aplikacji dla tokenu dostępu.
+W tym zakresy uprawnień w żądaniu i za pomocą `response_type=id_token code`, punktu końcowego v2.0 gwarantuje, że użytkownik zgodził się na uprawnienia wskazanych w `scope` parametr zapytania. Zwraca kod autoryzacji do aplikacji z programem exchange dla tokenu dostępu.
 
 ### Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie z za pomocą `response_mode=form_post` wygląda podobnie do następującej:
@@ -241,12 +241,12 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Parametr | Opis |
 | --- | --- |
-| żądaniu |Witaj identyfikator token, aplikacja hello żądanie. Można użyć hello identyfikator tokenu tooverify hello tożsamości użytkownika i rozpocząć sesję użytkownika hello. Szczegółowe informacje o identyfikatorze tokeny i ich zawartość znajdziesz w hello [punktu końcowego v2.0 tokeny odwołanie](active-directory-v2-tokens.md). |
-| Kod |Kod autoryzacji Hello hello żądanej aplikacji. zasób docelowy hello aplikacji Hello można używać toorequest kod autoryzacji hello tokenu dostępu. Kod autoryzacji jest bardzo krótkim okresie. Zazwyczaj autoryzacji kod wygasa po upływie około 10 minut. |
-| state |Jeśli parametr Stan jest uwzględniony w żądaniu hello, hello tej samej wartości powinny być wyświetlane w hello odpowiedzi. Aplikacja Hello sprawdzić, czy wartości stanu hello hello żądań i odpowiedzi są identyczne. |
+| żądaniu |Token ID żądanej aplikacji. Token identyfikator służy do weryfikacji tożsamości użytkownika i rozpocząć sesję użytkownika. Można znaleźć więcej szczegółów o identyfikatorze tokeny i ich zawartość w [punktu końcowego v2.0 tokeny odwołanie](active-directory-v2-tokens.md). |
+| Kod |Kod autoryzacji żądanej aplikacji. Aplikację można użyć kodu autoryzacji do żądania tokenu dostępu dla zasobu docelowego. Kod autoryzacji jest bardzo krótkim okresie. Zazwyczaj autoryzacji kod wygasa po upływie około 10 minut. |
+| state |Jeśli parametr Stan jest uwzględniony w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikacja powinna Sprawdź, czy wartości stan żądania i odpowiedzi są identyczne. |
 
 ### Odpowiedzi na błąd
-Odpowiedzi na błędy mogą również wysłane identyfikator URI przekierowania toohello tak, aby hello aplikacji można je odpowiednią obsługę. Odpowiedzi na błąd wygląda następująco:
+Odpowiedzi na błędy mogą być również wysyłane do identyfikatora URI przekierowania, dzięki czemu aplikacja może je odpowiednią obsługę. Odpowiedzi na błąd wygląda następująco:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -258,9 +258,9 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, który można używać typów tooclassify o błędach i tooreact tooerrors. |
-| error_description |Komunikat o błędzie, który ułatwia identyfikowanie hello głównej przyczyny błędu uwierzytelniania. |
+| error |Ciąg kodu błędu, który służy do klasyfikowania typy błędów występujących i reagowanie na błędy. |
+| error_description |Komunikat o błędzie, które mogą pomóc Określ przyczynę błędu uwierzytelniania. |
 
 Opis możliwych kodów błędów i zalecane klienta odpowiedzi, zobacz [kody błędów dla błędów punktu końcowego autoryzacji](#error-codes-for-authorization-endpoint-errors).
 
-Jeśli masz kod autoryzacji i tokena identyfikator możesz zalogować użytkownika hello i uzyskać tokeny dostępu w ich imieniu. toosign hello użytkownika w, musisz zweryfikować hello identyfikator tokenu [dokładnie zgodnie z opisem](#validate-the-id-token). tokeny dostępu tooget, wykonaj kroki hello opisanego w naszym [dokumentacji protokołu OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).
+Jeśli masz kod autoryzacji i tokena identyfikator możesz zalogować użytkownika i uzyskać tokeny dostępu w ich imieniu. Logowania użytkownika, musisz zweryfikować token Identyfikatora [dokładnie zgodnie z opisem](#validate-the-id-token). Aby uzyskać tokenów dostępu, wykonaj czynności opisane w naszym [dokumentacji protokołu OAuth](active-directory-v2-protocols-oauth-code.md#request-an-access-token).

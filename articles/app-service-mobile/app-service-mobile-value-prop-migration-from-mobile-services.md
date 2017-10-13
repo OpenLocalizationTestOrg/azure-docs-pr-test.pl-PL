@@ -1,6 +1,6 @@
 ---
-title: "aaaI używania usług Mobile Services, w jaki sposób usługi App Service pomaga?"
-description: "Dowiedz się, jakie korzyści usługa aplikacji osiągać tooyour istniejące projekty usług Mobile Services."
+title: "Korzystam z usługi Mobile Services. Jak usługa App Service może mi pomóc?"
+description: "Dowiedz się, jakie korzyści z usługi App Service można osiągać podczas pracy z istniejącymi projektami usługi Mobile Services."
 services: app-service\mobile
 documentationcenter: ios
 author: ggailey777
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 315cc6eedcdca6c3f9f9bb9fd5ec7baf655b7e20
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>Korzystam z usługi Mobile Services. Jak usługa App Service może mi pomóc?
 ## <a name="overview"></a>Omówienie
-Istniejąca Usługa mobilna jest bezpieczna i pozostanie objęta pomocą techniczną. Istnieją jednak liczba hello zalety *usłudze Azure App Service* zapewnia platformę dla twojej aplikacji mobilnej, które nie są obecnie dostępne w usłudze Mobile Services:
+Istniejąca Usługa mobilna jest bezpieczna i pozostanie objęta pomocą techniczną. Platforma *usługi Azure App Service* oferuje jednak pewne korzyści związane z aplikacją mobilną, które nie są obecnie dostępne w usłudze Mobile Services:
 
 * Prostsze, łatwiejsze i bardziej ekonomiczne oferty aplikacji obejmujących klientów sieci Web i mobilnych
 * Nowe funkcje hosta, w tym zadania Web Job, niestandardowe nazwy CName, skuteczniejsze monitorowanie
 * Gotowa do użycia funkcja integracji z usługą Traffic Manager
-* Zasobów lokalnych tooyour łączności i sieci VPN w tooHybrid dodanie połączeń przy użyciu sieci wirtualnej
+* Łączność z lokalnymi zasobami i sieciami VPN przy użyciu nie tylko połączeń hybrydowych, ale i sieci wirtualnej
 * Monitorowanie, alerty i rozwiązywanie problemów dotyczących aplikacji przy użyciu usługi NewRelic lub AppInsights
-* Bogatsze spektrum hello podstawowych zasobów obliczeniowych i cen
+* Bogatsze spektrum podstawowych zasobów obliczeniowych i cen
 * Wbudowane automatyczne skalowanie, równoważenie obciążenia i monitorowanie wydajności
 * Wbudowane możliwości wdrażania przejściowego, tworzenia kopii zapasowych, wycofywania i testowania w produkcji
 
 ## <a name="new-hosting-features"></a>Nowe funkcje hostingu
-W *usłudze Azure App Service* hello *aplikacji mobilnej* hello uruchamia kod zaplecza w tym samym kontenerze co aplikacja sieci Web i aplikacji interfejsu API. Jako taki może potrwać korzystać ze wszystkich funkcji hello w tym kontenerze, w tym również te, które nie są aktualnie dostępne w usłudze Mobile Services:
+W *usłudze Azure App Service* kod zaplecza *plikacji mobilnej* działa w tym samym kontenerze co aplikacja sieci Web i aplikacja interfejsu API. W związku z tym możesz korzystać ze wszystkich funkcji w tym kontenerze, w tym z niektórych funkcji, które nie są aktualnie dostępne w usłudze Mobile Services:
 
 * Dodawanie działającej w sposób ciągły logiki zaplecza za pośrednictwem zadań Web Job.
 * Sprawdzanie, czy kod zaplecza zawsze działa.
-* Użyj niestandardowych rekordów CNAME tooprovide przyjazną i stabilny nazwy tooyour punktom końcowym zaplecza mobilnego
+* Nadawanie punktom końcowym zaplecza mobilnego przyjaznych i stabilnych nazw dzięki niestandardowym nazwom CName.
 * Geograficzne skalowanie aplikacji przy użyciu usługi Traffic Manager.
 * Uwzględnianie wszystkich wybranych bibliotek i pakietów.
 * (.NET) Korzystanie z dowolnej funkcji programu ASP.NET, w tym MVC.
-* (Dla środowiska Node.js) Korzystaj z dowolnej czystej biblioteki języka JavaScript ekosystemu węzła hello, w tym wspólnych bibliotek MVC.
+* (Node.js) Korzystanie z dowolnej czystej biblioteki języka JavaScript ekosystemu języka Node, w tym wspólnych bibliotek MVC.
 
 ## <a name="access-on-premises-data-using-vnet"></a>Dostęp do danych lokalnych przy użyciu sieci wirtualnej
-Z usługami Mobile dzisiaj tooaccess połączeń hybrydowych już można używać zasobów lokalnych. W niektórych sytuacjach preferowane jest jednak użycie rozwiązania VPN. *Usługa Azure App Service* umożliwia korzystanie z sieci wirtualnej platformy Azure na potrzeby kodu zaplecza aplikacji mobilnej.
+Obecnie w usłudze Mobile Services można już uzyskiwać dostęp do zasobów lokalnych za pomocą połączeń hybrydowych. W niektórych sytuacjach preferowane jest jednak użycie rozwiązania VPN. *Usługa Azure App Service* umożliwia korzystanie z sieci wirtualnej platformy Azure na potrzeby kodu zaplecza aplikacji mobilnej.
 
 ## <a name="use-your-favorite-backend-language"></a>Korzystanie z ulubionego języka zaplecza
-*Usługa aplikacji Azure* oferty szerszy i bardziej rozbudowane obsługę platform ASP.NET i Node.js, w tym dostęp do najnowszych środowisk uruchomieniowych toohello.
+*Usługa Azure App Service* oferuje bardziej rozbudowaną i zaawansowaną obsługę platform ASP.NET i Node.js, w tym dostęp do najnowszych środowisk uruchomieniowych.
 
 ## <a name="set-up-automatic-scale"></a>Ustawianie skalowania automatycznego
-W przypadku usługi Mobile Services wszystkie wystąpienia kodu zaplecza były uruchamiane na małych maszynach wirtualnych. *Usługa aplikacji Azure* pozwala tooselect hello rozmiar maszyn wirtualnych ze znacznie większego zestawu opcji. Możesz szybko skalować w górę lub w poziomie toohandle dowolnych przychodzących obciążeń klientów, w oparciu o różne metryki wydajności.
+W przypadku usługi Mobile Services wszystkie wystąpienia kodu zaplecza były uruchamiane na małych maszynach wirtualnych. *Usługa Azure App Service* umożliwia wybranie rozmiaru maszyn wirtualnych ze znacznie większego zestawu opcji. Możesz szybko skalować w górę lub w poziomie, co pozwala na obsługę dowolnych przychodzących obciążeń klientów w oparciu o różne metryki wydajności.
 
-## <a name="be-in-hello-know"></a>Można w hello "wiedzieć"
-Zareagować tooissues w czasie rzeczywistym za pomocą monitorowania i alertów tooautomatically powiadamiania Ciebie i Twojego zespołu. Integracja i analizy aplikacji zaawansowane funkcje monitorowania usługi New Relic i AppInsights bardziej szczegółowego wglądu tooget w sposób wykonuje aplikacji mobilnej. Z *usłudze Azure App Service* można teraz konfigurować alerty oparte na różnych metrykach wydajności — programowo i za pośrednictwem hello portalu Azure.
+## <a name="be-in-the-know"></a>Trzymaj rękę na pulsie
+Reaguj na problemy w czasie rzeczywistym dzięki możliwościom automatycznego powiadamiania Ciebie i Twojego zespołu za pomocą funkcji monitorowania i alertów. Integruj zaawansowane funkcje monitorowania i analizy aplikacji z usług New Relic i AppInsights w celu uzyskania bardziej szczegółowego wglądu w sposób działania aplikacji mobilnej. W *usłudze Azure App Service* możesz teraz konfigurować alerty oparte na różnych metrykach wydajności — programowo i za pośrednictwem witryny Azure Portal.
 
 ## <a name="keep-your-assets-safe"></a>Zabezpieczanie zasobów
-Automatycznie twórz kopię zapasową zaplecza i bazy danych. Kod i dane są bezpieczne po awarii i łatwo przywrócone, dzięki czemu toorun firmy bez obaw.
+Automatycznie twórz kopię zapasową zaplecza i bazy danych. Kod i dane są chronione przed awariami. Można je też łatwo przywrócić, aby zapewnić firmie pewność działania.
 
 ## <a name="ready-stage-go"></a>Gotowe, przejściowe, już!
-Dzięki *usłudze Azure App Service* można teraz tworzyć wiele prywatnych środowisk testowania i przejściowych dla aplikacji mobilnych. Za ich pomocą tooperform testowanie przed wdrożeniem. Zamień tooproduction bez przestojów. Aplikacje sieci Web są wstępnie załadowane, dzięki czemu hello najlepszym środowisku klienta.
+Dzięki *usłudze Azure App Service* można teraz tworzyć wiele prywatnych środowisk testowania i przejściowych dla aplikacji mobilnych. Używaj ich do testowania aplikacji przed wdrożeniem. Przechodź do środowiska produkcyjnego bez przestojów. Aplikacje sieci Web są wstępnie załadowane, dzięki czemu można pracować w najlepszym środowisku klienta.
 
 Aby rozpocząć korzystanie z zalet *usługi App Service* dla istniejącej Usługi mobilnej, wykonaj czynności opisane w tym [samouczku](app-service-mobile-migrating-from-mobile-services.md).

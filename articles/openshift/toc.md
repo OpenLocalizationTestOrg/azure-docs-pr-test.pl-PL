@@ -2,7 +2,7 @@
 # Przewodniki Szybki start
 ## [OpenShift: szablon społeczności](https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/)
 # Samouczki
-## [Wdrażanie maszyn wirtualnych tooAzure](/azure/virtual-machines/linux/openshift-get-started)
+## [Wdrażanie na maszynach wirtualnych platformy Azure](/azure/virtual-machines/linux/openshift-get-started)
 # Zasoby
 ## [Harmonogram działania dla platformy Azure](https://azure.microsoft.com/roadmap/)
 ## [Szablon kontenera OpenShift](https://github.com/Microsoft/openshift-container-platform)

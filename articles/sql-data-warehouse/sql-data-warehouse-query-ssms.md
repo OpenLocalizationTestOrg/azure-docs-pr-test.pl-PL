@@ -1,6 +1,6 @@
 ---
-title: "aaaConnect tooAzure SQL Data Warehouse — SSMS | Dokumentacja firmy Microsoft"
-description: "Użyj programu SQL Server Management Studio (SSMS) tooconnect tooand zapytania usługi Azure SQL Data Warehouse."
+title: "Połączyć się z magazynem danych Azure SQL - SSMS | Dokumentacja firmy Microsoft"
+description: "Użyj programu SQL Server Management Studio (SSMS) do nawiązania połączenia i wykonywać zapytania usługi Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: 
 author: antvgski
@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: bcbaf7139d2e5183b388b8d58c015cf5ad726722
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 207fb9fd861c66039fbde89681aed3df3a2f4021
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="connect-toosql-data-warehouse-with-sql-server-management-studio-ssms"></a>Połącz tooSQL magazynu danych z programu SQL Server Management Studio (SSMS)
+# <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Nawiązać połączenia SQL Data Warehouse przy użyciu programu SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -31,61 +31,61 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Użyj programu SQL Server Management Studio (SSMS) tooconnect tooand zapytania usługi Azure SQL Data Warehouse. 
+Użyj programu SQL Server Management Studio (SSMS) do nawiązania połączenia i wykonywać zapytania usługi Azure SQL Data Warehouse. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-toouse tego samouczka należy:
+Aby użyć tego samouczka, potrzebne są następujące elementy:
 
-* Istniejący magazyn danych SQL. Zobacz toocreate, [Tworzenie usługi SQL Data Warehouse][Create a SQL Data Warehouse].
+* Istniejący magazyn danych SQL. Aby go utworzyć, zobacz artykuł [Tworzenie bazy danych w usłudze SQL Data Warehouse][Create a SQL Data Warehouse].
 * SQL Server Management Studio (SSMS) zainstalowany. [Zainstaluj narzędzia SSMS] [ Install SSMS] bezpłatnie, jeśli nie masz jeszcze go.
-* Witaj w pełni kwalifikowana nazwa serwera SQL. toofind tego, zobacz [połączyć tooSQL hurtowni danych][Connect tooSQL Data Warehouse].
+* W pełni kwalifikowana nazwa serwera SQL. Aby ją znaleźć, zobacz [Nawiązywanie połączenia z usługą SQL Data Warehouse][Connect to SQL Data Warehouse].
 
-## <a name="1-connect-tooyour-sql-data-warehouse"></a>1. Połącz tooyour SQL Data Warehouse
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Nawiązywanie połączenia z usługą SQL Data Warehouse
 1. Otwórz program SSMS.
-2. Otwórz Eksplorator obiektów. toodo ten, wybierz **pliku** > **połączyć Eksplorator obiektów**.
+2. Otwórz Eksplorator obiektów. Aby to zrobić, wybierz **pliku** > **połączyć Eksplorator obiektów**.
    
     ![Eksplorator obiektów SQL Server][1]
-3. Wypełnij pola hello hello Connect tooServer okna.
+3. Wypełnij pola w oknie łączenia z serwerem.
    
-    ![Połącz tooServer][2]
+    ![Łączenie z serwerem][2]
    
-   * **Nazwa serwera**. Wprowadź hello **nazwy serwera** wcześniej ustaloną.
+   * **Nazwa serwera**. Wprowadź wcześniej ustaloną **nazwę serwera**.
    * **Uwierzytelnianie**. Wybierz opcję **Uwierzytelnianie na serwerze SQL Server** lub **Zintegrowane uwierzytelnianie usługi Active Directory**.
    * **Nazwa użytkownika** i **Hasło**. Wprowadź nazwę użytkownika i hasło, jeżeli powyżej wybrano uwierzytelnianie na serwerze SQL Server.
    * Kliknij przycisk **Połącz**.
-4. tooexplore, rozwiń węzeł serwera Azure SQL. Witaj baz danych skojarzonego z serwerem hello jest widoczny. Rozwiń węzeł AdventureWorksDW toosee hello tabele w przykładowej bazie danych.
+4. W celach poznawczych rozwiń węzeł serwera Azure SQL. Możesz przejrzeć skojarzone z serwerem bazy danych. Rozwiń węzeł AdventureWorksDW, aby zobaczyć tabele w przykładowej bazie danych.
    
     ![Poznawanie bazy danych AdventureWorksDW][3]
 
 ## <a name="2-run-a-sample-query"></a>2. Uruchamianie przykładowego zapytania
-Teraz, gdy połączenie zostało nawiązane tooyour bazy danych, napiszemy zapytanie.
+Teraz, po nawiązaniu połączenia z bazą danych, napiszemy zapytanie.
 
 1. Kliknij prawym przyciskiem myszy bazę danych w Eksploratorze obiektów SQL Server.
 2. Wybierz pozycję **Nowe zapytanie**. Otworzy się okno nowego zapytania.
    
     ![Nowe zapytanie][4]
-3. Skopiuj to zapytanie TSQL do okna zapytania hello:
+3. Skopiuj to zapytanie TSQL do okna zapytania:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Kwerenda hello. toodo tego, kliknij `Execute` lub hello Użyj następującego skrótu: `F5`.
+4. Uruchom zapytanie. Aby to zrobić, kliknij przycisk `Execute` lub użyj następującego skrótu: `F5`.
    
     ![Uruchamianie zapytania][5]
-5. Spójrz na powitania wyników zapytania. W tym przykładzie hello Tabela FactInternetSales ma 60398 wierszy.
+5. Przejrzyj wyniki zapytania. W tym przykładzie tabela FactInternetSales ma 60398 wierszy.
    
     ![Wyniki zapytania][6]
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, możesz łączyć i zapytania, spróbuj [wizualizacji danych hello z usługą Power BI][visualizing hello data with PowerBI].
+Teraz, kiedy umiesz nawiązywać połączenia i wykonywać zapytania, spróbuj wykonać [wizualizację danych przy użyciu usługi Power BI][visualizing the data with PowerBI].
 
-tooconfigure środowiska pod kątem uwierzytelniania usługi Azure Active Directory, zobacz [uwierzytelniania tooSQL hurtowni danych][Authenticate tooSQL Data Warehouse].
+Aby skonfigurować środowisko do uwierzytelniania usługi Azure Active Directory, zobacz artykuł [Uwierzytelnianie w usłudze SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
 <!--Arcticles-->
-[Connect tooSQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Authenticate tooSQL Data Warehouse]: sql-data-warehouse-authentication.md
-[visualizing hello data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[visualizing the data with PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md 
 
 <!--Other-->
 [Azure portal]: https://portal.azure.com

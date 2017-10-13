@@ -1,6 +1,6 @@
 ---
-title: "aaaTroubleshooting Docker klienta błędów w systemie Windows za pomocą programu Visual Studio | Dokumentacja firmy Microsoft"
-description: "Rozwiązywanie problemów występujących podczas korzystania z programu Visual Studio toocreate i wdrażanie tooDocker aplikacji sieci web w systemie Windows za pomocą programu Visual Studio."
+title: "Rozwiązywanie problemów z błędami klienta Docker w systemie Windows za pomocą programu Visual Studio | Dokumentacja firmy Microsoft"
+description: "Rozwiązywanie problemów występujących podczas tworzenia i wdrażania aplikacji sieci web do Docker w systemie Windows za pomocą programu Visual Studio przy użyciu programu Visual Studio."
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 7421ae8e044d58fc412d748fb870da4c9b2fdb3b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 89fa04a1107b6abb49aefd68066443717ac9b731
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-visual-studio-docker-development"></a>Rozwiązywanie problemów z programu Visual Studio Docker programowanie
 
-Podczas pracy z programu Visual Studio Tools dla platformy Docker w wersji zapoznawczej, mogą wystąpić problemy z powodu hello rodzaj hello podglądu.
+Podczas pracy z programu Visual Studio Tools dla platformy Docker w wersji zapoznawczej, mogą wystąpić problemy z powodu charakteru wersji zapoznawczej.
 Poniżej przedstawiono niektóre typowe problemy i rozwiązania.  
 
 ## <a name="visual-studio-2017-rc"></a>Visual Studio 2017 RC
@@ -31,38 +31,38 @@ Poniżej przedstawiono niektóre typowe problemy i rozwiązania.
 
 ####  <a name="build-errors-occur-when-debugging-a-net-core-web-or-console-application"></a>Tworzenie występują błędy podczas debugowania aplikacji sieci web lub konsoli .NET Core  
 
-Może to być powiązane toonot udostępnianie dysku hello, gdzie znajduje się projekt hello Docker dla systemu Windows.  Może zostać wyświetlony błąd, podobnie jak poniżej hello:
+Może to być związane z nie udostępnianie dysku, na którym znajduje się projekt Docker dla systemu Windows.  Może zostać wyświetlony następujący błąd:
 
 ```
-hello "PrepareForLaunch" task failed unexpectedly.
-Microsoft.DotNet.Docker.CommandLineClientException: Creating network "webapplication13628050196_default" with hello default driver
+The "PrepareForLaunch" task failed unexpectedly.
+Microsoft.DotNet.Docker.CommandLineClientException: Creating network "webapplication13628050196_default" with the default driver
 Building webapplication1
 Creating webapplication13628050196_webapplication1_1
 ERROR: for webapplication1  Cannot create container for service webapplication1: C: drive is not shared. Please share it in Docker for Windows Settings
 ```
-tooresolve tego problemu:
+Aby rozwiązać ten problem:
 
-1. Kliknij prawym przyciskiem myszy **Docker dla systemu Windows** w hello w obszarze powiadomień, a następnie wybierz **ustawienia**.  
-2. Wybierz **udostępnione dyski** i udostępnianie dysku hello, gdzie znajduje się projekt hello.
+1. Kliknij prawym przyciskiem myszy **Docker dla systemu Windows** w obszarze powiadomień, a następnie wybierz **ustawienia**.  
+2. Wybierz **udostępnione dyski** i udostępnić dysk, na którym znajduje się projekt.
 
 ### <a name="windows-containers"></a>**Kontenery systemu Windows**
 
-Witaj następujące problemy są toodebugging określonych aplikacji sieci web i konsoli .NET Framework w kontenerach systemu Windows.
+Następujące problemy są specyficzne dla aplikacji sieci web i konsoli w kontenerach Windows .NET Framework — profilowanie.
 
 #### <a name="prerequisites"></a>Wymagania wstępne
 
-1. Visual Studio 2017 RC (lub nowszym) z hello .NET Core i musi zostać zainstalowany obciążenia Docker w wersji zapoznawczej.
+1. Visual Studio 2017 RC (lub nowsza) .NET Core i Podgląd Docker obciążenia musi być zainstalowany.
 2. Poprawek systemu Windows 10 Anniversary aktualizacji za pomocą najnowszej Windows Update. W szczególności [KB3194798](https://support.microsoft.com/en-us/help/3194798/cumulative-update-for-windows-10-version-1607-and-windows-server-2016-october-11,-2016) musi być zainstalowany. 
 3. [Docker dla systemu Windows](https://docs.docker.com/docker-for-windows/) (kompilacji 1.13.0 lub nowszym) musi być zainstalowany.
-4. **Przełącz kontenery tooWindows** musi być zaznaczone. W obszarze powiadomień hello, kliknij przycisk **Docker dla systemu Windows**, a następnie wybierz **przełącznika kontenery tooWindows**. Po ponownym uruchomieniu komputera hello, upewnij się, że to ustawienie jest zachowywane.
+4. **Przełącz się do systemu Windows kontenery** musi być zaznaczone. W obszarze powiadomień, kliknij przycisk **Docker dla systemu Windows**, a następnie wybierz **przełączyć się do systemu Windows kontenery**. Po ponownym uruchomieniu komputera, upewnij się, że to ustawienie jest zachowywane.
 
 #### <a name="console-output-does-not-appear-in-visual-studios-output-window-while-debugging-a-console-application"></a>Dane wyjściowe konsoli nie jest wyświetlany w oknie danych wyjściowych programu Visual Studio podczas debugowania aplikacji konsoli
 
-Jest to znany problem dotyczący debuger programu Visual Studio hello (msvsmon.exe), który obecnie nie jest przeznaczony dla tego scenariusza. Obsługa tego scenariusza, mogą zostać dołączone w przyszłej wersji. dane wyjściowe toosee hello aplikacji konsoli w programie Visual Studio, użyj **Docker: uruchomić projekt**, który jest równoważne zbyt**uruchomić bez debugowania**.
+Jest to znany problem dotyczący debuger programu Visual Studio (msvsmon.exe), który obecnie nie jest przeznaczony dla tego scenariusza. Obsługa tego scenariusza, mogą zostać dołączone w przyszłej wersji. Aby wyświetlić dane wyjściowe z aplikacji konsoli w programie Visual Studio, użyj **Docker: Uruchom projekt**, który jest odpowiednikiem **uruchomić bez debugowania**.
 
-#### <a name="debugging-web-applications-with-hello-release-configuration-fails-with-403-forbidden-error"></a>Debugowanie aplikacji sieci web z hello wersji konfiguracji nie powiodło się błędem (403) zabroniony
+#### <a name="debugging-web-applications-with-the-release-configuration-fails-with-403-forbidden-error"></a>Debugowanie aplikacji sieci web z wersji konfiguracji nie powiodło się błędem (403) zabroniony
 
-toowork rozwiązać ten problem, otwórz web.release.config w rozwiązaniu hello i Oznacz jako komentarz lub usuń hello następujące wiersze:
+Aby obejść ten problem, otwórz web.release.config w rozwiązaniu i Oznacz jako komentarz lub usunąć następujące wiersze:
 
 ```
 <compilation xdt:Transform="RemoveAttributes(debug)" />
@@ -72,17 +72,17 @@ toowork rozwiązać ten problem, otwórz web.release.config w rozwiązaniu hello
 
 ### <a name="linux-containers"></a>**Kontenery systemu Linux**
 
-#### <a name="unable-toovalidate-volume-mapping"></a>Nie można toovalidate woluminu mapowania
-Mapowanie woluminu jest kod źródłowy hello wymagane tooshare i pliki binarne z folderu aplikacji hello w kontenerze hello aplikacji.  Określony wolumin mapowania są zawarte w docker compose.dev.debug.yml i docker compose.dev.release.yml. Jak na komputerze hosta zostały zmienione pliki, kontenery hello odzwierciedlenia tych zmian w strukturze folderu podobne.
+#### <a name="unable-to-validate-volume-mapping"></a>Nie można sprawdzić poprawności mapowania woluminu
+Mapowanie woluminu jest wymagane na udostępnianie folderu aplikacji w kontenerze kod źródłowy i plików binarnych aplikacji.  Określony wolumin mapowania są zawarte w docker compose.dev.debug.yml i docker compose.dev.release.yml. Jak na komputerze hosta zostały zmienione pliki, kontenery odzwierciedlenia tych zmian w strukturze folderu podobne.
 
-Mapowanie woluminu tooenable:
+Aby włączyć mapowanie woluminu:
 
-1. Kliknij przycisk **Moby** w obszarze powiadomień hello i wybierz **ustawienia**.
+1. Kliknij przycisk **Moby** w obszarze powiadomień, a następnie wybierz **ustawienia**.
 2. Wybierz **udostępnionych dysków**.
-3. Wybierz dysk hello, który jest hostem dysku projektu i hello, w którym znajduje się % USERPROFILE %.
+3. Wybierz dysk, który jest hostem projektu i dysku, na którym znajduje się % USERPROFILE %.
 4. Kliknij przycisk **Zastosuj**.
 
-tootest działa mapowanie woluminu, skompiluj ponownie i wybierz F5 z poziomu programu Visual Studio po co najmniej jednej stacji zostały udostępnione, lub uruchom hello następującego kodu w wierszu polecenia.
+Aby sprawdzić, czy działa mapowanie woluminu, ponowne skompilowanie i wybierz F5 z poziomu programu Visual Studio po co najmniej jednej stacji zostały udostępnione, lub uruchom polecenie w wierszu polecenia następujący kod.
 
 > [!NOTE]
 > W tym przykładzie przyjęto założenie, że folder użytkowników znajduje się na dysku C i został udostępniony.
@@ -92,20 +92,20 @@ tootest działa mapowanie woluminu, skompiluj ponownie i wybierz F5 z poziomu pr
 docker run -it -v /c/Users/Public:/wormhole busybox
 ```
 
-Uruchom hello następującego kodu w kontenerze systemu Linux hello.
+Uruchom poniższy kod w kontenerze systemu Linux.
 
 ```
 / # ls
 ```
 
-Listę z folderu publicznego i użytkownicy hello katalogów powinno być widoczne. Jeśli żadne pliki nie są wyświetlane i folderze /c/Users/Public nie jest pusta, mapowanie wolumin nie jest prawidłowo skonfigurowany.
+Powinny pojawić się katalogu z folderu publicznego i użytkowników. Jeśli żadne pliki nie są wyświetlane i folderze /c/Users/Public nie jest pusta, mapowanie wolumin nie jest prawidłowo skonfigurowany.
 
 ```
 bin       etc       proc      sys       usr       wormhole
 dev       home      root      tmp       var
 ```
 
-Zmień toohello tunel katalogu toosee hello zawartość hello `/c/Users/Public` katalogu:
+Przejdź do katalogu tunel, aby wyświetlić zawartość `/c/Users/Public` katalogu:
 
 ```
 / # cd wormhole/
@@ -117,31 +117,31 @@ Documents        Libraries        Pictures
 ```
 
 > [!NOTE]
-> Podczas pracy z maszyn wirtualnych systemu Linux, system plików kontenera hello jest rozróżniana wielkość liter.
+> Podczas pracy z maszyn wirtualnych systemu Linux kontenera systemu plików jest rozróżniana wielkość liter.
 
 ## <a name="build-prepareforbuild-task-failed-unexpectedly"></a>Kompilacji: Wystąpił nieoczekiwany błąd zadania "PrepareForBuild"
 
-Microsoft.DotNet.Docker.CommandLine.ClientException: Wystąpił błąd w trakcie tooconnect.
+Microsoft.DotNet.Docker.CommandLine.ClientException: Wystąpił błąd podczas próby nawiązania połączenia.
 
-Sprawdź, czy działa hostujących hello domyślne Docker. Otwórz wiersz polecenia i wykonać:
+Sprawdź, czy działa host Docker domyślne. Otwórz wiersz polecenia i wykonać:
 
 ```
 docker info
 ```
 
-Jeśli to zwraca błąd, spróbuj toostart hello **Docker dla systemu Windows** aplikacji komputerowej. Jeśli aplikacja klasyczna hello jest uruchomiona, następnie **Moby** powinny być widoczne w obszarze powiadomień hello. Kliknij prawym przyciskiem myszy **Moby** , a następnie otwórz **ustawienia**. Kliknij przycisk **zresetować**, a następnie ponownie uruchom Docker.
+Jeśli to zwraca błąd, spróbuj uruchomić **Docker dla systemu Windows** aplikacji komputerowej. Jeśli aplikacja klasyczna jest uruchomiona, następnie **Moby** powinny być widoczne w obszarze powiadomień. Kliknij prawym przyciskiem myszy **Moby** , a następnie otwórz **ustawienia**. Kliknij przycisk **zresetować**, a następnie ponownie uruchom Docker.
 
-## <a name="an-error-dialog-occurs-when-attempting-tooadd-docker-support-or-debug-f5-an-aspnet-core-application-in-a-container"></a>Okna dialogowego błędu występuje podczas próby tooadd Docker pomocy technicznej lub debugowania aplikacji platformy ASP.NET Core w kontenerze (F5)
+## <a name="an-error-dialog-occurs-when-attempting-to-add-docker-support-or-debug-f5-an-aspnet-core-application-in-a-container"></a>Występuje okna dialogowego błędu, gdy próbuje dodać obsługę Docker lub debugowania aplikacji platformy ASP.NET Core w kontenerze (F5)
 
-Po odinstalowaniu i instalowanie rozszerzeń, hello pamięci podręcznej Managed Extensibility Framework (MEF) w programie Visual Studio może ulec uszkodzeniu. W takiej sytuacji może spowodować różnych komunikaty o błędach, gdy użytkownik jest dodanie obsługi Docker i/lub próby toorun lub debugowania aplikacji ASP.NET Core (F5). Tymczasowo Użyj hello następujące kroki toodelete i regenerate hello pamięć podręczna MEF.
+Po odinstalowaniu i instalowanie rozszerzeń, pamięć podręczna Managed Extensibility Framework (MEF) w programie Visual Studio może ulec uszkodzeniu. W takiej sytuacji może spowodować różnych komunikaty o błędach, gdy użytkownik jest dodanie obsługi Docker i/lub próby uruchamiania lub debugowania aplikacji ASP.NET Core (F5). Jako celu tymczasowego obejścia problemu wykonaj następujące kroki, aby usunąć i ponownie wygenerować pamięć podręczna MEF.
 
 1. Zamknij wszystkie wystąpienia programu Visual Studio.
 1. Otwórz % USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\.
-1. Usuń następujące foldery hello:
+1. Usuń następujące foldery:
      ```
        ComponentModelCache
        Extensions
        MEFCacheBackup
     ```
 1. Otwórz program Visual Studio.
-1. Spróbuj ponownie wykonać hello scenariusza.
+1. Spróbuj ponownie wykonać scenariusz.

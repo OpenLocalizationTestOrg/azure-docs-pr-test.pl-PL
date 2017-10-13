@@ -1,5 +1,5 @@
 ---
-title: "aaaUse tooCreate środowiska PowerShell i konfigurowanie obszaru roboczego analizy dzienników | Dokumentacja firmy Microsoft"
+title: "Tworzenie i konfigurowanie obszaru roboczego analizy dzienników przy użyciu programu PowerShell | Dokumentacja firmy Microsoft"
 description: "Rejestrowanie danych dotyczących Analytics korzysta z serwerów w sieci lokalnej lub w chmurze infrastruktury. Można zbierać dane maszyny z usługi Azure storage, gdy generowane przez diagnostycznych platformy Azure."
 services: log-analytics
 documentationcenter: 
@@ -14,64 +14,64 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: a6d66194204cc58de6aafb687a19fe9611e0c58e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Zarządzanie usługą Log Analytics przy użyciu programu PowerShell
-Można użyć hello [poleceń cmdlet programu PowerShell analizy dziennika](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) tooperform różne funkcje analizy dzienników przy użyciu wiersza polecenia lub w ramach skryptu.  Przykłady hello zadania, które można wykonać przy użyciu programu PowerShell:
+Można użyć [poleceń cmdlet programu PowerShell analizy dziennika](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) do wykonywania różnych funkcji w analizy dzienników przy użyciu wiersza polecenia lub w ramach skryptu.  Przykłady zadania, które można wykonać przy użyciu programu PowerShell:
 
 * Tworzenie obszaru roboczego
 * Dodawanie lub usuwanie rozwiązania
 * Importowanie i eksportowanie zapisanych wyszukiwań
 * Tworzenie grupy komputerów
-* Włącz zbieranie dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows hello
+* Włącz zbieranie dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows
 * Zebrać liczników wydajności z komputerów z systemami Linux i Windows
 * Zbierać zdarzenia z dziennika systemowego na komputerach z systemem Linux 
 * Zbieranie zdarzeń z dzienników zdarzeń systemu Windows
 * Zbieranie dzienników zdarzeń niestandardowych
-* Dodaj hello dziennika analizy agenta tooan maszyny wirtualnej platformy Azure
-* Skonfiguruj tooindex dane analizy dziennika, zebrane przy użyciu diagnostyki Azure
+* Dodaj agenta analizy dziennika do maszyny wirtualnej platformy Azure
+* Konfigurowanie analizy dzienników do indeksowania danych zbieranych za pomocą diagnostyki Azure
 
-W tym artykule przedstawiono dwa przykłady ilustrujące niektóre funkcje hello, które można wykonywać z programu PowerShell.  Może się odwoływać toohello [dokumentacji poleceń cmdlet programu PowerShell analizy dziennika](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) do innych funkcji.
+W tym artykule przedstawiono dwa przykłady ilustrujące niektórych funkcji, które można wykonywać z programu PowerShell.  Można to sprawdzić [dokumentacji poleceń cmdlet programu PowerShell analizy dziennika](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) do innych funkcji.
 
 > [!NOTE]
-> Analiza dzienników była wcześniej określana usługi Operational Insights, dlatego jest hello nazwę używaną w hello poleceń cmdlet.
+> Analiza dzienników była wcześniej określana usługi Operational Insights, dlatego jest to nazwa używana w polecenia cmdlet.
 > 
 > 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Te przykłady pracy z wersją 2.3.0 lub nowszej hello AzureRm.OperationalInsights modułu.
+Te przykłady pracy z wersją 2.3.0 lub nowszej modułu AzureRm.OperationalInsights.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Tworzenie i konfigurowanie obszaru roboczego analizy dzienników
-Witaj następującym przykładowym skrypcie ilustruje sposób:
+Przedstawiono w następującym przykładowym skrypcie jak:
 
 1. Tworzenie obszaru roboczego
-2. Lista hello dostępne rozwiązania
-3. Dodaj obszar roboczy toohello rozwiązań
+2. Lista dostępnych rozwiązań
+3. Dodawanie rozwiązania do obszaru roboczego
 4. Importuj zapisane wyszukiwania
 5. Eksport zapisane wyszukiwania
 6. Tworzenie grupy komputerów
-7. Włącz zbieranie dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows hello
+7. Włącz zbieranie dzienników usług IIS z komputerów z zainstalowanym agentem systemu Windows
 8. Zbierania z komputerów z systemem Linux liczników wydajności dysku logicznego (% użytych węzłów i; Wolne megabajty; % Używane miejsce; Transfery dyskowe/s; Odczyty dysku/s; Zapisy dysku/s)
 9. Zbieraj zdarzenia dziennika systemowego z komputerów z systemem Linux
-10. Zbieranie zdarzeń błędu i ostrzeżenia z hello dziennik zdarzeń aplikacji z komputerów z systemem Windows
+10. Zbieranie zdarzeń błędu i ostrzeżenia w dzienniku zdarzeń aplikacji z komputerów z systemem Windows
 11. Zbieraj dane licznika wydajności dostępna pamięć (MB) z komputerów z systemem Windows
 12. Zbieranie dzienników niestandardowych 
 
 ```
 
 $ResourceGroup = "oms-example"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need toobe unique - Get-Random helps with this for hello example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
 $Location = "westeurope"
 
-# List of solutions tooenable
+# List of solutions to enable
 $Solutions = "Security", "Updates", "SQLAssessment"
 
-# Saved Searches tooimport
+# Saved Searches to import
 $ExportedSearches = @"
 [
     {
@@ -89,7 +89,7 @@ $ExportedSearches = @"
 ]
 "@ | ConvertFrom-Json
 
-# Custom Log toocollect
+# Custom Log to collect
 $CustomLog = @"
 {
     "customLogName": "sampleCustomLog1", 
@@ -127,14 +127,14 @@ $CustomLog = @"
     }
 "@
 
-# Create hello resource group if needed
+# Create the resource group if needed
 try {
     Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop
 } catch {
     New-AzureRmResourceGroup -Name $ResourceGroup -Location $Location
 }
 
-# Create hello workspace
+# Create the workspace
 New-AzureRmOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List all solutions and their installation status
@@ -160,7 +160,7 @@ foreach ($search in $ExportedSearches) {
 # Create Computer Group based on a query
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
 
-# Create a computer group based on names (up too5000)
+# Create a computer group based on names (up to 5000)
 $computerGroup = """servername1.contoso.com"",""servername2.contoso.com"",""servername3.contoso.com"",""servername4.contoso.com"""
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Named Servers" -DisplayName "Named Servers" -Category "My Saved Searches" -Query $computerGroup -Version 1
 
@@ -186,8 +186,8 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ```
 
-## <a name="configuring-log-analytics-tooindex-azure-diagnostics"></a>Konfigurowanie tooindex analizy dzienników diagnostycznych platformy Azure
-Bez agenta monitorowania zasobów platformy Azure, hello zasoby muszą obszaru roboczego analizy dzienników tooa toohave diagnostyki Azure toowrite włączona i skonfigurowana. Takie podejście wysyła dane bezpośrednio tooLog analizy i nie wymaga toobe dane zapisane tooa konta magazynu. Obsługiwane zasoby obejmują:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Konfigurowanie analizy dzienników do indeksowania Diagnostyka Azure
+Bez agenta monitorowania zasobów platformy Azure, zasoby muszą mieć Diagnostyka Azure włączona i skonfigurowana do zapisania do obszaru roboczego analizy dzienników. Takie podejście wysyła dane bezpośrednio do analizy dzienników i nie wymaga dane są zapisywane na koncie magazynu. Obsługiwane zasoby obejmują:
 
 | Typ zasobu | Dzienniki | Metryki |
 | --- | --- | --- |
@@ -210,9 +210,9 @@ Bez agenta monitorowania zasobów platformy Azure, hello zasoby muszą obszaru r
 | Witryny sieci Web               |     | Tak |
 | Farmach serwerów sieci Web        |     | Tak |
 
-Witaj informacji z dostępnymi metrykami hello znajduje się zbyt[obsługiwane metryki z monitorem Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Aby uzyskać szczegółowe informacje dostępne metryki, zapoznaj się [obsługiwane metryki z monitorem Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-Szczegóły hello hello dostępne dzienniki, można znaleźć zbyt[obsługiwanych usług i schematu dla dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+Szczegóły dostępne dzienniki, można znaleźć w [obsługiwanych usług i schematu dla dzienników diagnostycznych](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -222,27 +222,27 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Umożliwia także hello poprzedzających polecenia cmdlet toocollect dzienników z zasobów, które znajdują się w różnych subskrypcji. polecenia cmdlet Hello jest toowork stanie różnych subskrypcji, ponieważ udostępniasz identyfikator hello zarówno zasobu hello tworzenia dzienników i dzienniki hello obszaru roboczego hello są wysyłane do.
+Poprzednie polecenie cmdlet umożliwia również zbieranie dzienników z zasobów, które znajdują się w różnych subskrypcji. Polecenie cmdlet jest w stanie pracy w subskrypcjach, ponieważ udostępniasz identyfikator zasobu tworzenia dzienników i obszaru roboczego, które dzienniki są wysyłane do.
 
 
-## <a name="configuring-log-analytics-tooindex-azure-diagnostics-from-storage"></a>Konfigurowanie tooindex analizy dzienników diagnostycznych platformy Azure z magazynu
-toocollect danych dziennika z wewnątrz działającego wystąpienia usługi w chmurze klasycznego lub klastra sieci szkieletowej usług, należy toofirst zapisu hello danych tooAzure magazynu. Analiza dzienników jest następnie skonfigurowany toocollect hello dzienniki z hello konta magazynu. Obsługiwane zasoby obejmują:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Konfigurowanie analizy dzienników do indeksowania diagnostycznych platformy Azure z magazynu
+Aby gromadzić dane dzienników z poziomu działającego wystąpienia usługi w chmurze klasycznego lub klastra sieci szkieletowej usług, należy najpierw zapisać danych do magazynu Azure. Analiza dzienników następnie jest skonfigurowana do zbierania dzienników z konta magazynu. Obsługiwane zasoby obejmują:
 
 * Usługi w chmurze klasyczny (role sieci web i proces roboczy)
 * Klastry usługi sieci szkieletowej
 
-powitania po przykładzie pokazano, jak do:
+W poniższym przykładzie przedstawiono sposób:
 
-1. Witaj listy istniejących kont magazynu i lokalizacje, które Log Analytics będzie indeksowanie danych z
-2. Utwórz tooread konfiguracji z konta magazynu
-3. Nowo utworzona konfiguracja tooindex danych z lokalizacji dodatkowej hello aktualizacji
-4. Usuń konfigurację hello nowo utworzony
+1. Wyświetl listę istniejących kont magazynu i lokalizacje, które Log Analytics będzie indeksowanie danych z
+2. Tworzenie konfiguracji można odczytać z konta magazynu
+3. Zaktualizuj konfigurację nowo utworzony indeks danych z lokalizacji dodatkowej
+4. Usuń konfigurację nowo utworzony
 
 ```
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
 $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with hello storage account resource ID and hello storage account key for hello storage account you want tooLog Analytics too 
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to  
 $storageId = "/subscriptions/ec11ca60-1234-491e-5678-0ea07feae25c/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 
@@ -255,12 +255,12 @@ New-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resou
 # Update existing insight
 Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
-# Remove hello insight
+# Remove the insight
 Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
 
 ```
 
-Umożliwia także hello poprzedzających dzienniki toocollect skryptu z kont magazynu w ramach różnych subskrypcji. skrypt Hello jest toowork stanie różnych subskrypcji, ponieważ udostępniasz identyfikator zasobu konta magazynu hello i odpowiedniego klucza dostępu. Jeśli zmienisz hello klucz dostępu należy tooupdate hello wglądu toohave hello nowego klucza magazynu.
+Powyższy skrypt umożliwia również zbieranie dzienników z kont magazynu w ramach różnych subskrypcji. Skrypt jest w stanie działać w subskrypcjach, ponieważ udostępniasz identyfikator zasobu konta magazynu i odpowiedniego klucza dostępu. Jeśli zmienisz klawisz dostępu, należy zaktualizować wiedzę magazynu do nowego klucza.
 
 
 ## <a name="next-steps"></a>Następne kroki

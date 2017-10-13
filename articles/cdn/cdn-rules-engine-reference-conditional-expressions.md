@@ -1,5 +1,5 @@
 ---
-title: "wyrażenia warunkowe aparatu reguł aaaAzure CDN | Dokumentacja firmy Microsoft"
+title: "Zasady usługi Azure CDN aparat wyrażeń warunkowych | Dokumentacja firmy Microsoft"
 description: "Dokumentacja referencyjna dla usługi Azure CDN zasady warunków dopasowania aparatu i funkcje."
 services: cdn
 documentationcenter: 
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 39d0754c34a577f77ca87b6fd92e2b6a9e4ff8fa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Zasady usługi Azure CDN aparat wyrażeń warunkowych
-Ten temat zawiera szczegółowe opisy hello wyrażenia warunkowego dla usługi Azure sieci dostarczania zawartości (CDN) [aparatu reguł](cdn-rules-engine.md).
+Ten temat zawiera szczegółowe opisy wyrażeń warunkowych dla usługi Azure sieci dostarczania zawartości (CDN) [aparatu reguł](cdn-rules-engine.md).
 
-Pierwsza część reguły Hello jest hello wyrażenia warunkowego.
+Pierwsza część reguły jest wyrażenia warunkowego.
 
 Wyrażenie warunkowe | Opis
 -----------------------|-------------
-JEŚLI | Jeśli wyrażenie jest zawsze część hello pierwszą instrukcją w regule. Podobnie jak wszystkie inne wyrażenia warunkowego tej instrukcji IF musi być skojarzony z dopasowania. Jeśli są zdefiniowane nie dodatkowe wyrażenia warunkowego, tego dopasowania określa hello kryterium, które muszą zostać spełnione przed zestawem funkcji mogą być zastosowane tooa żądania.
-A JEŚLI | Wyrażenie IF i mogą być dodane tylko po hello następujące typy wyrażenia warunkowe: IF, i jeśli. Go wskazuje, że istnieje inny warunek, które należy spełnić, aby hello początkowego instrukcji IF.
-ELSE IF| Wyrażenia ELSE IF określa warunek alternatywną, na którym muszą zostać spełnione przed dokonaniem zestaw funkcji określonych toothis instrukcji ELSE IF. obecność Hello instrukcji ELSE IF wskazuje koniec hello hello poprzednią instrukcję. Witaj wyrażenia warunkowego tylko może być umieszczany po instrukcji ELSE IF innej instrukcji ELSE IF. Oznacza to, że instrukcji ELSE IF mogą być tylko używana toospecify pojedynczy warunek dodatkowe ma toobe spełnione.
+JEŚLI | Jeśli wyrażenie jest zawsze część pierwszą instrukcją w regule. Podobnie jak wszystkie inne wyrażenia warunkowego tej instrukcji IF musi być skojarzony z dopasowania. Jeśli są zdefiniowane nie dodatkowe wyrażenia warunkowego, tego dopasowania Określa kryterium, które muszą zostać spełnione przed zestaw funkcji można stosować na żądanie.
+A JEŚLI | Wyrażenie IF i mogą być dodane tylko po następujących typów wyrażenia warunkowe: IF, i jeśli. Wskazuje on, istnieje inny warunek, które muszą zostać spełnione dla początkowego instrukcji IF.
+ELSE IF| Wyrażenia ELSE IF określa warunek alternatywną, na którym muszą zostać spełnione przed dokonaniem zestaw funkcji specyficznych dla tej instrukcji ELSE IF. Obecność instrukcji ELSE IF wskazuje koniec poprzednią instrukcję. Wyrażenie warunkowe tylko może być umieszczany po instrukcji ELSE IF innej instrukcji ELSE IF. Oznacza to, że instrukcji ELSE IF tylko można użyć do określenia jednego warunku dodatkowe, który ma zostać spełnione.
 
 **Przykład**: ![CDN zgodne z warunkiem](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
 
  > [!TIP]
-   > Kolejne reguły mogą zastąpić akcje hello określone przez poprzednie reguły. Przykład: Reguła wychwytywania chroni wszystkie żądania przy użyciu uwierzytelniania opartego na tokenie. Można tworzyć bezpośrednio pod inną regułę toomake wyjątków dla określonych typów żądań.
+   > Kolejne reguły mogą zastąpić akcje określone przez poprzednie reguły. Przykład: Reguła wychwytywania chroni wszystkie żądania przy użyciu uwierzytelniania opartego na tokenie. Inną regułę można tworzyć bezpośrednio poniżej, aby utworzyć wyjątek dla niektórych typów żądań.
 
 ### <a name="next-steps"></a>Następne kroki
 * [Omówienie usługi Azure CDN](cdn-overview.md)
 * [Odwołanie do aparatu reguł](cdn-rules-engine-reference.md)
 * [Warunki uzgadniania aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
 * [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
-* [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł hello](cdn-rules-engine.md)
+* [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)

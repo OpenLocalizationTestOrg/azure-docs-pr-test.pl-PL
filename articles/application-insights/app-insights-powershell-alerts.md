@@ -1,6 +1,6 @@
 ---
-title: "aaaUse Powershell tooset alertów w usłudze Application Insights | Dokumentacja firmy Microsoft"
-description: "Zautomatyzować konfigurację usługi Application Insights tooget powiadomienia dotyczące zmiany metryki."
+title: "Ustawianie alertów w usłudze Application Insights przy użyciu programu Powershell | Dokumentacja firmy Microsoft"
+description: "Zautomatyzować konfigurację Application Insights, aby otrzymywać wiadomości e-mail o zmianach metryki."
 services: application-insights
 documentationcenter: 
 author: CFreemanwa
@@ -13,32 +13,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: bwren
-ms.openlocfilehash: d68e5f9511bb4015f59175724bc1a4a04ecf43e1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 64675c51abf80daa3a55220f910aa8fdee1042ca
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="use-powershell-tooset-alerts-in-application-insights"></a>Użyj programu PowerShell tooset alertów w usłudze Application Insights
-Można zautomatyzować konfigurację hello [alerty](app-insights-alerts.md) w [usługi Application Insights](app-insights-overview.md).
+# <a name="use-powershell-to-set-alerts-in-application-insights"></a>Ustawianie alertów w usłudze Application Insights przy użyciu programu PowerShell
+Można zautomatyzować konfigurowanie [alerty](app-insights-alerts.md) w [usługi Application Insights](app-insights-overview.md).
 
-Ponadto można [ustawić tooautomate elementów webhook alertu tooan odpowiedzi](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Ponadto można [Ustaw elementów webhook można zautomatyzować Twojej odpowiedzi na alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
 > [!NOTE]
-> Jeśli chcesz toocreate zasobów i alerty o hello takie same czasu, należy wziąć pod uwagę [przy użyciu szablonu usługi Azure Resource Manager](app-insights-powershell.md).
+> Jeśli chcesz utworzyć zasobów i alertów w tym samym czasie, należy wziąć pod uwagę [przy użyciu szablonu usługi Azure Resource Manager](app-insights-powershell.md).
 >
 >
 
 ## <a name="one-time-setup"></a>Jednorazowej konfiguracji
 Jeśli nie użyto programu PowerShell z subskrypcją platformy Azure przed:
 
-Instalowanie modułu Azure Powershell hello na maszynie hello miejscu toorun hello skryptów.
+Zainstaluj moduł Azure Powershell na komputerze, na którym chcesz uruchomić skrypty.
 
 * Zainstaluj [Instalatora platformy sieci Web firmy Microsoft (w wersji 5 lub nowszej)](http://www.microsoft.com/web/downloads/platform.aspx).
-* Użyj go tooinstall Microsoft Azure Powershell
+* Użyć go do zainstalowania programu Microsoft Azure Powershell
 
-## <a name="connect-tooazure"></a>Połącz tooAzure
-Uruchom program Azure PowerShell i [połączenia subskrypcji tooyour](/powershell/azure/overview):
+## <a name="connect-to-azure"></a>Nawiązywanie połączenia z usługą Azure
+Uruchom program Azure PowerShell i [nawiązać połączenia z subskrypcją](/powershell/azure/overview):
 
 ```PowerShell
 
@@ -65,12 +65,12 @@ Uruchom program Azure PowerShell i [połączenia subskrypcji tooyour](/powershel
 
 
 ## <a name="example-1"></a>Przykład 1
-Wyślij mi wiadomość e-mail, jeśli żądania tooHTTP odpowiedzi serwera hello, średnio ponad 5 minut, jest mniejsza niż 1 sekunda. Moje zasobu usługi Application Insights jest nazywany IceCreamWebApp i jest w grupie zasobów firmy Fabrikam. Jestem właścicielem hello hello subskrypcji platformy Azure.
+Wyślij mi wiadomość e-mail, jeśli odpowiedzi serwera na żądania HTTP, średnio ponad 5 minut, jest mniejsza niż 1 sekunda. Moje zasobu usługi Application Insights jest nazywany IceCreamWebApp i jest w grupie zasobów firmy Fabrikam. Jestem właścicielem subskrypcji platformy Azure.
 
-Witaj identyfikator GUID jest Identyfikatorem subskrypcji hello (nie hello klucza instrumentacji aplikacji hello).
+Identyfikator GUID jest Identyfikatorem subskrypcji (nie klucza instrumentacji aplikacji).
 
     Add-AlertRule -Name "slow responses" `
-     -Description "email me if hello server responds slowly" `
+     -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
      -MetricName "request.duration" `
@@ -81,7 +81,7 @@ Witaj identyfikator GUID jest Identyfikatorem subskrypcji hello (nie hello klucz
      -Location "East US" -RuleType Metric
 
 ## <a name="example-2"></a>Przykład 2
-Używana aplikacja, I użyj [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) tooreport metrykę o nazwie "salesPerHour." Wyślij wiadomość e-mail toomy współpracowników, jeśli "salesPerHour" spadnie poniżej 100, średnio ponad 24 godzin.
+Używana aplikacja, I użyj [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) zgłoszenia metrykę o nazwie "salesPerHour." Wyślij wiadomość e-mail do moich współpracowników, gdy "salesPerHour" spada poniżej 100, średnio ponad 24 godzin.
 
     Add-AlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -94,35 +94,35 @@ Używana aplikacja, I użyj [TrackMetric()](app-insights-api-custom-events-metri
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-zasada może służyć do Metryka hello Hello zgłosił za pomocą hello [parametru pomiaru](app-insights-api-custom-events-metrics.md#properties) wywołania innego śledzenia, takie jak TrackEvent lub trackPageView.
+Ta zasada może służyć do metryki zgłoszone za pomocą [parametru pomiaru](app-insights-api-custom-events-metrics.md#properties) wywołania innego śledzenia, takie jak TrackEvent lub trackPageView.
 
 ## <a name="metric-names"></a>Nazwy metryki
 | Nazwa metryki | Nazwa ekranu | Opis |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Wyjątki przeglądarki |Liczba nieprzechwyconych wyjątków zgłoszonych w przeglądarce hello. |
-| `basicExceptionServer.count` |Wyjątki serwera |Liczba nieobsługiwanych wyjątków zgłoszonych przez aplikację hello |
-| `clientPerformance.clientProcess.value` |Czas przetwarzania klienta |Czas między odebraniem ostatniego bajtu hello dokumentu do momentu załadowania modelu DOM hello. Żądania asynchroniczne mogą nadal być przetwarzane. |
-| `clientPerformance.networkConnection.value` |Czas połączenia sieciowego podczas ładowania strony |Czas hello przeglądarki przyjmuje tooconnect toohello sieci. Może być równa 0, jeśli w pamięci podręcznej. |
-| `clientPerformance.receiveRequest.value` |Odbieranie czas odpowiedzi |Czas między przeglądarki wysyłania żądania toostarting tooreceive odpowiedzi. |
-| `clientPerformance.sendRequest.value` |Wyślij czas żądania |Czas trwania żądania toosend przeglądarki. |
+| `basicExceptionBrowser.count` |Wyjątki przeglądarki |Liczba nieprzechwyconych wyjątków zgłoszonych w przeglądarce. |
+| `basicExceptionServer.count` |Wyjątki serwera |Liczba nieobsługiwanych wyjątków zgłoszonych przez aplikację |
+| `clientPerformance.clientProcess.value` |Czas przetwarzania klienta |Czas między odebraniem ostatniego bajtu dokumentu do momentu załadowania modelu DOM. Żądania asynchroniczne mogą nadal być przetwarzane. |
+| `clientPerformance.networkConnection.value` |Czas połączenia sieciowego podczas ładowania strony |Czas przeglądarki do nawiązania połączenia z siecią. Może być równa 0, jeśli w pamięci podręcznej. |
+| `clientPerformance.receiveRequest.value` |Odbieranie czas odpowiedzi |Czas między przeglądarki, wysyłając żądanie do uruchamiania odpowiedź. |
+| `clientPerformance.sendRequest.value` |Wyślij czas żądania |Czas trwania przeglądarki można wysłać żądania. |
 | `clientPerformance.total.value` |Czas ładowania strony przeglądarki |Czas od wysłania żądania użytkownika do modelu DOM, arkuszy stylów, skryptów i obrazów są ładowane. |
 | `performanceCounter.available_bytes.value` |Dostępna pamięć |Pamięć fizyczna dostępna natychmiast dla procesów lub do wykorzystania przez system. |
-| `performanceCounter.io_data_bytes_per_sec.value` |Szybkość przetwarzania We/Wy |Całkowita liczba bajtów na drugi odczytu i zapisywane toofiles, sieci i urządzeń. |
+| `performanceCounter.io_data_bytes_per_sec.value` |Szybkość przetwarzania We/Wy |Całkowita liczba bajtów na sekundę, Odczyt i zapis do plików, sieci i urządzeń. |
 | `performanceCounter.number_of_exceps_thrown_per_sec.value` |szybkość wyjątku |Wyjątków zgłaszanych na sekundę. |
-| `performanceCounter.percentage_processor_time.value` |Proces Procesora |Procent Hello wszystkich wątków procesów używanych przez hello procesora tooexecution instrukcje dla procesu aplikacji hello czas, który upłynął. |
-| `performanceCounter.percentage_processor_total.value` |Czas procesora |Hello wartość procentową czasu hello procesor spędza w Aktywne wątki. |
-| `performanceCounter.process_private_bytes.value` |Bajtów prywatnych procesu |Pamięć przypisana wyłącznie toohello monitorowane procesów aplikacji. |
-| `performanceCounter.request_execution_time.value` |Czas wykonania żądania programu ASP.NET |Czas wykonywania hello ostatniego żądania. |
-| `performanceCounter.requests_in_application_queue.value` |ASP.NET żądań w kolejce wykonywania |Długość kolejki żądań aplikacji hello. |
-| `performanceCounter.requests_per_sec.value` |Współczynnik żądań ASP.NET |Częstotliwość wszystkich żądań aplikacji toohello na sekundę z platformy ASP.NET. |
-| `remoteDependencyFailed.durationMetric.count` |Błędy zależności |Liczba nieudanych wywołań powitania serwera aplikacji tooexternal zasobów. |
-| `request.duration` |Czas odpowiedzi serwera |Czas między odebraniem żądania HTTP i zakończeniem wysyłania odpowiedzi hello. |
-| `request.rate` |Współczynnik żądań |Częstotliwość wszystkich żądań aplikacji toohello na sekundę. |
+| `performanceCounter.percentage_processor_time.value` |Proces Procesora |Procent czasu wykonywania wszystkich wątków procesów używanych przez procesor do wykonywania instrukcji dla procesu aplikacji. |
+| `performanceCounter.percentage_processor_total.value` |Czas procesora |Procent czasu, jaki procesor zużywa w Aktywne wątki. |
+| `performanceCounter.process_private_bytes.value` |Bajtów prywatnych procesu |Pamięć przypisana wyłącznie do procesów monitorowanej aplikacji. |
+| `performanceCounter.request_execution_time.value` |Czas wykonania żądania programu ASP.NET |Czas wykonania ostatniego żądania. |
+| `performanceCounter.requests_in_application_queue.value` |ASP.NET żądań w kolejce wykonywania |Długość kolejki żądań aplikacji. |
+| `performanceCounter.requests_per_sec.value` |Współczynnik żądań ASP.NET |Częstotliwość wszystkich żądań do aplikacji w ciągu sekundy z platformy ASP.NET. |
+| `remoteDependencyFailed.durationMetric.count` |Błędy zależności |Liczba nieudanych wywołań zasobów zewnętrznych aplikacji serwera. |
+| `request.duration` |Czas odpowiedzi serwera |Czas między odebraniem żądania HTTP i zakończeniem wysyłania odpowiedzi. |
+| `request.rate` |Współczynnik żądań |Częstotliwość wszystkich żądań do aplikacji na sekundę. |
 | `requestFailed.count` |Żądań zakończonych niepowodzeniem |Liczba żądań HTTP które wywołały kod odpowiedzi > = 400 |
 | `view.count` |Liczba wyświetleń strony |Liczba żądań użytkowników klientów dla strony sieci web. Ruchu syntetycznego jest odfiltrowana. |
-| {niestandardowe metryki nazwę} |{Nazwa metryki} |Wartość metryki zgłoszone przez [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) lub hello [pomiarów parametru wywołania śledzenia](app-insights-api-custom-events-metrics.md#properties). |
+| {niestandardowe metryki nazwę} |{Nazwa metryki} |Wartość metryki zgłoszone przez [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) lub [pomiarów parametru wywołania śledzenia](app-insights-api-custom-events-metrics.md#properties). |
 
-metryki Hello są wysyłane przez moduły różnych telemetrii:
+Metryki są przesyłane przez różnych telemetrii moduły:
 
 | Metryki grupy | Moduł zbierający |
 | --- | --- |
@@ -132,10 +132,10 @@ metryki Hello są wysyłane przez moduły różnych telemetrii:
 | żądanie,<br/>requestFailed |[Żądanie serwera](app-insights-configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>elementów webhook
-Możesz [zautomatyzować alertu tooan odpowiedzi](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure będzie wywoływać adres sieci web wybranych przez użytkownika, gdy zostanie zgłoszony alert.
+Możesz [zautomatyzować Twojej odpowiedzi na alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure będzie wywoływać adres sieci web wybranych przez użytkownika, gdy zostanie zgłoszony alert.
 
 ## <a name="see-also"></a>Zobacz też
-* [Skrypt tooconfigure usługi Application Insights](app-insights-powershell-script-create-resource.md)
+* [Skrypt w celu skonfigurowania usługi Application Insights](app-insights-powershell-script-create-resource.md)
 * [Tworzenie usługi Application Insights i zasobów testu sieci web za pomocą szablonów](app-insights-powershell.md)
-* [Automatyzowanie sprzężenia Insights tooApplication Diagnostyka pakietu Microsoft Azure](app-insights-powershell-azure-diagnostics.md)
-* [Automatyzowanie alertu tooan odpowiedzi](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Automatyzowanie sprzężenia Diagnostyka pakietu Microsoft Azure do usługi Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Twoje odpowiedzi na alert automatyzacji](../monitoring-and-diagnostics/insights-webhooks-alerts.md)

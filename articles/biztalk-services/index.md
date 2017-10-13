@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji usług Biztalk — samouczki | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse BizTalk usług chmury tooprovide tooon — lokalnych i aplikacji biznesowych z integracji programu SAP, Oracle EBS, SQL Server i PeopleSoft."
+title: "Dokumentacja usługi Azure BizTalk Services — samouczki | Microsoft Docs"
+description: "Dowiedz się, jak usługa BizTalk Services umożliwia integrację specjalistycznych aplikacji dla firm działających w chmurze i lokalnie, takich jak SAP, Oracle EBS, SQL Server i PeopleSoft."
 services: biztalk-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 06411e211b987a96d4b79a93871e66157f7ecdb6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8aef3ad31551b0a4c5048e418cf8b1456bd4f274
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-documentation"></a>Dokumentacja usługi BizTalk Services
 
-Dowiedz się, jak toouse BizTalk usług chmury tooprovide tooon — lokalnych i aplikacji biznesowych z integracji programu SAP, Oracle EBS, SQL Server i PeopleSoft. Samouczki i dokumentacji opisano sposób toointegrate hello enterprise i hello chmury.
+Dowiedz się, jak usługa BizTalk Services umożliwia integrację specjalistycznych aplikacji dla firm działających w chmurze i lokalnie, takich jak SAP, Oracle EBS, SQL Server i PeopleSoft. W samouczkach i innych dokumentach pokazano, jak zintegrować przedsiębiorstwo i chmurę.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak toouse BizTalk usług chmury tooprovide tooon — lokalnych i 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do usługi BizTalk Services przy użyciu hello portalu Azure</h3>
+                        <h3>Rozpoczynanie pracy z usługą BizTalk Services przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>

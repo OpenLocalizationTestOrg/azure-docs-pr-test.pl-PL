@@ -1,6 +1,6 @@
 ---
-title: "Korzystanie z usługi Azure Media Services toocreate wielokrotnej szybkości transmisji bitów strumieni strumieniowych aaaLive | Dokumentacja firmy Microsoft"
-description: "W tym temacie opisano sposób tooset kanału, który odbiera pojedynczej szybkości transmisji bitów na żywo strumienia z kodera lokalnie, a następnie wykonuje strumień na żywo kodowania tooadaptive szybkości transmisji bitów z usługi Media Services. Hello strumienia mogą następnie zostać dostarczone tooclient odtwarzanie aplikacji za pośrednictwem jednego lub więcej punkty końcowe przesyłania strumieniowego, przy użyciu jednej z powitania po protokołów przesyłania strumieniowego z adaptacyjną: HLS, Smooth Stream, MPEG DASH."
+title: "Transmisja strumieniowa przy użyciu usługi Azure Media Services do tworzenia strumieni o wielokrotnej szybkości transmisji bitów na żywo | Dokumentacja firmy Microsoft"
+description: "W tym temacie opisano, jak skonfigurować kanału, który odbiera strumień na żywo o pojedynczej szybkości transmisji bitów z kodera lokalnego i wykonuje następnie kodowanie na żywo do strumienia o adaptacyjnej szybkości transmisji bitów z usługi Media Services. Strumień następnie zostanie dostarczona do klienta odtwarzanie aplikacji za pośrednictwem jednego lub więcej punkty końcowe przesyłania strumieniowego, przy użyciu jednej z następujących protokołów adaptacyjną: HLS, Smooth Stream, MPEG DASH."
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: a8bbdd1570cc9a11bfc2de7bb4ceb9006cc25534
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d5f76d532b236e67a4e69eb820e2cfc3033a80c6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="live-streaming-using-azure-media-services-toocreate-multi-bitrate-streams"></a>Transmisja strumieniowa przy użyciu usługi Azure Media Services toocreate wielokrotnej szybkości transmisji bitów strumienie na żywo
+# <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmisja strumieniowa na żywo korzystająca z usługi Azure Media Services do tworzenia strumieni o różnej szybkości transmisji bitów
 ## <a name="overview"></a>Omówienie
 W konsoli usługi Azure Media Services (AMS) **kanału** reprezentuje potok przetwarzania zawartości transmisji strumieniowej na żywo. A **kanału** odbiera na żywo wejściowych strumieni w jeden z dwóch sposobów:
 
-* Na lokalny koder na żywo wysyła o pojedynczej szybkości transmisji bitów toohello kanału, który jest włączone tooperform live encoding w usłudze Media Services w jednym z następujących formatów hello: RTP (MPEG-TS), protokołu RTMP lub Smooth Streaming (pofragmentowany MP4). Witaj kanał wykonuje następnie kodowanie na żywo przychodzącego hello pojedynczej szybkości transmisji bitów strumienia tooa wielokrotnej szybkości transmisji bitów (adaptacyjnej) strumienia wideo. Gdy żądanie, Media Services oferuje hello toocustomers strumienia.
-* Na lokalny koder na żywo wysyła różnych szybkościach transmisji bitów **RTMP** lub **Smooth Streaming** kanału toohello (pofragmentowany MP4), który nie jest włączone tooperform na żywo, kodowanie przy użyciu usługi AMS. Witaj pozyskanych strumienie są przekazywane za pośrednictwem **kanału**s bez dalszego przetwarzania. Ta metoda jest wywoływana **przekazywanego**. Można użyć następujących koderów na żywo, które udostępniają wielokrotnej szybkości transmisji bitów Smooth Streaming hello: MediaExcel, Ateme, Wyobraź sobie komunikacji, Envivio, Cisco i Elemental. Witaj następujące kodery na żywo wysyłają pliki RTMP: Adobe Flash Media na żywo kodera (FMLE), Telestream Wirecast, Haivision, Teradek i Tricaster koderów.  Koder na żywo może także wysłać pojedynczej szybkości transmisji bitów strumienia tooa kanał nie jest włączona kodowanie na żywo, ale nie jest zalecane. Gdy żądanie, Media Services oferuje hello toocustomers strumienia.
+* Lokalny koder na żywo wysyła strumień o pojedynczej szybkości transmisji bitów do kanału obsługującego kodowanie na żywo za pomocą usługi Media Services w jednym z następujących formatów: RTP (MPEG TS), RTMP lub Smooth Streaming (pofragmentowany plik MP4). Kanał wykonuje następnie kodowanie na żywo przychodzącego strumienia o pojedynczej szybkości transmisji bitów do postaci strumienia wideo o różnych szybkościach transmisji bitów (adaptacyjnej szybkości transmisji bitów). Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
+* Na lokalny koder na żywo wysyła różnych szybkościach transmisji bitów **RTMP** lub **Smooth Streaming** (pofragmentowany MP4) do kanału, który nie jest włączony do przeprowadzania kodowania na żywo przy użyciu usługi AMS. Pozyskiwane strumienie są przekazywane za pośrednictwem **kanału**s bez dalszego przetwarzania. Ta metoda jest wywoływana **przekazywanego**. Można użyć następujących koderów na żywo, które udostępniają Smooth Streaming wielokrotnej szybkości transmisji bitów: MediaExcel, Ateme, Wyobraź sobie komunikacji, Envivio, Cisco i Elemental. Następujące kodery na żywo wysyłają pliki RTMP: Adobe Flash Media na żywo kodera (FMLE), Telestream Wirecast, Haivision, Teradek i Tricaster koderów.  Koder na żywo może także wysłać strumień o pojedynczej szybkości transmisji bitów do kanału, który nie obsługuje kodowania na żywo, nie jest to jednak zalecane. Po odebraniu żądania usługa Media Services dostarcza strumień do klientów.
   
   > [!NOTE]
-  > Metoda przekazywania jest najbardziej ekonomiczne rozwiązanie hello toodo transmisji strumieniowej na żywo.
+  > Metoda przekazywania to najbardziej ekonomiczne rozwiązanie wygaśnięcia przesyłania strumieniowego.
   > 
   > 
 
-Począwszy od hello Media Services 2.10 wersji, podczas tworzenia kanału, możesz określić, w jaki sposób chcesz strumienia wejściowego hello tooreceive kanału i czy ma hello tooperform kanału na żywo kodowanie strumienia. Dostępne są dwie opcje:
+Począwszy od Media Services 2.10 wersji, podczas tworzenia kanału, można określić w jaki sposób chcesz dla kanału do odbierania strumienia wejściowego oraz czy ma dla kanału do przeprowadzania kodowania na żywo strumienia. Dostępne są dwie opcje:
 
-* **Brak** — podać tę wartość, jeśli planujesz toouse na lokalny koder na żywo, którego dane wyjściowe obejmują wielokrotnej szybkości transmisji bitów stream (strumień przekazującego). W takim przypadku strumienia przychodzącego hello przekazywane toohello output bez żadnych kodowania. Jest to zachowanie hello kanału too2.10 wcześniejszych wersji.  Aby uzyskać szczegółowe informacje na temat pracy z kanałami tego typu, zobacz [transmisję strumieniową na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnych szybkościach transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
-* **Standardowe** — wybierz tę wartość, jeśli planujesz tooencode Media Services toouse strumienia szybkości transmisji bitów toomulti strumień na żywo o pojedynczej szybkości transmisji bitów. Należy pamiętać, że rozliczeń wpływa kodowanie na żywo i należy pamiętać, że pozostawienie kanał kodowania na żywo w stanie "Uruchomiona" hello spowoduje naliczenie opłaty rozliczeń.  Zaleca się natychmiast zatrzymać uruchomione kanałów po zdarzenia transmisji strumieniowej na żywo jest pełną tooavoid opłat bardzo co godzinę.
+* **Brak** — podać tę wartość, jeśli planujesz używać na lokalny koder na żywo, którego dane wyjściowe obejmują wielokrotnej szybkości transmisji bitów stream (strumień przekazującego). W takim przypadku strumienia przychodzącego przekazywane do danych wyjściowych bez żadnych kodowania. Jest to zachowanie kanału przed 2.10 wersji.  Aby uzyskać szczegółowe informacje na temat pracy z kanałami tego typu, zobacz [transmisję strumieniową na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnych szybkościach transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
+* **Standardowe** — wybierz tę wartość, jeśli planujesz używać usługi Media Services do kodowania transmisji strumieniowej na żywo pojedynczej szybkości transmisji bitów do strumienia o wielokrotnej szybkości transmisji bitów. Należy pamiętać, że istnieje rozliczeń wpływ kodowanie na żywo i należy pamiętać, że pozostawienie kanał kodowania na żywo w stanie "Uruchomiona" spowoduje naliczenie opłat rozliczeń.  Zaleca się natychmiast zatrzymać kanałów uruchomione po zakończeniu zdarzenia transmisji strumieniowej na żywo, aby zapobiec zmianom bardzo co godzinę.
 
 > [!NOTE]
-> W tym temacie omówiono atrybuty kanałami obsługującymi kodowanie na żywo tooperform (**standardowe** typ kodowania). Aby uzyskać informacje na temat pracy z kanałami, które nie są włączone, tooperform kodowanie na żywo, zobacz [transmisję strumieniową na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnych szybkościach transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
+> W tym temacie omówiono atrybuty kanałami obsługującymi kodowanie na żywo (**standardowe** typ kodowania). Więcej informacji dotyczących pracy z kanałami, które nie są włączone kodowanie na żywo, zobacz [transmisję strumieniową na żywo za pomocą koderów lokalnych, które tworzą strumienie o różnych szybkościach transmisji bitów](media-services-live-streaming-with-onprem-encoders.md).
 > 
-> Upewnij się, że hello tooreview [zagadnienia](media-services-manage-live-encoder-enabled-channels.md#Considerations) sekcji.
+> Upewnij się przejrzeć [zagadnienia](media-services-manage-live-encoder-enabled-channels.md#Considerations) sekcji.
 > 
 > 
 
 ## <a name="billing-implications"></a>Implikacje rozliczeń
-Kanał kodowania na żywo rozpoczyna rozliczeń zaraz po jego stan przejścia zbyt "uruchomiona" za pośrednictwem hello interfejsu API.   Można również wyświetlić stan hello w hello portalu Azure lub w narzędziu Azure Media Services Explorer hello (http://aka.ms/amse).
+Kanał kodowania na żywo rozpoczyna rozliczeń jak przejść stanu do "Uruchomiona" jest za pośrednictwem interfejsu API.   Można również wyświetlić stan w portalu Azure lub za pomocą narzędzia Azure Media Services Explorer (http://aka.ms/amse).
 
-Witaj poniższej tabeli przedstawiono sposób stanów kanału mapowania stanów toobilling w hello interfejsu API i portalu Azure. Należy zauważyć, że stanów hello różni się między hello interfejsu API i Portal UX. Jak najszybciej kanał jest w stanie "Uruchomiona" do hello za pośrednictwem interfejsu API hello, lub w hello "Gotowe" lub "Przesyłania strumieniowego" stan w portalu Azure hello rozliczeń będzie aktywny.
-Kanał hello toostop z rozliczeniami można dodatkowo, masz tooStop hello kanału za pomocą interfejsu API hello lub hello portalu Azure.
-Jest odpowiedzialny za zatrzymywanie kanałów po zakończeniu hello kanału kodowania na żywo.  Błąd toostop kanał kodowania spowoduje dalsze rozliczeń.
+W poniższej tabeli przedstawiono sposób mapowania stanów kanału do stanów rozliczeń w portalu interfejsu API i usługi Azure. Należy zauważyć, że Stany różni się od interfejsu API i Portal UX. Jak najszybciej kanał jest w stanie "Uruchomiona" za pośrednictwem interfejsu API, lub w stanie "Gotowe" lub "Streaming" w portalu Azure, rozliczeń będzie aktywny.
+Zatrzymał kanału z rozliczeniami można dodatkowo, należy zatrzymać kanału, za pomocą interfejsu API lub w portalu Azure.
+Jest odpowiedzialny za zatrzymywanie kanałów, gdy wszystko będzie gotowe z kanału na żywo kodowania.  Brak zatrzymał kanału kodowania spowoduje dalsze rozliczeń.
 
-### <a id="states"></a>Stany kanału oraz sposobu mapowania ich toohello tryb rozliczeń
-bieżący stan Hello kanału. Możliwe wartości obejmują:
+### <a id="states"></a>Stany kanału oraz sposobu mapowania ich na tryb rozliczeń
+Bieżący stan kanału. Możliwe wartości obejmują:
 
-* **Zatrzymano**. Jest to hello początkowy stan hello kanału po jego utworzeniu (chyba że automatyczne uruchamianie zostało wybrane w portalu hello). Karta nie występuje w tym stanie. W tym stanie można zaktualizować właściwości kanału hello, ale przesyłania strumieniowego nie jest dozwolone.
-* **Uruchamianie**. Kanał Hello jest uruchamiana. Karta nie występuje w tym stanie. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa. Jeśli wystąpi błąd, hello kanału zwraca toohello zatrzymana.
-* **Uruchomiona**. Witaj kanał jest w stanie przetwarzania strumieni na żywo. Jest on teraz rozliczeń użycia. Musisz zatrzymać tooprevent kanału hello dalsze rozliczeń. 
-* **Zatrzymywanie**. Kanał Hello jest zatrzymywana. Karta nie występuje w tym stan przejściowy. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
-* **Usuwanie**. Kanał Hello jest usuwany. Karta nie występuje w tym stan przejściowy. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
+* **Zatrzymano**. Jest to stan początkowy kanału po jego utworzeniu (chyba że automatyczne uruchamianie zostało wybrane w portalu). Karta nie występuje w tym stanie. W tym stanie właściwości kanału mogą być aktualizowane, ale transmisja strumieniowa jest niedozwolona.
+* **Uruchamianie**. Kanał jest uruchamiany. Karta nie występuje w tym stanie. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa. Jeśli wystąpi błąd, kanał wróci do stanu Zatrzymany.
+* **Uruchomiona**. Kanał może przetwarzać transmisje strumieniowe na żywo. Jest on teraz rozliczeń użycia. Musisz zatrzymać kanału, aby uniemożliwić dalsze rozliczeń. 
+* **Zatrzymywanie**. Kanał jest zatrzymywany. Karta nie występuje w tym stan przejściowy. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
+* **Usuwanie**. Kanał jest usuwany. Karta nie występuje w tym stan przejściowy. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
 
-Witaj poniższej tabeli przedstawiono sposób kanału stany trybu rozliczeń toohello mapy. 
+W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie opłat. 
 
 | Stan kanału | Wskaźniki w interfejsie użytkownika portalu | Jest to karta? |
 | --- | --- | --- |
@@ -70,56 +70,56 @@ Witaj poniższej tabeli przedstawiono sposób kanału stany trybu rozliczeń too
 | Zatrzymane |Zatrzymane |Nie |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Automatyczne wyłączania nieużywanych kanałów
-Począwszy od 25 stycznia 2016 Media Services wprowadzanie aktualizacji, która automatycznie zatrzyma kanał (kodowanie na żywo włączone) po jego działaniu w stanie nieużywane przez dłuższy okres. Dotyczy to tooChannels, która nie ma żadnych aktywnych programów i nie uzyskały wejściowych wkład źródła danych przez dłuższy czas.
+Począwszy od 25 stycznia 2016 Media Services wprowadzanie aktualizacji, która automatycznie zatrzyma kanał (kodowanie na żywo włączone) po jego działaniu w stanie nieużywane przez dłuższy okres. Dotyczy to kanałów, które nie mają żadnych aktywnych programów i nie uzyskały wejściowych wkład źródła danych przez dłuższy czas.
 
-Próg Hello na okres nieużywane nominalnie jest 12 godzin, ale jest toochange podmiotu.
+Próg okres nieużywane nominalnie jest 12 godzin, ale może ulec zmianie.
 
 ## <a name="live-encoding-workflow"></a>Przepływ pracy kodowania na żywo
-Witaj Poniższy diagram przedstawia na żywo przepływ pracy transmisji strumieniowej, gdzie kanał odbiera strumień o pojedynczej szybkości transmisji bitów w jednym z hello następujące protokoły: RTMP, Smooth Streaming lub RTP (MPEG-TS); koduje go następnie hello strumienia tooa wielokrotnej szybkości transmisji bitów strumienia. 
+Poniższy diagram przedstawia na żywo przepływ pracy transmisji strumieniowej, gdzie kanał odbiera strumień o pojedynczej szybkości transmisji bitów w jednym z następujących protokołów: RTMP, Smooth Streaming lub RTP (MPEG-TS); koduje go następnie strumienia do strumienia o wielokrotnej szybkości transmisji bitów. 
 
 ![Przepływ pracy na żywo][live-overview]
 
 ## <a id="scenario"></a>Typowy scenariusz transmisji strumieniowej na żywo
-Witaj poniżej przedstawiono ogólne etapy tworzenia typowych aplikacji transmisji strumieniowej na żywo.
+Poniżej przedstawiono ogólne etapy tworzenia typowych aplikacji transmisji strumieniowej na żywo.
 
 > [!NOTE]
-> Obecnie hello maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się pod adresem amslived@Microsoft.com, jeśli potrzebujesz toorun kanał na dłuższe okresy. Należy pamiętać, że ma rozliczeń wpływu kodowanie na żywo i należy pamiętać, że pozostawienie kanał kodowania na żywo w stanie "Uruchomiona" hello będą naliczane co godzinę opłat rozliczeń.  Zaleca się natychmiast zatrzymać uruchomione kanałów po zdarzenia transmisji strumieniowej na żywo jest pełną tooavoid opłat bardzo co godzinę. 
+> Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się pod adresem amslived@Microsoft.com, jeśli chcesz uruchomić kanał na dłuższe okresy. Należy pamiętać, że istnieje rozliczeń wpływ kodowanie na żywo i należy pamiętać, że pozostawienie kanał kodowania na żywo w stanie "Uruchomiona" będą naliczane co godzinę opłat rozliczeń.  Zaleca się natychmiast zatrzymać kanałów uruchomione po zakończeniu zdarzenia transmisji strumieniowej na żywo, aby zapobiec zmianom bardzo co godzinę. 
 > 
 > 
 
-1. Połącz komputer tooa kamerę wideo. Uruchom i skonfiguruj na lokalny koder na żywo, który wysyła strumień **pojedynczego** szybkości transmisji bitów w jednym z hello następujących protokołów: RTMP, Smooth Streaming lub RTP (MPEG-TS). 
+1. Podłącz kamerę wideo do komputera. Uruchom i skonfiguruj na lokalny koder na żywo, który wysyła strumień **pojedynczego** szybkości transmisji bitów w jednym z następujących protokołów: RTMP, Smooth Streaming lub RTP (MPEG-TS). 
    
     Ten krok można również wykonać po utworzeniu kanału.
 2. Utwórz i uruchom kanał. 
-3. Adres URL pozyskiwania, Pobierz hello kanału. 
+3. Pobierz adres URL pozyskiwania kanału. 
    
-    adres URL pozyskiwania Hello jest używany przez hello kodera na żywo toosend hello strumienia toohello kanału.
-4. Pobiera adres URL podglądu kanału hello. 
+    Koder na żywo używa adresu URL pozyskiwania do wysyłania strumienia do kanału.
+4. Pobierz adres URL podglądu kanału. 
    
-    Użyj tego adresu URL tooverify, czy kanał prawidłowo odbiera strumień na żywo hello.
+    Użyj tego adresu URL, aby sprawdzić, czy kanał prawidłowo odbiera strumień na żywo.
 5. Utwórz program. 
    
-    Przy użyciu hello portalu Azure, tworzenia program tworzy także zasób. 
+    Korzystając z portalu Azure, tworzenia program tworzy także zasób. 
    
-    Podczas korzystania z zestawu .NET SDK lub REST muszą toocreate zasób i określ ten zasób toouse podczas tworzenia programu. 
-6. Publikowanie zawartości hello skojarzony z programem hello.   
+    Podczas korzystania z zestawu .NET SDK lub REST konieczne utworzenie elementu zawartości i określanie użycia tego zasobu, podczas tworzenia programu. 
+6. Opublikuj zasób skojarzony z programem.   
    
     >[!NOTE]
-    >Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego w brzmieniu konta tooyour hello **zatrzymane** stanu. Witaj, z którego mają zostać toostream zawartości punktu końcowego przesyłania strumieniowego ma toobe w hello **systemem** stanu. 
+    >Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
     
-7. Uruchom hello program, gdy są toostart gotowe, przesyłania strumieniowego i archiwizacji.
-8. Opcjonalnie hello kodera na żywo może być sygnałowego toostart anonsu. Witaj reklama jest wstawiana hello strumienia wyjściowego.
-9. Zatrzymaj hello program zawsze, gdy chcesz toostop przesyłanie strumieniowe i archiwizowanie wydarzenia hello.
-10. Usuń hello Program (i opcjonalnie można również usunąć hello zasobów).   
+7. Uruchom program, gdy wszystko będzie gotowe do rozpoczęcia przesyłania strumieniowego i archiwizacji.
+8. Opcjonalnie można przesłać do kodera na żywo sygnał o rozpoczęciu reklamy. Reklama jest wstawiana do strumienia wyjściowego.
+9. Zatrzymaj program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia.
+10. Usuń program (opcjonalnie można również usunąć zasób).   
 
 > [!NOTE]
-> Bardzo ważne jest, nie tooforget tooStop kanału kodowanie na żywo. Należy pamiętać, że istnieje co godzinę rozliczeń wpływ kodowanie na żywo i należy pamiętać, że pozostawienie kanał kodowania na żywo w stanie "Uruchomiona" hello spowoduje naliczenie opłaty rozliczeń.  Zaleca się natychmiast zatrzymać uruchomione kanałów po zdarzenia transmisji strumieniowej na żywo jest pełną tooavoid opłat bardzo co godzinę. 
+> Jest bardzo ważne nie zapomnij zatrzymał kanału kodowanie na żywo. Należy pamiętać, że istnieje co godzinę rozliczeń wpływ kodowanie na żywo i należy pamiętać, że pozostawienie kanał kodowania na żywo w stanie "Uruchomiona" spowoduje naliczenie opłat rozliczeń.  Zaleca się natychmiast zatrzymać kanałów uruchomione po zakończeniu zdarzenia transmisji strumieniowej na żywo, aby zapobiec zmianom bardzo co godzinę. 
 > 
 > 
 
 ## <a id="channel"></a>Kanał danych wejściowych (pozyskiwania) konfiguracji
 ### <a id="Ingest_Protocols"></a>Pozyskiwania protokołu przesyłania strumieniowego
-Jeśli hello **typu kodera** ustawiono zbyt**standardowe**, prawidłowe opcje to:
+Jeśli **typu kodera** ustawiono **standardowe**, prawidłowe opcje to:
 
 * **RTP** (MPEG-TS): strumień transportu MPEG-2 przy użyciu protokołu RTP.  
 * Pojedynczej szybkości transmisji bitów **RTMP**
@@ -128,15 +128,15 @@ Jeśli hello **typu kodera** ustawiono zbyt**standardowe**, prawidłowe opcje to
 #### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS) - strumień transportu MPEG-2 przy użyciu protokołu RTP.
 Typowy przypadek użycia: 
 
-Professional nadawców zwykle współdziałają z koderów na żywo lokalny wysokiej klasy od dostawców, takich jak toosend stanie wolnym technologii Ericsson, Ateme imprezie Imagine albo Envivio strumienia. Często używane w połączeniu z działu informatycznego i sieciach prywatnych.
+Professional nadawców programy zwykle współdziałają z koderów na żywo lokalny wysokiej klasy od dostawców, takich jak stanie wolnym technologii, Ericsson, Ateme, imprezie Imagine lub Envivio do wysyłania strumienia. Często używane w połączeniu z działu informatycznego i sieciach prywatnych.
 
 Kwestie do rozważenia:
 
-* Zdecydowanie zalecane jest użycie Hello strumień transportowy jednego programu (SPTS) danych wejściowych. 
-* Można wprowadzić się too8 strumieni audio przy użyciu usług terminalowych MPEG-2 przy użyciu protokołu RTP. 
-* strumienia wideo o Hello powinny mieć średniej szybkości transmisji bitów poniżej 15 MB/s
-* Hello agregacji średniej szybkości transmisji bitów strumieni audio hello powinno być niższe niż 1 MB/s
-* Poniżej są hello koderów-dekoderów obsługiwanych:
+* Zdecydowanie zalecane jest używanie jednego programu strumień transportowy (SPTS) danych wejściowych. 
+* Można wprowadzić do 8 strumieni audio przy użyciu usług terminalowych MPEG-2 przy użyciu protokołu RTP. 
+* Strumienia wideo powinien mieć średniej szybkości transmisji bitów poniżej 15 MB/s
+* Łączny średniej szybkości transmisji bitów strumieni audio powinno być niższe niż 1 MB/s
+* Kodeki obsługiwane są następujące:
   
   * MPEG-2 / H.262 wideo 
     
@@ -167,10 +167,10 @@ Kwestie do rozważenia:
 #### <a id="single_bitrate_RTMP"></a>Pojedyncza szybkość transmisji bitów RTMP
 Kwestie do rozważenia:
 
-* strumień przychodzący Hello nie może zawierać wideo o różnych szybkościach transmisji bitów
-* strumienia wideo o Hello powinny mieć średniej szybkości transmisji bitów poniżej 15 MB/s
-* strumień audio Hello powinny mieć średniej szybkości transmisji bitów poniżej 1 MB/s
-* Poniżej są hello koderów-dekoderów obsługiwanych:
+* Przychodzący strumień nie może zawierać wideo o różnych szybkościach transmisji bitów
+* Strumienia wideo powinien mieć średniej szybkości transmisji bitów poniżej 15 MB/s
+* Strumień audio powinny mieć średniej szybkości transmisji bitów poniżej 1 MB/s
+* Kodeki obsługiwane są następujące:
 * MPEG-4 AVC / wideo H.264
 * Linii bazowej, Main, wysokiej profilu (8-bitową 4:2:0)
 * Wysoka profilu 10 (10-bitowy 4:2:0)
@@ -186,85 +186,85 @@ Kwestie do rozważenia:
 #### <a name="single-bitrate-fragmented-mp4-smooth-streaming"></a>Pojedyncza szybkość transmisji bitów podzielonej zawartości w formacie MP4 (Smooth Streaming)
 Typowy przypadek użycia:
 
-Wykorzystanie lokalnych koderów na żywo z dostawców takich jak stanie wolnym technologii Ericsson Ateme, strumień wejściowy hello toosend Envivio za pośrednictwem hello Otwórz internet tooa w pobliżu centrum danych Azure.
+Wykorzystanie lokalnych koderów na żywo z dostawców takich jak stanie wolnym technologii, Ericsson, Ateme, Envivio, aby wysłać strumień wejściowy za pośrednictwem Internetu Otwórz w pobliżu Azure centrum danych.
 
 Kwestie do rozważenia:
 
 Sam jak w przypadku [pojedyncza szybkość transmisji bitów RTMP](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
 #### <a name="other-considerations"></a>Inne zagadnienia
-* Nie można zmienić hello protokołu wejściowego, gdy hello kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
-* Maksymalna rozdzielczość dla przychodzących strumienia wideo hello wynosi 1920 x 1080 pikseli i co najwyżej 60 pola/sekundę Jeśli naprzemiennych lub 30 klatek na sekundę Jeśli progresywnego.
+* Nie można zmienić protokołu wejściowego, gdy kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
+* Maksymalna rozdzielczość w przypadku przychodzących strumienia wideo wynosi 1920 x 1080 pikseli i co najwyżej 60 pola/sekundę Jeśli naprzemiennych lub 30 klatek na sekundę Jeśli progresywnego.
 
 ### <a name="ingest-urls-endpoints"></a>Pozyskiwania adresów URL (punkty końcowe)
-Kanał zawiera ono wejściowy punkt końcowy (adres URL pozyskiwania) określenie w hello kodera na żywo, więc wypchnąć kodera hello strumieni tooyour kanałów.
+Kanał zawiera ono wejściowy punkt końcowy (adres URL pozyskiwania) określenie w kodera na żywo, więc może wypchnąć koder strumieni dla kanałów.
 
-Możesz uzyskać hello adresy URL pozyskiwania, po utworzeniu kanału. tooget tych adresów URL hello kanału nie ma toobe w hello **systemem** stanu. Gdy wszystko jest gotowe toostart przekazywanie danych do hello kanału, który musi być w hello **systemem** stanu. Po uruchomieniu kanału hello wprowadzania danych można wyświetlić podgląd strumienia za pośrednictwem hello URL podglądu.
+Adresy URL pozyskiwania można uzyskać po utworzeniu kanału. Aby uzyskać te adresy URL, kanał nie muszą być w **systemem** stanu. Gdy wszystko będzie gotowe uruchomić przekazywanie danych do kanału, który musi być w **systemem** stanu. Po uruchomieniu kanału wprowadzania danych można wyświetlić podgląd strumienia za pomocą adresu URL w wersji zapoznawczej.
 
-Istnieje opcja wprowadzania pofragmentowany MP4 (Smooth Streaming) strumień na żywo za pośrednictwem połączenia SSL. tooingest za pośrednictwem protokołu SSL, upewnij się, że hello tooupdate pozyskiwania tooHTTPS adres URL. Należy zauważyć, że obecnie AMS nie obsługuje protokołu SSL z domen niestandardowych.  
+Istnieje opcja wprowadzania pofragmentowany MP4 (Smooth Streaming) strumień na żywo za pośrednictwem połączenia SSL. Pozyskiwanie za pośrednictwem protokołu SSL, upewnij się, że aktualizacja adresu URL pozyskiwania HTTPS. Należy zauważyć, że obecnie AMS nie obsługuje protokołu SSL z domen niestandardowych.  
 
 ### <a name="allowed-ip-addresses"></a>Dozwolonych adresów IP
-Można zdefiniować hello adresy IP, które są dozwolone toopublish toothis wideo kanału. Dozwolone adresy IP można określić jako pojedynczy adres IP (np. „10.0.0.1”), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (np. „10.0.0.1/22”) lub zakres adresów IP przy użyciu adresu IP i maski podsieci w zapisie kropkowo-cyfrowym (np. „10.0.0.1(255.255.252.0)”).
+Można zdefiniować adresy IP, które mogą publikować pliki wideo w tym kanale. Dozwolone adresy IP można określić jako pojedynczy adres IP (np. „10.0.0.1”), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (np. „10.0.0.1/22”) lub zakres adresów IP przy użyciu adresu IP i maski podsieci w zapisie kropkowo-cyfrowym (np. „10.0.0.1(255.255.252.0)”).
 
-Jeśli adresy IP nie zostaną określone i brakuje definicji reguły, to żaden adres IP nie będzie dozwolony. tooallow dowolnego adresu IP, Utwórz regułę i ustaw wartość 0.0.0.0/0.
+Jeśli adresy IP nie zostaną określone i brakuje definicji reguły, to żaden adres IP nie będzie dozwolony. Aby zezwolić na jakikolwiek adres IP, utwórz regułę i ustaw wartość 0.0.0.0/0.
 
 ## <a name="channel-preview"></a>Podgląd kanału
 ### <a name="preview-urls"></a>Adresy URL w wersji zapoznawczej
-Kanały zapewniają punktu końcowego podglądu (adres URL w wersji zapoznawczej) Użyj toopreview, a następnie sprawdź strumienia, zanim dalszego przetwarzania i dostarczania.
+Kanały zapewniają punktu końcowego podglądu (adres URL w wersji zapoznawczej), używanej do wyświetlania i weryfikowania strumienia przed dalszego przetwarzania i dostarczania.
 
-Po utworzeniu kanału hello można uzyskać adres URL podglądu hello. adres URL hello tooget, hello kanału nie ma toobe w hello **systemem** stanu.
+Po utworzeniu kanału możesz uzyskać adres URL w wersji zapoznawczej. Aby uzyskać adres URL, kanał nie muszą być w **systemem** stanu.
 
-Po uruchomieniu kanału hello wprowadzania danych można wyświetlić podgląd strumienia.
+Po uruchomieniu kanału wprowadzania danych można wyświetlić podgląd strumienia.
 
 > [!NOTE]
-> Obecnie hello podglądu strumienia tylko mogą być dostarczane w pofragmentowany MP4 (Smooth Streaming) format niezależnie od hello określony typ danych wejściowych. Można użyć hello [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player tootest hello Smooth Stream. Można również użyć odtwarzacza hostowanych w hello Azure tooview portalu strumienia.
+> Obecnie podglądu strumienia tylko mogą być dostarczane w pofragmentowany MP4 (Smooth Streaming) format bez względu na określony typ danych wejściowych. Można użyć [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) player do testowania Smooth Stream. Aby wyświetlić strumienia umożliwia także odtwarzacza hostowanej w portalu Azure.
 > 
 > 
 
 ### <a name="allowed-ip-addresses"></a>Dozwolone adresy IP
-Można zdefiniować adresy IP hello, które są dozwolone punktu końcowego podglądu toohello tooconnect. Jeśli nie zawiera adresów IP nie zostaną określone może być dowolny adres IP. Dozwolone adresy IP można określić jako pojedynczy adres IP (np. „10.0.0.1”), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (np. „10.0.0.1/22”) lub zakres adresów IP przy użyciu adresu IP i maski podsieci w zapisie kropkowo-cyfrowym (np. „10.0.0.1(255.255.252.0)”).
+Można zdefiniować adresy IP, które mogą łączyć się z punktem końcowym w wersji zapoznawczej. Jeśli nie zawiera adresów IP nie zostaną określone może być dowolny adres IP. Dozwolone adresy IP można określić jako pojedynczy adres IP (np. „10.0.0.1”), zakres adresów IP przy użyciu adresu IP i maski podsieci CIDR (np. „10.0.0.1/22”) lub zakres adresów IP przy użyciu adresu IP i maski podsieci w zapisie kropkowo-cyfrowym (np. „10.0.0.1(255.255.252.0)”).
 
 ## <a name="live-encoding-settings"></a>Ustawienia kodowania na żywo
-W tej sekcji opisano, jak można hello ustawienia hello kodera na żywo w ramach hello kanału dostosowana, gdy hello **typu kodowania** kanału ustawiono zbyt**standardowe**.
+W tej sekcji opisano, jak ustawień kodera na żywo w kanale można dostosować, gdy **typu kodowania** kanał jest ustawiony na wartość **standardowe**.
 
 > [!NOTE]
-> Gdy wprowadzanie wielu wersji językowych i wykonywania, kodowanie na żywo przy użyciu platformy Azure, tylko RTP jest obsługiwane dla wielu języków w danych wejściowych. Można zdefiniować się too8 strumieni audio przy użyciu usług terminalowych MPEG-2 przy użyciu protokołu RTP. Wprowadzania wielu ścieżek audio RTMP lub Smooth streaming nie jest obecnie obsługiwane. Twoją kodowanie na żywo z [live lokalnymi koduje](media-services-live-streaming-with-onprem-encoders.md), jest nie takiego ograniczenia, ponieważ niezależnie od wysłaniu tooAMS przechodzi przez kanał bez dalszego przetwarzania.
+> Gdy wprowadzanie wielu wersji językowych i wykonywania, kodowanie na żywo przy użyciu platformy Azure, tylko RTP jest obsługiwane dla wielu języków w danych wejściowych. Można określić maksymalnie 8 strumieni audio przy użyciu usług terminalowych MPEG-2 przy użyciu protokołu RTP. Wprowadzania wielu ścieżek audio RTMP lub Smooth streaming nie jest obecnie obsługiwane. Twoją kodowanie na żywo z [live lokalnymi koduje](media-services-live-streaming-with-onprem-encoders.md), jest nie takiego ograniczenia, ponieważ niezależnie od są wysyłane do usługi AMS przechodzi przez kanał bez dalszego przetwarzania.
 > 
 > 
 
 ### <a name="ad-marker-source"></a>Źródło znacznika usługi AD
-Można określić hello źródło sygnałów znaczników reklamowych. Wartość domyślna to **interfejsu Api**, co oznacza tego hello kodera na żywo w ramach hello kanału będą wysyłane tooan asynchroniczne **interfejsu API znacznika reklamy**.
+Można określić źródło sygnałów znaczników reklamowych. Wartość domyślna to **interfejsu Api**, co oznacza, że koder na żywo w kanale powinien nasłuchiwać asynchronicznego **interfejsu API znacznika reklamy**.
 
-Witaj innych prawidłową opcją jest **Scte35** (dozwolone tylko wtedy, gdy pozyskiwania hello przesyłania strumieniowego protokołu ustawiono tooRTP (MPEG-TS). W przypadku Scte35 hello kodera na żywo będzie analizować sygnały SCTE 35 ze strumienia wejściowego RTP (MPEG-TS) hello.
+Jest prawidłową opcją **Scte35** (dozwolone tylko wtedy, jeśli protokół strumieniowe pozyskiwania ustawiono RTP (MPEG-TS). W przypadku Scte35 kodera na żywo będzie analizować sygnały SCTE 35 ze strumienia wejściowego RTP (MPEG-TS).
 
 ### <a name="cea-708-closed-captions"></a>CEA 708 zamknięte podpisy
-Opcjonalna Flaga, która informuje tooignore kodera na żywo hello żadnych danych podpisy CEA 708 osadzony w hello przychodzące wideo. Gdy hello flagę toofalse (ustawienie domyślne), koder hello wykryje i ponownie włóż CEA 708 danych do wideo strumienie wyjściowe hello.
+Opcjonalna Flaga, która określa, że koder na żywo będzie ignorował wszystkie dane podpisy CEA 708 osadzony w przychodzących wideo. Jeśli flaga jest ustawiona na false (ustawienie domyślne), koder wykryje i ponownie wstawić CEA 708 danych do strumieni wideo w danych wyjściowych.
 
 ### <a name="video-stream"></a>Strumienia wideo
-Opcjonalny. W tym artykule opisano hello wejściowego strumienia wideo. Jeśli to pole nie zostanie określony, wartością domyślną hello jest używany. To ustawienie jest dozwolone tylko wtedy, gdy hello wejściowej protokołu przesyłania strumieniowego ustawiono tooRTP (MPEG-TS).
+Opcjonalny. W tym artykule opisano wejściowego strumienia wideo. Jeśli to pole nie zostanie określona, zostanie użyta domyślna wartość. To ustawienie jest dozwolone tylko wtedy, gdy ustawiono danych wejściowych, przesyłanie strumieniowe protokołu RTP (MPEG-TS).
 
 #### <a name="index"></a>Indeks
-Liczony od zera indeks, który określa, które wejściowego strumienia wideo powinny być przetwarzane przez hello kodera na żywo w ramach hello kanału. To ustawienie ma zastosowanie tylko wtedy, gdy pozyskiwania przesyłania strumieniowego protokół jest RTP (MPEG-TS).
+Liczony od zera indeks, który określa, które wejściowego strumienia wideo powinny być przetwarzane przez koder na żywo w kanale. To ustawienie ma zastosowanie tylko wtedy, gdy pozyskiwania przesyłania strumieniowego protokół jest RTP (MPEG-TS).
 
-Wartość domyślna wynosi zero. Zalecane jest toosend w jednym programie strumień transportowy (SPTS). Jeśli hello strumień wejściowy zawiera wiele programów, hello kodera na żywo analizuje hello Program mapy tabeli (rata) w danych wejściowych hello identyfikuje hello danych wejściowych, które mają nazwę typu strumienia wideo MPEG-2 lub H.264 i rozmieszcza je w kolejności hello w hello konto liczony od zera indeks Hello jest następnie używany toopick hello n-ty percentyl wpis w takie rozwiązanie.
+Wartość domyślna wynosi zero. Zaleca się wysyłanie w jednym programie strumień transportowy (SPTS). Jeśli strumień wejściowy zawiera wiele programów, kodera na żywo analizuje tabeli mapy programu (rata) w danych wejściowych, identyfikuje dane wejściowe, które mają nazwę typu strumienia wideo MPEG-2 lub H.264 i rozmieszcza je w kolejności określonej w konto Liczony od zera indeks jest następnie używany do odebrania wpis n-ty percentyl, w tym układ.
 
 ### <a name="audio-stream"></a>Strumień audio
-Opcjonalny. W tym artykule opisano hello wejściowych strumieni audio. Jeśli to pole nie zostanie określony, mają zastosowanie określone wartości domyślne hello. To ustawienie jest dozwolone tylko wtedy, gdy hello wejściowej protokołu przesyłania strumieniowego ustawiono tooRTP (MPEG-TS).
+Opcjonalny. W tym artykule opisano strumienie wejściowe audio. Jeśli to pole nie zostanie określony, mają zastosowanie określone wartości domyślne. To ustawienie jest dozwolone tylko wtedy, gdy ustawiono danych wejściowych, przesyłanie strumieniowe protokołu RTP (MPEG-TS).
 
 #### <a name="index"></a>Indeks
-Zalecane jest toosend w jednym programie strumień transportowy (SPTS). Jeśli hello strumień wejściowy zawiera wiele programów, hello kodera na żywo w ramach hello kanału analizuje hello Program mapy tabeli (rata) w danych wejściowych hello, który identyfikuje hello danych wejściowych, które mają nazwę typu strumienia ADTS AAC MPEG-2 lub AC-3, System A lub System AC 3-B lub prywatnej MPEG-2 PES lub Audio MPEG-1 lub Audio MPEG-2 i rozmieszcza je w kolejności hello w hello konto liczony od zera indeks Hello jest następnie używany toopick hello n-ty percentyl wpis w takie rozwiązanie.
+Zaleca się wysyłanie w jednym programie strumień transportowy (SPTS). Jeśli strumień wejściowy zawiera wiele programów, analizuje tabeli mapy programu (rata) w danych wejściowych kodera na żywo w kanale, który identyfikuje dane wejściowe, które mają nazwę typu strumienia ADTS AAC MPEG-2 lub AC-3, System A AC 3 systemu-B lub prywatnej PES MPEG-2 lub MPEG-1 Audio lub Audio MPEG-2 i rozmieszcza je w kolejności określonej w konto Liczony od zera indeks jest następnie używany do odebrania wpis n-ty percentyl, w tym układ.
 
 #### <a name="language"></a>Język
-Witaj identyfikator języka hello strumieniem audio, zgodnych tooISO 639-2, takich jak ENG. Jeśli nie istnieje domyślny hello jest i (niezdefiniowanej).
+Identyfikator języka strumieniem audio, zgodne z normą ISO 639-2, takich jak ENG. Jeśli nie istnieje, wartość domyślna to i (niezdefiniowanej).
 
-Można się too8 strumieniem audio określone zestawy kanału toohello dane wejściowe hello jest MPEG-2 TS przy użyciu protokołu RTP. Jednak może być brak dwóch wpisów z hello tę samą wartość indeksu.
+Może istnieć maksymalnie 8 zestawy strumieniem audio określona, jeśli dane wejściowe do kanału jest MPEG-2 TS przy użyciu protokołu RTP. Jednak może być brak dwóch wpisów z tą samą wartością indeksu.
 
 ### <a id="preset"></a>Ustawienie systemu
-Określa, że hello ustawienia wstępnego toobe używane przez hello kodera na żywo w ramach tego kanału. Obecnie hello Jedyne dozwolone wartości to **Default720p** (ustawienie domyślne).
+Określa ustawienie wstępne do użycia przez koder na żywo w tym kanale. Obecnie jest jedyną dozwoloną wartość **Default720p** (ustawienie domyślne).
 
 Należy pamiętać, że jeśli potrzebujesz predefiniowanych, należy skontaktować się pod adresem amslived@Microsoft.com.
 
-**Default720p** będzie kodowanie wideo hello do powitania po warstwy 7.
+**Default720p** będzie kodowanie wideo do następujących warstwy 7.
 
 #### <a name="output-video-stream"></a>Wideo strumienia wyjściowego.
 | Szybkość transmisji bitów | Szerokość | Wysokość | MaxFPS | Profil | Nazwa strumienia wyjściowego |
@@ -278,88 +278,88 @@ Należy pamiętać, że jeśli potrzebujesz predefiniowanych, należy skontaktow
 | 200 |340 |192 |30 |Linii bazowej |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Audio strumienia wyjściowego.
-Dźwięk jest zakodowany toostereo AAC-LC na 64 KB, współczynnik 44,1 kHz pobierania próbek.
+Dźwięk jest zakodowany do stereo AAC-LC na 64 KB/s, częstotliwość próbkowania 44,1 kHz.
 
 ## <a name="signaling-advertisements"></a>Reklamy sygnalizowania
-Kanał ma Live Encoding włączone, ma składnika w Twojej potok, który ma przetwarzania obrazu, a można manipulować go. Może sygnalizować, dla typu tooinsert kanału hello i/lub anonsów do hello wychodzących adaptacyjnej szybkości transmisji bitów. Typu są nadal obrazów, w której w niektórych przypadkach można toocover się hello źródła danych na żywo wejściowych (na przykład podczas podziału komercyjnych). Anonsowanie sygnałów, są sygnały zsynchronizowany czas, który osadzić w hello wychodzących strumienia tootell hello odtwarzacza wideo tootake specjalnych działań — takie jak anons tooan tooswitch w czasie odpowiednie hello. Zobacz to [blogu](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) Omówienie mechanizmu sygnalizowania hello SCTE 35 do tego celu. Oto typowy scenariusz, które można zaimplementować w zdarzenia na żywo.
+Kanał ma Live Encoding włączone, ma składnika w Twojej potok, który ma przetwarzania obrazu, a można manipulować go. Może sygnalizować, dla kanału wstawić typu i/lub anonsów do strumienia wychodzącego adaptacyjną szybkością transmisji bitów. Typu są nadal obrazów, które można użyć, aby pokrywał się wejściowych źródła na żywo w niektórych przypadkach (na przykład podczas podziału komercyjnych). Anonsowanie sygnałów, są sygnały zsynchronizowany czas, który osadzanie w strumienia wychodzącego mówić odtwarzacza wideo podjęcie działań specjalne — tak aby przełączyć się do anonsu w odpowiednim czasie. Zobacz to [blogu](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) Omówienie mechanizmu sygnalizowania SCTE 35 do tego celu. Oto typowy scenariusz, które można zaimplementować w zdarzenia na żywo.
 
-1. Ma widzów pobrać obrazu zdarzenie wstępne, przed rozpoczęciem powitalne zdarzeń.
-2. Ma widzów Pobierz obraz po zdarzeń po zakończeniu hello zdarzeń.
-3. Ma widzów Pobierz obraz zdarzenie błędu, jeśli występuje problem podczas zdarzenia hello (na przykład awarii zasilania w hello stadium).
-4. Wyślij AD-BREAK obrazu toohide hello wydarzenia na żywo źródła danych podczas podziału komercyjnych.
+1. Ma widzów pobrania obrazu zdarzenia wstępnego przed rozpoczęciem zdarzenia.
+2. Ma widzów Pobierz obraz po zdarzeń po zakończeniu zdarzenia.
+3. Ma widzów Pobierz obraz zdarzenie błędu, jeśli występuje problem podczas zdarzenia (na przykład awarii zasilania w stadium).
+4. Wysyłanie obrazu AD-BREAK, aby ukryć wydarzenia na żywo, źródła danych podczas podziału komercyjnych.
 
-Oto Hello hello właściwości, które można ustawić podczas reklamy sygnalizowania. 
+Poniżej przedstawiono właściwości, które można ustawić podczas reklamy sygnalizowania. 
 
 ### <a name="duration"></a>Czas trwania
-Hello czas w sekundach hello komercyjnych podziału. Toobe to ma wartość dodatnią zera w kolejności toostart hello komercyjnych podziału. Podczas podziału komercyjnych jest w toku i czas trwania hello jest toozero zestawu z hello CueId pasującego hello w toku komercyjnych podziału anulowania tego podziału, a następnie.
+Czas w sekundach komercyjnych podziału. Musi to być niezerową wartość dodatnią, aby rozpocząć komercyjnych przerwę. Podczas podziału komercyjnych jest w toku, a czas trwania jest ustawione na zero z CueId dopasowania podziału komercyjnych w toku, anulowania tego podziału, a następnie.
 
 ### <a name="cueid"></a>CueId
-Unikatowy identyfikator dla hello komercyjnych końca toobe używane przez akcje odpowiednie tootake aplikacji. Wymaga toobe dodatnią liczbą całkowitą. Można ustawić tej wartości tooany losowe dodatnią liczbą całkowitą lub użyć hello tootrack nadrzędnego systemu sygnalizacji identyfikatorów. Należy niektórych toonormalize liczb całkowitych wszystkie identyfikatory toopositive przed przesłaniem za pośrednictwem hello interfejsu API.
+Unikatowy identyfikator dla końca komercyjnych na użytek aplikacji podjęcie odpowiedniej akcji. Musi być dodatnią liczbą całkowitą. Można ustawić tej wartości losowych dodatnią liczbą całkowitą lub skorzystać z nadrzędnego systemu do śledzenia identyfikatorów wskaźnika. Należy upewnić się do normalizacji identyfikatorów dowolnym dodatnie liczby całkowite przed przesłaniem za pośrednictwem interfejsu API.
 
 ### <a name="show-slate"></a>Pokaż łupków
-Opcjonalny. Sygnały hello kodera na żywo tooswitch toohello [domyślne łupków](media-services-manage-live-encoder-enabled-channels.md#default_slate) obrazu podczas podziału handlowych i Ukryj hello przychodzące źródła wideo. Podczas łupków również wyciszeniu dźwięku. Domyślnie jest **false**. 
+Opcjonalny. Sygnały kodera na żywo, aby przełączyć się do [domyślne łupków](media-services-manage-live-encoder-enabled-channels.md#default_slate) obrazu podczas podziału handlowych i Ukryj przychodzące źródła wideo. Podczas łupków również wyciszeniu dźwięku. Domyślnie jest **false**. 
 
-Obraz powitania używany będzie hello określona za pomocą zasobów domyślne łupków hello właściwość identyfikatora w czasie hello hello tworzenia kanału. łupków Hello będzie rozciągany rozmiar obrazu wyświetlanego hello toofit. 
+Obraz używany będzie określony za pomocą zasobów domyślne łupków właściwość identyfikatora w czasie tworzenia kanału. Łupków będzie rozciągany w taki sposób, aby dopasować rozmiar wyświetlania obrazu. 
 
 ## <a name="insert-slate--images"></a>Wstawianie obrazów łupków
-Witaj kodera na żywo w ramach hello kanału może być sygnałowego tooswitch tooa łupków obrazu. Można też sygnałowego tooend łupków w toku. 
+Aby przełączyć się do obrazu łupków można zasygnalizować kodera na żywo w kanale. Można go również zostać zgłoszony do końca łupków w toku. 
 
-Hello kodera na żywo można skonfigurowanego tooswitch tooa łupków obrazu i Ukryj hello przychodzącego sygnału wideo w niektórych sytuacjach — na przykład podczas podziału ad. Jeśli nie skonfigurowano takie łupków, wejściowy plik wideo nie jest maskowane podczas tego podziału ad.
+Koder na żywo można skonfigurować tak, aby przełączyć się do obrazu łupków i Ukryj przychodzące sygnał wideo w niektórych sytuacjach — na przykład podczas podziału ad. Jeśli nie skonfigurowano takie łupków, wejściowy plik wideo nie jest maskowane podczas tego podziału ad.
 
 ### <a name="duration"></a>Czas trwania
-czas Hello łupków hello w sekundach. Toobe to ma wartość dodatnią zera w kolejności toostart hello łupków. Jeśli istnieje łupków w toku, a czas trwania zero jest określony, że łupków w toku zostanie zakończona.
+Czas trwania łupków, w sekundach. Musi to być niezerową wartość dodatnią, aby uruchomić łupków. Jeśli istnieje łupków w toku, a czas trwania zero jest określony, że łupków w toku zostanie zakończona.
 
 ### <a name="insert-slate-on-ad-marker"></a>Wstaw planszę w miejscu znacznika reklamy
-Gdy zestaw tootrue, to ustawienie konfiguruje hello kodera na żywo tooinsert obrazu łupków podczas podziału ad. Witaj wartość domyślna to true. 
+Gdy ma wartość true, to ustawienie konfiguruje kodera na żywo można wstawić obrazu łupków podczas podziału ad. Wartość domyślna to true. 
 
 ### <a id="default_slate"></a>Identyfikator zasobu domyślny łupków
 
-Opcjonalny. Określa identyfikator zasobu hello zasobów usługi nośnika, który zawiera obraz powitania łupków hello. Domyślna ma wartość null. 
+Opcjonalny. Określa identyfikator zasobu zasobów usługi nośnika, który zawiera obraz łupków. Domyślna ma wartość null. 
 
 
 >[!NOTE] 
->Przed utworzeniem hello kanału, hello łupków obrazu o hello następujące ograniczenia należy przesłać jako zasób dedykowanych (żadne inne pliki powinna być w tym zasobów). Ten obraz jest używana tylko podczas hello kodera na żywo jest wstawianie łupków powodu podziału ad tooan lub została jawnie sygnalizowane tooinsert łupków. Hello kodera na żywo można także przejść do trybu łupków podczas niektórych warunków błędów — na przykład jeśli sygnału wejściowego hello zostaną utracone. Nie ma obecnie nie toouse opcja niestandardowego obrazu po kodera na żywo hello przejściu takich "sygnału wejściowego utraty" stan. Dla tej funkcji, można głosować [tutaj](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+>Przed utworzeniem kanału, należy przesłać łupków obrazu z następującymi ograniczeniami jako zasób dedykowanych (żadne inne pliki powinna być w tym zasobów). Ten obraz jest używany tylko wtedy, gdy kodera na żywo jest wstawianie łupków z powodu przerwania ad lub został jawnie zasygnalizują, aby wstawić łupków. Koder na żywo można także przejść do trybu łupków podczas niektórych warunków błędów — na przykład jeśli sygnału wejściowego zostaną utracone. Nie ma żadnych opcji obraz niestandardowy koder na żywo przechodzi takich 'utraty sygnału wejściowego' stanu. Dla tej funkcji, można głosować [tutaj](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * Co najwyżej 1920 x 1080 pikseli rozdzielczość.
 * Co najwyżej 3 (MB) rozmiar.
-* Witaj, nazwa pliku musi mieć rozszerzenie *.jpg.
-* Obraz powitania należy przekazać do elementu zawartości w formie powitalne AssetFile tylko w tym zasobów i AssetFile ten powinien być oznaczony jako plik podstawowy hello. Witaj zasobów nie może być szyfrowany w magazynie.
+* Nazwa pliku musi mieć rozszerzenie *.jpg.
+* Obraz, należy przekazać do elementu zawartości jako AssetFile tylko w tym zasobów i AssetFile ten powinien być oznaczony jako plik podstawowy. Zasób nie może być szyfrowany w magazynie.
 
-Jeśli hello **domyślne łupków identyfikator zasobu** nie zostanie określona, i **Wstaw łupków na znacznika ad** ustawiono zbyt**true**, domyślnego obrazu usługi Azure Media Services będą używane toohide hello danych wejściowych strumienia wideo. Podczas łupków również wyciszeniu dźwięku. 
+Jeśli **domyślne łupków identyfikator zasobu** nie zostanie określona, i **Wstaw łupków na znacznika ad** ma ustawioną wartość **true**, domyślnego obrazu usługi Azure Media Services będą używane do ukrycia wejściowy plik wideo strumień. Podczas łupków również wyciszeniu dźwięku. 
 
 ## <a name="channels-programs"></a>Programy kanału
-Kanał jest skojarzony z programami, które pozwalają toocontrol hello publikowania i przechowywania segmentów strumienia na żywo. Kanały zarządzają programami. Witaj relacja kanału i programu jest bardzo podobne nośnika tootraditional, gdzie kanał ma stały strumień zawartości, a program zdarzeń zakresie toosome upłynął, w tym kanale.
+Kanał jest skojarzony z programami, które umożliwiają kontrolowanie publikowania i przechowywania segmentów strumienia na żywo. Kanały zarządzają programami. Relacja kanału i programu jest bardzo podobny do tradycyjnych multimediach, gdzie kanał ma stały strumień zawartości, a program obejmuje niektóre zdarzenia czasowe na tym kanale.
 
-Można określić hello liczbę godzin zawartości hello rejestrowane tooretain hello programu przez ustawienie hello **okno archiwum** długości. Tę wartość można ustawić z co najmniej 5 minut tooa maksymalnie 25 godzin. Długość okna archiwum określa również dostępny hello maksymalną ilość czasu, klienci mogą zwrócić wstecz od bieżącego położenia na żywo hello. Programy mogą być transmitowane hello określoną ilość czasu, ale zawartość, która wykracza poza długość okna hello jest stale odrzucana. Ta wartość tej właściwości określa również, jak długo klient hello mogą być manifesty.
+Można określić liczbę godzin, aby zachować zarejestrowaną zawartość na potrzeby programu przez ustawienie długości **Okna archiwum**. Ta wartość musi mieścić się w zakresie od 5 minut do maksymalnie 25 godzin. Długość okna archiwum określa również dostępny dla klientów zakres cofania odtwarzania pliku od bieżącego momentu transmisji na żywo. Programy mogą być transmitowane w określonym czasie, ale zawartość, która wykracza poza długość okna, jest stale odrzucana. Wartość tej właściwości określa również, jak długie mogą być manifesty na kliencie.
 
-Każdy program jest skojarzony z zasobem służący do przechowywania zawartości hello strumieniowo. Zasób jest kontenera obiektów blob bloku tooa mapowane na koncie magazynu Azure hello i pliki hello w hello zasobów są przechowywane jako obiekty BLOB w tym kontenerze. program hello toopublish tak klientów można wyświetlić strumienia hello należy utworzyć Lokalizator OnDemand dla hello skojarzonych zasobów. Lokalizator umożliwi toobuild adresu URL przesyłania strumieniowego, która może zapewnić tooyour klientów.
+Każdy program jest skojarzony z zasobem, który zapisuje zawartość przesyłana strumieniowo. Zasób jest mapowana do bloku kontenera obiektów blob na koncie magazynu Azure i pliki w elementach zawartości są przechowywane jako obiekty BLOB w tym kontenerze. Aby opublikować program, więc klienci mogą wyświetlić strumienia należy utworzyć Lokalizator OnDemand dla skojarzonego elementu zawartości. Lokalizator umożliwia utworzenie adresu URL przesyłania strumieniowego, który można udostępnić klientom.
 
-Kanał obsługuje toothree jednocześnie uruchomione programy, dzięki czemu można tworzyć wiele archiwów hello samego strumienia przychodzącego. Dzięki temu toopublish i archiwum różnych części wydarzenia zgodnie z potrzebami. Na przykład konkretnym wymaganiom biznesowym jest tooarchive sześciu godzin programu, ale toobroadcast ostatnich 10 minut. tooaccomplish, należy toocreate dwa jednocześnie uruchomione programy. Jeden program ustawiono tooarchive sześciu godzin zdarzenia hello, ale hello program nie został opublikowany. Hello inny program jest zestaw tooarchive przez 10 minut i ten program zostanie opublikowany.
+Kanał obsługuje maksymalnie trzy jednocześnie uruchomione programy, dzięki czemu można tworzyć wiele archiwów tego samego strumienia przychodzącego. Umożliwia to w razie potrzeby publikowanie i archiwizację różnych części wydarzenia. Na przykład zgodnie z wymaganiami biznesowymi potrzebna jest archiwizacja sześciu godzin programu, ale do emisji przeznaczonych jest tylko ostatnich 10 minut. W tym celu należy utworzyć dwa jednocześnie uruchomione programy. Jeden z programów jest skonfigurowany na potrzeby archiwizacji sześciu godzin zdarzenia, ale ten program nie jest publikowany. Drugi z programów jest skonfigurowany w celu archiwizacji 10 minut wydarzenia i ten program zostanie opublikowany.
 
-Nie należy używać ponownie istniejących programów dla nowych zdarzeń. Zamiast tego należy utworzyć i uruchomić nowy program dla każdego zdarzenia, zgodnie z opisem w sekcji programowania aplikacji przesyłania strumieniowego na żywo hello.
+Nie należy używać ponownie istniejących programów dla nowych zdarzeń. Zamiast tego należy utworzyć i uruchomić nowy program dla każdego zdarzenia, zgodnie z opisem w sekcji programowania aplikacji przesyłania strumieniowego na żywo.
 
-Uruchom hello program, gdy są toostart gotowe, przesyłania strumieniowego i archiwizacji. Zatrzymaj hello program zawsze, gdy chcesz toostop przesyłanie strumieniowe i archiwizowanie wydarzenia hello. 
+Uruchom program, gdy wszystko będzie gotowe do rozpoczęcia przesyłania strumieniowego i archiwizacji. Zatrzymaj program w dowolnym momencie, w którym chcesz zatrzymać przesyłanie strumieniowe i archiwizowanie wydarzenia. 
 
-toodelete zarchiwizowane zawartość, Zatrzymaj i Usuń hello program, a następnie usuń hello skojarzonego elementu zawartości. Nie można usunąć elementu zawartości, jeśli jest on używany przez program; Najpierw należy usunąć Hello program. 
+Aby usunąć zarchiwizowaną zawartość, zatrzymaj i usuń program, a następnie usuń skojarzony element zawartości. Nie można usunąć elementu zawartości, jeśli jest on używany przez program. Najpierw należy usunąć program. 
 
-Nawet po zatrzymaniu i usunięciu hello program, hello użytkownicy będą mogli toostream zarchiwizowaną zawartość wideo na żądanie, dla tak długo, jak hello zasobów nie zostaną usunięte.
+Nawet po zatrzymaniu i usunięciu programu użytkownicy będą mogli przesyłać strumieniowo zarchiwizowaną zawartość wideo na żądanie tak długo, jak zasoby nie zostaną usunięte.
 
-Jeśli chcesz zarchiwizować hello tooretain zawartości, ale nie jest dostępny do przesyłania strumieniowego, Usuń hello przesyłania strumieniowego lokalizatora.
+Jeśli chcesz zachować zarchiwizowaną zawartość, ale bez udostępniania jej do przesyłania strumieniowego, usuń lokalizator przesyłania strumieniowego.
 
 ## <a name="getting-a-thumbnail-preview-of-a-live-feed"></a>Pobieranie miniatury podglądu źródła na żywo
-Jeśli kodowanie na żywo jest włączona, teraz można uzyskać podgląd źródła danych na żywo hello jako osiągnie hello kanału. Może to być toocheck przydatnym narzędziem, czy Twoje źródło na żywo faktycznie wkrótce osiągnie hello kanału. 
+Jeśli kodowanie na żywo jest włączona, teraz można uzyskać podgląd źródła danych na żywo, jak osiągnie kanału. Może to być przydatnym narzędziem do sprawdzenia, czy Twoje źródło na żywo jest rzeczywiście osiągnięcia kanału. 
 
-## <a id="states"></a>Stany kanału oraz sposobu stanów mapowania toohello tryb rozliczeń
-bieżący stan Hello kanału. Możliwe wartości obejmują:
+## <a id="states"></a>Stany kanału oraz sposobu mapowania stanów trybu rozliczeń
+Bieżący stan kanału. Możliwe wartości obejmują:
 
-* **Zatrzymano**. Jest to hello początkowy stan hello kanału po jego utworzeniu. W tym stanie można zaktualizować właściwości kanału hello, ale przesyłania strumieniowego nie jest dozwolone.
-* **Uruchamianie**. Kanał Hello jest uruchamiana. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa. Jeśli wystąpi błąd, hello kanału zwraca toohello zatrzymana.
-* **Uruchomiona**. Witaj kanał jest w stanie przetwarzania strumieni na żywo.
-* **Zatrzymywanie**. Kanał Hello jest zatrzymywana. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
-* **Usuwanie**. Kanał Hello jest usuwany. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
+* **Zatrzymano**. To jest wstępny stan kanału po jego utworzeniu. W tym stanie właściwości kanału mogą być aktualizowane, ale transmisja strumieniowa jest niedozwolona.
+* **Uruchamianie**. Kanał jest uruchamiany. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa. Jeśli wystąpi błąd, kanał wróci do stanu Zatrzymany.
+* **Uruchomiona**. Kanał może przetwarzać transmisje strumieniowe na żywo.
+* **Zatrzymywanie**. Kanał jest zatrzymywany. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
+* **Usuwanie**. Kanał jest usuwany. W tym stanie nie są dozwolone ani aktualizacje, ani transmisja strumieniowa.
 
-Witaj poniższej tabeli przedstawiono sposób kanału stany trybu rozliczeń toohello mapy. 
+W tabeli poniżej pokazano, jak stany kanału przekładają się na naliczanie opłat. 
 
 | Stan kanału | Wskaźniki w interfejsie użytkownika portalu | Naliczanie opłat? |
 | --- | --- | --- |
@@ -369,29 +369,29 @@ Witaj poniższej tabeli przedstawiono sposób kanału stany trybu rozliczeń too
 | Zatrzymane |Zatrzymane |Nie |
 
 > [!NOTE]
-> Obecnie hello kanału start średnia jest około 2 minuty, ale niekiedy może potrwać too20 + minut. Resetowanie kanału może potrwać too5 minut.
+> Obecnie średnią start kanał jest około 2 minuty, ale czasami może potrwać maksymalnie 20 + minut. Resetowanie kanału może potrwać do 5 minut.
 > 
 > 
 
 ## <a id="Considerations"></a>Zagadnienia dotyczące
-* Gdy kanałem **standardowe** typ kodowania napotyka utracie źródła danych wejściowych źródło/udział, jego kompensuje go przez zamianę audio/wideo źródła hello łupków błąd i wyciszenia. Hello kanału będzie tooemit łupków, dopóki nie wznawia strumieniowego źródła danych wejściowych hello swoim ważonym udziale. Zaleca się, że kanału na żywo nie należy pozostawiać w stanie przez czas dłuższy niż 2 godziny. Zachowanie hello hello kanału po ponownym nawiązaniu połączenia wejściowy nie jest gwarantowana poza ten punkt, nie jest jego zachowanie w odpowiedzi tooa polecenie resetowania. Zostanie toostop hello kanału, usuń ją i Utwórz nową.
-* Nie można zmienić hello protokołu wejściowego, gdy hello kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
-* Za każdym razem, gdy skonfigurujesz hello kodera na żywo, wywołaj hello **zresetować** metody w kanale hello. Zanim je zresetujesz kanału hello masz toostop hello program. Po zresetowaniu hello kanału, uruchom ponownie hello program.
-* Kanał można zatrzymać tylko wtedy, gdy jest w stanie uruchomiona hello i wszystkie programy na kanale hello zostały zatrzymane.
-* Domyślnie można dodawać tylko 5 tooyour kanały konta usługi Media Services. Jest to przydziału elastycznego na wszystkich nowych kont. Aby uzyskać więcej informacji, zobacz [przydziały i ograniczenia](media-services-quotas-and-limitations.md).
-* Nie można zmienić hello protokołu wejściowego, gdy hello kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
-* Rozliczenie jest przeprowadzane tylko gdy kanał hello **systemem** stanu. Aby uzyskać więcej informacji, zobacz zbyt[to](media-services-manage-live-encoder-enabled-channels.md#states) sekcji.
-* Obecnie hello maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się pod adresem amslived@Microsoft.com, jeśli potrzebujesz toorun kanał na dłuższe okresy.
-* Upewnij się, że toohave hello punktu końcowego przesyłania strumieniowego, z którego ma zawartość toostream hello **systemem** stanu.
-* Gdy wprowadzanie wielu wersji językowych i wykonywania, kodowanie na żywo przy użyciu platformy Azure, tylko RTP jest obsługiwane dla wielu języków w danych wejściowych. Można zdefiniować się too8 strumieni audio przy użyciu usług terminalowych MPEG-2 przy użyciu protokołu RTP. Wprowadzania wielu ścieżek audio RTMP lub Smooth streaming nie jest obecnie obsługiwane. Twoją kodowanie na żywo z [live lokalnymi koduje](media-services-live-streaming-with-onprem-encoders.md), jest nie takiego ograniczenia, ponieważ niezależnie od wysłaniu tooAMS przechodzi przez kanał bez dalszego przetwarzania.
-* Witaj kodowanie predefiniowanych używa hello pojęcie "maksymalną szybkość" 30 klatek na sekundę. Jeśli więc hello wprowadzania 60 klatek na sekundę / 59.97i, klatek hello są porzucony/dezaktywuje-interlaced too30/29,97 kl. / s. Jeśli dane wejściowe hello jest 50 klatek na sekundę/50i, klatek hello są klatek na sekundę porzuconych/dezaktywuje-interlaced too25. Jeśli dane wejściowe hello jest 25 kl. / s, dane wyjściowe pozostaje w 25 kl. / s.
-* Nie zapomnij tooSTOP YOUR kanały po zakończeniu. Jeśli nie, będą nadal rozliczeń.
+* Gdy kanałem **standardowe** typ kodowania napotyka utracie źródła danych wejściowych źródło/udział, jego kompensuje go przez zamianę źródła audio/wideo łupków błąd i wyciszenia. Kanał będą w dalszym ciągu Emituj łupków, dopóki nie wznawia strumieniowego źródła danych wejściowych/udziału. Zaleca się, że kanału na żywo nie należy pozostawiać w stanie przez czas dłuższy niż 2 godziny. Zachowania kanału po ponownym nawiązaniu połączenia wejściowy nie jest gwarantowana poza ten punkt, nie jest jego zachowanie w odpowiedzi na polecenie resetowania. Musisz zatrzymać kanału, należy ją usunąć i utworzyć nowy.
+* Nie można zmienić protokołu wejściowego, gdy kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
+* Za każdym razem, gdy skonfigurujesz kodera na żywo, wywołaj **zresetować** metody w kanale. Zanim je zresetujesz kanału, należy zatrzymać program. Po zresetowaniu kanału, ponownie uruchom program.
+* Kanał można zatrzymać tylko wtedy, gdy jest on w stanie uruchomiona, a wszystkie programy na kanale zostały zatrzymane.
+* Domyślnie 5 kanałów można dodawać tylko do konta usługi Media Services. Jest to przydziału elastycznego na wszystkich nowych kont. Aby uzyskać więcej informacji, zobacz [przydziały i ograniczenia](media-services-quotas-and-limitations.md).
+* Nie można zmienić protokołu wejściowego, gdy kanał lub skojarzone z nim programy są uruchomione. Jeśli potrzebujesz różnych protokołów, utwórz osobny kanał dla każdego protokołu wejściowego.
+* Rozliczenie jest przeprowadzane tylko w przypadku kanału **systemem** stanu. Aby uzyskać więcej informacji, zapoznaj się [to](media-services-manage-live-encoder-enabled-channels.md#states) sekcji.
+* Obecnie maksymalny zalecany czas trwania wydarzenia na żywo wynosi 8 godzin. Skontaktuj się z nami pod adresem amslived@microsoft.com, jeśli chcesz uruchomić kanał na dłużej.
+* Upewnij się, że ma punktu końcowego przesyłania strumieniowego, z którego chcesz zawartości strumienia w **systemem** stanu.
+* Gdy wprowadzanie wielu wersji językowych i wykonywania, kodowanie na żywo przy użyciu platformy Azure, tylko RTP jest obsługiwane dla wielu języków w danych wejściowych. Można określić maksymalnie 8 strumieni audio przy użyciu usług terminalowych MPEG-2 przy użyciu protokołu RTP. Wprowadzania wielu ścieżek audio RTMP lub Smooth streaming nie jest obecnie obsługiwane. Twoją kodowanie na żywo z [live lokalnymi koduje](media-services-live-streaming-with-onprem-encoders.md), jest nie takiego ograniczenia, ponieważ niezależnie od są wysyłane do usługi AMS przechodzi przez kanał bez dalszego przetwarzania.
+* Ustawienie wstępne kodowania używa pojęcie "maksymalną szybkość" 30 klatek na sekundę. Dlatego w przypadku danych wejściowych jest 60 klatek na sekundę / 59.97i, ramki wejściowe są porzucony/dezaktywuje-interlaced do 30/29,97 kl. / s. Jeśli dane wejściowe są 50 klatek na sekundę/50i, ramki wejściowe są porzucony/dezaktywuje-interlaced do 25 kl. / s. Jeśli dane wejściowe są 25 kl. / s, dane wyjściowe pozostaje w 25 kl. / s.
+* Nie zapomnij o zatrzymanie YOUR kanały po zakończeniu. Jeśli nie, będą nadal rozliczeń.
 
 ## <a name="known-issues"></a>Znane problemy
-* Udoskonalono czas uruchamiania kanału średnia tooan 2 minuty, ale w czasie zwiększone zapotrzebowanie, nadal może potrwać too20 + minut.
-* Obsługa RTP jest stacji nadawanych kierunku nadawców professional. Zapoznaj się z tematem hello uwagi o RTP w [to](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blogu.
-* Obrazy łupków powinna być zgodna toorestrictions opisane [tutaj](media-services-manage-live-encoder-enabled-channels.md#default_slate). Przy próbie utworzenia kanału z powodu błędu domyślna łupków, która jest większa niż 1920 x 1080 pikseli, hello żądanie zostanie wychodzących.
-* Ponownie... nie zapomnij tooSTOP YOUR kanały, po zakończeniu przesyłania strumieniowego. Jeśli nie, będą nadal rozliczeń.
+* Czas uruchamiania kanału została zwiększona do średnio 2 minuty, ale w czasie z rosnącego zapotrzebowania trwało maksymalnie 20 + minut.
+* Obsługa RTP jest stacji nadawanych kierunku nadawców professional. Przejrzyj uwagi o RTP w [to](https://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) blogu.
+* Obrazy łupków powinna być zgodna z opisem ograniczenia [tutaj](media-services-manage-live-encoder-enabled-channels.md#default_slate). Jeśli nastąpi próba utworzenia kanału z łupków domyślny, który jest większy niż 1920 x 1080 pikseli, żądanie zostanie ostatecznie błąd.
+* Ponownie... nie zapomnij kanały YOUR STOP, po zakończeniu przesyłania strumieniowego. Jeśli nie, będą nadal rozliczeń.
 
 ## <a name="next-step"></a>Następny krok
 Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
@@ -404,9 +404,9 @@ Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
 ## <a name="related-topics"></a>Powiązane tematy
 [Dostarczanie wydarzeń na żywo przesyłania strumieniowego w usłudze Azure Media Services](media-services-overview.md)
 
-[Tworzenia kanałów wykonujących kodowanie na żywo z o wystąpieniu szybkości transmisji bitów tooadaptive szybkości transmisji bitów z portalu](media-services-portal-creating-live-encoder-enabled-channel.md)
+[Tworzenia kanałów wykonujących kodowanie na żywo z wystąpieniu szybkości transmisji bitów do strumienia o adaptacyjnej szybkości transmisji bitów z portalu](media-services-portal-creating-live-encoder-enabled-channel.md)
 
-[Tworzenia kanałów wykonujących kodowanie na żywo z o wystąpieniu szybkości transmisji bitów tooadaptive szybkości transmisji bitów przy użyciu zestawu .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+[Tworzenia kanałów wykonujących kodowanie na żywo z wystąpieniu szybkości transmisji bitów do strumienia o adaptacyjnej szybkości transmisji bitów przy użyciu zestawu .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Zarządzanie kanałami z interfejsu API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
  

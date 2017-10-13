@@ -5,6 +5,7 @@
 ## Samouczek dotyczący elementów runbook
 ### [Tworzenie graficznego elementu runbook](automation-first-runbook-graphical.md)
 ### [Tworzenie elementu Runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
+### [Mój pierwszy element Runbook (Python)](automation-first-runbook-textual-python2.md)
 ### [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
 # Instrukcje
 ## Uwierzytelnianie i zabezpieczenia
@@ -34,17 +35,21 @@
 ### [Zmienianie ustawień elementu Runbook](automation-runbook-settings.md)
 ### [Zarządzanie danymi usługi Azure Automation](automation-managing-data.md)
 ### [Wywoływanie elementu Runbook usługi Azure Automation z alertu usługi Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
-### [Przekaż element runbook usługi Automatyzacja Azure tooan obiekt JSON](automation-pass-json-string.md)
+### [Przekazywanie obiektu JSON do elementu Runbook usługi Azure Automation](automation-pass-json-string.md)
 ## Hybrydowy proces roboczy elementu Runbook
 ### [Wdrażanie hybrydowego procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md)
+### [Hybrydowy proces roboczy elementu Runbook usługi Azure Automation (Windows)](automation-windows-hrw-install.md)
+### [Hybrydowy proces roboczy elementu Runbook usługi Azure Automation (Linux)](automation-linux-hrw-install.md)
 ### [Uruchamianie elementów Runbook w ramach procesu roboczego](automation-hrw-run-runbooks.md)
+### [Usuwanie hybrydowych procesów roboczych elementu Runbook usługi Azure Automation](automation-remove-hrw.md)
 ## Wdrażanie zarządzania konfiguracją (DSC)
 ### [Konfiguracja żądanego stanu (DSC) — omówienie](automation-dsc-overview.md)
 ### [Rozpoczęcie pracy](automation-dsc-getting-started.md)
+### [Konfigurowanie wymaganego stanu serwerów i zarządzanie odejściem od tego stanu za pomocą usługi Azure Automation](tutorial-configure-servers-desired-state.md)
 ### [Dołączanie maszyn w celu zarządzania](automation-dsc-onboarding.md)
 ### [Kompilowanie konfiguracji DSC](automation-dsc-compile.md)
 ### [Ciągłe wdrażanie za pomocą narzędzia Chocolatey](automation-dsc-cd-chocolatey.md)
-### [Przekazuj Konfiguracja DSC automatyzacji Azure raportowania tooOMS danych analizy dzienników](automation-dsc-diagnostics.md)
+### [Przekazywanie danych raportów usługi Azure Automation DSC do usługi OMS Log Analytics](automation-dsc-diagnostics.md)
 ## Zarządzanie elementami zawartości
 ### [Certyfikaty](automation-certificates.md)
 ### [Połączenia](automation-connections.md)
@@ -64,11 +69,15 @@
 ### [Wywoływanie elementu Runbook usługi Azure Automation z alertu usługi Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook (Wdrażanie szablonu usługi Azure Resource Manager w elemencie runbook programu PowerShell usługi Azure Automation)](automation-deploy-template-runbook.md)
 ## Rozwiązania
-### [Śledzenie zmian](../log-analytics/log-analytics-change-tracking.md)
 ### [Zarządzanie aktualizacjami](../operations-management-suite/oms-solution-update-management.md)
+#### [Zarządzanie aktualizacjami dla wielu maszyn wirtualnych](manage-update-multi.md)
+#### [Integracja programu SCCM z programem OMS Update Management](oms-solution-updatemgmt-sccmintegration.md)
+### [Śledzenie zmian](../log-analytics/log-analytics-change-tracking.md)
+### [Śledzenie zmian w maszynach wirtualnych](automation-vm-change-tracking.md)
+### [Zarządzanie maszyną wirtualną za pomocą kolekcji spisu](automation-vm-inventory.md)
 ### [Uruchamianie/zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
 ## Monitorowanie
-### [Zadanie danych tooLog Analytics do przodu usługi Automatyzacja Azure](automation-manage-send-joblogs-log-analytics.md)
+### [Przekazywanie danych zadania usługi Azure Automation do usługi Log Analytics](automation-manage-send-joblogs-log-analytics.md)
 ### [Odłączanie konta usługi Azure Automation od usługi Log Analytics](automation-unlink-from-log-analytics.md)
 ## Migracja
 ### [Migracja z programu Orchestrator](automation-orchestrator-migration.md)
@@ -77,8 +86,8 @@
 ### [Rozwiązywanie typowych problemów](automation-troubleshooting-automation-errors.md)
 ### [Rozwiązywanie problemów z hybrydowym procesem roboczym elementu Runbook](automation-troubleshooting-hybrid-runbook-worker.md)
 # Dokumentacja
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (klasyczny)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (wersja klasyczna)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (klasyczny)](https://msdn.microsoft.com/library/azure/mt163781)

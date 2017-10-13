@@ -1,6 +1,6 @@
 ---
-title: "aaaHelp bezpiecznej komunikacji dla usług w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
-description: "Omówienie jak toohelp bezpiecznej komunikacji niezawodnej usług które są uruchomione w klastrze usługi sieć szkieletowa usług Azure."
+title: "Pomoc bezpiecznej komunikacji dla usług w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
+description: "Przegląd sposobów zapewnienia bezpiecznej komunikacji dla niezawodnych usług, które są uruchomione w klastrze usługi sieć szkieletowa usług Azure."
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 15201eb503322b17db329b319f1f42860b0f0c6b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 53119244f8f09c0c6c43f43761af1cc074f8d0af
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Pomoc w bezpiecznej komunikacji dla usług w sieci szkieletowej usług Azure
 > [!div class="op_single_selector"]
@@ -27,12 +27,12 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Zabezpieczeń jest jednym z najważniejszych aspektów komunikacji hello. Struktura aplikacji Hello niezawodne usługi zapewnia kilka stosy wbudowane komunikacji i narzędzia, których można używać tooimprove zabezpieczeń. Ten artykuł zawiera informacje o jak tooimprove zabezpieczeń podczas korzystania z usług zdalnych i hello stosu komunikacji usługi Windows Communication Foundation (WCF).
+Zabezpieczeń jest jednym z najważniejszych aspektów komunikacji. Struktura aplikacji niezawodne usługi zapewnia kilka stosy wbudowane komunikacji i narzędzi, których można użyć w celu poprawy bezpieczeństwa. Ten artykuł zawiera informacje o sposób poprawiania zabezpieczeń podczas korzystania z usług zdalnych i stosu komunikacji usługi Windows Communication Foundation (WCF).
 
 ## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Zabezpieczanie usługi podczas korzystania z komunikacji zdalnej usługi
-Używamy istniejącej [przykład](service-fabric-reliable-services-communication-remoting.md) objaśniający sposób tooset się komunikację zdalną dla niezawodne usługi. toohelp Zabezpieczanie usługi podczas korzystania z usługi komunikacji zdalnej, wykonaj następujące kroki:
+Używamy istniejącej [przykład](service-fabric-reliable-services-communication-remoting.md) który wyjaśnia, jak skonfigurować komunikację zdalną dla niezawodne usługi. Aby ułatwić zabezpieczanie usługi podczas korzystania z usługi komunikacji zdalnej, wykonaj następujące kroki:
 
-1. Tworzenie interfejsu `IHelloWorldStateful`, który definiuje metody hello, które będą dostępne dla zdalnego wywołania procedury w usłudze. Usługa będzie używać `FabricTransportServiceRemotingListener`, która jest zadeklarowana w hello `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` przestrzeni nazw. Jest to `ICommunicationListener` implementację, która zapewnia możliwości komunikacji zdalnej.
+1. Tworzenie interfejsu `IHelloWorldStateful`, który definiuje metody, które będą dostępne dla zdalnego wywołania procedury w usłudze. Usługa będzie używać `FabricTransportServiceRemotingListener`, która jest zadeklarowana w `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` przestrzeni nazw. Jest to `ICommunicationListener` implementację, która zapewnia możliwości komunikacji zdalnej.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -57,9 +57,9 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
     ```
 2. Dodaj ustawienia odbiornika i poświadczeń zabezpieczeń.
 
-    Upewnij się, które mają toohelp toouse bezpiecznej komunikacji usługi jest zainstalowany we wszystkich węzłach klastra hello hello certyfikatu hello. Istnieją dwa sposoby, które można udostępniać ustawienia odbiornika i poświadczenia zabezpieczeń:
+    Upewnij się, że certyfikat, który ma być używany do zabezpieczania komunikacji usługi jest zainstalowany na wszystkich węzłach w klastrze. Istnieją dwa sposoby, które można udostępniać ustawienia odbiornika i poświadczenia zabezpieczeń:
 
-   1. Podaj je bezpośrednio w kodzie usługi hello:
+   1. Podaj je bezpośrednio w kodzie usługi:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -94,7 +94,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
        ```
    2. Podaj je za pomocą [pakietu konfiguracji](service-fabric-application-model.md):
 
-       Dodaj `TransportSettings` sekcji w pliku settings.xml hello.
+       Dodaj `TransportSettings` sekcji w pliku settings.xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -110,7 +110,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
        </Section>
        ```
 
-       W takim przypadku hello `CreateServiceReplicaListeners` metoda będzie wyglądać następująco:
+       W takim przypadku `CreateServiceReplicaListeners` metoda będzie wyglądać następująco:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -124,7 +124,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
        }
        ```
 
-        Jeśli dodasz `TransportSettings` sekcji w pliku settings.xml hello `FabricTransportRemotingListenerSettings ` załaduje wszystkie ustawienia hello w tej sekcji ma domyślnie.
+        Jeśli dodasz `TransportSettings` sekcji w pliku settings.xml `FabricTransportRemotingListenerSettings ` załaduje wszystkie ustawienia w tej sekcji ma domyślnie.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -132,7 +132,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
             ...
         </Section>
         ```
-        W takim przypadku hello `CreateServiceReplicaListeners` metoda będzie wyglądać następująco:
+        W takim przypadku `CreateServiceReplicaListeners` metoda będzie wyglądać następująco:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -145,7 +145,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
             };
         }
         ```
-3. Podczas wywoływania metody zabezpieczonych usługi przy użyciu hello stosu usług zdalnych, zamiast hello `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` toocreate klasy serwera proxy usługi, użyj `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Przekazywanie `FabricTransportRemotingSettings`, który zawiera `SecurityCredentials`.
+3. Gdy wywoływać metod w usług zabezpieczonych przy użyciu stosu usług zdalnych, zamiast `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` klasę, aby utworzyć serwer proxy usługi, użyj `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Przekazywanie `FabricTransportRemotingSettings`, który zawiera `SecurityCredentials`.
 
     ```csharp
 
@@ -175,7 +175,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
 
     ```
 
-    Jeśli kod klienta hello jest uruchomiony jako część usługi, można załadować `FabricTransportRemotingSettings` z pliku settings.xml hello. Sekcja HelloWorldClientTransportSettings, która jest podobny kod usługi toohello, należy utworzyć, jak pokazano wcześniej. Wprowadź hello następującego kodu klienta toohello zmiany:
+    Jeśli kod klienta działa w ramach usługi, można załadować `FabricTransportRemotingSettings` z pliku settings.xml. Utwórz sekcję HelloWorldClientTransportSettings, która jest podobna do kodu usługi, jak pokazano wcześniej. Wprowadź następujące zmiany w kodzie klienta:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -188,11 +188,11 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
 
     ```
 
-    Powitania klienta nie jest uruchomiony jako część usługi, należy utworzyć plik client_name.settings.xml w hello tej samej lokalizacji, gdzie jest hello client_name.exe. Następnie można utworzyć sekcji TransportSettings w tym pliku.
+    Jeśli klient nie jest uruchomiony jako część usługi, można utworzyć plik client_name.settings.xml w tej samej lokalizacji, gdzie jest client_name.exe. Następnie można utworzyć sekcji TransportSettings w tym pliku.
 
-    Podobne toohello usługi, jeśli dodasz `TransportSettings` części settings.xml/client_name.settings.xml klienta `FabricTransportRemotingSettings` ładuje wszystkie ustawienia hello z tej sekcji domyślnie.
+    Podobnie jak usługa, jeśli dodasz `TransportSettings` części settings.xml/client_name.settings.xml klienta `FabricTransportRemotingSettings` ładuje wszystkie ustawienia w tej sekcji ma domyślnie.
 
-    W takim przypadku hello wcześniej kod jest jeszcze bardziej uproszczone:  
+    W takim przypadku jeszcze bardziej jest uproszczone wcześniejszych kodu:  
 
     ```csharp
 
@@ -204,9 +204,9 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
     ```
 
 ## <a name="help-secure-a-service-when-youre-using-a-wcf-based-communication-stack"></a>Zabezpieczanie usługi podczas korzystania z stosu komunikacji usługi WCF
-Używamy istniejącej [przykład](service-fabric-reliable-services-communication-wcf.md) objaśniający sposób tooset się komunikacji WCF stosu niezawodnych usług. toohelp Zabezpieczanie usługi, gdy używasz stosu komunikacji usługi WCF, wykonaj następujące kroki:
+Używamy istniejącej [przykład](service-fabric-reliable-services-communication-wcf.md) który wyjaśnia, jak skonfigurować stosu WCF komunikacji niezawodnej usług. Aby ułatwić zabezpieczanie usługi podczas korzystania z stosu komunikacji usługi WCF, wykonaj następujące kroki:
 
-1. Dla usługi hello należy toohelp bezpiecznego hello WCF komunikacji odbiornika (`WcfCommunicationListener`) utworzony. toodo, zmodyfikuj hello `CreateServiceReplicaListeners` metody.
+1. Dla usługi, należy zabezpieczyć odbiornik komunikacji WCF (`WcfCommunicationListener`) utworzony. Aby to zrobić, należy zmodyfikować `CreateServiceReplicaListeners` metody.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -227,7 +227,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
             listenerBinding: GetNetTcpBinding(),
             endpointResourceName:"WcfServiceEndpoint");
 
-        // Add certificate details in hello ServiceHost credentials.
+        // Add certificate details in the ServiceHost credentials.
         wcfCommunicationListener.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
             StoreLocation.LocalMachine,
             StoreName.My,
@@ -243,7 +243,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
         return b;
     }
     ```
-2. W kliencie hello hello `WcfCommunicationClient` klasy, który został utworzony w hello poprzedniej [przykład](service-fabric-reliable-services-communication-wcf.md) pozostaje niezmieniona. Jednak toooverride hello `CreateClientAsync` metody `WcfCommunicationClientFactory`:
+2. W kliencie `WcfCommunicationClient` klasy, który został utworzony w poprzedniej [przykład](service-fabric-reliable-services-communication-wcf.md) pozostaje niezmieniona. Jednak należy zastąpić `CreateClientAsync` metody `WcfCommunicationClientFactory`:
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -277,8 +277,8 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
             {
                 channelFactory = new ChannelFactory<TServiceContract>(this.clientBinding, endpointAddress);
             }
-            // Add certificate details toohello ChannelFactory credentials.
-            // These credentials will be used by hello clients created by
+            // Add certificate details to the ChannelFactory credentials.
+            // These credentials will be used by the clients created by
             // SecureWcfCommunicationClientFactory.  
             channelFactory.Credentials.ClientCertificate.SetCertificate(
                 StoreLocation.LocalMachine,
@@ -293,7 +293,7 @@ Używamy istniejącej [przykład](service-fabric-reliable-services-communication
     }
     ```
 
-    Użyj `SecureWcfCommunicationClientFactory` toocreate komunikacji klienta WCF (`WcfCommunicationClient`). Za pomocą powitania klienta tooinvoke usługi metod.
+    Użyj `SecureWcfCommunicationClientFactory` można utworzyć klienta WCF komunikacji (`WcfCommunicationClient`). Korzystając z klienta do wywołania metody usługi.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();

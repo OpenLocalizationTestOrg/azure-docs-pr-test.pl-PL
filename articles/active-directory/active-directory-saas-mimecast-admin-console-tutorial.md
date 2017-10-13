@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z konsoli administracyjnej Mimecast | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Mimecast konsoli administracyjnej."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Mimecast konsoli administracyjnej."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,124 +14,124 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a04a5abd9ff30d484bce0a5c97a1d3e48b69e4c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f401f592d79ad954aa466de74d3e3fbb18aa9a5b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Samouczek: Integracji Azure Active Directory z konsoli administracyjnej Mimecast
 
-Z tego samouczka, dowiesz się, jak Konsola administracyjna Mimecast toointegrate w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Mimecast konsoli administracyjnej w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie Mimecast konsoli administracyjnej z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie Mimecast konsoli administracyjnej z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooMimecast konsoli administracyjnej.
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooMimecast konsoli administracyjnej (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do konsoli administracyjnej Mimecast.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do konsoli administracyjnej Mimecast (logowanie jednokrotne) z konta usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z konsoli administracyjnej Mimecast należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z konsoli administracyjnej Mimecast, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Konsola administracyjna Mimecast logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Mimecast konsoli administracyjnej z galerii hello
+1. Dodawanie Mimecast konsoli administracyjnej z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-mimecast-admin-console-from-hello-gallery"></a>Dodawanie Mimecast konsoli administracyjnej z galerii hello
-tooconfigure hello integracji konsoli administracyjnej Mimecast do usługi Azure AD, należy tooadd Mimecast konsoli administracyjnej z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-mimecast-admin-console-from-the-gallery"></a>Dodawanie Mimecast konsoli administracyjnej z galerii
+Aby skonfigurować integrację usługi Azure AD Mimecast konsoli administracyjnej, należy dodać Mimecast konsoli administracyjnej z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Mimecast konsoli administracyjnej z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Mimecast konsoli administracyjnej z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![przycisk usługi Azure Active Directory Hello][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa Hello][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Nowy przycisk aplikacji Hello][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania hello wpisz **Mimecast konsoli administracyjnej**, wybierz pozycję **Mimecast konsoli administracyjnej** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+4. W polu wyszukiwania wpisz **konsoli administracyjnej Mimecast**, wybierz pozycję **Mimecast konsoli administracyjnej** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Konsola administracyjna Mimecast hello listy wyników](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_addfromgallery.png)
+    ![Konsola administracyjna Mimecast na liście wyników](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z konsoli administracyjnej Mimecast w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w konsoli administracyjnej Mimecast jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w konsoli administracyjnej Mimecast musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w konsoli administracyjnej Mimecast jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w konsoli administracyjnej Mimecast musi się.
 
-W konsoli administracyjnej Mimecast, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W konsoli administracyjnej Mimecast, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z konsoli administracyjnej Mimecast, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Mimecast konsoli administracyjnej, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego konsoli administracyjnej Mimecast](#create-a-mimecast-admin-console-test-user)**  -toohave odpowiednikiem Simona Britta w konsoli administracyjnej Mimecast, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego konsoli administracyjnej Mimecast](#create-a-mimecast-admin-console-test-user)**  — aby odpowiednikiem Simona Britta w konsoli administracyjnej Mimecast połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne w aplikacji konsoli administracyjnej Mimecast.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w konsoli administracyjnej Mimecast aplikacji.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z konsoli administracyjnej Mimecast, wykonaj hello następujące kroki:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z konsoli administracyjnej Mimecast, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **konsoli administracyjnej Mimecast** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **konsoli administracyjnej Mimecast** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_samlbase.png)
 
-3. Na powitania **adresy URL i domeny konsoli administracyjnej Mimecast** sekcji, wykonaj następujące kroki hello:
+3. Na **adresy URL i domeny konsoli administracyjnej Mimecast** sekcji, wykonaj następujące czynności:
 
     ![Adresy URL i domeny konsoli administracyjnej Mimecast pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_url.png)
 
-    W hello **adres URL logowania** pole tekstowe, wprowadź adres URL hello:
+    W **adres URL logowania** tekstowym, wpisz adres URL:
     | |
     | -- |
     | `https://webmail-uk.mimecast.com`|
     | `https://webmail-us.mimecast.com`|
 
     > [!NOTE] 
-    > znak Hello na adres URL jest określonym regionie.
+    > Zaloguj się na adres URL jest określonego regionu.
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
-    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_certificate.png) 
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_certificate.png) 
 
 5. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_general_400.png)
 
-6. Na powitania **Konfiguracja konsoli administratora Mimecast** , kliknij przycisk **skonfigurować konsoli administracyjnej Mimecast** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+6. Na **Konfiguracja konsoli administratora Mimecast** kliknij **skonfigurować Mimecast konsoli administracyjnej** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfiguracja konsoli administratora Mimecast](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_configure.png) 
 
 7. W oknie przeglądarki innej witryny sieci web Zaloguj się do konsoli administracyjnej Mimecast jako administrator.
 
-8. Przejdź za**usług \> aplikacji**.
+8. Przejdź do **usług \> aplikacji**.
 
     ![Usługi](./media/active-directory-saas-mimecast-admin-console-tutorial/ic794998.png "usług")
 
@@ -143,76 +143,76 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Nowych profilów uwierzytelniania](./media/active-directory-saas-mimecast-admin-console-tutorial/ic795000.png "nowych profilów uwierzytelniania")
 
-11. W hello **profilu uwierzytelniania** sekcji, wykonaj następujące kroki hello:
+11. W **profilu uwierzytelniania** sekcji, wykonaj następujące czynności:
 
     ![Profil uwierzytelniania](./media/active-directory-saas-mimecast-admin-console-tutorial/ic795015.png "profilu uwierzytelniania")
     
-    a. W hello **opis** tekstowym, wpisz nazwę dla danej konfiguracji.
+    a. W **opis** tekstowym, wpisz nazwę dla danej konfiguracji.
     
     b. Wybierz **wymusić uwierzytelnianie SAML dla konsoli administracyjnej Mimecast**.
     
     c. Jako **dostawcy**, wybierz pozycję **usługi Azure Active Directory**.
     
-    d. Wklej **identyfikator jednostki SAML**, która została skopiowana z hello portalu Azure do hello **adres URL wystawcy** pola tekstowego.
+    d. Wklej **identyfikator jednostki SAML**, które zostały skopiowane z portalu Azure do **adres URL wystawcy** pola tekstowego.
     
-    e. Wklej **SAML pojedynczy znak na adres URL usługi**, która została skopiowana z hello portalu Azure do hello **adres URL logowania** pola tekstowego.
+    e. Wklej **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure do **adres URL logowania** pola tekstowego.
 
-    f. Wklej **SAML pojedynczy znak na adres URL usługi**, która została skopiowana z hello portalu Azure do hello **adresu URL wylogowania** pola tekstowego.
+    f. Wklej **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure do **adresu URL wylogowania** pola tekstowego.
     
     >[!NOTE]
-    >Witaj wartość adresu URL logowania i wartość adresu URL wylogowania hello są dla hello konsoli administracyjnej Mimecast hello takie same.
+    >Wartość adresu URL logowania i wartość adresu URL wylogowania dotyczą konsoli administracyjnej Mimecast takie same.
     
-    g. Otwórz swój certyfikat base-64 pobrany z portalu Azure w programie Notatnik, Usuń pierwszy wiersz hello ("*--*") i hello ostatniego wiersza ("*--*"), hello kopiowania pozostałej zawartości z niego do Schowka a następnie wklej go toohello **certyfikat dostawcy tożsamości (metadanymi)** pola tekstowego.
+    g. Otwórz certyfikat base-64 pobrany z portalu Azure w programie Notatnik, Usuń pierwszy wiersz ("*--*") i ostatniego wiersza ("*--*"), skopiuj pozostała zawartość do sieci Schowka, a następnie wklej go do **certyfikat dostawcy tożsamości (metadanymi)** pola tekstowego.
     
     h. Wybierz **Zezwalaj funkcji logowania jednokrotnego w**.
     
     i. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985) 
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985) 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
    ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W portalu Azure, w okienku po lewej stronie powitania hello kliknij hello **usługi Azure Active Directory** przycisku.
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-mimecast-admin-console-tutorial/create_aaduser_01.png)
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-mimecast-admin-console-tutorial/create_aaduser_01.png)
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-mimecast-admin-console-tutorial/create_aaduser_02.png)
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-mimecast-admin-console-tutorial/create_aaduser_02.png)
 
-3. Witaj tooopen **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** u góry hello hello **wszyscy użytkownicy** okno dialogowe.
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-    ![przycisk Dodaj Hello](./media/active-directory-saas-mimecast-admin-console-tutorial/create_aaduser_03.png)
+    ![Przycisk Dodaj](./media/active-directory-saas-mimecast-admin-console-tutorial/create_aaduser_03.png)
 
-4. W hello **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-mimecast-admin-console-tutorial/create_aaduser_04.png)
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-mimecast-admin-console-tutorial/create_aaduser_04.png)
 
-    a. W hello **nazwa** wpisz **BrittaSimon**.
+    a. W **nazwa** wpisz **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole typu hello adres e-mail użytkownika Simona Britta.
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz hello **Pokaż hasło** pole wyboru, a następnie zapisz hello wartość, która jest wyświetlana w hello **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-mimecast-admin-console-test-user"></a>Tworzenie użytkownika testowego Mimecast konsoli administracyjnej
 
-W przypadku użytkowników usługi Azure AD toolog kolejności tooenable w konsoli administracyjnej Mimecast muszą mieć przydzielone do konsoli administracyjnej Mimecast. W przypadku hello Mimecast konsoli administracyjnej Inicjowanie obsługi to zadanie ręczne.
+Aby włączyć użytkowników usługi Azure AD zalogować się do konsoli administracyjnej Mimecast, muszą mieć przydzielone do konsoli administracyjnej Mimecast. W przypadku konsoli administracyjnej Mimecast Inicjowanie obsługi to zadanie ręczne.
 
-* Należy tooregister domeny, przed przystąpieniem do tworzenia użytkowników.
+* Należy zarejestrować domeny, przed przystąpieniem do tworzenia użytkowników.
 
-**tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:**
+**Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:**
 
-1. Zaloguj się na tooyour **konsoli administracyjnej Mimecast** jako administrator.
-2. Przejdź za**katalogów \> wewnętrzne**.
+1. Zaloguj się na Twojej **konsoli administracyjnej Mimecast** jako administrator.
+2. Przejdź do **katalogów \> wewnętrzny**.
    
    ![Katalogi](./media/active-directory-saas-mimecast-admin-console-tutorial/ic795003.png "katalogów")
 3. Kliknij przycisk **zarejestrować nową domenę**.
@@ -221,42 +221,42 @@ W przypadku użytkowników usługi Azure AD toolog kolejności tooenable w konso
 4. Po utworzeniu nowej domeny, kliknij przycisk **nowy adres**.
    
    ![Nowy adres](./media/active-directory-saas-mimecast-admin-console-tutorial/ic795005.png "nowy adres")
-5. W hello nowego okna dialogowego adres i wykonaj hello następujące kroki:
+5. W oknie dialogowym Nowy adres wykonaj następujące czynności:
    
    ![Zapisz](./media/active-directory-saas-mimecast-admin-console-tutorial/ic795006.png "Zapisz")
    
-   a. Typ hello **adres E-mail**, **globalną nazwę**, **hasło**, i **Potwierdź hasło** atrybutów elementów prawidłową usługi Azure AD konto ma mają tooprovision do hello powiązanych pól tekstowych.
+   a. Typ **adres E-mail**, **globalną nazwę**, **hasło**, i **Potwierdź hasło** atrybutów elementów prawidłową usługi Azure AD konto ma chcesz Udostępnij do powiązanych pól tekstowych.
 
    b. Kliknij pozycję **Zapisz**.
 
 >[!NOTE]
->Można użyć innych narzędzi tworzenia konta użytkownika konsoli administracyjnej Mimecast lub interfejsów API dostarczonych przez konta użytkowników usługi Azure AD tooprovision Mimecast konsoli administracyjnej. 
+>Inne narzędzia do tworzenia konta użytkownika konsoli administracyjnej Mimecast lub interfejsów API dostarczonych przez Mimecast konsoli administracyjnej można użyć do udostępnienia konta użytkownika usługi Azure AD. 
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooMimecast konsoli administracyjnej.
+W tej sekcji musisz włączyć Simona Britta do użycia usługi Azure logowania jednokrotnego za udzielanie dostępu do konsoli administracyjnej Mimecast.
 
-![Przypisanie roli użytkownika hello][200] 
+![Przypisanie roli użytkownika][200] 
 
-**tooassign tooMimecast Simona Britta konsoli administracyjnej, należy wykonać hello następujące kroki:**
+**Aby przypisać Simona Britta Mimecast konsoli administracyjnej, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **konsoli administracyjnej Mimecast**.
+2. Na liście aplikacji zaznacz **konsoli administracyjnej Mimecast**.
 
-    ![łącze konsoli administracyjnej Mimecast Hello na liście aplikacji hello](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_app.png)  
+    ![Łącze Mimecast konsoli administracyjnej na liście aplikacji](./media/active-directory-saas-mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_app.png)  
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![łącze "Użytkownicy i grupy" Hello][202]
+    ![Łącze "Użytkownicy i grupy"][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Okienko Dodaj przypisania Hello][203]
+    ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -264,14 +264,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka konsoli administracyjnej Mimecast hello w hello Panel dostępu, należy pobrać aplikacji konsoli administracyjnej Mimecast tooyour zalogowane automatycznie.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+Po kliknięciu kafelka Mimecast konsoli administracyjnej w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji konsoli administracyjnej Mimecast.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

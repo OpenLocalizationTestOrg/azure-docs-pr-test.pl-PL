@@ -1,6 +1,6 @@
 ---
-title: "aaaIIS uwierzytelniania i serwera usługi Azure MFA | Dokumentacja firmy Microsoft"
-description: "Jest to strona uwierzytelnianie wieloskładnikowe Azure hello przydatnej wdrażania uwierzytelniania IIS i serwera usługi Azure Multi-Factor Authentication."
+title: "Uwierzytelnianie usług IIS i serwer usługi Azure MFA | Microsoft Docs"
+description: "Ta strona dotyczy usługi Azure Multi-Factor Authentication i zawiera wskazówki pomocne we wdrażaniu uwierzytelniania usług IIS i serwera usługi Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,64 +15,64 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017,it-pro
-ms.openlocfilehash: 74bd39c2644e2bca0880baea3824cad4c9215111
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ab6f9110dccd3cfc15092f535650e8d8cb1af13c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurowanie serwera usługi Azure Multi-Factor Authentication na potrzeby aplikacji sieci Web usług IIS
 
-Użyj sekcji uwierzytelniania w usługach IIS hello hello tooenable serwera usługi Azure Multi-Factor Authentication (MFA) i skonfiguruj uwierzytelniania usług IIS w celu integracji z aplikacjami sieci web Microsoft IIS. powitania serwera usługi Azure MFA instaluje wtyczkę, która pozwala na filtrowanie żądań wysyłanych toohello IIS sieci web serwera tooadd Azure Multi-Factor Authentication. Witaj wtyczki programu IIS zapewnia obsługę uwierzytelniania za pomocą formularza i zintegrowane uwierzytelnianie HTTP systemu Windows. Zaufanych adresów IP mogą być również skonfigurowany tooexempt adresów IP z uwierzytelniania dwuskładnikowego.
+Sekcja Uwierzytelnianie usług IIS dostępna w ramach serwera usługi Azure Multi-Factor Authentication (MFA) pozwala włączyć i skonfigurować uwierzytelnianie usług IIS na potrzeby integracji z aplikacjami sieci Web usług Microsoft IIS. Serwer usługi Azure MFA instaluje wtyczkę, która umożliwia filtrowanie żądań wysyłanych do serwera sieci Web usług IIS w celu dodania usługi Azure Multi-Factor Authentication. Wtyczka IIS obsługuje uwierzytelnianie oparte na formularzach i zintegrowane uwierzytelnianie HTTP systemu Windows. Ponadto skonfigurowanie zaufanych adresów IP umożliwia wykluczenie wewnętrznych adresów IP z uwierzytelniania dwuskładnikowego.
 
 ![Uwierzytelnianie usług IIS](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
 ## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Używanie uwierzytelniania usług IIS opartego na formularzach z serwerem usługi Azure Multi-Factor Authentication
-toosecure IIS sieci web aplikacji korzystającej z uwierzytelniania opartego na formularzu, zainstalować powitania serwera usługi Azure Multi-Factor Authentication na serwerze sieci web usług IIS hello i skonfigurować hello serwera na powitania następujące procedury:
+Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta z uwierzytelniania opartego na formularzach, zainstaluj serwer usługi Azure Multi-Factor Authentication na serwerze sieci Web usług IIS i skonfiguruj go zgodnie z poniższą procedurą:
 
-1. Na powitania serwera usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelnianie usług IIS hello w menu po lewej stronie powitania.
-2. Kliknij przycisk hello **opartej na formularzu** kartę.
+1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę Uwierzytelnianie usług IIS w menu po lewej stronie.
+2. Kliknij kartę **Oparte na formularzach**.
 3. Kliknij pozycję **Dodaj**.
-4. zmienne nazwy użytkownika, hasło i domenę toodetect automatycznie, wprowadź hello adresu URL logowania (na przykład https://localhost/contoso/auth/login.aspx) w ramach okno dialogowe hello automatyczna konfiguracja witryny i kliknij przycisk **OK**.
-5. Sprawdź hello **dopasowania użytkownika wymagają uwierzytelniania wieloskładnikowego** Jeśli wszyscy użytkownicy zostały lub zostaną zaimportowane na powitania serwera i uwierzytelniania wieloskładnikowego toomulti podmiotu. Jeśli duża liczba użytkowników nie zostały zaimportowane na powitania serwera i/lub będą wykluczone z uwierzytelniania wieloskładnikowego, nie zaznaczaj hello pola wyboru.
-6. Nie można automatycznie wykryć hello zmiennych strony, kliknij przycisk **Określ ręcznie** w oknie dialogowym hello automatyczna konfiguracja witryny.
-7. Okno dialogowe Dodawanie witryny opartej hello, strony logowania toohello adres URL hello hello adresu URL przesyłania pola i wprowadź nazwę aplikacji (opcjonalnie). Nazwa aplikacji Hello jest wyświetlana w raportach usługi Azure Multi-Factor Authentication i może być wyświetlany w komunikatach uwierzytelniania wiadomości SMS lub aplikacji mobilnej.
-8. Wybierz hello poprawny format żądania. Ta opcja jest ustawiona zbyt**POST lub GET** dla większości aplikacji sieci web.
-9. Wprowadź hello zmienna nazwy użytkownika, zmienna hasła i zmienna domeny (jeśli jest on wyświetlany na stronie logowania hello). nazwy hello toofind hello pól wejściowych, przejdź toohello stronę logowania w przeglądarce sieci web, kliknij prawym przyciskiem myszy na stronie powitania i wybierz **Wyświetl źródło**.
-10. Sprawdź hello **dopasowania użytkownika wymagane uwierzytelnianie wieloskładnikowe Azure** Jeśli wszyscy użytkownicy zostały lub zostaną zaimportowane na powitania serwera i uwierzytelniania wieloskładnikowego toomulti podmiotu. Jeśli duża liczba użytkowników nie zostały zaimportowane na powitania serwera i/lub będą wykluczone z uwierzytelniania wieloskładnikowego, nie zaznaczaj hello pola wyboru.
-11. Kliknij przycisk **zaawansowane** tooreview Zaawansowane ustawienia, w tym:
+4. Aby automatycznie wykryć zmienne nazwy użytkownika, hasła i domeny, wprowadź adres URL logowania (np. https://localhost/contoso/auth/login.aspx) w oknie dialogowym Konfigurowana automatycznie witryna sieci Web oparta na formularzach i kliknij przycisk **OK**.
+5. Zaznacz pole **Wymagaj dopasowania użytkownika usługi Multi-Factor Authentication**, jeśli wszyscy użytkownicy zostali lub zostaną zaimportowani na serwer i będą podlegać uwierzytelnianiu wieloskładnikowemu. Jeśli znaczna liczba użytkowników nie została jeszcze zaimportowana na serwer i/lub będzie wykluczona z uwierzytelniania wieloskładnikowego, nie zaznaczaj tego pola.
+6. Jeśli nie można automatycznie wykryć zmiennych na stronie, kliknij przycisk **Określ ręcznie** w oknie dialogowym Konfigurowana automatycznie witryna sieci Web oparta na formularzach.
+7. W oknie dialogowym Dodawanie witryny sieci Web opartej na formularzach wprowadź adres URL strony logowania w polu Adres URL przesyłania, a następnie wprowadź nazwę aplikacji (opcjonalnie). Nazwa aplikacji jest widoczna w raportach usługi Azure Multi-Factor Authentication i może być wyświetlana w uwierzytelniających wiadomościach SMS lub wiadomościach aplikacji mobilnej.
+8. Wybierz poprawny format żądania. W przypadku większości aplikacji sieci Web należy ustawić format na wartość **POST lub GET**.
+9. Wprowadź zmienne nazwy użytkownika, hasła i domeny (jeśli jest wyświetlana na stronie logowania). W celu znalezienia nazw pól wejściowych przejdź do strony logowania w przeglądarce sieci Web, kliknij prawym przyciskiem myszy na stronie i wybierz polecenie **Wyświetl źródło**.
+10. Zaznacz pole **Wymagaj dopasowania użytkownika usługi Azure Multi-Factor Authentication**, jeśli wszyscy użytkownicy zostali lub zostaną zaimportowani na serwer i będą podlegać uwierzytelnianiu wieloskładnikowemu. Jeśli znaczna liczba użytkowników nie została jeszcze zaimportowana na serwer i/lub będzie wykluczona z uwierzytelniania wieloskładnikowego, nie zaznaczaj tego pola.
+11. Kliknij pozycję **Zaawansowane**, aby przejrzeć ustawienia zaawansowane, w tym:
 
   - Wybór pliku niestandardowej strony odmowy
-  - Pamięć podręczna informacji o pomyślnym uwierzytelnieniu toohello witryny sieci Web w danym okresie czasu plików cookie
-  - Określ, czy poświadczenia podstawowego hello tooauthenticate względem domeny systemu Windows, katalogiem LDAP. czy serwera RADIUS.
+  - Buforowanie pomyślnych uwierzytelnień do witryny sieci Web przez pewien czas przy użyciu plików cookie
+  - Wybór, czy poświadczenia podstawowe mają być uwierzytelniane względem domeny systemu Windows, katalogu LDAP, czy serwera RADIUS.
 
-12. Kliknij przycisk **OK** okno dialogowe Dodawanie witryny opartej toohello tooreturn.
+12. Kliknij przycisk **OK**, aby wrócić do okna dialogowego Dodawanie witryny sieci Web opartej na formularzach.
 13. Kliknij przycisk **OK**.
-14. Raz hello adresu URL i zmienne strony zostały wykryte lub wprowadzony, hello witryny sieci Web dane są wyświetlane w hello panelu opartej na formularzu.
+14. Po wykryciu lub wprowadzeniu adresu URL i zmiennych na stronie dane witryny sieci Web wyświetlane są w panelu Oparte na formularzach.
 
 ## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Używanie zintegrowanego uwierzytelniania systemu Windows z serwerem usługi Azure Multi-Factor Authentication
-toosecure IIS sieci web aplikacji wykorzystującej uwierzytelnianie zintegrowane systemu Windows HTTP, zainstalować powitania serwera usługi Azure MFA na serwerze sieci web usług IIS hello, a następnie skonfigurować hello serwera z hello następujące kroki:
+Aby zabezpieczyć aplikację sieci Web usług IIS, która korzysta ze zintegrowanego uwierzytelniania HTTP systemu Windows, zainstaluj serwer usługi Azure MFA na serwerze sieci Web usług IIS i skonfiguruj go zgodnie z poniższą procedurą:
 
-1. Na powitania serwera usługi Azure Multi-Factor Authentication kliknij ikonę uwierzytelnianie usług IIS hello w menu po lewej stronie powitania.
-2. Kliknij przycisk hello **HTTP** kartę.
+1. Na serwerze usługi Azure Multi-Factor Authentication kliknij ikonę Uwierzytelnianie usług IIS w menu po lewej stronie.
+2. Kliknij kartę **HTTP**.
 3. Kliknij pozycję **Dodaj**.
-4. W powitalne okno dialogowe Dodawanie podstawowego adresu URL wprowadź adres URL hello hello witryny sieci Web, którym jest przeprowadzana uwierzytelniania HTTP (na przykład http://localhost/owa) i podaj nazwę aplikacji (opcjonalnie). Nazwa aplikacji Hello jest wyświetlana w raportach usługi Azure Multi-Factor Authentication i może być wyświetlany w komunikatach uwierzytelniania wiadomości SMS lub aplikacji mobilnej.
-5. Dostosuj hello limit czasu bezczynności i maksymalnej długości sesji Jeśli hello domyślne nie są wystarczające.
-6. Sprawdź hello **dopasowania użytkownika wymagają uwierzytelniania wieloskładnikowego** Jeśli wszyscy użytkownicy zostały lub zostaną zaimportowane na powitania serwera i uwierzytelniania wieloskładnikowego toomulti podmiotu. Jeśli duża liczba użytkowników nie zostały zaimportowane na powitania serwera i/lub będą wykluczone z uwierzytelniania wieloskładnikowego, nie zaznaczaj hello pola wyboru.
-7. Sprawdź hello **pamięci podręcznej plików Cookie** polu w razie potrzeby.
+4. W oknie dialogowym Dodawanie podstawowego adresu URL wprowadź adres URL witryny sieci Web, w której jest przeprowadzane uwierzytelnianie HTTP (np. http://localhost/owa), a następnie podaj nazwę aplikacji (opcjonalnie). Nazwa aplikacji jest widoczna w raportach usługi Azure Multi-Factor Authentication i może być wyświetlana w uwierzytelniających wiadomościach SMS lub wiadomościach aplikacji mobilnej.
+5. Dostosuj wartości w polach Limit czasu bezczynności i Maksymalna długość sesji, jeśli wartości domyślne nie są wystarczające.
+6. Zaznacz pole **Wymagaj dopasowania użytkownika usługi Multi-Factor Authentication**, jeśli wszyscy użytkownicy zostali lub zostaną zaimportowani na serwer i będą podlegać uwierzytelnianiu wieloskładnikowemu. Jeśli znaczna liczba użytkowników nie została jeszcze zaimportowana na serwer i/lub będzie wykluczona z uwierzytelniania wieloskładnikowego, nie zaznaczaj tego pola.
+7. W razie potrzeby zaznacz pole **Pamięć podręczna plików cookie**.
 8. Kliknij przycisk **OK**.
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Włączanie wtyczek IIS dla serwera usługi Azure Multi-Factor Authentication
-Po skonfigurowaniu hello opartej na formularzu lub adresów URL protokołu HTTP uwierzytelniania i ustawienia, wybierz opcję hello którym załadowane i włączone w usługach IIS hello Azure Multi-Factor Authentication w usługach IIS dodatków plug-in. Użyj hello następujące procedury:
+Po skonfigurowaniu adresów URL i ustawień dla uwierzytelniania opartego na formularzach lub uwierzytelniania HTTP wybierz lokalizacje w usługach IIS, w których mają zostać załadowane i włączone wtyczki IIS usługi Azure Multi-Factor Authentication. Postępuj zgodnie z następującą procedurą:
 
-1. Jeśli uruchomiony w usługach IIS 6, kliknij hello **ISAPI** kartę. Wybierz hello witryny sieci Web, która hello aplikacji sieci web jest uruchomiona w obszarze (np. Domyślna witryna sieci Web) tooenable hello Azure usługi Multi-Factor Authentication filtru ISAPI wtyczki dla tej lokacji.
-2. Jeśli uruchomiony w usługach IIS 7 lub nowszego, kliknij hello **modułu macierzystego** kartę. Wybierz powitania serwera, witryny sieci Web lub aplikacji hello tooenable wtyczki usług IIS na potrzeby hello poziomach.
-3. Kliknij przycisk hello **uwierzytelniania Włącz usługi IIS** pole u góry hello hello ekranu. Uwierzytelnianie wieloskładnikowe platformy Azure jest teraz zabezpieczanie hello wybrane aplikacji usług IIS. Upewnij się, że użytkownicy zostały zaimportowane na powitania serwera.
+1. W przypadku korzystania z usług IIS 6 kliknij kartę **ISAPI**. Wybierz witrynę sieci Web, w ramach której działa aplikacja sieci Web (np. Domyślna witryna sieci Web), aby włączyć wtyczkę filtru ISAPI usługi Azure Multi-Factor Authentication dla tej witryny.
+2. W przypadku korzystania z usług IIS 7 lub nowszych kliknij kartę **Moduł macierzysty**. Wybierz serwer, witryny sieci Web lub aplikacje, aby włączyć wtyczkę IIS na odpowiednich poziomach.
+3. Kliknij pole **Włącz uwierzytelnianie usług IIS** w górnej części ekranu. Po wykonaniu tych czynności wybrana aplikacja usług IIS jest zabezpieczona przez usługę Azure Multi-Factor Authentication. Upewnij się, że zaimportowano użytkowników na serwer.
 
 ## <a name="trusted-ips"></a>Zaufane adresy IP
-Witaj zaufanych adresów IP umożliwia użytkownikom toobypass Azure Multi-Factor Authentication dla żądań witryny sieci Web pochodzących z określonych adresów IP lub podsieci. Na przykład można tooexempt użytkowników z usługi Azure Multi-Factor Authentication podczas logowania się z hello pakietu office. W tym celu należy określić podsieć biura hello jako wpis zaufanych adresów IP. tooconfigure zaufanych adresów IP, należy użyć hello następujące procedury:
+Zaufane adresy IP pozwalają użytkownikom pominąć uwierzytelnianie za pomocą usługi Azure Multi-Factor Authentication w przypadku żądań witryn sieci Web pochodzących z określonych adresów IP lub podsieci. Na przykład można wykluczyć użytkowników z uwierzytelniania za pomocą usługi Azure Multi-Factor Authentication, jeśli logują się oni z komputerów znajdujących się w biurze. W tym celu należy określić podsieć biura jako wpis z zaufanymi adresami IP. Aby skonfigurować zaufane adresy IP, postępuj zgodnie z poniższą procedurą:
 
-1. W hello sekcji uwierzytelnianie usług IIS, kliknij przycisk hello **zaufanych adresów IP** kartę.
+1. W sekcji Uwierzytelnianie usług IIS kliknij kartę **Zaufane adresy IP**.
 2. Kliknij pozycję **Dodaj**.
-3. Gdy pojawi się okno dialogowe Dodawanie adresów IP zaufanych hello, wybierz hello **pojedynczy adres IP**, **zakres adresów IP**, lub **podsieci** przycisk radiowy.
-4. Wprowadź adres IP hello, zakres adresów IP lub podsieci, która powinna być białej. Wprowadzanie podsieci, wybierz hello odpowiednią maskę sieci, a następnie kliknij przycisk **OK**. Lista dozwolonych adresów Hello został dodany.
+3. Gdy pojawi się okno dialogowe Dodawanie zaufanych adresów IP, wybierz przycisk radiowy **Pojedynczy adres IP**, **Zakres adresów IP** lub **Podsieć**.
+4. Wprowadź adres IP lub zakres adresów IP albo podsieć, którą chcesz dodać do listy dozwolonych adresów. Jeśli wprowadzasz podsieć, wybierz odpowiednią maskę sieci i kliknij przycisk **OK**. Po wykonaniu tych czynności została dodana lista zaufanych adresów.

@@ -1,6 +1,6 @@
 ---
-title: "aaaChoose między chmury Azure MFA lub serwera | Dokumentacja firmy Microsoft"
-description: "Wybieranie hello uwierzytelnianie wieloskładnikowe zabezpieczeń rozwiązania, które jest odpowiednie dla Ciebie pytając, jakie am I próby toosecure oraz gdy są Moi użytkownicy znajdujący się.  Następnie wybierz chmurę lub serwer usługi MFA albo usługi AD FS."
+title: "Wybieranie między usługą Azure MFA w chmurze i na serwerze | Microsoft Docs"
+description: "Wybierz odpowiednie rozwiązanie zabezpieczające oparte na uwierzytelnianiu wieloskładnikowym, uwzględniając lokalizację użytkowników i zasoby, które chcesz zabezpieczyć.  Następnie wybierz chmurę lub serwer usługi MFA albo usługi AD FS."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,38 +12,38 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
-ms.openlocfilehash: bd9639e5f744f586d9143c6e90b105ed645eecb6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="choose-hello-azure-multi-factor-authentication-solution-for-you"></a>Wybierz hello Azure Multi-Factor Authentication rozwiązania
-Ponieważ istnieje kilka odmian systemu Azure Multi-Factor Authentication (MFA), firma Microsoft musi odpowiedzieć w kilku toofigure pytania używaną wersję jest hello prawidłowego toouse jeden.  Oto te pytania:
+# <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Wybieranie odpowiedniego rozwiązania usługi Azure Multi-Factor Authentication
+Istnieje kilka typów usługi Azure Multi-Factor Authentication (MFA), dlatego należy udzielić odpowiedzi na kilka pytań, aby wybrać właściwą wersję tej usługi.  Oto te pytania:
 
-* [Co mam próby toosecure](#what-am-i-trying-to-secure)
-* [Gdzie znajdują się użytkownicy hello](#where-are-the-users-located)
+* [Co chcesz zabezpieczyć?](#what-am-i-trying-to-secure)
+* [Gdzie znajdują się użytkownicy?](#where-are-the-users-located)
 * [Jakich funkcji potrzebujesz?](#what-featured-do-i-need)
 
-Witaj poniższe sekcje zawierają wskazówki na temat określania każdego z tych odpowiedzi.
+Wskazówki zawarte w poniższych sekcjach ułatwią znalezienie odpowiedzi na te pytania.
 
-## <a name="what-am-i-trying-toosecure"></a>Co mam próby toosecure?
-rozwiązanie weryfikacji dwuetapowej poprawne hello toodetermine, najpierw możemy musi odpowiedzieć hello pytanie, jakie są w trakcie toosecure za pomocą drugiego metody uwierzytelniania.  Czy jest to aplikacja na platformie Azure?  Czy może system z dostępem zdalnym?  Przez określenie, jakie próbujemy toosecure, firma Microsoft pozwala uzyskać odpowiedzi na pytanie hello, którym usługa Multi-Factor Authentication musi toobe włączone.  
+## <a name="what-am-i-trying-to-secure"></a>Co chcesz zabezpieczyć?
+Aby wybrać odpowiednie rozwiązanie weryfikacji dwuetapowej, najpierw należy określić, co ma zostać objęte ochroną przy użyciu drugiej metody uwierzytelniania.  Czy jest to aplikacja na platformie Azure?  Czy może system z dostępem zdalnym?  Po określeniu elementów, które mają zostać zabezpieczone, będzie można znaleźć odpowiedź na pytanie o miejsce włączenia usługi Multi-Factor Authentication.  
 
-| Co to są w trakcie toosecure | Uwierzytelniania MFA w chmurze hello | Serwer MFA |
+| Co chcesz zabezpieczyć | Usługa MFA w chmurze | Serwer MFA |
 | --- |:---:|:---:|
 | Aplikacje firmy Microsoft |● |● |
-| Aplikacji SaaS w galerii aplikacji hello |● |  |
+| Aplikacje SaaS w galerii aplikacji |● |  |
 | Aplikacje sieci Web opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD |● |  |
 | Aplikacje usług IIS, które nie zostały opublikowane za pośrednictwem serwera proxy aplikacji usługi Azure AD | |● |
 | Dostęp zdalny, np. sieć VPN lub brama usług pulpitu zdalnego | ● | ● |
 
-## <a name="where-are-hello-users-located"></a>Gdzie znajdują się użytkownicy hello
-Następnie spojrzenie na którym znajdują się użytkownicy pomaga toodetermine hello właściwym rozwiązaniem toouse, czy w chmurze hello lub lokalnie za pomocą hello serwera usługi MFA.
+## <a name="where-are-the-users-located"></a>Gdzie znajdują się użytkownicy
+Następnie w zależności od tego, gdzie znajdują się użytkownicy, można określić, jakie rozwiązanie będzie odpowiednie — uwierzytelnianie w chmurze czy uwierzytelnianie lokalne przy użyciu serwera MFA.
 
-| Lokalizacja użytkowników | Uwierzytelniania MFA w chmurze hello | Serwer MFA |
+| Lokalizacja użytkowników | Usługa MFA w chmurze | Serwer MFA |
 | --- |:---:|:---:|
 | Usługa Azure Active Directory |● | |
 | Usługa Azure AD i lokalna usługa AD przy użyciu federacji z usługami AD FS |● |● |
@@ -52,9 +52,9 @@ Następnie spojrzenie na którym znajdują się użytkownicy pomaga toodetermine
 | Lokalna usługa Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>Jakich funkcji potrzebujesz?
-Witaj poniższej tabeli porównano funkcje hello, które są dostępne z usługi Multi-Factor Authentication w chmurze hello i powitania serwera Multi-Factor Authentication.
+Poniższa tabela zawiera zestawienie funkcji dostępnych w przypadku użycia usługi Multi-Factor Authentication w chmurze na serwerze Multi-Factor Authentication.
 
-| Funkcja | Uwierzytelniania MFA w chmurze hello | Serwer MFA |
+| Funkcja | Usługa MFA w chmurze | Serwer MFA |
 | --- |:---:|:---:|
 | Powiadomienie w aplikacji mobilnej jako drugi składnik | ● | ● |
 | Kod weryfikacyjny w aplikacji mobilnej jako drugi składnik | ● | ● |
@@ -77,11 +77,8 @@ Witaj poniższej tabeli porównano funkcje hello, które są dostępne z usługi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, Ustaliliśmy, czy toouse w chmurze usługi Multi-Factor authentication lub powitania serwera usługi MFA lokalnie, firma Microsoft może rozpocząć konfigurowania i korzystania z usługi Azure Multi-Factor Authentication. **Wybierz ikonę hello danego scenariusza**
+Teraz, gdy rozumiesz różnicę między działaniem usługi Azure Multi-Factor Authentication w chmurze i serwera usługi MFA w środowisku lokalnym, nadszedł czas na skonfigurowanie usługi Azure Multi-Factor Authentication i korzystanie z niej. **Wybierz ikonę, która odpowiada Twojemu scenariuszowi**
 
 <center>
 
-
-
-
-[![Chmura](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Serwer](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </center>
+[![Usługa MFA w chmurze](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Serwer usługi MFA](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>

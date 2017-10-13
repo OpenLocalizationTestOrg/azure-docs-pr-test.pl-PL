@@ -1,6 +1,6 @@
 ---
-title: "aaaReliable podmiotów czasomierze i przypomnieniami | Dokumentacja firmy Microsoft"
-description: "Wprowadzenie tootimers i przypomnienia dla elementów Reliable Actors sieci szkieletowej usług."
+title: "Niezawodne czasomierze złośliwych użytkowników i przypomnieniami | Dokumentacja firmy Microsoft"
+description: "Wprowadzenie do czasomierze i przypomnienia dla elementów Reliable Actors sieci szkieletowej usług."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: c5116ec1923014e131130b9f4e86dd1e133bbf7e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="actor-timers-and-reminders"></a>Czasomierze aktora i przypomnieniami
-Złośliwych użytkowników można zaplanować okresowe pracy od samych siebie rejestrując czasomierze lub przypomnienia. W tym artykule przedstawiono sposób toouse czasomierze i przypomnienia wraz z wyjaśnieniem hello różnice między nimi.
+Złośliwych użytkowników można zaplanować okresowe pracy od samych siebie rejestrując czasomierze lub przypomnienia. W tym artykule przedstawiono sposób użycia czasomierze i przypomnieniami i wyjaśniono różnice między nimi.
 
 ## <a name="actor-timers"></a>Czasomierze aktora
-Czasomierze aktora zapewniają prosty otokę .NET lub Java tooensure czasomierza że metody wywołania zwrotnego hello przestrzegać gwarantuje współbieżności opartej na włączanie hello hello podmiotów zawiera środowiska wykonawczego.
+Czasomierze aktora zapewniają prosty otokę .NET lub Java czasomierza aby upewnić się, że metody wywołania zwrotnego przestrzegać współbieżności opartej na włączanie gwarantuje, że runtime podmiotów zawiera.
 
-Złośliwych użytkowników można używać hello `RegisterTimer`(C#) lub `registerTimer`(Java) i `UnregisterTimer`(C#) lub `unregisterTimer`metody (Java) na ich podstawie klasy tooregister i ich czasomierze wyrejestrować. Witaj w poniższym przykładzie pokazano sposób użycia hello czasomierza interfejsów API. Hello interfejsy API są bardzo podobne czasomierza .NET toohello lub Java czasomierza. W tym przykładzie, gdy czasomierza hello jest wymagany, hello złośliwych użytkowników w czasie wykonywania będzie wywoływać hello `MoveObject`(C#) lub `moveObject`— metoda (Java). Metoda Hello jest gwarantowana toorespect hello Włącz współbieżności oparta na wątkach. Oznacza to, że nie ma innych metod aktora lub wywołania zwrotne czasomierza/monitu będzie w toku zakończenia wykonywania tego wywołania zwrotnego.
+Można użyć złośliwych użytkowników `RegisterTimer`(C#) lub `registerTimer`(Java) i `UnregisterTimer`(C#) lub `unregisterTimer`metod klasy podstawowej umożliwia rejestrowanie i wyrejestrowywanie ich czasomierze (Java). W poniższym przykładzie pokazano sposób użycia czasomierza interfejsów API. Interfejsy API są bardzo podobne do czasomierz .NET lub Java czasomierza. W tym przykładzie, gdy zegar jest wymagany, środowiska uruchomieniowego podmiotów wywoła `MoveObject`(C#) lub `moveObject`— metoda (Java). Metoda jest gwarantowana przestrzegać współbieżności opartej na ruch. Oznacza to, że nie ma innych metod aktora lub wywołania zwrotne czasomierza/monitu będzie w toku zakończenia wykonywania tego wywołania zwrotnego.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -44,9 +44,9 @@ class VisualObjectActor : Actor, IVisualObject
 
         _updateTimer = RegisterTimer(
             MoveObject,                     // Callback method
-            null,                           // Parameter toopass toohello callback method
-            TimeSpan.FromMilliseconds(15),  // Amount of time toodelay before hello callback is invoked
-            TimeSpan.FromMilliseconds(15)); // Time interval between invocations of hello callback method
+            null,                           // Parameter to pass to the callback method
+            TimeSpan.FromMilliseconds(15),  // Amount of time to delay before the callback is invoked
+            TimeSpan.FromMilliseconds(15)); // Time interval between invocations of the callback method
 
         return base.OnActivateAsync();
     }
@@ -93,9 +93,9 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
                     this.registerTimer(
                             (o) -> this.moveObject(o),                        // Callback method
                             "moveObject",
-                            null,                                             // Parameter toopass toohello callback method
-                            Duration.ofMillis(10),                            // Amount of time toodelay before hello callback is invoked
-                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of hello callback method
+                            null,                                             // Parameter to pass to the callback method
+                            Duration.ofMillis(10),                            // Amount of time to delay before the callback is invoked
+                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of the callback method
                     return null;
                 });
     }
@@ -126,16 +126,16 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 }
 ```
 
-Hello następnego okresu czasomierza hello rozpoczyna się po wywołania zwrotnego hello zakończeniem wykonywania. Oznacza to, że czasomierza hello jest zatrzymana podczas wywołania zwrotnego hello jest wykonywany i została uruchomiona po zakończeniu wywołania zwrotnego hello.
+Następnym okresie czasomierza rozpoczyna się wykonanie zakończone wywołanie zwrotne. Oznacza to, że zegar jest zatrzymywany podczas wywołania zwrotnego jest wykonywany i została uruchomiona po zakończeniu wywołania zwrotnego.
 
-środowisko uruchomieniowe podmiotów Hello zapisuje zmiany wprowadzone Menedżer stanu aktora toohello, po zakończeniu hello wywołania zwrotnego. Jeśli wystąpi błąd podczas zapisywania stanu hello, ten obiekt aktora spowoduje wyłączenie i nowe wystąpienie zostanie aktywowany.
+Środowisko uruchomieniowe podmiotów zapisuje zmiany wprowadzone Menedżer stanu aktora po zakończeniu wywołania zwrotnego. Jeśli wystąpi błąd podczas zapisywania stanu, ten obiekt aktora spowoduje wyłączenie i nowe wystąpienie zostanie aktywowany.
 
-Zatrzymuje wszystkie czasomierze aktora hello jest dezaktywowana w ramach operacji wyrzucania elementów bezużytecznych. Nie wywołania zwrotne czasomierza są wywoływane po tym. Ponadto hello złośliwych użytkowników w czasie wykonywania nie zachowuje żadnych informacji o hello czasomierzy, które były uruchomione przed dezaktywacji. Jest zapasowej tooregister aktora toohello żadnych czasomierzy, które wymaga uaktwnieniu w przyszłości hello. Aby uzyskać więcej informacji, zobacz sekcję hello na [aktora wyrzucanie elementów bezużytecznych](service-fabric-reliable-actors-lifecycle.md).
+Zatrzymuje wszystkie czasomierze aktora jest dezaktywowana w ramach operacji wyrzucania elementów bezużytecznych. Nie wywołania zwrotne czasomierza są wywoływane po tym. Ponadto środowiska uruchomieniowego złośliwych użytkowników nie zachowuje żadnych informacji o czasomierzy, które były uruchomione przed dezaktywacji. Jest aktora, aby zarejestrować wszelkie czasomierzy, które wymaga uaktwnieniu go w przyszłości. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [aktora wyrzucanie elementów bezużytecznych](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Przypomnienia aktora
-Przypomnienia są tootrigger mechanizmu trwałe wywołań zwrotnych na aktora w określonych godzinach. Ich funkcje są podobne tootimers. Jednak w przeciwieństwie do czasomierze, przypomnienia są wyzwalane we wszystkich okolicznościach, aż do ich wyrejestrowuje jawnie aktora hello lub aktora hello jest jawnie usunięte. W szczególności przypomnienia są wyzwalane przez aktora deactivations i tryb failover, ponieważ hello złośliwych użytkowników w czasie wykonywania będzie nadal występował, informacje o przypomnienia hello aktora.
+Przypomnienia są mechanizm umożliwiający wyzwalanie trwałe wywołań zwrotnych na aktora w określonych godzinach. Czasomierze odpowiada ich funkcje. Jednak w przeciwieństwie do czasomierze, przypomnienia są wyzwalane we wszystkich okolicznościach, dopóki aktora jawnie wyrejestrowuje je lub aktora jest jawnie usunięte. W szczególności przypomnienia są wyzwalane przez aktora deactivations i tryb failover, ponieważ środowisko uruchomieniowe złośliwych użytkowników będzie się powtarzał informacji na temat przypomnienia aktora.
 
-tooregister przypomnienie aktora wywołuje hello `RegisterReminderAsync` metoda w klasie podstawowej hello, jak pokazano w hello poniższy przykład:
+Aby zarejestrować przypomnienie, wywołuje aktora `RegisterReminderAsync` metoda w klasie podstawowej, jak pokazano w poniższym przykładzie:
 
 ```csharp
 protected override async Task OnActivateAsync()
@@ -161,14 +161,14 @@ protected CompletableFuture onActivateAsync()
     ActorReminder reminderRegistration = this.registerReminderAsync(
             reminderName,
             state,
-            dueTime,    //hello amount of time toodelay before firing hello reminder
-            period);    //hello time interval between firing of reminders
+            dueTime,    //The amount of time to delay before firing the reminder
+            period);    //The time interval between firing of reminders
 }
 ```
 
-W tym przykładzie `"Pay cell phone bill"` jest nazwą monitu hello. Jest to ciąg hello używa aktora toouniquely zidentyfikować przypomnienia. `BitConverter.GetBytes(amountInDollars)`(C#) jest kontekstem hello, który jest skojarzony z hello monitu. Zostanie przekazana aktora wstecz toohello jako argument toohello monitu wywołania zwrotnego, tj. `IRemindable.ReceiveReminderAsync`(C#) lub `Remindable.receiveReminderAsync`(Java).
+W tym przykładzie `"Pay cell phone bill"` jest nazwą monitu. Jest to ciąg, który aktora używany do jednoznacznego identyfikowania przypomnienia. `BitConverter.GetBytes(amountInDollars)`(C#) jest kontekstem, który jest skojarzony z monitu. Go zostaną przekazane do aktora jako argument do wywołania zwrotnego monitu, tj. `IRemindable.ReceiveReminderAsync`(C#) lub `Remindable.receiveReminderAsync`(Java).
 
-Aktorów używających przypomnienia muszą implementować hello `IRemindable` interfejsu, jak pokazano w poniższym przykładzie hello.
+Aktorów używających przypomnienia muszą implementować `IRemindable` interfejsu, jak pokazano w poniższym przykładzie.
 
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
@@ -209,11 +209,11 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 ```
 
-Po wyzwoleniu przypomnienie hello Reliable Actors w czasie wykonywania zostaną wywołane hello `ReceiveReminderAsync`(C#) lub `receiveReminderAsync`— metoda (Java) na powitania aktora. Aktora można zarejestrować wiele przypomnienia i hello `ReceiveReminderAsync`(C#) lub `receiveReminderAsync`(Java) metoda jest wywoływana po żadnego z tych przypomnienia zostanie wywołany. aktora Hello można używać nazwy monitu hello jest przekazywany w toohello `ReceiveReminderAsync`(C#) lub `receiveReminderAsync`się, które zostało wyzwolone monitu toofigure — metoda (Java).
+Po wyzwoleniu przypomnienie wywoła środowisko uruchomieniowe Reliable Actors `ReceiveReminderAsync`(C#) lub `receiveReminderAsync`(Java) metoda aktora. Aktora można zarejestrować wiele przypomnienia i `ReceiveReminderAsync`(C#) lub `receiveReminderAsync`(Java) metoda jest wywoływana po żadnego z tych przypomnienia wyzwoleniu. Aktor można użyć nazwy monitu, który jest przekazywany do `ReceiveReminderAsync`(C#) lub `receiveReminderAsync`— metoda (Java), aby dowiedzieć się, które monitu zostało wyzwolone.
 
-Hello środowiska uruchomieniowego podmiotów zapisuje stanu aktora hello, gdy hello `ReceiveReminderAsync`(C#) lub `receiveReminderAsync`zakończeniu wywołania (Java). Jeśli wystąpi błąd podczas zapisywania stanu hello, ten obiekt aktora spowoduje wyłączenie i nowe wystąpienie zostanie aktywowany.
+Podmiotów środowiska uruchomieniowego zapisuje aktora stan, kiedy `ReceiveReminderAsync`(C#) lub `receiveReminderAsync`zakończeniu wywołania (Java). Jeśli wystąpi błąd podczas zapisywania stanu, ten obiekt aktora spowoduje wyłączenie i nowe wystąpienie zostanie aktywowany.
 
-toounregister przypomnienie aktora wywołuje hello `UnregisterReminderAsync`(C#) lub `unregisterReminderAsync`— metoda (Java), jak pokazano w poniższych przykładach hello.
+Wyrejestrować przypomnienie, wywołuje aktora `UnregisterReminderAsync`(C#) lub `unregisterReminderAsync`— metoda (Java), jak pokazano w poniższych przykładach.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
@@ -224,7 +224,7 @@ ActorReminder reminder = getReminder("Pay cell phone bill");
 CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 ```
 
-Jak pokazano powyżej, hello `UnregisterReminderAsync`(C#) lub `unregisterReminderAsync`— metoda (Java) akceptuje `IActorReminder`(C#) lub `ActorReminder`interfejsu (Java). Witaj obsługuje klasy podstawowej aktora `GetReminder`(C#) lub `getReminder`— metoda (Java), które mogą być używane tooretrieve hello `IActorReminder`(C#) lub `ActorReminder`interfejsu (Java) przez przekazywanie hello przypomnienia o nazwie. Jest to wygodny, ponieważ aktora hello nie jest konieczne toopersist hello `IActorReminder`(C#) lub `ActorReminder`interfejsu (Java), który został zwrócony z hello `RegisterReminder`(C#) lub `registerReminder`wywołanie metody (Java).
+Jak pokazano powyżej, `UnregisterReminderAsync`(C#) lub `unregisterReminderAsync`— metoda (Java) akceptuje `IActorReminder`(C#) lub `ActorReminder`interfejsu (Java). Obsługuje klasy podstawowej aktora `GetReminder`(C#) lub `getReminder`— metoda (Java), który może służyć do pobierania `IActorReminder`(C#) lub `ActorReminder`interfejsu (Java), przekazując w nazwie monitu. Jest to wygodna, ponieważ aktora nie potrzeba utrwalenia `IActorReminder`(C#) lub `ActorReminder`interfejsu (Java), który został zwrócony z `RegisterReminder`(C#) lub `registerReminder`wywołanie metody (Java).
 
 ## <a name="next-steps"></a>Następne kroki
 Więcej informacji na temat zdarzeń niezawodnego aktora i ponowne wejście:

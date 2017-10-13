@@ -1,6 +1,6 @@
 ---
-title: "komunikaty aaaDecode X12 — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Sprawdź poprawność EDI i generowanie potwierdzeń z dekodera wiadomość hello X12 w hello pakiet integracyjny dla przedsiębiorstw dla usługi Azure Logic Apps"
+title: "Dekodowanie X12 wiadomości - Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Sprawdź poprawność EDI i generowanie potwierdzeń z X12 dekodera komunikat w pakiet integracyjny dla przedsiębiorstw dla usługi Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1ffececca1ff835b319b64c85f86c421395833c8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 18719a8f49c74973947517161f7306c233a9323f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="decode-x12-messages-for-azure-logic-apps-with-hello-enterprise-integration-pack"></a>Dekodowanie X12 komunikatów dla usługi Azure Logic Apps z hello pakiet integracyjny dla przedsiębiorstw
+# <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Dekodowanie X12 wiadomości dla usługi Azure Logic Apps z pakiet integracyjny dla przedsiębiorstw
 
-Łącznik wiadomość hello dekodowania X12 można zweryfikować koperty hello przed umowy z partnerem handlowym, sprawdzanie poprawności EDI i właściwości specyficzne dla partnera, podzielić wymianę w zestawy transakcji lub zachować całą wymianę i generowanie potwierdzenia dla przetworzonych transakcji. toouse tego łącznika, należy dodać tooan łącznika hello istniejących wyzwalacza w aplikacji logiki.
+Łącznik komunikat dekodowania X12 można zweryfikować koperty przed umowy z partnerem handlowym, zweryfikować EDI i właściwości specyficzne dla partnera, podzielić wymianę w zestawy transakcji lub zachować całą wymianę i generowanie potwierdzeń dla przetworzonych transakcji. Aby użyć tego łącznika, należy dodać łącznika do istniejącego wyzwalacza w aplikacji logiki.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Oto hello elementy, które należy:
+Oto elementy, które są potrzebne:
 
 * Konto platformy Azure; można utworzyć [bezpłatne konto](https://azure.microsoft.com/free)
-* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure. Musi mieć łącznik wiadomość hello dekodowania X12 integracji konta toouse.
+* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure. Musi mieć konto integracji dekodowania X12 łącznika komunikatu.
 * Co najmniej dwa [partnerów](logic-apps-enterprise-integration-partners.md) które już zostały zdefiniowane w ramach konta integracji
 * [X12 umowy](logic-apps-enterprise-integration-x12.md) jest już zdefiniowany w ramach konta integracji
 
@@ -37,13 +37,13 @@ Oto hello elementy, które należy:
 
 1. [Tworzenie aplikacji logiki](logic-apps-create-a-logic-app.md).
 
-2. Hello dekodowania X12 komunikat łącznika nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W hello projektanta aplikacji logiki dodać wyzwalacz, a następnie dodaj aplikację logiki tooyour akcji.
+2. Dekoduj X12 łącznika komunikatu nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W Projektancie aplikacji logiki dodać wyzwalacza, a następnie dodać do aplikacji logiki akcję.
 
-3.  W polu wyszukiwania hello wprowadź "x12" filtru. Wybierz **X12-dekodowania X12 komunikat**.
+3.  W polu wyszukiwania wprowadź "x12" filtru. Wybierz **X12-dekodowania X12 komunikat**.
    
     ![Wyszukaj "x12"](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage1.png)  
 
-3. Jeśli wszystkie połączenia nie został wcześniej utworzyć konta integracji tooyour, zostanie wyświetlony monit toocreate teraz tego połączenia. Nazwa połączenia, a następnie wybierz hello integracji konta, które ma tooconnect. 
+3. Jeśli wcześniej nie utworzono wszystkie połączenia z kontem integracji, zostanie wyświetlony monit o utworzyć teraz tego połączenia. Nazwa połączenia, a następnie wybierz konta integracji, na którym chcesz się połączyć. 
 
     ![Podaj szczegóły połączenia konta integracji](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage4.png)
 
@@ -52,13 +52,13 @@ Oto hello elementy, które należy:
     | Właściwość | Szczegóły |
     | --- | --- |
     | Nazwa połączenia * |Wprowadź dowolną nazwę połączenia. |
-    | Konta integracji * |Wprowadź nazwę konta integracji. Upewnij się, że integracja aplikacji logiki i konta znajdują się w hello tej samej lokalizacji platformy Azure. |
+    | Konta integracji * |Wprowadź nazwę konta integracji. Upewnij się, że integracja aplikacji logiki i konta znajdują się w tej samej lokalizacji platformy Azure. |
 
-5.  Gdy wszystko będzie gotowe, szczegóły połączenia powinien wyglądać podobnie przykład toothis. Wybierz toofinish Tworzenie połączenia **Utwórz**.
+5.  Gdy wszystko będzie gotowe, szczegóły połączenia powinien wyglądać podobnie do tego przykładu. Aby zakończyć tworzenie połączenia, wybierz **Utwórz**.
    
     ![Szczegóły połączenia konta integracji](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage5.png) 
 
-6. Po utworzeniu połączenia, jak pokazano w poniższym przykładzie, wybierz toodecode komunikat pliku prostego powitania X12.
+6. Po połączeniu z utworzenie, jak pokazano w tym przykładzie wybierz X12 pliku prostego komunikatu zdekodować.
 
     ![utworzone połączenie konta integracji](media/logic-apps-enterprise-integration-x12-decode/x12decodeimage6.png) 
 
@@ -68,35 +68,35 @@ Oto hello elementy, które należy:
 
 ## <a name="x12-decode-details"></a>X12 dekodowania szczegóły
 
-Łącznik dekodowania Hello X12 wykonuje te zadania:
+X12 łącznik dekodowania wykonuje te zadania:
 
-* Weryfikuje koperty hello przed handlowymi umowy z partnerem
+* Weryfikuje koperty przed handlowymi umowy z partnerem
 * Sprawdza poprawność właściwości specyficzne dla partnerów i EDI
   * Sprawdzanie poprawności strukturalnych EDI i rozszerzony schemat sprawdzania poprawności
-  * Sprawdzanie poprawności hello struktury hello koperty wymiany.
-  * Sprawdzanie poprawności schematu koperty hello schematem hello kontroli.
-  * Sprawdzanie poprawności schematu elementów dane zestawu transakcji hello schematem wiadomość hello.
+  * Sprawdzanie poprawności struktury koperty wymiany.
+  * Sprawdzanie poprawności schematu envelope względem schematu kontroli.
+  * Sprawdzanie poprawności schematu elementów dane zestawu transakcji względem schematu wiadomości.
   * EDI weryfikacji w przypadku elementów dane zestawu transakcji 
-* Sprawdza, czy hello wymiany, grupy i transakcji zestaw numerów kontroli nie są duplikatami
-  * Sprawdza hello wymiany kontroli numer przed wymianę wcześniej odebrane.
-  * Sprawdza hello grupy kontroli numer względem innych numery kontroli grupy w hello wymiany.
-  * Sprawdza, czy transakcja hello Ustaw numer kontroli względem innych numery kontroli zestawu transakcji w tej grupie.
-* Dzieli wymiany hello w zestawy transakcji lub zachowuje hello całego wymiany:
+* Sprawdza, czy numery kontroli zestawu wymiany, grupy i transakcji nie są duplikatami
+  * Sprawdza numer kontroli wymiany przed wymianę wcześniej odebrane.
+  * Sprawdza, czy numer grupy kontroli względem innych numery kontroli grupy w wymiany.
+  * Sprawdza, czy transakcja Ustaw numer kontroli względem innych numery kontroli zestawu transakcji w tej grupie.
+* Dzieli wymiany w zestawy transakcji lub zachowuje całego wymiany:
   * Wymiany podziału jako zestawy transakcji - zawiesić zestawy transakcji o błędzie: wymiany podziałów do transakcji ustawia i analizuje każdego zestawu transakcji. 
-  Akcja dekodowania Hello X12 wyświetla tylko te zestawy transakcji, Niepowodzenie weryfikacji za`badMessages`i wyświetla hello pozostałych transakcji ustawia zbyt`goodMessages`.
+  X12 akcji dekodowania danych wyjściowych zestawów tylko tych transakcji niepowodzenie sprawdzania poprawności do `badMessages`i ustawia transakcji pozostałe dane wyjściowe `goodMessages`.
   * Podziel wymiany jako zestawy transakcji - zawiesić wymiany na błąd: wymiany podziałów do transakcji ustawia i analizuje każdego zestawu transakcji. 
-  Jeśli jeden lub więcej transakcji ustawia w hello wymiany Niepowodzenie weryfikacji, hello X12 dekodowania akcji generuje wszystkich transakcji hello ustawia w tym wymiany zbyt`badMessages`.
-  * Zachowaj wymiany — zawiesza zestawy transakcji na błąd: proces i Zachowaj hello wymiany hello całego wsadowej operacji wymiany. 
-  Akcja dekodowania Hello X12 wyświetla tylko te zestawy transakcji, Niepowodzenie weryfikacji za`badMessages`i wyświetla hello pozostałych transakcji ustawia zbyt`goodMessages`.
-  * Zachowaj wymiany — zawiesza wymiany na błąd: proces i Zachowaj hello wymiany hello całego wsadowej operacji wymiany. 
-  Jeśli jeden lub więcej transakcji ustawia w hello wymiany Niepowodzenie weryfikacji, hello X12 dekodowania akcji generuje wszystkich transakcji hello ustawia w tym wymiany zbyt`badMessages`. 
+  Jeśli jeden lub więcej transakcji ustawia w wymiany wystąpi niepowodzenie weryfikacji, X12 akcji dekodowania danych wyjściowych ustawia wszystkich transakcji w tym wymiany do `badMessages`.
+  * Zachowaj wymiany — zawiesza zestawy transakcji na błąd: Zachowaj wymiany i przetwarzanie całego wsadowej operacji wymiany. 
+  X12 akcji dekodowania danych wyjściowych zestawów tylko tych transakcji niepowodzenie sprawdzania poprawności do `badMessages`i ustawia transakcji pozostałe dane wyjściowe `goodMessages`.
+  * Zachowaj wymiany — zawiesza wymiany na błąd: Zachowaj wymiany i przetwarzanie całego wsadowej operacji wymiany. 
+  Jeśli jeden lub więcej transakcji ustawia w wymiany wystąpi niepowodzenie weryfikacji, X12 akcji dekodowania danych wyjściowych ustawia wszystkich transakcji w tym wymiany do `badMessages`. 
 * Generuje potwierdzenia techniczne i/lub funkcjonalne (jeśli jest skonfigurowane).
-  * Generuje techniczne potwierdzenia wyniku weryfikacji nagłówka. Hello techniczne potwierdzenia raporty hello stan przetwarzania hello wymiany nagłówka i przyczepy przez hello adres odbiorcy.
-  * Generuje funkcjonalności potwierdzenia wyniku weryfikacji treści. Witaj potwierdzenia funkcjonalności raporty każdy błąd podczas przetwarzania hello otrzymał dokument
+  * Generuje techniczne potwierdzenia wyniku weryfikacji nagłówka. Potwierdzenie techniczne informuje o stanie przetwarzania nagłówka wymiany i przyczepy przez odbiornik. adres.
+  * Generuje funkcjonalności potwierdzenia wyniku weryfikacji treści. Potwierdzenie funkcjonalności raporty każdego wystąpił błąd podczas przetwarzania odebranego dokumentu
 
-## <a name="view-hello-swagger"></a>Widok hello swagger
-Zobacz hello [swagger szczegóły](/connectors/x12/). 
+## <a name="view-the-swagger"></a>Wyświetlanie struktury swagger
+Zobacz [swagger szczegóły](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o hello pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
+[Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](../logic-apps/logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
 

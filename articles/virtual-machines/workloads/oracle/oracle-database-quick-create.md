@@ -1,5 +1,5 @@
 ---
-title: aaaCreate bazy danych programu Oracle w maszynie Wirtualnej platformy Azure | Dokumentacja firmy Microsoft
+title: Tworzenie bazy danych programu Oracle w maszynie Wirtualnej platformy Azure | Dokumentacja firmy Microsoft
 description: "Szybko uzyskać bazy danych bazy danych programu Oracle 12c w górę i uruchomione w środowisku platformy Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 83205154c3275d5f57b46c8acfb0cb4e5c68a412
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Tworzenie bazy danych programu Oracle w maszynie Wirtualnej platformy Azure
 
-Ta szczegółów przewodnik przy użyciu hello Azure CLI toodeploy maszyny wirtualnej platformy Azure z hello [obrazu galerii witryny marketplace Oracle](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) w celu toocreate bazy danych programu Oracle 12 c. Po wdrożeniu serwera hello łączą za pośrednictwem protokołu SSH w kolejności tooconfigure hello Oracle w bazie danych. 
+Szczegóły tego przewodnika, przy użyciu wiersza polecenia platformy Azure, aby wdrożyć maszynę wirtualną platformy Azure z [obrazu galerii witryny marketplace Oracle](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) w celu utworzenia bazy danych Oracle 12 c. Po wdrożeniu serwera będzie łączyć za pośrednictwem protokołu SSH, aby skonfigurować bazę danych programu Oracle. 
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Wybierz tooinstall, użyj interfejsu wiersza polecenia hello lokalnie tego przewodnika Szybki Start wymaga działają hello Azure CLI w wersji 2.0.4 lub nowszej. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów o hello [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w hello *eastus* lokalizacji.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-toocreate maszynę wirtualną (VM), użyj hello [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. 
+Aby utworzyć maszynę wirtualną (VM), należy użyć [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. 
 
-Witaj poniższy przykład tworzy Maszynę wirtualną o nazwie `myVM`. Tworzy również kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. toouse określonego zestawu kluczy, należy użyć hello `--ssh-key-value` opcji.  
+W poniższym przykładzie utworzono maszynę wirtualną o nazwie `myVM`. Tworzy również kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.  
 
 ```azurecli-interactive 
 az vm create \
@@ -56,7 +56,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Po utworzeniu maszyny Wirtualnej hello Azure CLI Wyświetla informacje toohello podobnie poniższy przykład. Zanotuj wartość powitania dla `publicIpAddress`. Możesz użyć tego adresu tooaccess hello maszyny Wirtualnej.
+Po utworzeniu maszyny Wirtualnej Azure CLI Wyświetla informacje podobne do poniższego przykładu. Zwróć uwagę na wartość dla `publicIpAddress`. Ten adres umożliwia dostęp do maszyny Wirtualnej.
 
 ```azurecli
 {
@@ -71,26 +71,26 @@ Po utworzeniu maszyny Wirtualnej hello Azure CLI Wyświetla informacje toohello 
 }
 ```
 
-## <a name="connect-toohello-vm"></a>Połącz toohello maszyny Wirtualnej
+## <a name="connect-to-the-vm"></a>Łączenie z maszyną wirtualną
 
-toocreate jako sesji SSH z hello maszyny Wirtualnej, użyj hello następujące polecenia. Zamień adres IP hello hello `publicIpAddress` wartość dla maszyny Wirtualnej.
+Aby utworzyć sesję SSH z maszyną Wirtualną, użyj następującego polecenia. Zastąp adres IP z `publicIpAddress` wartość dla maszyny Wirtualnej.
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-## <a name="create-hello-database"></a>Utwórz bazę danych hello
+## <a name="create-the-database"></a>Utwórz bazę danych
 
-oprogramowanie Oracle Hello jest już zainstalowana na powitania obrazu z witryny Marketplace. Tworzenie przykładowej bazy danych w następujący sposób. 
+Oprogramowanie Oracle jest już zainstalowana na obrazu z witryny Marketplace. Tworzenie przykładowej bazy danych w następujący sposób. 
 
-1.  Przełącz toohello *oracle* administratora, a następnie zainicjować odbiornika hello na potrzeby rejestrowania:
+1.  Przełącz się do *oracle* administratora, a następnie zainicjować odbiornika dla rejestrowania:
 
     ```bash
     $ sudo su - oracle
     $ lsnrctl start
     ```
 
-    dane wyjściowe Hello są podobne toohello następujące czynności:
+    Dane wyjściowe będą podobne do następujących:
 
     ```bash
     Copyright (c) 1991, 2014, Oracle.  All rights reserved.
@@ -98,11 +98,11 @@ oprogramowanie Oracle Hello jest już zainstalowana na powitania obrazu z witryn
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
 
     TNSLSNR for Linux: Version 12.1.0.2.0 - Production
-    Log messages written too/u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
+    Log messages written to /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
 
-    Connecting too(ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
-    STATUS of hello LISTENER
+    Connecting to (ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
+    STATUS of the LISTENER
     ------------------------
     Alias                     LISTENER
     Version                   TNSLSNR for Linux: Version 12.1.0.2.0 - Production
@@ -114,11 +114,11 @@ oprogramowanie Oracle Hello jest już zainstalowana na powitania obrazu z witryn
     Listener Log File         /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening Endpoints Summary...
     (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
-    hello listener supports no services
-    hello command completed successfully
+    The listener supports no services
+    The command completed successfully
     ```
 
-2.  Utwórz bazę danych hello:
+2.  Tworzenie bazy danych:
 
     ```bash
     dbca -silent \
@@ -140,17 +140,17 @@ oprogramowanie Oracle Hello jest już zainstalowana na powitania obrazu z witryn
            -ignorePreReqs
     ```
 
-    Może potrwać kilka minut toocreate hello bazy danych.
+    Trwa kilka minut, aby utworzyć bazę danych.
 
 3. Ustaw zmienne Oracle
 
-Przed nawiązaniem połączenia należy tooset dwie zmienne środowiskowe: *ORACLE_HOME* i *ORACLE_SID*.
+Przed nawiązaniem połączenia należy ustawić dwie zmienne środowiskowe: *ORACLE_HOME* i *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-Możesz również dodać ORACLE_HOME i ORACLE_SID pliku .bashrc toohello zmiennych. Spowoduje to zapisanie zmiennych środowiskowych hello przyszłych logowania. Potwierdź hello następujące instrukcje dodano toohello `~/.bashrc` pliku za pomocą dowolnego edytora.
+Możesz również dodać zmienne ORACLE_HOME i ORACLE_SID do pliku .bashrc. Spowoduje to zapisanie zmiennych środowiskowych dla przyszłych logowania. Potwierdzić poniższe instrukcje zostały dodane do `~/.bashrc` pliku za pomocą dowolnego edytora.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -161,27 +161,27 @@ export ORACLE_SID=cdb1
 
 ## <a name="oracle-em-express-connectivity"></a>Oracle EM Express łączności
 
-Narzędzie do zarządzania graficznego interfejsu użytkownika, które można użyć tooexplore hello bazy danych, skonfiguruj Oracle EM Express. tooOracle tooconnect EM Express, należy najpierw skonfigurować port hello w oprogramowaniu Oracle. 
+Narzędzia zarządzania graficznego interfejsu użytkownika, który można użyć, aby zapoznać się z bazy danych skonfiguruj Oracle EM Express. Aby połączyć się Oracle EM Express, należy najpierw skonfigurować port w oprogramowaniu Oracle. 
 
-1. Połącz tooyour bazy danych przy użyciu sqlplus:
+1. Połączenia z bazą danych przy użyciu sqlplus:
 
     ```bash
     sqlplus / as sysdba
     ```
 
-2. Po nawiązaniu połączenia należy ustawić portu hello 5502 EM Express
+2. Po nawiązaniu połączenia należy ustawić portu 5502 EM Express
 
     ```bash
     exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
-3. Otwórz hello kontenera PDB1 w przeciwnym razie wyboru już otwarty, ale pierwszym hello stanu:
+3. Otwórz kontener PDB1 Jeśli jeszcze nie otwarty, ale pierwszym sprawdzanie stanu:
 
     ```bash
     select con_id, name, open_mode from v$pdbs;
     ```
 
-    dane wyjściowe Hello są podobne toohello następujące czynności:
+    Dane wyjściowe będą podobne do następujących:
 
     ```bash
       CON_ID NAME                           OPEN_MODE 
@@ -190,55 +190,55 @@ Narzędzie do zarządzania graficznego interfejsu użytkownika, które można u�
       3           PDB1                      MOUNT
     ```
 
-4. Jeśli hello OPEN_MODE dla `PDB1` nie jest do odczytu zapisu, następnie uruchom hello następujących parametrów polecenia tooopen PDB1:
+4. Jeśli OPEN_MODE dla `PDB1` nie jest do odczytu zapisu, następnie uruchom polecenia temacie, aby otworzyć PDB1:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-Należy tootype `quit` tooend hello sqlplus sesji i typ `exit` toologout hello oracle użytkownika.
+Należy wpisać `quit` zakończenia sesji sqlplus i typ `exit` się wylogować użytkownika oracle.
 
 ## <a name="automate-database-startup-and-shutdown"></a>Automatyzowanie uruchamiania bazy danych i zamykania
 
-Baza danych Oracle Hello domyślnie nie automatyczne uruchamianie po ponownym uruchomieniu hello maszyny Wirtualnej. tooset się toostart bazy danych Oracle hello automatycznie, najpierw zaloguj się jako element główny. Następnie tworzenie i aktualizowanie niektórych plików systemowych.
+Baza danych Oracle domyślnie nie automatyczne uruchamianie po ponownym uruchomieniu maszyny Wirtualnej. Aby skonfigurować bazę danych programu Oracle do automatycznego uruchamiania, najpierw zaloguj się jako katalogu głównego. Następnie tworzenie i aktualizowanie niektórych plików systemowych.
 
 1. Zalogować się jako katalogu głównego
     ```bash
     sudo su -
     ```
 
-2.  Za pomocą ulubionego edytora, przeprowadź edycję pliku hello `/etc/oratab` i zmienić ustawienie domyślne hello `N` zbyt`Y`:
+2.  Za pomocą ulubionego edytora, przeprowadź edycję pliku `/etc/oratab` i zmienić domyślną `N` do `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Utwórz plik o nazwie `/etc/init.d/dbora` i Wklej hello następującej zawartości:
+3.  Utwórz plik o nazwie `/etc/init.d/dbora` i Wklej poniższą zawartość:
 
     ```
     #!/bin/sh
     # chkconfig: 345 99 10
     # Description: Oracle auto start-stop script.
     #
-    # Set ORA_HOME toobe equivalent too$ORACLE_HOME.
+    # Set ORA_HOME to be equivalent to $ORACLE_HOME.
     ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
     ORA_OWNER=oracle
 
     case "$1" in
     'start')
-        # Start hello Oracle databases:
-        # hello following command assumes that hello Oracle sign-in
-        # will not prompt hello user for any values.
+        # Start the Oracle databases:
+        # The following command assumes that the Oracle sign-in
+        # will not prompt the user for any values.
         # Remove "&" if you don't want startup as a background process.
         su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" &
         touch /var/lock/subsys/dbora
         ;;
 
     'stop')
-        # Stop hello Oracle databases:
-        # hello following command assumes that hello Oracle sign-in
-        # will not prompt hello user for any values.
+        # Stop the Oracle databases:
+        # The following command assumes that the Oracle sign-in
+        # will not prompt the user for any values.
         su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" &
         rm -f /var/lock/subsys/dbora
         ;;
@@ -260,7 +260,7 @@ Baza danych Oracle Hello domyślnie nie automatyczne uruchamianie po ponownym ur
     ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
-6.  tootest zmiany, uruchom ponownie hello maszyny Wirtualnej:
+6.  Aby przetestować zmiany, uruchom ponownie maszynę Wirtualną:
 
     ```bash
     reboot
@@ -268,9 +268,9 @@ Baza danych Oracle Hello domyślnie nie automatyczne uruchamianie po ponownym ur
 
 ## <a name="open-ports-for-connectivity"></a>Otwórz porty dla łączności
 
-ostatnim zadaniem Hello jest tooconfigure niektóre zewnętrzne punkty końcowe. tooset się hello grupy zabezpieczeń sieci Azure, która chroni hello maszyny Wirtualnej, zakończyć sesję SSH w hello maszyny Wirtualnej (powinien mieć zostały kopać poza SSH po ponownym uruchomieniu komputera w poprzednim kroku). 
+Ostatnim zadaniem jest skonfigurowanie niektóre zewnętrzne punkty końcowe. Aby skonfigurować grupy zabezpieczeń sieci Azure, która chroni maszyny Wirtualnej, zakończyć sesję SSH w maszynie Wirtualnej (powinien mieć zostały kopać poza SSH po ponownym uruchomieniu komputera w poprzednim kroku). 
 
-1.  punkt końcowy hello tooopen zdalnie, użyj bazy danych programu Oracle hello tooaccess tworzenia reguły grupy zabezpieczeń sieci za pomocą [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) w następujący sposób: 
+1.  Aby otworzyć punktu końcowego, który umożliwia dostęp do bazy danych Oracle zdalnie, należy utworzyć regułę sieciowej grupy zabezpieczeń z [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) w następujący sposób: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -282,7 +282,7 @@ ostatnim zadaniem Hello jest tooconfigure niektóre zewnętrzne punkty końcowe.
         --destination-port-range 1521
     ```
 
-2.  punkt końcowy hello tooopen zdalnie, użyj tooaccess Oracle EM Express tworzenia reguły grupy zabezpieczeń sieci za pomocą [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) w następujący sposób:
+2.  Aby otworzyć punktu końcowego, który umożliwia zdalny dostęp Oracle EM Express, należy utworzyć regułę sieciowej grupy zabezpieczeń z [Tworzenie reguły nsg sieci az](/cli/azure/network/nsg/rule#create) w następujący sposób:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -294,7 +294,7 @@ ostatnim zadaniem Hello jest tooconfigure niektóre zewnętrzne punkty końcowe.
         --destination-port-range 5502
     ```
 
-3. W razie potrzeby Uzyskaj hello publicznego adresu IP maszyny Wirtualnej ponownie, podając [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#show) w następujący sposób:
+3. W razie potrzeby uzyskania publicznego adresu IP maszyny Wirtualnej ponownie, podając [az sieci ip publicznego Pokaż](/cli/azure/network/public-ip#show) w następujący sposób:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -310,13 +310,13 @@ ostatnim zadaniem Hello jest tooconfigure niektóre zewnętrzne punkty końcowe.
     https://<VM ip address or hostname>:5502/em
     ```
 
-Możesz zalogować się przy użyciu hello **SYS** konta i sprawdź hello **jako grupy sysdba** wyboru. Użyj hasła hello **OraPasswd1** skonfigurowane podczas instalacji. 
+Możesz zalogować się przy użyciu **SYS** konta i sprawdź **jako grupy sysdba** wyboru. Użyj hasła **OraPasswd1** skonfigurowane podczas instalacji. 
 
-![Zrzut ekranu przedstawiający stronę logowania Oracle OEM Express hello](./media/oracle-quick-start/oracle_oem_express_login.png)
+![Zrzut ekranu przedstawiający stronę logowania Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Po zakończeniu eksploracji pierwszą bazę danych programu Oracle na platformie Azure i hello maszyny Wirtualnej nie jest już potrzebne, można użyć hello [usunięcie grupy az](/cli/azure/group#delete) polecenia grupy zasobów hello tooremove, maszyny Wirtualnej i wszystkich powiązanych zasobów.
+Po zakończeniu eksploracji pierwszą bazę danych programu Oracle na platformie Azure i maszyny Wirtualnej nie jest już potrzebny, możesz użyć [usunięcie grupy az](/cli/azure/group#delete) polecenie Usuń grupę zasobów maszyny Wirtualnej, i wszystkich powiązanych zasobów.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -326,4 +326,4 @@ az group delete --name myResourceGroup
 
 Dowiedz się więcej o innych [Oracle rozwiązania na platformie Azure](oracle-considerations.md). 
 
-Spróbuj hello [Instalowanie i konfigurowanie programu Oracle automatycznego zarządzania magazynem](configure-oracle-asm.md) samouczka.
+Spróbuj [Instalowanie i konfigurowanie programu Oracle automatycznego zarządzania magazynem](configure-oracle-asm.md) samouczka.

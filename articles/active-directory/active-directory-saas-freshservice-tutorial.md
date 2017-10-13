@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Freshservice | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Freshservice."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Freshservice."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: d73624b87d058f66885ae72fda69a0aacc89c1ee
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d32775fa91d3a49da1ef55e57d1d38990fa09346
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>Samouczek: Integracji Azure Active Directory z Freshservice
 
-Z tego samouczka, dowiesz się, jak toointegrate Freshservice w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Freshservice z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Freshservice zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD Freshservice zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooFreshservice
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooFreshservice (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Freshservice
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Freshservice (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z Freshservice należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Freshservice, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Freshservice jednokrotnego włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Freshservice z galerii hello
+1. Dodawanie Freshservice z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-freshservice-from-hello-gallery"></a>Dodawanie Freshservice z galerii hello
-tooconfigure hello integracji Freshservice do usługi Azure AD, należy tooadd Freshservice z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-freshservice-from-the-gallery"></a>Dodawanie Freshservice z galerii
+Aby skonfigurować integrację usługi Azure AD Freshservice, należy dodać Freshservice z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Freshservice z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Freshservice z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **Freshservice**.
+4. W polu wyszukiwania wpisz **Freshservice**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_search.png)
 
-5. W panelu wyników hello zaznacz **Freshservice**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **Freshservice**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Freshservice w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Freshservice jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Freshservice musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Freshservice jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Freshservice musi się.
 
-W Freshservice, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W Freshservice, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Freshservice, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Freshservice, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Freshservice](#creating-a-freshservice-test-user)**  -toohave odpowiednikiem Simona Britta w Freshservice, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Freshservice](#creating-a-freshservice-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Freshservice połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Freshservice.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Freshservice.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Freshservice, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Freshservice, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Freshservice** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Freshservice** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_samlbase.png)
 
-3. Na powitania **Freshservice domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **Freshservice domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_url.png)
 
-    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<democompany>.freshservice.com`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<democompany>.freshservice.com`
 
-    b. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<democompany>.freshservice.com`
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<democompany>.freshservice.com`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator. Skontaktuj się z [zespołem pomocy technicznej klienta Freshservice](https://support.freshservice.com/) tooget tych wartości. 
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta Freshservice](https://support.freshservice.com/) uzyskać te wartości. 
  
-4. Na powitania **certyfikat podpisywania SAML** sekcji, skopiuj **odcisk PALCA** wartości certyfikatu.
+4. Na **certyfikat podpisywania SAML** sekcji, skopiuj **odcisk PALCA** wartości certyfikatu.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_certificate.png) 
 
@@ -125,21 +125,21 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-freshservice-tutorial/tutorial_general_400.png)
 
-6. Na powitania **konfiguracji Freshservice** kliknij **skonfigurować Freshservice** tooopen **Konfigurowanie logowania jednokrotnego** okna. Witaj kopii **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+6. Na **konfiguracji Freshservice** , kliknij przycisk **skonfigurować Freshservice** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_configure.png) 
 
-7. W oknie przeglądarki innej witryny sieci web Zaloguj się w witrynie firmy Freshservice tooyour jako administrator.
+7. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy Freshservice.
 
-8. W menu hello na górze hello, kliknij przycisk **Admin**.
+8. W menu u góry kliknij **Admin**.
    
     ![Administrator](./media/active-directory-saas-freshservice-tutorial/ic790814.png "administratora")
 
-9. W hello **portalu klienta**, kliknij przycisk **zabezpieczeń**.
+9. W **portalu klienta**, kliknij przycisk **zabezpieczeń**.
    
     ![Zabezpieczenia](./media/active-directory-saas-freshservice-tutorial/ic790815.png "zabezpieczeń")
 
-10. W hello **zabezpieczeń** sekcji, wykonaj następujące kroki hello:
+10. W **zabezpieczeń** sekcji, wykonaj następujące czynności:
    
     ![Jednokrotne](./media/active-directory-saas-freshservice-tutorial/ic790816.png "jednokrotne")
    
@@ -147,62 +147,62 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     b. Wybierz **logowania jednokrotnego SAML**.
 
-    c. W hello **adres URL logowania SAML** pole tekstowe, Wklej wartość hello **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
+    c. W **adres URL logowania SAML** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
 
-    d. W hello **adresu URL wylogowania** pole tekstowe, Wklej wartość hello **Sign-Out URL** którego została skopiowana z portalu Azure.
+    d. W **adresu URL wylogowania** pole tekstowe, Wklej wartość **Sign-Out URL** którego została skopiowana z portalu Azure.
 
-    e. W **odcisk palca certyfikatu zabezpieczeń** pole tekstowe, Wklej hello **odcisk PALCA** wartość certyfikatów, które zostały skopiowane z portalu Azure.
+    e. W **odcisk palca certyfikatu zabezpieczeń** pole tekstowe, Wklej **odcisk PALCA** wartość certyfikatów, które zostały skopiowane z portalu Azure.
 
     f. Kliknij przycisk **Zapisz**
    
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-freshservice-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-freshservice-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-freshservice-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-freshservice-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-freshservice-test-user"></a>Tworzenie użytkownika testowego Freshservice
 
-toolog użytkowników tooenable usługi Azure AD w tooFreshService, muszą mieć przydzielone do FreshService. W przypadku hello FreshService Inicjowanie obsługi to zadanie ręczne.
+Aby umożliwić użytkownikom usługi Azure AD zalogować się do FreshService, musi być przygotowana do FreshService. W przypadku FreshService Inicjowanie obsługi to zadanie ręczne.
 
-**tooprovision konta użytkownika, należy wykonać hello następujące kroki:**
+**Aby udostępnić konta użytkownika, wykonaj następujące czynności:**
 
-1. Zaloguj się za tooyour **FreshService** witryny firmy jako administrator.
+1. Zaloguj się do Twojego **FreshService** witryny firmy jako administrator.
 
-2. W menu hello na górze hello, kliknij przycisk **Admin**.
+2. W menu u góry kliknij **Admin**.
    
     ![Administrator](./media/active-directory-saas-freshservice-tutorial/ic790814.png "administratora")
 
-3. W hello **Zarządzanie użytkownikami** kliknij **jednostek żądających**.
+3. W **Zarządzanie użytkownikami** kliknij **jednostek żądających**.
    
     ![Jednostek żądających](./media/active-directory-saas-freshservice-tutorial/ic790818.png "jednostek żądających")
 
@@ -210,35 +210,35 @@ toolog użytkowników tooenable usługi Azure AD w tooFreshService, muszą mieć
    
     ![Nowych jednostek żądających](./media/active-directory-saas-freshservice-tutorial/ic790819.png "nowych jednostek żądających")
 
-5. W hello **nowy element żądający** sekcji, wykonaj następujące kroki hello:
+5. W **nowy element żądający** sekcji, wykonaj następujące czynności:
    
     ![Nowy element żądający](./media/active-directory-saas-freshservice-tutorial/ic790820.png "nowy element żądający")   
 
-    a. Wprowadź hello **imię** i **E-mail** atrybuty prawidłowe konto usługi Azure Active Directory mają tooprovision w hello związane z pól tekstowych.
+    a. Wprowadź **imię** i **E-mail** atrybuty prawidłowe konto usługi Azure Active Directory ustanawiane do powiązanych pól tekstowych.
 
     b. Kliknij pozycję **Zapisz**.
    
     >[!NOTE]
-    >Właściciel konta usługi Azure Active Directory Hello pobiera wiadomość e-mail z tym kontem hello tooconfirm łącze zanim staje się aktywny
+    >Wiadomość e-mail, łącznie z łączem do potwierdzenia konta, zanim staje się aktywny pobiera właściciela konta usługi Azure Active Directory
     >  
 
 >[!NOTE]
->Możesz użyć innych FreshService użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez FreshService tooprovision kont użytkowników usługi AAD.
+>Możesz użyć innych FreshService użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez FreshService do kont użytkowników usługi AAD.
 >  
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooFreshservice Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta Freshservice, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Freshservice**.
+2. Na liście aplikacji zaznacz **Freshservice**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-freshservice-tutorial/tutorial_freshservice_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -246,7 +246,7 @@ toolog użytkowników tooenable usługi Azure AD w tooFreshService, muszą mieć
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -254,13 +254,13 @@ toolog użytkowników tooenable usługi Azure AD w tooFreshService, muszą mieć
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.
+Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Freshservice hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Freshservice aplikacji.
+Po kliknięciu kafelka Freshservice w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Freshservice.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

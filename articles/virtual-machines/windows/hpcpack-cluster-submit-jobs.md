@@ -1,6 +1,6 @@
 ---
-title: aaaSubmit tooan zadania HPC Pack klastra na platformie Azure | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak tooset się na lokalnym komputerze toosubmit zadań klastra HPC Pack tooan na platformie Azure"
+title: "Przesyłanie zadań HPC Pack klastra na platformie Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak skonfigurować na komputerze lokalnym do przesyłania zadań do klastra HPC Pack na platformie Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,104 +15,104 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 2918cf633917d8730487152e6a5ddb863eb8bb5e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d5953f1e1dd2deb4d871bd67352a6a5b2ae13dbf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="submit-hpc-jobs-from-an-on-premises-computer-tooan-hpc-pack-cluster-deployed-in-azure"></a>Przesyłanie zadań HPC z komputera lokalnego tooan klastra HPC Pack wdrożona na platformie Azure
+# <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Przesyłanie zadań HPC z lokalnego komputera do klastra pakietu HPC Pack wdrożonego na platformie Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Konfigurowanie lokalnego klienta komputera toosubmit zadania tooa [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) klastra na platformie Azure. W tym artykule opisano, jak narzędzia zadania toosubmit tooset lokalnego komputera z klientem za pośrednictwem protokołu HTTPS toohello klastra na platformie Azure. W ten sposób kilku użytkowników klastra można przesłać zadania tooa oparte na chmurze HPC Pack klastra, ale bez połączyć się bezpośrednio węzła głównego toohello maszyny Wirtualnej lub uzyskiwania dostępu do subskrypcji platformy Azure.
+Konfigurowanie komputera klienckiego lokalnymi umożliwiają przesyłanie zadań do [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) klastra na platformie Azure. W tym artykule przedstawiono sposób konfigurowania lokalnego komputera z narzędziami klienckimi można przesłać zadania przy użyciu protokołu HTTPS do klastra w systemie Azure. W ten sposób wielu użytkowników klastra można przesłać zadania do klastra HPC Pack oparte na chmurze, ale bez połączenie bezpośrednio z węzłem głównym maszyny Wirtualnej lub uzyskiwanie dostępu do subskrypcji platformy Azure.
 
-![Przedstawia klastra tooa zadania na platformie Azure][jobsubmit]
+![Przesyłanie zadań do klastra w systemie Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Węzłem głównym HPC Pack wdrożony w maszynie Wirtualnej platformy Azure** -zalecane jest użycie automatycznych narzędzi takich jak [szablonie Szybki Start Azure](https://azure.microsoft.com/documentation/templates/) lub [skrypt programu PowerShell Azure](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) węzła głównego hello toodeploy i klaster. Należy nazwę DNS hello hello węzła głównego i hello poświadczenia administratora klastrów, aby wykonać kroki hello w tym artykule.
-* **Komputer kliencki** -wymagają systemu Windows lub Windows Server komputera klienckiego, który można uruchomić narzędzia klienta HPC Pack (zobacz [wymagania systemowe](https://technet.microsoft.com/library/dn535781.aspx)). Jeśli chcesz tylko zadania toosubmit interfejsu API REST lub portalu internetowego HPC Pack hello toouse, można użyć dowolnego komputera klienckiego wybranych przez użytkownika.
-* **Nośnik instalacyjny HPC Pack** -tooinstall hello HPC Pack narzędzi klienta, pakiet instalacyjny wolnego hello do najnowszej wersji HPC Pack (HPC Pack 2012 R2) jest niedostępna z [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Upewnij się, że pobierać hello tej samej wersji pakietu HPC, który jest zainstalowany w węźle głównym hello maszyny Wirtualnej.
+* **Węzłem głównym HPC Pack wdrożony w maszynie Wirtualnej platformy Azure** -zalecane jest użycie automatycznych narzędzi takich jak [szablonie Szybki Start Azure](https://azure.microsoft.com/documentation/templates/) lub [skrypt programu PowerShell Azure](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) wdrażania węzła głównego i klaster. Należy nazwy DNS węzła głównego i poświadczenia administratora klastra, aby wykonać kroki opisane w tym artykule.
+* **Komputer kliencki** -wymagają systemu Windows lub Windows Server komputera klienckiego, który można uruchomić narzędzia klienta HPC Pack (zobacz [wymagania systemowe](https://technet.microsoft.com/library/dn535781.aspx)). Jeśli chcesz użyć portalu internetowego HPC Pack lub interfejsu API REST do przesyłania zadań, można użyć dowolnego komputera klienckiego wybranych przez użytkownika.
+* **Nośnik instalacyjny HPC Pack** — Aby zainstalować narzędzia HPC Pack klienta pakietu instalacyjnego wolnego do najnowszej wersji HPC Pack (HPC Pack 2012 R2) jest niedostępna z [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Upewnij się, pobrania tej samej wersji pakietu HPC, który jest zainstalowany w węźle głównym maszyny Wirtualnej.
 
-## <a name="step-1-install-and-configure-hello-web-components-on-hello-head-node"></a>Krok 1: Instalowanie i konfigurowanie składników sieci web hello na powitania węzła głównego
-tooenable klastra toohello zadania toosubmit interfejsu REST za pośrednictwem protokołu HTTPS, upewnij się, że składniki sieci web HPC Pack hello są skonfigurowane w węźle głównym HPC Pack hello. Jeśli nie są już zainstalowane, należy najpierw zainstalować składniki sieci web hello, uruchamiając plik instalacyjny HpcWebComponents.msi hello. Następnie należy skonfigurować składniki hello przez uruchomienie skryptu środowiska PowerShell klastra HPC hello **HPCWebComponents.ps1 zestawu**.
+## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Krok 1: Instalowanie i konfigurowanie składników sieci web na węzła głównego
+Aby włączyć interfejs REST umożliwiają przesyłanie zadań do klastra przy użyciu protokołu HTTPS, upewnij się, że składniki sieci web HPC Pack są skonfigurowane w węźle głównym HPC Pack. Jeśli nie są już zainstalowane, należy najpierw zainstalować składniki sieci web, uruchamiając plik instalacyjny HpcWebComponents.msi. Następnie należy skonfigurować składniki przez uruchomienie skryptu środowiska PowerShell klastra HPC **HPCWebComponents.ps1 zestawu**.
 
-Aby uzyskać szczegółowe procedury, zobacz [zainstalować składniki sieci Web hello Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
+Aby uzyskać szczegółowe procedury, zobacz [zainstalować składniki sieci Web programu Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
-> Niektóre szablony szybkiego startu usługi Azure HPC Pack Instalowanie i konfigurowanie składników sieci web hello automatycznie. Jeśli używasz hello [skrypt wdrożenia HPC Pack IaaS](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) toocreate hello klastra, można opcjonalnie zainstalować i skonfigurować składniki sieci web hello jako część wdrożenia hello.
+> Niektóre szablony szybkiego startu usługi Azure HPC Pack zainstalować i skonfigurować składniki sieci web automatycznie. Jeśli używasz [skrypt wdrożenia HPC Pack IaaS](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) do utworzenia klastra, można opcjonalnie zainstalować i skonfigurować składniki sieci web jako część wdrożenia.
 > 
 > 
 
-**składniki sieci web hello tooinstall**
+**Aby zainstalować składniki sieci web**
 
-1. Połącz z węzłem głównym toohello maszyny Wirtualnej, używając hello poświadczenia administratora klastra.
-2. Z folderu instalacji pakietu HPC hello Uruchom HpcWebComponents.msi na powitania węzła głównego.
-3. Wykonaj kroki hello w składnikach hello tooinstall hello kreatora w sieci web
+1. Połączenie z węzłem głównym maszyny Wirtualnej przy użyciu poświadczeń administratora klastra.
+2. Uruchom z folderu instalacji pakietu HPC, HpcWebComponents.msi w węźle głównym.
+3. Postępuj zgodnie z instrukcjami kreatora, aby zainstalować składniki sieci web
 
-**składniki sieci web hello tooconfigure**
+**Aby skonfigurować składniki sieci web**
 
-1. W węźle głównym hello Uruchom program HPC PowerShell jako administrator.
-2. Lokalizacja toohello katalogu toochange skryptu konfiguracji hello, hello wpisz następujące polecenie:
+1. W węźle głównym Uruchom program HPC PowerShell jako administrator.
+2. Aby zmienić katalog do lokalizacji pliku skryptu konfiguracji, wpisz następujące polecenie:
    
     ```powershell
     cd $env:CCP_HOME\bin
     ```
-3. tooconfigure hello interfejsu REST i uruchomić hello HPC usługi sieci Web, hello wpisz następujące polecenie:
+3. Aby skonfigurować interfejs REST i uruchomić usługę sieci Web HPC, wpisz następujące polecenie:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
-4. Gdy zostanie wyświetlony monit o tooselect certyfikat, wybierz certyfikat hello, który odpowiada toohello publicznej nazwy DNS hello węzła głównego. Na przykład w przypadku wdrożenia hello węzła głównego maszyny Wirtualnej przy użyciu hello klasycznego modelu wdrażania, nazwa certyfikatu hello wygląda następująco: CN =&lt;*HeadNodeDnsName*&gt;. cloudapp.net. Jeśli używasz modelu wdrażania usługi Resource Manager hello, nazwa certyfikatu hello wygląda CN =&lt;*HeadNodeDnsName*&gt;.&lt; *region*&gt;. cloudapp.azure.com.
+4. Gdy zostanie wyświetlony monit o wybranie certyfikatu, należy wybrać certyfikat, który odpowiada publicznej nazwy DNS węzła głównego. Na przykład w przypadku wdrożenia maszyny Wirtualnej przy użyciu klasycznego modelu wdrażania węzłem głównym, nazwa certyfikatu wygląda CN =&lt;*HeadNodeDnsName*&gt;. cloudapp.net. Jeśli używasz modelu wdrażania usługi Resource Manager, nazwa certyfikatu wygląda CN =&lt;*HeadNodeDnsName*&gt;.&lt; *region*&gt;. cloudapp.azure.com.
    
    > [!NOTE]
-   > Należy wybrać ten certyfikat później podczas przesyłania zadań toohello węzła głównego z komputera lokalnego. Brak zaznaczenia lub skonfigurować certyfikat, który odpowiada nazwa komputera toohello hello węzła głównego w domenie usługi Active Directory hello (na przykład, CN =*MyHPCHeadNode.HpcAzure.local*).
+   > Należy wybrać ten certyfikat później podczas przesyłania zadań do węzła głównego z komputera lokalnego. Brak zaznaczenia lub skonfigurować certyfikat, który odpowiada nazwie komputera węzła głównego w domenie usługi Active Directory (na przykład, CN =*MyHPCHeadNode.HpcAzure.local*).
    > 
    > 
-5. portal sieci web hello tooconfigure składania zadania hello wpisz następujące polecenie:
+5. Aby skonfigurować dla przesyłanie zadań do portalu sieci web, wpisz następujące polecenie:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. Po ukończeniu działania skryptu hello zatrzymać i ponownie uruchomić hello usługa harmonogramu zadań HPC, wpisując hello następujące polecenia:
+6. Po ukończeniu działania skryptu, zatrzymać i ponownie uruchomić usługa harmonogramu zadań HPC, wpisując następujące polecenia:
    
     ```powershell
     net stop hpcscheduler
     net start hpcscheduler
     ```
 
-## <a name="step-2-install-hello-hpc-pack-client-utilities-on-an-on-premises-computer"></a>Krok 2: Zainstaluj narzędzia klienta HPC Pack hello na komputerze lokalnym
-Jeśli chcesz tooinstall hello HPC Pack klienta narzędzia na komputerze, Pobierz pliki instalacji HPC Pack (Instalacja pełna) z hello [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Po rozpoczęciu instalacji hello, wybierz opcję instalacji hello hello **narzędzi klienta HPC Pack**.
+## <a name="step-2-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>Krok 2: Zainstaluj narzędzia klienta HPC Pack na komputerze lokalnym
+Jeśli chcesz zainstalować narzędzia klienta HPC Pack na komputerze, należy pobrać pliki instalacji HPC Pack (Instalacja pełna) z [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). Po rozpoczęciu instalacji wybierz opcję instalacji dla **narzędzi klienta HPC Pack**.
 
-klienckie HPC Pack hello toouse narzędzia toosubmit zadania toohello węzła głównego maszyny Wirtualnej, należy również tooexport certyfikat od węzła głównego hello i zainstaluj go na komputerze klienckim hello. Witaj, certyfikat musi mieć. CER format.
+Aby użyć narzędzia klienta HPC Pack umożliwiają przesyłanie zadań do węzła głównego maszyny Wirtualnej, należy również eksportowania certyfikatu z węzła głównego i zainstaluj go na komputerze klienckim. Certyfikat musi być w. CER format.
 
-**certyfikat hello tooexport z węzłem głównym hello**
+**Aby wyeksportować certyfikat z węzła głównego**
 
-1. W węźle głównym hello Dodaj hello certyfikatów przystawki tooa konsoli Microsoft Management Console dla hello konta na komputerze lokalnym. Przystawka hello tooadd znajduje się [dodać tooan hello przystawki certyfikatów konsoli MMC](https://technet.microsoft.com/library/cc754431.aspx).
-2. W drzewie konsoli hello rozwiń **certyfikaty — komputer lokalny** > **osobistych**, a następnie kliknij przycisk **certyfikaty**.
-3. Zlokalizuj certyfikat hello skonfigurowane dla składników sieci web HPC Pack hello w [krok 1: Instalowanie i konfigurowanie składników sieci web hello na powitania węzła głównego](#step-1:-install-and-configure-the-web-components-on-the-head-node) (na przykład, CN =&lt;*HeadNodeDnsName* &gt;. cloudapp.net).
-4. Kliknij prawym przyciskiem myszy hello certyfikatu, a następnie kliknij przycisk **wszystkie zadania** > **wyeksportować**.
-5. W Kreatorze eksportu certyfikatów hello, kliknij przycisk **dalej**i upewnij się, że **nie eksportuj klucza prywatnego hello** jest zaznaczone.
-6. Certyfikat x.509 szyfrowany binarnie algorytmem hello wykonaj pozostałe kroki hello kreatora tooexport hello certyfikatu w DER (. Format CER).
+1. W węźle głównym Dodaj przystawkę Certyfikaty do programu Microsoft Management Console dla konta komputera lokalnego. Aby uzyskać instrukcje dotyczące dodawania przystawki, zobacz [Dodawanie przystawki Certyfikaty do programu MMC](https://technet.microsoft.com/library/cc754431.aspx).
+2. W drzewie konsoli rozwiń węzeł **certyfikaty — komputer lokalny** > **osobistych**, a następnie kliknij przycisk **certyfikaty**.
+3. Zlokalizować certyfikatu, który skonfigurowany dla składników sieci web HPC Pack w [krok 1: Instalowanie i konfigurowanie składników sieci web w węźle głównym](#step-1:-install-and-configure-the-web-components-on-the-head-node) (na przykład, CN =&lt;*HeadNodeDnsName* &gt;. cloudapp.net).
+4. Kliknij prawym przyciskiem myszy certyfikat, a następnie kliknij przycisk **wszystkie zadania** > **wyeksportować**.
+5. W Kreatorze eksportu certyfikatów kliknij **dalej**i upewnij się, że **nie eksportuj klucza prywatnego** jest zaznaczone.
+6. Wykonaj pozostałe kroki kreatora, aby wyeksportować certyfikat w certyfikat x.509 szyfrowany binarnie algorytmem DER (. Format CER).
 
-**tooimport hello certyfikatów na komputerze klienckim hello**
+**Aby zaimportować certyfikat na komputerze klienckim**
 
-1. Skopiuj wyeksportowany z hello węzła głównego tooa folderu na komputerze klienckim hello hello certyfikat.
-2. Na komputerze klienckim hello Uruchom certmgr.msc.
+1. Skopiuj certyfikat, który został wyeksportowany z węzła głównego do folderu na komputerze klienckim.
+2. Uruchom certmgr.msc na komputerze klienckim.
 3. Rozwiń węzeł w Menedżerze certyfikatów **Certyfikaty — bieżący użytkownik** > **zaufane główne urzędy certyfikacji**, kliknij prawym przyciskiem myszy **certyfikaty**, a następnie Kliknij przycisk **wszystkie zadania** > **importu**.
-4. W hello Kreatora importu certyfikatów kliknij **dalej** i wykonaj hello kroki tooimport hello wyeksportowany certyfikat w magazynie zaufanych głównych urzędów certyfikacji toohello węzła głównego hello.
+4. Kreatora importu certyfikatów kliknij **dalej** i wykonaj kroki, aby zaimportować certyfikat, który został wyeksportowany z węzłem głównym w magazynie zaufanych głównych urzędów certyfikacji.
 
 > [!TIP]
-> Może pojawić się ostrzeżenie, ponieważ hello urzędu certyfikacji na powitania węzła głównego nie jest rozpoznawane przez komputer kliencki hello. Do celów testowych, możesz zignorować to ostrzeżenie i pełne importu certyfikatów hello.
+> Może pojawić się ostrzeżenie, ponieważ urzędu certyfikacji w węźle głównym nie jest rozpoznawane przez komputer kliencki. Do celów testowych, możesz zignorować to ostrzeżenie i ukończenie importu certyfikatów.
 > 
 > 
 
-## <a name="step-3-run-test-jobs-on-hello-cluster"></a>Krok 3: Uruchamianie testu zadań w klastrze hello
-Spróbuj uruchomionych zadań na powitania konfiguracji klastra na platformie Azure z hello tooverify lokalnego komputera. Na przykład można użyć narzędzia HPC Pack graficznego interfejsu użytkownika lub polecenia toosubmit zadania toohello klastra. Umożliwia także zadania toosubmit portalu sieci web.
+## <a name="step-3-run-test-jobs-on-the-cluster"></a>Krok 3: Uruchamianie testu zadań w klastrze
+Aby sprawdzić konfigurację, spróbuj uruchomionych zadań w klastrze na platformie Azure z komputera lokalnego. Na przykład można użyć narzędzia HPC Pack GUI lub poleceń wiersza polecenia do przesyłania zadań do klastra. Portal sieci web służy także do przesyłania zadań.
 
-**toorun zadania przesyłania polecenia na komputerze klienckim hello**
+**Aby uruchomić polecenia przesyłania zadań na komputerze klienckim**
 
-1. Na komputerze klienckim, w którym są zainstalowane narzędzia klienta HPC Pack hello Uruchom wiersz polecenia.
-2. Wpisz polecenie przykładowe. Na przykład toolist wszystkich zadań w klastrze hello, wpisz polecenie podobne tooone z powitania po, w zależności od hello pełną nazwą DNS hello węzła głównego:
+1. Na komputerze klienckim, w którym są zainstalowane narzędzia klienta HPC Pack należy uruchomić wiersz polecenia.
+2. Wpisz polecenie przykładowe. Na przykład aby wyświetlić listę wszystkich zadań w klastrze, wpisz polecenie podobne do jednej z następujących czynności, w zależności od węzła głównego pełną nazwę DNS:
    
     ```command
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -125,30 +125,30 @@ Spróbuj uruchomionych zadań na powitania konfiguracji klastra na platformie Az
     ```
    
    > [!TIP]
-   > Użyj hello pełną nazwą DNS hello węzła głównego, nie adres IP hello w adresie URL harmonogramu hello. Jeśli określisz adresu IP hello pojawia się błąd podobny zbyt "hello, certyfikat serwera musi tooeither zawiera prawidłowy łańcuch zaufania lub toobe umieszczane w magazynie zaufanych certyfikatów głównych hello."
+   > Pełna nazwa DNS węzła głównego, a nie adres IP, należy użyć w adresie URL harmonogramu. Jeśli określony adres IP, pojawia się błąd podobny do "certyfikat serwera musi mieć prawidłowy łańcuch zaufania lub umieszczone w magazynie zaufanych certyfikatów głównych."
    > 
    > 
-3. Po wyświetleniu monitu wpisz nazwę użytkownika hello (w postaci hello &lt;DomainName&gt;\\&lt;UserName&gt;) i hasło administratora klastra HPC hello lub innego użytkownika klastra skonfigurowanego. Możesz wybrać toostore poświadczenia hello lokalnie więcej operacji zadań.
+3. Po wyświetleniu monitu wpisz nazwę użytkownika (w postaci &lt;DomainName&gt;\\&lt;UserName&gt;) i hasło administratora klastrów HPC lub innego użytkownika klastra skonfigurowanego. Można zapisać poświadczenia lokalnie dla kolejnych operacjach zadania.
    
     Zostanie wyświetlona lista zadań.
 
-**toouse Menedżer zadań klastra HPC na komputerze klienckim hello**
+**Na komputerze klienckim za pomocą Menedżera zadań HPC**
 
-1. Jeśli wcześniej nie przechowują poświadczeń domeny użytkownika, klastra, podczas przesyłania zadania, można dodać hello poświadczeń w Menedżerze poświadczeń.
+1. Jeśli wcześniej nie przechowują poświadczeń domeny użytkownika, klastra, podczas przesyłania zadania, można dodać poświadczeń w Menedżerze poświadczeń.
    
-    a. W Panelu sterowania na komputerze klienckim hello Uruchom Menedżera poświadczeń.
+    a. W Panelu sterowania na komputerze klienckim otwórz Menedżera poświadczeń.
    
     b. Kliknij przycisk **poświadczeń systemu Windows** > **Dodaj poświadczenie ogólnego**.
    
-    c. Określ adres internetowy hello (na przykład https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler lub https://&lt;HeadNodeDnsName&gt;.&lt; region&gt;.cloudapp.azure.com/HpcScheduler) i nazwą użytkownika hello (&lt;DomainName&gt;\\&lt;UserName&gt;) i hasło administratora klastra hello lub innego użytkownika klastra, który został skonfigurowany.
-2. Na komputerze klienckim hello Uruchom Menedżer zadań klastra HPC.
-3. W hello **wybierz węzeł Head** okno dialogowe, typ hello adresu URL toohello węzła głównego na platformie Azure (na przykład https://&lt;HeadNodeDnsName&gt;. cloudapp.net lub https://&lt;HeadNodeDnsName&gt;. &lt;region&gt;. cloudapp.azure.com).
+    c. Określ adres internetowy (na przykład https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler lub https://&lt;HeadNodeDnsName&gt;.&lt; region&gt;.cloudapp.azure.com/HpcScheduler) oraz nazwy użytkownika (&lt;DomainName&gt;\\&lt;UserName&gt;) i hasło administratora klastra lub innego użytkownika klastra, który został skonfigurowany.
+2. Na komputerze klienckim, aby uruchomić Menedżer zadań klastra HPC.
+3. W **wybierz węzeł Head** okna dialogowego, wpisz adres URL węzła głównego na platformie Azure (na przykład https://&lt;HeadNodeDnsName&gt;. cloudapp.net lub https://&lt;HeadNodeDnsName&gt;.&lt; region&gt;. cloudapp.azure.com).
    
-    Menedżer zadań klastra HPC otwiera i jest wyświetlana lista zadań na powitania węzła głównego.
+    Menedżer zadań klastra HPC otwiera i zawiera listę zadań z węzła głównego.
 
-**portal sieci web hello toouse systemem hello węzła głównego**
+**Aby korzystać z portalu sieci web uruchomiona w węźle głównym**
 
-1. Uruchom przeglądarkę sieci web na komputerze klienckim hello i wprowadź jedno z następujących adresów, w zależności od hello pełną nazwą DNS węzła głównego hello hello:
+1. Uruchom przeglądarkę sieci web na komputerze klienckim i wprowadź jedno z następujących adresów, w zależności od węzła głównego pełną nazwę DNS:
    
     ```
     https://<HeadNodeDnsName>.cloudapp.net/HpcPortal
@@ -159,17 +159,17 @@ Spróbuj uruchomionych zadań na powitania konfiguracji klastra na platformie Az
     ```
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. Okno dialogowe zabezpieczeń hello, który pojawia się wpisz poświadczenia domeny hello administratora klastra HPC hello. (Można również dodać innych klastra użytkowników w różnych ról. Zobacz [Zarządzanie użytkownikami klastra](https://technet.microsoft.com/library/ff919335.aspx).)
+2. W oknie dialogowym Zabezpieczenia wpisz poświadczenia domeny administratora klastra HPC. (Można również dodać innych klastra użytkowników w różnych ról. Zobacz [Zarządzanie użytkownikami klastra](https://technet.microsoft.com/library/ff919335.aspx).)
    
-    portal sieci web Hello otwiera widok listy toohello zadania.
-3. Kliknij toosubmit przykładowe zadania, które zwraca ciąg hello "Hello World" z klastra hello **nowe zadanie** w nawigacji po lewej stronie powitania.
-4. Na powitania **nowe zadanie** w obszarze **ze stron przesyłania**, kliknij przycisk **HelloWorld**. zostanie wyświetlona strona przesyłania zadania Hello.
-5. Kliknij przycisk **przesłać**. Po wyświetleniu monitu podaj poświadczenia domeny hello administratora klastra HPC hello. zadanie Hello i hello identyfikator zadania jest wyświetlana na powitania **Moje zadania** strony.
-6. wyniki hello tooview hello zadania, który zostanie przesłany, kliknij hello identyfikator zadania, a następnie kliknij **zadania widoku** danych wyjściowych polecenia hello tooview (w obszarze **dane wyjściowe**).
+    Portal sieci web zostanie otwarty widok listy zadań.
+3. Aby przesłać zadanie próbki, która zwraca ciąg "Hello World" z klastra, kliknij przycisk **nowe zadanie** w obszarze nawigacji po lewej stronie.
+4. Na **nowe zadanie** w obszarze **ze stron przesyłania**, kliknij przycisk **HelloWorld**. Zostanie wyświetlona strona przesyłania zadania.
+5. Kliknij przycisk **przesłać**. Po wyświetleniu monitu podaj poświadczenia domeny administratora klastra HPC. Zadanie, a identyfikator zadania są wyświetlane na **Moje zadania** strony.
+6. Aby wyświetlić wyniki zadania, który zostanie przesłany, kliknij Identyfikatora zadania, a następnie kliknij **zadania widoku** do wyświetlania danych wyjściowych polecenia (w obszarze **dane wyjściowe**).
 
 ## <a name="next-steps"></a>Następne kroki
-* Istnieje także możliwość przesyłania zadań toohello klastrze platformy Azure z hello [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
-* Toosubmit zadań klastra z klientów systemu Linux, zobacz hello Python przykładowa w hello [HPC Pack 2012 R2 SDK oraz przykładowy kod](https://www.microsoft.com/download/details.aspx?id=41633).
+* Istnieje także możliwość przesyłania zadań do klastra platformy Azure z [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* Jeśli chcesz przesłać zadań klastra z klientów systemu Linux, zobacz próbki Python w [HPC Pack 2012 R2 SDK oraz przykładowy kod](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png

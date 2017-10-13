@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure hot, ostudzić oraz archiwum magazynu obiektów blob | Dokumentacja firmy Microsoft"
+title: "Gorący, chłodny i archiwalny magazyn platformy Azure dla obiektów blob | Microsoft Docs"
 description: "Gorący, chłodny i archiwalny magazyn dla kont usługi Azure Blob Storage."
 services: storage
 documentationcenter: 
@@ -14,76 +14,76 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/05/2017
 ms.author: mihauss
-ms.openlocfilehash: 42fb699bf16147ba8a4d9f75a62debadea5af65e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 544b11d74a926fe62b8ceca51570ce9d2ee7e6e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-preview-storage-tiers"></a>Azure Blob Storage: warstwa magazynu gorącego, chłodnego i archiwalnego (wersja zapoznawcza)
 
 ## <a name="overview"></a>Omówienie
 
-Usługa Azure Storage oferuje trzy warstwy magazynowania dla obiektów blob, co pozwala na najbardziej ekonomiczne przechowywanie danych w zależności od sposobu ich używania. Hello Azure **warstwy magazynu gorącego** jest zoptymalizowana pod kątem przechowywania danych często uzyskuje się dostęp. Hello Azure **warstwy magazynu chłodnego** jest zoptymalizowana pod kątem przechowywania danych, które rzadko uzyskuje dostęp i przechowywane przez co najmniej jeden miesiąc. Witaj [warstwy magazynu archiwum (wersja zapoznawcza)](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) jest zoptymalizowana pod kątem przechowywania danych, które rzadko uzyskuje dostęp i przechowywane przez co najmniej sześć miesięcy wymagania elastyczne czas oczekiwania (w kolejności hello godzin). Witaj *archiwum* warstwy magazynowania można używać tylko na poziomie obiektu blob hello, a nie na koncie magazynu całego hello. Dane w warstwie magazynu chłodnego hello może tolerować nieco niższa dostępność, ale nadal wymagana wysoka trwałość oraz podobny cechy dostępu time i przepływności jako gorących danych. W przypadku chłodnych i archiwalnych danych umowa SLA dotycząca nieco niższej dostępności i wyższe koszty dostępu to dopuszczalne wady, biorąc pod uwagę znacznie niższe koszty magazynowania.
+Usługa Azure Storage oferuje trzy warstwy magazynowania dla obiektów blob, co pozwala na najbardziej ekonomiczne przechowywanie danych w zależności od sposobu ich używania. **Warstwa magazynu gorącego** platformy Azure została zoptymalizowana pod kątem przechowywania danych, do których często uzyskuje się dostęp. **Warstwa magazynu chłodnego** platformy Azure została zoptymalizowana pod kątem magazynowania danych używanych od czasu do czasu, które są przechowywane co najmniej przez miesiąc. [Warstwa magazynu archiwalnego (wersja zapoznawcza)](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) została zoptymalizowana pod kątem magazynowania rzadko używanych danych, przechowywanych co najmniej przez sześć miesięcy, co do których obowiązują elastyczne wymagania dotyczące opóźnień (rzędu kilku godzin). Z warstwy magazynu *archiwalnego* można korzystać tylko na poziomie obiektów blob, a nie w całym koncie magazynu. Dla danych w warstwie magazynu chłodnego nie ma znaczenia nieco niższa dostępność, ale nadal są wymagane wysoka trwałość oraz podobny czas dostępu i parametry przepływności jak w przypadku gorących danych. W przypadku chłodnych i archiwalnych danych umowa SLA dotycząca nieco niższej dostępności i wyższe koszty dostępu to dopuszczalne wady, biorąc pod uwagę znacznie niższe koszty magazynowania.
 
-Obecnie dane przechowywane w chmurze hello rośnie w tempie wykładniczym. toomanage koszty dla potrzeb magazynu powiększające, jest przydatne tooorganize danych na podstawie atrybutów, takich jak częstotliwość dostępu i planowanych okresu przechowywania. Dane przechowywane w chmurze hello mogą się różnić pod względem jak jest generowany, przetwarzane i udostępnianych za pośrednictwem swojego okresu istnienia. Do niektórych danych często uzyskuje się dostęp. Są one również często modyfikowane w trakcie całego okresu istnienia. Niektóre dane jest dostępny w okresie użytkowania, często wcześniej z dostęp znacząco jako hello rzadziej. Niektóre dane pozostają nieużywane w chmurze hello i rzadko, jeśli kiedykolwiek, dostęp do raz przechowywane.
+Obecnie ilość danych przechowywanych w chmurze rośnie w tempie wykładniczym. Aby zarządzać kosztami zwiększających się potrzeb dotyczących magazynowania, warto zorganizować dane na podstawie atrybutów, takich jak częstotliwość dostępu i planowany okres przechowywania. Dane przechowywane w chmurze mogą być różne pod względem sposobu ich generowania i przetwarzania oraz uzyskiwania do nich dostępu przez cały okres ich istnienia. Do niektórych danych często uzyskuje się dostęp. Są one również często modyfikowane w trakcie całego okresu istnienia. Do niektórych danych często uzyskuje się dostęp na początkowym etapie istnienia, a z czasem już zdecydowanie rzadziej. Niektóre dane pozostają nieużywane w chmurze i dostęp do nich uzyskuje się rzadko (lub w ogóle) po umieszczeniu ich w magazynie.
 
 W przypadku każdego z tych scenariuszy dostępu do danych istnieją korzyści płynące ze zróżnicowania warstw magazynowania, zoptymalizowanych pod kątem określonego wzorca dostępu. Dzięki warstwom magazynu gorącego, chłodnego i archiwalnego usługa Azure Blob Storage zaspokaja potrzebę korzystania ze zróżnicowanych warstw magazynowania z oddzielnymi modelami cenowymi.
 
 ## <a name="blob-storage-accounts"></a>Konta usługi Blob Storage
 
-**Konta usługi Blob Storage** to specjalne konta magazynu służące do przechowywania danych bez struktury jako obiekty blob (obiekty) w usłudze Azure Storage. Z konta magazynu obiektów Blob można teraz wybrać gorąco i warstwy magazynu chłodnego na poziomie konta lub gorąco, cool i archiwizowania warstw na poziomie obiektu blob hello, na podstawie wzorców dostępu. Przechowywania rzadko używanych zimnych danych kosztem hello najniższy magazynu, mniej rzadziej używanych chłodnych danych magazynu niższe koszty niż hot i przechowywać częściej używanych gorących danych hello najniższy koszt dostępu. Konta magazynu obiektów blob są podobne tooyour istniejących kont magazynu ogólnego przeznaczenia i udostępnić wszystkie hello doskonałej trwałości, dostępności, skalowalności i wydajności funkcji używanych dzisiaj, łącznie z 100 procent spójnością interfejsu API dla blokowych obiektów blob i Dołącz obiekty BLOB.
+**Konta usługi Blob Storage** to specjalne konta magazynu służące do przechowywania danych bez struktury jako obiekty blob (obiekty) w usłudze Azure Storage. Dzięki kontom usługi Blob Storage można teraz wybrać warstwę magazynu gorącego lub warstwę magazynu chłodnego na poziomie konta. Na podstawie wzorców dostępu można też wybrać warstwę gorącą, chłodną lub archiwalną na poziomie obiektu blob. Koszt przechowywania rzadko używanych zimnych danych jest najniższy, a koszt przechowywania chłodnych danych, używanych od czasu do czasu, jest niższy niż w przypadku gorących danych. Z kolei często używane, gorące dane można magazynować przy najniższym koszcie dostępu. Konta usługi Blob Storage są podobne do istniejących kont magazynu ogólnego przeznaczenia i udostępniają wszystkie obecnie używane, doskonałe funkcje trwałości, dostępności, skalowalności i wydajności, łącznie z pełną spójnością interfejsu API na potrzeby blokowych i uzupełnialnych obiektów blob.
 
 > [!NOTE]
 > Konta Magazynu obiektów blob obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane.
 
-Konta magazynu obiektów blob udostępniają hello **warstwy dostępu** atrybut, który pozwala warstwy magazynowania hello toospecify jako **gorąca** lub **chłodnych** w zależności od hello danych przechowywanych w hello konto. W przypadku zmiany wzorca użycia hello danych, można również przełączać się między tymi warstwami magazynowania, w dowolnym momencie. Hello archiwum warstwy (wersja zapoznawcza) można stosować tylko na poziomie obiektu blob hello.
+Konta usługi Blob Storage udostępniają atrybut **Warstwa dostępu**, który umożliwia określenie warstwy magazynowania jako **Gorąca** lub **Chłodna** w zależności od danych przechowywanych w ramach konta. W przypadku zmiany wzorca użycia danych można także w dowolnym momencie przełączyć się między tymi warstwami magazynowania. Warstwę archiwalną (dostępną w wersji zapoznawczej) można stosować tylko na poziomie obiektu blob.
 
 > [!NOTE]
-> Zmiana warstwy magazynowania hello może spowodować naliczenie dodatkowych opłat. Zobacz hello [cenową i rozliczeń](#pricing-and-billing) sekcji, aby uzyskać więcej informacji.
+> Zmiana warstwy magazynowania może spowodować naliczenie dodatkowych opłat. Więcej szczegółów zawiera sekcja dotycząca [cennika i rozliczeń](#pricing-and-billing).
 
 ### <a name="hot-access-tier"></a>Warstwa dostępu Gorąca
 
-Przykładowe scenariusze użycia dotyczące warstwy magazynu gorącego hello obejmują:
+Przykładowe scenariusze użycia dotyczące warstwy magazynu gorącego obejmują:
 
-* Dane, które często uzyskuje się aktywnego użycia lub toobe oczekiwanego dostęp (Odczyt i zapis do).
-* Dane, które są przygotowywane do przetwarzania i ewentualnej migracji warstwy magazynu chłodnego toohello.
+* Dane, które są często używane lub przewiduje się do nich częsty dostęp (odczyt i zapis danych).
+* Dane, które są przygotowywane do przetwarzania i ewentualnej migracji do warstwy magazynu chłodnego.
 
 ### <a name="cool-access-tier"></a>Warstwa dostępu Chłodna
 
-Przykładowe scenariusze użycia dotyczące warstwy magazynu chłodnego hello obejmują:
+Przykładowe scenariusze użycia dotyczące warstwy magazynu chłodnego obejmują:
 
 * Krótkoterminowe kopie zapasowe i zestawy danych odzyskiwania po awarii.
-* Starszą zawartość nośników nie często wyświetlana, ale jest oczekiwany toobe dostępna natychmiast, gdy dostęp do.
-* Duże zbiory danych, które wymagają toobe skutecznie przechowywania koszt celu przyszłego przetwarzania zbierana jest więcej danych. (*np.* długoterminowe magazynowanie danych naukowych lub nieprzetworzonych danych telemetrycznych z zakładu produkcyjnego).
+* Starszą zawartość nośników, która nie jest już często wyświetlana, ale oczekiwane jest, że będzie ona natychmiast dostępna, gdy będzie to wymagane.
+* Duże zbiory danych, które muszą być przechowywane w sposób ekonomiczny, podczas gdy na potrzeby przyszłego przetwarzania zbierana jest większa ilość danych (*np.* długoterminowe magazynowanie danych naukowych lub nieprzetworzonych danych telemetrycznych z zakładu produkcyjnego).
 
 ### <a name="archive-access-tier-preview"></a>Warstwa dostępu Archiwalna (wersja zapoznawcza)
 
-[Magazyn archiwum](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) ma hello magazynu najniższy koszt i wyższe toohot kosztów w porównaniu pobierania danych i magazynu chłodnego.
+W [warstwie archiwalnej](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering) koszt przechowywania jest najniższy, a koszt pobierania danych jest wyższy niż w przypadku magazynu gorącego i chłodnego.
 
-Obiektu blob przechowywanego w magazynie archiwalnym nie można odczytywać, kopiować, zastępować ani modyfikować. Nie można również tworzyć migawek takiego obiektu blob. Może jednak użyć istniejącego toodelete operacje, listy, pobrać metadane właściwości obiektu blob lub zmienić warstwę hello z obiektu blob. tooread dane w archiwum magazynu, należy najpierw zmienić warstwę hello toohot obiektu blob hello lub superpaska. Ten proces jest nazywany Preparaty nawadniające i może potrwać too15 toocomplete godziny dla obiektów blob mniej niż 50 GB. Dodatkowy czas wymagany do większych obiekty BLOB zależy od limit przepływności blob hello.
+Obiektu blob przechowywanego w magazynie archiwalnym nie można odczytywać, kopiować, zastępować ani modyfikować. Nie można również tworzyć migawek takiego obiektu blob. Można jednak używać istniejących operacji do usuwania lub wyświetlania listy obiektów blob, pobierania ich właściwości/metadanych albo zmiany warstwy obiektu blob. Aby odczytać dane w magazynie archiwalnym, należy najpierw zmienić warstwę obiektu blob na gorącą lub chłodną. Proces ten, określany jako „ponowne wypełnianie” (ang. rehydration), może potrwać do 15 godzin w przypadku obiektów blob o rozmiarze mniejszym niż 50 GB. Większe obiekty blob wymagają dodatkowego czasu, który zależy od ograniczenia przepływności danego obiektu blob.
 
-Zmiana warstwy hello podczas Preparaty nawadniające, można sprawdzić tooconfirm właściwości obiektu blob "archiwum stan" hello. Stan Hello odczytuje "rehydrate oczekujące do gorących" lub "rehydrate oczekujące do chłodnej" w zależności od warstwy docelowej hello. Po zakończenia, hello usunięciu właściwości obiektu blob "archiwum stanu" i "dostępu do warstwy" hello właściwości obiektu blob odzwierciedla hello gorącego i chłodnego warstwy.  
+Podczas ponownego wypełniania można sprawdzać właściwość obiektu blob „stan archiwum”, aby upewnić się, że warstwa została zmieniona. Właściwość ta ma wartość „rehydrate-pending-to-hot” (ponowne wypełnianie w celu przejścia do warstwy gorącej) lub „rehydrate-pending-to-cool” (ponowne wypełnianie w celu przejścia do warstwy chłodnej) w zależności od warstwy docelowej. Po zakończeniu tego procesu właściwość obiektu blob „stan archiwum” jest usuwana, a wartość właściwości „warstwa dostępu” odpowiada warstwie gorącej lub chłodnej.  
 
-Przykładowe scenariusze użycia dotyczące warstwy magazynu archiwum hello obejmują:
+Przykładowe scenariusze użycia archiwalnej warstwy magazynowania obejmują:
 
 * Długoterminowe kopie zapasowe, dane archiwalne i zestawy danych odzyskiwania po awarii
 * Oryginalne (nieprzetworzone) dane, które muszą zostać zachowane, nawet po przetworzeniu ich do ostatecznej użytecznej postaci (*np.* nieprzetworzone pliki multimedialne po transkodowaniu do innych formatów).
-* Zgodności i dane archiwalne, wymaga toobe przechowywane przez długi czas, który jest rzadko uzyskuje się dostęp. (*np.* zapisy z kamer monitorujących, stare zdjęcia rentgenowskie lub zdjęcia z rezonansu magnetycznego dla organizacji opieki zdrowotnej, nagrania audio i zapisy rozmów telefonicznych z klientami dla firm z branży usług finansowych).
+* Dane zgodności i dane archiwalne, które muszą być przechowywane przez długi czas, i do których bardzo rzadko uzyskuje się dostęp (*np.* zapisy z kamer monitorujących, stare zdjęcia rentgenowskie lub zdjęcia z rezonansu magnetycznego dla organizacji opieki zdrowotnej, nagrania audio i zapisy rozmów telefonicznych z klientami dla firm z branży usług finansowych).
 
 ### <a name="recommendations"></a>Zalecenia
 
 Aby uzyskać więcej informacji dotyczących kont magazynu, zobacz [Informacje o kontach magazynu Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-W przypadku aplikacji wymagających tylko zablokować lub magazynu uzupełnialnych obiektów blob, zaleca się użycie kont magazynu obiektów Blob, tootake zaletą hello zróżnicowane modelu cenowego magazynu warstwowego. Jednak Rozumiemy to mogą nie być możliwe w pewnych okolicznościach gdzie przy użyciu magazynu ogólnego przeznaczenia, który będzie kont hello toogo sposób, takich jak:
+Dla aplikacji wymagających tylko magazynu blokowych obiektów blob lub magazynu uzupełnialnych obiektów blob zaleca się użycie kont Magazynu obiektów blob, aby móc korzystać ze zróżnicowanego modelu cenowego magazynu warstwowego. Zdajemy sobie jednak sprawę z tego, że może to nie być możliwe w pewnych okolicznościach, gdy najlepszym rozwiązaniem jest użycie kont magazynu ogólnego przeznaczenia. Przykład:
 
-* Należy toouse tabel, kolejek lub plików i chcesz, obiektów blob przechowywane w hello tego samego konta magazynu. Należy pamiętać, że nie toostoring żadnych korzyści technicznej w powitalne tego samego konta innego niż mających takie same hello udostępnionych kluczy.
+* Musisz korzystać z tabel, kolejek lub plików, a obiekty blob mają być przechowywane na tym samym koncie magazynu. Należy pamiętać, że przechowywanie takich elementów w ramach tego samego konta nie przynosi żadnej korzyści technicznej oprócz posiadania takich samych udostępnionych kluczy.
 
-* Nadal potrzebujesz toouse hello klasycznego modelu wdrożenia. Konta magazynu obiektów blob są dostępne tylko za pośrednictwem modelu wdrażania usługi Azure Resource Manager hello.
+* Nadal musisz korzystać z klasycznego modelu wdrożenia. Konta Magazynu obiektów blob są dostępne tylko za pośrednictwem modelu wdrażania przy użyciu usługi Azure Resource Manager.
 
-* Należy toouse stronicowych obiektów blob. Konta Magazynu obiektów blob nie obsługują stronicowych obiektów blob. Ogólnie zaleca się używanie blokowych obiektów blob, chyba że istnieje konkretna potrzeba użycia stronicowych obiektów blob.
+* Musisz korzystać ze stronicowych obiektów blob. Konta Magazynu obiektów blob nie obsługują stronicowych obiektów blob. Ogólnie zaleca się używanie blokowych obiektów blob, chyba że istnieje konkretna potrzeba użycia stronicowych obiektów blob.
 
-* Użyj wersji hello [interfejsu API REST usług Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) wcześniejsza niż 2014-02-14 lub biblioteka klienta w wersji wcześniejszej niż 4.x i nie można uaktualnić aplikacji.
+* Używasz wersji [interfejsu API REST usług Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) wcześniejsza niż 2014-02-14 lub biblioteka klienta w wersji wcześniejszej niż 4.x i nie można uaktualnić aplikacji.
 
 > [!NOTE]
 > Konta usługi Blob Storage są obecnie obsługiwane we wszystkich regionach platformy Azure.
@@ -91,25 +91,25 @@ W przypadku aplikacji wymagających tylko zablokować lub magazynu uzupełnialny
 
 ## <a name="blob-level-tiering-feature-preview"></a>Funkcja obsługi warstw na poziomie obiektów blob (wersja zapoznawcza)
 
-Obsługa poziomów w poziomie dla obiekt blob umożliwia teraz toochange hello warstwy danych na poziomie obiektu hello przy użyciu jednej operacji o nazwie [ustawić warstwy obiektu Blob](/rest/api/storageservices/set-blob-tier). Można łatwo zmienić hello warstwy dostępu do obiektu blob między hello gorących, chłodnych lub warstw archiwum zmienia wzorce użycia, bez konieczności toomove danych między kontami. Wszystkie zmiany warstw są stosowane natychmiast z wyjątkiem ponownego wypełniania obiektu blob z archiwum. Obiekty BLOB w warstw mogą współistnieć w ramach wszystkich trzech magazynu hello tego samego konta. Żadnych obiektów blob, który nie ma jawnie przypisane warstwy dziedziczy ustawienia warstwy dostępu konta hello hello warstwy.
+Funkcja obsługi warstw na poziomie obiektów blob już umożliwia zmianę warstwy danych na poziomie obiektu przy użyciu jednej operacji o nazwie [Ustawianie warstwy obiektu blob](/rest/api/storageservices/set-blob-tier). W odpowiedzi na zmiany wzorców użycia można łatwo zmieniać warstwy dostępu do obiektu blob (wybierając warstwę gorącą, chłodną lub archiwalną) bez przenoszenia danych między kontami. Wszystkie zmiany warstw są stosowane natychmiast z wyjątkiem ponownego wypełniania obiektu blob z archiwum. W obrębie jednego konta jest możliwe współistnienie obiektów blob należących do wszystkich trzech warstw magazynowania. Obiekt blob bez jawnie przypisanej warstwy dziedziczy warstwę zgodnie z ustawieniem warstwy dostępu konta.
 
-toouse te funkcje w wersji zapoznawczej, wykonaj te instrukcje hello hello [anonsu blog Azure archiwum i obiektów Blob na poziomie warstwy](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering).
+Aby korzystać z tych funkcji w wersji zapoznawczej, postępuj zgodnie z instrukcjami zawartymi w artykule [Azure Archive and Blob-Level Tiering blog announcement (Ogłoszenie na blogu dotyczące funkcji archiwizowania i obsługi warstw na poziomie obiektów blob na platformie Azure)](https://azure.microsoft.com/blog/announcing-the-public-preview-of-azure-archive-blob-storage-and-blob-level-tiering).
 
-Wykonaj Hello wymieniono niektóre ograniczenia dotyczące wersji zapoznawczej dotyczące tworzenia warstw w poziomie dla obiekt blob:
+Poniżej wymieniono pewne ograniczenia dotyczące korzystania z wersji zapoznawczej funkcji obsługi warstw na poziomie obiektów blob:
 
 * Magazyn archiwalny jest obsługiwany tylko dla nowych kont usługi Blob Storage utworzonych w regionie Wschodnie stany USA 2 i pomyślnie zarejestrowanych w wersji zapoznawczej.
 
 * Zarządzanie warstwami na poziomie obiektów blob jest obsługiwane tylko dla nowych kont usługi Blob Storage utworzonych w regionach publicznych i pomyślnie zarejestrowanych w wersji zapoznawczej.
 
-* Magazyn archiwalny i zarządzanie warstwami na poziomie obiektów blob są obsługiwane tylko w przypadku magazynu [LRS] (../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#locally-redundant-storage). [GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#geo-redundant-storage) i [RA-GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#read-access-geo-redundant-storage) będą obsługiwane w przyszłości hello.
+* Magazyn archiwalny i zarządzanie warstwami na poziomie obiektów blob są obsługiwane tylko w przypadku magazynu [LRS] (../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#locally-redundant-storage). Magazyny [GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#geo-redundant-storage) i [RA-GRS](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#read-access-geo-redundant-storage) będą obsługiwane w przyszłości.
 
-* Nie możesz zmienić hello warstwy obiektu blob z migawki.
+* Nie można zmieniać warstwy obiektu blob z utworzonymi migawkami.
 
 * Nie można kopiować ani tworzyć migawek obiektu blob przechowywanego w magazynie archiwalnym.
 
-## <a name="comparison-of-hello-storage-tiers"></a>Porównanie warstw magazynowania hello
+## <a name="comparison-of-the-storage-tiers"></a>Porównanie warstw magazynowania
 
-Witaj w poniższej tabeli przedstawiono porównanie warstw magazynu gorącego i chłodnego hello. Hello archiwum poziom obiektów blob warstwa jest w wersji zapoznawczej, więc nie umowy SLA dla niego.
+W poniższej tabeli przedstawiono porównanie gorącej i chłodnej warstwy magazynowania. Warstwa archiwalna dla obiektów blob jest dostępna w wersji zapoznawczej, dlatego nie ma umów SLA dotyczących korzystania z niej.
 
 | | **Warstwa magazynu gorącego** | **Warstwa magazynu chłodnego** |
 | ---- | ----- | ----- |
@@ -118,237 +118,237 @@ Witaj w poniższej tabeli przedstawiono porównanie warstw magazynu gorącego i 
 | **Opłaty za użycie** | Wyższe koszty magazynowania, niższe koszty dostępu i transakcji | Niższe koszty magazynowania, wyższe koszty dostępu i transakcji |
 | **Minimalny rozmiar obiektu** | Nie dotyczy | Nie dotyczy |
 | **Minimalny czas magazynowania** | Nie dotyczy | Nie dotyczy |
-| **Opóźnienie** <br> **(Czas toofirst bajtu)** | milisekundy | milisekundy |
+| **Opóźnienie** <br> **(czas do pierwszego bajtu)** | milisekundy | milisekundy |
 | **Cele dotyczące skalowalności i wydajności** | Takie same jak w przypadku kont magazynu ogólnego przeznaczenia | Takie same jak w przypadku kont magazynu ogólnego przeznaczenia |
 
 > [!NOTE]
-> Magazyn obiektów blob kont hello Obsługa tego samego cele wydajności i skalowalności jako kont magazynu ogólnego przeznaczenia. Aby uzyskać więcej informacji, zobacz [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Cele dotyczące skalowalności i wydajności usługi Magazyn Azure).
+> Konta Magazynu obiektów blob obsługują te same cele wydajności i skalowalności co konta magazynu ogólnego przeznaczenia. Aby uzyskać więcej informacji, zobacz [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Cele dotyczące skalowalności i wydajności usługi Magazyn Azure).
 
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
-Konta magazynu obiektów blob, użyj modelu cenowego opartego na powitania warstwy magazynowania. Korzystając z konta magazynu obiektów Blob, zastosuj następujące zagadnienia dotyczące rozliczeń hello:
+Konta usługi Blob Storage używają modelu cenowego opartego na warstwie magazynowania. W przypadku korzystania z konta usługi Blob Storage mają zastosowanie następujące zagadnienia dotyczące rozliczeń:
 
-* **Koszty przechowywania**: oprócz toohello ilości przechowywanych danych hello koszt przechowywania danych różni się w zależności od warstwy magazynowania hello. Hello koszt gigabajt jest niższy dla hello warstwy magazynu chłodnego niż dla warstwy magazynu gorącego hello.
+* **Koszty usługi Storage**: oprócz ilości przechowywanych danych koszt przechowywania danych różni się w zależności od warstwy magazynowania. Koszt za każdy gigabajt jest niższy dla warstwy magazynu chłodnego niż dla warstwy magazynu gorącego.
 
-* **Koszty dostępu do danych**: w przypadku danych w warstwie magazynu chłodnego hello są naliczane opłaty za każdy gigabajt danych access odczytów i zapisów.
+* **Koszty dostępu do danych**: w przypadku danych w warstwie magazynu chłodnego zostanie naliczona opłata za dostęp do danych za każdy gigabajt dla operacji odczytu i zapisu.
 
-* **Koszty transakcji**: dla obu warstw istnieje opłata za każdą transakcję. Jednak hello koszt każdej transakcji dla warstwy magazynu chłodnego hello jest wyższa niż w przypadku warstwy magazynu gorącego hello.
+* **Koszty transakcji**: dla obu warstw istnieje opłata za każdą transakcję. Jednak koszt każdej transakcji dla warstwy magazynu chłodnego jest wyższy niż w przypadku warstwy magazynu gorącego.
 
-* **Koszty transferu danych — replikacja geograficzna**: dotyczy to tylko tooaccounts ze skonfigurowaną replikacją geograficzną, w tym GRS i RA-GRS. Transfer danych w ramach replikacji geograficznej powoduje naliczanie opłaty za każdy gigabajt.
+* **Koszty transferu danych replikacji geograficznej**: dotyczy to tylko kont ze skonfigurowaną replikacją geograficzną, w tym GRS i RA-GRS. Transfer danych w ramach replikacji geograficznej powoduje naliczanie opłaty za każdy gigabajt.
 
 * **Koszty transferu danych wychodzących**: transfery danych wychodzących (dane przesyłane poza region platformy Azure) powodują naliczanie opłat za zużycie przepustowości za każdy gigabajt, co jest spójne z kontami magazynu ogólnego przeznaczenia.
 
-* **Zmiana warstwy magazynowania hello**: Zmiana warstwy magazynu hello z chłodnych toohot wiąże się z tooreading równy opłat wszystkie dane hello istniejących w hello konta magazynu dla każdego przejścia. Na powitania drugiej strony Zmiana warstwy magazynu hello z gorących toocool jest bezpłatna.
+* **Zmiana warstwy magazynowania**: zmiana warstwy magazynowania z chłodnej na gorącą spowoduje naliczenie opłaty równej opłacie za odczytanie wszystkich danych z konta magazynu dla każdego przejścia. Natomiast zmiana warstwy magazynowania z gorącej na chłodną jest bezpłatna.
 
 > [!NOTE]
-> Więcej szczegółów na powitania cennik modelu dla konta magazynu obiektów Blob, zobacz [cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/) strony. Aby uzyskać więcej szczegółów na opłat za transfer danych wychodzących hello, zobacz [szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/) strony.
+> Dodatkowe szczegóły dotyczące modelu cenowego dla kont usługi Blob Storage można znaleźć na stronie [Cennik usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Dodatkowe szczegóły dotyczące opłat za transfer danych wychodzących można znaleźć na stronie [Szczegóły cennika transferów danych](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ## <a name="quickstart"></a>Szybki start
 
-W tej sekcji przedstawiony hello następujących scenariuszy przy użyciu hello portalu Azure:
+W tej sekcji przedstawiamy następujące scenariusze obejmujące użycie witryny Azure Portal:
 
-* Jak toocreate konta magazynu obiektów Blob.
-* Jak toomanage konta magazynu obiektów Blob.
+* Tworzenie konta usługi Blob Storage.
+* Zarządzanie kontem usługi Blob Storage.
 
-Nie można ustawić tooarchive warstwy dostępu hello w hello następujące przykłady, ponieważ to ustawienie jest stosowane toohello konta całego magazynu. Warstwę archiwalną można ustawić tylko dla określonego obiektu blob.
+W poniższych przykładach nie można ustawić warstwy dostępu na archiwalną, ponieważ to ustawienie dotyczy całego konta magazynu. Warstwę archiwalną można ustawić tylko dla określonego obiektu blob.
 
-### <a name="create-a-blob-storage-account-using-hello-azure-portal"></a>Utwórz konto magazynu obiektów Blob przy użyciu hello portalu Azure
+### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Tworzenie konta usługi Blob Storage za pośrednictwem witryny Azure Portal
 
-1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. W menu Centrum hello wybierz **nowy** > **dane i magazyn** > **konta magazynu**.
+2. W menu Centrum wybierz kolejno pozycje **Nowe** > **Dane i usługa Storage** > **Konto usługi Storage**.
 
 3. Wprowadź nazwę konta magazynu.
    
-    Ta nazwa musi być globalnie unikatowe; jest on używany jako część adresu URL hello używane obiekty hello tooaccess hello koncie magazynu.  
+    Nazwa musi być globalnie unikatowa, ponieważ jest używana jako część adresu URL, z którego korzysta się, aby uzyskać dostęp do obiektów na koncie magazynu.  
 
-4. Wybierz **Resource Manager** jako hello modelu wdrażania.
+4. Wybierz pozycję **Resource Manager** jako model wdrażania.
    
-    Magazyn warstwowy można używać tylko z kontami magazynu Menedżera zasobów; jest to hello zalecane model wdrażania dla nowych zasobów. Aby uzyskać więcej informacji, zapoznaj się z hello [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
+    Magazynu warstwowego można używać tylko z kontami magazynu usługi Resource Manager — jest to zalecany model wdrażania dla nowych zasobów. Aby uzyskać więcej informacji, zobacz temat [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).  
 
-5. Z listy rozwijanej Typ konta hello, wybierz **magazynu obiektów Blob**.
+5. Z listy rozwijanej Rodzaj konta wybierz pozycję **Blob Storage**.
    
-    Jest to, gdzie wybierz hello typ konta magazynu. Magazyn warstwowy nie jest dostępna w magazynu ogólnego przeznaczenia; jest on dostępny tylko w hello konta typu magazynu obiektów Blob.     
+    Tutaj wybierasz typ konta magazynu. Magazyn warstwowy nie jest dostępny w magazynie ogólnego przeznaczenia — jest on dostępny tylko w ramach konta typu usługi Blob Storage.     
    
-    Należy zauważyć, że po wybraniu tej warstwy wydajności hello jest tooStandard. Magazyn warstwowy nie jest dostępny z poziomu wydajności Premium hello.
+    Należy zauważyć, że po wybraniu tej opcji warstwa wydajności jest ustawiona na Standardowa. Magazyn warstwowy nie jest dostępny z warstwą wydajności Premium.
 
-6. Wybierz opcję replikacji powitania dla konta magazynu hello: **LRS**, **GRS**, lub **RA-GRS**. Domyślnie Hello **RA-GRS**.
+6. Wybierz opcję replikacji dla konta magazynu: **LRS**, **GRS** lub **RA-GRS**. Wartość domyślna to **RA-GRS**.
    
-    Magazyn LRS = magazyn lokalnie nadmiarowy; GRS = magazynu geograficznie nadmiarowego (regiony 2); RA-GRS jest dostęp do odczytu magazynu geograficznie nadmiarowego (2 regionach odczytu access toohello drugi).
+    LRS = magazyn lokalnie nadmiarowy; GRS = magazyn geograficznie nadmiarowy (2 regiony); RA-GRS to magazyn geograficznie nadmiarowy z dostępem do odczytu (2 regiony z dostępem do odczytu do drugiego).
    
     Aby uzyskać więcej informacji na temat opcji replikacji usługi Azure Storage, zobacz [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Replikacja usługi Azure Storage).
 
-7. Warstwy magazynowania prawo hello wybierz Twoje potrzeby: hello zestaw **warstwy dostępu** tooeither **chłodnych** lub **gorąca**. Domyślnie Hello **gorąca**. 
+7. Wybierz odpowiednią dla Twoich potrzeb warstwę magazynu: ustaw pozycję **Warstwa dostępu** na wartość **Chłodna** lub **Gorąca**. Wartość domyślna to **Gorąca**. 
 
-8. Wybierz subskrypcję hello, w której ma zostać toocreate hello nowe konto magazynu.
+8. Wybierz subskrypcję, w ramach której chcesz utworzyć nowe konto magazynu.
 
 9. Określ nową grupę zasobów lub wybierz istniejącą grupę zasobów. Więcej informacji na temat grup zasobów znajduje się w temacie [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
-10. Wybierz region hello konta magazynu.
+10. Wybierz region dla swojego konta magazynu.
 
-11. Kliknij przycisk **Utwórz** konta magazynu hello toocreate.
+11. Kliknij pozycję **Utwórz**, aby utworzyć konto magazynu.
 
-### <a name="change-hello-storage-tier-of-a-blob-storage-account-using-hello-azure-portal"></a>Zmiana warstwy magazynowania hello konta magazynu obiektów Blob przy użyciu hello portalu Azure
+### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Dokonywanie zmiany warstwy magazynowania dla konta usługi Blob Storage za pośrednictwem witryny Azure Portal
 
-1. Zaloguj się toohello [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-2. toonavigate tooyour konta magazynu, wybierz wszystkie zasoby, a następnie wybierz konto magazynu.
+2. Aby przejść do konta magazynu, zaznacz pozycję Wszystkie zasoby, a następnie wybierz konto magazynu.
 
-3. W bloku ustawień powitania kliknij **konfiguracji** tooview i/lub zmiana konfiguracji konta hello.
+3. W bloku Ustawienia kliknij pozycję **Konfiguracja**, aby wyświetlić i/lub zmienić konfigurację konta.
 
-4. Wybierz hello warstwy magazynowania prawo do potrzeb: hello zestaw **warstwy dostępu** tooeither **chłodnych** lub **gorąca**...
+4. Wybierz odpowiednią dla Twoich potrzeb warstwę magazynu: ustaw pozycję **Warstwa dostępu** na wartość **Chłodna** lub **Gorąca**.
 
-5. Kliknij przycisk Zapisz u góry bloku hello hello.
+5. Kliknij pozycję Zapisz w górnej części bloku.
 
 > [!NOTE]
-> Zmiana warstwy magazynowania hello może spowodować naliczenie dodatkowych opłat. Zobacz hello [cennik i rozliczenia](#pricing-and-billing) sekcji, aby uzyskać więcej informacji.
+> Zmiana warstwy magazynowania może spowodować naliczenie dodatkowych opłat. Więcej szczegółów zawiera sekcja dotycząca [cennika i rozliczeń](#pricing-and-billing).
 
 
-## <a name="evaluating-and-migrating-tooblob-storage-accounts"></a>Ocenianie i Migrowanie kont magazynu tooBlob
-Witaj w tej sekcji służy toohelp użytkowników toomake sprawne przejście kont magazynu obiektów Blob toousing. Istnieją dwa scenariusze dotyczące użytkowników:
+## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Ocenianie i migrowanie do kont usługi Blob Storage
+Informacje przedstawione w tej sekcji mają ułatwić użytkownikom płynne przejście do kont usługi Blob Storage. Istnieją dwa scenariusze dotyczące użytkowników:
 
-* Masz istniejące konto magazynu ogólnego przeznaczenia i chcesz tooevaluate tooa zmiany konta magazynu obiektów Blob z warstwą przechowywania hello.
-* Zdecydował toouse konta magazynu obiektów Blob lub już istnieje i ma tooevaluate, czy należy używać warstwy magazynu gorącego i chłodnego hello.
+* Masz już istniejące konto magazynu ogólnego przeznaczenia i chcesz ocenić jego zamianę na konto usługi Blob Storage z odpowiednio dobraną warstwą magazynowania.
+* Zamierzasz używać konta usługi Blob Storage lub masz już takie konto i chcesz ocenić, czy będzie Ci bardziej odpowiadać gorąca czy chłodna warstwa magazynowania.
 
-W obu przypadkach hello pierwszej kolejności of business jest tooestimate hello koszt przechowywania i uzyskiwania dostępu do danych przechowywanych na koncie magazynu obiektów Blob i który porównać bieżące koszty.
+W obu przypadkach najpierw należy oszacować koszt magazynowania i uzyskiwania dostępu do danych przechowywanych na koncie usługi Blob Storage i porównać go z obecnie ponoszonymi kosztami.
 
 ## <a name="evaluating-blob-storage-account-tiers"></a>Ocenianie warstw dla konta usługi Blob Storage
 
-Kolejność tooestimate hello kosztów przechowywania i uzyskiwania dostępu do danych przechowywanych na koncie magazynu obiektów Blob należy tooevaluate istniejącego wzorca użycia lub przybliżona deseniu oczekiwane wykorzystanie. Ogólnie rzecz biorąc które mają tooknow:
+Aby oszacować koszty magazynowania i uzyskiwania dostępu do danych przechowywanych na koncie usługi Blob Storage, konieczne będzie dokonanie oceny istniejącego wzorca użycia lub określenie w przybliżeniu oczekiwanego wzorca użycia. Ogólnie potrzebne są odpowiedzi na następujące pytania:
 
 * Wykorzystanie magazynu — jaka ilość danych jest magazynowana i jak ta ilość zmienia się w ciągu miesiąca?
 
-* Z magazynu wzorca dostępu — ilość danych są odczytu z i zapisywane toohello konta (w tym nowych danych)? Ile transakcji jest przeprowadzanych w celu uzyskania dostępu do danych i jakiego rodzaju są to transakcje?
+* Wzorzec dostępu do magazynu — jak dużo danych jest odczytywanych z konta i zapisywanych na nim (w tym nowych danych)? Ile transakcji jest przeprowadzanych w celu uzyskania dostępu do danych i jakiego rodzaju są to transakcje?
 
 ## <a name="monitoring-existing-storage-accounts"></a>Monitorowanie istniejących kont magazynu
 
-toomonitor istniejący magazyn kont i zebrać dane, możesz wprowadzić użycie analityka magazynu Azure, która wykonuje rejestrowanie oraz udostępnia danych metryki dla konta magazynu. Analityka magazynu można przechowywać metryki, które obejmują statystyk i pojemności dane zagregowane transakcji o toohello żądań usługi magazynu obiektów Blob dla obydwu kont magazynu ogólnego przeznaczenia, a także konta magazynu obiektów Blob. Dane te są przechowywane w tabelach dobrze znane w hello tego samego konta magazynu.
+Aby monitorować istniejące konta magazynu i gromadzić uzyskane dane, można skorzystać z usługi Azure Storage Analytics, która umożliwia rejestrowanie i dostarcza danych metryk dotyczących konta magazynu. Usługa Storage Analytics może przechowywać metryki, które obejmują zagregowane statystyki transakcji oraz dane dyspozycyjności o żądaniach do usługi Blob Storage, zarówno dla konta magazynu ogólnego przeznaczenia, jak i kont usługi Blob Storage. Te dane są przechowywane w dobrze znanych tabelach tego samego konta magazynu.
 
 Aby uzyskać więcej szczegółowych informacji, zobacz artykuły [About Storage Analytics Metrics (Metryki w usłudze Storage Analytics)](https://msdn.microsoft.com/library/azure/hh343258.aspx) i [Storage Analytics Metrics Table Schema (Schemat tabeli metryk usługi Storage Analytics)](https://msdn.microsoft.com/library/azure/hh343264.aspx).
 
 > [!NOTE]
-> Konta magazynu obiektów blob udostępniają punkt końcowy usługi tabel hello tylko do przechowywania i uzyskiwania dostępu do danych metryki powitania dla tego konta.
+> Konta usługi Blob Storage ujawniają punkt końcowy usługi tabel tylko w odniesieniu do przechowywania i uzyskiwania dostępu do danych metryk dla tego konta.
 
-toomonitor zużycie pamięci masowej hello hello usługi magazynu obiektów Blob, należy metryki pojemności hello tooenable.
-Z tym włączone, danych wydajności jest codziennie zarejestrowane dla konta magazynu obiektów Blob usługi i zarejestrowana jako spisu, który jest zapisany toohello *$MetricsCapacityBlob* tabeli w ramach hello same konta magazynu.
+Aby monitorować użycie magazynu dla usługi Blob Storage, należy włączyć metryki pojemności.
+Dzięki włączeniu tej opcji dane pojemności są rejestrowane codziennie dla konta usługi Blob Storage oraz rejestrowane jako wpis tabeli, który jest zapisywany w tabeli *$MetricsCapacityBlob* w obrębie tego samego konta magazynu.
 
-wzorca dostępu do danych hello toomonitor dla hello usługi magazynu obiektów Blob, należy tooenable hello co godzinę transakcji metryki na poziomie interfejsu API. Z tym włączone dla interfejsu API transakcji są agregowane co godzinę i rejestrowane jako spisu, który jest zapisany toohello *$MetricsHourPrimaryTransactionsBlob* tabeli w ramach hello same konta magazynu. Witaj *$MetricsHourSecondaryTransactionsBlob* rekordy tabeli hello dodatkowej punktu końcowego toohello transakcji, korzystając z konta magazynu RA-GRS.
+Aby monitorować wzorzec dostępu do danych dla usługi Blob Storage, należy włączyć godzinowe metryki transakcji na poziomie interfejsu API. Dzięki włączeniu tej opcji transakcje interfejsu API są agregowane co godzinę i rejestrowane jako wpis tabeli, który jest zapisywany w tabeli *$MetricsHourPrimaryTransactionsBlob* w obrębie tego samego konta magazynu. W przypadku używania kont magazynu RA-GRS tabela *$MetricsHourSecondaryTransactionsBlob* rejestruje transakcje kierowane do pomocniczego punktu końcowego.
 
 > [!NOTE]
-> Jeśli masz konto magazynu ogólnego przeznaczenia, w którym są przechowywane stronicowe obiekty blob i dyski maszyny wirtualnej (obok blokowych obiektów blob i danych uzupełnialnych obiektów blob), ten proces szacowania nie ma zastosowania. Jest tak, ponieważ nie ma możliwości odróżnienie pojemności i transakcji metryki na podstawie hello typu obiektu blob dla tylko blokować i uzupełnialnych obiektów blob, które mogą być migrowane tooa konta magazynu obiektów Blob.
+> Jeśli masz konto magazynu ogólnego przeznaczenia, w którym są przechowywane stronicowe obiekty blob i dyski maszyny wirtualnej (obok blokowych obiektów blob i danych uzupełnialnych obiektów blob), ten proces szacowania nie ma zastosowania. Dzieje się tak, ponieważ nie ma możliwości odróżnienia metryk pojemności i transakcji na podstawie typu obiektu blob tylko dla blokowych obiektów blob i uzupełnialnych obiektów blob, które można poddać migracji do konta usługi Blob Storage.
 
-tooget dobrej zbliżenia wzorca dostępu i użycia danych, zaleca się wybrać okres przechowywania dla metryki hello jest reprezentatywna regularne użycie i ekstrapolacja. Jedną z opcji jest tooretain hello metryki danych 7 dni i hello zbieranie danych, co tydzień, analizy na końcu hello hello miesiąca. Inną opcją jest dane metryk hello tooretain hello ostatnich 30 dni i zbieranie i analizowanie danych hello na końcu hello hello 30-dniowego okresu.
+Aby uzyskać najbardziej zbliżone do prawdziwych informacje o użyciu danych i wzorcu dostępu, zalecamy wybranie takiego okresu przechowywania dla metryk, który odzwierciedla normalne użycie i ekstrapolację. Jedną z opcji jest przechowywanie danych metryk przez 7 dni i zbieranie danych co tydzień, aby przeprowadzić analizę pod koniec miesiąca. Innym rozwiązaniem jest przechowywanie danych metryk z ostatnich 30 dni i zbieranie oraz analizowanie danych z końcem 30-dniowego okresu.
 
 Aby uzyskać szczegółowe informacje na temat włączania, gromadzenia i wyświetlania danych metryk, zobacz temat [Enabling Azure Storage metrics and viewing metrics data (Włączanie metryk usługi Azure Storage i wyświetlanie danych metryk)](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Za przechowywanie i pobieranie danych analitycznych oraz uzyskiwanie dostępu do nich również są naliczane opłaty, podobnie jak za zwykłe dane użytkowników.
 
-### <a name="utilizing-usage-metrics-tooestimate-costs"></a>Przy użyciu kosztów tooestimate metryk użycia
+### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Używanie metryk użycia do szacowania kosztów
 
 ### <a name="storage-costs"></a>Koszty magazynowania
 
-Witaj najnowsze wpisu w tabeli metryki pojemności hello *$MetricsCapacityBlob* kluczem wiersza hello *"dane"* pokazuje hello pojemność magazynu używane przez dane użytkownika. Witaj najnowsze wpisu w tabeli metryki pojemności hello *$MetricsCapacityBlob* kluczem wiersza hello *"analytics"* pokazuje hello pojemność magazynu używane przez hello analizy dzienników.
+Najnowszy wpis w tabeli metryk pojemności *$MetricsCapacityBlob* z kluczem wiersza *„data”* pokazuje pojemność magazynu zajętą przez dane użytkownika. Najnowszy wpis w tabeli metryk pojemności *$MetricsCapacityBlob* z kluczem wiersza *„analytics”* pokazuje pojemność magazynu zajętą przez dzienniki analiz.
 
-Następnie można ten całkowita pojemność używane przez oba dzienniki danych i ich analiza użytkownika (jeśli jest włączona) używane tooestimate hello koszt przechowywania danych na koncie magazynu hello. Witaj, tę samą metodę można również podczas szacowania kosztów magazynowania dla blokowych i uzupełnialnych obiektów blob na kontach magazynu ogólnego przeznaczenia.
+Łączna pojemność zajęta przez dane użytkownika i dzienniki analiz (jeśli są włączone) może być użyta do szacowania kosztów magazynowania danych w ramach konta magazynu. Tę samą metodę można również użyć do szacowania kosztów magazynowania dla blokowych obiektów blob i uzupełnialnych obiektów blob w ramach konta magazynu ogólnego przeznaczenia.
 
 ### <a name="transaction-costs"></a>Koszty transakcji
 
-Suma Hello *"TotalBillableRequests"*, wszystkie pozycje dla interfejsu API w transakcji hello metryki tabela wskazuje hello całkowita liczba transakcji dla tego konkretnego interfejsu API. *Na przykład*, hello łączna liczba *"GetBlob"* transakcji w danym okresie, może zostać obliczona przez hello sumę całkowita liczba żądań rozliczeń dla wszystkich wpisów z kluczem wiersza hello *"użytkownika. GetBlob "*.
+Suma *„TotalBillableRequests”* dla wszystkich wpisów interfejsu API w tabeli metryk transakcji wskazuje całkowitą liczbę transakcji dla tego konkretnego interfejsu API. *Na przykład* całkowitą liczbę transakcji *„GetBlob”* w danym okresie można obliczyć, sumując liczbę płatnych żądań dla wszystkich wpisów z kluczem wiersza *'user;GetBlob'*.
 
-Kolejność tooestimate kosztów transakcji dla kont magazynu obiektów Blob należy toobreak dół transakcji hello na trzy grupy ponieważ inaczej cenowo.
+Aby oszacować koszty transakcji dla kont usługi Blob Storage, konieczne będzie podzielenie transakcji na trzy grupy, ponieważ mają one różne ceny.
 
 * Transakcje zapisu, takie jak *„PutBlob”*, *„PutBlock”*, *„PutBlockList”*, *„AppendBlock"*, *„ListBlobs”*, *„ListContainers”*, *„CreateContainer”*, *„SnapshotBlob”* i *„CopyBlob”*.
 * Transakcje usuwania, takie jak *„DeleteBlob”* i *„DeleteContainer”*.
 * Wszystkie inne transakcje.
 
-Kolejność tooestimate kosztów transakcji dla kont magazynu ogólnego przeznaczenia należy tooaggregate wszystkich transakcji niezależnie od operacji hello/interfejsu API.
+W celu oszacowania kosztów transakcji dla kont magazynu ogólnego przeznaczenia należy zagregować wszystkie transakcje niezależnie od operacji/interfejsu API.
 
 ### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Dostęp do danych i koszty transferu danych replikacji geograficznej
 
-Podczas analizy magazynu nie zapewnia odczytywać hello ilość danych i zapisywane tooa konta magazynu, jego można około oszacować, analizując hello transakcji metryki tabeli. Suma Hello *"TotalIngress"* wszystkie pozycje dla interfejsu API w metryki transakcji hello tabela wskazuje hello łączna ilość danych wejściowych w bajtach dla tego konkretnego interfejsu API. Podobnie hello sumę *"TotalEgress"* wskazuje hello łączna ilość danych wyjściowych, w bajtach.
+Usługa Storage Analytics nie udostępnia informacji na temat ilości odczytywanych i zapisywanych danych na koncie magazynu, ale można je w przybliżeniu oszacować, analizując tabelę metryk transakcji. Suma *„TotalIngress”* dla wszystkich wpisów interfejsu API w tabeli metryk transakcji wskazuje całkowitą ilość danych przychodzących w bajtach dla tego konkretnego interfejsu API. Podobnie suma *„TotalEgress”* wskazuje całkowitą ilość danych wychodzących w bajtach.
 
-W kolejności tooestimate hello danych koszty dostępu dla konta magazynu obiektów Blob należy toobreak dół transakcji hello na dwie grupy. 
+Aby oszacować koszty dostępu do danych dla kont usługi Blob Storage, konieczne będzie podzielenie transakcji na dwie grupy. 
 
-* Witaj ilość danych pobieranych z konta magazynu hello można oszacować, analizując hello sumę *"TotalEgress"* dla głównie hello *"GetBlob"* i *"CopyBlob"* operacje.
+* Ilość danych pobieranych z konta magazynu można oszacować, przyglądając się sumie *„TotalEgress”* przede wszystkim dla operacji *„GetBlob”* i *„CopyBlob”*.
 
-* ilość Hello zapisanych toohello konta magazynu danych można oszacować, analizując hello sumę *"TotalIngress"* dla głównie hello *"Metody PutBlob"*, *"PutBlock"*, *"CopyBlob"* i *"AppendBlock"* operacji.
+* Ilość danych zapisywanych na koncie magazynu można oszacować, przyglądając się sumie *„TotalIngress”* przede wszystkim dla operacji *„PutBlob”*, *„PutBlock”*, *„CopyBlob”* i *„AppendBlock”*.
 
-Koszt Hello transfer danych — replikacja geograficzna dla konta magazynu można obliczyć za pomocą szacowania hello hello ilość danych zapisane po przy użyciu konta magazynu GRS lub RA-GRS obiektu Blob.
+Koszt transferu danych replikacji geograficznej dla kont usługi Blob Storage można obliczyć, korzystając z kalkulacji ilości danych zapisanych w przypadku używania konta magazynu GRS lub RA-GRS.
 
 > [!NOTE]
-> Na przykład bardziej szczegółowych, dotyczących obliczania kosztów hello za pomocą warstwy magazynu gorącego i chłodnego hello, Przyjrzyjmy się hello często Zadawanych pytań *"co to jest aktywny i chłodnej warstw dostępu i jak należy ustalić które jeden toouse?"* w hello [stronie cennika usługi Magazyn Azure](https://azure.microsoft.com/pricing/details/storage/).
+> Aby dowiedzieć się więcej na temat obliczania kosztów używania gorącej lub chłodnej warstwy magazynowania, zobacz *„What are Hot and Cool access tiers and how should I determine which one to use?” („Co to są warstwy dostępu Gorąca i Chłodna i jak określić, której użyć?”)* w FAQ (Często zadawanych pytaniach). na stronie z [cennikiem usługi Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
  
 ## <a name="migrating-existing-data"></a>Migrowanie istniejących danych
 
-Konto usługi Blob Storage jest przeznaczone do przechowywania tylko blokowych obiektów blob i uzupełnialnych obiektów blob. Istniejących kont magazynu ogólnego przeznaczenia, które umożliwią toostore tabel, kolejek, plików i dyski, a także obiekty BLOB, nie może być przekonwertowany tooBlob kont magazynu. toouse hello warstw magazynowania, należy toocreate nowego konta magazynu obiektów Blob i przeprowadzić migrację istniejących danych do hello nowo utworzonego konta.
+Konto usługi Blob Storage jest przeznaczone do przechowywania tylko blokowych obiektów blob i uzupełnialnych obiektów blob. Istniejących kont magazynu ogólnego przeznaczenia, które umożliwiają przechowywanie tabel, kolejek, plików, dysków, a także obiektów blob, nie można konwertować na konta usługi Blob Storage. Aby użyć warstw magazynowania, należy utworzyć nowe konta usługi Blob Storage i przeprowadzić migrację istniejących danych do nowo utworzonych kont.
 
-Program hello po metody toomigrate istniejących danych do konta magazynu obiektów Blob z lokalnych urządzeń magazynujących, od dostawców magazynu w chmurze innych firm lub z istniejących kont magazynu ogólnego przeznaczenia na platformie Azure:
+Poniższych metod można użyć do migrowania istniejących danych do kont usługi Blob Storage z lokalnych urządzeń magazynujących, od innych dostawców magazynu w chmurze lub z istniejących kont magazynu ogólnego przeznaczenia na platformie Azure:
 
 ### <a name="azcopy"></a>Narzędzie AzCopy
 
-Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczony dla wysokowydajnej kopiowanie tooand danych z usługi Magazyn Azure. Można użyć narzędzia AzCopy toocopy dane na koncie magazynu obiektów Blob z istniejących kont magazynu ogólnego przeznaczenia lub tooupload z lokalnych urządzeń magazynujących na koncie magazynu obiektów Blob.
+Narzędzie AzCopy to narzędzie wiersza polecenia systemu Windows przeznaczone do kopiowania z wysoką wydajnością danych z i do usługi Azure Storage. Narzędzia AzCopy można użyć do skopiowania danych na konto usługi Magazynu obiektów blob z istniejących kont magazynu ogólnego przeznaczenia lub do przekazania danych z lokalnych urządzeń magazynujących na konto Magazynu obiektów blob.
 
-Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą wiersza polecenia Azcopy hello](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Aby uzyskać więcej informacji, zobacz [Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="data-movement-library"></a>Biblioteka przenoszenia danych
 
-Biblioteka przenoszenia danych magazynu Azure dla platformy .NET jest oparta na powitania podstawowym środowisku przenoszenia danych którym działa narzędzie AzCopy. Biblioteka Hello zaprojektowano pod kątem wysokiej wydajności, niezawodnych, i podobne tooAzCopy operacji transferu danych łatwe. Dzięki temu tootake pełne korzyści hello funkcje oferowane przez narzędzie AzCopy w aplikacji natywnie bez konieczności toodeal uruchamiania i monitorowania zewnętrznych wystąpień narzędzia AzCopy.
+Biblioteka przenoszenia danych usługi Azure Storage dla programu .NET jest oparta na podstawowym środowisku przenoszenia danych, w którym działa narzędzie AzCopy. Biblioteka została zaprojektowana na potrzeby przeprowadzania wysokowydajnych, niezawodnych i prostych operacji transferu danych w sposób podobny do narzędzia AzCopy. Pozwala to w pełni wykorzystać funkcje oferowane przez narzędzie AzCopy natywnie w aplikacji bez konieczności uruchamiania i monitorowania zewnętrznych wystąpień narzędzia AzCopy.
 
 Aby uzyskać więcej informacji, zobacz [Azure Storage Data Movement Library for .Net](https://github.com/Azure/azure-storage-net-data-movement) (Biblioteka przenoszenia danych usługi Magazyn Azure dla platformy .NET).
 
 ### <a name="rest-api-or-client-library"></a>Interfejs API REST lub biblioteka klienta
 
-Możesz utworzyć toomigrate aplikacji niestandardowych danych do konta magazynu obiektów Blob przy użyciu jednej z bibliotek klienta platformy Azure hello lub hello interfejs API REST usług magazynu Azure. Usługa Azure Storage udostępnia rozbudowane biblioteki dla wielu języków programowania i platform, takich jak .NET, Java, C++, Node.JS, PHP, Ruby i Python. Witaj biblioteki klienta oferują zaawansowane możliwości, takie jak logika ponowień, rejestrowanie i przekazywanie równoległe. Możesz również utworzyć bezpośrednio przed hello interfejsu API REST, które można wywołać za pomocą dowolnego języka, który sprawia, że żądania HTTP i HTTPS.
+Można utworzyć aplikację niestandardową służącej do migracji danych do konta Magazynu obiektów blob przy użyciu jednej z bibliotek klienta platformy Azure lub interfejsu API REST usług magazynu platformy Azure. Usługa Azure Storage udostępnia rozbudowane biblioteki dla wielu języków programowania i platform, takich jak .NET, Java, C++, Node.JS, PHP, Ruby i Python. Biblioteki klienta oferują zaawansowane możliwości, takie jak logika ponowień, rejestrowanie i przekazywanie równoległe. Możliwe jest również programowanie bezpośrednio przy użyciu interfejsu API REST, który może być wywoływany przez dowolny język programowania mający możliwość wysyłania żądań HTTP lub HTTPS.
 
 Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obiektów blob Azure](storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Obiekty BLOB zaszyfrowane za pomocą szyfrowania po stronie klienta przechowują metadane związane z szyfrowaniem przechowywane hello obiektu blob. Jest absolutnie krytyczne, czy każdy mechanizm kopiowania zapewnił, który hello metadane obiektu blob, a szczególnie hello metadane związane z szyfrowaniem, są zachowywane. W przypadku kopiowania obiektów blob hello bez takich metadanych, hello zawartości obiektu blob nie można pobrać ponownie. Aby uzyskać więcej informacji na temat metadanych związanych z szyfrowaniem, zobacz [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Szyfrowanie po stronie klienta usługi Azure Storage).
+> Obiekty blob zaszyfrowane za pomocą szyfrowania po stronie klienta przechowują metadane związane z szyfrowaniem przechowywane w ramach obiektu blob. Jest absolutnie krytyczne, aby każdy mechanizm kopiowania zapewnił, że metadane obiektu blob, a w szczególności metadane związane z szyfrowaniem, zostały zachowane. Jeśli obiekty blob zostaną skopiowane bez takich metadanych, nie będzie można ponownie pobrać zawartości obiektu blob. Aby uzyskać więcej informacji na temat metadanych związanych z szyfrowaniem, zobacz [Azure Storage Client-Side Encryption](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Szyfrowanie po stronie klienta usługi Azure Storage).
  
 ## <a name="faq"></a>Często zadawane pytania
 
 1. **Czy istniejące konta magazynu są nadal dostępne?**
    
-    Tak, istniejące konta magazynu są nadal dostępne, a ich ceny i funkcje nie zostały zmienione.  Nie masz hello toochoose możliwości warstwy magazynowania, a nie mają możliwości warstw w przyszłości hello.
+    Tak, istniejące konta magazynu są nadal dostępne, a ich ceny i funkcje nie zostały zmienione.  W przypadku takich kont nie ma możliwości wyboru warstwy magazynowania, a funkcje obsługi warstw nie zostaną wprowadzone w przyszłości.
 
 2. **Kiedy i dlaczego należy rozpocząć używanie kont usługi Blob Storage?**
    
-    Konta magazynu obiektów blob są przeznaczone do przechowywania obiektów blob i zezwolić nam toointroduce nowe funkcje skoncentrowane obiektu blob. Idąc dalej, konta magazynu obiektów Blob to zalecany sposób przechowywania obiektów blob, ponieważ przyszłe możliwości, takie jak magazyn hierarchiczny i Obsługa poziomów hello zostaną wprowadzone na podstawie tego typu konta. Warto jednak się tooyou Jeśli chcesz toomigrate, w zależności od wymagań biznesowych.
+    Konta Magazynu obiektów blob są przeznaczone do przechowywania obiektów blob i umożliwiają wprowadzenie nowych funkcji związanych z obiektami blob. Idąc dalej, konta Magazynu obiektów blob to zalecany sposób przechowywania obiektów blob, ponieważ przyszłe możliwości, takie jak magazyn hierarchiczny czy obsługa warstw, zostaną wprowadzone na podstawie tego typu konta. Decyzja o migracji należy jednak do użytkownika i zależy od jego potrzeb biznesowych.
 
-3. **Czy przekonwertować moje istniejące konto magazynu tooa konta magazynu obiektów Blob?**
+3. **Czy mogę przekonwertować istniejące konto magazynu na konto usługi Blob Storage?**
    
     Nie. Konto usługi Blob Storage to inny typ konta magazynu i należy utworzyć je na nowo, a następnie przeprowadzić migrację danych w sposób opisany powyżej.
 
-4. **Czy mogę przechowywać obiekty w obu warstwach magazynowania w hello tego samego konta?**
+4. **Czy mogę przechowywać obiekty w obu warstwach magazynowania w ramach tego samego konta?**
    
-    Witaj *"Warstwy dostępu"* atrybut wskazuje wartość hello hello warstwy magazynowania na poziomie konta i dotyczy tooall obiekty na tym koncie. Jednak hello blob warstw (wersja zapoznawcza) funkcję na poziomie umożliwi możesz tooset hello warstwy dostępu na określonych obiektów blob i spowoduje to zmianę ustawienia warstwy dostępu hello hello konta. 
+    Atrybut *Warstwa dostępu* zawiera wartość określającą warstwę magazynowania ustawianą na poziomie konta i dotyczy wszystkich obiektów w ramach tego konta. Jednak funkcja obsługi warstw na poziomie obiektów blob (wersja zapoznawcza) pozwala ustawić warstwę dostępu dla konkretnych obiektów blob, co spowoduje przesłonięcie ustawienia warstwy dostępu dla konta. 
 
-5. **Czy można zmienić warstwy magazynowania hello o moim koncie magazynu obiektów Blob?**
+5. **Czy mogę zmienić warstwę magazynowania na moim koncie usługi Blob Storage?**
    
-    Tak. Można zmienić warstwy magazynowania hello ustawienie hello *"Warstwy dostępu"* atrybutu na powitania konta magazynu. Zmiana warstwy magazynowania hello stosuje tooall obiekty przechowywane w hello konta. Zmiana warstwy magazynu hello gorących toocool nie naliczenia żadnych opłat, gdy zmiana z toohot chłodnych pociągnąć za sobą koszt GB do odczytywania wszystkich danych hello hello konta.
+    Tak. Zmiana warstwy magazynowania jest możliwa po ustawieniu atrybutu *Warstwa dostępu* na koncie magazynu. Zmiana warstwy magazynowania będzie miała zastosowanie do wszystkich obiektów przechowywanych na koncie. Zmiana warstwy magazynowania z gorącej na chłodną nie spowoduje naliczenia żadnych opłat, ale zmiana warstwy magazynowania z chłodnej na gorącą spowoduje naliczenie opłaty za każdy gigabajt odczytanych danych znajdujących się na koncie.
 
-6. **Jak często można zmienić warstwy magazynu hello moim koncie magazynu obiektów Blob?**
+6. **Jak często mogę zmieniać warstwę magazynowania na moim koncie usługi Blob Storage?**
    
-    Gdy firma Microsoft nie Wymuszaj ograniczenia częstotliwość można zmienić warstwy magazynowania hello, należy pamiętać, że zmiana warstwy magazynu hello z chłodnych toohot można naliczenie znaczących opłat. Zmiana warstwy magazynu hello często nie jest zalecane.
+    Nie wymuszamy limitu częstotliwości zmiany warstwy magazynowania, ale należy pamiętać, że zmiana warstwy magazynowania z chłodnej na gorącą spowoduje naliczenie znaczących opłat. Nie zaleca się częstych zmian warstwy magazynowania.
 
-7. **Czy hello BLOB w warstwie magazynu chłodnego hello zachowywać się inaczej niż hello jedynek w hello warstwy magazynu gorącego?**
+7. **Czy obiekty blob w chłodnej warstwie magazynowania działają inaczej niż obiekty blob w gorącej warstwie magazynowania?**
    
-    Obiekty BLOB w warstwie magazynu gorącego hello mają hello takie samo opóźnienie jak obiekty BLOB na kontach magazynu ogólnego przeznaczenia. Obiekty BLOB w warstwie magazynu chłodnego hello mają podobne opóźnienie (w milisekundach) jak obiekty BLOB na kontach magazynu ogólnego przeznaczenia.
+    Obiekty blob w gorącej warstwie magazynowania mają takie samo opóźnienie jak obiekty blob na kontach magazynu ogólnego przeznaczenia. Obiekty blob w chłodniej warstwie magazynowania mają podobne opóźnienie (w milisekundach) jak obiekty blob na kontach magazynu ogólnego przeznaczenia.
    
-    Obiekty BLOB w warstwie magazynu chłodnego hello mają nieco niższy poziom dostępności usług (SLA) niż obiekty BLOB hello przechowywane w hello warstwy magazynu gorącego. Aby uzyskać więcej szczegółów, zobacz [Magazyn — umowa SLA](https://azure.microsoft.com/support/legal/sla/storage).
+    Obiekty blob w chłodnej warstwie magazynowania będą miały nieco niższy poziom dostępności usług (umowa SLA) niż obiekty blob przechowywane w gorącej warstwie magazynowania. Aby uzyskać więcej szczegółów, zobacz [Magazyn — umowa SLA](https://azure.microsoft.com/support/legal/sla/storage).
 
 8. **Czy mogę przechowywać stronicowe obiekty i dyski maszyny wirtualnej na kontach usługi Blob Storage?**
    
-    Konta Magazynu obiektów blob obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane. Dyski maszyny wirtualnej Azure bazują na stronicowych obiektów blob i w związku z tym kont magazynu obiektów Blob nie może być używane toostore dysków maszyny wirtualnej. Jednak jest możliwe toostore kopie zapasowe hello dysków maszyny wirtualnej jako blokowych obiektów blob na koncie magazynu obiektów Blob.
+    Konta Magazynu obiektów blob obsługują tylko blokowe obiekty blob i uzupełnialne obiekty blob — stronicowe obiekty blob nie są obsługiwane. Dyski maszyny wirtualnej platformy Azure są oparte na stronicowych obiektach blob, w związku z czym konta Magazynu obiektów blob nie mogą być używane do przechowywania dysków maszyny wirtualnej. Istnieje jednak możliwość przechowywania kopii zapasowych dysków maszyny wirtualnej jako blokowych obiektów blob na kontach Magazynu obiektów blob.
 
-9. **Należy toochange Moje istniejących kont magazynu obiektów Blob toouse aplikacji?**
+9. **Czy muszę zmienić swoje istniejące aplikacje, aby umożliwić korzystanie z kont usługi Blob Storage?**
    
-    Konta Magazynu obiektów blob są w pełni spójne pod względem interfejsu API z kontami magazynu ogólnego przeznaczenia dla blokowych obiektów blob i uzupełnialnych obiektów blob. Tak długo, jak aplikacja jest używanie blokowych obiektów blob lub uzupełnialnych obiektów blob i używasz wersji 2014-02-14 hello hello [interfejsu API REST usług Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) lub większą aplikacje powinny działać. Jeśli używasz starszej wersji protokołu hello, a następnie zaktualizuj nowej wersji hello toouse aplikacji tak toowork bezproblemowo z oboma typami kont magazynu. Ogólnie rzecz biorąc zawsze zalecamy używanie hello najnowszej wersji niezależnie od tego, jaki typ konta magazynu należy użyć.
+    Konta Magazynu obiektów blob są w pełni spójne pod względem interfejsu API z kontami magazynu ogólnego przeznaczenia dla blokowych obiektów blob i uzupełnialnych obiektów blob. Twoja aplikacja powinna działać, dopóki korzysta z blokowych obiektów blob lub uzupełnialnych obiektów blob i używasz wersji 2014-02-14 lub nowszej [interfejsu API REST usług Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx). Jeśli używasz starszej wersji protokołu, musisz zaktualizować aplikację do nowej wersji, tak aby bezproblemowo współpracowała z oboma typami kont magazynu. Ogólnie zawsze zalecamy używanie najnowszej wersji niezależnie od używanego typu konta magazynu.
 
 10. **Czy w środowisku użytkownika zostaną wprowadzone zmiany?**
     
-    Konta magazynu obiektów blob są bardzo podobne kont magazynu ogólnego przeznaczenia tooa do przechowywania blokowych i uzupełnialnych obiektów blob i obsługują wszystkie najważniejsze funkcje hello magazynu Azure, w tym wysoka trwałość i dostępność, skalowalność, wydajność i zabezpieczeń. Inne niż hello funkcje i ograniczenia dotyczące określonych tooBlob kont magazynu i jego warstw magazynowania, które zostały wywołane powyżej wszystko else pozostaje hello takie same.
+    Konta usługi Blob Storage są bardzo podobne do kont magazynu ogólnego przeznaczenia służących do przechowywania blokowych obiektów blob oraz uzupełnialnych obiektów blob i obsługują wszystkie kluczowe funkcje usługi Azure Storage, w tym funkcje związane z wysoką trwałością i dostępnością, skalowalnością, wydajnością i zabezpieczeniami. Wszystkie inne elementy niż opisane powyżej funkcje oraz ograniczenia dotyczące kont usługi Blob Storage i ich warstw magazynowania pozostają takie same.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -366,8 +366,8 @@ Aby uzyskać więcej szczegółów, zobacz [Rozpoczynanie pracy z Magazynem obie
 
 [Rozpoczynanie pracy z usługą Azure Blob Storage przy użyciu platformy .NET](storage-dotnet-how-to-use-blobs.md)
 
-[Przenoszenie tooand danych z usługi Azure Storage](../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+[Przenoszenie danych do i z usługi Azure Storage](../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-[Transfer danych za pomocą wiersza polecenia Azcopy hello](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+[Transfer danych za pomocą narzędzia wiersza polecenia AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 [Przeglądaj i eksploruj konta magazynu](http://storageexplorer.com/)

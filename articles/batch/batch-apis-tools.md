@@ -1,6 +1,6 @@
 ---
-title: "rozwiązania aaaUse narzędzia i interfejsy API usługi partia zadań Azure toodevelop na dużą skalę przetwarzanie równoległe | Dokumentacja firmy Microsoft"
-description: "Więcej informacji na temat hello interfejsów API i narzędzia dostępne związane z opracowywaniem rozwiązań z usługi partia zadań Azure hello."
+title: "Tworzenie dużych rozwiązań przetwarzania równoległego przy użyciu narzędzi i interfejsów API usługi Azure Batch | Microsoft Docs"
+description: "Informacje na temat narzędzi i interfejsów API przeznaczonych do tworzenia rozwiązań korzystających z usługi Azure Batch."
 services: batch
 author: tamram
 manager: timlt
@@ -8,33 +8,33 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 03/08/2017
 ms.author: tamram
-ms.openlocfilehash: ca75a1a63b3e7e6b0805e79a63685bc49aaaca8f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9a5bbb1ecd3886a1453986c2deadb7b35e54b67b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Omówienie narzędzi i interfejsów API usługi Batch
 
-Przetwarzanie równoległe obciążeń z partii zadań Azure jest zazwyczaj wykonywane programowo przy użyciu jednej z hello [API partii](#batch-development-apis). Klient aplikacji lub usługi za pomocą toocommunicate API partii hello hello usługa partia zadań. Z hello interfejsów API partii, można tworzyć i Zarządzaj pulami węzłów obliczeniowych maszyn wirtualnych lub usługi w chmurze. Następnie można zaplanować toorun zadań i zadań na tych węzłach. 
+Przetwarzanie obciążeń równoległych przy użyciu usługi Azure Batch jest zazwyczaj wykonywane programowo przy użyciu jednego z [interfejsów API usługi Batch](#batch-development-apis). Aplikacja lub usługa kliencka, której autorem jest użytkownik, może używać interfejsów API usługi Batch do komunikacji z usługą Batch. Za pomocą interfejsów API usługi Batch można tworzyć pule węzłów obliczeniowych (maszyny wirtualne lub usługi w chmurze) i zarządzać nimi. Następnie można zaplanować wykonywanie zadań i podzadań w ramach tych węzłów. 
 
-Można efektywnie przetwarzania dużych obciążeń dla Twojej organizacji lub zapewnia usługi frontonu tooyour klientów, dzięki czemu mogą uruchamiać zadań i zadań, na żądanie lub według harmonogramu--na jeden, setek lub nawet tysiące węzłów. Usługę Azure Batch można także używać w ramach większego przepływu pracy zarządzanego za pomocą takich narzędzi, jak usługa [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
+Można skutecznie przetwarzać duże obciążenia na potrzeby swojej organizacji lub zapewniać swoim klientom fronton usług, aby umożliwić im uruchamianie zadań i podzadań — na żądanie lub zgodnie z harmonogramem — w jednym węźle albo setkach lub nawet tysiącach węzłów. Usługę Azure Batch można także używać w ramach większego przepływu pracy zarządzanego za pomocą takich narzędzi, jak usługa [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
-> Po zakończeniu toodig w toohello interfejsu API partii na pełniejsze zrozumienia hello ich funkcje zawiera, zapoznaj się z hello [Przegląd funkcji partii dla deweloperów](batch-api-basics.md).
+> Jeśli zechcesz dokładniej zapoznać się z interfejsem API usługi Batch i uzyskać bardziej szczegółowe informacje dotyczące funkcji, które on zapewnia, przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów).
 > 
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Konta platformy Azure na potrzeby programowania w usłudze Batch
-Podczas opracowywania rozwiązań partii użyjesz hello następującego konta na platformie Microsoft Azure.
+Podczas opracowywania rozwiązań usługi Batch potrzebne będą następujące konta na platformie Microsoft Azure.
 
 * **Konto i subskrypcja platformy Azure** — Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz aktywować [korzyści dla subskrybentów MSDN][msdn_benefits] lub utworzyć [bezpłatne konto platformy Azure][free_account]. Podczas tworzenia konta zostanie utworzona domyślna subskrypcja.
-* **Konto usługi Batch** — zasoby usługi Batch, w tym pule, węzły obliczeniowe, zadania i podzadania są skojarzone z kontem usługi Azure Batch. Gdy aplikacja wysyła żądanie hello usługa partia zadań, uwierzytelnia Żądanie hello przy użyciu nazwy konta partii zadań Azure hello, adres URL hello hello konta i klucz dostępu. Możesz [Tworzenie konta usługi partia zadań](batch-account-create-portal.md) w hello portalu Azure.
-* **Konto usługi Storage** — Usługa Batch obejmuje wbudowaną obsługę pracy z plikami w usłudze [Azure Storage][azure_storage]. Niemal każdego scenariusza partii korzysta z magazynu obiektów Blob platformy Azure do przemieszczania hello programy, które uruchamiania zadań i hello przetwarzania danych i do przechowywania danych wyjściowych, które generują one hello. toocreate konta magazynu, zobacz [kont magazynu Azure o](../storage/common/storage-create-storage-account.md).
+* **Konto usługi Batch** — zasoby usługi Batch, w tym pule, węzły obliczeniowe, zadania i podzadania są skojarzone z kontem usługi Azure Batch. Gdy aplikacja wykonuje żądanie względem usługi Batch, usługa ta uwierzytelnia żądanie przy użyciu nazwy konta usługi Batch, adresu URL konta i klucza dostępu. [Tworzenie konta usługi Batch](batch-account-create-portal.md) można wykonać w witrynie Azure Portal.
+* **Konto usługi Storage** — Usługa Batch obejmuje wbudowaną obsługę pracy z plikami w usłudze [Azure Storage][azure_storage]. Usługa Azure Blob Storage jest używana prawie w każdym scenariuszu usługi Batch — do przemieszczania programów uruchamianych przez podzadania oraz danych, które one przetwarzają, oraz do przechowywania danych wyjściowych, które generują. Aby utworzyć konto usługi Storage, zobacz temat [Informacje o kontach magazynu Azure](../storage/common/storage-create-storage-account.md)
 
 ## <a name="batch-service-apis"></a>Interfejsy API usługi Batch
 
-Aplikacje i usługi można wystawianie bezpośrednie wywołania interfejsu API REST lub użyj jednej lub kilku powitania po toorun biblioteki klienta i zarządzanie obciążeń partii zadań Azure.
+Aplikacje i usługi mogą wykonywać bezpośrednie wywołania interfejsu API REST lub użyć co najmniej jednej z następujących bibliotek klienckich do uruchamiania obciążeń usługi Azure Batch i zarządzania nimi.
 
 | Interfejs API | Dokumentacja interfejsu API | Do pobrania | Samouczek | Przykłady kodu | Więcej informacji |
 | --- | --- | --- | --- | --- | --- |
@@ -46,7 +46,7 @@ Aplikacje i usługi można wystawianie bezpośrednie wywołania interfejsu API R
 
 ## <a name="batch-management-apis"></a>Interfejsy API usługi Batch Management
 
-Witaj interfejsów API Menedżera zasobów Azure dla partii zapewniają dostęp programistyczny tooBatch kont. Za pomocą tych interfejsów API można programowo zarządzać kontami usługi Batch, przydziałami i pakietami aplikacji.  
+Interfejsy API usługi Azure Resource Manager dla usługi Batch zapewniają dostęp programowy do kont usługi Batch. Za pomocą tych interfejsów API można programowo zarządzać kontami usługi Batch, przydziałami i pakietami aplikacji.  
 
 | Interfejs API | Dokumentacja interfejsu API | Do pobrania | Samouczek | Przykłady kodu |
 | --- | --- | --- | --- | --- |
@@ -55,30 +55,30 @@ Witaj interfejsów API Menedżera zasobów Azure dla partii zapewniają dostęp 
 
 ## <a name="batch-command-line-tools"></a>Narzędzia wiersza polecenia usługi Batch
 
-Te narzędzia wiersza polecenia zapewniają hello same funkcje jak hello usługa partia zadań i interfejsów API Management partii: 
+Te narzędzia wiersza polecenia zawierają te same funkcje co interfejsy API usług Batch i Batch Management: 
 
-* [Partii poleceń cmdlet programu PowerShell][batch_ps]: hello polecenia cmdlet partii zadań Azure w hello [programu Azure PowerShell](/powershell/azure/overview) modułu włączyć toomanage partii zasobów przy użyciu programu PowerShell.
-* [Azure CLI](/cli/azure/overview): hello interfejsu wiersza polecenia platformy Azure (Azure CLI) to zestaw narzędzi i platform, udostępniający poleceń powłoki do interakcji z wielu usług Azure, w tym hello partii i Usługa zarządzania partii. Zobacz [Zarządzanie partii zasobów przy użyciu interfejsu wiersza polecenia Azure](batch-cli-get-started.md) Aby uzyskać więcej informacji o korzystaniu z partii hello wiersza polecenia platformy Azure.
+* [Polecenia cmdlet programu PowerShell w usłudze Batch][batch_ps]: polecenia cmdlet usługi Azure Batch w module programu [Azure PowerShell](/powershell/azure/overview) umożliwiają zarządzanie zasobami usługi Batch za pomocą programu PowerShell.
+* [Interfejs wiersza polecenia platformy Azure](/cli/azure/overview): interfejs wiersza polecenia platformy Azure (Azure CLI) jest działającym na wielu platformach zestawem narzędzi, który udostępnia polecenia powłoki do interakcji z wieloma usługami platformy Azure, w tym usługi Batch i usługi Batch Management. Zobacz [Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure](batch-cli-get-started.md), aby uzyskać więcej informacji o korzystaniu z interfejsu wiersza polecenia platformy Azure z usługą Batch.
 
 ## <a name="other-tools-for-application-development"></a>Inne narzędzia do opracowywania aplikacji
 
 Oto niektóre dodatkowe narzędzia, które mogą być przydatne do budowania i debugowania aplikacji i usług tworzonych za pomocą usługi Batch:
 
-* [Azure portal][portal]: tworzenie, monitorowanie i usunąć pule partii, zadań i zadań w hello Azure bloki partii portalu. Podczas uruchamiania zadań, a nawet pobierania plików z węzłami obliczeniowymi hello w Twojej puli, można wyświetlić informacje o stanie hello tych i innych zasobów. Na przykład podczas rozwiązywania problemów można pobrać plik `stderr.txt` zadania zakończonego niepowodzeniem. Możesz również pobrać pliki pulpitu zdalnego (RDP) w węzłach toocompute można toolog.
-* [Eksplorator usługi partia zadań Azure][batch_explorer]: Eksplorator partii oferuje podobne funkcje zarządzania zasobami partii jako hello portalu Azure, ale w autonomicznej aplikacja kliencka Windows Presentation Foundation (WPF). Jeden z hello partiami platformy .NET przykładowe aplikacje dostępne na [GitHub][github_samples], można skompiluj go z programem Visual Studio 2015 lub nowszego i użyć go toobrowse i zarządzanie zasobami hello na koncie usługi partia zadań podczas opracowywania i debugowanie rozwiązań partii. Wyświetl zadanie, puli i szczegóły zadania pobierania plików z węzłów obliczeniowych i połączyć toonodes zdalnie przy użyciu pulpitu zdalnego (RDP) plików, które można pobrać z Eksploratora partii.
-* [Eksplorator usługi Storage Azure Microsoft][storage_explorer]: podczas nie ściśle narzędzia partii zadań Azure, hello Eksploratora usługi Storage jest inny toohave przydatnym narzędziem podczas opracowywania i debugowanie rozwiązań partii.
+* [Witryna Azure Portal][portal]: możesz tworzyć, monitorować i usuwać pule i zadania usługi Batch w blokach usługi Batch witryny Azure Portal. Można wyświetlić informacje o stanie dla tych i innych zasobów podczas uruchamiania zadań, a nawet pobierać pliki z węzłów obliczeniowych w pulach. Na przykład podczas rozwiązywania problemów można pobrać plik `stderr.txt` zadania zakończonego niepowodzeniem. Można również pobrać pliki Remote Desktop (RDP) umożliwiające logowanie się do węzłów obliczeniowych.
+* [Azure Batch Explorer][batch_explorer]: narzędzie Batch Explorer zapewnia podobne funkcje zarządzania zasobami usługi Batch, co witryna Azure Portal, lecz w samodzielnej aplikacji klienckiej Windows Presentation Foundation (WPF). Jest to jedna z przykładowych aplikacji .NET usługi Batch dostępnych w serwisie [GitHub][github_samples]. Można ją skompilować przy użyciu programu Visual Studio 2015 lub nowszego i użyć jej do przeglądania zasobów konta usługi Batch i zarządzania nimi podczas tworzenia i debugowania rozwiązań usługi Batch. Wyświetlaj szczegóły dotyczące zadania, puli i podzadań, pobieraj pliki z węzłów obliczeniowych lub łącz się z węzłami zdalnie przy użyciu plików usług Remote Desktop (RDP), które można pobrać przy użyciu programu Batch Explorer.
+* [Microsoft Azure Storage Explorer][storage_explorer]: chociaż program Storage Explorer nie jest właściwie narzędziem usługi Azure Batch, jest to kolejne przydatne narzędzie, które warto mieć podczas opracowywania i debugowania rozwiązań usługi Batch.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-- toolearn informacje rejestrowania zdarzeń z partii aplikacji, zobacz [rejestrowania zdarzeń diagnostycznych oceny i monitorowania rozwiązań partii](batch-diagnostics.md). Aby uzyskać informacje na zdarzenia generowane przez hello usługa partia zadań, zobacz [analizach wsadowych](batch-analytics.md).
+- Aby dowiedzieć się więcej o rejestrowaniu zdarzeń z aplikacji usługi Batch, zobacz [Log events for diagnostic evaluation and monitoring of Batch solutions](batch-diagnostics.md) (Rejestrowanie zdarzeń na potrzeby ewaluacji diagnostycznej i monitorowania rozwiązań usługi Batch). Aby zapoznać się z dokumentacją zdarzeń zgłaszanych przez usługę Batch, zobacz [Analiza danych usługi Batch](batch-analytics.md).
 - Aby uzyskać informacje o zmiennych środowiskowych dla węzłów obliczeniowych, zobacz [Zmienne środowiskowe węzła obliczeniowego usługi Azure Batch](batch-compute-node-environment-variables.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Witaj odczytu [Przegląd funkcji partii dla deweloperów](batch-api-basics.md), ważne informacje dla każdego przygotowywanie toouse partii. Witaj artykuł zawiera bardziej szczegółowe informacje o partii usługi zasobów, takich jak pule, węzłów, zadań i zadań i hello wiele funkcji interfejsu API, które można używać podczas tworzenia aplikacji partii.
-* [Rozpoczynanie pracy z hello biblioteki partii zadań Azure dla platformy .NET](batch-dotnet-get-started.md) toolearn jak toouse C# i hello proste obciążenia za pomocą wspólnego przepływu pracy partii tooexecute biblioteki partiami platformy .NET. W tym artykule powinien być jednym z Twojego pierwszego zatrzymuje podczas nauki jak toouse hello usługa partia zadań. Istnieje również [wersji języka Python](batch-python-tutorial.md) hello samouczka.
-* Pobierz hello [przykłady w serwisie GitHub kodu] [ github_samples] toosee jak zarówno C# i Python umożliwia łączenie z obciążeń próbki tooschedule i procesu wsadowego.
-* Zapoznaj się z hello [ścieżka szkoleniowa dotycząca partii] [ learning_path] tooget pomysł tooyou hello zasoby dostępne w trakcie informacje toowork z partii.
+* Przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów) zawierający informacje kluczowe dla wszystkich osób przygotowujących się do korzystania z usługi Batch. Ten artykuł zawiera bardziej szczegółowe informacje o zasobach usługi Batch, takich jak pule, węzły i zadania oraz wielu funkcjach API, których można używać podczas kompilowania aplikacji usługi Batch.
+* Przeczytaj artykuł [Get started with the Azure Batch library for .NET](batch-dotnet-get-started.md) (Wprowadzenie do biblioteki usługi Azure Batch dla platformy .NET), aby dowiedzieć się, jak używać języka C# i biblioteki usługi Batch dla środowiska .NET w celu wykonania prostego obciążenia przy użyciu popularnego przepływu pracy usługi Batch. Artykuł ten powinien być jednym z pierwszych etapów podczas nauki korzystania z usługi Batch. Istnieje również [wersja samouczka dla języka Python](batch-python-tutorial.md).
+* Pobierz [przykłady kodu w serwisie GitHub][github_samples], aby zobaczyć, jak kod C# i Python może współpracować z usługą Batch w celu planowania i przetwarzania przykładowych obciążeń.
+* Zapoznaj się ze [ścieżką szkoleniową usługi Batch][learning_path] i uzyskaj informacje na temat dostępnych zasobów pomocnych podczas uczenia się pracy z usługą Batch.
 
 
 [azure_storage]: https://azure.microsoft.com/services/storage/

@@ -1,6 +1,6 @@
 ---
-title: "aaaUse etykiet tooinstrument zapytania w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Porady dotyczące korzystania z etykiet tooinstrument zapytania w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań."
+title: "Korzystanie z etykiet do dokumentu zapytania w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
+description: "Porady dotyczące korzystania z etykiet do dokumentu zapytania w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 82e7ea98e1417134227f1d7c529fdaf2f1df3853
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9e75bbe528a427724a623305fbd45e2277e9d0af
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-labels-tooinstrument-queries-in-sql-data-warehouse"></a>Użyj etykiety tooinstrument zapytania w usłudze SQL Data Warehouse
+# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Korzystanie z etykiet do dokumentu zapytania w usłudze SQL Data Warehouse
 Magazyn danych SQL obsługuje pojęcie o nazwie etykiety zapytania. Przed przejściem do dowolnej głębokości teraz wyglądać na przykład jeden:
 
 ```sql
@@ -31,11 +31,11 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-Ten ostatni wiersz znaczniki hello ciąg "Moje zapytania etykieta" toohello zapytania. Jest to szczególnie przydatne, ponieważ etykieta hello jest zapytania mogli za pośrednictwem hello widoków DMV. To zapewnia tootrack mechanizmu, dół zapytania problem, a także toohelp identyfikują postęp do uruchomienia ETL.
+Ten ostatni wiersz znaczniki ciąg "Moje zapytania etykieta" w zapytaniu. Jest to szczególnie przydatne, ponieważ etykieta to zapytanie może przy użyciu widoków DMV. To zapewnia mechanizm do śledzenia zapytań problem, a także ułatwiają identyfikację postęp do uruchomienia ETL.
 
-Dobrym konwencji nazewnictwa korzystnie tutaj. Na przykład coś, takich jak "projektu: procedura: instrukcji: komentarz" byłaby pomocna toouniquely identyfikator kwerendy hello w między cały kod hello w kontroli źródła.
+Dobrym konwencji nazewnictwa korzystnie tutaj. Na przykład coś, takich jak "projektu: procedura: instrukcja: komentarz" byłaby pomocna do jednoznacznej identyfikacji zapytania w między cały kod w kontroli źródła.
 
-toosearch przez etykietę można użyć następującego zapytania, który używa hello hello dynamicznych widoków zarządzania:
+Aby przeprowadzić wyszukiwanie według etykiety można Użyj następującego zapytania, który używa dynamicznych widoków zarządzania:
 
 ```sql
 SELECT  *
@@ -45,7 +45,7 @@ WHERE   r.[label] = 'My Query Label'
 ```
 
 > [!NOTE]
-> Istotne jest zawijany nawiasy kwadratowe lub cudzysłowów wokół etykiety word hello podczas wykonywania zapytania. Etykieta jest słowem zastrzeżonym i będzie spowodowała błąd, jeśli nie został ograniczony.
+> Istotne jest zawijany nawiasy kwadratowe lub cudzysłowów wokół etykiety word podczas wykonywania zapytania. Etykieta jest słowem zastrzeżonym i będzie spowodowała błąd, jeśli nie został ograniczony.
 > 
 > 
 

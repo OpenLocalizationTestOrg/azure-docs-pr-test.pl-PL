@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd wypychania powiadomień tooyour Windows platformy Uniwersalnej aplikacji | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse Azure App Service Mobile Apps i usługi Azure Notification Hubs toosend wypychanie powiadomień tooyour Windows platformy Uniwersalnej aplikacji."
+title: "Dodawanie powiadomień wypychanych do aplikacji systemu Windows platformy Uniwersalnej | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak wysyłać powiadomienia wypychane do aplikacji systemu Windows platformy Uniwersalnej za pomocą usługi Azure App Service Mobile Apps i usługi Azure Notification Hubs."
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -14,68 +14,68 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
-ms.openlocfilehash: 378ce59cab974830c0a3801108b24b30a21ae5cc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a14bb0320c1f6a563f766a6a0fad5cf556fe7b70
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="add-push-notifications-tooyour-windows-app"></a>Dodawanie aplikacji dla systemu Windows tooyour powiadomień wypychanych
+# <a name="add-push-notifications-to-your-windows-app"></a>Dodawanie powiadomień wypychanych do aplikacji systemu Windows
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym samouczku, możesz dodać toohello powiadomień wypychanych [szybki start systemu Windows](app-service-mobile-windows-store-dotnet-get-started.md) projektu, aby powiadomienie wypychane zostanie wysłane toohello urządzenia, za każdym razem, gdy wstawieniu rekordu.
+W tym samouczku, dodawanie powiadomień wypychanych do [szybki start systemu Windows](app-service-mobile-windows-store-dotnet-get-started.md) projektu, aby powiadomienia wypychane są wysyłane do urządzenia, za każdym razem, gdy wstawieniu rekordu.
 
-Jeśli nie używasz hello pobrany Projekt serwera szybki start, muszą hello pakiet rozszerzenia powiadomień wypychanych. Zobacz [pracować z serwera wewnętrznej bazy danych hello .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Aby uzyskać więcej informacji.
+Jeśli nie używasz Projekt serwera pobrany szybki start, konieczne będzie pakiet rozszerzenia powiadomień wypychanych. Zobacz [pracować z serwera wewnętrznej bazy danych .NET SDK usługi Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) Aby uzyskać więcej informacji.
 
 ## <a name="configure-hub"></a>Konfigurowanie Centrum powiadomień
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Rejestrowanie aplikacji dla usługi powiadomień wypychanych
-Możesz toosubmit Twojego toohello aplikacji Sklepu Windows, a następnie skonfiguruj toointegrate projektu z serwera z wypychania toosend powiadomienia usługi WNS (Windows).
+Należy do przesyłania aplikacji do Sklepu Windows, a następnie skonfigurować Projekt serwera do integracji z usługi WNS (Windows Notification) do wysyłania wypychania.
 
-1. W programie Visual Studio Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji platformy uniwersalnej systemu Windows hello, kliknij przycisk **magazynu** > **Skojarz aplikację ze sklepu hello...** .
+1. W Eksploratorze rozwiązań programu Visual Studio, kliknij prawym przyciskiem myszy projekt aplikacji platformy uniwersalnej systemu Windows, kliknij przycisk **magazynu** > **Skojarz aplikację ze sklepem...** .
 
     ![Skojarz aplikację ze Sklepu Windows](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
-2. W Kreatorze powitania kliknij **dalej**, zaloguj się przy użyciu konta Microsoft, wpisz nazwę aplikacji w **Zarezerwuj nazwę nowej aplikacji**, następnie kliknij przycisk **rezerwy**.
-3. Po rejestracji aplikacji hello jest hello został pomyślnie utworzony, wybierz nową nazwę aplikacji, kliknij przycisk **dalej**, a następnie kliknij przycisk **skojarzyć**. Spowoduje to dodanie manifest aplikacji toohello informacji o rejestracji Sklepu Windows hello wymagane.  
-4. Przejdź toohello [Centrum deweloperów systemu Windows](https://dev.windows.com/en-us/overview), logowanie przy użyciu konta Microsoft, kliknij przycisk hello nowej rejestracji aplikacji w **Moje aplikacje**, następnie rozwiń węzeł **usług**  >  **Powiadomienia wypychane**.
-5. W hello **powiadomienia wypychane** kliknij przycisk **witryna usług Live** w obszarze **Microsoft Azure Mobile Services**.
-6. Hello strony rejestracji, zanotuj wartości hello na **klucze tajne aplikacji** i hello **identyfikatora SID pakietu**, który można następnie użyje tooconfigure zaplecza aplikacji mobilnej.
+2. W kreatorze kliknij **dalej**, zaloguj się przy użyciu konta Microsoft, wpisz nazwę aplikacji w **Zarezerwuj nazwę nowej aplikacji**, następnie kliknij przycisk **rezerwy**.
+3. Po pomyślnym utworzeniu rejestracji aplikacji, wybierz nową nazwę aplikacji, kliknij przycisk **dalej**, a następnie kliknij przycisk **skojarzyć**. Spowoduje to dodanie wymaganych informacji dotyczących rejestracji w Sklepie Windows do manifestu aplikacji.  
+4. Przejdź do [Centrum deweloperów systemu Windows](https://dev.windows.com/en-us/overview), logowanie przy użyciu konta Microsoft, kliknij przycisk nowej rejestracji aplikacji w **Moje aplikacje**, następnie rozwiń węzeł **usług**  >   **Powiadomienia wypychane**.
+5. W **powiadomienia wypychane** kliknij przycisk **witryna usług Live** w obszarze **Microsoft Azure Mobile Services**.
+6. Na stronie rejestracji Zanotuj wartość w kluczu **klucze tajne aplikacji** i **identyfikatora SID pakietu**, który następnie będzie używane do konfigurowania zaplecza aplikacji mobilnej.
 
     ![Skojarz aplikację ze Sklepu Windows](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
-   > klucz tajny powitania klienta i identyfikatora SID pakietu są ważnymi poświadczeniami zabezpieczeń. Nie udostępniaj nikomu tych wartości ani nie rozpowszechniaj ich razem z aplikacją. Witaj **identyfikator aplikacji** jest używany z hello tajny tooconfigure Account Microsoft uwierzytelniania.
+   > Klucz tajny klienta i identyfikator SID pakietu są ważnymi poświadczeniami zabezpieczeń. Nie udostępniaj nikomu tych wartości ani nie rozpowszechniaj ich razem z aplikacją. **Identyfikator aplikacji** jest używany z klucza tajnego do konfigurowania uwierzytelniania Account firmy Microsoft.
    >
    >
 
-## <a name="configure-hello-backend-toosend-push-notifications"></a>Konfigurowanie powiadomień wypychanych toosend hello w wewnętrznej bazie danych
+## <a name="configure-the-backend-to-send-push-notifications"></a>Konfigurowanie zaplecza do wysyłania powiadomień wypychanych
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
-## <a id="update-service"></a>Zaktualizuj powiadomień wypychanych toosend serwera hello
-Użyj poniższej procedury hello, odpowiadający danemu typowi projektu zaplecza&mdash;albo [zaplecza .NET](#dotnet) lub [zaplecza Node.js](#nodejs).
+## <a id="update-service"></a>Zaktualizuj serwer do wysyłania powiadomień wypychanych
+Poniższa procedura odpowiadający danemu typowi projektu zaplecza&mdash;albo [zaplecza .NET](#dotnet) lub [zaplecza Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Projektu zaplecza .NET
-1. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt serwera hello, a następnie kliknij przycisk **Zarządzaj pakietami NuGet**, wyszukaj Microsoft.Azure.NotificationHubs, a następnie kliknij przycisk **zainstalować**. Spowoduje to zainstalowanie biblioteki klienta usługi Notification Hubs hello.
-2. Rozwiń węzeł **kontrolerów**, otwórz TodoItemController.cs i dodać hello następujące instrukcje using:
+1. W programie Visual Studio, kliknij prawym przyciskiem myszy projekt serwera, a następnie kliknij przycisk **Zarządzaj pakietami NuGet**, wyszukaj Microsoft.Azure.NotificationHubs, a następnie kliknij przycisk **zainstalować**. Spowoduje to zainstalowanie biblioteki klienta usługi Notification Hubs.
+2. Rozwiń węzeł **kontrolerów**, otwórz TodoItemController.cs i dodaj następujące instrukcje using:
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. W hello **PostTodoItem** metody, Dodaj hello następującego kodu po wywołaniu hello zbyt**InsertAsync**:
+3. W **PostTodoItem** metody, Dodaj następujący kod po wywołaniu **InsertAsync**:
 
-        // Get hello settings for hello server project.
+        // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
         MobileAppSettingsDictionary settings =
             this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get hello Notification Hubs credentials for hello Mobile App.
+        // Get the Notification Hubs credentials for the Mobile App.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
             .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-        // Create hello notification hub client.
+        // Create the notification hub client.
         NotificationHubClient hub = NotificationHubClient
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
@@ -84,25 +84,25 @@ Użyj poniższej procedury hello, odpowiadający danemu typowi projektu zaplecza
                                 + item.Text + @"</text></binding></visual></toast>";
         try
         {
-            // Send hello push notification.
+            // Send the push notification.
             var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
-            // Write hello success result toohello logs.
+            // Write the success result to the logs.
             config.Services.GetTraceWriter().Info(result.State.ToString());
         }
         catch (System.Exception ex)
         {
-            // Write hello failure result toohello logs.
+            // Write the failure result to the logs.
             config.Services.GetTraceWriter()
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    Ten kod informuje toosend Centrum powiadomień hello powiadomienie wypychane po Wstawianie nowego elementu.
-4. Ponownie opublikować hello na serwerze project Server.
+    Ten kod informuje Centrum powiadomień do wysyłania powiadomień wypychanych po Wstawianie nowego elementu.
+4. Ponownie opublikować projekt serwera.
 
 ### <a name="nodejs"></a>Projektu zaplecza node.js
-1. Jeśli jeszcze tego nie zrobiono, [pobieranie projektu Szybki Start hello](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) lub w przeciwnym razie użyj hello [edytora online w portalu Azure hello](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Zastąp hello istniejący kod w pliku todoitem.js hello hello następujące czynności:
+1. Jeśli jeszcze tego nie zrobiono, [pobieranie projektu Szybki Start](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) lub użyj innego [edytora online w portalu Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+2. Zastąp istniejący kod w pliku todoitem.js następujące czynności:
 
         var azureMobileApps = require('azure-mobile-apps'),
         promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -111,19 +111,19 @@ Użyj poniższej procedury hello, odpowiadający danemu typowi projektu zaplecza
         var table = azureMobileApps.table();
 
         table.insert(function (context) {
-        // For more information about hello Notification Hubs JavaScript SDK,
+        // For more information about the Notification Hubs JavaScript SDK,
         // see http://aka.ms/nodejshubs
         logger.info('Running TodoItem.insert');
 
-        // Define hello WNS payload that contains hello new item Text.
+        // Define the WNS payload that contains the new item Text.
         var payload = "<toast><visual><binding template=\ToastText01\><text id=\"1\">"
                                     + context.item.text + "</text></binding></visual></toast>";
 
-        // Execute hello insert.  hello insert returns hello results as a Promise,
-        // Do hello push as a post-execute action within hello promise flow.
+        // Execute the insert.  The insert returns the results as a Promise,
+        // Do the push as a post-execute action within the promise flow.
         return context.execute()
             .then(function (results) {
-                // Only do hello push if configured
+                // Only do the push if configured
                 if (context.push) {
                     // Send a WNS native toast notification.
                     context.push.wns.sendToast(null, payload, function (error) {
@@ -134,7 +134,7 @@ Użyj poniższej procedury hello, odpowiadający danemu typowi projektu zaplecza
                         }
                     });
                 }
-                // Don't forget tooreturn hello results from hello context.execute()
+                // Don't forget to return the results from the context.execute()
                 return results;
             })
             .catch(function (error) {
@@ -144,17 +144,17 @@ Użyj poniższej procedury hello, odpowiadający danemu typowi projektu zaplecza
 
         module.exports = table;
 
-    To wysyła wyskakujących powiadomień WNS zawierający item.text powitania po wstawieniu nowe zadanie do wykonania.
-3. Podczas edytowania pliku hello na komputerze lokalnym, należy ponownie opublikować hello na serwerze project Server.
+    To wysyła wyskakujących powiadomień WNS zawierający item.text po wstawieniu nowe zadanie do wykonania.
+3. Podczas edytowania pliku na komputerze lokalnym, należy ponownie opublikować projekt serwera.
 
-## <a id="update-app"></a>Dodaj aplikację tooyour powiadomień wypychanych
-Następnie zarejestrować dla powiadomień wypychanych przy uruchamianiu aplikacji. Podczas uwierzytelniania jest jeszcze włączone, upewnij się, że hello zalogowaniu się użytkownika przed podjęciem próby tooregister dla powiadomień wypychanych.
+## <a id="update-app"></a>Dodawanie powiadomień wypychanych do aplikacji
+Następnie zarejestrować dla powiadomień wypychanych przy uruchamianiu aplikacji. Jeśli już zostało włączone uwierzytelnianie, upewnij się, że zalogowaniu się użytkownika przed podjęciem próby rejestracji powiadomień wypychanych.
 
-1. Otwórz hello **App.xaml.cs** pliku projektu i dodaj następujące hello `using` instrukcji:
+1. Otwórz **App.xaml.cs** pliku projektu i dodaj następującą `using` instrukcji:
 
         using System.Threading.Tasks;
         using Windows.Networking.PushNotifications;
-2. W hello tego samego pliku, należy dodać następujące hello **InitNotificationsAsync** toohello definicję metody **aplikacji** klasy:
+2. W tym samym pliku Dodaj następujące **InitNotificationsAsync** definicję metody do **aplikacji** klasy:
 
         private async Task InitNotificationsAsync()
         {
@@ -162,12 +162,12 @@ Następnie zarejestrować dla powiadomień wypychanych przy uruchamianiu aplikac
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            // Register hello channel URI with Notification Hubs.
+            // Register the channel URI with Notification Hubs.
             await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
 
-    Ten kod pobiera hello ChannelURI dla aplikacji hello z usługi WNS, a następnie rejestruje ten ChannelURI w aplikacji mobilnej usługi aplikacji.
-3. U góry hello hello **OnLaunched** obsługi zdarzeń w **App.xaml.cs**, Dodaj hello **async** definicję metody toohello modyfikator i dodaj następujące hello wywołanie Nowetoohello **InitNotificationsAsync** metody hello poniższy przykład:
+    Ten kod pobiera ChannelURI dla aplikacji z usługi WNS, a następnie rejestruje ten ChannelURI w aplikacji mobilnej usługi aplikacji.
+3. W górnej części **OnLaunched** obsługi zdarzeń w **App.xaml.cs**, Dodaj **async** modyfikator do definicji — metoda i dodaj następujące wywołanie do nowego  **InitNotificationsAsync** metody, jak w poniższym przykładzie:
 
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
@@ -176,8 +176,8 @@ Następnie zarejestrować dla powiadomień wypychanych przy uruchamianiu aplikac
             // ...
         }
 
-    Gwarantuje to tego hello krótkim okresie ChannelURI jest zarejestrowana na każdym razem, gdy aplikacja hello jest uruchomiona.
-4. Ponownie skompiluj projekt aplikacji platformy uniwersalnej systemu Windows. Aplikacja jest teraz gotowy tooreceive wyskakujące powiadomienia.
+    Gwarantuje to, czy krótkim okresie ChannelURI jest zarejestrowana w każdym razem, gdy aplikacja jest uruchamiana.
+4. Ponownie skompiluj projekt aplikacji platformy uniwersalnej systemu Windows. Aplikacja jest teraz gotowa do odbierania wyskakujących powiadomień.
 
 ## <a id="test"></a>Testowych powiadomień wypychanych w aplikacji
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
@@ -185,17 +185,17 @@ Następnie zarejestrować dla powiadomień wypychanych przy uruchamianiu aplikac
 ## <a id="more"></a>Następne kroki
 Dowiedz się więcej na temat powiadomień wypychanych:
 
-* [Jak toouse hello zarządzanego klienta usługi Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-  Szablony umożliwiają wypchnięć wieloplatformowych toosend elastyczność i wypchnięć zlokalizowane. Dowiedz się, jak szablony tooregister.
+* [Jak używać zarządzanego klienta usługi Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
+  Szablony zapewniają elastyczność i możliwość wysyłania wypchnięć i platform i wypchnięć zlokalizowanego. Dowiedz się, jak zarejestrować szablonów.
 * [Diagnozowanie problemów powiadomień wypychanych](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  Istnieją różne przyczyny, dlaczego powiadomienia mogą pobrać usunięte lub nie kończą na urządzeniach. W tym temacie pokazano, jak tooanalyze i ustalenie potrzebnej głównego hello. Przyczyna niepowodzenia powiadomień wypychanych.
+  Istnieją różne przyczyny, dlaczego powiadomienia mogą pobrać usunięte lub nie kończą na urządzeniach. W tym temacie przedstawiono sposób analizowania i ustalić główną przyczynę niepowodzenia powiadomień wypychanych.
 
-Należy rozważyć kontynuować tooone hello następujące samouczki:
+Należy rozważyć kontynuowanie na jedno z następujących samouczków:
 
-* [Dodaj aplikację tooyour uwierzytelniania](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  Dowiedz się, jak tooauthenticate użytkowników aplikacji przy użyciu dostawcy tożsamości.
+* [Dodawanie uwierzytelniania do aplikacji](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+  Dowiedz się, jak uwierzytelniać użytkowników aplikacji przy użyciu dostawcy tożsamości.
 * [Włączanie synchronizacji w trybie offline dla aplikacji](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Dowiedz się, jak w trybie offline tooadd obsługują aplikację przy użyciu zaplecza aplikacji mobilnej. Synchronizacja w trybie offline umożliwia użytkownikom końcowym toointeract z aplikacją mobilną&mdash;przeglądanie, dodawanie lub modyfikowanie danych&mdash;nawet wtedy, gdy istnieje połączenie sieciowe.
+  Dowiedz się, jak dodać obsługę aplikacji w trybie offline przy użyciu zaplecza Aplikacji mobilnej. Synchronizacja w trybie offline umożliwia użytkownikom końcowym interakcję z aplikacją mobilną &mdash; przeglądanie, dodawanie lub modyfikowanie danych &mdash; nawet w przypadku braku połączenia sieciowego.
 
 <!-- Anchors. -->
 

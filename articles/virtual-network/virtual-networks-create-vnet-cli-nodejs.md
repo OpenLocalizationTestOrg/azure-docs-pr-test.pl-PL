@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate sieci wirtualnych za pomocą funkcji hello Azure CLI 1.0 | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate sieci wirtualnych za pomocą funkcji hello Azure CLI 1.0 | Menedżer zasobów."
+title: "Utwórz sieć wirtualną przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak utworzyć sieć wirtualną przy użyciu 1.0 interfejsu wiersza polecenia platformy Azure | Menedżer zasobów."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
-ms.openlocfilehash: f48a8b23a5994164b71c9b51ee8a6810d17f9392
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f0649c5c8c04dda72d2f147601efb37217f9bade
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="create-a-virtual-network-using-hello-azure-cli"></a>Utwórz sieć wirtualną przy użyciu hello wiersza polecenia platformy Azure
+# <a name="create-a-virtual-network-using-the-azure-cli"></a>Utwórz sieć wirtualną przy użyciu wiersza polecenia platformy Azure
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
 
-Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna. Firma Microsoft zaleca utworzenie zasobów za pośrednictwem modelu wdrażania usługi Resource Manager hello. więcej informacji o toolearn hello różnice między modelami hello dwa odczytu hello [modele wdrażania zrozumieć Azure](../azure-resource-manager/resource-manager-deployment-model.md) artykułu.
+Platforma Azure ma dwa modele wdrażania: usługa Azure Resource Manager i wersja klasyczna. Firma Microsoft zaleca tworzenie zasobów za pomocą modelu wdrożenia usługi Resource Manager. Aby dowiedzieć się więcej o różnicach między dwoma modelami, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) (Informacje na temat modeli wdrażania platformy Azure).
 
-## <a name="cli-versions-toocomplete-hello-task"></a>Zadanie hello toocomplete wersje interfejsu wiersza polecenia
-Można ukończyć powitalnych zadań przy użyciu jednej z hello następujące wersje interfejsu wiersza polecenia:
+## <a name="cli-versions-to-complete-the-task"></a>Wersje interfejsu wiersza polecenia umożliwiające wykonanie zadania
+Zadanie można wykonać przy użyciu jednej z następujących wersji interfejsu wiersza polecenia:
 
-- [Azure CLI 2.0](virtual-networks-create-vnet-arm-cli.md) -naszej nowej generacji interfejsu wiersza polecenia dla modelu wdrażania zarządzania zasobów hello
-- [Azure CLI 1.0](#create-a-virtual-network) — nasze interfejsu wiersza polecenia dla hello classic i zasobów zarządzania wdrażania modeli (w tym artykule)
+- [Interfejs wiersza polecenia platformy Azure w wersji 2.0](virtual-networks-create-vnet-arm-cli.md) — nasz interfejs wiersza polecenia nowej generacji dla modelu wdrażania na potrzeby zarządzania zasobami
+- [Azure CLI 1.0](#create-a-virtual-network) — nasze interfejsu wiersza polecenia dla klasycznego i zasobów zarządzania wdrażania modeli (w tym artykule)
 
  
 [!INCLUDE [virtual-networks-create-vnet-scenario-include](../../includes/virtual-networks-create-vnet-scenario-include.md)]
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-toocreate sieci wirtualnych za pomocą funkcji hello Azure CLI, pełną hello następujące kroki:
+Aby utworzyć sieć wirtualną przy użyciu wiersza polecenia platformy Azure, wykonaj następujące kroki:
 
-1. Instalowanie i konfigurowanie hello Azure CLI przez hello następujące kroki w hello [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](../cli-install-nodejs.md) artykułu.
+1. Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure, wykonując kroki opisane w [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) artykułu.
 
 2. Utwórz sieć wirtualną i podsieć:
 
@@ -57,13 +57,13 @@ toocreate sieci wirtualnych za pomocą funkcji hello Azure CLI, pełną hello na
 
     Użyte parametry:
 
-   * **--vnet**. Nazwa toobe sieci wirtualnej hello utworzony. W naszym scenariuszu jest to *TestVNet*
+   * **--vnet**. Nazwa sieci wirtualnej, która zostanie utworzona. W naszym scenariuszu jest to *TestVNet*
    * **-e (lub--przestrzeni adresowej)**. Przestrzeń adresowa sieci wirtualnej. W naszym scenariuszu *192.168.0.0*
    * **-i (lub - cidr)**. Maska sieci w formacie CIDR. W naszym scenariuszu *16*.
-   * **-n (lub--nazwy podsieci**). Nazwa hello pierwszej podsieci. W naszym scenariuszu jest to *FrontEnd*.
+   * **-n (lub--nazwy podsieci**). Nazwa pierwszej podsieci. W naszym scenariuszu jest to *FrontEnd*.
    * **-p (lub--podsieci start-ip)**. Początkowy adres IP dla podsieci lub przestrzeni adresowej podsieci. W naszym scenariuszu *192.168.1.0*.
    * **-r (lub--podsieci cidr)**. Maska sieci w formacie CIDR podsieci. W naszym scenariuszu *24*.
-   * **-l (lub --location)**. Region platformy Azure, w której jest tworzony hello sieci wirtualnej. W naszym scenariuszu *środkowe stany USA*.
+   * **-l (lub --location)**. Region platformy Azure, w którym utworzona sieć wirtualna. W naszym scenariuszu *środkowe stany USA*.
 
 3. Utwórz podsieć:
 
@@ -77,7 +77,7 @@ toocreate sieci wirtualnych za pomocą funkcji hello Azure CLI, pełną hello na
             + Looking up network configuration
             + Creating subnet "BackEnd"
             + Setting network configuration
-            + Looking up hello subnet "BackEnd"
+            + Looking up the subnet "BackEnd"
             + Looking up network configuration
             data:    Name                            : BackEnd
             data:    Address prefix                  : 192.168.2.0/24
@@ -85,11 +85,11 @@ toocreate sieci wirtualnych za pomocą funkcji hello Azure CLI, pełną hello na
 
     Użyte parametry:
 
-   * **-t (lub--vnet-name**. Nazwa sieci wirtualnej, w którym zostanie utworzona podsieć hello hello. W naszym scenariuszu jest to *TestVNet*.
-   * **-n (lub --name)**. Nazwa nowej podsieci hello. W naszym scenariuszu *zaplecza*.
+   * **-t (lub--vnet-name**. Nazwa sieci wirtualnej, w której zostanie utworzona podsieć. W naszym scenariuszu jest to *TestVNet*.
+   * **-n (lub --name)**. Nazwa nowej podsieci. W naszym scenariuszu *zaplecza*.
    * **-a (lub --address-prefix)**. Blok CIDR podsieci. Cztery naszym scenariuszu *192.168.2.0/24*.
    
-4. właściwości hello tooview hello nowej sieci wirtualnej:
+4. Aby wyświetlić właściwości nowej sieci wirtualnej:
 
     ```azurecli
     azure network vnet show
@@ -99,7 +99,7 @@ toocreate sieci wirtualnych za pomocą funkcji hello Azure CLI, pełną hello na
    
             info:    Executing command network vnet show
             Virtual network name: TestVNet
-            + Looking up hello virtual network sites
+            + Looking up the virtual network sites
             data:    Name                            : TestVNet
             data:    Location                        : Central US
             data:    State                           : Created
@@ -115,8 +115,8 @@ toocreate sieci wirtualnych za pomocą funkcji hello Azure CLI, pełną hello na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jak tooconnect:
+Dowiedz się, jak połączyć:
 
-- Sieć wirtualną maszyny wirtualnej (VM) tooa odczytując hello [Utwórz Maszynę wirtualną systemu Linux](../virtual-machines/linux/quick-create-cli.md) artykułu. Zamiast tworzenia sieci wirtualnej i podsieci w krokach hello hello artykułów, możesz wybrać istniejącej sieci wirtualnej i tooconnect podsieci maszyny Wirtualnej, aby.
-- Witaj sieci wirtualne sieci wirtualnej tooother odczytując hello [połączyć sieci wirtualnych](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artykułu.
-- Witaj sieci wirtualnej tooan sieci lokalnej za pomocą wirtualnej sieci prywatnej (VPN) do lokacji lub obwodu usługi expressroute. Dowiedz się, jak odczytując hello [połączyć sieć lokalną tooan sieci wirtualnej przy użyciu sieci VPN lokacja lokacja](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) i [połączyć sieć wirtualną tooan obwodu ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
+- Maszyna wirtualna (VM) do sieci wirtualnej, odczytując [Utwórz Maszynę wirtualną systemu Linux](../virtual-machines/linux/quick-create-cli.md) artykułu. Zamiast tworzyć sieć wirtualną i podsieć, wykonując kroki opisane w artykułach, można wybrać istniejącą sieć wirtualną i podsieć, z którymi zostanie połączona maszyna wirtualna.
+- Sieć wirtualną z innymi sieciami wirtualnymi. Odpowiednie informacje możesz znaleźć w artykule [Łączenie sieci wirtualnych](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+- Sieć wirtualną z siecią lokalną za pomocą prywatnej sieci wirtualnej (VPN) typu lokacja-lokacja lub obwodu usługi ExpressRoute. Dowiedz się, jak odczytując [połączyć sieć wirtualną z siecią lokalną przy użyciu sieci VPN lokacja lokacja](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) i [połączyć sieć wirtualną z obwodem usługi ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).

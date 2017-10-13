@@ -1,5 +1,5 @@
 ---
-title: "aaaStore i widoku danych diagnostycznych w usłudze Azure Storage | Dokumentacja firmy Microsoft"
+title: Magazyn i widoku danych diagnostycznych w magazynie Azure | Dokumentacja firmy Microsoft
 description: "Pobierz dane diagnostyczne platformy Azure do usługi Azure Storage i wyświetlić"
 services: cloud-services
 documentationcenter: .net
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: robb
-ms.openlocfilehash: dd47a2ef6d6488c80c102c72b2ebf6ca6d2e473f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 374cc179e13c00e439415e3df16e0c6d5ccba5e3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Magazyn i widoku danych diagnostycznych w usłudze Azure Storage
-Dane diagnostyczne nie są trwale przechowywane, chyba że transfer emulatora magazynu Microsoft Azure toohello lub pamięci masowej tooAzure. Raz w magazynie, można je wyświetlić jeden z kilku dostępnych narzędzi.
+Danych diagnostycznych nie są trwale przechowywane, chyba że transfer emulatora magazynu Microsoft Azure lub do magazynu Azure. Raz w magazynie, można je wyświetlić jeden z kilku dostępnych narzędzi.
 
 ## <a name="specify-a-storage-account"></a>Określ konto magazynu
-Należy określić hello konta magazynu, które mają toouse w pliku pliku ServiceConfiguration.cscfg hello. informacje o koncie Hello jest zdefiniowany jako parametry połączenia w ustawieniu konfiguracji. Witaj poniższy przykład przedstawia hello domyślnego ciągu połączenia utworzone dla nowego projektu usługi w chmurze w programie Visual Studio:
+Należy określić konto magazynu, które mają być używane w pliku ServiceConfiguration.cscfg pliku. Informacje o koncie jest zdefiniowany jako parametry połączenia w ustawieniu konfiguracji. W poniższym przykładzie przedstawiono domyślnego ciągu połączenia utworzone dla nowego projektu usługi w chmurze w programie Visual Studio:
 
 ```
     <ConfigurationSettings>
@@ -32,9 +32,9 @@ Należy określić hello konta magazynu, które mają toouse w pliku pliku Servi
     </ConfigurationSettings>
 ```
 
-Możesz zmienić ten tooprovide konta informacje o parametrach połączenia dla konta magazynu platformy Azure.
+Możesz zmienić te parametry połączenia, aby podać informacje o koncie dla konta magazynu platformy Azure.
 
-W zależności od typu hello zbieranych danych diagnostycznych diagnostyki Azure korzysta z usługi Blob hello lub hello usługi tabel. Witaj poniższej tabeli przedstawiono hello źródeł danych, które są zachowywane i ich format.
+W zależności od typu zbieranych danych diagnostycznych Diagnostyka Azure korzysta z usługi obiektów Blob lub usługi tabel. W poniższej tabeli przedstawiono źródła danych, które są zachowywane i ich format.
 
 | Źródło danych | Formatu magazynowania |
 | --- | --- |
@@ -48,40 +48,40 @@ W zależności od typu hello zbieranych danych diagnostycznych diagnostyki Azure
 | Dzienniki błędów niestandardowych |Obiekt blob |
 
 ## <a name="transfer-diagnostic-data"></a>Transfer danych diagnostycznych
-Dla zestawu SDK, 2.5 lub nowszego oraz danych diagnostycznych hello żądania tootransfer może występować hello pliku konfiguracji. Można przenieść dane diagnostyczne w zaplanowanych odstępach czasu określonych w konfiguracji hello.
+Dla zestawu SDK, 2.5 i nowszych żądanie na przesyłanie danych diagnostycznych może wystąpić przy użyciu pliku konfiguracji. Można przenieść dane diagnostyczne w zaplanowanych odstępach czasu określonych w konfiguracji.
 
-2.4 zestawu SDK i poprzednich można zażądać danych diagnostycznych hello tootransfer za pomocą pliku konfiguracji hello również jako programowo. rozwiązanie programowe Hello umożliwia również toodo na żądanie transferu.
+2.4 zestawu SDK i poprzedniego może wysłać żądanie na przesyłanie danych diagnostycznych jak programowo przy użyciu pliku konfiguracji. To rozwiązanie programowe umożliwia również czy transferów na żądanie.
 
 > [!IMPORTANT]
-> Podczas transferu danych diagnostycznych tooan kontem magazynu platformy Azure, możesz pociągnąć za sobą koszty hello zasobów magazynu, które używa danych diagnostycznych.
+> Podczas transferu danych diagnostycznych na konto magazynu platformy Azure, możesz pociągnąć za sobą koszty dla zasobów magazynu, które używa danych diagnostycznych.
 > 
 > 
 
 ## <a name="store-diagnostic-data"></a>Przechowywanie danych diagnostycznych
-W magazynie obiektów Blob lub tabel są przechowywane dane dziennika o hello następujące nazwy:
+Dane dziennika są przechowywane w magazynie obiektów Blob lub tabela, z następujących nazw:
 
 **Tabele**
 
-* **WadLogsTable** — dzienniki zapisywane w kodzie za pomocą hello nasłuchującego śledzenia.
+* **WadLogsTable** — dzienniki zapisywane w kodzie za pomocą obiektu nasłuchującego śledzenia.
 * **WADDiagnosticInfrastructureLogsTable** -diagnostycznych zmiany monitora i konfiguracji.
-* **WADDirectoriesTable** — katalogów monitora diagnostycznego hello jest monitorowanie.  Obejmuje to dzienniki programu IIS, usługi IIS nie powiodło się, dzienniki żądań i niestandardowych katalogów.  Hello lokalizację pliku dziennika blob hello jest określony w polu kontenera hello i pole RelativePath hello jest nazwa hello hello obiektu blob.  pole ŚcieżkaBezwględna Hello wskazuje hello lokalizację i nazwę pliku hello znajdowały się na powitania maszyny wirtualnej platformy Azure.
+* **WADDirectoriesTable** — katalogów monitorowanych monitora diagnostycznego.  Obejmuje to dzienniki programu IIS, usługi IIS nie powiodło się, dzienniki żądań i niestandardowych katalogów.  W polu kontenera określono lokalizację pliku dziennika obiektów blob i pole RelativePath jest nazwa obiektu blob.  W polu ŚcieżkaBezwględna wskazuje lokalizację i nazwę pliku znajdowały się na maszynie wirtualnej Azure.
 * **WADPerformanceCountersTable** — liczniki wydajności.
 * **WADWindowsEventLogsTable** — dzienniki zdarzeń systemu Windows.
 
 **Obiekty blob**
 
-* **wad formantu kontenera** — (tylko w przypadku 2.4 zestawu SDK i poprzedniego) zawiera pliki konfiguracji XML hello sterujących hello diagnostycznych platformy Azure.
+* **wad formantu kontenera** — (tylko w przypadku 2.4 zestawu SDK i poprzedniego) zawiera pliki konfiguracji XML, które kontroluje diagnostycznych platformy Azure.
 * **wad — usługi iis-failedreqlogfiles** — zawiera informacje z dzienników usług IIS nie powiodło się żądanie.
 * **wad — usługi iis-logfiles** — zawiera informacje o dziennikach usług IIS.
-* **"niestandardowe"** — niestandardowe kontenera oparte na Konfigurowanie katalogów, które są monitorowane przez monitor diagnostyczny hello.  Nazwa Hello tego kontenera obiektu binarnego zostanie określona w WADDirectoriesTable.
+* **"niestandardowe"** — niestandardowe kontenera oparte na Konfigurowanie katalogów, które są monitorowane przez monitor diagnostyczny.  Nazwa tego kontenera obiektów blob zostanie określona w WADDirectoriesTable.
 
-## <a name="tools-tooview-diagnostic-data"></a>Dane diagnostyczne tooview narzędzia
-Kilka narzędzi są dostępne tooview hello danych po toostorage przeniesione. Na przykład:
+## <a name="tools-to-view-diagnostic-data"></a>Narzędzia do wyświetlania danych diagnostycznych
+Kilka narzędzi są dostępne wyświetlić dane, gdy zostanie przeniesiona do magazynu. Na przykład:
 
-* Eksploratora serwera w programie Visual Studio — Jeśli zainstalowano hello Azure Tools dla programu Microsoft Visual Studio, służy hello Azure Storage węzła w Eksploratorze serwera tooview tylko do odczytu obiektów blob i tabeli danych z kontami magazynu Azure. Można wyświetlić dane z Twojego konta emulatora magazynu lokalnego, a także z kont magazynu utworzonym dla platformy Azure. Aby uzyskać więcej informacji, zobacz [przeglądanie i zarządzanie zasobami magazynu za pomocą Eksploratora serwera](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
-* [Eksplorator magazynu Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest aplikacją autonomiczną, która umożliwia tooeasily pracy z danymi usługi Azure Storage w systemach Windows, OS x i Linux.
-* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) zawiera Menedżera diagnostyki Azure, dzięki czemu można tooview, pobierania i zarządzania hello danych diagnostycznych zebranych aplikacji hello działających na platformie Azure.
+* Eksploratora serwera w programie Visual Studio — po zainstalowaniu narzędzi Azure dla programu Microsoft Visual Studio, służy węzła usługi Azure Storage w Eksploratorze serwera do wyświetlenia tylko do odczytu obiektów blob i danych tabel z kontami magazynu Azure. Można wyświetlić dane z Twojego konta emulatora magazynu lokalnego, a także z kont magazynu utworzonym dla platformy Azure. Aby uzyskać więcej informacji, zobacz [przeglądanie i zarządzanie zasobami magazynu za pomocą Eksploratora serwera](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
+* [Eksplorator magazynu Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) jest aplikacją autonomiczną, która pozwala łatwo pracować z danymi usługi Azure Storage w systemach Windows, OS x i Linux.
+* [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) zawiera Menedżera diagnostyki Azure, dzięki czemu można wyświetlić, Pobierz i zarządzanie dane diagnostyczne zebrane przez aplikacji działających na platformie Azure.
 
 ## <a name="next-steps"></a>Następne kroki
-[Przepływ hello śledzenia w aplikacji usługi w chmurze Diagnostyka Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
+[Śledzenie przepływu w aplikacji usługi w chmurze Diagnostyka Azure](cloud-services-dotnet-diagnostics-trace-flow.md)
 

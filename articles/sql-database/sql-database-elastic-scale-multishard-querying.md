@@ -1,6 +1,6 @@
 ---
-title: bazy danych Azure SQL podzielonej aaaQuery | Dokumentacja firmy Microsoft
-description: "Uruchamianie zapytań między odłamków za pomocą biblioteki klienta elastycznej bazy danych hello."
+title: Zapytanie bazy danych Azure SQL podzielonej | Dokumentacja firmy Microsoft
+description: "Uruchamianie zapytań między odłamków za pomocą biblioteki klienta elastycznej bazy danych."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-ms.openlocfilehash: a1f0763935a6807b74aa9dec477714e8d117417d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 67bcb3c7fe33341103f28bc70e8cc2acbb924cae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-shard-querying"></a>Wiele niezależnych zapytań
 ## <a name="overview"></a>Omówienie
-Z hello [narzędzi elastycznej bazy danych](sql-database-elastic-scale-introduction.md), można utworzyć bazy danych podzielonej rozwiązania. **Wiele niezależnych badania** służy do zadań, takich jak kolekcja/raportowania danych wymagających uruchomienia zapytania, który rozciąga się na kilka fragmentów. (Natomiast to zbyt[routingu zależne od danych](sql-database-elastic-scale-data-dependent-routing.md), które wykonuje całą pracę na jednego niezależnego fragmentu.) 
+Z [narzędzi elastycznej bazy danych](sql-database-elastic-scale-introduction.md), można utworzyć bazy danych podzielonej rozwiązania. **Wiele niezależnych badania** służy do zadań, takich jak kolekcja/raportowania danych wymagających uruchomienia zapytania, który rozciąga się na kilka fragmentów. (Natomiast aby [routingu zależne od danych](sql-database-elastic-scale-data-dependent-routing.md), które wykonuje całą pracę na jednego niezależnego fragmentu.) 
 
-1. Pobierz [ **RangeShardMap** ](https://msdn.microsoft.com/library/azure/dn807318.aspx) lub [ **ListShardMap** ](https://msdn.microsoft.com/library/azure/dn807370.aspx) przy użyciu hello [ **TryGetRangeShardMap** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), hello [ **TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), lub hello [ **GetShardMap** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) metody. Zobacz [ **konstruowania ShardMapManager** ](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) i [ **uzyskać RangeShardMap lub ListShardMap**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
+1. Pobierz [ **RangeShardMap** ](https://msdn.microsoft.com/library/azure/dn807318.aspx) lub [ **ListShardMap** ](https://msdn.microsoft.com/library/azure/dn807370.aspx) przy użyciu [ **TryGetRangeShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [ **TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), lub [ **GetShardMap** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) metody. Zobacz [ **konstruowania ShardMapManager** ](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) i [ **uzyskać RangeShardMap lub ListShardMap**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
 2. Utwórz  **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)**  obiektu.
 3. Utwórz  **[MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)**. 
-4. Zestaw hello  **[Właściwość CommandText](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)**  tooa polecenia T-SQL.
-5. Wykonanie polecenia hello przez wywołanie hello  **[metodę ExecuteReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)**.
-6. Wyświetl wyniki hello za pomocą hello  **[klasy MultiShardDataReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)**. 
+4. Ustaw  **[Właściwość CommandText](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)**  polecenia T-SQL.
+5. Wykonaj polecenie wywołując  **[metodę ExecuteReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)**.
+6. Wyświetl wyniki za pomocą  **[klasy MultiShardDataReader](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)**. 
 
 ## <a name="example"></a>Przykład
-Witaj poniższy kod ilustruje hello użycie wielu niezależnych zapytań za pomocą danego **ShardMap** o nazwie *myShardMap*. 
+Poniższy kod przedstawia użycie wielu niezależnych zapytań za pomocą danego **ShardMap** o nazwie *myShardMap*. 
 
     using (MultiShardConnection conn = new MultiShardConnection( 
                                         myShardMap.GetShards(), 
@@ -60,19 +60,19 @@ Witaj poniższy kod ilustruje hello użycie wielu niezależnych zapytań za pomo
     } 
 
 
-Najważniejsza różnica polega na konstrukcji hello niezależnych wielu połączeń. Gdzie **SqlConnection** działa na pojedynczej bazy danych hello **MultiShardConnection** przyjmuje ***kolekcji odłamków*** jako dane wejściowe. Wypełnia kolekcję hello odłamków z mapy niezależnego fragmentu. następnie jest przeprowadzana kwerenda Hello na powitania zbiór odłamków przy użyciu **UNION ALL** tooassemble semantykę pojedynczego wyniku ogólnej. Opcjonalnie można dodać nazwę hello hello niezależnego fragmentu wiersza hello, z której pochodzi toohello wyjściowe hello **ExecutionOptions** właściwość polecenia. 
+Najważniejsza różnica polega na konstrukcji niezależnych wielu połączeń. Gdzie **SqlConnection** działa na pojedynczej bazy danych **MultiShardConnection** przyjmuje ***kolekcji odłamków*** jako dane wejściowe. Wypełnianie kolekcji odłamków z mapy niezależnego fragmentu. Następnie wykonać zapytania w kolekcji przy użyciu fragmentów **UNION ALL** semantyki można złożyć jeden wynik ogólny. Opcjonalnie można dodać nazwę niezależnego fragmentu, z której pochodzi wiersz do danych wyjściowych przy użyciu **ExecutionOptions** właściwość polecenia. 
 
-Należy zwrócić uwagę hello wywołanie za**myShardMap.GetShards()**. Ta metoda pobiera wszystkie odłamków z mapy niezależnego fragmentu hello i zapewnia prosty sposób toorun zapytania dla wszystkich odpowiednich baz danych. Hello kolekcji odłamków dla wielu niezależnych zapytanie może być precyzyjnych dalsze, wykonując LINQ zapytanie dotyczące kolekcji hello zwracany z wywołania hello zbyt**myShardMap.GetShards()**. W połączeniu z zasadami wyniki częściowe hello hello bieżących możliwości wielu niezależnych badania została toowork zaprojektowane dla dziesiątki się toohundreds fragmentów.
+Należy pamiętać, wywołanie **myShardMap.GetShards()**. Ta metoda pobiera wszystkie odłamków z mapy niezależnego fragmentu i zapewnia prosty sposób do uruchamiania kwerendy dla wszystkich odpowiednich baz danych. Kolekcji odłamków dla wielu niezależnych zapytanie może być precyzyjnych dalsze przez wykonanie zapytania LINQ w kolekcji zwróconej z wywołania do **myShardMap.GetShards()**. W połączeniu z zasadami wyniki częściowe bieżących możliwości wielu niezależnych badania został zaprojektowany do pracy oraz dziesiątki maksymalnie setki fragmentów.
 
-To ograniczenie z wielu niezależnych zapytań jest obecnie Brak hello zatwierdzania liczbie fragmentów i shardlets, które będą pytani. Podczas routingu zależne od danych sprawdza, czy dany identyfikator niezależnego fragmentu mapy niezależnego fragmentu hello w czasie hello kwerendy, zapytania wielu niezależnego fragmentu nie wykonuj tego wyboru. Może to spowodować zapytań niezależnego fragmentu toomulti wykonywanych w bazach danych, które zostały usunięte z hello niezależnego fragmentu mapy.
+To ograniczenie z wielu niezależnych zapytań jest obecnie braku weryfikacji odłamków i shardlets, które będą pytani. Podczas routingu zależne od danych sprawdza, czy dany identyfikator niezależnego fragmentu mapy niezależnego fragmentu w czasie wykonywania zapytania, zapytania wielu niezależnego fragmentu nie wykonuj tego wyboru. Może to prowadzić do zapytań wielu niezależnych wykonywanych w bazach danych, które zostały usunięte z mapy niezależnego fragmentu.
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Wiele niezależnych zapytań i operacji scalania podziału
-Wiele niezależnych zapytania nie weryfikują czy shardlets w bazie danych, którego dotyczy kwerenda hello uczestniczą w trwających operacji scalania podziału. (Zobacz [skalowania, za pomocą narzędzia hello scalanie podziału elastycznej bazy danych](sql-database-elastic-scale-overview-split-and-merge.md).) Może to spowodować tooinconsistencies której wiersze z hello tego samego Pokaż shardlet dla wielu baz danych w hello tego samego zapytania wielu niezależnego fragmentu. Należy pamiętać o tych ograniczeniach oraz należy wziąć pod uwagę opróżnianie trwającą scalania podziału operacje i zmiany toohello niezależnego fragmentu mapy podczas wykonywania zapytania wielu niezależnych.
+Wiele niezależnych zapytania nie weryfikują czy shardlets w bazie danych, którego dotyczy kwerenda uczestniczą w trwających operacji scalania podziału. (Zobacz [odbierającej za pomocą narzędzia do scalania podziału elastycznej bazy danych](sql-database-elastic-scale-overview-split-and-merge.md).) Może to prowadzić do niespójności gdzie wierszy z tej samej shardlet Pokaż dla wielu baz danych w jednym zapytaniu wielu niezależnego fragmentu. Należy pamiętać o tych ograniczeniach i podczas wykonywania zapytania wielu niezależnych należy wziąć pod uwagę opróżniania trwających operacji scalania podziału i zmiany do mapy niezależnego fragmentu.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 ## <a name="see-also"></a>Zobacz też
 **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**  klasy i metody.
 
-Zarządzanie za pomocą hello odłamków [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md). Zawiera obszar nazw o nazwie [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx) zapewnia tooquery możliwości hello wielu odłamków przy użyciu pojedynczego zapytania i wyników. Zapewnia on podczas badania abstrakcji przez kolekcję fragmentów. Umożliwia także zasad alternatywnych wykonywania, w szczególności częściowe wyniki, toodeal z błędami podczas wykonywania zapytania w wielu fragmentów.  
+Zarządzanie za pomocą odłamków [biblioteki klienta elastycznej bazy danych](sql-database-elastic-database-client-library.md). Zawiera obszar nazw o nazwie [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx) zapewnia możliwość wielu odłamków przy użyciu pojedynczego zapytania i wyników zapytania. Zapewnia on podczas badania abstrakcji przez kolekcję fragmentów. Umożliwia także zasad alternatywnych wykonywania, w szczególności częściowe wyniki, na wypadek awarii podczas wykonywania zapytania w wielu fragmentów.  
 

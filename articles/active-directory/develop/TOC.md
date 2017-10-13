@@ -26,7 +26,7 @@
 ### [Omówienie](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## TooService usługi
+## Usługa do usługi
 ### [Omówienie](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
 ### [Poświadczenia klienta OAuth 2.0](active-directory-protocols-oauth-service-to-service.md)
@@ -59,7 +59,7 @@
 ### [Wprowadzenie do usług połączonych programu Visual Studio](vs-active-directory-dotnet-getting-started.md)
 ### [Wystąpił błąd podczas wykrywania uwierzytelniania](vs-active-directory-error.md)
 ### [Wprowadzenie do interfejsu API sieci Web](vs-active-directory-webapi-getting-started.md)
-### [Jakie wystąpiły toomy projektu interfejsu API sieci web](vs-active-directory-webapi-what-happened.md)
+### [Co się stało z moim projektem interfejsu API sieci Web](vs-active-directory-webapi-what-happened.md)
 ## [Usługi ADFS systemu Windows Server](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Dokumentacja
 ## [Przykłady kodu](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
@@ -69,7 +69,7 @@
 ## [Protokoły uwierzytelniania](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
-### [Usługa tooservice wywołania](active-directory-protocols-oauth-service-to-service.md)
+### [Wywołania usługa do usługi](active-directory-protocols-oauth-service-to-service.md)
 ### [Przepływ „w imieniu”](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Obsługiwane typy tokenów i oświadczeń](active-directory-token-and-claims.md)
 ### [Przerzucanie klucza podpisywania](active-directory-signing-key-rollover.md)

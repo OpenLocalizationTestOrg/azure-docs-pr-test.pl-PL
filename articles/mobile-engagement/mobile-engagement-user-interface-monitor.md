@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement interfejsu użytkownika — Monitor"
-description: "Dowiedz się, jak toomonitor w czasie rzeczywistym danych aplikacji przy użyciu usługi Azure Mobile Engagement"
+title: "Interfejs użytkownika usługi Azure Mobile Engagement — Monitor"
+description: "Informacje o sposobie monitorowania w czasie rzeczywistym danych aplikacji przy użyciu usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3a581e4166bc88e6ee7aa784d4047c94533685b5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomonitor-real-time-data-about-your-application"></a>Jak toomonitor w czasie rzeczywistym danych aplikacji
-W tym artykule opisano hello **MONITOR** kartę hello **Mobile Engagement** portalu. Użyj hello **Mobile Engagement** toomonitor portalu i zarządzania aplikacjami mobilnymi. Należy pamiętać, że toostart przy użyciu portalu hello, musisz najpierw toocreate **usługi Azure Mobile Engagement** konta. 
+# <a name="how-to-monitor-real-time-data-about-your-application"></a>Jak monitorować dane w czasie rzeczywistym dotyczące Twojej aplikacji
+W tym artykule opisano **MONITOR** karcie **Mobile Engagement** portalu. Możesz użyć **Mobile Engagement** portalu do monitorowania i zarządzania aplikacjami mobilnymi. Należy pamiętać, że można uruchomić przy użyciu portalu należy najpierw utworzyć **usługi Azure Mobile Engagement** konta. 
 
-Hello Monitor części hello interfejsu użytkownika zawiera informacje analiz w czasie rzeczywistym oraz umożliwia tooset alerty po osiągnięciu progów ilości dla większości hello takie same informacje, które są dostępne w przeszłości w hello [ANALYTICS](mobile-engagement-user-interface-analytics.md) sekcji Witaj interfejsu użytkownika. Zobacz hello **słownik** części hello [pojęcia](http://go.microsoft.com/fwlink/?LinkId=525555) tematu definicje terminów i skrótów, analizy i monitorowanie (takie jak następujące hello: aktywnego użytkownika, nowy użytkownik zachowane użytkowników, sesji, Wykres ścieżki użytkownika, mapy użytkowników, adresy URL śledzenia, trendów, działania, zdarzenie, zadania, błąd, dodatkowe informacje, awarii i App-info).
+Monitor część interfejsu użytkownika analiz w czasie rzeczywistym informacje i pozwala ustawić alerty po osiągnięciu progów większość tych samych informacji, która jest dostępna w przeszłości [ANALYTICS](mobile-engagement-user-interface-analytics.md) część interfejsu użytkownika. Zobacz **słownik** w sekcji [pojęcia](http://go.microsoft.com/fwlink/?LinkId=525555) tematu definicje terminów i skrótów, analizy i monitorowanie (takie jak następujące: aktywnego użytkownika, nowy użytkownik zachowane użytkowników, sesji, ścieżki użytkownika Wykres, mapy użytkowników, adresy URL śledzenia, trendów, działania, zdarzenie, zadania, błąd, dodatkowe informacje, awarii i App-info).
 
 > [!NOTE]
-> Wiele sekcji hello **Mobile Engagement** interfejsu użytkownika portalu zawierają hello **Pokaż Pomoc** przycisku. Naciśnij ten przycisk tooget więcej informacje kontekstowe dotyczące sekcji.
+> Wiele sekcji **Mobile Engagement** zawierają interfejsu użytkownika portalu **Pokaż Pomoc** przycisku. Naciśnij ten przycisk, aby uzyskać dodatkowe informacje kontekstowe o sekcji.
 > 
 > 
 
 ## <a name="monitor---sessions-jobs-events-errors-and-crashes"></a>Monitor — sesji, zadania zdarzeń, błędów i awarii (Crash)
-Widać, ilu użytkowników są obecnie w sesji i w określonym ekrany lub wykonanie określonych czynności. Można wyświetlić rozdzielonych sesji, zadania zdarzeń, błędów i awarii aktywności użytkownika. Możesz wyświetlić informacji o bieżącym hello i Pokaż hello informacje z hello ostatniej godziny, dnia lub tygodnia. Można wyświetlić wszystkie informacje hello w każdej kategorii, lub sortować hello określonej sesji, zadania zdarzeń, błędów i awarii.  Monitorowanie na żywo wynosi toouse przydatne podczas zdarzenia, takie jak toosee kampanii wypychania uptick w akcji prawo po wysłaniu powiadomienia wypychane.
+Widać, ilu użytkowników są obecnie w sesji i w określonym ekrany lub wykonanie określonych czynności. Można wyświetlić rozdzielonych sesji, zadania zdarzeń, błędów i awarii aktywności użytkownika. Możesz wyświetlić informacje o bieżącej i są wyświetlane dane z ostatniego godziny, dnia lub tygodnia. Można wyświetlić wszystkich danych w każdej kategorii lub sortowania określonej sesji, zadania, zdarzeń, błędów i awarii.  Monitorowanie na żywo jest przydatne do wykorzystania podczas zdarzenia, takie jak kampanii wypychania, jeśli istnieje uptick w akcji prawo po wysłaniu powiadomienia wypychane.
 
 ![Monitor1][14]  
 
 ## <a name="troubleshooting-with-monitor---events---details"></a>Rozwiązywanie problemów z monitora - zdarzenia — szczegóły
-Generowanie zdarzeń w aplikacji z urządzenia testu i znalezieniem w szczegółach monitora - zdarzenia - jest jednym z hello najprostszym toofind sposoby urządzenia IDENTYFIKATORA urządzenie testowe i tooconfirm tej integracji usługi Azure Mobile Engagement analizy, monitorowanie, i Segmenty współpracuje z aplikacji. Po utworzeniu hello identyfikator urządzenia urządzenia testu, można dodać tooyour urządzeń testowych w "Moje urządzenia — konto". Jeśli nie można wygenerować zdarzenie, upewnij się, że usługi Azure Mobile Engagement jest poprawnie zintegrowane z aplikacji systemu Android/iOS/Web/Windows/Windows Phone za pomocą hello zestawu SDK.
+Generowanie zdarzeń w aplikacji z urządzenia testu i znalezieniem w szczegółach monitora - zdarzenia - jest najprostszym sposoby, aby znaleźć identyfikator urządzenia dla urządzenia testu i upewnij się, że integracji usługi Azure Mobile Engagement analizy, monitorowanie, i Segmenty współpracuje z aplikacji. Po utworzeniu Identyfikatora urządzenia urządzenia testu, można dodać go do urządzeń testów w "Moje urządzenia — konto". Jeśli nie można wygenerować zdarzeń, upewnij się, że usługi Azure Mobile Engagement jest poprawnie zintegrowane w aplikacji systemu Android/iOS/Web/Windows/Windows Phone przy użyciu zestawu SDK.
 
 Aby uzyskać więcej informacji, zobacz: [dokumentacji zestawu SDK][Link 5]
 
 ![Monitor 2][15]  
 
 ## <a name="troubleshooting-with-monitor---crashes---details"></a>Rozwiązywanie problemów z monitorem - awarii — szczegóły
-Możesz przejrzeć informacje o awariach aplikacji z monitora - awarii — szczegóły toohelp ustalić przyczyny awarii aplikacji. Należy również wyszukać znane problemy z poszczególnymi wersjami hello zestawu SDK w wersji powitania dla każdej wersji hello zestawu SDK dla systemu Android/iOS/Web/Windows/Windows Phone.
+Możesz przejrzeć informacje o awariach aplikacji z szczegółów Monitora - awarii — w celu określenia przyczyny awarii aplikacji. Należy również wyszukać znane problemy z każdej wersji zestawu SDK w informacjach o wersji dla każdej wersji zestawu SDK dla systemu Android/iOS/Web/Windows/Windows Phone.
 
 Aby uzyskać więcej informacji, zobacz: [dokumentacji zestawu SDK — informacje o wersji][Link 5]
 
 ![Monitor3][16]
 
 ## <a name="monitor---alerts"></a>Monitor — alerty
-Można również określić warunków alertów, które będą automatycznie wysyłane tooyou za pośrednictwem poczty e-mail lub wiadomości błyskawicznych. (Wszystkie usługi zgodne z protokołem XMPP, takich jak GTalk firmy Google lub iChat firmy Apple są obsługiwane). Alerty są oparte na wykrywanie wstępnie zdefiniowane wartości progowej większości (>) i mniejszości (<) określoną liczbę sesji, zadania, zdarzeń, błędów lub awarii (Crash) na sekundę, minuty lub godzinę. Alerty można monitorować wszystkie działania danego typu lub po prostu monitorowanie określonego działania zadania, zdarzenia lub błąd. 
+Można również określić warunków alertów, które będą automatycznie wysyłane do użytkownika za pośrednictwem poczty e-mail lub wiadomości błyskawicznych. (Wszystkie usługi zgodne z protokołem XMPP, takich jak GTalk firmy Google lub iChat firmy Apple są obsługiwane). Alerty są oparte na wykrywanie wstępnie zdefiniowane wartości progowej większości (>) i mniejszości (<) określoną liczbę sesji, zadania, zdarzeń, błędów lub awarii (Crash) na sekundę, minuty lub godzinę. Alerty można monitorować wszystkie działania danego typu lub po prostu monitorowanie określonego działania zadania, zdarzenia lub błąd. 
 
-Można również określić minimalna częstotliwość wykrywania, czyli hello minimalna ilość musi upłynąć między dwoma powiadomieniami w ramach hello sam alert toomake się upewnić, że po wyzwoleniu alertu nigdy nie otrzymasz więcej niż 1 powiadomień na interwał określony w minutach.
+Można również określić minimalna częstotliwość wykrywania, który jest minimalna ilość musi upłynąć między dwoma powiadomieniami w ramach tego samego alertu upewnić się, że po wyzwoleniu alertu nigdy nie otrzymasz więcej niż 1 powiadomienia na interwał określony w minutach.
 
 ![Monitor4][17]
 

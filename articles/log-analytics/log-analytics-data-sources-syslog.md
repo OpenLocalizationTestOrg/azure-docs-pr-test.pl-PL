@@ -1,6 +1,6 @@
 ---
-title: "aaaCollect i analizować komunikaty dziennika systemowego w OMS Log Analytics | Dokumentacja firmy Microsoft"
-description: "SYSLOG jest protokół rejestrowania zdarzeń, który jest tooLinux wspólnej. W tym artykule opisano, jak tooconfigure kolekcję komunikatów Syslog w analizy dzienników i szczegóły rekordów hello tworzą w repozytorium OMS hello."
+title: Zbieranie i analizowanie komunikaty dziennika systemowego w OMS Log Analytics | Dokumentacja firmy Microsoft
+description: "SYSLOG to protokół rejestrowania zdarzeń jest wspólny dla systemu Linux. W tym artykule opisano sposób konfigurowania kolekcji komunikaty dziennika systemowego w analizy dzienników i szczegóły rekordów tworzonych w repozytorium OMS."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 8bfa0bca3f2f18287d1352c98bbaa2a70e41e276
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>SYSLOG źródeł danych w analizy dzienników
-SYSLOG jest protokół rejestrowania zdarzeń, który jest tooLinux wspólnej.  Aplikacje będą wysyłać wiadomości, które mogą być przechowywane na komputerze lokalnym hello lub dostarczony moduł zbierający Syslog tooa.  Po zainstalowaniu hello Agent pakietu OMS dla systemu Linux, konfiguruje hello Syslog demon tooforward wiadomości toohello agent lokalny.  Witaj agent wysyła następnie tooLog wiadomość hello Analytics której zostaje utworzony rekord odpowiedniego hello OMS repozytorium.  
+SYSLOG to protokół rejestrowania zdarzeń jest wspólny dla systemu Linux.  Aplikacje będą wysyłać wiadomości, które mogą być przechowywane na komputerze lokalnym lub dostarczone do modułu zbierającego Syslog.  Po zainstalowaniu Agent pakietu OMS dla systemu Linux, konfiguruje lokalnego demon Syslog do przekazywania wiadomości do agenta.  Agent wysyła następnie komunikat do analizy dzienników, w którym odpowiedni rekord jest tworzony w repozytorium OMS.  
 
 > [!NOTE]
-> Analiza dzienników obsługuje kolekcji komunikatów wysłanych przez rsyslog lub syslog ng, gdzie rsyslog jest hello demon domyślne. demon syslog domyślne Hello w wersji 5 (sysklog) w wersji Red Hat Enterprise Linux, CentOS i Oracle Linux nie jest obsługiwana dla zbierania zdarzeń usługi syslog. Witaj toocollect syslog danych z tej wersji tych dystrybucji [demon rsyslog](http://rsyslog.com) powinien być zainstalowany i skonfigurowany tooreplace sysklog.
+> Analiza dzienników obsługuje kolekcji komunikatów wysłanych przez rsyslog lub syslog ng, gdzie rsyslog jest demona domyślne. Demon syslog domyślne w wersji 5 (sysklog) w wersji Red Hat Enterprise Linux, CentOS i Oracle Linux nie jest obsługiwana dla zbierania zdarzeń usługi syslog. Do zbierania danych z serwera syslog z tej wersji tych dystrybucji [demon rsyslog](http://rsyslog.com) powinna być zainstalowana i skonfigurowana zastąpić sysklog.
 >
 >
 
 ![Kolekcja SYSLOG](media/log-analytics-data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Konfigurowanie usługi Syslog
-Hello Agent pakietu OMS dla systemu Linux są zbierane zdarzenia za pomocą urządzeń hello i ważności, które są określone w konfiguracji.  Syslog można skonfigurować za pośrednictwem portalu OMS hello lub przez zarządzanie plikami konfiguracji na agentów systemu Linux.
+Agent pakietu OMS dla systemu Linux są zbierane zdarzenia z urządzeń i ważności, które są określone w konfiguracji.  Syslog można skonfigurować za pośrednictwem portalu OMS lub przez zarządzanie plikami konfiguracji na agentów systemu Linux.
 
-### <a name="configure-syslog-in-hello-oms-portal"></a>Konfigurowanie w portalu OMS hello Syslog
-Konfigurowanie Syslog z hello [danych menu Ustawienia usługi Analiza dzienników](log-analytics-data-sources.md#configuring-data-sources).  Ta konfiguracja jest dostarczana toohello pliku konfiguracji na każdym agenta systemu Linux.
+### <a name="configure-syslog-in-the-oms-portal"></a>Skonfigurować dziennik systemowy w portalu OMS
+Skonfigurować dziennik systemowy z [danych menu Ustawienia usługi Analiza dzienników](log-analytics-data-sources.md#configuring-data-sources).  Ta konfiguracja jest dostarczany do pliku konfiguracji na każdym agenta systemu Linux.
 
-Można dodać nowego zakładu, wpisując jej nazwę, a następnie klikając polecenie  **+** .  Dla każdego obiektu zostaną zebrane tylko wiadomości powitania wybrane ważności.  Sprawdź hello wag dla obiektu określonego hello, które mają toocollect.  Nie można podać wszelkie dodatkowe kryteria toofilter wiadomości.
+Można dodać nowego zakładu, wpisując jej nazwę, a następnie klikając polecenie  **+** .  Dla każdego obiektu zostaną zebrane tylko komunikatów dla wybranej ważności.  Sprawdzanie ważności dla konkretnego obiektu, który chcesz zebrać.  Nie można podać wszelkie dodatkowe kryteria filtrowania wiadomości.
 
 ![Konfigurowanie usługi Syslog](media/log-analytics-data-sources-syslog/configure.png)
 
-Domyślnie wszystkie zmiany konfiguracji są automatycznie wypychana agentów tooall.  Jeśli chcesz tooconfigure Syslog ręcznie na każdym agenta systemu Linux, usuń zaznaczenie pola hello *Zastosuj poniżej maszyny z systemem Linux toomy konfiguracji*.
+Domyślnie wszystkie zmiany konfiguracji są automatycznie przypisany do wszystkich agentów.  Jeśli chcesz ręcznie skonfigurować Syslog dla każdego agenta systemu Linux, usuń zaznaczenie pola *Zastosuj poniższą konfigurację na moich maszynach z systemem Linux*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Skonfiguruj Syslog na agenta systemu Linux
-Gdy hello [OMS agent jest zainstalowany na komputerze klienckim Linux](log-analytics-linux-agents.md), instaluje domyślny plik konfiguracji programu syslog definiujący funkcje hello i ważność hello wiadomości, które są zbierane.  Można zmodyfikować tę konfigurację hello toochange pliku.  plik konfiguracji Hello jest różne w zależności od hello Syslog demon, który hello klienta został zainstalowany.
+Gdy [OMS agent jest zainstalowany na komputerze klienckim Linux](log-analytics-linux-agents.md), instaluje domyślny plik konfiguracji programu syslog definiujący funkcje i ważność komunikatów, które są zbierane.  Można modyfikować tego pliku, aby zmienić konfigurację.  Plik konfiguracji jest różne w zależności od demon Syslog, które klient został zainstalowany.
 
 > [!NOTE]
-> Edytuj hello syslog konfiguracji, należy ponownie uruchomić demon syslog hello hello zmiany tootake efektu.
+> Po zmodyfikowaniu konfiguracji programu syslog, należy ponownie uruchomić demona syslog, aby zmiany zaczęły obowiązywać.
 >
 >
 
 #### <a name="rsyslog"></a>rsyslog
-Witaj pliku konfiguracyjnego rsyslog znajduje się w **/etc/rsyslog.d/95-omsagent.conf**.  Poniżej przedstawiono domyślną zawartość.  Umożliwia zbieranie informacji wysyłanych z agenta lokalne powitania dla wszystkich obiektów o poziomie ostrzeżenia lub komunikaty dziennika systemowego.
+Plik konfiguracji rsyslog znajduje się w **/etc/rsyslog.d/95-omsagent.conf**.  Poniżej przedstawiono domyślną zawartość.  Umożliwia zbieranie informacji wysyłanych z lokalnego agenta dla wszystkich obiektów o poziomie ostrzeżenia lub komunikaty dziennika systemowego.
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -71,13 +71,13 @@ Witaj pliku konfiguracyjnego rsyslog znajduje się w **/etc/rsyslog.d/95-omsagen
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-Należy usunąć obiekt przez usunięcie jego sekcji hello pliku konfiguracji.  Można ograniczyć hello wag, które są zbierane dla konkretnego obiektu przez zmodyfikowanie wpisu tego obiektu.  Na przykład toolimit hello użytkownika zakładzie toomessages z ważność błędu lub wyższy jaki modyfikuje się tego wiersza toohello pliku konfiguracji hello następujące:
+Należy usunąć obiekt przez usunięcie jego sekcji pliku konfiguracji.  Można ograniczyć wag, które są zbierane dla konkretnego obiektu przez zmodyfikowanie wpisu tego obiektu.  Na przykład aby ograniczyć funkcji użytkownika do wiadomości o ważności błąd lub należy zmodyfikować tego wiersza do następującego pliku konfiguracji:
 
     user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>SYSLOG ng
-plik konfiguracji Hello syslog ng jest lokalizacji **/etc/syslog-ng/syslog-ng.conf**.  Poniżej przedstawiono domyślną zawartość.  Umożliwia zbieranie informacji wysyłanych z agenta lokalne powitania dla wszystkich urządzeń i wszystkich wag komunikaty dziennika systemowego.   
+Plik konfiguracji do syslog ng jest lokalizacji **/etc/syslog-ng/syslog-ng.conf**.  Poniżej przedstawiono domyślną zawartość.  Umożliwia zbieranie informacji wysyłanych z lokalnego agenta dla wszystkich urządzeń i wszystkich wag komunikaty dziennika systemowego.   
 
     #
     # Warnings (except iptables) in one file:
@@ -128,7 +128,7 @@ plik konfiguracji Hello syslog ng jest lokalizacji **/etc/syslog-ng/syslog-ng.co
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-Należy usunąć obiekt przez usunięcie jego sekcji hello pliku konfiguracji.  Można ograniczyć hello wag, które są zbierane dla konkretnego obiektu, usuwając je z listy.  Na przykład toolimit hello użytkownika zakładzie toojust komunikaty alertów i krytycznego, jaki modyfikuje tej sekcji toohello pliku konfiguracji hello następujące:
+Należy usunąć obiekt przez usunięcie jego sekcji pliku konfiguracji.  Można ograniczyć wag, które są zbierane dla konkretnego obiektu, usuwając je z listy.  Na przykład aby ograniczyć możliwość użytkownik po prostu alertów i krytycznych wiadomości, można zmodyfikować tej sekcji pliku konfiguracji do następującego:
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -136,14 +136,14 @@ Należy usunąć obiekt przez usunięcie jego sekcji hello pliku konfiguracji.  
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Zbieranie danych z dodatkowych portów usługi Syslog
-agent pakietu OMS Hello odbiera komunikaty dziennika systemowego na powitania klienta lokalnego na porcie 25224.  Po zainstalowaniu agenta hello domyślnej konfiguracji programu syslog jest stosowane i znaleźć w następującej lokalizacji hello:
+Agent pakietu OMS odbiera komunikaty dziennika systemowego na lokalnym kliencie na porcie 25224.  Po zainstalowaniu agenta domyślnej konfiguracji programu syslog jest stosowane i znaleźć w następującej lokalizacji:
 
 * Rsyslog:`/etc/rsyslog.d/95-omsagent.conf`
 * SYSLOG ng:`/etc/syslog-ng/syslog-ng.conf`
 
-Można zmienić numer portu hello przez utworzenie dwóch plików konfiguracyjnych: FluentD pliku konfiguracji i pliku ng rsyslog lub syslog, w zależności od demon Syslog hello został zainstalowany.  
+Można zmienić numer portu przez utworzenie dwóch plików konfiguracyjnych: FluentD pliku konfiguracji i pliku ng rsyslog lub syslog, w zależności od demon Syslog został zainstalowany.  
 
-* plik konfiguracji FluentD Hello powinien być nowy plik znajduje się w: `/etc/opt/microsoft/omsagent/conf/omsagent.d` i zastąp wartość hello w hello **portu** wpis o numer portu niestandardowego.
+* Plik konfiguracji FluentD powinien być nowy plik znajduje się w: `/etc/opt/microsoft/omsagent/conf/omsagent.d` i Zastąp wartości w **portu** wpis o numer portu niestandardowego.
 
         <source>
           type syslog
@@ -156,10 +156,10 @@ Można zmienić numer portu hello przez utworzenie dwóch plików konfiguracyjny
           type filter_syslog
         </filter>
 
-* Rsyslog, należy utworzyć plik konfiguracji znajduje się w: `/etc/rsyslog.d/` i Zastąp hello wartość % SYSLOG_PORT numer portu niestandardowego.  
+* Rsyslog, należy utworzyć plik konfiguracji znajduje się w: `/etc/rsyslog.d/` i Zastąp wartości % SYSLOG_PORT % numer portu niestandardowego.  
 
     > [!NOTE]
-    > Jeśli zmodyfikujesz tę wartość w pliku konfiguracyjnym hello `95-omsagent.conf`, zostaną zastąpione, gdy hello agent dotyczy konfiguracji domyślnej.
+    > Jeśli zmodyfikujesz tę wartość w pliku konfiguracyjnym `95-omsagent.conf`, zostaną zastąpione, gdy agent stosuje konfigurację domyślną.
     >
 
         # OMS Syslog collection for workspace %WORKSPACE_ID%
@@ -168,34 +168,34 @@ Można zmienić numer portu hello przez utworzenie dwóch plików konfiguracyjny
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* Hello config syslog ng powinno zostać zmodyfikowane przez skopiowanie hello Przykładowa konfiguracja pokazano poniżej i dodawanie toohello zmodyfikowane ustawienia niestandardowe hello koniec pliku konfiguracji syslog ng.conf hello znajduje się w `/etc/syslog-ng/`.  Czy **nie** Użyj etykiety domyślnej hello **% WORKSPACE_ID % _oms** lub **% WORKSPACE_ID_OMS**, zdefiniować niestandardowe etykiety toohelp odróżnić zmiany.  
+* Konfiguracji usługi syslog ng powinno zostać zmodyfikowane przez skopiowanie konfiguracji przykładzie pokazano poniżej i dodawanie zmodyfikowane ustawienia niestandardowe na końcu pliku konfiguracji programu syslog ng.conf znajduje się w `/etc/syslog-ng/`.  Czy **nie** Użyj etykiety domyślnej **% WORKSPACE_ID % _oms** lub **% WORKSPACE_ID_OMS**, zdefiniuj ułatwia odróżnienie zmiany etykiety niestandardowej.  
 
     > [!NOTE]
-    > Jeśli zmodyfikujesz hello domyślne wartości w pliku konfiguracyjnym hello, zostaną one zastąpione gdy hello agent dotyczy konfiguracji domyślnej.
+    > Zmodyfikowanie wartości domyślnych w pliku konfiguracji, zostaną one zastąpione, gdy agent stosuje konfigurację domyślną.
     >
 
         filter f_custom_filter { level(warning) and facility(auth; };
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-Po zakończeniu zmiany hello, hello Syslog i hello usługę agenta musi ponownie uruchomić toobe tooensure hello konfiguracji zmiany zaczęły obowiązywać.   
+Po zakończeniu zmiany, Syslog i agent pakietu OMS usługi musi zostać uruchomiony ponownie, aby upewnić się, że zmiany konfiguracji zostały wprowadzone.   
 
 ## <a name="syslog-record-properties"></a>Właściwości rekordu dziennika systemowego
-Rekordy dziennika systemowego zawiera typu **Syslog** i mają właściwości hello w hello w poniższej tabeli.
+Rekordy dziennika systemowego zawiera typu **Syslog** i mieć właściwości w poniższej tabeli.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| Computer (Komputer) |Komputer, który hello zdarzeń zostały zebrane. |
-| Funkcje |Definiuje hello częścią systemu hello, który wygenerował wiadomość hello. |
-| HostIP |Adres IP systemu hello wysyłania wiadomości powitania. |
-| Nazwa hosta |Nazwa systemu hello wysyłania wiadomości powitania. |
-| Poziom ważności |Poziom ważności hello zdarzenia. |
-| SyslogMessage |Tekst wiadomości powitania. |
-| Identyfikator procesu |Identyfikator procesu hello, który wygenerował wiadomość hello. |
-| eventTime |Data i godzina hello zdarzeń został wygenerowany. |
+| Computer (Komputer) |Komputer, który zostały zebrane zdarzenia. |
+| Funkcje |Definiuje część systemu, który wygenerował komunikat. |
+| HostIP |Adres IP systemu wysyłania wiadomości. |
+| Nazwa hosta |Nazwa systemu wysyłania wiadomości. |
+| Poziom ważności |Poziom ważności zdarzenia. |
+| SyslogMessage |Tekst komunikatu. |
+| Identyfikator procesu |Identyfikator procesu, który wygenerował komunikat. |
+| eventTime |Data i godzina wygenerowania zdarzenia. |
 
 ## <a name="log-queries-with-syslog-records"></a>Dziennik zapytań dotyczących rekordów dziennika systemowego
-Witaj poniższej tabeli przedstawiono różne przykłady dziennika zapytań, które pobierają rekordy dziennika systemowego.
+Poniższa tabela zawiera przykłady różnych dziennika zapytań, które pobierają rekordy dziennika systemowego.
 
 | Zapytanie | Opis |
 |:--- |:--- |
@@ -205,7 +205,7 @@ Witaj poniższej tabeli przedstawiono różne przykłady dziennika zapytań, kt�
 | Typ = Syslog &#124; Miara count() przez funkcje |Liczba Syslog rejestruje przez funkcje. |
 
 >[!NOTE]
-> Jeśli obszaru roboczego został uaktualniony toohello [języka zapytań nowe analizy dzienników](log-analytics-log-search-upgrade.md), następnie hello powyżej zapytania spowoduje zmianę następujących toohello.
+> Jeśli Twój obszar roboczy został uaktualniony do [nowego języka zapytań usługi Log Analytics](log-analytics-log-search-upgrade.md), powyższe zapytania zmienią się w następujący sposób.
 
 > | Zapytanie | Opis |
 |:--- |:--- |
@@ -215,6 +215,6 @@ Witaj poniższej tabeli przedstawiono różne przykłady dziennika zapytań, kt�
 | SYSLOG &#124; Podsumuj AggregatedValue = count() przez funkcje |Liczba Syslog rejestruje przez funkcje. |
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) tooanalyze hello dane zebrane ze źródeł danych i rozwiązań.
-* Użyj [pola niestandardowe](log-analytics-custom-fields.md) tooparse danych z rekordów dziennika systemowego do poszczególnych pól.
-* [Konfigurowanie agentów systemu Linux](log-analytics-linux-agents.md) toocollect innych typów danych.
+* Dowiedz się więcej o [dziennika wyszukiwania](log-analytics-log-searches.md) analizować dane zebrane ze źródeł danych i rozwiązania.
+* Użyj [pola niestandardowe](log-analytics-custom-fields.md) do analizowania danych z rekordów dziennika systemowego do poszczególnych pól.
+* [Konfigurowanie agentów systemu Linux](log-analytics-linux-agents.md) służąca do gromadzenia innych typów danych.

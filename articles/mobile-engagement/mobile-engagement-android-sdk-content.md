@@ -1,5 +1,5 @@
 ---
-title: aaaAzure Mobile Engagement Android SDK integracji
+title: "Integracja zestawu SDK systemu Android z usługi Azure Mobile Engagement"
 description: "Najnowsze aktualizacje i procedury dotyczące zestawu SDK systemu Android dla usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,14 +14,14 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6085a9ba90b713235e0aae99759597af9db77865
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 27190b54fc2b3b5c77b5f0a02273883e36ceaf1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sdk-content"></a>Zawartość zestawu SDK
-Ten dokument wymieniono i opisano zawartości hello hello SDK archiwum.
+Ten dokument zawiera listę i opisuje zawartość archiwum zestawu SDK.
 
 `mobile-engagement-VERSION.jar`
 
@@ -31,7 +31,7 @@ Ten dokument wymieniono i opisano zawartości hello hello SDK archiwum.
 
 `res`folder
 
-> Zaangażowania osiągnąć zasobów zestawu SDK (obiektów drawable i układu tooinclude plików w aplikacji).
+> Zaangażowania osiągnąć zasobów zestawu SDK (obiektów drawable i układu plików do uwzględnienia w aplikacji).
 > 
 > 
 
@@ -39,15 +39,15 @@ Ten dokument wymieniono i opisano zawartości hello hello SDK archiwum.
 
 > Kod źródłowy zestawu SDK usługi Engagement.
 > 
-> Należy zwrócić uwagę źródeł hello hello usługi nie są uwzględniane (`com.microsoft.azure.engagement.service.EngagementService` i jego pliki źródłowe pokrewne).
+> Należy zwrócić uwagę źródeł usługi nie są uwzględniane (`com.microsoft.azure.engagement.service.EngagementService` i jego pliki źródłowe pokrewne).
 > 
 > 
 
 `documentation.html`
 
-> Skrót toohello dokumentacji lokacji odpowiedniego toohello pobrano wersję hello zestawu SDK.
+> Skrót do witryny dokumentacji odpowiadającej pobranej wersji zestawu SDK.
 > 
 > 
 
-Inne pliki są kopię hello licencji na oprogramowanie.
+Inne pliki są kopię licencji na oprogramowanie.
 

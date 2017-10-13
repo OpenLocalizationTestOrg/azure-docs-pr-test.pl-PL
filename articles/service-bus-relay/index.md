@@ -1,15 +1,26 @@
 ---
+title: "Dokumentacja usługi Service Bus Relay"
+description: "Dowiedz się, jak usługa Azure Relay działa w chmurze hybrydowej i środowisku lokalnym. Dostępne są instrukcje, samouczki, klipy wideo, dokumentacja interfejsu API i nie tylko."
+services: service-bus
+author: czeumault
+manager: carolz
 layout: LandingPage
-title: aaaService Bus Relay dokumentacji
-description: "Dowiedz się, jak hello usługi przekaźnika usługi Azure działają w chmurze i lokalnym środowisku hybrydowym, pełne, jak samouczki, wideo, odwołania do interfejsu API i."
-ms.openlocfilehash: c042c82c90fa03e91ee9c1b513e325d7e8d33c08
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
+ms.openlocfilehash: 9305e85ff075e8e7ee3e21315d28f63613ac01f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Dokumentacja usługi Service Bus Relay
-Dowiedz się, jak przekaźnika usługi Azure service ułatwia hybrydowych aplikacji między lokalnymi i w chmurze środowisk w korporacyjnym środowisku sieci i hello chmury publicznej, bez konieczności tooopen połączeń zapory lub wymaga firmowej tooa niepożądanych zmian Infrastruktura sieci.
+Dowiedz się, jak usługa Azure Relay ułatwia tworzenie aplikacji hybrydowych między środowiskiem lokalnym i środowiskiem chmury w korporacyjnym środowisku sieciowym oraz w chmurze publicznej bez konieczności otwierania połączenia przez zaporę i bez wprowadzania niepożądanych zmian do infrastruktury sieci korporacyjnej.
 
 <ul class="panelContent cardsFTitle">
     <li>

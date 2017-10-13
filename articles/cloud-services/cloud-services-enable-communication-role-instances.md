@@ -1,6 +1,6 @@
 ---
-title: "aaaCommunication dla ról, usług w chmurze | Dokumentacja firmy Microsoft"
-description: "Wystąpienia roli usług w chmurze ma zdefiniowanych punktów końcowych (http, https, tcp, udp) dla nich komunikujących się z hello poza lub między innych wystąpień roli."
+title: "Komunikacji dla ról, usług w chmurze | Dokumentacja firmy Microsoft"
+description: "Wystąpienia roli usług w chmurze ma zdefiniowanych punktów końcowych (http, https, tcp, udp) dla nich komunikujących się z zewnątrz lub między innych wystąpień roli."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: 1fb39215ceb8a3f0381ef5e108c1149de115ff8e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Włącz komunikację dla wystąpień roli w systemie azure
-Role usługi w chmurze komunikują się za pośrednictwem połączeń wewnętrznych i zewnętrznych. Połączenia zewnętrzne są nazywane **wejściowych punktów końcowych** podczas połączenia wewnętrznego są nazywane **wewnętrznych punktów końcowych**. W tym temacie opisano sposób toomodify hello [definicji usługi](cloud-services-model-and-package.md#csdef) toocreate punktów końcowych.
+Role usługi w chmurze komunikują się za pośrednictwem połączeń wewnętrznych i zewnętrznych. Połączenia zewnętrzne są nazywane **wejściowych punktów końcowych** podczas połączenia wewnętrznego są nazywane **wewnętrznych punktów końcowych**. W tym temacie opisano sposób modyfikowania [definicji usługi](cloud-services-model-and-package.md#csdef) do utworzenia punktów końcowych.
 
 ## <a name="input-endpoint"></a>Wejściowy punkt końcowy
-wejściowy punkt końcowy Hello jest używany, gdy chcesz tooexpose toohello portu, poza. Należy określić typ protokołu hello i port hello hello punktu końcowego, który następnie dotyczy obu hello zewnętrznych i wewnętrznych portów dla punktu końcowego hello. Jeśli chcesz, można określić inny port wewnętrzny dla punktu końcowego hello z hello [port lokalny](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) atrybutu.
+Wejściowy punkt końcowy jest używany, gdy chcesz udostępnić portu na zewnątrz. Należy określić typ protokół i port punktu końcowego, który następnie dotyczy zarówno wewnętrznych i zewnętrznych portów dla punktu końcowego. Jeśli chcesz, można określić inny port wewnętrzny dla punktu końcowego o [port lokalny](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) atrybutu.
 
-wejściowy punkt końcowy Hello służy hello następujące protokoły: **http, https, tcp, udp**.
+Wejściowy punkt końcowy, można użyć następujących protokołów: **http, https, tcp, udp**.
 
-toocreate wejściowy punkt końcowy, Dodaj hello **InputEndpoint** toohello element podrzędny **punkty końcowe** element roli sieci web lub procesu roboczego.
+Aby utworzyć wejściowy punkt końcowy, dodać **InputEndpoint** elementu podrzędnego do **punkty końcowe** element roli sieci web lub procesu roboczego.
 
 ```xml
 <Endpoints>
@@ -37,11 +37,11 @@ toocreate wejściowy punkt końcowy, Dodaj hello **InputEndpoint** toohello elem
 ```
 
 ## <a name="instance-input-endpoint"></a>Wystąpienie wejściowy punkt końcowy
-Wystąpienie wejściowych punktów końcowych są podobne tooinput punktów końcowych, ale pozwala mapować określone porty publicznych dla poszczególnych wystąpień poszczególnych ról przy użyciu portu przekazywania na powitania modułu równoważenia obciążenia. Można określić jeden port publicznych, lub zakresem portów.
+Wystąpienie wejściowych punktów końcowych są podobne do danych wejściowych punktów końcowych, ale można mapować określone porty publicznych dla poszczególnych wystąpień poszczególnych ról przy użyciu portu przekazywania modułu równoważenia obciążenia. Można określić jeden port publicznych, lub zakresem portów.
 
-wejściowy punkt końcowy Hello wystąpienia można używać tylko **tcp** lub **udp** jako protokół hello.
+Wejściowy punkt końcowy wystąpienia można używać tylko **tcp** lub **udp** jako protokół.
 
-toocreate wystąpienia wejściowy punkt końcowy, Dodaj hello **InstanceInputEndpoint** toohello element podrzędny **punkty końcowe** element roli sieci web lub procesu roboczego.
+Aby utworzyć wystąpienie wejściowy punkt końcowy, Dodaj **InstanceInputEndpoint** elementu podrzędnego do **punkty końcowe** element roli sieci web lub procesu roboczego.
 
 ```xml
 <Endpoints>
@@ -54,11 +54,11 @@ toocreate wystąpienia wejściowy punkt końcowy, Dodaj hello **InstanceInputEnd
 ```
 
 ## <a name="internal-endpoint"></a>Wewnętrzny punkt końcowy
-Wewnętrznych punktów końcowych są dostępne dla komunikacji wystąpienie do wystąpienia. Hello port jest opcjonalny i pominięcie port dynamiczny jest przypisany toohello punktu końcowego. Zakres portów może służyć. Brak limitu pięciu wewnętrznych punktów końcowych dla każdej roli.
+Wewnętrznych punktów końcowych są dostępne dla komunikacji wystąpienie do wystąpienia. Port jest opcjonalna i pominięcie port dynamiczny jest przypisana do punktu końcowego. Zakres portów może służyć. Brak limitu pięciu wewnętrznych punktów końcowych dla każdej roli.
 
-Wewnętrzny punkt końcowy Hello służy hello następujące protokoły: **http, tcp, udp, wszelkie**.
+Wewnętrzny punkt końcowy, można użyć następujących protokołów: **http, tcp, udp, wszelkie**.
 
-toocreate wewnętrzny wejściowy punkt końcowy, Dodaj hello **InternalEndpoint** toohello element podrzędny **punkty końcowe** element roli sieci web lub procesu roboczego.
+Aby utworzyć wewnętrznego wejściowy punkt końcowy, Dodaj **InternalEndpoint** elementu podrzędnego do **punkty końcowe** element roli sieci web lub procesu roboczego.
 
 ```xml
 <Endpoints>
@@ -78,39 +78,39 @@ Można również użyć zakresu portów.
 
 
 ## <a name="worker-roles-vs-web-roles"></a>Vs role proces roboczy. Role sieci Web
-Brak jednego niewielkiej różnicy z punktami końcowymi, podczas pracy z ról sieć web i proces roboczy. Witaj roli sieci web musi mieć co najmniej jeden wejściowy punkt końcowy za pomocą hello **HTTP** protokołu.
+Brak jednego niewielkiej różnicy z punktami końcowymi, podczas pracy z ról sieć web i proces roboczy. Rola sieci web musi mieć co najmniej jeden wejściowy punkt końcowy za pomocą **HTTP** protokołu.
 
 ```xml
 <Endpoints>
   <InputEndpoint name="StandardWeb" protocol="http" port="80" localPort="80" />
-  <!-- more endpoints may be declared after hello first InputEndPoint -->
+  <!-- more endpoints may be declared after the first InputEndPoint -->
 </Endpoints>
 ```
 
-## <a name="using-hello-net-sdk-tooaccess-an-endpoint"></a>Przy użyciu hello zestawu .NET SDK tooaccess punktu końcowego
-Hello biblioteki zarządzane Azure udostępnia metody dla toocommunicate wystąpień roli w czasie wykonywania. Z kodu uruchomionego w wystąpieniu roli można pobrać informacji na temat hello istnienie innych wystąpień roli i ich punkty końcowe, a także informacje o hello bieżącego wystąpienia roli.
+## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Otwieranie punktu końcowego za pomocą zestawu .NET SDK
+Biblioteki zarządzane Azure udostępnia metody dla wystąpień roli do komunikacji w czasie wykonywania. Z kodu uruchomionego w wystąpieniu roli można pobrać informacji na temat innych wystąpień roli i ich punktów końcowych, a także informacje o bieżącym wystąpieniu roli.
 
 > [!NOTE]
 > Można tylko pobieranie informacji na temat wystąpień roli, które działają w usługi w chmurze i definiującą co najmniej jeden wewnętrzny punkt końcowy. Nie można uzyskać danych dotyczących wystąpień roli w innej usługi.
 > 
 > 
 
-Można użyć hello [wystąpień](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) właściwości tooretrieve wystąpień roli. Należy najpierw użyć hello [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) tooreturn bieżącej roli toohello odwołanie do wystąpienia, a następnie użyj hello [roli](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) tooreturn właściwości roli toohello odwołanie do samej siebie.
+Można użyć [wystąpień](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) właściwości można pobrać wystąpień roli. Należy najpierw użyć [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) zwraca odwołanie do bieżącego wystąpienia roli, a następnie użyć [roli](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) właściwość zwraca odwołanie do samej siebie roli.
 
-Po ustanowieniu połączenia wystąpienia roli tooa programowo przy użyciu zestawu .NET SDK hello jest stosunkowo łatwa tooaccess hello — informacje o punkcie końcowym. Na przykład po nawiązaniu połączenia już tooa określonej roli w środowisku, można uzyskać portu hello określonego punktu końcowego o tym kodzie:
+Po podłączeniu do wystąpienia roli, programowo przy użyciu zestawu .NET SDK jest stosunkowo łatwa do uzyskania dostępu do informacji punktu końcowego. Na przykład po nawiązaniu połączenia już w środowisku określoną rolę, możesz uzyskać portu określonego punktu końcowego o tym kodzie:
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-Witaj **wystąpień** właściwość zwraca kolekcję **RoleInstance** obiektów. Ta kolekcja zawsze zawiera hello bieżącego wystąpienia. Jeśli rola hello nie definiuje wewnętrzny punkt końcowy, hello kolekcja zawiera hello bieżącego wystąpienia, ale żadne inne wystąpienia. Witaj liczby wystąpień roli w kolekcji hello będzie zawsze 1 w przypadku hello, których nie wewnętrzny punkt końcowy jest zdefiniowana dla roli hello. Jeśli rola hello definiuje wewnętrzny punkt końcowy, jego wystąpienia są wykrywalny w czasie wykonywania, a hello liczbę wystąpień w kolekcji hello będzie odpowiadać toohello liczbę wystąpień określone dla roli hello w pliku konfiguracji usługi hello.
+**Wystąpień** właściwość zwraca kolekcję **RoleInstance** obiektów. Ta kolekcja zawsze zawiera bieżącego wystąpienia. Jeśli rola nie ma zdefiniowanej wewnętrzny punkt końcowy, Kolekcja zawiera bieżącego wystąpienia, ale żadne inne wystąpienia. Liczba wystąpień roli w kolekcji będą zawsze miały 1 w przypadku, gdy żaden wewnętrzny punkt końcowy jest zdefiniowany dla roli. Jeśli rola definiuje wewnętrzny punkt końcowy, jego wystąpienia są wykrywalny w czasie wykonywania, a liczba wystąpień w kolekcji odpowiada liczba wystąpień określone dla roli w pliku konfiguracji usługi.
 
 > [!NOTE]
-> Hello Azure zarządzane biblioteki nie zapewnia sposób określania kondycji hello innych wystąpień roli, ale jeśli usługa wymaga tej funkcji można wdrożyć w takiej oceny kondycji. Można użyć [diagnostyki Azure](cloud-services-dotnet-diagnostics.md) tooobtain informacji o uruchomionych wystąpień roli.
+> Biblioteki zarządzane Azure zapewnia sposób określania kondycji innych wystąpień roli, ale jeśli usługa wymaga tej funkcji można wdrożyć w takiej oceny kondycji. Można użyć [diagnostyki Azure](cloud-services-dotnet-diagnostics.md) można uzyskać informacji o uruchomionych wystąpień roli.
 > 
 > 
 
-numer portu hello toodetermine wewnętrznego punktu końcowego wystąpienia roli, można użyć hello [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) tooreturn właściwość dotyczy obiekt słownika zawierający nazwy punktu końcowego i ich odpowiedniego adresu IP i portów. Witaj [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) właściwość zwraca hello adresu IP i portu dla określonego punktu końcowego. Witaj **PublicIPEndpoint** właściwość zwraca hello port punktu końcowego o zrównoważonym obciążeniu. części adresu IP Hello hello **PublicIPEndpoint** właściwość nie jest używana.
+Aby określić numer portu wewnętrzny punkt końcowy w wystąpieniu roli, można użyć [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) właściwości, aby zwrócić obiekt słownika zawierający nazwy punktu końcowego i ich odpowiedniego adresu IP, adresy i porty. [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) właściwość zwraca adres IP i port dla określonego punktu końcowego. **PublicIPEndpoint** właściwość zwraca port punktu końcowego o zrównoważonym obciążeniu. Adres IP część **PublicIPEndpoint** właściwość nie jest używana.
 
 Oto przykład, który iteruje po wystąpień roli.
 
@@ -125,10 +125,10 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-Oto przykład roli procesu roboczego, która pobiera punktu końcowego hello udostępniane za pośrednictwem definicji usługi hello i rozpoczyna nasłuchiwanie dla połączenia.
+Oto przykład roli procesu roboczego, która pobiera punktu końcowego udostępniane za pośrednictwem definicji usługi i rozpoczyna nasłuchiwanie dla połączenia.
 
 > [!WARNING]
-> Ten kod działa tylko dla wdrożonej usługi. Podczas uruchamiania w hello Azure obliczeniowe emulatora, usługi elementów konfiguracji, które utworzyć bezpośredniej portów punkty końcowe (**InstanceInputEndpoint** elementy) są ignorowane.
+> Ten kod działa tylko dla wdrożonej usługi. Podczas uruchamiania w emulatorze obliczeniowe Azure, elementy konfiguracji, które utworzyć bezpośredniej portów punkty końcowe usługi (**InstanceInputEndpoint** elementy) są ignorowane.
 > 
 > 
 
@@ -167,7 +167,7 @@ namespace WorkerRole1
         var listener = new Socket(
           myInternalEp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-        // Bind socket listener toointernal endpoint and listen
+        // Bind socket listener to internal endpoint and listen
         listener.Bind(myInternalEp);
         listener.Listen(10);
         Trace.TraceInformation("Listening on IP:{0},Port: {1}",
@@ -175,7 +175,7 @@ namespace WorkerRole1
 
         while (true)
         {
-          // Block hello thread and wait for a client request
+          // Block the thread and wait for a client request
           Socket handler = listener.Accept();
           Trace.TraceInformation("Client request received.");
 
@@ -205,23 +205,23 @@ namespace WorkerRole1
 
     public override bool OnStart()
     {
-      // Set hello maximum number of concurrent connections 
+      // Set the maximum number of concurrent connections 
       ServicePointManager.DefaultConnectionLimit = 12;
 
       // For information on handling configuration changes
-      // see hello MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+      // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
       return base.OnStart();
     }
   }
 }
 ```
 
-## <a name="network-traffic-rules-toocontrol-role-communication"></a>Ruch reguły toocontrol roli komunikacji sieciowej
-Po zdefiniowaniu wewnętrznych punktów końcowych, możesz dodać toocontrol reguły (oparte na powitania punktów końcowych, które zostały utworzone) ruchu sieciowego jak wystąpień roli może komunikować się ze sobą. Witaj poniższym diagramie przedstawiono kilka typowych scenariuszy kontroli komunikacji roli:
+## <a name="network-traffic-rules-to-control-role-communication"></a>Reguły ruchu sieciowego do kontrolowania komunikacji roli
+Po zdefiniowaniu wewnętrznych punktów końcowych, można dodać do kontroli, jak wystąpień roli może komunikować się ze sobą reguły ruchu sieciowego (w oparciu punktów końcowych, które zostały utworzone). Na poniższym diagramie przedstawiono kilka typowych scenariuszy kontroli komunikacji roli:
 
 ![Scenariusze reguły ruchu sieciowego](./media/cloud-services-enable-communication-role-instances/scenarios.png "scenariusze reguły ruchu sieciowego")
 
-Witaj Poniższy przykładowy kod przedstawia definicje ról dla ról hello pokazano hello poprzedni diagram. Każda definicja roli obejmuje co najmniej jeden wewnętrzny punkt końcowy zdefiniowany:
+Poniższy przykład kodu pokazuje definicje ról dla ról przedstawione na diagramie poprzedniej. Każda definicja roli obejmuje co najmniej jeden wewnętrzny punkt końcowy zdefiniowany:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -257,10 +257,10 @@ Witaj Poniższy przykładowy kod przedstawia definicje ról dla ról hello pokaz
 > 
 > 
 
-Domyślnie po zdefiniowaniu wewnętrzny punkt końcowy komunikacji mogą przepływać z dowolnej roli toohello wewnętrzny punkt końcowy roli bez ograniczeń. Komunikacja toorestrict, należy dodać **NetworkTrafficRules** toohello elementu **ServiceDefinition** elementu w pliku definicji usługi hello.
+Domyślnie po zdefiniowaniu wewnętrzny punkt końcowy komunikacji mogą przepływać z dowolnej roli do wewnętrzny punkt końcowy roli bez ograniczeń. Aby ograniczyć komunikacji, należy dodać **NetworkTrafficRules** elementu **ServiceDefinition** elementu w pliku definicji usługi.
 
 ### <a name="scenario-1"></a>Scenariusz 1
-Zezwalaj tylko na ruch sieciowy z **WebRole1** za**WorkerRole1**.
+Zezwalaj tylko na ruch sieciowy z **WebRole1** do **WorkerRole1**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -279,7 +279,7 @@ Zezwalaj tylko na ruch sieciowy z **WebRole1** za**WorkerRole1**.
 ```
 
 ### <a name="scenario-2"></a>Scenariusz 2
-Zezwala na ruch sieciowy z **WebRole1** za**WorkerRole1** i **WorkerRole2**.
+Zezwala na ruch sieciowy z **WebRole1** do **WorkerRole1** i **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -298,7 +298,7 @@ Zezwala na ruch sieciowy z **WebRole1** za**WorkerRole1** i **WorkerRole2**.
 ```
 
 ### <a name="scenario-3"></a>Scenariusz 3
-Zezwala na ruch sieciowy z **WebRole1** za**WorkerRole1**, i **WorkerRole1** za**WorkerRole2**.
+Zezwala na ruch sieciowy z **WebRole1** do **WorkerRole1**, i **WorkerRole1** do **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -327,7 +327,7 @@ Zezwala na ruch sieciowy z **WebRole1** za**WorkerRole1**, i **WorkerRole1** za*
 ```
 
 ### <a name="scenario-4"></a>Scenariusz 4
-Zezwala na ruch sieciowy z **WebRole1** za**WorkerRole1**, **WebRole1** za**WorkerRole2**, i  **WorkerRole1** za**WorkerRole2**.
+Zezwala na ruch sieciowy z **WebRole1** do **WorkerRole1**, **WebRole1** do **WorkerRole2**, i **WorkerRole1**  do **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -367,8 +367,8 @@ Zezwala na ruch sieciowy z **WebRole1** za**WorkerRole1**, **WebRole1** za**Work
 </ServiceDefinition>
 ```
 
-Znajduje się odwołanie do schematu XML dla elementów hello powyżej [tutaj](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Znajduje się odwołanie do schematu XML dla elementów użyta powyżej [tutaj](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej na temat hello usługi w chmurze [modelu](cloud-services-model-and-package.md).
+Dowiedz się więcej o usługę w chmurze [modelu](cloud-services-model-and-package.md).
 

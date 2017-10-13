@@ -13,7 +13,7 @@
 | Limit czasu bezczynności |4 godziny |
 | Limit czasu bez połączenia |4 godziny |
 
-Witaj liczbę użytkowników, jest określany przez hello liczbę maszyn wirtualnych użyć kolekcji:
+Liczba użytkowników jest określany przez liczbę maszyn wirtualnych użyć kolekcji:
 
 * Podstawowe = 16 użytkowników dla maszyny Wirtualnej
 * Standardowa = 10 użytkownikami dla maszyny Wirtualnej

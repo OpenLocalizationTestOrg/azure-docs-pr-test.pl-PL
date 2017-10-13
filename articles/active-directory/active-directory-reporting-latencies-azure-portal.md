@@ -1,6 +1,6 @@
 ---
-title: "opóźnienia raportowania usługi Active Directory aaaAzure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o hello ilość czasu, jaki zajmuje raporty tooshow zdarzenia w portalu Azure"
+title: "Usługa Azure Active Directory raportowania opóźnienia | Dokumentacja firmy Microsoft"
+description: "Dowiedz się więcej o ilość czasu, jaki zajmuje zdarzeń do raportowania w portalu usługi Azure"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,27 +15,27 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: eee959331262ba59b313dd038cb54699dbef48a4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 93cb0baeab8f13f81257ed1bd32ed08561c54b72
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Usługa Azure Active Directory opóźnienia raportowania
 
-Z [raportowania](active-directory-preview-explainer.md) w hello Azure Active Directory, możesz uzyskać wszystkie informacje hello należy toodetermine jak robi środowiska. Hello ilość czasu, jaki zajmuje raportowania danych tooshow się w portalu Azure hello jest także znana jako czas oczekiwania. 
+Z [raportowania](active-directory-preview-explainer.md) w usłudze Azure Active Directory, możesz uzyskać wszystkie informacje, należy określić, jak robi środowiska. Ilość czasu, jaki zajmuje dane raportowania były wyświetlane w portalu Azure jest nazywana opóźnienia. 
 
-Ten temat zawiera informacje opóźnienia hello hello wszystkie kategorie raportowania hello portalu Azure. 
+Ten temat zawiera informacje opóźnienia raportowania wszystkie kategorie w portalu Azure. 
 
 
 ## <a name="activity-reports"></a>Raporty dotyczące działań
 
 Istnieją dwa obszary działania raportowania:
 
-- **Działania logowania** — informacje na temat użycia hello zarządzanych aplikacji i aktywności logowania użytkowników
+- **Działania związane z logowaniem** — informacje na temat użycia zarządzanych aplikacji i działania użytkownika związane z logowaniem
 - **Dzienniki inspekcji** — informacje o aktywności systemu obejmujące zarządzanie użytkownikami i grupami oraz zarządzane aplikacje i działania dotyczące katalogu
 
-w poniższej tabeli Hello zawiera informacje opóźnienia hello raporty aktywności.
+Poniższa tabela zawiera informacje opóźnienia raporty aktywności.
 
 | Raport | Minimalne | Średnia | Maksymalna |
 | :-- | --- | --- | --- |
@@ -43,17 +43,17 @@ w poniższej tabeli Hello zawiera informacje opóźnienia hello raporty aktywno�
 | Logowania               | 15 minut  | 15 minut | 2 godziny *   |
 
 >[!NOTE]
-> W przypadku niektórych danych działania logowania pochodzące z aplikacji starszej wersji pakietu office może potrwać too8 godzin hello raporty tooshow danych. 
+> W przypadku niektórych danych operacji logowania pochodzących ze starszych wersji aplikacji pakietu Office dane raportowania mogą pojawić się po 8 godzinach. 
 
 
 ## <a name="security-reports"></a>Raporty dotyczące zabezpieczeń
 
 Istnieją dwa obszary raportowania zabezpieczeń:
 
-- **Ryzykowne logowania** -ryzykowne logowanie jest wskaźnik prób logowania, które mogły zostać wykonane przez osobę, która nie jest właścicielem uzasadnionych hello konta użytkownika. 
+- **Ryzykowne logowania** — ryzykowne logowanie jest wskaźnikiem próby logowania, które mogło zostać wykonane przez osobę, która nie jest prawowitym właścicielem konta użytkownika. 
 - **Użytkownicy oflagowani w związku z ryzykiem** — ryzykowny użytkownik jest wskaźnikiem konta użytkownika, którego bezpieczeństwo mogło zostać naruszone. 
 
-Witaj w poniższej tabeli znajdują się informacje opóźnienia hello zabezpieczeń raportów.
+Poniższa tabela zawiera informacje opóźnienia raporty dotyczące zabezpieczeń.
 
 | Raport | Minimalne | Średnia | Maksymalna |
 | :-- | --- | --- | --- |
@@ -62,16 +62,16 @@ Witaj w poniższej tabeli znajdują się informacje opóźnienia hello zabezpiec
 
 ## <a name="risk-events"></a>Zdarzenia ryzyka
 
-Usługa Azure Active Directory korzysta z adaptacyjną machine learning algorytmów i heurystyki toodetect podejrzane akcji, które są powiązane tooyour kont użytkowników. Każdy wykryty podejrzane działania są przechowywane w zdarzenia o nazwie ryzyko rekordu.
+Usługi Azure Active Directory korzysta z algorytmów uczenia maszynowego adaptacyjną i heurystyki do wykrycia podejrzanych działań, które są związane z kontami użytkowników. Każdy wykryty podejrzane działania są przechowywane w zdarzenia o nazwie ryzyko rekordu.
 
-Witaj w poniższej tabeli znajdują się informacje opóźnienia hello dla zdarzeń o podwyższonym ryzyku.
+W poniższej tabeli wymieniono informacje opóźnienie dla zdarzeń o podwyższonym ryzyku.
 
 | Raport | Minimalne | Średnia | Maksymalna |
 | :-- | --- | --- | --- |
 | Logowania z anonimowych adresów IP |5 minut |15 minut |2 godziny |
 | Logowania z nieznanych lokalizacji |5 minut |15 minut |2 godziny |
 | Użytkownicy z ujawnionymi poświadczeniami |2 godziny |4 godziny |8 godzin |
-| Niemożliwa podróż tooatypical lokalizacji |5 minut |1 godzina |8 godzin  |
+| Niemożliwa podróż do nietypowych lokalizacji |5 minut |1 godzina |8 godzin  |
 | Logowania z zainfekowanych urządzeń |2 godziny |4 godziny |8 godzin  |
 | Logowania z adresów IP związanych z podejrzanymi działaniami |2 godziny |4 godziny |8 godzin  |
 
@@ -79,14 +79,14 @@ Witaj w poniższej tabeli znajdują się informacje opóźnienia hello dla zdarz
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli chcesz tooknow więcej informacji na temat hello raporty aktywności w hello portalu Azure, zobacz:
+Jeśli chcesz dowiedzieć się więcej na temat raportów działania w portalu Azure, zobacz:
 
-- [Raporty aktywności logowania w portalu usługi Azure Active Directory hello](active-directory-reporting-activity-sign-ins.md)
-- [Raporty dotyczące działań w portalu usługi Azure Active Directory hello inspekcji](active-directory-reporting-activity-audit-logs.md)
+- [Działania logowania raportów w portalu usługi Azure Active Directory](active-directory-reporting-activity-sign-ins.md)
+- [Raporty dotyczące działania inspekcji w portalu usługi Azure Active Directory](active-directory-reporting-activity-audit-logs.md)
 
-Więcej informacji na temat hello raporty dotyczące zabezpieczeń w portalu Azure hello tooknow, zobacz:
+Jeśli chcesz dowiedzieć się więcej o raporty dotyczące zabezpieczeń w portalu Azure, zobacz:
 
-- [Użytkownicy ryzyka raport zabezpieczeń w portalu usługi Azure Active Directory hello](active-directory-reporting-security-user-at-risk.md)
-- [Raport ryzykowne logowania w portalu usługi Azure Active Directory hello](active-directory-reporting-security-risky-sign-ins.md)
+- [Użytkownicy ryzyka raport zabezpieczeń w portalu usługi Azure Active Directory](active-directory-reporting-security-user-at-risk.md)
+- [Raport ryzykowne logowania w portalu usługi Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
-Aby uzyskać więcej informacji na temat zdarzeń o podwyższonym ryzyku tooknow zobacz [zdarzenia o podwyższonym ryzyku usługi Azure Active Directory](active-directory-reporting-risk-events.md).
+Jeśli chcesz dowiedzieć się więcej na temat zdarzeń o podwyższonym ryzyku, zobacz [zdarzenia o podwyższonym ryzyku usługi Azure Active Directory](active-directory-reporting-risk-events.md).

@@ -1,6 +1,6 @@
 ---
-title: "aaaSmooth wtyczki przesyłania strumieniowego dla hello Open Framework nośnika źródłowego"
-description: "Dowiedz się, jak toouse hello Azure Media Services Smooth Streaming dodatek plug-in dla hello Adobe otwartej struktury nośnika źródłowego."
+title: "Płynnego przesyłania strumieniowego dodatek plug-in dla typu Open Source Media Framework"
+description: "Dowiedz się, jak używać usługi Azure Media Services Smooth Streaming wtyczki dla otwartej struktury nośnika źródłowego programu Adobe."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 3cf8e4679279344cf79c3f0e5b28f63adf88179d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9c764f176ae75085320882de3fb26d8e7d52daaf
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-toouse-hello-microsoft-smooth-streaming-plugin-for-hello-adobe-open-source-media-framework"></a>Jak tooUse hello Microsoft Smooth Streaming wtyczki dla hello Adobe Open Framework nośnika źródła
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Jak używać Smooth Microsoft przesyłania strumieniowego dodatek dla programu Adobe typu Open Source Media Framework
 ## <a name="overview"></a>Omówienie
-Witaj dodatek Microsoft Smooth Streaming, otwórz źródła Media Framework w wersji 2.0 (SS dla OSMF) rozszerza możliwości domyślne hello OSMF i dodaje Microsoft Smooth Streaming toonew odtwarzanie zawartości i istniejące OSMF graczy. Dodatek Hello dodaje również Smooth Streaming tooStrobe możliwości odtwarzania multimediów odtwarzania (SMP).
+Dodatek Microsoft Smooth Streaming dla Otwórz źródła Media Framework w wersji 2.0 (SS dla OSMF) rozszerza możliwości domyślne OSMF i dodaje Microsoft Smooth Streaming odtwarzanie zawartości dla nowych i istniejących odtwarzaczy OSMF. Wtyczka dodaje również funkcje Smooth Streaming odtwarzania do odtwarzania multimediów światła (SMP).
 
 SS dla OSMF obejmuje dwie wersje dodatku:
 
 * Statyczne Smooth Streaming dodatek plug-in dla OSMF (SWC)
 * Dynamiczne Smooth Streaming dodatek plug-in dla OSMF (SWF)
 
-Tym dokumencie przyjęto założenie, że czytelnik hello ma ogólne praktyczną znajomość OSMF i OSMF dodatków plug-in. Aby uzyskać więcej informacji na temat OSMF Zobacz hello dokumentację hello [oficjalna witryna OSMF](http://osmf.org/).
+Tym dokumencie przyjęto założenie, że czytelnik ma ogólne praktyczną znajomość OSMF i OSMF dodatków plug-in. Aby uzyskać więcej informacji na temat OSMF można znaleźć w dokumentacji na [oficjalna witryna OSMF](http://osmf.org/).
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>Wtyczka Smooth Streaming OSMF 2.0
-Dodatek Hello obsługuje ładowania i odtwarzania zawartości Smooth Streaming na żądanie z hello następujące funkcje:
+Wtyczka obsługuje ładowania i odtwarzania zawartości Smooth Streaming na żądanie przy użyciu następujących funkcji:
 
 * Odtwarzanie Smooth Streaming na żądanie (Wstrzymaj, wyszukiwania, Zatrzymaj odtwarzanie)
 * Odtwarzanie Live Smooth Streaming (Odtwórz)
@@ -46,18 +46,18 @@ Dodatek Hello obsługuje ładowania i odtwarzania zawartości Smooth Streaming n
 * Ta wersja obsługuje tylko OSMF 2.0.
 
 ## <a name="supported-features-and-known-issues"></a>Obsługiwane funkcje i znane problemy
-Aby uzyskać pełną listę obsługiwanych funkcji, nieobsługiwane funkcje i znanych problemów można znaleźć zbyt[tego dokumentu](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Aby uzyskać pełną listę obsługiwanych funkcji, nieobsługiwanych funkcji oraz znanych problemów, zapoznaj się [tego dokumentu](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
-## <a name="loading-hello-plugin"></a>Ładowanie hello wtyczki
-Można załadować wtyczki OSMF statycznie (w czasie kompilacji) lub dynamicznie (w czasie wykonywania). Witaj Smooth Streaming wtyczki do pobrania OSMF obejmuje zarówno dynamicznej i statycznej wersji.
+## <a name="loading-the-plugin"></a>Podczas ładowania dodatku plug-in
+Można załadować wtyczki OSMF statycznie (w czasie kompilacji) lub dynamicznie (w czasie wykonywania). Dodatek Smooth Streaming do pobrania OSMF obejmuje zarówno dynamicznej i statycznej wersji.
 
-* Ładowanie statycznych: tooload statycznie, plik biblioteki statycznej (SWC) jest wymagana. Statyczne wtyczek są dodawane jako odwołania toohello projektów i dokonać scalania w hello ostateczne dane wyjściowe pliku w czasie kompilacji hello.
-* Dynamiczne ładowanie: tooload dynamicznie, wstępnie skompilowanych plików (SWF) jest wymagana. Dynamiczne dodatków plug-in są ładowane w środowisku uruchomieniowym hello i nie są uwzględnione w danych wyjściowych projektu hello. (Skompilowanych danych wyjściowych) Wtyczki dynamicznej mogą być ładowane przy użyciu protokołów HTTP i plików.
+* Ładowanie statycznych: Aby załadować statycznie, jest wymagany plik biblioteki statycznej (SWC). Statyczne wtyczek są dodawane jako odwołania do projektów i dokonać scalania w pliku wyjściowego w czasie kompilacji.
+* Dynamiczne ładowanie: Aby załadować dynamicznie, wymagany jest prekompilowany plik (SWF). Dynamiczne dodatków plug-in są załadowane w czasie wykonywania i nie są uwzględnione w danych wyjściowych projektu. (Skompilowanych danych wyjściowych) Wtyczki dynamicznej mogą być ładowane przy użyciu protokołów HTTP i plików.
 
-Aby uzyskać więcej informacji na ładowanie statycznych i dynamicznych, zobacz oficjalne hello [strona wtyczek OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Aby uzyskać więcej informacji na ładowanie statycznych i dynamicznych, można znaleźć w oficjalnej [strona wtyczek OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
 ### <a name="ss-for-osmf-static-loading"></a>SS do ładowania statycznych OSMF
-Poniższy fragment kodu Hello pokazuje, jak tooload statycznie hello SS wtyczki dla OSMF i odtwarzanie wideo podstawowe za pomocą klasy OSMF MediaFactory. Przed dołączeniem hello SS OSMF kodu, upewnij się, że odwołania projektu hello zawiera wtyczki statycznych hello "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
+Poniższy fragment kodu przedstawia sposób załadować wtyczki SS statycznie dla OSMF i odtwarzanie wideo podstawowe za pomocą klasy OSMF MediaFactory. Przed dołączeniem SS OSMF kodu, upewnij się, że odwołania projektu zawiera wtyczki statyczny "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
 
 ```
 package 
@@ -94,24 +94,24 @@ package
         private function initMediaPlayer():void
         {
 
-            // Create hello container (sprite) for managing display and layout
+            // Create the container (sprite) for managing display and layout
             _mediaPlayerSprite = new MediaPlayerSprite();    
             _mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
             _mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
             _mediaPlayerSprite.scaleMode = ScaleMode.NONE;
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
-            //Adds hello container toohello stage
+            //Adds the container to the stage
             addChild(_mediaPlayerSprite);
 
             // Create a mediafactory instance
             _mediaFactory = new DefaultMediaFactory();
 
-            // Add hello listeners for PLUGIN_LOADING
+            // Add the listeners for PLUGIN_LOADING
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 
-            // Load hello plugin class 
+            // Load the plugin class 
             loadAdaptiveStreamingPlugin( );  
 
         }
@@ -126,15 +126,15 @@ package
 
         private function onPluginLoaded( event:MediaFactoryEvent ):void
         {
-            // hello plugin is loaded successfully.
-            // Your web server needs toohost a valid crossdomain.xml file tooallow plugin toodownload Smooth Streaming files.
+            // The plugin is loaded successfully.
+            // Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
         loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
 
         }
 
         private function onPluginLoadFailed( event:MediaFactoryEvent ):void
         {
-            // hello plugin is failed tooload ...
+            // The plugin is failed to load ...
         }
 
 
@@ -148,12 +148,12 @@ package
             {
                 case MediaPlayerState.LOADING: 
 
-                    // A new source is started tooload.
+                    // A new source is started to load.
 
                     break;
 
                 case  MediaPlayerState.READY :   
-                    // Add code toodeal with Player Ready when it is hit hello first load after a source is loaded. 
+                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
 
                     break;
 
@@ -174,7 +174,7 @@ package
 
         private function loadMediaSource(sourceURL : String):void 
         {
-            // Take an URL of SmoothStreamingSource's manifest and add it toohello page.
+            // Take an URL of SmoothStreamingSource's manifest and add it to the page.
 
             var resource:URLResource= new URLResource( sourceURL );
 
@@ -183,7 +183,7 @@ package
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
 
-            // Add hello media element
+            // Add the media element
             _mediaPlayerSprite.media = element;
         }     
 
@@ -193,7 +193,7 @@ package
 
 
 ### <a name="ss-for-osmf-dynamic-loading"></a>SS dla OSMF dynamiczne ładowanie
-Poniższy fragment kodu Hello pokazuje, jak tooload dynamicznie hello SS wtyczki dla OSMF i odtwarzanie wideo podstawowe za pomocą klasy OSMF MediaFactory hello. Przed dołączeniem hello SS OSMF kodu, należy skopiować folder projektu toohello dynamiczne wtyczki "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" hello tooload przy użyciu protokołu pliku, lub skopiować na serwerze sieci web, obciążenia HTTP. Nie ma żadnych tooinclude potrzeby "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" w odwołaniach projektu hello.
+Poniższy fragment kodu przedstawia sposób załadować wtyczki SS dla OSMF dynamicznie i odtwarzać podstawowego wideo przy użyciu klasy OSMF MediaFactory. Przed dołączeniem SS OSMF kodu, skopiuj do folderu projektu wtyczki dynamiczne "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf", aby załadować przy użyciu protokołu pliku, lub skopiuj na serwerze sieci web, obciążenia HTTP. Nie istnieje potrzeba do dołączenia "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" odwołania do projektu.
 
 {pakietu
 
@@ -208,7 +208,7 @@ Poniższy fragment kodu Hello pokazuje, jak tooload dynamicznie hello SS wtyczki
     import flash.system.Capabilities;
 
 
-    //Sets hello size of hello SWF
+    //Sets the size of the SWF
 
     [SWF(width="1024", height="768", backgroundColor='#405050', frameRate="25")]
     public class TestPlayer extends Sprite
@@ -227,22 +227,22 @@ Poniższy fragment kodu Hello pokazuje, jak tooload dynamicznie hello SS wtyczki
         private function initMediaPlayer():void
         {
 
-            // Create hello container (sprite) for managing display and layout
+            // Create the container (sprite) for managing display and layout
             _mediaPlayerSprite = new MediaPlayerSprite();    
             _mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
             _mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
 
-            //Adds hello container toohello stage
+            //Adds the container to the stage
             addChild(_mediaPlayerSprite);
 
             // Create a mediafactory instance
             _mediaFactory = new DefaultMediaFactory();
 
-            // Add hello listeners for PLUGIN_LOADING
+            // Add the listeners for PLUGIN_LOADING
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 
-            // Load hello plugin class 
+            // Load the plugin class 
             loadAdaptiveStreamingPlugin( );  
 
         }
@@ -252,7 +252,7 @@ Poniższy fragment kodu Hello pokazuje, jak tooload dynamicznie hello SS wtyczki
             var pluginResource:MediaResourceBase;
             var adaptiveStreamingPluginUrl:String;
 
-            // Your dynamic plugin web server needs toohost a valid crossdomain.xml file tooallow loading plugins.
+            // Your dynamic plugin web server needs to host a valid crossdomain.xml file to allow loading plugins.
 
             adaptiveStreamingPluginUrl = "http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf";
             pluginResource = new URLResource(adaptiveStreamingPluginUrl);
@@ -262,16 +262,16 @@ Poniższy fragment kodu Hello pokazuje, jak tooload dynamicznie hello SS wtyczki
 
         private function onPluginLoaded( event:MediaFactoryEvent ):void
         {
-            // hello plugin is loaded successfully.
+            // The plugin is loaded successfully.
 
-            // Your web server needs toohost a valid crossdomain.xml file tooallow plugin toodownload Smooth Streaming files.
+            // Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
 
     loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
         }
 
         private function onPluginLoadFailed( event:MediaFactoryEvent ):void
         {
-            // hello plugin is failed tooload ...
+            // The plugin is failed to load ...
         }
 
 
@@ -285,12 +285,12 @@ Poniższy fragment kodu Hello pokazuje, jak tooload dynamicznie hello SS wtyczki
             {
                 case MediaPlayerState.LOADING: 
 
-                    // A new source is started tooload.
+                    // A new source is started to load.
 
                     break;
 
                 case  MediaPlayerState.READY :   
-                    // Add code toodeal with Player Ready when it is hit hello first load after a source is loaded. 
+                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
 
                     break;
 
@@ -311,7 +311,7 @@ Poniższy fragment kodu Hello pokazuje, jak tooload dynamicznie hello SS wtyczki
 
         private function loadMediaSource(sourceURL : String):void 
         {
-            // Take an URL of SmoothStreamingSource's manifest and add it toohello page.
+            // Take an URL of SmoothStreamingSource's manifest and add it to the page.
 
             var resource:URLResource= new URLResource( sourceURL );
 
@@ -319,22 +319,22 @@ Poniższy fragment kodu Hello pokazuje, jak tooload dynamicznie hello SS wtyczki
             _mediaPlayerSprite.scaleMode = ScaleMode.LETTERBOX;
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
-            // Add hello media element
+            // Add the media element
             _mediaPlayerSprite.media = element;
         }     
 
     }
 }
 
-## <a name="strobe-media--playback-with-hello-ss-odmf-dynamic-plugin"></a>Odtwarzanie multimediów światła z hello wtyczki dynamiczne ODMF SS
-Hello Smooth Streaming wtyczki dynamiczne OSMF jest zgodny z [odtwarzania multimediów światła (SMP)](http://osmf.org/strobe_mediaplayback.html). Hello SS służy do odtwarzania zawartości Smooth Streaming programu OSMF wtyczki tooadd tooSMP. toodo, kopii "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" na serwerze sieci web dla obciążenia HTTP przy użyciu hello następujące kroki:
+## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>Odtwarzanie multimediów światła z wtyczki dynamiczne SS ODMF
+Smooth Streaming wtyczki dynamiczne OSMF jest zgodny z [odtwarzania multimediów światła (SMP)](http://osmf.org/strobe_mediaplayback.html). SS wtyczki OSMF służy do dodawania Smooth Streaming odtwarzanie zawartości do punktu SMP. Aby to zrobić, należy skopiować "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" na serwerze sieci web, obciążenia HTTP, wykonując następujące czynności:
 
-1. Przeglądaj hello [strony Instalatora odtwarzanie multimediów światła](http://osmf.org/dev/2.0gm/setup.html). 
-2. Ustaw hello src tooa Smooth Streaming źródła (np. http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
-3. Hello potrzeby zmian konfiguracji, a następnie kliknij polecenie Podgląd i aktualizacji.
+1. Przeglądaj [strony Instalatora odtwarzanie multimediów światła](http://osmf.org/dev/2.0gm/setup.html). 
+2. Ustaw src ze źródłem Smooth Streaming, (np. http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) 
+3. Wprowadź żądane zmiany w konfiguracji, a następnie kliknij polecenie Podgląd i aktualizacji.
    
    **Uwaga** prawidłowy crossdomain.xml wymaga serwera zawartości sieci web. 
-4. Skopiuj i Wklej hello tooa proste HTML strony kodowej w hello poniższy przykład za pomocą edytora tekstu, takich jak:
+4. Skopiuj i Wklej kod, aby to prosta strona HTML za pomocą edytora tekstu, takich jak w poniższym przykładzie:
 
         <html>
         <body>
@@ -359,7 +359,7 @@ Hello Smooth Streaming wtyczki dynamiczne OSMF jest zgodny z [odtwarzania multim
 
 
 
-1. Dodaj toohello wtyczki Smooth Streaming OSMF kod osadzania i Zapisz.
+1. Dodaj wtyczkę Smooth Streaming OSMF kod osadzania i Zapisz.
    
         <html>
         <object width="920" height="640"> 
@@ -379,10 +379,10 @@ Hello Smooth Streaming wtyczki dynamiczne OSMF jest zgodny z [odtwarzania multim
         </embed>
         </object>
         </html>
-2. Zapisz strony HTML i opublikuj tooa serwera sieci web. Przeglądaj toohello opublikowane strony sieci web przy użyciu Twoje ulubione Flash&reg; Player włączone przeglądarki internetowej (program Internet Explorer, Chrome, Firefox, itp).
+2. Zapisz strony HTML i opublikować na serwerze sieci web. Przejdź do strony sieci web opublikowanych przy użyciu Twoje ulubione Flash&reg; Player włączone przeglądarki internetowej (program Internet Explorer, Chrome, Firefox, itp).
 3. Korzystanie z funkcji Smooth Streaming zawartości wewnątrz Adobe&reg; Flash&reg; Player.
 
-Aby uzyskać więcej informacji na ogólne programowanie OSMF, zobacz oficjalne hello [OSMF programowanie strony](http://osmf.org/resources.html).
+Aby uzyskać więcej informacji na ogólne programowanie OSMF, zobacz urzędnika [OSMF programowanie strony](http://osmf.org/resources.html).
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

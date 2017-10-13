@@ -1,5 +1,5 @@
 ---
-title: "aaaGet pracę z połączeń hybrydowych przekazywania Azure w programie .NET | Dokumentacja firmy Microsoft"
+title: "Wprowadzenie do połączeń hybrydowych usługi Azure Relay na platformie .NET | Microsoft Docs"
 description: "Napisz aplikację konsolową w języku C# dla połączeń hybrydowych usługi Azure Relay."
 services: service-bus-relay
 documentationcenter: .net
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 07/07/2017
 ms.author: sethm
-ms.openlocfilehash: 1e4af28e7cd4393c8ca965a149a0b83ebcc44f22
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 1af23bfd46dd7d3781505473f7c1d86e65ea9bc7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Wprowadzenie do połączeń hybrydowych usługi Relay
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Ten samouczek zawiera wprowadzenie zbyt[połączeń hybrydowych przekazywania Azure](relay-what-is-it.md#hybrid-connections)i pokazuje, jak toouse .NET toocreate aplikacji klienckiej, która wysyła komunikaty tooa odpowiednich aplikacji odbiornika. 
+Ten samouczek zawiera wprowadzenie do [połączeń hybrydowych usługi Azure Relay](relay-what-is-it.md#hybrid-connections). Pokazano w nim, jak na platformie .NET utworzyć aplikację kliencką, która wysyła komunikaty do odpowiadającej jej aplikacji odbiornika. 
 
 ## <a name="what-will-be-accomplished"></a>Co zostanie osiągnięte?
-Połączenia hybrydowe wymaga zarówno klient, jak i składnik serwera, dlatego samouczek hello tworzy dwie aplikacje konsoli. Poniżej przedstawiono kroki hello:
+Ponieważ połączenia hybrydowe wymagają zarówno składnika klienta, jak i składnika serwera, w tym samouczku zostaną utworzone dwie aplikacje konsolowe. Oto konkretne kroki:
 
-1. Tworzenie przestrzeni nazw przekazywania, przy użyciu hello portalu Azure.
-2. Tworzenie połączenia hybrydowego w tej przestrzeni nazw przy użyciu hello portalu Azure.
-3. Pisanie komunikatów tooreceive aplikacji konsoli serwera (odbiornika).
-4. Pisanie komunikatów toosend aplikacji konsoli klienta (nadawcy).
+1. Utworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal.
+2. Utwórz połączenie hybrydowe w tej przestrzeni nazw za pomocą witryny Azure Portal.
+3. Napisanie aplikacji konsolowej serwera (odbiornika) służącej do odbierania komunikatów.
+4. Napisanie aplikacji konsolowej klienta (nadawcy) służącej do wysyłania komunikatów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-toocomplete tego samouczka będziesz potrzebować hello następujące wymagania wstępne:
+Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
 
-1. [Program Visual Studio w wersji 2015 lub nowszej](http://www.visualstudio.com). Przykłady Hello w tym samouczku Użyj Visual Studio 2017 r.
+1. [Program Visual Studio w wersji 2015 lub nowszej](http://www.visualstudio.com). W przykładach znajdujących się w tym samouczku używany jest program Visual Studio 2017.
 2. Subskrypcja platformy Azure.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-hello-azure-portal"></a>1. Tworzenie przestrzeni nazw przy użyciu hello portalu Azure
-Jeśli utworzono już przestrzeń nazw przekazywania, przejście toohello [Tworzenie połączenia hybrydowego, za pomocą portalu Azure hello](#2-create-a-hybrid-connection-using-the-azure-portal) sekcji.
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
+Jeśli przestrzeń nazw usługi Relay została już utworzona, przejdź do sekcji [Tworzenie połączenia hybrydowego za pomocą witryny Azure Portal](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-hello-azure-portal"></a>2. Tworzenie połączenia hybrydowego, przy użyciu hello portalu Azure
-Jeśli utworzono już połączenie hybrydowe, przejście toohello [utworzyć aplikację serwer](#3-create-a-server-application-listener) sekcji.
+## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Tworzenie połączenia hybrydowego za pomocą witryny Azure Portal
+Jeśli połączenie hybrydowe zostało już utworzone, przejdź do sekcji [Tworzenie aplikacji serwera](#3-create-a-server-application-listener).
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## <a name="3-create-a-server-application-listener"></a>3. Tworzenie aplikacji serwera (odbiornika)
-toolisten i odbierania wiadomości z hello przekazywania, firma Microsoft będzie zapisywać aplikacji konsolowej C# za pomocą programu Visual Studio.
+Aby nasłuchiwać i odbierać komunikaty z usługi Relay, napiszemy aplikację konsolową w języku C# za pomocą programu Visual Studio.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-dotnet-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Tworzenie aplikacji klienta (nadawcy)
-toohello wiadomości toosend przekazywania, firma Microsoft będzie zapisywać aplikacji konsolowej C# za pomocą programu Visual Studio.
+Aby wysyłać komunikaty do usługi Relay, napiszemy aplikację konsolową w języku C# za pomocą programu Visual Studio.
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-dotnet-get-started-client.md)]
 
-## <a name="5-run-hello-applications"></a>5. Uruchamianie aplikacji hello
-1. Uruchom powitania serwera aplikacji.
-2. Uruchom powitania klienta aplikacji, a następnie wprowadź tekst.
-3. Upewnij się, powitania serwera aplikacji konsoli dane wyjściowe hello tekst, który został wprowadzony w aplikacji klienckiej hello.
+## <a name="5-run-the-applications"></a>5. Uruchamianie aplikacji
+1. Uruchom aplikację serwera.
+2. Uruchom aplikację klienta i wprowadź jakiś tekst.
+3. Upewnij się, że w konsoli aplikacji serwera pojawia się tekst wprowadzony w aplikacji klienta.
 
 ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 

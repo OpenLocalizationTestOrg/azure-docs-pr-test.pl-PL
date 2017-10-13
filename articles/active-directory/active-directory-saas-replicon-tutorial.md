@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Replicon | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak toouse Replicon z usługą Azure Active Directory tooenable pojedynczy logowania jednokrotnego, automatyczne Inicjowanie obsługi i inne!"
+description: "Dowiedz się, jak używać Replicon usłudze Azure Active Directory w celu włączenia logowania jednokrotnego, automatyczne Inicjowanie obsługi i inne!"
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -13,143 +13,143 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 4949eaf959265cfa4f732a2b73317fffe6312a17
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2aeeceb61191962b62892b8409218684f76c6fa8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Samouczek: Integracji Azure Active Directory z Replicon
-Celem Hello tego samouczka jest tooshow integracji hello Azure i Replicon. Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
+Celem tego samouczka jest pokazanie integracji Azure i Replicon. Scenariusz opisany w tym samouczku założono, że już następujące elementy:
 
 * Ważnej subskrypcji platformy Azure
 * Dzierżawy Replicon
 
-Ten samouczek użytkownicy hello Azure AD przypisano tooReplicon będą mogli toosingle logowania do aplikacji hello w witrynie firmy Replicon (usługa zainicjował dostawcy logowania) lub przy użyciu hello [toohello wprowadzenie dostępu Panel](active-directory-saas-access-panel-introduction.md).
+Ten samouczek użytkowników usługi Azure AD, zostały przypisane do Replicon będzie można funkcji logowania jednokrotnego do aplikacji w witrynie firmy Replicon (usługa zainicjował dostawcy logowania) lub przy użyciu [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
-Scenariusz Hello opisane w tym samouczku składa się z powitania po bloków konstrukcyjnych:
+Scenariusz opisany w tym samouczku składa się z następujących bloków konstrukcyjnych:
 
-1. Włączanie integracji aplikacji hello dla Replicon
+1. Włączanie integracji aplikacji dla Replicon
 2. Konfigurowanie rejestracji jednokrotnej (SSO)
 3. Konfigurowanie Inicjowanie obsługi użytkowników
 4. Przypisywanie użytkowników
 
 ![Scenariusz](./media/active-directory-saas-replicon-tutorial/IC777798.png "scenariusza")
 
-## <a name="enable-hello-application-integration-for-replicon"></a>Włącz integrację aplikacji hello dla Replicon
-Celem Hello w tej sekcji jest toooutline sposób integracji aplikacji hello tooenable dla Replicon.
+## <a name="enable-the-application-integration-for-replicon"></a>Włącz integrację aplikacji dla Replicon
+Celem tej sekcji jest przedstawiają sposób włączania integracji aplikacji dla Replicon.
 
-**integracji aplikacji hello tooenable dla Replicon, wykonaj następujące kroki hello:**
+**Aby włączyć integrację aplikacji dla Replicon, wykonaj następujące czynności:**
 
-1. W hello klasycznego portalu Azure, w okienku nawigacji po lewej stronie powitania kliknij **usługi Active Directory**.
+1. W klasycznym portalu Azure, w okienku nawigacji po lewej stronie kliknij **usługi Active Directory**.
    
     ![Usługi Active Directory](./media/active-directory-saas-replicon-tutorial/IC700993.png "usługi Active Directory")
-2. Z hello **katalogu** listy, wybierz hello katalogu, dla której ma zostać tooenable integracji katalogów.
-3. Kliknij widok aplikacji hello tooopen, w widoku katalogu hello **aplikacji** w menu u góry hello.
+2. Z **katalogu** listy, wybierz katalog, dla którego chcesz włączyć integracji katalogów.
+3. Aby otworzyć widok aplikacji, w widoku katalogu, kliknij przycisk **aplikacji** w menu u góry.
    
     ![Aplikacje](./media/active-directory-saas-replicon-tutorial/IC700994.png "aplikacji")
-4. Kliknij przycisk **Dodaj** u dołu hello hello strony.
+4. Kliknij przycisk **Dodaj** w dolnej części strony.
    
     ![Dodaj aplikację](./media/active-directory-saas-replicon-tutorial/IC749321.png "Dodaj aplikację")
-5. Na powitania **co chcesz toodo** okna dialogowego, kliknij przycisk **dodać aplikację z galerii hello**.
+5. Na **co chcesz zrobić** okna dialogowego, kliknij przycisk **dodać aplikację z galerii**.
    
     ![Dodawanie aplikacji z gallerry](./media/active-directory-saas-replicon-tutorial/IC749322.png "dodać aplikację z gallerry")
-6. W hello **pole wyszukiwania**, typ **Replicon**.
+6. W **pole wyszukiwania**, typ **Replicon**.
    
     ![Galerii aplikacji](./media/active-directory-saas-replicon-tutorial/IC777799.png "galerii aplikacji")
-7. Wybierz w okienku wyników hello **Replicon**, a następnie kliknij przycisk **Complete** aplikacji hello tooadd.
+7. W okienku wyników wybierz **Replicon**, a następnie kliknij przycisk **Complete** można dodać aplikację.
    
     ![Replicon](./media/active-directory-saas-replicon-tutorial/IC777800.png "Replicon")
    
 ## <a name="configure-single-sign-on"></a>Konfigurowanie rejestracji jednokrotnej
 
-Celem Hello w tej sekcji jest toooutline jak tooenable użytkowników tooauthenticate tooReplicon do swojego konta w usłudze Azure AD przy użyciu Federacji oparte na powitania protokołu SAML.
+Celem tej sekcji jest przedstawiają sposób umożliwić użytkownikom uwierzytelnianie na Replicon do swojego konta w usłudze Azure AD przy użyciu federacyjnego na podstawie protokołu SAML.
 
-**tooconfigure logowanie jednokrotne, wykonaj następujące kroki hello:**
+**Aby skonfigurować rejestrację jednokrotną, wykonaj następujące czynności:**
 
-1. W hello klasycznego portalu Azure na powitania **Replicon** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** tooopen hello **skonfigurować rejestrację jednokrotną** okna dialogowego.
+1. W klasycznym portalu Azure na **Replicon** strona integracji aplikacji, kliknij przycisk **skonfigurować logowanie jednokrotne** otworzyć **skonfigurować rejestrację jednokrotną** okna dialogowego.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-replicon-tutorial/IC777801.png "skonfigurować logowanie jednokrotne")
-2. Na powitania **jak ma toosign użytkowników na tooReplicon** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
+2. Na **jak chcesz użytkownikom zalogować się na Replicon** wybierz pozycję **usługi Microsoft Azure AD rejestracji jednokrotnej**, a następnie kliknij przycisk **dalej**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-replicon-tutorial/IC777802.png "skonfigurować logowanie jednokrotne")
-3. Na powitania **Konfigurowanie adresu URL aplikacji** wykonaj hello następujące kroki:
+3. Na **Konfigurowanie adresu URL aplikacji** wykonaj następujące czynności:
    
     ![Skonfiguruj adres URL aplikacji](./media/active-directory-saas-replicon-tutorial/IC777803.png "skonfigurować adres URL aplikacji")
-  1. W hello **Replicon na adres URL logowania** tekstowym, wpisz adres URL dzierżawy Replicon (np.: *https://na2.replicon.com/company/saml2/sp-sso/post*).
-  2. W hello **adres URL odpowiedzi Replicon** tekstowym, wpisz Replicon Twojego **AssertionConsumerService** adres URL (np.: *https://global.replicon.com/! / saml2/firmy/logowania jednokrotnego/post*).  
+  1. W **Replicon na adres URL logowania** tekstowym, wpisz adres URL dzierżawy Replicon (np.: *https://na2.replicon.com/company/saml2/sp-sso/post*).
+  2. W **adres URL odpowiedzi Replicon** tekstowym, wpisz Replicon Twojego **AssertionConsumerService** adres URL (np.: *https://global.replicon.com/! / saml2/firmy/logowania jednokrotnego/post*).  
       
      >[!NOTE]
-     >Można uzyskać adres URL hello hello Replicon metadanych w: **https://global.replicon.com/! /saml2/\<YourCompanyKey\>**.
+     >Należy uzyskać adres URL z metadanych Replicon w: **https://global.replicon.com/! /saml2/\<YourCompanyKey\>**.
      > 
      > 
  
   3. Kliknij przycisk **Dalej**.
 
-4. Na powitania **skonfigurować logowanie jednokrotne w Replicon** strony, toodownload metadanych programu kliknij przycisk **pobierania metadanych**, a następnie zapisz metadanych hello na tym komputerze.
+4. Na **skonfigurować logowanie jednokrotne w Replicon** , aby pobrać metadane, kliknij przycisk **pobierania metadanych**, a następnie Zapisz metadane na komputerze.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-replicon-tutorial/IC777804.png "skonfigurować logowanie jednokrotne")
 5. W oknie przeglądarki innej witryny sieci web Zaloguj się do witryny firmy Replicon jako administrator.
 
-6. tooconfigure SAML 2.0, wykonaj następujące kroki hello:
+6. Aby skonfigurować SAML 2.0, wykonaj następujące czynności:
    
     ![Włącz uwierzytelnianie SAML](./media/active-directory-saas-replicon-tutorial/IC777805.png "uwierzytelnianie Włącz SAML")
   
-  1. Witaj toodisplay **EnableSAML Authentication2** okna dialogowego, Dołącz hello następującego adresu URL tooyour, po klucz firmy: **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**  
-    * Oto Hello hello schemat hello pełny adres URL:  
+  1. Aby wyświetlić **EnableSAML Authentication2** okna dialogowego, dołącz następujące na adres URL po klucz firmy: **/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**  
+    * Poniżej przedstawiono schematu pełny adres URL:  
    **https://Na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2**
-   2. Kliknij przycisk hello  **+**  tooexpand hello **v20Configuration** sekcji.
-   3. Kliknij przycisk hello  **+**  tooexpand hello **metaDataConfiguration** sekcji.
-   4. Kliknij przycisk **wybierz plik**, tooselect Twojego pliku XML metadanych dostawcy tożsamości, a następnie kliknij przycisk **przesyłania**.
+   2. Kliknij przycisk  **+**  rozszerzenia **v20Configuration** sekcji.
+   3. Kliknij przycisk  **+**  rozszerzenia **metaDataConfiguration** sekcji.
+   4. Kliknij przycisk **wybierz plik**, aby wybrać plik XML metadanych dostawcy tożsamości, a następnie kliknij przycisk **przesyłania**.
 
-7. Na powitania klasycznego portalu Azure, wybierz hello konfiguracji rejestracji jednokrotnej potwierdzenie, a następnie kliknij **Complete** tooclose hello **skonfigurować rejestrację jednokrotną** okna dialogowego.
+7. W klasycznym portalu Azure, wybierz Potwierdzenie konfiguracji rejestracji jednokrotnej, a następnie kliknij przycisk **Complete** zamknąć **skonfigurować rejestrację jednokrotną** okna dialogowego.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-replicon-tutorial/IC778418.png "skonfigurować logowanie jednokrotne")
    
 ## <a name="configure-user-provisioning"></a>Skonfiguruj Inicjowanie obsługi użytkowników
 
-W przypadku użytkowników usługi Azure AD toolog kolejności tooenable do Replicon muszą mieć przydzielone do Replicon.  
+Aby włączyć użytkowników usługi Azure AD zalogować się do Replicon, musi być przygotowana do Replicon.  
 
-W przypadku hello Replicon Inicjowanie obsługi to zadanie ręczne.
+W przypadku Replicon Inicjowanie obsługi to zadanie ręczne.
 
-**tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:**
+**Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:**
 
 1. W oknie przeglądarki sieci web Zaloguj się do witryny firmy Replicon jako administrator.
-2. Przejdź za**administracji \> użytkowników**.
+2. Przejdź do **administracji \> użytkowników**.
    
     ![Użytkownicy](./media/active-directory-saas-replicon-tutorial/IC777806.png "użytkowników")
 3. Kliknij przycisk **+ Dodaj użytkownika**.
    
     ![Dodaj użytkownika](./media/active-directory-saas-replicon-tutorial/IC777807.png "Dodaj użytkownika")
-4. W hello **profilu użytkownika** sekcji, wykonaj następujące kroki hello:
+4. W **profilu użytkownika** sekcji, wykonaj następujące czynności:
    
     ![Profil użytkownika](./media/active-directory-saas-replicon-tutorial/IC777808.png "profilu użytkownika")
    
-  1. W hello **nazwa logowania** pole tekstowe, typ hello Azure AD adres e-mail użytkownika hello Azure AD ma tooprovision.
+  1. W **nazwa logowania** pole tekstowe, adres e-mail użytkownika usługi Azure AD, aby udostępnić typu usługi Azure AD.
   2. Jako **typ uwierzytelniania**, wybierz pozycję **logowania jednokrotnego**.
-  3. W hello **działu** tekstowym, wpisz dział hello użytkownika.
+  3. W **działu** tekstowym, wpisz dział tego użytkownika.
   4. Jako **typu pracownika**, wybierz pozycję **administratora**.
   5. Kliknij przycisk **Zapisz profil użytkownika**.
 
 >[!NOTE]
->Możesz użyć innych Replicon użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Replicon tooprovision kont użytkowników usługi AAD.
+>Możesz użyć innych Replicon użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Replicon do kont użytkowników usługi AAD.
 > 
 > 
 
 ## <a name="assign-users"></a>Przypisywanie użytkowników
-tootest konfiguracji, należy toogrant hello Azure AD użytkownicy mają tooallow przy użyciu Twojej aplikacji tooit dostępu przez przypisywanie ich.
+Aby przetestować konfigurację, musisz przyznać użytkowników usługi Azure AD, czy chcesz zezwolić, używając przypisywania do nich dostęp aplikacji do niego.
 
-**tooassign tooReplicon użytkowników, wykonaj następujące kroki hello:**
+**Do przypisywania użytkowników do Replicon, wykonaj następujące czynności:**
 
-1. W hello klasycznego portalu Azure Utwórz konto testu.
+1. W klasycznym portalu Azure Utwórz konto testu.
 
-2. Na powitania **Replicon** strona integracji aplikacji, kliknij przycisk **przypisywać użytkowników**.
+2. Na **Replicon** strona integracji aplikacji, kliknij przycisk **przypisywać użytkowników**.
    
     ![Przypisywanie użytkowników](./media/active-directory-saas-replicon-tutorial/IC777809.png "przypisywanie użytkowników")
 
-3. Wybierz użytkownika testowego, kliknij przycisk **przypisać**, a następnie kliknij przycisk **tak** tooconfirm przypisania.
+3. Wybierz użytkownika testowego, kliknij przycisk **przypisać**, a następnie kliknij przycisk **tak** o potwierdzenie przypisania.
    
     ![Tak](./media/active-directory-saas-replicon-tutorial/IC767830.png "tak")
 
-Jeśli chcesz tootest jednego ustawienia logowania jednokrotnego, otwórz hello panelu dostępu. Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Jeśli chcesz przetestować jednego ustawienia logowania jednokrotnego, otwórz Panel dostępu. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 

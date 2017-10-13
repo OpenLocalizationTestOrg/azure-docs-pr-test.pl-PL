@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacja bramy sieci VPN — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toomanage bramy wirtualnej sieci prywatnej (VPN) tooconfigure ruchu między sieciami wirtualnymi w chmurze i lokalnie lub chmury sieci wirtualnych."
+title: "Dokumentacja usługi Azure VPN Gateway — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Informacje o sposobie konfigurowania bram wirtualnych sieci prywatnych (VPN) do zarządzania ruchem między sieciami wirtualnymi w chmurze i sieciami lokalnymi lub między sieciami wirtualnymi w chmurze."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a518f39e0cb8761e239d0c033a7801803edfd0a7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 61273e472dd0d0727df40984ad277aaf4c244611
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-documentation"></a>Dokumentacja usługi VPN Gateway
 
-Dowiedz się, jak tooconfigure bramy sieci VPN i bramy wirtualnych sieci prywatnych. Dokumentacji przedstawiono, jak toosend ruchem sieciowym między sieciami wirtualnymi platformy Azure i lokalizacji lokalnej lub innych Azure sieci wirtualnych (sieci wirtualne).
+Informacje o sposobie konfigurowania usługi VPN Gateway, bramy wirtualnej sieci prywatnej. Dokumentacja przedstawiająca sposób wysyłania ruchu sieciowego między sieciami wirtualnymi platformy Azure i lokalizacjami lokalnymi lub między sieciami wirtualnymi platformy Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Dowiedz się, jak tooconfigure bramy sieci VPN i bramy wirtualnych sieci prywatn
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie pracy, tworzenia połączenia lokacja lokacja za pomocą hello portalu Azure</h3>
+                        <h3>Wprowadzenie do tworzenia połączenia typu lokacja-lokacja przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Dowiedz się, jak tooconfigure bramy sieci VPN i bramy wirtualnych sieci prywatn
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpocząć tworzenie połączenie punkt lokacja za pomocą hello portalu Azure</h3>
+                        <h3>Wprowadzenie do tworzenia połączenia typu punkt-lokacja przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@ Dowiedz się, jak tooconfigure bramy sieci VPN i bramy wirtualnych sieci prywatn
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Tworzenie połączenia do wirtualnymi przy użyciu hello portalu Azure</h3>
+                        <h3>Wprowadzenie do tworzenia połączenia typu sieć wirtualna-sieć wirtualna przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>

@@ -1,22 +1,24 @@
 # Omówienie
-## [O hello portalu Azure](../azure-portal-overview.md)
+## [Informacje o witrynie Azure Portal](../azure-portal-overview.md)
 # Samouczki
-## [DevOps z hello portalu Azure](tutorial-azureportal-devops.md)
+## [Metodyka DevOps w witrynie Azure Portal](tutorial-azureportal-devops.md)
 # Pojęcia
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Skróty klawiaturowe](azure-portal-keyboard-shortcuts.md)
 ## [Obsługiwane przeglądarki i urządzenia](../azure-preview-portal-supported-browsers-devices.md)
-# Jak tooguides
+## [Struktura pulpitów nawigacyjnych platformy Azure](azure-portal-dashboards-structure.md)
+# Przewodniki z instrukcjami
 ## Wdrażanie
 ### [Tworzenie szablonów usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Wdrażanie przy użyciu szablonu usługi Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Tworzenie i udostępnianie pulpitów nawigacyjnych platformy Azure](azure-portal-dashboards.md)
+### [Programowe tworzenie pulpitów nawigacyjnych platformy Azure](azure-portal-dashboards-create-programmatically.md)
 ## Zarządzanie
 ### [Włączanie dużego kontrastu lub zmienianie motywu](azure-portal-change-theme-high-contrast.md)
-### [Korzystanie z portalu toomanage zasobów](../azure-resource-manager/resource-group-portal.md)
+### [Zarządzanie zasobami w portalu](../azure-resource-manager/resource-group-portal.md)
 ### [Zarządzanie dostępem przy użyciu kontroli dostępu opartej na rolach](../active-directory/role-based-access-control-configure.md)
 ### [Udostępnianie pulpitów nawigacyjnych przy użyciu kontroli dostępu opartej na rolach](azure-portal-dashboard-share-access.md)
-### [Korzystanie z zasobów tooorganize tagów](../azure-resource-manager/resource-group-using-tags.md)
+### [Organizowanie zasobów przy użyciu tagów](../azure-resource-manager/resource-group-using-tags.md)
 ### [Skalowanie zasobów](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Tworzenie nowej jednostki usługi platformy Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Monitorowanie

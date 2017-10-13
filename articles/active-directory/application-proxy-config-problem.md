@@ -1,6 +1,6 @@
 ---
-title: aaaProblem tworzenia aplikacji serwera Proxy aplikacji | Dokumentacja firmy Microsoft
-description: "Jak tootroubleshoot problemy tworzenia aplikacji serwera Proxy aplikacji w portalu usługi Azure AD administratora hello"
+title: Problem z tworzeniem aplikacji serwera Proxy aplikacji | Dokumentacja firmy Microsoft
+description: "Jak rozwiązywać problemy dotyczące tworzenia aplikacji serwera Proxy aplikacji w portalu usługi Azure AD administratora"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 24fab83c38a49a9e5754854acf2f9711e374e559
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fe56f56162ba7186f1b660a5b44fcef38f1dee9d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="problem-creating-an-application-proxy-application"></a>Problem z tworzeniem aplikacji serwera Proxy aplikacji 
 
-Poniżej przedstawiono niektóre typowe problemy hello krój osoby podczas tworzenia nowej aplikacji serwera proxy aplikacji.
+Poniżej przedstawiono niektóre typowe problemy krój osoby podczas tworzenia nowej aplikacji serwera proxy aplikacji.
 
 ## <a name="recommended-documents"></a>Zalecane dokumenty 
 
-Zobacz toolearn więcej informacji na temat tworzenia aplikacji serwera Proxy aplikacji za pośrednictwem portalu administracyjnego hello [publikowanie aplikacji przy użyciu serwera Proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
+Aby dowiedzieć się więcej na temat tworzenia aplikacji serwera Proxy aplikacji za pośrednictwem portalu administratora, zobacz [publikowanie aplikacji przy użyciu serwera Proxy aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal).
 
-Jeśli są następujące kroki hello w tym dokumencie i uzyskiwania błąd podczas tworzenia aplikacji hello, zobacz szczegóły błędu hello informacji i sugestie dotyczące sposobu toofix hello aplikacji. Większość komunikaty o błędach obejmują sugerowanej poprawki. 
+Jeśli są następujące kroki w tym dokumencie i uzyskiwania błąd podczas tworzenia aplikacji, zobacz szczegóły błędu, aby uzyskać informacje i sugestie dotyczące sposobu usunięcia aplikacji. Większość komunikaty o błędach obejmują sugerowanej poprawki. 
 
-## <a name="specific-things-toocheck"></a>Określone informacje toocheck
+## <a name="specific-things-to-check"></a>Określone czynności do wykonania
 
-Sprawdź tooavoid typowych błędów:
+Aby uniknąć typowych błędów, sprawdzić:
 
--   Administratorzy z toocreate uprawnienia aplikacji serwera Proxy aplikacji
+-   Administratorzy z uprawnieniami do tworzenia aplikacji serwera Proxy aplikacji
 
--   wewnętrzny adres URL Hello jest unikatowa
+-   Wewnętrzny adres URL jest unikatowa
 
--   zewnętrzny adres URL Hello jest unikatowa
+-   Zewnętrzny adres URL jest unikatowa
 
--   Witaj adresy URL rozpoczyna się od http lub https i kończyć się "/"
+-   Adresy URL rozpoczynać się od http lub https i kończyć się "/"
 
--   adres URL Hello powinna być nazwą domeny, a nie adres IP
+-   Adres URL powinien być nazwą domeny, a nie adres IP
 
-komunikat o błędzie Hello powinien być wyświetlany w prawym górnym rogu hello podczas tworzenia aplikacji hello. Można również wybrać hello powiadomień ikona toosee hello komunikaty o błędach.
+Komunikat o błędzie powinien być wyświetlany w prawym górnym rogu podczas tworzenia aplikacji. Możesz również wybrać ikonę powiadomienia, aby wyświetlić komunikaty o błędach.
 
    ![Wiersz powiadomień](./media/application-proxy-config-problem/error-message.png)
 
 ## <a name="next-steps"></a>Następne kroki
-[Włącz serwer Proxy aplikacji w portalu Azure hello](active-directory-application-proxy-enable.md)
+[Włącz serwer Proxy aplikacji w portalu Azure](active-directory-application-proxy-enable.md)

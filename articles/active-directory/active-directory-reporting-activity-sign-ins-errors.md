@@ -1,5 +1,5 @@
 ---
-title: "kody błędów raport aktywności aaaSign w portalu usługi Azure Active Directory hello | Dokumentacja firmy Microsoft"
+title: "Kody błędów w raportach działań związanych z logowaniem w portalu usługi Azure Active Directory | Microsoft Docs"
 description: "Dokumentacja dotycząca kodów błędów w raportach działań związanych z logowaniem."
 services: active-directory
 documentationcenter: 
@@ -15,25 +15,25 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a0ca5b706bfeb0c7ce669712468a083a394712b4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="sign-in-activity-report-error-codes-in-hello-azure-active-directory-portal"></a>Kody błędów raport aktywności logowania w portalu usługi Azure Active Directory hello
+# <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Kody błędów w raportach działań związanych z logowaniem w portalu usługi Azure Active Directory
 
-Hello informacje podane w raporcie logowania użytkownika hello możesz znaleźć odpowiedzi tooquestions, takich jak:
+Dzięki informacjom zawartym w raporcie operacji logowania użytkowników można uzyskać odpowiedzi na pytania, takie jak:
 
 - Kto logował się za pomocą usługi Azure Active Directory?
 - Do których aplikacji logowali się użytkownicy?
 - Które operacje logowania zakończyły się błędem i dlaczego?
 
-Ten błąd hello list temat kodów i hello opisy pokrewne. 
+Ten temat zawiera listę kodów błędów i powiązane opisy. 
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>Jak mogę wyświetlić nieudane operacje logowania? 
 
-Pierwszy wpis punktu tooall logowania działań dane są  **[logowania](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)**  w hello **działania** sekcji **usługi Azure Active**.
+Pierwszym punktem wejścia do wszystkich danych działań związanych z logowaniem jest pozycja **[Logowania](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)** w sekcji **Działania** usługi **Azure Active**.
 
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins-errors/61.png "Działania związane z logowaniem")
@@ -44,60 +44,60 @@ W raporcie logowań można wyświetlić wszystkie nieudane logowania, wybierają
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins-errors/06.png "Działania związane z logowaniem")
 
-Kliknięcie elementu na liście hello wyświetlane, otwiera hello **szczegóły aktywności: logowania** bloku. Ten widok udostępnia wszystkie szczegóły hello śledzonych w usłudze Azure Active Directory o logowania, w tym hello **kod błędu logowania** i **Przyczyna niepowodzenia**.
+Kliknięcie elementu na wyświetlonej liście powoduje otwarcie bloku **Szczegóły działań: logowania**. Ten widok zawiera wszystkie szczegóły operacji logowania śledzone przez usługę Azure Active Directory, takie jak na przykład **kod błędu logowania** i **przyczyna niepowodzenia**.
 
 ![Działania związane z logowaniem](./media/active-directory-reporting-activity-sign-ins-errors/05.png "Działania związane z logowaniem")
 
 
-Hello toousing alternatywnych danych logowania hello tooaccess portalu Azure, można również użyć hello [interfejsem API raportowania](active-directory-reporting-api-getting-started-azure-portal.md).
+Aby uzyskać dostęp do danych logowania, zamiast witryny Azure Portal można również użyć [interfejsu API raportowania](active-directory-reporting-api-getting-started-azure-portal.md).
 
 
-Witaj Poniższa sekcja umożliwia pełny przegląd wszystkich możliwych błędów i hello związane z opisami. 
+W poniższej sekcji przedstawiono kompletne omówienie wszystkich możliwych błędów i powiązane opisy. 
 
 ## <a name="error-codes"></a>Kody błędów
 
 | Błąd| Opis |
 | --- | --- |
-| 50001| Nie można odnaleźć nazwy głównej usługi Hello o nazwie X w dzierżawie powitalnych o nazwie Y. Może to nastąpić, jeśli nie zainstalowano aplikacji hello przez administratora hello hello dzierżawcy. Lub podmiot zabezpieczeń zasobu nie został znaleziony w katalogu hello lub jest nieprawidłowy|
-| 50008| Potwierdzenia języka SAML są brakujących ani źle skonfigurowanych w tokenie hello.|
-| 50011| adres zwrotny Hello brakuje, niepoprawnie skonfigurowany lub nie odpowiada adresów odpowiedzi skonfigurowanych dla aplikacji hello.|
-| 50053| Konto zostało zablokowane, ponieważ użytkownik próbował toosign w zbyt wiele razy przy użyciu niepoprawnego Identyfikatora użytkownika lub hasła.|
+| 50001| Nie można odnaleźć jednostki usługi o nazwie X w dzierżawie o nazwie Y. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy. Lub w katalogu nie znaleziono jednostki Zasób albo jest ona nieprawidłowa|
+| 50008| Brak potwierdzeń języka SAML lub zostały nieprawidłowo skonfigurowane w tokenie.|
+| 50011| Brak adresu zwrotnego, został nieprawidłowo skonfigurowany lub jest inny niż adresy zwrotne skonfigurowane dla aplikacji.|
+| 50053| Konto zostało zablokowane, ponieważ użytkownik podjął zbyt wiele prób zalogowania przy użyciu niepoprawnego identyfikatora użytkownika lub hasła.|
 | 50054| Podczas uwierzytelniania użyto starego hasła.|
 | 50055| Nieprawidłowe hasło — wprowadzono nieważne hasło.|
 | 50057| Konto użytkownika zostało wyłączone.|
-| 50058| Informacje o tożsamości użytkownika nie znajduje się między pod warunkiem lub poświadczenia użytkownika nie został znaleziony w dzierżawie wysłano dyskretnej żądanie logowania, ale żaden użytkownik nie jest zalogowany lub usługa została tooauthenticate hello użytkownika.|
+| 50058| W podanych poświadczeniach nie znaleziono informacji o tożsamości użytkownika, w dzierżawie nie znaleziono użytkownika albo wysłano żądanie logowania dyskretnego, ale żaden użytkownik nie jest zalogowany lub usługa nie mogła uwierzytelnić użytkownika.|
 | 50074| Wymagane jest silne uwierzytelnianie (dwuskładnikowe)|
-| 50079| Użytkownik musi tooenroll dla drugiego składnika uwierzytelniania|
+| 50079| Użytkownik musi zarejestrować się na potrzeby uwierzytelniania dwuskładnikowego|
 | 50126| Nieprawidłowa nazwa lub hasło użytkownika albo nieprawidłowa nazwa lub hasło użytkownika lokalnego.|
-| 50131| Kod używany w przypadku różnych błędów dostępu warunkowego, Urządzenia Windows zły np. stanu, żądanie zablokowane należne działanie toosuspicious, zasady dostępu i zasad zabezpieczeń decyzji.|
-| 50133| Sesja jest nieprawidłowa tooexpiration lub ostatnie zmiany hasła.|
+| 50131| Kod używany w przypadku różnych błędów dostępu warunkowego, takich jak zły stan urządzenia z systemem Windows albo żądanie zablokowane z powodu podejrzanych decyzji związanych z działaniami, zasadami dostępu i zasadami zabezpieczeń.|
+| 50133| Sesja jest nieprawidłowa z powodu wygaśnięcia lub niedawnej zmiany hasła.|
 | 50144| Ważność hasła użytkownika usługi Active Directory wygasła.|
-| 65001| X aplikacji nie ma uprawnienia aplikacji tooaccess Y lub uprawnienie hello został odwołany. Lub hello użytkownik lub administrator nie zgodził aplikacji hello toouse przy użyciu Identyfikatora X. wysyłania żądania autoryzacji interakcyjne dla tego użytkownika i zasobów. Lub hello użytkownik lub administrator nie zgodził toouse hello aplikacji o identyfikatorze X. wysyłania tooact administratora dzierżawy tooyour autoryzacji żądania w imieniu aplikacji hello: Y dla zasobu: Z.|
-| 65005| Aplikacja Hello wymagane listy dostępu do zasobów nie zawiera aplikacji wykrywalny przez zasób hello lub powitania klienta aplikacja zażądała tooresource dostępu, który nie został określony w jej listy dostępu do wymaganych zasobów lub usługi wykres zwrócił nieprawidłowy żądanie lub nie można odnaleźć zasobu.|
-| 70001| Nie można odnaleźć aplikacji Hello o nazwie X w dzierżawie powitalnych o nazwie Y. To może wystąpić, jeśli nie zainstalowano aplikacji hello przez hello administrator dzierżawy hello lub przyzwolenie tooby każdy użytkownik w dzierżawie powitalnych. Prawdopodobnie została wysłana dzierżawy niewłaściwy toohello żądania uwierzytelniania.|
+| 65001| Aplikacja X nie ma uprawnienia dostępu do aplikacji Y lub uprawnienie zostało odwołany. Lub użytkownik albo administrator nie wyraził zgody na używanie aplikacji z identyfikatorem X. Wyślij interaktywne żądanie autoryzacji dla tego użytkownika i zasobu. Lub użytkownik albo administrator nie wyraził zgody na używanie aplikacji z identyfikatorem X. Wyślij do administratora dzierżawy żądanie autoryzacji dotyczące działania w imieniu aplikacji Y dla zasobu Z.|
+| 65005| Lista dostępu do wymaganych zasobów aplikacji nie zawiera aplikacji możliwych do wykrycia przez zasób lub aplikacja kliencka zażądała dostępu do zasobu, który nie został określony na liście dostępu do wymaganych zasobów lub usługa programu Graph zwróciła nieprawidłowe żądanie lub nie można odnaleźć zasobu.|
+| 70001| Nie można odnaleźć aplikacji o nazwie X w dzierżawie o nazwie Y. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub żaden użytkownik w dzierżawie nie wyraził odpowiedniej zgody. Żądanie uwierzytelniania mogło zostać wysłane do nieprawidłowej dzierżawy.|
 | 80001| Brak dostępnych agentów uwierzytelniania.|
 | 80002| Upłynął limit czasu żądania weryfikacji hasła agenta uwierzytelniania.|
 | 80003| Agent uwierzytelniania odebrał nieprawidłową odpowiedź.|
 | 80004| W żądaniu logowania użyto nieprawidłowej głównej nazwy użytkownika (UPN).|
 | 80005| Agent uwierzytelniania: wystąpił błąd.|
-| 80007| Uwierzytelnianie agenta tooconnect tooActive katalogu.|
-| 80010| Hasło toodecrypt Agent uwierzytelniania.|
+| 80007| Agent uwierzytelniania nie może nawiązać połączenia z usługą Active Directory.|
+| 80010| Agent uwierzytelniania nie może odszyfrować hasła.|
 | 81001| Bilet Kerberos użytkownika jest zbyt duży.|
-| 81002| Użytkownik toovalidate biletu Kerberos.|
-| 81003| Użytkownik toovalidate biletu Kerberos.|
+| 81002| Nie można zweryfikować biletu Kerberos użytkownika.|
+| 81003| Nie można zweryfikować biletu Kerberos użytkownika.|
 | 81004| Próba uwierzytelniania Kerberos nie powiodła się.|
-| 81008| Użytkownik toovalidate biletu Kerberos.|
-| 81009| Użytkownik toovalidate biletu Kerberos.|
-| 81010| Bezproblemowe logowanie Jednokrotne nie powiodło się, ponieważ biletu Kerberos hello użytkownika wygasło lub jest nieprawidłowy.|
-| 81011| Obiekt użytkownika toofind na podstawie informacji biletu Kerberos hello użytkownika.|
-| 81012| Hello użytkownika w trakcie toosign w tooAzure AD różni się od użytkownika hello w urządzeniu hello zalogowany.|
-| 81013| Obiekt użytkownika toofind na podstawie informacji biletu Kerberos hello użytkownika.|
-| 90014| Używany w przypadku różnych, jeśli nie występuje w poświadczeniu hello oczekiwanego pola.|
-| 90093| Wykres zwrócił kod błędu niedozwolonych hello żądania.|
+| 81008| Nie można zweryfikować biletu Kerberos użytkownika.|
+| 81009| Nie można zweryfikować biletu Kerberos użytkownika.|
+| 81010| Bezproblemowe logowanie jednokrotne nie powiodło się, ponieważ ważność biletu Kerberos użytkownika wygasła lub bilet jest nieprawidłowy.|
+| 81011| Nie można znaleźć obiektu użytkownika w oparciu o informacje z biletu Kerberos użytkownika.|
+| 81012| Użytkownik próbujący zalogować się do usługi Azure AD jest inny niż użytkownik zalogowany do urządzenia.|
+| 81013| Nie można znaleźć obiektu użytkownika w oparciu o informacje z biletu Kerberos użytkownika.|
+| 90014| Kod używany w różnych przypadkach, jeśli poświadczenia nie zawierają oczekiwanego pola.|
+| 90093| Program Graph zwrócił niedozwolony kod błędu dla żądania.|
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz hello [logowania raporty aktywności w portalu usługi Azure Active Directory hello](active-directory-reporting-activity-sign-ins.md).
+Więcej informacji można znaleźć w temacie [Wprowadzenie do raportów dotyczących logowań w portalu Azure Active Directory](active-directory-reporting-activity-sign-ins.md).
 

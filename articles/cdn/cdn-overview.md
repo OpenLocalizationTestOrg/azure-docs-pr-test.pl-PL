@@ -1,6 +1,6 @@
 ---
-title: "Omówienie usługi CDN aaaAzure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jakie hello jest usługa Azure Content Delivery Network (CDN) i w jaki sposób toouse on toodeliver zawartości wysokiej przepustowości przez buforowanie obiektów blob i zawartości statycznej."
+title: "Omówienie usługi Azure CDN | Microsoft Docs"
+description: "Dowiedz się, co to jest usługa Azure Content Delivery Network (CDN) i jak z niej korzystać w celu dostarczania zawartości wysokiej przepustowości przez buforowanie obiektów blob i zawartości statycznej."
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: e0230a6e107969b845985f2f4d357bf93cd40d42
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-hello-azure-content-delivery-network-cdn"></a>Omówienie hello Azure sieci dostarczania zawartości (CDN)
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Omówienie usługi Azure Content Delivery Network (CDN)
 > [!NOTE]
-> Tym dokumencie opisano, jakie hello jest Azure sieci dostarczania zawartości (CDN), jak działa i hello funkcje każdego produktu Azure CDN.  Jeśli mają tooskip te informacje i przejść proste tooa samouczek na temat toocreate punktu końcowego usługi CDN, zobacz [przy użyciu usługi Azure CDN](cdn-create-new-endpoint.md).  Jeśli chcesz toosee listę bieżące lokalizacje węzłów CDN, zobacz [lokalizacje POP usługi Azure CDN](cdn-pop-locations.md).
+> W tym dokumencie opisano, co to jest i jak działa usługa Azure Content Delivery Network (CDN) oraz funkcje każdego produktu Azure CDN.  Jeśli chcesz pominąć te informacje i przejść od razu do samouczka na temat tworzenia punktu końcowego usługi CDN, zobacz [Korzystanie z usługi CDN](cdn-create-new-endpoint.md).  Jeśli chcesz wyświetlić listę bieżących lokalizacji węzłów CDN, zobacz [Lokalizacje POP usługi Azure CDN](cdn-pop-locations.md).
 > 
 > 
 
-Hello Azure Content Delivery Network (CDN) buforuje zawartość statyczną sieci web w strategicznie rozmieszczonych lokalizacjach tooprovide maksymalnej przepływności dostarczania zawartości toousers.  Witaj CDN oferuje deweloperom globalne rozwiązanie umożliwiające dostarczanie zawartości wysokiej przepustowości przez buforowanie zawartości hello w węzłach fizycznych między hello world. 
+Usługa Azure Content Delivery Network (CDN) buforuje zawartość statyczną sieci Web w strategicznie rozmieszczonych lokalizacjach w celu zapewnienia maksymalnej przepływności dostarczania zawartości dla użytkowników.  Usługa CDN oferuje deweloperom globalne rozwiązanie umożliwiające dostarczanie zawartości o wysokiej przepustowości przez zapisywanie zawartości w pamięci podręcznej w węzłach fizycznych na całym świecie. 
 
-Witaj przy użyciu zasobów witryny sieci web toocache CDN hello zalety:
+Zalety używania usługi CDN do buforowania zasobów witryny sieci Web obejmują:
 
-* Lepszą wydajność i środowisko dla użytkowników końcowych, zwłaszcza w przypadku, gdy za pomocą aplikacji, w którym jest wiele rund wymagane tooload zawartości.
-* Duże skalowanie toobetter obsługiwać natychmiastowe wysokie obciążenie, np. na początku hello produktu uruchamianie zdarzeń.
-* Dystrybucję żądań użytkowników i obsługę zawartości z serwerów krawędzi, mniej ruchu jest wysyłane toohello pochodzenia.
+* Lepszą wydajność i środowisko dla użytkowników końcowych, zwłaszcza w przypadku korzystania z aplikacji, w których wymagane jest wiele rund do załadowania zawartości.
+* Duże skalowanie, aby lepiej obsługiwać natychmiastowe wysokie obciążenie, na przykład na początku zdarzenia uruchamiania produktu.
+* Dystrybucję żądań użytkowników i obsługę zawartości z serwerów krawędzi, dzięki czemu mniej ruchu jest wysyłane do punktu początkowego.
 
 ## <a name="how-it-works"></a>Jak to działa
 ![Omówienie usługi CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Użytkownik (Anna) żąda pliku (nazywanego również zasobem) przy użyciu adresu URL ze specjalną nazwą domeny, taką jak `<endpointname>.azureedge.net`.  System DNS kieruje hello żądania toohello najlepiej wykonywania punktu z obecności (POP) lokalizacji.  Zazwyczaj jest to punkt obecności znajdujący się geograficznie najbliżej użytkownika toohello hello.
-2. Jeśli serwery krawędzi hello w hello POP nie ma pliku hello w swojej pamięci podręcznej, hello serwer krawędzi żąda pliku hello hello pochodzenia.  Witaj źródła można aplikacji sieci Web platformy Azure, usługa w chmurze Azure, konta magazynu Azure lub dowolnego publicznie dostępny serwer sieci web.
-3. Witaj punkt początkowy zwraca hello pliku toohello krawędzi serwera, w tym opcjonalne nagłówki HTTP opisujące pliku hello Time-to-Live (TTL).
-4. serwer graniczny Hello buforuje plik hello i zwraca hello pliku toohello oryginalnego obiektu żądającego (Anna).  Plik Hello pozostaje buforowane na serwerze granicznym hello, do momentu wygaśnięcia hello TTL.  Jeśli hello punkt początkowy nie określił wartości TTL, domyślny hello czas wygaśnięcia wynosi siedem dni.
-5. Dodatkowych użytkowników może hello żądania sam plik za pomocą tego samego adresu URL i może również być ukierunkowanej toothat tego samego punktu obecności.
-6. Jeśli hello czas wygaśnięcia pliku hello nie wygasł, serwer graniczny hello zwraca hello pliku z pamięci podręcznej hello.  Skutkuje to szybszymi czasami reakcji w środowisku użytkownika.
+1. Użytkownik (Anna) żąda pliku (nazywanego również zasobem) przy użyciu adresu URL ze specjalną nazwą domeny, taką jak `<endpointname>.azureedge.net`.  System DNS kieruje żądanie do najlepiej działającej lokalizacji punktu obecności (POP, Point-of-Presence).  Zazwyczaj jest to punkt obecności znajdujący się geograficznie najbliżej użytkownika.
+2. Jeśli serwery krawędzi w lokalizacji POP nie mają pliku w swojej pamięci podręcznej, serwer krawędzi żąda pliku z punktu początkowego.  Punktem początkowym może być aplikacja sieci Web platformy Azure, usługa Azure Cloud Service, konto usługi Azure Storage lub dowolny publicznie dostępny serwer sieci Web.
+3. Punkt początkowy zwraca plik do serwera krawędzi, dołączając opcjonalne nagłówki HTTP opisujące czas wygaśnięcia (TTL, Time-to-Live) pliku.
+4. Serwer krawędzi zapisuje plik w pamięci podręcznej i zwraca go do oryginalnego obiektu żądającego (Anna).  Plik pozostaje w pamięci podręcznej na serwerze krawędzi do momentu upłynięcia czasu wygaśnięcia.  Jeśli punkt początkowy nie określił czasu wygaśnięcia, domyślnie wynosi on siedem dni.
+5. Dodatkowi użytkownicy mogą następnie zażądać tego samego pliku przy użyciu tego samego adresu URL, a także mogą być kierowani do tego samego punktu obecności.
+6. Jeśli czas wygaśnięcia pliku nie upłynął, serwer krawędzi zwraca plik z pamięci podręcznej.  Skutkuje to szybszymi czasami reakcji w środowisku użytkownika.
 
 ## <a name="azure-cdn-features"></a>Funkcje usługi Azure CDN
-Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon** i **Azure CDN Premium from Verizon**.  Witaj poniższej tabeli wymieniono hello funkcje dostępne w poszczególnych produktach.
+Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon** i **Azure CDN Premium from Verizon**.  W tabeli poniżej wymieniono funkcje dostępne w poszczególnych produktach.
 
 |  | Standard Akamai | Standard Verizon | Premium Verizon |
 | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 | [Statystyki w czasie rzeczywistym](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Alerty w czasie rzeczywistym](cdn-real-time-alerts.md) | | |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Łatwość obsługi__ |
-| Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) i [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Łatwa integracja z usługami platformy Azure, takimi jak [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) i [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | Zarządzanie za pomocą [interfejsu API REST](https://msdn.microsoft.com/library/mt634456.aspx), [platformy .NET](cdn-app-dev-net.md), [środowiska Node.js](cdn-app-dev-node.md) lub [programu PowerShell](cdn-manage-powershell.md). |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Dostosowywalny, oparty na regułach aparat dostarczania zawartości](cdn-rules-engine.md) | | |**&#x2713;** |
 | Ustawienia pamięci podręcznej/nagłówka (przy użyciu [aparatu reguł](cdn-rules-engine.md)) | | |**&#x2713;** |
@@ -85,18 +85,18 @@ Istnieją trzy produkty Azure CDN: **Azure CDN Standard from Akamai**, **Azure C
 
 
 > [!TIP]
-> Czy jest jakaś funkcja chcesz toosee w usłudze Azure CDN?  [Prześlij nam swoją opinię](https://feedback.azure.com/forums/169397-cdn)! 
+> Czy jest jakaś funkcja, z której chcesz korzystać w usłudze Azure CDN?  [Prześlij nam swoją opinię](https://feedback.azure.com/forums/169397-cdn)! 
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-tooget pracę z usługą CDN, zobacz [przy użyciu usługi Azure CDN](cdn-create-new-endpoint.md).
+Aby rozpocząć pracę z usługą CDN, zobacz [Korzystanie z usługi Azure CDN](cdn-create-new-endpoint.md).
 
-Jeśli jesteś istniejącym klientem usługi CDN, teraz można zarządzać punktami końcowymi CDN przy użyciu hello [portalu Microsoft Azure](https://portal.azure.com) lub [PowerShell](cdn-manage-powershell.md).
+Jeśli jesteś istniejącym klientem usługi CDN, możesz teraz zarządzać punktami końcowymi usługi CDN za pomocą witryny [Microsoft Azure Portal](https://portal.azure.com) lub programu [PowerShell](cdn-manage-powershell.md).
 
-toosee hello sieci CDN w akcji, zapoznaj się z hello [wideo z sesji Konferencji Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+Aby zobaczyć usługę CDN w akcji, obejrzyj [wideo z sesji konferencji Build 2016](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
 
-Dowiedz się, jak tooautomate Azure CDN z [.NET](cdn-app-dev-net.md) lub [Node.js](cdn-app-dev-node.md).
+Dowiedz się, jak zautomatyzować usługę Azure CDN przy użyciu platformy [.NET](cdn-app-dev-net.md) lub [Node.js](cdn-app-dev-node.md).
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi CDN](https://azure.microsoft.com/pricing/details/cdn/).
 

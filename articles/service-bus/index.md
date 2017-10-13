@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentację magistrali usługi — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się jak tooset zapasowej wiadomości, który łączy aplikacji i usług między lokalnymi i środowisk w chmurze.  Samouczki, klipy wideo, dokumentacja interfejsu API i inne materiały."
+title: "Dokumentacja usługi Azure Service Bus — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak skonfigurować obsługę komunikatów łączących aplikacje i usługi w środowiskach lokalnych i chmurowych.  Samouczki, klipy wideo, dokumentacja interfejsu API i inne materiały."
 services: service-bus
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
-ms.openlocfilehash: 68df38c39d6f5da112b44025aaf393df542ce01a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9651d93f4d29121e561108845ed48558e46e42f5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="service-bus-documentation"></a>Dokumentacja usługi Service Bus
 
-Dowiedz się jak toouse usługi Service Bus i przekazywania tooconnect między lokalnymi i środowisk w chmurze. Samouczki, wideo, odwołania do interfejsu API i innych Pokaż dokumentacji jak tooset się chmury wysyłanie komunikatów między aplikacjami i usługami.
+Dowiedz się, jak używać usług Service Bus i Relay do łączenia środowisk lokalnych i chmurowych. Samouczki, klipy wideo, dokumentacja interfejsu API i inne dokumenty przedstawiające sposób konfigurowania obsługi komunikatów wysyłanych między aplikacjami i usługami w chmurze.
 
 <ul class="panelContent cardsFTitle">
     <li>

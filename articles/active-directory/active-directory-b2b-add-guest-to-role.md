@@ -1,6 +1,6 @@
 ---
-title: "Rola tooa użytkownika współpracy B2B usługi Azure Active Directory aaaAdd | Dokumentacja firmy Microsoft"
-description: "Dodaj rolę tooa użytkownika gościa w usłudze Azure Active Directory"
+title: "Dodaj do roli użytkownika współpracy usługi Azure Active Directory B2B | Dokumentacja firmy Microsoft"
+description: "Dodaj użytkownika gościa do roli w usłudze Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccc58a0c8ecc73f8e79a8d827efdc0ff93846a96
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="grant-permissions-toousers-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Udziel uprawnień toousers z organizacji partnera w dzierżawie usługi Azure Active Directory
+# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Przyznawanie uprawnień użytkownikom w organizacji partnera w dzierżawie usługi Azure Active Directory
 
-Azure użytkowników współpracy B2B usługi Active Directory (Azure AD) są dodawane jako katalog toohello użytkowników gościa, a uprawnienia w katalogu hello są ograniczone przez domyślny. Firma może być konieczne niektórych gościa użytkowników toofill wyższych uprawnień ról w organizacji. zdefiniowanie ról wyższych uprawnień toosupport goście mogą być dodane tooany ról wymaganych, w zależności od potrzeb organizacji.
+Azure użytkowników współpracy B2B usługi Active Directory (Azure AD) są dodawane jako goście w katalogu, a uprawnienia w katalogu są ograniczone przez domyślny. Firma może być konieczne niektórzy użytkownicy gościa do pełnienia ról wyższych uprawnień w Twojej organizacji. Do obsługi, zdefiniowanie ról wyższych uprawnień, goście mogą być dodawane do żadnej roli, które chcesz, w zależności od potrzeb organizacji.
 
 ## <a name="default-role"></a>Domyślna rola
 

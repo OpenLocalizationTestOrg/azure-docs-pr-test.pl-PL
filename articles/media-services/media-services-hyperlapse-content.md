@@ -1,6 +1,6 @@
 ---
-title: "aaaHyperlapse plików multimedialnych na pliki z usługi Azure Media Hyperlapse | Dokumentacja firmy Microsoft"
-description: "Azure Media Hyperlapse tworzy smooth czas, jaki upłynął wideo z pierwszą osobą lub akcji aparatu zawartości. W tym temacie przedstawiono sposób toouse indeksatora nośnika."
+title: "Plikach multimedialnych przyspieszonych ujęć poklatkowych za pomocą usługi Azure Media Hyperlapse | Dokumentacja firmy Microsoft"
+description: "Azure Media Hyperlapse tworzy smooth czas, jaki upłynął wideo z pierwszą osobą lub akcji aparatu zawartości. W tym temacie pokazano, jak używać nośnika indeksatora."
 services: media-services
 documentationcenter: 
 author: asolanki
@@ -14,37 +14,37 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-ms.openlocfilehash: 85bb07206d0ca2f5b2fd0767e6ed4904195d3ab6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Plikach multimedialnych przyspieszonych ujęć poklatkowych za pomocą usługi Azure Media Hyperlapse
-Azure Media Hyperlapse jest nośnik procesora (MP) tworzącą smooth czas, jaki upłynął wideo z pierwszą osobą lub akcji aparatu zawartości.  Witaj równorzędny oparte na chmurze za[desktop Pro przyspieszonych ujęć poklatkowych i opartych na telefon komórkowy przyspieszonych ujęć poklatkowych Microsoft Research](http://aka.ms/hyperlapse), Hyperlapse firmy Microsoft dla usługi Azure Media Services używa hello ogromną skalę hello Azure Media Services nośnika Przetwarzanie toohorizontally platformy skalowanie i parallelize zbiorczego przyspieszonych ujęć poklatkowych przetwarzania.
+Azure Media Hyperlapse jest nośnik procesora (MP) tworzącą smooth czas, jaki upłynął wideo z pierwszą osobą lub akcji aparatu zawartości.  Element równorzędny oparte na chmurze do [desktop Pro przyspieszonych ujęć poklatkowych i opartych na telefon komórkowy przyspieszonych ujęć poklatkowych Microsoft Research](http://aka.ms/hyperlapse), Hyperlapse firmy Microsoft dla usługi Azure Media Services używa bardzo dużej skali przetwarzania Media Services multimediów Azure Platforma na poziomie skalowanie i parallelize zbiorcze przyspieszonych ujęć poklatkowych przetwarzania.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse jest zaprojektowana toowork najlepiej na pierwszą osobą zawartości za pomocą przenoszenia aparatu.  Mimo że nadal kamery może nadal działać, nie można zagwarantować hello wydajności i jakości hello Azure Media przyspieszonych ujęć poklatkowych nośnika procesora dla innych typów zawartości.  więcej informacji na temat Hyperlapse firmy Microsoft dla usługi Azure Media Services toolearn i wyświetlić niektóre przykładowe filmy, zapoznaj się z hello [wprowadzające wpis w blogu](http://aka.ms/azurehyperlapseblog) z publicznej wersji zapoznawczej hello.
+> Microsoft Hyperlapse jest zaprojektowana by najlepiej pracować na pierwszą osobą zawartości za pomocą przenoszenia aparatu.  Mimo że nadal kamery może nadal działać, wydajności i jakości procesor multimediów Azure Media przyspieszonych ujęć poklatkowych nie można zagwarantować dla innych typów zawartości.  Aby dowiedzieć się więcej o Hyperlapse firmy Microsoft dla usługi Azure Media Services i wyświetlić niektóre przykładowe filmy, zapoznaj się [wprowadzające wpis w blogu](http://aka.ms/azurehyperlapseblog) z publicznej wersji zapoznawczej.
 > 
 > 
 
-Azure Media Hyperlapse zadania przyjmuje jako dane wejściowe plik MP4, MOV lub WMV zasobów oraz pliku konfiguracji, który określa, które ramki wideo powinny być czas, jaki upłynął i szybkość toowhat (np. pierwszych 10 000 ramek, x 2).  dane wyjściowe Hello jest stabilnych i czas, jaki upłynął dobór hello wejściowy plik wideo.
+Azure Media Hyperlapse zadania przyjmuje jako plik wejściowy elementu MP4, MOV lub WMV zasobów wraz z plikiem konfiguracji, który określa, które ramki wideo powinna być czas, jaki upłynął i jakie szybkości (np. pierwszych 10 000 ramek, x 2).  Dane wyjściowe są stabilnych i czas, jaki upłynął dobór wejściowego pliku wideo.
 
-Najnowsze aktualizacje hello Azure Media Hyperlapse, zobacz [blogi Media Services](https://azure.microsoft.com/blog/topics/media-services/).
+Najnowsze aktualizacje usługi Azure Media Hyperlapse, zobacz [blogi Media Services](https://azure.microsoft.com/blog/topics/media-services/).
 
 ## <a name="hyperlapse-an-asset"></a>Przyspieszonych ujęć poklatkowych zasobów
-Najpierw należy tooupload Twojego tooAzure żądanego pliku wejściowego usługi Media Services.  więcej informacji o toolearn hello pojęcia związane z przekazywanie i zarządzania zawartością, przeczytaj hello [zarządzania zawartością artykułu](media-services-portal-vod-get-started.md).
+Najpierw należy przesłać żądany plik wejściowy do usługi Azure Media Services.  Aby dowiedzieć się więcej na temat pojęć związanych z przekazywanie i zarządzania zawartością, przeczytaj [zarządzania zawartością artykułu](media-services-portal-vod-get-started.md).
 
 ### <a id="configuration"></a>Ustawienie konfiguracji dla przyspieszonych ujęć poklatkowych
-Gdy zawartość jest na koncie usługi Media Services, należy tooconstruct ustawień konfiguracji.  Witaj w poniższej tabeli opisano hello określone przez użytkownika pola:
+Gdy zawartość jest na koncie usługi Media Services, należy utworzyć ustawienia konfiguracji.  W poniższej tabeli opisano pola określone przez użytkownika:
 
 | Pole | Opis |
 | --- | --- |
-| StartFrame |ramki Hello, na które Microsoft Hyperlapse hello powinny one zacząć przetwarzania. |
-| NumFrames |Liczba Hello tooprocess ramki |
-| Szybkość |współczynnik Hello, z których toospeed się hello wejściowy plik wideo. |
+| StartFrame |Ramka, na którym powinny one zacząć przetwarzania Hyperlapse firmy Microsoft. |
+| NumFrames |Liczba ramek do przetworzenia |
+| Szybkość |Współczynnik, z którą ma zostać przyspieszenia wejściowy plik wideo. |
 
-Witaj poniżej przedstawiono przykładowy plik konfiguracji zgodność w pliku XML i JSON:
+Poniżej przedstawiono przykładowy plik konfiguracji zgodność w pliku XML i JSON:
 
 **Ustawienie wstępne XML:**
 
@@ -74,14 +74,14 @@ Witaj poniżej przedstawiono przykładowy plik konfiguracji zgodność w pliku X
         }
     }
 
-### <a id="sample_code"></a>Microsoft Hyperlapse z hello AMS .NET SDK
-Witaj następująca metoda przekazuje plik nośnika jako zasób i tworzy zadanie z hello Azure Media przyspieszonych ujęć poklatkowych nośnika procesora.
+### <a id="sample_code"></a>Microsoft przyspieszonych ujęć poklatkowych przy użyciu zestawu SDK .NET usługi AMS
+Następująca metoda przekazuje plik nośnika jako zasób i tworzy zadanie z procesora Azure Media przyspieszonych ujęć poklatkowych nośnika.
 
 > [!NOTE]
-> CloudMediaContext ma już w zakresie o nazwie hello "context" toowork tego kodu.  więcej informacji na temat tego, odczytu hello toolearn [zarządzania zawartością artykułu](media-services-dotnet-get-started.md).
+> CloudMediaContext ma już w zakresie o nazwie "context" dla tego kodu do pracy.  Aby dowiedzieć się więcej na ten temat, przeczytaj [zarządzania zawartością artykułu](media-services-dotnet-get-started.md).
 > 
 > [!NOTE]
-> argument ciągu Hello "hyperConfig" jest oczekiwany toobe konfiguracji zgodność ustawień w formacie JSON i XML zgodnie z powyższym opisem.
+> Argument ciągu "hyperConfig" powinien być konfiguracji zgodność ustawień w formacie JSON i XML, zgodnie z powyższym opisem.
 > 
 > 
 
@@ -148,7 +148,7 @@ Witaj następująca metoda przekazuje plik nośnika jako zasób i tworzy zadanie
                                                  CancellationToken.None);
             progressJobTask.Wait();
 
-            // If job state is Error, hello event handling
+            // If job state is Error, the event handling
             // method for job progress should log errors.  Here we check
             // for error state and exit if needed.
             if (job.State == JobState.Error)

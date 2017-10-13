@@ -1,6 +1,6 @@
 ---
-title: "komunikaty aaaEncode X12 — usługi Azure Logic Apps | Dokumentacja firmy Microsoft"
-description: "Sprawdź poprawność EDI i przekonwertować kodowany w formacie XML komunikaty z X12 komunikatu kodera w hello pakiet integracyjny dla przedsiębiorstw dla usługi Azure Logic Apps"
+title: "Kodowanie X12 wiadomości - Azure Logic Apps | Dokumentacja firmy Microsoft"
+description: "Sprawdź poprawność EDI i przekonwertować kodowany w formacie XML komunikaty z X12 komunikatu kodera w pakiet integracyjny dla przedsiębiorstw dla usługi Azure Logic Apps"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 785dbd2c7c82463154732921e07e3586d2307840
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29d19364b9a98e351c95f13e68a2e63b9f6439f8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="encode-x12-messages-for-azure-logic-apps-with-hello-enterprise-integration-pack"></a>Kodowanie X12 komunikatów dla usługi Azure Logic Apps z hello pakiet integracyjny dla przedsiębiorstw
+# <a name="encode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Kodowanie X12 wiadomości dla usługi Azure Logic Apps z pakiet integracyjny dla przedsiębiorstw
 
-Łącznik wiadomość hello Koduj X12 zweryfikować EDI i właściwości specyficzne dla partnera, przekonwertować wiadomości w formacie XML na EDI zestawów transakcji w hello wymiany, a żądania potwierdzenia technicznych i funkcjonalności potwierdzenia.
-toouse tego łącznika, należy dodać tooan łącznika hello istniejących wyzwalacza w aplikacji logiki.
+Łącznik komunikat Koduj X12 zweryfikować EDI i właściwości specyficzne dla partnera, przekonwertować wiadomości w formacie XML na EDI zestawów transakcji w wymiany, a żądania potwierdzenia technicznych i funkcjonalności potwierdzenia.
+Aby użyć tego łącznika, należy dodać łącznika do istniejącego wyzwalacza w aplikacji logiki.
 
 ## <a name="before-you-start"></a>Przed rozpoczęciem
 
-Oto hello elementy, które należy:
+Oto elementy, które są potrzebne:
 
 * Konto platformy Azure; można utworzyć [bezpłatne konto](https://azure.microsoft.com/free)
-* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure. Musi mieć łącznik wiadomość hello Koduj X12 integracji konta toouse.
+* [Konta integracji](logic-apps-enterprise-integration-create-integration-account.md) który został już zdefiniowany i skojarzone z subskrypcją platformy Azure. Musi mieć konto integracji Koduj X12 łącznika komunikatu.
 * Co najmniej dwa [partnerów](logic-apps-enterprise-integration-partners.md) które już zostały zdefiniowane w ramach konta integracji
 * [X12 umowy](logic-apps-enterprise-integration-x12.md) jest już zdefiniowany w ramach konta integracji
 
@@ -38,13 +38,13 @@ Oto hello elementy, które należy:
 
 1. [Tworzenie aplikacji logiki](logic-apps-create-a-logic-app.md).
 
-2. Hello Koduj X12 komunikat łącznika nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W hello projektanta aplikacji logiki dodać wyzwalacz, a następnie dodaj aplikację logiki tooyour akcji.
+2. Koduj X12 łącznika komunikatu nie ma wyzwalaczy, dlatego należy dodać wyzwalacza do uruchamiania aplikacji logiki, takich jak wyzwalacz żądania. W Projektancie aplikacji logiki dodać wyzwalacza, a następnie dodać do aplikacji logiki akcję.
 
-3.  W polu wyszukiwania hello wprowadź "x12" filtru. Wybierz opcję **X12-kodowania komunikatu tooX12 według nazwy umowy** lub **X12-kodowania komunikatu tooX12 przez tożsamości**.
+3.  W polu wyszukiwania wprowadź "x12" filtru. Wybierz opcję **X12 —, zakodować w X12 komunikatu przez Nazwa umowy** lub **X12 —, zakodować w X12 komunikatu przez tożsamości**.
    
     ![Wyszukaj "x12"](./media/logic-apps-enterprise-integration-x12-encode/x12decodeimage1.png) 
 
-3. Jeśli wszystkie połączenia nie został wcześniej utworzyć konta integracji tooyour, zostanie wyświetlony monit toocreate teraz tego połączenia. Nazwa połączenia, a następnie wybierz hello integracji konta, które ma tooconnect. 
+3. Jeśli wcześniej nie utworzono wszystkie połączenia z kontem integracji, zostanie wyświetlony monit o utworzyć teraz tego połączenia. Nazwa połączenia, a następnie wybierz konta integracji, na którym chcesz się połączyć. 
    
     ![Integracja połączenia konta](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage1.png)
 
@@ -53,9 +53,9 @@ Oto hello elementy, które należy:
     | Właściwość | Szczegóły |
     | --- | --- |
     | Nazwa połączenia * |Wprowadź dowolną nazwę połączenia. |
-    | Konta integracji * |Wprowadź nazwę konta integracji. Upewnij się, że integracja aplikacji logiki i konta znajdują się w hello tej samej lokalizacji platformy Azure. |
+    | Konta integracji * |Wprowadź nazwę konta integracji. Upewnij się, że integracja aplikacji logiki i konta znajdują się w tej samej lokalizacji platformy Azure. |
 
-5.  Gdy wszystko będzie gotowe, szczegóły połączenia powinien wyglądać podobnie przykład toothis. Wybierz toofinish Tworzenie połączenia **Utwórz**.
+5.  Gdy wszystko będzie gotowe, szczegóły połączenia powinien wyglądać podobnie do tego przykładu. Aby zakończyć tworzenie połączenia, wybierz **Utwórz**.
 
     ![utworzone połączenie konta integracji](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage2.png)
 
@@ -65,36 +65,36 @@ Oto hello elementy, które należy:
 
 #### <a name="encode-x12-messages-by-agreement-name"></a>Kodowanie X12 wiadomości przez Nazwa umowy
 
-Jeśli została wybrana opcja tooencode X12 wiadomości przez nazwę umowy, otwórz hello **nazwa X12 umowy** listy, wpisz lub wybierz Twoje istniejące X12 umowy. Wprowadź tooencode wiadomości XML hello.
+Jeśli zdecydujesz się na kodowania X12 otworzyć wiadomości przez Nazwa umowy **nazwa X12 umowy** listy, wpisz lub wybierz Twoje istniejące X12 umowy. Wprowadź komunikat XML do kodowania.
 
-![Wprowadź X12 umowy, nazwę i XML komunikatu tooencode](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png)
+![Wprowadź X12 Nazwa umowy i wiadomości XML do kodowania](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage4.png)
 
 #### <a name="encode-x12-messages-by-identities"></a>Kodowanie X12 wiadomości przez tożsamości
 
-Wybranie tooencode X12 wiadomości przez tożsamości, wprowadź identyfikator nadawcy hello, Kwalifikator nadawcy, odbiorcy identyfikator i kwalifikator odbiornika zgodnie z konfiguracją sieci X12 umowy. Wybierz hello tooencode wiadomości XML.
+Jeśli wybierzesz do kodowania X12 wiadomości przez tożsamości, wprowadź identyfikator nadawcy, Kwalifikator nadawcy, odbiorcy identyfikator i kwalifikator odbiornik, zgodnie z konfiguracją sieci X12 umowy. Wybierz wiadomości XML do kodowania.
    
-![Podaj tożsamości dla nadawcy i odbiorcy, wybierz tooencode wiadomości XML](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage5.png) 
+![Podaj tożsamości dla nadawcy i odbiorcy, wybierz wiadomości XML do kodowania](./media/logic-apps-enterprise-integration-x12-encode/x12encodeimage5.png) 
 
 ## <a name="x12-encode-details"></a>X12 kodowania szczegóły
 
-Łącznik Koduj Hello X12 wykonuje te zadania:
+X12 łącznik Koduj wykonuje te zadania:
 
 * Rozwiązanie umowy przez nadawcę i odbiorcę właściwości kontekstu dopasowywania.
-* Serializuje hello EDI wymiany danych, konwertowanie wiadomości w formacie XML w EDI zestawy transakcji w hello wymiany.
+* Serializuje wymiany EDI, konwertowanie wiadomości w formacie XML w EDI zestawy transakcji w wymiany.
 * Stosuje zestaw transakcji nagłówka i przyczepy segmentów
 * Generuje numer formantu wymiany, numer kontroli grupy i numer kontroli zestawu transakcji, każdy wychodzący wymiany
-* Zastępuje separatorów hello ładunek danych
+* Zastępuje separatorów w danych ładunku
 * Sprawdza poprawność właściwości specyficzne dla partnerów i EDI
-  * Sprawdzanie poprawności schematu elementów dane zestawu transakcji hello przed wiadomość hello schematu
+  * Sprawdzanie poprawności schematu elementów dane zestawu transakcji dla komunikatu schematu
   * EDI Weryfikacja w przypadku elementów dane zestawu transakcji.
   * Rozszerzonej weryfikacji w przypadku elementów dane zestawu transakcji
 * Żądania potwierdzenia techniczne i/lub funkcjonalne (jeśli jest skonfigurowane).
-  * Generuje techniczne potwierdzenia wyniku weryfikacji nagłówka. Stan hello raportów technicznych potwierdzenia Hello hello przetwarzania nagłówka wymiany i przyczepy przez hello adres odbiorcy
-  * Generuje funkcjonalności potwierdzenia wyniku weryfikacji treści. Witaj potwierdzenia funkcjonalności raporty każdy błąd podczas przetwarzania hello otrzymał dokument
+  * Generuje techniczne potwierdzenia wyniku weryfikacji nagłówka. Potwierdzenie techniczne informuje o stanie przetwarzanie nagłówka wymiany i przyczepy przez odbiornik adresu
+  * Generuje funkcjonalności potwierdzenia wyniku weryfikacji treści. Potwierdzenie funkcjonalności raporty każdego wystąpił błąd podczas przetwarzania odebranego dokumentu
 
-## <a name="view-hello-swagger"></a>Widok hello swagger
-Zobacz hello [swagger szczegóły](/connectors/x12/). 
+## <a name="view-the-swagger"></a>Wyświetlanie struktury swagger
+Zobacz [swagger szczegóły](/connectors/x12/). 
 
 ## <a name="next-steps"></a>Następne kroki
-[Dowiedz się więcej o hello pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
+[Dowiedz się więcej o pakiet integracyjny dla przedsiębiorstw](logic-apps-enterprise-integration-overview.md "Dowiedz się więcej na temat pakiet integracyjny dla przedsiębiorstw") 
 

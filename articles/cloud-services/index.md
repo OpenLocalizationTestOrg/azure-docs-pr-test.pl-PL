@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji usług w chmurze — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Samouczki, odwołania do interfejsu API i dokumentacji przedstawia sposób toouse toohost usługi w chmurze i uruchamianie aplikacji w chmurze wysoką dostępność i skalowalność i interfejsów API."
+title: "Dokumentacja usług Azure Cloud Services — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak przy użyciu usług Cloud Services hostować i uruchamiać wysoce dostępne i skalowalne aplikacje w chmurze oraz interfejsy API."
 services: cloud-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 80793de5a66c9f125c23caf2664fbf08015298ab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 566daede7e0b32110ceae2afa473e427992bc3a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-services-documentation"></a>Dokumentacja usług Cloud Services
 
-Dowiedz się, jak toouse w chmurze usługi toohost i uruchamianie aplikacji w chmurze o wysokiej dostępności i skalowalności i interfejsów API.  Samouczki, odwołania do interfejsu API i dokumentacji zawierają jak toomanage maszyny wirtualnej obsługuje skonfigurować, zastosować poprawki i zainstalować oprogramowanie.
+Dowiedz się, jak przy użyciu usług Cloud Services hostować i uruchamiać wysoce dostępne, skalowalne aplikacje w chmurze i interfejsy API.  W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak zarządzać hostami maszyn wirtualnych oraz jak konfigurować i instalować oprogramowanie, a także stosować do niego poprawki.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -107,8 +107,14 @@ Dowiedz się, jak toouse w chmurze usługi toohost i uruchamianie aplikacji w ch
                 <div class="card">
                     <div class="cardText">
                         <h3>Języki</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">Schemat XML .csdef</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">Schemat XML .cscfg</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-file">Schemat XML .csdef</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe — schemat</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole — schemat</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-workerrole">WorkerRole — schemat</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-networktrafficrules">NetworkTrafficRules — schemat</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-file">Schemat XML .cscfg</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-role">Role — schemat</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-networkconfiguration">NetworkConfiguration — schemat</a></p>
                     </div>
                 </div>
             </div>
@@ -127,5 +133,3 @@ Dowiedz się, jak toouse w chmurze usługi toohost i uruchamianie aplikacji w ch
         </div>
     </li>
 </ul>
-
-

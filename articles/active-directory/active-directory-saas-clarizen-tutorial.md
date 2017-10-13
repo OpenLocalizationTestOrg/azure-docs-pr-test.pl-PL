@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Clarizen | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Clarizen."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Clarizen."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,42 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-ms.openlocfilehash: f24ccda3b90e5df9a203a444dfda905043b30276
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Samouczek: Integracji Azure Active Directory z Clarizen
 
-Z tego samouczka, dowiesz się, jak Azure Active Directory (Azure AD) z Clarizen toointegrate. Umożliwia to integracji hello następujące korzyści:
+Z tego samouczka dowiesz Integrowanie usługi Azure Active Directory (Azure AD) z Clarizen. Integracja ta zapewnia następujące korzyści:
 
-- Można kontrolować, w usłudze Azure AD, kto ma dostęp do tooClarizen.
-- Można włączyć użytkownika toobe użytkowników zostanie automatycznie zalogowany tooClarizen (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji, hello portalu Azure.
+- Można kontrolować, w usłudze Azure AD, który ma dostęp do Clarizen.
+- Można umożliwić użytkownikom można zostanie automatycznie zalogowany do Clarizen (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji, portalu Azure.
 
-Scenariusz Hello w tym samouczku składa się z dwóch głównych zadań:
+Scenariusz, w tym samouczku składa się z dwóch głównych zadań:
 
-1. Dodaj Clarizen z galerii hello.
+1. Dodaj Clarizen z galerii.
 2. Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej.
 
 Więcej informacji na temat oprogramowania jako usługa (SaaS) integracji aplikacji z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-tooconfigure integracji z usługą Azure AD z Clarizen należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Clarizen, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Clarizen subskrypcji, która jest włączone dla rejestracji jednokrotnej
 
-kroki hello tootest w tym samouczku, wykonaj te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, wykonaj te zalecenia:
 
 - Testowanie usługi Azure AD rejestracji jednokrotnej w środowisku testowym. Nie należy używać środowiska produkcyjnego, chyba że jest to konieczne.
 - Jeśli nie masz usługi Azure AD w środowisku testowym, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="add-clarizen-from-hello-gallery"></a>Dodaj Clarizen z galerii hello
-Integracja hello tooconfigure Clarizen w usłudze Azure AD, Dodaj Clarizen hello galerii tooyour listy zarządzanych aplikacji SaaS.
+## <a name="add-clarizen-from-the-gallery"></a>Dodaj Clarizen z galerii
+Aby skonfigurować integrację usługi Azure AD Clarizen, należy dodać Clarizen z galerii do listy zarządzanych aplikacji SaaS.
 
-1. W hello [portalu Azure](https://portal.azure.com), w lewym okienku hello, kliknij przycisk hello **usługi Azure Active Directory** ikony.
+1. W [portalu Azure](https://portal.azure.com), w okienku po lewej stronie kliknij **usługi Azure Active Directory** ikony.
 
     ![Ikona usługi Azure Active Directory][1]
 
@@ -56,138 +56,138 @@ Integracja hello tooconfigure Clarizen w usłudze Azure AD, Dodaj Clarizen hello
 
     ![Kliknięcie przycisku "aplikacje przedsiębiorstwa" i "Wszystkie aplikacje"][2]
 
-3. Kliknij przycisk hello **Dodaj** u góry hello hello — okno dialogowe.
+3. Kliknij przycisk **Dodaj** przycisk w górnej części okna dialogowego.
 
-    ![przycisk "Dodaj" Hello][3]
+    ![Przycisk "Dodaj"][3]
 
-4. W polu wyszukiwania hello wpisz **Clarizen**.
+4. W polu wyszukiwania wpisz **Clarizen**.
 
-    ![Wpisz "Clarizen" w polu wyszukiwania hello](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
+    ![Wpisz "Clarizen" w polu wyszukiwania](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
 
-5. Wybierz w okienku wyników hello **Clarizen**, a następnie kliknij przycisk **Dodaj** tooadd hello aplikacji.
+5. W okienku wyników wybierz **Clarizen**, a następnie kliknij przycisk **Dodaj** można dodać aplikację.
 
-    ![Wybieranie Clarizen w okienku wyników hello](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
+    ![Wybieranie Clarizen w okienku wyników](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
-W hello następujące sekcje zawierają informacje skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Clarizen na podstawie użytkownika testu hello Simona Britta.
+W poniższych sekcjach skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Clarizen na podstawie użytkownika testu Simona Britta.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Clarizen jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Clarizen musi toobe ustanowione. Ustanowić tę relację łącza, przypisując wartość hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello **Username** w Clarizen.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Clarizen jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Clarizen musi się. Ustanowić tę relację łącza, przypisując wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** w Clarizen.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Clarizen, pełną powitania po bloków konstrukcyjnych:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Clarizen, wykonaj poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Clarizen](#create-a-clarizen-test-user)**  toohave odpowiednikiem Simona Britta w Clarizen, że jego reprezentacja toohello połączonej usługi Azure AD.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  umożliwienie użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  do testowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Clarizen](#create-a-clarizen-test-user)**  w celu zapewnienia odpowiednikiem Simona Britta Clarizen połączonego z jej reprezentacji usługi Azure AD.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  umożliwiające Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
-Włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Clarizen.
+Włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Clarizen.
 
-1. W portalu Azure na powitania hello **Clarizen** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Clarizen** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Kliknięcie przycisku "Logowanie jednokrotne"][4]
 
-2. W hello **logowanie jednokrotne** okno dialogowe dla **tryb**, wybierz pozycję **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. W **logowanie jednokrotne** okno dialogowe dla **tryb**, wybierz pozycję **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
 
     ![Wybieranie "na podstawie SAML logowania"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_01.png)
 
-3. W hello **Clarizen domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. W **Clarizen domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Pola Adres URL identyfikatora i odpowiedzi](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_02.png)
 
-    a. W hello **identyfikator** polu wartość hello typu jako: **Clarizen**
+    a. W **identyfikator** wpisz wartość, jak: **Clarizen**
 
-    b. W hello **adres URL odpowiedzi** wpisz adres URL przy użyciu hello następującego wzorca: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
+    b. W **adres URL odpowiedzi** wpisz adres URL przy użyciu następującego wzorca: **https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
     > [!NOTE]
-    > Nie są hello wartości rzeczywistych. Masz toouse hello rzeczywisty identyfikator i adres URL odpowiedzi. W tym miejscu zalecamy Użyj hello unikatowej wartości ciągu, ponieważ hello identyfikator. tooget hello wartości rzeczywistych, skontaktuj się z pomocą hello [zespołem pomocy technicznej Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
+    > Nie są to rzeczywiste wartości. Należy użyć rzeczywisty identyfikator i adres URL odpowiedzi. W tym miejscu zaleca się, że używasz unikatowej wartości ciągu jako identyfikator. Aby uzyskać rzeczywiste wartości, skontaktuj się z [zespołem pomocy technicznej Clarizen](https://success.clarizen.com/hc/en-us/requests/new).
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **Utwórz nowy certyfikat**.
+4. Na **certyfikat podpisywania SAML** kliknij **Utwórz nowy certyfikat**.
 
     ![Klikając przycisk "Utwórz nowy certyfikat"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
-5. W hello **Tworzenie nowego świadectwa** okno dialogowe pola, kliknij ikonę kalendarza hello i wybierz datę wygaśnięcia. Następnie kliknij przycisk **Save** (Zapisz).
+5. W **Tworzenie nowego świadectwa** okno dialogowe pola, kliknij ikonę kalendarza i wybierz datę wygaśnięcia. Następnie kliknij przycisk **Save** (Zapisz).
 
     ![Wybranie i zapisanie Data wygaśnięcia](./media/active-directory-saas-clarizen-tutorial/tutorial_general_300.png)
 
-6. W hello **certyfikat podpisywania SAML** wybierz opcję **uaktywnić nowy certyfikat**, a następnie kliknij przycisk **zapisać**.
+6. W **certyfikat podpisywania SAML** wybierz opcję **uaktywnić nowy certyfikat**, a następnie kliknij przycisk **zapisać**.
 
-    ![Po zaznaczeniu pola wyboru hello na uaktywnienie hello nowego certyfikatu](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
+    ![Po zaznaczeniu pola wyboru dla uaktywnienie nowego certyfikatu](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
 
-7. W hello **certyfikat przerzucania** okno dialogowe, kliknij przycisk **OK**.
+7. W **certyfikat przerzucania** okno dialogowe, kliknij przycisk **OK**.
 
-    ![Klikając przycisk OK, tooconfirm, które mają certyfikat hello toomake active](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
+    ![Klikając przycisk "OK", aby potwierdzić uaktywnić certyfikatu](./media/active-directory-saas-clarizen-tutorial/tutorial_general_400.png)
 
-8. W hello **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+8. W **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
-    ![Klikając przycisk Pobierz hello toostart "Certyfikat (Base64)"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
+    ![Klikając przycisk "Certyfikat (Base64)", aby rozpocząć pobieranie](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_05.png)
 
-9. W hello **konfiguracji Clarizen** , kliknij przycisk **skonfigurować Clarizen** tooopen hello **Konfigurowanie logowania jednokrotnego** okna.
+9. W **konfiguracji Clarizen** , kliknij przycisk **skonfigurować Clarizen** otworzyć **Konfigurowanie logowania jednokrotnego** okna.
 
     ![Klikając przycisk "Konfigurowanie Clarizen"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_06.png)
 
     ![Okno "Konfigurowanie logowania jednokrotnego", w tym adresy URL i pliki](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_07.png)
 
-10. W oknie przeglądarki innej witryny sieci web Zaloguj się w witrynie firmy Clarizen tooyour jako administrator.
+10. W oknie przeglądarki innej witryny sieci web należy zalogować się jako administrator do witryny firmy Clarizen.
 
 11. Kliknij nazwy użytkownika, a następnie kliknij przycisk **ustawienia**.
 
     ![Klikając pozycję "Ustawienia" w obszarze nazwy użytkownika](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "ustawienia")
 
-12. Kliknij przycisk hello **ustawienia globalne** kartę. Następnie dalej zbyt**Federated Authentication**, kliknij przycisk **Edytuj**.
+12. Kliknij przycisk **ustawienia globalne** kartę. A następnie obok pozycji **Federated Authentication**, kliknij przycisk **Edytuj**.
 
     ![Kartę "Ustawienia globalne"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_002.png "ustawienia globalne")
 
-13. W hello **Federated Authentication** okna dialogowego wykonaj hello następujące kroki:
+13. W **Federated Authentication** okna dialogowego wykonaj następujące czynności:
 
     ![Okno dialogowe "Uwierzytelnianie federacyjne"](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_003.png "Federated Authentication")
 
     a. Wybierz **uwierzytelnianie federacyjne Włącz**.
 
-    b. Kliknij przycisk **przekazać** tooupload pobranego certyfikatu.
+    b. Kliknij przycisk **przekazać** przekazać pobranego certyfikatu.
 
-    c. W hello **adres URL logowania** wprowadź wartość hello **SAML pojedynczy znak na adres URL usługi** z okna konfiguracji aplikacji hello Azure AD.
+    c. W **adres URL logowania** wprowadź wartość **SAML pojedynczy znak na adres URL usługi** w oknie Konfiguracja aplikacji usługi Azure AD.
 
-    d. W hello **Sign-out URL** wprowadź wartość hello **Sign-Out URL** z okna konfiguracji aplikacji hello Azure AD.
+    d. W **Sign-out URL** wprowadź wartość **Sign-Out URL** w oknie Konfiguracja aplikacji usługi Azure AD.
 
     e. Wybierz **Użyj POST**.
 
     f. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-W portalu Azure hello Tworzenie użytkownika testowego o nazwie Simona Britta.
+W portalu Azure Tworzenie użytkownika testowego o nazwie Simona Britta.
 
-![Nazwa i adres e-mail użytkownika testu hello Azure AD][100]
+![Nazwa i adres e-mail użytkownika usługi Azure AD][100]
 
-1. W portalu Azure, w okienku po lewej stronie powitania hello kliknij hello **usługi Azure Active Directory** ikony.
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** ikony.
 
     ![Ikona usługi Azure Active Directory](./media/active-directory-saas-clarizen-tutorial/create_aaduser_01.png)
 
-2. Kliknij przycisk **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy** toodisplay hello listy użytkowników.
+2. Kliknij przycisk **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy** do wyświetlenia na liście Użytkownicy.
 
     ![Klikając pozycję "Użytkownicy i grupy" i "Wszyscy użytkownicy"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_02.png)
 
-3. U góry hello hello — okno dialogowe, kliknij przycisk **Dodaj** tooopen hello **użytkownika** okno dialogowe.
+3. W górnej części okna dialogowego, kliknij przycisk **Dodaj** otworzyć **użytkownika** okno dialogowe.
 
-    ![przycisk "Dodaj" Hello](./media/active-directory-saas-clarizen-tutorial/create_aaduser_03.png)
+    ![Przycisk "Dodaj"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_03.png)
 
-4. W hello **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
     ![Okno dialogowe "Użytkownika" z nazwę, adres e-mail i hasło wypełnione](./media/active-directory-saas-clarizen-tutorial/create_aaduser_04.png)
 
-    a. W hello **nazwa** wpisz **BrittaSimon**.
+    a. W **nazwa** wpisz **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole adresu e-mail hello typu hello Simona Britta konta.
+    b. W **nazwy użytkownika** wpisz adres e-mail konta Simona Britta.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
 
 ### <a name="create-a-clarizen-test-user"></a>Tworzenie użytkownika testowego Clarizen
-tooenable toosign użytkowników usługi Azure AD w tooClarizen, należy udostępnić kont użytkowników. W przypadku hello Clarizen Inicjowanie obsługi to zadanie ręczne.
+Aby umożliwić użytkownikom usługi Azure AD do logowania się na Clarizen, należy udostępnić kont użytkowników. W przypadku Clarizen Inicjowanie obsługi to zadanie ręczne.
 
-1. Zaloguj się tooyour Clarizen witryny firmy jako administrator.
+1. Zaloguj się do witryny firmy Clarizen jako administrator.
 
 2. Kliknij przycisk **osób**.
 
@@ -197,52 +197,52 @@ tooenable toosign użytkowników usługi Azure AD w tooClarizen, należy udostę
 
     ![Przycisk "Zaprosić użytkowników"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_002.png "zaprosić użytkowników")
 
-4. W hello **zaprosić użytkowników** okna dialogowego wykonaj hello następujące kroki:
+4. W **zaprosić użytkowników** okna dialogowego wykonaj następujące czynności:
 
     ![Okno dialogowe "Zaproś inne osoby"](./media/active-directory-saas-clarizen-tutorial/create_aaduser_003.png "zaprosić użytkowników")
 
-    a. W hello **E-mail** pole adresu e-mail hello typu hello Simona Britta konta.
+    a. W **E-mail** wpisz adres e-mail konta Simona Britta.
 
     b. Kliknij przycisk **zaprosić**.
 
     > [!NOTE]
-    > właścicielem konta usługi Azure Active Directory Hello będzie otrzymywać wiadomości e-mail i postępuj zgodnie tooconfirm łącze swojego konta przed staje się aktywny.
+    > Właścicielem konta usługi Azure Active Directory otrzymasz wiadomość e-mail, a następnie kliknij łącze, aby potwierdzić swoje konto, zanim staje się aktywny.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
-Włącz toouse Simona Britta Azure rejestracji jednokrotnej, przyznając jej tooClarizen dostępu.
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
+Włącz Simona Britta do udostępnienia jej Clarizen za pomocą usługi Azure rejestracji jednokrotnej.
 
 ![Test przypisany użytkownik][200]
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, przejdź do widoku katalogu toohello, kliknij przycisk **aplikacje dla przedsiębiorstw**, a następnie kliknij przycisk **wszystkie aplikacje**.
+1. Na platformie Azure kliknij przycisk Otwórz portalu, wyświetlać aplikacje, przejdź do widoku katalogu **aplikacje dla przedsiębiorstw**, a następnie kliknij przycisk **wszystkie aplikacje**.
 
     ![Kliknięcie przycisku "aplikacje przedsiębiorstwa" i "Wszystkie aplikacje"][201]
 
-2. Z listy aplikacji hello wybierz **Clarizen**.
+2. Na liście aplikacji zaznacz **Clarizen**.
 
-    ![Wybierając Clarizen hello listy](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_50.png)
+    ![Wybieranie Clarizen na liście](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_50.png)
 
-3. W okienku po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W okienku po lewej stronie kliknij **użytkowników i grup**.
 
     ![Klikając pozycję "Użytkownicy i grupy"][202]
 
-4. Kliknij przycisk hello **Dodaj** przycisku. Następnie w hello **Dodaj przydziału** okno dialogowe, wybierz opcję **użytkowników i grup**.
+4. Kliknij przycisk **Dodaj** przycisku. Następnie w **Dodaj przydziału** okno dialogowe, wybierz opcję **użytkowników i grup**.
 
-    ![Hello przycisk "Dodaj" i "Dodaj przydziału" hello, okno dialogowe][203]
+    ![Przycisk "Dodaj" i "Dodaj przydziału" — okno dialogowe][203]
 
-5. W hello **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. W **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
-6. W hello **użytkowników i grup** okna dialogowego kliknij hello **wybierz** przycisku.
+6. W **użytkowników i grup** okno dialogowe, kliknij przycisk **wybierz** przycisku.
 
-7. W hello **Dodaj przydziału** okna dialogowego kliknij hello **przypisać** przycisku.
+7. W **Dodaj przydziału** okno dialogowe, kliknij przycisk **przypisać** przycisku.
 
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
-Test konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+Test konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu panelu dostępu.
 
-Po kliknięciu kafelka Clarizen hello w panelu dostępu hello powinny być automatycznie zalogowano tooyour Clarizen aplikacji.
+Po kliknięciu kafelka Clarizen w panelu dostępu należy powinny być automatycznie zalogowany do aplikacji Clarizen.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących toointegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

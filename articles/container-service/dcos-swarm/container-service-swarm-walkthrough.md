@@ -1,6 +1,6 @@
 ---
-title: aaaQuickstart - Azure Docker Swarm klastra dla systemu Linux | Dokumentacja firmy Microsoft
-description: "Dowiesz toocreate klaster Docker Swarm dla systemu Linux kontenerów w usłudze kontenera platformy Azure z hello wiersza polecenia platformy Azure."
+title: "Szybki start — klaster Azure Docker Swarm dla systemu Linux | Microsoft Docs"
+description: "Szybka nauka tworzenia klastra Docker Swarm dla kontenerów systemu Linux w usłudze Azure Container Service za pomocą interfejsu wiersza polecenia platformy Azure."
 services: container-service
 documentationcenter: 
 author: neilpeterson
@@ -17,25 +17,25 @@ ms.workload: na
 ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: 
-ms.openlocfilehash: 3028d2d00585360ec163518bf98f69bb0dd44dec
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 876135d62d548e155f4ebefd8bbd9d9cca8b87d6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-docker-swarm-cluster"></a>Wdrażanie klastra Docker Swarm
 
-W tym szybki start klaster Docker Swarm jest wdrażane za pomocą hello wiersza polecenia platformy Azure. Następnie wdrożone i uruchomić w klastrze hello aplikacji kontenera wielu składające się z frontonu sieci web oraz wystąpienia pamięci podręcznej Redis. Po ukończeniu aplikacji hello jest dostępny za pośrednictwem hello internet.
+W tym przewodniku Szybki start klaster Docker Swarm jest wdrażany za pomocą interfejsu wiersza polecenia platformy Azure. Następnie w klastrze jest wdrażana i uruchamiana aplikacja obsługująca wiele kontenerów, która składa się z frontonu internetowego i wystąpienia pamięci podręcznej Redis. Po ukończeniu aplikacja będzie dostępna w Internecie.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Ta opcja szybkiego startu wymaga, że używasz wersji interfejsu wiersza polecenia Azure hello 2.0.4 lub nowszym. Uruchom `az --version` toofind hello wersji. Jeśli potrzebujesz tooinstall lub uaktualniania, zobacz [zainstalować Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Ten przewodnik Szybki start wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów o hello [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi.
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#create). Grupa zasobów platformy Azure to logiczna grupa przeznaczona do wdrażania zasobów platformy Azure i zarządzania nimi.
 
-Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w hello *westus* lokalizacji.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *westus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -58,23 +58,25 @@ Dane wyjściowe:
 
 ## <a name="create-docker-swarm-cluster"></a>Tworzenie klastra Docker Swarm
 
-Utwórz klaster Docker Swarm usługi kontenera platformy Azure z hello [az acs utworzyć](/cli/azure/acs#create) polecenia. 
+Utwórz klaster Docker Swarm w usłudze Azure Container Service za pomocą polecenia [az acs create](/cli/azure/acs#create). 
 
-Witaj poniższym przykładzie jest tworzony klaster o nazwie *mySwarmCluster* z systemem Linux jednego głównego węzła i trzech węzłów agenta systemu Linux.
+W poniższym przykładzie tworzony jest klaster o nazwie *mySwarmCluster* z jednym węzłem głównym systemu Linux i trzema węzłami agenta systemu Linux.
 
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-Po kilku minutach polecenia hello kończy i zwraca informacje o formacie json o hello klastra.
+W niektórych przypadkach, np. ograniczonej wersji próbnej, subskrypcja platformy Azure ma ograniczony dostęp do zasobów platformy Azure. Jeśli wdrożenie nie powiedzie się z powodu ograniczonej liczby dostępnych rdzeni, zmniejsz domyślną liczbę agentów, dodając `--agent-count 1` do polecenia [az acs create](/cli/azure/acs#create). 
 
-## <a name="connect-toohello-cluster"></a>Połącz toohello klastra
+Po kilku minutach polecenie zostanie zakończone i zwróci informacje o klastrze sformatowanym przy użyciu formatu JSON.
 
-W tym szybki start należy adres IP hello główny Docker Swarm hello oraz hello Docker agenta puli. Uruchom następujące polecenie tooreturn hello oba adresy IP.
+## <a name="connect-to-the-cluster"></a>Łączenie z klastrem
+
+W tym przewodniku Szybki start potrzebne będą adresy IP zarówno węzła głównego Docker Swarm, jak i puli agenta Docker. Uruchom następujące polecenie, aby zwrócić oba adresy IP.
 
 
 ```bash
-az network public-ip list --resource-group myResourceGroup --query '[*].{Name:name,IPAddress:ipAddress}' -o table
+az network public-ip list --resource-group myResourceGroup --query "[*].{Name:name,IPAddress:ipAddress}" -o table
 ```
 
 Dane wyjściowe:
@@ -86,24 +88,24 @@ swarmm-agent-ip-myswarmcluster-myresourcegroup-d5b9d4agent-66066781  52.179.23.1
 swarmm-master-ip-myswarmcluster-myresourcegroup-d5b9d4mgmt-66066781  52.141.37.199
 ```
 
-Utwórz wzorzec Swarm toohello tunelu SSH. Zastąp `IPAddress` o adresie IP hello hello Swarm wzorca.
+Utwórz tunel SSH do węzła głównego Swarm. Zamień `IPAddress` na adres IP węzła głównego Swarm.
 
 ```bash
 ssh -p 2200 -fNL 2375:localhost:2375 azureuser@IPAddress
 ```
 
-Zestaw hello `DOCKER_HOST` zmiennej środowiskowej. Dzięki temu można polecenia docker toorun przed hello Docker Swarm bez nazwy hello toospecify hello hosta.
+Ustaw zmienną środowiskową `DOCKER_HOST`. Umożliwia to uruchamianie poleceń Docker względem klastra Docker Swarm bez konieczności określania nazwy hosta.
 
 ```bash
 export DOCKER_HOST=:2375
 ```
 
-Wszystko jest teraz gotowy toorun usługi Docker na powitania Docker Swarm.
+Teraz można przystąpić do uruchamiania usług Docker w klastrze Docker Swarm.
 
 
-## <a name="run-hello-application"></a>Uruchamianie aplikacji hello
+## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Utwórz plik o nazwie `docker-compose.yaml` i hello kopiowania zawartości do niego.
+Utwórz plik o nazwie `docker-compose.yaml` i skopiuj do niego poniższą zawartość.
 
 ```yaml
 version: '3'
@@ -123,7 +125,7 @@ services:
         - "80:80"
 ```
 
-Uruchom hello następujące polecenia toocreate hello Azure głos usługi.
+Uruchom następujące polecenie, aby utworzyć usługę Azure Vote.
 
 ```bash
 docker-compose up -d
@@ -132,7 +134,7 @@ docker-compose up -d
 Dane wyjściowe:
 
 ```bash
-Creating network "user_default" with hello default driver
+Creating network "user_default" with the default driver
 Pulling azure-vote-front (microsoft/azure-vote-front:redis-v1)...
 swarm-agent-EE873B23000005: Pulling microsoft/azure-vote-front:redis-v1...
 swarm-agent-EE873B23000004: Pulling microsoft/azure-vote-front:redis-v1... : downloaded
@@ -144,30 +146,30 @@ Creating azure-vote-front
 Creating azure-vote-back ...
 ```
 
-## <a name="test-hello-application"></a>Testowanie aplikacji hello
+## <a name="test-the-application"></a>Testowanie aplikacji
 
-Przeglądaj adres IP toohello hello Swarm agenta puli tootest limit hello Azure głos aplikacji.
+Przejdź do adresu IP puli agenta Swarm w celu przetestowania aplikacji Azure Vote.
 
-![Obraz przeglądania tooAzure głosu](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
+![Obraz przedstawiający przechodzenie do aplikacji Azure Vote](media/container-service-docker-swarm-mode-walkthrough/azure-vote.png)
 
 ## <a name="delete-cluster"></a>Usuwanie klastra
-Gdy hello klastra nie jest już potrzebne, można użyć hello [az grupę Usuń](/cli/azure/group#delete) polecenia grupy zasobów hello tooremove, usługi kontenera i wszystkich powiązanych zasobów.
+Gdy klaster nie będzie już potrzebny, możesz usunąć grupę zasobów, usługę kontenera i wszystkie pokrewne zasoby za pomocą polecenia [az group delete](/cli/azure/group#delete).
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="get-hello-code"></a>Pobierz kod hello
+## <a name="get-the-code"></a>Uzyskiwanie kodu
 
-W tym szybki start kontenera wstępnie utworzony obrazy zostały używane toocreate usługi Docker. Witaj związane z kodu aplikacji, plik Dockerfile, i tworzenia plików są dostępne w serwisie GitHub.
+W tym przewodniku Szybki start wcześniej utworzone obrazy kontenera zostały użyte w celu utworzenia usługi Docker. Powiązany kod aplikacji, plik Dockerfile i plik Compose są dostępne w serwisie GitHub.
 
 [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis.git)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym szybki start wdrożyć klaster Docker Swarm i wdrożone tooit wielu kontenera aplikacji.
+W tym przewodniku Szybki start wdrożono klaster Docker Swarm oraz wdrożono w nim aplikację obsługującą wiele kontenerów.
 
-toolearn temat integracji Docker ciepłych z Visual Studio Team Services, nadal toohello CI/CD z Docker Swarm i VSTS.
+Aby dowiedzieć się więcej na temat integracji klastra Docker Swarm z programem Visual Studio Team Services, przejdź do części „Ciągła integracja/ciągłe dostarczanie z usługami Swarm i VSTS”.
 
 > [!div class="nextstepaction"]
 > [Ciągła integracja/ciągłe dostarczanie z usługami Swarm i VSTS](./container-service-docker-swarm-setup-ci-cd.md)

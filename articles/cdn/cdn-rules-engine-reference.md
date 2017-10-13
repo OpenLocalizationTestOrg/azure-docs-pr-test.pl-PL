@@ -1,5 +1,5 @@
 ---
-title: "Odwołanie do aparatu reguł aaaAzure CDN | Dokumentacja firmy Microsoft"
+title: "Zasady usługi Azure CDN aparat odwołania | Dokumentacja firmy Microsoft"
 description: "Dokumentacja referencyjna dla usługi Azure CDN zasady warunków dopasowania aparatu i funkcje."
 services: cdn
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 4159715d15fc792afb49dcd2a30752fabcd94a38
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c10145661a8c575381493c9aaa901c3ef92c2e81
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cdn-rules-engine"></a>Aparat reguł usługi Azure CDN
-Ten temat zawiera szczegółowe opisy hello dostępne dopasowanie warunków oraz funkcje dla Azure Content Delivery Network (CDN) [aparatu reguł](cdn-rules-engine.md).
+Ten temat zawiera szczegółowe opisy funkcji i warunki dopasowania dostępne dla usługi Azure sieci dostarczania zawartości (CDN) [aparatu reguł](cdn-rules-engine.md).
 
-Hello aparatu reguł HTTP jest źródłem końcowego hello toobe zaprojektowana dla określonych typów żądań przetwarzanych przez hello CDN.
+Aparat reguł HTTP została zaprojektowana jako urząd końcowego dla określonych typów żądań są przetwarzane przez usługę CDN.
 
 **Najczęstsze zastosowania**:
 
@@ -33,43 +33,43 @@ Hello aparatu reguł HTTP jest źródłem końcowego hello toobe zaprojektowana 
 - Przechowywanie danych dziennika niestandardowego.
 
 ## <a name="terminology"></a>Terminologia
-Reguła jest definiowana za pomocą hello [ **wyrażenia warunkowe**](cdn-rules-engine-reference-conditional-expressions.md), [ **odpowiada**](cdn-rules-engine-reference-match-conditions.md), i [  **Funkcje**](cdn-rules-engine-reference-features.md). Te elementy zostały wyróżnione na następującej ilustracji hello.
+Reguła jest definiowana za pośrednictwem [ **wyrażenia warunkowe**](cdn-rules-engine-reference-conditional-expressions.md), [ **odpowiada**](cdn-rules-engine-reference-match-conditions.md), i [  **Funkcje**](cdn-rules-engine-reference-features.md). Te elementy zostały wyróżnione na poniższej ilustracji.
 
  ![Warunek dopasowania CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-terminology.png)
 
 ## <a name="syntax"></a>Składnia
 
-Hello sposób, w którym będzie traktowany znaki specjalne zmienia się zgodnie z toohow warunek dopasowania lub wartości tekstowe uchwytów funkcji. Dopasowanie warunku lub funkcji mogą interpretować tekst w jednym z hello następujące sposoby:
+Sposób, w którym będzie traktowany znaków specjalnych zależy od tego, jak dopasowania warunku lub funkcji obsługuje wartości tekstowe. Dopasowanie warunku lub funkcji mogą interpretować tekst w jednym z następujących sposobów:
 
 1. [**Wartości literałów**](#literal-values) 
 2. [**Wartości symboli wieloznacznych**](#wildcard-values)
 3. [**Wyrażenia regularne**](#regular-expressions)
 
 ### <a name="literal-values"></a>Wartości literałów
-Tekst, który jest interpretowana jako wartość literału traktują wszystkich znaków specjalnych, z wyjątkiem hello hello % symbolu, w ramach hello wartości, które muszą być zgodne. Innymi słowy, literałem odpowiada za zestaw warunków`\'*'\` tylko będą spełnione, podczas którego dokładnie wartość (np. `\'*'\`) został znaleziony.
+Tekst, który jest interpretowana jako wartość literału, będą traktować wszystkie znaki specjalne, z wyjątkiem % symbol jako część wartości, które muszą być zgodne. Innymi słowy, literałem odpowiada warunku ustawioną `\'*'\` tylko będą spełnione, podczas którego dokładnie wartość (np. `\'*'\`) został znaleziony.
  
-Symbol procentu jest adresem URL tooindicate używane kodowanie (np. `%20`).
+Symbol procentu jest używany do określania, kodowania adresów URL (np. `%20`).
 
 ### <a name="wildcard-values"></a>Wartości symboli wieloznacznych
-Tekst, który jest interpretowany jako wartość symbolu wieloznacznego przypisze dodatkowych znaczeń toospecial znaków. Witaj w poniższej tabeli opisano interpretacji hello następującego zestawu znaków.
+Tekst, który jest interpretowany jako wartość symbolu wieloznacznego przypisze dodatkowych znaczeń znaki specjalne. W poniższej tabeli opisano, jak będą interpretowane następujący zestaw znaków.
 
 Znak | Opis
 ----------|------------
-\ | Ukośnik odwrotny jest używane tooescape hello znaków określonych w tej tabeli. Należy określić ukośnik odwrotny bezpośrednio przed hello znak specjalny, który powinien być zmienione znaczenie.<br/>Na przykład składni hello specjalne gwiazdkę:`\*`
-% | Symbol procentu jest adresem URL tooindicate używane kodowanie (np. `%20`).
+\ | Ukośnik odwrotny służy do zmiany znaczenia znaków określonych w tej tabeli. Należy określić ukośnik odwrotny bezpośrednio przed znak specjalny, który powinien być zmienione znaczenie.<br/>Na przykład następującej składni specjalne gwiazdkę:`\*`
+% | Symbol procentu jest używany do określania, kodowania adresów URL (np. `%20`).
 * | Znak gwiazdki jest symbol wieloznaczny, który reprezentuje co najmniej jeden znak.
-Miejsca | Znak odstępu wskazuje, czy warunek dopasowania muszą zostać spełnione w jednej z określonych hello wartości lub wzorce.
-"wartość" | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak jest używany zestaw apostrofy tooindicate, którego wartość powinna być traktowane jako wartość literału. Można w hello następujące sposoby:<br><br/>— Umożliwia toobe warunku dopasowania spełnione przy każdym hello określona wartość dopasowań jakiejkolwiek jego części hello porównania wartości.  Na przykład `'ma'` będzie zgodna z żadną hello następujące parametry: <br/><br/>/Business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/ firm/szablonu. **ma**p<br /><br />— Umożliwia toobe znak specjalny, określony jako literał znaków. Na przykład można określić znak spacji literału umieszczając znak odstępu, w ramach zestawu pojedynczych cudzysłowów (tj. `' '` lub `'sample value'`).<br/>— Umożliwia toobe pustą wartość, określony. Określ wartość pusta, określając zestaw pojedynczych cudzysłowów (np. ").<br /><br/>**Ważne:**<br/>— Jeśli hello określona wartość nie zawiera symboli wieloznacznych, następnie jest automatycznie uważane za wartość literału. Oznacza to, że nie jest konieczne toospecify zestaw apostrofy.<br/>— Jeśli ukośnik odwrotny ucieczki nie innego znaku w tej tabeli, następnie go zostaną zignorowane, kiedy określony w ramach zestawu apostrofy.<br/>-Inny sposób toospecify znaków specjalnych w postaci literału znaku jest tooescape za pomocą ukośnika odwrotnego (np. `\`).
+Miejsca | Znak odstępu wskazuje, czy warunek dopasowania muszą zostać spełnione w jednym z określonymi wartościami lub wzorce.
+"wartość" | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak zestaw apostrofy umożliwia wskazują, że wartość powinien być traktowany jako wartość literału. Mogą być używane w następujący sposób:<br><br/>— Umożliwia dopasowanie warunek należy spełnić, jeśli określona wartość dopasowuje dowolną część wartości porównania.  Na przykład `'ma'` czy pasuje do żadnego z następujących ciągów: <br/><br/>/Business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/ firm/szablonu. **ma**p<br /><br />— Umożliwia znak specjalny, można określić jako literał znaków. Na przykład można określić znak spacji literału umieszczając znak odstępu, w ramach zestawu pojedynczych cudzysłowów (tj. `' '` lub `'sample value'`).<br/>— Umożliwia wartość pusta, należy określić. Określ wartość pusta, określając zestaw pojedynczych cudzysłowów (np. ").<br /><br/>**Ważne:**<br/>— Jeśli określona wartość nie zawiera symboli wieloznacznych, następnie jest automatycznie uważane za wartość literału. Oznacza to, że nie jest niezbędne do określenia zestawu apostrofy.<br/>— Jeśli ukośnik odwrotny ucieczki nie innego znaku w tej tabeli, następnie go zostaną zignorowane, kiedy określony w ramach zestawu apostrofy.<br/>-Inny sposób, aby określić znak specjalny w jako znak ucieczki za pomocą ukośnik odwrotny (tj. `\`).
 
 ### <a name="regular-expressions"></a>Wyrażenia regularne
 
-Wyrażenia regularne Zdefiniuj wzorzec, który ma zostać wyszukany w wartości tekstowej. Notacja wyrażeń regularnych definiuje określone znaczenie tooa wielu symboli. Witaj poniższej tabeli przedstawiono sposób specjalne znaki są traktowane przez dopasowanie warunków i funkcje, które obsługują wyrażeń regularnych.
+Wyrażenia regularne Zdefiniuj wzorzec, który ma zostać wyszukany w wartości tekstowej. Notacja wyrażeń regularnych definiuje określone znaczenie wielu symboli. W poniższej tabeli przedstawiono sposób specjalne znaki są traktowane przez dopasowanie warunków i funkcje, które obsługują wyrażeń regularnych.
 
 Znaki specjalne | Opis
 ------------------|------------
-\ | Witaj znaku ukośnika odwrotnego specjalne hello następującym. Powoduje to, że ten toobe znak traktowane jako wartość literału zamiast przyjmowania na jego znaczenie wyrażenia regularnego. Na przykład składni hello specjalne gwiazdkę:`\*`
-% | znaczenie Hello symbol procentu zależy od jego użycia.<br/><br/> `%{HTTPVariable}`: Ta składnia identyfikuje Zmienna HTTP.<br/>`%{HTTPVariable%Pattern}`: Ta składnia używa tooidentify symbol procentu HTTP, zmiennych i jako ogranicznik.<br />`\%`: Anulowanie symbol procentu pozwala toobe używany jako wartość literału lub tooindicate podczas kodowania adresu URL (np. `\%20`).
-* | Znak gwiazdki umożliwia hello poprzedzających toobe znak dopasowane zero lub więcej razy. 
+\ | Ukośnik odwrotny specjalne znak następujące go. Powoduje to, że ten znak powinien być traktowany jako wartość literału zamiast przyjmowania na jego znaczenie wyrażenia regularnego. Na przykład następującej składni specjalne gwiazdkę:`\*`
+% | Znaczenie symbol procentu zależy od jego użycia.<br/><br/> `%{HTTPVariable}`: Ta składnia identyfikuje Zmienna HTTP.<br/>`%{HTTPVariable%Pattern}`: Ta składnia używana symbol procentu HTTP, zmiennych i jako ogranicznik.<br />`\%`: Anulowanie symbol procentu pozwala ma być używany jako wartość literału lub w celu wskazania kodowania adresów URL (np. `\%20`).
+* | Znak gwiazdki umożliwia poprzedni znak można dopasować zero lub więcej razy. 
 Miejsca | Znak odstępu zwykle jest traktowana jako literał znaków. 
 "wartość" | Apostrofy są traktowane jako literały. Zestaw apostrofy nie ma specjalnego znaczenia.
 
@@ -78,5 +78,5 @@ Miejsca | Znak odstępu zwykle jest traktowana jako literał znaków.
 * [Warunki uzgadniania aparatu reguł](cdn-rules-engine-reference-match-conditions.md)
 * [Wyrażenia warunkowe aparatu reguł](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funkcje aparatu reguł](cdn-rules-engine-reference-features.md)
-* [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł hello](cdn-rules-engine.md)
+* [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)
 * [Omówienie usługi Azure CDN](cdn-overview.md)

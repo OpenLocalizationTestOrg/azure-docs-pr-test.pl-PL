@@ -1,6 +1,6 @@
 ---
-title: Ustawia aaaAvailability klasycznych maszyn wirtualnych systemu Linux | Dokumentacja firmy Microsoft
-description: "Skonfiguruj zbiór dostępności dla maszyny wirtualnej systemu Linux nowego lub istniejącego w hello klasycznego modelu wdrażania przy użyciu hello portalu Azure i programu Azure PowerShell."
+title: "Zestawy dostępności dla maszyn wirtualnych systemu Linux klasycznego | Dokumentacja firmy Microsoft"
+description: "Skonfiguruj zbiór dostępności dla maszyny wirtualnej systemu Linux nowego lub istniejącego w klasycznym modelu wdrażania przy użyciu portalu Azure i programu Azure PowerShell."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: cynthn
-ms.openlocfilehash: 8d8d041e3540e42a1921f5665469a2fdcaa30a29
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 41d427862150d17e1ad726afc51114d6f62f5a8e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-tooconfigure-an-availability-set-for-linux-virtual-machines-in-hello-classic-deployment-model"></a>Jak tooconfigure, zbiór dostępności, dla maszyn wirtualnych systemu Linux w hello klasycznego modelu wdrażania
+# <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>Jak skonfigurować zbiór dostępności dla maszyn wirtualnych systemu Linux w klasycznym modelu wdrażania
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager. Możesz również [skonfigurować zestawy dostępności](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) w przypadku wdrożeń usługi Resource Manager.
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Możesz również [skonfigurować zestawy dostępności](../../azure-cli-arm-commands.md#azure-availset-commands-to-manage-your-availability-sets) w przypadku wdrożeń usługi Resource Manager.
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]

@@ -1,5 +1,5 @@
 ---
-title: "dwie wirtualne sieci równorzędne aaaAzure przykładowy skrypt programu PowerShell — | Dokumentacja firmy Microsoft"
+title: "Przykładowy skrypt programu PowerShell Azure - równorzędnej dwie sieci wirtualne | Dokumentacja firmy Microsoft"
 description: "Przykładowy skrypt programu PowerShell Azure - równorzędnej dwie sieci wirtualne"
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,27 +15,27 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 8b66085c35de2fc30bcef57a00d7d370911d1f3c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 51c0b98727e148671cfd7ab2b31ffd1c705d8a4e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="peer-two-virtual-networks"></a>Dwie wirtualne sieci równorzędne
 
-Ten skrypt tworzy i łączy dwie sieci wirtualne w hello tego samego regionu hello trhough sieć platformy Azure. Po uruchomieniu skryptu hello, zostanie utworzona komunikacji równorzędnej między dwiema sieciami wirtualnymi.
+Ten skrypt tworzy i łączy dwie sieci wirtualne w tej samej trhough region sieć platformy Azure. Po uruchomieniu skryptu spowoduje utworzenie komunikacji równorzędnej między dwiema sieciami wirtualnymi.
 
-W razie potrzeby zainstaluj hello Azure PowerShell przy użyciu instrukcji hello znalezione w hello [Przewodnik programu Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), a następnie uruchom `Login-AzureRmAccount` toocreate połączenia z platformą Azure.
+W razie potrzeby zainstalować program Azure PowerShell przy użyciu instrukcji w [Przewodnik programu Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), a następnie uruchom `Login-AzureRmAccount` można utworzyć połączenia z platformą Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
-[!code-azurepowershell[main](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Peer two networks")]
+[!code-azurepowershell[główne](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "elementu równorzędnego dwiema sieciami")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 
-Hello uruchom następujące polecenie, grupy zasobów hello tooremove, maszyny Wirtualnej i wszystkich powiązanych zasobów.
+Uruchom następujące polecenie, aby usunąć grupę zasobów, maszyny Wirtualnej i wszystkie powiązane zasoby.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -43,7 +43,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="script-explanation"></a>Wyjaśnienie skryptu
 
-Ten skrypt używa hello następujące polecenia toocreate grupę zasobów maszyny wirtualnej, a wszystkie powiązane zasoby. Każde polecenie w tabeli hello łączy toocommand szczegółowej dokumentacji.
+Ten skrypt używa następujących poleceń do utworzenia grupy zasobów, maszyny wirtualnej i wszystkie powiązane zasoby. Każde polecenie w tabeli łącza do dokumentacji określonego polecenia.
 
 | Polecenie | Uwagi |
 |---|---|
@@ -54,6 +54,6 @@ Ten skrypt używa hello następujące polecenia toocreate grupę zasobów maszyn
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na powitania programu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Aby uzyskać więcej informacji dotyczących programu Azure PowerShell, zobacz [dokumentacji programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-Dodatkowe przykłady skryptów PowerShell sieci można znaleźć w hello [Azure Przegląd dokumentacji](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Dodatkowe przykłady skryptów PowerShell sieci można znaleźć w [Azure Przegląd dokumentacji](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

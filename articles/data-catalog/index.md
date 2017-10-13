@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure danych katalogu dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooset się wykaz danych, gdzie można znaleźć organizacji, zrozumienia i używania źródeł danych. Samouczki, dokumentacja interfejsu API i inne dokumenty."
+title: "Dokumentacja usługi Azure Data Catalog — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Informacje o sposobie konfigurowania wykazu danych, który pozwala organizacjom znajdować i interpretować źródła danych oraz korzystać z nich. Samouczki, dokumentacja interfejsu API i inne dokumenty."
 services: data-catalog
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2017
 ms.author: carolz
-ms.openlocfilehash: eb2decd9e73531890b18497b5f39af77d6411a43
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: c901562753be86613ac4ca4dec1e727d1383e626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="data-catalog-documentation"></a>Dokumentacja usługi Data Catalog
 
-Dowiedz się, jak toouse toohelp wykazu danych, które organizacji i zespołu odnajdywania, zrozumienia i używania źródeł danych. Samouczki, dokumentacji interfejsu API REST i dokumentacji opisano sposób tooplan i konfigurowanie repozytorium danych, w którym konsumenci danych mogą odnaleźć dostępne źródła danych i poznanie przekazanych przez ekspertów z danej dziedziny.
+Informacje o sposobie używania usługi Data Catalog w celu ułatwiania organizacjom i zespołom odnajdywania i interpretowania źródeł danych oraz korzystania z nich. Samouczki, dokumentacja interfejsu API REST oraz inne dokumenty przedstawiające planowanie i konfigurowanie repozytorium danych, w którym konsumenci danych mogą odnaleźć dostępne źródła danych i uzyskać wiedzę zamieszczaną przez ekspertów z danej dziedziny.
 
 <ul class="panelContent cardsFTitle">
     <li>

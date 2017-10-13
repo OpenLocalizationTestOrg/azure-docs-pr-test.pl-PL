@@ -1,6 +1,6 @@
 ---
-title: intensywnie aaaCompute aplikacji Java na maszynie Wirtualnej | Dokumentacja firmy Microsoft
-description: "Dowiedz się, jak toocreate maszyny wirtualnej platformy Azure, uruchomionym aplikacji Java obliczeniowych, które mogą być monitorowane przez inną aplikację Java."
+title: Obliczeniowych aplikacji Java na maszynie Wirtualnej | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak utworzyć maszynę wirtualną platformy Azure, która uruchomi aplikację Java obliczeniowych, które mogą być monitorowane przez inną aplikację Java."
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
@@ -15,104 +15,104 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 02a198802a8d78bd444cd5a9197a78cb94f48e3b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toorun-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Jak zadanie toorun obliczeniowych w języku Java na maszynie wirtualnej
+# <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Jak uruchomić zadanie wymagające wielu obliczeń w środowisku Java na maszynie wirtualnej
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia hello. Firma Microsoft zaleca, aby większości nowych wdrożeń korzystać hello modelu Resource Manager.
+> Platforma Azure ma dwa różne modele wdrażania do tworzenia i pracy z zasobami: [Resource Manager i Model Klasyczny](../../../resource-manager-deployment-model.md). W tym artykule omówiono przy użyciu klasycznego modelu wdrożenia. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
 
-Przy użyciu platformy Azure możesz użyć zadań obliczeniowych toohandle maszyny wirtualnej. Na przykład maszynę wirtualną można realizacji zadań i dostarczać wyniki tooclient maszyny lub aplikacji dla urządzeń przenośnych. Po przeczytaniu tego artykułu, trzeba będzie zrozumienia sposobu toocreate maszynę wirtualną działającą aplikację Java obliczeniowych mogą być monitorowane przez inną aplikację Java.
+Przy użyciu platformy Azure maszyny wirtualnej służy do obsługi zadań obliczeniowych. Na przykład maszynę wirtualną można obsłużyć zadania i dostarczania wyniki do komputerów klienckich lub aplikacji dla urządzeń przenośnych. Po przeczytaniu tego artykułu, trzeba będzie zrozumienia sposobu tworzenia maszyny wirtualnej, która uruchamia aplikację Java obliczeniowych, które mogą być monitorowane przez inną aplikację Java.
 
-W tym samouczku założono, że wiesz, jak toocreate Java aplikacji konsoli, można zaimportować aplikacji Java tooyour bibliotek i może powodować generowanie archiwum Java (JAR). Przyjęto, że nie wie, Microsoft Azure.
+Ten samouczek zakłada informacji o sposobie tworzenia aplikacji konsoli Java, można zaimportować biblioteki do aplikacji w języku Java i może powodować generowanie archiwum Java (JAR). Przyjęto, że nie wie, Microsoft Azure.
 
 Dowiesz się:
 
-* Jak toocreate maszynę wirtualną z Java Development Kit (JDK) już zainstalowana.
-* Jak tooremotely zalogować tooyour maszyny wirtualnej.
-* Jak toocreate usługi magistrali przestrzeni nazw.
-* Jak toocreate aplikacji Java, która wykonuje zadanie obliczeniowych.
-* Jak toocreate aplikacji Java, która monitoruje hello postęp zadania obliczeniowych hello.
-* Jak toorun hello aplikacji Java.
-* Jak toostop hello aplikacji Java.
+* Jak utworzyć maszynę wirtualną z Java Development Kit (JDK) już zainstalowane.
+* Jak zdalne logowanie do maszyny wirtualnej.
+* Jak utworzyć przestrzeń nazw magistrali usług.
+* Jak utworzyć aplikację Java, która wykonuje zadanie obliczeniowych.
+* Jak utworzyć aplikację Java, która monitoruje postęp zadania obliczeniowych.
+* Jak uruchomić aplikacji Java.
+* Jak można zatrzymać aplikacji Java.
 
-W tym samouczku będzie używać hello Problem sprzedawcy Traveling hello obliczeniowych zadań. Witaj poniżej znajduje się przykład hello Java aplikacji uruchomionej hello obliczeniowych zadania.
+W tym samouczku będzie używać Problem sprzedawcy Traveling zadań obliczeniowych. Oto przykład aplikacji Java uruchamianie zadania obliczeniowych.
 
 ![Solver sprzedawcy Traveling Problem][solver_output]
 
-Witaj poniżej znajduje się przykład hello zadanie obliczeniowych hello monitorowania aplikacji Java.
+Oto przykład monitorowania zadań obliczeniowych aplikacji Java.
 
 ![Problem sprzedawcy Traveling klienta][client_output]
 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
-## <a name="toocreate-a-virtual-machine"></a>toocreate maszyny wirtualnej
-1. Zaloguj się za toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+## <a name="to-create-a-virtual-machine"></a>Aby utworzyć maszynę wirtualną
+1. Zaloguj się do [klasycznej witryny Azure Portal](https://manage.windowsazure.com).
 2. Kliknij przycisk **nowy**, kliknij przycisk **obliczeniowe**, kliknij przycisk **maszyny wirtualnej**, a następnie kliknij przycisk **z galerii**.
-3. W hello **wybierz obraz maszyny wirtualnej** okno dialogowe, wybierz opcję **JDK 7 systemu Windows Server 2012**.
-   Należy pamiętać, że **JDK 6 systemu Windows Server 2012** jest dostępna w przypadku, gdy masz starsze aplikacje, które nie są jeszcze gotowy toorun w JDK 7.
+3. W **wybierz obraz maszyny wirtualnej** okno dialogowe, wybierz opcję **JDK 7 systemu Windows Server 2012**.
+   Należy pamiętać, że **JDK 6 systemu Windows Server 2012** jest dostępna w przypadku, gdy masz starsze aplikacje, które nie są jeszcze gotowy do uruchomienia w JDK 7.
 4. Kliknij przycisk **Dalej**.
-5. W hello **konfiguracji maszyny wirtualnej** okno dialogowe:
-   1. Określ nazwę hello maszyny wirtualnej.
-   2. Określ toouse rozmiar hello hello maszyny wirtualnej.
-   3. Wprowadź nazwę administratora hello w hello **nazwy użytkownika** pola. Zapamiętaj to hasło nazwy i hello wprowadzanymi przez użytkownika będzie dalej, użyjesz ich podczas zdalnego logowania toohello maszyny wirtualnej.
-   4. Wprowadź hasło w hello **nowe hasło** pól i wprowadź go ponownie w hello **Potwierdź** pola. Jest to hasło konta administratora hello.
+5. W **konfiguracji maszyny wirtualnej** okno dialogowe:
+   1. Określ nazwę maszyny wirtualnej.
+   2. Określ rozmiar czcionki do użycia dla maszyny wirtualnej.
+   3. Wprowadź nazwę administratora **nazwy użytkownika** pola. Należy pamiętać, ta nazwa i hasło, które można wprowadzić obok, użyjesz ich podczas logowania zdalnego do maszyny wirtualnej.
+   4. Wprowadź hasło w **nowe hasło** pól i wprowadź go ponownie **Potwierdź** pola. Jest to hasło konta administratora.
    5. Kliknij przycisk **Dalej**.
-6. W hello dalej **konfiguracji maszyny wirtualnej** okno dialogowe:
-   1. Dla **usługi w chmurze**, użyj domyślnej hello **Utwórz nową usługę w chmurze**.
-   2. Witaj wartość **nazwa DNS usługi w chmurze** musi być unikatowa w cloudapp.net. W razie potrzeby zmodyfikuj tę wartość, tym Azure oznacza jest unikatowa.
+6. W następnej **konfiguracji maszyny wirtualnej** okno dialogowe:
+   1. Dla **usługi w chmurze**, użyj domyślnej **Utwórz nową usługę w chmurze**.
+   2. Wartość **nazwa DNS usługi w chmurze** musi być unikatowa w cloudapp.net. W razie potrzeby zmodyfikuj tę wartość, tym Azure oznacza jest unikatowa.
    3. Określ region, grupę koligacji lub sieci wirtualnej. Do celów tego samouczka, określ region, takich jak **zachodnie stany USA**.
    4. Dla **konta magazynu**, wybierz pozycję **użyć konta magazynu automatycznie generowanych**.
    5. Aby uzyskać **zestawu dostępności**, wybierz pozycję **(Brak)**.
    6. Kliknij przycisk **Dalej**.
-7. W ostatnim hello **konfiguracji maszyny wirtualnej** okno dialogowe:
-   1. Zaakceptuj hello domyślnych wpisów punktu końcowego.
+7. W ostatecznym **konfiguracji maszyny wirtualnej** okno dialogowe:
+   1. Zaakceptuj domyślną wpisy punktów końcowych.
    2. Kliknij przycisk **Complete** (Zakończ).
 
-## <a name="tooremotely-log-in-tooyour-virtual-machine"></a>Dziennik tooremotely w tooyour maszyny wirtualnej
-1. Zaloguj się na toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
+## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Aby zdalnie zalogować się do maszyny wirtualnej
+1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com).
 2. Kliknij przycisk **maszyn wirtualnych**.
-3. Kliknij nazwę hello hello maszyny wirtualnej, który chcesz toolog w.
+3. Kliknij nazwę maszyny wirtualnej, która ma logować się do.
 4. Kliknij przycisk **Połącz**.
-5. Odpowiedz monity toohello jako maszyna wirtualna toohello tooconnect potrzebne. Po wyświetleniu monitu dla hello nazwę i hasło administratora, należy użyć wartości hello, podanych podczas tworzenia maszyny wirtualnej hello.
+5. Odpowiedz na monity w razie potrzeby można połączyć z maszyną wirtualną. Po wyświetleniu monitu o nazwę administratora i hasła, należy użyć wartości podanych podczas tworzenia maszyny wirtualnej.
 
-Uwaga tej funkcji usługi Azure Service Bus hello wymaga toobe certyfikat główny firmy CyberTrust Baltimore hello zainstalowane w ramach Twojego środowiska JRE **cacerts** przechowywania. Ten certyfikat jest automatycznie uwzględnione w hello Java Runtime Environment (JRE) używane w tym samouczku. Jeśli nie masz ten certyfikat w Twojej środowiska JRE **cacerts** przechowywania, zobacz [Dodawanie toohello certyfikatu z magazynu certyfikatów urzędu certyfikacji Java] [ add_ca_cert] informacji na temat dodawania go (a także informacje o wyświetlaniu hello certyfikaty w magazynie cacerts).
+Należy pamiętać, że funkcje usługi Azure Service Bus wymaga certyfikat główny firmy CyberTrust Baltimore instalowanego jako część Twojego środowiska JRE **cacerts** przechowywania. Ten certyfikat jest automatycznie uwzględniany w języku Java Runtime Environment (JRE) używane w tym samouczku. Jeśli nie masz ten certyfikat w Twojej środowiska JRE **cacerts** przechowywania, zobacz [Dodawanie certyfikatu do magazynu certyfikatów urzędu certyfikacji Java] [ add_ca_cert] informacji na temat dodawania go (a także informacje o wyświetlaniu certyfikaty w magazynie cacerts).
 
-## <a name="how-toocreate-a-service-bus-namespace"></a>Jak toocreate usługi magistrali przestrzeni nazw
-kolejkuje toobegin przy użyciu usługi Service Bus na platformie Azure, musisz najpierw utworzyć przestrzeń nazw usługi. Przestrzeń nazw usługi zapewnia kontener zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
+## <a name="how-to-create-a-service-bus-namespace"></a>Jak utworzyć przestrzeń nazw magistrali usług
+Aby rozpocząć korzystanie z kolejek usługi Service Bus na platformie Azure, należy najpierw utworzyć przestrzeń nazw usługi. Przestrzeń nazw usługi zapewnia kontener zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
 
-toocreate przestrzeni nazw usługi:
+Aby utworzyć przestrzeń nazw usługi:
 
-1. Zaloguj się na toohello [klasycznego portalu Azure](https://manage.windowsazure.com).
-2. W okienku nawigacji w lewym dolnym hello hello klasycznego portalu Azure, kliknij przycisk **usługi Service Bus, kontroli dostępu i buforowanie**.
-3. W okienku lewej górnej hello hello klasycznego portalu Azure, kliknij przycisk hello **usługi Service Bus** węzeł, a następnie kliknij przycisk hello **nowy** przycisku.  
+1. Zaloguj się do [klasycznego portalu Azure](https://manage.windowsazure.com).
+2. W okienku nawigacji w lewym dolnym w klasycznym portalu Azure kliknij **usługi Service Bus, kontroli dostępu i buforowanie**.
+3. W lewym górnym okienku klasycznego portalu Azure, kliknij przycisk **usługi Service Bus** węzeł, a następnie kliknij przycisk **nowy** przycisku.  
    ![Zrzut ekranu węzeł magistrali usług][svc_bus_node]
-4. W hello **tworzenie nowych Namespace usługi** okna dialogowego wprowadź **Namespace**, a następnie kliknij przycisk toomake się, że jest unikatowa, **Sprawdź dostępność** przycisku.  
+4. W **tworzenie nowych Namespace usługi** okna dialogowego wprowadź **Namespace**, a następnie upewnij się, że jest unikatowa, kliknij **Sprawdź dostępność** przycisku.  
    ![Utwórz nowy Namespace zrzut ekranu][create_namespace]
-5. Po upewnieniu się, hello przestrzeni nazw jest dostępna, wybierz kraj lub region, w którym ma być hostowana przestrzeni nazw, a następnie kliknij hello **utworzyć Namespace** przycisku.  
+5. Po upewnieniu się, nazwę przestrzeni nazw jest dostępna, wybierz kraj lub region, w którym ma być hostowana przestrzeni nazw, a następnie kliknij **utworzyć Namespace** przycisku.  
    
-   utworzona przestrzeń nazw Hello pojawi się w hello klasycznego portalu Azure i przejście tooactivate chwilę. Poczekaj, aż stan hello jest **Active** przed kontynuowaniem hello następnego kroku.
+   Przestrzeń nazw, utworzony zostanie następnie wyświetlona w klasycznym portalu Azure i zajmuje kilka minut, aby aktywować. Poczekaj, aż stan **Active** przed przejściem do następnego kroku.
 
-## <a name="obtain-hello-default-management-credentials-for-hello-namespace"></a>Uzyskiwanie hello domyślnych poświadczeń zarządzania dla przestrzeni nazw hello
-W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w nowej przestrzeni nazw hello należy tooobtain hello zarządzania poświadczenia dla przestrzeni nazw.
+## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Uzyskiwanie poświadczeń zarządzania domyślnej przestrzeni nazw
+W celu wykonywania operacji zarządzania, takich jak tworzenie kolejki w nowej przestrzeni nazw, należy uzyskać poświadczenia zarządzania dla przestrzeni nazw.
 
-1. W okienku nawigacji po lewej stronie powitania kliknij hello **usługi Service Bus** węzeł, aby wyświetlić hello listę dostępnych przestrzeni nazw.
+1. W okienku nawigacji po lewej stronie kliknij **usługi Service Bus** węzeł, aby wyświetlić listę dostępnych przestrzeni nazw.
    ![Dostępne obszary nazw zrzut ekranu][avail_namespaces]
-2. Wybierz obszar nazw hello, nowo utworzoną z wyświetlonej listy hello.
+2. Wybierz nowo utworzoną na wyświetlonej liście przestrzeni nazw.
    ![Zrzut ekranu listy Namespace][namespace_list]
-3. po prawej stronie powitania **właściwości** okienko zawiera listę właściwości hello nowej przestrzeni nazw.
+3. Po prawej stronie **właściwości** okienko jest wyświetlana lista właściwości nowej przestrzeni nazw.
    ![Zrzut ekranu okienka właściwości][properties_pane]
-4. Witaj **domyślny klucz** jest ukryty. Kliknij przycisk hello **widoku** przycisk poświadczenia zabezpieczeń hello toodisplay.
+4. **Domyślny klucz** jest ukryty. Kliknij przycisk **widoku** przycisk, aby wyświetlić poświadczeń zabezpieczeń.
    ![Zrzut ekranu klucz domyślny][default_key]
-5. Zanotuj hello **domyślne wystawcy** i hello **domyślny klucz** jako użyje tych informacji poniżej tooperform operacje z przestrzenią nazw.
+5. Zanotuj **domyślne wystawcy** i **domyślny klucz** jako użyje tych informacji poniżej w celu wykonania operacji z przestrzenią nazw.
 
-## <a name="how-toocreate-a-java-application-that-performs-a-compute-intensive-task"></a>Jak toocreate aplikacji Java, która wykonuje zadanie obliczeniowych
-1. Na komputerze deweloperskim (który nie ma maszyny wirtualnej na powitania toobe utworzony), Pobierz hello [zestawu Azure SDK dla języka Java](https://azure.microsoft.com/develop/java/).
-2. Utwórz aplikację konsoli języka Java przy użyciu hello przykładowy kod na końcu hello w tej sekcji. W tym samouczku użyjemy **TSPSolver.java** jako nazwa pliku hello Java. Modyfikowanie hello **Twojego\_usługi\_magistrali\_przestrzeni nazw**, **Twojego\_usługi\_magistrali\_właściciela**i **Twojego\_usługi\_magistrali\_klucza** toouse symbole zastępcze z usługi service bus **przestrzeni nazw**, **domyślne wystawcy** i  **Domyślny klucz** wartości odpowiednio.
-3. Po kodowania, eksportu hello aplikacji tooa do uruchomienia Java archiwum (JAR) i hello pakietu wymaganych bibliotek na powitania wygenerowany JAR. W tym samouczku użyjemy **TSPSolver.jar** jako nazwa JAR hello wygenerowany.
+## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>Tworzenie aplikacji Java, która wykonuje zadanie obliczeniowych
+1. Na komputerze deweloperskim (który nie ma być maszynę wirtualną, która została utworzona) Pobierz [zestawu Azure SDK dla języka Java](https://azure.microsoft.com/develop/java/).
+2. Utwórz aplikację konsoli języka Java przy użyciu przykładowy kod na końcu tej sekcji. W tym samouczku użyjemy **TSPSolver.java** jako nazwa pliku języka Java. Modyfikowanie **Twojego\_usługi\_magistrali\_przestrzeni nazw**, **Twojego\_usługi\_magistrali\_właściciela**i **Twojego\_usługi\_magistrali\_klucza** symbole zastępcze do użycia z usługi service bus **przestrzeni nazw**, **domyślne wystawcy** i  **Domyślny klucz** wartości odpowiednio.
+3. Po kodowania, wyeksportować aplikację do uruchomienia archiwum Java (JAR) i tworzenia pakietów w wygenerowanym JAR wymaganych bibliotek. W tym samouczku użyjemy **TSPSolver.jar** jako nazwa wygenerowana JAR.
 
 <p/>
 
@@ -131,7 +131,7 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
 
     public class TSPSolver {
 
-        //  Value specifying how often tooprovide an update toohello console.
+        //  Value specifying how often to provide an update to the console.
         private static long loopCheck = 100000000;  
 
         private static long nTimes = 0, nLoops=0;
@@ -235,12 +235,12 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
 
                 service = ServiceBusService.create(config);
 
-                int numCities = 10;  // Use as hello default, if no value is specified at command line.
+                int numCities = 10;  // Use as the default, if no value is specified at command line.
                 if (args.length != 0)
                 {
                     if (args[0].toLowerCase().compareTo("createqueue")==0)
                     {
-                        // No processing toooccur other than creating hello queue.
+                        // No processing to occur other than creating the queue.
                         QueueInfo queueInfo = new QueueInfo("TSPQueue");
 
                         service.createQueue(queueInfo);
@@ -252,7 +252,7 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
 
                     if (args[0].toLowerCase().compareTo("deletequeue")==0)
                     {
-                        // No processing toooccur other than deleting hello queue.
+                        // No processing to occur other than deleting the queue.
                         service.deleteQueue("TSPQueue");
 
                         System.out.println("Queue named TSPQueue was deleted.");
@@ -261,7 +261,7 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
                     }
 
                     // Neither creating or deleting a queue.
-                    // Assume hello value passed in is hello number of cities toosolve.
+                    // Assume the value passed in is the number of cities to solve.
                     numCities = Integer.valueOf(args[0]);  
                 }
 
@@ -299,9 +299,9 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
 
 
 
-## <a name="how-toocreate-a-java-application-that-monitors-hello-progress-of-hello-compute-intensive-task"></a>Jak toocreate aplikacji Java, która monitoruje hello postęp zadania obliczeniowych hello
-1. Na komputerze deweloperskim Utwórz aplikację konsoli języka Java przy użyciu hello przykładowy kod na końcu hello w tej sekcji. W tym samouczku użyjemy **TSPClient.java** jako nazwa pliku hello Java. Jak pokazano wcześniej, zmodyfikuj hello **Twojego\_usługi\_magistrali\_przestrzeni nazw**, **Twojego\_usługi\_magistrali\_właściciela**, i **Twojego\_usługi\_magistrali\_klucza** toouse symbole zastępcze z usługi service bus **przestrzeni nazw**, **domyślne wystawcy**i **domyślny klucz** wartości odpowiednio.
-2. Eksportuj tooa aplikacji hello JAR do uruchomienia i pakietów hello wymaganych bibliotek na powitania wygenerowany JAR. W tym samouczku użyjemy **TSPClient.jar** jako nazwa JAR hello wygenerowany.
+## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>Tworzenie aplikacji Java, która monitoruje postęp zadania obliczeniowych
+1. Na komputerze deweloperskim Utwórz aplikację konsoli języka Java przy użyciu przykładowy kod na końcu tej sekcji. W tym samouczku użyjemy **TSPClient.java** jako nazwa pliku języka Java. Jak pokazano wcześniej, zmodyfikuj **Twojego\_usługi\_magistrali\_przestrzeni nazw**, **Twojego\_usługi\_magistrali\_właściciela**, i **Twojego\_usługi\_magistrali\_klucza** symbole zastępcze do użycia z usługi service bus **przestrzeni nazw**, **domyślne wystawcy**i **domyślny klucz** wartości odpowiednio.
+2. Eksportowanie aplikacji do JAR do uruchomienia i pakietów wymaganych bibliotek w wygenerowanym JAR. W tym samouczku użyjemy **TSPClient.jar** jako nazwa wygenerowana JAR.
 
 <p/>
 
@@ -340,7 +340,7 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
 
                     BrokeredMessage message;
 
-                    int waitMinutes = 3;  // Use as hello default, if no value is specified at command line.
+                    int waitMinutes = 3;  // Use as the default, if no value is specified at command line.
                     if (args.length != 0)
                     {
                         waitMinutes = Integer.valueOf(args[0]);  
@@ -366,7 +366,7 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
                         if (null != message && null != message.getMessageId())
                         {
 
-                            // Display hello queue message.
+                            // Display the queue message.
                             byte[] b = new byte[200];
 
                             System.out.print("From queue: ");
@@ -383,7 +383,7 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
                             System.out.println();
                             if (s.compareTo("Complete") == 0)
                             {
-                                // No more processing toooccur.
+                                // No more processing to occur.
                                 date = new Date();
                                 System.out.println("Finished at " + dateFormat.format(date) + ".");
                                 break;
@@ -391,7 +391,7 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
                         }
                         else
                         {
-                            // hello queue is empty.
+                            // The queue is empty.
                             System.out.println("Queue is empty. Sleeping for another " + waitString);
                             Thread.sleep(60000 * waitMinutes);
                         }
@@ -415,14 +415,14 @@ W operacji zarządzania tooperform kolejności, takich jak tworzenie kolejki w n
 
     }
 
-## <a name="how-toorun-hello-java-applications"></a>Jak toorun hello aplikacji Java
-Uruchamianie aplikacji obliczeniowych hello, pierwszy toocreate hello kolejki, a następnie toosolve hello podróży Saleseman Problem, który doda hello bieżącego najlepszą trasę toohello kolejką usługi service bus. Podczas hello obliczeniowych aplikacja jest uruchomiona (lub później), wykonywania powitania klienta toodisplay wyników z kolejką usługi service bus hello.
+## <a name="how-to-run-the-java-applications"></a>Jak uruchomić aplikacji Java
+Uruchom aplikację obliczeniowych, aby najpierw utworzyć kolejkę, następnie w rozwiązaniu problemu Saleseman podróży, który doda bieżącego najlepszą trasę do kolejki magistrali usług. Podczas gdy aplikacja obliczeniowych jest uruchomione (lub później), uruchom klienta, aby wyświetlić wyniki z kolejką usługi service bus.
 
-### <a name="toorun-hello-compute-intensive-application"></a>toorun hello obliczeniowych aplikacji
-1. Zaloguj się na tooyour maszyny wirtualnej.
+### <a name="to-run-the-compute-intensive-application"></a>Aby uruchomić aplikację obliczeniowych
+1. Zaloguj się do maszyny wirtualnej.
 2. Utwórz folder, w którym będzie działała aplikacja sieci. Na przykład **c:\TSP**.
-3. Kopiuj **TSPSolver.jar** za**c:\TSP**,
-4. Utwórz plik o nazwie **c:\TSP\cities.txt** z powitania po zawartości.
+3. Kopiuj **TSPSolver.jar** do **c:\TSP**,
+4. Utwórz plik o nazwie **c:\TSP\cities.txt** z następującą zawartość.
    
         City_1, 1002.81, -1841.35
         City_2, -953.55, -229.6
@@ -474,44 +474,44 @@ Uruchamianie aplikacji obliczeniowych hello, pierwszy toocreate hello kolejki, a
         City_48, 363.68, 768.21
         City_49, -120.3, -463.13
         City_50, 588.51, 679.33
-5. W wierszu polecenia Zmień tooc:\TSP katalogów.
-6. Upewnij się, że folder bin hello JRE znajduje się w zmiennej środowiskowej PATH hello.
-7. Musisz kolejką usługi service bus toocreate hello przed rozpoczęciem powitalne TSP solver permutacji. Witaj uruchom następujące polecenie kolejką usługi service bus toocreate hello.
+5. W wierszu polecenia Zmień katalog na c:\TSP.
+6. Upewnij się, że folder bin środowiska JRE znajduje się w zmiennej środowiskowej PATH.
+7. Należy utworzyć kolejką usługi service bus przed uruchomieniem permutacji solver TSP. Uruchom następujące polecenie, aby utworzyć kolejką usługi service bus.
    
         java -jar TSPSolver.jar createqueue
-8. Teraz, gdy hello Trwa tworzenie kolejki, możesz uruchomić hello TSP solver permutacji. Na przykład uruchom hello następujące polecenia toorun hello solver dla 8 miast.
+8. Teraz, gdy trwa tworzenie kolejki, możesz uruchomić permutacji solver TSP. Na przykład uruchom następujące polecenie, aby uruchomić solver dla 8 miast.
    
         java -jar TSPSolver.jar 8
    
-   Jeśli nie określisz numeru, zostanie on uruchomiony dla 10 miast. Jak hello znalezieniem bieżącego najkrótszy tras, spowoduje to dodanie ich toohello kolejki.
+   Jeśli nie określisz numeru, zostanie on uruchomiony dla 10 miast. Jak znalezieniem bieżącej trasy najkrótszy spowoduje to dodanie ich do kolejki.
 
 > [!NOTE]
-> Liczba, że określono, zostanie uruchomiony dłużej solver hello hello hello Hello większy. Na przykład uruchomiony 14 miasta może potrwać kilka minut i uruchamiane przez 15 miasta może zająć kilka godzin. Zwiększenie too16 lub więcej miast może spowodować dni środowiska uruchomieniowego (ostatecznie tygodnie, miesiące i lata). Jest to powodu toohello szybki wzrost hello liczbę permutacji obliczone przez moduł rozwiązywania hello jako hello liczba wzrasta miast.
+> Im większa liczba, która zostanie określona, tym dłużej solver zostanie uruchomiony. Na przykład uruchomiony 14 miasta może potrwać kilka minut i uruchamiane przez 15 miasta może zająć kilka godzin. Zwiększenie do więcej niż 16 miast może spowodować dni środowiska uruchomieniowego (ostatecznie tygodnie, miesiące i lata). Jest to spowodowane szybki wzrost liczbę permutacji obliczone przez moduł rozwiązywania jako liczba wzrasta miast.
 > 
 > 
 
-### <a name="how-toorun-hello-monitoring-client-application"></a>Jak toorun hello monitorowania aplikacji klienta
-1. Zaloguj się na komputerze tooyour, w którym będzie uruchamiany powitania klienta aplikacji. To nie jest konieczne toobe hello tym samym komputerze, na którym działa hello **TSPSolver** aplikacji, mimo że można go.
+### <a name="how-to-run-the-monitoring-client-application"></a>Jak uruchomić monitorowania aplikacji klienta
+1. Zaloguj się na komputerze, na którym należy uruchomić aplikacji klienckiej. Musi to być tym samym komputerze z systemem **TSPSolver** aplikacji, mimo że można go.
 2. Utwórz folder, w którym będzie działała aplikacja sieci. Na przykład **c:\TSP**.
-3. Kopiuj **TSPClient.jar** za**c:\TSP**,
-4. Upewnij się, że folder bin hello JRE znajduje się w zmiennej środowiskowej PATH hello.
-5. W wierszu polecenia Zmień tooc:\TSP katalogów.
-6. Uruchom następujące polecenie hello.
+3. Kopiuj **TSPClient.jar** do **c:\TSP**,
+4. Upewnij się, że folder bin środowiska JRE znajduje się w zmiennej środowiskowej PATH.
+5. W wierszu polecenia Zmień katalog na c:\TSP.
+6. Uruchom następujące polecenie.
    
         java -jar TSPClient.jar
    
-    Opcjonalnie określ hello liczbę minut toosleep Between sprawdzanie hello kolejki, przekazując argument wiersza polecenia. Witaj domyślny okres uśpienia sprawdzania kolejki hello jest 3 minuty, który jest używany, jeśli żaden argument wiersza polecenia jest przekazywany za**TSPClient**. Toouse inną wartość dla interwału powitania uśpienia, na przykład jedną minutę, uruchomić hello następujące polecenia.
+    Opcjonalnie określ liczbę minut w tryb uśpienia Between sprawdzanie kolejki, przekazując argument wiersza polecenia. Domyślny okres uśpienia sprawdzania kolejki wynosi 3 minuty, który jest używany, jeśli żaden argument wiersza polecenia jest przekazywana do **TSPClient**. Jeśli chcesz użyć innej wartości interwału uśpienia, na przykład jedną minutę, uruchom następujące polecenie.
    
         java -jar TSPClient.jar 1
    
-    powitania klienta zostanie uruchomiony, dopóki nie widzi ona komunikatu w kolejce "Zakończ". Należy pamiętać, że po uruchomieniu wielu wystąpień hello solver bez uruchamiania powitania klienta może być konieczne toorun powitania klienta kolejki pusty hello toocompletely wiele razy. Alternatywnie można usunąć kolejki hello i utworzyć ją ponownie. kolejki hello toodelete, uruchom następujące hello **TSPSolver** (nie **TSPClient**) polecenia.
+    Klient zostanie uruchomiony, dopóki nie widzi ona komunikatu w kolejce "Zakończ". Należy pamiętać, że po uruchomieniu wielu wystąpień solver bez uruchamiania klienta może być konieczne z klientem wiele razy, aby całkowicie opróżnić kolejkę. Alternatywnie możesz usunąć kolejkę i ponownie go utworzyć. Aby usunąć kolejkę, uruchom następujące polecenie **TSPSolver** (nie **TSPClient**) polecenia.
    
         java -jar TSPSolver.jar deletequeue
    
-    Hello solver zostanie uruchomiony do momentu zakończenia badanie wszystkie trasy.
+    Solver zostanie uruchomiony do momentu zakończenia badanie wszystkie trasy.
 
-## <a name="how-toostop-hello-java-applications"></a>Jak toostop hello aplikacji Java
-Hello solver i aplikacje klienckie, można nacisnąć klawisz **klawisze Ctrl + C** tooexit, jeśli chcesz, aby tooend toonormal wcześniejszego wykonania.
+## <a name="how-to-stop-the-java-applications"></a>Zatrzymywanie aplikacji Java
+Zarówno dla zmiennej i aplikacje klienckie, można nacisnąć klawisz **klawisze Ctrl + C** aby zakończyć, jeśli chcesz zakończyć przed ukończeniem normalnego.
 
 [solver_output]:media/java-run-compute-intensive-task/WA_JavaTSPSolver.png
 [client_output]:media/java-run-compute-intensive-task/WA_JavaTSPClient.png

@@ -2,7 +2,7 @@
 
 | **Identyfikator limit** | **Limit** | **Komentarze** |
 | --- | --- | --- |
-| Łączna pojemność (w tym chmury) |Zapasowej too64 TB na urządzenie wirtualne |Można przełączyć kompletny zestaw pusty tooanother tablicy wirtualne StorSimple. Jeśli spróbujesz toorestore toohello jednym urządzeniu, upewnij się, czy masz wystarczającą ilość miejsca na powitania urządzenia toocomplete tej operacji. Po przekroczyła 32 TB, nie można przywrócić toohello tego samego urządzenia. |
+| Łączna pojemność (w tym chmury) |Maksymalnie 64 TB dla urządzenia wirtualnego |Można przełączyć kompletny zestaw wirtualnego StorSimple do innej tablicy puste. Spróbuj przywrócić z tego samego urządzenia, upewnij się, że masz wystarczającą ilość miejsca na urządzeniu, aby wykonać tę operację. Po przekroczyła 32 TB, nie można przywrócić do tego samego urządzenia. |
 | Maksymalna liczba poświadczeń konta magazynu na urządzenie |1 | |
 | Maksymalna liczba woluminów/udziałów |16 | |
 | Minimalny rozmiar udziału warstwowych |500 GB | |
@@ -15,11 +15,11 @@
 | Maksymalny rozmiar woluminu przypiętego lokalnie |200 GB | |
 | Maksymalna liczba połączeń iSCSI z inicjatorów |512 | |
 | Maksymalna liczba rekordów kontroli dostępu na urządzeniu |64 | |
-| Maksymalna liczba kopie zapasowe przechowywane przez urządzenie wirtualne hello w *.backups* folderu dla serwera plików |5 |Dotyczy to również hello najnowszych zaplanowane (generowane przez hello domyślne zasady tworzenia kopii zapasowej) i ręcznego tworzenia kopii zapasowych. |
-| Maksymalna liczba zaplanowane kopie zapasowe przechowywane przez urządzenie hello |55 |30 codzienne wykonywanie kopii zapasowych<br>12 comiesięczne kopie zapasowe<br>13 corocznych kopii zapasowych |
-| Maksymalna liczba ręcznego tworzenia kopii zapasowych, które są zachowane w urządzeniu hello |45 | |
-| Maksymalna liczba plików na udziale serwera plików |1 mln |Podczas przywracania urządzenia, czasów przywracania hello są proporcjonalne toonumber plików przez wszystkie udziały hello na urządzeniu hello. |
+| Maksymalna liczba kopie zapasowe przechowywane przez urządzenie wirtualne w *.backups* folderu dla serwera plików |5 |Obejmuje to najnowsza zaplanowane (generowane przez domyślne zasady tworzenia kopii zapasowej) i ręcznego tworzenia kopii zapasowych. |
+| Maksymalna liczba zaplanowane kopie zapasowe przechowywane przez urządzenie |55 |30 codzienne wykonywanie kopii zapasowych<br>12 comiesięczne kopie zapasowe<br>13 corocznych kopii zapasowych |
+| Maksymalna liczba ręcznego tworzenia kopii zapasowych, które są zachowane w urządzeniu |45 | |
+| Maksymalna liczba plików na udziale serwera plików |1 mln |Podczas przywracania urządzenia, czas przywracania jest proporcjonalna do liczby plików przez wszystkie udziały na urządzeniu. |
 | Maksymalna liczba plików dla każdego woluminu na serwerze iSCSI |1 mln | |
 | Maksymalna liczba plików na tablicę wirtualnego |4 miliony | |
-| Czas odzyskania przywracania |Szybkie przywracanie |Przywracanie Hello jest oparta na powitania Mapa cieplna i zależy od rozmiaru woluminu hello.<br>Operacje tworzenia kopii zapasowej może wystąpić, gdy operacja przywracania jest w toku. |
+| Czas odzyskania przywracania |Szybkie przywracanie |Przywracanie jest oparta na mapie interakcji i zależy od rozmiaru woluminu.<br>Operacje tworzenia kopii zapasowej może wystąpić, gdy operacja przywracania jest w toku. |
 

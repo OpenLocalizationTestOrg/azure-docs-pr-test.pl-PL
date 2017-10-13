@@ -1,9 +1,9 @@
 ---
-title: "aaaMy pierwszy przepływu pracy programu PowerShell elementu runbook automatyzacji Azure | Dokumentacja firmy Microsoft"
-description: "Samouczek, który przeprowadzi Cię przez kolejne hello tworzenia, testowania i publikowania elementu runbook prosty tekst za pomocą przepływu pracy programu PowerShell."
+title: "Mój pierwszy element Runbook przepływu pracy programu PowerShell w usłudze Azure Automation | Microsoft Docs"
+description: "Samouczek, który przeprowadzi Cię przez procesy tworzenia, testowania i publikowania prostego tekstowego elementu Runbook przy użyciu przepływu programu PowerShell."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "przepływ pracy programu powershell, przykłady przepływu pracy programu powershell, program powershell przepływu pracy"
@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/26/2017
+ms.date: 08/31/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: b5a34d363ef4865878f3f68119833367b5280f83
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 71fba79804e4361fd731ec5627526beafa01fa3b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mój pierwszy element Runbook przepływu pracy programu PowerShell
 
@@ -27,40 +27,41 @@ ms.lasthandoff: 10/06/2017
 > * [Element graficzny](automation-first-runbook-graphical.md)
 > * [Program PowerShell](automation-first-runbook-textual-powershell.md)
 > * [Przepływ pracy programu PowerShell](automation-first-runbook-textual.md)
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 > 
 
-Ten samouczek przedstawia tworzenie hello [runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) automatyzacji Azure. Możemy zaczynać prosty element runbook, który możemy testowanie i publikowanie podczas wyjaśniający, jak tootrack hello stanu zadania elementu runbook hello. Firma Microsoft zmodyfikowanie hello runbook tooactually zarządzania zasobami Azure, w tym przypadku uruchamiania maszyny wirtualnej platformy Azure. Na koniec wykonujemy hello runbook bardziej niezawodne, dodając parametry elementu runbook.
+Ten samouczek przeprowadzi Cię przez proces tworzenia [elementu Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) w usłudze Azure Automation. Rozpoczniemy pracę od prostego elementu Runbook, który przetestujemy i opublikujemy, objaśniając równocześnie, jak śledzić stan zadania elementu Runbook. Następnie zmodyfikujemy element Runbook, aby faktycznie zarządzać zasobami platformy Azure (w tym przypadku uruchomić maszynę wirtualną platformy Azure). Udoskonalimy również element Runbook, dodając parametry, aby działał on bardziej niezawodnie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-toocomplete tego samouczka należy hello następujące:
+Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub <a href="/pricing/free-account/" target="_blank">[utworzyć bezpłatne konto](https://azure.microsoft.com/free/).
-* [Konto automatyzacji](automation-sec-configure-azure-runas-account.md) toohold hello elementu runbook i ich uwierzytelniać tooAzure zasobów.  To konto musi mieć uprawnienie toostart i zatrzymać hello maszyny wirtualnej.
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Konto usługi Automation](automation-offering-get-started.md) do przechowywania elementu Runbook i uwierzytelniania w zasobach platformy Azure.  To konto musi mieć uprawnienia do uruchamiania i zatrzymywania maszyny wirtualnej.
 * Maszyna wirtualna platformy Azure. Będziemy uruchamiać i zatrzymywać tę maszynę, dlatego należy użyć maszyny innej niż produkcyjna.
 
 ## <a name="step-1---create-new-runbook"></a>Krok 1. Tworzenie nowego elementu Runbook
-Zaczniemy przez utworzenie prostego elementu runbook, która wyświetla tekst hello *Hello World*.
+Rozpoczniemy od utworzenia prostego elementu Runbook z wyświetlonym tekstem *Witaj, świecie*.
 
-1. Otwórz hello portalu Azure, Twoje konto usługi Automatyzacja.  
-   Strona kont automatyzacji Hello zapewnia szybki przegląd hello zasobów na tym koncie. Konto powinno mieć już pewne elementy zawartości. Większość tych to hello modułów, które są automatycznie umieszczane w koncie automatyzacji. Należy również zaznaczyć zasób poświadczeń hello, który jest wymieniony w hello [wymagania wstępne](#prerequisites).
-2. Polecenie hello **elementów Runbook** kafelka tooopen hello listy elementów runbook.<br><br> ![Kontrolka Elementy Runbook](media/automation-first-runbook-textual/runbooks-control-tiles.png)
-3. Utwórz nowy element runbook, klikając hello **Dodaj element runbook** przycisk, a następnie **Utwórz nowy element runbook**.
-4. Nadaj nazwę hello runbook hello *przepływu pracy MyFirstRunbook*.
-5. W takim przypadku zamierzamy toocreate [runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) tak wybierz **przepływu pracy programu Powershell** dla **typ elementu Runbook**.<br><br> ![Nowy element Runbook](media/automation-first-runbook-textual/new-runbook-properties.png)
-6. Kliknij przycisk **Utwórz** toocreate hello elementu runbook i hello Otwórz edytor tekstowy.
+1. W witrynie Azure Portal otwórz konto usługi Automation.  
+   Strona konta usługi Automation umożliwia szybki przegląd zasobów na tym koncie. Konto powinno mieć już pewne elementy zawartości. Większość z nich to moduły, które są automatycznie uwzględniane na nowym koncie usługi Automation. Powinien istnieć również element zawartości Poświadczenie wymieniony w części dotyczącej [wymagań wstępnych](#prerequisites).
+2. Kliknij kafelek **Elementy Runbook**, aby otworzyć listę elementów Runbook.<br><br> ![Kontrolka Elementy Runbook](media/automation-first-runbook-textual/runbooks-control-tiles.png)
+3. Utwórz nowy element Runbook, klikając przycisk **Dodaj element Runbook**, a następnie pozycję **Utwórz nowy element Runbook**.
+4. Nadaj elementowi Runbook nazwę *MyFirstRunbook-Workflow*.
+5. W tym przypadku będziemy tworzyć [element Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), dlatego wybierz wartość **Przepływ pracy programu Powershell** parametru **Typ elementu Runbook**.<br><br> ![Nowy element Runbook](media/automation-first-runbook-textual/new-runbook-properties.png)
+6. Kliknij pozycję **Utwórz**, aby utworzyć element Runbook i otworzyć edytor tekstów.
 
-## <a name="step-2---add-code-toohello-runbook"></a>Krok 2 — Dodaj kod toohello runbook
-Można albo kod typu bezpośrednio do elementu runbook hello, lub można wybrać polecenia cmdlet, elementy runbook i zasoby z hello formant biblioteki i ich dodano toohello runbook za pomocą parametrów powiązanych. W ramach tego przewodnika firma Microsoft będzie wpisać bezpośrednio w hello elementu runbook.
+## <a name="step-2---add-code-to-the-runbook"></a>Krok 2. Dodawanie kodu do elementu Runbook
+Możesz wpisać kod bezpośrednio w elemencie Runbook lub wybrać polecenia cmdlet, elementy Runbook i elementy zawartości, używając kontrolki Biblioteka, a następnie dodać je do elementu Runbook z powiązanymi parametrami. W przypadku tego przewodnika wpiszemy informacje bezpośrednio w elemencie Runbook.
 
-1. Nasze elementu runbook jest obecnie pusta z tylko hello wymagane *przepływu pracy* — słowo kluczowe, nazwę hello naszych runbook i nawiasów klamrowych hello, które będą encase hello całego przepływu pracy.
+1. Nasz element Runbook jest obecnie pusty i zawiera tylko wymagane słowo kluczowe *workflow*, nazwę i nawiasy klamrowe, które będą obejmować cały przepływ pracy.
 
    ```
    Workflow MyFirstRunbook-Workflow
    {
    }
    ```
-2. Wpisz ciąg *Write-Output „Witaj, świecie”* nawiasach hello.
+2. Wpisz ciąg *Write-Output „Witaj, świecie”* między nawiasami klamrowymi.
 
    ```
    Workflow MyFirstRunbook-Workflow
@@ -68,55 +69,55 @@ Można albo kod typu bezpośrednio do elementu runbook hello, lub można wybrać
    Write-Output "Hello World"
    }
    ```
-3. Zapisz element runbook hello, klikając **zapisać**.<br><br> ![Zapisywanie elementu Runbook](media/automation-first-runbook-textual/automation-runbook-edit-controls-save.png)
+3. Zapisz element Runbook, klikając przycisk **Zapisz**.<br><br> ![Zapisywanie elementu Runbook](media/automation-first-runbook-textual/automation-runbook-edit-controls-save.png)
 
-## <a name="step-3---test-hello-runbook"></a>Krok 3 - Test hello runbook
-Zanim firma Microsoft publikować hello runbook toomake go dostępne w środowisku produkcyjnym, chcemy tootest on toomake się upewnić, że działa on prawidłowo. Testowanie elementu Runbook polega na uruchomieniu jego **wersji roboczej** i interaktywnym przejrzeniu danych wyjściowych.
+## <a name="step-3---test-the-runbook"></a>Krok 3. Testowanie elementu Runbook
+Przed opublikowaniem elementu Runbook w celu udostępnienia go w środowisku produkcyjnym chcemy go przetestować, aby upewnić się, że działa prawidłowo. Testowanie elementu Runbook polega na uruchomieniu jego **wersji roboczej** i interaktywnym przejrzeniu danych wyjściowych.
 
-1. Kliknij przycisk **okienku testu** tooopen hello testu okienka.<br><br> ![Okienko testowania](media/automation-first-runbook-textual/automation-runbook-edit-controls-test.png)
-2. Kliknij przycisk **Start** toostart hello testu. Powinno to być hello włączyć tylko opcję.
+1. Kliknij pozycję **Okienko testowania**, aby otworzyć okienko testowania.<br><br> ![Okienko testowania](media/automation-first-runbook-textual/automation-runbook-edit-controls-test.png)
+2. Kliknij opcję **Uruchom**, aby rozpocząć test. Powinna to być jedyna włączona opcja.
 3. Zostanie utworzone [zadanie elementu Runbook](automation-runbook-execution.md) i pojawi się jego stan.  
-   Stan zadania Hello zostanie uruchomiona jako *w kolejce* wskazujący, że oczekuje na proces roboczy elementu runbook, w toocome chmury hello dostępne. Będzie on przenoszony za*uruchamianie* gdy pracownik oświadczeń hello zadania, a następnie *systemem* , gdy element runbook hello faktycznie zacznie działać.  
-4. Po zakończeniu zadania elementu runbook hello jego dane wyjściowe są wyświetlane. W naszym przypadku powinien być widoczny ciąg *Witaj, świecie*.<br><br> ![Witaj, świecie](media/automation-first-runbook-textual/test-output-hello-world.png)
-5. Zamknij hello testu okienku tooreturn toohello kanwy.
+   Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze. Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a następnie *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  
+4. Po zakończeniu zadania elementu Runbook zostaną wyświetlone jego dane wyjściowe. W naszym przypadku powinien być widoczny ciąg *Witaj, świecie*.<br><br> ![Witaj, świecie](media/automation-first-runbook-textual/test-output-hello-world.png)
+5. Zamknij okienko testowania, aby wrócić do kanwy.
 
-## <a name="step-4---publish-and-start-hello-runbook"></a>Krok 4 — publikowanie i uruchomić hello elementu runbook
-Witaj elementu runbook, który właśnie utworzony jest nadal w trybie wersji roboczej. Potrzebujemy toopublish go przed możemy można uruchomić w środowisku produkcyjnym. Podczas publikowania elementu runbook, należy zastąpić hello istniejącej opublikowanej wersji hello wersję roboczą. W tym przypadku nie mamy wersję opublikowaną jeszcze ponieważ właśnie utworzyliśmy hello elementu runbook.
+## <a name="step-4---publish-and-start-the-runbook"></a>Krok 4. Publikowanie i uruchamianie elementu Runbook
+Nowo utworzony element Runbook nadal działa w trybie roboczym. Przed uruchomieniem elementu w środowisku produkcyjnym musimy go opublikować. Podczas publikowania elementu Runbook można zastąpić istniejącą wersję opublikowaną wersją roboczą. W naszym przypadku nie mamy jeszcze wersji opublikowanej, ponieważ element Runbook został dopiero utworzony.
 
-1. Kliknij przycisk **publikowania** toopublish hello runbook, a następnie **tak** po wyświetleniu monitu.<br><br> ![Publikowanie](media/automation-first-runbook-textual/automation-runbook-edit-controls-publish.png)
-2. Podczas przewijania tooview po lewej stronie powitania runbook w programie hello **elementów Runbook** okienko teraz, zostanie wyświetlona **stan pisania przyp** z **opublikowano**.
-3. Przewijania wstecz toohello prawo tooview hello okienka **przepływu pracy MyFirstRunbook**.  
-   Witaj opcje górze hello zezwolić nam toostart hello runbook, zaplanowane toostart w czasie w przyszłości hello lub tworzenia [elementu webhook](automation-webhooks.md) , może być uruchamiany za pośrednictwem połączenia HTTP.
-4. Chcemy tylko toostart hello runbook więc klikamy **Start** , a następnie **tak** po wyświetleniu monitu.<br><br> ![Uruchamianie elementu Runbook](media/automation-first-runbook-textual/automation-runbook-controls-start.png)
-5. Okienko zadania został otwarty do hello zadanie elementu runbook, który właśnie utworzony. Możemy zamknąć w tym okienku, ale w takim przypadku pozostanie on otwarte aby firma Microsoft obserwować postęp zadania hello.
-6. Stan zadania Hello jest wyświetlany w **Podsumowanie zadania** i dopasowań hello stany widzieliśmy po przetestowaliśmy hello elementu runbook.<br><br> ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
-7. Raz hello pokazuje stan elementu runbook *Ukończono*, kliknij przycisk **dane wyjściowe**. w okienku z wyjściem Hello jest otwarty i możemy stwierdzić, naszych *Hello World*.<br><br> ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
-8. W okienku z wyjściem hello Zamknij.
-9. Kliknij przycisk **wszystkie dzienniki** tooopen hello strumieni okienka hello zadanie elementu runbook. Firma Microsoft powinien zobaczyć tylko *Hello World* w danych wyjściowych hello strumienia, ale mogą być prezentowane z innych strumieni dla zadania elementu runbook, takie jak Verbose i błąd hello runbook toothem zapisywać dane.<br><br> ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
-10. Zamknij okienko strumieni hello i hello zadania tooreturn toohello MyFirstRunbook okienko.
-11. Kliknij przycisk **zadania** okienka zadań hello tooopen dla tego elementu runbook. Ta lista zawiera wszystkie hello zadań utworzonych przez ten element runbook. Widzimy powinien tylko jedno zadanie na liście, ponieważ tylko wystąpił hello zadania raz.<br><br> ![Zadania](media/automation-first-runbook-textual/runbook-control-job-tile.png)
-12. Możesz kliknąć ten hello tooopen zadania sam okienka zadania, które możemy wyświetlić przy uruchamianiu firma Microsoft hello runbook. Dzięki temu można toogo Wstecz w czasie i wyświetlenia jej szczegółów hello wszystkie zadania, które zostało utworzone dla określonego elementu runbook.
+1. Kliknij pozycję **Opublikuj**, aby opublikować element Runbook, a następnie kliknij pozycję **Tak** po wyświetleniu monitu.<br><br> ![Publikowanie](media/automation-first-runbook-textual/automation-runbook-edit-controls-publish.png)
+2. Jeśli teraz przewiniesz w lewo, aby wyświetlić element Runbook w okienku **Elementy Runbook**, element **Stan tworzenia** będzie mieć wartość **Opublikowano**.
+3. Przewiń w prawo, aby wyświetlić okienko elementu **MyFirstRunbook-Workflow**.  
+   Opcje w górnej części umożliwiają nam uruchamianie elementu Runbook, planowanie jego uruchomienia w przyszłości lub utworzenie [elementu webhook](automation-webhooks.md) w celu umożliwienia uruchamiania za pośrednictwem wywołania HTTP.
+4. Chcemy tylko uruchomić element Runbook, dlatego kliknij pozycję **Uruchom**, a następnie pozycję **Tak** po wyświetleniu monitu.<br><br> ![Uruchamianie elementu Runbook](media/automation-first-runbook-textual/automation-runbook-controls-start.png)
+5. Zostanie otwarte okienko zadania elementu Runbook, który właśnie utworzyliśmy. Możemy zamknąć to okienko, ale w tym przypadku pozostawimy je otwarte, aby obserwować postęp zadania.
+6. Stan zadania jest wyświetlany w oknie **Podsumowanie zadania** i odpowiada stanom obserwowanym podczas testowania elementu Runbook.<br><br> ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
+7. Gdy stanem elementu Runbook będzie *Ukończono*, kliknij pozycję **Dane wyjściowe**. Zostanie otwarte okienko danych wyjściowych z naszym ciągiem *Witaj, świecie*.<br><br> ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
+8. Zamknij okienko danych wyjściowych.
+9. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. W strumieniu danych wyjściowych powinien być widoczny tylko ciąg *Witaj, świecie*, ale mogą zostać wyświetlone inne strumienie zadania elementu Runbook, takie jak Pełne informacje i Błąd, jeśli element Runbook wykonuje w nich operacje zapisywania.<br><br> ![Podsumowanie zadania](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
+10. Zamknij okienko strumieni i okienko zadania, aby wrócić do okienka MyFirstRunbook.
+11. Kliknij pozycję **Zadania**, aby otworzyć okienko zadań dla tego elementu Runbook. Zawiera ono listę wszystkich zadań utworzonych przez dany element Runbook. Ponieważ uruchomiliśmy zadanie tylko raz, powinniśmy zobaczyć tylko jedno zadanie.<br><br> ![Zadania](media/automation-first-runbook-textual/runbook-control-job-tile.png)
+12. Możesz kliknąć to zadanie, aby otworzyć okienko zadania wyświetlone przez nas wcześniej po uruchomieniu elementu Runbook. Dzięki temu możesz cofnąć się w czasie i wyświetlić szczegóły dowolnego zadania, które zostało utworzone dla określonego elementu Runbook.
 
-## <a name="step-5---add-authentication-toomanage-azure-resources"></a>Krok 5 — Dodawanie uwierzytelniania toomanage zasobów platformy Azure
-Nasz element Runbook został przetestowany i opublikowany, ale jak do tej pory nie wykonuje on żadnych użytecznych czynności. Chcemy toohave go zarządzania zasobami Azure. Nie będzie stanie toodo, że chociaż chyba, że mamy uwierzytelniania przy użyciu poświadczeń hello określonym tooin hello [wymagania wstępne](#prerequisites). Przejdziemy z hello **Add-AzureRMAccount** polecenia cmdlet.
+## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Krok 5. Dodawanie uwierzytelniania w celu zarządzania zasobami platformy Azure
+Element Runbook został przetestowany i opublikowany, ale jak do tej pory nie wykonuje on żadnych użytecznych czynności. Chcemy, aby zarządzał zasobami platformy Azure. Będzie to jednak niemożliwe do momentu uwierzytelnienia go przy użyciu poświadczeń podanych w części dotyczącej [wymagań wstępnych](#prerequisites). Czynność tę możemy wykonać przy użyciu polecenia cmdlet **Add-AzureRMAccount**.
 
-1. Hello Otwórz edytor tekstowy, klikając **Edytuj** w okienku hello MyFirstRunbook — przepływ pracy.<br><br> ![Edytowanie elementu Runbook](media/automation-first-runbook-textual/automation-runbook-controls-edit.png)
-2. Firma Microsoft nie ma potrzeby hello **Write-Output** wiersz już, więc Przejdź dalej i usuń go.
-3. Umieść kursor hello w nawiasach klamrowych hello pustym wierszu.
-4. Wpisz lub skopiuj i Wklej hello następującego kodu, który będzie obsługiwał hello uwierzytelniania przy użyciu konta Uruchom jako automatyzacji:
+1. Otwórz edytor tekstów, klikając pozycję **Edytuj** w okienku MyFirstRunbook-Workflow.<br><br> ![Edytowanie elementu Runbook](media/automation-first-runbook-textual/automation-runbook-controls-edit.png)
+2. Nie potrzebujemy już wiersza **Write-Output**. Usuń go.
+3. Umieść kursor w pustym wierszu między nawiasami klamrowymi.
+4. Wpisz lub skopiuj i wklej poniższy kod, który będzie obsługiwać uwierzytelnianie za pomocą konta Uruchom jako w usłudze Automation:
 
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
-5. Kliknij przycisk **okienku testu** tak, aby można było przetestować hello elementu runbook.
-6. Kliknij przycisk **Start** toostart hello testu. Po zakończeniu działania, powinien zostać wyświetlony toohello podobne dane wyjściowe po, wyświetlania podstawowych informacji z Twojego konta. Potwierdza to, że to poświadczenie hello jest prawidłowy.<br><br> ![Uwierzytelnianie](media/automation-first-runbook-textual/runbook-auth-output.png)
+5. Kliknij pozycję **Okienko testowania**, aby umożliwić przetestowanie elementu Runbook.
+6. Kliknij opcję **Uruchom**, aby rozpocząć test. Po zakończeniu powinny pojawić się dane wyjściowe podobne do poniższych, zawierające podstawowe informacje powiązane z kontem. Będzie to potwierdzenie, że poświadczenie jest prawidłowe.<br><br> ![Uwierzytelnianie](media/automation-first-runbook-textual/runbook-auth-output.png)
 
-## <a name="step-6---add-code-toostart-a-virtual-machine"></a>Krok 6 — Dodaj kod toostart maszyny wirtualnej
-Teraz, gdy naszych runbook uwierzytelnia tooour subskrypcji platformy Azure, firma Microsoft mogą zarządzać zasobami. Dodamy toostart polecenia maszyny wirtualnej. Można wybrać żadnej maszyny wirtualnej w ramach subskrypcji platformy Azure, a teraz będziemy hardcoding o nazwie w elemencie runbook hello.
+## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Krok 6. Dodawanie kodu w celu uruchomienia maszyny wirtualnej
+Teraz, gdy nasz element Runbook jest uwierzytelniany w subskrypcji platformy Azure, możemy zarządzać zasobami. Dodamy polecenie, aby uruchomić maszynę wirtualną. Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji Azure. Wybrana nazwa zostanie trwale zakodowana w elemencie Runbook.
 
-1. Po *Add-AzureRmAccount*, typ *Start AzureRmVM-Name "VMName" - ResourceGroupName "NameofResourceGroup"* podanie nazwy hello i nazwę grupy zasobów hello toostart maszyny wirtualnej.  
+1. Po poleceniu *Add-AzureRmAccount* wpisz polecenie *Start-AzureRmVM -Name 'nazwa_maszyny_wirtualnej' -ResourceGroupName 'nazwa_grupy_zasobów'*, podając nazwę maszyny wirtualnej do uruchomienia i nazwę jej grupy zasobów.  
 
    ```
    workflow MyFirstRunbook-Workflow
@@ -126,13 +127,13 @@ Teraz, gdy naszych runbook uwierzytelnia tooour subskrypcji platformy Azure, fir
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    }
    ```
-2. Zapisz hello elementu runbook, a następnie kliknij przycisk **okienku testu** tak, aby można było przetestować go.
-3. Kliknij przycisk **Start** toostart hello testu. Po zakończeniu instalacji sprawdź, czy hello maszyny wirtualnej została uruchomiona.
+2. Zapisz element Runbook, a następnie kliknij pozycję **Okienko testowania**, aby umożliwić jego przetestowanie.
+3. Kliknij opcję **Uruchom**, aby rozpocząć test. Po zakończeniu sprawdź, czy maszyna wirtualna została uruchomiona.
 
-## <a name="step-7---add-an-input-parameter-toohello-runbook"></a>Krok 7 — Dodaj element runbook toohello parametru wejściowego
-Nasze runbook aktualnie uruchamia hello wirtualnej maszyny, że firma Microsoft zapisane na stałe w elemencie runbook hello, ale byłoby bardziej użyteczna, jeśli firma Microsoft może określać hello maszyny wirtualnej po uruchomieniu elementu runbook hello. Teraz dodamy parametrów wejściowych toohello runbook tooprovide te funkcje.
+## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>Krok 7. Dodawanie parametru wejściowego do elementu Runbook
+Obecnie nasz element Runbook uruchamia maszynę wirtualną trwale w nim zakodowaną, ale bardziej użyteczna byłaby możliwość wybrania maszyny wirtualnej po uruchomieniu elementu Runbook. Aby to umożliwić, dodamy do elementu Runbook parametry wejściowe.
 
-1. Dodaj parametry *VMName* i *ResourceGroupName* toohello runbook i użyć tych zmiennych hello **Start AzureRmVM** polecenia cmdlet, jak w poniższym przykładzie hello.
+1. Dodaj parametry *VMName* i *ResourceGroupName* do elementu Runbook i użyj tych zmiennych z poleceniem cmdlet **Start AzureRmVM**, tak jak w przykładzie poniżej.
 
    ```
    workflow MyFirstRunbook-Workflow
@@ -146,15 +147,15 @@ Nasze runbook aktualnie uruchamia hello wirtualnej maszyny, że firma Microsoft 
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```
-2. Zapisz hello runbook i otwórz okienko testu hello. Należy pamiętać, że użytkownik może teraz wartości dla hello dwie zmienne wejściowe, które zostaną użyte w badaniu hello.
-3. Zamknij hello okienku testu.
-4. Kliknij przycisk **publikowania** toopublish hello nowej wersji elementu hello runbook.
-5. Zatrzymaj hello maszyny wirtualnej, który został uruchomiony w poprzednim kroku hello.
-6. Kliknij przycisk **Start** toostart hello runbook. Typ w hello **VMName** i **ResourceGroupName** dla maszyny wirtualnej hello zacząć toostart.<br><br> ![Uruchamianie elementu Runbook](media/automation-first-runbook-textual/automation-pass-params.png)<br>  
-7. Po zakończeniu działania elementu runbook hello, sprawdź, czy hello maszyny wirtualnej została uruchomiona.  
+2. Zapisz element Runbook, a następnie otwórz okienko testowania. Teraz możesz podać wartości dwóch zmiennych wejściowych, które zostaną użyte w teście.
+3. Zamknij okienko testowania.
+4. Kliknij pozycję **Opublikuj**, aby opublikować nową wersję elementu Runbook.
+5. Zatrzymaj maszynę wirtualną uruchomioną w poprzednim kroku.
+6. Kliknij pozycję **Uruchom**, aby uruchomić element Runbook. Wpisz wartości parametrów **VMName** i **ResourceGroupName** dla maszyny wirtualnej do uruchomienia.<br><br> ![Uruchamianie elementu Runbook](media/automation-first-runbook-textual/automation-pass-params.png)<br>  
+7. Po zakończeniu działania elementu Runbook sprawdź, czy maszyna wirtualna została uruchomiona.  
 
 ## <a name="next-steps"></a>Następne kroki
-* tooget wprowadzenie do graficznych elementów runbook, zobacz [Mój pierwszy graficznym elementem runbook](automation-first-runbook-graphical.md)
-* tooget pracę z elementów runbook programu PowerShell, zobacz [Moje pierwszego elementu runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
-* Zobacz toolearn więcej informacji na temat typów elementów runbook, ich zalety i ograniczenia, [typy elementu runbook usługi Automatyzacja Azure](automation-runbook-types.md)
+* Aby rozpocząć pracę z graficznymi elementami Runbook, zobacz artykuł [My first graphical runbook](automation-first-runbook-graphical.md) (Mój pierwszy graficzny element Runbook).
+* Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
+* Aby dowiedzieć się więcej na temat typów elementów Runbook, ich zalet i ograniczeń, zobacz artykuł [Azure Automation runbook types](automation-runbook-types.md) (Typy elementów Runbook usługi Azure Automation).
 * Aby uzyskać więcej informacji o funkcji obsługi skryptów programu PowerShell, zobacz artykuł [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/) (Obsługa natywnych skryptów programu PowerShell w usłudze Azure Automation).

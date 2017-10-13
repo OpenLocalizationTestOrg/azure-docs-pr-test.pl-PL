@@ -1,6 +1,6 @@
 ---
-title: "wprowadzenie do usługi Data Catalog aaaGet | Dokumentacja firmy Microsoft"
-description: "Scenariusze hello i możliwości usługi Azure Data Catalog ten kompleksowy samouczek end-to-end."
+title: "Wprowadzenie do usługi Data Catalog | Microsoft Docs"
+description: "Ten kompleksowy samouczek zawiera scenariusze dotyczące usługi Azure Data Catalog i opis jej możliwości."
 documentationcenter: 
 services: data-catalog
 author: steelanddata
@@ -15,351 +15,351 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.openlocfilehash: 7652918b5a8254f5cff9e32d77b1fd3e1bf59d59
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Rozpoczynanie pracy z usługą Azure Data Catalog
 Azure Data Catalog to w pełni zarządzana usługa w chmurze służąca jako system rejestracji i odnajdywania zasobów danych przedsiębiorstwa. Szczegółowe omówienie tej usługi można znaleźć w artykule [Co to jest usługa Azure Data Catalog?](data-catalog-what-is-data-catalog.md).
 
-Ten samouczek ułatwia rozpoczęcie pracy z usługą Azure Data Catalog Należy wykonać hello procedur przedstawionych w tym samouczku:
+Ten samouczek ułatwia rozpoczęcie pracy z usługą Azure Data Catalog i obejmuje następujące procedury:
 
 | Procedura | Opis |
 |:--- |:--- |
-| [Aprowizowanie wykazu danych](#provision-data-catalog) |Ta procedura obejmuje aprowizację lub konfigurację usługi Azure Data Catalog. Należy wykonać ten krok tylko wtedy, gdy katalog hello nie skonfigurowano przed. W ramach jednej organizacji (domeny usługi Microsoft Azure Active Directory) może istnieć tylko jeden wykaz danych, nawet jeśli z kontem platformy Azure jest powiązanych wiele subskrypcji. |
-| [Rejestrowanie zasobów danych](#register-data-assets) |W ramach tej procedury należy zarejestrować zasobów danych z bazy danych przykładowych AdventureWorks2014 hello hello data Catalog. Rejestracja jest proces hello wyodrębnianie kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje hello źródła danych i skopiowaniu tego wykazu toohello metadanych. Witaj źródła danych i zasobów danych pozostają gdzie są one, ale metadane hello jest używany przez toomake katalogu hello je łatwiej odnaleźć i zrozumieć. |
-| [Odnajdywanie zasobów danych](#discover-data-assets) |W tej procedury należy użyć hello Azure Data Catalog portalu toodiscover danych zasobów, które zostały zarejestrowane w poprzednim kroku hello. Po zarejestrowaniu źródła danych z usługi Azure Data Catalog metadanych jest indeksowany przez usługę hello, dzięki czemu użytkownicy mogą łatwo wyszukiwać hello danych, które są im potrzebne. |
-| [Dodawanie adnotacji do zasobów danych](#annotate-data-assets) |W ramach tej procedury Podaj adnotacje (informacje takie jak opisy, tagi, dokumentacji lub ekspertów) dla hello zasobów danych. Te informacje uzupełniające hello metadanych wyodrębnionych ze źródła danych hello i źródła danych hello toomake więcej toomore zrozumiały dla osób. |
-| [Łączenie zasobów toodata](#connect-to-data-assets) |Ta procedura obejmuje otwieranie zasobów danych za pomocą zintegrowanych narzędzi klienckich (na przykład programu Excel i narzędzi SQL Server Data Tools) oraz narzędzia niezintegrowanego (programu SQL Server Management Studio). |
-| [Zarządzanie zasobami danych](#manage-data-assets) |Ta procedura dotyczy konfigurowania zabezpieczeń zasobów danych. Wykaz danych nie zapewniają użytkownikom samych danych toohello dostępu. Właściciel Hello źródła danych hello kontroluje dostęp do danych. <br/><br/> Data Catalog może odnaleźć źródła danych i widok hello **metadanych** powiązane źródła toohello zarejestrowane w wykazie hello. Może to być sytuacjach, jednak źródła danych powinny być widoczne tylko toospecific użytkowników lub toomembers określonych grup. W tych sytuacjach można użyć własność tootake wykazu danych zarejestrowanych zasobów danych w ramach hello katalogu i kontroli hello widoczność zasobów hello, którego jesteś właścicielem. |
-| [Usuwanie zasobów danych](#remove-data-assets) |W tej procedurze możesz dowiedzieć się, jak tooremove zasobów danych z hello wykazu danych. |
+| [Aprowizowanie wykazu danych](#provision-data-catalog) |Ta procedura obejmuje aprowizację lub konfigurację usługi Azure Data Catalog. Należy ją wykonać tylko w przypadku, gdy wykaz nie został wcześniej skonfigurowany. W ramach jednej organizacji (domeny usługi Microsoft Azure Active Directory) może istnieć tylko jeden wykaz danych, nawet jeśli z kontem platformy Azure jest powiązanych wiele subskrypcji. |
+| [Rejestrowanie zasobów danych](#register-data-assets) |W tej procedurze w wykazie danych zostaną zarejestrowane zasoby z przykładowej bazy danych AdventureWorks2014. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć. |
+| [Odnajdywanie zasobów danych](#discover-data-assets) |Ta procedura obejmuje korzystanie z portalu usługi Azure Data Catalog w celu odnalezienia zasobów danych zarejestrowanych w poprzednim kroku. Po zarejestrowaniu źródła danych w usłudze Azure Data Catalog jego metadane są indeksowane przez tę usługę, co ułatwia użytkownikom wyszukiwanie potrzebnych danych. |
+| [Dodawanie adnotacji do zasobów danych](#annotate-data-assets) |Ta procedura obejmuje dodawanie adnotacji (informacji, takich jak opisy, tagi, dokumentacja i eksperci) do zasobów danych. Informacje te stanowią uzupełnienie metadanych wyodrębnionych ze źródła danych i sprawiają, że źródło danych jest bardziej zrozumiałe dla użytkowników. |
+| [Łączenie z zasobami danych](#connect-to-data-assets) |Ta procedura obejmuje otwieranie zasobów danych za pomocą zintegrowanych narzędzi klienckich (na przykład programu Excel i narzędzi SQL Server Data Tools) oraz narzędzia niezintegrowanego (programu SQL Server Management Studio). |
+| [Zarządzanie zasobami danych](#manage-data-assets) |Ta procedura dotyczy konfigurowania zabezpieczeń zasobów danych. Usługa Data Catalog nie zapewnia użytkownikom dostępu do danych. Zarządzanie dostępem do danych należy do właściciela źródła danych. <br/><br/> Usługa Data Catalog umożliwia odnajdywanie źródeł danych zarejestrowanych w wykazie i wyświetlanie **metadanych** powiązanych z tymi źródłami. W niektórych sytuacjach może jednak wystąpić konieczność udostępnienia źródeł danych tylko konkretnym użytkownikom lub członkom określonych grup. Można wtedy skonfigurować usługę Data Catalog pod kątem przejęcia praw własności do zasobów danych zarejestrowanych w wykazie i umożliwienia jej sterowania dostępem do posiadanych zasobów. |
+| [Usuwanie zasobów danych](#remove-data-assets) |Ta procedura obejmuje usuwanie zasobów danych z wykazu danych. |
 
 ## <a name="tutorial-prerequisites"></a>Wymagania wstępne dotyczące samouczka
 ### <a name="azure-subscription"></a>Subskrypcja platformy Azure
-tooset się wykaz danych Azure, musi być właścicielem hello lub współwłaściciel subskrypcji platformy Azure.
+Aby skonfigurować usługę Azure Data Catalog, musisz być właścicielem lub współwłaścicielem subskrypcji platformy Azure.
 
-Subskrypcje platformy Azure ułatwić organizowanie dostępu toocloud usługi zasobów, takich jak Azure Data Catalog. Subskrypcje te ułatwiają również zarządzanie raportowaniem i rozliczaniem użycia zasobów oraz regulowaniem płatności za to użycie. Poszczególne subskrypcje mogą mieć różne ustawienia rozliczeń i płatności, co pozwala na korzystanie z wielu subskrypcji i planów dostosowanych do potrzeb konkretnych działów, projektów, biur regionalnych itp. Co usługa w chmurze należy tooa subskrypcji, i wymagają toohave subskrypcji przed rozpoczęciem konfigurowania usługi Azure Data Catalog. toolearn więcej, zobacz [Zarządzanie kontami, subskrypcje i ról administracyjnych](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Subskrypcje platformy Azure umożliwiają konfigurowanie dostępu do zasobów usług w chmurze, takich jak usługa Azure Data Catalog. Subskrypcje te ułatwiają również zarządzanie raportowaniem i rozliczaniem użycia zasobów oraz regulowaniem płatności za to użycie. Poszczególne subskrypcje mogą mieć różne ustawienia rozliczeń i płatności, co pozwala na korzystanie z wielu subskrypcji i planów dostosowanych do potrzeb konkretnych działów, projektów, biur regionalnych itp. Z każdą usługą w chmurze jest powiązana subskrypcja. Musisz mieć subskrypcję, aby móc rozpocząć konfigurowanie usługi Azure Data Catalog. Aby dowiedzieć się więcej, zobacz artykuł [Manage accounts, subscriptions, and administrative roles](../active-directory/active-directory-how-subscriptions-associated-directory.md) (Zarządzanie kontami, subskrypcjami i rolami administracyjnymi).
 
 Jeśli nie masz subskrypcji, możesz utworzyć konto bezpłatnej wersji próbnej w zaledwie kilka minut. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="azure-active-directory"></a>Usługa Azure Active Directory
-tooset się wykaz danych Azure, użytkownik musi zalogować się przy użyciu konta użytkownika usługi Azure Active Directory (Azure AD). Musisz być właścicielem hello lub współwłaściciel subskrypcji platformy Azure.  
+Aby skonfigurować usługę Azure Data Catalog, musisz zalogować się za pomocą konta użytkownika usługi Azure Active Directory (Azure AD). Użytkownik ten musi być właścicielem lub współwłaścicielem subskrypcji platformy Azure.  
 
-Usługa Azure AD zapewnia prosty sposób dla firm toomanage tożsamości i dostępu, zarówno w chmurze hello i lokalnymi. Można użyć pojedynczego pracy lub toosign konta służbowego, które znajdują się w chmurze tooany lub lokalnej aplikacji sieci web. Azure Data Catalog używa usługi Azure AD tooauthenticate logowania. toolearn więcej, zobacz [co to jest usługa Azure Active Directory](../active-directory/active-directory-whatis.md).
+Usługa Azure AD umożliwia firmom łatwe zarządzanie tożsamościami i dostępem, zarówno w chmurze, jak i lokalnie. Za pomocą jednego konta służbowego użytkownicy mogą logować się do dowolnej aplikacji sieci Web, działającej w chmurze lub lokalnie. Uwierzytelnianie logowania w usłudze Azure Data Catalog odbywa się za pośrednictwem usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Co to jest usługa Azure Active Directory](../active-directory/active-directory-whatis.md).
 
 ### <a name="azure-active-directory-policy-configuration"></a>Konfiguracja zasad usługi Azure Active Directory
-Może wystąpić sytuacja, w których możesz zalogować się toohello portalu wykazu danych Azure, ale podczas próby toosign w narzędzia rejestracji źródła danych toohello, wystąpi komunikat o błędzie, który uniemożliwia rejestrowanie. Ten błąd może wystąpić, gdy znajduje się w sieci firmowej hello lub gdy nawiązujesz połączenie z hello poza siecią firmową.
+W niektórych sytuacjach po zalogowaniu się w portalu usługi Azure Data Catalog przy próbie logowania się za pomocą narzędzia do rejestracji źródła danych występuje komunikat o błędzie, który uniemożliwia logowanie. Może się to zdarzyć zarówno podczas nawiązywania połączenia w sieci firmowej, jak i spoza niej.
 
-Narzędzie rejestracji Hello używa *uwierzytelnianie formularzy* toovalidate logowania użytkowników z usługą Azure Active Directory. Do pomyślnego logowania, administrator usługi Azure Active Directory należy włączyć uwierzytelnianie formularzy w hello *globalne zasady uwierzytelniania*.
+Narzędzie rejestracji używa *uwierzytelniania formularzy* do weryfikowania logowania użytkowników w usłudze Azure Active Directory. Aby logowanie się powiodło, administrator usługi Azure Active Directory musi włączyć uwierzytelnianie formularzy za pomocą *globalnych zasad uwierzytelniania*.
 
-Z hello globalne zasady uwierzytelniania można włączyć uwierzytelnianie oddzielnie w intranecie i ekstranecie połączenia, jak pokazano w powitania po obrazu. Błędy logowania może wystąpić, jeśli nie włączono uwierzytelniania formularzy hello sieci, z którym się łączysz.
+Pozwoli to na włączenie uwierzytelniania oddzielnie dla połączeń intranetowych i ekstranetowych, jak pokazano na poniższej ilustracji. Błędy logowania mogą występować, jeśli nie włączono uwierzytelniania formularzy dla sieci, w której jest nawiązywane połączenie.
 
  ![Globalne zasady uwierzytelniania usługi Azure Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zasad uwierzytelniania](https://technet.microsoft.com/library/dn486781.aspx).
 
 ## <a name="provision-data-catalog"></a>Aprowizowanie wykazu danych
-W ramach organizacji — domeny usługi Azure Active Directory — można aprowizować tylko jeden wykaz danych. W związku z tym jeśli właściciel hello lub współwłaściciel subskrypcji platformy Azure, który należy toothis domeny usługi Azure Active Directory ma już utworzony wykaz, nie będzie możliwe toocreate wykaz ponownie nawet, jeśli masz wiele subskrypcji Azure. tootest, czy wykaz danych został utworzony przez użytkownika w domenie usługi Active Directory Azure, przejdź toohello [strona główna usługi Azure Data Catalog](http://azuredatacatalog.com) i sprawdź, czy katalog hello jest wyświetlany. Jeśli utworzono już katalog dla Ciebie, Pomiń powitania po następnej sekcji toohello procedury, a następnie przejść.    
+W ramach organizacji — domeny usługi Azure Active Directory — można aprowizować tylko jeden wykaz danych. W związku z tym jeśli któryś właściciel lub współwłaściciel subskrypcji platformy Azure, który należy do tej domeny usługi Azure Active Directory, już utworzył wykaz, nie będziesz w stanie utworzyć dodatkowego wykazu, nawet jeśli masz kilka subskrypcji platformy Azure. Aby zobaczyć, czy w domenie usługi Azure Active Directory został utworzony wykaz danych, przejdź do [strony głównej usługi Azure Data Catalog](http://azuredatacatalog.com) i sprawdź, czy wykaz jest widoczny. Jeśli wykaz został już utworzony, pomiń poniższą procedurę i przejdź do następnej sekcji.    
 
-1. Przejdź toohello [stronę usługi Data Catalog](https://azure.microsoft.com/services/data-catalog) i kliknij przycisk **wprowadzenie**.
+1. Przejdź do [strony usługi Data Catalog](https://azure.microsoft.com/services/data-catalog) i kliknij pozycję **Rozpocznij**.
    
     ![Usługa Azure Data Catalog — marketingowa strona docelowa](media/data-catalog-get-started/data-catalog-marketing-landing-page.png)
-2. Zaloguj się przy użyciu konta użytkownika będącego właścicielem hello lub współwłaściciel subskrypcji platformy Azure. Zostanie wyświetlony powitania po stronie po zalogowaniu.
+2. Zaloguj się przy użyciu konta użytkownika, który jest właścicielem lub współwłaścicielem subskrypcji platformy Azure. Po zalogowaniu zostanie wyświetlona poniższa strona.
    
     ![Usługa Azure Data Catalog — aprowizowanie wykazu danych](media/data-catalog-get-started/data-catalog-create-azure-data-catalog.png)
-3. Określ **nazwa** dla usługi data catalog hello, hello **subskrypcji** toouse, a następnie hello **lokalizacji** hello katalogu.
+3. Określ **nazwę** i **lokalizację** wykazu danych oraz **subskrypcję**, której chcesz używać.
 4. Rozwiń sekcję **Cennik** i wybierz **wersję** usługi Azure Data Catalog (Bezpłatna lub Standardowa).
     ![Usługa Azure Data Catalog — wybieranie wersji](media/data-catalog-get-started/data-catalog-create-catalog-select-edition.png)
-5. Rozwiń węzeł **użytkownicy wykazu** i kliknij przycisk **Dodaj** tooadd użytkowników dla usługi data catalog hello. Toothis grupy są automatycznie dodawane.
+5. Rozwiń sekcję **Użytkownicy wykazu** i kliknij pozycję **Dodaj**, aby dodać użytkowników wykazu danych. Twoje członkostwo w tej grupie jest tworzone automatycznie.
     ![Usługa Azure Data Catalog — użytkownicy](media/data-catalog-get-started/data-catalog-add-catalog-user.png)
-6. Rozwiń węzeł **Administratorzy katalogu** i kliknij przycisk **Dodaj** tooadd kolejnych administratorów hello wykazu danych. Toothis grupy są automatycznie dodawane.
+6. Rozwiń sekcję **Administratorzy wykazu** i kliknij pozycję **Dodaj**, aby dodać administratorów wykazu danych. Twoje członkostwo w tej grupie jest tworzone automatycznie.
     ![Usługa Azure Data Catalog — administratorzy](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
-7. Kliknij przycisk **tworzenia katalogu** toocreate hello danych katalogu dla organizacji. Zostanie wyświetlona strona główna hello hello wykazu danych, po jego utworzeniu.
+7. Kliknij pozycję **Utwórz wykaz**, aby utworzyć wykaz danych dla swojej organizacji. Po utworzeniu wykazu danych zostanie wyświetlona jego strona główna.
     ![Usługa Azure Data Catalog — utworzony wykaz](media/data-catalog-get-started/data-catalog-created.png)    
 
-### <a name="find-a-data-catalog-in-hello-azure-portal"></a>Znajdź katalog danych hello portalu Azure
-1. Na osobnej karcie w przeglądarce sieci web hello lub w oknie przeglądarki WWW, przejdź toohello [portalu Azure](https://portal.azure.com) i zaloguj się przy użyciu hello tego samego konta tej możesz używane toocreate hello usługi data catalog w poprzednim kroku hello.
+### <a name="find-a-data-catalog-in-the-azure-portal"></a>Znajdowanie wykazu danych w portalu Azure
+1. Na osobnej karcie lub w osobnym oknie przeglądarki sieci Web przejdź do [portalu Azure](https://portal.azure.com) i zaloguj się przy użyciu tego samego konta, którego użyto do utworzenia wykazu danych w poprzednim kroku.
 2. Wybierz pozycję **Przeglądaj**, a następnie kliknij pozycję **Wykaz danych**.
    
-    ![Wykaz danych Azure — Przeglądaj Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png) zostaną wyświetlone dane hello utworzonego w katalogu.
+    ![Usługa Azure Data Catalog — przeglądanie portalu Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png) Zobaczysz utworzony wykaz danych.
    
     ![Usługa Azure Data Catalog — wykaz widoczny na liście](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
-3. Kliknij katalog hello, który został utworzony. Zobacz hello **Data Catalog** bloku w portalu hello.
+3. Kliknij utworzony wykaz. W portalu pojawi się blok **Wykaz danych**.
    
    ![Usługa Azure Data Catalog — blok w portalu ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
-4. Można wyświetlić właściwości wykazu danych hello i zaktualizuj je. Na przykład kliknij pozycję **warstwa cenowa** i zmienić hello wersji.
+4. Właściwości wykazu danych można wyświetlać i aktualizować. Możesz na przykład kliknąć pozycję **Warstwa cenowa** i zmienić wersję.
    
     ![Usługa Azure Data Catalog — warstwa cenowa](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
 ### <a name="adventure-works-sample-database"></a>Przykładowa baza danych firmy Adventure Works
-W tym samouczku zarejestrować zasobów danych (tabele) z hello AdventureWorks2014 bazę danych w hello aparatu bazy danych programu SQL Server, ale można użyć dowolnego obsługiwanego źródła danych, jeśli wolisz toowork z roli tooyour znanego i odpowiednie dane. Aby uzyskać listę obsługiwanych źródeł danych, zobacz [Supported data sources](data-catalog-dsr.md) (Obsługiwane źródła danych).
+W tym samouczku na potrzeby aparatu bazy danych programu SQL Server zostaną zarejestrowane zasoby danych (tabele) z przykładowej bazy danych AdventureWorks2014. Możesz jednak użyć dowolnego obsługiwanego źródła danych, jeśli wolisz pracować z danymi, które są Ci znane i dotyczą Twojej roli. Aby uzyskać listę obsługiwanych źródeł danych, zobacz [Supported data sources](data-catalog-dsr.md) (Obsługiwane źródła danych).
 
-### <a name="install-hello-adventure-works-2014-oltp-database"></a>Bazy danych Adventure Works 2014 OLTP hello instalacji
-Baza danych firmy Adventure Works Hello obsługuje standardowe scenariusze przetwarzania transakcji online dla fikcyjnego producenta rowerów (Firma Adventure Works Cycles), który zawiera produkty, sprzedaży i kupna. W tym samouczku informacje o produktach zostaną zarejestrowane w usłudze Azure Data Catalog.
+### <a name="install-the-adventure-works-2014-oltp-database"></a>Instalowanie bazy danych OLTP Adventure Works 2014
+Baza danych firmy Adventure Works obsługuje standardowe scenariusze przetwarzania transakcji online dla fikcyjnego producenta rowerów (firmy Adventure Works Cycles), które obejmują produkty, sprzedaż i zakup. W tym samouczku informacje o produktach zostaną zarejestrowane w usłudze Azure Data Catalog.
 
-tooinstall hello Adventure Works przykładowa baza danych:
+Aby zainstalować przykładową bazę danych firmy Adventure Works:
 
 1. Pobierz plik [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) z witryny CodePlex.
-2. toorestore hello z bazy danych na komputerze, wykonaj te instrukcje hello [przywrócić kopię zapasową bazy danych przy użyciu programu SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx), lub wykonaj następujące czynności:
-   1. Otwórz program SQL Server Management Studio i połącz toohello aparatu bazy danych programu SQL Server.
+2. Aby przywrócić bazę danych na swoim komputerze, postępuj zgodnie z instrukcjami zawartymi w artykule [Restore a Database Backup by using SQL Server Management Studio](http://msdn.microsoft.com/library/ms177429.aspx) (Przywracanie kopii zapasowej bazy danych przy użyciu programu SQL Server Management Studio) lub wykonaj następujące czynności:
+   1. Otwórz program SQL Server Management Studio i połącz się z aparatem bazy danych programu SQL Server.
    2. Kliknij prawym przyciskiem myszy pozycję **Bazy danych** i kliknij polecenie **Przywróć bazę danych**.
-   3. W obszarze **Restore Database**, kliknij przycisk hello **urządzenia** opcja dla **źródła** i kliknij przycisk **Przeglądaj**.
+   3. W obszarze **Przywracanie bazy danych** kliknij opcję **Urządzenie** w sekcji **Źródło** i kliknij przycisk **Przeglądaj**.
    4. W obszarze **Wybieranie urządzeń kopii zapasowej** kliknij pozycję **Dodaj**.
-   5. Przejdź toohello folder, gdzie masz hello **AdventureWorks2014.bak** plik, wybierz opcję hello i kliknij przycisk **OK** tooclose hello **zlokalizuj plik kopii zapasowej** okno dialogowe.
-   6. Kliknij przycisk **OK** tooclose hello **wybierz urządzenia kopii zapasowej** okno dialogowe.    
-   7. Kliknij przycisk **OK** tooclose hello **Restore Database** okno dialogowe.
+   5. Przejdź do folderu, w którym znajduje się plik **AdventureWorks2014.bak**. Wybierz ten plik i kliknij przycisk **OK**, aby zamknąć okno dialogowe **Znajdowanie pliku kopii zapasowej**.
+   6. Kliknij przycisk **OK**, aby zamknąć okno dialogowe **Wybieranie urządzeń kopii zapasowej**.    
+   7. Kliknij przycisk **OK**, aby zamknąć okno dialogowe **Przywracanie bazy danych**.
 
-Możesz teraz zarejestrować zasobów danych z bazy danych przykładowej firmy Adventure Works hello przy użyciu usługi Azure Data Catalog.
+Za pomocą usługi Azure Data Catalog możesz teraz zarejestrować zasoby danych z przykładowej bazy danych firmy Adventure Works.
 
 ## <a name="register-data-assets"></a>Rejestrowanie zasobów danych
-W tym ćwiczeniu hello rejestracji narzędzia tooregister zasobów danych z bazy danych firmy Adventure Works hello jest używany z hello katalogu. Rejestracja jest hello proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje hello źródła danych i hello zasoby, które zawiera, a następnie skopiować ten katalog toohello metadanych. Witaj źródła danych i zasobów danych pozostają gdzie są one, ale metadane hello jest używany przez toomake katalogu hello je łatwiej odnaleźć i zrozumieć.
+W tym ćwiczeniu zasoby danych z bazy danych firmy Adventure Works zostaną zarejestrowane w wykazie za pomocą narzędzia rejestracji. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych i zasobów, które się w nim znajdują, oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć.
 
 ### <a name="register-a-data-source"></a>Rejestrowanie źródła danych
-1. Przejdź toohello [strona główna usługi Azure Data Catalog](http://azuredatacatalog.com) i kliknij przycisk **publikowania danych**.
+1. Przejdź do [strony głównej usługi Azure Data Catalog](http://azuredatacatalog.com) i kliknij pozycję **Publikuj dane**.
    
    ![Usługa Azure Data Catalog — przycisk Publikuj dane](media/data-catalog-get-started/data-catalog-publish-data.png)
-2. Kliknij przycisk **uruchamianie aplikacji** toodownload, instalacji i narzędzia rejestracji wykonywania hello na tym komputerze.
+2. Kliknij pozycję **Uruchom aplikację**, aby pobrać, zainstalować i uruchomić narzędzie rejestracji na komputerze.
    
    ![Usługa Azure Data Catalog — przycisk Uruchom](media/data-catalog-get-started/data-catalog-launch-application.png)
-3. Na powitania **powitalnej** kliknij przycisk **Zaloguj** i wprowadź swoje poświadczenia.     
+3. Na stronie **powitalnej** kliknij pozycję **Zaloguj**, a następnie wprowadź swoje poświadczenia.     
    
     ![Usługa Azure Data Catalog — strona powitalna](media/data-catalog-get-started/data-catalog-welcome-dialog.png)
-4. Na powitania **Microsoft Azure Data Catalog** kliknij przycisk **programu SQL Server** i **dalej**.
+4. Na stronie **Microsoft Azure Data Catalog** kliknij kolejno pozycje **SQL Server** i **Dalej**.
    
     ![Usługa Azure Data Catalog — źródła danych](media/data-catalog-get-started/data-catalog-data-sources.png)
-5. Wprowadź właściwości połączenia serwera SQL hello **AdventureWorks2014** (zobacz poniższy przykład hello) i kliknij przycisk **CONNECT**.
+5. Wprowadź właściwości połączenia programu SQL Server dla bazy danych **AdventureWorks2014** (zobacz poniższy przykład), a następnie kliknij pozycję **POŁĄCZ**.
    
    ![Usługa Azure Data Catalog — ustawienia połączenia programu SQL Server](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
-6. Zarejestruj hello metadane zawartości danych. W tym przykładzie należy zarejestrować **Production/Product** obiektów z nazw AdventureWorks Production hello:
+6. Zarejestruj metadane zasobów danych. W tym przykładzie należy zarejestrować obiekty **Production/Product** z przestrzeni nazw Production bazy danych Adventure Works.
    
-   1. W hello **hierarchii serwerów** drzewa, a następnie rozwiń **AdventureWorks2014** i kliknij przycisk **produkcji**.
+   1. W drzewie **Hierarchia serwera** rozwiń węzeł **AdventureWorks2014** i kliknij pozycję **Production**.
    2. Naciśnij klawisz Ctrl i kliknij pozycje **Product**, **ProductCategory**, **ProductDescription** i **ProductPhoto**.
-   3. Kliknij przycisk hello **przenieść strzałkę** (**>**). Ta akcja powoduje przeniesienie wszystkich wybranych obiektów do hello **toobe obiektów w zarejestrowany** listy.
+   3. Kliknij **strzałkę przeniesienia** (**>**). Spowoduje to przeniesienie wszystkich wybranych obiektów na listę **Obiekty do zarejestrowania**.
       
       ![Samouczek dotyczący usługi Azure Data Catalog — przeglądanie i wybieranie obiektów](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
-   4. Wybierz **Dołącz Podgląd** tooinclude Podgląd migawki hello danych. migawki Hello zawiera too20 rekordów z każdej tabeli i jest kopiowany do katalogu hello.
-   5. Wybierz **obejmują dane profilu** tooinclude migawkę statystyki obiektu hello hello danych profilu (na przykład: minimalne, maksymalne i średnie wartości kolumny, liczba wierszy).
-   6. W hello **Dodaj tagi** wprowadź **adventure works, cykli**. Spowoduje to dodanie tagów wyszukiwania dla tych zasobów danych. Tagi to doskonały sposób którą toohelp użytkownikom znalezienia zarejestrowanego źródła danych.
-   7. Określ nazwę hello **ekspertów** na tych danych (opcjonalnie).
+   4. Wybierz pozycję **Dołącz podgląd**, aby dołączyć podgląd danych w postaci migawki. Migawka jest kopiowana do wykazu i zawiera maksymalnie 20 rekordów z każdej tabeli.
+   5. Wybierz pozycję **Dołącz profil danych**, aby dołączyć migawkę statystyk obiektów dla profilu danych (na przykład liczbę wierszy czy minimalną, maksymalną i średnią wartość w kolumnie).
+   6. W polu **Dodaj tagi** wprowadź wartość **adventure works, cycles**. Spowoduje to dodanie tagów wyszukiwania dla tych zasobów danych. Tagi to doskonały sposób na ułatwienie użytkownikom znalezienia zarejestrowanego źródła danych.
+   7. Podaj imię i nazwisko **eksperta** w zakresie przeznaczenia tych danych (opcjonalnie).
       
-      ![Samouczek usługi Azure Data Catalog — toobe obiektów w zarejestrowany](media/data-catalog-get-started/data-catalog-objects-register.png)
-   8. Kliknij pozycję **ZAREJESTRUJ**. Wybrane obiekty zostaną zarejestrowane za pomocą usługi Azure Data Catalog. W tym ćwiczeniu są rejestrowane hello wybrane obiekty z firmy Adventure Works. Narzędzie rejestracji Hello wyodrębnianie metadanych z hello zasobu danych i kopiuje dane do usługi Azure Data Catalog hello. Witaj dane pozostaną gdzie ona się teraz znajduje i pozostaje pod kontrolą hello hello administratorów i zasady hello bieżącego systemu.
+      ![Samouczek dotyczący usługi Azure Data Catalog — obiekty do zarejestrowania](media/data-catalog-get-started/data-catalog-objects-register.png)
+   8. Kliknij pozycję **ZAREJESTRUJ**. Wybrane obiekty zostaną zarejestrowane za pomocą usługi Azure Data Catalog. W tym ćwiczeniu są rejestrowane wybrane obiekty z bazy danych firmy Adventure Works. Za pomocą narzędzia rejestracji metadane są wyodrębniane z zasobów danych i kopiowane do usługi Azure Data Catalog. Dane pozostają w miejscu, w którym aktualnie się znajdują, i podlegają kontroli administratorów i zasadom obowiązującym w danym systemie.
       
       ![Usługa Azure Data Catalog — zarejestrowane obiekty](media/data-catalog-get-started/data-catalog-registered-objects.png)
-   9. toosee Twojego zarejestrowane obiekty źródła danych, kliknij przycisk **Wyświetl Portal**. W portalu Azure Data Catalog hello upewnij się, że widoczne wszystkie cztery tabele i hello bazy danych, w widoku siatki hello.
+   9. Aby wyświetlić zarejestrowane obiekty źródła danych, kliknij pozycję **Wyświetl portal**. Otwórz portal usługi Azure Data Catalog i sprawdź, czy w widoku siatki są widoczne wszystkie cztery tabele i baza danych.
       
-      ![Obiekty w portalu Azure Data Catalog hello ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Obiekty w portalu usługi Azure Data Catalog ](media/data-catalog-get-started/data-catalog-view-portal.png)
 
-W tym ćwiczeniu zarejestrowano obiekty z hello Adventure Works przykładowej bazy danych, aby łatwo ich odnajdowane przez użytkowników w organizacji. W następnym ćwiczeniu hello możesz dowiedzieć się, jak toodiscover zarejestrowanych zasobów danych.
+W tym ćwiczeniu zarejestrowano obiekty z przykładowej bazy danych firmy Adventure Works, aby użytkownicy w organizacji mogli je łatwo odnaleźć. W następnym ćwiczeniu zostanie przedstawiony sposób odnajdowania zarejestrowanych zasobów danych.
 
 ## <a name="discover-data-assets"></a>Odnajdywanie zasobów danych
 Odnajdywanie w usłudze Azure Data Catalog korzysta z dwóch głównych mechanizmów: wyszukiwania i filtrowania.
 
-Wyszukiwanie jest zaprojektowana toobe intuicyjny i wydajne. Domyślnie terminy wyszukiwania są dopasowywane do żadnej właściwości w katalogu hello, łącznie z adnotacjami dostarczane przez użytkownika.
+Wyszukiwanie zaprojektowano pod kątem intuicyjnej obsługi i zaawansowanych możliwości. Domyślnie wyszukiwane terminy są dopasowywane do wszystkich właściwości w wykazie, w tym adnotacji wprowadzonych przez użytkownika.
 
-Filtrowanie zaprojektowano toocomplement wyszukiwania. Można wybrać określone właściwości, takie jak ekspertów, typ źródła danych, typu obiektu i dopasowywanie zasobów danych i wyszukiwania tooconstrain tooview tagi powoduje toomatching zasoby.
+Filtrowanie służy jako uzupełnienie wyszukiwania. Wybierając określone cechy, takie jak eksperci, typ źródła danych, typu obiektu i tagi, można wyświetlić pasujące zasoby danych i ograniczyć wyniki wyszukiwania do tych zasobów.
 
-Przy użyciu kombinacji wyszukiwania i filtrowania, można szybko przejść hello źródeł danych, które zostały zarejestrowane w zasobów danych hello toodiscover Azure Data Catalog, które są potrzebne.
+Dzięki połączeniu wyszukiwania i filtrowania można szybko nawigować po źródłach danych zarejestrowanych w usłudze Azure Data Catalog w celu odnajdywania potrzebnych zasobów danych.
 
-W tym ćwiczeniu używasz zasobów danych pakietu hello Azure Data Catalog toodiscover portalu, zarejestrowanej w poprzednim ćwiczeniu hello. Aby uzyskać szczegółowe informacje o składni wyszukiwania, zobacz artykuł [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) (Dokumentacja dotycząca składni wyszukiwania w usłudze Data Catalog).
+To ćwiczenie obejmuje korzystanie z portalu usługi Azure Data Catalog w celu odnalezienia zasobów danych zarejestrowanych w poprzednim ćwiczeniu. Aby uzyskać szczegółowe informacje o składni wyszukiwania, zobacz artykuł [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) (Dokumentacja dotycząca składni wyszukiwania w usłudze Data Catalog).
 
-Poniżej przedstawiono kilka przykładów do odnajdywania zasobów danych w katalogu hello.  
+Poniżej przedstawiono kilka przykładów dotyczących odnajdywania zasobów danych w wykazie.  
 
 ### <a name="discover-data-assets-with-basic-search"></a>Odnajdywanie zasobów danych przy użyciu wyszukiwania podstawowego
-Wyszukiwanie podstawowe ułatwia przeszukiwanie wykazu za pomocą co najmniej jednego wyszukiwanego terminu. Wyniki są wszystkie zasoby zgodnych żadnej właściwości z co najmniej jednego z warunków hello określony.
+Wyszukiwanie podstawowe ułatwia przeszukiwanie wykazu za pomocą co najmniej jednego wyszukiwanego terminu. Wyniki obejmują wszystkie zasoby, których dowolne właściwości są zgodne z co najmniej jednym terminem.
 
-1. Kliknij przycisk **Home** w portalu Azure Data Catalog hello. Po zamknięciu przeglądarki sieci web hello Przejdź toohello [strona główna usługi Azure Data Catalog](https://www.azuredatacatalog.com).
-2. W polu wyszukiwania hello wpisz `cycles` i naciśnij klawisz **ENTER**.
+1. Kliknij pozycję **Strona główna** w portalu usługi Azure Data Catalog. Jeśli przeglądarka sieci Web została zamknięta, przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com).
+2. W polu wyszukiwania wpisz `cycles` i naciśnij klawisz **ENTER**.
    
     ![Usługa Azure Data Catalog — podstawowe wyszukiwanie tekstowe](media/data-catalog-get-started/data-catalog-basic-text-search.png)
-3. Upewnij się, że widoczne wszystkie cztery tabele i hello bazy danych (AdventureWorks2014) w wynikach hello. Można przełączać się między **widoku siatki** i **widok listy** za pomocą przycisków na pasku narzędzi hello, pokazane na powitania po obrazu. Zwróć uwagę, że słowa kluczowe do wyszukania hello jest wyróżniony w wynikach wyszukiwania hello, ponieważ hello **zaznacz** jest opcja **ON**. Można również określić liczbę hello **wyników na stronie** w wynikach wyszukiwania.
+3. Upewnij się, że w wynikach są widoczne wszystkie cztery tabele i baza danych (AdventureWorks2014). Za pomocą przycisków na pasku narzędzi można przełączać się między **widokiem siatki** i **widokiem listy**, jak pokazano na poniższej ilustracji. Zwróć uwagę, że wyszukiwane słowo kluczowe jest wyróżnione w wynikach wyszukiwania, ponieważ opcja **Wyróżnienie** jest **WŁĄCZONA**. Dodatkowo można określić liczbę **wyników wyszukiwania wyświetlanych na stronie**.
    
     ![Usługa Azure Data Catalog — wyniki podstawowego wyszukiwania tekstowego](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
    
-    Witaj **wyszukiwania** panelu znajduje się na powitania po lewej i hello **właściwości** panelu znajduje się na powitania prawo. Na powitania **wyszukiwania** panelu, można zmienić kryteria wyszukiwania i filtrowania wyników. Witaj **właściwości** panelu Wyświetla właściwości zaznaczonego obiektu w siatce hello lub na liście.
-4. Kliknij przycisk **produktu** w wynikach wyszukiwania hello. Kliknij hello **Podgląd**, **kolumn**, **danych profilu**, i **dokumentacji** karty, lub kliknij przycisk hello Strzałka tooexpand hello dolnym okienku.  
+    Panel **Wyszukiwania** jest wyświetlany po lewej stronie, a panel **Właściwości** — po prawej stronie. W panelu **Wyszukiwania** można zmienić kryteria wyszukiwania i wyfiltrować wyniki. W panelu **Właściwości** są wyświetlane właściwości obiektu wybranego w siatce lub na liście.
+4. Kliknij pozycję **Product** w wynikach wyszukiwania. Kliknij karty **Podgląd**, **Kolumny**, **Profil danych** i **Dokumentacja** lub kliknij strzałkę, aby rozwinąć dolne okienko.  
    
     ![Usługa Azure Data Catalog — dolne okienko](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
    
-    Na powitania **Podgląd** kartę, możesz wyświetlić podgląd danych hello w hello **produktu** tabeli.  
-5. Kliknij hello **kolumn** karcie toofind szczegóły kolumn (takich jak **nazwa** i **— typ danych**) w hello danych zasobów.
-6. Kliknij hello **danych profilu** karcie toosee hello profilowania danych (na przykład: liczba wierszy, rozmiar danych lub minimalnej wartości w kolumnie) w hello danych zasobów.
-7. Filtrowanie wyników hello za pomocą **filtry** powitania po lewej stronie. Na przykład kliknij pozycję **tabeli** dla **typ obiektu**, i zobaczyć hello czterech tabel, nie hello bazy danych.
+    Na karcie **Podgląd** zostanie wyświetlony podgląd danych z tabeli **Product**.  
+5. Kliknij kartę **Kolumny**, aby wyświetlić szczegóły kolumn (takie jak **nazwa** i **typ danych**) w zasobie danych.
+6. Kliknij kartę **Profil danych**, aby wyświetlić profil danych (na przykład liczbę wierszy, rozmiar danych lub wartość minimalną w kolumnie) w zasobie danych.
+7. Za pomocą sekcji **Filtry** znajdującej się po lewej stronie można wyfiltrować wyniki. Na przykład kliknięcie opcji **Tabela** w obszarze **Typ obiektu** spowoduje wyświetlenie tylko czterech tabel, bez bazy danych.
    
     ![Usługa Azure Data Catalog — filtrowanie wyników wyszukiwania](media/data-catalog-get-started/data-catalog-filter-search-results.png)
 
 ### <a name="discover-data-assets-with-property-scoping"></a>Odnajdywanie zasobów danych za pomocą wyznaczania zakresu właściwości
-Właściwości zakresu odnajdywania zasobów danych, w którym hello wyszukiwany termin jest zgodny z hello pomaga określić właściwości.
+Wyznaczanie zakresu właściwości ułatwia odnajdywanie zasobów danych, gdy wyszukiwany termin zostanie dopasowany do określonej właściwości.
 
-1. Wyczyść hello **tabeli** filtrować pod **typ obiektu** w **filtry**.  
-2. W polu wyszukiwania hello wpisz `tags:cycles` i naciśnij klawisz **ENTER**. Zobacz [odwołania do składni wyszukiwania w wykazie danych](https://msdn.microsoft.com/library/azure/mt267594.aspx) dla wszystkich hello właściwości można użyć do wyszukiwania hello wykazu danych.
-3. Upewnij się, że widoczne wszystkie cztery tabele i hello bazy danych (AdventureWorks2014) w wynikach hello.  
+1. Wyczyść filtr **Tabela** w obszarze **Typ obiektu** w sekcji **Filtry**.  
+2. W polu wyszukiwania wpisz `tags:cycles` i naciśnij klawisz **ENTER**. Aby uzyskać listę wszystkich właściwości, których można użyć do przeszukiwania wykazu danych, zobacz artykuł [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) (Dokumentacja dotycząca składni wyszukiwania w usłudze Data Catalog).
+3. Upewnij się, że w wynikach są widoczne wszystkie cztery tabele i baza danych (AdventureWorks2014).  
    
     ![Usługa Data Catalog — wyniki wyszukiwania uzyskane z użyciem wyznaczania zakresu właściwości](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
 
-### <a name="save-hello-search"></a>Zapisz wyszukiwanie hello
-1. W hello **wyszukiwania** okienka w hello **bieżące wyszukiwanie** , wprowadź nazwę hello wyszukiwania i kliknij pozycję **zapisać**.
+### <a name="save-the-search"></a>Zapisywanie wyszukiwania
+1. W okienku **Wyszukiwania** w sekcji **Bieżące wyszukiwanie** wprowadź nazwę wyszukiwania i kliknij pozycję **Zapisz**.
    
     ![Usługa Azure Data Catalog — zapisywanie wyszukiwania](media/data-catalog-get-started/data-catalog-save-search.png)
-2. Upewnij się, że hello zapisane wyszukiwanie zostaną wyświetlone w obszarze **zapisane wyszukiwania**.
+2. Upewnij się, że zapisane wyszukiwanie jest wyświetlane w sekcji **Zapisane wyszukiwania**.
    
     ![Usługa Azure Data Catalog — zapisane wyszukiwania](media/data-catalog-get-started/data-catalog-saved-search.png)
-3. Wybierz jedną z akcji hello może przybrać hello zapisane wyszukiwania (**zmienić**, **usunąć**, **Zapisz jako domyślny** wyszukiwania).
+3. Wybierz jedną z akcji, które można zastosować do zapisanego wyszukiwania (**Zmień nazwę**, **Usuń**, **Zapisz jako domyślne**).
    
     ![Usługa Azure Data Catalog — opcje dotyczące zapisanego wyszukiwania](media/data-catalog-get-started/data-catalog-saved-search-options.png)
 
 ### <a name="boolean-operators"></a>Operatory logiczne
 Za pomocą operatorów logicznych można rozszerzyć lub zawęzić wyszukiwanie.
 
-1. W polu wyszukiwania hello wpisz `tags:cycles AND objectType:table`i naciśnij klawisz **ENTER**.
-2. Upewnij się, że jest wyświetlany tylko tabele (nie bazy danych hello) w wynikach hello.  
+1. W polu wyszukiwania wpisz `tags:cycles AND objectType:table` i naciśnij klawisz **ENTER**.
+2. Upewnij się, że w wynikach są wyświetlane tylko tabele, bez bazy danych.  
    
     ![Usługa Azure Data Catalog — zastosowanie operatora logicznego w wyszukiwaniu](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
 
 ### <a name="grouping-with-parentheses"></a>Grupowanie za pomocą nawiasów
-Grupowania w nawiasach można grupować części hello zapytania tooachieve izolacji logicznej, szczególnie wraz z operatorów logicznych.
+Nawiasy umożliwiają grupowanie części zapytania w celu uzyskania izolacji logicznej, szczególnie w połączeniu z operatorami logicznymi.
 
-1. W polu wyszukiwania hello wpisz `name:product AND (tags:cycles AND objectType:table)` i naciśnij klawisz **ENTER**.
-2. Upewnij się, że jest wyświetlany tylko hello **produktu** tabeli w wynikach wyszukiwania hello.
+1. W polu wyszukiwania wpisz `name:product AND (tags:cycles AND objectType:table)` i naciśnij klawisz **ENTER**.
+2. Upewnij się, że wyniki wyszukiwania obejmują tylko wiersze z tabeli **Product**.
    
     ![Usługa Azure Data Catalog — wyszukiwanie przy użyciu grupowania](media/data-catalog-get-started/data-catalog-grouping-search.png)   
 
 ### <a name="comparison-operators"></a>Operatory porównania
 Operatory porównania pozwalają używać innych porównań niż równość dla właściwości, które mają numeryczne i datowe typy danych.
 
-1. W polu wyszukiwania hello wpisz `lastRegisteredTime:>"06/09/2016"`.
-2. Wyczyść hello **tabeli** filtrować pod **typ obiektu**.
+1. W polu wyszukiwania wpisz `lastRegisteredTime:>"06/09/2016"`.
+2. Wyczyść filtr **Tabela** w obszarze **Typ obiektu**.
 3. Naciśnij klawisz **ENTER**.
-4. Upewnij się, że widoczny hello **produktu**, **ProductCategory**, **ProductDescription**, i **ProductPhoto** tabel i hello AdventureWorks2014 bazy danych, który został zarejestrowany w wynikach wyszukiwania.
+4. Upewnij się, że w wynikach wyszukiwania są wyświetlane tabele **Product**, **ProductCategory**, **ProductDescription** i **ProductPhoto** oraz zarejestrowana baza danych AdventureWorks2014.
    
     ![Usługa Azure Data Catalog — wyniki wyszukiwania z użyciem porównania](media/data-catalog-get-started/data-catalog-comparison-operator-results.png)
 
-Zobacz [jak zasobów danych toodiscover](data-catalog-how-to-discover.md) szczegółowe informacje dotyczące odnajdywania zasobów danych i [odwołania do składni wyszukiwania w wykazie danych](https://msdn.microsoft.com/library/azure/mt267594.aspx) składni wyszukiwania.
+Szczegółowe informacje dotyczące odnajdywania zasobów danych można znaleźć w artykule [How to discover data assets](data-catalog-how-to-discover.md) (Jak odnajdywać zasoby danych). Informacje na temat składni wyszukiwania zawiera artykuł [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) (Dokumentacja dotycząca składni wyszukiwania w usłudze Data Catalog).
 
 ## <a name="annotate-data-assets"></a>Dodawanie adnotacji do zasobów danych
-W tym ćwiczeniu używasz tooannotate portalu usługi Azure Data Catalog hello (Dodaj informacje, takie jak opisy, tagi lub ekspertów) zostały wcześniej zarejestrowane w wykazie hello zasobów danych. Adnotacje Hello uzupełnienie i zwiększyć hello metadane strukturalne wyodrębnione ze źródła danych hello podczas rejestracji i sprawia, że zasoby danych hello znacznie łatwiejsze toodiscover i zrozumieć.
+W tym ćwiczeniu portal usługi Azure Data Catalog zostanie użyty do dodawania adnotacji (na przykład opisów, tagów czy informacji dotyczących ekspertów) do zasobów danych, które zostały wcześniej zarejestrowane w wykazie. Adnotacje uzupełniają i rozszerzają metadane strukturalne wyodrębnione ze źródła podczas rejestracji i znacznie ułatwiają odnajdywanie i zrozumienie zasobów danych.
 
-W tym ćwiczeniu adnotacje zostaną dodane do pojedynczego zasobu danych (tabeli ProductPhoto). Możesz dodać przyjazną nazwę i opis toohello ProductPhoto danych zasobów.  
+W tym ćwiczeniu adnotacje zostaną dodane do pojedynczego zasobu danych (tabeli ProductPhoto). Do zasobu danych ProductPhoto zostanie dodana przyjazna nazwa oraz opis.  
 
-1. Przejdź toohello [strona główna usługi Azure Data Catalog](https://www.azuredatacatalog.com) i wyszukiwania z `tags:cycles` zasobów danych hello toofind został zarejestrowany.  
+1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com) i wpisz `tags:cycles` w polu wyszukiwania, aby znaleźć zarejestrowane zasoby danych.  
 2. Kliknij pozycję **ProductPhoto** w wynikach wyszukiwania.  
-3. Wprowadź **obrazy produktu** dla **przyjazną nazwę** i **zdjęć produktu na potrzeby materiałów marketingowych** dla hello **opis**.
+3. W polu **Przyjazna nazwa** wpisz **Obrazy produktów**, a w polu **Opis** wpisz **Zdjęcia produktów do materiałów marketingowych**.
    
     ![Usługa Azure Data Catalog — opis tabeli ProductPhoto](media/data-catalog-get-started/data-catalog-productphoto-description.png)
    
-    Witaj **opis** ułatwia innym osobom odnajdywanie i zrozumienie, dlaczego i jak toouse hello wybranych zasobów danych. Możesz również dodać więcej tagów i wyświetlić kolumny. Teraz możesz spróbować wyszukiwania i filtrowania zasobów danych toodiscover przy użyciu metadanych opisowych hello dodano toohello katalogu.
+    Pole **Opis** ułatwia innym osobom odnajdywanie wybranego zasobu danych i zrozumienie, dlaczego i w jaki sposób należy go używać. Możesz również dodać więcej tagów i wyświetlić kolumny. Teraz możesz spróbować przeprowadzić wyszukiwanie i filtrowanie, aby odnaleźć zasoby danych przy użyciu metadanych opisowych, które zostały dodane do wykazu.
 
-Możesz również wykonać hello na tej stronie:
+Na tej stronie możesz również:
 
-* Dodaj ekspertów hello danych zasobów. Kliknij przycisk **Dodaj** w hello **ekspertów** obszaru.
-* Dodaj znaczniki na poziomie hello zestawu danych. Kliknij przycisk **Dodaj** w hello **tagi** obszaru. Możesz dodawać tagi użytkownika lub tagi słownika. Witaj Standard Edition usługi Data Catalog zawiera słownik biznesowy, które ułatwia administratorom wykazu Definiowanie centralnej taksonomii biznesowej. Użytkownicy wykazu mogą następnie dodać adnotacje do zasobów danych za pomocą terminów ze słownika. Aby uzyskać więcej informacji, zobacz [jak tooset się hello słownik biznesowy dla postanowieniom znakowanie](data-catalog-how-to-business-glossary.md)
-* Dodaj znaczniki na poziomie kolumny hello. Kliknij przycisk **Dodaj** w obszarze **tagi** dla kolumny hello ma tooannotate.
-* Dodaj opis na poziomie kolumny hello. W polu **Opis** wprowadź opis kolumny. Można również wyświetlić hello opis metadanych wyodrębnionych ze źródła danych hello.
-* Dodaj **poprosić o dostęp** informacje, które zawiera użytkowników, jak toorequest uzyskują dostęp do zasobów danych toohello.
+* Dodawać ekspertów dla zasobu danych. Kliknij pozycję **Dodaj** w obszarze **Eksperci**.
+* Dodawać tagi na poziomie zestawu danych. Kliknij pozycję **Dodaj** w obszarze **Tagi**. Możesz dodawać tagi użytkownika lub tagi słownika. Wersja Standard Edition usługi Data Catalog zawiera słownik biznesowy, który umożliwia administratorom wykazu definiowanie centralnej taksonomii biznesowej. Użytkownicy wykazu mogą następnie dodać adnotacje do zasobów danych za pomocą terminów ze słownika. Aby uzyskać więcej informacji, zobacz [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md) (Jak skonfigurować słownik biznesowy na potrzeby znakowania zarządzanego).
+* Dodawać tagi na poziomie kolumny. Kliknij pozycję **Dodaj** w obszarze **Tagi** dla kolumny, do której chcesz dodać adnotację.
+* Dodawać opisy na poziomie kolumny. W polu **Opis** wprowadź opis kolumny. Możesz również wyświetlić metadane opisu wyodrębnione ze źródła danych.
+* Dodawać informacje dotyczące **żądania dostępu**, które ułatwiają użytkownikom uzyskanie dostępu do zasobu danych.
   
     ![Usługa Azure Data Catalog — dodawanie tagów, opisów](media/data-catalog-get-started/data-catalog-add-tags-experts-descriptions.png)
-* Wybierz hello **dokumentacji** i podaj dokumentacji hello danych zasobów. W dokumentacji usługi Azure Data Catalog możesz użyć wykazu danych jako repozytorium zawartości toocreate pełną udostępniono elementów zawartości danych.
+* Na karcie **Dokumentacja** podaj informacje dotyczące dokumentacji zasobu danych. Dzięki funkcji dokumentacji usługi Azure Data Catalog możesz użyć wykazu danych jako repozytorium zawartości i stworzyć kompletny opis zasobów danych.
   
     ![Usługa Azure Data Catalog — karta Dokumentacja](media/data-catalog-get-started/data-catalog-documentation.png)
 
-Można również dodać zasoby danych toomultiple adnotacji. Można na przykład zaznacz wszystkie zasoby danych hello zarejestrowanych i określ eksperta dla nich.
+Ponadto możesz dodawać adnotacje do wielu zasobów danych. Na przykład możesz zaznaczyć wszystkie zarejestrowane zasoby danych i określić dla nich eksperta.
 
 ![Usługa Azure Data Catalog — dodawanie adnotacji do wielu zasobów danych](media/data-catalog-get-started/data-catalog-multi-select-annotate.png)
 
-Wykaz danych Azure obsługuje sourcing tłum tooannotations podejście. Każdy użytkownik wykazu danych można dodać tagów (użytkownik lub słownik), opisów i innych metadanych, dzięki czemu każdy użytkownik z perspektywą zasobu danych i jego użycia może mieć tej perspektywy przechwycony i tooother dostępnych użytkowników.
+Usługa Azure Data Catalog obsługuje dodawanie adnotacji przez społeczność. Wszyscy użytkownicy usługi Azure Data Catalog mogą dodawać tagi (użytkownika lub słownika), opisy i inne metadane, dzięki czemu każdy użytkownik z perspektywą zasobu danych i jego użycia może przechwycić taką perspektywę i udostępnić ją innym użytkownikom.
 
-Zobacz [jak zasobów danych tooannotate](data-catalog-how-to-annotate.md) szczegółowe informacje dotyczące dodawania adnotacji zasobów danych.
+Szczegółowe informacje dotyczące dodawania adnotacji do zasobów danych można znaleźć w artykule [How to annotate data assets](data-catalog-how-to-annotate.md) (Jak dodawać adnotacje do zasobów danych).
 
-## <a name="connect-toodata-assets"></a>Łączenie zasobów toodata
+## <a name="connect-to-data-assets"></a>Łączenie z zasobami danych
 To ćwiczenie obejmuje otwieranie zasobów danych za pomocą zintegrowanego narzędzia klienckiego (programu Excel) oraz narzędzia niezintegrowanego (programu SQL Server Management Studio) przy użyciu informacji o połączeniu.
 
 > [!NOTE]
-> Jest ważne, tooremember, który Azure Data Catalog nie umożliwiają uzyskiwanie dostępu do źródła danych rzeczywistych toohello — po prostu ułatwia dla Ciebie toodiscover i go zrozumieć. Po ustanowieniu połączenia źródła danych tooa hello aplikacji klienckiej, wybrać używa poświadczeń systemu Windows, lub wyświetla monit o podanie poświadczeń w razie potrzeby. Jeśli użytkownik nie wcześniej przyznano źródła danych toohello dostępu, należy toobe prawa dostępu, zanim będzie można połączyć.
+> Należy pamiętać, że usługa Azure Data Catalog nie zapewnia dostępu do rzeczywistego źródła danych, a tylko ułatwia użytkownikom odnalezienie źródła danych i zrozumienie jego przeznaczenia. Podczas nawiązywania połączenia ze źródłem danych wybrana aplikacja kliencka używa poświadczeń systemu Windows lub w razie potrzeby wyświetla monit o ich podanie. Jeśli nie masz udzielonego wcześniej dostępu do źródła danych, musisz go uzyskać, aby nawiązać połączenie.
 > 
 > 
 
-### <a name="connect-tooa-data-asset-from-excel"></a>Połącz tooa zasobów danych z programu Excel
-1. Wybierz pozycję **Product** w wynikach wyszukiwania. Kliknij przycisk **Otwórz w** na powitania narzędzi i kliknij przycisk **Excel**.
+### <a name="connect-to-a-data-asset-from-excel"></a>Nawiązywanie połączenia z zasobem danych przy użyciu programu Excel
+1. Wybierz pozycję **Product** w wynikach wyszukiwania. Kliknij pozycję **Otwórz w** na pasku narzędzi, a następnie kliknij pozycję **Excel**.
    
-    ![Wykaz danych Azure — Połącz toodata zasobów](media/data-catalog-get-started/data-catalog-connect1.png)
-2. Kliknij przycisk **Otwórz** w oknie podręcznym pobierania hello. To środowisko może się różnić w zależności od przeglądarki hello.
+    ![Usługa Azure Data Catalog — nawiązywanie połączenia z zasobem danych](media/data-catalog-get-started/data-catalog-connect1.png)
+2. Kliknij pozycję **Otwórz** w oknie podręcznym pobierania. Wygląd elementów interfejsu zależy od przeglądarki.
    
     ![Usługa Azure Data Catalog — pobrany plik połączenia programu Excel](media/data-catalog-get-started/data-catalog-download-open.png)
-3. W hello **powiadomienie o zabezpieczeniach programu Microsoft Excel** okna, kliknij przycisk **włączyć**.
+3. W oknie **Powiadomienie o zabezpieczeniach programu Microsoft Excel** kliknij pozycję **Włącz**.
    
     ![Usługa Azure Data Catalog — okno podręczne zabezpieczeń programu Excel](media/data-catalog-get-started/data-catalog-excel-security-popup.png)
-4. Zachowaj domyślne hello w hello **i zaimportuj dane** okno dialogowe i kliknij przycisk **OK**.
+4. Pozostaw niezmienione wartości domyślne w oknie dialogowym **Importowanie danych** i kliknij przycisk **OK**.
    
     ![Usługa Azure Data Catalog — importowanie danych w programie Excel](media/data-catalog-get-started/data-catalog-excel-import-data.png)
-5. Widok źródła danych hello w programie Excel.
+5. Wyświetl źródło danych w programie Excel.
    
     ![Usługa Azure Data Catalog — tabela produktów w programie Excel](media/data-catalog-get-started/data-catalog-connect2.png)
 
-W tym ćwiczeniu zostanie połączone zasoby toodata wykryte za pomocą usługi Azure Data Catalog. Portal Azure Data Catalog hello można połączyć za pomocą hello aplikacji klienckich zintegrowanych z hello **Otwórz w** menu. Możesz również połączyć z dowolnej aplikacji, wybierz za pomocą informacji o lokalizacji połączenia hello zawarte w metadanych zasobów hello. Na przykład umożliwia korzystanie hello zasobów danych zarejestrowany w tym samouczku SQL Server Management Studio tooconnect toohello AdventureWorks2014 bazy danych tooaccess hello danych.
+W tym ćwiczeniu zostało nawiązane połączenie z zasobami danych odnalezionymi za pomocą usługi Azure Data Catalog. Portal usługi Azure Data Catalog umożliwia bezpośrednie nawiązywanie połączenia przy użyciu aplikacji klienckich zintegrowanych z menu **Otwórz w**. Możesz również nawiązywać połączenia za pomocą dowolnej wybranej aplikacji przy użyciu informacji o lokalizacji połączenia zawartych w metadanych zasobów. Na przykład za pomocą programu SQL Server Management Studio możesz połączyć się z bazą danych AdventureWorks2014, aby uzyskać dostęp do zasobów danych zarejestrowanych w tym samouczku.
 
 1. Otwórz program **SQL Server Management Studio**.
-2. W hello **połączyć tooServer** okna dialogowego wprowadź nazwę serwera hello z hello **właściwości** okienku w portalu Azure Data Catalog hello.
-3. Użyj uwierzytelniania i poświadczeń tooaccess hello danych zasobów. Jeśli nie masz dostępu, użyj informacji w hello **żądania dostępu** tooget pola go.
+2. W oknie dialogowym **Połączenie z serwerem** wprowadź nazwę serwera z okienka **Właściwości** w portalu usługi Azure Data Catalog.
+3. Wybierz właściwą metodę uwierzytelniania i wpisz odpowiednie poświadczenia, aby uzyskać dostęp do zasobu danych. Jeśli nie masz dostępu, skorzystaj z informacji zawartych w polu **Żądanie dostępu**, aby go uzyskać.
    
     ![Usługa Azure Data Catalog — żądanie dostępu](media/data-catalog-get-started/data-catalog-request-access.png)
 
-Kliknij przycisk **Wyświetl parametry połączenia** tooview i skopiuj ADF.NET, ODBC i OLEDB połączenie ciągów toohello Schowka do użycia w aplikacji.
+Kliknij pozycję **Wyświetl parametry połączenia**, aby wyświetlić parametry połączeń ADF.NET, ODBC i OLEDB oraz skopiować je do schowka w celu użycia ich w aplikacji.
 
 ## <a name="manage-data-assets"></a>Zarządzanie zasobami danych
-W tym kroku, zobacz jak tooset zabezpieczenia trwałych danych. Wykaz danych nie zapewniają użytkownikom samych danych toohello dostępu. Właściciel Hello źródła danych hello kontroluje dostęp do danych.
+Ta procedura obejmuje konfigurowanie zabezpieczeń zasobów danych. Usługa Data Catalog nie zapewnia użytkownikom dostępu do danych. Zarządzanie dostępem do danych należy do właściciela źródła danych.
 
-Katalogu danych można używać źródeł danych toodiscover i tooview hello metadane powiązane źródła toohello zarejestrowane w wykazie hello. Mogą wystąpić sytuacje, jednak gdzie źródeł danych tylko powinna być widoczna toospecific użytkowników lub toomembers określonych grup. W tych sytuacjach można użyć własność tootake wykazu danych zarejestrowanych zasobów danych w katalogu hello i toothen kontroli hello widoczność zasobów hello, którego jesteś właścicielem.
+Usługa Data Catalog umożliwia odnajdywanie źródeł danych zarejestrowanych w wykazie i wyświetlanie metadanych powiązanych z tymi źródłami. W niektórych sytuacjach może jednak wystąpić konieczność udostępnienia źródeł danych tylko konkretnym użytkownikom lub członkom określonych grup. Można wtedy skonfigurować usługę Data Catalog pod kątem przejęcia praw własności do zasobów danych zarejestrowanych w wykazie i umożliwienia jej sterowania dostępem do posiadanych zasobów.
 
 > [!NOTE]
-> możliwości zarządzania Hello opisane w tym ćwiczeniu są dostępne tylko w hello Standard Edition usługi Azure Data Catalog, nie znajduje się w hello bezpłatna wersja.
-> W wykazie danych Azure możesz przejąć na własność zasobów danych, dodawać współwłaścicieli zasobów toodata i ustawić hello widoczność zasobów danych.
+> Funkcje zarządzania opisane w tym ćwiczeniu są dostępne tylko w wersji Standard Edition usługi Azure Data Catalog, a nie w wersji Free Edition.
+> W usłudze Azure Data Catalog można przejmować na własność zasoby danych, dodawać współwłaścicieli zasobów danych i ustawiać widoczność zasobów danych.
 > 
 > 
 
 ### <a name="take-ownership-of-data-assets-and-restrict-visibility"></a>Przejmowanie własności do zasobów danych i ograniczanie ich widoczności
-1. Przejdź toohello [strona główna usługi Azure Data Catalog](https://www.azuredatacatalog.com). W hello **wyszukiwania** tekst wprowadź `tags:cycles` i naciśnij klawisz **ENTER**.
-2. Kliknij element na liście wyników hello, a następnie kliknij przycisk **Przejmij na własność** na powitania narzędzi.
-3. W hello **zarządzania** sekcji hello **właściwości** panelu, kliknij przycisk **Przejmij na własność**.
+1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com). W polu **Wyszukiwanie** wpisz `tags:cycles` i naciśnij klawisz **ENTER**.
+2. Kliknij element na liście wyników, a następnie kliknij pozycję **Przejmij na własność** na pasku narzędzi.
+3. W sekcji **Zarządzanie** na panelu **Właściwości** kliknij pozycję **Przejmij na własność**.
    
     ![Usługa Azure Data Catalog — przejmowanie własności](media/data-catalog-get-started/data-catalog-take-ownership.png)
-4. widoczność toorestrict wybierz **właściciele i następujący użytkownicy** w hello **widoczność** sekcji, a następnie kliknij przycisk **Dodaj**. Wprowadź adresy e-mail użytkowników w polu tekstowym hello i naciśnij klawisz **ENTER**.
+4. Aby ograniczyć widoczność, wybierz pozycję **Właściciele i ci użytkownicy** w sekcji **Widoczność** i kliknij pozycję **Dodaj**. Wprowadź adresy e-mail użytkowników w polu tekstowym i naciśnij klawisz **ENTER**.
    
     ![Usługa Azure Data Catalog — ograniczanie dostępu](media/data-catalog-get-started/data-catalog-ownership.png)
 
 ## <a name="remove-data-assets"></a>Usuwanie zasobów danych
-W tym ćwiczeniu zostanie hello Azure Data Catalog portalu tooremove Podgląd danych z zarejestrowanych zasobów danych i usunąć zasoby danych z katalogu hello.
+W tym ćwiczeniu portal usługi Azure Data Catalog zostanie użyty do usunięcia danych podglądu z zarejestrowanych zasobów danych i usunięcia zasobów danych z wykazu.
 
 W usłudze Azure Data Catalog można usuwać pojedyncze zasoby lub wiele zasobów.
 
-1. Przejdź toohello [strona główna usługi Azure Data Catalog](https://www.azuredatacatalog.com).
-2. W hello **wyszukiwania** tekst wprowadź `tags:cycles` i kliknij przycisk **ENTER**.
-3. Wybierz element na liście wyników hello i kliknij przycisk **usunąć** na powitania narzędzi pokazane na powitania po obrazu:
+1. Przejdź do [strony głównej usługi Azure Data Catalog](https://www.azuredatacatalog.com).
+2. W polu **Wyszukiwanie** wpisz `tags:cycles` i naciśnij klawisz **ENTER**.
+3. Wybierz element na liście wyników i kliknij pozycję **Usuń** na pasku narzędzi, jak pokazano na poniższej ilustracji:
    
     ![Usługa Azure Data Catalog — usuwanie elementu siatki](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
    
-    Jeśli używasz widoku listy hello pole wyboru hello jest toohello lewej elementu hello pokazane na powitania po obrazu:
+    W widoku listy pole wyboru znajduje się na lewo od elementu, jak pokazano na poniższej ilustracji:
    
     ![Usługa Azure Data Catalog — usuwanie elementu listy](media/data-catalog-get-started/data-catalog-delete-list-item.png)
    
-    Można również wybrać wielu zasobów danych i usunąć je, jak pokazano w powitania po obrazu:
+    Można również wybierać i usuwać kilka zasobów danych, jak pokazano na poniższej ilustracji:
    
     ![Usługa Azure Data Catalog — usuwanie kilku zasobów danych](media/data-catalog-get-started/data-catalog-delete-assets.png)
 
 > [!NOTE]
-> Witaj domyślne zachowanie katalogu hello jest tooallow any tooregister dowolnego użytkownika źródła danych i tooallow toodelete dowolnego użytkownika żadnych zasobów danych, który został zarejestrowany. możliwości zarządzania Hello objęte hello Standard Edition usługi Azure Data Catalog udostępniają dodatkowe opcje dla przejmowania własności zasobów, ograniczenie, którzy mogą odnajdować i ograniczenie, który można usunąć zasoby.
+> Domyślnym zachowaniem katalogu jest umożliwianie każdemu użytkownikowi rejestrowania dowolnego źródła danych oraz usuwania wszystkich zarejestrowanych zasobów danych. Funkcje zarządzania dostępne w wersji Standard Edition usługi Azure Data Catalog dodatkowo umożliwiają przejmowania własności do zasobów i ograniczanie grona użytkowników, którzy mogą odnajdywać i usuwać zasoby.
 > 
 > 
 
 ## <a name="summary"></a>Podsumowanie
-W tym samouczku zostały przedstawione podstawowe funkcje usługi Azure Data Catalog, w tym rejestrowanie, dodawanie adnotacji, odnajdywanie i zarządzanie firmowymi zasobami danych. Teraz, po ukończeniu samouczka hello, nadszedł czas tooget uruchomiona. Możesz rozpocząć dzisiaj przez rejestrowanie źródeł danych hello przez Ciebie i Twojego zespołu zależne i zapraszania współpracowników toouse hello katalogu.
+W tym samouczku zostały przedstawione podstawowe funkcje usługi Azure Data Catalog, w tym rejestrowanie, dodawanie adnotacji, odnajdywanie i zarządzanie firmowymi zasobami danych. Po zakończeniu tego samouczka nadszedł czas na rozpoczęcie pracy. Możesz rozpocząć dzisiaj od zarejestrowania źródeł danych, na którym pracujesz Ty i Twój zespół, oraz od zaproszenia współpracowników do korzystania z wykazu.
 
 ## <a name="references"></a>Dokumentacja
-* [Jak tooregister zasobów danych](data-catalog-how-to-register.md)
-* [Jak toodiscover zasobów danych](data-catalog-how-to-discover.md)
-* [Jak tooannotate zasobów danych](data-catalog-how-to-annotate.md)
-* [Jak toodocument zasobów danych](data-catalog-how-to-documentation.md)
-* [Jak tooconnect toodata zasobów](data-catalog-how-to-connect.md)
-* [Jak toomanage zasobów danych](data-catalog-how-to-manage.md)
+* [Jak rejestrować zasoby danych](data-catalog-how-to-register.md)
+* [Jak odnajdywać zasoby danych](data-catalog-how-to-discover.md)
+* [Jak dodawać adnotacje do zasobów danych](data-catalog-how-to-annotate.md)
+* [Jak dokumentować zasoby danych](data-catalog-how-to-documentation.md)
+* [Jak łączyć się z zasobami danych](data-catalog-how-to-connect.md)
+* [Jak zarządzać zasobami danych](data-catalog-how-to-manage.md)
 

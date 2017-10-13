@@ -1,6 +1,6 @@
 ---
-title: "aaaEnable agenta maszyny Wirtualnej w Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
-description: "Ten dokument przedstawia sposób tooimplement hello zalecenia Centrum zabezpieczeń Azure ** włączyć VM Agent **."
+title: "Włącz agenta maszyny Wirtualnej w Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
+description: "Ten dokument przedstawia sposób wykonania zalecenia Centrum zabezpieczeń Azure ** włączyć VM Agent **."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 9bd71e638b020780537da25fd4cf7baf34d3e11a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Włącz agenta maszyny Wirtualnej w Centrum zabezpieczeń Azure
-Witaj maszyny Wirtualnej musi być zainstalowany Agent na maszynach wirtualnych (VM) w kolejności zbyt[Włącz zbieranie danych](security-center-enable-data-collection.md).  Centrum zabezpieczeń Azure umożliwia toosee możesz maszyny wirtualne wymagające hello agenta maszyny Wirtualnej i zaleca włączenie hello agenta maszyny Wirtualnej na tych maszynach wirtualnych.
+Agent maszyny Wirtualnej musi być zainstalowany na maszynach wirtualnych (VM) w celu [Włącz zbieranie danych](security-center-enable-data-collection.md).  Centrum zabezpieczeń Azure umożliwia można zobaczyć, które maszyny wirtualne wymagają agenta maszyny Wirtualnej i zaleca włączenie agenta maszyny Wirtualnej na tych maszynach wirtualnych.
 
-Witaj agenta maszyny Wirtualnej jest instalowany domyślnie dla maszyn wirtualnych, które zostały wdrożone z hello Azure Marketplace. Artykuł Hello [agenta maszyny Wirtualnej i rozszerzenia — część 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) zawiera informacje na temat sposobu tooinstall hello agenta maszyny Wirtualnej.
+Agent maszyny wirtualnej jest instalowany domyślnie w przypadku maszyn wirtualnych wdrażanych z poziomu portalu Azure Marketplace. Informacje na temat instalowania agenta maszyny wirtualnej można znaleźć w artykule [Agent maszyny wirtualnej i rozszerzenia — część 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
 
 > [!NOTE]
-> Tym dokumencie przedstawiono hello usługi za pomocą przykładowego wdrożenia. Nie jest to przewodnik krok po kroku.
+> Informacje na temat usługi przedstawiono w tym dokumencie za pomocą przykładowego wdrożenia. Nie jest to przewodnik krok po kroku.
 >
 >
 
-## <a name="implement-hello-recommendation"></a>Implementowanie hello zalecenia
-1. W hello **bloku zalecenia**, wybierz pozycję **włączyć agenta maszyny Wirtualnej**.
+## <a name="implement-the-recommendation"></a>Wykonania zalecenia
+1. W **bloku zalecenia**, wybierz pozycję **włączyć agenta maszyny Wirtualnej**.
    ![Włącz agenta maszyny wirtualnej][1]
-2. Spowoduje to otwarcie bloku hello **VM Agent Brak lub nie odpowiada**. Ten blok zawiera hello maszyn wirtualnych, które wymagają hello agenta maszyny Wirtualnej. Postępuj zgodnie instrukcje hello na agenta hello bloku tooinstall hello maszyny Wirtualnej.
+2. Spowoduje to otwarcie bloku **VM Agent Brak lub nie odpowiada**. Ten blok zawiera listę maszyn wirtualnych, które wymagają agenta maszyny Wirtualnej. Postępuj zgodnie z instrukcjami w bloku, aby zainstalować agenta maszyny Wirtualnej.
    ![Brak agenta maszyny Wirtualnej][2]
 
 ## <a name="see-also"></a>Zobacz też
-toolearn więcej informacji na temat Centrum zabezpieczeń, zobacz następujące hello:
+Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
 
-* [Ustawianie zasad zabezpieczeń w Centrum zabezpieczeń Azure](security-center-policies.md)— Dowiedz się, jak tooconfigure zasad zabezpieczeń dla subskrypcji platformy Azure i grup zasobów.
+* [Ustawianie zasad zabezpieczeń w Centrum zabezpieczeń Azure](security-center-policies.md) — informacje na temat konfigurowania zasad zabezpieczeń dla subskrypcji i grup zasobów na platformie Azure.
 * [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Centrum zabezpieczeń Azure](security-center-recommendations.md) — informacje o tym, w jaki sposób zalecenia ułatwiają ochronę zasobów platformy Azure.
-* [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md)— Dowiedz się, jak toomonitor hello kondycji zasobów platformy Azure.
-* [Zarządzanie i odpowiada toosecurity alertów w Centrum zabezpieczeń Azure](security-center-managing-and-responding-alerts.md)— Dowiedz się, jak alerty toosecurity toomanage i odpowiada.
-* [Monitorowanie rozwiązań partnerskich w Centrum zabezpieczeń Azure](security-center-partner-solutions.md) — Dowiedz się, jak toomonitor hello stanu kondycji rozwiązań partnerskich.
-* [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md)— często zadawane pytania dotyczące korzystania z usługi hello Znajdź.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--hello najnowsze zabezpieczeń platformy Azure i informacji.
+* [Monitorowanie kondycji zabezpieczeń w Centrum zabezpieczeń Azure](security-center-monitoring.md) — informacje na temat monitorowania kondycji zasobów platformy Azure.
+* [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w Centrum zabezpieczeń Azure](security-center-managing-and-responding-alerts.md) — informacje na temat reagowania na alerty zabezpieczeń i zarządzania nimi.
+* [Monitorowanie rozwiązań partnerskich w Centrum zabezpieczeń Azure](security-center-partner-solutions.md) — informacje na temat monitorowania stanu kondycji rozwiązań partnerskich.
+* [Centrum zabezpieczeń Azure — często zadawane pytania](security-center-faq.md) — odpowiedzi na najczęstsze pytania dotyczące korzystania z usługi.
+* [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/) — najnowsze informacje na temat zabezpieczeń platformy Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png

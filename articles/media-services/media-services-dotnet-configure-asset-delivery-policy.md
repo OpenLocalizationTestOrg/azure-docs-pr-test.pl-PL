@@ -1,6 +1,6 @@
 ---
-title: "zasady dostarczania zasobów aaaConfigure przy użyciu zestawu .NET SDK | Dokumentacja firmy Microsoft"
-description: "W tym temacie przedstawiono sposób zasady dostarczania zasobów różnych tooconfigure z zestawu .NET SDK usługi Azure Media Services."
+title: "Skonfiguruj zasady dostarczania zasobów przy użyciu zestawu .NET SDK | Dokumentacja firmy Microsoft"
+description: "W tym temacie pokazano, jak skonfigurować zasady dostarczania różnych zasobów z zestawu .NET SDK usługi Azure Media Services."
 services: media-services
 documentationcenter: 
 author: Mingfeiy
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: juliako;mingfeiy
-ms.openlocfilehash: a6f2644d639cd36d4cdc269b6f01fd4acdf7160b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 282fd9e24dc147e31613469926128894d48366f4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>Skonfiguruj zasady dostarczania zasobów przy użyciu zestawu .NET SDK
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 ## <a name="overview"></a>Omówienie
-Jeśli planujesz trwałych toodelivery zaszyfrowane, jeden z hello kroków w hello zawartości dostarczania przepływu pracy jest konfigurowanie zasad dostarczania dla zasobów usługi Media Services. zasady dostarczania elementu zawartości Hello informuje usługi Media Services sposób dla Twojego toobe zasobów dostarczyć: w przypadku protokołu przesyłania strumieniowego powinno zawartości dynamicznie umieszczone (na przykład, MPEG DASH, HLS, Smooth Streaming lub wszystkie), czy chcesz toodynamically szyfrowanie zawartości i w jaki sposób (koperty lub szyfrowania common encryption).
+Jeśli planujesz trwałych dostarczania zaszyfrowane, jeden z kroków w przepływie pracy dostarczania zawartości Media Services konfiguruje zasady dostarczania zasobów. Zasady dostarczania elementu zawartości informuje usługi Media Services sposób dla zawartości dostarczanej: w których przesyłania strumieniowego protokołu powinna zawartości dynamicznie umieszczone (na przykład, MPEG DASH, HLS, Smooth Streaming lub wszystkie), czy ma być dynamicznego szyfrowania zawartości i w jaki sposób (koperty lub szyfrowania common encryption).
 
-W tym temacie omówiono dlaczego i w jaki sposób toocreate i skonfigurować zasady dostarczania zasobów.
+W tym temacie omówiono dlaczego i jak utworzyć i skonfigurować zasady dostarczania zasobów.
 
 >[!NOTE]
->Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego w brzmieniu konta tooyour hello **zatrzymane** stanu. przesyłanie strumieniowe zawartości i podejmij korzyści z dynamicznego tworzenia pakietów i dynamicznego szyfrowania toostart hello punktu końcowego przesyłania strumieniowego, z którego mają zostać toostream zawartość ma toobe w hello **systemem** stanu. 
+>Po utworzeniu konta usługi AMS zostanie do niego dodany **domyślny** punkt końcowy przesyłania strumieniowego mający stan **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
 >
->Ponadto toobe toouse stanie dynamicznego tworzenia pakietów i dynamicznego szyfrowania zawartości musi zawierać zestaw o adaptacyjnej szybkości bitowej MP4s lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów.
+>Ponadto aby można było korzystać z dynamicznego tworzenia pakietów i dynamicznego szyfrowania zawartości musi zawierać zestaw o adaptacyjnej szybkości bitowej MP4s lub pliki Smooth Streaming adaptacyjną szybkością transmisji bitów.
 
 
-Toohello różnych zasad można zastosować elementu zawartości. Na przykład można zastosować PlayReady szyfrowania tooSmooth przesyłania strumieniowego i szyfrowanie AES Envelope szyfrowania tooMPEG kreska i HLS. Wszystkie protokoły, które nie są zdefiniowane w zasadzie dostarczania (na przykład dodać jedną zasadę, która tylko określa hello protokół HLS), zostanie zablokowany przesyłania strumieniowego. toothis wyjątek Hello jest, jeśli masz nie zdefiniowano zasad dostarczania elementów zawartości. Następnie wszystkie protokoły mogą być przesyłane hello Wyczyść.
+Różnych zasad można zastosować do tego samego zasobu. Na przykład można zastosować szyfrowanie PlayReady do szyfrowania Smooth Streaming i szyfrowanie AES Envelope MPEG DASH i HLS. Protokoły, które nie są zdefiniowane w zasadzie dostarczania (można na przykład dodać jedną zasadę, która określa tylko protokół HLS), nie mogą korzystać z przesyłania strumieniowego. Wyjątkiem od tej reguły jest przypadek, w którym nie zdefiniowano żadnej zasady dostarczania elementów zawartości. Wówczas wszystkie protokoły mogą być przesyłane bez zabezpieczeń.
 
-Chcąc toodeliver zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania zasobów hello. Przed zawartości mogą być przesyłane strumieniowo, hello i przesyłania strumieniowego szyfrowania magazynu hello usuwa strumieni zawartości przy użyciu hello określone zasady dostarczania. Na przykład toodeliver zawartości zaszyfrowane za pomocą klucza szyfrowania koperty Advanced Encryption (Standard AES), Ustaw typ zasad hello zbyt**DynamicEnvelopeEncryption**. szyfrowanie magazynu tooremove i zasobów hello strumienia w hello Wyczyść, Ustaw typ zasad hello zbyt**NoDynamicEncryption**. Przykłady, które pokazują, jak tooconfigure tych typów zasad należy wykonać.
+Jeśli chcesz dostarczyć zasób zaszyfrowanych magazynu, należy skonfigurować zasady dostarczania elementu zawartości. Przed zawartości mogą być przesyłane strumieniowo, serwer przesyłania strumieniowego usuwa szyfrowanie magazynu i strumieni zawartości przy użyciu zasady dostarczania określony. Na przykład aby dostarczania zawartości zaszyfrowane za pomocą klucza szyfrowania koperty Advanced Encryption (Standard AES), Ustaw typ zasad **DynamicEnvelopeEncryption**. Aby usunąć szyfrowanie magazynu i zasobów niezabezpieczona strumienia, Ustaw typ zasad **NoDynamicEncryption**. Wykonaj przykłady, które pokazują, jak skonfigurować te typy zasad.
 
-W zależności od konfiguracji zasad dostarczania elementów zawartości hello czy pakietu toodynamically może być dynamicznie szyfrowania i strumienia powitania po protokołów przesyłania strumieniowego: Smooth Streaming, HLS i MPEG DASH strumieni.
+W zależności od konfiguracji zasad dostarczania elementów zawartości będzie możliwe dynamicznie pakietu dynamicznie szyfrowania i przesyłania strumieniowego następujących protokołów: Smooth Streaming, HLS i MPEG DASH strumieni.
 
-Witaj Poniższa lista zawiera formaty hello używasz toostream Smooth, HLS i KRESKI.
+Na poniższej liście przedstawiono formaty umożliwia strumienia Smooth, HLS i KRESKI.
 
 Funkcje Smooth Streaming:
 
@@ -56,16 +56,16 @@ MPEG DASH
 
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
-* Nie można usunąć AssetDeliveryPolicy skojarzone z zasobów, gdy Lokalizator OnDemand (streaming) istnieje dla tego zasobu. zalecenie Hello jest tooremove hello zasady z zasobu hello przed usunięciem hello zasad.
-* Nie można utworzyć Lokalizator przesyłania strumieniowego magazynu trwałego zaszyfrowane, jeśli ustawiono nie zasad dostarczania elementów zawartości.  Jeśli hello zasobów nie jest szyfrowany w magazynie, hello system umożliwi utworzyć lokalizator i strumień zasobów hello w hello wyczyść bez zasad dostarczania elementów zawartości.
-* Może mieć wiele zasady dostarczania zasobów skojarzonych z pojedynczego zasobu, ale można określić tylko jednokierunkowe toohandle AssetDeliveryProtocol danego.  Co oznacza, Jeśli spróbujesz toolink dwóch dostarczania zasad określających hello AssetDeliveryProtocol.SmoothStreaming protokół, który spowoduje błąd, ponieważ hello system nie może określić, która z nich ma tooapply gdy klient przesyła żądanie Smooth Streaming.
-* Jeśli zasób z istniejących Lokalizator przesyłania strumieniowego, nie możesz połączyć nowy trwały toohello zasad (możesz odłączyć istniejące zasady z zasobu hello, lub zaktualizowania zasad dostarczania skojarzone z hello zasobów).  Najpierw ma Lokalizator przesyłania strumieniowego hello tooremove, Dostosuj zasady hello i ponownie utwórz hello przesyłania strumieniowego lokalizatora.  Możesz użyć powitalne tego samego locatorId podczas ponownego tworzenia hello przesyłania strumieniowego lokalizatora, ale powinien zapewnić, że nie będzie powodować problemy dla klientów, ponieważ zawartości mogą być buforowane pochodzenia hello lub podrzędne CDN.
+* Nie można usunąć AssetDeliveryPolicy skojarzone z zasobów, gdy Lokalizator OnDemand (streaming) istnieje dla tego zasobu. Zalecane jest, aby usunąć zasady z zasobu przed usunięciem zasad.
+* Nie można utworzyć Lokalizator przesyłania strumieniowego magazynu trwałego zaszyfrowane, jeśli ustawiono nie zasad dostarczania elementów zawartości.  Jeśli element zawartości nie jest szyfrowany w magazynie, system będzie umożliwiają tworzenie lokalizatora i strumienia zasobów w zwykłym bez zasad dostarczania elementów zawartości.
+* Może mieć wiele zasady dostarczania zasobów skojarzonych z pojedynczego zasobu, ale można określić tylko jeden sposób obsługi danego AssetDeliveryProtocol.  Co oznacza, spróbuj połączyć dwie zasady dostarczania, które określają protokół AssetDeliveryProtocol.SmoothStreaming, który spowoduje błąd, ponieważ system nie może określić, które co ma to zastosowanie, gdy klient przesyła żądanie Smooth Streaming.
+* Jeśli masz zasób z istniejących Lokalizator przesyłania strumieniowego nie może połączyć nowe zasady w zasobie (możesz odłączyć istniejące zasady z zasobu, lub zaktualizowania zasad dostarczania skojarzone z elementu zawartości).  Należy najpierw usuń Lokalizator przesyłania strumieniowego, Dostosuj zasady, a następnie ponownie utwórz Lokalizator przesyłania strumieniowego.  Można użyć tego samego locatorId podczas ponownego tworzenia Lokalizator przesyłania strumieniowego, ale należy upewnić się, że nie będzie powodować problemy dla klientów od zawartości mogą być buforowane źródła lub podrzędne CDN.
 
 ## <a name="clear-asset-delivery-policy"></a>Zasady dostarczania elementu zawartości wyczyść
 
-następujące Hello **ConfigureClearAssetDeliveryPolicy** metody określa toonot zastosowanie szyfrowania dynamicznego i toodeliver hello strumienia w żadnym hello następujące protokoły: MPEG DASH, HLS i Smooth Streaming protokołów. Możesz tooapply zasoby szyfrowany w magazynie tooyour tej zasady.
+Następujące **ConfigureClearAssetDeliveryPolicy** metody określa nie dotyczyć szyfrowania dynamicznego i dostarczać strumienia w jednym z następujących protokołów: MPEG DASH, HLS i Smooth Streaming protokołów. Można stosować te zasady do zasobów magazynu szyfrowane.
 
-Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz hello [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.
+Aby uzyskać informacje na jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.
 
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
     {
@@ -79,9 +79,9 @@ Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPo
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Zasady dostarczania elementu zawartości DynamicCommonEncryption
 
-następujące Hello **CreateAssetDeliveryPolicy** metoda tworzy hello **AssetDeliveryPolicy** który jest skonfigurowany tooapply dynamicznego szyfrowania common encryption (**DynamicCommonEncryption**) tooa smooth streaming protocol (inne protokoły będzie blokowany przesyłania strumieniowego). Metoda Hello przyjmuje dwa parametry: **zasobów** (hello toowhich zasobów ma zasady dostarczania hello tooapply) i **IContentKey** (klucz zawartości hello hello **CommonEncryption**typu, aby uzyskać więcej informacji, zobacz: [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md#common_contentkey)).
+Następujące **CreateAssetDeliveryPolicy** metoda tworzy **AssetDeliveryPolicy** skonfigurowanego do zastosowania dynamicznego szyfrowania common encryption (**DynamicCommonEncryption**) do sprawnego protokołu przesyłania strumieniowego (inne protokoły będzie blokowany przesyłania strumieniowego). Metoda przyjmuje dwa parametry: **zasobów** (zasobów, do której chcesz zastosować zasady dostarczania) i **IContentKey** (klucz zawartości **CommonEncryption** typu, aby uzyskać więcej informacji, zobacz: [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md#common_contentkey)).
 
-Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz hello [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.
+Aby uzyskać informacje na jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
@@ -99,7 +99,7 @@ Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPo
                 AssetDeliveryProtocol.SmoothStreaming,
                 assetDeliveryPolicyConfiguration);
     
-            // Add AssetDelivery Policy toohello asset
+            // Add AssetDelivery Policy to the asset
             asset.DeliveryPolicies.Add(assetDeliveryPolicy);
     
             Console.WriteLine();
@@ -107,20 +107,20 @@ Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPo
                 assetDeliveryPolicy.AssetDeliveryPolicyType);
      }
 
-Usługa Azure Media Services umożliwia również tooadd Widevine szyfrowania. Witaj poniższym przykładzie pokazano zarówno PlayReady i Widevine dodawany zasad dostarczania elementów zawartości toohello.
+Usługa Azure Media Services umożliwia również dodanie Widevine szyfrowania. W poniższym przykładzie pokazano zarówno PlayReady i Widevine dodawany do zasad dostarczania elementów zawartości.
 
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
-        // Get hello PlayReady license service URL.
+        // Get the PlayReady license service URL.
         Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
 
-        // GetKeyDeliveryUrl for Widevine attaches hello KID toohello URL.
+        // GetKeyDeliveryUrl for Widevine attaches the KID to the URL.
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
-        // hello WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
-        // tooappend /? KID =< keyId > toohello end of hello url when creating hello manifest.
+        // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
+        // to append /? KID =< keyId > to the end of the url when creating the manifest.
         // As a result Widevine license acquisition URL will have KID appended twice, 
-        // so we need tooremove hello KID that in hello URL when we call GetKeyDeliveryUrl.
+        // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
 
         Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);
         UriBuilder uriBuilder = new UriBuilder(widevineUrl);
@@ -142,38 +142,38 @@ Usługa Azure Media Services umożliwia również tooadd Widevine szyfrowania. W
             assetDeliveryPolicyConfiguration);
 
 
-        // Add AssetDelivery Policy toohello asset
+        // Add AssetDelivery Policy to the asset
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
     }
 
 > [!NOTE]
-> W przypadku szyfrowania przy użyciu metody Widevine, tylko będzie możliwe toodeliver przy użyciu kreska. Upewnij się, że toospecify DASH w Protokół dostarczania elementów zawartości hello.
+> W przypadku szyfrowania przy użyciu metody Widevine, tylko będzie mogła dostarczać przy użyciu kreska. Upewnij się określić DASH w Protokół dostarczania elementów zawartości.
 > 
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Zasady dostarczania elementu zawartości DynamicEnvelopeEncryption
-następujące Hello **CreateAssetDeliveryPolicy** metoda tworzy hello **AssetDeliveryPolicy** będący szyfrowania dynamicznego koperty tooapply skonfigurowany (**DynamicEnvelopeEncryption** ) tooSmooth protokołów przesyłania strumieniowego, HLS i KRESKI (Jeśli zdecydujesz się toonot Określ niektóre protokoły, będzie można korzystać z przesyłania strumieniowego). Metoda Hello przyjmuje dwa parametry: **zasobów** (hello toowhich zasobów ma zasady dostarczania hello tooapply) i **IContentKey** (klucz zawartości hello hello **EnvelopeEncryption**typu, aby uzyskać więcej informacji, zobacz: [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
+Następujące **CreateAssetDeliveryPolicy** metoda tworzy **AssetDeliveryPolicy** skonfigurowanego na zastosowanie szyfrowania dynamicznego koperty (**DynamicEnvelopeEncryption**) do protokołów Smooth Streaming, HLS i KRESKI (Jeśli zdecydujesz nie określać niektóre protokoły, będą blokowani z przesyłania strumieniowego). Metoda przyjmuje dwa parametry: **zasobów** (zasobów, do której chcesz zastosować zasady dostarczania) i **IContentKey** (klucz zawartości **EnvelopeEncryption** typu, aby uzyskać więcej informacji, zobacz: [Tworzenie klucza zawartości](media-services-dotnet-create-contentkey.md#envelope_contentkey)).
 
-Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz hello [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.   
+Aby uzyskać informacje na jakie wartości można określić podczas tworzenia AssetDeliveryPolicy, zobacz [typów używanych podczas definiowania AssetDeliveryPolicy](#types) sekcji.   
 
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
 
-        //  Get hello Key Delivery Base Url by removing hello Query parameter.  hello Dynamic Encryption service will
-        //  automatically add hello correct key identifier toohello url when it generates hello Envelope encrypted content
-        //  manifest.  Omitting hello IV will also cause hello Dynamice Encryption service toogenerate a deterministic
-        //  IV for hello content automatically.  By using hello EnvelopeBaseKeyAcquisitionUrl and omitting hello IV, this
-        //  allows hello AssetDelivery policy toobe reused by more than one asset.
+        //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
+        //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
+        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
+        //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
+        //  allows the AssetDelivery policy to be reused by more than one asset.
         //
         Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
         UriBuilder uriBuilder = new UriBuilder(keyAcquisitionUri);
         uriBuilder.Query = String.Empty;
         keyAcquisitionUri = uriBuilder.Uri;
 
-        // hello following policy configuration specifies: 
-        //   key url that will have KID=<Guid> appended toohello envelope and
-        //   hello Initialization Vector (IV) toouse for hello envelope encryption.
+        // The following policy configuration specifies: 
+        //   key url that will have KID=<Guid> appended to the envelope and
+        //   the Initialization Vector (IV) to use for the envelope encryption.
         Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
             new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
         {
@@ -187,7 +187,7 @@ Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPo
                         AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
                         assetDeliveryPolicyConfiguration);
 
-        // Add AssetDelivery Policy toohello asset
+        // Add AssetDelivery Policy to the asset
         asset.DeliveryPolicies.Add(assetDeliveryPolicy);
 
         Console.WriteLine();
@@ -199,7 +199,7 @@ Informacje o jakie wartości można określić podczas tworzenia AssetDeliveryPo
 
 ### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
 
-Witaj następujące wyliczenia opisano wartości ustawione przez protokół dostarczania elementów zawartości hello.
+Następujące wyliczenia opisano wartości, które można ustawić dla Protokół dostarczania elementów zawartości.
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -234,7 +234,7 @@ Witaj następujące wyliczenia opisano wartości ustawione przez protokół dost
 
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
-Witaj następujące wyliczenia opisano wartości, które można ustawić dla typu zasady dostarczania elementu zawartości hello.  
+Następujące wyliczenia opisano wartości, które można ustawić dla typu zasady dostarczania elementu zawartości.  
 
     public enum AssetDeliveryPolicyType
     {
@@ -244,12 +244,12 @@ Witaj następujące wyliczenia opisano wartości, które można ustawić dla typ
         None,
 
         /// <summary>
-        /// hello Asset should not be delivered via this AssetDeliveryProtocol. 
+        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
         /// </summary>
         Blocked, 
 
         /// <summary>
-        /// Do not apply dynamic encryption toohello asset.
+        /// Do not apply dynamic encryption to the asset.
         /// </summary>
         /// 
         NoDynamicEncryption,  
@@ -267,7 +267,7 @@ Witaj następujące wyliczenia opisano wartości, które można ustawić dla typ
 
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
-Witaj następujące wyliczenia opisano wartości można użyć metody dostarczania hello tooconfigure powitania klienta toohello klucza zawartości.
+Następujące wyliczenia opisano wartości, które służy do konfigurowania metody dostarczania zawartości klucza do klienta.
     
     public enum ContentKeyDeliveryType
     {
@@ -299,7 +299,7 @@ Witaj następujące wyliczenia opisano wartości można użyć metody dostarczan
 
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
-powitania po wyliczenia opisano wartości, które można ustawić określonej konfiguracji tooget tooconfigure klucze używane dla zasad dostarczania elementów zawartości.
+Następujące wyliczenia opisano wartości, które można ustawić, aby skonfigurować klucze służące do pobrania konfiguracji określonych dla zasad dostarczania elementów zawartości.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -319,22 +319,22 @@ powitania po wyliczenia opisano wartości, które można ustawić określonej ko
         EnvelopeBaseKeyAcquisitionUrl,
 
         /// <summary>
-        /// hello initialization vector toouse for envelope encryption in Base64 format.
+        /// The initialization vector to use for envelope encryption in Base64 format.
         /// </summary>
         EnvelopeEncryptionIVAsBase64,
 
         /// <summary>
-        /// hello PlayReady License Acquisition Url toouse for common encryption.
+        /// The PlayReady License Acquisition Url to use for common encryption.
         /// </summary>
         PlayReadyLicenseAcquisitionUrl,
 
         /// <summary>
-        /// hello PlayReady Custom Attributes tooadd toohello PlayReady Content Header
+        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
         /// </summary>
         PlayReadyCustomAttributes,
 
         /// <summary>
-        /// hello initialization vector toouse for envelope encryption.
+        /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
 

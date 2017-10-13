@@ -1,14 +1,14 @@
-Strefa DNS jest rekordy DNS hello toohost używane dla określonej domeny. toostart hosting domeny w usłudze Azure DNS należy toocreate strefy DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS.
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS.
 
-Na przykład hello domeny "contoso.com" może zawierać wiele rekordów DNS, takie jak "mail.contoso.com" (dla serwera poczty) i "www.contoso.com" (dla witryny sieci web).
+Na przykład domena „contoso.com” może zawierać wiele rekordów DNS, takich jak „mail.contoso.com” (dla serwera poczty) i „www.contoso.com” (dla witryny sieci Web).
 
 Podczas tworzenia strefy DNS w usłudze Azure DNS należy uwzględnić następujące kwestie:
 
-* Nazwa Hello hello strefy musi być unikatowa w obrębie grupy zasobów hello i hello strefy nie może już istnieć. W przeciwnym razie hello kończy się niepowodzeniem.
-* Witaj, który można ponownie użyć tej samej nazwy strefy w innej grupie zasobów lub innej subskrypcji platformy Azure.
-* Gdzie udostępniania wielu strefach hello tej samej nazwie, każde wystąpienie jest przypisany adresów serwerów inną nazwę. Tylko jeden zestaw adresów można skonfigurować za pomocą rejestratora nazw domen hello.
+* Nazwa strefy musi być unikatowa w obrębie grupy zasobów, a strefa nie może wcześniej istnieć. W przeciwnym razie operacja zakończy się niepowodzeniem.
+* Danej nazwy strefy można użyć ponownie w innej grupie zasobów lub w ramach innej subskrypcji platformy Azure.
+* W przypadku wielu stref o tej samej nazwie do każdego wystąpienia jest przypisywany inny adres serwera nazw. W rejestratorze nazw domen można skonfigurować tylko jeden zestaw adresów.
 
 > [!NOTE]
-> Nie masz tooown toocreate nazwy domeny strefę DNS z tą nazwą domeny w usłudze Azure DNS. Jednak należy tooown hello domeny tooconfigure hello Azure serwery DNS jako serwery nazw poprawny dla nazwy domeny hello z Rejestratora nazw domen hello hello.
+> Nie musisz być właścicielem nazwy domeny, aby utworzyć strefę DNS z tą nazwą domeny w usłudze Azure DNS. Jednak musisz być właścicielem domeny, aby skonfigurować serwery nazw usługi Azure DNS jako poprawne serwery nazw dla nazwy domeny w rejestratorze nazw domen.
 > 
-> Aby uzyskać więcej informacji, zobacz [delegować tooAzure domeny DNS](../articles/dns/dns-domain-delegation.md).
+> Więcej informacji można znaleźć w temacie [Delegowanie domeny do usługi DNS platformy Azure](../articles/dns/dns-domain-delegation.md).

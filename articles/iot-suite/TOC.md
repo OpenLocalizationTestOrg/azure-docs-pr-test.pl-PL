@@ -1,11 +1,11 @@
 # Omówienie
 ## [Platforma Azure i Internet rzeczy](iot-suite-what-is-azure-iot.md)
 ## [Co to jest Pakiet IoT?](iot-suite-overview.md)
-## [Co to są wstępnie hello rozwiązania?](iot-suite-what-are-preconfigured-solutions.md)
+## [Co to są wstępnie skonfigurowane rozwiązania?](iot-suite-what-are-preconfigured-solutions.md)
 
 
 # Wprowadzenie
-## [Rozpoczynanie pracy z rozwiązaniami hello wstępnie](iot-suite-getstarted-preconfigured-solutions.md)
+## [Wprowadzenie do wstępnie skonfigurowanych rozwiązań](iot-suite-getstarted-preconfigured-solutions.md)
 ## [Uprawnienia w witrynie azureiotsuite.com](iot-suite-permissions.md)
 ## [Omówienie rozwiązania do konserwacji zapobiegawczej](iot-suite-predictive-overview.md)
 ## [Omówienie rozwiązania połączonej fabryki](iot-suite-connected-factory-overview.md)
@@ -30,11 +30,11 @@
 ### [C w systemie Windows](iot-suite-connecting-devices.md)
 ### [C w systemie Linux](iot-suite-connecting-devices-linux.md)
 ### [Node.js](iot-suite-connecting-devices-node.md)
-## [Łączenie aplikacji logiki toohello zdalnego rozwiązanie monitorowania](iot-suite-logic-apps-tutorial.md)
+## [Łączenie aplikacji logiki z rozwiązaniem do zdalnego monitorowania](iot-suite-logic-apps-tutorial.md)
 ## [Dostosowanie wstępnie skonfigurowanego rozwiązania](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
-## [Dynamiczne telemetrii za pomocą hello zdalne monitorowanie rozwiązania](iot-suite-dynamic-telemetry.md)
-## [Utwórz regułę niestandardową w hello zdalnego rozwiązanie monitorowania](iot-suite-custom-rule.md)
-## [Informacje o urządzeniu w hello zdalne monitorowanie rozwiązania](iot-suite-remote-monitoring-device-info.md)
+## [Korzystanie z telemetrii dynamicznej z rozwiązaniem do zdalnego monitorowania](iot-suite-dynamic-telemetry.md)
+## [Tworzenie reguły niestandardowej w rozwiązaniu do zdalnego monitorowania](iot-suite-custom-rule.md)
+## [Informacje o urządzeniu w rozwiązaniu do zdalnego monitorowania](iot-suite-remote-monitoring-device-info.md)
 ## [Wdrażanie bramy dla połączonej fabryki](iot-suite-connected-factory-gateway-deployment.md)
 ## [Dostosowywanie połączonej fabryki](iot-suite-connected-factory-customize.md)
 
@@ -42,7 +42,7 @@
 ## [Architektura zabezpieczeń](iot-security-architecture.md)
 ## [Najlepsze rozwiązania dotyczące zabezpieczeń](iot-security-best-practices.md)
 ## [Zabezpieczanie wdrożenia IoT](iot-suite-security-deployment.md)
-## [Zabezpieczeń z hello tła w](securing-iot-ground-up.md)
+## [Zabezpieczenia od podstaw](securing-iot-ground-up.md)
 
 # Powiązane
 ## [Stream Analytics](/azure/stream-analytics/)

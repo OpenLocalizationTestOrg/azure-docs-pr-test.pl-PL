@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> Hello urządzenie, którego identyfikator mogą być widoczne w dziennikach hello zbierane na potrzeby obsługi klienta i rozwiązywania problemów, upewnij się, że tooavoid żadnych poufnych informacji podczas nazw.
+> Identyfikator urządzenia może być widoczny w dziennikach zbieranych na potrzeby obsługi klienta i rozwiązywania problemów, dlatego upewnij się, żeby unikać poufnych informacji podczas nadawania mu nazwy.
 >

@@ -1,5 +1,5 @@
 ---
-title: "analizy aplikacji sieci web aaaJava w usłudze Azure Application Insights | Dokumentacja firmy Microsoft"
+title: "Analiza aplikacji sieci Web w języku Java za pomocą usługi Application Insights | Microsoft Docs"
 description: "Monitorowanie wydajności aplikacji sieci Web w języku Java za pomocą usługi Application Insights. "
 services: application-insights
 documentationcenter: java
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 6555ee53a44f937350e4fa296080f7dce4f45226
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f017b8ca42ff3560e17d8aac303a4f834d298540
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Wprowadzenie do usługi Application Insights w projekcie sieci Web w języku Java
 
 
-[Usługa Application Insights](https://azure.microsoft.com/services/application-insights/) jest usługą extensible analizy dla deweloperów sieci web, które pomaga zrozumieć hello wydajności i użycia aplikacji na żywo. Użyj go za[wykrywanie i diagnozowanie problemów z wydajnością oraz wyjątków](app-insights-detect-triage-diagnose.md), i [napisać kod] [ api] tootrack, czy użytkownicy z aplikacją.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) jest rozszerzalną usługą analizy dla deweloperów sieci Web, która ułatwia zrozumienie wydajności i użycia aktywnej aplikacji. Służy do [wykrywania i diagnozowania problemów z wydajnością i wyjątków](app-insights-detect-triage-diagnose.md) oraz [pisania kodu][api] do śledzenia korzystania z aplikacji przez użytkowników.
 
 ![dane przykładowe](./media/app-insights-java-get-started/5-results.png)
 
@@ -31,29 +31,29 @@ Usługa Application Insights obsługuje aplikacje w języku Java działające w 
 Potrzebne elementy:
 
 * Środowisko Oracle JRE 1.6 lub nowsze albo Zulu JRE 1.6 lub nowsze
-* Subskrypcja zbyt[Microsoft Azure](https://azure.microsoft.com/).
+* Subskrypcja platformy [Microsoft Azure](https://azure.microsoft.com/).
 
-*Jeśli masz aplikację sieci web, która jest już na żywo można wykonać procedury alternatywne hello zbyt[dodać hello zestawu SDK w czasie wykonywania na serwerze sieci web hello](app-insights-java-live.md). To alternatywne rozwiązanie pozwala uniknąć ponownie skompilować kod hello, ale nie otrzymasz hello opcja toowrite tootrack użytkownika działania związane z kodem.*
+*Jeśli masz aplikację sieci Web, która już działa, możesz wykonać alternatywną procedurę, aby [dodać zestaw SDK w czasie wykonywania na serwerze sieci Web](app-insights-java-live.md). Ta alternatywa pozwala uniknąć ponownego kompilowania kodu, ale nie udostępnia opcji pisania kodu w celu śledzenia działań użytkownika.*
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Uzyskiwanie klucza instrumentacji usługi Application Insights
-1. Zaloguj się toohello [portalu Microsoft Azure](https://portal.azure.com).
-2. Utwórz zasób usługi Application Insights. Ustaw aplikację sieci web tooJava typu aplikacji hello.
+1. Zaloguj się do [Portalu Microsoft Azure](https://portal.azure.com).
+2. Utwórz zasób usługi Application Insights. Jako typ aplikacji ustaw wartość Aplikacja sieci Web Java.
 
     ![Wypełnij nazwę, wybierz aplikację sieci Web Java i kliknij przycisk Utwórz](./media/app-insights-java-get-started/02-create.png)
-3. Znajdź klucz Instrumentacji hello hello nowy zasób. Należy toopaste tego klucza w projekcie kodu wkrótce.
+3. Znajdź klucz instrumentacji nowego zasobu. Wkrótce będzie trzeba wkleić ten klucz do projektu kodu.
 
-    ![W obszarze Przegląd nowych zasobów powitania kliknij polecenie Właściwości i skopiuj hello klucza Instrumentacji](./media/app-insights-java-get-started/03-key.png)
+    ![W opisie nowego zasobu kliknij opcję Właściwości i skopiuj klucz instrumentacji](./media/app-insights-java-get-started/03-key.png)
 
-## <a name="2-add-hello-application-insights-sdk-for-java-tooyour-project"></a>2. Dodaj hello zestaw SDK usługi Application Insights dla programu Java tooyour projektu
-*Wybierz odpowiedni sposób hello projektu.*
+## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Dodawanie zestawu SDK usługi Application Insights dla środowiska Java do projektu
+*Wybierz odpowiedni sposób dla danego projektu.*
 
-#### <a name="if-youre-using-eclipse-toocreate-a-maven-or-dynamic-web-project-"></a>Jeśli używasz Zaćmienie-toocreate projekt Maven lub dynamicznej sieci Web...
-Użyj hello [zestaw SDK usługi Application Insights dla języka Java wtyczki][eclipse].
+#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Jeśli używasz środowiska Eclipse do tworzenia projektu Maven lub dynamicznego projektu sieci Web...
+Użyj [wtyczki zestawu SDK Application Insights dla środowiska Java][eclipse].
 
 #### <a name="if-youre-using-maven"></a>Jeśli używasz narzędzia Maven...
-Jeśli projekt jest już skonfigurowana toouse Maven dla kompilacji, scalić hello następującego pliku pom.xml tooyour kodu.
+Jeśli projekt jest już skonfigurowany do używania narzędzia Maven w celu kompilacji, scal następujący kod z plikiem pom.xml.
 
-Następnie dane binarne odświeżania hello projektu zależności tooget hello pobrane.
+Następnie odśwież zależności projektu, aby pliki binarne zostały pobrane.
 
 ```XML
 
@@ -75,13 +75,13 @@ Następnie dane binarne odświeżania hello projektu zależności tooget hello p
     </dependencies>
 ```
 
-* *Błędy kompilacji lub walidacji sumy kontrolnej?* Spróbuj użyć określonej wersji, np.: `<version>1.0.n</version>`. Najnowsza wersja hello znajdziesz w hello [informacje o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) lub w naszym [artefakty Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Należy tooupdate tooa nowego zestawu SDK?* Odśwież zależności projektu.
+* *Błędy kompilacji lub walidacji sumy kontrolnej?* Spróbuj użyć określonej wersji, np.: `<version>1.0.n</version>`. Najbardziej aktualną wersję z najdziesz w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) lub wśród naszych [artefaktów Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Trzeba zaktualizować zestaw SDK?* Odśwież zależności projektu.
 
 #### <a name="if-youre-using-gradle"></a>Jeśli używasz narzędzia Gradle...
-Jeśli projekt jest już skonfigurowana toouse Gradle dla kompilacji, scalić hello poniższe plik build.gradle tooyour kodu.
+Jeśli projekt jest już skonfigurowany do używania narzędzia Gradle w celu kompilacji, scal następujący kod z plikiem build.gradle.
 
-Dane binarne odświeżania hello projektu zależności tooget hello pobierane.
+Następnie odśwież zależności projektu, aby pliki binarne zostały pobrane.
 
 ```JSON
 
@@ -95,30 +95,30 @@ Dane binarne odświeżania hello projektu zależności tooget hello pobierane.
     }
 ```
 
-* *Błędy kompilacji lub walidacji sumy kontrolnej? Spróbuj użyć określonej wersji, np.:* `version:'1.0.n'`. *Najnowsza wersja hello znajdziesz w hello [informacje o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *tooupdate tooa nowego zestawu SDK*
+* *Błędy kompilacji lub walidacji sumy kontrolnej? Spróbuj użyć określonej wersji, np.:* `version:'1.0.n'`. *Najbardziej aktualną wersję znajdziesz w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
+* *Aby zaktualizować zestaw SDK*
   * Odśwież zależności projektu.
 
 #### <a name="otherwise-"></a>W innym przypadku...
-Ręcznie Dodaj hello SDK:
+Ręcznie dodaj zestaw SDK:
 
-1. Pobierz hello [zestaw SDK usługi Application Insights dla języka Java](https://aka.ms/aijavasdk).
-2. Wyodrębnij pliki binarne hello z pliku zip hello, a następnie dodać tooyour projektu.
+1. Pobierz [Zestaw SDK usługi Application Insights dla środowiska Java](https://aka.ms/aijavasdk).
+2. Wyodrębnij pliki binarne z pliku zip i dodaj je do projektu.
 
 ### <a name="questions"></a>Pytania...
-* *Co to jest relacja hello między hello `-core` i `-web` składników w hello zip?*
+* *Jaki jest związek między składnikami `-core` i `-web` w pliku zip?*
 
-  * `applicationinsights-core`Umożliwia także hello interfejsu API systemu od zera. Ten składnik jest zawsze potrzebny.
-  * Element `applicationinsights-web` dostarcza metryki do śledzenia liczby żądań HTTP i czasów odpowiedzi. Możesz pominąć ten składnik, jeśli nie chcesz automatycznie zbierać tych danych telemetrycznych. Na przykład, jeśli chcesz toowrite własnych.
-* *Witaj tooupdate zestawu SDK, gdy firma Microsoft Opublikuj zmiany*
+  * Element `applicationinsights-core` dostarcza podstawowy interfejs API. Ten składnik jest zawsze potrzebny.
+  * Element `applicationinsights-web` dostarcza metryki do śledzenia liczby żądań HTTP i czasów odpowiedzi. Możesz pominąć ten składnik, jeśli nie chcesz automatycznie zbierać tych danych telemetrycznych. Na przykład jeśli chcesz zaprogramować zbieranie samodzielnie.
+* *Aby zaktualizować zestaw SDK po opublikowaniu zmian*
 
-  * Pobierz najnowsze hello [zestaw SDK usługi Application Insights dla języka Java](https://aka.ms/qqkaq6) i Zamień hello stare.
-  * Zmiany zostały opisane w hello [informacje o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+  * Pobierz najnowszy [Zestaw SDK usługi Application Insights dla środowiska Java](https://aka.ms/qqkaq6) i zastąp nim stary.
+  * Zmiany są opisane w [informacjach o wersji zestawu SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Dodawanie pliku .xml usługi Application Insights
-Dodaj folder zasobów toohello ApplicationInsights.xml w projekcie, lub upewnij się, że jest ona dodawana ścieżka klasy wdrożenia tooyour projektu. Skopiuj powitania po XML do niego.
+Dodaj plik ApplicationInsights.xml do folderu zasobów w projekcie lub upewnij się, że jest dodany do ścieżki klas wdrażania projektu. Skopiuj do niego następujący kod XML.
 
-Zastąp klucza Instrumentacji hello pochodzący z hello portalu Azure.
+Zastąp klucz instrumentacji kluczem pobranym z portalu Azure.
 
 ```XML
 
@@ -126,7 +126,7 @@ Zastąp klucza Instrumentacji hello pochodzący z hello portalu Azure.
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
 
-      <!-- hello key from hello portal: -->
+      <!-- The key from the portal: -->
 
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
@@ -140,10 +140,10 @@ Zastąp klucza Instrumentacji hello pochodzący z hello portalu Azure.
       </TelemetryModules>
 
       <!-- Events correlation (not required for bare API) -->
-      <!-- These initializers add context data tooeach event -->
+      <!-- These initializers add context data to each event -->
 
       <TelemetryInitializers>
-        <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
@@ -154,13 +154,13 @@ Zastąp klucza Instrumentacji hello pochodzący z hello portalu Azure.
 ```
 
 
-* klucz Instrumentacji Hello przesyłany wraz każdy element telemetrii i informuje toodisplay usługi Application Insights w zasobie.
-* Witaj składnika żądania HTTP jest opcjonalna. Automatycznie wysyła dane telemetryczne dotyczące żądań i odpowiedzi razy toohello portalu.
-* Korelacji zdarzeń to składnik dodawania toohello HTTP żądania. Przypisuje identyfikator żądania tooeach odebranych przez serwer hello i dodaje ten identyfikator jako elementu właściwości tooevery dane telemetryczne jako właściwość hello "Operation.Id". Umożliwia telemetrii hello toocorrelate skojarzone z każdym żądaniem przez ustawienie filtru [diagnostycznych wyszukiwania][diagnostic].
-* Klucz usługi Application Insights Hello mogą zostać przekazane dynamicznie z hello portalu Azure jako właściwość systemu (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Jeśli nie zdefiniowano żadnej właściwości, sprawdzana jest zmienna środowiskowa (APPLICATION_INSIGHTS_IKEY) w ustawieniach aplikacji platformy Azure. Jeśli obie właściwości hello jest nieokreślona, z ApplicationInsights.xml używana jest domyślna hello InstrumentationKey. Ta sekwencja pomaga toomanage InstrumentationKeys różne dla różnych środowisk dynamicznie.
+* Klucz instrumentacji jest wysyłany wraz z każdym elementem telemetrii i dzięki temu te elementy mogą być wyświetlane dla odpowiedniego zasobu usługi Application Insights.
+* Składnik żądań HTTP jest opcjonalny. Powoduje automatyczne wysyłanie telemetrii dotyczącej żądań i czasów odpowiedzi do portalu.
+* Korelacja zdarzeń jest dodatkiem do składnika żądań HTTP. Przypisuje identyfikator do każdego żądania odebranego przez serwer i dodaje go do każdego elementu telemetrii jako właściwość „Operation.Id”. Umożliwia korelowanie telemetrii skojarzonej z każdym żądaniem przez ustawienie filtru w [wyszukiwaniu diagnostycznym][diagnostic].
+* Klucz usługi Application Insights może zostać przekazany dynamicznie z witryny Azure Portal jako właściwość systemu (-DAPPLICATION_INSIGHTS_IKEY=Twój_klucz_ikey). Jeśli nie zdefiniowano żadnej właściwości, sprawdzana jest zmienna środowiskowa (APPLICATION_INSIGHTS_IKEY) w ustawieniach aplikacji platformy Azure. Jeśli obie właściwości nie są zdefiniowane, używana jest domyślna właściwość InstrumentationKey z pliku ApplicationInsights.xml. Ta sekwencja ułatwia dynamiczne zarządzanie elementami InstrumentationKey dla różnych środowisk.
 
-### <a name="alternative-ways-tooset-hello-instrumentation-key"></a>Klucz Instrumentacji hello tooset alternatywnych metod
-Zestaw SDK usługi Application Insights jest szuka klucza hello w następującej kolejności:
+### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Alternatywne sposoby ustawienia klucza instrumentacji
+Zestaw SDK usługi Application Insights szuka klucza w następującej kolejności:
 
 1. Właściwość systemu: -DAPPLICATION_INSIGHTS_IKEY=Twój_klucz_ikey
 2. Zmienna środowiskowa: APPLICATION_INSIGHTS_IKEY
@@ -174,11 +174,11 @@ Możesz również [ustawić klucz w kodzie](app-insights-api-custom-events-metri
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. Dodawanie filtru HTTP
-ostatni krok konfiguracji Hello umożliwia toolog składnika żądania HTTP hello każdego żądania sieci web. (Nie wymagane, jeśli tylko interfejsu API systemu od zera hello.)
+Ostatni krok konfiguracji umożliwia składnikowi żądania HTTP rejestrowanie wszystkich żądań sieci Web. (Nie jest to wymagane, jeśli potrzebujesz tylko podstawowego interfejsu API).
 
-Zlokalizuj i Otwórz plik web.xml hello w projekcie i następującego kodu w węźle hello aplikacji sieci web, której skonfigurowano filtry aplikacji hello scalania.
+Znajdź i otwórz plik web.xml w projekcie, a następnie scal poniższy kod w obszarze węzła web-app, w którym skonfigurowano filtry aplikacji.
 
-tooget hello najdokładniejszych wyników, filtr hello należy mapować przed wszystkie inne filtry.
+Aby uzyskać najbardziej dokładne wyniki, ten filtr powinien być mapowany przed wszystkimi innymi filtrami.
 
 ```XML
 
@@ -195,7 +195,7 @@ tooget hello najdokładniejszych wyników, filtr hello należy mapować przed ws
 ```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Jeśli używasz środowiska Spring Web MVC 3.1 lub nowszego
-Edycja tych elementów *-servlet.xml tooinclude hello usługi Application Insights pakietu:
+Edytuj te elementy w pliku *-servlet.xml, aby uwzględnić pakiet usługi Application Insights:
 
 ```XML
 
@@ -210,7 +210,7 @@ Edycja tych elementów *-servlet.xml tooinclude hello usługi Application Insigh
 ```
 
 #### <a name="if-youre-using-struts-2"></a>Jeśli używasz środowiska Struts 2
-Dodaj ten element toohello poprzeczne plik konfiguracji (zazwyczaj nazwany struts.xml lub default.xml poprzeczne):
+Dodaj ten element do pliku konfiguracyjnego Struts (zwykle o nazwie struts.xml lub struts-default.xml):
 
 ```XML
 
@@ -220,46 +220,46 @@ Dodaj ten element toohello poprzeczne plik konfiguracji (zazwyczaj nazwany strut
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(Jeśli masz interceptory zdefiniowane w stosie domyślne interceptora powitania po prostu można dodać toothat stosu.)
+(Jeśli masz interceptory zdefiniowane w stosie domyślnym, możesz po prostu dodać interceptor do tego stosu).
 
 ## <a name="5-run-your-application"></a>5. Uruchamianie aplikacji
-Uruchamiany w trybie debugowania na komputerze deweloperskim albo publikowanie tooyour server.
+Uruchom aplikację w trybie debugowania na komputerze deweloperskim albo opublikuj na serwerze.
 
 ## <a name="6-view-your-telemetry-in-application-insights"></a>6. Wyświetlanie telemetrii w usłudze Application Insights
-Zwraca tooyour zasobu usługi Application Insights w [portalu Microsoft Azure](https://portal.azure.com).
+Wróć do zasobu usługi Application Insights w witrynie [Microsoft Azure Portal](https://portal.azure.com).
 
-W bloku omówienie hello pojawi się dane żądania HTTP. (Jeśli ich tam nie ma, odczekaj kilka sekund, a następnie kliknij przycisk Odśwież).
+W bloku przeglądu zostaną wyświetlone dane żądań HTTP. (Jeśli ich tam nie ma, odczekaj kilka sekund, a następnie kliknij przycisk Odśwież).
 
 ![dane przykładowe](./media/app-insights-java-get-started/5-results.png)
 
 [Dowiedz się więcej o metrykach.][metrics]
 
-Kliknij przycisk za pomocą dowolnego wykresu toosee bardziej szczegółowe agregowana metryki.
+Klikaj elementy wykresów, aby wyświetlać bardziej szczegółowe metryki zagregowane.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Usługi Application Insights zakłada hello format żądania HTTP dla aplikacji MVC: `VERB controller/action`. Na przykład żądania `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` i `GET Home/Product/sdf96vws` są grupowane w ramach pozycji `GET Home/Product`. To grupowanie umożliwia zrozumiałe agregowanie żądań, na przykład podawanie liczby żądań i średniego czasu ich wykonania.
+> Usługa Application Insights zakłada, że format żądania HTTP dla aplikacji MVC to: `VERB controller/action`. Na przykład żądania `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` i `GET Home/Product/sdf96vws` są grupowane w ramach pozycji `GET Home/Product`. To grupowanie umożliwia zrozumiałe agregowanie żądań, na przykład podawanie liczby żądań i średniego czasu ich wykonania.
 >
 >
 
 ### <a name="instance-data"></a>Dane wystąpienia
-Kliknij określone żądanie wystąpień poszczególnych typów toosee.
+Kliknij określony typ żądania, aby wyświetlić poszczególne wystąpienia.
 
 W usłudze Application Insights są wyświetlane dwa rodzaje danych: dane zagregowane, przechowywane i wyświetlane jako średnie, liczniki i sumy, oraz dane wystąpienia — indywidualne raporty dotyczące żądań HTTP, wyjątków, wyświetleń stron lub zdarzeń niestandardowych.
 
-Podczas przeglądania właściwości hello żądania, można przejrzeć zdarzenia telemetrii hello skojarzonych z nim, takich jak żądania i wyjątki.
+Podczas wyświetlania właściwości żądania można wyświetlić skojarzone zdarzenia telemetrii, takie jak żądania i wyjątki.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analiza: zaawansowany język zapytań
-Jak gromadzone większej ilości danych, można uruchomić zapytania zarówno tooaggregate danych i toofind poszczególnych wystąpień.  [Analiza](app-insights-analytics.md) jest zaawansowanym narzędziem, którego można używać zarówno w celu poznania wydajności i użycia, jak i do celów diagnostycznych.
+W miarę zgromadzenia większej ilości danych można uruchamiać zapytania zarówno w celu agregowania danych, jak i w celu znajdowania poszczególnych wystąpień.  [Analiza](app-insights-analytics.md) jest zaawansowanym narzędziem, którego można używać zarówno w celu poznania wydajności i użycia, jak i do celów diagnostycznych.
 
 ![Przykład analizy](./media/app-insights-java-get-started/025.png)
 
-## <a name="7-install-your-app-on-hello-server"></a>7. Zainstaluj aplikację na powitania serwera
-Teraz publikowania serwera toohello aplikacji znajduje się w innym użytkownikom go używać i obserwować telemetrii hello widoczne w portalu hello.
+## <a name="7-install-your-app-on-the-server"></a>7. Instalowanie aplikacji na serwerze
+Teraz opublikuj aplikację na serwerze, pozwól z niej korzystać innym osobom, a następnie obejrzyj telemetrię wyświetlaną w portalu.
 
-* Upewnij się, że zapora pozwala toosend Twojej aplikacji telemetrii toothese portów:
+* Upewnij się, że zapora pozwala aplikacji na wysłanie telemetrii do tych portów:
 
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
@@ -278,21 +278,21 @@ Nieobsługiwane wyjątki są zbierane automatycznie:
 
 ![Otwórz ustawienia, błędy](./media/app-insights-java-get-started/21-exceptions.png)
 
-toocollect danych na inne wyjątki, dostępne są dwie opcje:
+Istnieją dwie opcje zbierania danych o innych wyjątkach:
 
-* [Wstaw wywołuje tootrackException() w kodzie][apiexceptions].
-* [Zainstaluj hello agenta Java na serwerze](app-insights-java-agent.md). Można określić metody hello ma toowatch.
+* [Wstawianie wywołań metody trackException() w kodzie][apiexceptions].
+* [Instalacja agenta Java na serwerze](app-insights-java-agent.md). Trzeba określić metody, które chcesz śledzić.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Monitorowanie wywołań metod i zależności zewnętrznych
-[Zainstaluj agenta Java hello](app-insights-java-agent.md) toolog określone metody wewnętrznej i wywołań za pośrednictwem JDBC, z danych o chronometrażu.
+[Zainstaluj agenta programu Java](app-insights-java-agent.md) w celu rejestrowania określonych metod wewnętrznych i wywołań za pośrednictwem JDBC z danymi chronometrażu.
 
 ## <a name="performance-counters"></a>Liczniki wydajności
-Otwórz **ustawienia**, **serwerów**, toosee zakresu liczników wydajności.
+Otwórz pozycję **Ustawienia**, **Serwery**, aby wyświetlić zakres liczników wydajności.
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Dostosowywanie zbierania danych liczników wydajności
-Kolekcja toodisable hello standardowego zbioru liczników wydajności, Dodaj hello następującego kodu w węźle głównym hello hello ApplicationInsights.xml pliku:
+Aby wyłączyć zbieranie standardowego zestawu liczników wydajności, dodaj następujący kod w węźle głównym pliku ApplicationInsights.xml:
 
 ```XML
     <PerformanceCounters>
@@ -301,9 +301,9 @@ Kolekcja toodisable hello standardowego zbioru liczników wydajności, Dodaj hel
 ```
 
 ### <a name="collect-additional-performance-counters"></a>Zbieranie danych dodatkowych liczników wydajności
-Można określić toobe liczniki wydajności zebrane.
+Możesz określić dodatkowe liczniki wydajności do zbierania danych.
 
-#### <a name="jmx-counters-exposed-by-hello-java-virtual-machine"></a>Liczniki JMX (udostępnione przez hello maszyny wirtualnej Java)
+#### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>Liczniki JMX (udostępniane przez maszynę wirtualną Java)
 
 ```XML
     <PerformanceCounters>
@@ -314,16 +314,16 @@ Można określić toobe liczniki wydajności zebrane.
     </PerformanceCounters>
 ```
 
-* `displayName`— Nazwa hello wyświetlana w portalu usługi Application Insights hello.
-* `objectName`— Nazwa obiektu JMX hello.
-* `attribute`— Atrybut hello toofetch nazwa obiektu JMX hello
-* `type`(opcjonalnie) — Witaj typ atrybutu JMX obiektu:
+* `displayName` — nazwa wyświetlana w portalu Application Insights.
+* `objectName` — nazwa obiektu JMX.
+* `attribute` — atrybut nazwy obiektu JMX do pobrania.
+* `type` (opcjonalnie) — typ atrybutu obiektu JMX:
   * wartość domyślna: typ prosty, np. int lub long.
-  * `composite`: dane licznika wydajności hello jest w formacie hello "Attribute.Data"
-  * `tabular`: dane licznika wydajności hello jest w formacie hello wiersza tabeli
+  * `composite`: dane licznika wydajności są w formacie „Atrybut.Dane”
+  * `tabular`: dane licznika wydajności są w formacie wiersza tabeli
 
 #### <a name="windows-performance-counters"></a>Liczniki wydajności systemu Windows
-Każdy [licznika wydajności systemu Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) jest członkiem grupy kategorii (w hello taki sam sposób, że pole jest elementem członkowskim klasy). Kategorie mogą być globalne lub mogą mieć wystąpienia numerowane lub nazwane.
+Każdy [licznik wydajności systemu Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) należy do kategorii (w taki sam sposób, w jaki pole należy do klasy). Kategorie mogą być globalne lub mogą mieć wystąpienia numerowane lub nazwane.
 
 ```XML
     <PerformanceCounters>
@@ -334,35 +334,35 @@ Każdy [licznika wydajności systemu Windows](https://msdn.microsoft.com/library
     </PerformanceCounters>
 ```
 
-* displayName — Witaj Nazwa wyświetlana w portalu usługi Application Insights hello.
-* categoryName — Witaj kategorii licznika wydajności (obiekt wydajności) z którym skojarzony jest ten licznik wydajności.
-* counterName — nazwa hello hello licznika wydajności.
-* instanceName — nazwa wystąpienia kategorii licznika wydajności hello hello lub ciąg pusty (""), jeśli kategoria hello zawiera jedno wystąpienie. Jeśli hello CategoryName procesu i hello licznika wydajności, chcieliby toocollect znajduje się w bieżącym procesie JVM hello w uruchomionym aplikacji, określ `"__SELF__"`.
+* displayName — nazwa wyświetlana w portalu Application Insights.
+* categoryName — kategoria licznika wydajności (obiekt wydajności), z którą skojarzony jest ten licznik wydajności.
+* counterName — nazwa licznika wydajności.
+* instanceName — nazwa wystąpienia kategorii licznika wydajności lub ciąg pusty (""), jeśli kategoria zawiera jedno wystąpienie. Jeśli categoryName to Proces, a licznik wydajności, którego dane chcesz zbierać, pochodzi z bieżącego procesu maszyny JVM, na której jest uruchomiona aplikacja, podaj wartość `"__SELF__"`.
 
 Liczniki wydajności są widoczne jako metryki niestandardowe w [Eksploratorze metryk][metrics].
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 ### <a name="unix-performance-counters"></a>Liczniki wydajności sytemu Unix
-* [Instalowanie collectd przy użyciu wtyczki usługi Application Insights hello](app-insights-java-collectd.md) tooget szerokiego zakresu systemów i sieci danych.
+* [Zainstaluj program collectd z wtyczką Application Insights](app-insights-java-collectd.md), aby uzyskać szeroką gamę danych na temat systemu i sieci.
 
 ## <a name="get-user-and-session-data"></a>Pobieranie danych użytkownika i sesji
-Wysyłasz już telemetrię z serwera sieci Web. Teraz tooget hello widok 360 stopni aplikacji, można dodać więcej monitorowania:
+Wysyłasz już telemetrię z serwera sieci Web. Teraz, aby zyskać pełny wgląd w dane aplikacji, możesz dodać więcej opcji monitorowania:
 
-* [Dodawanie stron sieci web tooyour telemetrii] [ usage] toomonitor strony widoki i metryki użytkownika.
-* [Ustawianie testów sieci web] [ availability] toomake się, że aplikacja pozostaje na żywo i szybko reagowały.
+* [Dodaj telemetrię do stron sieci Web][usage], aby monitorować wyświetlenia stron i metryki użytkowników.
+* [Konfigurowanie testów sieci Web][availability], aby upewnić się, że aplikacja stale działa i odpowiada.
 
 ## <a name="capture-log-traces"></a>Przechwytywanie danych dziennika śledzenia
-Można użyć tooslice usługi Application Insights i wykorzystuj dzienniki z narzędzia Log4J, Logback lub innych platform rejestrowania. Dzienniki hello jest skorelowany z żądań HTTP i innych danych telemetrycznych. [Dowiedz się, jak to zrobić][javalogs].
+Usługi Application Insights mogą służyć do analizowania pod różnymi kątami danych z dzienników Log4J, Logback lub innych platform rejestrowania. Dzienniki można skorelować z żądaniami HTTP i inną telemetrią. [Dowiedz się, jak to zrobić][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Wysyłanie własnej telemetrii
-Teraz, po zainstalowaniu hello zestawu SDK, można użyć toosend interfejsu API hello własnych danych telemetrycznych.
+Teraz, po zainstalowaniu zestawu SDK, możesz użyć interfejsu API do wysyłania własnej telemetrii.
 
-* [Śledzenie zdarzeń niestandardowych i metryki] [ api] toolearn, jakie użytkownicy wirtualni z aplikacją.
-* [Wyszukiwanie zdarzeń i dzienniki] [ diagnostic] toohelp diagnozowania problemów.
+* [Śledź niestandardowe zdarzenia i metryki][api], aby dowiedzieć się, jak użytkownicy korzystają z aplikacji.
+* [Wyszukiwanie zdarzeń i dzienników][diagnostic], aby łatwiej diagnozować problemy.
 
 ## <a name="availability-web-tests"></a>Testy dostępności sieci Web
-Usługa Application Insights można przetestować witryny sieci Web w toocheck w regularnych odstępach czasu, który jest, a także odpowiada. [tooset się][availability], kliknij przycisk testy sieci Web.
+Usługa Application Insights może służyć do testowania witryny sieci Web w regularnych odstępach czasu, aby sprawdzić, czy witryna działa i odpowiada poprawnie. [Aby skonfigurować tę funkcję][availability], kliknij pozycję Testy sieci Web.
 
 ![Kliknij pozycję Testy sieci Web, a następnie kliknij pozycję Dodaj test sieci Web](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -382,9 +382,9 @@ Uzyskasz wykresy czasów odpowiedzi oraz powiadomienia e-mail w razie wyłączen
 ## <a name="next-steps"></a>Następne kroki
 * [Monitorowanie wywołań zależności](app-insights-java-agent.md)
 * [Monitorowanie liczników wydajności sytemu Unix](app-insights-java-collectd.md)
-* Dodaj [monitorowanie stron sieci web tooyour](app-insights-javascript.md) czas ładowania strony toomonitor, wywołania AJAX wyjątków przeglądarki.
-* Zapis [telemetria niestandardowa](app-insights-api-custom-events-metrics.md) tootrack użycia w przeglądarce hello lub na powitania serwera.
-* Utwórz [pulpity nawigacyjne](app-insights-dashboards.md) toobring razem hello klucza wykresy do monitorowania systemu.
+* Dodawanie [monitorowania do stron sieci Web](app-insights-javascript.md) w celu monitorowania czasów ładowania stron, wywołań AJAX i wyjątków przeglądarki
+* Zapisywanie [niestandardowych danych telemetrycznych](app-insights-api-custom-events-metrics.md) w celu śledzenia użycia w przeglądarce lub na serwerze.
+* Tworzenie [pulpitów nawigacyjnych](app-insights-dashboards.md) umożliwiających przygotowywanie kluczowych wykresów na potrzeby monitorowania systemu
 * Tworzenie zaawansowanych zapytań dotyczących telemetrii z poziomu aplikacji przy użyciu usługi [Analytics](app-insights-analytics.md)
 * Aby uzyskać więcej informacji, odwiedź stronę [Azure dla deweloperów języka Java](/java/azure).
 

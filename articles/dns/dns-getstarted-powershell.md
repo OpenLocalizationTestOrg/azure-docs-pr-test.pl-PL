@@ -1,6 +1,6 @@
 ---
-title: "wprowadzenie do usługi Azure DNS przy użyciu programu PowerShell aaaGet | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate DNS strefy i rejestrowanie w usłudze Azure DNS. To jest toocreate przewodnik krok po kroku i zarządzanie nimi z pierwszą strefę DNS oraz rejestrowania przy użyciu programu PowerShell."
+title: "Rozpoczynanie pracy z usługą Azure DNS przy użyciu programu PowerShell | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć strefę i rekord DNS w usłudze Azure DNS. W tym szczegółowym przewodniku pokazano, jak po raz pierwszy utworzyć strefę i rekord DNS przy użyciu programu PowerShell."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.openlocfilehash: 0f9dead1e4b44fcc74c84a024c41cdfaeb02b5d3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>Rozpoczynanie pracy z usługą Azure DNS przy użyciu programu PowerShell
 
@@ -29,15 +29,15 @@ ms.lasthandoff: 10/06/2017
 > * [Interfejs wiersza polecenia platformy Azure 1.0](dns-getstarted-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure 2.0](dns-getstarted-cli.md)
 
-W tym artykule przedstawiono hello kroki toocreate z pierwszą strefę DNS i rejestrowanie przy użyciu programu Azure PowerShell. Można również wykonywać te czynności przy użyciu portalu Azure hello lub hello wiersza polecenia platformy Azure i platform.
+W tym artykule przedstawiono kroki umożliwiające utworzenie po raz pierwszy strefy i rekordu DNS przy użyciu programu Azure PowerShell. Te kroki można również wykonać przy użyciu witryny Azure Portal lub wieloplatformowego interfejsu wiersza polecenia platformy Azure.
 
-Strefa DNS jest rekordy DNS hello toohost używane dla określonej domeny. toostart hosting domeny w usłudze Azure DNS należy toocreate strefy DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Na koniec toopublish serwery DNS strefy toohello Internet, należy serwery nazw hello tooconfigure hello domeny. Poniżej opisano każdy z tych kroków.
+Strefa DNS jest używana do hostowania rekordów DNS dla określonej domeny. Aby rozpocząć hostowanie domeny w usłudze Azure DNS, musisz utworzyć strefę DNS dla tej nazwy domeny. Każdy rekord DNS domeny zostanie utworzony w tej strefie DNS. Aby na koniec opublikować strefę DNS w Internecie, należy skonfigurować serwery nazw dla domeny. Poniżej opisano każdy z tych kroków.
 
-W poniższych instrukcjach przyjęto został już zainstalowany i zalogowany tooAzure środowiska PowerShell. Aby uzyskać pomoc, zobacz [jak toomanage DNS strefy przy użyciu programu PowerShell](dns-operations-dnszones.md).
+W tych instrukcjach założono, że już zainstalowano program Azure PowerShell i zalogowano się do niego. Aby uzyskać pomoc, zobacz [How to manage DNS zones using PowerShell](dns-operations-dnszones.md) (Jak zarządzać strefami systemu DNS przy użyciu programu PowerShell).
 
-## <a name="create-hello-resource-group"></a>Utwórz grupę zasobów hello
+## <a name="create-the-resource-group"></a>Tworzenie grupy zasobów
 
-Przed utworzeniem hello strefę DNS, grupy zasobów jest utworzyć strefę DNS hello toocontain. Oto Hello hello polecenia.
+Przed utworzeniem strefy DNS należy utworzyć dla niej grupę zasobów. Poniżej przedstawiono polecenia.
 
 ```powershell
 New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
@@ -45,7 +45,7 @@ New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
 
 ## <a name="create-a-dns-zone"></a>Tworzenie strefy DNS
 
-Strefa DNS jest tworzona przy użyciu hello `New-AzureRmDnsZone` polecenia cmdlet. Witaj poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w hello grupy zasobów o nazwie *MyResourceGroup*. Użyj toocreate przykład hello strefy DNS, podstawiając hello własne wartości.
+Strefa DNS jest tworzona za pomocą polecenia cmdlet `New-AzureRmDnsZone`. Poniższy przykład tworzy strefę DNS o nazwie *contoso.com* w grupie zasobów o nazwie *MyResourceGroup*. Skorzystaj z tego przykładu, aby utworzyć strefę DNS, podstawiając własne wartości.
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
@@ -53,18 +53,18 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 ## <a name="create-a-dns-record"></a>Tworzenie rekordu DNS
 
-Tworzenie zestawów rekordów przy użyciu hello `New-AzureRmDnsRecordSet` polecenia cmdlet. Witaj poniższy przykład tworzy rekord z hello nazwie względnej "www" w strefie DNS "contoso.com" w grupie zasobów "MyResourceGroup" hello. Hello pełni kwalifikowana nazwa zestawu rekordów hello jest "www.contoso.com". Typ rekordu Hello jest "A", o adresie IP "1.2.3.4", a hello TTL jest 3600 sekund.
+Zestawy rekordów są tworzone za pomocą polecenia cmdlet `New-AzureRmDnsRecordSet`. W poniższym przykładzie tworzony jest rekord o nazwie względnej „www” w strefie DNS „contoso.com” w grupie zasobów „MyResourceGroup”. W pełni kwalifikowaną nazwą zestawu rekordów jest „www.contoso.com”. Typ rekordu to „A” z adresem IP „1.2.3.4”, a czas wygaśnięcia wynosi 3600 sekund.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
 
-Dla innych typów rekordów do zestawów rekordów z więcej niż jeden rekord, a istniejące rekordy toomodify, zobacz [rekordy DNS, zarządzanie i zestawów rekordów przy użyciu programu Azure PowerShell](dns-operations-recordsets.md). 
+Aby uzyskać informacje o innych typach rekordów, zestawach rekordów zawierających więcej niż jeden rekord oraz sposobie modyfikowania istniejących rekordów, zobacz [Manage DNS records and record sets using Azure PowerShell](dns-operations-recordsets.md) (Zarządzanie rekordami i zestawami rekordów DNS przy użyciu programu Azure PowerShell). 
 
 
 ## <a name="view-records"></a>Wyświetlanie rekordów
 
-toolist hello rekordów DNS w strefie, użyj:
+Aby wyświetlić listę rekordów DNS w strefie, należy użyć:
 
 ```powershell
 Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
@@ -73,9 +73,9 @@ Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 
 ## <a name="update-name-servers"></a>Aktualizowanie serwerów nazw
 
-Gdy użytkownik stwierdzi, że Twoje strefy DNS i rekordy są skonfigurowane poprawnie należy tooconfigure domenę toouse hello Azure DNS nazwy serwerów nazw. Dzięki temu innym użytkownikom w hello Internet toofind rekordów DNS.
+Po poprawnym skonfigurowaniu strefy i rekordów DNS należy skonfigurować nazwę domeny w celu użycia serwerów nazw usługi Azure DNS. Umożliwi to innym użytkownikom w Internecie znalezienie Twoich rekordów DNS.
 
-Witaj serwerów nazw dla strefy są podane przez hello `Get-AzureRmDnsZone` polecenia cmdlet:
+Serwery nazw dla strefy można wyświetlić za pomocą polecenia cmdlet `Get-AzureRmDnsZone`:
 
 ```powershell
 Get-AzureRmDnsZone -ZoneName contoso.com -ResourceGroupName MyResourceGroup
@@ -89,11 +89,11 @@ NumberOfRecordSets    : 3
 MaxNumberOfRecordSets : 5000
 ```
 
-Te serwery nazw powinien mieć skonfigurowaną rejestratora nazw domen hello (którego go zakupiono hello nazwa domeny). Rejestrator zaoferuje tooset opcji hello hello serwery nazw dla domeny hello. Aby uzyskać więcej informacji, zobacz [delegować tooAzure Twojego domeny DNS](dns-domain-delegation.md).
+Te serwery nazw powinny zostać skonfigurowane u rejestratora nazw domen (w miejscu zakupu nazwy domeny). Rejestrator zaoferuje opcję skonfigurowania serwerów nazw na potrzeby domeny. Aby uzyskać więcej informacji, zobacz [Delegowanie domeny do usługi Azure DNS](dns-domain-delegation.md).
 
 ## <a name="delete-all-resources"></a>Usuwanie wszystkich zasobów
 
-toodelete wszystkie zasoby są tworzone w tym artykule, wykonaj powitania po kroku:
+Aby usunąć wszystkie zasoby utworzone w tym artykule, wykonaj następujące czynności:
 
 ```powershell
 Remove-AzureRMResourceGroup -Name MyResourceGroup
@@ -101,9 +101,9 @@ Remove-AzureRMResourceGroup -Name MyResourceGroup
 
 ## <a name="next-steps"></a>Następne kroki
 
-toolearn więcej informacji na temat usługi Azure DNS, zobacz [Omówienie usługi Azure DNS](dns-overview.md).
+Aby dowiedzieć się więcej na temat usługi Azure DNS, zobacz [Omówienie usługi Azure DNS](dns-overview.md).
 
-toolearn więcej na temat zarządzania strefami DNS w usłudze Azure DNS, zobacz [stref DNS zarządzania w usłudze Azure DNS przy użyciu programu PowerShell](dns-operations-dnszones.md).
+Aby dowiedzieć się więcej na temat zarządzania strefami DNS w usłudze Azure DNS, zobacz [Manage DNS zones in Azure DNS using PowerShell](dns-operations-dnszones.md) (Zarządzanie strefami DNS w usłudze Azure DNS przy użyciu programu PowerShell).
 
-toolearn więcej informacji o zarządzaniu rekordy DNS w usłudze Azure DNS, zobacz [zestawami rekordów i rekordami DNS zarządzania w usłudze Azure DNS przy użyciu programu PowerShell](dns-operations-recordsets.md).
+Aby dowiedzieć się więcej na temat zarządzania rekordami DNS w usłudze Azure DNS, zobacz [Manage DNS records and record sets in Azure DNS using PowerShell](dns-operations-recordsets.md) (Zarządzanie rekordami i zestawami rekordów DNS w usłudze Azure DNS przy użyciu programu PowerShell).
 

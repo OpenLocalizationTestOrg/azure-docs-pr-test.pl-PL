@@ -1,6 +1,6 @@
 ---
-title: aaaOperations Management Suite (OMS) zestawu SDK | Dokumentacja firmy Microsoft
-description: "W tym artykule wymieniono hello dokumentacji i inne zasoby, które są dostępne do uzyskiwania dostępu do usług OMS poza hello OMS i portale platformy Azure.  Obejmuje to interfejs API REST dla dostępu z różnych interfejsów programowania i aparatów skryptów, takich jak Środowisko PowerShell"
+title: Operations Management Suite (OMS) zestawu SDK | Dokumentacja firmy Microsoft
+description: "W tym artykule wymieniono dokumentacji i inne zasoby, które są dostępne do uzyskiwania dostępu do usług OMS poza portali OMS i na platformie Azure.  Obejmuje to interfejs API REST dla dostępu z różnych interfejsów programowania i aparatów skryptów, takich jak Środowisko PowerShell"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
-ms.openlocfilehash: 7144f10bba70a8f08cc97cec45b4b0a148892c90
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Operations Management Suite (OMS) zestawu SDK
-[Operations Management Suite (OMS)](operations-management-suite-overview.md) firmy Microsoft w chmurze IT rozwiązanie do zarządzania ułatwiające zarządzanie i ochrona lokalnej infrastruktury w chmurze.  W tym artykule wymieniono hello dokumentacji i inne zasoby, które są dostępne do uzyskiwania dostępu do usług OMS poza hello OMS i portale platformy Azure.  Dotyczy to również interfejsu API REST dla dostępu z różnych interfejsów programowania i aparatów skryptów, takich jak środowiska PowerShell. 
+[Operations Management Suite (OMS)](operations-management-suite-overview.md) firmy Microsoft w chmurze IT rozwiązanie do zarządzania ułatwiające zarządzanie i ochrona lokalnej infrastruktury w chmurze.  W tym artykule wymieniono dokumentacji i inne zasoby, które są dostępne do uzyskiwania dostępu do usług OMS poza portali OMS i na platformie Azure.  Dotyczy to również interfejsu API REST dla dostępu z różnych interfejsów programowania i aparatów skryptów, takich jak środowiska PowerShell. 
 
 ## <a name="automation"></a>Automatyzacja
 * [Dokumentacja usługi Automatyzacja Azure](http://azure.microsoft.com/documentation/services/automation)
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/06/2017
 * [Dokumentację kopii zapasowej platformy Azure](http://azure.microsoft.com/documentation/services/backup)
 * [Polecenia cmdlet programu PowerShell kopii zapasowej](https://msdn.microsoft.com/library/mt619253.aspx)
 * [Interfejs API REST kopii zapasowej](https://msdn.microsoft.com/library/azure/mt772375.aspx)
-* [Wdrażanie i zarządzanie nimi tooAzure kopii zapasowej dla klienta systemu Windows i serwera systemu Windows przy użyciu programu PowerShell](../backup/backup-client-automation.md)
+* [Wdrażanie i zarządzanie kopiami zapasowymi Azure dla systemu Windows Server i Windows klienta za pomocą programu PowerShell](../backup/backup-client-automation.md)
 
 ## <a name="log-analytics"></a>Log Analytics
 * [Zaloguj się dokumentacji analityka](http://azure.microsoft.com/documentation/services/log-analytics)
@@ -51,10 +51,10 @@ ms.lasthandoff: 10/06/2017
 ## <a name="site-recovery"></a>Site Recovery
 * [Polecenia cmdlet programu PowerShell odzyskiwania lokacji](https://msdn.microsoft.com/library/mt637930.aspx)
 * [Usługa Site Recovery interfejsu API REST](https://msdn.microsoft.com/library/azure/mt750497.aspx)
-* [Dodaj planów toorecovery elementów runbook usługi Automatyzacja Azure](../site-recovery/site-recovery-runbook-automation.md)
+* [Dodaj element runbook usługi Automatyzacja Azure do planów odzyskiwania](../site-recovery/site-recovery-runbook-automation.md)
 * [Replikowanie między maszynami wirtualnymi funkcji Hyper-V lokalnymi i Azure przy użyciu programu PowerShell i usługi Azure Resource Manager](../site-recovery/site-recovery-deploy-with-powershell-resource-manager.md)
 
 ## <a name="next-steps"></a>Następne kroki
-* Przeczytaj temat hello różnych opcji dla [integracji z usługami OMS](operations-management-suite-integration.md).
+* Przeczytaj informacje o różnych opcjach [integracji z usługami OMS](operations-management-suite-integration.md).
 * Utwórz [niestandardowego rozwiązania w OMS](operations-management-suite-solutions-creating.md).
 

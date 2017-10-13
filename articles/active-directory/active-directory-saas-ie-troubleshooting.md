@@ -1,6 +1,6 @@
 ---
-title: "Witaj aaaTroubleshooting rozszerzenia Panelu dostępu platformy Azure dla programu Internet Explorer | Dokumentacja firmy Microsoft"
-description: Jak toouse grupy zasad toodeploy hello programu Internet Explorer dodatek hello Moje aplikacje portalu.
+title: "Rozwiązywanie problemów z rozszerzenia Panelu dostępu platformy Azure dla programu Internet Explorer | Dokumentacja firmy Microsoft"
+description: "Jak wdrożyć dodatek programu Internet Explorer dla portalu Moje aplikacje przy użyciu zasad grupy."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -16,82 +16,82 @@ ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 23cbb6117f34759330206de3a26f1397486acedb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 938d0b4046afa8c80eabe542f4541d0554948f5d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="troubleshooting-hello-access-panel-extension-for-internet-explorer"></a>Rozwiązywanie problemów z hello rozszerzenia Panel dostępu dla programu Internet Explorer
-Ten artykuł pomoże w rozwiązaniu hello następujące problemy:
+# <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Rozwiązywanie problemów z rozszerzeniem Panel dostępu dla programu Internet Explorer
+Ten artykuł pomoże Ci rozwiązać następujące problemy:
 
-* Użytkownik jest aplikacji za pośrednictwem portalu Moje aplikacje hello tooaccess podczas korzystania z programu Internet Explorer.
-* Zostanie wyświetlony komunikat "Zainstaluj oprogramowanie" nawet po zainstalowaniu oprogramowania hello hello.
+* Nie możesz uzyskiwać dostęp do aplikacji za pośrednictwem portalu Moje aplikacje przy użyciu programu Internet Explorer.
+* Zostanie wyświetlony komunikat "Zainstaluj oprogramowanie" nawet po zainstalowaniu oprogramowania.
 
-Jeśli jesteś administratorem, zobacz też: [jak tooDeploy hello rozszerzenia Panel dostępu dla programu Internet Explorer przy użyciu zasad grupy](active-directory-saas-ie-group-policy.md)
+Jeśli jesteś administratorem, zobacz też: [wdrażanie rozszerzenia Panel dostępu dla programu Internet Explorer przy użyciu zasad grupy](active-directory-saas-ie-group-policy.md)
 
-## <a name="run-hello-diagnostic-tool"></a>Uruchom narzędzie diagnostyczne hello
-Można diagnozować problemy instalacji z hello rozszerzenia Panel dostępu przez pobranie i uruchomienie narzędzia diagnostyczne hello panelu dostępu:
+## <a name="run-the-diagnostic-tool"></a>Uruchom narzędzie diagnostyczne
+Można diagnozować problemy instalacji z rozszerzeniem panelu dostępu przez pobranie i uruchomienie narzędzia diagnostyczne panelu dostępu:
 
-1. [Kliknij tutaj, narzędzie diagnostyczne hello toodownload.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
-2. Witaj Otwórz plik, a następnie naciśnij klawisz **Wyodrębnij wszystkie** przycisku.
+1. [Kliknij tutaj, aby pobrać narzędzie diagnostyczne.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+2. Otwórz plik i naciśnij klawisz **Wyodrębnij wszystkie** przycisku.
    
     ![Kliknij przycisk Wyodrębnij wszystkie](./media/active-directory-saas-ie-troubleshooting/extract1.png)
-3. Następnie naciśnij klawisz hello **wyodrębnić** toocontinue przycisku.
+3. Następnie naciśnij klawisz **wyodrębnić** przycisk, aby kontynuować.
    
     ![Naciśnij klawisz wyodrębniania](./media/active-directory-saas-ie-troubleshooting/extract2.png)
-4. toorun hello narzędzia, kliknij prawym przyciskiem myszy hello plik o nazwie **AccessPanelExtensionDiagnosticTool**, a następnie wybierz pozycję **Otwórz za pomocą > na podstawie Host skryptów systemu Windows**.
+4. Aby uruchomić narzędzie, kliknij prawym przyciskiem myszy plik o nazwie **AccessPanelExtensionDiagnosticTool**, a następnie wybierz pozycję **Otwórz za pomocą > na podstawie Host skryptów systemu Windows**.
    
     ![Otwórz za pomocą > hosta skryptów na podstawie systemu Microsoft Windows](./media/active-directory-saas-ie-troubleshooting/open_tool.png)
-5. Zostanie wtedy wyświetlone powitania po diagnostycznych okna, które opisano, co może być problem z instalacją.
+5. Zostanie wtedy wyświetlone następujące okno diagnostyczne w tym artykule opisano, co może być problem z instalacją.
    
-    ![Przykładowe okno diagnostycznych hello](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
-6. Kliknij przycisk "**tak**" toolet hello program poprawka hello problemów, które zostały znalezione.
-7. toosave te zmiany i zamknąć co okno programu Internet Explorer, a następnie otwórz go ponownie.<br />Jeśli nadal nie można uzyskać dostępu do aplikacji, spróbuj hello poniższe kroki.
+    ![Przykładowe okno diagnostycznych](./media/active-directory-saas-ie-troubleshooting/tool_preview.png)
+6. Kliknij przycisk "**tak**" Aby pozwolić, aby rozwiązać problemy, które zostały znalezione program.
+7. Aby zapisać te zmiany, Zamknij co okno programu Internet Explorer, a następnie otwórz go ponownie.<br />Jeśli nadal nie można uzyskać dostępu do aplikacji, spróbuj wykonać poniższe czynności.
 
-## <a name="check-that-hello-access-panel-extension-is-enabled"></a>Sprawdź, że hello rozszerzenia Panel dostępu jest włączona
-tooverify, który hello rozszerzenia Panel dostępu jest włączona w programie Internet Explorer:
+## <a name="check-that-the-access-panel-extension-is-enabled"></a>Sprawdź, czy włączono rozszerzenie panelu dostępu
+Aby sprawdzić, czy rozszerzenie panelu dostępu jest włączona w programie Internet Explorer:
 
-1. W programie Internet Explorer kliknij hello **koło zębate ikonę** na powitania prawym górnym rogu okna hello. Następnie wybierz **Opcje internetowe**.<br />(W starszych wersjach programu Internet Explorer można go znaleźć, w obszarze **Narzędzia > Opcje internetowe**.
+1. W programie Internet Explorer, kliknij przycisk **koło zębate ikonę** w prawym górnym rogu okna. Następnie wybierz **Opcje internetowe**.<br />(W starszych wersjach programu Internet Explorer można go znaleźć, w obszarze **Narzędzia > Opcje internetowe**.
    
-    ![Przejdź tooTools > Opcje internetowe](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
-2. Kliknij przycisk hello **programy** , a następnie kliknij hello **Zarządzanie dodatkami** przycisku.
+    ![Przejdź do pozycji Narzędzia > Opcje internetowe](./media/active-directory-saas-ie-troubleshooting/internetoptions.png)
+2. Kliknij przycisk **programy** , a następnie kliknij **Zarządzanie dodatkami** przycisku.
    
     ![Kliknij pozycję Zarządzanie dodatkami](./media/active-directory-saas-ie-troubleshooting/internetoptions_programs.png)
-3. W tym oknie dialogowym wybierz **rozszerzenia Panel dostępu** , a następnie kliknij przycisk hello **włączyć** przycisku.
+3. W tym oknie dialogowym wybierz **rozszerzenia Panel dostępu** , a następnie kliknij przycisk **włączyć** przycisku.
    
     ![Kliknij pozycję Włącz](./media/active-directory-saas-ie-troubleshooting/enableaddon.png)
-4. toosave te zmiany i zamknąć co okno programu Internet Explorer, a następnie otwórz ponownie program Internet Explorer.
+4. Aby zapisać te zmiany, zamknij okno programu Internet Explorer, co, a następnie otwórz go ponownie.
 
 ## <a name="enable-extensions-for-inprivate-browsing"></a>Włącz rozszerzenia do przeglądania InPrivate
-Jeśli używasz trybu przeglądania InPrivate hello:
+Jeśli używasz trybu przeglądania InPrivate:
 
-1. W programie Internet Explorer kliknij hello **koło zębate ikonę** na powitania prawym górnym rogu okna hello. Następnie wybierz **Opcje internetowe**.<br />(W starszych wersjach programu Internet Explorer można go znaleźć, w obszarze **Narzędzia > Opcje internetowe**.
+1. W programie Internet Explorer, kliknij przycisk **koło zębate ikonę** w prawym górnym rogu okna. Następnie wybierz **Opcje internetowe**.<br />(W starszych wersjach programu Internet Explorer można go znaleźć, w obszarze **Narzędzia > Opcje internetowe**.
    
-    ![Przykładowe okno diagnostycznych hello](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
-2. Przejdź toohello **prywatności** karcie następnie **Usuń zaznaczenie pola wyboru** hello pole wyboru **wyłącz paski narzędzi i rozszerzeń po uruchomieniu przeglądania InPrivate**</p>
+    ![Przykładowe okno diagnostycznych](./media/active-directory-saas-ie-troubleshooting/inprivateoptions.png)
+2. Przejdź do **prywatności** karcie następnie **Usuń zaznaczenie pola wyboru** pola wyboru **wyłącz paski narzędzi i rozszerzeń po uruchomieniu przeglądania InPrivate**</p>
    
     ![Usuń zaznaczenie pola wyboru Wyłącz paski narzędzi i rozszerzeń po uruchomieniu przeglądania InPrivate](./media/active-directory-saas-ie-troubleshooting/enabletoolbars.png)
-3. toosave te zmiany i zamknąć co okno programu Internet Explorer, a następnie otwórz ponownie program Internet Explorer.
+3. Aby zapisać te zmiany, zamknij okno programu Internet Explorer, co, a następnie otwórz go ponownie.
 
-## <a name="uninstall-hello-access-panel-extension"></a>Odinstaluj hello rozszerzenia Panelu dostępu
-Witaj toouninstall rozszerzenia Panelu dostępu z danego komputera:
+## <a name="uninstall-the-access-panel-extension"></a>Odinstaluj rozszerzenie panelu dostępu
+Aby odinstalować rozszerzenia Panelu dostępu z tego komputera:
 
-1. Na klawiaturze naciśnij klawisz hello **klawisz systemu Windows** tooopen hello Start menu. Po otwarciu hello menu można wpisać niczego toodo wyszukiwania. Wpisz "Panel sterowania", a następnie otwórz hello **Panelu sterowania** po wyświetleniu w wynikach wyszukiwania hello.
+1. Na klawiaturze naciśnij klawisz **klawisz systemu Windows** aby otworzyć Start menu. Po otwarciu menu można wpisać niczego do wyszukiwania. Wpisz "Panel sterowania", a następnie otwórz **Panelu sterowania** po wyświetleniu w wynikach wyszukiwania.
    
     ![Wyszukaj Panelu sterowania](./media/active-directory-saas-ie-troubleshooting/search_sm.png)
-2. W hello prawym górnym rogu hello Panelu sterowania, zmień hello **wyświetlić** opcję zbyt**duże ikony**. Następnie znajdź i kliknij hello **programy i funkcje** przycisku.
+2. W prawym górnym rogu panelu sterowania Zmień **wyświetlić** opcji w celu **duże ikony**. Następnie znajdź i kliknij **programy i funkcje** przycisku.
    
-    ![Zmian hello widoku tooshow duże ikony](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
-3. Wybierz z listy hello **rozszerzenia Panel dostępu**i kliknij hello hello **Odinstaluj** przycisku.
+    ![Zmian widok do pokazania duże ikony](./media/active-directory-saas-ie-troubleshooting/control_panel.png)
+3. Wybierz z listy, **rozszerzenia Panel dostępu**, a następnie kliknij **Odinstaluj** przycisku.
    
     ![Kliknij przycisk Odinstaluj](./media/active-directory-saas-ie-troubleshooting/uninstall.png)
-4. Rozszerzenie hello tooinstall może następnie spróbować ponownie toosee Jeśli hello problem został rozwiązany.
+4. Następnie spróbujesz zainstalować rozszerzenie ponownie, aby sprawdzić, czy problem został rozwiązany.
 
-Jeśli wystąpią problemy dotyczące odinstalowywania rozszerzenia hello, można również usunąć go za pomocą hello [Microsoft Napraw go](https://go.microsoft.com/?linkid=9779673) narzędzia.
+Jeśli wystąpią problemy dotyczące odinstalowywania rozszerzenia, można również usunąć go za pomocą [Microsoft Napraw go](https://go.microsoft.com/?linkid=9779673) narzędzia.
 
 ## <a name="related-articles"></a>Pokrewne artykuły
 * [Indeks artykułów dotyczących zarządzania aplikacjami w usłudze Azure Active Directory](active-directory-apps-index.md)
 * [Dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md)
-* [Jak tooDeploy hello rozszerzenia Panel dostępu dla programu Internet Explorer przy użyciu zasad grupy](active-directory-saas-ie-group-policy.md)
+* [Wdrażanie rozszerzenia Panel dostępu dla programu Internet Explorer przy użyciu zasad grupy](active-directory-saas-ie-group-policy.md)
 

@@ -1,7 +1,7 @@
-Połączenia punkt-lokacja wymagają hello certyfikatu publicznego .cer klucza pliku (nie hello klucz prywatny) toobe przekazać tooAzure. Witaj Poniższe etapy ułatwiają wyeksportować plik .cer powitania dla certyfikatu z podpisem własnym głównego:
+Połączenia punkt-lokacja wymagają pliku .cer klucza publicznego certyfikatu (nie klucz prywatny) do przekazania do platformy Azure. Poniższe kroki ułatwiają wyeksportować plik cer dla certyfikatu z podpisem własnym głównego:
 
-1. Otwórz tooobtain pliku .cer z certyfikatu hello **zarządzanie certyfikatami użytkownika**. Zlokalizuj certyfikat główny podpisem hello, zazwyczaj "Certyfikaty — bieżący User\Personal\Certificates", a następnie kliknij prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania**, a następnie kliknij pozycję **Eksportuj**. Spowoduje to otwarcie hello **Kreatora eksportu certyfikatów**.
-2. W hello kreatora, kliknij przycisk **dalej**. Wybierz **nie eksportuj klucza prywatnego hello**, a następnie kliknij przycisk **dalej**.
-3. Na powitania **Format pliku eksportu** wybierz pozycję **certyfikat x.509 szyfrowany algorytmem Base-64 (. CER).** , a następnie kliknij przycisk **dalej**. 
-4. Na powitania **tooExport pliku**, **Przeglądaj** toowhich lokalizacji toohello ma tooexport hello certyfikatu. Aby uzyskać **nazwę pliku**, nazwa pliku certyfikatu hello. Następnie kliknij przycisk **Dalej**.
-5. Kliknij przycisk **Zakończ** tooexport hello certyfikatu. Zostanie wyświetlony **hello Eksportowanie zakończyło się pomyślnie**. Kliknij przycisk **OK** tooclose hello kreatora.
+1. Aby uzyskać plik cer z certyfikatu, otwórz okno **Zarządzaj certyfikatami użytkowników**. Zlokalizuj certyfikat główny z podpisem własnym — zwykle znajduje się w katalogu „Certyfikaty - bieżący użytkownik\Osobisty\Certyfikat” — a następnie kliknij go prawym przyciskiem myszy. Kliknij pozycję **Wszystkie zadania**, a następnie kliknij pozycję **Eksportuj**. Spowoduje to otwarcie **Kreatora eksportu certyfikatów**.
+2. W Kreatorze kliknij pozycję **Dalej**. Wybierz pozycję **Nie eksportuj klucza prywatnego**, a następnie kliknij pozycję **Dalej**.
+3. Na stronie **Format pliku eksportu** wybierz pozycję **Certyfikat X.509 szyfrowany algorytmem Base-64 (.CER)**, a następnie kliknij pozycję **Dalej**. 
+4. W obszarze **Eksport pliku** wybierz pozycję **Przeglądaj**, aby przejść do lokalizacji, do której chcesz wyeksportować certyfikat. Do pola **Nazwa pliku** wprowadź nazwę pliku certyfikatu. Następnie kliknij przycisk **Dalej**.
+5. Kliknij przycisk **Zakończ**, aby wyeksportować certyfikat. Zostanie wyświetlony **eksportu zakończyła się pomyślnie**. Kliknij przycisk **OK**, aby zamknąć kreatora.

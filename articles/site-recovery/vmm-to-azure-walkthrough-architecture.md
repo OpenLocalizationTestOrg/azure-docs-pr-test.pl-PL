@@ -1,6 +1,6 @@
 ---
-title: "Architektura hello aaaReview dla funkcji Hyper-V tooAzure replikacji (z programu System Center VMM) z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera omówienie składników i architektura używana podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V w tooAzure chmur programu VMM, przy użyciu usługi Azure Site Recovery hello."
+title: "Przegląd architektury replikacji funkcji Hyper-V (z programem System Center VMM) do platformy Azure za pomocą usługi Azure Site Recovery | Microsoft Docs"
+description: "Ten artykuł zawiera omówienie składników i architektury używanych podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure za pomocą usługi Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,80 +14,80 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.openlocfilehash: ee1f2775b0c929894933b639464176d7a0441519
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="step-1-review-hello-architecture"></a>Krok 1: Przegląd architektury hello
+# <a name="step-1-review-the-architecture"></a>Krok 1. Przegląd architektury
 
 
-W tym artykule opisano składniki hello i procesy używane podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V w chmurach programu System Center Virtual Machine Manager (VMM), przy użyciu hello tooAzure [usługi Azure Site Recovery](site-recovery-overview.md) usługi.
+Ten artykuł zawiera opis składników i procesów związanych z replikacją lokalnych maszyn wirtualnych funkcji Hyper-V w chmurach programu System Center Virtual Machine Manager (VMM) do platformy Azure za pomocą usługi [Azure Site Recovery](site-recovery-overview.md).
 
-Opublikuj wszelkie komentarze u dołu hello tego artykułu lub hello [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Zamieść wszelkie komentarze pod tym artykułem lub na [forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
 ## <a name="architectural-components"></a>Składniki architektury
 
-Istnieje wiele składników związanych podczas replikowania maszyn wirtualnych funkcji Hyper-V w tooAzure chmur programu VMM.
+Podczas replikowania maszyn wirtualnych funkcji Hyper-V w chmurach programu VMM do platformy Azure zaangażowanych jest wiele składników.
 
 **Składnik** | **Wymaganie** | **Szczegóły**
 --- | --- | ---
-**Azure** | W przypadku platformy Azure konieczne jest posiadanie konta platformy Microsoft Azure, konta usługi Azure Storage i sieci platformy Azure. | Replikowane dane są przechowywane na koncie magazynu hello i maszyn wirtualnych platformy Azure są tworzone z danymi hello replikowane czasie pracy awaryjnej z lokacji lokalnej.<br/><br/> Hello maszynach wirtualnych platformy Azure połączyć toohello sieci wirtualnej platformy Azure, gdy są tworzone.
-**Serwer VMM** | Serwer VMM Hello ma co najmniej jedną chmurę zawierających hosty funkcji Hyper-V. | Na serwerze VMM hello instalowanie hello dostawcy usługi Site Recovery tooorchestrate replikacji przy użyciu usługi Site Recovery i Zarejestruj serwer hello w powitalne magazyn usług odzyskiwania.
-**Host funkcji Hyper-V** | Co najmniej jeden host/klaster funkcji Hyper-V zarządzany przez program VMM. |  Należy zainstalować agenta usług odzyskiwania hello w każdym członku klastra lub hosta.
-**Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna uruchomiona na serwerze hosta funkcji Hyper-V. | Nic nie musi tooexplicitly zainstalowanych na maszynach wirtualnych.
-**Sieć** |Logiczne i sieci maszyny Wirtualnej, skonfiguruj na powitania serwera VMM. Sieć maszyny Wirtualnej powinny być połączone tooa sieci logicznej, która ma powiązanego z chmurą hello. | Sieci maszyn wirtualnych są tooAzure mapowanej sieci wirtualnych, aby maszynach wirtualnych platformy Azure znajdują się w sieci, gdy są tworzone po pracy awaryjnej.
+**Azure** | W przypadku platformy Azure konieczne jest posiadanie konta platformy Microsoft Azure, konta usługi Azure Storage i sieci platformy Azure. | Replikowane dane są przechowywane na koncie magazynu. W przypadku wystąpienia w lokacji lokalnej przejścia w tryb failover maszyny wirtualne platformy Azure są tworzone przy użyciu zreplikowanych danych.<br/><br/> Maszyny wirtualne platformy Azure nawiązują połączenie z siecią wirtualną platformy Azure, gdy są tworzone.
+**Serwer VMM** | Serwer VMM ma co najmniej jedną chmurę zawierającą hosty funkcji Hyper-V. | Na serwerze programu VMM należy zainstalować dostawcę usługi Site Recovery w celu organizowania replikacji za pomocą usługi Site Recovery i zarejestrować serwer w magazynie usługi Recovery Services.
+**Host funkcji Hyper-V** | Co najmniej jeden host/klaster funkcji Hyper-V zarządzany przez program VMM. |  Należy zainstalować agenta usług Recovery Services na każdym elemencie członkowskim hosta lub klastra.
+**Maszyny wirtualne funkcji Hyper-V** | Co najmniej jedna maszyna wirtualna uruchomiona na serwerze hosta funkcji Hyper-V. | Niczego nie trzeba jawnie instalować na maszynach wirtualnych.
+**Sieć** |Sieci logiczne i maszyn wirtualnych skonfigurowane na serwerze VMM. Sieć maszyn wirtualnych powinna być połączona z siecią logiczną skojarzoną z chmurą. | Sieci maszyn wirtualnych muszą być mapowane na sieci wirtualne platformy Azure, tak aby maszyny wirtualne platformy Azure znajdowały się w sieci, gdy są tworzone po przejściu do trybu failover.
 
-Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia hello i wymagania dla każdego z tych składników w hello [macierz obsługi](site-recovery-support-matrix-to-azure.md).
+Dowiedz się więcej o wymaganiach wstępnych dotyczących wdrożenia i wymaganiach dla każdego z tych składników z [macierzy obsługi](site-recovery-support-matrix-to-azure.md).
 
 
-**Rysunek 1: Replikowanie maszyn wirtualnych na hostach funkcji Hyper-V w tooAzure chmury VMM**
+**Rysunek 1: Replikowanie maszyn wirtualnych na hostach funkcji Hyper-V w chmurach programu VMM do platformy Azure**
 
 ![Składniki](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## <a name="replication-process"></a>Proces replikacji
 
-**Rysunek 2: Proces replikacji i odzyskiwania dla tooAzure replikacji funkcji Hyper-V**
+**Rysunek 2: Proces replikacji i odzyskiwania w przypadku replikacji funkcji Hyper-V do platformy Azure**
 
 ![przepływ pracy](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>Włączanie ochrony
 
-1. Po włączeniu ochrony dla maszyny Wirtualnej funkcji Hyper-V w hello portalu Azure lub lokalnie, hello **Włącz ochronę** uruchamia.
-2. Witaj zadanie sprawdza, czy maszyna hello spełnia wymagania wstępne, przed wywołaniem hello [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), tooset replikacji z ustawieniami hello skonfigurowano.
-3. zadanie Hello rozpoczyna się Replikacja początkowa wywołując hello [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) — metoda, tooinitialize Pełna replikacja maszyny Wirtualnej i wysyłania hello wirtualna tooAzure dysków wirtualnych.
-4. Można monitorować zadanie hello w hello **zadania** kartę.      ![Lista zadań](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Szczegóły zadania Włącz ochronę](media/vmm-to-azure-walkthrough-architecture/image2.png)
+1. Po włączeniu ochrony dla maszyny wirtualnej funkcji Hyper-V, w witrynie Azure Portal lub środowisku lokalnym, zostanie uruchomione zadanie **Włącz ochronę**.
+2. To zadanie sprawdza, czy maszyna spełnia wymagania wstępne, a następnie wywołuje metodę [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), aby skonfigurować replikację za pomocą określonych ustawień.
+3. Zadanie uruchamia replikację początkową, wywołując metodę [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), aby zainicjować pełną replikację maszyny wirtualnej i wysłać dyski wirtualne maszyny wirtualnej na platformę Azure.
+4. To zadanie możesz monitorować na karcie **Zadania**.      ![Lista zadań](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Szczegóły zadania Włącz ochronę](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
-### <a name="replicate-hello-initial-data"></a>Replikacji początkowej danych hello
+### <a name="replicate-the-initial-data"></a>Replikowanie danych początkowych
 
 1. Po wyzwoleniu replikacji początkowej tworzona jest [migawka maszyny wirtualnej funkcji Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
-2. Wirtualne dyski twarde są replikowane pojedynczo, dopóki nie są one wszystkich skopiowanych tooAzure. Go może potrwać kilka minut w zależności od hello rozmiar maszyny Wirtualnej, a przepustowość sieci. toooptimize użycie sieci, zobacz [jak toomanage lokalnymi użycia przepustowości sieci ochrony tooAzure](https://support.microsoft.com/kb/3056159).
-3. Jeśli zmiany dysku są wykonywane, gdy Replikacja początkowa jest w toku, hello Tracker replikacji repliki funkcji Hyper-V będzie śledził te zmiany jako dzienniki replikacji funkcji Hyper-V (hrl). Te pliki znajdują się w hello tym samym folderze co dyski hello. Każdy dysk ma skojarzony plik hrl wysyłanej toosecondary magazynu.
-4. Witaj pliki migawki i dziennika zużywają zasoby dysku w trakcie replikacji początkowej.
-5. Po zakończeniu replikacji początkowej hello, hello migawki maszyny Wirtualnej jest usuwana. Przyrostowe zmiany dysków w dzienniku hello są zsynchronizowane i scalone toohello dysku nadrzędnego.
+2. Wirtualne dyski twarde są replikowane pojedynczo, dopóki wszystkie nie zostaną skopiowane na platformę Azure. Może to trochę potrwać, w zależności od rozmiaru maszyny wirtualnej i przepustowości sieci. Aby zoptymalizować użycie sieci, zobacz [Jak zarządzać użyciem przepustowości sieci przez ochronę za pomocą replikacji zasobów lokalnych do platformy Azure](https://support.microsoft.com/kb/3056159).
+3. Jeśli podczas replikacji początkowej będzie miała miejsce zmiana dysku, składnik Replica Replication Tracker funkcji Hyper-V będzie śledził te zmiany jako dzienniki replikacji funkcji Hyper-V (hrl). Te pliki znajdują się w tym samym folderze co dyski. Z każdym dyskiem jest skojarzony plik hrl, który zostanie wysłany do magazynu pomocniczego.
+4. Pliki migawki i dziennika zużywają zasoby dysku w trakcie replikacji początkowej.
+5. Po zakończeniu replikacji początkowej migawka maszyny wirtualnej jest usuwana. Różnicowe zmiany dysku w dzienniku są synchronizowane i scalane z dyskiem nadrzędnym.
 
 
 ### <a name="finalize-protection"></a>Finalizowanie ochrony
 
-1. Po replikacji początkowej hello zakończeniu hello **Finalizuj ochronę na maszynie wirtualnej hello** zadania konfiguruje ustawienia sieciowe i inne ustawienia po replikacji, aby hello maszyna wirtualna jest chroniona.
+1. Po zakończeniu replikacji początkowej zadanie **Finalizuj ochronę na maszynie wirtualnej** konfiguruje ustawienia sieciowe i inne ustawienia po replikacji, aby maszyna wirtualna była chroniona.
     ![Zadanie Finalizuj ochronę](media/vmm-to-azure-walkthrough-architecture/image3.png)
-2. Jeśli replikujesz tooAzure, może być konieczne tootweak hello ustawień dla maszyny wirtualnej hello tak, aby była gotowa do pracy awaryjnej. W tym momencie możesz uruchomić test toocheck trybu failover, który wszystko działa zgodnie z oczekiwaniami.
+2. W przypadku przeprowadzania replikacji na platformę Azure może być konieczne dostosowanie ustawień maszyny wirtualnej w taki sposób, aby była gotowa do przejścia w tryb failover. W tym momencie możesz uruchomić testowe przejście w tryb failover w celu sprawdzenia, czy wszystko działa zgodnie z oczekiwaniami.
 
-### <a name="replicate-hello-delta"></a>Replikowanie hello delta
+### <a name="replicate-the-delta"></a>Replikowanie danych różnicowych
 
-1. Po replikacji początkowej hello synchronizacja przyrostowa rozpoczyna się, zgodnie z ustawieniami replikacji.
-2. Witaj Tracker replikacji repliki funkcji Hyper-V śledzi hello zmiany tooa wirtualnego dysku twardego jako pliki hrl. Z każdym dyskiem skonfigurowanym pod kątem replikacji jest skojarzony plik hrl. Ten dziennik jest wysyłany konta magazynu toohello klienta po zakończeniu replikacji początkowej. Kiedy dziennika tooAzure przesyłania, hello zmiany dysku podstawowego hello są śledzone w innym pliku dziennika, w hello tego samego katalogu.
-3. Podczas replikacji początkowej i różnicowych można monitorować hello maszyny Wirtualnej w hello widok maszyny Wirtualnej. [Dowiedz się więcej](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
+1. Po przeprowadzeniu replikacji początkowej rozpoczynana jest synchronizacja przyrostowa zgodnie z ustawieniami replikacji.
+2. Składnik Replica Replication Tracker funkcji Hyper-V śledzi zmiany na wirtualnym dysku twardym w plikach hrl. Z każdym dyskiem skonfigurowanym pod kątem replikacji jest skojarzony plik hrl. Ten dziennik jest wysyłany do konta magazynu klienta po zakończeniu replikacji początkowej. Gdy plik dziennika jest przesyłany do platformy Azure, zmiany na dysku podstawowym są śledzone w innym pliku dziennika, w tym samym katalogu.
+3. Podczas replikacji początkowej i różnicowej możesz monitorować maszynę wirtualną w widoku maszyny wirtualnej. [Dowiedz się więcej](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### <a name="synchronize-replication"></a>Synchronizowanie replikacji
 
-1. Jeśli replikacja różnicowa nie powiedzie się, a pełna replikacja byłaby kosztowna pod względem przepustowości lub czasu, maszyna wirtualna jest oznaczana do ponownej synchronizacji. Na przykład jeśli pliki hrl będą zajmować hello dostępu 50% rozmiaru dysku hello, następnie hello maszyny Wirtualnej zostaną oznaczone ponownej synchronizacji.
-2.  Ponowna synchronizacja minimalizuje hello ilość danych przesyłanych przez obliczaniu sum kontrolnych hello źródłowych i docelowych maszyn wirtualnych oraz wysyłaniu tylko danych różnicowych hello. Ponowna synchronizacja używa algorytmu dzielenia na fragmenty o stałym bloku. Za jego pomocą pliki źródłowe i docelowe są dzielone na stałe fragmenty. Sumy kontrolne dla każdego fragmentu są generowane, a następnie porównuje toodetermine, która blokuje z miejsca docelowego hello źródła potrzeby toobe toohello zastosowane.
-3. Po ukończeniu ponownej synchronizacji replikacja różnicowa powinna zostać wznowiona. Domyślnie ponowna synchronizacja jest zaplanowane toorun automatycznie poza godzinami pracy, ale możesz ponownie ręcznie zsynchronizować maszyny wirtualnej. Na przykład możesz wznowić ponowną synchronizację, jeśli wystąpi awaria sieci lub inna awaria. toodo, wybierz opcję hello maszyny Wirtualnej w portalu hello > **ponownie zsynchronizować**.
+1. Jeśli replikacja różnicowa nie powiedzie się, a pełna replikacja byłaby kosztowna pod względem przepustowości lub czasu, maszyna wirtualna jest oznaczana do ponownej synchronizacji. Jeśli na przykład pliki hrl będą zajmować 50% rozmiaru dysku, to maszyna wirtualna zostanie oznaczona do ponownej synchronizacji.
+2.  Ponowna synchronizacja minimalizuje ilość wysyłanych danych dzięki obliczaniu sum kontrolnych źródłowych i docelowych maszyn wirtualnych oraz wysyłaniu tylko danych różnicowych. Ponowna synchronizacja używa algorytmu dzielenia na fragmenty o stałym bloku. Za jego pomocą pliki źródłowe i docelowe są dzielone na stałe fragmenty. Dla każdego fragmentu są generowane sumy kontrolne, które następnie są porównywane w celu określenia, które bloki ze źródła mają zostać zastosowane do celu.
+3. Po ukończeniu ponownej synchronizacji replikacja różnicowa powinna zostać wznowiona. Domyślnie ponowna synchronizacja jest zaplanowana do automatycznego uruchamiania poza godzinami pracy, ale możliwe jest uruchomienie ponownej synchronizacji maszyny wirtualnej ręcznie. Na przykład możesz wznowić ponowną synchronizację, jeśli wystąpi awaria sieci lub inna awaria. W tym celu wybierz maszynę wirtualną w portalu i wybierz pozycję **Synchronizuj ponownie**.
 
     ![Ręczna ponowna synchronizacja](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
@@ -98,22 +98,22 @@ Jeśli wystąpi błąd replikacji, może zostać użyty wbudowany mechanizm pona
 
 **Kategoria** | **Szczegóły**
 --- | ---
-**Błąd nieodwracalny** | Nie jest podejmowana próba ponowienia. Maszyna wirtualna będzie mieć stan **Krytyczny** i będzie wymagana interwencja administratora. Przykłady te błędy: przerwany łańcuch wirtualnego dysku twardego; Nieprawidłowy stan dla repliki hello wirtualna; Błędy uwierzytelnianie sieciowe: błędy autoryzacji; Maszyna wirtualna nie znaleziono błędy (w przypadku autonomicznych serwerów funkcji Hyper-V)
-**Błędy odwracalne** | Wykonywane co interwał replikacji, przy użyciu wykładniczej wycofania zwiększającą interwał ponawiania prób powitania od początku hello hello pierwsza próba 1, 2, 4, 8, a następnie 10 minut. Jeśli błąd będzie się powtarzać, ponowne próby będą wykonywane co 30 minut. Są to na przykład błędy sieci, błędy małej ilości miejsca na dysku i warunki małej ilości pamięci |
+**Błąd nieodwracalny** | Nie jest podejmowana próba ponowienia. Maszyna wirtualna będzie mieć stan **Krytyczny** i będzie wymagana interwencja administratora. Przykłady błędów tego typu: przerwany łańcuch dysków VHD, nieprawidłowy stan repliki maszyny wirtualnej, błędy uwierzytelniania sieci (błędy autoryzacji), błędy Nie znaleziono maszyny wirtualnej (w przypadku autonomicznych serwerów funkcji Hyper-V)
+**Błędy odwracalne** | Ponowne próby są wykonywane co interwał replikacji przy użyciu wycofywania wykładniczego zwiększającego interwał ponawiania prób od początku pierwszej próby o 1, 2, 4, 8 i 10 minut. Jeśli błąd będzie się powtarzać, ponowne próby będą wykonywane co 30 minut. Są to na przykład błędy sieci, błędy małej ilości miejsca na dysku i warunki małej ilości pamięci |
 
 
 
 ## <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
 
-1. Można uruchomić planowane lub nieplanowane [pracy awaryjnej](site-recovery-failover.md) z lokalnymi tooAzure maszyn wirtualnych funkcji Hyper-V. Jeśli realizacja planowanego trybu failover, a następnie źródłowe maszyny wirtualne są zamknięte tooensure bez utraty danych.
-2. Można przełączyć jednego komputera lub utworzyć [planów odzyskiwania](site-recovery-create-recovery-plans.md) tooorchestrate pracy w trybie failover wiele maszyn.
-4. Po uruchomieniu trybu failover hello należy hello toosee można utworzyć repliki maszyn wirtualnych na platformie Azure. W razie potrzeby można przypisać publicznego toohello adres IP maszyny Wirtualnej.
-5. Można następnie przekazać hello toostart trybu failover podczas uzyskiwania dostępu do obciążenia hello z hello repliki maszyny Wirtualnej platformy Azure.
-6. Po ponownym udostępnieniu lokalnej lokacji głównej można do niej [powrócić po awarii](site-recovery-failback-from-azure-to-hyper-v.md). Należy rozpocząć poza planowanego trybu failover z lokacji głównej toohello platformy Azure. Dla planowanego trybu failover, można toohello wybierz toofailback tej samej maszyny Wirtualnej lub tooan alternatywnej lokalizacji i zsynchronizować zmiany między Azure i lokalnego, tooensure bez utraty danych. Po utworzeniu lokalnych maszyn wirtualnych należy zatwierdzić hello trybu failover.
+1. Planowane lub nieplanowane przejście w tryb [failover](site-recovery-failover.md) można uruchomić z maszyn wirtualnych funkcji Hyper-V do platformy Azure. Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych.
+2. W tryb failover można przełączyć pojedynczą maszynę lub można utworzyć [plany odzyskiwania](site-recovery-create-recovery-plans.md), aby zarządzać trybem failover na wielu maszynach.
+4. Po uruchomieniu trybu failover powinno być można zobaczyć utworzone repliki maszyn wirtualnych na platformie Azure. Jeśli jest to wymagane, do maszyny wirtualnej można przypisać publiczny adres IP.
+5. Następnie następuje zatwierdzenie trybu failover, aby można było rozpocząć uzyskiwanie dostępu do obciążenia z poziomu repliki maszyny wirtualnej platformy Azure.
+6. Po ponownym udostępnieniu lokalnej lokacji głównej można do niej [powrócić po awarii](site-recovery-failback-from-azure-to-hyper-v.md). Planowane przejście w tryb failover jest rozpoczynane z platformy Azure do lokacji głównej. W przypadku planowanego przejścia w tryb failover można wybrać powrót po awarii do tej samej maszyny wirtualnej lub do lokalizacji alternatywnej i zsynchronizować zmiany między platformą Azure i lokacją lokalną, aby zapobiec utracie danych. Po utworzeniu lokalnych maszyn wirtualnych należy zatwierdzić tryb failover.
 
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do zbyt[krok 2: Przejrzyj wymagania wstępne dotyczące wdrażania hello](vmm-to-azure-walkthrough-prerequisites.md)
+Przejdź do: [Krok 2: Przejrzyj wymagania wstępne dotyczące wdrażania](vmm-to-azure-walkthrough-prerequisites.md)

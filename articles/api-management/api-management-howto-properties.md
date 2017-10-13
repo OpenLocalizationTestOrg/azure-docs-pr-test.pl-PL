@@ -1,6 +1,6 @@
 ---
-title: "właściwości toouse aaaHow w ramach zasad usługi Azure API Management"
-description: "Dowiedz się, jak właściwości toouse w ramach zasad usługi Azure API Management."
+title: "Sposób użycia właściwości w ramach zasad usługi Azure API Management"
+description: "Dowiedz się, jak używać właściwości w ramach zasad usługi Azure API Management."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 1ff096deeb97543b48dcf1f40be9dbfcbcd09542
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3b0fe2a300038e13cc488bdb4f50f8be270ea8f4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-properties-in-azure-api-management-policies"></a>Jak właściwości toouse w ramach zasad usługi Azure API Management
-Zarządzanie interfejsami API zasady są zaawansowanych możliwości hello system, który umożliwia zachowanie hello toochange hello interfejsu API za pomocą konfiguracji hello wydawcy. Zasady są zbiór instrukcji, które są wykonywane sekwencyjnie na powitania żądania lub odpowiedzi interfejsu API. Deklaracji zasad może być skonstruowany przy użyciu wartości tekstowe literału, wyrażenie zasad i właściwości. 
+# <a name="how-to-use-properties-in-azure-api-management-policies"></a>Sposób użycia właściwości w ramach zasad usługi Azure API Management
+Zarządzanie interfejsami API zasady są zaawansowanych możliwości systemu, który umożliwia wydawcy, aby zmienić zachowanie interfejsu API za pomocą konfiguracji. Zasady to zbiór instrukcji, które są wykonywane sekwencyjnie podczas żądania lub odpowiedzi interfejsu API. Deklaracji zasad może być skonstruowany przy użyciu wartości tekstowe literału, wyrażenie zasad i właściwości. 
 
-Każde wystąpienie usługi Zarządzanie interfejsami API ma kolekcję właściwości par klucz/wartość, które są globalne toohello wystąpienie usługi. Te właściwości mogą być używane toomanage stałych wartości ciągów we wszystkich Konfiguracja interfejsu API i zasady. Każda właściwość ma hello następujące atrybuty.
+Każde wystąpienie usługi Zarządzanie interfejsami API ma zbiór właściwości pary klucz wartość, które są globalne do wystąpienia usługi. Te właściwości mogą służyć do zarządzania stałych wartości ciągów we wszystkich Konfiguracja interfejsu API i zasady. Każda właściwość ma następujące atrybuty.
 
 | Atrybut | Typ | Opis |
 | --- | --- | --- |
-| Nazwa |Ciąg |Nazwa Hello hello właściwości. Może zawierać tylko litery, cyfry, okres, łączniki i znaki podkreślenia. |
-| Wartość |Ciąg |wartość Hello hello właściwości. Nie może być pusta ani zawierać tylko odstępu. |
-| Wpis tajny |Wartość logiczna |Określa, czy wartość hello jest klucz tajny i powinny być szyfrowane, czy nie. |
-| Tagi |Tablica ciągów |Opcjonalnie tagi, które udostępniane mogą być używane toofilter hello właściwości listy. |
+| Nazwa |Ciąg |Nazwa właściwości. Może zawierać tylko litery, cyfry, okres, łączniki i znaki podkreślenia. |
+| Wartość |Ciąg |Wartość właściwości. Nie może być pusta ani zawierać tylko odstępu. |
+| Wpis tajny |Wartość logiczna |Określa, czy wartość jest klucz tajny i powinny być szyfrowane, czy nie. |
+| Tagi |Tablica ciągów |Opcjonalnie tagi, które udostępniane może służyć do filtrowania listy właściwości. |
 
-Właściwości są skonfigurowane w portalu wydawcy hello na powitania **właściwości** kartę. W hello poniższy przykład trzech właściwości są skonfigurowane.
+Właściwości są skonfigurowane w portalu wydawcy na **właściwości** kartę. W poniższym przykładzie trzy właściwości są skonfigurowane.
 
 ![Właściwości][api-management-properties]
 
-Wartości właściwości mogą zawierać ciągi literału i [wyrażenie zasad](https://msdn.microsoft.com/library/azure/dn910913.aspx). Witaj poniższej tabeli przedstawiono hello poprzednie trzy przykładowe właściwości i ich atrybutów. Witaj wartość `ExpressionProperty` jest hello wyrażenie zasad, która zwraca ciąg zawierający bieżącą datę i godzinę. Witaj właściwości `ContosoHeaderValue` jest oznaczona jako klucz tajny, więc jego wartość nie jest wyświetlana.
+Wartości właściwości mogą zawierać ciągi literału i [wyrażenie zasad](https://msdn.microsoft.com/library/azure/dn910913.aspx). W poniższej tabeli przedstawiono poprzednie trzy przykładowe właściwości i ich atrybutów. Wartość `ExpressionProperty` jest wyrażenie zasad, która zwraca ciąg zawierający bieżącą datę i godzinę. Właściwość `ContosoHeaderValue` jest oznaczona jako klucz tajny, więc jego wartość nie jest wyświetlana.
 
 | Nazwa | Wartość | Wpis tajny | Tagi |
 | --- | --- | --- | --- |
@@ -44,8 +44,8 @@ Wartości właściwości mogą zawierać ciągi literału i [wyrażenie zasad](h
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
-## <a name="toouse-a-property"></a>toouse właściwości
-toouse właściwości w zasadach, nazwa właściwości hello miejscu wewnątrz podwójne pary nawiasów klamrowych, takich jak `{{ContosoHeader}}`, jak pokazano w hello poniższy przykład.
+## <a name="to-use-a-property"></a>Aby użyć właściwości
+Aby użyć właściwości w zasadach, umieść nazwą właściwości wewnątrz podwójne pary nawiasów klamrowych, takich jak `{{ContosoHeader}}`, jak pokazano w poniższym przykładzie.
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -53,11 +53,11 @@ toouse właściwości w zasadach, nazwa właściwości hello miejscu wewnątrz p
 </set-header>
 ```
 
-W tym przykładzie `ContosoHeader` jest używana jako nazwa hello nagłówka w `set-header` zasad, a `ContosoHeaderValue` jest używany jako wartość hello nagłówka. Gdy ta zasada jest oceniane podczas żądania lub odpowiedzi toohello interfejsu API zarządzania bramą, `{{ContosoHeader}}` i `{{ContosoHeaderValue}}` są zamieniane na ich wartości odpowiednich właściwości.
+W tym przykładzie `ContosoHeader` jest używana jako nazwa nagłówka w `set-header` zasad, a `ContosoHeaderValue` jest używany jako wartość nagłówka. Gdy ta zasada jest oceniane podczas żądania lub odpowiedzi na bramie usługi API Management `{{ContosoHeader}}` i `{{ContosoHeaderValue}}` są zamieniane na ich wartości odpowiednich właściwości.
 
-Właściwości mogą być używane jako atrybut pełną lub wartości elementów, jak pokazano w poprzednim przykładzie hello, ale również mogą zostać wstawione do albo połączone z część wyrażenia literału tekstu, jak pokazano w hello poniższy przykład:`<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+Właściwości mogą być używane jako atrybut pełną lub wartości elementów, jak pokazano w poprzednim przykładzie, ale również mogą zostać wstawione do albo połączone z częścią wyrażenia literału tekstu, jak pokazano w poniższym przykładzie:`<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
-Właściwości może również zawierać wyrażenie zasad. W hello poniższy przykład, hello `ExpressionProperty` jest używany.
+Właściwości może również zawierać wyrażenie zasad. W poniższym przykładzie `ExpressionProperty` jest używany.
 
 ```xml
 <set-header name="CustomHeader" exists-action="override">
@@ -65,66 +65,66 @@ Właściwości może również zawierać wyrażenie zasad. W hello poniższy prz
 </set-header>
 ```
 
-W przypadku oceny tych zasad `{{ExpressionProperty}}` zastępuje z wartością: `@(DateTime.Now.ToString())`. Ponieważ wartość hello jest wyrażenie zasad, hello wyrażenie jest obliczane i zasad hello kontynuuje jego wykonywania.
+W przypadku oceny tych zasad `{{ExpressionProperty}}` zastępuje z wartością: `@(DateTime.Now.ToString())`. Ponieważ wartość jest wyrażenie zasad, wyrażenie jest obliczane i zasady kontynuuje jego wykonywania.
 
-Można to sprawdzić się w portalu dla deweloperów hello wywołując operację, która ma zasady z właściwości w zakresie. W hello poniższy przykład, operacja nosi nazwę Witaj dwie poprzedniego przykładu `set-header` zasad przy użyciu właściwości. Należy pamiętać, że odpowiedź hello zawiera dwa Nagłówki niestandardowe, które zostały skonfigurowane przy użyciu zasad z właściwościami.
+Ten limit można sprawdzić w portalu dla deweloperów, wywołując operację, która ma zasady z właściwości w zakresie. W poniższym przykładzie, operacja jest wywoływana z dwóch poprzedni przykład `set-header` zasad przy użyciu właściwości. Należy pamiętać, że odpowiedź zawiera dwa Nagłówki niestandardowe, które zostały skonfigurowane przy użyciu zasad z właściwościami.
 
 ![Portal dla deweloperów][api-management-send-results]
 
-Jeśli przyjrzymy się hello [inspektora interfejsu API śledzenia](api-management-howto-api-inspector.md) dla wywołania obejmującej hello dwa poprzednie przykładowe zasady z właściwościami, można wyświetlić hello dwa `set-header` zasady z wartościami właściwości hello dodaje oraz hello wyrażenie zasad Obliczanie dla właściwości hello, który zawiera wyrażenie zasad hello.
+Jeśli przyjrzymy się [inspektora interfejsu API śledzenia](api-management-howto-api-inspector.md) dla wywołaniu, które obejmuje dwie zasady poprzedniej próbki z właściwościami, można wyświetlić dwa `set-header` zasady z wartościami właściwości dodaje oraz ocena wyrażenie zasad dla właściwości, który zawiera wyrażenie zasad.
 
 ![Interfejs API inspektora śledzenia][api-management-api-inspector-trace]
 
-Należy pamiętać, że podczas wartości właściwości mogą zawierać wyrażenia zasad, wartości właściwości nie może zawierać inne właściwości. Jeśli tekst zawierający odwołania do właściwości jest używana do wartości właściwości, takie jak `Property value text {{MyProperty}}`, że odwołania do właściwości nie zostanie zastąpiony i zostanie dołączony hello wartości właściwości.
+Należy pamiętać, że podczas wartości właściwości mogą zawierać wyrażenia zasad, wartości właściwości nie może zawierać inne właściwości. Jeśli tekst zawierający odwołania do właściwości jest używana do wartości właściwości, takie jak `Property value text {{MyProperty}}`, odwołania do tej właściwości nie można zamienić i zostaną zawarte w ramach wartości właściwości.
 
-## <a name="toocreate-a-property"></a>toocreate właściwości
-Kliknij toocreate właściwość **Dodaj właściwość** na powitania **właściwości** kartę.
+## <a name="to-create-a-property"></a>Aby utworzyć właściwość
+Aby utworzyć właściwość, kliknij przycisk **Dodaj właściwość** na **właściwości** kartę.
 
 ![Dodaj właściwość][api-management-properties-add-property-menu]
 
-**Nazwa** i **wartość** są wymaganymi wartościami. Jeśli wartość tej właściwości jest klucz tajny, sprawdź hello **jest klucz tajny** wyboru. Wprowadź co najmniej jeden toohelp opcjonalnych tagów z organizowania właściwości, a następnie kliknij przycisk **zapisać**.
+**Nazwa** i **wartość** są wymaganymi wartościami. Jeśli wartość tej właściwości jest klucz tajny, sprawdź **jest klucz tajny** wyboru. Wprowadź co najmniej jeden opcjonalny znaczniki, aby ułatwić organizowanie właściwości, a następnie kliknij przycisk **zapisać**.
 
 ![Dodaj właściwość][api-management-properties-add-property]
 
-Po zapisaniu nowej właściwości hello **wyszukiwania właściwości** pole tekstowe jest wypełniane przy użyciu nazwy hello hello nową właściwość i nową właściwość hello jest wyświetlany. Wyczyść wszystkie właściwości toodisplay hello **wyszukiwania właściwości** pole tekstowe i naciśnij klawisz enter.
+Po zapisaniu nowej właściwości **wyszukiwania właściwości** pole tekstowe jest wypełniane przy użyciu nazwy nowej właściwości i nową właściwość jest wyświetlana. Aby wyświetlić wszystkie właściwości, wyczyść **wyszukiwania właściwości** pole tekstowe i naciśnij klawisz enter.
 
 ![Właściwości][api-management-properties-property-saved]
 
-Informacje dotyczące tworzenia właściwości przy użyciu hello interfejsu API REST, zobacz [utworzyć właściwość przy użyciu interfejsu API REST hello](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
+Aby uzyskać informacje dotyczące tworzenia właściwości przy użyciu interfejsu API REST, zobacz [utworzyć właściwość przy użyciu interfejsu API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put).
 
-## <a name="tooedit-a-property"></a>tooedit właściwości
-tooedit właściwości, kliknij przycisk **Edytuj** obok hello tooedit właściwości.
+## <a name="to-edit-a-property"></a>Aby edytować właściwość
+Aby edytować właściwości, kliknij przycisk **Edytuj** obok właściwości do edycji.
 
 ![Edytowanie właściwości][api-management-properties-edit]
 
-Wprowadź żądane zmiany, a następnie kliknij przycisk **zapisać**. Jeśli zmienisz nazwę właściwości hello wszystkie zasady, które odwołują się do tej właściwości są automatycznie aktualizowane toouse hello nową nazwę.
+Wprowadź żądane zmiany, a następnie kliknij przycisk **zapisać**. Jeśli zmienisz nazwę właściwości, wszystkie zasady, które odwołują się do tej właściwości są automatycznie aktualizowane do użycia nowej nazwy.
 
 ![Edytowanie właściwości][api-management-properties-edit-property]
 
-Informacje do edycji właściwości przy użyciu hello interfejsu API REST, zobacz [Edytuj właściwości przy użyciu interfejsu API REST hello](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+Informacje dotyczące edytowania właściwości przy użyciu interfejsu API REST, zobacz [Edytuj właściwości przy użyciu interfejsu API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
 
-## <a name="toodelete-a-property"></a>toodelete właściwości
-toodelete właściwości, kliknij przycisk **usunąć** obok hello toodelete właściwości.
+## <a name="to-delete-a-property"></a>Aby usunąć właściwość
+Aby usunąć właściwość, kliknij przycisk **usunąć** obok właściwości do usunięcia.
 
 ![Usuń właściwość][api-management-properties-delete]
 
-Kliknij przycisk **tak, usuń go** tooconfirm.
+Kliknij przycisk **tak, usuń go** o potwierdzenie.
 
 ![Potwierdzenie usunięcia][api-management-delete-confirm]
 
 > [!IMPORTANT]
-> Jeśli właściwość hello odwołuje się do niego wszystkie zasady, nie będzie toosuccessfully go usunąć przed usunięciem hello właściwości z wszystkich zasad, które go używają.
+> Jeśli właściwość odwołuje się do niego żadnych zasad, nie można pomyślnie usunąć przed usunięciem właściwości z wszystkich zasad, które go używają.
 > 
 > 
 
-Informacje dotyczące usuwania właściwości przy użyciu hello interfejsu API REST, zobacz [usunąć właściwości przy użyciu interfejsu API REST hello](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+Aby uzyskać informacje na temat usuwania właściwości przy użyciu interfejsu API REST, zobacz [usunąć właściwości przy użyciu interfejsu API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
-## <a name="toosearch-and-filter-properties"></a>właściwości toosearch i filtru
-Witaj **właściwości** karta zawiera wyszukiwania i filtrowania toohelp możliwości zarządzania właściwości. Lista właściwości hello toofilter według nazwy właściwości, wprowadź wyszukiwany termin w hello **wyszukiwania właściwości** pola tekstowego. Wyczyść wszystkie właściwości toodisplay hello **wyszukiwania właściwości** pole tekstowe i naciśnij klawisz enter.
+## <a name="to-search-and-filter-properties"></a>Do wyszukiwania i filtrowania właściwości
+**Właściwości** karta zawiera wyszukiwania i filtrowania funkcje ułatwiające zarządzanie właściwości. Aby filtrować listę właściwości według nazwy właściwości, wpisz wyszukiwany termin w **wyszukiwania właściwości** pola tekstowego. Aby wyświetlić wszystkie właściwości, wyczyść **wyszukiwania właściwości** pole tekstowe i naciśnij klawisz enter.
 
 ![Wyszukiwanie][api-management-properties-search]
 
-Lista właściwości hello toofilter przez wartości tagów wprowadzić jeden lub więcej tagów w hello **Filtruj według znaczników** pola tekstowego. Wyczyść wszystkie właściwości toodisplay hello **Filtruj według znaczników** pole tekstowe i naciśnij klawisz enter.
+Aby filtrować listę właściwości, według wartości tagów, wprowadź jeden lub więcej tagów do **Filtruj według znaczników** pola tekstowego. Aby wyświetlić wszystkie właściwości, wyczyść **Filtruj według znaczników** pole tekstowe i naciśnij klawisz enter.
 
 ![Filtr][api-management-properties-filter]
 

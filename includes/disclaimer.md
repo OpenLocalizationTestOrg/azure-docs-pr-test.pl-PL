@@ -1,2 +1,2 @@
-toouse tej funkcji i innych nowych funkcji platformy Azure, załóż hello [bezpłatne sprawdzenie](https://account.windowsazure.com/PreviewFeatures).
+Aby użyć tej funkcji i innych nowych funkcji platformy Azure, należy zarejestrować się w celu [bezpłatne sprawdzenie](https://account.windowsazure.com/PreviewFeatures).
 

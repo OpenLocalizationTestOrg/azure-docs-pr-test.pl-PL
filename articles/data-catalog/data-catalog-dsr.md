@@ -1,6 +1,6 @@
 ---
-title: "aaaSupported źródeł danych w usłudze Azure Data Catalog | Dokumentacja firmy Microsoft"
-description: "W tym artykule wymieniono specyfikacje źródeł danych hello obecnie obsługiwane."
+title: "Obsługiwane źródeł danych w usłudze Azure Data Catalog | Dokumentacja firmy Microsoft"
+description: "W tym artykule wymieniono specyfikacje aktualnie obsługiwanych źródeł danych."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 4bfcabf31bf9fd781c939a5026abc42a5407df32
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d6867c73bc6ea3c238cceef8a68466d451f3365c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Obsługiwanych źródeł danych w wykazie danych Azure
 
-Metadanych można opublikować za pomocą publiczny interfejs API lub przez kliknięcie — raz narzędzia rejestracji, lub ręcznie wprowadzając informacje bezpośrednio w portalu sieci web toohello Azure Data Catalog. Witaj Poniższa tabela zawiera podsumowanie wszystkich źródeł danych, które są obecnie obsługiwane przez hello katalogu i hello możliwości publikowania dla każdego. Liście są również hello danych zewnętrznych narzędzi, które każdego źródła danych można uruchomić na naszym doświadczeniu portal "Otwórz w". druga tabela Hello zawiera specyfikację techniczne każdej właściwości połączenia źródła danych.
+Metadane można opublikować za pomocą publiczny interfejs API lub przez kliknięcie — po rejestracji narzędzie, lub ręcznie wprowadzić informacje bezpośrednio do usługi Azure Data Catalog sieci web portalu. Poniższa tabela zawiera podsumowanie wszystkich źródeł danych, które są obsługiwane przez katalog, w obecnie oraz możliwości publikowania dla każdego. Liście są również narzędzia danych zewnętrznych, które każdego źródła danych można uruchomić na naszym doświadczeniu portal "Otwórz w". Druga tabela zawiera specyfikację techniczne każdej właściwości połączenia źródła danych.
 
 
 ## <a name="list-of-supported-data-sources"></a>Listę obsługiwanych źródeł danych
@@ -443,12 +443,12 @@ Metadanych można opublikować za pomocą publiczny interfejs API lub przez klik
     </tr>
 </table>
 
-Jeśli potrzebujesz pomocy technicznej dla dodatkowych źródeł, przesłać toohello żądania funkcji [forum usługi Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Jeśli potrzebujesz pomocy technicznej dla dodatkowych źródeł, należy przesłać żądanie funkcji [forum usługi Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
 ## <a name="data-source-reference-specification"></a>Specyfikacja odwołanie do źródła danych
 > [!NOTE]
-> Witaj **struktury DSL** w hello w poniższej tabeli wymieniono tylko hello właściwości połączenia dla zbioru właściwości "address" używane przez usługi Azure Data Catalog. Oznacza to zbiór właściwości "address" może zawierać innych właściwości połączenia źródła danych hello Azure Data Catalog będzie się powtarzać, ale nie używa.
+> **Struktury DSL** kolumny w tabeli poniżej wymieniono tylko właściwości połączenia "address" w zbiorze właściwości używanych przez usługi Azure Data Catalog. Oznacza to zbiór właściwości "address" może zawierać innych właściwości połączenia źródła danych, które Azure Data Catalog będzie się powtarzać, ale nie używa.
 
 <table>
     <tr>
@@ -970,7 +970,7 @@ Jeśli potrzebujesz pomocy technicznej dla dodatkowych źródeł, przesłać too
       </td>
     </tr>
     <tr>
-      <td>Inne (Brak hello powyżej)</td>
+      <td>Inne (żadne z powyższych)</td>
       <td>\*</td>
       <td>\*</td>
       <td>

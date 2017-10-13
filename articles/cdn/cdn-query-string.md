@@ -1,6 +1,6 @@
 ---
-title: "zachowanie buforowania Azure CDN z ciągami zapytań aaaControl | Dokumentacja firmy Microsoft"
-description: "Ciąg zapytania Azure CDN buforowanie kontroli, jak pliki są toobe, które zawierają ciągi zapytań w pamięci podręcznej."
+title: "Kontrolowanie Azure CDN buforowanie z ciągami zapytań | Dokumentacja firmy Microsoft"
+description: "Ciąg zapytania usługi Azure CDN buforowanie kontroli, jak pliki mają być buforowane, które zawierają ciągi zapytań."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e7a138b2decec624a29eb703ad9a291d19c44ee8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8d79626fa8516f226a82d3dac693c2033904c91d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings"></a>Formant Azure CDN buforowanie z ciągami zapytań
 > [!div class="op_single_selector"]
@@ -28,37 +28,37 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Omówienie
-Buforowanie kontroli, jak pliki są toobe, które zawierają ciągi zapytań w pamięci podręcznej ciągów zapytań.
+Ciąg zapytania buforowanie kontroli, jak pliki mają być buforowane, które zawierają ciągi zapytań.
 
 > [!IMPORTANT]
-> Witaj Standard i Premium CDN produkty zawierają hello zapytania takie same parametry funkcji buforowania, ale hello interfejs użytkownika różni się.  W tym dokumencie opisano interfejs hello **Azure CDN Standard from Akamai** i **Azure CDN Standard from Verizon**.  Dla zapytania z buforowania ciągu **Azure CDN Premium from Verizon**, zobacz [kontrolowanie zachowania buforowania CDN żądań z ciągami zapytań - Premium](cdn-query-string-premium.md).
+> Produkty Standard i Premium CDN zawierają ten sam ciąg zapytania buforowanie funkcji, ale różni się w interfejsie użytkownika.  W tym dokumencie opisano interfejs dla **Azure CDN Standard from Akamai** i **Azure CDN Standard from Verizon**.  Dla zapytania z buforowania ciągu **Azure CDN Premium from Verizon**, zobacz [kontrolowanie zachowania buforowania CDN żądań z ciągami zapytań - Premium](cdn-query-string-premium.md).
 > 
 > 
 
 Dostępne są trzy tryby:
 
-* **Ignorować ciągi kwerendy**: jest to tryb domyślny hello.  węzeł brzegowy CDN Hello przechodzą ciągu zapytania hello pochodzenia toohello obiektu żądającego hello na pierwsze Żądanie hello i zasobów hello pamięci podręcznej.  Wszystkie kolejne żądania dla tego zasobu, które są obsługiwane z węzłem krawędzi hello zignoruje hello ciąg zapytania do momentu wygaśnięcia hello zasobów pamięci podręcznej.
-* **Pomiń buforowanie adresu URL z ciągami zapytań**: W tym trybie żądań z ciągami zapytań nie są buforowane na węzeł brzegowy hello CDN.  węzeł brzegowy Hello pobiera hello zasobów bezpośrednio ze źródła hello i przekazuje ją obiektu żądającego toohello z każdym żądaniem.
-* **Buforuj każdy unikatowy adres URL**: w tym trybie traktuje każde żądanie zawierające ciąg zapytania jako unikatowy zasób ze swojej własnej pamięci podręcznej.  Na przykład Witaj odpowiedzi pochodzenia hello na żądanie dla *foo.ashx?q=bar* będą buforowane na węzeł brzegowy hello i zwrócony dla kolejnych pamięci podręcznych z tym samym ciągu zapytania.  Żądanie *foo.ashx?q=somethingelse* będzie buforowana jako zasób oddzielne ze swoim toolive czasie.
+* **Ignorować ciągi kwerendy**: jest to tryb domyślny.  Węzeł brzegowy CDN zostaną spełnione ciąg zapytania z żądającego do źródła na pierwsze żądanie i pamięci podręcznej elementu zawartości.  Wszystkie kolejne żądania dla tego zasobu, które są obsługiwane z węzłem krawędzi zignoruje ciąg zapytania do momentu wygaśnięcia elementu pamięci podręcznej zawartości.
+* **Pomiń buforowanie adresu URL z ciągami zapytań**: W tym trybie żądań z ciągami zapytań nie są buforowane w sieci CDN węzła krawędzi.  Węzeł brzegowy pobiera zasobu bezpośrednio ze źródła i przekazuje je do obiektu żądającego z każdym żądaniem.
+* **Buforuj każdy unikatowy adres URL**: w tym trybie traktuje każde żądanie zawierające ciąg zapytania jako unikatowy zasób ze swojej własnej pamięci podręcznej.  Na przykład odpowiedzi ze źródła dla żądania *foo.ashx?q=bar* będą buforowane w węźle krawędzi i zwrócony dla kolejnych pamięci podręcznych z tym samym ciągu zapytania.  Żądanie *foo.ashx?q=somethingelse* będzie buforowana jako osobne zasobów własny czas wygaśnięcia.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Zmiana ustawienia profilów sieci CDN w warstwie standardowa buforowanie ciągów zapytań
-1. Blok profilu CDN hello kliknij punkt końcowy CDN hello mają toomanage.
+1. Blok profilu CDN kliknij punkt końcowy CDN, którą chcesz zarządzać.
    
     ![Punkty końcowe blok profilu CDN](./media/cdn-query-string/cdn-endpoints.png)
    
-    zostanie otwarty blok punktu końcowego CDN Hello.
-2. Kliknij przycisk hello **Konfiguruj** przycisku.
+    Zostanie otwarty blok punktu końcowego CDN.
+2. Kliknij przycisk **Konfiguruj** przycisku.
    
     ![Przycisk Zarządzaj blok profilu CDN](./media/cdn-query-string/cdn-config-btn.png)
    
-    zostanie otwarty blok konfiguracji CDN Hello.
-3. Wybierz ustawienie z hello **zachowanie buforowania ciągu kwerendy** listy rozwijanej.
+    Zostanie otwarty blok konfiguracji sieci CDN.
+3. Wybierz ustawienie z **zachowanie buforowania ciągu kwerendy** listy rozwijanej.
    
     ![Opcje buforowania ciągu kwerendy CDN](./media/cdn-query-string/cdn-query-string.png)
-4. Po dokonaniu wyboru kliknij przycisk hello **zapisać** przycisku.
+4. Po dokonaniu wyboru kliknij przycisk **zapisać** przycisku.
 
 > [!IMPORTANT]
-> zmiany ustawień Hello mogą nie być od razu widoczne, zajmuje trochę czasu hello toopropagate rejestracji za pomocą hello CDN.  W przypadku profilów usługi <b>Azure CDN from Akamai</b> propagacja zwykle zostanie ukończona w ciągu minuty.  W przypadku profilów usługi <b>Azure CDN from Verizon</b> propagacja zwykle zostanie ukończona w ciągu 90 minut, ale niekiedy może to zająć więcej czasu.
+> Zmiany ustawienia mogą nie być od razu widoczne, czas rejestracji propagację za pośrednictwem sieci CDN.  W przypadku profilów usługi <b>Azure CDN from Akamai</b> propagacja zwykle zostanie ukończona w ciągu minuty.  W przypadku profilów usługi <b>Azure CDN from Verizon</b> propagacja zwykle zostanie ukończona w ciągu 90 minut, ale niekiedy może to zająć więcej czasu.
 > 
 > 
 

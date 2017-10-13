@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Moxtra | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Moxtra."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Moxtra."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 82e2fcc390ba508e86a3992ec1c81d0a0ffed96b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: db2f041a44b6771b0a4f734e58d899298ef0847b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Samouczek: Integracji Azure Active Directory z Moxtra
 
-Z tego samouczka, dowiesz się, jak toointegrate Moxtra w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Moxtra z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Moxtra zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD Moxtra zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooMoxtra
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooMoxtra (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Moxtra
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Moxtra (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z Moxtra należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Moxtra, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Moxtra logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Moxtra z galerii hello
+1. Dodawanie Moxtra z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-moxtra-from-hello-gallery"></a>Dodawanie Moxtra z galerii hello
-tooconfigure hello integracji Moxtra do usługi Azure AD, należy tooadd Moxtra z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-moxtra-from-the-gallery"></a>Dodawanie Moxtra z galerii
+Aby skonfigurować integrację usługi Azure AD Moxtra, należy dodać Moxtra z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Moxtra z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Moxtra z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **Moxtra**.
+4. W polu wyszukiwania wpisz **Moxtra**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_search.png)
 
-5. W panelu wyników hello zaznacz **Moxtra**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **Moxtra**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Moxtra w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Moxtra jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Moxtra musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Moxtra jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Moxtra musi się.
 
-W Moxtra, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W Moxtra, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Moxtra, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Moxtra, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Moxtra](#creating-a-moxtra-test-user)**  -toohave odpowiednikiem Simona Britta w Moxtra, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Moxtra](#creating-a-moxtra-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Moxtra połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Moxtra.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Moxtra.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Moxtra, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Moxtra, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Moxtra** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Moxtra** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_samlbase.png)
 
-3. Na powitania **Moxtra domeny i adres URL** sekcji, wykonaj powitania po kroku:
+3. Na **Moxtra domeny i adres URL** sekcji, wykonaj następujące kroki:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_url.png)
 
-    W hello **adres URL logowania** tekstowym, wpisz adres URL jako:`https://www.moxtra.com/service/#login`
+    W **adres URL logowania** tekstowym, wpisz adres URL jako:`https://www.moxtra.com/service/#login`
 
-4. Aplikacja Moxtra oczekuje potwierdzenia SAML hello w określonym formacie. Skonfiguruj powitania po oświadczeń dla tej aplikacji. Można zarządzać hello wartości tych atrybutów z hello "**atrybuty użytkownika**" sekcji na stronie integracji aplikacji. powitania po zrzut ekranu przedstawia przykład dla tej konfiguracji. 
+4. Aplikacja Moxtra oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z "**atrybuty użytkownika**" sekcji na stronie integracji aplikacji. Poniższy zrzut ekranu przedstawia przykład dla tej konfiguracji. 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_attributes.png)
     
-5. W hello **atrybuty użytkownika** sekcji na powitania **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano w obrazie hello i wykonywać hello następujące kroki:
+5. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano w obrazie i wykonaj następujące czynności:
     
     | Nazwa atrybutu | Wartość atrybutu |
     | ------------------- | -------------------- |    
@@ -125,21 +125,21 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
     | idpid    | < Identyfikator jednostki SAML > 
 
     > [!Note]
-    > Witaj wartość **idpid** atrybut nie jest prawdziwe. Można uzyskać wartość rzeczywista hello z **krótkimi opisami** w obszarze **Moxtra konfiguracji**.
+    > Wartość **idpid** atrybut nie jest prawdziwe. Można uzyskać wartość rzeczywista z **krótkimi opisami** w obszarze **Moxtra konfiguracji**.
     
-    a. Kliknij przycisk **Dodaj atrybut** tooopen hello **Dodawanie atrybutu** okna dialogowego.
+    a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_attribute_04.png)
 
-    b. W hello **nazwa** pole tekstowe, nazwa atrybutu hello typu wyświetlany dla danego wiersza.
+    b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_attribute_05.png)
 
-    c. Z hello **wartość** listy wartości atrybutu hello typ wyświetlanego dla tego wiersza.
+    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
 
     d. Kliknij przycisk **OK**.
     
-5. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+5. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_certificate.png) 
 
@@ -147,118 +147,118 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_general_400.png)
 
-7. Na powitania **konfiguracji Moxtra** kliknij **skonfigurować Moxtra** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+7. Na **konfiguracji Moxtra** , kliknij przycisk **skonfigurować Moxtra** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_configure.png) 
 
-8. W innym oknie przeglądarki Zaloguj się w witrynie firmy Moxtra tooyour jako administrator.
+8. W innym oknie przeglądarki należy zalogować się jako administrator do witryny firmy Moxtra.
 
-9. Na powitania narzędzi po lewej stronie powitania kliknij **konsoli administracyjnej > SAML logowania jednokrotnego**, a następnie kliknij przycisk **nowy**.
+9. Na pasku narzędzi po lewej stronie kliknij **konsoli administracyjnej > SAML logowania jednokrotnego**, a następnie kliknij przycisk **nowy**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png) 
 
-10. Na powitania **SAML** wykonaj hello następujące kroki:
+10. Na **SAML** wykonaj następujące czynności:
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. W hello **nazwa** tekstowym, wpisz nazwę konfiguracji (np.: *SAML*). 
+    a. W **nazwa** tekstowym, wpisz nazwę konfiguracji (np.: *SAML*). 
   
-    b. W hello **identyfikator jednostki IdP** pole tekstowe, Wklej wartość hello **identyfikator jednostki SAML** którego została skopiowana z portalu Azure. 
+    b. W **identyfikator jednostki IdP** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure. 
  
-    c. W **adres URL logowania** pole tekstowe, Wklej wartość hello **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure. 
+    c. W **adres URL logowania** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure. 
  
-    d. W hello **AuthnContextClassRef** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:2.0:ac:classes:Password**. 
+    d. W **AuthnContextClassRef** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:2.0:ac:classes:Password**. 
  
-    e. W hello **NameID Format** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:1.1:nameid-format: emailAddress**. 
+    e. W **NameID Format** pole tekstowe, typ **urn: oasis: nazwy: tc: SAML:1.1:nameid-format: emailAddress**. 
  
-    f. Otwórz certyfikat, który został pobrany z portalu Azure w programie Notatnik, skopiuj zawartość hello i wkleić go do hello **certyfikatu** pola tekstowego.    
+    f. Otwórz certyfikat, który został pobrany z portalu Azure w programie Notatnik, skopiuj zawartość, a następnie wklej go do **certyfikatu** pola tekstowego.    
  
-    g. W hello SAML e-mail domeny tekstowym wpisz domenę poczty e-mail SAML.    
+    g. W polu tekstowym SAML domeny poczty e-mail wpisz domenę poczty e-mail SAML.    
   
     >[!NOTE]
-    >toosee hello kroki tooverify hello domeny, kliknij przycisk hello "**i**" poniżej.
+    >Aby zobaczyć kroki, aby zweryfikować domeny, kliknij przycisk "**i**" poniżej.
 
     h. Kliknij przycisk **aktualizacji**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-moxtra-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-moxtra-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-moxtra-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-moxtra-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-moxtra-test-user"></a>Tworzenie użytkownika testowego Moxtra
 
-Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta w Moxtra.
+Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta w Moxtra.
 
-**toocreate użytkownika o nazwie Simona Britta w Moxtra, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika o nazwie Simona Britta w Moxtra, wykonaj następujące czynności:**
 
-1. Rejestracja tooyour Moxtra witryny firmy jako administrator.
+1. Zalogować się do witryny firmy Moxtra jako administrator.
 
-2. Na powitania narzędzi po lewej stronie powitania kliknij **konsoli administracyjnej > Zarządzanie użytkownikami**, a następnie **Dodaj użytkownika**.
+2. Na pasku narzędzi po lewej stronie kliknij **konsoli administracyjnej > Zarządzanie użytkownikami**, a następnie **Dodaj użytkownika**.
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_10.png) 
 
-3. Na powitania **Dodaj użytkownika** okna dialogowego, wykonaj następujące kroki hello:
+3. Na **Dodaj użytkownika** okna dialogowego, wykonaj następujące czynności:
   
-    a. W hello **imię** pole tekstowe, typ **Britta**.
+    a. W **imię** pole tekstowe, typ **Britta**.
   
-    b. W hello **nazwisko** pole tekstowe, typ **Simona**.
+    b. W **nazwisko** pole tekstowe, typ **Simona**.
   
-    c. W hello **E-mail** tekstowym, wpisz adres e-mail firmy Britta identyczny z portalu Azure.
+    c. W **E-mail** tekstowym, wpisz adres e-mail firmy Britta identyczny z portalu Azure.
   
-    d. W hello **dzielenia** pole tekstowe, typ **deweloperów**.
+    d. W **dzielenia** pole tekstowe, typ **deweloperów**.
   
-    e. W hello **działu** pole tekstowe, typ **IT**.
+    e. W **działu** pole tekstowe, typ **IT**.
   
     f. Wybierz **administratora**.
   
     g. Kliknij pozycję **Dodaj**.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooMoxtra.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Moxtra.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooMoxtra Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta Moxtra, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Moxtra**.
+2. Na liście aplikacji zaznacz **Moxtra**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -266,7 +266,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -274,14 +274,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Moxtra hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Moxtra aplikacji.
-Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu kafelka Moxtra w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Moxtra.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaHow Azure subskrypcje są kojarzone z usługą Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Logowanie tooMicrosoft Azure i powiązane zagadnienia, takie jak hello relacja między subskrypcją platformy Azure i usługi Azure Active Directory."
+title: "Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory | Microsoft Docs"
+description: "Logowanie do platformy Microsoft Azure i powiązane zagadnienia, takie jak relacja między subskrypcją platformy Azure i usługą Azure Active Directory."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,62 +16,63 @@ ms.date: 08/24/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f831cfb972efec57083fcaa63adb43fde7b2faf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Jak subskrypcje platformy Azure są kojarzone z usługą Azure Active Directory
-Ten artykuł zawiera informacje na temat hello relacja między subskrypcją platformy Azure i usługi Azure Active Directory (Azure AD), jak i tooadd istniejący katalog usługi Azure AD tooyour subskrypcji.
+W tym artykule opisano relację między subskrypcją platformy Azure i usługą Azure Active Directory (Azure AD) oraz sposób dodawania istniejącej subskrypcji do katalogu usługi Azure AD.
 
-## <a name="your-azure-subscriptions-relationship-tooazure-ad"></a>TooAzure relacji subskrypcji platformy Azure AD
-Twoja subskrypcja platformy Azure ma relację zaufania z usługą Azure AD, co oznacza, że ufa hello katalogu tooauthenticate użytkowników, usług i urządzeń. Wiele subskrypcji może ufać hello tym samym katalogu, ale każda subskrypcja ufać tylko jednemu katalogowi. 
+## <a name="your-azure-subscriptions-relationship-to-azure-ad"></a>Relacja subskrypcji platformy Azure i usługi Azure AD
+Twoja subskrypcja platformy Azure ma relację zaufania z usługą Azure AD, co oznacza, że subskrypcja ufa katalogowi podczas uwierzytelniania użytkowników, usług i urządzeń. Wiele subskrypcji może ufać temu samemu katalogowi, ale każda subskrypcja może ufać tylko jednemu katalogowi. 
 
-Witaj relacji zaufania, która ma subskrypcję z katalogiem różni się od relacji hello, która składa się z innymi zasobami na platformie Azure (witrynami sieci Web, baz danych i tak dalej). Jeśli subskrypcja wygaśnie, dostęp toohello inne zasoby skojarzone z subskrypcją hello również nie będzie możliwy. Jednak pozostanie katalog usługi Azure AD na platformie Azure i można skojarzyć z nim inną subskrypcję i zarządzać nimi hello katalogu przy użyciu hello nową subskrypcję.
+Relacja zaufania między subskrypcją a katalogiem różni się od relacji z innymi zasobami na platformie Azure (witrynami internetowymi, bazami danych itd.). Jeśli subskrypcja wygaśnie, dostęp do innych zasobów skojarzonych z tą subskrypcją również nie będzie możliwy. Katalog usługi Azure AD pozostanie jednak na platformie Azure i będzie można skojarzyć z nim inną subskrypcję oraz zarządzać katalogiem przy użyciu nowej subskrypcji.
 
 ![diagram przedstawiający sposób skojarzenia subskrypcji](./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png)
 
-Wszyscy użytkownicy mają jeden katalog macierzysty, który ich uwierzytelnia, ale mogą również być gośćmi w innych katalogach. W usłudze Azure AD zobacz temat hello katalogów, których konto użytkownika jest członek lub Gość.
+Wszyscy użytkownicy mają jeden katalog macierzysty, który ich uwierzytelnia, ale mogą również być gośćmi w innych katalogach. W usłudze Azure AD możesz zobaczyć katalogi, w których Twoje konto użytkownika jest elementem członkowskim lub gościem.
 
 ## <a name="azure-ad-and-cloud-service-subscriptions"></a>Usługa Azure AD i subskrypcje usług w chmurze
-Usługa Azure AD zapewnia hello core katalogami i tożsamościami, możliwości zarządzania bazuje większość usług w chmurze firmy Microsoft, w tym:
+Usługa Azure AD zapewnia podstawowe możliwości zarządzania katalogiem i tożsamościami, na których bazuje większość usług w chmurze firmy Microsoft, w tym:
 
 * Azure
 * Usługa Microsoft Office 365
 * Usługa Microsoft Dynamics CRM Online
 * Microsoft Intune
 
-Po utworzeniu konta dla każdego z tych usług w chmurze firmy Microsoft możesz uzyskać hello bezpłatnej usługi Azure AD. Jeśli chcesz tooadd katalogu usługi Azure AD tooan dodatkowych subskrypcji platformy Azure, muszą być podpisane za pomocą konta Microsoft. Jeśli Zaloguj tooAzure z pracą lub konta służbowego, nie można dodać istniejącego katalogu tooan subskrypcji platformy Azure, ponieważ nie można uwierzytelnić konta firmowego lub szkolnego bezpośrednio przez platformę Azure. 
+Usługę Azure AD uzyskujesz bezpłatnie, gdy rejestrujesz się w ramach dowolnej z tych usług firmy Microsoft w chmurze. Jeśli chcesz dodać dodatkową subskrypcję platformy Azure do katalogu usługi Azure AD, musisz zalogować się za pomocą konta Microsoft. W przypadku logowania się do platformy Azure przy użyciu konta służbowego nie możesz dodać subskrypcji platformy Azure do istniejącego katalogu, ponieważ Twojego konta służbowego nie można uwierzytelnić bezpośrednio przez platformę Azure. 
 
-## <a name="tooadd-an-existing-subscription-tooyour-azure-ad-directory"></a>tooadd istniejący katalog usługi Azure AD tooyour subskrypcji
-Musisz zalogować się przy użyciu konta, które istnieje w obu hello bieżącego katalogu, z którym hello jest skojarzona subskrypcja i w katalogu hello tooadd jej. 
+## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>Aby dodać istniejącą subskrypcję do katalogu usługi Azure AD
+Musisz zalogować się przy użyciu konta, które istnieje w bieżącym katalogu, z którym jest skojarzona subskrypcja, oraz w katalogu, do którego chcesz ją dodać. 
 
-1. Zaloguj się toohello [Centrum konta platformy Azure](https://account.windowsazure.com/Home/Index) przy użyciu konta administratora konta subskrypcji hello jest hello którego własność chcesz tootransfer.
-2. Upewnij się, tym hello użytkownika, który ma się, że właściciel subskrypcji hello toobe znajduje się w katalogu hello docelowe.
+1. Zaloguj się do [Centrum konta platformy Azure](https://account.azure.com/Subscriptions) przy użyciu konta należącego do administratora konta dla subskrypcji, której własność chcesz przenieść.
+2. Upewnij się, że użytkownik, który ma być właścicielem subskrypcji, znajduje się w katalogu docelowym.
 3. Kliknij pozycję **Przenieś subskrypcję**.
-4. Określ adresata hello. Adresat Hello automatycznie otrzymuje wiadomość e-mail z łączem akceptacji.
-5. Hello odbiorca kliknie hello link i jest zgodna z instrukcji hello, łącznie z wprowadzania ich informacje dotyczące płatności. Podczas odbiorcy hello zakończy się powodzeniem, jest przenoszona hello subskrypcji. 
-6. Witaj domyślny katalog hello subskrypcji zostanie zmieniona toohello katalog jest ten użytkownik hello.
+4. Określ adresata. Adresat automatycznie otrzymuje wiadomość e-mail z linkiem umożliwiającym akceptację.
+5. Adresat klika link i postępuje zgodnie z instrukcjami, co obejmuje również wprowadzenie informacji dotyczących płatności. Jeśli czynności wykonywane przez adresata zakończą się pomyślnie, subskrypcja zostanie przeniesiona. 
+6. Domyślny katalog subskrypcji zostanie zmieniony na katalog, w którym znajduje się użytkownik.
 
+Aby dowiedzieć się więcej, zobacz [Transfer Azure subscription ownership to another account (Przenoszenie własności subskrypcji platformy Azure na inne konto)](../billing/billing-subscription-transfer.md).
 
-## <a name="suggestions-toomanage-both-a-subscription-and-a-directory"></a>Sugestie toomanage zarówno subskrypcji, jak i katalogów
-Hello role administracyjne dla subskrypcji platformy Azure umożliwia zarządzanie zasobami powiązanymi toohello subskrypcji platformy Azure. W tej sekcji opisano różnice hello Administratorzy subskrypcji platformy Azure i Administratorzy katalogu usługi Azure AD. Role administracyjne i innych sugestii dotyczących korzystania z ich subskrypcją są opisane w artykule toomanage [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles.md).
+## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>Sugestie dotyczące zarządzania zarówno subskrypcją, jak i katalogiem
+Role administracyjne dla subskrypcji platformy Azure zarządzają zasobami powiązanymi z subskrypcją platformy Azure. Ta sekcja zawiera wyjaśnienie różnic między administratorami subskrypcji platformy Azure i administratorami katalogu usługi Azure AD. Role administracyjne i inne sugestie dotyczące ich używania do zarządzania własną subskrypcją są opisane w artykule [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md) (Przypisywanie ról administratorów w usłudze Azure Active Directory).
 
-Domyślnie mają przypisaną rolę administratora usługi hello, podczas tworzenia konta. Jeśli inne muszą toosign w, a dostęp do usług za pomocą hello tej samej subskrypcji, możesz dodać je jako współadministratorów. 
+Domyślnie po utworzeniu konta do użytkownika jest przypisywana rola administratora usługi. Jeśli inni użytkownicy potrzebują logować się i uzyskiwać dostęp do usług za pomocą tej samej subskrypcji, możesz dodać ich jako współadministratorów. 
 
-Usługa Azure AD ma inny zestaw ról administracyjnych toomanage hello katalogu i funkcjami dotyczącymi tożsamości. Na przykład hello administratora globalnego katalogu można dodać użytkowników i grup toohello katalogu lub wymusić stosowanie uwierzytelniania wieloskładnikowego dla użytkowników. Użytkownik, który tworzy katalog przypisano rolę administratora globalnego toohello i może on przypisać role administracyjne tooother użytkowników. Role administracyjne usługi Azure AD są również używane przez inne usługi, takie jak Microsoft Intune i Office 365. 
+Usługa Azure AD ma inny zestaw ról administracyjnych na potrzeby zarządzania katalogiem i funkcjami dotyczącymi tożsamości. Na przykład administrator globalny katalogu może dodać użytkowników i grupy do katalogu lub wymusić stosowanie uwierzytelniania wieloskładnikowego przez użytkowników. Do użytkownika, który utworzył katalog, jest przypisywana rola administratora globalnego. Może on przypisać role administracyjne do innych użytkowników. Role administracyjne usługi Azure AD są również używane przez inne usługi, takie jak Microsoft Intune i Office 365. 
 
 Administratorzy subskrypcji platformy Azure i administratorzy katalogu usługi Azure AD to dwie oddzielne role. 
-* Administratorzy subskrypcji platformy Azure mogą zarządzać zasobami na platformie Azure i użyć usługi Azure AD w hello portalu Azure (ponieważ hello portalu Azure, sam jest zasobem platformy Azure). 
-* Administratorzy katalogu mogą zarządzać właściwościami tylko w katalogu usługi Azure AD hello.
+* Administratorzy subskrypcji platformy Azure mogą zarządzać zasobami na platformie Azure i mogą używać usługi Azure AD w witrynie Azure Portal (ponieważ sama witryna Azure Portal jest zasobem platformy Azure). 
+* Administratorzy katalogu mogą zarządzać właściwościami w katalogu usługi Azure AD.
 
-Osoba może pełnić obie te role, lecz nie jest to wymagane. Administrator globalny katalogu nie musi być administratorem usługi ani współadministratorem subskrypcji platformy Azure lub odwrotnie. Nie jest administratorem subskrypcji hello, hello użytkownik mógł zalogować się w portalu Azure toohello, ale nie mogą zarządzać katalogami powitania dla tej subskrypcji w portalu hello. Ten użytkownik może jednak zarządzać katalogów przy użyciu innych narzędzi, takich jak Azure AD PowerShell lub hello Centrum administracyjne usługi Office 365.
+Osoba może pełnić obie te role, lecz nie jest to wymagane. Administrator globalny katalogu nie musi być administratorem usługi ani współadministratorem subskrypcji platformy Azure lub odwrotnie. Nie będąc administratorem subskrypcji, użytkownik może zalogować się do witryny Azure Portal, ale nie może zarządzać katalogami dla tej subskrypcji w portalu. Ten użytkownik może jednak zarządzać katalogami przy użyciu innych narzędzi, takich jak program Azure AD PowerShell lub Centrum administracyjne usługi Office 365.
 
 ## <a name="next-steps"></a>Następne kroki
-* więcej informacji o toolearn, toochange Administratorzy subskrypcji platformy Azure, zobacz temat [przeniesienia własności tooanother konta subskrypcji platformy Azure](../billing/billing-subscription-transfer.md)
-* Zobacz toolearn więcej informacji na temat sposobu jest kontrolowany dostęp do zasobów na platformie Microsoft Azure [opis dostęp do zasobów na platformie Azure](active-directory-understanding-resource-access.md)
-* Aby uzyskać więcej informacji na temat ról tooassign w usłudze Azure AD, zobacz [przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md)
+* Aby dowiedzieć się więcej o zmianie administratorów subskrypcji platformy Azure, zobacz [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) (Przenoszenie własności subskrypcji platformy Azure na inne konto)
+* Aby dowiedzieć się więcej o kontrolowaniu dostępu do zasobów na platformie Microsoft Azure, zobacz [Understanding resource access in Azure](active-directory-understanding-resource-access.md) (Opis dostępu do zasobów na platformie Azure).
+* Aby uzyskać więcej informacji na temat sposobu przypisywania ról w usłudze Azure AD, zobacz [Przypisywanie ról administratorów w usłudze Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png

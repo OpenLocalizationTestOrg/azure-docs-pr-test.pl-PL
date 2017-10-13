@@ -1,6 +1,6 @@
 ---
-title: "Dziennik inspekcji hello toouse aaaHow w usłudze Azure AD Privileged Identity Management | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak dziennika inspekcji hello toouse hello Azure Privileged Identity Management rozszerzenia."
+title: "Jak korzystać z dziennika inspekcji w usłudze Azure AD Privileged Identity Management | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak korzystać z dziennika inspekcji w rozszerzeniu usługi Azure Privileged Identity Management."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,48 +15,48 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 36987eaab9fe02c5dd7b4f4705e487299430745d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d9a5255a64d46c1388d328a606b3f297d61262b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="using-hello-audit-log-in-pim"></a>Za pomocą dziennika inspekcji hello w PIM
-Można użyć toosee dziennik inspekcji zarządzania tożsamości uprzywilejowanych (PIM) hello wszystkich przypisań użytkownika hello i aktywacji w danym okresie. Jeśli chcesz toosee hello inspekcji pełnej historii aktywności w dzierżawie, w tym administratora, użytkownika i działania synchronizacji, można użyć hello [raportów dotyczących dostępu i użycia usługi Azure Active Directory.](active-directory-view-access-usage-reports.md)
+# <a name="using-the-audit-log-in-pim"></a>Korzystanie z dziennika inspekcji w PIM
+Dziennik inspekcji zarządzania tożsamości uprzywilejowanych (PIM) umożliwia zobaczyć wszystkie przypisania użytkowników i aktywacji w danym okresie. Jeśli chcesz wyświetlić historię inspekcji pełnego działania w dzierżawie, w tym administratora, użytkownika i działania synchronizacji, można użyć [raportów dotyczących dostępu i użycia usługi Azure Active Directory.](active-directory-view-access-usage-reports.md)
 
-## <a name="navigate-toohello-audit-log"></a>Przejdź toohello dziennik inspekcji
-Z hello [portalu Azure](https://portal.azure.com) pulpitu nawigacyjnego, wybierz hello **Azure AD Privileged Identity Management** aplikacji. Z tego miejsca, uzyskać dostęp do dziennika inspekcji hello klikając **Zarządzanie ról uprzywilejowanych** > **Historia inspekcji** hello PIM w pulpicie nawigacyjnym.
+## <a name="navigate-to-the-audit-log"></a>Przejdź do dziennika inspekcji
+Z [portalu Azure](https://portal.azure.com) pulpitu nawigacyjnego, wybierz opcję **Azure AD Privileged Identity Management** aplikacji. Z tego miejsca, dostępu do dziennika inspekcji, klikając **Zarządzanie ról uprzywilejowanych** > **Historia inspekcji** na pulpicie nawigacyjnym usługi PIM.
 
-## <a name="hello-audit-log-graph"></a>Wykres dziennika inspekcji Hello
-W wykres liniowy służy hello inspekcji dziennika tooview hello łączna liczba aktywacji, max aktywacji dziennie i średnie aktywacji na dzień.  Można także filtrować dane hello przez rolę, jeśli istnieje więcej niż jednej roli w hello Historia inspekcji.
+## <a name="the-audit-log-graph"></a>Wykres dziennika inspekcji
+Dziennik inspekcji służy do wyświetlania łączna liczba aktywacji, max aktywacji dziennie i średnia aktywacji dziennie w wykres liniowy.  Można również filtrować dane według roli, jeśli istnieje więcej niż jednej roli w Historia inspekcji.
 
-Użyj hello **czasu**, **akcji**, i **roli** przyciski toosort hello dziennika.
+Użyj **czasu**, **akcji**, i **roli** przycisków, aby posortować dziennika.
 
-## <a name="hello-audit-log-list"></a>Lista dzienników inspekcji Hello
-kolumny Hello hello na liście dziennika inspekcji są:
+## <a name="the-audit-log-list"></a>Lista dziennika inspekcji
+Kolumny na liście dziennika inspekcji są:
 
-* **Obiekt żądający** — użytkownik hello wymagane uaktywnienie roli hello lub zmiany.  Jeśli jest "Systemu Azure" hello, sprawdź dziennik inspekcji Azure hello, aby uzyskać więcej informacji.
-* **Użytkownik** -hello użytkownika, który jest uaktywnianie lub przypisaną rolę tooa.
-* **Rola** -roli hello przypisane lub aktywowany przez użytkownika hello.
-* **Akcja** — Witaj akcje wykonywane przez obiekt żądający hello. Może to obejmować przypisania, anulowaniu, aktywacji lub dezaktywacji.
-* **Czas** — gdy akcja hello wystąpił.
-* **Uzasadnienie** — Jeśli dowolny tekst została wprowadzona w polu Przyczyna hello podczas aktywacji, pojawi się tutaj.
+* **Obiekt żądający** — użytkownik, który jest wymagane uaktywnienie roli lub zmiany.  Jeśli wartość to "Azure System", sprawdź dziennik inspekcji Azure, aby uzyskać więcej informacji.
+* **Użytkownik** — użytkownik, który jest aktywowanie lub są przypisane do roli.
+* **Rola** -przypisane do roli, lub aktywowany przez użytkownika.
+* **Akcja** — akcje wykonywane przez obiekt żądający. Może to obejmować przypisania, anulowaniu, aktywacji lub dezaktywacji.
+* **Czas** — gdy akcja wystąpił.
+* **Uzasadnienie** — Jeśli dowolny tekst został wprowadzony w polu Przyczyna podczas aktywacji, pojawi się tutaj.
 * **Wygaśnięcie** — tylko istotne dla aktywacji ról.
 
-## <a name="filter-hello-audit-log"></a>Dziennik inspekcji hello filtru
-Można filtrować hello informacje, które zostaną wyświetlone w dzienniku inspekcji hello klikając hello **filtru** przycisku.  Witaj **bloku parametry wykresu aktualizacji** będą wyświetlane.
+## <a name="filter-the-audit-log"></a>Filtrowanie dziennika inspekcji
+Można filtrować dane zostaną wyświetlone w dzienniku inspekcji, klikając **filtru** przycisku.  **Bloku parametry wykresu aktualizacji** będą wyświetlane.
 
-Po ustawieniu filtrów powitania kliknij **aktualizacji** toofilter hello danych w dzienniku hello.  Jeśli dane hello nie występuje od razu, Odśwież stronę hello.
+Po ustawieniu filtrów, kliknij przycisk **aktualizacji** do filtrowania danych w dzienniku.  Jeśli dane nie są wyświetlane od razu, Odśwież stronę.
 
-### <a name="change-hello-date-range"></a>Zmień zakres dat hello
-Użyj hello **dzisiaj**, **zeszłym tygodniu**, **ostatnim miesiącu**, lub **niestandardowy** przyciski przedział czasu hello toochange hello dziennika inspekcji.
+### <a name="change-the-date-range"></a>Zmień zakres dat
+Użyj **dzisiaj**, **zeszłym tygodniu**, **ostatnim miesiącu**, lub **niestandardowy** przycisk, aby zmienić zakres czasu dziennika inspekcji.
 
-Po wybraniu hello **niestandardowy** przycisku, będziesz mieć możliwość **z** Data i **do** Data toospecify pola zakres dat dla hello dziennika.  Możesz wprowadzić hello daty w formacie MM/DD/RRRR lub kliknięcie hello **kalendarza** ikonę i wybierz hello datę z kalendarza.
+Po wybraniu **niestandardowy** przycisku, będziesz mieć możliwość **z** Data i **do** pole daty, aby określić zakres dat dla dziennika.  Możesz wprowadzić daty w formacie MM/DD/RRRR lub kliknięcie **kalendarza** ikonę i wybierz datę z kalendarza.
 
-### <a name="change-hello-roles-included-in-hello-log"></a>Zmiany zawarte w dzienniku hello ról hello
-Zaznaczenie lub usunięcie zaznaczenia hello **roli** wyboru dalej tooeach roli tooinclude lub wyklucz go z hello logowania.
+### <a name="change-the-roles-included-in-the-log"></a>Zmień role uwzględnione w Dzienniku
+Zaznaczenie lub usunięcie zaznaczenia **roli** pole wyboru obok każdej roli, aby dołączyć lub wykluczyć go z dziennika.
 
-<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Następne kroki
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji aplikacji logiki — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak aplikacje logiki toodevelop zautomatyzować i uprościć biznesowych przepływów pracy między lokalnymi i hello w chmurze. Samouczki, szablony i dokumentacja interfejsu API."
+title: "Dokumentacja usługi Azure Logic Apps — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak opracowywać aplikacje logiki, które automatyzują i upraszczają biznesowe przepływy pracy w środowisku lokalnym i w chmurze. Samouczki, szablony i dokumentacja interfejsu API."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5cc3a730b1b6abcb3ec0132f6e8ebf2e54775836
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ff3f9ba6c225294e7570c5204701dd2f6b927318
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="logic-apps-documentation"></a>Dokumentacja usługi Logic Apps
 
-Dowiedz się, jak toodevelop logikę aplikacji, które upraszczają i integracji skalowalne przepływów pracy w hello chmury. Interfejsów API, szablonów i samouczki odwołuje się do pomocy projektowanie i wdrażanie automatyczne biznesowych przepływów pracy w lokalnych i hello chmury.
+Dowiedz się, jak opracowywać aplikacje Logic Apps, które upraszczają i integrują skalowalne przepływy pracy w chmurze. Samouczki, szablony i dokumentacja interfejsu API pomogą Ci w projektowaniu i wdrażaniu automatycznych biznesowych przepływów pracy w środowisku lokalnym i w chmurze.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,7 +106,7 @@ Dowiedz się, jak toodevelop logikę aplikacji, które upraszczają i integracji
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Tworzenie niestandardowych toouse interfejsu API z usługą Logic Apps</h3>
+                        <h3>Rozpoczynanie tworzenia niestandardowego interfejsu API do użycia z usługą Logic Apps</h3>
                     </div>
                 </div>
             </div>

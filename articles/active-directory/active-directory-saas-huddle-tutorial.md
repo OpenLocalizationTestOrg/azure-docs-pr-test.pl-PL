@@ -1,6 +1,6 @@
 ---
 title: "Samouczek: Integracji Azure Active Directory z zbijają się | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i zbijają się."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i zbijają się."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,68 +13,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 0b2f6c4d839943cdd07699a1ff95dc8f90505699
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 59d4019545d39ec76bf401696338140f430630c9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Samouczek: Integracji Azure Active Directory z zbijają się
 
-Z tego samouczka, dowiesz się, jak toointegrate zbijają się w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie zbijają się w usłudze Azure Active Directory (Azure AD).
 
-Integrowanie zbijają się z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie zbijają się z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooHuddle
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooHuddle (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do zbijają się
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do zbijają się (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Integracja tooconfigure usługi Azure AD z zbijają się, należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z zbijają się, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Zbijają się logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie zbijają się z galerii hello
+1. Dodawanie zbijają się z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-huddle-from-hello-gallery"></a>Dodawanie zbijają się z galerii hello
-integracji hello tooconfigure zbijają się do usługi Azure AD, należy tooadd zbijają się z listą tooyour galerii hello zarządzanych aplikacji SaaS.
+## <a name="adding-huddle-from-the-gallery"></a>Dodawanie zbijają się z galerii
+Aby skonfigurować integrację zbijają się do usługi Azure AD, należy dodać zbijają się z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd zbijają się z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać zbijają się z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **zbijają się**.
+4. W polu wyszukiwania wpisz **zbijają się**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-huddle-tutorial/tutorial_huddle_search.png)
 
-5. W panelu wyników hello, wybierz **zbijają się**, a następnie kliknij przycisk **Dodaj** przycisk tooadd hello aplikacji.
+5. W panelu wyników wybierz **zbijają się**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
@@ -82,46 +82,46 @@ integracji hello tooconfigure zbijają się do usługi Azure AD, należy tooadd 
 
 W tej sekcji możesz skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z zbijają się na podstawie użytkownika testowego, nazywany "Britta Simona".
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w zbijają się jest tooa użytkownika w usłudze Azure AD. Innymi słowy link relację między użytkownika usługi Azure AD i użytkownikowi hello w zbijają się potrzeb toobe ustanowione.
+Do rejestracji jednokrotnej do pracy usługi Azure AD musi ustalić użytkownika odpowiednika w zbijają się do użytkownika w usłudze Azure AD. Innymi słowy łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w zbijają się potrzeba ustanowienia.
 
-W zbijają się, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W zbijają się, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z zbijają się, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z zbijają się, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
 
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
 
-3. **[Tworzenie użytkownika testowego zbijają się](#creating-a-huddle-test-user)**  -toohave odpowiednikiem Simona Britta w zbijają się, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
+3. **[Tworzenie użytkownika testowego zbijają się](#creating-a-huddle-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta zbijają się połączonego z usługi Azure AD reprezentację użytkownika.
 
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
 
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować logowanie jednokrotne w aplikacji zbijają się.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji zbijają się.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z zbijają się, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z zbijają się, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **zbijają się** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **zbijają się** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-huddle-tutorial/tutorial_huddle_samlbase.png)
 
-3. Na powitania **zbijają się w domenie i adresy URL** sekcji, wykonaj następujące kroki hello:
+3. Na **zbijają się w domenie i adresy URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-huddle-tutorial/tutorial_huddle_url.png)
 
-    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`http://<company name>.huddle.com`
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`http://<company name>.huddle.com`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość z hello rzeczywisty adres URL logowania. Skontaktuj się z [klienta zbijają się z pomocą techniczną](https://huddle.zendesk.com) tooget tej wartości. 
+    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [klienta zbijają się z pomocą techniczną](https://huddle.zendesk.com) aby zyskać tę wartość. 
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-huddle-tutorial/tutorial_huddle_certificate.png) 
 
@@ -129,99 +129,99 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-huddle-tutorial/tutorial_general_400.png)
 
-6. Na powitania **zbijają się konfiguracji** kliknij **skonfigurować zbijają się** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.** 
+6. Na **zbijają się konfiguracji** , kliknij przycisk **skonfigurować zbijają się** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.** 
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-huddle-tutorial/tutorial_huddle_configure.png) 
     
-7. tooconfigure rejestracji jednokrotnej zbijają się strony, należy pobrać hello toosend **certyfikatu**, **SAML pojedynczy znak na adres URL usługi**, i **identyfikator jednostki SAML** zbyt[Klienta zbijają się z pomocą techniczną](https://huddle.zendesk.com). To ustawienie toohave hello prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one ustawić.  
+7. Aby skonfigurować rejestrację jednokrotną zbijają się strony, musisz wysłać pobrany **certyfikatu**, **SAML pojedynczy znak na adres URL usługi**, i **identyfikator jednostki SAML** do [klienta zbijają się z pomocą techniczną](https://huddle.zendesk.com). To ustawienie, aby były prawidłowo po obu stronach połączenia logowania jednokrotnego SAML one wartość.  
    
     >[!NOTE]
-    > Logowanie jednokrotne wymaga toobe włączane przez hello zbijają się z pomocą techniczną. Otrzymasz powiadomienie po zakończeniu konfiguracji hello. 
+    > Logowania jednokrotnego musi być włączona przez zbijają się z pomocą techniczną. Otrzymasz powiadomienie po zakończeniu konfiguracji. 
     > 
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
    
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-huddle-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-huddle-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-huddle-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-huddle-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-huddle-test-user"></a>Tworzenie użytkownika testowego zbijają się
 
-toolog użytkowników tooenable usługi Azure AD w tooHuddle, muszą mieć przydzielone do zbijają się. W przypadku hello zbijają się inicjowanie obsługi to zadanie ręczne.
+Aby umożliwić użytkownikom usługi Azure AD zalogować się do zbijają się, muszą mieć przydzielone do zbijają się. W przypadku zbijają się inicjowanie obsługi to zadanie ręczne.
 
-**tooconfigure aprowizacji użytkowników, wykonaj następujące kroki hello:**
+**Aby skonfigurować, inicjowanie obsługi użytkowników, wykonaj następujące czynności:**
 
-1. Zaloguj się za tooyour **zbijają się** witryny firmy jako administrator.
+1. Zaloguj się do Twojego **zbijają się** witryny firmy jako administrator.
 2. Kliknij przycisk **obszaru roboczego**.
 3. Kliknij przycisk **osób \> Zaproś inne osoby**.
    
    ![Osoby](./media/active-directory-saas-huddle-tutorial/IC787838.png "osób")
 
-4. W hello **utworzyć nowe zaproszenie** sekcji, wykonaj następujące kroki hello:
+4. W **utworzyć nowe zaproszenie** sekcji, wykonaj następujące czynności:
    
    ![Nowe zaproszenie](./media/active-directory-saas-huddle-tutorial/IC787839.png "nowe zaproszenie")
    
-   a. W hello **wybierz zespół tooinvite osób toojoin** listy, wybierz **zespołu**.
+   a. W **wybierz zespołowi zapraszanie osób do** listy, wybierz **zespołu**.
 
-   b. Hello typu **adres E-mail** prawidłowe usługi Azure AD konta ma zbyt tooprovision**wprowadź adres e-mail dla osób, które chcesz tooinvite** pola tekstowego.
+   b. Typ **adres E-mail** prawidłowy Azure AD konta chcesz udostępnić w celu **wprowadź adres e-mail osoby, które chcesz zaprosić** pola tekstowego.
 
    c. Kliknij przycisk **zaprosić**.   
    
     >[!NOTE]
-    > Witaj konto usługi Azure AD, czy symbol zastępczy zostanie wysłana wiadomość e-mail, zanim staje się aktywny w tym kontem hello tooconfirm łącza. 
+    > Właściciel konta usługi Azure AD zostanie wysłana wiadomość e-mail, łącznie z łączem do potwierdzenia konta, zanim staje się aktywny. 
     > 
 
 >[!NOTE]
->Możesz użyć innych zbijają się użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez tooprovision zbijają się konta użytkowników usługi Azure AD. 
+>Inne zbijają się narzędzia tworzenia konta użytkownika lub interfejsów API dostarczonych przez zbijają się służy do obsługi administracyjnej kont użytkowników usługi Azure AD. 
 > 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooHuddle.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do zbijają się.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooHuddle Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta zbijają się, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **zbijają się**.
+2. Na liście aplikacji zaznacz **zbijają się**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-huddle-tutorial/tutorial_huddle_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -229,7 +229,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -237,14 +237,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka zbijają się hello w hello Panel dostępu, należy uzyskać automatycznie strony logowania zbijają się w aplikacji.
-Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu kafelka zbijają się w panelu dostępu, należy uzyskać automatycznie strony logowania zbijają się w aplikacji.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

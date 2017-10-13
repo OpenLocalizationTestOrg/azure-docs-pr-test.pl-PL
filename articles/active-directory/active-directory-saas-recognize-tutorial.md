@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z rozpoznawanie | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i rozpoznawanie."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i rozpoznawanie."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: f33fc3959f72f875b8c5c4f0abd4e9b6737ca615
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 97d85183d0307c41a3b879d440d87a6fb0c53190
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Samouczek: Integracji Azure Active Directory z rozpoznawanie
 
-Z tego samouczka, dowiesz się, jak rozpoznać toointegrate w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się sposobu integracji z usługą Azure Active Directory (Azure AD) rozpoznawanie.
 
-Integracja z usługą Azure AD rozpoznawanie zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD rozpoznawanie zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooRecognize
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooRecognize (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do uznania
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do uznania (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Integracja tooconfigure usługi Azure AD z rozpoznawanie, potrzebujesz hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z rozpoznawanie, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Rozpoznaj logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna tutaj: [oferta wersji próbnej](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie rozpoznawaj z galerii hello
+1. Dodawanie rozpoznawaj z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-recognize-from-hello-gallery"></a>Dodawanie rozpoznawaj z galerii hello
-tooconfigure hello integracji rozpoznawanie do usługi Azure AD, należy tooadd rozpoznawaj z galerii hello tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-recognize-from-the-gallery"></a>Dodawanie rozpoznawaj z galerii
+Aby skonfigurować integrację usługi Azure AD rozpoznawanie, musisz dodać rozpoznawaj z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd rozpoznawaj z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać rozpoznawaj z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **rozpoznawanie**.
+4. W polu wyszukiwania wpisz **rozpoznawanie**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_search.png)
 
-5. W panelu wyników hello, wybierz **rozpoznawanie**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **rozpoznawanie**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z rozpoznawanie w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w rozpoznawanie jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w rozpoznawanie musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w rozpoznawanie jest dla użytkownika, w usłudze Azure AD. Innymi słowy łącze relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w rozpoznawanie musi się.
 
-Rozpoznaj, przypisywanie wartości hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+Rozpoznaj, przypisywanie wartości **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD logowanie jednokrotne z rozpoznawanie, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z rozpoznawanie, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego rozpoznawanie](#creating-a-recognize-test-user)**  -toohave odpowiednikiem Simona Britta w rozpoznawanie, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego rozpoznawanie](#creating-a-recognize-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta rozpoznawanie połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji rozpoznawanie.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji rozpoznawanie.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z rozpoznawanie, wykonaj hello następujące kroki:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z rozpoznawanie, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **rozpoznawanie** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **rozpoznawanie** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_samlbase.png)
 
-3. Na powitania **adresy URL i rozpoznać domeny** sekcji, wykonaj następujące kroki hello:
+3. Na **adresy URL i rozpoznać domeny** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_url.png)
 
-    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://recognizeapp.com/<your-domain>/saml/sso`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://recognizeapp.com/<your-domain>/saml/sso`
 
-    b. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://recognizeapp.com/<your-domain>`
+    b. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Zaktualizować te wartości z hello rzeczywisty adres URL logowania i identyfikator. Skontaktuj się z [zespołem pomocy technicznej klienta rozpoznaje](mailto:support@recognizeapp.com) uzyskać adres URL logowania i można uzyskać wartość identyfikatora otwierając hello sekcja Ustawienia logowania jednokrotnego, która znajduje się w dalszej części samouczka hello hello adres URL metadanych dostawcy usługi. . 
+    > Wartości te nie są prawdziwe. Rzeczywisty adres URL logowania i identyfikator, należy zaktualizować te wartości. Skontaktuj się z [zespołem pomocy technicznej klienta rozpoznaje](mailto:support@recognizeapp.com) uzyskać adres URL logowania i może uzyskać wartość identyfikatora otwierania adresu URL metadanych dostawcy usług w sekcji Ustawienia logowania jednokrotnego, opisanej w dalszej części tego samouczka. . 
  
-4. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_certificate.png) 
 
@@ -125,94 +125,94 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-recognize-tutorial/tutorial_general_400.png)
 
-6. Na powitania **rozpoznaje konfiguracji** kliknij **skonfigurować rozpoznaje** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+6. Na **rozpoznaje konfiguracji** , kliknij przycisk **skonfigurować rozpoznaje** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_configure.png) 
 
-7. W oknie przeglądarki innej witryny sieci web, logowania jednokrotnego tooyour rozpoznawanie dzierżawy z uprawnieniami administratora.
+7. W oknie przeglądarki innej witryny sieci web logowanie do dzierżawy rozpoznawanie jako administrator.
 
-8. Na powitania prawym górnym rogu kliknij **Menu**. Przejdź za**administrator firmy**.
+8. W prawym górnym rogu kliknij **Menu**. Przejdź do **firmy Admin**.
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_000.png)
 
-9. W okienku nawigacji po lewej stronie powitania kliknij **ustawienia**.
+9. W lewym okienku nawigacji, kliknij polecenie **ustawienia**.
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_001.png)
 
-10. Wykonaj następujące kroki powitania **ustawienia logowania jednokrotnego** sekcji.
+10. Wykonaj następujące czynności na **ustawienia logowania jednokrotnego** sekcji.
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_002.png)
     
     a. Jako **włączenia logowania jednokrotnego**, wybierz pozycję **ON**.
 
-    b. W hello **identyfikator jednostki IDP** pole tekstowe, Wklej wartość hello **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
+    b. W **identyfikator jednostki IDP** pole tekstowe, Wklej wartość **identyfikator jednostki SAML** którego została skopiowana z portalu Azure.
     
-    c. W hello **logowania jednokrotnego, docelowy adres url** pole tekstowe, Wklej wartość hello **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
+    c. W **logowania jednokrotnego, docelowy adres url** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
     
-    d. W hello **Slo docelowy adres url** pole tekstowe, Wklej wartość hello **Sign-Out URL** którego została skopiowana z portalu Azure. 
+    d. W **Slo docelowy adres url** pole tekstowe, Wklej wartość **Sign-Out URL** którego została skopiowana z portalu Azure. 
     
-    e. Otwórz z pobranego **certyfikatu (Base64)** pliku w Notatniku hello kopiowania zawartości go do Schowka, a następnie wklej go toohello **certyfikatu** pola tekstowego.
+    e. Otwórz z pobranego **certyfikatu (Base64)** plików w programie Notatnik, skopiuj zawartość go do Schowka, a następnie wklej go do **certyfikatu** pola tekstowego.
     
-    f. Kliknij przycisk hello **Zapisz ustawienia** przycisku. 
+    f. Kliknij przycisk **Zapisz ustawienia** przycisku. 
 
-11. Obok hello **ustawienia logowania jednokrotnego** sekcji, skopiuj adres URL hello pod **adres url usługi dostawcy metadanych**.
+11. Obok **ustawienia logowania jednokrotnego** sekcji, skopiuj adres URL, pod **adres url usługi dostawcy metadanych**.
    
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_003.png)
 
-12. Otwórz hello **łącze URL metadanych** w obszarze puste przeglądarki toodownload hello metadanych dokumentu. Następnie skopiuj hello EntityDescriptor value(entityID) z pliku hello i wklej go w **identyfikator** textbox w **sekcji rozpoznać domeny i adresy URL** w portalu Azure.
+12. Otwórz **łącze URL metadanych** w obszarze puste przeglądarki, aby pobrać dokumentu metadanych. Następnie skopiuj EntityDescriptor value(entityID) z pliku i wklej go w **identyfikator** textbox w **sekcji rozpoznać domeny i adresy URL** w portalu Azure.
     
     ![Konfigurowanie jednej logowania w aplikacji po stronie](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_004.png)
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-recognize-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-recognize-test-user"></a>Tworzenie użytkownika testowego rozpoznawanie
 
-W przypadku użytkowników usługi Azure AD toolog kolejności tooenable do uznania muszą mieć przydzielone do uznania. W przypadku hello rozpoznawanie Inicjowanie obsługi to zadanie ręczne.
+Aby umożliwić użytkownikom zalogować się na rozpoznawanie usługi Azure AD, musi być przygotowana do uznania. W przypadku uznania Inicjowanie obsługi to zadanie ręczne.
 
 Ta aplikacja nie obsługuje udostępniania SCIM, ale ma synchronizacji alternatywny użytkownika, która udostępnia użytkownikom. 
 
-**tooprovision konta użytkownika, należy wykonać hello następujące kroki:**
+**Aby udostępnić konta użytkownika, wykonaj następujące czynności:**
 
 1. Zaloguj się do witryny firmy rozpoznawanie jako administrator.
 
-2. Na powitania prawym górnym rogu kliknij **Menu**. Przejdź za**administrator firmy**.
+2. W prawym górnym rogu kliknij **Menu**. Przejdź do **firmy Admin**.
 
-3. W okienku nawigacji po lewej stronie powitania kliknij **ustawienia**.
+3. W lewym okienku nawigacji, kliknij polecenie **ustawienia**.
 
-4. Wykonaj następujące kroki powitania **synchronizacji użytkownika** sekcji.
+4. Wykonaj następujące czynności na **synchronizacji użytkownika** sekcji.
    
    ![Nowy użytkownik](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_005.png "nowego użytkownika")
    
@@ -222,23 +222,23 @@ Ta aplikacja nie obsługuje udostępniania SCIM, ale ma synchronizacji alternaty
    
    c. Kliknij przycisk **Przeprowadź synchronizację użytkownika**.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooRecognize.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do uznania.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign tooRecognize Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta rozpoznawanie, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **rozpoznawanie**.
+2. Na liście aplikacji zaznacz **rozpoznawanie**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-recognize-tutorial/tutorial_recognize_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -246,7 +246,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -254,13 +254,13 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.
+Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka rozpoznawanie hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour rozpoznawanie aplikacji. Aby uzyskać więcej informacji na temat hello Panel dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md).
+Po kliknięciu kafelka rozpoznawanie w panelu dostępu należy należy pobrać automatycznie zalogowane do uznania aplikacji. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

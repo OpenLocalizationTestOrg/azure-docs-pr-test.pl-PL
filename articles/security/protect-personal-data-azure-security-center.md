@@ -1,5 +1,5 @@
 ---
-title: "dane osobowe aaaProtect z Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
+title: "Ochrona danych osobowych z Centrum zabezpieczeń Azure | Dokumentacja firmy Microsoft"
 description: "Ochrona danych osobistych, przy użyciu Centrum zabezpieczeń Azure"
 services: security
 documentationcenter: na
@@ -15,38 +15,38 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 8e2c893d13318392f47fa912089d52618f9e7b45
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Ochrona danych osobowych z atakami i naruszeń: Centrum zabezpieczeń Azure
 
-Ten artykuł pomoże Ci zrozumieć, jak dane osobowe tooprotect Centrum zabezpieczeń Azure toouse z naruszeń i ataków.
+Ten artykuł pomoże Ci zrozumieć sposób korzystania z Centrum zabezpieczeń Azure do ochrony danych osobowych przed naruszeniami i ataków.
 
 ## <a name="scenario"></a>Scenariusz 
 
-Firma rejs dużych, siedzibą hello Stanów Zjednoczonych, rozwija trasy toooffer jego operacji w hello Śródziemnego i Bałtyckiego mórz oraz hello brytyjskich. toohelp w tych działań, uzyskała mniejszych rejs wiersze na podstawie we Włoszech, Niemczech, Dania i hello Zjednoczone Królestwo
+Rejs duże przedsiębiorstwo, siedzibą w Stanach Zjednoczonych rozwija operacjach oferowanie trasy w DS i Bałtyckiego mórz oraz brytyjskich. Aby pomóc w tych działań, ustawił mniejszych rejs wiersze na podstawie we Włoszech, Niemczech, Dania i Zjednoczone Królestwo
 
-Witaj firma korzysta z danych firmowych toostore Microsoft Azure w chmurze hello. Dotyczy to również dane osobowe, takich jak nazwy, adresy, numery telefonów i informacje o karcie kredytowej. Zawiera również zasoby ludzkie informacji takich jak:
+Przez firmę Microsoft Azure do przechowywania danych firmowych w chmurze. Dotyczy to również dane osobowe, takich jak nazwy, adresy, numery telefonów i informacje o karcie kredytowej. Zawiera również zasoby ludzkie informacji takich jak:
 
 - Adresy
 - Numery telefonów
 - Numery identyfikacyjne podatku
 - Inne informacje
 
-wiersz rejs Hello zachowuje również dużej bazy danych elementów członkowskich programu osób trzecich i lojalność. Pracownikom firmy dostępu hello sieci z biurach zdalnych i agentów podróży hello firmy znajdujących się wokół Witaj świecie mają dostęp do zasobów firmowych toosome.
-Dane osobowe są przesyłane w sieci hello między tymi lokalizacjami i centrum danych firmy Microsoft hello.
+Wiersz rejs zachowuje również dużej bazy danych elementów członkowskich programu osób trzecich i lojalność. Pracownikom firmy dostępu do sieci w oddziałach firmy i podróży agentów na całym świecie mają dostęp do niektórych zasobów firmy.
+Dane osobowe są przesyłane w sieci między te lokalizacje i centrum danych firmy Microsoft.
 
 ## <a name="problem-statement"></a>Opis problemu
 
-Witaj firmy zależy od zagrożeń hello ataków na ich zasobów platformy Azure. Chcą narażenia tooprevent osób toounauthorized danych osobowych pracowników i klientów. Chcą, aby uzyskać wskazówki dotyczące zarówno związanych z zapobieganiem i odpowiedzi/korygowania, a także efektywny sposób toomonitor hello trwającą bezpieczeństwa zasobów w chmurze.
+Firma jest zajmującym się zagrożenie atakami ich zasobów platformy Azure. Chcą wyeliminowania zagrożenia pracowników i klientów danych osobowych do osoby nieupoważnione. Chcą, aby uzyskać wskazówki dotyczące zarówno związanych z zapobieganiem i odpowiedzi/korygowania, jak i efektywny sposób monitorowania bieżących bezpieczeństwa zasobów w chmurze.
 Muszą one silne linię obrony przed atakami współczesnych zaawansowane i organizowane.
 
 ## <a name="company-goal"></a>Celem firmy
 
-Jednym z celów firmy hello jest tooensure hello prywatności danych osobowych pracowników i klientów, aby chronić go przed zagrożeniami. Jest jednym z celów ich toorespond, natychmiast toosigns toomitigate naruszenia hello wpływ. Wymaga to sposób tooassess hello bieżący stan zabezpieczeń, identyfikację narażone konfiguracji i usuwać z nich.
+Jest jednym z celów firmy można zapewnić poufności danych osobowych pracowników i klientów, aby chronić go przed zagrożeniami. Jest jednym z celów ich natychmiast odpowiadać na znaki zmniejszyć skuteczność naruszenia. Wymaga to sposób ocenić bieżący stan zabezpieczeń, identyfikowanie narażone konfiguracje i usuwać z nich.
 
 ## <a name="solutions"></a>Rozwiązania
 
@@ -54,154 +54,154 @@ Microsoft Azure Security Center (ASC) zapewnia zabezpieczenia zintegrowane monit
 
 ### <a name="prevention"></a>Zapobieganie
 
-ASC pomaga zapobiec naruszeń włączając tooset zasady zabezpieczeń, dostęp w czasie i zaimplementować zalecenia dotyczące zabezpieczeń.
+ASC pomaga zapobiegać naruszeń, należy włączyć ustawienie zasad zabezpieczeń, dostęp w czasie i zaimplementować zalecenia dotyczące zabezpieczeń.
 
-Zasady zabezpieczeń określają hello zestaw kontrolek zalecane dla zasobów w hello określonej subskrypcji. Tylko w czasie dostępu może być używane toolock tooyour ruch przychodzący maszynach wirtualnych platformy Azure, zmniejszenie zagrożeń tooattacks w dół. Zalecenia dotyczące zabezpieczeń są tworzone przez ASC po przeanalizowaniu hello stan zabezpieczeń zasobów platformy Azure.
+Zasady zabezpieczeń określają zestaw mechanizmów kontrolnych, zalecane dla zasobów w określonej subskrypcji. Tylko w czasie może służyć do blokowania ruchu przychodzącego na maszynach wirtualnych platformy Azure, ograniczenia narażenia na ataki. Zalecenia dotyczące zabezpieczeń są tworzone przez ASC po przeanalizowaniu stan zabezpieczeń zasobów platformy Azure.
 
 #### <a name="how-do-i-set-security-policies-in-asc"></a>Jak ustawić zasady zabezpieczeń w ASC?
 
-Zasady zabezpieczeń można skonfigurować dla każdej subskrypcji. toomodify zasady zabezpieczeń, musi być właścicielem lub współautorem subskrypcji. W portalu Azure hello hello następujące:
+Zasady zabezpieczeń można skonfigurować dla każdej subskrypcji. Aby zmodyfikować zasady zabezpieczeń, musisz być właścicielem lub współautorem subskrypcji. W portalu Azure wykonaj następujące czynności:
 
-1. Wybierz **zasad** hello ASC w pulpicie nawigacyjnym.
+1. Wybierz **zasad** na pulpicie nawigacyjnym ASC.
 
-2. Wybierz subskrypcję hello, na którym ma zostać tooenable hello zasad.
+2. Wybierz subskrypcję, na którym chcesz włączyć zasady.
 
-3. Wybierz **zasady zapobiegania** tooconfigure zasady dla subskrypcji. **Zbieranie danych z maszyn wirtualnych** powinna być ustawiona zbyt**na.**
+3. Wybierz **zasady zapobiegania** skonfigurować zasady dla subskrypcji. **Zbieranie danych z maszyn wirtualnych** powinien być ustawiony na **na.**
 
-4. W hello **zasady zapobiegania** opcji wybierz **na** tooenable hello zalecenia dotyczące zabezpieczeń związane hello subskrypcji.
+4. W **zasady zapobiegania** opcji wybierz **na** Aby włączyć zalecenia dotyczące zabezpieczeń, które są istotne dla subskrypcji.
 
 ![](media/protect-personal-data-azure-security-center/prevention-policy.png)
 
-Aby uzyskać szczegółowe instrukcje i informacje o wszystkich hello zaleceń dotyczących zasad, które mogą być włączone, zobacz [ustawić zasady zabezpieczeń w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-policies#set-security-policies).
+Aby uzyskać szczegółowe instrukcje i informacje o wszystkich zaleceń dotyczących zasad, które mogą być włączone, zobacz [ustawić zasady zabezpieczeń w Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-policies#set-security-policies).
 
 #### <a name="how-do-i-configure-just-in-time-access-jit"></a>Jak skonfigurować tylko w czasie dostępu (JIT)?
 
-Po włączeniu JIT Centrum zabezpieczeń blokuje ruch przychodzący tooyour maszynach wirtualnych platformy Azure przez tworzenie reguły NSG. Wybierz porty hello na powitania toowhich maszyny Wirtualnej zostanie zablokowana ruchu przychodzącego. toouse JIT dostępu, hello następujące:
+Po włączeniu JIT Centrum zabezpieczeń blokuje ruch przychodzący na maszynach wirtualnych platformy Azure przez tworzenie reguły NSG. Należy wybrać porty na maszynie Wirtualnej, do którego będzie można zablokować ruch przychodzący. Aby korzystać z dostępu JIT, wykonaj następujące czynności:
 
-1. Wybierz hello **bezpośrednio w kafelku dostęp maszyny Wirtualnej czas** na powitania ASC bloku.
+1. Wybierz **bezpośrednio w kafelku dostęp maszyny Wirtualnej czasu** w bloku ASC.
 
-2. Wybierz hello **zalecane** kartę.
+2. Wybierz **zalecane** kartę.
 
-3. W obszarze **maszyn wirtualnych**, wybierz hello maszyn wirtualnych, które mają tooenable. Spowoduje to umieszczenie znacznikiem wyboru tooa dalej maszyny Wirtualnej. 
+3. W obszarze **maszyn wirtualnych**, wybierz maszyny wirtualne, które chcesz włączyć. Spowoduje to umieszczenie znacznik wyboru obok maszyny Wirtualnej. 
 4. Wybierz **włączyć JIT** na maszynach wirtualnych.
 5. Wybierz pozycję **Zapisz**.
 
-Następnie można zobaczyć hello domyślnych portów, które ASC zaleca włączana na potrzeby JIT. Można również dodać i skonfigurować nowy port, na którym ma zostać hello tooenable tylko w rozwiązaniu czasu. Witaj **bezpośrednio w dostęp do maszyny Wirtualnej czasu** kafelka w Centrum zabezpieczeń hello pokazuje liczbę hello skonfigurowana dla dostępu JIT maszyn wirtualnych. Zawiera także hello liczba żądań zatwierdzonych dostępu wprowadzone w hello ostatniego tygodnia.
+Następnie widać domyślnych portów, które ASC zaleca włączana na potrzeby JIT. Można także dodać i skonfigurować nowy port, na którym chcesz włączyć tylko w rozwiązaniu czasu. **Bezpośrednio w dostęp do maszyny Wirtualnej czasu** kafelka w Centrum zabezpieczeń jest wyświetlana liczba maszyn wirtualnych skonfigurowana dla dostępu JIT. Ponadto liczba żądań zatwierdzonych dostępu w ostatnim tygodniu.
 
 ![](media/protect-personal-data-azure-security-center/jit-vm.png)
 
-Aby uzyskać instrukcje dotyczące toodo, oraz dodatkowe informacje na temat tylko w czasie dostępu, zobacz [zarządzanie dostępem do maszyny wirtualnej przy użyciu tylko w czasie.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+W jaki sposób to zrobić oraz dodatkowe informacje na temat tylko w czasie dostępu, zobacz [zarządzanie dostępem do maszyny wirtualnej przy użyciu tylko w czasie.](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 
 #### <a name="how-do-i-implement-asc-security-recommendations"></a>Jak wdrożyć ASC zalecenia dotyczące zabezpieczeń?
 
-Po znalezieniu potencjalnych luk w zabezpieczeniach usługa Security Center tworzy odpowiednie zalecenia. zalecenia Hello pomocne hello proces konfigurowania kontrolek hello potrzebne. 
-1. Wybierz hello **zalecenia** kafelka na pulpicie nawigacyjnym ASC hello.
+Po znalezieniu potencjalnych luk w zabezpieczeniach usługa Security Center tworzy odpowiednie zalecenia. Przewodnik dotyczący zaleceń prowadzi użytkownika przez proces konfigurowania wymaganych kontrolek. 
+1. Wybierz **zalecenia** kafelka na pulpicie nawigacyjnym ASC.
 
-2. Wyświetl zalecenia hello, które są wyświetlane w formacie tabeli, w której każdy wiersz zawiera jeden zalecenia.
+2. Wyświetl zalecenia, które są wyświetlane w formacie tabeli, w której każdy wiersz zawiera jeden zalecenia.
 
-3. Wybierz zalecenia toofilter **filtru** i wybierz hello ważność i stan wartości mają toosee.
+3. Filtr zaleceń, wybierz opcję **filtru** i wybierz ważność i stan wartości, które chcesz wyświetlić.
 
-4. toodismiss rekomendację, która nie ma zastosowania, można kliknij prawym przyciskiem myszy i wybierz **odrzucenia.**
+4. Aby odrzucić rekomendację, która nie ma zastosowania, kliknij prawym przyciskiem myszy i wybierz **odrzucenia.**
 
 5. Należy ocenić, które zalecenie powinny być stosowane najpierw.
 
-6. Stosować zalecenia hello w kolejności priorytetów.
+6. Stosować zalecenia w kolejności priorytetów.
 
-Listę możliwych zalecenia i przewodników dotyczących tooapply, zobacz [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Centrum zabezpieczeń Azure.](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+Listę możliwych zaleceń i przewodników dotyczących stosowania każdego zawiera [Zarządzanie zaleceniami dotyczącymi zabezpieczeń w Centrum zabezpieczeń Azure.](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
 
 ### <a name="detection-and-response"></a>Wykrywanie i odpowiedzi
 
-Wykrywanie i odpowiedzi go razem można dowolnie toorespond możliwie jak najszybciej po wykryciu zagrożenia.
-Wykrywanie zagrożeń ASC polega na automatyczne zbieranie informacji o zabezpieczeniach z zasobów platformy Azure, hello sieci i rozwiązań partnerskich połączonych. ASC szybko może aktualizować algorytmy wykrywania, jak osoby atakujące wersji nowy, coraz bardziej zaawansowany luki w zabezpieczeniach. Aby uzyskać szczegółowe informacje dotyczące sposobu działania wykrywanie zagrożeń ASC firmy, zobacz [funkcji wykrywania Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities).
+Wykrywanie i odpowiedzi go razem, jak należy jak najszybciej po wykryciu zagrożenia.
+Wykrywanie zagrożeń ASC polega na automatyczne zbieranie informacji o zabezpieczeniach z zasobów platformy Azure, sieci i rozwiązań partnerskich połączonych. ASC szybko może aktualizować algorytmy wykrywania, jak osoby atakujące wersji nowy, coraz bardziej zaawansowany luki w zabezpieczeniach. Aby uzyskać szczegółowe informacje dotyczące sposobu działania wykrywanie zagrożeń ASC firmy, zobacz [funkcji wykrywania Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities).
 
-#### <a name="how-do-i-manage-and-respond-toosecurity-alerts"></a>Jak zarządzać i odpowiadanie na alerty toosecurity?
+#### <a name="how-do-i-manage-and-respond-to-security-alerts"></a>Jak zarządzać i reagowania na alerty zabezpieczeń?
 
-Lista alertów zabezpieczeń uporządkowanych według priorytetu jest wyświetlany w Centrum zabezpieczeń oraz hello informacje potrzebne tooquickly Zbadaj hello problem. Centrum zabezpieczeń zawiera także zalecenia dotyczące tooremediate atak. alerty zabezpieczeń, wykonaj następujące hello toomanage:
+Lista alertów zabezpieczeń uporządkowanych według priorytetu jest wyświetlana w Centrum zabezpieczeń oraz informacje potrzebne do szybkiego analizowania problemu. Centrum zabezpieczeń zawiera także zalecenia dotyczące skorygować atak. Aby zarządzać alerty zabezpieczeń, wykonaj następujące czynności:
 
-1. Wybierz hello **alerty zabezpieczeń** kafelka na pulpicie nawigacyjnym ASC hello. To przedstawia szczegółowe informacje o każdym alercie.
+1. Wybierz **alerty zabezpieczeń** kafelka na pulpicie nawigacyjnym ASC. To przedstawia szczegółowe informacje o każdym alercie.
 
-2. Wybierz alerty toofilter na podstawie daty, stanu i ważności, **filtru** a następnie wybierz wartości hello ma toosee.
+2. Aby filtrować alerty na podstawie daty, stanu i ważności, wybierz **filtru** , a następnie wybierz wartości, które mają być wyświetlane.
 
-3. toorespond tooan alert, zaznacz go i przejrzyj informacje hello, a następnie wybierz hello zaatakowany zasób.
+3. Aby odpowiedzieć alertu, zaznacz go i przejrzyj informacje, a następnie wybierz zaatakowany zasób.
 
-4. W hello **opis** pola, zobaczysz szczegółowe informacje, łącznie z zalecanych czynności naprawczych.
+4. W **opis** pola, zobaczysz szczegółowe informacje, łącznie z zalecanych czynności naprawczych.
 
 ![](media/protect-personal-data-azure-security-center/security-alerts.png)
 
-Aby uzyskać szczegółowe instrukcje dotyczące odpowiada alerty toosecurity, zobacz [toosecurity zarządzanie i odpowiada alertów w Centrum zabezpieczeń Azure.](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+Aby uzyskać szczegółowe instrukcje dotyczące reagowanie na alerty zabezpieczeń, zobacz [reagowanie na alerty zabezpieczeń w Centrum zabezpieczeń Azure i zarządzanie nimi.](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
 
-Aby uzyskać dalszą pomoc w badania alertów zabezpieczeń firmy hello można zintegrować ASC alerty z własnego rozwiązania SIEM, za pomocą [integracji dziennika Azure](https://aka.ms/AzLog).
+Aby uzyskać dalszą pomoc w badania alertów zabezpieczeń firmy można zintegrować ASC alerty z własnego rozwiązania SIEM, za pomocą [integracji dziennika Azure](https://aka.ms/AzLog).
 
 #### <a name="how-do-i-manage-security-incidents"></a>Jak zarządzać przypadki naruszenia zabezpieczeń?
 
-Zdarzenia zabezpieczeń ASC, to agregacji wszystkich alertów dla zasobu, które są wyrównane z wzorców łańcucha kill. Zdarzenie będzie ujawnić hello listę powiązanych alertów, dzięki czemu możesz tooobtain więcej informacji na temat każdego wystąpienia. Zdarzenia są wyświetlane w powitalne Kafelek alerty zabezpieczeń i bloku.
+Zdarzenia zabezpieczeń ASC, to agregacji wszystkich alertów dla zasobu, które są wyrównane z wzorców łańcucha kill. Zdarzenie wyświetli listę powiązanych alertów, co pozwala uzyskać więcej informacji na temat każdego wystąpienia. Zdarzenia są wyświetlane w kafelku alerty zabezpieczeń i bloku.
 
-tooreview i zarządzania incydentami zabezpieczeń, hello następujące:
+Aby przejrzeć i zarządzania incydentami zabezpieczeń, wykonaj następujące czynności:
 
-1. Wybierz hello **alerty zabezpieczeń** kafelka. w przypadku wykrycia zdarzenia zabezpieczeń będą wyświetlane w obszarze wykresu alerty zabezpieczeń hello. Jej ikonę, która różni się od innych alertów.
+1. Wybierz **alerty zabezpieczeń** kafelka. w przypadku wykrycia zdarzenia zabezpieczeń będą wyświetlane w obszarze wykresu alertów zabezpieczeń. Jej ikonę, która różni się od innych alertów.
 
-2. Wybierz zdarzenia toosee hello więcej szczegółów dotyczących tego zdarzenia zabezpieczeń. Dodatkowe szczegóły obejmują jego pełny opis, jego ważność, jego bieżący stan, atak powitania zasobów, procedura korygowania hello hello zdarzenia i hello alertów, które wchodzą w skład tego zdarzenia.
+2. Wybierz zdarzenie, aby wyświetlić więcej szczegółów dotyczących tego zdarzenia zabezpieczeń. Dodatkowe szczegóły obejmują jego pełny opis, jego ważność, jego bieżący stan, zaatakowanych zasobów, czynności korygujące zdarzenia i alerty, które wchodzą w skład tego zdarzenia.
 
-Można filtrować toosee **tylko zdarzenia**, **alerty tylko**, lub **zarówno**.
+Można filtrować, aby wyświetlić **tylko zdarzenia**, **alerty tylko**, lub **zarówno**.
 
-#### <a name="how-do-i-access-hello-threat-intelligence-report"></a>Jak uzyskać dostęp hello raportu analizy zagrożeń
+#### <a name="how-do-i-access-the-threat-intelligence-report"></a>Jak uzyskać dostępu do raportu analizy zagrożeń
 
-ASC analizuje informacje z wielu źródeł tooidentify zagrożeń. zespoły odpowiedzi na zdarzenia tooassist zbadać i eliminowanie zagrożeń, Centrum zabezpieczeń zawiera raport analizy zagrożeń, który zawiera informacje o hello zagrożenia, które zostało wykryte.
+ASC analizuje informacje z wielu źródeł do identyfikowania zagrożeń. Aby pomóc odpowiedzi na zdarzenia zespoły zbadać i eliminowanie zagrożeń, Centrum zabezpieczeń zawiera raport analizy zagrożeń, który zawiera informacje dotyczące zagrożenia, które zostało wykryte.
 
 Centrum zabezpieczeń zawiera trzy raporty zagrożenia, które mogą się różnić na atak.
-dostępne raporty Hello są:
+Dostępne raporty:
 
 - Raport grupy działań: zawiera głębokie dives do osoby atakujące, ich cele i taktyk.
 
 - Raport kampanii: koncentruje się na szczegóły ataku określonej kampanii.
 
-- Raport podsumowania zagrożeń: obejmuje wszystkie elementy w hello poprzednich dwóch raportów.
+- Raport podsumowania zagrożeń: obejmuje wszystkie elementy w poprzednich dwóch raportów.
 
-Informacje tego typu jest bardzo przydatny podczas procesu odpowiedzi na zdarzenia hello, w przypadku badania trwającą hello źródło toounderstand atak powitania hello motywacji osoby atakującej i jakie toomitigate toodo wystawiać przenoszenie do przodu.
+Informacje tego typu jest bardzo przydatny podczas procesu odpowiedzi na zdarzenia w przypadku, gdy istnieje trwającą dochodzenia zrozumienie źródło ataku, motywacji osoby atakującej i co zrobić, aby zminimalizować ten problem, przenoszenie do przodu.
 
-1. tooaccess hello analizy zagrożeń raportu, hello następujące:
+1. Aby uzyskać dostęp do raportu analizy zagrożeń, wykonaj następujące czynności:
 
-2. Wybierz hello **alerty zabezpieczeń** kafelka na pulpicie nawigacyjnym ASC hello.
+2. Wybierz **alerty zabezpieczeń** kafelka na pulpicie nawigacyjnym ASC.
 
-3. Wybierz alert zabezpieczeń hello, dla której ma zostać tooobtain więcej informacji.
+3. Wybierz alert zabezpieczeń, dla którego chcesz uzyskać więcej informacji.
 
-4. W hello **raporty** kliknij raport analizy zagrożeń toohello łącze hello.
+4. W **raporty** kliknij łącze do raportu analizy zagrożeń.
 
-5. Spowoduje to otwarcie pliku PDF hello, który można pobrać.
+5. Spowoduje to otwarcie pliku PDF, który można pobrać.
 
 ![](media/protect-personal-data-azure-security-center/security-alerts-suspicious-process.png)
 
-Aby uzyskać dodatkowe informacje na temat hello raportu analizy zagrożeń ASC, zobacz [raport analizy zagrożeń z Centrum zabezpieczeń Azure.](https://docs.microsoft.com/azure/security-center/security-center-threat-report)
+Aby uzyskać dodatkowe informacje na temat raportu analizy zagrożeń ASC, zobacz [raport analizy zagrożeń z Centrum zabezpieczeń Azure.](https://docs.microsoft.com/azure/security-center/security-center-threat-report)
 
 ### <a name="assessment"></a>Ocena
 
-toohelp do testowania, oceny i oceny strukturę bezpieczeństwa, ASC zapewnia oceny luk w zabezpieczeniach zintegrowane z Qualys agentów chmurze jako część jej składników zalecenia dotyczące maszyny wirtualnej.
+Aby pomóc w testowania, oceny i ocenie strukturę bezpieczeństwa, ASC zapewnia oceny luk w zabezpieczeniach zintegrowane z Qualys agentów chmurze jako część jej składników zalecenia dotyczące maszyny wirtualnej.
 
-Witaj Qualys agenci będą raportować luki w zabezpieczeniach danych toohello Qualys platformy zarządzania, który z kolei odsyła luki w zabezpieczeniach i danych monitorowania kondycji powrotem tooASC. Witaj tooadd zalecenie rozwiązanie do oceny luk w zabezpieczeniach jest wyświetlany w hello **zalecenia** bloku na pulpicie nawigacyjnym ASC hello.
+Qualys agent raporty Qualys platformy zarządzania, który następnie wysyła luki w zabezpieczeniach i kondycji danych monitorowania z powrotem do ASC danych luki w zabezpieczeniach. Zalecenie, aby dodać rozwiązanie do oceny luk w zabezpieczeniach jest wyświetlany w **zalecenia** bloku na pulpicie nawigacyjnym ASC.
 
-Po zainstalowaniu rozwiązanie do oceny luk w zabezpieczeniach hello w celu hello wirtualna hello toodetect maszyny Wirtualnej i zidentyfikować luki w zabezpieczeniach systemu i aplikacji skanowania Centrum zabezpieczeń. Wykryto problemy są wyświetlane w obszarze hello **zalecenia dotyczące maszyny wirtualnej** opcji.
+Po zainstalowaniu rozwiązania do oceny luk w zabezpieczeniach na docelowej maszynie wirtualnej usługa Security Center skanuje maszynę wirtualną w celu wykrycia i zidentyfikowania luk w zabezpieczeniach systemu i aplikacji. Wykryte problemy zostaną wyświetlone w obszarze **Virtual Machines Recommendations** (Zalecenia dotyczące maszyn wirtualnych).
 
 #### <a name="how-do-i-implement-a-vulnerability-assessment-solution"></a>Jak wdrożyć rozwiązanie do oceny luk w zabezpieczeniach? 
 
 Jeśli maszyna wirtualna nie ma już wdrożone rozwiązanie do oceny luk w zabezpieczeniach zintegrowanego, Centrum zabezpieczeń zaleca się ona zainstalowana.
 
-1. Na pulpicie nawigacyjnym ASC hello, na powitania **zalecenia** bloku, wybierz opcję **Dodaj rozwiązanie do oceny luk w zabezpieczeniach.**
+1. Na pulpicie nawigacyjnym ASC na **zalecenia** bloku, wybierz opcję **Dodaj rozwiązanie do oceny luk w zabezpieczeniach.**
 
-2. Wybierz maszyny wirtualne hello miejscu rozwiązanie do oceny luk w zabezpieczeniach hello tooinstall.
+2. Wybierz maszyny wirtualne, które chcesz zainstalować rozwiązanie do oceny luk w zabezpieczeniach.
 
 3. Polecenie **zainstalowania na maszynach wirtualnych [numer].**
 
-4. Wybierz rozwiązanie partnerskie w hello Azure Marketplace, lub na podstawie **użyć istniejącego rozwiązania,** wybierz **Qualys.**
+4. Wybierz rozwiązanie partnerskie w portalu Azure Marketplace, lub na podstawie **użyć istniejącego rozwiązania,** wybierz **Qualys.**
 
-5. Ustawienia aktualizacji automatycznego hello lub wyłącz można włączyć w hello **rozwiązań partnerskich** bloku.
+5. Można włączyć ustawienia automatycznej aktualizacji lub wyłączyć **rozwiązań partnerskich** bloku.
 
-Aby uzyskać dalsze instrukcje dotyczące tooimplement rozwiązania oceny luk w zabezpieczeniach, zobacz [oceny luk w zabezpieczeniach w Centrum zabezpieczeń Azure.](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+Aby uzyskać dalsze instrukcje dotyczące implementowania rozwiązania oceny luk w zabezpieczeniach, zobacz [oceny luk w zabezpieczeniach w Centrum zabezpieczeń Azure.](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Przewodnik Szybki start dotyczący Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-- [Wprowadzenie tooAzure Centrum zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Wprowadzenie do Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 - [Integrowanie z integracją dzienników Azure alerty Centrum zabezpieczeń Azure](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration)
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaDeploy usługi Menedżer urządzenia StorSimple | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak toocreate i delete hello usługi Menedżer urządzenia StorSimple w hello portalu Azure, a w tym artykule opisano, jak toomanage hello klucz rejestracji usługi."
+title: "Wdrażanie usługi Menedżer urządzenia StorSimple | Dokumentacja firmy Microsoft"
+description: "Wyjaśniono, jak tworzyć i usuwać usługi Menedżer StorSimple urządzenia w portalu Azure i opisano sposób zarządzania klucz rejestracji usługi."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,102 +14,102 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-ms.openlocfilehash: 9064053addc7b3dfcce08b47e81b38c2e0e1b559
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="deploy-hello-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Wdrażanie usługi Menedżer StorSimple urządzenia hello tablicy wirtualnego StorSimple
+# <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Wdrażanie usługi Menedżer StorSimple urządzenia dla tablicy wirtualnego StorSimple
 ## <a name="overview"></a>Omówienie
 
-Hello usługi Menedżer StorSimple urządzenie działa w systemie Microsoft Azure i łączy toomultiple urządzenia StorSimple. Po utworzeniu usługi hello, można użyć toomanage hello urządzenia z hello Microsoft Azure portalu działającego w przeglądarce. Dzięki temu toomonitor usługi wszystkie urządzenia hello, które są połączone toohello Menedżera urządzeń StorSimple z jednym centralnym miejscu, w tym samym minimalizując nakładu prac administracyjnych.
+Usługa Menedżera urządzeń StorSimple działa na platformie Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Po utworzeniu usługi musisz służy do zarządzania urządzeniami z portalu Microsoft Azure działającego w przeglądarce. Dzięki temu można monitorować wszystkie urządzenia, które są połączone z usługą Menedżera urządzeń StorSimple z jednym centralnym miejscu, w tym samym minimalizując nakładu prac administracyjnych.
 
-Witaj typowe zadania pokrewne tooa usługi Menedżer StorSimple urządzenia są:
+Typowe zadania związane z usługą Menedżera urządzeń StorSimple są:
 
 * Tworzenie usługi
 * Usuwanie usługi
-* Pobierz klucz rejestracji usługi hello
-* Wygeneruj ponownie klucz rejestracji usługi hello
+* Pobieranie klucza rejestracji usługi
+* Wygeneruj ponownie klucz rejestracji usługi
 
-W tym samouczku opisano, jak tooperform z hello poprzednich zadań. Hello informacje zawarte w tym artykule jest stosowane tylko tablice wirtualnego tooStorSimple. Aby uzyskać więcej informacji na serii StorSimple 8000 Przejdź zbyt[wdrożyć usługę Menedżer StorSimple](storsimple-manage-service.md).
+W tym samouczku opisano sposób wykonywania wszystkich poprzednich zadań. Informacje zawarte w tym artykule ma zastosowanie tylko do tablic wirtualne StorSimple. Aby uzyskać więcej informacji dotyczących serii StorSimple 8000, przejdź do [wdrożyć usługę Menedżer StorSimple](storsimple-manage-service.md).
 
 ## <a name="create-a-service"></a>Tworzenie usługi
 
-toocreate usługi należy toohave:
+Aby utworzyć usługę, musi być:
 
 * Subskrypcja z umową Enterprise
 * Aktywne konto magazynu Microsoft Azure
-* Witaj informacji dotyczących rozliczeń, która służy do zarządzania dostępem
+* Informacji dotyczących rozliczeń, która służy do zarządzania dostępem
 
-Możesz również toogenerate konta magazynu podczas tworzenia usługi hello.
+Można także wygenerować konta magazynu podczas tworzenia usługi.
 
-Jednej usługi można zarządzać wieloma urządzeniami. Jednak urządzenia nie może obejmować wiele usług. Duże przedsiębiorstwa mogą być wielu toowork wystąpienia usługi z różnych subskrypcji, organizacji lub nawet miejsc wdrożenia.
+Jednej usługi można zarządzać wieloma urządzeniami. Jednak urządzenia nie może obejmować wiele usług. Duże przedsiębiorstwa mogą być wiele wystąpień usługi do pracy z różnych subskrypcji, organizacji lub nawet miejsc wdrożenia.
 
 > [!NOTE]
-> Należy oddzielnego wystąpienia Menedżera urządzeń StorSimple usługi toomanage StorSimple 8000 serii urządzeń i tablice wirtualne StorSimple.
+> Należy oddzielnego wystąpienia usługi Menedżer urządzenia StorSimple do zarządzania urządzeń z serii StorSimple 8000 i tablice wirtualne StorSimple.
 
 
-Wykonaj następujące kroki toocreate usługi hello.
+Wykonaj poniższe kroki, aby utworzyć usługę.
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
 ## <a name="delete-a-service"></a>Usuwanie usługi
 
-Przed usunięciem usługi, upewnij się, że żadnych podłączonych urządzeń używają go. Jeśli usługa hello jest używany, Dezaktywuj hello podłączone urządzenia. Witaj dezaktywować operacji sever hello połączenie między hello urządzeń i usług hello, ale zachować dane urządzenie hello w chmurze hello.
+Przed usunięciem usługi, upewnij się, że żadnych podłączonych urządzeń używają go. Jeśli usługa jest w użyciu, Dezaktywuj połączonych urządzeń. Operacja Dezaktywuj sever połączenia między urządzeniem i usługi, ale zachować dane urządzenie w chmurze.
 
 > [!IMPORTANT]
-> Po usunięciu usługi hello operacji nie można cofnąć. Dowolne urządzenie, które zostało przy użyciu usługi hello należy toobe resetowanie, zanim będzie można go używać z inną usługą do ustawień fabrycznych. W tym scenariuszu dane lokalne powitania na powitania urządzenia, a także konfiguracji hello zostaną utracone.
+> Po usunięciu usługi nie można cofnąć operacji. Dowolne urządzenie, które zostało przy użyciu usługi będzie trzeba resetowanie, zanim będzie można go używać z inną usługą do ustawień fabrycznych. W tym scenariuszu dane lokalne na urządzeniu, a także konfiguracji, zostaną utracone.
  
 
-Wykonaj następujące kroki toodelete usługi hello.
+Wykonaj poniższe kroki, aby usunąć usługę.
 
-#### <a name="toodelete-a-service"></a>toodelete usługi
+#### <a name="to-delete-a-service"></a>Aby usunąć usługę
 
-1. Przejdź za**wszystkie zasoby**. Wyszukiwanie usługi Menedżer StorSimple urządzenia. Wybierz usługę hello, że chcesz toodelete.
+1. Przejdź do **wszystkie zasoby**. Wyszukiwanie usługi Menedżer StorSimple urządzenia. Wybierz usługi, który chcesz usunąć.
    
-    ![Wybierz toodelete usługi](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Przejdź tooensure pulpitu nawigacyjnego usługi tooyour istnieją nie urządzeń połączonych toohello usługi. Jeśli nie ma żadnych urządzeń zarejestrowanych w usłudze tej usługi, pojawi się także efekt toohello komunikat transparentu. Kliknij polecenie **Usuń**.
+    ![Wybierz usługę do usunięcia](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
+2. Przejdź do pulpitu nawigacyjnego usługi, aby upewnić się, Brak urządzeń, połączone z tą usługą. Jeśli nie ma żadnych urządzeń zarejestrowanych w usłudze tej usługi, pojawi się także komunikat transparentu, w celu. Kliknij polecenie **Usuń**.
    
     ![Usuwanie usługi](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 
-3. Po wyświetleniu monitu o potwierdzenie, kliknij przycisk **tak** hello powiadomienia o potwierdzenie. 
+3. Po wyświetleniu monitu o potwierdzenie, kliknij przycisk **tak** powiadomienia o potwierdzenie. 
    
     ![Potwierdź usunięcie usługi](./media/storsimple-virtual-array-manage-service/deleteservice4.png)
-4. Może upłynąć kilka minut, aż toobe usługi hello usunięte. Po hello usługa jest pomyślnie usunięte, otrzymasz powiadomienie.
+4. Może upłynąć kilka minut, aż usługi do usunięcia. Po pomyślnym usunięciu usługi, otrzymasz powiadomienie.
    
     ![Usunięcie usługi powiodło się](./media/storsimple-virtual-array-manage-service/deleteservice6.png)
 
-Lista Hello usług zostanie odświeżona.
+Na liście usług będą odświeżane.
 
  ![Zaktualizowaną listę usług](./media/storsimple-virtual-array-manage-service/deleteservice7.png)
 
-## <a name="get-hello-service-registration-key"></a>Pobierz klucz rejestracji usługi hello
-Po pomyślnym utworzeniu usługi należy tooregister urządzenie StorSimple przy użyciu usługi hello. tooregister pierwszego urządzenia StorSimple, będzie konieczne hello klucz rejestracji usługi. tooregister dodatkowych urządzeń z istniejącej usługi StorSimple, konieczne będzie zarówno klucz rejestracji hello, jak i klucz szyfrowania danych usługi hello, (który jest generowany na powitania pierwszego urządzenia podczas rejestracji). Aby uzyskać więcej informacji na temat klucza szyfrowania danych usługi hello, zobacz [zabezpieczenia usługi StorSimple](storsimple-security.md). Klucz rejestracji hello można uzyskać, uzyskując dostęp do hello **klucze** bloku dla usługi.
+## <a name="get-the-service-registration-key"></a>Pobieranie klucza rejestracji usługi
+Po pomyślnym utworzeniu usługi musisz zarejestrować urządzenie StorSimple w usłudze. Aby zarejestrować pierwszego urządzenia StorSimple, konieczne będzie klucz rejestracji usługi. Aby zarejestrować dodatkowych urządzeń z istniejącej usługi StorSimple, konieczne będzie zarówno klucz rejestracji i klucza szyfrowania danych usługi (który jest generowany na pierwszym urządzeniem podczas rejestracji). Aby uzyskać więcej informacji na temat klucza szyfrowania danych usługi, zobacz [zabezpieczenia usługi StorSimple](storsimple-security.md). Możesz pobrać klucz rejestracji po zalogowaniu się do **klucze** bloku dla usługi.
 
-Wykonaj powitania po klucz rejestracji usługi hello tooget czynności.
+Wykonaj poniższe kroki, aby pobrać klucz rejestracji usługi.
 
-#### <a name="tooget-hello-service-registration-key"></a>klucz rejestracji usługi hello tooget
-1. W hello **Menedżera urządzeń StorSimple** bloku Przejdź zbyt**zarządzania &gt;**  **klucze**.
+#### <a name="to-get-the-service-registration-key"></a>Aby pobrać klucz rejestracji usługi
+1. W **Menedżera urządzeń StorSimple** bloku, przejdź do **zarządzania &gt;**  **klucze**.
    
    ![Blok Klucze](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. W hello **klucze** zostanie wyświetlony blok, klucz rejestracji usługi. Skopiuj klucz rejestracji hello za pomocą ikony kopiowania hello. 
+2. W **klucze** zostanie wyświetlony blok, klucz rejestracji usługi. Skopiuj klucz rejestracji za pomocą ikony kopiowania. 
 
-Klucz rejestracji usługi hello należy przechowywać w bezpiecznym miejscu. Należy tego klucza, a także klucz szyfrowania danych usługi hello tooregister dodatkowych urządzeń z tą usługą. Po uzyskaniu klucza rejestracji usługi hello, konieczne będzie tooconfigure urządzenia za pośrednictwem hello środowiska Windows PowerShell dla StorSimple interfejsu.
+Klucz rejestracji usługi należy przechowywać w bezpiecznym miejscu. Należy tego klucza, a także klucz szyfrowania danych usługi, aby zarejestrować dodatkowych urządzeń z tą usługą. Po uzyskaniu klucza rejestracji usługi, należy skonfigurować urządzenie za pomocą programu Windows PowerShell dla StorSimple interfejsu.
 
-## <a name="regenerate-hello-service-registration-key"></a>Wygeneruj ponownie klucz rejestracji usługi hello
-Należy tooregenerate klucz rejestracji usługi, jeśli są wymagane tooperform obrotu klucza lub jeśli zmieniono hello listy administratorów usługi. Podczas ponownego generowania klucza hello, nowy klucz hello jest używany tylko do celów rejestracji kolejnych urządzeń. przez ten proces nie dotyczy to urządzeń Hello, które zostały już zarejestrowane.
+## <a name="regenerate-the-service-registration-key"></a>Wygeneruj ponownie klucz rejestracji usługi
+Należy ponownie wygenerować klucz rejestracji usługi, jeśli jest wymagane do wykonania obrotu klucza lub zmiana listy administratorów usługi. Podczas ponownego generowania klucza, nowy klucz służy tylko do celów rejestracji kolejnych urządzeń. Przez ten proces nie dotyczy to urządzeń, które zostały już zarejestrowane.
 
-Wykonaj hello następujące kroki tooregenerate klucz rejestracji usługi.
+Wykonaj poniższe kroki, aby wygenerować ponownie klucz rejestracji usługi.
 
-#### <a name="tooregenerate-hello-service-registration-key"></a>klucz rejestracji usługi hello tooregenerate
-1. W hello **Menedżera urządzeń StorSimple** bloku Przejdź zbyt**zarządzania &gt;**  **klucze**.
+#### <a name="to-regenerate-the-service-registration-key"></a>Można ponownie wygenerować klucz rejestracji usługi
+1. W **Menedżera urządzeń StorSimple** bloku, przejdź do **zarządzania &gt;**  **klucze**.
    
    ![Blok Klucze](./media/storsimple-virtual-array-manage-service/getregkey2.png)
-2. W hello **klucze** bloku, kliknij przycisk **ponownie wygenerować**.
+2. W **klucze** bloku, kliknij przycisk **ponownie wygenerować**.
    
    ![Kliknij przycisk regenerate](./media/storsimple-virtual-array-manage-service/getregkey5.png)
-3. W hello **klucz rejestracji usługi Regenerate** bloku, przejrzyj hello Akcja wymagana, gdy hello klucze są generowane. Wszystkie urządzenia kolejnych hello, które są zarejestrowane z tą usługą użyje hello nowy klucz rejestracji. Kliknij przycisk **ponownie wygenerować** tooconfirm. Po zakończeniu rejestracji hello, otrzymasz powiadomienie.
+3. W **klucz rejestracji usługi Regenerate** bloku, przeglądanie nagrań akcji wymagany, gdy klucze są generowane. Wszystkie kolejne urządzenia, które są zarejestrowane z tą usługą użyje nowy klucz rejestracji. Kliknij przycisk **ponownie wygenerować** o potwierdzenie. Po zakończeniu rejestracji, otrzymasz powiadomienie.
    
    ![Potwierdź klucz regenerate](./media/storsimple-virtual-array-manage-service/getregkey3.png)
 4. Pojawi się nowy klucz rejestracji usługi.
@@ -119,6 +119,6 @@ Wykonaj hello następujące kroki tooregenerate klucz rejestracji usługi.
    Skopiuj ten klucz i zapisać go do rejestracji żadnych nowych urządzeń z tą usługą.
 
 ## <a name="next-steps"></a>Następne kroki
-* Dowiedz się, jak za[wprowadzenie](storsimple-virtual-array-deploy1-portal-prep.md) tablicą wirtualne StorSimple.
-* Dowiedz się, jak za[administrowania urządzenia StorSimple](storsimple-ova-web-ui-admin.md).
+* Dowiedz się, jak [wprowadzenie](storsimple-virtual-array-deploy1-portal-prep.md) tablicą wirtualne StorSimple.
+* Dowiedz się, jak [administrowania urządzenia StorSimple](storsimple-ova-web-ui-admin.md).
 

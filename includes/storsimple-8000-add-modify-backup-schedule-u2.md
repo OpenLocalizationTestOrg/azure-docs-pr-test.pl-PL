@@ -1,19 +1,19 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### <a name="tooadd-or-modify-a-storsimple-backup-schedule"></a>tooadd lub zmodyfikuj Harmonogram kopii zapasowych StorSimple
+#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Aby dodać lub zmodyfikować harmonogram tworzenia kopii zapasowych StorSimple
 
-1. Przejdź tooyour urządzenia StorSimple i kliknij polecenie **kopii zapasowej zasad**.
+1. Przejdź do urządzenia StorSimple i kliknij pozycję **Zasady kopii zapasowych**.
 
-2. Hello tabelarycznej listę hello zasady, wybierz i kliknij przycisk hello zasad, które mają toomodify. Kliknij prawym przyciskiem myszy menu kontekstowe hello tooinvoke, a następnie wybierz **Dodaj harmonogram**.
+2. Tabelaryczne liście zasady, wybierz i kliknij zasady, które chcesz zmodyfikować. Kliknij prawym przyciskiem myszy, aby wywołać z menu kontekstowego, a następnie wybierz **Dodaj harmonogram**.
 
     ![Zarządzanie harmonogramami](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. W hello **Dodaj harmonogram** bloku zmodyfikuj hello typu migawka, częstotliwość wykonywania kopii zapasowych, przechowywania i Data i godzina rozpoczęcia. Kliknij pozycję **Dodaj**.
+3. W **Dodaj harmonogram** bloku zmodyfikuj typu migawka, częstotliwość wykonywania kopii zapasowych, przechowywania i Data i godzina rozpoczęcia. Kliknij pozycję **Dodaj**.
 
     ![Zarządzanie harmonogramami](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
-4. Użytkownik jest powiadamiany o hello Tworzenie zasad tworzenia kopii zapasowej zostało ukończone. Lista zasad tworzenia kopii zapasowej Hello zostaje również zaktualizowany.
+4. Użytkownik jest powiadamiany o utworzeniu zasad tworzenia kopii zapasowej. Na liście zasad tworzenia kopii zapasowej zostaje również zaktualizowany.
 
     ![Zarządzanie harmonogramami](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 

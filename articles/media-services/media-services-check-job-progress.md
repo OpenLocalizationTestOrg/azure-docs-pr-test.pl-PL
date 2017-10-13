@@ -1,6 +1,6 @@
 ---
-title: "aaaMonitor postęp zadania przy użyciu platformy .NET"
-description: "Dowiedz się, jak tootrack kod obsługi zdarzenia toouse postępu zadania i wysyłać aktualizacje stanu. Przykładowy kod Hello jest napisany w języku C# i używa hello SDK usługi Media Services dla platformy .NET."
+title: "Monitoruj postęp zadania przy użyciu platformy .NET"
+description: "Dowiedz się, jak używać kod obsługi zdarzenia, aby śledzić postęp zadania i wysyłać aktualizacje stanu. Przykładowy kod jest napisany w języku C# i używa SDK usługi Media Services dla platformy .NET."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 530aa1d78437cd7c41b4d9a895f9a0e9de0ad49d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 851981b291115ba31dc40535f8bcc71cdb475717
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="monitor-job-progress-using-net"></a>Monitoruj postęp zadania przy użyciu platformy .NET
 > [!div class="op_single_selector"]
@@ -28,10 +28,10 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Po uruchomieniu zadania często wymagają postępu zadania tootrack sposób. Możesz sprawdzić postęp hello, definiując obsługi zdarzeń StateChanged (zgodnie z opisem w tym temacie) lub przy użyciu toomonitor magazynu kolejek Azure Media Services zadania powiadomienia (zgodnie z opisem w [to](media-services-dotnet-check-job-progress-with-queues.md) tematu).
+Po uruchomieniu zadania często wymagają sposób, aby śledzić postęp zadania. Definiowanie obsługi zdarzeń StateChanged (zgodnie z opisem w tym temacie) lub do monitorowania usługi Media Services zadania powiadomienia za pomocą magazynu kolejek Azure można sprawdzić postęp (zgodnie z opisem w [to](media-services-dotnet-check-job-progress-with-queues.md) tematu).
 
-## <a name="define-statechanged-event-handler-toomonitor-job-progress"></a>Zdefiniuj postęp zadania toomonitor procedury obsługi zdarzeń StateChanged
-Poniższy przykład kodu Hello definiuje hello StateChanged — program obsługi zdarzeń. Ten program obsługi zdarzeń śledzi postęp zadania i udostępnia zaktualizowany stan, w zależności od stanu hello. Kod Hello również definiuje metodę LogJobStop hello. Ta metoda pomocnika rejestruje informacje o błędzie.
+## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definiowanie procedury obsługi zdarzeń StateChanged, aby monitorować postęp zadania
+Poniższy przykładowy kod definiuje StateChanged obsługi zdarzeń. Ten program obsługi zdarzeń śledzi postęp zadania i udostępnia zaktualizowany stan, w zależności od stanu. Kod definiuje również metody LogJobStop. Ta metoda pomocnika rejestruje informacje o błędzie.
 
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
     {
@@ -73,7 +73,7 @@ Poniższy przykład kodu Hello definiuje hello StateChanged — program obsługi
         StringBuilder builder = new StringBuilder();
         IJob job = GetJob(jobId);
 
-        builder.AppendLine("\nThe job stopped due toocancellation or an error.");
+        builder.AppendLine("\nThe job stopped due to cancellation or an error.");
         builder.AppendLine("***************************");
         builder.AppendLine("Job ID: " + job.Id);
         builder.AppendLine("Job Name: " + job.Name);
@@ -96,7 +96,7 @@ Poniższy przykład kodu Hello definiuje hello StateChanged — program obsługi
             }
         }
         builder.AppendLine("***************************\n");
-        // Write hello output tooa local file and toohello console. hello template 
+        // Write the output to a local file and to the console. The template 
         // for an error output file is:  JobStop-{JobId}.txt
         string outputFile = _outputFilesFolder + @"\JobStop-" + JobIdAsFileName(job.Id) + ".txt";
         WriteToFile(outputFile, builder.ToString());

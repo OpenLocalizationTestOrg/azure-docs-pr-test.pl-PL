@@ -1,4 +1,4 @@
-Możesz sprawdzić, czy połączenie powiodło się przy użyciu hello [Pokaż połączenia sieci vpn sieci az](/cli/azure/network/vpn-connection#show) polecenia. Przykład Witaj "--name" odwołuje się nazwa toohello hello połączenia, które mają tootest. Gdy połączenie hello jest proces hello ustanowiono, jego stan połączenia jest wyświetlany "Łączenie". Po nawiązaniu połączenia hello hello stan zmieni too'Connected ".
+Możesz sprawdzić, czy połączenie powiodło się, używając polecenia [az network vpn-connection show](/cli/azure/network/vpn-connection#show). W podanym przykładzie opcja „--name” odnosi się do nazwy połączenia, które ma zostać przetestowane. Gdy proces nawiązywania połączenia trwa, jego stan połączenia to „Łączenie”. Gdy połączenie zostanie nawiązane, jego stan zmienia się na „Połączone”.
 
 ```azurecli
 az network vpn-connection show --name VNet1toSite2 --resource-group TestRG1

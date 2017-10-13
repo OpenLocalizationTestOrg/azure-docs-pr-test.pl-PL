@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z Zoho | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i Zoho."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i Zoho."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,237 +14,237 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d1c196d3b97babab196f509ea68e7d61523a7e0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f0688cb75584ada805b944d2ef5409d66ab37339
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Samouczek: Integracji Azure Active Directory z Zoho
 
-Z tego samouczka, dowiesz się, jak toointegrate Zoho w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie Zoho z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD Zoho zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD Zoho zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooZoho.
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooZoho (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do Zoho.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do Zoho (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z Zoho należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z Zoho, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Zoho logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie Zoho z galerii hello
+1. Dodawanie Zoho z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-zoho-from-hello-gallery"></a>Dodawanie Zoho z galerii hello
-tooconfigure hello integracji Zoho do usługi Azure AD, należy tooadd Zoho z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-zoho-from-the-gallery"></a>Dodawanie Zoho z galerii
+Aby skonfigurować integrację usługi Azure AD Zoho, należy dodać Zoho z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd Zoho z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać Zoho z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![przycisk usługi Azure Active Directory Hello][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa Hello][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Nowy przycisk aplikacji Hello][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania hello wpisz **Zoho**, wybierz pozycję **Zoho** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+4. W polu wyszukiwania wpisz **Zoho**, wybierz pozycję **Zoho** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![Zoho hello listy wyników](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_addfromgallery.png)
+    ![Zoho na liście wyników](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Zoho w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w Zoho jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w Zoho musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w Zoho jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w Zoho musi się.
 
-W Zoho, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W Zoho, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z Zoho, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z Zoho, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego Zoho](#create-a-zoho-test-user)**  -toohave odpowiednikiem Simona Britta w Zoho, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego Zoho](#create-a-zoho-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta Zoho połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji Zoho.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji Zoho.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z Zoho, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z Zoho, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **Zoho** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **Zoho** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_samlbase.png)
 
-3. Na powitania **Zoho domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **Zoho domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Adresy URL i domeny Zoho pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_url.png)
 
-    a. W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<company name>.zohomail.com`
+    a. W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<company name>.zohomail.com`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość z hello rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Zoho](https://www.zoho.com/mail/contact.html) tooget tej wartości. 
+    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość przy rzeczywisty adres URL logowania. Skontaktuj się z [zespołem pomocy technicznej klienta Zoho](https://www.zoho.com/mail/contact.html) aby zyskać tę wartość. 
  
-4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
-    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_certificate.png) 
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_certificate.png) 
 
 5. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-zoho-mail-tutorial/tutorial_general_400.png)
 
-6. Na powitania **konfiguracji Zoho** kliknij **skonfigurować Zoho** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adres URL, Zmień adres URL hasła i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+6. Na **konfiguracji Zoho** , kliknij przycisk **skonfigurować Zoho** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adres URL, Zmień adres URL hasła i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfiguracja Zoho](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_configure.png) 
 
 7. W oknie przeglądarki innej witryny sieci web Zaloguj się do witryny firmy poczty Zoho jako administrator.
 
-8. Przejdź toohello **Panelu sterowania**.
+8. Przejdź do **Panelu sterowania**.
    
     ![Panel sterowania](./media/active-directory-saas-zoho-mail-tutorial/ic789607.png "Panel sterowania")
 
-9. Kliknij przycisk hello **uwierzytelnianie SAML** kartę.
+9. Kliknij przycisk **uwierzytelnianie SAML** kartę.
    
     ![Uwierzytelnianie SAML](./media/active-directory-saas-zoho-mail-tutorial/ic789608.png "uwierzytelnianie SAML")
 
-10. W hello **Szczegóły okna uwierzytelnianie SAML** sekcji, wykonaj następujące kroki hello:
+10. W **Szczegóły okna uwierzytelnianie SAML** sekcji, wykonaj następujące czynności:
    
     ![Szczegóły okna uwierzytelnianie SAML](./media/active-directory-saas-zoho-mail-tutorial/ic789609.png "Szczegóły okna uwierzytelnianie SAML")
    
-    a. W hello **adres URL logowania** pole tekstowe, Wklej **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
+    a. W **adres URL logowania** pole tekstowe, Wklej **SAML pojedynczy znak na adres URL usługi** którego została skopiowana z portalu Azure.
    
-    b. W hello **adresu URL wylogowania** pole tekstowe, Wklej **Sign-Out URL** którego została skopiowana z portalu Azure.
+    b. W **adresu URL wylogowania** pole tekstowe, Wklej **Sign-Out URL** którego została skopiowana z portalu Azure.
    
-    c. W hello **Zmień adres URL hasła** pole tekstowe, Wklej **Zmień adres URL hasła** którego została skopiowana z portalu Azure.
+    c. W **Zmień adres URL hasła** pole tekstowe, Wklej **Zmień adres URL hasła** którego została skopiowana z portalu Azure.
        
-    d. Otwórz base-64 zakodowany certyfikat pobrany z portalu Azure w programie Notatnik hello kopiowania zawartości go do Schowka, a następnie wklej go toohello **PublicKey** pola tekstowego.
+    d. Otwórz base-64 zakodowany certyfikat pobrany z portalu Azure w programie Notatnik, skopiuj zawartość go do Schowka, a następnie wklej go do **PublicKey** pola tekstowego.
    
     e. Jako **algorytm**, wybierz pozycję **RSA**.
    
     f. Kliknij przycisk **OK**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
    ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W portalu Azure, w okienku po lewej stronie powitania hello kliknij hello **usługi Azure Active Directory** przycisku.
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_01.png)
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_01.png)
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_02.png)
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_02.png)
 
-3. Witaj tooopen **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** u góry hello hello **wszyscy użytkownicy** okno dialogowe.
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-    ![przycisk Dodaj Hello](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_03.png)
+    ![Przycisk Dodaj](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_03.png)
 
-4. W hello **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_04.png)
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-zoho-mail-tutorial/create_aaduser_04.png)
 
-    a. W hello **nazwa** wpisz **BrittaSimon**.
+    a. W **nazwa** wpisz **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole typu hello adres e-mail użytkownika Simona Britta.
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz hello **Pokaż hasło** pole wyboru, a następnie zapisz hello wartość, która jest wyświetlana w hello **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-zoho-test-user"></a>Tworzenie użytkownika testowego Zoho
 
-W kolejności tooenable usługi Azure AD użytkownicy toolog do Zoho poczty musi być przygotowana do Zoho poczty. W przypadku hello Zoho poczty Inicjowanie obsługi to zadanie ręczne.
+Aby włączyć użytkowników usługi Azure AD zalogować się do Zoho poczty, muszą mieć przydzielone do Zoho poczty. W przypadku poczty Zoho Inicjowanie obsługi to zadanie ręczne.
 
 > [!NOTE]
-> Możesz użyć innych Zoho poczty użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez tooprovision poczty Zoho kont użytkowników usługi AAD.
+> Możesz użyć innych Zoho poczty użytkownika konta tworzenia narzędzi lub interfejsów API dostarczonych przez Zoho poczty do kont użytkowników usługi AAD.
 
-### <a name="tooprovision-a-user-account-perform-hello-following-steps"></a>tooprovision konta użytkownika, należy wykonać hello następujące kroki:
+### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Aby udostępnić konta użytkownika, wykonaj następujące czynności:
 
-1. Zaloguj się za tooyour **poczty Zoho** witryny firmy jako administrator.
+1. Zaloguj się do Twojego **poczty Zoho** witryny firmy jako administrator.
 
-2. Przejdź za**Panelu sterowania \> poczty & Docs**.
+2. Przejdź do **Panel sterowania \> poczty & Docs**.
 
-3. Przejdź za**szczegóły użytkownika \> Dodaj użytkownika**.
+3. Przejdź do **szczegóły użytkownika \> dodać użytkownika**.
    
     ![Dodaj użytkownika](./media/active-directory-saas-zoho-mail-tutorial/ic789611.png "Dodaj użytkownika")
 
-4. Na powitania **dodawania użytkowników** okna dialogowego, wykonaj następujące kroki hello:
+4. Na **dodawania użytkowników** okna dialogowego, wykonaj następujące czynności:
    
     ![Dodaj użytkownika](./media/active-directory-saas-zoho-mail-tutorial/ic789612.png "Dodaj użytkownika")
    
-    a. W hello **imię** pole tekstowe, typ hello imię użytkownika, takich jak **Britta**.
+    a. W **imię** tekstowym, wpisz imię użytkownika, takich jak **Britta**.
 
-    b. W hello **nazwisko** pole tekstowe, typ hello nazwisko użytkownika, takich jak **Simona**.
+    b. W **nazwisko** tekstowym, wpisz nazwisko użytkownika, takich jak **Simona**.
 
-    c. W hello **identyfikator wiadomości E-mail** pole tekstowe, identyfikator wiadomości e-mail hello typu użytkownika, takich jak  **brittasimon@contoso.com** .
+    c. W **identyfikator wiadomości E-mail** pole tekstowe, typ identyfikatora e-mail użytkownika, takich jak  **brittasimon@contoso.com** .
 
-    d. W hello **hasło** pole tekstowe, wprowadź hasło użytkownika.
+    d. W **hasło** pole tekstowe, wprowadź hasło użytkownika.
    
     e. Kliknij przycisk **OK**.  
       
     > [!NOTE]
-    > Właściciel konta usługi Azure Active Directory Hello otrzymają wiadomość e-mail przy użyciu konta hello tooconfirm łącza, zanim staje się aktywny.
+    > Właściciel konta usługi Azure Active Directory zostanie wysłana wiadomość e-mail z łączem do potwierdzenia konta, zanim staje się aktywny.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooZoho.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu Zoho.
 
-![Przypisanie roli użytkownika hello][200] 
+![Przypisanie roli użytkownika][200] 
 
-**tooassign tooZoho Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta Zoho, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **Zoho**.
+2. Na liście aplikacji zaznacz **Zoho**.
 
-    ![łącze Zoho Hello na liście aplikacji hello](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_app.png)  
+    ![Łącze Zoho na liście aplikacji](./media/active-directory-saas-zoho-mail-tutorial/tutorial_zoho_app.png)  
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![łącze "Użytkownicy i grupy" Hello][202]
+    ![Łącze "Użytkownicy i grupy"][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Okienko Dodaj przypisania Hello][203]
+    ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -252,14 +252,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Zoho hello w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour Zoho aplikacji.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+Po kliknięciu kafelka Zoho w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji Zoho.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

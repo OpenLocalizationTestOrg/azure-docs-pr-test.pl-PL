@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure raportu analizy zagrożeń Centrum zabezpieczeń | Dokumentacja firmy Microsoft"
-description: "Ten dokument ułatwia toouse Azure Security Center zagrożeń inteligentnego raportów podczas badania toofind więcej informacji na temat alertu zabezpieczeń."
+title: "Raport analizy zagrożeń usługi Azure Security Center | Microsoft Docs"
+description: "Ten dokument ułatwia korzystanie z raportów analizy zagrożeń usługi Azure Security Center w trakcie badania w celu uzyskania większej ilości informacji na temat alertu zabezpieczeń."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-ms.openlocfilehash: c888cfac1dd8b057616a6b8e6c6f6b67b552f2e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b4310cf4e6849c67031b3ec8b1fd5957e35f7ea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Raport analizy zagrożeń usługi Azure Security Center
 W tym dokumencie wyjaśniono, w jaki sposób raporty analizy zagrożeń usługi Azure Security Center mogą ułatwić uzyskanie większej ilości informacji na temat zagrożenia, które spowodowało wygenerowanie alertu zabezpieczeń.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>Czym jest raport analizy zagrożeń?
-Wykrywanie zagrożeń Centrum zabezpieczeń polega na monitorowanie informacji o zabezpieczeniach z zasobów platformy Azure, hello sieci i rozwiązań partnerskich połączonych. Te informacje, często korelowanie informacji z wielu źródeł, zagrożenia tooidentify analizę. Ten proces jest częścią hello Centrum zabezpieczeń [możliwości wykrywania](security-center-detection-capabilities.md).
+Wykrywanie zagrożeń za pomocą usługi Security Center polega na monitorowaniu informacji o zabezpieczeniach uzyskanych z zasobów platformy Azure, sieci i powiązanych rozwiązań partnerskich. Analizuje ona te informacje, często zestawiając informacje z wielu źródeł, aby zidentyfikować zagrożenia. Proces ten jest częścią [funkcji wykrywania](security-center-detection-capabilities.md) w usłudze Security Center.
 
-Gdy usługa Security Center zidentyfikuje zagrożenie, wywoła [alert zabezpieczeń](security-center-managing-and-responding-alerts.md), który zawiera szczegółowe informacje dotyczące określonego zdarzenia — w tym propozycje rozwiązania problemu. zespoły odpowiedzi na zdarzenia tooassist zbadać i eliminowanie zagrożeń, Centrum zabezpieczeń zawiera raport analizy zagrożeń, który zawiera informacje dotyczące zagrożenia hello, który został wykryty, takich jak wraz z informacjami:
+Gdy usługa Security Center zidentyfikuje zagrożenie, wywoła [alert zabezpieczeń](security-center-managing-and-responding-alerts.md), który zawiera szczegółowe informacje dotyczące określonego zdarzenia — w tym propozycje rozwiązania problemu. Aby pomóc zespołom reagowania na zdarzenia w badaniu i usuwaniu zagrożeń, usługa Security Center obejmuje raport analizy zagrożeń zawierający informacje na temat wykrytego zagrożenia, takie jak:
 
 * tożsamość lub powiązania osoby atakującej (jeśli takie informacje są dostępne);
 * cele osoby atakującej;
 * bieżące i wcześniejsze kampanie ataków (jeśli takie informacje są dostępne);
 * taktyka, narzędzia i procedury osoby atakującej;
 * skojarzone wskaźniki naruszenia (IoC), np. adresy URL i skróty plików;
-* Victimology, hello branżowych i tooassist geograficzne występowania w określenie, czy zasobów platformy Azure, są narażeni na ataki
+* wiktymologia, czyli informacje dotyczące branży i obszaru geograficznego, które mogą być pomocne w ustaleniu, czy zasoby na platformie Azure są zagrożone;
 * informacje dotyczące ograniczania i usuwania zagrożeń.
 
 > [!NOTE]
-> Witaj ilość informacji w żadnych raportów określonego różnią się; poziom szczegółowości Hello opiera się na działania i występowanie hello złośliwego oprogramowania.
+> Ilość informacji w poszczególnych raportach będzie różna. Poziom szczegółowości zależy od aktywności i powszechności złośliwego oprogramowania.
 >
 >
 
-Centrum zabezpieczeń ma trzy typy zagrożeń raporty, które mogą się różnić zgodnie z toohello ataku. dostępne raporty Hello są:
+Usługa Security Center obejmuje trzy typy raportów zagrożeń, które mogą różnić się w zależności od ataku. Dostępne raporty:
 
 * **Raport grupy działań**: zawiera dokładne informacje dotyczące atakujących osób, ich celów oraz taktyki.
 * **Raport kampanii**: koncentruje się na szczegółach określonych kampanii ataków.
-* **Raport z podsumowaniem zagrożenia**: obejmuje wszystkie elementy hello hello poprzednich dwóch raportów.
+* **Raport z podsumowaniem zagrożenia**: obejmuje wszystkie elementy z poprzednich dwóch raportów.
 
-Informacje tego typu jest bardzo przydatny podczas hello [odpowiedzi na zdarzenia](security-center-incident-response.md) proces, w przypadku, gdy jest źródłem trwających badań toounderstand hello atak powitania, atakujący hello motywacji i co toodo toomitigate to problem przenoszenie do przodu.
+Informacje tego typu są bardzo przydatne w procesie [reagowania na zdarzenia](security-center-incident-response.md), w trakcie którego stale odbywa się badanie źródła ataku, motywacji atakującej osoby oraz sposobów ograniczenia zagrożeń związanych z tym problemem.
 
-## <a name="how-tooaccess-hello-threat-intelligence-report"></a>Jak tooaccess hello raportu analizy zagrożeń?
-Bieżące alerty można przeglądać, analizując hello **alerty zabezpieczeń** kafelka. Otwórz hello portalu Azure i wykonaj kroki hello poniżej toosee więcej szczegółów dotyczących poszczególnych alertów:
+## <a name="how-to-access-the-threat-intelligence-report"></a>Jak uzyskać dostęp do raportu analizy zagrożeń?
+Bieżące alerty można przeglądać przy użyciu kafelka **Alerty zabezpieczeń**. Otwórz witrynę Azure Portal i wykonaj poniższe kroki, aby wyświetlić więcej szczegółowych informacji dotyczących poszczególnych alertów:
 
-1. Na pulpicie nawigacyjnym Centrum zabezpieczeń hello, zobaczysz hello **alerty zabezpieczeń** kafelka.
-2. Kliknij hello kafelka tooopen hello **alerty zabezpieczeń** bloku, który zawiera szczegółowe informacje o hello alerty, a następnie kliknij przycisk w hello alert zabezpieczeń, które mają tooobtain więcej informacji na temat.
+1. Na pulpicie nawigacyjnym Centrum zabezpieczeń widoczny jest kafelek **Alerty zabezpieczeń**.
+2. Kliknij kafelek, aby otworzyć blok **Alerty zabezpieczeń**, który zawiera więcej szczegółowych informacji na temat alertów, i kliknij alert zabezpieczeń, o którym chcesz uzyskać więcej informacji.
 
     ![Alerty zabezpieczeń](./media/security-center-threat-report/security-center-threat-report-fig1.png)
-3. W takim przypadku hello **podejrzane proces wykonywany** bloku pokazuje hello szczegóły alertu hello, jak pokazano na poniższej ilustracji hello:
+3. W tym przypadku blok **Suspicious process executed** (Wykonano podejrzany proces) zawiera szczegółowe informacje dotyczące alertu, jak przedstawiono na rysunku poniżej:
 
     ![Szczegóły alertu zabezpieczeń](./media/security-center-threat-report/security-center-threat-report-fig2.png)
-4. Witaj ilość informacji dla każdego alertu zabezpieczeń różnią się zgodnie z toohello typu alertu. W hello **raporty** pola raportu analizy łącza toohello zagrożeń. Po jego kliknięciu zostanie wyświetlone kolejne okno przeglądarki z plikiem PDF.
+4. Ilość informacji dostępnych dla każdego alertu zabezpieczeń zależy od typu alertu. W polu **RAPORTY** znajduje się link do raportu analizy zagrożeń. Po jego kliknięciu zostanie wyświetlone kolejne okno przeglądarki z plikiem PDF.
 
    ![Wybór magazynu](./media/security-center-threat-report/security-center-threat-report-fig3.png)
 
-W tym miejscu można pobrać powitalne PDF dla tego raportu i odczytu więcej informacji na temat zabezpieczeń hello wydawać, która została wykryta i podejmuj działania na podstawie informacji hello.
+Tutaj można pobrać plik PDF raportu i przeczytać więcej na temat wykrytego problemu z zabezpieczeniami oraz podjąć działania w oparciu o dostarczone informacje.
 
 ## <a name="see-also"></a>Zobacz też
-W tym dokumencie opisano, jak przydatne mogą być raporty analizy zagrożeń usługi Azure Security Center w trakcie sprawdzania alertów zabezpieczeń. toolearn więcej informacji na temat Centrum zabezpieczeń Azure, zobacz następujące hello:
+W tym dokumencie opisano, jak przydatne mogą być raporty analizy zagrożeń usługi Azure Security Center w trakcie sprawdzania alertów zabezpieczeń. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 
-* [Azure Security Center — często zadawane pytania](security-center-faq.md). Znajdź często zadawane pytania dotyczące korzystania z usługi hello.
+* [Azure Security Center — często zadawane pytania](security-center-faq.md). Odpowiedzi na często zadawane pytania dotyczące korzystania z usługi.
 * [Korzystanie z usługi Azure Security Center w celu reagowania na zdarzenia](security-center-incident-response.md)
 * [Funkcje wykrywania usługi Azure Security Center](security-center-detection-capabilities.md)
-* [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md). Dowiedz się, jak tooplan i zrozumieć zagadnienia dotyczące projektowania hello tooadopt Centrum zabezpieczeń Azure.
-* [Zarządzanie i odpowiada toosecurity alertów w Centrum zabezpieczeń Azure](security-center-managing-and-responding-alerts.md). Dowiedz się, jak alerty toosecurity toomanage i odpowiada.
+* [Przewodnik planowania i obsługi usługi Azure Security Center](security-center-planning-and-operations-guide.md). Informacje na temat planowania i zagadnień projektowych podczas wdrażania usługi Azure Security Center.
+* [Reagowanie na alerty zabezpieczeń i zarządzanie nimi w usłudze Azure Security Center](security-center-managing-and-responding-alerts.md). Informacje na temat sposobu zarządzania alertami zabezpieczeń i reagowania na nie.
 * [Obsługa zdarzeń naruszenia zabezpieczeń w usłudze Azure Security Center](security-center-incident.md)
 * [Blog Azure Security](http://blogs.msdn.com/b/azuresecurity/). Wpisy na blogu dotyczące zabezpieczeń i zgodności platformy Azure.

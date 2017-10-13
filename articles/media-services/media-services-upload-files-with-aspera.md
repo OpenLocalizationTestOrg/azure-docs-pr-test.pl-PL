@@ -1,6 +1,6 @@
 ---
-title: "pliki aaaUpload do konta usługi Azure Media Services przy użyciu Aspera | Dokumentacja firmy Microsoft"
-description: "Ten samouczek przedstawia kroki hello przekazywania plików do konta magazynu, który jest skojarzony z kontem usługi Media Services przy użyciu hello ** Aspera serwera na żądanie ** usługi na platformie Azure."
+title: "Przekazywanie plików na konto usługi Azure Media Services za pomocą rozwiązania Aspera | Microsoft Docs"
+description: "Ten samouczek przedstawia kroki przekazywania plików do konta magazynu, który jest skojarzony z kontem usługi Media Services przy użyciu ** Aspera serwera na żądanie ** usługi na platformie Azure."
 services: media-services
 documentationcenter: 
 author: johndeu
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: 7213f016cc1b7f262b14db7b39b478a03970d1c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="upload-files-into-a-media-services-account-using-hello-aspera-server-on-demand-service-on-azure"></a>Przekazywanie plików do konta usługi Media Services przy użyciu hello Aspera serwera na żądanie usługi na platformie Azure
+# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Przekazywanie plików na konto usługi Media Services przy użyciu usługi Aspera Server On Demand na platformie Azure
 
 ## <a name="overview"></a>Omówienie
 
-**Aspera** to oprogramowanie do szybkiego transferowania plików. Usługa **Aspera Server On Demand** dla platformy Azure umożliwia szybkie przekazywanie i pobieranie dużych plików bezpośrednio do i z magazynu obiektów blob platformy Azure. Aby uzyskać informacje o **Aspera na żądanie**, zobacz hello [chmury Aspera](http://cloud.asperasoft.com/) lokacji. 
+**Aspera** to oprogramowanie do szybkiego transferowania plików. Usługa **Aspera Server On Demand** dla platformy Azure umożliwia szybkie przekazywanie i pobieranie dużych plików bezpośrednio do i z magazynu obiektów blob platformy Azure. Aby uzyskać informacje na temat usługi **Aspera On Demand**, zobacz witrynę [Aspera Cloud](http://cloud.asperasoft.com/). 
   
-**Serwer Aspera na żądanie** Azure jest dostępne do zakupu od hello [witrynę Azure marketplace](https://azure.microsoft.com/en-us/marketplace/). W celu toocomplete zakupu **Aspera serwera na żądanie** dla platformy Azure, należy zalogować się do portalu Azure Marketplace z swojego identyfikatora Windows Live.
+Usługa **Aspera Server On Demand** dla platformy Azure jest dostępna do kupienia w witrynie [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/). Aby ukończyć zakup usługi **Aspera Server On Demand** dla platformy Azure, zaloguj się do witryny Azure Marketplace przy użycia swojego identyfikatora usługi Windows Live.
 
-Ten samouczek przedstawia kroki hello przekazywania plików do konta magazynu, który jest skojarzony z kontem usługi Media Services przy użyciu hello **Aspera serwera na żądanie** usługi na platformie Azure. 
+Ten samouczek przeprowadzi Cię przez kroki przekazywania plików na konto magazynu skojarzone z kontem usługi Media Services za pomocą usługi **Aspera Server On Demand** na platformie Azure. 
 
-Przykład działania toouse Azure z Aspera i usługi Media Services można znaleźć [tutaj](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
+[W tym miejscu](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest) można znaleźć przykład sposobu używania funkcji platformy Azure z usługami Aspera i Media Services.
 
 >[!NOTE]
->Brak limitu toohello maksymalny obsługiwany rozmiar pliku do przetwarzania w usłudze Azure Media Services procesory multimediów (MP). Zobacz [to](media-services-quotas-and-limitations.md) tematu, aby uzyskać szczegółowe informacje dotyczące limitu rozmiaru pliku hello.
+>Istnieje limit maksymalnego rozmiaru pliku przetwarzanego przez procesory multimediów usługi Azure Media Services. Zobacz [ten](media-services-quotas-and-limitations.md) temat, aby uzyskać szczegółowe informacje na temat ograniczeń rozmiarów plików.
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne 
 
-toocomplete tego samouczka należy:
+Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Identyfikator usługi Windows Live
 * [Konto platformy Azure](https://azure.microsoft.com). Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -46,81 +46,81 @@ toocomplete tego samouczka należy:
 
 ## <a name="purchase-aspera-on-demand-for-azure"></a>Kupowanie usługi Aspera On Demand dla platformy Azure
 
-Po użytkownik zalogował się do portalu Azure Marketplace, należy wykonać te podstawowe kroki toocomplete zakupie Aspera na żądanie dla platformy Azure.
+Po zalogowaniu się do witryny Azure Marketplace wykonaj te proste kroki, aby przeprowadzić zakup usługi Aspera On Demand dla platformy Azure.
 
 1. Wyszukaj nazwę Aspera i wybierz pozycję „Server On Demand”.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera001.png)
 
-2. Przejrzyj hello plany subskrypcji i kliknij przycisk "Utwórz konto"
+2. Przejrzyj plany subskrypcji i kliknij pozycję „Zarejestruj się”.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. Wprowadź szczegóły powitania serwera na żądanie subskrypcji.
+3. Wprowadź szczegółowe informacje o subskrypcji Server on Demand.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 
-4. Polecenie hello **warstwy cenowej** i wybierz odpowiednią woluminu miesięczne hello sub panelu. W hello **planowanie szczegóły** panelu, wybierz opcję **OK**. Następnie w hello **wybierz warstwę cenową** panelu, kliknij przycisk **wybierz**.
+4. Kliknij pozycję **Warstwa cenowa** i wybierz żądany miesięczny wolumin w panelu podrzędnym. W panelu **Szczegóły planu** wybierz pozycję **OK**. Następnie w panelu **Wybierz warstwę cenową** kliknij pozycję **Wybierz**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera004.png)
 
-5. Polecenie **postanowienia prawne** tooview i zaakceptuj postanowienia prawne hello hello sub panelu. Po przejrzeniu hello postanowienia prawne, kliknij przycisk **zakupu**.
+5. W panelu podrzędnym kliknij pozycję **Warunki prawne**, aby je wyświetlić i zaakceptować. Po przejrzeniu warunków prawnych kliknij pozycję **Kup**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera005.png)
 
-6. Ukończ zakupu hello klikając **Utwórz**.
+6. Sfinalizuj zakup, klikając pozycję **Utwórz**.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera006.png)
 
-7. Hello Azure pulpitu nawigacyjnego ogłaszamy, że jest inicjowania obsługi usługi hello.  Po zakończeniu z inicjowaniem obsługi administracyjnej przez wyszukiwanie w Twoich zasobów dla nazwy hello hello usługi można znaleźć hello nową subskrypcję. Po znalezieniu hello usługi, podwójne kliknięcie portalu zarządzania usługami hello toolaunch.
+7. Na pulpicie nawigacyjnym platformy Azure pojawi się informacja, że usługa jest aprowizowana.  Po zakończeniu aprowizacji nową subskrypcję będzie można znaleźć, wyszukując nazwę usługi w swoich zasobach. Po znalezieniu usługi kliknij ją dwukrotnie, aby uruchomić portal zarządzania usługą.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera007.png)
 
-8. Uruchom program hello Aspera management portal. Po znalezieniu nowej usługi Aspera mogą uzyskać dostęp do portalu zarządzania toohello, klikając hello usługi.  Zostanie uruchomiony nowy panel. Od w tym nowym panelu należy tooclick na powitania **Nazwa zasobu** z nowej usługi.  W hello następującego zrzutu ekranu Nazwa zasobu hello jest "AsperaTransferDemo". Po kliknięciu hello Nazwa zasobu jest uruchamiana innego panelu. W tym nowo uruchomionym panelu zobaczysz link „Zarządzaj”. Polecenie hello portalu zarządzania Aspera hello toolaunch link "Zarządzaj".
+8. Uruchom portal zarządzania usługi Aspera. Po znalezieniu nowej usługi Aspera można uzyskać dostęp do portalu zarządzania, klikając usługę.  Zostanie uruchomiony nowy panel. Na tym nowym panelu kliknij **nazwę zasobu** nowej usługi.  Na poniższym zrzucie ekranu nazwa zasobu to „AsperaTransferDemo”. Po kliknięciu nazwy zasobu zostanie uruchomiony kolejny panel. W tym nowo uruchomionym panelu zobaczysz link „Zarządzaj”. Kliknij link „Zarządzaj”, aby uruchomić portal zarządzania usługi Aspera.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera008.png)
 
-9. Klikając hello zarządzać link, zostanie wyświetlona strona rejestracji toohello, co jest wymagane tooaccess hello usługi.
+9. Po kliknięciu linku zarządzania zostanie otwarta strona rejestracji. Rejestracja jest wymagana, aby uzyskać dostęp do usługi.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera009.png)
 
-10. W tym momencie powinien mieć dostęp toohello Aspera portalu zarządzania usługami, gdzie można utworzyć klucze dostępu, Pobierz Aspera klientów i licencji, Wyświetl użycie i Dowiedz się więcej o hello interfejsów API.
+10. W tym momencie powinien już być możliwy dostęp do portalu zarządzania usługą Aspera, w którym można tworzyć klucze dostępu, pobierać klientów i licencje usługi Aspera, wyświetlać użycie i dowiedzieć się więcej na temat interfejsów API.
 
-    Witaj Poniższy zrzut ekranu przedstawia hello tworzenia dostępu. 
+    Następujący zrzut ekranu przedstawia tworzenie dostępu. 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
 
-    Witaj Poniższy zrzut ekranu przedstawia raportowanie interfejsów w portalu hello hello użycia. 
+    Poniższy zrzut ekranu przedstawia interfejsy raportowania użycia w portalu. 
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
 
 ## <a name="upload-files-with-aspera"></a>Przekazywanie plików za pomocą usługi Aspera
 
-1. Pobierz i zainstaluj oprogramowanie klienckie Aspera hello:
+1. Pobierz i zainstaluj oprogramowanie klienckie Aspera:
     
     * [Wtyczka przeglądarki](http://downloads.asperasoft.com/connect2/)
     * [Klient wzbogacony](http://downloads.asperasoft.com/en/downloads/2)
 
-2. Przeprowadź pierwszy transfer. Kolejność toouse hello Aspera klienta tootransfer z hello Aspera transfer service niezbędne są następujące hello toocomplete: 
+2. Przeprowadź pierwszy transfer. Aby móc używać klienta Aspera do transferowania danych za pomocą usługi transferowania Aspera, musisz ukończyć następujące czynności: 
 
-    1. Utwórz klucz dostępu za pomocą portalu Aspera hello.  
-    2. Pobieranie, instalacji i licencji hello Aspera klienta (oprogramowania można znaleźć w portalu Aspera hello).  
+    1. Utwórz klucz dostępu za pomocą portalu usługi Aspera.  
+    2. Pobierz i zainstaluj klienta usługi Aspera (oprogramowanie można znaleźć w portalu usługi Aspera) oraz uzyskaj dla niego licencję.  
 
     >[!NOTE]
-    >Przeczytaj przewodnik klienta Aspera hello informacji o konfiguracji.
+    >Przeczytaj podręcznik klienta usługi Aspera w celu uzyskania informacji o konfiguracji.
     
-    3. Pobrać niektóre informacje o koncie magazynu, który jest skojarzony z Twoim kontem multimediów Azure przy użyciu hello [portalu Azure](https://portal.azure.com/). W szczególności nazwy i klucza, a nazwa kontenera obiektów blob magazynu hello w toowhich ma tooplace zawartości. 
+    3. Pobierz niektóre informacje o swoim koncie magazynu skojarzonym z kontem usługi Azure Media za pomocą witryny [Azure Portal](https://portal.azure.com/). Konkretnie potrzebne będą nazwa i klucz oraz nazwa kontenera obiektu blob magazynu, w którym chcesz umieścić swoją zawartość. 
 
-        * informacje dotyczące tooget hello magazynu z portalu hello: znaleźć konta magazynu, kliknij hello klawisze dostępu, a kopia klucza nazwy i hello hello Twojego konta.
-        * Nazwa kontenera hello tooget: znaleźć konta magazynu, wybierz opcję **obiekty BLOB**, wybierz pozycję hello nazwa kontenera hello tooupload hello zawartość do. 
+        * Aby uzyskać informacje o magazynie z portalu: znajdź swoje konto magazynu, kliknij pozycję Klucze dostępu i skopiuj nazwę oraz klucz konta.
+        * Aby uzyskać nazwę kontenera: znajdź swoje konto magazynu, wybierz opcję **Obiekty blob** i wybierz nazwę kontenera, do którego chcesz przekazywać zawartość. 
 
-    Poniżej przedstawiono zrzut ekranu powitania klienta Aspera hello **Menedżera połączeń** gdzie należy określić typ magazynu "Azure" hello i poświadczenia, a także hello kontenera obiektów blob.
+    Poniżej znajduje się zrzut ekranu **Menedżer połączeń** klienta usługi Aspera, w którym jako typ magazynu należy określić wartość „Azure”, a także podać poświadczenia i wskazać kontener obiektów blob.
 
     ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
 
 ## <a name="resources"></a>Zasoby
 
-Witaj następujące zasoby zostały wymienione w tym artykule. 
+W niniejszym artykule zostały wymienione poniższe zasoby. 
 
 * [Nawiązywanie połączenia z wtyczką przeglądarki](http://downloads.asperasoft.com/connect2/)
 * [Przewodnik po nawiązywaniu połączeń](http://downloads.asperasoft.com/en/documentation/8)

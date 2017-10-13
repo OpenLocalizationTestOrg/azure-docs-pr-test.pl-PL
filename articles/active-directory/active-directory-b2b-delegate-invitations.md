@@ -1,5 +1,5 @@
 ---
-title: "aaaDelegate zaproszeń do współpracy usługi Azure Active Directory B2B | Dokumentacja firmy Microsoft"
+title: "Delegowanie zaproszeń do skorzystania z usługi Azure Active Directory B2B współpracy | Dokumentacja firmy Microsoft"
 description: "Właściwości użytkownika współpraca w usłudze Azure Active Directory B2B są konfigurowane"
 services: active-directory
 documentationcenter: 
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: c0122d6f60d494c6e251c41d947dc254ea887620
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 78613cc978b585a98d235245194c02371f7f3849
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegowanie zaproszeń do skorzystania z usługi Azure Active Directory B2B współpracy
 
-Ze współpracą między firmami (B2B) w usłudze Azure Active Directory (Azure AD) nie masz toobe zaproszenia toosend administratora globalnego. Zamiast tego można użyć zasad i delegować toousers zaproszenia, których role zezwolić im toosend zaproszeń do skorzystania z. Jest ważne nowy sposób toodelegate gościa użytkownika zaproszeń do skorzystania z za pomocą hello zapraszającej gościa roli.
+Ze współpracą między firmami (B2B) w usłudze Azure Active Directory (Azure AD) nie trzeba być administratorem globalnym, aby wysłać zaproszenia. Można użyć zasad i delegować zaproszeń do użytkowników, których role zezwolić im na wysyłanie zaproszeń do skorzystania z. Jest ważne nowy sposób, aby delegować zaproszenia użytkownika gościa za pomocą roli zapraszającej gościa.
 
 ## <a name="guest-inviter-role"></a>Rola zapraszającej gościa
-Firma Microsoft można przypisać tooGuest użytkownika hello toosend zaproszeń do skorzystania z zapraszającej roli. Nie ma elementu członkowskiego toobe zaproszeń toosend roli administratora globalnego hello. Domyślnie normalnych użytkowników można także wywoływać interfejs API zaproszenia hello, chyba że administrator globalny wyłączone zaproszeń do normalnych użytkowników. Użytkownik może również wywołać hello interfejsu API przy użyciu hello portalu Azure lub programu PowerShell.
+Użytkownika można przypisać do roli zapraszającej gościa, aby wysłać zaproszenia. Nie trzeba być członkiem roli administratora globalnego Wyślij zaproszenia. Domyślnie normalnych użytkowników można także wywoływać interfejs API zaproszenia, chyba że administrator globalny wyłączone zaproszeń do normalnych użytkowników. Użytkownik może również wywołać interfejsu API przy użyciu portalu Azure lub programu PowerShell.
 
-Oto przykład pokazujący sposób toouse PowerShell tooadd roli użytkownika gościa zapraszającej toohello:
+Oto przykład pokazujący sposób, aby dodać użytkownika do roli zapraszającej gościa za pomocą programu PowerShell:
 
 ```
 Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
@@ -36,16 +36,16 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 ## <a name="control-who-can-invite"></a>Formant, który można zaprosić
 
-![Formant jak tooinvite](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
+![Kontrolowanie sposobu zaprosić](media/active-directory-b2b-delegate-invitations/control-who-to-invite.png)
 
-Współpracy B2B usługi Azure AD administratora dzierżawy. można ustawić następujące zasady zaproszenia hello:
+Współpracy B2B usługi Azure AD administratora dzierżawy. można ustawić następujące zasady zaproszenia:
 
 - Wyłącz zaproszenia
-- Tylko administratorzy i użytkownicy w roli gościa zapraszającej hello można zaprosić
-- Administratorzy, hello zapraszającej gościa roli i elementów członkowskich można zaprosić
+- Tylko administratorzy i użytkownicy w roli zapraszającej gościa można zaprosić
+- Zaprosić administratorów, roli zapraszającej Gość i członków
 - Wszyscy użytkownicy, w tym gości, można zaprosić
 
-Dzierżawców są domyślnie zbyt #4. (Wszystkich użytkowników, w tym gości, można zaprosić użytkowników B2B).
+Domyślnie dzierżaw są ustawione na #4. (Wszystkich użytkowników, w tym gości, można zaprosić użytkowników B2B).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -53,7 +53,7 @@ Zobacz nasze inne artykuły dotyczące współpracy B2B w usłudze Azure AD:
 
 * [Czym jest współpraca B2B w usłudze Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Właściwości użytkownika współpracy B2B](active-directory-b2b-user-properties.md)
-* [Dodawanie roli tooa użytkownika współpracy B2B](active-directory-b2b-add-guest-to-role.md)
+* [Dodawanie do roli użytkownika współpracy B2B](active-directory-b2b-add-guest-to-role.md)
 * [Grupami dynamicznymi i współpracy B2B](active-directory-b2b-dynamic-groups.md)
 * [Kod współpracy B2B i przykłady środowiska PowerShell](active-directory-b2b-code-samples.md)
 * [Konfigurowanie aplikacji SaaS do współpracy B2B](active-directory-b2b-configure-saas-apps.md)

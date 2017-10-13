@@ -1,6 +1,6 @@
 ---
-title: "aaaHelp bezpiecznej komunikacji dla usług w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
-description: "Omówienie jak toohelp bezpiecznej komunikacji niezawodnej usług które są uruchomione w klastrze usługi sieć szkieletowa usług Azure."
+title: "Pomoc bezpiecznej komunikacji dla usług w sieci szkieletowej usług Azure | Dokumentacja firmy Microsoft"
+description: "Przegląd sposobów zapewnienia bezpiecznej komunikacji dla niezawodnych usług, które są uruchomione w klastrze usługi sieć szkieletowa usług Azure."
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 14db54d50c35478c1f2c156de0dba36f1427c8cb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c4634e3d8efb1745fffcfe3e647e43d867038716
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Pomoc w bezpiecznej komunikacji dla usług w sieci szkieletowej usług Azure
 > [!div class="op_single_selector"]
@@ -27,9 +27,9 @@ ms.lasthandoff: 10/06/2017
 >
 
 ## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Zabezpieczanie usługi podczas korzystania z komunikacji zdalnej usługi
-Będziemy używać istniejącego [przykład](service-fabric-reliable-services-communication-remoting-java.md) objaśniający sposób tooset się komunikację zdalną dla niezawodne usługi. toohelp Zabezpieczanie usługi podczas korzystania z usługi komunikacji zdalnej, wykonaj następujące kroki:
+Będziemy używać istniejącego [przykład](service-fabric-reliable-services-communication-remoting-java.md) który wyjaśnia, jak skonfigurować komunikację zdalną dla niezawodne usługi. Aby ułatwić zabezpieczanie usługi podczas korzystania z usługi komunikacji zdalnej, wykonaj następujące kroki:
 
-1. Tworzenie interfejsu `HelloWorldStateless`, który definiuje metody hello, które będą dostępne dla zdalnego wywołania procedury w usłudze. Usługa będzie używać `FabricTransportServiceRemotingListener`, która jest zadeklarowana w hello `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` pakietu. Jest to `CommunicationListener` implementację, która zapewnia możliwości komunikacji zdalnej.
+1. Tworzenie interfejsu `HelloWorldStateless`, który definiuje metody, które będą dostępne dla zdalnego wywołania procedury w usłudze. Usługa będzie używać `FabricTransportServiceRemotingListener`, która jest zadeklarowana w `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` pakietu. Jest to `CommunicationListener` implementację, która zapewnia możliwości komunikacji zdalnej.
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -53,11 +53,11 @@ Będziemy używać istniejącego [przykład](service-fabric-reliable-services-co
     ```
 2. Dodaj ustawienia odbiornika i poświadczeń zabezpieczeń.
 
-    Upewnij się, które mają toohelp toouse bezpiecznej komunikacji usługi jest zainstalowany we wszystkich węzłach klastra hello hello certyfikatu hello. Istnieją dwa sposoby, które można udostępniać ustawienia odbiornika i poświadczenia zabezpieczeń:
+    Upewnij się, że certyfikat, który ma być używany do zabezpieczania komunikacji usługi jest zainstalowany na wszystkich węzłach w klastrze. Istnieją dwa sposoby, które można udostępniać ustawienia odbiornika i poświadczenia zabezpieczeń:
 
    1. Podaj je za pomocą [pakietu konfiguracji](service-fabric-application-model.md):
 
-       Dodaj `TransportSettings` sekcji w pliku settings.xml hello.
+       Dodaj `TransportSettings` sekcji w pliku settings.xml.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -72,7 +72,7 @@ Będziemy używać istniejącego [przykład](service-fabric-reliable-services-co
 
        ```
 
-       W takim przypadku hello `createServiceInstanceListeners` metoda będzie wyglądać następująco:
+       W takim przypadku `createServiceInstanceListeners` metoda będzie wyglądać następująco:
 
        ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -84,7 +84,7 @@ Będziemy używać istniejącego [przykład](service-fabric-reliable-services-co
         }
        ```
 
-        Jeśli dodasz `TransportSettings` sekcji w pliku settings.xml hello bez żadnych prefiksów `FabricTransportListenerSettings` załaduje wszystkie ustawienia hello w tej sekcji ma domyślnie.
+        Jeśli dodasz `TransportSettings` sekcji w pliku settings.xml bez żadnych prefiksów `FabricTransportListenerSettings` załaduje wszystkie ustawienia w tej sekcji ma domyślnie.
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -92,7 +92,7 @@ Będziemy używać istniejącego [przykład](service-fabric-reliable-services-co
             ...
         </Section>
         ```
-        W takim przypadku hello `CreateServiceInstanceListeners` metoda będzie wyglądać następująco:
+        W takim przypadku `CreateServiceInstanceListeners` metoda będzie wyglądać następująco:
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -103,9 +103,9 @@ Będziemy używać istniejącego [przykład](service-fabric-reliable-services-co
             return listeners;
         }
        ```
-3. Podczas wywoływania metody zabezpieczonych usługi przy użyciu hello stosu usług zdalnych, zamiast hello `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` toocreate klasy serwera proxy usługi, użyj `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
+3. Gdy wywoływać metod w usług zabezpieczonych przy użyciu stosu usług zdalnych, zamiast `microsoft.serviceFabric.services.remoting.client.ServiceProxyBase` klasę, aby utworzyć serwer proxy usługi, użyj `microsoft.serviceFabric.services.remoting.client.FabricServiceProxyFactory`.
 
-    Jeśli kod klienta hello jest uruchomiony jako część usługi, można załadować `FabricTransportSettings` z pliku settings.xml hello. Sekcja TransportSettings, która jest podobny kod usługi toohello, należy utworzyć, jak pokazano wcześniej. Wprowadź hello następującego kodu klienta toohello zmiany:
+    Jeśli kod klienta działa w ramach usługi, można załadować `FabricTransportSettings` z pliku settings.xml. Utwórz sekcję TransportSettings, która jest podobna do kodu usługi, jak pokazano wcześniej. Wprowadź następujące zmiany w kodzie klienta:
 
     ```java
 

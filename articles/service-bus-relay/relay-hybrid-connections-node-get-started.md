@@ -1,5 +1,5 @@
 ---
-title: "aaaGet pracę z połączeń hybrydowych przekazywania Azure w węźle | Dokumentacja firmy Microsoft"
+title: "Wprowadzenie do połączeń hybrydowych usługi Azure Relay w języku Node | Microsoft Docs"
 description: "Napisz aplikację konsolową w środowisku Node.js do obsługi połączeń hybrydowych usługi Azure Relay."
 services: service-bus-relay
 documentationcenter: node
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 07/07/2017
 ms.author: sethm
-ms.openlocfilehash: 235548399570074f7fd160fec28de8d3633625c5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: c3bfc45969f250059988129f532edd12dfe3dcfe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Wprowadzenie do połączeń hybrydowych usługi Relay
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-Ten samouczek zawiera wprowadzenie zbyt[połączeń hybrydowych przekazywania Azure](relay-what-is-it.md#hybrid-connections)i pokazuje, jak toouse Node.js toocreate aplikacji klienckiej, która wysyła komunikaty tooa odpowiednich aplikacji odbiornika. 
+Ten samouczek zawiera wprowadzenie do [połączeń hybrydowych usługi Azure Relay](relay-what-is-it.md#hybrid-connections). Pokazano w nim, jak w środowisku Node.js utworzyć aplikację kliencką, która wysyła komunikaty do odpowiadającej jej aplikacji odbiornika. 
 
 ## <a name="what-will-be-accomplished"></a>Co zostanie osiągnięte?
 
-Połączenia hybrydowe wymagają zarówno składnika klienta, jak i składnika serwera, dlatego w tym samouczku utworzymy dwie aplikacje konsolowe. Poniżej przedstawiono kroki hello:
+Połączenia hybrydowe wymagają zarówno składnika klienta, jak i składnika serwera, dlatego w tym samouczku utworzymy dwie aplikacje konsolowe. Oto konkretne kroki:
 
-1. Tworzenie przestrzeni nazw przekazywania, przy użyciu hello portalu Azure.
-2. Tworzenie połączenia hybrydowego, przy użyciu hello portalu Azure.
-3. Wpisz serwer komunikatów tooreceive aplikacji konsoli.
-4. Zapis klienta komunikatów toosend aplikacji konsoli.
+1. Utworzenie przestrzeni nazw usługi Relay za pomocą witryny Azure Portal.
+2. Tworzenie połączenia hybrydowego za pomocą witryny Azure Portal.
+3. Napisanie aplikacji konsolowej serwera służącej do odbierania komunikatów.
+4. Napisanie aplikacji konsolowej klienta służącej do wysyłania komunikatów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -42,35 +42,35 @@ Połączenia hybrydowe wymagają zarówno składnika klienta, jak i składnika s
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-hello-azure-portal"></a>1. Tworzenie przestrzeni nazw przy użyciu hello portalu Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Tworzenie przestrzeni nazw za pomocą usługi Azure Portal
 
-Jeśli masz już przestrzeń nazw przekazywania utworzone, przejście toohello [Tworzenie połączenia hybrydowego, za pomocą portalu Azure hello](#2-create-a-hybrid-connection-using-the-azure-portal) sekcji.
+Jeśli przestrzeń nazw usługi Relay została już utworzona, przejdź do sekcji [Tworzenie połączenia hybrydowego za pomocą witryny Azure Portal](#2-create-a-hybrid-connection-using-the-azure-portal).
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
-## <a name="2-create-a-hybrid-connection-using-hello-azure-portal"></a>2. Tworzenie połączenia hybrydowego, przy użyciu hello portalu Azure
+## <a name="2-create-a-hybrid-connection-using-the-azure-portal"></a>2. Tworzenie połączenia hybrydowego za pomocą witryny Azure Portal
 
-Jeśli masz już połączenie hybrydowe utworzone, przejście toohello [utworzyć aplikację serwer](#3-create-a-server-application-listener) sekcji.
+Jeśli masz już utworzone połączenie hybrydowe, przejdź do sekcji [Tworzenie aplikacji serwera](#3-create-a-server-application-listener).
 
 [!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
 
 ## <a name="3-create-a-server-application-listener"></a>3. Tworzenie aplikacji serwera (odbiornika)
 
-toolisten i odbierania wiadomości z hello przekazywania, firma Microsoft będzie zapisywać aplikacja konsolowa Node.js.
+Aby nasłuchiwać i odbierać komunikaty z usługi Relay, napiszemy aplikację konsoli Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Tworzenie aplikacji klienta (nadawcy)
 
-toosend komunikatów toohello przekazywania, firma Microsoft będzie zapisywać aplikacja konsolowa Node.js.
+Aby wysyłać komunikaty do usługi Relay, napiszemy aplikację konsoli Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
-## <a name="5-run-hello-applications"></a>5. Uruchamianie aplikacji hello
+## <a name="5-run-the-applications"></a>5. Uruchamianie aplikacji
 
-1. Uruchom aplikację serwera hello: z typu wiersza polecenia Node.js `node listener.js`.
-2. Uruchom aplikację klienta hello: z typu wiersza polecenia Node.js `node sender.js`i wprowadź tekst.
-3. Upewnij się, powitania serwera aplikacji konsoli dane wyjściowe hello tekst, który został wprowadzony w aplikacji klienckiej hello.
+1. Uruchom aplikację serwera: w wierszu polecenia Node.js wpisz `node listener.js`.
+2. Uruchom aplikację klienta: w wiersza polecenia Node.js wpisz `node sender.js`, a następnie wpisz dowolny tekst.
+3. Upewnij się, że w konsoli aplikacji serwera pojawia się tekst wprowadzony w aplikacji klienta.
 
 ![running-applications](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 

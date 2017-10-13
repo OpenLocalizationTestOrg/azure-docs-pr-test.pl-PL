@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Backup - kopii zapasowej w trybie Offline lub początkowego rozmieszczania użyciu hello usługi Import/Eksport Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak Kopia zapasowa Azure umożliwia danych toosend hello sieci za pomocą usługi Import/Eksport Azure hello. W tym artykule opisano hello w trybie offline wstępne wypełnianie danych początkowej kopii zapasowej hello za pomocą usługi Azure Importuj Eksportuj hello."
+title: "Kopia zapasowa Azure — kopia zapasowa Offline lub początkowe umieszczanie za pomocą usługi Import/Eksport Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak Kopia zapasowa Azure umożliwia wysyłanie danych w sieci za pomocą usługi Import/Eksport Azure. W tym artykule opisano, w trybie offline inicjacją dane początkowej kopii zapasowej za pomocą usługi Azure importu wyeksportować."
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -14,198 +14,198 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/20/2017
 ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: f1696957c3e9684b800c8d030131255905459f7b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Przepływ pracy tworzenia kopii zapasowych w trybie offline w usłudze Azure Backup
-Kopia zapasowa Azure zawiera kilka wbudowanych korzyści, które zapisania koszty sieci i magazynu podczas hello początkowej pełnych kopii zapasowych danych tooAzure. Początkowa pełnych kopii zapasowych zwykle transfer dużych ilości danych i wymagają większej przepustowości sieci w porównaniu toosubsequent kopii zapasowych, które transfer tylko hello delty/przyrostowa. Kopia zapasowa Azure kompresuje hello początkowej kopii zapasowych. Proces hello obsługi w trybie offline kopia zapasowa Azure można używać dysków tooupload hello skompresowane dane początkowej kopii zapasowej w trybie offline tooAzure.  
+Kopia zapasowa Azure zawiera kilka wbudowanych korzyści, które zapisania koszty sieci i magazynu podczas początkowej pełne kopie zapasowe danych na platformie Azure. Początkowa pełnych kopii zapasowych zwykle transfer dużych ilości danych i wymagają większej przepustowości sieci w porównaniu do kolejnych kopii zapasowych, które transfer tylko delty/przyrostowa. Kopia zapasowa Azure kompresuje początkowej kopii zapasowych. W procesie wstępnego wypełniania w trybie offline kopia zapasowa Azure można użyć dysków do przekazania skompresowane dane początkowej kopii zapasowej w trybie offline na platformie Azure.  
 
-Witaj w trybie offline wstępne wypełnianie procesu usługi Azure Backup jest ściśle zintegrowany z hello [usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md) umożliwiająca tootransfer tooAzure danych przy użyciu dysków. Jeśli masz terabajtów (tabel) dane początkowej kopii zapasowej, wymagającym toobe przesyłanych przez sieć dużymi opóźnieniami i niskiej przepustowości, można użyć hello w trybie offline wstępne wypełnianie przepływu pracy tooship hello początkowa kopia zapasowa na jeden lub więcej dysków twardych tooan centrum danych Azure. Ten artykuł zawiera omówienie kroków hello, kończące ten przepływ pracy.
+Proces w trybie offline wstępne wypełnianie kopia zapasowa Azure jest ściśle zintegrowany z [usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md) który umożliwia przesyłanie danych do platformy Azure przy użyciu dysków. Jeśli masz terabajtów (tabel) dane początkowej kopii zapasowej, który musi być przesyłane przez sieci dużymi opóźnieniami i niskiej przepustowości sieci, można użyć przepływu pracy w trybie offline wstępne wypełnianie na potrzeby wysłania początkowej kopii zapasowej na jeden lub więcej dysków twardych do centrum danych Azure. W tym artykule omówiono czynności, które ukończenie tego przepływu pracy.
 
 ## <a name="overview"></a>Omówienie
-Z możliwością obsługi w trybie offline hello Azure Backup i Azure importu/eksportu jest prosty tooupload hello danych w trybie offline tooAzure przy użyciu dysków. Zamiast transferowania hello początkowa pełna kopia hello sieci, dane kopii zapasowej hello napisano tooa *lokalizacji przejściowej*. Po zakończeniu kopiowania hello toohello przemieszczana lokalizacja za pomocą narzędzia Import/Eksport Azure hello te dane są zapisywane się, że dyski tooone lub SATA więcej, w zależności od hello ilości danych. Dyski te są ostatecznie dostarczana toohello najbliższego centrum danych Azure.
+Z możliwością obsługi w trybie offline Azure Backup i Azure importu/eksportu jest prosty do przekazania danych w trybie offline na platformie Azure przy użyciu dysków. Zamiast transferowania pełnej kopii początkowej przez sieć, dane kopii zapasowej są zapisywane *lokalizacji przejściowej*. Po zakończeniu kopiowania do tymczasowej lokalizacji za pomocą narzędzia Import/Eksport Azure te dane są zapisywane do jednego lub więcej dysków SATA w zależności od ilości danych. Dyski te ostatecznie są wysyłane do najbliższego centrum danych Azure.
 
-Witaj [sierpnia 2016 aktualizacji z usługi Kopia zapasowa Azure (i nowszych)](http://go.microsoft.com/fwlink/?LinkID=229525) obejmuje hello *narzędzie do przygotowywania dysków Azure*, o nazwie AzureOfflineBackupDiskPrep, który:
+[Sierpnia 2016 aktualizacji z usługi Kopia zapasowa Azure (i nowszych)](http://go.microsoft.com/fwlink/?LinkID=229525) obejmuje *narzędzie do przygotowywania dysków Azure*, o nazwie AzureOfflineBackupDiskPrep, który:
 
-* Pomaga przygotować dysków dla importu platformy Azure przy użyciu narzędzia Import/Eksport Azure hello.
-* Automatycznie tworzy zadania importu platformy Azure dla usługi Import/Eksport Azure hello na powitania [klasycznego portalu Azure](https://manage.windowsazure.com) jako toocreating min. hello sam ręcznie ze starszymi wersjami programu Kopia zapasowa Azure.
+* Pomaga przygotować dysków dla importu platformy Azure za pomocą narzędzia Azure importowania/eksportowania.
+* Automatycznie tworzy zadania importu platformy Azure dla usługi Import/Eksport Azure na [klasycznego portalu Azure](https://manage.windowsazure.com) zamiast ręcznego tworzenia takie same ze starszymi wersjami programu Kopia zapasowa Azure.
 
-Po zakończeniu przekazywania hello hello tooAzure dane kopii zapasowej, kopia zapasowa Azure kopiuje hello magazynu kopii zapasowych toohello dane kopii zapasowej i hello przyrostowych kopii zapasowych.
+Po zakończeniu przekazywania danych kopii zapasowej na platformie Azure, kopia zapasowa Azure kopiuje dane kopii zapasowej w magazynie kopii zapasowych i przyrostowych kopii zapasowych.
 
 > [!NOTE]
-> hello toouse narzędzie do przygotowywania dysków Azure, sprawdź, czy zainstalowano hello sierpnia 2016 aktualizacji z usługi Kopia zapasowa Azure (lub nowsza) i wykonaj wszystkie czynności hello przepływu pracy hello z nim. Jeśli używasz starszej wersji programu Kopia zapasowa Azure, można przygotować dysk SATA hello za pomocą narzędzia Import/Eksport Azure hello zgodnie z opisem w kolejnych sekcjach niniejszego artykułu.
+> Aby korzystać z narzędzia przygotowywania dysków Azure, upewnij się, zainstalowano aktualizację sierpnia 2016 kopia zapasowa Azure (lub nowsza) i wykonaj wszystkie czynności przepływu pracy z nim. Jeśli używasz starszej wersji programu Kopia zapasowa Azure, można przygotować dysk SATA za pomocą narzędzia Import/Eksport Azure zgodnie z opisem w kolejnych sekcjach niniejszego artykułu.
 >
 >
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* [Zapoznaj się z przepływem pracy Import/Eksport Azure hello](../storage/common/storage-import-export-service.md).
-* Przed rozpoczęciem powitalne przepływu pracy, upewnij się, hello następujące czynności:
+* [Zapoznaj się z przepływem pracy Import/Eksport Azure](../storage/common/storage-import-export-service.md).
+* Przed rozpoczęciem przepływu pracy, należy sprawdzić, czy:
   * Utworzono magazynie usługi Kopia zapasowa Azure.
   * Pobrano poświadczenia magazynu.
-  * Hello Azure Backup agent został zainstalowany na systemu Windows Server/Windows klienta lub serwera programu System Center Data Protection Manager, a komputer hello jest zarejestrowany w magazynie kopii zapasowej Azure hello.
-* [Pobieranie ustawień publikowania na platformie Azure pliku hello](https://manage.windowsazure.com/publishsettings) na komputerze hello, z którego planujesz tooback danych.
-* Przygotuj tymczasowej lokalizacji, która może być udziału sieciowego lub dodatkowego dysku na komputerze hello. Hello tymczasowej lokalizacji przejściowej magazynu i jest używana tymczasowo w tym przepływie pracy. Upewnij się, że hello lokalizacji wystawiania ma za mało toohold miejsca na dysku do początkowej kopii. Na przykład jeśli próbujesz tooback serwera plików 500 GB, upewnij się, że obszaru przemieszczania hello jest co najmniej 500 GB. (Mniejszą ilość jest używany z powodu toocompression.)
-* Upewnij się, że dysk obsługiwane. Tylko 2,5 SSD lub 2,5 lub 3,5 cala SATA II/III wewnętrzne dyski twarde są obsługiwane do używania z hello usługi Import/Eksport. Można użyć dysków zapasowych too10 TB. Sprawdź hello [dokumentację usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md#hard-disk-drives) hello najnowsze zestawu dysków, które hello obsługuje usługi.
-* Włącz funkcję BitLocker na powitania toowhich komputer jest połączony moduł zapisujący dysków SATA hello.
-* [Pobierz narzędzie Import/Eksport Azure hello](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) toohello komputera toowhich hello SATA dysku writer jest połączony. Ten krok nie jest wymagane, jeśli zostały pobrane i zainstalowane hello sierpnia 2016 aktualizacji z usługi Kopia zapasowa Azure (lub nowsza).
+  * Agent usługi Kopia zapasowa Azure został zainstalowany na systemu Windows Server/Windows klienta lub serwera programu System Center Data Protection Manager, a komputer jest zarejestrowany w magazynie kopii zapasowej Azure.
+* [Pobieranie ustawień publikowania na platformie Azure pliku](https://manage.windowsazure.com/publishsettings) na komputerze, z którego planujesz do tworzenia kopii zapasowej danych.
+* Przygotuj tymczasowej lokalizacji, która może być udziału sieciowego lub dodatkowego dysku na komputerze. Tymczasowej lokalizacji przejściowej magazynu i jest używane tymczasowo w tym przepływie pracy. Upewnij się, że w lokalizacji tymczasowej jest za mało miejsca na dysku do przechowywania kopii początkowej. Na przykład jeśli chcesz utworzyć kopię zapasową na serwerze plików 500 GB, upewnij się, że obszaru przemieszczania jest co najmniej 500 GB. (Mniejszą ilość jest używany z powodu kompresji).
+* Upewnij się, że dysk obsługiwane. Tylko 2,5 SSD lub 2,5 lub 3,5 cala SATA II/III wewnętrzne dyski twarde są obsługiwane do użycia z usługą importu i eksportu. Dyski twarde można użyć do 10 TB. Sprawdź [dokumentację usługi Import/Eksport Azure](../storage/common/storage-import-export-service.md#hard-disk-drives) najnowszego zestawu dysków, obsługiwanych przez usługę.
+* Należy włączyć funkcję BitLocker na komputerze, do którego jest podłączony twórcę dysków SATA.
+* [Pobierz narzędzie Import/Eksport Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) do komputera, do którego jest podłączony twórcę dysków SATA. Ten krok nie jest wymagane, jeśli zostały pobrane i zainstalowane aktualizacji sierpnia 2016 kopia zapasowa Azure (lub nowsza).
 
 ## <a name="workflow"></a>Przepływ pracy
-Witaj informacje w tej sekcji pomaga ukończenia przepływu pracy w trybie offline z kopii zapasowej hello tak, aby dane mogą być dostarczane tooan centrum danych Azure i przekazać tooAzure magazynu. Jeśli masz pytania dotyczące usługi Import hello lub dowolnego aspektu hello procesu, zobacz hello [Import — Omówienie usługi](../storage/common/storage-import-export-service.md) dokumentacji odwołuje się do wcześniej.
+Informacje przedstawione w tej sekcji pomaga ukończenia przepływu pracy w trybie offline z kopii zapasowej, aby dane można dostarczyć do centrum danych Azure i przekazane do magazynu Azure. Jeśli masz pytania dotyczące usługi importu lub dowolnego aspektu procesu, zobacz [Import — Omówienie usługi](../storage/common/storage-import-export-service.md) dokumentacji odwołuje się do wcześniej.
 
 ### <a name="initiate-offline-backup"></a>Inicjowanie kopii zapasowej w trybie offline
-1. Podczas planowania kopii zapasowej, zostanie wyświetlony powitania po ekranu (w systemie Windows Server, klient systemu Windows lub System Center Data Protection Manager).
+1. Podczas planowania kopii zapasowej, zostanie wyświetlony następujący ekran (w systemie Windows Server, klient systemu Windows lub System Center Data Protection Manager).
 
     ![Importuj ekranu](./media/backup-azure-backup-import-export/offlineBackupscreenInputs.png)
 
-    Oto odpowiedniego ekranie powitania w System Center Data Protection Manager: <br/>
+    Oto odpowiedniego ekranu w System Center Data Protection Manager: <br/>
     ![Program DPM importu ekranu](./media/backup-azure-backup-import-export/dpmoffline.png)
 
-    Opis Hello hello danych wejściowych jest następujący:
+    Opis danych wejściowych jest następujący:
 
-    * **Miejsce przemieszczania**: hello tymczasowej lokalizacji toowhich hello początkowa kopia zapasowa zostanie zapisany. Może to być na komputerze lokalnym lub w udziale sieciowym. Witaj kopiowania komputera i komputera źródłowego są różne, zaleca się że podajesz hello pełną ścieżkę sieciową hello tymczasowej lokalizacji.
-    * **Nazwa zadania importowania platformy Azure**: hello unikatową nazwę importu platformy Azure, które usługi i kopia zapasowa Azure śledzić hello transferu danych przesyłanych na tooAzure dysków.
-    * **Ustawień publikowania platformy Azure**: plik XML, który zawiera informacje o profilu subskrypcji. Zawiera ona także bezpiecznych poświadczeń, które są skojarzone z subskrypcją. Możesz [Pobierz plik hello](https://manage.windowsazure.com/publishsettings). Podaj plik ustawień publikowania hello toohello ścieżkę lokalną.
-    * **Identyfikator subskrypcji platformy Azure**: hello identyfikator subskrypcji platformy Azure dla subskrypcji hello, w którym planujesz zadania importu platformy Azure hello tooinitiate. Jeśli masz wiele subskrypcji Azure, należy użyć Identyfikatora hello hello subskrypcji, które mają tooassociate z zadaniem importu hello.
-    * **Konto usługi Azure Storage**: hello klasycznego typu konta magazynu w hello podane subskrypcji platformy Azure, która zostanie skojarzona z zadaniem importu platformy Azure hello.
-    * **Kontener magazynu Azure**: hello nazwa obiektu blob magazynu docelowego hello w hello kontem magazynu platformy Azure, w którym będą importowane dane tego zadania.
+    * **Miejsce przemieszczania**: lokalizacji tymczasowej, do którego początkowa kopia zapasowa jest zapisywany. Może to być na komputerze lokalnym lub w udziale sieciowym. Jeśli kopia komputera i komputera źródłowego są różne, zaleca się czy określić pełną ścieżkę sieciową do lokalizacji tymczasowej.
+    * **Nazwa zadania importowania platformy Azure**: unikatową nazwę importu platformy Azure, które usługi i kopia zapasowa Azure śledzić transferu danych przesyłanych na dyskach w systemie Azure.
+    * **Ustawień publikowania platformy Azure**: plik XML, który zawiera informacje o profilu subskrypcji. Zawiera ona także bezpiecznych poświadczeń, które są skojarzone z subskrypcją. Możesz [Pobierz plik](https://manage.windowsazure.com/publishsettings). Podaj ścieżkę lokalną do pliku ustawień publikowania.
+    * **Identyfikator subskrypcji platformy Azure**: identyfikator subskrypcji platformy Azure dla subskrypcji, w których planuje się zainicjowanie zadania importu platformy Azure. Jeśli masz wiele subskrypcji Azure, należy użyć Identyfikatora subskrypcji, która ma zostać skojarzona z zadaniem importu.
+    * **Konto usługi Azure Storage**: klasycznym typu konta magazynu w podanych subskrypcji platformy Azure, która zostanie skojarzona z zadaniem importu platformy Azure.
+    * **Kontener magazynu Azure**: Nazwa magazynu docelowego obiektu blob na koncie magazynu Azure, gdzie importowania danych z tego zadania.
 
     > [!NOTE]
-    > Jeśli zarejestrowano tooan Twojego serwera magazyn usług odzyskiwania Azure i z hello [portalu Azure](https://portal.azure.com) dla kopii zapasowych i nie są w subskrypcji Cloud Solution Provider (CSP), można tworzyć klasycznego typu konta magazynu z hello Portalu Azure i użyć jej do przepływu pracy w trybie offline z kopii zapasowej hello.
+    > Jeśli zarejestrowano serwer w magazynie usług odzyskiwania Azure z [portalu Azure](https://portal.azure.com) dla kopii zapasowych i nie są w subskrypcji Cloud Solution Provider (CSP), można nadal Utwórz konto magazynu typu klasycznego portalu Azure i użyć jej do przepływu pracy w trybie offline z kopii zapasowej.
     >
     >
 
-     Zapisz te informacje, ponieważ potrzebna tooenter go ponownie następujące kroki. Tylko hello *lokalizacji przejściowej* jest wymagany, jeśli używasz hello Azure przygotowanie dysku narzędzia tooprepare hello dysków.    
-2. Ukończyć powitalnych przepływu pracy, a następnie wybierz **wykonaj kopię zapasową teraz** kopii hello kopia zapasowa Azure management konsoli tooinitiate hello — kopia zapasowa offline. Początkowa kopia zapasowa Hello są zapisywane obszaru przemieszczania toohello w ramach tego kroku.
+     Te informacje należy zapisać, ponieważ należy wprowadzić go ponownie w poniższych krokach. Tylko *lokalizacji przejściowej* jest wymagany, jeśli jest używane narzędzie do przygotowywania dysków Azure przygotować dyski.    
+2. Ukończenia przepływu pracy, a następnie wybierz **wykonaj kopię zapasową teraz** w konsoli zarządzania programu Kopia zapasowa Azure, aby zainicjować kopii zapasowej w trybie offline. Tworzenie początkowej kopii zapasowej są zapisywane do obszaru przemieszczania w ramach tego kroku.
 
     ![Wykonaj kopię zapasową](./media/backup-azure-backup-import-export/backupnow.png)
 
-    toocomplete hello odpowiedniego przepływu pracy w System Center Data Protection Manager, kliknij prawym przyciskiem myszy hello **grupy ochrony**, a następnie wybierz pozycję hello **Utwórz punkt odzyskiwania** opcji. Następnie wybierz pozycję hello **ochrony w trybie Online** opcji.
+    Do ukończenia odpowiedniego przepływu pracy w System Center Data Protection Manager, kliknij prawym przyciskiem myszy **grupy ochrony**, a następnie wybierz pozycję **Utwórz punkt odzyskiwania** opcji. Następnie wybierz pozycję **ochrony w trybie Online** opcji.
 
     ![Natychmiastowe tworzenie kopii zapasowej programu DPM](./media/backup-azure-backup-import-export/dpmbackupnow.png)
 
-    Po zakończeniu działania hello hello tymczasowej lokalizacji jest gotowy toobe używane w celu przygotowania dysku.
+    Po zakończeniu operacji, przemieszczana lokalizacja jest gotowy do użycia w celu przygotowania dysku.
 
     ![Postęp tworzenia kopii zapasowej](./media/backup-azure-backup-import-export/opbackupnow.png)
 
-### <a name="prepare-a-sata-drive-and-create-an-azure-import-job-by-using-hello-azure-disk-preparation-tool"></a>Przygotowanie dysków SATA i Utwórz zadania importu platformy Azure przy użyciu narzędzia przygotowywania dysków Azure hello
-Narzędzie do przygotowywania dysków Azure Hello jest dostępny w katalogu instalacji agenta usług odzyskiwania hello (aktualizacja z sierpnia 2016 lub nowszy) w hello ze ścieżką.
+### <a name="prepare-a-sata-drive-and-create-an-azure-import-job-by-using-the-azure-disk-preparation-tool"></a>Przygotowanie dysków SATA i Utwórz zadania importu platformy Azure za pomocą narzędzia przygotowywania dysków Azure
+Narzędzie do przygotowywania dysków Azure jest dostępny w katalogu instalacji agenta usług odzyskiwania (aktualizacja z sierpnia 2016 lub nowszy) w następującej ścieżce.
 
    *\Microsoft* *azure* *odzyskiwania* *usług* * Agent\Utils\*
 
-1. Przejdź toohello katalogu, a kopia hello **AzureOfflineBackupDiskPrep** katalogu tooa kopii komputera, na które hello przygotowane toobe dyski są zainstalowane. Upewnij się, hello następujące — z uwzględnieniem toohello kopiowania komputera:
+1. Przejdź do katalogu, a następnie skopiuj **AzureOfflineBackupDiskPrep** katalogu na komputerze kopiowania, na którym są zainstalowane dyski, aby móc przywrócić. Upewnij się, poniżej w odniesieniu do komputera kopiowania:
 
-    * Witaj kopiowania komputer ma dostęp do tymczasowej lokalizacji dla przepływu pracy w trybie offline wstępne wypełnianie w hello przy użyciu hello sam sieci ścieżkę zapewnionej w programie hello hello **zainicjować kopię zapasową offline** przepływu pracy.
-    * Funkcja BitLocker jest włączona na komputerze hello.
-    * Witaj komputer ma dostęp do hello portalu Azure.
+    * Komputer kopii można uzyskać dostęp do tymczasowej lokalizacji dla przepływu pracy w trybie offline wstępne wypełnianie przy użyciu tej samej lokalizacji sieciowej, która została dostarczona w **zainicjować kopię zapasową offline** przepływu pracy.
+    * Funkcja BitLocker jest włączona na komputerze.
+    * Komputer może uzyskać dostępu do portalu Azure.
 
-    W razie potrzeby hello kopiowania komputera można hello w taki sam jak hello komputera źródłowego.
-2. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień na komputerze kopii hello katalog narzędzie przygotowywania dysków Azure hello hello bieżącego katalogu, a następnie uruchom następujące polecenie hello:
+    W razie potrzeby kopiowania komputer może być taka sama, co na komputerze źródłowym.
+2. Otwórz wiersz polecenia z podwyższonym poziomem uprawnień na komputerze kopiowania z katalogiem narzędzia Azure przygotowanie dysku jako bieżący katalog i uruchom następujące polecenie:
 
-    `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path tooPublishSettingsFile*>]`
+    `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to PublishSettingsFile*>]`
 
     | Parametr | Opis |
     | --- | --- |
-    | s:&lt;*ścieżka lokalizacji przemieszczania*&gt; |Obowiązkowe danych wejściowych został użyty toohello ścieżka hello tooprovide tymczasowej lokalizacji, wprowadzony w hello **zainicjować kopię zapasową offline** przepływu pracy. |
-    | p:&lt;*tooPublishSettingsFile ścieżki*&gt; |Opcjonalne dane wejściowe, do których został użyty tooprovide hello ścieżki toohello **ustawień publikowania platformy Azure** pliku wprowadzony w hello **zainicjować kopię zapasową offline** przepływu pracy. |
+    | s:&lt;*ścieżka lokalizacji przemieszczania*&gt; |Wymagane dane wejściowe, służący do Podaj ścieżkę do lokalizacji tymczasowej, wprowadzony w **zainicjować kopię zapasową offline** przepływu pracy. |
+    | p:&lt;*ścieżkę do PublishSettingsFile*&gt; |Opcjonalne dane wejściowe, służący do Podaj ścieżkę do **ustawień publikowania platformy Azure** pliku wprowadzony w **zainicjować kopię zapasową offline** przepływu pracy. |
 
     > [!NOTE]
-    > Witaj &lt;tooPublishSettingFile ścieżki&gt; wartość jest konieczny, gdy hello kopiowania komputera i komputera źródłowego są różne.
+    > &lt;Ścieżkę do PublishSettingFile&gt; wartość jest wymagany, jeśli kopia komputera i komputera źródłowego są różne.
     >
     >
 
-    Po uruchomieniu polecenia hello narzędzia hello żądań hello wybór hello zadania importu platformy Azure, który odpowiada toohello dysków, które należy przygotować toobe. Jeśli tylko zadania importu pojedynczego jest skojarzona z hello podane tymczasowej lokalizacji, pojawia się ekran, takich jak hello, który jest zgodny.
+    Po uruchomieniu polecenia narzędzia żądań wybór zadania importu platformy Azure, umożliwiająca dyski, które muszą być przygotowane. Jeśli tylko zadania importu pojedynczego jest skojarzony z podanej lokalizacji tymczasowej, zostanie wyświetlony ekran podobny do tego, który jest zgodny.
 
     ![Azure wprowadzania narzędzie przygotowanie dysku](./media/backup-azure-backup-import-export/azureDiskPreparationToolDriveInput.png) <br/>
-3. Wprowadź literę dysku hello bez hello kończyć dwukropkiem dla zainstalowanego dysku hello mają tooprepare dla tooAzure transferu. Potwierdź hello formatowania dysku powitania po wyświetleniu monitu.
+3. Wprowadź literę dysku bez dwukropka końcowe dla zainstalowanego dysku, który ma zostać przygotowane do przeniesienia do usługi Azure. Potwierdź formatowania dysku po wyświetleniu monitu.
 
-    Narzędzie Hello następnie rozpoczyna tooprepare hello dysk z hello dane kopii zapasowej. Może być konieczne dodatkowe dyski tooattach po wyświetleniu monitu przez narzędzie hello w przypadku hello pod warunkiem, że dysk nie ma wystarczającą ilość miejsca na powitania dane kopii zapasowej. <br/>
+    Narzędzie następnie rozpoczyna się przygotować dysk z kopii zapasowej danych. Może być konieczne dołączanie dodatkowych dysków, po wyświetleniu monitu przez narzędzie, w przypadku udostępnionego dysku nie ma wystarczającą ilość miejsca na dane kopii zapasowej. <br/>
 
-    Na końcu hello pomyślnego wykonania narzędzia hello jeden lub więcej dysków, które są przygotowywane dla tooAzure wysyłki. Ponadto zadania importu o nazwie hello podany podczas hello **zainicjować kopię zapasową offline** przepływu pracy jest tworzona na powitania klasycznego portalu Azure. Na koniec hello narzędzie wyświetla hello toohello adres wysyłkowy centrum danych Azure, której hello dyski muszą toobe wysłane i hello zadania importu hello toolocate łącza na powitania klasycznego portalu Azure.
+    Na koniec pomyślnego wykonania narzędzia jeden lub więcej dysków, które są przygotowywane do wysyłki na platformie Azure. Ponadto zadania importu o nazwie podany podczas **zainicjować kopię zapasową offline** przepływu pracy jest tworzony w klasycznym portalu Azure. Na koniec narzędzie wyświetla adres wysyłkowy do centrum danych Azure, której dyski muszą być wysłane i łącze, aby zlokalizować zadania importu w klasycznym portalu Azure.
 
     ![Zakończenie przygotowywania dysku platformy Azure](./media/backup-azure-backup-import-export/azureDiskPreparationToolSuccess.png)<br/>
 
-4. Toohello dysków hello statku narzędzia hello podany adres i przechowywać hello śledzenia numer do użytku w przyszłości.<br/>
+4. Wysłać dysków na adres zapewnianej przez narzędzie i Zachowaj numer śledzenia do użytku w przyszłości.<br/>
 
-5. Po przejściu toohello połączyć tego narzędzia hello wyświetlane, zobacz konto magazynu Azure hello określonej w hello **zainicjować kopię zapasową offline** przepływu pracy. W tym miejscu można wyświetlić zadania importu hello nowo utworzony na powitania **IMPORTU/eksportu** kartę hello konta magazynu.
+5. Po przejściu do łącza wyświetlany w narzędziu, zobacz konto magazynu Azure, który określono w **zainicjować kopię zapasową offline** przepływu pracy. W tym miejscu można wyświetlić zadania importu nowo utworzony na **IMPORTU/eksportu** kartę konta magazynu.
 
     ![Zadania utworzone importu](./media/backup-azure-backup-import-export/ImportJobCreated.png)<br/>
 
-6. Kliknij przycisk **WYSYŁANIA informacji** u dołu hello tooupdate strony hello kontaktu szczegółów, pokazane na powitania po ekranie. Firma Microsoft używa tego tooship informacje o Twojej tooyou wstecz dysków po hello Importuj zadanie zostało zakończone.
+6. Kliknij przycisk **WYSYŁANIA informacji o** w dolnej części strony, aby zaktualizować swoje szczegóły dotyczące kontaktu, jak pokazano na poniższym ekranie. Firma Microsoft używa tych informacji do wydania dysków powrotem po zakończeniu zadania importu.
 
     ![Informacje kontaktowe](./media/backup-azure-backup-import-export/contactInfoAddition.PNG)<br/>
 
-7. Wprowadź szczegóły wysyłki na następnym ekranie powitania hello. Podaj hello **operatora dostarczania** i **numer identyfikacyjny** szczegółowe informacje, które odpowiadają toohello dyski zostały wydane toohello centrum danych Azure.
+7. Wprowadź szczegóły wysyłki na następnym ekranie. Podaj **operatora dostarczania** i **numer identyfikacyjny** szczegółowe informacje, które odpowiadają na dyskach, które są wysyłane do centrum danych Azure.
 
     ![Wysyłanie informacji o](./media/backup-azure-backup-import-export/shippingInfoAddition.PNG)<br/>
 
-### <a name="complete-hello-workflow"></a>Hello ukończenia przepływu pracy
-Po zakończeniu zadania importu hello danych początkowej kopii zapasowej jest dostępna na koncie magazynu. Witaj agenta usług odzyskiwania, a następnie zawartość hello kopii danych hello z tego magazynu kopii zapasowych toohello konta lub usług odzyskiwania magazyn, którekolwiek ma zastosowanie. W czasie tworzenia kopii zapasowej hello harmonogramem hello agenta kopii zapasowej Azure wykonuje hello przyrostowej kopii zapasowej za pośrednictwem hello początkowa kopia zapasowa.
+### <a name="complete-the-workflow"></a>Ukończenia przepływu pracy
+Po zakończeniu zadania importu danych początkowej kopii zapasowej jest dostępna na koncie magazynu. Agent usług odzyskiwania, a następnie kopiuje zawartość dane z tego konta do magazynu kopii zapasowej lub odzyskiwania usługi Magazyn, którekolwiek ma zastosowanie. W następnym zaplanowanym terminie kopii zapasowej agenta kopii zapasowej Azure wykonuje przyrostowej kopii zapasowej za pośrednictwem początkowa kopia zapasowa.
 
 > [!NOTE]
-> Witaj sekcje mają zastosowanie toousers wcześniejszych wersjach programu Kopia zapasowa Azure, którzy nie mają narzędzie przygotowywania dysków Azure toohello dostępu.
+> Poniższe sekcje dotyczą użytkowników wcześniejszych wersjach programu Kopia zapasowa Azure, którzy nie mają dostępu do narzędzia przygotowywania dysków Azure.
 >
 >
 
 ### <a name="prepare-a-sata-drive"></a>Przygotowanie dysków SATA
-1. Pobierz hello [narzędzie importu/eksportu pakietu Microsoft Azure](http://go.microsoft.com/fwlink/?linkid=301900&clcid=0x409) toohello kopiowania komputera. Upewnij się, że hello lokalizacji wystawiania jest dostępny z komputera hello, w którym planujesz toorun hello dalej zestaw poleceń. W razie potrzeby hello kopiowania komputera można hello w taki sam jak hello komputera źródłowego.
+1. Pobierz [narzędzie importu/eksportu pakietu Microsoft Azure](http://go.microsoft.com/fwlink/?linkid=301900&clcid=0x409) komputerowi kopiowania. Upewnij się, że przemieszczana lokalizacja jest dostępny z komputera, w którym ma zostać uruchomiona dalej zestaw poleceń. W razie potrzeby kopiowania komputer może być taka sama, co na komputerze źródłowym.
 
-2. Rozpakuj plik WAImportExport.zip hello. Uruchom narzędzie WAImportExport hello, które formatuje dysk SATA hello, zapisuje hello dane kopii zapasowej toohello SATA dysku i szyfruje go. Przed uruchomieniem hello następujące polecenia, upewnij się, czy funkcja BitLocker jest włączona na komputerze hello. <br/>
+2. Rozpakuj plik WAImportExport.zip. Uruchom narzędzie WAImportExport formaty dysków SATA, zapisuje dane kopii zapasowej na dysku SATA i szyfruje go. Przed uruchom następujące polecenie, upewnij się, że funkcja BitLocker jest włączona na komputerze. <br/>
 
     `*.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*`
 
     > [!NOTE]
-    > Po zainstalowaniu aktualizacji sierpnia 2016 hello kopia zapasowa Azure (lub nowsza), upewnij się, tym hello tymczasowej lokalizacji, wprowadzony jest taki sam, jak hello na powitania hello **wykonaj kopię zapasową teraz** ekranu i zawiera pliki AIB i obiektów Blob Base.
+    > Po zainstalowaniu aktualizacji sierpnia 2016 kopia zapasowa Azure (lub nowsza), upewnij się, że wprowadzonej lokalizacji tymczasowej jest taka sama, jak na **wykonaj kopię zapasową teraz** ekranu i zawiera pliki AIB i obiektów Blob Base.
     >
     >
 
 | Parametr | Opis |
 | --- | --- |
-| /j: <*JournalFile*> |Witaj ścieżki pliku dziennika toohello. Każdy dysk musi mieć dokładnie jeden plik dziennika. plik dziennika Hello musi znajdować się na dysku docelowego hello. rozszerzenie pliku dziennika Hello jest .jrn i zostanie utworzony jako część tego polecenia. |
-| / Identyfikator: <*SessionId*> |Identyfikator sesji Hello identyfikuje sesję kopiowania. Jest używane tooensure odzyskiwania dokładne kopiowania przerwania sesji. Pliki, które są kopiowane w ramach sesji kopiowania są przechowywane w katalogu o nazwie po hello identyfikator sesji na dysku docelowym hello. |
-| /SK: <*StorageAccountKey*> |klucz konta Hello hello magazynu konta toowhich hello danych zostaną zaimportowane. Witaj Witaj toobe klucza potrzeb tak samo jak została podana podczas tworzenia grupy ochrony zasad tworzenia kopii zapasowej. |
-| / BlobType |Typ Hello obiektu blob. Ten przepływ pracy zakończy się powodzeniem, tylko wtedy, gdy **PageBlob** jest określona. To nie jest opcją domyślną hello i powinny być podane w tego polecenia. |
-| / t: <*TargetDriveLetter*> |litera dysku Hello bez hello końcowe dwukropek hello docelowy dysk hello bieżącej sesji kopiowania. |
-| / Format |Witaj opcja tooformat hello dysku. Określ ten parametr, gdy hello potrzebuje toobe sformatowana; w przeciwnym razie Pomiń go. Zanim narzędzie hello formatuje dysk hello, wyświetli monit o potwierdzenie hello konsoli. toosuppress hello potwierdzenia, określ parametr /silentmode hello. |
-| / szyfrowania |Witaj opcja tooencrypt hello dysku. Określ ten parametr, gdy hello dysku nie ma jeszcze szyfrowane z funkcją BitLocker i potrzeb toobe szyfrowane przez narzędzie hello. Jeśli dysk hello już został zaszyfrowany za pomocą funkcji BitLocker, Pomiń ten parametr, określ parametr /bk hello i podaj hello istniejącego klucza funkcji BitLocker. Jeśli określono parametr/format hello, możesz określić hello / zaszyfrować parametru. |
-| /srcdir: <*SourceDirectory*> |katalog źródłowy Hello, który zawiera pliki toobe kopiowane toohello dysk docelowy. Upewnij się, że nazwa określonego katalogu tego hello ma pełne zamiast względną ścieżkę. |
-| /dstdir: <*DestinationBlobVirtualDirectory*> |Hello ścieżka toohello wirtualny katalog docelowy na koncie magazynu Azure. Można toouse się, że nazwy kontenera prawidłowe po określeniu katalogi wirtualne docelowego hello lub obiektów blob. Należy pamiętać, że nazwy kontenerów muszą być małymi literami.  Ta nazwa kontenera musi być hello, co wprowadzony podczas tworzenia grupy ochrony zasad tworzenia kopii zapasowej. |
+| /j: <*JournalFile*> |Ścieżka do pliku dziennika. Każdy dysk musi mieć dokładnie jeden plik dziennika. Plik dziennika nie może być na dysku docelowym. Rozszerzenie pliku dziennika jest .jrn i zostanie utworzony jako część tego polecenia. |
+| / Identyfikator: <*SessionId*> |Identyfikator sesji określa sesji kopiowania. Służy do dokładnych odzyskiwanie kopii przerwania sesji. Pliki, które są kopiowane w ramach sesji kopiowania są przechowywane w katalogu o nazwie po identyfikator sesji na docelowym dysku. |
+| /SK: <*StorageAccountKey*> |Klucz konta dla konta magazynu, do którego będą importowane dane. Klucz musi być taka sama, jak została podana podczas tworzenia grupy ochrony zasad tworzenia kopii zapasowej. |
+| / BlobType |Typ obiektu blob. Ten przepływ pracy zakończy się powodzeniem, tylko wtedy, gdy **PageBlob** jest określona. To nie jest opcją domyślną i powinny być podane w tego polecenia. |
+| / t: <*TargetDriveLetter*> |Litera dysku bez końcowych dwukropkiem docelowego dysku twardego dla bieżącej sesji kopiowania. |
+| / Format |Opcja do sformatowania dysku. Określ ten parametr, gdy dysk musi być sformatowany; w przeciwnym razie Pomiń go. Zanim narzędzie formatuje dysk, wyświetli monit o potwierdzenie w konsoli. Aby pominąć potwierdzenie, należy określić parametr /silentmode. |
+| / szyfrowania |Opcja szyfrowania dysku. Określ ten parametr, gdy dysku nie ma jeszcze zaszyfrowany za pomocą funkcji BitLocker i musi być szyfrowane przez narzędzie. Jeśli dysk już został zaszyfrowany za pomocą funkcji BitLocker, Pomiń ten parametr, określ parametr /bk i podaj istniejącego klucza funkcji BitLocker. Jeśli zostanie użyty parametr/format, należy również określić / zaszyfrować parametru. |
+| /srcdir: <*SourceDirectory*> |Katalog źródłowy, który zawiera pliki, które ma zostać skopiowany na dysk docelowy. Sprawdź, czy nazwa określonego katalogu ma pełne zamiast względną ścieżkę. |
+| /dstdir: <*DestinationBlobVirtualDirectory*> |Ścieżka do katalogu wirtualnego docelowego na koncie magazynu Azure. Należy użyć nazwy kontenera prawidłowe po określeniu katalogi wirtualne docelowego lub obiektów blob. Należy pamiętać, że nazwy kontenerów muszą być małymi literami.  Ta nazwa kontenera powinien być wprowadzona podczas tworzenia grupy ochrony zasad tworzenia kopii zapasowej. |
 
 > [!NOTE]
-> Plik dziennika jest tworzony w folderze WAImportExport hello, który przechwytuje informacje całego hello hello przepływu pracy. Należy korzystać z tego pliku podczas tworzenia zadania importu w hello portalu Azure.
+> Plik dziennika jest tworzony w folderze WAImportExport, które znajdują się informacje dotyczące całego przepływu pracy. Należy korzystać z tego pliku podczas tworzenia zadania importu w portalu Azure.
 >
 >
 
   ![Dane wyjściowe programu PowerShell](./media/backup-azure-backup-import-export/psoutput.png)
 
-### <a name="create-an-import-job-in-hello-azure-portal"></a>Utwórz zadania importu w hello portalu Azure
-1. Przejdź tooyour konta magazynu w hello [klasycznego portalu Azure](https://manage.windowsazure.com/), kliknij przycisk **importu/eksportu**, a następnie **Tworzenie zadania importu** w okienku zadań hello.
+### <a name="create-an-import-job-in-the-azure-portal"></a>Utwórz zadanie importu w portalu Azure
+1. Przejdź do swojego konta magazynu w [klasycznego portalu Azure](https://manage.windowsazure.com/), kliknij przycisk **importu/eksportu**, a następnie **Tworzenie zadania importu** w okienku zadań.
 
-    ![Karta importu/eksportu w hello portalu Azure](./media/backup-azure-backup-import-export/azureportal.png)
+    ![Karta importu/eksportu w portalu Azure](./media/backup-azure-backup-import-export/azureportal.png)
 
-2. W kroku 1 Kreatora hello wskazują przygotowaniu dysku i że masz dostępny plik dziennika dysku hello.
+2. W kroku 1 Kreatora wskazują przygotowaniu dysku i czy masz pliku dziennika dysku jest dostępna.
 
-3. W kroku 2 hello kreatora podaj informacje kontaktowe osoby hello, kto jest odpowiedzialny za tego zadania importu.
+3. W kroku 2 kreatora podaj informacje kontaktowe dla osoby, która jest odpowiedzialna za tego zadania importu.
 
-4. W kroku 3 należy przekazać pliki dziennika na dysku hello uzyskane w poprzedniej sekcji hello.
+4. W kroku 3 przekazywanie plików dziennika dysków, które uzyskane w poprzedniej sekcji.
 
-5. W kroku 4 wprowadź nazwę opisową dla zadania importu hello wprowadzonej podczas tworzenia grupy ochrony zasad tworzenia kopii zapasowej. Wprowadzona nazwa Hello może zawierać tylko małe litery, cyfry, łączniki i podkreślenia, musi zaczynać się literą i nie może zawierać spacji. Witaj nazwy jest używane tootrack zadań, a w toku, a po ich wykonaniu.
+5. W kroku 4 wprowadź nazwę opisową dla zadania importu wprowadzonej podczas tworzenia grupy ochrony zasad tworzenia kopii zapasowej. Wprowadzona nazwa może zawierać tylko małe litery, cyfry, łączniki i podkreślenia, musi zaczynać się literą i nie może zawierać spacji. Nazwę, którą można wybrać służy do śledzenia zadań, gdy są one w toku, a po ich wykonaniu.
 
-6. Następnie wybierz region centrum danych z listy hello. Hello datacenter region wskazuje hello centrum danych i adres toowhich muszą dostarczać pakietu.
+6. Następnie wybierz region centrum danych z listy. Region centrum danych wskazuje centrum danych i adres, do którego należy wysłać pakietu.
 
     ![Wybierz region, w centrum danych](./media/backup-azure-backup-import-export/dc.png)
 
-7. W kroku 5 wybierz z listy hello zwracany operatora, a następnie wprowadź numer swojego konta operatora. Firma Microsoft korzysta z tego konta tooship dysków z powrotem tooyou po zakończeniu zadania importu.
+7. W kroku 5 Wybierz zwracany operatora z listy, a następnie wprowadź numer swojego konta operatora. Firma Microsoft używa tego konta na potrzeby wysłania dysków powrotem po zakończeniu zadania importu.
 
-8. Wyślij hello dysku, a następnie wprowadź hello stan hello tootrack numeru wydania hello śledzenia. Po odebraniu dysku hello w centrum danych hello jest kopiowany toohello konta magazynu, a hello stan zostanie zaktualizowany.
+8. Wyślij dysk, a następnie wprowadź numer do śledzenia stanu wydania. Po odebraniu dysku w centrum danych jest kopiowana do konta magazynu, a stan zostanie zaktualizowany.
 
     ![Stan zakończenia](./media/backup-azure-backup-import-export/complete.png)
 
-### <a name="complete-hello-workflow"></a>Hello ukończenia przepływu pracy
-Po danych początkowej kopii zapasowej hello jest dostępny na koncie magazynu hello agenta usług odzyskiwania Microsoft Azure kopiuje zawartość hello hello danych tego magazynu kopii zapasowych toohello konta lub magazyn usług odzyskiwania, którekolwiek ma zastosowanie. W hello kolejny harmonogram wykonywania kopii zapasowej, hello agenta kopii zapasowej Azure wykonuje hello przyrostowej kopii zapasowej za pośrednictwem hello początkowej kopii zapasowej.
+### <a name="complete-the-workflow"></a>Ukończenia przepływu pracy
+Po dane początkowej kopii zapasowej jest dostępny na koncie magazynu, agent usług odzyskiwania Microsoft Azure kopiuje zawartość dane z tego konta do magazynu kopii zapasowej lub magazyn usług odzyskiwania, którekolwiek ma zastosowanie. W następnym harmonogramu wykonywania kopii zapasowej agenta kopii zapasowej Azure wykonuje przyrostowej kopii zapasowej za pośrednictwem początkowa kopia zapasowa.
 
 ## <a name="next-steps"></a>Następne kroki
-* Wszelkie pytania w przepływie pracy Import/Eksport Azure hello odwoływać się za[Użyj hello Import/Eksport Microsoft Azure service tootransfer tooBlob pamięci masowej](../storage/common/storage-import-export-service.md).
-* Zobacz sekcję kopia zapasowa offline toohello hello Azure Backup [— często zadawane pytania](backup-azure-backup-faq.md) dla odpowiedzi na pytania dotyczące hello przepływu pracy.
+* Wszelkie pytania dotyczące przepływu pracy Import/Eksport Azure można znaleźć w temacie [transferu danych do magazynu obiektów Blob za pomocą usługi Import/Eksport Microsoft Azure](../storage/common/storage-import-export-service.md).
+* Zapoznaj się z sekcją w trybie offline z kopii zapasowej systemu Azure Backup [— często zadawane pytania](backup-azure-backup-faq.md) wszelkie pytania dotyczące przepływu pracy.

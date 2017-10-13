@@ -1,9 +1,9 @@
 ---
-title: "na podstawie aaaURL zawartości Omówienie routingu | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera omówienie hello adres URL aplikacji bramy routingu opartego na protokole zawartości, konfiguracji UrlPathMap i PathBasedRouting reguły."
+title: "Routing zawartości oparty na adresach URL — omówienie | Microsoft Docs"
+description: "Ta strona zawiera omówienie routingu zawartości opartego na adresach URL, konfiguracji UrlPathMap i reguły PathBasedRouting w usłudze Application Gateway."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
@@ -13,31 +13,31 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
-ms.author: gwallace
-ms.openlocfilehash: 5094b42625baffeb395beace68db0d269e46080c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: davidmu
+ms.openlocfilehash: b94e879de8136eeaddbf2a277d9634025dc99bc1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="url-path-based-routing-overview"></a>Routing oparty na ścieżkach URL — omówienie
 
-Adres URL routingu opartego na ścieżkę umożliwia możesz tooroute ruchu tooback-end pul serwerów oparte na ścieżkach do adresu URL żądania hello. 
+Routing oparty na ścieżkach URL umożliwia kierowanie ruchu do pul serwerów zaplecza na podstawie ścieżek URL żądania. 
 
-Jednego ze scenariuszy hello jest tooroute żądania pul serwerów wewnętrznej bazy danych toodifferent różne typy zawartości.
+Jeden ze scenariuszy polega na kierowaniu żądań dla różnych typów zawartości do różnych pól serwerów zaplecza.
 
-W hello poniższy przykład, Application Gateway obsługuje ruchu dla domeny contoso.com z trzech pul serwerów zaplecza na przykład: VideoServerPool, ImageServerPool i DefaultServerPool.
+W poniższym przykładzie usługa Application Gateway obsługuje ruch dla domeny contoso.com z trzech pul serwerów zaplecza, na przykład: VideoServerPool, ImageServerPool i DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Żądania dla http://contoso.com/video * są tooVideoServerPool routingiem i http://contoso.com/images * są tooImageServerPool routingiem. DefaultServerPool jest zaznaczone, jeśli żadna hello ścieżki wzorce nie zgadza się.
+Żądania dla adresu http://contoso.com/video* są kierowane do puli VideoServerPool, a dla adresu http://contoso.com/images* — ImageServerPool. Pula DefaultServerPool jest wybierana, jeśli żaden z wzorców ścieżki nie pasuje.
 
 > [!IMPORTANT]
-> Reguły są przetwarzane w kolejności hello, są one wyświetlane w portalu hello. Jest odbiorników obejmujący wiele lokacji stanowczo zalecane tooconfigure pierwszy wirusowej tooconfiguring wcześniejsze podstawowe odbiornika.  Dzięki temu zakończenia tego ruchu pobiera routingiem toohello powrót. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
+> Reguły są przetwarzane w kolejności, w jakiej znajdują się na liście w portalu. Zdecydowanie zaleca się skonfigurowanie odbiorników obejmujących wiele lokacji przed skonfigurowaniem podstawowego odbiornika.  Zapewnia to skierowanie ruchu do odpowiedniego zaplecza. Jeśli podstawowy odbiornik znajduje się na początku listy i jest zgodny z żądaniem przychodzącym, jest ono przetwarzane przez ten odbiornik.
 
 ## <a name="urlpathmap-configuration-element"></a>Element konfiguracji UrlPathMap
 
-Hello urlPathMap element jest mapowania puli serwerów używanych toospecify wzorce ścieżki tooback-end. Witaj następujący przykładowy kod to fragment hello urlPathMap elementu z pliku szablonu.
+Element urlPathMap jest używany do określania wzorców ścieżki na potrzeby mapowań pul serwerów zaplecza. Poniższy przykład kodu jest fragmentem elementu urlPathMap z pliku szablonu.
 
 ```json
 "urlPathMaps": [{
@@ -69,13 +69,13 @@ Hello urlPathMap element jest mapowania puli serwerów używanych toospecify wzo
 ```
 
 > [!NOTE]
-> PathPattern: To ustawienie znajduje się lista toomatch wzorce ścieżki. Każdy musi rozpoczynać się od / i miejsce tylko hello "*" jest dozwolone, jest na powitania zakończenia po "/". Hello ciąg przekazywani toohello dopasowania ścieżki nie zawiera żadnego tekstu po hello najpierw? lub #, a te znaki nie są dozwolone w tym miejscu.
+> PathPattern: to ustawienie to lista wzorców ścieżek, które trzeba dopasować. Każdy wzorzec musi rozpoczynać się od znaku „/”, a znak gwiazdki „*” jest dozwolony jedynie na końcu po znaku „/”. Ciąg przekazywany do narzędzia dopasowywania ścieżki nie zawiera żadnego tekstu po pierwszym znaku „?” lub „#” i te znaki nie są tu dozwolone.
 
 Aby uzyskać więcej informacji, zobacz [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) (Szablon usługi Resource Manager korzystający z routingu opartego na adresach URL).
 
 ## <a name="pathbasedrouting-rule"></a>Reguła PathBasedRouting
 
-RequestRoutingRule typu PathBasedRouting jest używane toobind urlPathMap tooa odbiornika. Wszystkie żądania otrzymane dla tego odbiornika są kierowane zgodnie z zasadami określonymi w elemencie urlPathMap.
+Reguła RequestRoutingRule typu PathBasedRouting jest używana do powiązania odbiornika z elementem urlPathMap. Wszystkie żądania otrzymane dla tego odbiornika są kierowane zgodnie z zasadami określonymi w elemencie urlPathMap.
 Fragment reguły PathBasedRouting:
 
 ```json
@@ -100,4 +100,4 @@ Fragment reguły PathBasedRouting:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po naukę na podstawie adresu URL routingu zawartości, przejdź zbyt[Utwórz bramę aplikacji przy użyciu routingu opartego na adres URL](application-gateway-create-url-route-portal.md) toocreate bramę aplikacji z reguł routingu adresów URL.
+Po zapoznaniu się z informacjami na temat routingu zawartości opartego na adresach URL skorzystaj z informacji dotyczących [tworzenia bramy aplikacji przy użyciu routingu opartego na adresach URL](application-gateway-create-url-route-portal.md), aby utworzyć bramę aplikacji za pomocą reguł routingu adresów URL.

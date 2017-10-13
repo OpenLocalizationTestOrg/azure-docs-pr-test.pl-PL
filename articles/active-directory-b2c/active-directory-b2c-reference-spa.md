@@ -1,6 +1,6 @@
 ---
 title: "Usługa Azure Active Directory B2C: Jednostronicowej aplikacji przy użyciu niejawnego przepływu | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak aplikacje jednej strony toobuild bezpośrednio przy użyciu protokołu OAuth 2.0 niejawnego przepływu z usługi Azure Active Directory B2C."
+description: "Dowiedz się, jak tworzyć aplikacje jednej strony bezpośrednio przez przy użyciu niejawnego przepływu OAuth 2.0 w usłudze Azure Active Directory B2C."
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
-ms.openlocfilehash: 5e52abc18fe545f0f6d1745cdb2ea42c5b2698cc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 44ff168599e9078506e1afdd0f1dc4657ef0964d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Usługa Azure AD B2C: Jednostronicowej aplikacji logowania przy użyciu niejawnego przepływu OAuth 2.0
 
@@ -26,30 +26,30 @@ ms.lasthandoff: 10/06/2017
 > Ta funkcja jest dostępna w wersji zapoznawczej.
 > 
 
-Wiele nowoczesnych aplikacji ma jednostronicowej aplikacji fronton głównie napisany w języku JavaScript. Często aplikacji hello jest zapisywany przy użyciu framework, takich jak AngularJS, Ember.js lub Durandal. Aplikacje jednej strony i innych aplikacji JavaScript, które można uruchamiać głównie w przeglądarce ma pewne dodatkowe problemy dotyczące uwierzytelniania:
+Wiele nowoczesnych aplikacji ma jednostronicowej aplikacji fronton głównie napisany w języku JavaScript. Często napisano aplikację przy użyciu framework, takich jak AngularJS, Ember.js lub Durandal. Aplikacje jednej strony i innych aplikacji JavaScript, które można uruchamiać głównie w przeglądarce ma pewne dodatkowe problemy dotyczące uwierzytelniania:
 
-* właściwości zabezpieczeń Hello te aplikacje są znacznie różni się od tradycyjnych na serwerze sieci web aplikacji.
+* Właściwości zabezpieczeń te aplikacje są znacznie różni się od tradycyjnych na serwerze sieci web aplikacji.
 * Wiele serwerów autoryzacji i dostawców tożsamości nie obsługują współużytkowanie zasobów między źródłami (CORS) żądania udostępniania.
-* Przekierowania całej strony przeglądarki w kierunku od aplikacji hello może być znacznie inwazyjne toohello środowisko użytkownika.
+* Przekierowania całej strony przeglądarki w kierunku od aplikacji może być znacznie inwazyjne środowiska użytkownika.
 
-toosupport tych aplikacji, usługi Azure Active Directory B2C (Azure AD B2C) używa przepływu niejawnego hello OAuth 2.0. Przepływ niejawne Przyznaj autoryzacji OAuth 2.0 Hello jest opisany w [sekcji 4.2 specyfikacji hello OAuth 2.0](http://tools.ietf.org/html/rfc6749). W niejawnego przepływu aplikacji hello odbiera tokeny bezpośrednio z hello punktu końcowego, bez żadnych do serwera exchange autoryzacji usługi Azure Active Directory (Azure AD). Wszystkie logika uwierzytelniania i sesji obsługi ma umieścić w całości powitania klienta JavaScript, bez dodatkowa strona przekierowania.
+Aby umożliwić obsługę tych aplikacji usługi Azure Active Directory B2C (Azure AD B2C) używa niejawnego przepływu OAuth 2.0. Przepływ niejawne Przyznaj autoryzacji OAuth 2.0 jest opisany w [sekcji 4.2 specyfikacji protokołu OAuth 2.0](http://tools.ietf.org/html/rfc6749). W przepływu niejawnego aplikacja odbiera tokeny bezpośrednio z usługi Azure Active Directory (Azure AD) punktu końcowego, bez żadnych wymiany serwera serwera autoryzacji. Wszystkie logika uwierzytelniania i sesji obsługi ma umieścić w całości klienta JavaScript, bez dodatkowa strona przekierowania.
 
-Usługa Azure AD B2C rozszerza hello standardowego protokołu OAuth 2.0 przepływu niejawnego toomore niż prostego uwierzytelniania i autoryzacji. Usługa Azure AD B2C wprowadza hello [parametru zasad](active-directory-b2c-reference-policies.md). Z parametrem zasad hello, można użyć protokołu OAuth 2.0 użytkownika tooadd napotyka tooyour aplikacji, takich jak konta, logowania i zarządzania profilami. W tym artykule zostanie przedstawiony zostanie sposób toouse hello niejawnego przepływu i usługi Azure AD tooimplement każdej funkcji aplikacji jednej strony. toohelp rozpocząć, zapoznaj się naszego [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) i [programu Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) próbek.
+Usługa Azure AD B2C rozszerza standardowe niejawnego przepływu OAuth 2.0 do więcej niż prostego uwierzytelniania i autoryzacji. Usługa Azure AD B2C wprowadza [parametru zasad](active-directory-b2c-reference-policies.md). Z parametrem zasad umożliwia OAuth 2.0 Dodawanie użytkowników do aplikacji, takich jak konta, logowania i zarządzania profilami. W tym artykule zostanie przedstawiony zostanie sposób używania przepływu niejawnego i Azure AD do wdrożenia każdego z tych środowisk w aplikacji jednej strony. Aby pomóc Ci rozpocząć, Przyjrzyjmy się naszych [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) i [programu Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) próbek.
 
-W żądaniach HTTP przykład hello w tym artykule, korzystamy z naszych katalog usługi Azure AD B2C przykładu **fabrikamb2c.onmicrosoft.com**. Możemy również użyć własnej przykładowej aplikacji i zasad. Można spróbować żądań hello samodzielnie przy użyciu tych wartości, lub należy je zastąpić własne wartości.
-Dowiedz się, jak za[uzyskać własnego katalogu usługi Azure AD B2C, aplikacji i zasad](#use-your-own-b2c-tenant).
+W żądaniach przykład HTTP w tym artykule, korzystamy z naszych katalog usługi Azure AD B2C przykładu **fabrikamb2c.onmicrosoft.com**. Możemy również użyć własnej przykładowej aplikacji i zasad. Można spróbować żądania samodzielnie przy użyciu tych wartości, lub należy je zastąpić własne wartości.
+Dowiedz się, jak [uzyskać własnego katalogu usługi Azure AD B2C, aplikacji i zasad](#use-your-own-b2c-tenant).
 
 
 ## <a name="protocol-diagram"></a>Diagram protokołu
 
-Witaj logowania przepływu niejawnego wygląda powitania po rysunku. Każdy krok jest szczegółowo opisane w dalszej części artykułu hello.
+Niejawne przepływu logowania może wyglądać poniższej ilustracji. Każdy krok jest szczegółowo opisane w dalszej części tego artykułu.
 
 ![OpenID Connect ścieżek](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>Wysyłanie żądania uwierzytelniania
-W przypadku aplikacji sieci web musi tooauthenticate hello użytkowników i wykonywanie zasad, kieruje go toohello użytkownika hello `/authorize` punktu końcowego. Jest hello interakcyjne część przepływu hello, gdzie hello użytkownik wykona akcję w zależności od zasad hello. Użytkownik Hello pobiera identyfikator tokenu z punktu końcowego usługi Azure AD hello.
+Gdy aplikacja sieci web musi uwierzytelnić użytkownika i wykonywanie zasad, kieruje go użytkownikowi `/authorize` punktu końcowego. Jest to interakcyjne część przepływu, gdy użytkownik wykona akcję w zależności od zasad. Użytkownik uzyskuje identyfikator tokenu z punktu końcowego usługi Azure AD.
 
-W tym żądaniu powitania klienta wskazuje w hello `scope` uprawnienia hello parametru musi tooacquire hello użytkownika. W hello `p` parametr wskazuje hello tooexecute zasad. Witaj następujące trzy przykłady można podać (podziałów wierszy dla czytelności) każdego użyć różnych zasad. tooget działania dla działania każdego żądania, spróbuj wklejanie hello żądania do przeglądarki i jego uruchomieniem.
+W tym żądaniu klienta wskazuje w `scope` parametru uprawnienia, które należy uzyskać od użytkownika. W `p` parametr wskazuje zasad do wykonania. Poniższe trzy przykłady (podziałami wierszy dla czytelności) każdego używają różnych zasad. Aby uzyskać pewne pojęcie o sposób działania każdego żądania, spróbuj wkleić żądania do przeglądarki i uruchomić go.
 
 ### <a name="use-a-sign-in-policy"></a>Użyj zasad logowania
 ```
@@ -90,24 +90,24 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parametr | Wymagana? | Opis |
+| Parametr | Wymagane? | Opis |
 | --- | --- | --- |
-| client_id |Wymagane |Identyfikator aplikacji Hello przypisany tooyour aplikacji w hello [portalu Azure](https://portal.azure.com). |
-| response_type |Wymagane |Musi zawierać `id_token` OpenID Connect logowaniu. On również obejmować opcję Typ odpowiedzi hello `token`. Jeśli używasz `token`, aplikacja może bezpośrednio odbierać token dostępu z hello autoryzacji punktu końcowego, bez wprowadzania drugi toohello żądania punktu końcowego autoryzacji.  Jeśli używasz hello `token` typ odpowiedzi, hello `scope` parametr musi zawierać zakres, który wskazuje, które token hello tooissue zasobów dla. |
-| redirect_uri |Zalecane |Identyfikator URI aplikacji, gdzie można wysyłanych i odbieranych przez aplikację uwierzytelniania odpowiedzi przekierowania Hello. Go musi dokładnie odpowiadać jeden hello przekierowania URI, który został zarejestrowany w portalu hello z tą różnicą, że musi być zakodowane w adresie URL. |
-| response_mode |Zalecane |Określa hello metody toouse toosend hello wynikowy tooyour tyłu tokenu aplikacji.  Niejawne przepływów, użyj `fragment`. |
-| Zakres |Wymagane |Rozdzieloną spacjami listę zakresów. Wartość pojedynczy zakres wskazuje tooAzure AD zarówno hello uprawnienia, które są żądane. Witaj `openid` toosign uprawnienia, w danych użytkownika i get hello o hello użytkownika w postaci hello tokenów identyfikator wskazuje zakres. (Będzie omawianiu to bardziej dalszej części artykułu hello.) Witaj `offline_access` zakres jest opcjonalne dla aplikacji sieci web. Wskazuje on, że Twoja aplikacja powinna token odświeżania dla tooresources długotrwałe dostępu. |
-| state |Zalecane |Wartość zawarte w żądaniu hello, który jest także zwracany w odpowiedzi tokenu hello. Można go ciągu zawartości, które mają toouse. Zwykle jest używana wartość losowo generowany, unikatowy, okno fałszerstwie żądania międzywitrynowego tooprevent. Witaj stan jest również używane tooencode informacji o stanie użytkownika hello w aplikacji hello przed wystąpieniem hello żądania uwierzytelniania, takich jak strony hello znajdowały się w. |
-| Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu hello (wygenerowany przez aplikację hello), który znajduje się w hello identyfikator tokenu jako oświadczenia. Aplikacja Hello następnie sprawdzić, czy ataki powtórzeń tokenów toomitigate wartość. Zazwyczaj wartość hello jest losowe, unikatowy ciąg, który może być używane tooidentify hello pochodzenia hello żądania. |
-| P |Wymagane |Witaj tooexecute zasad. Jego hello nazwę zasad, która jest tworzona w dzierżawie usługi Azure AD B2C. wartość Nazwa zasad Hello powinny rozpoczynać się od **b2c\_1\_**. Aby uzyskać więcej informacji, zobacz [wbudowane zasady usługi Azure AD B2C](active-directory-b2c-reference-policies.md). |
-| wiersz |Optional (Opcjonalność) |Typ Hello interakcji użytkownika, która jest wymagana. Obecnie jest jedyną poprawną wartością hello `login`. Wymusza hello użytkownika tooenter swoje poświadczenia dla tego żądania. Logowanie jednokrotne nie zacznie obowiązywać. |
+| client_id |Wymagane |Identyfikator aplikacji przypisany do aplikacji w [portalu Azure](https://portal.azure.com). |
+| response_type |Wymagane |Musi zawierać `id_token` OpenID Connect logowaniu. Ponadto może zawierać typ odpowiedzi `token`. Jeśli używasz `token`, aplikacja może bezpośrednio odbierać token dostępu z punktu końcowego autoryzacji bez wprowadzania drugie żądanie do punktu końcowego autoryzacji.  Jeśli używasz `token` typ odpowiedzi `scope` parametr musi zawierać zakres, który wskazuje, którego zasobu należy wystawić token dla. |
+| redirect_uri |Zalecane |Identyfikator URI przekierowania w aplikacji, w którym można wysłanych i odebranych przez aplikację odpowiedzi uwierzytelniania. Go musi dokładnie odpowiadać jeden przekierowania URI, który został zarejestrowany w portalu, z wyjątkiem tego, że musi być zakodowane w adresie URL. |
+| response_mode |Zalecane |Określa metodę używaną do wysyłania wynikowy token wstecz do aplikacji.  Niejawne przepływów, użyj `fragment`. |
+| Zakres |Wymagane |Rozdzieloną spacjami listę zakresów. Wskazuje wartość pojedynczy zakres do usługi Azure AD zarówno uprawnienia, które są żądane. `openid` Uprawnienia, aby zalogować użytkownika i Pobierz dane o użytkowniku w formie tokenów identyfikator wskazuje zakres. (Będzie omawianiu to bardziej dalszej części tego artykułu.) `offline_access` Zakres jest opcjonalne dla aplikacji sieci web. Oznacza to, że Twoja aplikacja powinna token odświeżania długotrwałe dostępu do zasobów. |
+| state |Zalecane |Wartość zawarte w żądaniu, który jest także zwracany w odpowiedzi tokenu. Można go ciągiem zawartość, która ma być używany. Zazwyczaj wartość losowo generowany, unikatowy jest używana, aby zapobiec fałszerstwie żądania międzywitrynowego. Stan jest również używany do kodowania informacje o stanie użytkownika w aplikacji, przed wystąpieniem żądania uwierzytelniania, takich jak znajdowały się na stronie. |
+| Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu (wygenerowany przez aplikację), który znajduje się w jego identyfikator tokenu jako oświadczenia. Aplikacja może zweryfikować tę wartość, aby ograniczyć ataków powtórzeń tokenów. Wartość jest zazwyczaj losowego, unikatowy ciąg, który może służyć do identyfikowania pochodzenia żądania. |
+| P |Wymagane |Zasady do wykonania. Jest to nazwa zasad, która jest tworzona w dzierżawie usługi Azure AD B2C. Wartość Nazwa zasad powinny rozpoczynać się od **b2c\_1\_**. Aby uzyskać więcej informacji, zobacz [wbudowane zasady usługi Azure AD B2C](active-directory-b2c-reference-policies.md). |
+| wiersz |Optional (Opcjonalność) |Typ interakcji z użytkownikiem, które są wymagane. Obecnie jest jedyną poprawną wartością `login`. Dzięki temu użytkownik musi wprowadzić swoje poświadczenia dla tego żądania. Logowanie jednokrotne nie zacznie obowiązywać. |
 
-W tym momencie hello użytkownik jest proszony toocomplete hello zasad przepływu pracy. Może to obejmować użytkownika hello wprowadzić swoją nazwę użytkownika i hasło, zalogować się społecznościowych tożsamości, podczas tworzenia katalogu hello lub dowolnej liczby kroków. Akcje użytkownika zależą od tego, jak zdefiniowano hello zasad.
+W tym momencie użytkownik jest proszony o ukończenia przepływu pracy zasad. Może to obejmować wprowadzić swoją nazwę użytkownika i hasło, użytkownik zalogować społecznościowych tożsamości, podczas tworzenia katalogu lub dowolnej liczby kroków. Akcje użytkownika zależą od tego, jak zdefiniowano zasad.
 
-Po zakończeniu zasad hello hello użytkownika usługi Azure AD zwraca aplikacji tooyour odpowiedzi, w wartości hello używane dla `redirect_uri`. Używa metody hello określonej w hello `response_mode` parametru. odpowiedź Hello jest hello dokładnie tego samego dla każdego hello akcji scenariusze użytkowników, niezależnie od zasady hello, które zostało wykonane.
+Po wypełnieniu zasad przez użytkownika, usługi Azure AD zwraca odpowiedź do aplikacji przy wartości używane dla `redirect_uri`. Używa metody określonej w `response_mode` parametru. Odpowiedź jest dokładnie taka sama dla każdego z scenariuszy akcji użytkownika, niezależnie od zasady, które zostało wykonane.
 
 ### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
-Odpowiedź oznaczająca Powodzenie, która używa `response_mode=fragment` i `response_type=id_token+token` wygląda podobnie do następujących hello, podziały wiersza dla czytelności:
+Odpowiedź oznaczająca Powodzenie, która używa `response_mode=fragment` i `response_type=id_token+token` wygląda podobnie do następującego podziałami wierszy dla czytelności:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -121,15 +121,15 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parametr | Opis |
 | --- | --- |
-| ' access_token ' |token dostępu Hello hello żądanej aplikacji.  Nie można zdekodować lub w przeciwnym razie sprawdził Hello tokenu dostępu. Może być traktowana jako ciąg z ogólnym opisem. |
-| token_type |wartość tokenu typu Hello. Hello tylko typ, czy obsługa usługi Azure AD jest elementu nośnego. |
-| expires_in |Hello długość czasu, przez który hello token dostępu jest nieprawidłowy (w sekundach). |
-| Zakres |zakresy Hello hello token jest prawidłowy dla. Możesz również używaj tokenów toocache zakresów do późniejszego użycia. |
-| żądaniu |Witaj identyfikator token, aplikacja hello żądanie. Można użyć hello identyfikator tokenu tooverify hello tożsamości użytkownika i rozpocząć sesję użytkownika hello. Aby uzyskać więcej informacji o identyfikatorze tokeny i ich zawartość, zobacz hello [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md). |
-| state |Jeśli `state` parametru jest częścią żądania hello hello tę samą wartość powinna być widoczna w odpowiedzi hello. Witaj aplikacji należy sprawdzić, że hello `state` wartości hello żądań i odpowiedzi są identyczne. |
+| ' access_token ' |Token dostępu do żądanej aplikacji.  Nie można zdekodować lub w przeciwnym razie sprawdził tokenu dostępu. Może być traktowana jako ciąg z ogólnym opisem. |
+| token_type |Wartość typu tokenu. Jedynym typem, który obsługuje usługę Azure AD jest elementu nośnego. |
+| expires_in |Długość czasu, przez który token dostępu jest nieprawidłowy (w sekundach). |
+| Zakres |Token jest prawidłowy dla zakresów. Możesz również zakresów można użyć do pamięci podręcznej tokenów do późniejszego użycia. |
+| żądaniu |Token ID żądanej aplikacji. Token identyfikator służy do weryfikacji tożsamości użytkownika i rozpocząć sesję użytkownika. Aby uzyskać więcej informacji o identyfikatorze tokeny i ich zawartość, zobacz [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md). |
+| state |Jeśli `state` parametru jest zawarte w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikację należy sprawdzić, czy `state` wartości żądań i odpowiedzi są identyczne. |
 
 ### <a name="error-response"></a>Odpowiedzi na błąd
-Odpowiedzi na błędy również mogą być wysyłane identyfikator URI przekierowania toohello tak, aby hello aplikacji można je odpowiednią obsługę:
+Odpowiedzi na błędy również mogą być wysyłane identyfikator URI przekierowania, dzięki czemu aplikacja może je odpowiednią obsługę:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -140,50 +140,50 @@ error=access_denied
 
 | Parametr | Opis |
 | --- | --- |
-| error |Błąd kodu ciąg używany tooclassify typy występujące błędy. Również można użyć hello błąd kodu do obsługi błędów. |
-| error_description |Komunikat o błędzie, który ułatwia identyfikowanie hello głównej przyczyny błędu uwierzytelniania. |
-| state |Zobacz pełny opis hello w hello powyższej tabeli. Jeśli `state` parametru jest częścią żądania hello hello tę samą wartość powinna być widoczna w odpowiedzi hello. Witaj aplikacji należy sprawdzić, że hello `state` wartości hello żądań i odpowiedzi są identyczne.|
+| error |Służy do klasyfikowania typy błędów występujących ciąg kod błędu. Kod błędu: można również użyć do obsługi błędów. |
+| error_description |Komunikat o błędzie, które mogą pomóc Określ przyczynę błędu uwierzytelniania. |
+| state |Zobacz pełną opisu w powyższej tabeli. Jeśli `state` parametru jest zawarte w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikację należy sprawdzić, czy `state` wartości żądań i odpowiedzi są identyczne.|
 
-## <a name="validate-hello-id-token"></a>Sprawdź poprawność hello identyfikator tokenu
-Odbieranie token identyfikator nie jest wystarczająco dużo tooauthenticate hello użytkownikiem. Musisz zweryfikować podpisu tokenu identyfikator hello i sprawdzić hello oświadczenia w tokenie hello na wymagania dotyczące Twojej aplikacji. Używa usługi Azure AD B2C [tokenów sieci Web JSON (Jwt)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) i publicznego klucza szyfrowania tokenów toosign i sprawdź, czy są prawidłowe.
+## <a name="validate-the-id-token"></a>Zweryfikuj token Identyfikatora
+Odbieranie identyfikator tokenu jest niewystarczająca do uwierzytelnienia użytkownika. Musisz zweryfikować podpisu tokenu identyfikator i sprawdzić oświadczenia w tokenie na wymagania dotyczące Twojej aplikacji. Używa usługi Azure AD B2C [tokenów sieci Web JSON (Jwt)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) i kryptografii klucza publicznego do podpisywania tokenów i sprawdź, czy są prawidłowe.
 
-Wiele open source biblioteki są dostępne sprawdzania poprawności tokenów Jwt, w zależności od języka hello wolisz toouse. Należy wziąć pod uwagę eksploracji dostępnych bibliotek open source, a nie implementacji logiki weryfikacji. Korzystając z informacji hello w toohelp tego artykułu dowiesz się, jak korzystać z tooproperly tych bibliotek.
+Wiele bibliotek open source dostępnych sprawdzania poprawności tokenów Jwt, w zależności od języka, w którym można skorzystać. Należy wziąć pod uwagę eksploracji dostępnych bibliotek open source, a nie implementacji logiki weryfikacji. Informacje w tym artykule służy do zapoznawania się jak poprawnie używać tych bibliotek.
 
-Usługa Azure AD B2C ma punkt końcowy metadanych OpenID Connect. Aplikacja może używać hello punktu końcowego toofetch informacji o usłudze Azure AD B2C w czasie wykonywania. Informacje te obejmują punkty końcowe, zawartość tokenu i klucze podpisywania tokenu. Brak dokument metadanych JSON dla każdej zasady w dzierżawie usługi Azure AD B2C. Na przykład dokument metadanych hello hello b2c_1_sign_in zasad w dzierżawie fabrikamb2c.onmicrosoft.com hello jest w następującej lokalizacji:
+Usługa Azure AD B2C ma punkt końcowy metadanych OpenID Connect. Aplikacja można używać punktu końcowego można pobrać informacji na temat usługi Azure AD B2C w czasie wykonywania. Informacje te obejmują punkty końcowe, zawartość tokenu i klucze podpisywania tokenu. Brak dokument metadanych JSON dla każdej zasady w dzierżawie usługi Azure AD B2C. Na przykład dokument metadanych dla zasad b2c_1_sign_in w dzierżawie fabrikamb2c.onmicrosoft.com znajduje się na:
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
-Jedna z właściwości hello tego dokumentu konfiguracji jest hello `jwks_uri`. wartość Hello hello, które będą takie same zasady:
+Jedna z właściwości tego dokumentu konfiguracji jest `jwks_uri`. Wartość dla tych samych zasad, będzie:
 
 `https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
-toodetermine zasady, które zostało używane toosign token identyfikator (i gdzie toofetch hello metadanych z), są dostępne dwie opcje. Najpierw hello zasad nazwa jest uwzględniona w hello `acr` oświadczeń w `id_token`. Informacje, jak tooparse hello oświadczeń z tokenu identyfikator, zobacz hello [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md). Drugą opcją jest zasad hello tooencode hello wartości hello `state` parametru w przypadku wysyłania żądania hello. Następnie dekodowania hello `state` toodetermine parametru zasady, które zostało użyte. Każda metoda jest prawidłowa.
+Aby określić zasady, które zostało użyte do podpisywania tokenu identyfikator (i miejsca do pobierania metadanych z), są dostępne dwie opcje. Po pierwsze, nazwa zasady jest dołączona do `acr` oświadczeń w `id_token`. Informacje o tym, jak można przeanalizować oświadczeń z tokenem identyfikator, zobacz [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md). Drugą opcją jest do kodowania zasad wartości `state` parametru w przypadku wysyłania żądania. Następnie dekodowania `state` parametr, aby określić zasady, które zostało użyte. Każda metoda jest prawidłowa.
 
-Po zostały nabyte hello dokument metadanych z punktu końcowego metadanych hello OpenID Connect, należy użyć hello RSA 256 kluczy publicznych (znajdujące się w tym punkcie końcowym) toovalidate hello podpisu hello Identyfikatora tokenu. Może istnieć wiele kluczy wymienione w tym punkcie końcowym w dowolnym momencie, identyfikowanych przez `kid`. Nagłówek Hello `id_token` zawiera także `kid` oświadczeń. Oznacza to, które z tych kluczy została toosign używane hello identyfikator tokenu. Aby uzyskać więcej informacji, łącznie z zapoznawanie [sprawdzanie poprawności tokenów](active-directory-b2c-reference-tokens.md#token-validation), zobacz hello [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md).
-<!--TODO: Improve hello information on this-->
+Po zostały nabyte dokument metadanych z punktem końcowym metadanych OpenID Connect, możesz użyć klucze publiczne RSA-256 (znajdujące się w tym punkcie końcowym) można zweryfikować podpisu tokenu identyfikator. Może istnieć wiele kluczy wymienione w tym punkcie końcowym w dowolnym momencie, identyfikowanych przez `kid`. Nagłówek `id_token` zawiera także `kid` oświadczeń. Wskazuje on, która z tych kluczy został użyty do podpisania token Identyfikatora. Aby uzyskać więcej informacji, łącznie z zapoznawanie [sprawdzanie poprawności tokenów](active-directory-b2c-reference-tokens.md#token-validation), zobacz [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md).
+<!--TODO: Improve the information on this-->
 
-Po weryfikacji podpisu hello hello identyfikator tokenu oświadczeń kilka Żądaj weryfikacji. Na przykład:
+Po weryfikacji podpisu tokenu identyfikator oświadczenia kilka Żądaj weryfikacji. Na przykład:
 
-* Sprawdź poprawność hello `nonce` tooprevent ataków powtórzeń tokenów oświadczeń. Jego wartość powinna być określona w hello żądania logowania.
-* Sprawdź poprawność hello `aud` oświadczeń tooensure, który hello identyfikator token został wystawiony dla aplikacji. Jego wartość powinna być identyfikator aplikacji hello aplikacji.
-* Sprawdź poprawność hello `iat` i `exp` oświadczeń tooensure, który hello identyfikator token nie wygasł.
+* Sprawdź poprawność `nonce` oświadczeń zapobiec atakom powtórzeń tokenów. Jego wartość musi być określony w żądaniu logowania.
+* Sprawdź poprawność `aud` oświadczeń upewnić się, czy identyfikator token został wystawiony dla aplikacji. Jego wartość powinna być identyfikator aplikacji.
+* Sprawdź poprawność `iat` i `exp` oświadczeń upewnić się, że identyfikator token nie wygasł.
 
-Kilka więcej operacji sprawdzania poprawności, które należy wykonać opisano szczegółowo w hello [OpenID Connect podstawowych specyfikacji](http://openid.net/specs/openid-connect-core-1_0.html). Można także toovalidate dodatkowe roszczenia, w zależności od danego scenariusza. Niektóre typowe operacje sprawdzania poprawności obejmują:
+Kilka więcej operacji sprawdzania poprawności, które należy wykonać opisane szczegółowo w [OpenID Connect podstawowych specyfikacji](http://openid.net/specs/openid-connect-core-1_0.html). Można również sprawdzić dodatkowe roszczenia, w zależności od danego scenariusza. Niektóre typowe operacje sprawdzania poprawności obejmują:
 
-* Zapewnienie tego użytkownika hello lub organizacji po zarejestrowaniu aplikacji hello.
-* Zapewnienie hello użytkownik ma odpowiednią autoryzacją i uprawnienia.
+* Zapewnienie, że użytkownik lub organizacja po zarejestrowaniu aplikacji.
+* Zapewnienie, że użytkownik ma odpowiednią autoryzacją i uprawnienia.
 * Zapewnienie, że niektóre siły uwierzytelniania wystąpił, takie jak przy użyciu usługi Azure Multi-Factor Authentication.
 
-Aby uzyskać więcej informacji na temat hello oświadczenia w tokenie identyfikator Zobacz hello [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md).
+Aby uzyskać więcej informacji na temat oświadczenia w tokenie identyfikator, zobacz [odwołania do tokenu usługi Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-Po całkowicie poprawności hello identyfikator tokenu można rozpocząć sesji hello użytkownika. W aplikacji należy użyć oświadczeń hello hello identyfikator tokenu tooobtain informacje o hello użytkownika. Te informacje może służyć do wyświetlania, rekordy, autoryzacji i tak dalej.
+Po całkowicie poprawności tokenu identyfikator można rozpocząć sesji z użytkownikiem. W aplikacji należy użyć oświadczeń token identyfikator, aby uzyskać informacje o użytkowniku. Te informacje może służyć do wyświetlania, rekordy, autoryzacji i tak dalej.
 
 ## <a name="get-access-tokens"></a>Pobieranie tokenów dostępu
-Jedyną operacją hello toodo potrzeb aplikacji sieci web jest wykonanie zasad, można pominąć hello kolejnych sekcjach kilku. informacje Hello w hello następujące sekcje są stosowane tylko aplikacje tooweb wymagające toomake uwierzytelnione wywołania tooa — interfejs API sieci web, a które są chronione przez usługę Azure AD B2C.
+Jeśli zasady wykonywania jedynym elementem aplikacji sieci web musi wykonać, można pominąć kilka kolejnych sekcjach. Informacje w poniższych sekcjach mają zastosowanie tylko do aplikacji sieci web, które należy uwierzytelnieni wywołań interfejsu API sieci web, a które są chronione przez usługę Azure AD B2C.
 
-Teraz, gdy zostały podpisane hello użytkownika w aplikacji jednej strony tooyour, można uzyskać tokenów dostępu do sieci web wywoływania interfejsów API, które są zabezpieczone przez usługę Azure AD. Nawet jeśli już uzyskały tokenu przy użyciu hello `token` typ odpowiedzi można użyć tej metody tooacquire tokeny Aby uzyskać dodatkowe zasoby bez ponownie przekierowywanie hello toosign użytkownika w.
+Teraz, gdy użytkownik został zalogowany, aplikacji jednej strony, możesz też uzyskać tokenów dostępu do sieci web wywoływania interfejsów API, które są zabezpieczone przez usługę Azure AD. Nawet jeśli już uzyskały tokenu przy użyciu `token` typ odpowiedzi, można używać tej metody można uzyskać tokeny, aby uzyskać dodatkowe zasoby bez przekierowanie użytkownika do logowania się ponownie.
 
-W typowej sieci web przepływu aplikacji, można to zrobić poprzez toohello żądania `/token` punktu końcowego.  Jednak hello punktu końcowego nie nie żądań CORPS pomocy technicznej, co AJAX wywołuje tooget i tokenów odświeżania nie jest opcją. Zamiast tego można użyć niejawnego przepływu hello w ukrytym HTML iframe element tooget nowe tokeny dla innych interfejsów API sieci web. Oto przykład podziałami wierszy dla czytelności:
+W typowej sieci web przepływu aplikacji, można to zrobić przez żądanie `/token` punktu końcowego.  Punkt końcowy nie obsługuje jednak żądań CORPS, więc wywołań AJAX do pobrania i tokenów odświeżania nie jest opcją. Zamiast tego można przepływu niejawnego w ukrytym elemencie iframe HTML pobrać nowe tokeny dla innych interfejsów API sieci web. Oto przykład podziałami wierszy dla czytelności:
 
 ```
 
@@ -201,20 +201,20 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-| Parametr | Wymagana? | Opis |
+| Parametr | Wymagane? | Opis |
 | --- | --- | --- |
-| client_id |Wymagane |Identyfikator aplikacji Hello przypisany tooyour aplikacji w hello [portalu Azure](https://portal.azure.com). |
-| response_type |Wymagane |Musi zawierać `id_token` OpenID Connect logowaniu.  Może również zawierać typ odpowiedzi hello `token`. Jeśli używasz `token` , aplikacja natychmiast może odbierać token dostępu z hello autoryzacji punktu końcowego, bez wprowadzania drugi toohello żądania punktu końcowego autoryzacji. Jeśli używasz hello `token` typ odpowiedzi, hello `scope` parametr musi zawierać zakres, który wskazuje, które token hello tooissue zasobów dla. |
-| redirect_uri |Zalecane |Identyfikator URI aplikacji, gdzie można wysyłanych i odbieranych przez aplikację uwierzytelniania odpowiedzi przekierowania Hello. Go musi dokładnie odpowiadać jeden hello przekierowania URI zarejestrowany w portalu hello z tą różnicą, że musi być zakodowane w adresie URL. |
-| Zakres |Wymagane |Rozdzieloną spacjami listę zakresów.  W przypadku uzyskiwania tokenów, zawiera wszystkie zakresy wymagające zasobu hello przeznaczone. |
-| response_mode |Zalecane |Określa metodę hello, która jest używana toosend hello wynikowy tooyour tyłu tokenu aplikacji.  Może być `query`, `form_post`, lub `fragment`. |
-| state |Zalecane |Wartość zawarte w żądaniu hello, który jest zwracany w odpowiedzi tokenu hello.  Można go ciągu zawartości, które mają toouse.  Zwykle jest używana wartość losowo generowany, unikatowy, okno fałszerstwie żądania międzywitrynowego tooprevent.  Stan Hello także jest używane tooencode informacji na temat stanu hello użytkownika w aplikacji hello, przed wystąpieniem hello żądanie uwierzytelnienia. Na przykład użytkownika hello hello stronę lub widok został na. |
-| Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu hello, generowane przez aplikacji hello, który znajduje się w hello identyfikator tokenu jako oświadczenia.  Aplikacja Hello następnie sprawdzić, czy ataki powtórzeń tokenów toomitigate wartość. Zazwyczaj wartość hello jest losowe, unikatowy ciąg identyfikujący hello pochodzenia hello żądania. |
-| wiersz |Wymagane |Użyj toorefresh i get tokenów w ukrytym iframe, `prompt=none` tooensure, który hello iframe nie zostać zablokowane na powitania strony logowania, a następnie zwraca natychmiast. |
-| login_hint |Wymagane |toorefresh i get tokenów w ukrytym iframe, obejmują username hello hello użytkownika, w tym toodistinguish wskazówka między wiele sesji, który hello użytkownika może być w danym momencie. Można wyodrębnić hello username z wcześniejszych logowanie przy użyciu hello `preferred_username` oświadczeń. |
-| domain_hint |Wymagane |Może być `consumers` lub `organizations`.  Odświeżanie i uzyskiwania tokenów w ukrytym iframe, musi zawierać hello `domain_hint` wartość w żądaniu hello.  Wyodrębnij hello `tid` oświadczeń z tokenu identyfikator hello wcześniej logowania toodetermine które toouse wartość.  Jeśli hello `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, użyj `domain_hint=consumers`.  W przeciwnym razie użyj `domain_hint=organizations`. |
+| client_id |Wymagane |Identyfikator aplikacji przypisany do aplikacji w [portalu Azure](https://portal.azure.com). |
+| response_type |Wymagane |Musi zawierać `id_token` OpenID Connect logowaniu.  Może również zawierać typ odpowiedzi `token`. Jeśli używasz `token` , aplikacja może bezpośrednio odbierać token dostępu z punktu końcowego autoryzacji bez wprowadzania drugie żądanie do punktu końcowego autoryzacji. Jeśli używasz `token` typ odpowiedzi `scope` parametr musi zawierać zakres, który wskazuje, którego zasobu należy wystawić token dla. |
+| redirect_uri |Zalecane |Identyfikator URI przekierowania w aplikacji, w którym można wysłanych i odebranych przez aplikację odpowiedzi uwierzytelniania. Go musi dokładnie odpowiadać jeden przekierowania URI zarejestrowany w portalu, z wyjątkiem tego, że musi być zakodowane w adresie URL. |
+| Zakres |Wymagane |Rozdzieloną spacjami listę zakresów.  W przypadku uzyskiwania tokenów, zawiera wszystkie zakresy, które wymagają danego zasobu. |
+| response_mode |Zalecane |Określa metodę, która służy do wysyłania wynikowy token wstecz do aplikacji.  Może być `query`, `form_post`, lub `fragment`. |
+| state |Zalecane |Wartość zawarte w żądaniu, który jest zwracany w odpowiedzi tokenu.  Można go ciągiem zawartość, która ma być używany.  Zazwyczaj wartość losowo generowany, unikatowy jest używana, aby zapobiec fałszerstwie żądania międzywitrynowego.  Stan jest również używany do kodowania informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia. Na przykład strony lub widoku użytkownik był na. |
+| Identyfikator jednorazowy |Wymagane |Wartość zawarte w żądaniu wygenerowany przez aplikację, który znajduje się w jego identyfikator tokenu jako oświadczenia.  Aplikacja może zweryfikować tę wartość, aby ograniczyć ataków powtórzeń tokenów. Wartość jest zazwyczaj losowego, unikatowy ciąg identyfikujący pochodzenia żądania. |
+| wiersz |Wymagane |Aby odświeżyć i uzyskać tokenów w ukrytym iframe, użyj `prompt=none` do zapewnienia, że element iframe nie zostać zablokowane na stronie logowania i natychmiast zwraca. |
+| login_hint |Wymagane |Aby odświeżyć i uzyskać tokenów w ukrytym iframe, dołączyć tę wskazówkę odróżnienie wiele sesji użytkownika nazwa użytkownika może być w danym momencie. Można wyodrębnić nazwy użytkownika z wcześniejszych logowanie przy użyciu `preferred_username` oświadczeń. |
+| domain_hint |Wymagane |Może być `consumers` lub `organizations`.  Odświeżanie i uzyskiwania tokenów w ukrytym iframe, należy uwzględnić `domain_hint` wartość w żądaniu.  Wyodrębnij `tid` oświadczeń z tokenu identyfikator wcześniejszych logowania można określić wartość, która do użycia.  Jeśli `tid` oświadczeń, wartość jest `9188040d-6c67-4c5b-b112-36a304b66dad`, użyj `domain_hint=consumers`.  W przeciwnym razie użyj `domain_hint=organizations`. |
 
-Przez ustawienie hello `prompt=none` parametru tego żądania albo zakończy się pomyślnie lub natychmiast kończy się niepowodzeniem i zwraca tooyour aplikacji.  Odpowiedź oznaczająca Powodzenie wysłaniu tooyour aplikacji na wskazanych hello przekierowania URI, za pomocą metody hello określonej w hello `response_mode` parametru.
+Przez ustawienie `prompt=none` , to żądanie albo powiedzie się albo natychmiast kończy się niepowodzeniem i zwraca do aplikacji.  Odpowiedź oznaczająca Powodzenie są wysyłane do aplikacji na wskazanych przekierowania URI, za pomocą metody określonej w `response_mode` parametru.
 
 ### <a name="successful-response"></a>Odpowiedź oznaczająca Powodzenie
 Odpowiedź oznaczająca Powodzenie przy użyciu `response_mode=fragment` wygląda podobnie do następującej:
@@ -230,14 +230,14 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 
 | Parametr | Opis |
 | --- | --- |
-| ' access_token ' |Witaj token, aplikacja hello żądanie. |
-| token_type |Typ tokenu Hello jest zawsze elementu nośnego. |
-| state |Jeśli `state` parametru jest częścią żądania hello hello tę samą wartość powinna być widoczna w odpowiedzi hello. Witaj aplikacji należy sprawdzić, że hello `state` wartości hello żądań i odpowiedzi są identyczne. |
-| expires_in |Jak długo hello token dostępu jest nieprawidłowy (w sekundach). |
-| Zakres |nadaje się do zakresów Hello hello tokenu dostępu. |
+| ' access_token ' |Token, który żądanej aplikacji. |
+| token_type |Typ tokenu jest zawsze elementu nośnego. |
+| state |Jeśli `state` parametru jest zawarte w żądaniu, tę samą wartość powinna być widoczna w odpowiedzi. Aplikację należy sprawdzić, czy `state` wartości żądań i odpowiedzi są identyczne. |
+| expires_in |Jak długo token dostępu jest nieprawidłowy (w sekundach). |
+| Zakres |Token dostępu jest nieprawidłowy dla zakresów. |
 
 ### <a name="error-response"></a>Odpowiedzi na błąd
-Odpowiedzi na błędy również mogą być wysyłane identyfikator URI przekierowania toohello tak, aby hello aplikacji można je odpowiednią obsługę.  Aby uzyskać `prompt=none`, oczekiwany błąd wygląda następująco:
+Odpowiedzi na błędy również mogą być wysyłane do identyfikatora URI przekierowania, dzięki czemu aplikacja może je odpowiednią obsługę.  Aby uzyskać `prompt=none`, oczekiwany błąd wygląda następująco:
 
 ```
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -247,18 +247,18 @@ error=user_authentication_required
 
 | Parametr | Opis |
 | --- | --- |
-| error |Ciąg kodu błędu, które mogą być używane tooclassify typów błędów występujących. Można też użyć tooerrors tooreact ciąg hello. |
-| error_description |Komunikat o błędzie, który ułatwia identyfikowanie hello głównej przyczyny błędu uwierzytelniania. |
+| error |Ciąg kodu błędu, który może służyć do klasyfikowania typy błędów występujących. Możesz również umożliwia ciąg reagowania na błędy. |
+| error_description |Komunikat o błędzie, które mogą pomóc Określ przyczynę błędu uwierzytelniania. |
 
-Jeśli ten błąd jest wyświetlany w żądaniu iframe hello, hello użytkownika interakcyjnie zalogować ponownie tooretrieve nowy token. Problem można rozwiązać w taki sposób, który ma sens dla aplikacji.
+Jeśli ten błąd jest wyświetlany w żądaniu iframe, użytkownik interakcyjnie zalogować się ponownie do pobrania nowego tokenu. Problem można rozwiązać w taki sposób, który ma sens dla aplikacji.
 
 ## <a name="refresh-tokens"></a>Tokenów odświeżania
-Tokeny Identyfikatora i tokenów dostępu wygasają po krótkim czasie. Aplikację należy przygotować toorefresh te tokeny okresowo.  wykonania dowolnego typu tokenu, toorefresh hello jednym żądaniu ukryte iframe zostały użyte podczas wcześniejszego przykładu, za pomocą hello `prompt=none` parametru kroki toocontrol usługi Azure AD.  tooreceive nowy `id_token` wartość, należy się toouse `response_type=id_token` i `scope=openid`, a `nonce` parametru.
+Tokeny Identyfikatora i tokenów dostępu wygasają po krótkim czasie. Aby odświeżyć te tokeny okresowo muszą być przygotowane aplikacji.  Aby odświeżyć albo typ tokenu, wykonania tego samego żądania ukryte iframe użyliśmy w poprzedniego przykładu, za pomocą `prompt=none` parametru do kontrolowania kroków usługi Azure AD.  Aby otrzymać nowe `id_token` wartość, należy użyć `response_type=id_token` i `scope=openid`, a `nonce` parametru.
 
 ## <a name="send-a-sign-out-request"></a>Wyślij żądanie wylogowania
-Użytkownik hello toosign poza aplikacją hello, należy przekierować hello użytkownika tooAzure AD toosign limit. Jeśli nie zrobisz, hello użytkownika może być możliwe tooreauthenticate tooyour aplikacji bez konieczności ponownego wprowadzania poświadczeń. Jest tak, ponieważ mają one nieprawidłowy jednej logowania jednokrotnego sesji z usługą Azure AD.
+Jeśli chcesz zalogować użytkownika poza aplikacją przekierowuje użytkownika do usługi Azure AD, aby się wylogować. Jeśli tego nie zrobisz, użytkownik może mieć możliwość ponownego uwierzytelnienia do aplikacji bez konieczności ponownego wprowadzania poświadczeń. Jest tak, ponieważ mają one nieprawidłowy jednej logowania jednokrotnego sesji z usługą Azure AD.
 
-Można przekierowywać po prostu hello użytkownika toohello `end_session_endpoint` oznacza to wymienione w hello samego dokumentu metadanych OpenID Connect opisanego w [weryfikacji hello identyfikator tokenu](#validate-the-id-token). Na przykład:
+Po prostu można przekierować użytkownika do `end_session_endpoint` wymieniony w tej samej OpenID Connect dokument metadanych opisanego w [Zweryfikuj token Identyfikatora](#validate-the-id-token). Na przykład:
 
 ```
 GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
@@ -266,22 +266,22 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parametr | Wymagana? | Opis |
+| Parametr | Wymagane? | Opis |
 | --- | --- | --- |
-| P |Wymagane |Witaj zasad toouse toosign hello użytkownika z aplikacji. |
-| post_logout_redirect_uri |Zalecane |Witaj adres URL tego użytkownika hello powinien być przekierowanego tooafter pomyślnie wylogowania. Jeśli nie zostanie włączony, usługi Azure AD B2C wyświetla komunikat ogólny toohello użytkownika. |
+| P |Wymagane |Zasady, które mają być używane do podpisywania użytkownika z aplikacji. |
+| post_logout_redirect_uri |Zalecane |Adres URL, który użytkownik powinien być przekierowywany użytkownik po pomyślnym wylogowania. Jeśli nie zostanie włączony, usługi Azure AD B2C jest wyświetlany komunikat ogólny. |
 
 > [!NOTE]
-> Kierowanie hello użytkownika toohello `end_session_endpoint` czyści niektóre użytkownika hello pojedynczego logowania jednokrotnego stanu z usługi Azure AD B2C. Jednak nie go podpisać hello użytkownika z sesji dostawcy tożsamości społecznościowych hello użytkownika. Jeśli hello użytkownik wybiera hello dostawcy sam identyfikację podczas kolejnych logowanie, hello użytkownika jest ponownie uwierzytelnić bez wprowadzania poświadczeń. Jeśli użytkownik chce toosign poza aplikacji usługi Azure AD B2C, go nie musi oznaczać, że chcą toocompletely Wyloguj swojego konta usługi Facebook, na przykład. Jednak dla kont lokalnych hello sesja zostanie zakończona poprawnie.
+> Kierowanie użytkownikowi `end_session_endpoint` czyści niektóre użytkownika pojedynczego logowania jednokrotnego stanu z usługi Azure AD B2C. Jednak nie go podpisać użytkownika z sesji dostawcy społecznościowych tożsamości użytkownika. Jeśli użytkownik wybierze dostawcy takie same identyfikację podczas kolejnych logowanie, użytkownik jest ponownie uwierzytelnić bez wprowadzania poświadczeń. Jeśli użytkownik chce, aby wylogować się z aplikacji Azure AD B2C, go nie musi oznaczać, że mają być całkowicie wylogować się z konta usługi Facebook, na przykład. Jednak dla kont lokalnych sesji użytkownika zostanie zakończona poprawnie.
 > 
 > 
 
 ## <a name="use-your-own-azure-ad-b2c-tenant"></a>Użyj dzierżawy usługi Azure AD B2C
-tootry żądań użytkownika, je ukończyć powitalnych następujące trzy kroki. Zastąp hello przykładowe wartości używanej w tym artykule i własne wartości:
+Aby samodzielnie wypróbować te żądania, wykonaj następujące trzy kroki. Zastąp przykładowe wartości używanej w tym artykule i własne wartości:
 
-1. [Tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md). Użyj nazwy hello dzierżawy w żądaniach hello.
-2. [Tworzenie aplikacji](active-directory-b2c-app-registration.md) tooobtain identyfikator aplikacji i `redirect_uri` wartość. Uwzględnij aplikację sieci web lub interfejsu API sieci web w aplikacji. Opcjonalnie możesz utworzyć klucz tajny aplikacji.
-3. [Tworzenie zasad](active-directory-b2c-reference-policies.md) tooobtain nazwy zasad.
+1. [Tworzenie dzierżawy usługi Azure AD B2C](active-directory-b2c-get-started.md). Użyj nazwy dzierżawy w żądaniach.
+2. [Tworzenie aplikacji](active-directory-b2c-app-registration.md) uzyskać identyfikator aplikacji i `redirect_uri` wartość. Uwzględnij aplikację sieci web lub interfejsu API sieci web w aplikacji. Opcjonalnie możesz utworzyć klucz tajny aplikacji.
+3. [Tworzenie zasad](active-directory-b2c-reference-policies.md) można uzyskać nazwy zasad.
 
 ## <a name="samples"></a>Przykłady
 

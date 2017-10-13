@@ -1,5 +1,5 @@
 ---
-title: Schemat konfiguracji 1.0 diagnostyki aaaAzure | Dokumentacja firmy Microsoft
+title: Schemat konfiguracji diagnostyki Azure 1.0 | Dokumentacja firmy Microsoft
 description: "TYLKO odpowiednie Jeśli używasz 2.4 zestawu SDK platformy Azure i poniżej z maszyn wirtualnych platformy Azure, zestawy skalowania maszyn wirtualnych, sieci szkieletowej usług lub usługi w chmurze."
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,28 +14,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: bdd2b26217d6ea28f19e651ab429e7e7401ff57b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Schemat konfiguracji diagnostyki Azure 1.0
 > [!NOTE]
-> Diagnostyka Azure to liczniki wydajności toocollect używany składnik hello i innych danych statystycznych z maszyn wirtualnych platformy Azure, zestawy skalowania maszyn wirtualnych, sieci szkieletowej usług i usługi w chmurze.  Ta strona jest tylko istotne, jeśli używasz tych usług.
+> Diagnostyka Azure jest używane do zbierania liczników wydajności i innych danych statystycznych z maszyn wirtualnych platformy Azure, zestawy skalowania maszyn wirtualnych, sieci szkieletowej usług i usługi w chmurze.  Ta strona jest tylko istotne, jeśli używasz tych usług.
 >
 
 Diagnostyka Azure jest używana z innymi produktami firmy Microsoft diagnostyki, takich jak Azure monitora, usługi Application Insights i analizy dzienników.
 
-plik konfiguracji diagnostyki Azure Hello definiuje wartości, które są używane tooinitialize hello Monitor diagnostyki. Ten plik jest tooinitialize używanych ustawień diagnostycznych konfiguracji diagnostyki hello monitorujący uruchamia.  
+Plik konfiguracji diagnostyki Azure definiuje wartości, które są używane do zainicjowania monitora diagnostyki. Ten plik służy do inicjowania ustawień diagnostycznych konfiguracji podczas uruchamiania Monitora diagnostyki.  
 
- Domyślnie plik schematu konfiguracji diagnostyki Azure hello jest zainstalowana toohello `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` katalogu. Zastąp `<version>` z hello zainstalowana wersja hello [zestawu Azure SDK](http://www.windowsazure.com/develop/downloads/).  
+ Domyślnie plik schematu konfiguracji diagnostyki Azure jest instalowany na `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\<version>\schemas` katalogu. Zastąp `<version>` z zainstalowaną wersją [zestawu Azure SDK](http://www.windowsazure.com/develop/downloads/).  
 
 > [!NOTE]
->  plik konfiguracji diagnostyki Hello są zwykle stosowane z uruchomienia zadania, które wymagają toobe danych diagnostycznych zebranych wcześniej w procesie uruchamiania hello. Aby uzyskać więcej informacji o korzystaniu z diagnostyki Azure, zobacz [zbierania danych rejestrowania za pomocą diagnostyki Azure](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  
+>  Plik konfiguracji diagnostyki zazwyczaj jest używany z uruchomienia zadania, które wymagają danych diagnostycznych, które mają być zbierane wcześniej w procesie uruchamiania. Aby uzyskać więcej informacji o korzystaniu z diagnostyki Azure, zobacz [zbierania danych rejestrowania za pomocą diagnostyki Azure](assetId:///83a91c23-5ca2-4fc9-8df3-62036c37a3d7).  
 
-## <a name="example-of-hello-diagnostics-configuration-file"></a>Przykładowy plik konfiguracji diagnostyki hello  
- Hello poniższy przykład przedstawia plik diagnostyki typowych konfiguracji:  
+## <a name="example-of-the-diagnostics-configuration-file"></a>Przykładowy plik konfiguracji diagnostyki  
+ W poniższym przykładzie przedstawiono plik konfiguracji typowych diagnostyki:  
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -52,28 +52,28 @@ plik konfiguracji diagnostyki Azure Hello definiuje wartości, które są używa
    <Directories bufferQuotaInMB="1024"   
       scheduledTransferPeriod="PT1M">  
 
-      <!-- These three elements specify hello special directories   
-           that are set up for hello log types -->  
+      <!-- These three elements specify the special directories   
+           that are set up for the log types -->  
       <CrashDumps container="wad-crash-dumps" directoryQuotaInMB="256" />  
       <FailedRequestLogs container="wad-frq" directoryQuotaInMB="256" />  
       <IISLogs container="wad-iis" directoryQuotaInMB="256" />  
 
-      <!-- For regular directories hello DataSources element is used -->  
+      <!-- For regular directories the DataSources element is used -->  
       <DataSources>  
          <DirectoryConfiguration container="wad-panther" directoryQuotaInMB="128">  
             <!-- Absolute specifies an absolute path with optional environment expansion -->  
             <Absolute expandEnvironment="true" path="%SystemRoot%\system32\sysprep\Panther" />  
          </DirectoryConfiguration>  
          <DirectoryConfiguration container="wad-custom" directoryQuotaInMB="128">  
-            <!-- LocalResource specifies a path relative tooa local   
-                 resource defined in hello service definition -->  
+            <!-- LocalResource specifies a path relative to a local   
+                 resource defined in the service definition -->  
             <LocalResource name="MyLoggingLocalResource" relativePath="logs" />  
          </DirectoryConfiguration>  
       </DataSources>  
    </Directories>  
 
    <PerformanceCounters bufferQuotaInMB="512" scheduledTransferPeriod="PT1M">  
-      <!-- hello counter specifier is in hello same format as hello imperative   
+      <!-- The counter specifier is in the same format as the imperative   
            diagnostics configuration API -->  
       <PerformanceCounterConfiguration   
          counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT5S" />  
@@ -82,7 +82,7 @@ plik konfiguracji diagnostyki Azure Hello definiuje wartości, które są używa
    <WindowsEventLog bufferQuotaInMB="512"  
       scheduledTransferLogLevelFilter="Verbose"  
       scheduledTransferPeriod="PT1M">  
-      <!-- hello event log name is in hello same format as hello imperative   
+      <!-- The event log name is in the same format as the imperative   
            diagnostics configuration API -->  
       <DataSource name="System!*" />  
    </WindowsEventLog>  
@@ -90,28 +90,28 @@ plik konfiguracji diagnostyki Azure Hello definiuje wartości, które są używa
 ```  
 
 ## <a name="diagnosticsconfiguration-namespace"></a>Namespace DiagnosticsConfiguration  
- przestrzeń nazw XML Hello pliku konfiguracji diagnostyki hello jest:  
+ Przestrzeń nazw XML dla pliku konfiguracji diagnostyki jest:  
 
 ```  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 ```  
 
 ## <a name="schema-elements"></a>Elementy schematu  
- plik konfiguracji diagnostyki Hello obejmuje hello następujące elementy.
+ Plik konfiguracji diagnostyki obejmuje następujące elementy.
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element  
-element najwyższego poziomu Hello pliku konfiguracyjnego hello diagnostyki.  
+Element najwyższego poziomu w pliku konfiguracji diagnostyki.  
 
 Atrybuty:
 
 |Atrybut  |Typ   |Wymagane| Domyślne | Opis|  
 |-----------|-------|--------|---------|------------|  
-|**configurationChangePollInterval**|Czas trwania|Optional (Opcjonalność) | PT1M| Określa interwał hello, w których sond diagnostycznych monitor hello zmian konfiguracji diagnostyki.|  
-|**overallQuotaInMB**|unsignedInt|Optional (Opcjonalność)| 4000 MB. Jeżeli określona wartość nie może przekraczać tę wartość |Witaj łączną ilość przydzielonego na wszystkie bufory rejestrowania magazyn systemu plików.|  
+|**configurationChangePollInterval**|Czas trwania|Optional (Opcjonalność) | PT1M| Określa interwał, jaką monitor diagnostyczny sonduje zmiany konfiguracji diagnostyki.|  
+|**overallQuotaInMB**|unsignedInt|Optional (Opcjonalność)| 4000 MB. Jeżeli określona wartość nie może przekraczać tę wartość |Łączną ilość przydzielonego na wszystkie bufory rejestrowania magazyn systemu plików.|  
 
 ## <a name="diagnosticinfrastructurelogs-element"></a>DiagnosticInfrastructureLogs Element  
-Definiuje konfigurację buforu hello hello dzienników, które są generowane przez hello podstawowej infrastruktury diagnostyki.
+Definiuje konfigurację buforu dzienników, które są generowane przez podstawowej infrastruktury diagnostyki.
 
 Element nadrzędny: [DiagnosticMonitorConfiguration elementu](#DiagnosticMonitorConfiguration).  
 
@@ -119,12 +119,12 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------|----|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla hello określony hello danych.<br /><br /> Witaj domyślna to 0.|  
-|**scheduledTransferLogLevelFilter**|Ciąg|Opcjonalny. Określa hello minimalny poziom ważności wpisy dziennika, które są przenoszone. Witaj, wartość domyślna to **niezdefiniowane**. Inne możliwe wartości to **pełne**, **informacji**, **ostrzeżenie**, **błąd**, i **krytyczny**.|  
-|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał hello między zaplanowane transferów danych, zaokrąglona w górę toohello najbliższej minutę.<br /><br /> Domyślnie Hello jest PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
+|**scheduledTransferLogLevelFilter**|Ciąg|Opcjonalny. Określa minimalny poziom ważności wpisy dziennika, które są przenoszone. Wartość domyślna to **niezdefiniowane**. Inne możliwe wartości to **pełne**, **informacji**, **ostrzeżenie**, **błąd**, i **krytyczny**.|  
+|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał między zaplanowane transferów danych, zaokrąglona w górę do najbliższej minutę.<br /><br /> Wartość domyślna to PT0S.|  
 
 ## <a name="logs-element"></a>Element dzienników  
- Definiuje konfigurację buforu hello podstawowe dzienników Azure.
+ Definiuje konfigurację buforu podstawowe dzienników Azure.
 
  Element nadrzędny: [DiagnosticMonitorConfiguration elementu](#DiagnosticMonitorConfiguration).  
 
@@ -132,12 +132,12 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla hello określony hello danych.<br /><br /> Witaj domyślna to 0.|  
-|**scheduledTransferLogLevelFilter**|Ciąg|Opcjonalny. Określa hello minimalny poziom ważności wpisy dziennika, które są przenoszone. Witaj, wartość domyślna to **niezdefiniowane**. Inne możliwe wartości to **pełne**, **informacji**, **ostrzeżenie**, **błąd**, i **krytyczny**.|  
-|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał hello między zaplanowane transferów danych, zaokrąglona w górę toohello najbliższej minutę.<br /><br /> Domyślnie Hello jest PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
+|**scheduledTransferLogLevelFilter**|Ciąg|Opcjonalny. Określa minimalny poziom ważności wpisy dziennika, które są przenoszone. Wartość domyślna to **niezdefiniowane**. Inne możliwe wartości to **pełne**, **informacji**, **ostrzeżenie**, **błąd**, i **krytyczny**.|  
+|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał między zaplanowane transferów danych, zaokrąglona w górę do najbliższej minutę.<br /><br /> Wartość domyślna to PT0S.|  
 
 ## <a name="directories-element"></a>Element katalogów  
-Definiuje konfigurację buforu hello opartych na plikach dzienników zdefiniowanych przez użytkownika.
+Definiuje konfigurację buforu dla opartych na plikach dzienników zdefiniowanych przez użytkownika.
 
 Element nadrzędny: [DiagnosticMonitorConfiguration elementu](#DiagnosticMonitorConfiguration).  
 
@@ -146,11 +146,11 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla hello określony hello danych.<br /><br /> Witaj domyślna to 0.|  
-|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał hello między zaplanowane transferów danych, zaokrąglona w górę toohello najbliższej minutę.<br /><br /> Domyślnie Hello jest PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
+|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał między zaplanowane transferów danych, zaokrąglona w górę do najbliższej minutę.<br /><br /> Wartość domyślna to PT0S.|  
 
 ## <a name="crashdumps-element"></a>Element zrzutów awaryjnych  
- Określa katalog zrzuty awaryjne hello.
+ Określa katalog zrzuty awaryjne.
 
  Element nadrzędny: [Element katalogów](#Directories).  
 
@@ -158,11 +158,11 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**kontener**|Ciąg|Nazwa Hello kontenera hello gdzie hello zawartość katalogu hello jest toobe transferu.|  
-|**directoryQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalny rozmiar katalogu hello hello w megabajtach.<br /><br /> Witaj domyślna to 0.|  
+|**kontener**|Ciąg|Nazwa kontenera, w którym ma zostać przeniesiony zawartość katalogu.|  
+|**directoryQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalny rozmiar katalogu w megabajtach.<br /><br /> Wartość domyślna to 0.|  
 
 ## <a name="failedrequestlogs-element"></a>FailedRequestLogs Element  
- Określa katalog dziennika nie powiodło się Żądanie hello.
+ Określa katalog dziennika nie powiodło się żądanie.
 
  Element nadrzędny elementu [Element katalogów](#Directories).  
 
@@ -170,11 +170,11 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**kontener**|Ciąg|Nazwa Hello kontenera hello gdzie hello zawartość katalogu hello jest toobe transferu.|  
-|**directoryQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalny rozmiar katalogu hello hello w megabajtach.<br /><br /> Witaj domyślna to 0.|  
+|**kontener**|Ciąg|Nazwa kontenera, w którym ma zostać przeniesiony zawartość katalogu.|  
+|**directoryQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalny rozmiar katalogu w megabajtach.<br /><br /> Wartość domyślna to 0.|  
 
 ##  <a name="iislogs-element"></a>IISLogs Element  
- Określa katalog dziennika usług IIS hello.
+ Określa katalog dziennika usług IIS.
 
  Element nadrzędny elementu [Element katalogów](#Directories).  
 
@@ -182,8 +182,8 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**kontener**|Ciąg|Nazwa Hello kontenera hello gdzie hello zawartość katalogu hello jest toobe transferu.|  
-|**directoryQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalny rozmiar katalogu hello hello w megabajtach.<br /><br /> Witaj domyślna to 0.|  
+|**kontener**|Ciąg|Nazwa kontenera, w którym ma zostać przeniesiony zawartość katalogu.|  
+|**directoryQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalny rozmiar katalogu w megabajtach.<br /><br /> Wartość domyślna to 0.|  
 
 ## <a name="datasources-element"></a>Element źródeł danych  
  Definiuje zero lub więcej katalogów dodatkowe dziennika.
@@ -191,7 +191,7 @@ Atrybuty:
  Element nadrzędny: [Element katalogów](#Directories).
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration Element  
- Określa katalog hello toomonitor plików dziennika.
+ Określa katalog plików dziennika do monitorowania.
 
  Element nadrzędny: [źródeł danych elementu](#DataSources).
 
@@ -199,11 +199,11 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**kontener**|Ciąg|Nazwa Hello kontenera hello gdzie hello zawartość katalogu hello jest toobe transferu.|  
-|**directoryQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalny rozmiar katalogu hello hello w megabajtach.<br /><br /> Witaj domyślna to 0.|  
+|**kontener**|Ciąg|Nazwa kontenera, w którym ma zostać przeniesiony zawartość katalogu.|  
+|**directoryQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalny rozmiar katalogu w megabajtach.<br /><br /> Wartość domyślna to 0.|  
 
 ## <a name="absolute-element"></a>Element bezwzględne  
- Określa ścieżkę bezwzględną hello toomonitor katalogu o rozszerzeniu środowiska opcjonalne.
+ Określa ścieżkę bezwzględną katalogu można monitorować za pomocą środowiska opcjonalne rozszerzenia.
 
  Element nadrzędny: [DirectoryConfiguration elementu](#DirectoryConfiguration).  
 
@@ -211,11 +211,11 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**Ścieżka**|Ciąg|Wymagany. Witaj toomonitor katalogu toohello ścieżkę bezwzględną.|  
-|**expandEnvironment**|Wartość logiczna|Wymagany. Jeśli ustawiona zbyt**true**, zmiennych środowiskowych w ścieżce hello są rozwinięte.|  
+|**Ścieżka**|Ciąg|Wymagane. Ścieżka bezwzględna do katalogu, do monitorowania.|  
+|**expandEnvironment**|Wartość logiczna|Wymagane. Jeśli ustawiono **true**, zostaną rozwinięte zmiennych środowiskowych w ścieżce.|  
 
 ## <a name="localresource-element"></a>LocalResource Element  
- Określa ścieżkę względną tooa zasób lokalny, określona w definicji usługi hello.
+ Określa ścieżkę względną wobec zasobu lokalnego określona w definicji usługi.
 
  Element nadrzędny: [DirectoryConfiguration elementu](#DirectoryConfiguration).  
 
@@ -223,11 +223,11 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**Nazwa**|Ciąg|Wymagany. Nazwa Hello hello zasób lokalny, który zawiera toomonitor katalogu hello.|  
-|**relativePath**|Ciąg|Wymagany. Witaj toomonitor zasobu lokalnego toohello względną ścieżkę.|  
+|**Nazwa**|Ciąg|Wymagane. Nazwa zasobu lokalnego zawierająca katalogi do monitorowania.|  
+|**relativePath**|Ciąg|Wymagane. Ścieżka względna zasobu lokalnego do monitorowania.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters — Element  
- Definiuje hello ścieżki toohello wydajności licznika toocollect.
+ Określa ścieżkę do wartości licznika wydajności do zbierania.
 
  Element nadrzędny: [DiagnosticMonitorConfiguration elementu](#DiagnosticMonitorConfiguration).
 
@@ -236,11 +236,11 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla hello określony hello danych.<br /><br /> Witaj domyślna to 0.|  
-|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał hello między zaplanowane transferów danych, zaokrąglona w górę toohello najbliższej minutę.<br /><br /> Domyślnie Hello jest PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
+|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał między zaplanowane transferów danych, zaokrąglona w górę do najbliższej minutę.<br /><br /> Wartość domyślna to PT0S.|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration Element  
- Definiuje toocollect licznika wydajności hello.
+ Określa licznik wydajności do zbierania.
 
  Element nadrzędny: [PerformanceCounters — Element](#PerformanceCounters).  
 
@@ -248,11 +248,11 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|Ciąg|Wymagany. Witaj toocollect licznika wydajności toohello ścieżki.|  
-|**sampleRate**|Czas trwania|Wymagany. częstotliwość Hello, w których hello powinny być gromadzone dane licznika wydajności.|  
+|**counterSpecifier**|Ciąg|Wymagane. Ścieżka do liczników wydajności do zbierania.|  
+|**sampleRate**|Czas trwania|Wymagane. Częstotliwość licznika wydajności powinny być zbierane.|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
- Definiuje hello toomonitor dzienniki zdarzeń.
+ Definiuje dzienniki zdarzeń, aby monitorować.
 
  Element nadrzędny: [DiagnosticMonitorConfiguration elementu](#DiagnosticMonitorConfiguration).
 
@@ -260,12 +260,12 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla hello określony hello danych.<br /><br /> Witaj domyślna to 0.|  
-|**scheduledTransferLogLevelFilter**|Ciąg|Opcjonalny. Określa hello minimalny poziom ważności wpisy dziennika, które są przenoszone. Witaj, wartość domyślna to **niezdefiniowane**. Inne możliwe wartości to **pełne**, **informacji**, **ostrzeżenie**, **błąd**, i **krytyczny**.|  
-|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał hello między zaplanowane transferów danych, zaokrąglona w górę toohello najbliższej minutę.<br /><br /> Domyślnie Hello jest PT0S.|  
+|**bufferQuotaInMB**|unsignedInt|Opcjonalny. Określa maksymalną ilość pamięci systemu plików, która jest dostępna dla określonych danych.<br /><br /> Wartość domyślna to 0.|  
+|**scheduledTransferLogLevelFilter**|Ciąg|Opcjonalny. Określa minimalny poziom ważności wpisy dziennika, które są przenoszone. Wartość domyślna to **niezdefiniowane**. Inne możliwe wartości to **pełne**, **informacji**, **ostrzeżenie**, **błąd**, i **krytyczny**.|  
+|**scheduledTransferPeriod**|Czas trwania|Opcjonalny. Określa interwał między zaplanowane transferów danych, zaokrąglona w górę do najbliższej minutę.<br /><br /> Wartość domyślna to PT0S.|  
 
 ## <a name="datasource-element"></a>DataSource Element  
- Definiuje hello toomonitor dziennika zdarzeń.
+ Definiuje dziennik zdarzeń w celu monitorowania.
 
  Element nadrzędny: [WindowsEventLog elementu](#windowsEventLog).  
 
@@ -273,4 +273,4 @@ Atrybuty:
 
 |Atrybut|Typ|Opis|  
 |---------------|----------|-----------------|  
-|**Nazwa**|Ciąg|Wymagany. Wyrażenie XPath, określając hello toocollect dziennika.|  
+|**Nazwa**|Ciąg|Wymagane. Wyrażenie XPath, określając dziennika do zbierania.|  

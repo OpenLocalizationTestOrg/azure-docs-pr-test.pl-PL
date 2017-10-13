@@ -1,6 +1,6 @@
 ---
-title: "wymagania wstępne aaaNon techniczne dotyczące tworzenia ofertę hello Azure Marketplace | Dokumentacja firmy Microsoft"
-description: "Poznaj hello wymagania dotyczące tworzenia i wdrażania toohello oferta portalu Azure Marketplace innym toopurchase."
+title: "Nietechniczna pomoc wymagania wstępne dotyczące tworzenia oferty w portalu Azure Marketplace | Dokumentacja firmy Microsoft"
+description: "Poznaj wymagania dotyczące tworzenia i wdrażania oferty w portalu Azure Marketplace innym osobom do zakupu."
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,71 +14,71 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 472096863084cc58dc921313419ab60b1a08a3bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="general-prerequisites-for-creating-an-offer-for-hello-azure-marketplace"></a>Ogólne wymagania wstępne dotyczące tworzenia ofertę hello Azure Marketplace
-Dowiedz się, że hello ogólne, business procesu skoncentrowane na wymagania wstępne, które są potrzebne toomove do przodu z hello zaoferować procesu tworzenia.
+# <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Ogólne wymagania wstępne dotyczące tworzenia oferty w portalu Azure Marketplace
+Informacje ogólne, business procesu skoncentrowane na wstępne, które są potrzebne, aby rozpocząć proces tworzenia oferty.
 
 ## <a name="ensure-that-you-are-registered-as-a-seller-with-microsoft"></a>Upewnij się, że są zarejestrowane jako sprzedawcy z firmą Microsoft
-Szczegółowe instrukcje dotyczące rejestrowania konta sprzedawcy z firmą Microsoft, przejdź zbyt[o tworzeniu konta i rejestracji](marketplace-publishing-accounts-creation-registration.md).
+Aby uzyskać szczegółowe instrukcje dotyczące rejestrowania konta sprzedawcy z firmą Microsoft, przejdź do tematu [o tworzeniu konta i rejestracji](marketplace-publishing-accounts-creation-registration.md).
 
-* **Jeśli firma jest już zarejestrowany jako sprzedawcy w hello Centrum deweloperów i ma toocreate ofertę nowego** , a następnie toohello logowania publikowania portalu z hello sam identyfikator, z którym Centrum deweloperów rejestracja została wykonana w wiadomości e-mail. Ten krok jest wymagany, dzięki czemu hello portalu Centrum deweloperów i publikowaniem są połączone ze sobą.
-* **Jeśli firma jest już zarejestrowany jako sprzedawcy w hello Centrum deweloperów i ma tooedit propozycję istniejących** , a następnie albo toohello logowania publikowania portalu przy hello konta administratora lub przy użyciu konta, która jest dodawana jako współadministrator w hello publikowania portalu . Poniżej podano kroki tooadd konta współadministrator.
+* **Jeśli firma jest już zarejestrowany jako sprzedawcy w Centrum deweloperów i chcesz utworzyć nowe oferty,** , a następnie zaloguj się do publikowania portalu o tym samym identyfikatorze poczty e-mail, z którym Centrum deweloperów rejestracja została wykonana. Ten krok jest wymagany, dzięki czemu portalu Centrum deweloperów i publikowaniem są połączone ze sobą.
+* **Jeśli firma jest już zarejestrowany jako sprzedawcy w Centrum deweloperów i chcesz edytować istniejące oferty** następnie albo logowanie do publikowania portalu przy użyciu konta administratora lub przy użyciu konta, która jest dodawana jako współadministrator w publikacji portalu. Poniżej podano kroki, aby dodać konto współadministrator.
 
-## <a name="steps-tooadd-a-co-admin-in-hello-publishing-portal"></a>Kroki tooadd współadministrator w hello Portal publikowania
-Administratorzy hello publikowania portalu można dodać hello inni członkowie firmy hello pracującym w aplikacji hello, jako współadministrator w hello publikowania portalu. **Przy założeniu, że jesteś Witaj, Administratorze** podane poniżej są tooadd kroki hello co administratora.
+## <a name="steps-to-add-a-co-admin-in-the-publishing-portal"></a>Kroki, aby dodać współadministrator w portalu publikowania
+Administratorzy publikacji portalu można dodać innych członków firmy, którzy pracują w aplikacji, jako współadministrator w publikacji portalu. **Przy założeniu, że jesteś administratorem,** podane poniżej przedstawiono kroki, aby dodać co administratora.
 
 > [!NOTE]
-> Dla nowych użytkowników przed dodaniem współadministrator w hello publikowania portalu, upewnij się, że utworzono co najmniej jedną aplikację w hello publikowania portalu. Jest to wymagane jako hello **WYDAWCÓW** karcie są wyświetlane tylko w po utworzeniu co najmniej jedną aplikację w hello publikowania portalu.
+> Dla nowych użytkowników przed dodaniem współadministrator w publikacji portalu, upewnij się, że utworzono co najmniej jedną aplikację w publikacji portalu. Jest to wymagane jako **WYDAWCÓW** karcie są wyświetlane tylko w po utworzeniu co najmniej jedną aplikację w publikacji portalu.
 > 
 > 
 
-1. Upewnij się, że ten identyfikator wiadomości e-mail współadministrator hello jest account(MSA) firmy Microsoft. Jeśli nie, zarejestruj go jako MSA, za pomocą tej [łącze](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
-2. Upewnij się, że istnieje co najmniej jednej aplikacji w ramach konta administratora hello przed podjęciem próby tooadd co administratora.
-3. Po hello powyżej kroki są wykonywane, toohello logowania publikowania portalu identyfikatorem hello współadministrator poczty e-mail, a następnie zaloguj.
-4. Teraz toohello logowania portalu o identyfikatorze wiadomości e-mail administratora hello publikowania.
-5. Przejdź tooPublishers -> konta -> Wybierz Administratorzy -> Dodaj hello współadministrator (zrzut ekranu poniżej)
+1. Upewnij się, że identyfikator wiadomości e-mail współadministrator jest account(MSA) firmy Microsoft. Jeśli nie, zarejestruj go jako MSA, za pomocą tej [łącze](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+2. Upewnij się, że istnieje co najmniej jedną aplikację przy użyciu konta administratora, przed podjęciem próby dodania co administratora.
+3. Po wykonaniu powyższych czynności są czynności logowania do publikowania portal współadministrator identyfikator wiadomości e-mail, a następnie zaloguj się.
+4. Zaloguj się teraz do publikowania portalu o identyfikatorze wiadomości e-mail administratora.
+5. Przejdź do wydawcy -> konta -> Wybierz Administratorzy -> Dodaj współadministrator (zrzut ekranu poniżej)
    
     ![Rysowanie](media/marketplace-publishing-pre-requisites/imgAddAdmin_05.png)
-6. Upewnij się, że wiadomości e-mail identyfikatorów pod warunkiem na powitania różne etapy hello publikowania procesu (np. Dev Center, publikowania portalu) są monitorowane w przypadku informacji firmy Microsoft.
+6. Upewnij się, że identyfikatory poczty e-mail udostępniane na różnych etapach procesu publikowania (np. Dev Center, publikowania portalu) są monitorowane w przypadku informacji firmy Microsoft.
 7. Centrum deweloperów rejestracji należy unikać konta skojarzonego z pojedynczą osobę. Jest to zalecane dla usuwa zależność od jednej osoby.
 8. Jeśli czoła problemy z Centrum deweloperów rejestracji, następnie należy spowodować wystąpienie za pomocą tego biletu [łącze](https://developer.microsoft.com/en-us/windows/support).
 
-## <a name="steps-toodelete-a-co-admin-in-hello-publishing-portal"></a>Kroki toodelete współadministrator w hello publikowania portalu
-**Przy założeniu, że jesteś Witaj, Administratorze** podane poniżej są toodelete kroki hello co administratora.
+## <a name="steps-to-delete-a-co-admin-in-the-publishing-portal"></a>Kroki, aby usunąć współadministrator w publikacji portalu
+**Przy założeniu, że jesteś administratorem,** podane poniżej przedstawiono kroki, aby usunąć co administratora.
 
-1. Toohello logowania portalu o identyfikatorze wiadomości e-mail administratora hello publikowania.
-2. Przejdź za**wydawców** -> konta -> Wybierz **Administratorzy** -> **Współadministratorzy**.
-3. Polecenie hello **X** przycisku Dalej toohello współadministrator ma tot usuwania (zrzut ekranu poniżej).
+1. Zaloguj się do publikowania portalu o identyfikatorze wiadomości e-mail administratora.
+2. Przejdź do **wydawców** -> konta -> Wybierz **Administratorzy** -> **Współadministratorzy**.
+3. Polecenie **X** przycisk współadministrator ma tot usuwania (zrzut ekranu poniżej).
    
     ![Rysowanie](media/marketplace-publishing-pre-requisites/imgDeleteAdmin_03.png)
 
 > [!IMPORTANT]
-> Nie masz toocomplete podatku i bank informacji o firmie, planowania ofert tylko wolnego toopublish (lub użycie własnej licencji).
+> Nie masz ukończyć kwota podatku i bank dane firmy, jeśli planowane jest publikowanie oferty tylko wolnego (lub użycie własnej licencji).
 > 
-> Rejestracja firmy Hello musi być ukończone tooget uruchomiona. Jednak gdy firma działa na powitania kwota podatku i bank informacji na koncie Microsoft Developer hello, deweloperzy hello rozpoczęcie pracy tworzenia obrazu maszyny wirtualnej hello w hello [Portal publikowania](https://publish.windowsazure.com), to możliwe, i testowanie go w hello środowiska przemieszczania platformy Azure. Konieczne będzie hello pełną sprzedawcy konta zatwierdzenia tylko do ostatniego kroku hello publikowania toohello Twojej oferty Azure Marketplace.
+> Rejestracji firmy należy wykonać, aby rozpocząć. Jednak gdy firma działa na kwota podatku i bank informacje o koncie Microsoft Developer, deweloperzy mogą rozpocząć pracę na tworzenie obrazu maszyny wirtualnej w [Portal publikowania](https://publish.windowsazure.com), to certyfikowane i testowanie go w środowisku przemieszczania platformy Azure. Konieczne będzie pełną sprzedawcy zatwierdzenia konta tylko do ostatniego kroku publikowania Twojej oferty w portalu Azure Marketplace.
 > 
 > 
 
 ## <a name="acquire-an-azure-pay-as-you-go-subscription"></a>Uzyskanie subskrypcji platformy Azure "z"
-To hello subskrypcji będą używać toocreate obrazów maszyny Wirtualnej i przekazać hello obrazów toohello [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/). Jeśli nie masz istniejącą subskrypcję, następnie zarejestruj się w https://account.windowsazure.com/signup?offer=ms-azr-0003p.
+Jest to subskrypcji, która będzie używać do tworzenia obrazów maszyn wirtualnych i przekazać obrazów do [portalu Azure Marketplace](https://azure.microsoft.com/marketplace/). Jeśli nie masz istniejącą subskrypcję, następnie zarejestruj się w https://account.windowsazure.com/signup?offer=ms-azr-0003p.
 
 ## <a name="sell-from-countries"></a>"Sprzedaje — od" krajach
 > [!WARNING]
-> Przy toosell kolejności usług na hello Azure Marketplace, należy się upewnić się, że zarejestrowanych jednostka z jednego z krajów hello zatwierdzone "sprzedaje — od". To ograniczenie jest ze względu na wypłaty i podatków. Aktywnie czekamy tooexpand ta lista krajów w hello Najbliższa przyszłość, więc wkrótce. Aby hello pełną listę, zobacz sekcja 1b hello [zasady uczestnictwa w portalu Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> Aby sprzedaży z usług w witrynie Azure Marketplace, upewnij się, że zarejestrowanych jednostka z jednego z krajów zatwierdzonych "sprzedaje — od". To ograniczenie jest ze względu na wypłaty i podatków. Aktywnie czekamy w najbliższej przyszłości Rozwiń tę listę krajów, więc wkrótce. Aby uzyskać pełną listę, zobacz sekcję 1b [zasady uczestnictwa w portalu Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 
 ## <a name="next-steps"></a>Następne kroki
-Po hello nietechnicznych wymagania wstępne są spełnione, obok są oferta hello określonych technicznych wymagań wstępnych. Kliknij łącze hello toohello artykułu typu oferty odpowiednich hello chcieliby toocreate dla hello Azure Marketplace.
+Po nietechnicznych wymagania wstępne są spełnione, obok są oferty określonych technicznych wymagań wstępnych. Kliknij link do artykułu dla typu oferty odpowiednich, który chcesz utworzyć dla portalu Azure Marketplace.
 
 * [Maszyna wirtualna techniczne wymagania wstępne](marketplace-publishing-vm-image-creation-prerequisites.md)
 * [Wymagania wstępne techniczne szablon rozwiązania](marketplace-publishing-solution-template-creation-prerequisites.md)
 
 ## <a name="see-also"></a>Zobacz też
-* [Wprowadzenie: jak toopublish toohello oferta portalu Azure Marketplace](marketplace-publishing-getting-started.md)
+* [Wprowadzenie: jak publikowanie oferty w portalu Azure Marketplace](marketplace-publishing-getting-started.md)
 

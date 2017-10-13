@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z elementami SD | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i elementy SD."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i elementy SD."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,115 +13,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 77949e41beb541c9fe8147b1eb2e7995e05bd753
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 624eff0a0da8f548877e4a4346b21df89cd37b67
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Samouczek: Integracji Azure Active Directory z elementami SD.
 
-Z tego samouczka, dowiesz się, jak toointegrate SD elementów w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz integrowanie SD elementy z usługi Azure Active Directory (Azure AD).
 
-Integrowanie SD elementy z usługą Azure AD zapewnia hello następujące korzyści:
+Integrowanie SD elementy z usługą Azure AD zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooSD elementów
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooSD elementy (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure
+- Można kontrolować w usłudze Azure AD, który ma dostęp do elementów SD.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane elementy SD (logowanie jednokrotne) z konta usługi Azure AD
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji usługi Azure AD z elementami SD, należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z elementami SD, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - Elementy SD logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz pobrać miesięczna wersja próbna [tutaj](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie elementów SD z galerii hello
+1. Dodawanie elementów SD z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-sd-elements-from-hello-gallery"></a>Dodawanie elementów SD z galerii hello
-tooconfigure hello integracji SD elementów do usługi Azure AD, należy tooadd SD elementy z listy tooyour galerii hello zarządzanych aplikacji SaaS.
+## <a name="adding-sd-elements-from-the-gallery"></a>Dodawanie elementów SD z galerii
+Aby skonfigurować integrację usługi Azure AD elementy SD, należy dodać SD elementów z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd SD elementów z galerii hello wykonaj hello następujące kroki:**
+**Aby dodać SD elementów z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
     ![Usługa Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
     ![Aplikacje][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
     ![Aplikacje][3]
 
-4. W polu wyszukiwania hello wpisz **elementy SD**.
+4. W polu wyszukiwania wpisz **elementy SD**.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_search.png)
 
-5. W panelu wyników hello, wybierz **elementy SD**, a następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+5. W panelu wyników wybierz **elementy SD**, a następnie kliknij przycisk **Dodaj** przycisk, aby dodać aplikację.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z elementami SD, w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w elementach SD jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w elementach SD musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w elementach SD jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w elementach SD musi się.
 
-W elementach SD, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W elementach SD, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z elementami SD, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z elementami SD, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego elementy SD](#creating-a-sd-elements-test-user)**  -toohave odpowiednikiem Simona Britta w elementach SD, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisanie użytkownika testowego hello Azure AD](#assigning-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configuring-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#creating-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego elementy SD](#creating-a-sd-elements-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta elementy SD, połączonej z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisanie użytkownika testowego usługi Azure AD](#assigning-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Testowanie rejestracji jednokrotnej](#testing-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello portalu Azure i skonfigurować rejestracji jednokrotnej w aplikacji SD elementów.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji SD elementów.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z elementami SD, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z elementami SD, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **elementy SD** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **elementy SD** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Konfigurowanie rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_samlbase.png)
 
-3. Na powitania **SD elementy domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **SD elementy domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_url.png)
 
-    a. W hello **identyfikator** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. W **identyfikator** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
-    b. W hello **adres URL odpowiedzi** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<tenantname>.sdelements.com/sso/saml2/acs/`
+    b. W **adres URL odpowiedzi** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE] 
-    > Wartości te nie są prawdziwe. Witaj rzeczywisty identyfikator i odpowiedzi adresu URL, należy zaktualizować te wartości. Skontaktuj się z [elementy SD obsługują zespołu](mailto:support@sdelements.com) tooget tych wartości.
+    > Wartości te nie są prawdziwe. Rzeczywisty identyfikator i adres URL odpowiedzi, należy zaktualizować te wartości. Skontaktuj się z [elementy SD obsługują zespołu](mailto:support@sdelements.com) uzyskać te wartości.
 
-4. Elementy SD aplikacji oczekuje potwierdzenia SAML hello w określonym formacie. Skonfiguruj powitania po oświadczeń dla tej aplikacji. Można zarządzać hello wartości tych atrybutów z hello **"Użytkownika atrybutu"** kartę aplikacji hello. powitania po zrzut ekranu przedstawia przykład tego.
+4. Elementy SD aplikacji oczekuje potwierdzenia języka SAML w określonym formacie. Skonfiguruj następujące oświadczeń dla tej aplikacji. Możesz zarządzać wartości tych atrybutów z **"Użytkownika atrybutu"** aplikacji. Poniższy zrzut ekranu przedstawia przykład tego.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_attribute.png)
 
-5. W hello **atrybuty użytkownika** sekcji na powitania **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano w obrazie hello i wykonywać hello następujące kroki: 
+5. W **atrybuty użytkownika** sekcji na **logowanie jednokrotne** okna dialogowego, skonfiguruj atrybut tokenu SAML, jak pokazano w obrazie i wykonaj następujące czynności: 
 
     | Nazwa atrybutu | Wartość atrybutu |
     | --- | --- |
@@ -129,19 +129,19 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
     | Imię |User.givenName |
     | nazwisko |User.surname |
 
-    a. Kliknij przycisk **Dodaj atrybut** tooopen hello **Dodawanie atrybutu** okna dialogowego.
+    a. Kliknij przycisk **Dodaj atrybut** otworzyć **Dodawanie atrybutu** okna dialogowego.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_officespace_04.png)
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_officespace_05.png)
 
-    b. W hello **nazwa** pole tekstowe, nazwa atrybutu hello typu wyświetlany dla danego wiersza.
+    b. W **nazwa** tekstowym, wpisz nazwę atrybut wyświetlany dla danego wiersza.
 
-    c. Z hello **wartość** listy wartości atrybutu hello typ wyświetlanego dla tego wiersza.
+    c. Z **wartość** listy, wpisz wartość atrybutu wyświetlany dla danego wiersza.
 
     d. Kliknij przycisk **OK**.
  
-6. Na powitania **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+6. Na **certyfikat podpisywania SAML** kliknij **certyfikatu (Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_certificate.png) 
 
@@ -149,74 +149,74 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w hello
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_general_400.png)
 
-8. Na powitania **SD elementy konfiguracji** kliknij **skonfigurować elementy SD** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+8. Na **SD elementy konfiguracji** kliknij **skonfigurować elementy SD** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **identyfikator jednostki SAML i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_configure.png)
 
-9. tooget logowanie jednokrotne włączone, skontaktuj się z Twojego [elementy SD obsługują zespołu](mailto:support@sdelements.com) i dostarczać hello pliku pobranego certyfikatu. 
+9. Aby uzyskać logowanie jednokrotne włączone, skontaktuj się z Twojej [elementy SD obsługują team](mailto:support@sdelements.com) i udostępnia je z pliku pobranego certyfikatu. 
 
-10. W oknie innej przeglądarki, tooyour logowania jednokrotnego elementy SD dzierżawy z uprawnieniami administratora.
+10. W oknie innej przeglądarki logowanie do dzierżawy SD elementów jako administrator.
 
-11. W menu hello na górze hello, kliknij przycisk **systemu**, a następnie **rejestracji jednokrotnej**. 
+11. W menu u góry kliknij **systemu**, a następnie **rejestracji jednokrotnej**. 
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_09.png) 
 
-12. Na powitania **ustawień rejestracji jednokrotnej** okna dialogowego, wykonaj następujące kroki hello:
+12. Na **ustawień rejestracji jednokrotnej** okna dialogowego, wykonaj następujące czynności:
    
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_10.png) 
    
     a. Jako **typ logowania jednokrotnego**, wybierz pozycję **SAML**.
    
-    b. W hello **identyfikator jednostki dostawcy tożsamości** pole tekstowe, Wklej wartość hello **identyfikator jednostki SAML**, które zostały skopiowane z portalu Azure. 
+    b. W **identyfikator jednostki dostawcy tożsamości** pole tekstowe, Wklej wartość **identyfikator jednostki SAML**, które zostały skopiowane z portalu Azure. 
    
-    c. W hello **Dostawca pojedynczego logowania jednokrotnego usługi tożsamości** pole tekstowe, Wklej wartość hello **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure. 
+    c. W **Dostawca pojedynczego logowania jednokrotnego usługi tożsamości** pole tekstowe, Wklej wartość **SAML pojedynczy znak na adres URL usługi**, które zostały skopiowane z portalu Azure. 
    
     d. Kliknij pozycję **Zapisz**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
 ![Tworzenie użytkowników usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W hello **portalu Azure**na temat hello w lewym okienku nawigacji, kliknij przycisk **usługi Azure Active Directory** ikony.
+1. W **portalu Azure**, w lewym okienku nawigacji, kliknij polecenie **usługi Azure Active Directory** ikony.
 
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_01.png) 
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup** i kliknij przycisk **wszyscy użytkownicy**.
     
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_02.png) 
 
-3. Witaj tooopen **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** u góry hello hello okna dialogowego.
+3. Aby otworzyć **użytkownika** okna dialogowego, kliknij przycisk **Dodaj** górnej części okna dialogowego.
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png) 
 
-4. Na powitania **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. Na **użytkownika** okna dialogowego strony, należy wykonać następujące czynności:
  
     ![Tworzenie użytkownika testowego usługi Azure AD](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) 
 
-    a. W hello **nazwa** pole tekstowe, typ **BrittaSimon**.
+    a. W **nazwa** pole tekstowe, typ **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole tekstowe, hello typu **adres e-mail** z BrittaSimon.
+    b. W **nazwy użytkownika** pole tekstowe, typ **adres e-mail** z BrittaSimon.
 
-    c. Wybierz **Pokaż hasło** i zanotuj wartość hello hello **hasło**.
+    c. Wybierz **Pokaż hasło** i zanotuj wartość **hasło**.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="creating-a-sd-elements-test-user"></a>Tworzenie użytkownika testowego elementy SD.
 
-Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta SD elementów. W przypadku hello elementy SD tworzenie elementów SD użytkowników jest zadanie ręczne.
+Celem tej sekcji jest utworzenie użytkownika o nazwie Simona Britta SD elementów. W przypadku elementów SD tworzenie elementów SD użytkowników jest zadanie ręczne.
 
-**toocreate Simona Britta w elementach SD, wykonaj hello następujące kroki:**
+**Aby utworzyć Simona Britta w elementach SD, wykonaj następujące czynności:**
 
-1. W oknie przeglądarki sieci web, witryny firmy elementy SD tooyour logowania jako administrator.
+1. W oknie przeglądarki sieci web logowania do witryny firmy SD elementów jako administrator.
 
-2. W menu hello na górze hello, kliknij przycisk **Zarządzanie użytkownikami**, a następnie **użytkowników**.
+2. W menu u góry kliknij **Zarządzanie użytkownikami**, a następnie **użytkowników**.
    
     ![Tworzenie użytkownika testowego elementy SD.](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
@@ -224,37 +224,37 @@ Celem Hello w tej sekcji jest toocreate użytkownika o nazwie Simona Britta SD e
    
     ![Tworzenie użytkownika testowego elementy SD.](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png)
  
-4. Na powitania **Dodaj nowego użytkownika** okna dialogowego, wykonaj następujące kroki hello:
+4. Na **Dodaj nowego użytkownika** okna dialogowego, wykonaj następujące czynności:
    
     ![Tworzenie użytkownika testowego elementy SD.](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. W hello **E-mail** pole tekstowe, wprowadź adres e-mail użytkownika, takie jak hello  **brittasimon@contoso.com** .
+    a. W **E-mail** pole tekstowe, wprowadź adres e-mail użytkownika, takich jak  **brittasimon@contoso.com** .
    
-    b. W hello **imię** pole tekstowe, wprowadź hello imię użytkownika, takich jak **Britta**.
+    b. W **imię** pole tekstowe, wprowadź imię użytkownika, takich jak **Britta**.
    
-    c. W hello **nazwisko** pole tekstowe, wprowadź hello nazwisko użytkownika, takich jak **Simona**.
+    c. W **nazwisko** pole tekstowe, wprowadź nazwisko użytkownika, takich jak **Simona**.
    
     d. Jako **roli**, wybierz pozycję **użytkownika**. 
    
     e. Kliknij przycisk **Utwórz użytkownika**.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Przypisanie użytkownika testowego hello Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Przypisanie użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooSD elementów.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu do elementów SD.
 
 ![Przypisz użytkownika][200] 
 
-**tooassign Simona Britta tooSD elementów, należy wykonać hello następujące kroki:**
+**Aby przypisać Simona Britta elementy SD, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **elementy SD**.
+2. Na liście aplikacji zaznacz **elementy SD**.
 
     ![Konfigurowanie rejestracji jednokrotnej](./media/active-directory-saas-sd-elements-tutorial/tutorial_sdelements_app.png) 
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
     ![Przypisz użytkownika][202] 
 
@@ -262,7 +262,7 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
 
     ![Przypisz użytkownika][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -270,13 +270,13 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="testing-single-sign-on"></a>Testowanie rejestracji jednokrotnej
 
-Celem Hello w tej sekcji jest tootest użyciu usługi Azure AD konfiguracji rejestracji jednokrotnej hello panelu dostępu.
+Celem tej sekcji służy do testowania konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
   
-Po kliknięciu powitalne elementy SD kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour SD elementy aplikacji.
+Po kliknięciu kafelka SD elementów w panelu dostępu należy należy pobrać automatycznie zalogowane do aplikacji SD elementów.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

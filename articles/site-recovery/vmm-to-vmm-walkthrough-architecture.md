@@ -1,6 +1,6 @@
 ---
-title: "Architektura hello aaaReview dla lokacji dodatkowej tooa replikacji funkcji Hyper-V z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Ten artykuł zawiera omówienie architektury hello replikowania lokalnych maszyn wirtualnych funkcji Hyper-V tooa programu System Center VMM lokacja dodatkowa z usługi Azure Site Recovery."
+title: "Przegląd architektury replikacji funkcji Hyper-V do lokacji dodatkowej za pomocą usługi Azure Site Recovery | Microsoft Docs"
+description: "Ten artykuł zawiera omówienie architektury używanej podczas replikowania lokalnych maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej z programem System Center VMM za pomocą usługi Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.openlocfilehash: 0de4b4e8601116c73e6fd710597ce4e561884368
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="step-1-review-hello-architecture-for-hyper-v-replication-tooa-secondary-site"></a>Krok 1: Przegląd architektury powitania dla lokacji dodatkowej tooa replikacji funkcji Hyper-V
+# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>Krok 1. Przegląd architektury replikacji funkcji Hyper-V do lokacji dodatkowej
 
-W tym artykule opisano składniki hello i procesów podczas replikowania lokalnych maszyn wirtualnych (VM) funkcji Hyper-V w chmurach programu System Center Virtual Machine Manager (VMM), tooa lokacja dodatkowa programu VMM przy użyciu hello [usługi Azure Site Recovery](site-recovery-overview.md)w hello portalu Azure.
+Ten artykuł zawiera opis składników i procesów związanych z replikacją lokalnych maszyn wirtualnych funkcji Hyper-V w chmurach programu System Center Virtual Machine Manager (VMM) do lokacji dodatkowej z programem VMM za pomocą usługi [Azure Site Recovery](site-recovery-overview.md) w witrynie Azure Portal.
 
-Opublikuj wszelkie komentarze u dołu hello tego artykułu lub hello [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Zamieść wszelkie komentarze pod tym artykułem lub na [forum usług Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
 ## <a name="architectural-components"></a>Składniki architektury
 
-Oto, co jest potrzebne do replikowania maszyn wirtualnych funkcji Hyper-V tooa dodatkowej lokacji programu VMM.
+Poniżej przedstawiono wymagania dotyczące replikowania maszyn wirtualnych funkcji Hyper-V do lokacji dodatkowej z programem VMM.
 
 **Składnik** | **Lokalizacja** | **Szczegóły**
 --- | --- | ---
-**Azure** | Subskrypcja na platformie Azure. | Tworzenie magazynu usług odzyskiwania w hello subskrypcji platformy Azure, tooorchestrate i zarządzanie usługą replikacji między lokacjami programu VMM.
-**Serwer VMM** | Potrzebujesz podstawowej i dodatkowej lokalizacji z programem VMM. | Zalecamy, aby serwer VMM w lokacji głównej hello i jeden w lokacji dodatkowej hello 
-**Serwer funkcji Hyper-V** |  Jeden lub więcej funkcji Hyper-V serwerami hosta w hello głównych i dodatkowych chmurach VMM. | Dane są replikowane między hello podstawowych i pomocniczych serwerów Hyper-V hosta za pośrednictwem sieci LAN hello lub sieci VPN, korzystających z uwierzytelniania Kerberos lub certyfikatów.  
-**Maszyny wirtualne funkcji Hyper-V** | Na serwerze hosta funkcji Hyper-V. | serwer hosta źródłowego Hello powinien mieć co najmniej jedną maszynę Wirtualną, które mają tooreplicate.
+**Azure** | Subskrypcja na platformie Azure. | Magazyn usługi Recovery Services tworzy się w subskrypcji platformy Azure, aby organizować replikację między lokalizacjami z programem VMM i nią zarządzać.
+**Serwer VMM** | Potrzebujesz podstawowej i dodatkowej lokalizacji z programem VMM. | Zalecamy, aby zarówno w lokacji głównej, jak i dodatkowej znajdował się jeden serwer VMM 
+**Serwer funkcji Hyper-V** |  Co najmniej jeden serwer hosta funkcji Hyper-V w głównych i dodatkowych chmurach programu VMM. | Dane są replikowane między głównymi i dodatkowymi serwerami hosta funkcji Hyper-V za pośrednictwem sieci LAN albo sieci VPN korzystającej z protokołu Kerberos lub uwierzytelniania certyfikatu.  
+**Maszyny wirtualne funkcji Hyper-V** | Na serwerze hosta funkcji Hyper-V. | Źródłowy serwer hosta powinien mieć co najmniej jedną maszynę wirtualną, która ma być replikowana.
 
 ## <a name="replication-process"></a>Proces replikacji
 
-1. Konfigurowanie hello konto platformy Azure, utworzyć magazyn usług odzyskiwania i określ sposób tooreplicate.
-2. Możesz skonfigurować hello źródłowa i docelowa ustawienia replikacji, takich jak instalowanie hello dostawcy usługi Azure Site Recovery na serwerach VMM oraz agenta usług odzyskiwania Microsoft Azure hello na każdym hoście funkcji Hyper-V.
-3. Możesz utworzyć zasady replikacji dla źródła hello chmury VMM. Hello zasady są stosowane tooall maszyn wirtualnych znajdujących się na hostach w chmurze hello.
-4. Możesz włączyć replikację dla każdego programu VMM i następuje Replikacja początkowa maszyny wirtualnej zgodnie z ustawieniami hello, którą wybierzesz.
+1. Należy skonfigurować konto platformy Azure, utworzyć magazyn usługi Recovery Services i określić elementy do replikacji.
+2. Możesz skonfigurować źródłowe i docelowe ustawienia replikacji, co obejmuje instalowanie dostawcy usługi Azure Service Recovery na serwerach VMM oraz agenta usługi Microsoft Azure Recovery Services na każdym hoście funkcji Hyper-V.
+3. Należy utworzyć zasady replikacji dla źródłowej chmury programu VMM. Te zasady są stosowane do wszystkich maszyn wirtualnych znajdujących się na hostach w chmurze.
+4. Należy włączyć replikację dla każdego programu VMM, po czym nastąpi replikacja początkowa maszyny wirtualnej zgodnie z wybranymi ustawieniami.
 5. Po replikacji początkowej rozpocznie się replikacja zmian różnicowych. Śledzone zmiany elementu są przechowywane w pliku hrl.
 
 
-![Lokalne tooon lokalnej](./media/vmm-to-vmm-walkthrough-architecture/arch-onprem-onprem.png)
+![Ze środowiska lokalnego do środowiska lokalnego](./media/vmm-to-vmm-walkthrough-architecture/arch-onprem-onprem.png)
 
 ## <a name="failover-and-failback-process"></a>Proces pracy w trybie failover i podczas powrotu po awarii
 
-1. Planowane lub nieplanowane przejście w tryb [failover](site-recovery-failover.md) można uruchomić między lokacjami lokalnymi. Jeśli realizacja planowanego trybu failover, a następnie źródłowe maszyny wirtualne są zamknięte tooensure bez utraty danych.
-2. Można przełączyć jednego komputera lub utworzyć [planów odzyskiwania](site-recovery-create-recovery-plans.md) tooorchestrate pracy w trybie failover wiele maszyn.
-4. Jeśli nieplanowany tryb failover tooa lokacji dodatkowej, należy wykonać po hello trybu failover maszyny w lokalizacji dodatkowej hello nie są włączone dla ochrony lub replikacji. Po przeprowadzeniu planowany tryb failover po hello w tryb failover maszyny w lokalizacji dodatkowej hello są chronione.
-5. Następnie Zatwierdź hello trybu failover toostart podczas uzyskiwania dostępu do hello obciążenia z hello repliki maszyny Wirtualnej.
-6. Gdy lokacji głównej jest ponownie dostępny, zainicjowaniu tooreplicate replikacji odwrotnej z toohello lokacji dodatkowej hello podstawowego. Replikacji odwrotnej przełącza hello maszyny wirtualne w stanie chronionym hello dodatkowego centrum danych jest jednak nadal hello lokalizacji usługi active.
-7. toomake hello lokacji głównej do lokalizacji usługi active hello ponownie inicjuje planowanego trybu failover z tooprimary dodatkowej, następuje innego replikacji odwrotnej.
+1. Planowane lub nieplanowane przejście w tryb [failover](site-recovery-failover.md) można uruchomić między lokacjami lokalnymi. Jeśli zostanie uruchomione planowane przejście w tryb failover, źródłowe maszyny wirtualne zostaną wyłączone w celu zapewnienia, że nie będzie miała miejsca utrata danych.
+2. W tryb failover można przełączyć pojedynczą maszynę lub można utworzyć [plany odzyskiwania](site-recovery-create-recovery-plans.md), aby zarządzać trybem failover na wielu maszynach.
+4. Jeśli wykonywane jest nieplanowane przejście w tryb failover do lokacji dodatkowej, po przejściu w tryb failover na maszynach znajdujących się w lokalizacji dodatkowej nie jest włączona ochrona ani replikacja. Jeśli dokonano planowanego przejścia w tryb failover, po przejściu w tryb failover maszyny znajdujące się w lokalizacji dodatkowej są chronione.
+5. Następnie należy zatwierdzić tryb failover, aby można było rozpocząć uzyskiwanie dostępu do obciążenia z poziomu repliki maszyny wirtualnej.
+6. Gdy lokacja główna będzie znowu dostępna, należy zainicjować replikację odwrotną w celu przeprowadzenia replikacji z lokacji dodatkowej do lokacji głównej. Replikacja odwrotna powoduje przełączenie maszyn wirtualnych do stanu chronionego, ale aktywną lokalizacją jest nadal dodatkowe centrum danych.
+7. Aby lokacja główna stała się z powrotem lokalizacją aktywną, należy zainicjować planowane przejście w tryb failover z lokacji dodatkowej do głównej, a następnie przeprowadzić kolejną replikację odwrotną.
 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź za[krok 2: Przejrzyj hello wymagania wstępne i ograniczenia](vmm-to-vmm-walkthrough-prerequisites.md).
+Przejdź do części [Krok 2. Przegląd wymagań wstępnych i ograniczeń](vmm-to-vmm-walkthrough-prerequisites.md).

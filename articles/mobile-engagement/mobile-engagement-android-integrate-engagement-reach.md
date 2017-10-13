@@ -1,5 +1,5 @@
 ---
-title: aaaAzure Mobile Engagement Android SDK integracji
+title: "Integracja zestawu SDK systemu Android z usługi Azure Mobile Engagement"
 description: "Najnowsze aktualizacje i procedury dotyczące zestawu SDK systemu Android dla usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,28 +14,28 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4ab6143771bdc0758a548abb529d6bde98fc0e4e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toointegrate-engagement-reach-on-android"></a>W jaki sposób Reach usługi Engagement tooIntegrate w systemie Android
+# <a name="how-to-integrate-engagement-reach-on-android"></a>Integrowanie Reach usługi Engagement w systemie Android
 > [!IMPORTANT]
-> Musisz wykonać procedurę integracji hello opisanego w hello jak tooIntegrate zaangażowania w systemie Android dokumentu przed wykonaniem tego przewodnika.
+> Musi występować po integracji procedury opisane w sekcji sposobu integracji usługi Engagement Android dokumentu przed wykonaniem tego przewodnika.
 > 
 > 
 
 ## <a name="standard-integration"></a>Standardowa integracji
 
-Skopiuj pliki zasobów Reach z hello zestawu SDK w projekcie:
+Skopiuj pliki zasobów Reach z zestawu SDK w projekcie:
 
-* Skopiuj pliki hello z hello `res/layout` folderu oferowane przez hello zestawu SDK do hello `res/layout` folderu aplikacji.
-* Skopiuj pliki hello z hello `res/drawable` folderu oferowane przez hello zestawu SDK do hello `res/drawable` folderu aplikacji.
+* Skopiuj pliki z `res/layout` folderu dostarczane przy użyciu zestawu SDK do `res/layout` folderu aplikacji.
+* Skopiuj pliki z `res/drawable` folderu dostarczane przy użyciu zestawu SDK do `res/drawable` folderu aplikacji.
 
 Edytowanie użytkownika `AndroidManifest.xml` pliku:
 
-* Dodaj następujące sekcji hello (między hello `<application>` i `</application>` tagów):
+* Dodaj poniższą sekcję (między `<application>` i `</application>` tagów):
   
           <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
             <intent-filter>
@@ -78,47 +78,47 @@ Edytowanie użytkownika `AndroidManifest.xml` pliku:
               <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
             </intent-filter>
           </receiver>
-* Należy to uprawnienie tooreplay systemu powiadomień, które nie zostały kliknięty przy rozruchu (w przeciwnym razie będą znajdować się na dysku, ale nie będą już wyświetlane, naprawdę masz tooinclude to).
+* Należy to uprawnienie do powtarzania powiadomień systemowych, które nie zostały kliknięty przy rozruchu (w przeciwnym razie będą znajdować się na dysku, ale nie będą już wyświetlane, które trzeba uwzględniać to).
   
           <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-* Określanie ikony używany do powiadomień, (zarówno w aplikacji oraz systemowe z nich) przez kopiowanie i edytowania powitania po sekcji (między hello `<application>` i `</application>` tagów):
+* Określanie ikony używany do powiadomień, (zarówno w aplikacji oraz systemowe z nich) przez kopiowanie i edytowania poniższej sekcji (między `<application>` i `</application>` tagów):
   
           <meta-data android:name="engagement:reach:notification:icon" android:value="<name_of_icon_WITHOUT_file_extension_and_WITHOUT_'@drawable/'>" />
 
 > [!IMPORTANT]
-> Ta sekcja ma **obowiązkowe** Jeśli planujesz używanie powiadomień systemowych, tworząc kampanie Zasięgowe. Android uniemożliwia powiadomień systemowych bez ikony wyświetlane. Dlatego w przypadku pominięcia tej sekcji, użytkownicy końcowi nie będą mogli tooreceive je.
+> Ta sekcja ma **obowiązkowe** Jeśli planujesz używanie powiadomień systemowych, tworząc kampanie Zasięgowe. Android uniemożliwia powiadomień systemowych bez ikony wyświetlane. Dlatego w przypadku pominięcia tej sekcji, użytkownicy końcowi uniemożliwi do ich odbierania.
 > 
 > 
 
-* Po utworzeniu kampanii z powiadomień systemowych przy użyciu szerszej należy hello tooadd następujących uprawnień (po hello `</application>` tagu) Jeśli brak:
+* Jeśli tworzysz kampanie z powiadomień systemowych przy użyciu duży obraz, należy dodać następujące uprawnienia (po `</application>` tagu) Jeśli brak:
   
           <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
           <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
   
   * W systemie Android M i czy aplikacja korzysta poziom interfejsu API systemu Android 23 lub większą ``WRITE_EXTERNAL_STORAGE`` uprawnienia wymaga zatwierdzenia przez użytkownika. Przeczytaj [w tej sekcji](mobile-engagement-android-integrate-engagement.md#android-m-permissions).
-* Dla powiadomień systemowych, które można również określić hello osiągnięto kampanii, jeśli urządzenie hello pierścienia i/lub należy też. Dla niego toowork, masz toomake się zadeklarowany hello następujące uprawnienia (po hello `</application>` tagu):
+* Dla powiadomień systemowych można również określić w kampanii Reach Jeśli urządzenie powinno pierścienia i/lub też. Dla tej funkcji, musisz upewnij się, że zadeklarowany następujących uprawnień (po `</application>` tagu):
   
           <uses-permission android:name="android.permission.VIBRATE" />
   
-  Bez tego uprawnienia Android uniemożliwia powiadomienia systemowe z jest pokazywany, gdy zaznaczono pierścień hello lub hello też opcji w Menedżerze osiągnąć kampanii hello.
+  Bez tego uprawnienia Android uniemożliwia powiadomień systemowych jest wyświetlany, jeśli zaznaczono pierścienia lub opcji vibrate w Menedżerze osiągnąć kampanii.
 
 ## <a name="native-push"></a>Natywnych powiadomień wypychanych
-Teraz możesz skonfigurować moduł Reach, należy tooconfigure natywnych powiadomień wypychanych toobe tooreceive stanie hello kampanii na urządzeniu hello.
+Teraz, możesz skonfigurować moduł Reach, należy skonfigurować natywnych powiadomień wypychanych, aby móc odbierać kampanii na urządzeniu.
 
 W systemie Android firma Microsoft obsługuje dwie usługi:
 
-* Urządzenia ze sklepu Google Play: Użyj [Google Cloud Messaging] przez następujące hello [jak GCM z Engagement tooIntegrate przewodnik](mobile-engagement-android-gcm-integrate.md) przewodnik.
-* Urządzenia firmy Amazon: Użyj [usługi Amazon Device Messaging] przez następujące hello [jak przewodnik tooIntegrate ADM z Engagement](mobile-engagement-android-adm-integrate.md) przewodnik.
+* Urządzenia ze sklepu Google Play: Użyj [Google Cloud Messaging] wykonując [jak GCM zintegrować z przewodnika zaangażowania](mobile-engagement-android-gcm-integrate.md) przewodnik.
+* Urządzenia firmy Amazon: Użyj [usługi Amazon Device Messaging] wykonując [jak zintegrować ADM prowadnicy zaangażowania](mobile-engagement-android-adm-integrate.md) przewodnik.
 
-Jeśli chcesz, aby tootarget zarówno Amazon, jak i sklepu Google Play urządzenia, jego możliwe toohave cała jego zawartość 1 AndroidManifest.xml/APK do tworzenia aplikacji. Jednak podczas przesyłania tooAmazon, mogą one odrzucić aplikacji, jeśli znajduje się kod usługi GCM.
+Jeśli chcesz przeanalizować urządzeń zarówno Amazon, jak i Google Play, można mieć wszystkie elementy wewnątrz 1 AndroidManifest.xml/APK do tworzenia aplikacji. Jednak podczas przesyłania do Amazon, mogą one odrzucić aplikacji, jeśli znajduje się kod usługi GCM.
 
 W takim przypadku należy używać wielu APKs.
 
-**Aplikacja jest teraz gotowy tooreceive i wyświetlanie osiągnąć kampanii!**
+**Aplikacja jest teraz gotowa do odbierania i wyświetlić kampanie zasięgowe!**
 
-## <a name="how-toohandle-data-push"></a>Jak wypychania danych toohandle
+## <a name="how-to-handle-data-push"></a>Sposób obsługi wypychanie danych
 ### <a name="integration"></a>Integracja
-Jeśli chcesz toobe Twojej aplikacji może wypchnięcia tooreceive Reach danych, masz toocreate podklasą klasy `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` i odwoływać w hello `AndroidManifest.xml` pliku (między hello `<application>` i/lub `</application>` tagów):
+Jeśli chcesz otrzymywać Reach wypychania danych aplikacji, należy utworzyć podklasą klasy `com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver` i odwołuje się on w `AndroidManifest.xml` pliku (między `<application>` i/lub `</application>` tagów):
 
             <receiver android:name="<your_sub_class_of_com.microsoft.azure.engagement.reach.EngagementReachDataPushReceiver>"
               android:exported="false">
@@ -127,7 +127,7 @@ Jeśli chcesz toobe Twojej aplikacji może wypchnięcia tooreceive Reach danych,
               </intent-filter>
             </receiver>
 
-Następnie można zastąpić hello `onDataPushStringReceived` i `onDataPushBase64Received` wywołań zwrotnych. Oto przykład:
+Następnie można zastąpić `onDataPushStringReceived` i `onDataPushBase64Received` wywołań zwrotnych. Oto przykład:
 
             public class MyDataPushReceiver extends EngagementReachDataPushReceiver
             {
@@ -148,46 +148,46 @@ Następnie można zastąpić hello `onDataPushStringReceived` i `onDataPushBase6
             }
 
 ### <a name="category"></a>Kategoria
-Witaj kategorii parametr jest opcjonalny, podczas tworzenia kampanii wypychania danych i umożliwia wypychanie danych toofilter. Jest to przydatne, jeśli masz wiele odbiorników emisji obsługi różnych typów wypychania danych, lub jeśli użytkownik chce różnych rodzajów toopush z `Base64` tooidentify danych i chcesz ich typu przed ich analizowania.
+Parametr kategorii jest opcjonalny, podczas tworzenia kampanii wypychania danych i umożliwia Wypychanie do filtrowania danych. Jest to przydatne, jeśli masz wiele odbiorników emisji obsługi różnych typów wypychania danych, lub jeśli chcesz dystrybuować różnych rodzajów z `Base64` danych, aby zidentyfikować ich typu przed ich analizowania.
 
 ### <a name="callbacks-return-parameter"></a>Parametr zwrotnego wywołania zwrotne
-Poniżej przedstawiono niektóre wytyczne tooproperly dojście hello parametr zwrotny `onDataPushStringReceived` i `onDataPushBase64Received`:
+Poniżej przedstawiono kilka wskazówek, aby poprawnie obsługiwać parametr zwrotny `onDataPushStringReceived` i `onDataPushBase64Received`:
 
-* Odbiornik emisji powinien zwrócić `null` w hello wywołania zwrotnego, jeśli nie wiadomo, jak push toohandle danych. Należy używać hello toodetermine kategorii, czy odbiornik emisji powinna obsługiwać wypychanie danych hello, lub nie.
-* Jeden odbiornik emisji hello powinien zwrócić `true` w hello wywołania zwrotnego, jeśli akceptuje hello wypychanie danych.
-* Jeden odbiornik emisji hello powinien zwrócić `false` w hello wywołania zwrotnego, jeśli rozpoznaje hello wypychanie danych, ale odrzuca je z jakiegoś powodu. Na przykład `false` po hello odebrane dane są nieprawidłowe.
-* Jeśli emituje jeden odbiornik zwraca `true` podczas drugiego zwraca jedną `false` hello wypychanie danych sam, zachowanie hello jest niezdefiniowana, nigdy nie należy który.
+* Odbiornik emisji powinien zwrócić `null` podczas wywołania zwrotnego, jeśli nie może określić sposób obsługi wypychanie danych. Aby ustalić, czy odbiornik emisji powinna obsługiwać wypychanie danych lub nie należy używać tej kategorii.
+* Jeden odbiornik emisji powinien zwrócić `true` podczas wywołania zwrotnego, jeśli akceptuje wypychanie danych.
+* Jeden odbiornik emisji powinien zwrócić `false` podczas wywołania zwrotnego, jeśli rozpoznaje wypychania danych, ale odrzuca je niezależnie od przyczyn. Na przykład `false` po otrzymaniu danych jest nieprawidłowa.
+* Jeśli emituje jeden odbiornik zwraca `true` podczas drugiego zwraca jedną `false` do tego samego wypychania danych, jest niezdefiniowane zachowanie, nigdy nie należy to zrobić.
 
-Typ zwracany Hello jest używany tylko dla hello Reach statystyki:
+Zwracany typ jest używany tylko dla statystyki zasięgu:
 
-* `Replied`jest zwiększany, jeśli jeden z odbiorców emisji hello albo zwrócony `true` lub `false`.
-* `Actioned`zwiększany jest tylko wtedy, gdy jeden hello emisji odbiorniki zwrócił `true`.
+* `Replied`jest zwiększany, jeśli jeden z odbiorców emisji albo zwrócony `true` lub `false`.
+* `Actioned`zwiększany jest tylko wtedy, gdy jeden z odbiorców emisji zwrócił `true`.
 
-## <a name="how-toocustomize-campaigns"></a>Jak toocustomize kampanii
-toocustomize kampanie, można zmodyfikować układów hello w hello osiągnąć zestawu SDK.
+## <a name="how-to-customize-campaigns"></a>Dostosowywanie kampanii
+Aby dostosować kampanii, można zmodyfikować układy określone w zestawie SDK Reach.
 
-Należy zachować wszystkie identyfikatory hello używane w układów hello i Zachowaj hello typy widoków hello, korzystających z identyfikatorem, szczególnie w przypadku widoków tekstu i obrazów. Niektóre widoki są używane tylko toohide lub Pokaż obszary, więc ich typ może być zmieniony. Sprawdź, czy kod źródłowy hello zamierzając toochange hello typ widoku w hello podane układów.
+Należy zachować wszystkie identyfikatory, które są używane w układów i Zachowaj typy widoków, korzystających z identyfikatorem, szczególnie w przypadku widoków tekstu i obrazów. Niektóre widoki właśnie są używane do ukrywania lub pokazywania obszarów, aby ich typ może być zmieniony. Sprawdź kod źródłowy, jeśli chcesz zmienić typ widoku w podanych układów.
 
 ### <a name="notifications"></a>Powiadomienia
 Istnieją dwa typy powiadomień: powiadomień systemu i w aplikacji, które pliki inny układ.
 
 #### <a name="system-notifications"></a>System powiadomień
-należy toouse hello powiadomień systemowych toocustomize **kategorii**. Można przejść za[kategorii](#categories).
+Aby dostosować powiadomień systemowych, należy użyć **kategorii**. Można przejść do [kategorii](#categories).
 
 #### <a name="in-app-notifications"></a>Powiadomienia w aplikacji
-Domyślnie powiadomienia w aplikacji jest widoku, który jest dodawane dynamicznie toohello bieżącego działania użytkownika dzięki toohello Android metody interfejsu `addContentView()`. Jest to nakładce powiadomienia. Nakładki powiadomienia są bardzo szybkiego integracji, ponieważ nie wymagają toomodify można dowolny układ w aplikacji.
+Domyślnie powiadomienia w aplikacji jest widok dynamicznie dodawane do bieżącego działania interfejsu użytkownika dzięki użyciu Android — metoda `addContentView()`. Jest to nakładce powiadomienia. Nakładki powiadomienia są bardzo szybkiego integracji, ponieważ nie wymagają modyfikacji dowolny układ w aplikacji.
 
-wygląd hello toomodify Twojego nakładki powiadomień, wystarczy zmodyfikować plik hello `engagement_notification_area.xml` musi tooyour.
+Aby zmodyfikować wygląd sieci nakładki powiadomień, wystarczy zmodyfikować plik `engagement_notification_area.xml` do własnych potrzeb.
 
 > [!NOTE]
-> Plik Hello `engagement_notification_overlay.xml` jest hello jest używany toocreate w nakładce powiadomienia hello plik `engagement_notification_area.xml`. Można również dostosować go toosuit potrzeb (np. dla obszaru powiadomień hello w nakładce hello rozmieszczania).
+> Plik `engagement_notification_overlay.xml` jest ten, który jest używany do tworzenia w nakładce powiadomienia, w tym plik `engagement_notification_area.xml`. Można również dostosować do własnych potrzeb (np. dla obszaru powiadomień w nakładce rozmieszczania).
 > 
 > 
 
 ##### <a name="include-notification-layout-as-part-of-an-activity-layout"></a>Obejmują układu powiadomienia w ramach działania układu
-Nakładki są bardzo szybkiego integracji, ale można niewygodne lub mieć skutki uboczne w szczególnych przypadkach. można dostosować system nakładki Hello na poziomie działania, dzięki czemu można łatwo tooprevent efekty uboczne specjalnych działań.
+Nakładki są bardzo szybkiego integracji, ale można niewygodne lub mieć skutki uboczne w szczególnych przypadkach. Można dostosować system nakładki na poziomie działania, co ułatwia zapobieganie efekty uboczne specjalnych działań.
 
-Można określić tooinclude naszych układu powiadomień w Twoje istniejące toohello Dziękujemy układu Android **obejmują** instrukcji. Witaj poniżej przedstawiono przykład zmodyfikowanych `ListActivity` układu zawierający tylko `ListView`.
+Można wybrać obejmują naszych układu powiadomień w układzie istniejących dzięki użyciu Android **obejmują** instrukcji. Poniżej przedstawiono przykład zmodyfikowanych `ListActivity` układu zawierający tylko `ListView`.
 
 **Przed integracji usługi Engagement:**
 
@@ -217,33 +217,33 @@ Można określić tooinclude naszych układu powiadomień w Twoje istniejące to
 
             </LinearLayout>
 
-W tym przykładzie dodano kontenera nadrzędnego ponieważ układ oryginalny hello stanowiły hello najwyższego poziomu elementu widoku listy. Dodaliśmy również `android:layout_weight="1"` toobe tooadd stanie skonfigurowano poniżej widoku listy widok `android:layout_height="fill_parent"`.
+W tym przykładzie dodano kontenera nadrzędnego ponieważ układ oryginalny używany widok listy jako elementu najwyższego poziomu. Dodaliśmy również `android:layout_weight="1"` aby można było dodać widok poniżej skonfigurowany z widoku listy `android:layout_height="fill_parent"`.
 
-zestaw SDK Reach usługi Engagement Hello automatycznie wykrywa taki układ powiadomień hello jest dołączony do tego działania, a nie dodają nakładki dla tego działania.
+Zestaw SDK Reach usługi Engagement automatycznie wykrywa, czy układ powiadomień jest dołączony do tego działania, a nie dodają nakładki dla tego działania.
 
 > [!TIP]
-> Jeśli używasz ListActivity w aplikacji widoczne nakładki Reach uniemożliwi dające dodatnią reakcję tooclicked elementów w widoku listy hello już. Jest to znany problem. toowork tego problemu zaleca się możesz tooembed hello powiadomień układ własne działania układ listy podobnie jak w poprzednim przykładzie hello.
+> Jeśli używasz ListActivity w aplikacji widoczne nakładki Reach uniemożliwi reagowanie na już kliknięte elementy w widoku listy. Jest to znany problem. Aby obejść ten problem Sugerujemy można osadzić układu powiadomień w własne działania układ listy podobnie jak w poprzednim przykładzie.
 > 
 > 
 
 ##### <a name="disabling-application-notification-per-activity"></a>Wyłączanie aplikacji powiadomienia na działanie
-Jeśli nie chcesz hello toobe nakładki dodać działanie tooyour i układu powiadomień hello nie zawiera własny układ, można wyłączyć hello nakładki dla tego działania w hello `AndroidManifest.xml` przez dodanie `meta-data` sekcji, takich jak w następujących hello przykład:
+Jeśli nie chcesz, aby nakładki ma zostać dodany do Twoich działaniach i układu powiadomienia nie zawiera własny układ, można wyłączyć nakładki dla tego działania w `AndroidManifest.xml` przez dodanie `meta-data` sekcji, takich jak w poniższym przykładzie:
 
             <activity android:name="SplashScreenActivity">
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
 #### <a name="categories"></a>Kategorie
-Po zmodyfikowaniu hello podane układów możesz zmodyfikować wygląd hello wszystkich powiadomień. Kategorie dopuszczać toodefine możesz przez różne docelowe szuka powiadomienia (prawdopodobnie zachowania). Po utworzeniu kampanii Reach można określić kategorię. Należy pamiętać, że kategorie pozwalają również dostosować anonsów i sond, opisane w dalszej części tego dokumentu.
+Po zmodyfikowaniu podana układów możesz zmodyfikować wygląd wszystkich powiadomień. Kategorie umożliwiają definiowanie różnych wygląda docelowej (prawdopodobnie zachowania) dla powiadomień. Po utworzeniu kampanii Reach można określić kategorię. Należy pamiętać, że kategorie pozwalają również dostosować anonsów i sond, opisane w dalszej części tego dokumentu.
 
-tooregister kategorii Obsługa powiadomienia, należy tooadd wywołania po zainicjowaniu aplikacji hello.
+Aby zarejestrować kategorii Obsługa powiadomienia, należy dodać wywołanie po zainicjowaniu aplikacji.
 
 > [!IMPORTANT]
-> Przeczytaj hello ostrzeżenie dotyczące atrybutu android: proces hello \<android-sdk zaangażowania — proces\> w hello jak tooIntegrate zaangażowania na temat Android przed kontynuowaniem.
+> Przeczytaj ostrzeżenie o atrybucie android: proces \<android-sdk zaangażowania — proces\> w sposób integracji zaangażowania na temat Android przed kontynuowaniem.
 > 
 > 
 
-Witaj poniższym przykładzie założono potwierdzonych poprzedniego ostrzeżenie hello i użyj klasy `EngagementApplication`:
+W poniższym przykładzie założono potwierdzonych poprzedniego ostrzeżenie i użyj klasy `EngagementApplication`:
 
             public class MyApplication extends EngagementApplication
             {
@@ -256,13 +256,13 @@ Witaj poniższym przykładzie założono potwierdzonych poprzedniego ostrzeżeni
               }
             }
 
-Witaj `MyNotifier` obiektu jest implementacją hello hello powiadomień kategorii obsługi. Jest implementacja klasy hello `EngagementNotifier` interfejsu lub klasy podrzędnej implementacji domyślnej hello: `EngagementDefaultNotifier`.
+`MyNotifier` Obiektu jest implementacją obsługi kategorii powiadomień. Jest implementacja klasy `EngagementNotifier` interfejsu lub klasy podrzędnej implementacji domyślnej: `EngagementDefaultNotifier`.
 
-Należy pamiętać, że hello tego samego zgłaszający może obsługiwać kilka kategorii, zarejestruj je następująco:
+Należy pamiętać, że tego samego zgłaszający może obsługiwać kilka kategorii można je zarejestrować następująco:
 
             reachAgent.registerNotifier(new MyNotifier(this), "myCategory", "myAnotherCategory");
 
-tooreplace hello domyślną kategorii implementację można zarejestrować implementacji takich jak w hello poniższy przykład:
+Aby zastąpić domyślną implementację kategorii, możesz zarejestrować implementacji takich jak w poniższym przykładzie:
 
             public class MyApplication extends EngagementApplication
             {
@@ -275,14 +275,14 @@ tooreplace hello domyślną kategorii implementację można zarejestrować imple
               }
             }
 
-Hello bieżącej kategorii używany w procedurze obsługi jest przekazywana jako parametr w większości metod można zastąpić w `EngagementDefaultNotifier`.
+Bieżącej kategorii używany w procedurze obsługi jest przekazywana jako parametr w większości metod można zastąpić w `EngagementDefaultNotifier`.
 
 Jest przekazywany jako `String` parametru lub pośrednio w `EngagementReachContent` obiektu, który ma `getCategory()` metody.
 
-Można zmienić większość procesu tworzenia powiadomień hello na ponowne definiowanie metody `EngagementDefaultNotifier`dla bardziej zaawansowane dostosowania uznać wolnego tootake poszukaj w dokumentacji technicznej hello i na powitania kodu źródłowego.
+Można zmienić większość procesu tworzenia powiadomień na ponowne definiowanie metod `EngagementDefaultNotifier`, do bardziej zaawansowanych dostosowania swobodnie zapoznaj się z dokumentacją techniczną i kod źródłowy.
 
 ##### <a name="in-app-notifications"></a>Powiadomienia w aplikacji
-Jeśli chcesz alternatywne układy toouse dla określonej kategorii, można zaimplementować to jak hello poniższy przykład:
+Jeśli chcesz użyć alternatywnych układów dla określonej kategorii, można zaimplementować to jak w poniższym przykładzie:
 
             public class MyNotifier extends EngagementDefaultNotifier
             {
@@ -324,7 +324,7 @@ Jeśli chcesz alternatywne układy toouse dla określonej kategorii, można zaim
 
             </RelativeLayout>
 
-Jak widać, hello nakładki widoku identyfikator różni się od standardowego hello jeden. Należy pamiętać, że każdego układu dla nakładki używany unikatowy identyfikator.
+Jak widać, identyfikator widoku nakładki jest inne niż standardowe. Należy pamiętać, że każdego układu dla nakładki używany unikatowy identyfikator.
 
 **Przykład `my_notification_area.xml` :**
 
@@ -406,14 +406,14 @@ Jak widać, hello nakładki widoku identyfikator różni się od standardowego h
 
             </merge>
 
-Jak widać, identyfikator widoku obszaru powiadomień hello jest inny niż standardowe hello jeden. Należy pamiętać, że każdy układ używa unikatowego identyfikatora obszarów powiadomień.
+Jak widać, innej niż standardowe jest identyfikator widoku obszaru powiadomień. Należy pamiętać, że każdy układ używa unikatowego identyfikatora obszarów powiadomień.
 
-Ten prosty przykład kategorii sprawia, że powiadomienia aplikacji (lub w aplikacji) wyświetlany u góry hello hello ekranu. Nie został zmieniony hello identyfikatory standardowe używane w obszarze powiadomień hello samej siebie.
+Ten prosty przykład kategorii sprawia, że aplikacja (lub w aplikacji) powiadomienia wyświetlane w górnej części ekranu. Nie został zmieniony standardowych identyfikatorów używane w obszarze powiadomień, się.
 
-Jeśli chcesz, aby toochange, że masz tooredefine hello `EngagementDefaultNotifier.prepareInAppArea` metody. Zalecane jest toolook dokumentacji technicznej hello i kod źródłowy hello `EngagementNotifier` i `EngagementDefaultNotifier` Jeśli chcesz to poziomu zaawansowanego dostosowania.
+Jeśli chcesz zmienić, konieczne będzie ponownie zdefiniować `EngagementDefaultNotifier.prepareInAppArea` metody. Zaleca się znaleźć dokumentację techniczną i kod źródłowy `EngagementNotifier` i `EngagementDefaultNotifier` Jeśli chcesz to poziomu zaawansowanego dostosowania.
 
 ##### <a name="system-notifications"></a>System powiadomień
-Rozszerzając `EngagementDefaultNotifier`, można zastąpić `onNotificationPrepared` tooalter hello powiadomienia, który został przygotowany przez hello domyślną implementację.
+Rozszerzając `EngagementDefaultNotifier`, można zastąpić `onNotificationPrepared` do zmiany powiadomienia, który został przygotowany przez domyślną implementację.
 
 Na przykład:
 
@@ -426,9 +426,9 @@ Na przykład:
               return true;
             }
 
-W tym przykładzie powoduje, że powiadomienie systemowe dla zawartości będzie wyświetlany jako zdarzenie uruchomione, gdy kategorii "stałe" hello jest używany.
+W tym przykładzie powoduje, że powiadomienie systemowe dla zawartości będzie wyświetlany jako zdarzenie uruchomione, gdy kategoria "stałe" jest używana.
 
-Jeśli chcesz, aby toobuild hello `Notification` obiekt od początku, można powrócić `false` toohello — metoda i wywołanie `notify` samodzielnie na powitania `NotificationManager`. W takim przypadku należy pamiętać o jest `contentIntent`, `deleteIntent` i hello identyfikator powiadomienia, używany przez `EngagementReachReceiver`.
+Jeśli chcesz utworzyć `Notification` obiekt od początku, można powrócić `false` — metoda i wywołanie `notify` samodzielnie na `NotificationManager`. W takim przypadku należy pamiętać o jest `contentIntent`, `deleteIntent` i identyfikator powiadomienia, używany przez `EngagementReachReceiver`.
 
 Oto przykład poprawnego takie implementacji:
 
@@ -451,16 +451,16 @@ Oto przykład poprawnego takie implementacji:
 
               /* Notify here instead of super class */
               NotificationManager manager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-              manager.notify(getNotificationId(content), myNotification); // notice hello call tooget hello right identifier
+              manager.notify(getNotificationId(content), myNotification); // notice the call to get the right identifier
 
               /* Return false, we notify ourselves */
               return false;
             }
 
 ##### <a name="notification-only-announcements"></a>Anonsów zawierających tylko powiadomienia
-Hello zarządzania powitania kliknij powiadomienie tylko anonsu można dostosowywać przez zastąpienie `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` hello toomodify przygotowane `Intent`. Za pomocą tej metody można łatwo tootune hello flagi.
+Zarządzanie kliknięcie powiadomienia tylko anonsu można dostosowywać przez zastąpienie `EngagementDefaultNotifier.onNotifAnnouncementIntentPrepared` do modyfikowania przygotowanej `Intent`. Za pomocą tej metody pozwala łatwo dostosować flag.
 
-Na przykład tooadd hello `SINGLE_TOP` flagi:
+Na przykład aby dodać `SINGLE_TOP` flagi:
 
             @Override
             protected Intent onNotifAnnouncementIntentPrepared(EngagementNotifAnnouncement notifAnnouncement,
@@ -470,41 +470,41 @@ Na przykład tooadd hello `SINGLE_TOP` flagi:
               return intent;
             }
 
-Dla starszych zaangażowania użytkowników należy pamiętać, że powiadomień systemowych bez akcji adresu URL teraz uruchamia aplikacji hello jeśli było w tle, więc ta metoda może być wywołany z anonsu bez adres URL akcji. Należy rozważyć który w przypadku zamiaru hello dostosowywania.
+W przypadku starszych zaangażowania użytkowników należy pamiętać, że powiadomień systemowych bez akcji URL teraz uruchamia aplikację jeśli było w tle, więc ta metoda może być wywołany z anonsu bez adres URL akcji. Które należy rozważyć w przypadku dostosowywania celem.
 
 Można też wdrożyć `EngagementNotifier.executeNotifAnnouncementAction` od początku.
 
 ##### <a name="notification-life-cycle"></a>Cykl życia powiadomień
-Korzystając z kategorii domyślnej hello, w przypadku niektórych metod cyklu życia są nazywane na powitania `EngagementReachInteractiveContent` obiekt tooreport statystyk i aktualizacji hello kampanii stanu:
+Podczas korzystania z domyślnej kategorii, w przypadku niektórych metod cyklu życia są nazywane na `EngagementReachInteractiveContent` obiektu do raportu statystyk i zaktualizować stan kampanii:
 
-* Gdy hello powiadomienia są wyświetlane w aplikacji lub umieść na pasku stanu hello, hello `displayNotification` metoda jest wywoływana (która statystyki) przez `EngagementReachAgent` Jeśli `handleNotification` zwraca `true`.
-* Jeśli powiadomienia hello jest odrzucane, hello `exitNotification` metoda jest wywoływana, statystyka jest zgłaszany i dalej kampanii teraz mogą być przetwarzane.
-* Po kliknięciu powiadomienia hello `actionNotification` jest nazywane, statystyka jest zgłaszany i celem hello skojarzone jest uruchamiana.
+* Jeśli powiadomienia są wyświetlane w aplikacji lub umieść w pasku stanu `displayNotification` metoda jest wywoływana (która statystyki) przez `EngagementReachAgent` Jeśli `handleNotification` zwraca `true`.
+* Jeśli powiadomienie jest odrzucane, `exitNotification` metoda jest wywoływana, statystyka jest zgłaszany i dalej kampanii teraz mogą być przetwarzane.
+* Po kliknięciu powiadomienia `actionNotification` jest wywoływana, statystyka zostaje zgłoszone i skojarzone celem jest uruchamiana.
 
-Jeśli implementacji `EngagementNotifier` pomija hello domyślne zachowanie, należy toocall tych metod cyklu życia samodzielnie. Hello następujące przykłady przedstawiają niektórych przypadkach, gdy pomijana jest hello domyślne zachowanie:
+Jeśli implementacji `EngagementNotifier` pomija domyślne zachowanie, należy wywołać metody te cyklu życia samodzielnie. Poniższe przykłady przedstawiają w niektórych przypadkach, gdy pomijane jest domyślne zachowanie:
 
 * Nie można rozszerzyć `EngagementDefaultNotifier`, np. zaimplementowano obsługi kategorii od początku.
-* Dla powiadomień systemowych overrode hello `onNotificationPrepared` i możesz zmodyfikować `contentIntent` lub `deleteIntent` w hello `Notification` obiektu.
-* Aby powiadomienia w aplikacji, overrode `prepareInAppArea`, toomap się, że co najmniej `actionNotification` tooone formantów U.I.
+* Dla powiadomień systemowych overrode `onNotificationPrepared` i możesz zmodyfikować `contentIntent` lub `deleteIntent` w `Notification` obiektu.
+* Aby powiadomienia w aplikacji, overrode `prepareInAppArea`, należy zamapować co najmniej `actionNotification` do jednego z U.I kontrolki.
 
 > [!NOTE]
-> Jeśli `handleNotification` zwraca wyjątek, hello zawartości zostanie usunięty i `dropContent` jest wywoływana. Jest to raportowane w statystykach i dalej kampanii teraz mogą być przetwarzane.
+> Jeśli `handleNotification` zgłasza wyjątek, zawartość zostanie usunięta i `dropContent` jest wywoływana. Jest to raportowane w statystykach i dalej kampanii teraz mogą być przetwarzane.
 > 
 > 
 
 ### <a name="announcements-and-polls"></a>Anonsów i sond
 #### <a name="layouts"></a>Układy
-Można zmodyfikować hello `engagement_text_announcement.xml`, `engagement_web_announcement.xml` i `engagement_poll.xml` pliki toocustomize tekst anonsów, web anonsów i sond.
+Można zmodyfikować `engagement_text_announcement.xml`, `engagement_web_announcement.xml` i `engagement_poll.xml` pliki, aby dostosować tekst anonsów, web anonsów i sond.
 
-Te pliki mają dwóch typowych układów hello tytuł i hello przycisk obszaru. Układ Hello tytułu hello jest `engagement_content_title.xml` i używa hello gromadzący obiektów drawable plików w tle hello. Witaj układ przycisków akcji i wyjścia hello jest `engagement_button_bar.xml` i używa hello gromadzący obiektów drawable plików w tle hello.
+Te pliki mają dwóch typowych układów obszar tytułu i obszar przycisku. Układ tytułu jest `engagement_content_title.xml` i używa gromadzący pliku obiektów drawable tła. Układ przycisków akcji i wyjścia jest `engagement_button_bar.xml` i używa gromadzący pliku obiektów drawable tła.
 
-W sondowania hello układ pytanie i ich opcji są dynamicznie zwiększony, przy użyciu hello kilka razy `engagement_question.xml` pliku układu dla hello pytania i hello `engagement_choice.xml` hello wyborów w pliku.
+W sondowania, układ pytanie i ich możliwości są dynamicznie zwiększony przy użyciu kilka razy `engagement_question.xml` pliku układu dla pytań i `engagement_choice.xml` pliku dla opcji.
 
 #### <a name="categories"></a>Kategorie
 ##### <a name="alternate-layouts"></a>Układy alternatywnej
-Jak powiadomienia Kategoria kampanii hello mogą być używane toohave alternatywne układy anonsów i sond.
+Takich jak powiadomienia Kategoria kampanii można mieć alternatywne układy anonsów i sond.
 
-Na przykład toocreate kategorii ogłoszenie tekstu, można rozszerzyć `EngagementTextAnnouncementActivity` i odwołaj hello `AndroidManifest.xml` pliku:
+Na przykład, aby utworzyć kategorii ogłoszenie tekstu, można rozszerzyć `EngagementTextAnnouncementActivity` i odwołaj `AndroidManifest.xml` pliku:
 
             <activity android:name="com.your_company.MyCustomTextAnnouncementActivity">
               <intent-filter>
@@ -514,36 +514,36 @@ Na przykład toocreate kategorii ogłoszenie tekstu, można rozszerzyć `Engagem
               </intent-filter>
             </activity>
 
-Należy zwrócić uwagę tej kategorii hello w hello zamiar użyć filtru różnica hello toomake z hello domyślne działanie anonsu.
+Należy pamiętać, że kategorii w filtrze konwersji umożliwia różnica w stosunku do domyślne działanie anonsu.
 
-Hello osiągnąć SDK używa hello konwersji system tooresolve hello odpowiednim działaniu dla określonej kategorii i jego powraca na powitania domyślnej kategorii Jeśli rozwiązanie hello nie powiodło się.
+SDK osiągnąć używa konwersji system do rozpoznania odpowiednim działaniu dla określonej kategorii i go powraca na domyślnej kategorii Jeśli niepowodzenie rozpoznawania.
 
-Następnie tooimplement `MyCustomTextAnnouncementActivity`, po prostu toochange hello układu (, ale zachować hello tego samego widoku identyfikatorów), wystarczy toodefine hello klasy, jak w hello poniższy przykład:
+Musisz zaimplementować `MyCustomTextAnnouncementActivity`, jeśli chcesz zmienić układ (, zachowując tego samego identyfikatory widok), wystarczy zdefiniować klasy, jak w poniższym przykładzie:
 
             public class MyCustomTextAnnouncementActivity extends EngagementTextAnnouncementActivity
             {
               @Override
               protected String getLayoutName()
               {
-                return "my_text_announcement";  // tell super class toouse R.layout.my_text_announcement
+                return "my_text_announcement";  // tell super class to use R.layout.my_text_announcement
               }
             }
 
-tooreplace hello domyślnej kategorii anonsów tekstu, po prostu zastąpić `android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"` przy implementacji.
+Aby zastąpić kategorii domyślny tekst anonsów, po prostu zastąpić `android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"` przy implementacji.
 
 W podobny sposób można dostosować Web anonsów i sond.
 
-W przypadku anonsów zawierających sieci web można rozszerzyć `EngagementWebAnnouncementActivity` ani deklarować Twoich działaniach w hello `AndroidManifest.xml` w hello poniższy przykład, takich jak:
+W przypadku anonsów zawierających sieci web można rozszerzyć `EngagementWebAnnouncementActivity` ani deklarować Twoich działaniach w `AndroidManifest.xml` , takich jak w poniższym przykładzie:
 
             <activity android:name="com.your_company.MyCustomWebAnnouncementActivity">
               <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT"/>
                 <category android:name="my_category" />
-                <data android:mimeType="text/html" />    <!-- only difference with text announcements in hello intent is hello data mime type -->
+                <data android:mimeType="text/html" />    <!-- only difference with text announcements in the intent is the data mime type -->
               </intent-filter>
             </activity>
 
-Ankiety można rozszerzyć `EngagementPollActivity` ani deklarować użytkownika w hello `AndroidManifest.xml` w hello poniższy przykład, takich jak:
+Ankiety można rozszerzyć `EngagementPollActivity` ani deklarować sieci w `AndroidManifest.xml` , takich jak w poniższym przykładzie:
 
             <activity android:name="com.your_company.MyCustomPollActivity">
               <intent-filter>
@@ -553,13 +553,13 @@ Ankiety można rozszerzyć `EngagementPollActivity` ani deklarować użytkownika
             </activity>
 
 ##### <a name="implementation-from-scratch"></a>Implementacja od podstaw
-Można zaimplementować kategorie działań anonsu (i sondowania) bez rozszerzenie jednej hello `Engagement*Activity` klasy podał hello osiągnąć zestawu SDK. Jest to przydatne na przykład jeśli chcesz toodefine układu, które nie są używane hello sam widoków jako hello standardowych układów.
+Można zaimplementować kategorie działań anonsu (i sondowania) bez rozszerzenie jednej z `Engagement*Activity` klasy udostępniane przez zestaw SDK Reach. Jest to przydatne na przykład jeśli chcesz zdefiniować układu, który nie używa tego samego widoków jako standardowych układów.
 
-Podobnie jak dostosowywania powiadomień zaawansowane, zalecane jest toolook na kod źródłowy hello hello standardowej implementacji.
+Podobnie jak dostosowywania powiadomień zaawansowane zalecane jest aby przyjrzeć się kodu źródłowego standardowej implementacji.
 
-Poniżej przedstawiono niektóre czynności tookeep pamiętać: Reach uruchomi hello działania z określonym profilem (odpowiedniego filtru konwersji toohello) oraz dodatkowy parametr, który jest hello identyfikator zawartości.
+Poniżej przedstawiono niektóre czynności, które należy wziąć pod uwagę: Reach spowoduje uruchomienie działania o określonych zamiar (odpowiadający filtru konwersji) oraz dodatkowy parametr, który jest identyfikatorem zawartości.
 
-tooretrieve hello zawartości obiektu, który zawiera pola hello określony podczas tworzenia hello kampanii w witrynie sieci web hello możesz to zrobić:
+Można pobrać zawartości obiektu, który zawiera pola, które można określić podczas tworzenia kampanii w witrynie sieci web można to zrobić:
 
             public class MyCustomTextAnnouncement extends EngagementActivity
             {
@@ -586,23 +586,23 @@ tooretrieve hello zawartości obiektu, który zawiera pola hello określony podc
               }
             }
 
-Statystyki, zgłoś hello zawartość jest wyświetlana w hello `onResume` zdarzeń:
+Statystyki, zgłoś zawartość jest wyświetlana w `onResume` zdarzeń:
 
             @Override
             protected void onResume()
             {
-             /* Mark hello content displayed */
+             /* Mark the content displayed */
              mContent.displayContent(this);
              super.onResume();
             }
 
-Następnie, nie zapomnij albo toocall `actionContent(this)` lub `exitContent(this)` hello zawartości obiektu przed hello działanie przechodzi w tle.
+Następnie, nie zapomnij wywołań albo `actionContent(this)` lub `exitContent(this)` zawartości obiektu przed działanie przechodzi w tle.
 
-Nie można wywołać albo `actionContent` lub `exitContent`, statystyki nie zostaną wysłane (tzn. nie analizy kampanii hello) i więcej wszystkim hello dalej kampanii nie zostaną powiadomieni do ponownego uruchomienia procesu aplikacji hello.
+Nie można wywołać albo `actionContent` lub `exitContent`, statystyki nie zostaną wysłane (tzn. nie analytics kampanii) i co ważniejsze, dalej kampanii nie będzie powiadamiany, aż do ponownego uruchomienia procesu aplikacji.
 
-Orientacja lub innych zmian konfiguracji można upewnij toodetermine trudnych kodu hello czy hello działanie przechodzi w tle, lub nie, hello sprawia, że standardowej implementacji się, że zawartość hello jest raportowane jako zakończony, jeśli odejdzie użytkownik, hello działania hello, (albo przez Naciśnięcie przycisku `HOME` lub `BACK`), ale nie w przypadku zmiany orientacji hello.
+Orientacja lub innych zmian konfiguracji może wykonać kod trudnych do określenia, czy działanie przechodzi w tle lub nie, standardowej implementacji upewnia się, zawartość jest zgłaszana jako zakończony, gdy użytkownik opuści działania (albo przez naciśnięcie przycisku `HOME`lub `BACK`), ale nie w przypadku zmiany orientacji.
 
-Oto hello interesujące część implementacji hello:
+Oto interesujące część implementacji:
 
             @Override
             protected void onUserLeaveHint()
@@ -617,14 +617,14 @@ Oto hello interesujące część implementacji hello:
               {
                 /*
                  * Exit content on exit, this is has no effect if another process method has already been
-                 * called so we don't have toocheck anything here.
+                 * called so we don't have to check anything here.
                  */
                 mContent.exitContent(this);
               }
               super.onPause();
             }
 
-Jak widać, jeśli wywołujesz `actionContent(this)` , a następnie Zakończono działanie hello `exitContent(this)` można bezpiecznie wywołać bez żadnego efektu.
+Jak widać, jeśli wywołujesz `actionContent(this)` zakończyła działanie, a następnie `exitContent(this)` można bezpiecznie wywołać bez żadnego efektu.
 
 [here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html

@@ -1,6 +1,6 @@
 ---
-title: "urządzenie aaaInstall Microsoft Azure StorSimple 8600 | Dokumentacja firmy Microsoft"
-description: "Opisuje sposób toounpack, montowanie i Podłączanie kabli do urządzenia StorSimple 8600, aby wdrożyć i skonfigurować oprogramowanie hello."
+title: "Instalowanie programu Microsoft Azure StorSimple 8600 urządzenia | Dokumentacja firmy Microsoft"
+description: "Opisuje sposób Rozpakowywanie, montowanie i Podłączanie kabli do urządzenia StorSimple 8600, aby wdrożyć i skonfigurować oprogramowanie."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
-ms.openlocfilehash: 0fc0ddf076725fededdde33a260b950b72edc8db
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Rozpakowywanie, w stojaku, a Podłączanie kabli do urządzenia StorSimple 8600
 ## <a name="overview"></a>Omówienie
-Do urządzenia 8600 Microsoft Azure StorSimple urządzenia podwójną obudowa i składa się z podstawowym i obudowy EBOD. W tym samouczku wyjaśniono, jak toounpack, zamontować w stojaku i podłączyć kable hello StorSimple 8600 urządzeń sprzętowych przed skonfigurowaniem hello StorSimple oprogramowania.
+Do urządzenia 8600 Microsoft Azure StorSimple urządzenia podwójną obudowa i składa się z podstawowym i obudowy EBOD. W tym samouczku wyjaśniono, jak rozpakować, zamontować w stojaku i kabel StorSimple 8600 urządzeń sprzętowych przed należy skonfigurować oprogramowanie StorSimple.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Rozpakuj do urządzenia StorSimple 8600
-Witaj poniższych krokach przedstawiono Wyczyść, szczegółowe informacje na temat toounpack urządzenia magazynującego StorSimple 8600. To urządzenie jest dostarczany w dwóch pól, dla podstawowego obudowa hello i drugi dla hello EBOD obudowy. Te dwa pola następnie są umieszczane w jednym polu.
+Poniższe kroki zawierają wyraźne, szczegółowe instrukcje na temat rozpakować urządzenia magazynującego StorSimple 8600. To urządzenie jest dostarczany w dwóch polach, jeden dla podstawowego obudowy i drugi dla obudowa EBOD. Te dwa pola następnie są umieszczane w jednym polu.
 
-### <a name="prepare-toounpack-your-device"></a>Przygotowanie toounpack urządzenia
-Przed Rozpakuj urządzenia, przejrzyj hello następujących informacji.
+### <a name="prepare-to-unpack-your-device"></a>Przygotowanie do rozpakowania urządzenia
+Aby rozpakować urządzenia, przejrzyj następujące informacje.
 
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png)![ikona ciężki](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **ostrzeżenie!**
 
-1. Upewnij się, że jest dwóch osób toomanage dostępne hello wagi hello urządzenia, jeśli są obsługuje go ręcznie. Obudowa pełni skonfigurowany można porównać się too32 kg (70 kg).
-2. Umieść pole hello na powierzchni płaskiej, poziomu.
+1. Upewnij się, że masz dwie osoby dostępne na potrzeby zarządzania wagi urządzenia, jeśli są obsługuje go ręcznie. Obudowa pełni skonfigurowany można porównać do 32 kg (70 kg).
+2. Umieść pole na powierzchni płaskiej, poziomu.
 
-Następnie wykonaj następujące kroki toounpack hello urządzenia.
+Następnie wykonaj poniższe kroki, aby rozpakować urządzenia.
 
-#### <a name="toounpack-your-device"></a>toounpack urządzenia
-1. Sprawdź, czy pole hello i piana pakietów hello crushes, części, szkody limitu górnego lub widocznego uszkodzenia. Jeśli pole hello lub pakowania poważnie jest uszkodzony, nie otwieraj okno hello. Sprawdź [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) toohelp należy ocenić, czy urządzenie hello jest w dobrym stanie.
-2. Otwórz hello zewnętrznego pola, a następnie wyjmij hello dwa pola odpowiadające tooprimary i obudowy EBOD. Można teraz Rozpakuj hello podstawowego i obudowy EBOD. powitania po rysunku przedstawiono hello rozpakowane jednego z obudów hello.
+#### <a name="to-unpack-your-device"></a>Aby rozpakować urządzenia
+1. Sprawdź, czy pole i piana pakowania crushes, części, szkody limitu górnego lub widocznego uszkodzenia. Jeśli pole lub pakowania poważnie jest uszkodzony, nie otwieraj okno. Sprawdź [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md) ułatwiające oceny, czy urządzenie jest w dobrym stanie.
+2. Otwórz zewnętrznego pola, a następnie wyjmij dwa pola odpowiadające podstawowym i obudowy EBOD. Można teraz Rozpakuj serwer podstawowy i obudowy EBOD. Na poniższej ilustracji przedstawiono rozpakowanego widoku jednego z obudów.
    
     ![Rozpakuj urządzenia magazynu](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
@@ -53,27 +53,27 @@ Następnie wykonaj następujące kroki toounpack hello urządzenia.
    |   4 |Urządzenie |
    |   5 |Górny pianki |
    |   6 |Pole akcesoriów |
-3. Po rozpakowywania hello dwa pola, upewnij się, że masz:
+3. Po rozpakowywania dwa pola, upewnij się, że masz:
    
-   * Obudowa głównej 1 (obudowa głównej hello i obudowy EBOD znajdują się w dwóch oddzielnych pól)
+   * 1 obudowa głównej (obudowa podstawowego i obudowa EBOD znajdują się w dwóch oddzielnych pola)
    * Obudowa EBOD 1
    * kable 4, 2, w każdym polu
-   * 2 kabli SAS (tooconnect hello głównej obudowy tooEBOD obudowy)
+   * 2 kabli SAS (nawiązać głównej obudowy EBOD obudowy)
    * 1 skrzyżowanego kabla Ethernet
    * 2 kable konsoli szeregowej
    * Konwerter USB seryjny 1 dostęp szeregowy
    * 4 QSFP-do-kart SFP + do użytku z interfejsami sieciowymi Ethernet 10
-   * 2 stojak zestawów (4 szyny po stronie z instalowania sprzętu, 2 hello obudowa podstawowego i obudowy EBOD), 1 w każdym polu
+   * 2 stojak zestawów (4 szyny po stronie z instalowania sprzętu, 2 dla podstawowego obudowy i obudowy EBOD), 1 w każdym polu
    * Pobieranie rozpoczęte dokumentacji
      
-     Jeśli nie masz żadnego z elementów hello wymienionych powyżej, [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md).  
+     Jeśli nie masz żadnego z elementów wymienionych powyżej, [skontaktuj się z Microsoft Support](storsimple-contact-microsoft-support.md).  
 
-Witaj, następnym krokiem jest toorack instalacji urządzenia.
+Następnym krokiem jest w stojaku urządzenia.
 
 ## <a name="rack-mount-your-storsimple-8600-device"></a>W stojaku do urządzenia StorSimple 8600
-Wykonaj hello dalej tooinstall kroki do urządzenia StorSimple 8600 magazynu w stojaku standardowe 19 cala z przodu i tylnej wpisów. To urządzenie jest dostarczany z dwóch obudów: głównej obudowy i obudowy EBOD. Oba te muszą toobe montowane w stojaku.
+Wykonaj kolejne kroki do zainstalowania urządzenia magazynującego StorSimple 8600 w stojaku standardowe 19 cala z przodu i tylnej wpisów. To urządzenie jest dostarczany z dwóch obudów: głównej obudowy i obudowy EBOD. Oba te muszą być montowane w stojaku.
 
-Instalacja Hello składa się z wielu kroków, z których każdy jest omówione w hello zgodnie z procedurami.
+Instalacja składa się z wielu kroków, z których każdy została szczegółowo opisana w poniższych procedurach.
 
 > [!IMPORTANT]
 > Urządzenia StorSimple musi być montowane w stojaku do prawidłowego działania.
@@ -81,46 +81,46 @@ Instalacja Hello składa się z wielu kroków, z których każdy jest omówione 
 > 
 
 ### <a name="site-preparation"></a>Przygotowanie lokacji
-obudowy Hello musi być zainstalowany w standardowe stojak cala 19, który ma przodu oraz tylnej wpisów. Użyj powitania po tooprepare procedury instalacji stojaku.
+Obudowy musi być zainstalowany w standardowe stojak cala 19, który ma przodu oraz tylnej wpisów. Poniższa procedura umożliwia przygotowanie do instalacji w stojaku.
 
-#### <a name="tooprepare-hello-site-for-rack-installation"></a>tooprepare hello lokacji stojak instalacji
-1. Upewnij się, że hello podstawowego i obudowy EBOD są nieaktywnych bezpiecznie na powierzchni płaskiej stabilny i poziomu pracy (lub podobny).
-2. Sprawdź tej lokacji hello, gdzie mają tooset zapasowej ma standardowe AC zasilania z niezależne źródło lub stojak jednostki dystrybucji zasilania (PDU) z zasilacz awaryjny (UPS).
-3. Upewnij się, że gniazdo (2 X 2U) jeden 4U jest dostępna w stojaku hello, w którym planujesz toomount hello obudów.
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Aby przygotować lokacji stojak instalacji
+1. Upewnij się, że serwer podstawowy i obudowy EBOD są nieaktywnych bezpiecznie na powierzchni płaskiej stabilny i poziomu pracy (lub podobny).
+2. Sprawdź, czy lokacja, w której chcesz skonfigurować ma standardowe zasilacza z niezależne źródło lub stojak jednostki dystrybucji zasilania (PDU) z zasilacz awaryjny (UPS).
+3. Upewnij się, że gniazdo (2 X 2U) jeden 4U jest dostępna w stojaku, w którym chcesz zainstalować obudowy.
 
 ![Ikona ostrzeżenia](./media/storsimple-safety/IC740879.png)![ikona ciężki](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **ostrzeżenie!**
 
- Upewnij się, że jest dwóch osób toomanage dostępne hello wagi, jeśli Instalator urządzenia hello są Obsługa ręcznie. Obudowa pełni skonfigurowany można porównać się too32 kg (70 kg).
+ Upewnij się, że masz dwie osoby dostępne na potrzeby zarządzania wagi, jeśli Instalator urządzenia są Obsługa ręcznie. Obudowa pełni skonfigurowany można porównać do 32 kg (70 kg).
 
 ### <a name="rack-prerequisites"></a>Wymagania wstępne w stojaku
-obudowy Hello są przeznaczone do instalacji w stojaku standard CAL 19 cabinet z:
+Obudowach są przeznaczone do instalacji w stojaku standard CAL 19 cabinet z:
 
-* Minimalna głębokość 27.84 cali w stojaku post toopost
-* Maksymalna waga 32 kg hello urządzenia
+* Minimalna głębokość 27.84 cali w stojaku post i post
+* Maksymalna waga 32 kg dla urządzenia
 * Maksymalnym wstecz nacisku Pascal 5 (mm 0,5 limitu górnego miernika)
 
 ### <a name="rack-mounting-rail-kit"></a>Stojakach kolei kit
-Zestaw instalowanie szyny będzie przeznaczony dla hello stojak 19 cala w pliku cabinet. szyny Hello zostały przetestowane toohandle hello maksymalną obudowa wagi. Te szyny będzie również umożliwiać instalacji wielu obudowach bez utraty miejsca w stojaku hello. Najpierw zainstaluj hello EBOD obudowy.
+Zestaw instalowanie szyny będzie przeznaczony dla pliku cabinet stojak 19 cala. Szyny zostały przetestowane do obsługi wagi obudowa maksymalna. Te szyny będzie również umożliwiać instalacji wielu obudowach bez utraty miejsca w stojaku. Najpierw zainstaluj obudowa EBOD.
 
-#### <a name="tooinstall-hello-ebod-enclosure-on-hello-rails"></a>Witaj tooinstall obudowa EBOD na powitania szyny
-1. Wykonaj ten krok tylko wtedy, gdy wewnętrzny szyny nie są zainstalowane na urządzeniu. Zazwyczaj szyny wewnętrzny hello są instalowane na powitania fabryki. Jeśli szyny nie są zainstalowane, następnie zainstalować hello slajdów kolei po lewej i prawej kolei toohello strony hello obudowa obudowy. Dołącz ich przy użyciu sześciu śruby metryki na każdej stronie. toohelp orientacji, kolei hello slajdów są oznaczone **LH — przodu** i **RH — przodu**, a końcem ma zakończenia hello, który jest dołączony tyłu hello hello załącznika.
+#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Aby zainstalować obudowa EBOD na szyny
+1. Wykonaj ten krok tylko wtedy, gdy wewnętrzny szyny nie są zainstalowane na urządzeniu. Zazwyczaj wewnętrzny szyny są instalowane w fabryce. Jeśli szyny nie są zainstalowane, zainstaluj kolei po lewej i prawej kolei slajdów na stronach obudowy obudowy. Dołącz ich przy użyciu sześciu śruby metryki na każdej stronie. Ułatwiają orientację, są oznaczone slajdów kolei **LH — przodu** i **RH — przodu**, i zakończenia, który jest dołączony do tyłu obudowa ma końcem.
    
-    ![Podstawa montażowa tooenclosure slajdów kolei dołączenia](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Dołączanie slajdów kolei obudowie obudowy](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
-    **Dołączenia kolei slajdów strony toohello obudowa hello**
+    **Dołączanie kolei slajdów na stronach obudowa**
    
    | Etykieta | Opis |
    | --- | --- |
    |  1 |M 3 x 4 śruby head przycisku |
    |  2 |Podstawa montażowa slajdów |
-2. Dołącz hello kolei lewej i po prawej stronie zestawy toohello stojak cabinet pionowy elementów członkowskich. zaznaczono nawiasy Hello **LH**, **RH**, i **ta strona w górę** tooguide przez poprawnej orientacji.
-3. Znajdź numery PIN kolei hello na powitania przodu i do tyłu hello kolei zestawu. Rozszerzanie hello kolei toofit między hello stojak wpisów i włóż hello numerów PIN do hello post front i stojak tyłu element pionowy luk. Pamiętaj, że zestaw kolei hello jest poziom.
-4. Zabezpiecz hello stojak toohello zestawu kolei podane pionowej elementy członkowskie przy użyciu dwóch hello śruby metryki. Użyj jednej śrubie na wierzch hello i jeden tyłu hello.
-5. Powtórz te kroki dla hello innych kolei zestawu.
+2. Dołącz kolei lewej i po prawej stronie zestawów członkom stojak cabinet pionowej. Nawiasy kwadratowe są oznaczone **LH**, **RH**, i **ta strona w górę** do przeprowadzenia poprawnej orientacji.
+3. Znajdź numery PIN kolei na tylne zestawu kolei. Rozszerzanie szyny mieści się między wpisów w stojaku i wstawić numery PIN do przodu i luk w stojaku tyłu post element pionowy. Pamiętaj, że zestaw kolei jest poziom.
+4. Zabezpiecz zestawu kolei w stojaku pionowej elementy członkowskie przy użyciu dwóch metryki śruby podane. Użyj jednej śrubie na wierzchu i jeden z tyłu.
+5. Powtórz te kroki dla innych zestawu kolei.
    
-     ![Dołączenia toorack slajdów kolei cabinet](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Dołączanie slajdów kolei stojaku cabinet](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
-    **Dołączanie kolei zestawy toohello stojak**
+    **Dołączanie zestawy z kolei w stojaku**
    
    | Etykieta | Opis |
    | --- | --- |
@@ -130,83 +130,83 @@ Zestaw instalowanie szyny będzie przeznaczony dla hello stojak 19 cala w pliku 
    |   4 |Ładunku gwintowanym |
    |   5 |Po lewej stronie kolei tylnej lokalizacji PIN |
 
-### <a name="mounting-hello-ebod-enclosure-in-hello-rack"></a>Instalowanie obudowa EBOD hello w stojaku hello
-Za pomocą hello stojaku, które właśnie zostały zainstalowane, wykonaj następujące kroki toomount hello EBOD obudowa w stojaku hello hello.
+### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Instalowanie obudowa EBOD w stojaku
+Za pomocą stojaku, które właśnie zostały zainstalowane, wykonaj następujące kroki, aby zainstalować obudowa EBOD w stojaku.
 
-#### <a name="toomount-hello-ebod-enclosure"></a>Witaj toomount obudowa EBOD
-1. Z Asystentem Podnieś obudowa hello i wyrównanie go z hello stojaku.
-2. Starannie Włóż hello obudowy do szyny hello, a następnie Wypchnij go całkowicie w stojaku hello cabinet.
+#### <a name="to-mount-the-ebod-enclosure"></a>Aby zainstalować obudowa EBOD
+1. Z Asystentem Podnieś obudowa i wyrównanie go z stojaku.
+2. Starannie Włóż obudowa do szyny, a następnie Wypchnij go całkowicie w stojaku cabinet.
    
-    ![Wstawianie w stojaku hello urządzenia](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+    ![Wstawianie urządzenia w stojaku](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
    
-    **Instalowanie obudowa hello w stojaku hello**
-3. Usuń hello lewej i prawej front kołnierza włączony klawisz caps ściąganie caps hello wolne. caps kołnierza powitania po prostu przyciąganie na powitania kołnierze.
-4. Zabezpiecz obudowa hello w stojaku hello instalując co podane gwintowanym Phillips head za pośrednictwem każdej kołnierza, lewy i prawy.
-5. Zainstaluj caps kołnierza hello naciskając je w miejscu i przyciąganie ich w miejscu.
+    **Instalowanie obudowa w stojaku**
+3. Usuń caps kołnierza po lewej i prawej front ściąganie wolnego caps. Caps kołnierza po prostu przyciąganie na stopka.
+4. Zabezpiecz obudowa w stojaku, instalując co podane gwintowanym Phillips head za pośrednictwem każdej kołnierza, lewy i prawy.
+5. Zainstaluj caps kołnierza naciskając je w miejscu i przyciąganie ich w miejscu.
    
      ![Instalowanie kołnierza CAP](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
    
-    **Instalowanie hello kołnierza CAP**
+    **Instalowanie caps kołnierza**
    
    | Etykieta | Opis |
    | --- | --- |
    |   1 |Obudowa gwintowanym zaczepienia |
 
-### <a name="mounting-hello-primary-enclosure-in-hello-rack"></a>Instalowanie hello obudowa podstawowego w stojaku hello
-Po zakończeniu instalowania hello EBOD obudowy, konieczne będzie obudowa głównej hello toomount następujące hello te same czynności.
+### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Instalowanie podstawowego obudowa w stojaku
+Po zakończeniu instalowania obudowa EBOD należy zainstalować podstawowy obudowy, wykonując czynności.
 
 > [!NOTE]
-> * Jest możliwe toohave kilka pustych miejsc w hello stojak między hello obudowy podstawowego i obudowy EBOD hello.
-> * Użyj hello podane 2m SAS kabel tooconnect hello głównej obudowa toohello EBOD obudowy.
-> * Nie ma żadnych ograniczeń na powitania względne położenie hello head jednostki toohello EBOD jednostek. W związku z tym hello obudowa podstawowego można umieścić w hello top miejsca i obudowy EBOD hello poniżej — albo na odwrót.
+> * Użytkownik może mieć kilka pustych miejsc w stojaku między podstawowym obudowy i obudowy EBOD.
+> * Przy użyciu kabla SAS podana 2m nawiązać głównej obudowa obudowa EBOD.
+> * Nie ma żadnych ograniczeń względne położenie head jednostki do jednostki EBOD. W związku z tym obudowa podstawowego można umieścić w górnym miejsca i obudowy EBOD poniżej — albo na odwrót.
 > 
 > 
 
-Witaj, następnym krokiem jest toocable Twojego urządzenia pod kątem zasilania, sieci i dostęp szeregowy.
+Następnym krokiem jest Podłączanie kabli do urządzenia do zasilania, sieci i dostęp szeregowy.
 
 ## <a name="cable-your-storsimple-8600-device"></a>Podłączanie kabli do urządzenia StorSimple 8600
-Witaj poniższe procedury wyjaśniają, jak toocable do zasilania, sieci i połączenia szeregowego urządzenia StorSimple 8600.
+Poniższe procedury dotyczą sposobu podłączanie kabli do urządzenia StorSimple 8600 do zasilania, sieci i połączenia szeregowego.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
-Przed rozpoczęciem toocable urządzenia będą potrzebne:
+Przed rozpoczęciem Podłączanie kabli do urządzenia, będą potrzebne:
 
-* Obudowa podstawowym, a obudowa EBOD hello, całkowicie rozpakowane.
-* 4 kable zasilania (2 hello podstawowego i hello obudowa EBOD), które dołączone do urządzenia
-* 2 kabli SAS dostarczony wraz z hello urządzenia tooconnect hello EBOD obudowa toohello głównej obudowy
-* Dostęp too2 jednostki dystrybucji zasilania (PDU) (zalecane)
+* Twoje głównej obudowy i obudowy EBOD całkowicie rozpakowane.
+* 4 kable zasilania (2 dla serwera podstawowego i obudowy EBOD), które są dołączone do urządzenia
+* 2 kabli SAS dostarczone z urządzeniem, aby połączyć obudowy EBOD podstawowego systemu
+* Dostęp do 2 jednostki dystrybucji zasilania (PDU) (zalecane)
 * Kable sieciowe
 * Podany kable szeregowe
-* Konwerter seryjny USB z odpowiedni sterownik hello zainstalowane na komputerze (w razie potrzeby)
+* Konwerter seryjny USB z odpowiedni sterownik zainstalowane na komputerze (w razie potrzeby)
 * Podany 4 QSFP-do-kart SFP + do użytku z interfejsami sieciowymi Ethernet 10
-* [Sprzętu obsługiwanego przez hello 10 GbE interfejsy na urządzeniu StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+* [Obsługiwane sprzętu dla interfejsów sieciowych 10 GbE w urządzeniu StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 ### <a name="sas-and-power-cabling"></a>Sygnatury dostępu Współdzielonego i okablowanie zasilania
-Urządzenie ma głównej obudowy oraz obudowy EBOD. Wymaga to toobe jednostki hello kablem razem łączności Serial Attached SCSI (SAS) i zasilania.
+Urządzenie ma głównej obudowy oraz obudowy EBOD. Wymaga to jednostki do cala ze sobą, połączenie Serial Attached SCSI (SAS) i zasilania.
 
-Podczas konfigurowania tego urządzenia do powitania po raz pierwszy, należy wykonać czynności hello SAS najpierw okablowania i następnie pełne hello kroki okablowania zasilania.
+Podczas konfigurowania tego urządzenia po raz pierwszy, wykonaj kroki dla sygnatury dostępu Współdzielonego okablowania najpierw, a następnie Zakończ kroki okablowania zasilania.
 
 [!INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
 [!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
 ### <a name="network-cabling"></a>Okablowanie sieci
-Urządzenie znajduje się w konfiguracji aktywnego gotowości: w dowolnym momencie, jeden moduł kontrolera jest aktywna i przetwarzanie wszystkich operacji dysku i sieci podczas hello inny moduł kontrolera przechodzi w stan wstrzymania. W przypadku niepowodzenia kontrolera kontrolera rezerwy hello natychmiast aktywuje i kontynuuje wszystkie operacje hello dysku i sieci.
+Urządzenie znajduje się w konfiguracji aktywnego gotowości: w dowolnym momencie, jeden moduł kontrolera jest aktywna i przetwarzanie wszystkie operacje dysku i sieci podczas moduł kontroler jest w stanie wstrzymania. Jeśli wystąpi błąd kontrolera, wstrzymania kontrolera natychmiast aktywuje i kontynuuje wszystkie operacje dysku i sieci.
 
-toosupport tej pracy awaryjnej nadmiarowych kontrolera, należy toocable urządzenie sieci, jak pokazano w hello następujące kroki.
+Do obsługi tej pracy awaryjnej nadmiarowych kontrolera, musisz kabla sieci urządzenia, jak pokazano w poniższych krokach.
 
-#### <a name="toocable-for-network-connection"></a>toocable dla połączenia sieciowego
-1. Urządzenie ma sześć interfejsów sieciowych na każdym kontrolerze: cztery 1 GB/s i 10 dwa porty Ethernet GB/s. Zobacz toohello po ilustracji tooidentify hello danych portów płyty montażowej hello urządzenia.
+#### <a name="to-cable-for-network-connection"></a>Aby kabel połączenia sieciowego
+1. Urządzenie ma sześć interfejsów sieciowych na każdym kontrolerze: cztery 1 GB/s i 10 dwa porty Ethernet GB/s. Można znaleźć na poniższej ilustracji, w celu identyfikowania portów danych na płyty montażowej urządzenia.
    
      ![Płyty montażowej urządzenia 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    
-    **Powrót z urządzenia przedstawiający hello porty danych**
+    **Powrót z urządzenia przedstawiający porty danych**
    
    | Etykieta | Opis |
    | --- | --- |
    |   0,1,4,5 |Interfejsy sieciowe Ethernet 1 |
    |   2,3 |Interfejsy sieciowe Ethernet 10 |
    |   6 |Porty szeregowe |
-2. Zobacz powitania po diagram okablowanie sieci. (Konfiguracja minimalna sieci hello znajduje się pełny liniami niebieski. Wysokiej dostępności i wydajności konieczności dodatkowej konfiguracji znajduje się za pomocą linii przerywana.)
+2. Zobacz na poniższym diagramie okablowanie sieci. (Konfiguracja minimalna sieci znajduje się pełny liniami niebieski. Wysokiej dostępności i wydajności konieczności dodatkowej konfiguracji znajduje się za pomocą linii przerywana.)
 
 ![Podłączanie kabli do urządzenia 4U sieci](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
@@ -226,45 +226,45 @@ toosupport tej pracy awaryjnej nadmiarowych kontrolera, należy toocable urządz
 | 6 |Obudowa podstawowego |
 | 7 |Obudowa EBOD |
 
-W przypadku okablowania hello urządzenia, wymaga minimalnej konfiguracji hello:
+W przypadku okablowania urządzenia, wymaga minimalnej konfiguracji:
 
-* Co najmniej dwa interfejsy sieciowe podłączone na każdym kontrolerze, aby uzyskać dostęp z chmury i jeden dla interfejsu iSCSI. Witaj dane 0 portu jest automatycznie włączona i skonfigurowana za pośrednictwem konsoli szeregowej hello hello urządzenia. Oprócz dane 0 innego portu danych musi toobe skonfigurowana za pośrednictwem hello klasycznego portalu Azure. W takim przypadku połączyć dane 0 portu toohello głównej LAN (sieci z dostępem do Internetu). Witaj innych danych, które porty mogą być połączone segment sieci LAN (VLAN) tooSAN/iSCSI hello sieci, w zależności od roli hello przeznaczone.
-* Identyczne interfejsów w każdej toohello kontrolera połączony sam sieciowa tooensure dostępność, jeśli do pracy awaryjnej kontrolera. Na przykład jeśli wybierzesz tooconnect dane 0, a dane 3 dla jednego z kontrolerów hello należy hello tooconnect odpowiednie dane 0 i dane 3 na hello inny kontroler.
+* Co najmniej dwa interfejsy sieciowe podłączone na każdym kontrolerze, aby uzyskać dostęp z chmury i jeden dla interfejsu iSCSI. DANE 0 portu jest automatycznie włączona i skonfigurowana za pośrednictwem konsoli szeregowej urządzenia. Oprócz dane 0 innego portu danych musi również zostać skonfigurowane przy użyciu klasycznego portalu Azure. W takim przypadku połączyć dane 0 port do głównej sieci LAN (sieci z dostępem do Internetu). Inne porty danych można podłączyć do segmentu sieci, w zależności od roli zamierzone SAN/iSCSI sieci LAN (VLAN).
+* Interfejsy identyczne na każdym kontrolerze podłączone do tej samej sieci, aby zapewnić dostępność, jeśli do pracy awaryjnej kontrolera. Na przykład jeśli chcesz połączyć dane 0 i dane 3 dla jednego z kontrolerów konieczne łączenie odpowiednie dane 0 i dane 3 na innym kontrolerze.
 
 Należy pamiętać o wysokiej dostępności i wydajność:
 
 * Jeśli to możliwe, należy skonfigurować parę interfejsu sieciowego, aby uzyskać dostęp do chmury (1 GbE) i inną parę dla interfejsu iSCSI (10 GbE zalecana) na każdym kontrolerze.
-* Jeśli to możliwe, należy połączyć interfejsów sieciowych z każdego kontrolera tootwo różnych przełączników tooensure dostępności awariami przełącznika. Witaj rysunku przedstawiono Witaj dwie 10 GbE interfejsy sieciowe dane 2 i dane 3 z każdego kontrolera połączone tootwo różnych przełączników. Aby uzyskać więcej informacji, zobacz toohello **interfejsy sieciowe** w obszarze hello [wymagania dotyczące wysokiej dostępności dla urządzenia StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+* Jeśli to możliwe, interfejsów sieciowych przez każdy z kontrolerów połączyć się z dwóch różnych przełączników, aby zapewnić dostępność awariami przełącznika. Na rysunku przedstawiono dwie 10 GbE interfejsy sieciowe, dane 2 i dane 3 przez każdy z kontrolerów podłączone do dwóch różnych przełączników. Aby uzyskać więcej informacji, zapoznaj się **interfejsy sieciowe** w obszarze [wymagania dotyczące wysokiej dostępności dla urządzenia StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
-> Jeśli używasz nadawczo-odbiorczych SFP + z interfejsów sieciowych 10 GbE, użyj hello udostępnione QSFP-SFP + kart. Aby uzyskać więcej informacji, przejdź zbyt[obsługiwanym sprzęcie interfejsów sieciowych GbE hello 10 na urządzeniu StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+> Jeśli używasz nadawczo-odbiorczych SFP + z interfejsów sieciowych 10 GbE, użyj QSFP podana-SFP + kart. Aby uzyskać więcej informacji, przejdź do [obsługiwanym sprzęcie dla interfejsów sieciowych 10 GbE w urządzeniu StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 > 
 > 
 
 ### <a name="serial-port-cabling"></a>Okablowanie portu szeregowego
-Wykonaj następujące kroki toocable hello portu szeregowego.
+Wykonaj poniższe kroki, aby Podłączanie kabli portu szeregowego.
 
-#### <a name="toocable-for-serial-connection"></a>toocable dla połączenia szeregowego
-1. Urządzenie ma portu szeregowego na każdym kontrolerze, który jest identyfikowany przez ikona klucza. porty szeregowe hello toolocate, można znaleźć toohello ilustracji przedstawiono hello danych porty na powitania obu urządzenia.
-2. Zidentyfikuj kontroler active hello na płyty montażowej Twoje urządzenie. Migający LED niebieski wskazuje, że ten kontroler hello jest aktywny.
-3. Przy użyciu kabel szeregowy hello podane (w razie potrzeby hello szeregowego USB konwerter dla komputera przenośnego), a Uzyskuj dostęp do konsoli lub komputerze z (urządzenie toohello emulacji terminala) toohello portu szeregowego hello active kontrolera.
-4. Zainstaluj sterowniki USB seryjny hello (dostarczane z urządzeniem hello) na komputerze.
-5. Skonfiguruj połączenie szeregowe hello w następujący sposób:
+#### <a name="to-cable-for-serial-connection"></a>Aby kabel szeregowy połączenia
+1. Urządzenie ma portu szeregowego na każdym kontrolerze, który jest identyfikowany przez ikona klucza. Aby zlokalizować portów szeregowych, zapoznaj się na ilustracji przedstawiono dane porty na tylnej urządzenia.
+2. Zidentyfikuj active kontroler na płyty montażowej Twoje urządzenie. Migający LED niebieski wskazuje, że kontrolera jest aktywny.
+3. Użyj podana kabel szeregowy (w razie potrzeby przenośnego konwerter szeregowego USB), a podłączyć do portu szeregowego active kontrolera konsoli lub komputera (z emulacji terminala do urządzenia).
+4. Zainstaluj sterowniki seryjny USB (dostarczane z urządzeniem) na komputerze.
+5. Skonfiguruj połączenie szeregowe w następujący sposób:
    
    * 115 200 transmisji
    * 8 bitów danych
    * 1 bit zatrzymania
    * Brak parzystości
-   * Sterowanie przepływem ustawić także**None**
-6. Zweryfikować hello połączenia, naciskając klawisz Enter na powitania konsoli. Menu konsoli szeregowej powinny być wyświetlane.
+   * Przepływ sterowania ustawioną **None**
+6. Sprawdź, czy połączenie działa, naciskając klawisz Enter w konsoli. Menu konsoli szeregowej powinny być wyświetlane.
 
 > [!NOTE]
-> **Zarządzanie lights-Out:** podczas urządzenie hello jest zainstalowane w zdalnym centrum danych lub w pokoju komputera o ograniczonym dostępie, upewnij się, że hello połączenia szeregowego tooboth kontrolery są zawsze połączone tooa konsoli szeregowej przełącznika lub podobnego sprzętu. Dzięki temu poza pasmem zdalnego sterowania i pomocy technicznej operacji w przypadku przerw w działaniu sieci lub nieoczekiwanych awarii.
+> **Zarządzanie lights-Out:** gdy urządzenie jest zainstalowane w zdalnym centrum danych lub w pokoju komputera o ograniczonym dostępie, upewnij się, czy połączenia szeregowe do obu kontrolerów zawsze są podłączone do przełącznika konsoli szeregowej lub podobnego sprzętu. Dzięki temu poza pasmem zdalnego sterowania i pomocy technicznej operacji w przypadku przerw w działaniu sieci lub nieoczekiwanych awarii.
 > 
 > 
 
-Ukończono okablowania do zasilania, dostęp do sieci, urządzenia i serial connection.hello następnym krokiem jest tooconfigure hello oprogramowania na urządzeniu.
+Okablowanie do zasilania, dostępu do sieci i połączenie szeregowe urządzenia została ukończona. Następnym krokiem jest skonfigurowanie oprogramowania na urządzeniu.
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz można przystąpić zbyt[wdrażania i konfigurowania lokalnego urządzenia StorSimple](storsimple-deployment-walkthrough-u2.md).
+Teraz można przystąpić do [wdrażania i konfigurowania lokalnego urządzenia StorSimple](storsimple-deployment-walkthrough-u2.md).
 

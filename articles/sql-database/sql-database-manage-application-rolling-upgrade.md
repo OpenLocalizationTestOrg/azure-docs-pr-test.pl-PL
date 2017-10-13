@@ -1,6 +1,6 @@
 ---
-title: "Uaktualnianie aplikacji aaaRolling — baza danych SQL Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse replikacja geograficzna bazy danych SQL Azure toosupport online uaktualnień aplikacji w chmurze."
+title: "Wprowadzanie uaktualnień aplikacji — baza danych SQL Azure | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak używać replikacja geograficzna bazy danych SQL Azure w celu obsługi online uaktualnień aplikacji w chmurze."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -15,127 +15,127 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/16/2016
 ms.author: sashan
-ms.openlocfilehash: 18c56300916d129bff141624cc5c416b500408d4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4b59c8aa3dea3e8fba692ab66420295a09210d3b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Zarządzanie stopniowe aplikacji w chmurze przy użyciu aktywna replikacja geograficzna bazy danych SQL
 > [!NOTE]
 > [Aktywna replikacja geograficzna](sql-database-geo-replication-overview.md) jest teraz dostępna dla wszystkich baz danych w warstwach wszystkie.
 > 
 
-Dowiedz się, jak toouse [— replikacja geograficzna](sql-database-geo-replication-overview.md) w tooenable bazy danych SQL wprowadzanie uaktualnień aplikacji w chmurze. Ponieważ uaktualnienie jest dużo operacji, należy go części projektowania i planowania ciągłości biznesowej. W tym artykule, który opisano dwie różne metody organizowanie hello proces uaktualniania, a omówimy korzyści hello i kompromisy każdej z nich. Dla celów hello w tym artykule używamy prostą aplikację, która składa się z witryny sieci web połączonych tooa pojedynczej bazy danych jako jego warstwy danych. Naszym celem jest tooupgrade wersja 1 tooversion aplikacji hello 2 bez znacznego wpływu na środowisko pracy użytkownika końcowego hello. 
+Dowiedz się, jak używać [— replikacja geograficzna](sql-database-geo-replication-overview.md) w bazie danych SQL umożliwia stopniowe aplikacji chmury. Ponieważ uaktualnienie jest dużo operacji, należy go części projektowania i planowania ciągłości biznesowej. W tym artykule możemy Spójrz na dwóch różnych metod organizowanie proces uaktualniania i omówimy korzyści i kompromisy każdej z nich. Do celów w tym artykule używamy prostą aplikację, która składa się z witryną sieci web podłączony do pojedynczej bazy danych jako jego warstwy danych. Naszym celem jest uaktualnienie wersji 1 aplikacji w wersji 2 bez jakiegokolwiek znaczącego wpływu na środowisko pracy użytkownika końcowego. 
 
-Podczas obliczania hello opcje uaktualniania należy rozważyć hello następujące czynniki:
+Podczas obliczania opcji uaktualnienia należy uwzględnić następujące czynniki:
 
-* Wpływ na dostępność aplikacji podczas uaktualniania. Jak długo funkcja aplikacji hello może być ograniczony lub nieprawidłowego działania.
-* Możliwość tooroll wstecz na wypadek niepowodzenia uaktualnienia.
-* Luki w zabezpieczeniach aplikacji hello po wystąpieniu błędu krytycznego niepowiązanych podczas uaktualniania hello.
-* Dolar całkowity koszt.  Obejmuje to dodatkowa Redundancja i przyrostowe kosztów składników tymczasowego hello używanych przez proces uaktualniania hello. 
+* Wpływ na dostępność aplikacji podczas uaktualniania. Jak długo funkcja aplikacji może być ograniczony lub nieprawidłowego działania.
+* Możliwość wycofać w przypadku niepowodzenia uaktualnienia.
+* Luki w zabezpieczeniach aplikacji po wystąpieniu błędu krytycznego niepowiązanych podczas uaktualniania.
+* Dolar całkowity koszt.  Obejmuje to dodatkowa Redundancja i przyrostowe kosztów składników tymczasowy używany przez proces uaktualniania. 
 
 ## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Uaktualnianie aplikacji, które opierają się na kopie zapasowe bazy danych dla odzyskiwania po awarii
-Jeśli aplikacji opiera się na automatyczne bazy danych kopii zapasowych i używa geograficzne do odzyskiwania po awarii, jest zazwyczaj wdrożonej tooa pojedynczy region platformy Azure. W takim przypadku proces uaktualniania hello obejmuje utworzenie kopii zapasowej wdrożenia wszystkich składników aplikacji objętego hello uaktualnienia. Menedżer ruchu Azure (WATM) będzie korzystać z profilem trybu failover hello zakłóceń użytkownika końcowego hello toominimize.  powitania po diagram ilustruje proces uaktualniania hello środowisko operacyjne wcześniejsze toohello. Witaj punktu końcowego <i>contoso 1.azurewebsites.net</i> reprezentuje gnieździe produkcyjnym aplikacji hello, która potrzebuje toobe uaktualniony. ponownie tooroll możliwości hello tooenable hello uaktualnienia, należy Utwórz miejsce etap kopię pełni zsynchronizowanych aplikacji hello. Hello poniższe kroki są wymagane tooprepare hello aplikacji hello uaktualnienia:
+Jeśli aplikacji opiera się na automatyczne bazy danych kopii zapasowych i używa geograficzne do odzyskiwania po awarii, zazwyczaj jest wdrażany jeden region platformy Azure. W takim przypadku proces uaktualnienia obejmuje utworzenie kopii zapasowej wdrożenia wszystkich składników aplikacji objętego uaktualnienia. Aby zminimalizować zakłócenia użytkownika końcowego Menedżera ruchu Azure (WATM) będzie korzystać z profilem trybu failover.  Na poniższym diagramie przedstawiono środowisku operacyjnym przed procesu uaktualniania. Punkt końcowy <i>contoso 1.azurewebsites.net</i> reprezentuje gnieździe produkcyjnym aplikacji, która musi zostać uaktualniony. Aby włączyć możliwość wycofać uaktualnienie, ma potrzeby tworzenia miejsca etap z pełni zsynchronizowanej kopii aplikacji. Poniższe kroki są wymagane w celu przygotowania aplikacji do uaktualnienia:
 
-1. Utwórz miejsce etap hello uaktualnienia. toodo tworzenie pomocniczej bazy danych (1), a następnie wdrożona identyczne witryny hello tego samego regionu systemu Azure. Monitorowanie toosee dodatkowej hello Jeśli hello wstępne wypełnianie procesu zostało ukończone.
+1. Utwórz miejsce etapu dla uaktualnienia. Aby tworzenia pomocniczej bazy danych (1), a następnie wdrożona identyczne witryny sieci web, w tym samym regionie Azure. Monitorowanie lokacji dodatkowej, aby zobaczyć, jeśli proces rozmieszczania kończy się.
 2. Utwórz profil trybu failover w WATM z <i>contoso 1.azurewebsites.net</i> jako punkt końcowy w trybie online i <i>contoso 2.azurewebsites.net</i> w trybie offline. 
 
 > [!NOTE]
-> Czynności przygotowujące hello Uwaga nie ma wpływu aplikacji hello w gnieździe produkcyjnym hello i może działać w trybie pełnego dostępu.
+> Należy pamiętać, procedura przygotowująca nie będą miały wpływ aplikacji w miejscu produkcyjnym oraz mogą działać w trybie pełnego dostępu.
 >  
 
 ![Konfiguracja replikacji Przejdź bazy danych SQL. Odzyskiwanie awaryjne chmury.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
-Po wykonaniu czynności przygotowujące hello aplikacji hello jest gotowy do uaktualnienia rzeczywiste hello. powitania po diagram ilustruje hello etapy hello procesu uaktualniania. 
+Po wykonaniu czynności przygotowujące aplikacja jest gotowa do rzeczywistego uaktualnienia. Na poniższym diagramie przedstawiono etapy procesu uaktualniania. 
 
-1. Ustaw hello podstawowej bazy danych w hello produkcji miejsca tylko tooread tryb [3]. Gwarantuje to, że hello produkcji wystąpienie aplikacji hello (wersja 1) pozostanie tylko do odczytu podczas uaktualniania hello zindeksowanie hello danych rozbieżności między hello V1 i V2 wystąpień bazy danych.  
-2. Odłącz dodatkowej bazy danych hello w trybie hello planowane zakończenie (4). Utworzy on pełni zsynchronizowanej kopii niezależne hello podstawowej bazy danych. Ta baza danych zostanie uaktualniona.
-3. Włącz tryb zapisu tooread podstawowej bazy danych hello, a następnie uruchom skrypt uaktualnienia hello w gnieździe etap hello [5].     
+1. Ustaw podstawowej bazy danych w tryb tylko do odczytu (3) do miejsca produkcji. Gwarantuje to, że produkcji wystąpienie aplikacji (wersja 1) pozostanie tylko do odczytu podczas uaktualniania, co uniemożliwia rozbieżności danych między V1 i V2 wystąpień bazy danych.  
+2. Odłącz pomocniczej bazy danych przy użyciu trybu planowane zakończenie (4). Utworzy on pełni zsynchronizowanej niezależnych kopii podstawowej bazy danych. Ta baza danych zostanie uaktualniona.
+3. Włącz podstawowej bazy danych w trybie odczytu i zapisu, a następnie uruchom skrypt uaktualnienia w miejscu etap [5].     
 
 ![Konfiguracja — replikacja geograficzna bazy danych SQL. Odzyskiwanie awaryjne chmury.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
-Jeśli aktualizacja hello zakończyła się pomyślnie wszystko jest teraz gotowy tooswitch hello użytkownicy końcowi toohello przemieszczane kopiowania hello aplikacji. Teraz będzie gotowa do miejsca produkcji hello aplikacji hello.  Ten proces obejmuje kilka kroków więcej zgodnie z opisami na powitania po diagramu.
+Jeśli uaktualnienie zakończone pomyślnie możesz teraz przystąpić do przełącznika użytkowników końcowych do przemieszczanego kopii aplikacji. Teraz będzie gotowa do miejsca produkcji aplikacji.  Ten proces obejmuje kilka kroków więcej, jak pokazano na poniższym diagramie.
 
-1. Przełącz hello online punktu końcowego w profilu WATM hello zbyt<i>contoso 2.azurewebsites.net</i>, wersji toohello V2 punktów hello witryny sieci web (6). Staje się teraz gniazda produkcyjnego hello z hello aplikacji V2 i ruch przez użytkownika końcowego hello jest tooit bezpośrednie.  
-2. Jeśli nie są już potrzebne składniki aplikacji hello V1, możesz bezpiecznie usunąć je (7).   
+1. W profilu WATM, aby zmienić online punktu końcowego <i>contoso 2.azurewebsites.net</i>, który wskazuje wersji V2 witryny sieci web (6). Staje się teraz gniazda produkcyjnego z aplikacją V2 i ruchu przez użytkownika końcowego jest kierowany do niego.  
+2. Jeśli nie są już potrzebne składniki aplikacji V1, możesz bezpiecznie usunąć je (7).   
 
 ![Konfiguracja — replikacja geograficzna bazy danych SQL. Odzyskiwanie awaryjne chmury.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
-Jeśli proces uaktualniania hello zakończy się niepowodzeniem, na przykład ze względu na błąd tooan skryptów uaktualniania hello, hello etap miejsca należy traktować jako naruszenia zabezpieczeń. tooroll kopii hello toohello przed uaktualnieniem stanu aplikacji po prostu przywrócić aplikacji hello w hello produkcji miejsca toofull dostępu. etapy Hello są wyświetlane na diagramie dalej hello.    
+Jeśli proces uaktualniania zakończy się niepowodzeniem, na przykład z powodu błędu skryptu uaktualniania miejsca etapie należy traktować jako naruszenia zabezpieczeń. Aby wycofać aplikację do stanu sprzed uaktualnienia po prostu przywrócić aplikacji w miejscu produkcyjnym pełny dostęp. Czynności procedury są wyświetlane na diagramie dalej.    
 
-1. Ustaw hello trybu tooread zapisu kopii bazy danych (8). Spowoduje to przywrócenie hello pełne V1 funkcjonalnie w gnieździe produkcyjnym hello.
-2. Analiza Przyczyna hello głównego i usunąć składniki hello naruszone w gnieździe etap hello (9). 
+1. Ustawić kopii bazy danych w trybie odczytu i zapisu (8). Spowoduje to przywrócenie pełne V1 funkcjonalnie w gnieździe produkcyjnym.
+2. Wykonaj analiza głównych przyczyn i usunąć składniki ze złamanymi zabezpieczeniami w gnieździe etap (9). 
 
-W tym momencie aplikacji hello jest w pełni funkcjonalny i kroki uaktualniania hello można powtarzać.
+W tym momencie aplikacja jest w pełni funkcjonalny i można powtórzyć kroki uaktualniania.
 
 > [!NOTE]
-> Witaj wycofywania nie wymaga zmian w profilu WATM jako już wskazuje zbyt<i>contoso 1.azurewebsites.net</i> jako hello aktywny punkt końcowy.
+> Wycofywanie nie wymaga zmian w profilu WATM on już wskazuje <i>contoso 1.azurewebsites.net</i> jako aktywny punkt końcowy.
 > 
 > 
 
 ![Konfiguracja — replikacja geograficzna bazy danych SQL. Odzyskiwanie awaryjne chmury.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
-klucz Hello **korzyści** tej opcji jest uaktualnienie aplikacji w pojedynczym regionie przy użyciu zestawu prostych krokach. Koszt dolara Hello uaktualnienia hello jest stosunkowo niska. Witaj głównego **zależnościami** jest, że jeśli wystąpi błąd krytyczny podczas stan sprzed uaktualnienia toohello hello hello uaktualnienia odzyskiwania będzie obejmować ponownego wdrażania aplikacji hello w innym regionie i przywracania hello bazy danych z Tworzenie kopii zapasowej korzystającej z przywracaniem geograficznym. Ten proces spowoduje znaczne przestoju.   
+Klucz **korzyści** tej opcji jest uaktualnienie aplikacji w pojedynczym regionie przy użyciu zestawu prostych krokach. Koszt dolara uaktualnienia jest stosunkowo niska. Głównym **zależnościami** jest, że jeśli wystąpi błąd krytyczny podczas uaktualniania odzyskiwania do stanu sprzed uaktualnienia będzie obejmować ponownego wdrażania aplikacji w innym regionie i przywracanie bazy danych z kopii zapasowej za pomocą przywracaniem geograficznym. Ten proces spowoduje znaczne przestoju.   
 
 ## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Uaktualnianie aplikacji, które zależą od bazy danych — replikacja geograficzna odzyskiwania po awarii
-Jeśli aplikacja korzysta z georeplikacji ciągłość prowadzenia działalności biznesowej, jest tooat wdrożony co najmniej dwóch różnych regionach z aktywnym wdrożeniu w regionie podstawowym i rezerwy wdrożenia w regionie kopii zapasowej. Ponadto czynniki toohello wspomniano wcześniej, hello procesu uaktualniania należy zagwarantować, że:
+Jeśli aplikacja korzysta z georeplikacji ciągłość prowadzenia działalności biznesowej, jest wdrażana na co najmniej dwóch różnych regionach z aktywnym wdrożeniu w regionie podstawowym i rezerwy wdrożenia w regionie kopii zapasowej. Oprócz czynników, o których wspomniano wcześniej proces uaktualniania należy zagwarantować, że:
 
-* Aplikacja Hello pozostaje chroniona przed poważnej awarii przez cały czas podczas procesu uaktualniania hello
-* Witaj geograficznie nadmiarowego składniki aplikacji hello są uaktualniane równolegle ze składnikami active hello
+* Aplikacja pozostaje chroniona przed poważnej awarii przez cały czas w trakcie procesu uaktualniania
+* Uaktualnienia równoległe ze składnikami programu active geograficznie nadmiarowego składniki aplikacji
 
-tooachieve profilu tych celów, przy użyciu trybu failover hello Azure ruchu Manager (WATM) będzie korzystać z jedna aktualizacja aktywna i trzy punkty końcowe kopii zapasowej.  powitania po diagram ilustruje proces uaktualniania hello środowisko operacyjne wcześniejsze toohello. Witaj witryn sieci web <i>contoso 1.azurewebsites.net</i> i <i>contoso dr.azurewebsites.net</i> reprezentują gnieździe produkcyjnym aplikacji hello z nadmiarowością pełnej geograficznych. ponownie tooroll możliwości hello tooenable hello uaktualnienia, należy Utwórz miejsce etap kopię pełni zsynchronizowanych aplikacji hello. Ponieważ potrzebna tooensure aplikacji hello Szybkie odzyskiwanie w przypadku, gdy wystąpi błąd krytyczny podczas procesu uaktualniania hello hello etap miejsca musi toobe geograficznie nadmiarowego również. Hello poniższe kroki są wymagane tooprepare hello aplikacji hello uaktualnienia:
+Na osiągnięcie tych celów będzie korzystać przy użyciu profilu trybu failover z jedna aktualizacja aktywna i trzy punkty końcowe kopii zapasowej Azure ruchu Manager (WATM).  Na poniższym diagramie przedstawiono środowisku operacyjnym przed procesu uaktualniania. Witryny sieci web <i>contoso 1.azurewebsites.net</i> i <i>contoso dr.azurewebsites.net</i> reprezentują gnieździe produkcyjnym aplikacji z nadmiarowością pełnej geograficznych. Aby włączyć możliwość wycofać uaktualnienie, ma potrzeby tworzenia miejsca etap z pełni zsynchronizowanej kopii aplikacji. Ponieważ należy się upewnić, aplikacja szybko można odzyskać w przypadku, gdy wystąpi błąd krytyczny podczas procesu uaktualniania, gniazdo etapie należy geograficznie nadmiarowego również. Poniższe kroki są wymagane w celu przygotowania aplikacji do uaktualnienia:
 
-1. Utwórz miejsce etap hello uaktualnienia. toodo tworzenie pomocniczej bazy danych (1), a następnie wdrożona identyczne kopię hello witryny sieci web w hello tego samego regionu systemu Azure. Monitorowanie toosee dodatkowej hello Jeśli hello wstępne wypełnianie procesu zostało ukończone.
-2. Utwórz geograficznie nadmiarowego pomocniczej bazy danych w miejscu etap hello poprzez replikację geograficzną hello dodatkowej bazy danych toohello kopii zapasowej region (jest to nazywane "łańcuchowej — replikacja geograficzna"). Monitorowanie kopii zapasowej toosee dodatkowej hello Jeśli hello wstępne wypełnianie procesu jest wypełniony (3).
-3. Utwórz kopię rezerwy hello witryny sieci web w regionie kopii zapasowej hello, a następnie połącz go toohello pomocniczy geograficznie nadmiarowego (4).  
-4. Dodaj dodatkowe punkty końcowe hello <i>contoso 2.azurewebsites.net</i> i <i>contoso 3.azurewebsites.net</i> toohello profilu trybu failover w WATM jako punktów końcowych w trybie offline (5). 
+1. Utwórz miejsce etapu dla uaktualnienia. Aby tworzenia pomocniczej bazy danych (1), a następnie wdrożona identyczne kopię witryny sieci web, w tym samym regionie Azure. Monitorowanie lokacji dodatkowej, aby zobaczyć, jeśli proces rozmieszczania kończy się.
+2. Utwórz geograficznie nadmiarowego pomocniczej bazy danych w miejscu etap poprzez replikację geograficzną dodatkowej bazy danych do obszaru tworzenia kopii zapasowej (jest to nazywane "łańcuchowej — replikacja geograficzna"). Monitorowanie kopii zapasowej dodatkowej czy Proces rozmieszczania jest wypełniony (3).
+3. Utwórz kopię rezerwy witryny sieci web w regionie kopii zapasowej i połączyć ją pomocniczej geograficznie nadmiarowego (4).  
+4. Dodaj dodatkowe punkty końcowe <i>contoso 2.azurewebsites.net</i> i <i>contoso 3.azurewebsites.net</i> do profilu trybu failover w WATM jako punktów końcowych w trybie offline (5). 
 
 > [!NOTE]
-> Czynności przygotowujące hello Uwaga nie ma wpływu aplikacji hello w gnieździe produkcyjnym hello i może działać w trybie pełnego dostępu.
+> Należy pamiętać, procedura przygotowująca nie będą miały wpływ aplikacji w miejscu produkcyjnym oraz mogą działać w trybie pełnego dostępu.
 > 
 > 
 
 ![Konfiguracja — replikacja geograficzna bazy danych SQL. Odzyskiwanie awaryjne chmury.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
-Po wykonaniu czynności przygotowujące hello miejsca etap hello jest gotowy do uaktualnienia hello. powitania po diagram przedstawia kroki uaktualniania hello.
+Po wykonaniu czynności przygotowujące miejsce etap jest gotowy do uaktualnienia. Na poniższym diagramie przedstawiono kroki uaktualniania.
 
-1. Ustaw hello podstawowej bazy danych w hello produkcji miejsca tylko tooread tryb (6). Gwarantuje to, że hello produkcji wystąpienie aplikacji hello (wersja 1) pozostanie tylko do odczytu podczas uaktualniania hello zindeksowanie hello danych rozbieżności między hello V1 i V2 wystąpień bazy danych.  
-2. Odłącz hello dodatkowej bazy danych przy użyciu tego samego regionu w hello hello tryb planowane zakończenie (7). Utworzy on pełni zsynchronizowanej kopii niezależne hello podstawowej bazy danych, które automatycznie stanie się podstawowym po zakończeniu hello. Ta baza danych zostanie uaktualniona.
-3. Włącz hello podstawowej bazy danych w trybie zapisu tooread miejsca etap hello, a następnie uruchom skrypt uaktualnienia hello (8).    
+1. Ustaw podstawowej bazy danych w gnieździe produkcyjnym do trybu tylko do odczytu (6). Gwarantuje to, że produkcji wystąpienie aplikacji (wersja 1) pozostanie tylko do odczytu podczas uaktualniania, co uniemożliwia rozbieżności danych między V1 i V2 wystąpień bazy danych.  
+2. Odłącz dodatkowej bazy danych w tym samym regionie, w trybie planowane zakończenie (7). Utworzy on pełni zsynchronizowanej niezależnych kopii podstawowej bazy danych, którego podstawowy automatycznie stanie się po zakończeniu. Ta baza danych zostanie uaktualniona.
+3. Włącz podstawowej bazy danych w miejscu etap w trybie odczytu i zapisu, a następnie uruchom skrypt uaktualnienia (8).    
 
 ![Konfiguracja — replikacja geograficzna bazy danych SQL. Odzyskiwanie awaryjne chmury.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
-Aktualizacja hello zakończyła się pomyślnie są teraz gotowe tooswitch hello użytkownicy końcowi toohello V2 wersję aplikacji hello. powitania po diagram ilustruje hello etapy.
+Jeśli uaktualnienie zostało ukończone pomyślnie możesz teraz przystąpić do przełącznika użytkowników końcowych do wersji V2 aplikacji. Na poniższym diagramie przedstawiono etapy.
 
-1. Przełącz hello aktywny punkt końcowy w profilu WATM hello zbyt<i>contoso 2.azurewebsites.net</i>, które teraz wskazuje wersję toohello V2 hello witryny sieci web (9). Staje się teraz gnieździe produkcyjnym z hello aplikacji V2 i ruch przez użytkownika końcowego jest bezpośrednie tooit. 
-2. Jeśli nie są już potrzebne hello V1 aplikacji, możesz bezpiecznie usunąć go (10 i 11).  
+1. Przełączyć się aktywny punkt końcowy w profilu WATM <i>contoso 2.azurewebsites.net</i>, które teraz wskazuje wersji V2 witryny sieci web (9). Staje się teraz gnieździe produkcyjnym z aplikacją V2 i ruchu przez użytkownika końcowego jest kierowany do niego. 
+2. Jeśli nie są już potrzebne aplikacji V1, możesz bezpiecznie usunąć go (10 i 11).  
 
 ![Konfiguracja — replikacja geograficzna bazy danych SQL. Odzyskiwanie awaryjne chmury.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
-Jeśli proces uaktualniania hello zakończy się niepowodzeniem, na przykład ze względu na błąd tooan skryptów uaktualniania hello, hello etap miejsca należy traktować jako naruszenia zabezpieczeń. tooroll kopii hello toohello przed uaktualnieniem stanu aplikacji po prostu przywrócić aplikacji hello toousing w gnieździe produkcyjnym hello z pełnym dostępem. etapy Hello są wyświetlane na diagramie dalej hello.    
+Jeśli proces uaktualniania zakończy się niepowodzeniem, na przykład z powodu błędu skryptu uaktualniania miejsca etapie należy traktować jako naruszenia zabezpieczeń. Aby wycofać aplikację do stanu sprzed uaktualnienia można po prostu przywrócić w gnieździe produkcyjnym z pełnym dostępem przy użyciu aplikacji. Czynności procedury są wyświetlane na diagramie dalej.    
 
-1. Zestaw hello kopia podstawowej bazy danych w trybie zapisu tooread miejscem produkcyjnym hello (12). Spowoduje to przywrócenie hello pełne V1 funkcjonalnie w gnieździe produkcyjnym hello.
-2. Analiza Przyczyna hello głównego i usunąć składniki hello naruszone w gnieździe etap hello (13 i 14). 
+1. Ustaw kopii podstawowej bazy danych w trybie odczytu i zapisu (12) miejsca produkcji. Spowoduje to przywrócenie pełne V1 funkcjonalnie w gnieździe produkcyjnym.
+2. Wykonaj analiza głównych przyczyn i usunąć składniki ze złamanymi zabezpieczeniami w gnieździe etap (13 i 14). 
 
-W tym momencie aplikacji hello jest w pełni funkcjonalny i kroki uaktualniania hello można powtarzać.
+W tym momencie aplikacja jest w pełni funkcjonalny i można powtórzyć kroki uaktualniania.
 
 > [!NOTE]
-> Witaj wycofywania nie wymaga zmian w profilu WATM jako już wskazuje zbyt <i>contoso 1.azurewebsites.net</i> jako hello aktywny punkt końcowy.
+> Wycofywanie nie wymaga zmian w profilu WATM on już wskazuje <i>contoso 1.azurewebsites.net</i> jako aktywny punkt końcowy.
 > 
 > 
 
 ![Konfiguracja — replikacja geograficzna bazy danych SQL. Odzyskiwanie awaryjne chmury.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
-klucz Hello **korzyści** tej opcji jest można uaktualnić zarówno aplikacji hello, jak i jego geograficznie nadmiarowego kopiowania równolegle w bez naruszania ciągłość prowadzenia działalności biznesowej podczas uaktualniania hello. Witaj głównego **zależnościami** wymaga nadmiarowości dwa razy każdego składnika aplikacji i w związku z tym generuje wyższy koszt dolara ($). Obejmuje ona również bardziej skomplikowanych przepływów pracy. 
+Klucz **korzyści** tej opcji jest można uaktualnić zarówno aplikacji, jak i jego geograficznie nadmiarowego kopiowania równolegle w bez naruszania ciągłość prowadzenia działalności biznesowej podczas uaktualniania. Głównym **zależnościami** wymaga nadmiarowości dwa razy każdego składnika aplikacji i w związku z tym generuje wyższy koszt dolara ($). Obejmuje ona również bardziej skomplikowanych przepływów pracy. 
 
 ## <a name="summary"></a>Podsumowanie
-Witaj dwie metody uaktualniania opisane w artykule hello różnią się złożoność i hello dolara kosztów, ale obie skupić się na minimalizując hello czasu, gdy użytkownik końcowy hello jest ograniczony tylko do tooread operacji. Tego czasu bezpośrednio jest zdefiniowana przez czas trwania hello hello skryptu uaktualnienia. Nie jest zależny od rozmiaru bazy danych hello, usługi hello warstwy, wybierz opcję, hello konfiguracji witryny sieci web i innych czynników, które nie można łatwo zarządzać. Jest to spowodowane wszystkie kroki przygotowania hello jest całkowicie niezależna od hello kroki uaktualniania i mogą być przeprowadzane bez wpływu na powitania aplikacji produkcyjnej. wydajność Hello skryptu uaktualnienia hello jest hello kluczowym czynnikiem, określająca hello środowisko użytkownika końcowego podczas uaktualniania. Dlatego najlepiej hello mogła ją udoskonalać jest koncentrujące się wysiłków na tworzenie skryptów uaktualniania hello jak najbardziej efektywne.  
+Te dwie metody uaktualniania opisaną w artykule różnią się złożoność i dolara kosztów, ale ich obu skupić się na skrócenie czasu, gdy użytkownik końcowy jest ograniczona do operacji tylko do odczytu. Ta godzina bezpośrednio jest zdefiniowana przez czas trwania uaktualniania skryptów. Nie są zależne od rozmiaru bazy danych, wybranej warstwy usług, konfiguracji witryny sieci web i innych czynników, które nie można łatwo zarządzać. Jest to spowodowane wszystkie kroki przygotowania jest całkowicie niezależna od kroki uaktualniania i mogą być przeprowadzane bez wpływu na aplikacji produkcyjnej. Wydajność skryptów uaktualniania jest kluczowym czynnikiem, który określa środowisko użytkownika końcowego podczas uaktualniania. Dlatego najlepiej mogła ją udoskonalać jest koncentrujące się wysiłków na tworzenie jak najbardziej efektywne skrypt uaktualnienia skryptu.  
 
 ## <a name="next-steps"></a>Następne kroki
 * Omówienie ciągłości działalności biznesowej i scenariuszy, zobacz [omówienie ciągłości działalności biznesowej](sql-database-business-continuity.md).
-* toolearn o bazy danych SQL Azure automatycznego tworzenia kopii zapasowych, zobacz [bazy danych SQL automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md).
-* toolearn o za pomocą kopie zapasowe automatycznego odzyskiwania, zobacz [przywrócić bazę danych z automatycznych kopii zapasowych](sql-database-recovery-using-backups.md).
-* toolearn o szybsze opcje odzyskiwania, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md).
+* Aby dowiedzieć się więcej na temat usługi Azure SQL bazy danych automatycznego tworzenia kopii zapasowych, zobacz [bazy danych SQL automatycznego tworzenia kopii zapasowych](sql-database-automated-backups.md).
+* Aby dowiedzieć się więcej o używaniu kopie zapasowe automatycznego odzyskiwania, zobacz [przywrócić bazę danych z automatycznych kopii zapasowych](sql-database-recovery-using-backups.md).
+* Informacje na temat opcji odzyskiwania szybsze, zobacz [aktywna replikacja geograficzna](sql-database-geo-replication-overview.md).
 
 

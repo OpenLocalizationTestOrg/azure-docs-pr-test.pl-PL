@@ -1,9 +1,9 @@
 ---
-title: "Konfiguracja konta usługi Automatyzacja Azure aaaValidate | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano sposób konfiguracji hello tooconfirm Twojego konta automatyzacji jest poprawnie skonfigurowana."
+title: "Sprawdzanie poprawności konfiguracji konta usługi Azure Automation | Microsoft Docs"
+description: "W tym artykule został opisany sposób potwierdzania, że konfiguracja konta usługi Automation jest poprawna."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 3a990dcc6661cf67c4b62592ce03d55a3791053a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 55f5d5524019ac63565e5ddd1f47dbdd65f05065
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Sprawdzanie uwierzytelniania konta Uruchom jako usługi Azure Automation
-Po pomyślnym utworzeniu konta automatyzacji, można wykonywać tooconfirm prosty test, możesz toosuccessfully uwierzytelniania usługi Azure Resource Manager lub Azure wdrożenie klasyczne z nowo utworzonych lub zaktualizowanych automatyzacji konta Uruchom jako.    
+Po pomyślnym utworzeniu konta usługi Automation możesz wykonać prosty test, aby potwierdzić, że możesz poprawnie przeprowadzić uwierzytelnienie w usłudze Azure Resource Manager lub klasycznym wdrożeniu platformy Azure przy użyciu nowo utworzonego lub zaktualizowanego konta Uruchom jako usługi Automation.    
 
 ## <a name="automation-run-as-authentication"></a>Uwierzytelnianie konta Uruchom jako usługi Automation
-Za pomocą hello przykładowy kod poniżej[tworzenia elementu runbook programu PowerShell](automation-creating-importing-runbook.md) tooverify uwierzytelnianie przy użyciu hello Uruchom jako konta, a także w tooauthenticate z niestandardowych elementów runbook oraz zarządzanie tymi zasobami usługi Resource Manager przy użyciu konta automatyzacji.   
+Poniżej przedstawiono kod przykładowy umożliwiający [utworzenie elementu runbook programu PowerShell](automation-creating-importing-runbook.md) w celu weryfikowania uwierzytelniania przy użyciu konta Uruchom jako, a także uwierzytelniania zasobów usługi Resource Manger i zarządzania nimi przy użyciu konta usługi Automation w niestandardowych elementach runbook.   
 
     $connectionName = "AzureRunAsConnection"
     try
     {
-        # Get hello connection "AzureRunAsConnection "
+        # Get the connection "AzureRunAsConnection "
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
-        "Logging in tooAzure..."
+        "Logging in to Azure..."
         Add-AzureRmAccount `
            -ServicePrincipal `
            -TenantId $servicePrincipalConnection.TenantId `
@@ -64,50 +64,50 @@ Za pomocą hello przykładowy kod poniżej[tworzenia elementu runbook programu P
        Write-Output ("")
     } 
 
-Zwróć uwagę, hello polecenie cmdlet używane do uwierzytelniania w elemencie runbook hello - **Add-AzureRmAccount**, używa hello *ServicePrincipalCertificate* zestaw parametrów.  Uwierzytelnia się ono za pomocą certyfikatu nazwy głównej usługi, a nie poświadczeń.  
+Zwróć uwagę, że polecenie cmdlet służące do uwierzytelniania w elemencie Runbook — **Add-AzureRmAccount** — używa zestawu parametrów *ServicePrincipalCertificate*.  Uwierzytelnia się ono za pomocą certyfikatu nazwy głównej usługi, a nie poświadczeń.  
 
-Gdy możesz [uruchamiania elementu runbook hello](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) toovalidate konta Uruchom jako [zadanie elementu runbook](automation-runbook-execution.md) jest utworzony, bloku zadania hello jest wyświetlane, a stan zadania hello w hello **Podsumowanie zadania**kafelka. Stan zadania Hello zostanie uruchomiona jako *w kolejce* wskazujący, że oczekuje na proces roboczy elementu runbook, w toobecome chmury hello dostępne. Będzie on przenoszony za*uruchamianie* gdy pracownik oświadczeń hello zadania, a następnie *systemem* , gdy element runbook hello faktycznie zacznie działać.  Po zakończeniu zadania elementu runbook hello, możemy powinna zostać wyświetlona stan **Ukończono**.
+W przypadku [uruchomienia elementu runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) w celu zweryfikowania konta Uruchom jako jest tworzone [zadanie elementu runbook](automation-runbook-execution.md), jest wyświetlany blok Zadanie oraz jest wyświetlany stan zadania w kafelku **Podsumowanie zadania**. Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze. Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a następnie *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  Po zakończeniu zadania elementu Runbook powinniśmy zobaczyć stan **Ukończono**.
 
-toosee hello szczegółowe wyniki hello elementu runbook, kliknij na powitania **dane wyjściowe** kafelka.  Na powitania **dane wyjściowe** bloku, powinien zostać wyświetlony został pomyślnie uwierzytelniony i zwraca listę wszystkich zasobów we wszystkich grupach zasobów w ramach subskrypcji.  
+Aby wyświetlić szczegółowe wyniki elementu Runbook, kliknij kafelek **Dane wyjściowe**.  W bloku **Dane wyjściowe** powinna być wyświetlana informacja o pomyślnym uwierzytelnieniu elementu oraz powinna zostać zwrócona lista wszystkich zasobów we wszystkich grupach zasobów w ramach subskrypcji.  
 
-Pamiętaj tylko tooremove hello blok kodu, począwszy od komentarza hello `#Get all ARM resources from all resource groups` kiedy ponowne użycie hello kodu dla elementy runbook.
+W przypadku ponownego użycia kodu w elementach runbook usuń blok kodu rozpoczynający się od komentarza `#Get all ARM resources from all resource groups`.
 
 ## <a name="classic-run-as-authentication"></a>Uwierzytelnianie klasycznego konta Uruchom jako
-Za pomocą hello przykładowy kod poniżej[tworzenia elementu runbook programu PowerShell](automation-creating-importing-runbook.md) tooverify uwierzytelnianie przy użyciu hello Classic Uruchom jako konta, a także w tooauthenticate z niestandardowych elementów runbook i zarządzanie zasobami w hello klasycznego modelu wdrażania.  
+Poniżej przedstawiono kod przykładowy umożliwiający [utworzenie elementu runbook programu PowerShell](automation-creating-importing-runbook.md) w celu weryfikowania uwierzytelniania przy użyciu klasycznego konta Uruchom jako, a także uwierzytelniania zasobów w klasycznym modelu wdrażania i zarządzania nimi w niestandardowych elementach runbook.  
 
     $ConnectionAssetName = "AzureClassicRunAsConnection"
-    # Get hello connection
+    # Get the connection
     $connection = Get-AutomationConnection -Name $connectionAssetName        
 
-    # Authenticate tooAzure with certificate
+    # Authenticate to Azure with certificate
     Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
     if ($Conn -eq $null)
     {
-       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in hello Automation account."
+       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
     }
 
     $CertificateAssetName = $Conn.CertificateAssetName
-    Write-Verbose "Getting hello certificate: $CertificateAssetName" -Verbose
+    Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
     $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
     if ($AzureCert -eq $null)
     {
-       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in hello Automation account."
+       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
     }
 
-    Write-Verbose "Authenticating tooAzure with certificate." -Verbose
+    Write-Verbose "Authenticating to Azure with certificate." -Verbose
     Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
     Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
     
-    #Get all VMs in hello subscription and return list with name of each
+    #Get all VMs in the subscription and return list with name of each
     Get-AzureVM | ft Name
 
-Gdy możesz [uruchamiania elementu runbook hello](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) toovalidate konta Uruchom jako [zadanie elementu runbook](automation-runbook-execution.md) jest utworzony, bloku zadania hello jest wyświetlane, a stan zadania hello w hello **Podsumowanie zadania**kafelka. Stan zadania Hello zostanie uruchomiona jako *w kolejce* wskazujący, że oczekuje na proces roboczy elementu runbook, w toobecome chmury hello dostępne. Będzie on przenoszony za*uruchamianie* gdy pracownik oświadczeń hello zadania, a następnie *systemem* , gdy element runbook hello faktycznie zacznie działać.  Po zakończeniu zadania elementu runbook hello, możemy powinna zostać wyświetlona stan **Ukończono**.
+W przypadku [uruchomienia elementu runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) w celu zweryfikowania konta Uruchom jako jest tworzone [zadanie elementu runbook](automation-runbook-execution.md), jest wyświetlany blok Zadanie oraz jest wyświetlany stan zadania w kafelku **Podsumowanie zadania**. Zadanie będzie miało początkowy stan *W kolejce*, wskazujący, że trwa oczekiwanie na udostępnienie procesu roboczego elementu Runbook w chmurze. Następnym stanem będzie *Uruchamianie*, gdy proces roboczy wywołuje zadanie, a następnie *Uruchomiono*, gdy element Runbook faktycznie zacznie działać.  Po zakończeniu zadania elementu Runbook powinniśmy zobaczyć stan **Ukończono**.
 
-toosee hello szczegółowe wyniki hello elementu runbook, kliknij na powitania **dane wyjściowe** kafelka.  Na powitania **dane wyjściowe** bloku, powinien zostać wyświetlony został pomyślnie uwierzytelniony i zwraca listę wszystkich maszyn wirtualnych platformy Azure przez VMName, które są wdrażane w ramach subskrypcji.  
+Aby wyświetlić szczegółowe wyniki elementu Runbook, kliknij kafelek **Dane wyjściowe**.  W bloku **Dane wyjściowe** powinna być wyświetlana informacja o pomyślnym uwierzytelnieniu elementu oraz powinna zostać zwrócona lista wszystkich maszyn wirtualnych platformy Azure wdrożonych w ramach subskrypcji według nazwy maszyny wirtualnej.  
 
-Pamiętaj tylko polecenia cmdlet hello tooremove **Get AzureVM** kiedy ponowne użycie hello kodu dla elementy runbook.
+W przypadku ponownego użycia kodu w elementach runbook usuń polecenie cmdlet **Get-AzureVM**.
 
 ## <a name="next-steps"></a>Następne kroki
-* tooget pracę z elementów runbook programu PowerShell, zobacz [Moje pierwszego elementu runbook programu PowerShell](automation-first-runbook-textual-powershell.md).
-* Zobacz toolearn więcej informacji na temat tworzenia graficznego [tworzenia graficznego automatyzacji Azure](automation-graphical-authoring-intro.md).
+* Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
+* Aby dowiedzieć się więcej na temat tworzenia elementów graficznych, zobacz [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md) (Tworzenie elementów graficznych w usłudze Azure Automation).

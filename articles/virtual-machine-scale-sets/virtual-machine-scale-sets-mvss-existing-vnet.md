@@ -1,6 +1,6 @@
 ---
 title: "Odwołanie istniejącej sieci wirtualnej w szablonie zestaw skalowania Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooadd a wirtualnych sieci tooan istniejącego zestawu skalowania maszyn wirtualnych Azure szablonu"
+description: "Dowiedz się, jak dodać sieć wirtualną do istniejącego zestawu skalowania maszyn wirtualnych Azure szablonu"
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: negat
-ms.openlocfilehash: c3034b577e17abc4643dc26d7c38ad643fa26322
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 28117d467b491704aed8d45e5eba42530579dfa2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="add-reference-tooan-existing-virtual-network-in-an-azure-scale-set-template"></a>Dodaj odwołanie tooan istniejącej sieci wirtualnej w szablonie zestaw skalowania Azure
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Dodaj odwołanie do istniejącej sieci wirtualnej w szablonie zestaw skalowania Azure
 
-W tym artykule przedstawiono sposób toomodify hello [minimalnej wielkości Ustaw szablon](./virtual-machine-scale-sets-mvss-start.md) toodeploy w istniejącej sieci wirtualnej, zamiast tworzyć nowy.
+W tym artykule przedstawiono sposób modyfikowania [minimalnej wielkości Ustaw szablon](./virtual-machine-scale-sets-mvss-start.md) do wdrożenia w ramach istniejącej sieci wirtualnej, zamiast tworzyć nowy.
 
-## <a name="change-hello-template-definition"></a>Zmień hello definicji szablonu
+## <a name="change-the-template-definition"></a>Zmiany definicji szablonu
 
-Nasze minimalnej wielkości Ustaw szablon może być widoczny [tutaj](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), i widoczne naszych szablon do wdrażania do istniejącej sieci wirtualnej zestaw skalowania hello [tutaj](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Przeanalizujmy hello toocreate różnicowego używany ten szablon (`git diff minimum-viable-scale-set existing-vnet`) element przez element:
+Nasze minimalnej wielkości Ustaw szablon może być widoczny [tutaj](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), i naszych szablon do wdrażania do istniejącej sieci wirtualnej zestaw skali są widoczne [tutaj](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Przeanalizujmy różnicowego używany do tworzenia tego szablonu (`git diff minimum-viable-scale-set existing-vnet`) element przez element:
 
-Najpierw dodamy `subnetId` parametru. Ten ciąg zostanie przekazany hello Konfiguracja zestawu skali, pozwalając hello zestawu skalowania maszyny wirtualnej utworzone wcześniej podsieci hello tooidentify toodeploy maszyn wirtualnych do. Ten ciąg musi mieć formę hello: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Na przykład ustawić toodeploy hello skali w istniejącej sieci wirtualnej o nazwie `myvnet`, podsieci `mysubnet`, grupy zasobów `myrg`i subskrypcji `00000000-0000-0000-0000-000000000000`, będzie hello subnetId: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Najpierw dodamy `subnetId` parametru. Ten ciąg zostanie przekazany Konfiguracja zestawu skali, dzięki czemu zestaw do identyfikowania wstępnie utworzone podsieci do wdrażania maszyn wirtualnych do skalowania. Ten ciąg musi mieć postać: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Na przykład, aby wdrożyć skali należy ustawić w istniejącej sieci wirtualnej o nazwie `myvnet`, podsieci `mysubnet`, grupy zasobów `myrg`i subskrypcji `00000000-0000-0000-0000-000000000000`, będzie subnetId: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -42,7 +42,7 @@ Najpierw dodamy `subnetId` parametru. Ten ciąg zostanie przekazany hello Konfig
    },
 ```
 
-Następnie możemy usunąć zasób sieci wirtualnej hello z hello `resources` tablicy, ponieważ firma Microsoft używają istniejącej sieci wirtualnej i nie wymagają toodeploy nowy.
+Następnie można usunąć zasobu sieci wirtualnej z `resources` tablicy, ponieważ firma Microsoft używają istniejącej sieci wirtualnej, a nie potrzeba wdrożenia nowej.
 
 ```diff
    "variables": {},
@@ -70,7 +70,7 @@ Następnie możemy usunąć zasób sieci wirtualnej hello z hello `resources` ta
 -    },
 ```
 
-Hello sieci wirtualnej już istnieje, przed wdrożeniem hello szablon, więc nie ma żadnych toospecify potrzeby klauzulę dependsOn od skali hello Ustaw toohello sieci wirtualnej. W związku z tym usunąć te wiersze:
+Sieć wirtualna już istnieje przed wdrożeniem szablon, więc nie istnieje potrzeba do określenia klauzuli dependsOn od skali ustawioną sieci wirtualnej. W związku z tym usunąć te wiersze:
 
 ```diff
      {
@@ -86,7 +86,7 @@ Hello sieci wirtualnej już istnieje, przed wdrożeniem hello szablon, więc nie
          "capacity": 2
 ```
 
-Na koniec jest przekazywana w hello `subnetId` parametru ustawionych przez użytkownika hello (zamiast `resourceId` tooget hello identyfikator sieci wirtualnej w hello jest tego samego wdrożenia, czyli, jakie hello minimalnej wielkości ustawić szablonu).
+Na koniec jest przekazywana w `subnetId` parametru ustawiony przez użytkownika (zamiast `resourceId` można pobrać identyfikatora sieci wirtualnej w ramach tego samego wdrożenia, który ma co minimalnej wielkości ustawić szablon jest).
 
 ```diff
                        "name": "myIpConfig",

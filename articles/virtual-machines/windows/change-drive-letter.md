@@ -1,6 +1,6 @@
 ---
-title: "Upewnij się, hello dysku D: dysku danych maszyny wirtualnej | Dokumentacja firmy Microsoft"
-description: "W tym artykule opisano, jak toochange litery dysków dla maszyny Wirtualnej systemu Windows tak, aby można było używać dysków D: hello jako dysk danych."
+title: "Skonfigurować dysk D: dysku danych maszyny wirtualnej | Dokumentacja firmy Microsoft"
+description: "Zawiera opis sposobu zmiany liter dysków dla maszyny Wirtualnej systemu Windows tak, aby dysków D: jako dysk danych."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: cynthn
-ms.openlocfilehash: 43939da1a890ac4049266487951e3889aa0ed9d7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7667175c01be2421bfc3badd83b1d8aaeb29bfde
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-d-drive-as-a-data-drive-on-a-windows-vm"></a>Użyj dysku D: hello jako dysk z danymi na maszynie Wirtualnej systemu Windows
-Jeśli aplikacja wymaga hello toouse danych toostore dysku D, wykonaj te instrukcje toouse inną literę dysku tymczasowym hello. Nigdy nie używaj danych toostore dysku tymczasowym hello konieczność tookeep.
+# <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Użyj dysku D: jako dysk z danymi na maszynie Wirtualnej systemu Windows
+Jeśli aplikacja wymaga na potrzeby przechowywania danych na dysku D, wykonaj te instrukcje, aby użyć innej litery dysku na dysku tymczasowym. Nigdy nie używaj tymczasowych dysku do przechowywania danych, które należy zachować.
 
-Jeśli po zmianie rozmiaru lub **Stop (Deallocate)** maszyny wirtualnej, może to wywołać umieszczania nowej funkcji hypervisor hello maszyn wirtualnych tooa. Planowanego lub nieplanowanego zdarzenia konserwacji może być również przyczyną tego rozmieszczenia. W tym scenariuszu dysku tymczasowym hello będzie przypisywać ich toohello pierwszą dostępną literę dysku. Jeśli masz aplikację, która wymaga specjalnie hello D: dysku, należy toofollow, te kroki tootemporarily przenoszenia hello pagefile.sys dołączyć nowego dysku danych i przypisać jej literę hello D, a następnie przenieś hello pagefile.sys kopii toohello tymczasowej stacji. Po wykonaniu tych czynności Azure nie wycofania hello D: Jeśli hello maszyna wirtualna zostanie przeniesiona tooa innej funkcji hypervisor.
+Jeśli po zmianie rozmiaru lub **Stop (Deallocate)** maszyny wirtualnej, może to wywołać umieszczania maszyny wirtualnej do nowej funkcji hypervisor. Planowanego lub nieplanowanego zdarzenia konserwacji może być również przyczyną tego rozmieszczenia. W tym scenariuszu dysku tymczasowym zostanie przydzielona do pierwszą literę dysku. Jeśli masz aplikację, która wymaga dysku D:, w szczególności należy wykonaj następujące kroki, aby tymczasowo przenieść pagefile.sys, dołączyć nowego dysku danych i przypisać jej literę D i następnie przenieść pagefile.sys z powrotem do tymczasowej stacji. Po wykonaniu tych czynności Azure nie wycofania D: Jeśli maszyna wirtualna zostanie przeniesiona do innej funkcji hypervisor.
 
-Aby uzyskać więcej informacji o używaniu dysku tymczasowym hello Azure, zobacz [opis hello tymczasowej stacji na maszynach wirtualnych Azure firmy Microsoft](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Aby uzyskać więcej informacji o używaniu dysku tymczasowym Azure, zobacz [opis dysku tymczasowym na maszynach wirtualnych Azure firmy Microsoft](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-## <a name="attach-hello-data-disk"></a>Dołączenie dysku danych hello
-Najpierw należy maszyny wirtualnej toohello tooattach hello dane dysku. toodo to przy użyciu portalu hello, zobacz [jak tooattach zarządzanych danych na dysku w portalu Azure hello](attach-managed-disk-portal.md).
+## <a name="attach-the-data-disk"></a>Dołączenie dysku danych
+Najpierw należy dołączyć dysku danych do maszyny wirtualnej. Aby to zrobić za pomocą portalu, zobacz [jak dołączyć dysk danych zarządzanych w portalu Azure](attach-managed-disk-portal.md).
 
-## <a name="temporarily-move-pagefilesys-tooc-drive"></a>Tymczasowo przenieść pagefile.sys tooC dysku
-1. Połącz toohello maszyny wirtualnej. 
-2. Kliknij prawym przyciskiem myszy hello **Start** menu i wybierz **systemu**.
-3. W menu po lewej stronie powitania, wybierz **Zaawansowane ustawienia systemu**.
-4. W hello **wydajności** zaznacz **ustawienia**.
-5. Wybierz hello **zaawansowane** kartę.
-6. W hello **pamięci wirtualnej** zaznacz **zmiany**.
-7. Wybierz hello **C** dysk, a następnie kliknij przycisk **Rozmiar kontrolowany przez System** , a następnie kliknij przycisk **ustawić**.
-8. Wybierz hello **D** dysk, a następnie kliknij przycisk **plik stronicowania nie** , a następnie kliknij przycisk **ustawić**.
-9. Kliknij przycisk Zastosuj. Zostanie wyświetlone ostrzeżenie komputera hello musi toobe hello zmiany tootake mają wpływ na ponowne uruchomienie.
-10. Uruchom ponownie maszynę wirtualną hello.
+## <a name="temporarily-move-pagefilesys-to-c-drive"></a>Tymczasowo przenieść pagefile.sys dysku c.
+1. Połączenie z maszyną wirtualną. 
+2. Kliknij prawym przyciskiem myszy **Start** menu i wybierz **systemu**.
+3. W menu po lewej stronie wybierz **Zaawansowane ustawienia systemu**.
+4. W **wydajności** zaznacz **ustawienia**.
+5. Wybierz **zaawansowane** kartę.
+6. W **pamięci wirtualnej** zaznacz **zmiany**.
+7. Wybierz **C** dysk, a następnie kliknij przycisk **Rozmiar kontrolowany przez System** , a następnie kliknij przycisk **ustawić**.
+8. Wybierz **D** dysk, a następnie kliknij przycisk **plik stronicowania nie** , a następnie kliknij przycisk **ustawić**.
+9. Kliknij przycisk Zastosuj. Zostanie wyświetlone ostrzeżenie, że wymagane zmiany zostały uwzględnione, należy uruchomić ponownie komputera.
+10. Uruchom ponownie maszynę wirtualną.
 
-## <a name="change-hello-drive-letters"></a>Zmień litery dysków hello
-1. Raz hello ponownego uruchomienia maszyny Wirtualnej, zaloguj się ponownie toohello maszyny Wirtualnej.
-2. Kliknij przycisk hello **Start** menu i typ **diskmgmt.msc** i naciśnij Enter. Rozpocznie się Zarządzanie dyskami.
-3. Kliknij prawym przyciskiem myszy **D**hello magazyn tymczasowy dysku i wybierz **Zmień literę dysku i ścieżki**.
+## <a name="change-the-drive-letters"></a>Zmień litery dysku
+1. Po ponownym uruchomieniu maszyny Wirtualnej, zaloguj się ponownie do maszyny Wirtualnej.
+2. Kliknij przycisk **Start** menu i typ **diskmgmt.msc** i naciśnij Enter. Rozpocznie się Zarządzanie dyskami.
+3. Kliknij prawym przyciskiem myszy **D**, magazyn tymczasowy dysku, a następnie wybierz **Zmień literę dysku i ścieżki**.
 4. W obszarze literę dysku, wybierz inny dysk takich jak **T** , a następnie kliknij przycisk **OK**. 
-5. Kliknij prawym przyciskiem myszy na powitania dysku danych, a następnie wybierz **Zmień literę dysku i ścieżki**.
+5. Kliknij prawym przyciskiem myszy na dysk z danymi, a następnie wybierz **Zmień literę dysku i ścieżki**.
 6. W obszarze literę dysku, należy wybrać dysk **D** , a następnie kliknij przycisk **OK**. 
 
-## <a name="move-pagefilesys-back-toohello-temporary-storage-drive"></a>Przenieś pagefile.sys wstecz toohello magazyn tymczasowy dysku
-1. Kliknij prawym przyciskiem myszy hello **Start** menu i wybierz **systemu**
-2. W menu po lewej stronie powitania, wybierz **Zaawansowane ustawienia systemu**.
-3. W hello **wydajności** zaznacz **ustawienia**.
-4. Wybierz hello **zaawansowane** kartę.
-5. W hello **pamięci wirtualnej** zaznacz **zmiany**.
-6. Wybierz dysk systemu operacyjnego hello **C** i kliknij przycisk **plik stronicowania nie** , a następnie kliknij przycisk **ustawić**.
-7. Wybierz dysk magazyn tymczasowy hello **T** , a następnie kliknij przycisk **Rozmiar kontrolowany przez System** , a następnie kliknij przycisk **ustawić**.
-8. Kliknij przycisk **Zastosuj**. Zostanie wyświetlone ostrzeżenie komputera hello musi toobe hello zmiany tootake mają wpływ na ponowne uruchomienie.
-9. Uruchom ponownie maszynę wirtualną hello.
+## <a name="move-pagefilesys-back-to-the-temporary-storage-drive"></a>Przenieść pagefile.sys z powrotem do dysku magazyn tymczasowy
+1. Kliknij prawym przyciskiem myszy **Start** menu i wybierz **systemu**
+2. W menu po lewej stronie wybierz **Zaawansowane ustawienia systemu**.
+3. W **wydajności** zaznacz **ustawienia**.
+4. Wybierz **zaawansowane** kartę.
+5. W **pamięci wirtualnej** zaznacz **zmiany**.
+6. Wybierz dysk systemu operacyjnego **C** i kliknij przycisk **plik stronicowania nie** , a następnie kliknij przycisk **ustawić**.
+7. Wybierz dysk magazyn tymczasowy **T** , a następnie kliknij przycisk **Rozmiar kontrolowany przez System** , a następnie kliknij przycisk **ustawić**.
+8. Kliknij przycisk **Zastosuj**. Zostanie wyświetlone ostrzeżenie, że wymagane zmiany zostały uwzględnione, należy uruchomić ponownie komputera.
+9. Uruchom ponownie maszynę wirtualną.
 
 ## <a name="next-steps"></a>Następne kroki
-* Można zwiększyć maszyny wirtualnej dostępne tooyour hello magazynu za pomocą [dołączenie dysku danych dodatkowych](attach-managed-disk-portal.md).
+* Dostępny magazyn może zwiększyć się z maszyną wirtualną przez [dołączenie dysku danych dodatkowych](attach-managed-disk-portal.md).
 

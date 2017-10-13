@@ -1,23 +1,23 @@
-## <a name="prepare-tooauthenticate-azure-resource-manager-requests"></a>Przygotowanie tooauthenticate żądań usługi Azure Resource Manager
-Musi uwierzytelniać wszystkie operacje hello, które należy wykonać na zasobów przy użyciu hello [usługi Azure Resource Manager] [ lnk-authenticate-arm] z usługi Azure Active Directory (AD). Najprostszym sposobem tooconfigure Hello jest toouse programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
+## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Przygotowanie do uwierzytelniania żądań usługi Azure Resource Manager
+Musi uwierzytelniać wszystkie operacje, które należy wykonać na zasobów przy użyciu [usługi Azure Resource Manager] [ lnk-authenticate-arm] z usługi Azure Active Directory (AD). Najprostszym sposobem skonfigurowania tego jest za pomocą programu PowerShell lub wiersza polecenia platformy Azure.
 
-Zainstaluj hello [poleceń cmdlet programu Azure PowerShell] [ lnk-powershell-install] przed kontynuowaniem.
+Zainstaluj [poleceń cmdlet programu Azure PowerShell] [ lnk-powershell-install] przed kontynuowaniem.
 
-Witaj, jak po Pokaż kroki tooset się uwierzytelniania hasła dla aplikacji usługi AD przy użyciu programu PowerShell. Te polecenia można wykonać w standardowej sesji programu PowerShell.
+Poniższe kroki pokazują, jak skonfigurować uwierzytelnianie hasła dla aplikacji usługi AD przy użyciu programu PowerShell. Te polecenia można wykonać w standardowej sesji programu PowerShell.
 
-1. Zaloguj się tooyour subskrypcji platformy Azure przy użyciu hello następujące polecenie:
+1. Zaloguj się do subskrypcji platformy Azure przy użyciu następującego polecenia:
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. Jeśli masz wiele subskrypcji Azure, logowanie tooAzure umożliwiają dostęp tooall hello subskrypcji platformy Azure skojarzonych z poświadczeniami użytkownika. Użyj następującego polecenia toolist hello subskrypcji platformy Azure, dostępne dla Ciebie toouse hello:
+1. Jeśli masz wiele subskrypcji Azure, logowanie do platformy Azure udziela dostępu do subskrypcji platformy Azure skojarzone z poświadczeniami użytkownika. Aby wyświetlić listę dostępnych przy użyciu subskrypcji platformy Azure, użyj następującego polecenia:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    Użyj następującego polecenia tooselect subskrypcji ma się, że toouse toorun hello polecenia toomanage Centrum IoT hello. Identyfikator lub Nazwa subskrypcji hello można użyć z danych wyjściowych hello hello poprzednie polecenie:
+    Użyj następującego polecenia, aby wybrać subskrypcję, która ma być używany do uruchamiania polecenia do zarządzania Centrum IoT. Przy użyciu subskrypcji nazwa lub identyfikator z danych wyjściowych poprzednie polecenie:
 
     ```powershell
     Select-AzureRMSubscription `
@@ -25,29 +25,29 @@ Witaj, jak po Pokaż kroki tooset się uwierzytelniania hasła dla aplikacji us�
     ```
 
 2. Zanotuj Twojej **TenantId** i **SubscriptionId**. Należy je później.
-3. Utwórz nową aplikację usługi Azure Active Directory przy użyciu hello następujące polecenie, zastępując symbole zastępcze hello:
+3. Utwórz nową aplikację usługi Azure Active Directory przy użyciu następujące polecenie, zastępując symbole zastępcze:
    
    * **{Nazwa wyświetlana}:** nazwę wyświetlaną dla aplikacji, takich jak **MySampleApp**
-   * **{Adres URL strony głównej}:** hello adres URL strony głównej hello aplikacji, takich jak **http://mysampleapp/home**. Ten adres URL nie jest konieczne toopoint tooa rzeczywistej aplikacji.
-   * **{Identyfikator aplikacji}:** Unikatowy identyfikator **http://mysampleapp**. Ten adres URL nie jest konieczne toopoint tooa rzeczywistej aplikacji.
-   * **{Hasło}:** hasła, użyj tooauthenticate z aplikacją.
+   * **{Adres URL strony głównej}:** adres URL strony głównej aplikacji takich jak **http://mysampleapp/home**. Ten adres URL nie musi wskazywać rzeczywistych aplikacji.
+   * **{Identyfikator aplikacji}:** Unikatowy identyfikator **http://mysampleapp**. Ten adres URL nie musi wskazywać rzeczywistych aplikacji.
+   * **{Hasło}:** hasła używanego do uwierzytelniania z aplikacji.
      
      ```powershell
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
      ```
-4. Zanotuj hello **ApplicationId** aplikacji hello został utworzony. Należy to później.
-5. Utwórz nową główną nazwę usługi przy użyciu hello następujące polecenie, zastępując **{MyApplicationId}** z hello **ApplicationId** hello w poprzednim kroku:
+4. Zanotuj **ApplicationId** aplikacji został utworzony. Należy to później.
+5. Utwórz nową główną nazwę usługi, za pomocą następującego polecenia, zastępując **{MyApplicationId}** z **ApplicationId** w poprzednim kroku:
    
     ```powershell
     New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
     ```
-6. Konfigurowanie przypisania roli przy użyciu hello następujące polecenie, zastępując **{MyApplicationId}** z Twojej **ApplicationId**.
+6. Konfigurowanie przypisania roli za pomocą następującego polecenia, zastępując **{MyApplicationId}** z Twojej **ApplicationId**.
    
     ```powershell
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
-Tworzenie aplikacji hello Azure AD, która umożliwia tooauthenticate z niestandardowych aplikacji C# zostało zakończone. Potrzebne są następujące wartości w dalszej części tego samouczka hello:
+Tworzenie aplikacji usługi Azure AD, która pozwala na uwierzytelnianie z niestandardowych aplikacji C# zostało zakończone. W dalszej części tego samouczka niezbędne są następujące wartości:
 
 * Dla identyfikatora dzierżawcy
 * SubscriptionId

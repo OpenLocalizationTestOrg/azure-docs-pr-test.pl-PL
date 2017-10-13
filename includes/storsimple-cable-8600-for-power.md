@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### <a name="toocable-your-device-for-power"></a>toocable Twojego urządzenia pod kątem zasilania
+#### <a name="to-cable-your-device-for-power"></a>Aby Podłączanie kabli do urządzenia zasilania
 > [!NOTE]
-> Zarówno obudowy na urządzeniu StorSimple obejmują PCMs nadmiarowe. Dla każdej obudowy hello PCMs muszą być zainstalowane i połączone toodifferent power źródeł tooensure wysokiej dostępności.
+> Zarówno obudowy na urządzeniu StorSimple obejmują PCMs nadmiarowe. Dla każdej obudowy PCMs musi być zainstalowane i połączone z różnych źródeł napędu aby zapewnić wysoką dostępność.
 > 
 > 
 
-1. Upewnij się, że przełączniki power hello na wszystkich PCMs hello znajdują się w pozycji OFF hello.
-2. Obudowa głównej hello Połącz tooboth przewodów zasilania hello PCMs. kable Hello są oznaczone na czerwono zasilania hello okablowania diagramie poniżej.
-3. Upewnij się, że Witaj dwie PCMs hello obudowa głównej Użyj zasilania oddzielnych źródeł.
-4. Dołącz hello zasilania przewodów toohello włączania zasilania hello dystrybucji jednostkach pokazane zasilania hello okablowania diagramu.
-5. Powtórz kroki od 2 do 4 dla hello EBOD obudowy.
-6. Włącz hello EBOD obudowa przestawiając przełącznik hello na każdej pozycji w toohello PCM.
-7. Sprawdź, czy że obudowa EBOD hello jest włączona przez sprawdzenie, czy hello zielony LED hello obu hello EBOD kontrolera są włączone.
-8. Włącz obudowa głównej hello przestawiając każdej pozycji w toohello przełącznika PCM.
-9. Sprawdź, czy hello system na zapewniając hello urządzenia kontroler, który LED została włączona.
-10. Upewnij się, że połączenie hello między kontrolerem EBOD hello i hello urządzenia kontrolera jest aktywne, upewniając się, że hello cztery LED dalej toohello SAS portu na kontrolerze EBOD hello są zielone.
+1. Upewnij się, że przełączniki zasilania na wszystkich PCMs znajdują się w pozycji OFF.
+2. Podstawowy obudowa Połącz kable do obu PCMs. Kable są oznaczone na czerwono na diagramie okablowania zasilania poniżej.
+3. Należy upewnić się czy dwa PCMs na obudowę podstawowego źródła zasilania oddzielne.
+4. Dołącz przewodów zasilania do włączania stojak jednostki dystrybucji zasilania pokazane zasilania okablowania diagramu.
+5. Powtórz kroki od 2 do 4 dla obudowa EBOD.
+6. Włącz obudowa EBOD przestawiając przycisk zasilania w każdej PCM pozycji dalej.
+7. Sprawdź, czy obudowa EBOD jest włączona przez sprawdzenie, czy zielony LED tyłu kontrolera EBOD są włączone.
+8. Włącz głównej obudowy przestawiając każdy przełącznik PCM pozycji dalej.
+9. Sprawdź, czy system na zapewniając kontroler urządzenia, dla którego włączono LED.
+10. Upewnij się, że połączenia między kontrolerem EBOD i kontrolerów urządzeń jest aktywny, upewniając się, że cztery LED obok portów SAS na kontrolerze EBOD są zielone.
     
     > [!IMPORTANT]
-    > tooensure wysokiej dostępności w systemie, zaleca się ściśle zgodna zasilania toohello okablowania schemat pokazano powitania po diagramu.
+    > Aby zapewnić wysoką dostępność dla systemu, firma Microsoft zaleca ściśle zgodna zasilania okablowania schemat pokazano na poniższym diagramie.
     > 
     > 
     

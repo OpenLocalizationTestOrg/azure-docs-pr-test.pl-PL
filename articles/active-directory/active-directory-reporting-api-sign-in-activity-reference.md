@@ -1,6 +1,6 @@
 ---
-title: "raport aktywności aaaAzure logowania usługi Active Directory dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dokumentacja dotycząca raport aktywności hello logowania w usłudze Azure Active Directory interfejsu API"
+title: "Raport aktywności logowania w usłudze Azure usługi Active Directory dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
+description: "Odwołanie do API raport aktywności logowania usługi Azure Active Directory"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,29 +15,29 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8123f308a291503f2c61ac5de26696806c6402ba
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d83f1a899ba38dab2c1c1661adede87db6f88c20
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Raport aktywności logowania w usłudze Azure usługi Active Directory dokumentacja interfejsu API
-Ten temat jest częścią zbiór tematów dotyczących usługi Azure Active Directory hello raportowania interfejsu API.  
-Raportowanie na platformie Azure AD zapewnia interfejs API, który umożliwia danych raportu działań logowania tooaccess przy użyciu kodu lub narzędzia pokrewne.
-Witaj zakres tego tematu jest tooprovide o informacje na temat hello **API raport aktywności logowania w**.
+Ten temat jest częścią zbiór tematów dotyczących usługi Azure Active Directory raportowania interfejsu API.  
+Raportowanie na platformie Azure AD zapewnia interfejs API, który umożliwia dostęp do danych raport aktywności logowania za pomocą kodu lub narzędzia pokrewne.
+Zakres tego tematu jest dostarczają informacje na temat **API raport aktywności logowania w**.
 
 Zobacz:
 
 * [Działania logowania](active-directory-reporting-azure-portal.md#activity-reports) Aby uzyskać więcej informacji o pojęciach
-* [Wprowadzenie do korzystania z usługi Azure Active Directory interfejsu API raportowania hello](active-directory-reporting-api-getting-started.md) uzyskać więcej informacji o hello raportowania interfejsu API.
+* [Wprowadzenie do usługi Azure Active Directory interfejsu API raportowania](active-directory-reporting-api-getting-started.md) Aby uzyskać więcej informacji na temat raportowania interfejsu API.
 
 
-## <a name="who-can-access-hello-api-data"></a>Kto ma dostęp do danych interfejsu API hello?
-* Użytkownicy i nazwy główne usług w roli administratora zabezpieczeń lub czytnika zabezpieczeń hello
+## <a name="who-can-access-the-api-data"></a>Kto ma dostęp do danych interfejsu API?
+* Użytkownicy i nazwy główne usług w roli administratora zabezpieczeń lub czytnika zabezpieczeń
 * Administratorzy globalni
-* Żadnych aplikacji, który ma API hello tooaccess autoryzacji (autoryzacji aplikacji można skonfigurować tylko na podstawie uprawnienia administratora globalnego)
+* Dowolną aplikację, która ma zezwolenie na dostęp do interfejsu API (autoryzacji aplikacji można skonfigurować tylko na podstawie uprawnienia administratora globalnego)
 
-tooconfigure dostępu dla aplikacji tooaccess zabezpieczeń interfejsów API takie jak rejestrowanie zdarzeń, użyj powitania po aplikacji hello tooadd programu PowerShell nazwę główną usługi do roli zabezpieczeń czytnika hello
+Konfigurowanie dostępu do interfejsów API zabezpieczeń, takich jak rejestrowanie zdarzeń dostępu aplikacji, należy użyć do dodawania aplikacji nazwy głównej usługi do roli zabezpieczeń czytnika następujące programu PowerShell
 
 ```PowerShell
 Connect-MsolService
@@ -47,54 +47,54 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ```
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Ten raport za pośrednictwem hello raportowania interfejsu API, musisz mieć tooaccess:
+Aby uzyskać dostęp do tego raportu za pomocą interfejsu API raportowania, musi być:
 
 * [Edition usługi Azure Active Directory Premium P1 lub P2](active-directory-editions.md)
-* Ukończono hello [interfejsu API raportowania hello Azure AD tooaccess wymagania wstępne](active-directory-reporting-api-prerequisites.md). 
+* Ukończono [wymagania wstępne dotyczące raportowania interfejsu API usługi Azure AD dostęp](active-directory-reporting-api-prerequisites.md). 
 
-## <a name="accessing-hello-api"></a>Uzyskiwanie dostępu do interfejsu API hello
-Ten interfejs API może albo dostęp za pośrednictwem hello [Explorer wykres](https://graphexplorer2.cloudapp.net) albo programowo z użyciem, na przykład środowiska PowerShell. W kolejności dla PowerShell toocorrectly zinterpretować składnia filtru OData hello używanym w wywołaniach REST Graph usługi AAD, należy użyć hello backtick (alias: akcent) znaków zbyt "" hello $ znak ucieczki. znak backtick Hello służy jako [znak ucieczki dla środowiska PowerShell](https://technet.microsoft.com/library/hh847755.aspx), umożliwiając PowerShell toodo literału Interpretacja znaku $ hello i uniknąć skomplikowana go jako nazwę zmiennej środowiska PowerShell (ie: $filter).
+## <a name="accessing-the-api"></a>Uzyskiwanie dostępu do interfejsu API
+Albo dostęp do tego interfejsu API za pomocą [Explorer wykres](https://graphexplorer2.cloudapp.net) albo programowo z użyciem, na przykład środowiska PowerShell. Aby PowerShell poprawnie interpretować składnia filtru OData używanym w wywołaniach AAD wykres REST, należy użyć backtick (alias: akcent) znaku "ucieczki" znaku $. Znak backtick służy jako [znak ucieczki dla środowiska PowerShell](https://technet.microsoft.com/library/hh847755.aspx), umożliwiając PowerShell literału interpretacja znak $, i uniknąć skomplikowana go jako nazwę zmiennej środowiska PowerShell (ie: $filter).
 
-Witaj w tym temacie koncentruje się na powitania Explorer wykresu. Na przykład środowiska PowerShell, zobacz [skrypt programu PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
+Ten temat koncentruje się w Eksploratorze wykresu. Na przykład środowiska PowerShell, zobacz [skrypt programu PowerShell](active-directory-reporting-api-sign-in-activity-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>Punkt końcowy interfejsu API
-Aby dostęp do tego interfejsu API przy użyciu powitania po podstawowy identyfikator URI:  
+Aby dostęp do tego interfejsu API przy użyciu następujących podstawowy identyfikator URI:  
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta  
 
 
 
-Powodu toohello ilość danych ten interfejs API ma limit milion zwróconych rekordów. 
+Ze względu na ilość danych ten interfejs API ma limit milion zwróconych rekordów. 
 
-To wywołanie zwraca dane hello w partiach. Każdej z partii może zawierać maksymalnie 1000 rekordów.  
-tooget hello następnej partii rekordów, użyj hello łącze do następnej. Pobierz hello [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) informacji z pierwszego zestawu hello zwróconych rekordów. token Pomiń Hello będzie na końcu hello hello zestawu wyników.  
+To wywołanie zwraca dane w partiach. Każdej z partii może zawierać maksymalnie 1000 rekordów.  
+Aby uzyskać kolejną partię rekordów, użyj łącze do następnej. Pobierz [skiptoken](https://msdn.microsoft.com/library/dd942121.aspx) informacji z pierwszego zestawu zwróconych rekordów. Pomiń token zostanie na końcu wynik ustawiona.  
 
     https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&%24skiptoken=-1339686058
 
 
 ## <a name="supported-filters"></a>Filtry obsługiwane
-Można zawęzić hello liczba rekordów, które są zwracane przez interfejs API wywołaj w formularzu filtru.  
-Dla interfejsu API logowania obsługiwane są powiązane dane, hello następujące filtry:
+Liczba rekordów, które są zwracane przez interfejs API można zawęzić wywołaj w formularzu filtru.  
+Dla interfejsu API logowania związane z danych, obsługiwane są następujące filtry:
 
-* **$top =\<zwracana liczba rekordów toobe\>**  -toolimit hello liczba zwróconych rekordów. Jest to kosztowna operacja. Nie należy używać tego filtru, jeśli chcesz tooreturn tysięcy obiektów.  
-* **$filter =\<instrukcji filtru\>**  -toospecify na podstawie hello pól filtr obsługiwanych, typu hello rekordów są dla Ciebie ważne
+* **$top =\<liczba rekordów, które ma zostać zwrócona\>**  — Aby ograniczyć liczbę zwróconych rekordów. Jest to kosztowna operacja. Nie należy używać tego filtru, aby zwrócić tysiące obiektów.  
+* **$filter =\<instrukcji filtru\>**  — Aby określić, na podstawie pól filtr obsługiwanych typu rekordów są dla Ciebie ważne
 
 ## <a name="supported-filter-fields-and-operators"></a>Operatory i pól filtr obsługiwane
-typu hello toospecify rekordy, które są dla Ciebie ważne, można utworzyć filtr instrukcję, która może zawierać jeden lub kombinację hello kolejnych pól Filtr:
+Aby określić typ rekordów, które są dla Ciebie ważne, można utworzyć filtr instrukcję, która może zawierać jeden lub kombinację następujących pól Filtr:
 
 * [signinDateTime](#signindatetime) — określa datę lub zakres dat
-* [Identyfikator userId](#userid) — definiuje określonego użytkownika na podstawie hello identyfikatora użytkownika.
-* [userPrincipalName](#userprincipalname) — definiuje użytkownika hello określonego użytkownika na podstawie nazwa główna użytkownika (UPN)
-* [Identyfikator appId](#appid) — definiuje identyfikator aplikacji hello specyficzne dla aplikacji na podstawie
-* [appDisplayName](#appdisplayname) — definiuje nazwę wyświetlaną aplikacji hello specyficzne dla aplikacji na podstawie
-* [stanu logowania](#loginStatus) — definiuje stan hello hello logowania (Powodzenie / błąd)
+* [Identyfikator userId](#userid) — definiuje określonego użytkownika na podstawie identyfikatora użytkownika.
+* [userPrincipalName](#userprincipalname) — definiuje określonego użytkownika na podstawie użytkownika nazwa główna użytkownika (UPN)
+* [Identyfikator appId](#appid) — definiuje określonej aplikacji na podstawie Identyfikatora aplikacji
+* [appDisplayName](#appdisplayname) — definiuje określonej aplikacji na podstawie nazwy wyświetlanej aplikacji
+* [stanu logowania](#loginStatus) — definiuje stan logowania (Powodzenie / błąd)
 
 > [!NOTE]
-> Podczas używania Eksploratora wykresu, możesz hello muszą hello toouse poprawne, że w przypadku każdej litery jest pól filtr.
+> Podczas używania Eksploratora wykresu, trzeba mieć poprawną wielkość dla każdej litery jest pól filtr.
 > 
 > 
 
-toonarrow dół hello zakres hello zwrócił dane, można utworzyć kombinacje hello obsługiwane filtry i pola filtru. Na przykład hello następująca instrukcja rekordy hello top 10 między 1 lipca 2016 i lipca 2016 6:
+Aby zawęzić zakres zwrócone dane, można tworzyć kombinacje obsługiwanych filtry i pola filtru. Na przykład następująca instrukcja zwraca górny 10 rekordów między 1 lipca 2016 i lipca 2016 6.:
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 
@@ -118,7 +118,7 @@ Przy użyciu zakresu dat
 
 **Uwagi dotyczące**:
 
-Parametr typu datetime Hello powinien być w formacie UTC hello 
+Parametr daty/godziny, powinna być w formacie UTC 
 
 - - -
 ### <a name="userid"></a>Nazwa użytkownika
@@ -130,7 +130,7 @@ Parametr typu datetime Hello powinien być w formacie UTC hello
 
 **Uwagi dotyczące**:
 
-wartość ciągu jest Hello wartość identyfikatora userId
+Wartość Nazwa użytkownika jest wartość ciągu
 
 - - -
 ### <a name="userprincipalname"></a>userPrincipalName
@@ -143,7 +143,7 @@ wartość ciągu jest Hello wartość identyfikatora userId
 
 **Uwagi dotyczące**:
 
-wartość Hello userPrincipalName jest wartość ciągu
+Wartość userPrincipalName jest wartość ciągu
 
 - - -
 ### <a name="appid"></a>Identyfikator aplikacji
@@ -157,7 +157,7 @@ wartość Hello userPrincipalName jest wartość ciągu
 
 **Uwagi dotyczące**:
 
-wartość Hello identyfikator appId jest wartość ciągu
+Wartość Identyfikator appId jest wartość ciągu
 
 - - -
 ### <a name="appdisplayname"></a>appDisplayName
@@ -170,7 +170,7 @@ wartość Hello identyfikator appId jest wartość ciągu
 
 **Uwagi dotyczące**:
 
-wartość Hello appDisplayName jest wartość ciągu
+Wartość ciągu jest wartością appDisplayName
 
 - - -
 ### <a name="loginstatus"></a>stanu logowania
@@ -183,10 +183,10 @@ wartość Hello appDisplayName jest wartość ciągu
 
 **Uwagi dotyczące**:
 
-Dostępne są dwie opcje dla stanu logowania hello: 0 - Sukces, 1 — błąd
+Dostępne są dwie opcje dla stanu logowania: 0 - Sukces, 1 — błąd
 
 - - -
 ## <a name="next-steps"></a>Następne kroki
-* Czy chcesz przykłady toosee filtrowane działań logowania? Zapoznaj się z hello [przykłady raportu interfejsu API działania usługi Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
-* Czy chcesz, aby tooknow więcej informacji na temat interfejsu API raportowania hello Azure AD? Zobacz [wprowadzenie hello Azure Active Directory interfejsu API raportowania](active-directory-reporting-api-getting-started.md).
+* Czy chcesz wyświetlić przykłady filtrowane działań logowania? Zapoznaj się z [przykłady raportu interfejsu API działania usługi Azure Active Directory](active-directory-reporting-api-sign-in-activity-samples.md).
+* Czy chcesz dowiedzieć się więcej na temat raportowania interfejsu API usługi Azure AD? Zobacz [wprowadzenie do usługi Azure Active Directory interfejsu API raportowania](active-directory-reporting-api-getting-started.md).
 

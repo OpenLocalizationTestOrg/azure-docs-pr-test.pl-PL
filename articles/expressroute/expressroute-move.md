@@ -1,6 +1,6 @@
 ---
-title: "obwody usługi ExpressRoute aaaMoving z klasycznym tooResource Menedżera | Dokumentacja firmy Microsoft"
-description: "Ta strona zawiera omówienie potrzebnych tooknow o mostkowanie hello klasycznego i modeli wdrażania, hello Menedżera zasobów."
+title: "Przenoszenie obwodów usługi ExpressRoute z modelu klasycznego do usługi Resource Manager | Microsoft Docs"
+description: "Ta strona zawiera niezbędne informacje dotyczące łączenia modeli wdrażania klasycznego i usługi Resource Manager."
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -14,94 +14,94 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: c901d2cda01aec409b528d29fc937ac6afaea511
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="moving-expressroute-circuits-from-hello-classic-toohello-resource-manager-deployment-model"></a>Przenoszenie obwody usługi ExpressRoute z hello toohello klasycznego modelu wdrażania usługi Resource Manager
-Ten artykuł zawiera omówienie to toomove obwodu Azure ExpressRoute z hello toohello klasycznego modelu wdrażania usługi Azure Resource Manager.
+# <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Przenoszenie obwodów usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager | Microsoft Azure
+W tym artykule wyjaśniono przenoszenie obwodu usługi Azure ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Azure Resource Manager.
 
-Można użyć jednego ExpressRoute obwodu tooconnect toovirtual sieci, które są wdrożone zarówno w klasycznym hello i modeli wdrażania usługi Resource Manager hello. Obwodu usługi ExpressRoute, niezależnie od tego, jak został utworzony, można teraz połączyć sieci toovirtual w obu modelach wdrażania.
+Można użyć jednego obwodu usługi ExpressRoute do łączenia się z sieciami wirtualnymi, które są wdrażane zarówno w klasycznym modelu wdrażania, jak i w modelu wdrażania usługi Resource Manager. Obwód usługi ExpressRoute, niezależnie od tego, w jaki sposób jest tworzony, może teraz połączyć się z sieciami wirtualnymi w obu modelach wdrażania.
 
-![Obwodu usługi ExpressRoute, który stanowi łącze sieci toovirtual w obu modelach wdrażania](./media/expressroute-move/expressroute-move-1.png)
+![Obwód usługi ExpressRoute, który łączy się z sieciami wirtualnymi w obu modelach wdrażania](./media/expressroute-move/expressroute-move-1.png)
 
-## <a name="expressroute-circuits-that-are-created-in-hello-classic-deployment-model"></a>Obwody usługi ExpressRoute, które są tworzone w hello klasycznego modelu wdrażania
-Obwody usługi ExpressRoute, które są tworzone w hello klasycznego modelu wdrażania należy toobe przenieść toohello Menedżera zasobów wdrażania modelu pierwszy tooenable łączności tooboth hello classic i hello Resource Manager modele wdrażania. W przypadku przenoszenia połączenia łączność nie zostaje utracona ani zakłócona. Wszystkich łączy sieciowych obwodu to-virtual w hello klasycznego modelu wdrażania (poziomu hello sam subskrypcji i między subskrypcjami) zostaną zachowane.
+## <a name="expressroute-circuits-that-are-created-in-the-classic-deployment-model"></a>Obwody usługi ExpressRoute tworzone w klasycznym modelu wdrażania
+Obwody usługi ExpressRoute tworzone w klasycznym modelu wdrażania trzeba najpierw przenieść do modelu wdrażania usługi Resource Manager, aby włączyć łączność zarówno z klasycznym modelem wdrażania, jak i modelem wdrażania usługi Resource Manager. W przypadku przenoszenia połączenia łączność nie zostaje utracona ani zakłócona. Wszystkie linki sieciowe typu obwód-sieć wirtualna w klasycznym modelu wdrażania (w ramach tej samej subskrypcji lub wielu subskrypcji) są zachowywane.
 
-Po przeniesienie hello jest ukończone pomyślnie, hello obwodu ExpressRoute wyszukuje, wykonuje i dokładnie wydaje się wymagać obwodu usługi ExpressRoute, który został utworzony w modelu wdrażania usługi Resource Manager hello. Można teraz utworzyć połączenia toovirtual sieci w modelu wdrażania usługi Resource Manager hello.
+Po pomyślnym ukończeniu przeniesienia obwód usługi ExpressRoute wygląda i działa tak samo jak obwód usługi ExpressRoute utworzony w modelu wdrażania usługi Resource Manager. Możesz teraz tworzyć połączenia z sieciami wirtualnymi w modelu wdrażania usługi Resource Manager.
 
-Po obwodu usługi ExpressRoute modelu wdrażania usługi Resource Manager toohello przeniesiony, można zarządzać cyklu życia hello hello obwodu ExpressRoute tylko przy użyciu modelu wdrażania usługi Resource Manager hello. Oznacza to, czy można wykonać operacje, takie jak dodawanie/aktualizowania/usuwania komunikacji równorzędnych aktualizowania właściwości obwodu (na przykład przepustowość, jednostki SKU i rozliczeń typ) i usuwania obwodów tylko w modelu wdrażania usługi Resource Manager hello. Zobacz poniższą sekcję toohello w instalacjach, które są tworzone w modelu wdrażania usługi Resource Manager hello więcej szczegółowych informacji dotyczących sposobu zarządzania modelami wdrażania tooboth dostępu.
+Po przeniesieniu obwodu usługi ExpressRoute do modelu wdrażania usługi Resource Manager możesz zarządzać cyklem życiowym obwodu tylko używając modelu wdrażania usługi Resource Manager. Oznacza to, że takie operacje jak dodawanie/aktualizowanie/usuwanie komunikacji równorzędnej, aktualizowanie właściwości obwodu (np. przepustowości, jednostki SKU i typu rozliczeń) oraz usuwanie obwodów można wykonać tylko w modelu wdrażania usługi Resource Manager.  W poniższej sekcji dotyczącej obwodów tworzonych w modelu wdrażania usługi Resource Manager znajduje się więcej szczegółów na temat zarządzania dostępem do obu modeli wdrażania.
 
-Nie masz tooinvolve przenieść Twojej hello tooperform dostawcy łączności.
+Przenoszenie nie wymaga udziału dostawcy połączenia.
 
-## <a name="expressroute-circuits-that-are-created-in-hello-resource-manager-deployment-model"></a>Obwody usługi ExpressRoute, które są tworzone w modelu wdrażania usługi Resource Manager hello
-Można włączyć obwody usługi ExpressRoute, które są tworzone w toobe modelu wdrażania usługi Resource Manager hello dostępny z obu modeli wdrażania. Wszelkie obwodu usługi expressroute w ramach subskrypcji może być włączone toobe dostępny z obu modeli wdrażania.
+## <a name="expressroute-circuits-that-are-created-in-the-resource-manager-deployment-model"></a>Obwody usługi ExpressRoute tworzone w modelu wdrażania usługi Resource Manager
+Można włączyć ustawienie obwodów usługi ExpressRoute tworzonych w modelu wdrażania usługi Resource Manager, które spowoduje, że będą one dostępne w obu modelach wdrażania. W dowolnym obwodzie usługi ExpressRoute w ramach subskrypcji można włączyć dostęp z obu modeli wdrażania.
 
-* Obwody usługi ExpressRoute, które zostały utworzone w modelu wdrażania usługi Resource Manager hello nie mają domyślnie dostęp toohello klasycznego modelu wdrażania.
-* Obwody usługi ExpressRoute, które zostały przeniesione z modelu wdrażania Menedżera zasobów toohello hello wdrażania klasycznego modelu jest dostępny z obu modeli wdrażania, domyślnie.
-* Obwodu usługi ExpressRoute ma zawsze dostęp toohello modelu wdrażania Resource Manager, niezależnie od tego, czy został utworzony w hello Resource Manager lub w klasycznym modelu wdrażania. Oznacza to, które można utworzyć połączenia sieci toovirtual utworzone w hello modelu wdrażania usługi Resource Manager przez następujące instrukcje na [jak sieci wirtualnych toolink](expressroute-howto-linkvnet-arm.md).
-* Dostęp toohello klasycznego modelu wdrażania jest kontrolowany przez hello **allowClassicOperations** parametru w hello obwodu usługi expressroute.
+* Obwody usługi ExpressRoute utworzone w modelu wdrażania usługi Resource Manager domyślnie nie mają dostępu do klasycznego modelu wdrażania.
+* Obwody usługi ExpressRoute przeniesione z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager są domyślnie dostępne z obu modeli wdrażania.
+* Obwód usługi ExpressRoute ma zawsze dostęp do modelu wdrażania usługi Resource Manager, niezależnie od tego, czy został utworzony w usłudze Resource Manager czy klasycznym modelu wdrażania. Oznacza to, że można utworzyć połączenia z sieciami wirtualnymi utworzonymi w modelu wdrażania usługi Resource Manager przez wykonanie instrukcji poniżej dotyczących [sposobu łączenia sieci wirtualnych](expressroute-howto-linkvnet-arm.md).
+* Dostęp do klasycznego modelu wdrażania jest kontrolowany przy użyciu parametru **allowClassicOperations** w obwodzie usługi ExpressRoute.
 
 > [!IMPORTANT]
-> Wszystkie przydziałów, które są opisane w hello [usługi limity](../azure-subscription-service-limits.md) zastosować strony. Na przykład standardowe obwodu może mieć maksymalnie 10 sieci wirtualnej łącza/połączeń na powitania klasycznego i w modelach wdrażania usługi Resource Manager hello.
+> Wszystkie przydziały udokumentowane na stronie [limitów usług](../azure-subscription-service-limits.md) obowiązują. Na przykład standardowy obwód może obejmować najwyżej 10 linków/połączeń sieci wirtualnej — zarówno w klasycznym modelu wdrażania, jak i w modelu wdrażania usługi Resource Manager.
 > 
 > 
 
-## <a name="controlling-access-toohello-classic-deployment-model"></a>Kontrolowanie dostępu toohello klasycznego modelu wdrażania
-Można włączyć pojedynczego ExpressRoute obwodu toolink toovirtual sieci w obu modelach wdrażania przez ustawienie hello **allowClassicOperations** parametru hello obwodu usługi expressroute.
+## <a name="controlling-access-to-the-classic-deployment-model"></a>Kontrolowanie dostępu do klasycznego modelu wdrażania
+Można włączyć łączenie pojedynczego obwodu usługi ExpressRoute z sieciami wirtualnymi w obu modelach wdrażania przez ustawienie parametru **allowClassicOperations** obwodu.
 
-Ustawienie **allowClassicOperations** tooTRUE umożliwia toolink sieci wirtualne od obu toohello modeli wdrażania obwodu usługi expressroute. Możesz połączyć sieci toovirtual w hello klasycznego modelu wdrażania przez następujące wskazówki na [jak toolink sieci wirtualne w hello klasycznego modelu wdrażania](expressroute-howto-linkvnet-classic.md). Możesz połączyć sieci toovirtual w modelu wdrażania usługi Resource Manager hello według poniższych wskazówek na [jak toolink sieci wirtualne w hello modelu wdrażania usługi Resource Manager](expressroute-howto-linkvnet-arm.md).
+Ustawienie parametru **allowClassicOperations** na wartość PRAWDA umożliwia połączenie sieci wirtualnych z obu modeli wdrażania z obwodem usługi ExpressRoute. Można połączyć się z sieciami wirtualnymi w klasycznym modelu wdrażania, wykonując instrukcje dotyczące [sposobu łączenia sieci wirtualnych w klasycznym modelu wdrażania](expressroute-howto-linkvnet-classic.md). Można połączyć się z sieciami wirtualnymi w klasycznym modelu wdrażania usługi Resource Manager, wykonując instrukcje dotyczące [sposobu łączenia sieci wirtualnych w modelu wdrażania usługi Resource Manager](expressroute-howto-linkvnet-arm.md).
 
-Ustawienie **allowClassicOperations** tooFALSE zablokuje dostęp obwodu toohello z hello klasycznego modelu wdrażania. Jednak wszystkie linki sieci wirtualnej w hello klasycznego modelu wdrażania są zachowywane. W takim przypadku hello obwodu usługi expressroute nie jest widoczne w hello klasycznego modelu wdrażania.
+Ustawienie parametru **allowClassicOperations** na wartość FAŁSZ blokuje dostęp do obwodu z klasycznego modelu wdrażania. Jednak wszystkie linki sieci wirtualnej w klasycznym modelu wdrażania zostają zachowane. W takim przypadku obwód usługi ExpressRoute nie jest widoczny w klasycznym modelu wdrażania.
 
-## <a name="supported-operations-in-hello-classic-deployment-model"></a>Obsługiwane operacje w hello klasycznego modelu wdrażania
-następujące operacje klasycznego Hello są obsługiwane w ExpressRoute circuit kiedy **allowClassicOperations** ustawiono tooTRUE:
+## <a name="supported-operations-in-the-classic-deployment-model"></a>Operacje obsługiwane w klasycznym modelu wdrażania
+Poniższe operacje klasyczne są obsługiwane w obwodzie usługi ExpressRoute, gdy parametr **allowClassicOperations** jest ustawiony na wartość PRAWDA:
 
 * Uzyskanie informacji na temat obwodu usługi ExpressRoute
-* Sieć wirtualna tworzenia/aktualizacji/get/usuwania łączy tooclassic sieci wirtualnych
+* Tworzenie/aktualizowanie/pobieranie/usuwanie linków sieci wirtualnej do klasycznych sieci wirtualnych
 * Tworzenie/aktualizowanie/pobieranie/usuwanie autoryzacji linków sieci wirtualnej względem łączności obejmującej wiele subskrypcji
 
-Nie można wykonać następujące operacje klasycznego hello podczas **allowClassicOperations** ustawiono tooTRUE:
+Nie można wykonać poniższych operacji klasycznych, jeśli parametr **allowClassicOperations** jest ustawiony na wartość PRAWDA:
 
 * Tworzenie/aktualizowanie/pobieranie/usuwanie komunikacji równorzędnej protokołu BGP dla komunikacji równorzędnej prywatnej i publicznej Azure oraz Microsoft
 * Usuwanie obwodów usługi ExpressRoute
 
-## <a name="communication-between-hello-classic-and-hello-resource-manager-deployment-models"></a>Komunikacja między hello klasycznego i modeli wdrażania usługi Resource Manager hello
-Witaj obwodu ExpressRoute działa jak mostka między hello klasycznego i modeli wdrażania usługi Resource Manager hello. Ruch między jak w sieciach wirtualnych w hello klasycznego modelu wdrażania i te w sieciach wirtualnych hello Resource Manager deployment modelu przepływów za pośrednictwem usługi ExpressRoute, jeśli obie sieci wirtualne są połączone toohello tego samego obwodu usługi expressroute.
+## <a name="communication-between-the-classic-and-the-resource-manager-deployment-models"></a>Komunikacja między klasycznym modelem wdrażania i modelem wdrażania usługi Resource Manager
+Obwód usługi ExpressRoute zachowuje się jak most między klasycznym modelem wdrażania a modelem wdrażania usługi Resource Manager. Ruch między maszynami wirtualnymi w sieciach wirtualnych w klasycznym modelu wdrażania oraz tymi w sieciach wirtualnych w modelu wdrażania usługi Resource Manager odbywa się za pośrednictwem usługi ExpressRoute, jeśli obie sieci wirtualne są połączone z tym samym obwodem usługi ExpressRoute.
 
-Łącznej przepływności jest ograniczone przez pojemność przepływności hello hello bramy sieci wirtualnej. Ruch nie wprowadzać w takich przypadkach hello łączności dostawcy sieci lub sieci. Przepływ ruchu między sieciami wirtualnymi hello pełni znajduje się w sieci firmy Microsoft hello.
+Zagregowana przepływność jest ograniczona przez przepływność bramy sieci wirtualnej. W takich przypadkach ruch nie wchodzi do sieci dostawcy połączenia ani sieci użytkownika. Przepływ ruchu między sieciami wirtualnymi jest całkowicie ograniczony do sieci firmy Microsoft.
 
-## <a name="access-tooazure-public-and-microsoft-peering-resources"></a>Publiczna tooAzure dostępu i zasoby komunikacji równorzędnej firmy Microsoft
-Można kontynuować tooaccess zasobów, które są zazwyczaj dostępne za pośrednictwem usługi Azure publicznej komunikacji równorzędnej i komunikacji równorzędnej firmy Microsoft bez zakłóceń.  
+## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Dostęp do publicznych zasobów Azure i firmy Microsoft komunikacji równorzędnej
+Możesz dalej bez żadnych zakłóceń uzyskiwać dostęp do zasobów, które są zwykle dostępne za pośrednictwem publicznej komunikacji równorzędnej Azure i komunikacji równorzędnej Microsoft.  
 
 ## <a name="whats-supported"></a>Jakie operacje są obsługiwane
 W tej sekcji opisano, jakie operacje są obsługiwane dla obwodów usługi ExpressRoute:
 
-* Można użyć jednego ExpressRoute obwodu tooaccess sieci wirtualne, które są wdrażane w klasycznym hello i modeli wdrażania usługi Resource Manager hello.
-* Można przenieść obwodu usługi ExpressRoute z hello toohello klasycznego modelu wdrażania usługi Resource Manager. Po przeniesieniu, hello obwodu ExpressRoute wygląda tak i działa jak inne utworzone w modelu wdrażania usługi Resource Manager hello obwodu ExpressRoute.
-* Można przenieść tylko hello obwodu ExpressRoute. Za pomocą tej operacji nie można przenieść linków obwodu, sieci wirtualnych ani bram sieci VPN.
-* Po obwodu usługi ExpressRoute modelu wdrażania usługi Resource Manager toohello przeniesiony, można zarządzać cyklu życia hello hello obwodu ExpressRoute tylko przy użyciu modelu wdrażania usługi Resource Manager hello. Oznacza to, czy można wykonać operacje, takie jak dodawanie/aktualizowania/usuwania komunikacji równorzędnych aktualizowania właściwości obwodu (na przykład przepustowość, jednostki SKU i rozliczeń typ) i usuwania obwodów tylko w modelu wdrażania usługi Resource Manager hello.
-* Witaj obwodu ExpressRoute działa jak mostka między hello klasycznego i modeli wdrażania usługi Resource Manager hello. Ruch między jak w sieciach wirtualnych w hello klasycznego modelu wdrażania i te w sieciach wirtualnych hello Resource Manager deployment modelu przepływów za pośrednictwem usługi ExpressRoute, jeśli obie sieci wirtualne są połączone toohello tego samego obwodu usługi expressroute.
-* Łącznością między subskrypcjami jest obsługiwane w klasycznym hello i modeli wdrażania usługi Resource Manager hello.
-* Po przeniesieniu obwodu usługi ExpressRoute z modelu usługi Azure Resource Manager toohello modelu klasycznego hello można [migracji hello sieci wirtualnych połączonych toohello obwodu ExpressRoute](expressroute-migration-classic-resource-manager.md).
+* Można używać jednego obwodu usługi ExpressRoute do uzyskiwania dostępu do sieci wirtualnych wdrożonych zarówno w klasycznym modelu wdrażania, jak i w modelu wdrażania usługi Resource Manager.
+* Można przenieść obwód usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager. Po przeniesieniu obwód usługi ExpressRoute wygląda i działa tak samo jak obwód usługi ExpressRoute utworzony w modelu wdrażania usługi Resource Manager.
+* Można przenieść tylko obwód usługi ExpressRoute. Za pomocą tej operacji nie można przenieść linków obwodu, sieci wirtualnych ani bram sieci VPN.
+* Po przeniesieniu obwodu usługi ExpressRoute do modelu wdrażania usługi Resource Manager możesz zarządzać cyklem życiowym obwodu tylko używając modelu wdrażania usługi Resource Manager. Oznacza to, że takie operacje jak dodawanie/aktualizowanie/usuwanie komunikacji równorzędnej, aktualizowanie właściwości obwodu (np. przepustowości, jednostki SKU i typu rozliczeń) oraz usuwanie obwodów można wykonać tylko w modelu wdrażania usługi Resource Manager. 
+* Obwód usługi ExpressRoute zachowuje się jak most między klasycznym modelem wdrażania a modelem wdrażania usługi Resource Manager. Ruch między maszynami wirtualnymi w sieciach wirtualnych w klasycznym modelu wdrażania oraz tymi w sieciach wirtualnych w modelu wdrażania usługi Resource Manager odbywa się za pośrednictwem usługi ExpressRoute, jeśli obie sieci wirtualne są połączone z tym samym obwodem usługi ExpressRoute.
+* Łączność obejmująca wiele subskrypcji jest obsługiwana zarówno w klasycznym modelu wdrażania, jak i w modelu wdrażania usługi Resource Manager.
+* Po przeniesieniu obwodu usługi ExpressRoute z modelu klasycznego do modelu usługi Azure Resource Manager możesz [migrować sieci wirtualne połączone z obwodem usługi ExpressRoute](expressroute-migration-classic-resource-manager.md).
 
 ## <a name="whats-not-supported"></a>Jakie operacje nie są obsługiwane
 W tej sekcji opisano, jakie operacje nie są obsługiwane dla obwodów usługi ExpressRoute:
 
-* Zarządzanie cyklem życia hello obwodu usługi ExpressRoute z hello klasycznego modelu wdrażania.
-* Oparta na rolach kontroli dostępu (RBAC) obsługę hello klasycznego modelu wdrażania. Nie można wykonać obwodu tooa kontroli RBAC w hello klasycznego modelu wdrażania. Wszelkie administratora/coadministrator hello subskrypcji można połączyć lub odłącz obwodu toohello sieci wirtualnych.
+* Zarządzanie cyklem życia obwodu usługi ExpressRoute z klasycznego modelu wdrażania.
+* Obsługa kontroli dostępu opartej na rolach (RBAC) dla klasycznego modelu wdrażania. W klasycznym modelu wdrażania nie można wykonywać kontrolek RBAC do obwodu. Dowolny administrator/współadministrator subskrypcji może połączyć sieci wirtualne z obwodem lub je od niego odłączyć.
 
-## <a name="configuration"></a>Konfiguracja
-Postępuj zgodnie z instrukcjami hello, które zostały opisane w [przenieść obwodu usługi ExpressRoute z modelu wdrażania Menedżera zasobów klasycznych toohello hello](expressroute-howto-move-arm.md).
+## <a name="configuration"></a>Konfigurowanie
+Wykonaj instrukcje opisane w artykule [Move an ExpressRoute circuit from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md) (Przenoszenie obwodu usługi ExpressRoute z klasycznego modelu wdrażania do modelu wdrażania usługi Resource Manager).
 
 ## <a name="next-steps"></a>Następne kroki
-* [Migracji hello sieci wirtualnych połączonych toohello obwodu usługi expressroute z hello klasycznego modelu toohello usługi Azure Resource Manager modelu](expressroute-migration-classic-resource-manager.md)
+* [Migrowanie sieci wirtualnych połączonych z obwodem usługi ExpressRoute z modelu klasycznego do modelu usługi Azure Resource Manager](expressroute-migration-classic-resource-manager.md)
 * Informacje o przepływach pracy można znaleźć w artykule [ExpressRoute circuit provisioning workflows and circuit states](expressroute-workflows.md) (Przepływy pracy inicjowania obsługi obwodu i stany obwodu usługi ExpressRoute).
-* tooconfigure połączenia ExpressRoute:
+* Konfigurowanie połączenia usługi ExpressRoute:
   
-  * [Tworzenie obwodu usługi ExpressRoute](expressroute-howto-circuit-arm.md)
+  * [Create an ExpressRoute circuit (Tworzenie obwodu usługi ExpressRoute)](expressroute-howto-circuit-arm.md)
   * [Configure routing (Konfigurowanie routingu)](expressroute-howto-routing-arm.md)
-  * [Link sieci wirtualnej tooan obwodu usługi expressroute](expressroute-howto-linkvnet-arm.md)
+  * [Link a virtual network to an ExpressRoute circuit (Łączenie sieci wirtualnej z obwodem usługi ExpressRoute)](expressroute-howto-linkvnet-arm.md)
 

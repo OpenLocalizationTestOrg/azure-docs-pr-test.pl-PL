@@ -1,9 +1,9 @@
 ---
-title: "Moduł równoważenia - obciążenia aaaCreate internetowy, wiersza polecenia platformy Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate Internet równoważenia obciążenia w Menedżerze zasobów przy użyciu hello wiersza polecenia platformy Azure"
+title: "Tworzenie modułu równoważenia obciążenia dostępnego z Internetu — interfejs wiersza polecenia platformy Azure | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w usłudze Resource Manager za pomocą interfejsu wiersza polecenia Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: cadb5edb3b4a4e2f0813109d027eaafdc7ef7303
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="creating-an-internet-load-balancer-using-hello-azure-cli"></a>Tworzenie usługi równoważenia obciążenia internet przy użyciu hello wiersza polecenia platformy Azure
+# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Tworzenie internetowego modułu równoważenia obciążenia za pomocą interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
@@ -29,32 +29,35 @@ ms.lasthandoff: 10/06/2017
 > * [Interfejs wiersza polecenia platformy Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Szablon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-W tym artykule omówiono modelu wdrażania usługi Resource Manager hello. Możesz również [Dowiedz się, jak usługa równoważenia przy użyciu klasycznego wdrożenia obciążenia toocreate umożliwiających dostęp z Internetu](load-balancer-get-started-internet-classic-portal.md)
+W tym artykule opisano model wdrażania usługi Resource Manager. Możesz też zapoznać się z artykułem na temat [tworzenia modułu równoważenia obciążenia dostępnego z Internetu przy użyciu wdrażania klasycznego](load-balancer-get-started-internet-classic-portal.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="deploying-hello-solution-using-hello-azure-cli"></a>Wdrażanie rozwiązania hello przy użyciu hello wiersza polecenia platformy Azure
+## <a name="deploying-the-solution-using-the-azure-cli"></a>Wdrażanie rozwiązania za pomocą interfejsu wiersza polecenia Azure
 
-Witaj następujące kroki pokazują, jak toocreate Internetem obciążenia przy użyciu usługi Azure Resource Manager z interfejsu wiersza polecenia usługi równoważenia. Z usługi Azure Resource Manager wszystkie zasoby, zostało utworzone i skonfigurowane osobno, następnie opracować toocreate zasobu.
+W poniższych krokach opisano, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia przy użyciu usługi Azure Resource Manager z interfejsem wiersza polecenia. Usługa Azure Resource Manager pozwala tworzyć i konfigurować każdy zasób osobno, a następnie łączyć je ze sobą w jeden zasób.
 
-Należy utworzyć i skonfigurować hello następujące obiekty toodeploy modułu równoważenia obciążenia:
+Aby wdrożyć moduł równoważenia obciążenia, należy utworzyć i skonfigurować poniższe obiekty:
 
 * Konfiguracja IP frontonu — publiczne adresy IP dla przychodzącego ruchu sieciowego.
-* Pula adresów zaplecza — zawiera interfejsów sieciowych (NIC) dla ruchu sieciowego tooreceive hello maszyn wirtualnych z hello modułu równoważenia obciążenia.
-* Reguły równoważenia obciążenia — zawiera reguły mapowania port publiczny na tooport usługi równoważenia obciążenia hello hello puli adresów zaplecza.
-* Reguły NAT dla ruchu przychodzącego — zawiera reguły mapowania port publiczny na porcie programu tooa usługi równoważenia obciążenia w hello dla określonej maszyny wirtualnej w puli adresów zaplecza hello.
-* Sondy — zawiera dostępności toocheck badania używane kondycji wystąpień maszyn wirtualnych w puli adresów zaplecza hello.
+* Pula adresów zaplecza — interfejsy sieciowe (NIC) maszyn wirtualnych odbierających ruch sieciowy z modułu równoważenia obciążenia.
+* Reguły równoważenia obciążenia — reguły mapowania portu publicznego modułu równoważenia obciążenia na port w puli adresów zaplecza.
+* Reguły NAT ruchu przychodzącego — reguły mapowania portu publicznego modułu równoważenia obciążenia na port określonej maszyny wirtualnej w puli adresów zaplecza.
+* Sondy — sondy kondycji używane do sprawdzania dostępności wystąpień maszyn wirtualnych w puli adresów zaplecza.
 
 Aby uzyskać więcej informacji, zobacz artykuł [Azure Resource Manager support for Load Balancer](load-balancer-arm.md) (Obsługa usługi Azure Resource Manager dla modułu równoważenia obciążenia).
 
-## <a name="set-up-cli-toouse-resource-manager"></a>Konfigurowanie toouse interfejsu wiersza polecenia Menedżera zasobów
+## <a name="set-up-cli-to-use-resource-manager"></a>Konfigurowanie interfejsu wiersza polecenia w celu użycia usługi Resource Manager
 
-1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz [Instalowanie i Konfigurowanie interfejsu wiersza polecenia Azure hello](../cli-install-nodejs.md) i wykonaj instrukcje hello zapasowej punktu toohello, gdzie należy wybrać konto platformy Azure i subskrypcji.
-2. Uruchom hello **trybie azure config** tooswitch tooResource menedżera trybu poleceń, jak pokazano poniżej.
+1. Jeśli po raz pierwszy używasz interfejsu wiersza polecenia Azure, zobacz artykuł [Instalowanie i konfigurowania interfejsu wiersza polecenia Azure](../cli-install-nodejs.md) i postępuj zgodnie z instrukcjami aż do punktu, w którym należy wybrać konto platformy Azure i subskrypcję.
+2. Uruchom polecenie **azure config mode**, aby włączyć tryb Resource Manager, jak pokazano poniżej.
 
     ```azurecli
         azure config mode arm
@@ -64,9 +67,9 @@ Aby uzyskać więcej informacji, zobacz artykuł [Azure Resource Manager support
 
         info:    New mode is arm
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-hello-front-end-ip-pool"></a>Tworzenie sieci wirtualnej i publiczny adres IP dla puli adresów IP frontonu hello
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Tworzenie sieci wirtualnej oraz publicznego adresu IP dla puli adresów IP frontonu
 
-1. Utwórz sieć wirtualną (VNet) o nazwie *NRPVnet* w lokalizacji wschodnie stany USA hello za pomocą grupy zasobów o nazwie *NRPRG*.
+1. Utwórz sieć wirtualną (VNet) o nazwie *NRPVnet* w lokalizacji Wschodnie stany USA za pomocą grupy zasobów o nazwie *NRPRG*.
 
     ```azurecli
         azure network vnet create NRPRG NRPVnet eastUS -a 10.0.0.0/16
@@ -78,34 +81,34 @@ Aby uzyskać więcej informacji, zobacz artykuł [Azure Resource Manager support
         azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
     ```
 
-2. Utwórz publiczny adres IP o nazwie *NRPPublicIP* toobe używane przez pulę IP frontonu z nazwą DNS *loadbalancernrp.eastus.cloudapp.azure.com*. poniższe polecenie hello używa hello alokacji statycznych typu i limit czasu bezczynności 4 minut.
+2. Utwórz publiczny adres IP o nazwie *NRPPublicIP*, który będzie używany przez pulę adresów IP frontonu z serwerem DNS o nazwie *loadbalancernrp.eastus.cloudapp.azure.com*. Poniższe polecenie wykorzystuje alokację typu statycznego i limit czasu bezczynności trwający 4 min.
 
     ```azurecli
         azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
     ```
 
    > [!IMPORTANT]
-   > usługi równoważenia obciążenia Hello użyje hello etykieta domeny publicznego adresu IP hello jako nazwy FQDN. Ta zmiana wdrożenie klasyczne, używa usługi w chmurze hello hello równoważenia obciążenia w pełni kwalifikowanej domeny nazwę (FQDN).
-   > W tym przykładzie hello nazwy FQDN jest *loadbalancernrp.eastus.cloudapp.azure.com*.
+   > Moduł równoważenia obciążenia używa etykiety domeny publicznego adresu IP jako nazwy FQDN. Różni się to od wdrożenia klasycznego, które wykorzystuje usługę w chmurze jako nazwę FQDN (Fully Qualified Domain Name) modułu równoważenia obciążenia.
+   > W tym przykładzie FQDN to *loadbalancernrp.eastus.cloudapp.azure.com*.
 
 ## <a name="create-a-load-balancer"></a>Tworzenie modułu równoważenia obciążenia
 
-Witaj poniższe polecenie tworzy moduł równoważenia obciążenia o nazwie *NRPlb* w hello *NRPRG* grupy zasobów w hello *wschodnie stany USA* lokalizacji platformy Azure.
+Następujące polecenie spowoduje utworzenie modułu równoważenia obciążenia o nazwie *NRPlb* w grupie zasobów *NRPRG* w lokalizacji Azure *Wschodnie stany USA*.
 
     ```azurecli
     azure network lb create NRPRG NRPlb eastus
     ```
 
 ## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Tworzenie puli adresów IP frontonu i puli adresów zaplecza
-W tym przykładzie pokazano, jak toocreate hello frontonu puli adresów IP odbierająca hello przychodzącego ruchu sieciowego na powitania modułu równoważenia obciążenia i hello puli adresów IP zaplecza, gdzie puli frontonu hello wysyła ruch sieciowy hello ze zrównoważonym obciążeniem.
+W tym przykładzie opisano sposób utworzenia puli adresów IP frontonu, która odbiera ruch sieciowy przychodzący do modułu równoważenia obciążenia, oraz puli adresów zaplecza, do której pula adresów IP frontonu przesyła ruch sieciowy o zrównoważonym obciążeniu.
 
-1. Utwórz pulę IP frontonu skojarzenie publicznego adresu IP hello utworzone w poprzednim kroku hello i hello modułu równoważenia obciążenia.
+1. Utwórz pulę adresów IP frontonu skojarzoną z publicznym adresem IP utworzonym w poprzednim kroku oraz moduł równoważenia obciążenia.
 
     ```azurecli
         azure network lb frontend-ip create nrpRG NRPlb NRPfrontendpool -i nrppublicip
     ```
 
-2. Skonfiguruj pulę adresów zaplecza używane tooreceive ruch przychodzący z puli adresów IP frontonu hello.
+2. Skonfiguruj pulę adresów zaplecza używaną do odbierania ruchu przychodzącego z puli adresów IP frontonu.
 
     ```azurecli
         azure network lb address-pool create NRPRG NRPlb NRPbackendpool
@@ -113,16 +116,16 @@ W tym przykładzie pokazano, jak toocreate hello frontonu puli adresów IP odbie
 
 ## <a name="create-lb-rules-nat-rules-and-probe"></a>Tworzenie reguł równoważenia obciążenia, reguł NAT oraz sond
 
-W tym przykładzie tworzy hello następujące elementy.
+W tym przykładzie opisano tworzenie następujących elementów:
 
-* translator NAT reguły tootranslate cały ruch przychodzący na porcie 21 tooport 22<sup>1</sup>
-* translator NAT reguły tootranslate cały ruch przychodzący na porcie 23 tooport 22
-* toobalance reguły modułu równoważenia obciążenia cały ruch przychodzący na porcie 80 tooport 80 na powitania adresów w puli zaplecza hello.
-* stan kondycji sondowania reguł toocheck hello na stronie o nazwie *HealthProbe.aspx*.
+* Reguła NAT do translacji całego ruchu przychodzącego do portu 21 na port 22<sup>1</sup>.
+* Reguła NAT do translacji całego ruchu przychodzącego do portu 23 na port 22.
+* Reguła modułu równoważenia obciążenia do równoważenia całego ruchu przychodzącego do portu 80 na port 80 adresów w puli zaplecza.
+* Reguła sondy do sprawdzania kondycji na stronie o nazwie *HealthProbe.aspx*.
 
-<sup>1</sup> reguł NAT są skojarzone tooa wystąpienia określonej maszyny wirtualnej za hello równoważenia obciążenia. ruch sieciowy Hello przychodzące do portu 21 są wysyłane tooa określonej maszyny wirtualnej na porcie 22 skojarzone z tą regułą translatora adresów Sieciowych. Musisz określić protokół (UDP lub TCP) dla reguły NAT. Oba protokoły nie może być przypisana toohello tego samego portu.
+<sup>1</sup> Reguły NAT są powiązane z konkretnym wystąpieniem maszyny wirtualnej za modułem równoważenia obciążenia. Ruch sieciowy przychodzący do portu 21 jest wysyłany do danej maszyny wirtualnej na port 22 powiązany z daną regułą NAT. Musisz określić protokół (UDP lub TCP) dla reguły NAT. Nie można przypisać obu protokołów do tego samego portu.
 
-1. Tworzenie reguł NAT hello.
+1. Utwórz reguły NAT.
 
     ```azurecli
         azure network lb inbound-nat-rule create --resource-group nrprg --lb-name nrplb --name ssh1 --protocol tcp --frontend-port 21 --backend-port 22
@@ -150,8 +153,8 @@ W tym przykładzie tworzy hello następujące elementy.
     Oczekiwane dane wyjściowe:
 
         info:    Executing command network lb show
-        + Looking up hello load balancer "nrplb"
-        + Looking up hello public ip "NRPPublicIP"
+        + Looking up the load balancer "nrplb"
+        + Looking up the public ip "NRPPublicIP"
         data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb
         data:    Name                            : nrplb
         data:    Type                            : Microsoft.Network/loadBalancers
@@ -210,9 +213,9 @@ W tym przykładzie tworzy hello następujące elementy.
 
 ## <a name="create-nics"></a>Tworzenie kart sieciowych
 
-Należy toocreate karty sieciowe (lub modyfikować istniejące) i kojarzyć je tooNAT reguły, reguły modułu równoważenia obciążenia i sondy.
+Musisz utworzyć karty sieciowe (lub zmodyfikować istniejące) i skojarzyć je z regułami NAT, regułami modułu równoważenia obciążenia i sondami.
 
-1. Utwórz kartę Sieciową o nazwie *można nic1 lb*i skojarz go z hello *rdp1* NAT reguły i hello *NRPbackendpool* puli adresów zaplecza.
+1. Utwórz kartę sieciową o nazwie *lb-nic1-be* i powiąż ją z regułą NAT *rdp1* oraz pulą adresów zaplecza *NRPbackendpool*.
 
     ```azurecli
         azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" eastus
@@ -221,10 +224,10 @@ Należy toocreate karty sieciowe (lub modyfikować istniejące) i kojarzyć je t
     Oczekiwane dane wyjściowe:
 
         info:    Executing command network nic create
-        + Looking up hello network interface "lb-nic1-be"
-        + Looking up hello subnet "nrpvnetsubnet"
+        + Looking up the network interface "lb-nic1-be"
+        + Looking up the subnet "nrpvnetsubnet"
         + Creating network interface "lb-nic1-be"
-        + Looking up hello network interface "lb-nic1-be"
+        + Looking up the network interface "lb-nic1-be"
         data:    Id                              : /subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
         data:    Name                            : lb-nic1-be
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -244,60 +247,60 @@ Należy toocreate karty sieciowe (lub modyfikować istniejące) i kojarzyć je t
         data:
         info:    network nic create command OK
 
-2. Utwórz kartę Sieciową o nazwie *można nic2 lb*i skojarz go z hello *rdp2* NAT reguły i hello *NRPbackendpool* puli adresów zaplecza.
+2. Utwórz kartę sieciową o nazwie *lb-nic2-be* i powiąż ją z regułą NAT *rdp2* oraz pulą adresów zaplecza *NRPbackendpool*.
 
     ```azurecli
         azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/NRPbackendpool" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" eastus
     ```
 
-3. Utwórz maszynę wirtualną (VM) o nazwie *web1*i skojarz go z hello karty Sieciowej o nazwie *można nic1 lb*. Konto magazynu o nazwie *web1nrp* został utworzony przed uruchomieniem polecenia hello poniżej.
+3. Utwórz maszynę wirtualną (VM) o nazwie *web1* i powiąż ją z kartą sieciową o nazwie *lb-nic1-be*. Konto magazynu o nazwie *web1nrp* zostało utworzone przed uruchomieniem poniższego polecenia.
 
     ```azurecli
         azure vm create --resource-group nrprg --name web1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
     ```
 
     > [!IMPORTANT]
-    > Maszyny wirtualne w toobe potrzeby modułu równoważenia obciążenia, w hello tego samego zestawu dostępności. Użyj `azure availset create` toocreate zestawu dostępności.
+    > Maszyny wirtualne w module równoważenia obciążenia muszą być w tym samym zestawie dostępności. Użyj polecenia `azure availset create`, aby utworzyć zestaw dostępności.
 
-    Hello dane wyjściowe powinny być podobne toohello następujące czynności:
+    Dane wyjściowe będą podobne do następujących:
 
         info:    Executing command vm create
-        + Looking up hello VM "web1"
+        + Looking up the VM "web1"
         Enter username: azureuser
         Enter password for azureuser: *********
         Confirm password: *********
-        info:    Using hello VM Size "Standard_A1"
-        info:    hello [OS, Data] Disk or image configuration requires storage account
-        + Looking up hello storage account web1nrp
-        + Looking up hello availability set "nrp-avset"
+        info:    Using the VM Size "Standard_A1"
+        info:    The [OS, Data] Disk or image configuration requires storage account
+        + Looking up the storage account web1nrp
+        + Looking up the availability set "nrp-avset"
         info:    Found an Availability set "nrp-avset"
-        + Looking up hello NIC "lb-nic1-be"
+        + Looking up the NIC "lb-nic1-be"
         info:    Found an existing NIC "lb-nic1-be"
-        info:    Found an IP configuration with virtual network subnet id "/subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet" in hello NIC "lb-nic1-be"
+        info:    Found an IP configuration with virtual network subnet id "/subscriptions/####################################/resourceGroups/NRPRG/providers/Microsoft.Network/virtualNetworks/NRPVnet/subnets/NRPVnetSubnet" in the NIC "lb-nic1-be"
         info:    This is a NIC without publicIP configured
         + Creating VM "web1"
         info:    vm create command OK
 
     > [!NOTE]
-    > komunikat informacyjny Hello **jest karta sieciowa bez publicznego adresu IP skonfigurowanych** oczekuje się od chwili utworzenia hello NIC dla usługi równoważenia obciążenia hello łączenie tooInternet przy użyciu hello adres usługi równoważenia obciążenia publicznego adresu IP.
+    > Może zostać wyświetlony komunikat **This is a NIC without publicIP configured** (Jest to karta sieciowa bez ustawionego publicznego adresu IP), ponieważ utworzona karta sieciowa modułu równoważenia obciążenia łączy się z Internetem za pośrednictwem publicznego adresu IP tego modułu.
 
-    Od hello *można nic1 lb* kart interfejsu Sieciowego jest skojarzony z hello *rdp1* reguły NAT można się połączyć za*web1* za pomocą protokołu RDP za pośrednictwem portu 3441 na powitania modułu równoważenia obciążenia.
+    Ponieważ karta sieciowa *lb-nic1-be* jest powiązana z regułą NAT *rdp1*, możesz połączyć się z maszyną wirtualną *web1* za pomocą protokołu RDP przez port 3441 modułu równoważenia obciążenia.
 
-4. Utwórz maszynę wirtualną (VM) o nazwie *sieci Web 2*i skojarz go z hello karty Sieciowej o nazwie *można nic2 lb*. Konto magazynu o nazwie *web1nrp* został utworzony przed uruchomieniem polecenia hello poniżej.
+4. Utwórz maszynę wirtualną (VM) o nazwie *web2* i powiąż ją z kartą sieciową o nazwie *lb-nic2-be*. Konto magazynu o nazwie *web1nrp* zostało utworzone przed uruchomieniem poniższego polecenia.
 
     ```azurecli
         azure vm create --resource-group nrprg --name web2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
     ```
 
 ## <a name="update-an-existing-load-balancer"></a>Aktualizowanie istniejącego modułu równoważenia obciążenia
-Możesz dodać reguły odwołujące się do istniejącego modułu równoważenia obciążenia. W następnym przykładzie hello, nowe reguły modułu równoważenia obciążenia jest dodawany tooan istniejący moduł równoważenia obciążenia **NRPlb**
+Możesz dodać reguły odwołujące się do istniejącego modułu równoważenia obciążenia. W następnym przykładzie opisano dodawanie nowej reguły równoważenia obciążenia do istniejącego modułu równoważenia obciążenia **NRPlb**
 
 ```azurecli
 azure network lb rule create --resource-group nrprg --lb-name nrplb --name lbrule2 --protocol tcp --frontend-port 8080 --backend-port 8051 --frontend-ip-name frontendnrppool --backend-address-pool-name NRPbackendpool
 ```
 
 ## <a name="delete-a-load-balancer"></a>Usuwanie modułu równoważenia obciążenia
-Użyj hello następujące polecenia tooremove modułu równoważenia obciążenia:
+Użyj poniższego polecenia, aby usunąć moduł równoważenia obciążenia:
 
 ```azurecli
 azure network lb delete --resource-group nrprg --name nrplb

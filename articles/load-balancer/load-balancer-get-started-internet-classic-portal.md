@@ -1,9 +1,9 @@
 ---
-title: "równoważenia obciążenia aaaCreate internetowy - klasycznego portalu Azure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toocreate Internet równoważenia obciążenia przy użyciu modelu wdrażania klasycznego hello klasycznego portalu Azure"
+title: "Tworzenie modułu równoważenia obciążenia dostępnego z Internetu — Azure Portal (model klasyczny) | Microsoft Docs"
+description: "Dowiedz się, jak utworzyć dostępny z Internetu moduł równoważenia obciążenia w klasycznym modelu wdrażania za pomocą klasycznego portalu Azure"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 27b0d5af6e7b493fa94a9dfbfa260483ae95a2fb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: e07b6808f2401ac7b2b21e5f8816bac5a15b50b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-hello-azure-classic-portal"></a>Rozpocząć tworzenie internetowy modułu równoważenia obciążenia (klasyczne) w hello klasycznego portalu Azure
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Wprowadzenie do tworzenia dostępnego z Internetu modułu równoważenia obciążenia (klasycznego) za pomocą klasycznego portalu Azure
 
 > [!div class="op_single_selector"]
 > * [Klasyczna witryna Azure Portal](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
@@ -32,33 +32,33 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Przed rozpoczęciem pracy z zasobów platformy Azure, jest ważne toounderstand, że Azure ma obecnie dwa modele wdrażania: usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-classic-rm.md). Hello dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty hello u góry hello tego artykułu. W tym artykule omówiono hello klasycznego modelu wdrażania. Możesz również [Dowiedz się, jak usługa równoważenia przy użyciu usługi Azure Resource Manager obciążenia toocreate Internetem](load-balancer-get-started-internet-arm-ps.md).
+> Przed rozpoczęciem pracy z zasobami platformy Azure należy pamiętać, że ma ona obecnie dwa modele wdrażania: za pomocą usługi Azure Resource Manager i model klasyczny. Przed rozpoczęciem pracy z dowolnym zasobem Azure należy zapoznać się z [modelami i narzędziami wdrażania](../azure-classic-rm.md). Dokumentację dotyczącą różnych narzędzi można wyświetlić, klikając karty w górnej części artykułu. W tym artykule opisano klasyczny model wdrażania. Możesz też zapoznać się z artykułem na temat [tworzenia dostępnego z Internetu modułu równoważenia obciążenia za pomocą usługi Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="set-up-an-internet-facing-load-balancer-for-virtual-machines"></a>Konfigurowanie dostępnego z Internetu modułu równoważenia obciążenia do maszyn wirtualnych
 
-Kolejność tooload równowagi ruchu w sieci z hello Internet między maszynami wirtualnymi hello usługi w chmurze należy utworzyć zestawu z równoważeniem obciążenia. W tej procedurze założono, że utworzono już hello maszyn wirtualnych oraz czy są one wszystkich w hello sama usługa w chmurze.
+Aby zrównoważyć obciążenie ruchu sieciowego z Internetu na maszynach wirtualnych usługi w chmurze, należy utworzyć zestaw o zrównoważonym obciążeniu. Na potrzeby tej procedury przyjęto założenie, że maszyny wirtualne zostały już utworzone i należą do tej samej usługi w chmurze.
 
-**tooconfigure zestaw z równoważeniem obciążenia dla maszyn wirtualnych**
+**Konfigurowanie zestawu o zrównoważonym obciążeniu do maszyn wirtualnych**
 
-1. W hello klasycznego portalu Azure, kliknij przycisk **maszyn wirtualnych**, a następnie kliknij nazwę hello maszyny wirtualnej w zestawie o zrównoważonym obciążeniu hello.
+1. W klasycznym portalu Azure kliknij opcję **Maszyny wirtualne**, a następnie kliknij nazwę maszyny wirtualnej w zestawie o zrównoważonym obciążeniu.
 2. Kliknij kolejno opcje **Punkty końcowe** i **Dodaj**.
-3. Na powitania **Dodaj maszynę wirtualną punktu końcowego tooa** kliknij strzałkę w prawo hello.
-4. Na powitania **Określ szczegóły hello punktu końcowego hello** strony:
+3. Na stronie **Add an endpoint to a virtual machine** (Dodaj punkt końcowy do maszyny wirtualnej) kliknij strzałkę w prawo.
+4. Na stronie **Specify the details of the endpoint** (Podaj szczegóły punktu końcowego):
 
-   * W **nazwa**, wpisz nazwę dla punktu końcowego hello, lub wybierz nazwę hello z hello listy wstępnie zdefiniowanych punktów końcowych dla wspólnych protokołów.
-   * W **protokołu**, wybierz protokół hello wymagany przez typ hello punktu końcowego TCP lub UDP, zgodnie z potrzebami.
-   * W **portu publicznego i prywatnego**, wpisz numery portów hello, który ma hello toouse maszyny wirtualnej, zgodnie z potrzebami. Można użyć hello port prywatny i reguły zapory na powitania ruchu tooredirect maszyny wirtualnej w taki sposób, który jest odpowiedni dla twojej aplikacji. port prywatny Hello można hello w taki sam jak port publiczny hello. Na przykład dla punktu końcowego dla ruchu w sieci web (HTTP), można przypisać portu 80 tooboth hello publicznych i prywatnych portów.
+   * W obszarze **Nazwa**, wpisz nazwę punktu końcowego lub wybierz ją z listy wstępnie zdefiniowanych punktów końcowych dla stosowanych powszechnie protokołów.
+   * W obszarze **Protokół** wybierz protokół wymagany przez dany typ punktu końcowego — TCP lub UDP.
+   * W obszarze **Public Port and Private Port** (Port publiczny i port prywatny) wpisz numery portów, z których ma korzystać maszyna wirtualna, zgodnie z potrzebami. Możesz wykorzystać reguły portu prywatnego i zapory maszyny wirtualnej, aby przekierować ruch sieciowy w sposób odpowiedni do danego zastosowania. Port prywatny może być taki sam, jak publiczny. Na przykład w przypadku punktu końcowego ruchu sieciowego (HTTP) port 80 można przypisać zarówno jako publiczny, jak i prywatny.
 
-5. Wybierz **Utwórz zestaw o zrównoważonym obciążeniu**, a następnie kliknij przycisk strzałki w prawo hello.
-6. Na powitania **skonfigurować zestaw z równoważeniem obciążenia hello** strony, wpisz nazwę zestawu o zrównoważonym obciążeniu hello, a następnie przypisz wartości hello sondowania zachowanie hello moduł równoważenia obciążenia Azure. Witaj moduł równoważenia obciążenia używa toodetermine sond hello maszyn wirtualnych w zestawie o zrównoważonym obciążeniu hello są dostępne tooreceive ruchu przychodzącego.
-7. Kliknij przycisk endpoint hello znacznik wyboru toocreate hello równoważeniem obciążenia. Zobaczysz **tak** w hello **Nazwa zestawu o zrównoważonym obciążeniu** kolumny hello **punkty końcowe** strony hello maszyny wirtualnej.
-8. W portalu powitania kliknij **maszyn wirtualnych**, kliknij nazwę hello dodatkowe maszyny wirtualnej w zestawie o zrównoważonym obciążeniu hello, kliknij przycisk **punkty końcowe**, a następnie kliknij przycisk **Dodaj**.
-9. Na powitania **Dodaj maszynę wirtualną punktu końcowego tooa** kliknij przycisk **Dodawanie punktu końcowego tooan równoważeniem obciążenia zestawu**, wybierz nazwę hello hello zestawu z równoważeniem obciążenia, a następnie kliknij strzałkę w prawo hello.
-10. Na powitania **Określ szczegóły hello punktu końcowego hello** , wpisz nazwę dla punktu końcowego hello, a następnie kliknij przycisk znacznika wyboru hello.
+5. Wybierz opcję **Create a load-balanced set** (Utwórz zestaw o zrównoważonym obciążeniu), a następnie kliknij strzałkę w prawo.
+6. Na stronie **Configure the load-balanced set** (Konfiguracja zestawu o zrównoważonym obciążeniu) wpisz nazwę zestawu o zrównoważonym obciążeniu, a następnie przypisz wartości zachowania sondy usługi Azure Load Balancer. Moduł równoważenia obciążenia korzysta z sond, aby określić, czy maszyny wirtualne w zestawie o zrównoważonym obciążeniu mogą otrzymywać przychodzący ruch sieciowy.
+7. Kliknij znacznik wyboru, aby utworzyć punkt końcowy o zrównoważonym obciążeniu. Zostanie wyświetlony komunikat **Tak** w kolumnie **Load-balanced set name** (Nazwa zestawu o zrównoważonym obciążeniu) na stronie **Punkty końcowe** dotyczącej maszyny wirtualnej.
+8. W portalu kliknij kolejno opcję **Maszyny wirtualne**, nazwę dodatkowej maszyny wirtualnej w zestawie o zrównoważonym obciążeniu, opcję **Punkty końcowe** oraz opcję **Dodaj**.
+9. Na stronie **Add an endpoint to a virtual machine** (Dodaj punkt końcowy do maszyny wirtualnej) kliknij opcję **Add endpoint to an existing load-balanced set** (Dodaj punkt końcowy do istniejącego zestawu o zrównoważonym obciążeniu), wybierz nazwę zestawu o zrównoważonym obciążeniu, a następnie kliknij strzałkę w prawo.
+10. Na stronie **Specify the details of the endpoint** (Podaj szczegóły punktu końcowego) wpisz nazwę punktu końcowego, a następnie kliknij znacznik wyboru.
 
-Witaj dodatkowych maszyn wirtualnych w zestawie o zrównoważonym obciążeniu hello Powtórz kroki od 8-10.
+Aby dodać maszyny wirtualne do zestawu o zrównoważonym obciążeniu, wykonaj ponownie kroki 8–10.
 
 ## <a name="next-steps"></a>Następne kroki
 

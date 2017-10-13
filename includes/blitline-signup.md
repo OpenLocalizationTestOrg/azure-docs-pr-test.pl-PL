@@ -1,28 +1,28 @@
 
-### <a name="toosign-up-for-a-blitline-account"></a>toosign dla konta Blitline
-1. Zaloguj się za toohello [portalu zarządzania Azure](https://manage.windowsazure.com/).
-2. W dolnym okienku hello hello portalu zarządzania, kliknij przycisk **nowy**.
+### <a name="to-sign-up-for-a-blitline-account"></a>Aby utworzyć konto Blitline
+1. Zaloguj się do [portalu zarządzania Azure](https://manage.windowsazure.com/).
+2. W dolnym okienku w portalu zarządzania, kliknij przycisk **nowy**.
    
     ![command-bar-new][command-bar-new]
 3. Kliknij przycisk **magazynu**.
    
     ![blitline magazynu][blitline-store]
-4. W hello **wybierz dodatek** okno dialogowe, wybierz opcję **Blitline** i kliknij strzałkę w prawo hello.
-5. W hello **spersonalizować dodatek** hello wybierz w oknie dialogowym **Blitline** ma toosign dla planu.
-6. Wprowadź tooidentify nazwa Twojej **Blitline** obsługi w ustawieniach platformy Azure lub użyj wartości domyślnej hello **Blitline**. Nazwa musi mieć długość od 1 do 100 znaków i może zawierać tylko znaki alfanumeryczne, łączniki, kropki i znaki podkreślenia. Nazwa Hello musi być unikatowa na liście elementów subskrybowanego magazynu Azure.
+4. W **wybierz dodatek** okno dialogowe, wybierz opcję **Blitline** i kliknij strzałkę w prawo.
+5. W **spersonalizować dodatek** oknie dialogowym wybierz pozycję **Blitline** planu, aby utworzyć konto.
+6. Wprowadź nazwę identyfikującą Twojej **Blitline** usługi w ustawieniach platformy Azure, lub użyj wartości domyślnej z **Blitline**. Nazwa musi mieć długość od 1 do 100 znaków i może zawierać tylko znaki alfanumeryczne, łączniki, kropki i znaki podkreślenia. Nazwa musi być unikatowa w obrębie subskrybowanych elementów sklepu Azure Store.
    
     ![ekran magazynu-1][store-screen-1]
-7. Wybierz wartość dla regionu hello; na przykład, zachodnie stany USA. 
-8. Kliknij strzałkę w prawo hello.
-9. Na powitania **Przejrzyj zakupu** , przejrzyj hello plan i uzyskać informacje o cenach, a następnie przejrzyj postanowienia prawne hello. Jeśli zgadzasz się toohello warunki, kliknij znacznik wyboru hello. Kliknij przycisk znacznika wyboru hello, Twoje konto Blitline rozpocznie hello w procesie inicjowania obsługi. 
+7. Wybierz wartość dla tego obszaru; na przykład, zachodnie stany USA. 
+8. Kliknij strzałkę w prawo.
+9. Na **Przejrzyj zakupu** , przejrzyj plan i uzyskać informacje o cenach, a następnie przejrzyj postanowienia prawne. Jeśli akceptujesz postanowienia, kliknij znacznik wyboru. Kliknij przycisk znacznika wyboru, Twoje konto Blitline rozpocznie się proces inicjowania obsługi administracyjnej. 
 
-toouse Blitline należy toohave Twojego identyfikatora aplikacji.
+Aby użyć Blitline trzeba uzyskać identyfikator aplikacji.
 
-### <a name="toofind-your-blitline-application-id"></a>toofind swój identyfikator aplikacji Blitline
+### <a name="to-find-your-blitline-application-id"></a>Aby znaleźć swój identyfikator aplikacji Blitline
 1. Kliknij przycisk **informacje o połączeniu**.
    
     ![blitline połączenia — informacje o — przycisk][blitline-connection-info-button]
-2. W hello *informacje o połączeniu* okna dialogowego, zostanie wyświetlony identyfikator aplikacji
+2. W *informacje o połączeniu* okna dialogowego, zostanie wyświetlony identyfikator aplikacji
    
     ![informacje o połączeniu blitline][blitline-connection-info]
 

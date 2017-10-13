@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate tabeli jako wybierz (CTAS) w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
-description: "Porady dotyczące programowania z hello Utwórz tabelę jako select — instrukcja (CTAS) w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań."
+title: "Utwórz tabelę jako wybierz (CTAS) w usłudze SQL Data Warehouse | Dokumentacja firmy Microsoft"
+description: "Porady dotyczące programowania z Utwórz tabelę jako instrukcji select (CTAS) w usłudze Azure SQL Data Warehouse związane z opracowywaniem rozwiązań."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 01/30/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: e381601a0a4d94e189d8f9115bf2e7593025410b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>Utwórz tabelę jako Select (CTAS) w magazynie danych SQL
-Utwórz tabelę jako wybierz lub `CTAS` jest jednym z hello najważniejszych funkcjach T-SQL. Jest całkowicie zrównoleglone operacja, która tworzy nową tabelę oparte na danych wyjściowych hello instrukcji SELECT. `CTAS`jest toocreate najprostszym i najszybszym sposobem hello kopii tabeli. Ten dokument zawiera zarówno przykłady i najlepsze rozwiązania dotyczące `CTAS`.
+Utwórz tabelę jako wybierz lub `CTAS` jest jedną z najważniejszych funkcji T-SQL jest dostępna. Jest całkowicie zrównoleglone operacja, która tworzy nową tabelę oparte na danych wyjściowych instrukcji SELECT. `CTAS`jest najprostszym i najszybszym sposobem tworzenia kopii tabeli. Ten dokument zawiera zarówno przykłady i najlepsze rozwiązania dotyczące `CTAS`.
 
 ## <a name="selectinto-vs-ctas"></a>WYBIERZ... W wersji programu vs. CTAS
 Można rozważyć `CTAS` nadrzędne obciążona wersja `SELECT..INTO`.
@@ -35,11 +35,11 @@ INTO    [dbo].[FactInternetSales_new]
 FROM    [dbo].[FactInternetSales]
 ```
 
-W powyższym przykładzie hello `[dbo].[FactInternetSales_new]` zostałyby utworzone ROUND_ROBIN rozproszonej tabeli z INDEKSEM magazynu kolumn w KLASTRZE na nim są one wartości domyślnych tabeli hello w usłudze Azure SQL Data Warehouse.
+W powyższym przykładzie `[dbo].[FactInternetSales_new]` zostałyby utworzone ROUND_ROBIN rozproszonej tabeli z INDEKSEM magazynu kolumn w KLASTRZE na nim są one wartości domyślnych tabeli w magazynie danych SQL Azure.
 
-`SELECT..INTO`jednak nie pozwala toochange wpisz albo hello dystrybucji metody lub hello indeks jako część hello operacji. Jest to, gdy `CTAS` polega na.
+`SELECT..INTO`jednak nie umożliwiają zmianę metody dystrybucji lub typ indeksu jako część operacji. Jest to, gdy `CTAS` polega na.
 
-tooconvert hello powyżej za`CTAS` jest dość proste:
+Aby przekonwertować powyżej, aby `CTAS` jest dość proste:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_new]
@@ -54,17 +54,17 @@ FROM    [dbo].[FactInternetSales]
 ;
 ```
 
-Z `CTAS` są możliwe toochange zarówno hello dystrybucji hello tabeli danych, a także hello typ tabeli. 
+Z `CTAS` można zmienić dystrybucji dane w tabeli, a także z typem tabeli. 
 
 > [!NOTE]
-> Jeśli chcesz tylko toochange hello indeksu w Twojej `CTAS` operacji i hello tabela źródłowa jest rozpowszechniane skrót, a następnie z `CTAS` wykona operację najlepiej, jeśli hello tego samego typu kolumny i danych dystrybucji. Pozwoli to uniknąć cross przenoszenia danych dystrybucji podczas operacji hello, które jest bardziej wydajny.
+> Jeśli tylko chcesz zmienić indeks w Twojej `CTAS` operacji i tabeli źródłowej są rozpowszechniane skrót, a następnie z `CTAS` operacji będzie wykonywać najlepiej, jeśli obsługa tego samego typu kolumny i danych dystrybucji. Pozwoli to uniknąć cross przenoszenia danych dystrybucji podczas operacji, które jest bardziej wydajny.
 > 
 > 
 
-## <a name="using-ctas-toocopy-a-table"></a>Przy użyciu toocopy CTAS tabeli
-Możliwe, że jedną z najbardziej typowych hello korzysta z `CTAS` jest tworzenie kopii tabeli, dzięki czemu można zmienić hello DDL. Jeśli na przykład pierwotnie utworzona jako tabela `ROUND_ROBIN` a teraz chcesz je zmienić tabeli tooa od kolumny, `CTAS` się, jak można zmienić kolumny dystrybucji hello. `CTAS`można także toochange używane typy partycjonowania, indeksowania lub kolumny.
+## <a name="using-ctas-to-copy-a-table"></a>Aby skopiować tabelę przy użyciu CTAS
+Możliwe, że jedną z najbardziej typowych zastosowań `CTAS` jest tworzenie kopii tabeli, dzięki czemu można zmienić kod DDL. Jeśli na przykład pierwotnie utworzona jako tabela `ROUND_ROBIN` , a teraz chcesz zmienić rozproszonych od kolumny, tabeli `CTAS` jest sposób należy zmienić kolumny dystrybucji. `CTAS`można również zmienić typy partycjonowania, indeksowania lub kolumny.
 
-Załóżmy, że utworzono tej tabeli za pomocą typu dystrybucji domyślne hello `ROUND_ROBIN` rozproszonych, ponieważ kolumna nie dystrybucji została określona w hello `CREATE TABLE`.
+Załóżmy, że utworzono tej tabeli przy użyciu domyślnego typu dystrybucji `ROUND_ROBIN` rozproszonych, ponieważ kolumna nie dystrybucji została określona w `CREATE TABLE`.
 
 ```sql
 CREATE TABLE FactInternetSales
@@ -95,7 +95,7 @@ CREATE TABLE FactInternetSales
 );
 ```
 
-Teraz ma toocreate nową kopię tej tabeli z indeksem magazynu kolumn w klastrze tak, aby można było korzystać z wydajności hello tabel klastrowanego magazynu kolumn. Należy zawsze toodistribute tej tabeli po klucz produktu od są przewidywanie sprzężenia od tej kolumny, a ma tooavoid przenoszenia danych podczas sprzężenia na klucz produktu. Na koniec ma również tooadd partycjonowania na OrderDateKey, dzięki czemu można szybko usunąć stare dane przez usunięcie starego partycji. Oto hello CTAS instrukcja, która będzie skopiować starego tabeli do nowej tabeli.
+Teraz chcesz utworzyć nową kopię tej tabeli z indeksem magazynu kolumn w klastrze, tak, aby można było korzystać z wydajności tabel klastrowanego magazynu kolumn. Również dystrybuowania tej tabeli po klucz produktu, ponieważ są przewidywanie sprzężenia od tej kolumny i aby uniknąć przenoszenia danych podczas sprzężenia na klucz produktu. Na koniec również chcesz dodać partycjonowania na OrderDateKey, dzięki czemu można szybko usunąć stare dane przez usunięcie starego partycji. Oto instrukcji CTAS, które będzie skopiować starego tabeli do nowej tabeli.
 
 ```sql
 CREATE TABLE FactInternetSales_new
@@ -116,36 +116,36 @@ WITH
 AS SELECT * FROM FactInternetSales;
 ```
 
-Na koniec można zmienić Twojego tooswap tabel w nowej tabeli, a następnie upuść starego tabeli.
+Na koniec można zmienić nazwy tabel do wymiany w nowej tabeli, a następnie upuść starego tabeli.
 
 ```sql
-RENAME OBJECT FactInternetSales tooFactInternetSales_old;
-RENAME OBJECT FactInternetSales_new tooFactInternetSales;
+RENAME OBJECT FactInternetSales TO FactInternetSales_old;
+RENAME OBJECT FactInternetSales_new TO FactInternetSales;
 
 DROP TABLE FactInternetSales_old;
 ```
 
 > [!NOTE]
-> Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk.  W kolejności tooget hello najlepszą wydajność zapytań należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu hello lub każdej istotnej zmianie występują w danych hello.  Aby uzyskać szczegółowy opis statystyk, zobacz hello [statystyki] [ Statistics] tematu w hello grupie artykułów dla programistów.
+> Usługa Azure SQL Data Warehouse nie obsługuje jeszcze automatycznego tworzenia ani aktualizowania statystyk.  W celu uzyskania najlepszej wydajności zapytań należy utworzyć statystyki dla wszystkich kolumn wszystkich tabel po pierwszym załadowaniu danych, a następnie po każdej istotnej zmianie.  Szczegółowy opis statystyk znajduje się w temacie [Statystyki][Statistics] w grupie artykułów dla deweloperów.
 > 
 > 
 
-## <a name="using-ctas-toowork-around-unsupported-features"></a>Przy użyciu toowork CTAS wokół nieobsługiwane funkcje
-`CTAS`może być również używane toowork wokół szereg funkcji hello nieobsługiwany wymienionych poniżej. To może często udowodnić toobe sytuacji win/win nie tylko kodzie będą zgodne, ale będą często wykonywane szybciej na magazyn danych SQL. Jest to wyniku pełni zrównoleglone projekt. Scenariusze, które można pracować z CTAS wokół obejmują:
+## <a name="using-ctas-to-work-around-unsupported-features"></a>Aby obejść nieobsługiwanych funkcji przy użyciu CTAS
+`CTAS`można również obejść liczba nieobsługiwanych funkcji wymienionych poniżej. Można to często okazać się sytuacji win/win nie tylko kodzie będą zgodne, ale będą często wykonywane szybciej na magazyn danych SQL. Jest to wyniku pełni zrównoleglone projekt. Scenariusze, które można pracować z CTAS wokół obejmują:
 
 * SPRZĘŻENIA ANSI na aktualizacje
 * Sprzężenia ANSI na usuwaniu
 * MERGE — instrukcja
 
 > [!NOTE]
-> Spróbuj toothink "CTAS pierwszy". Jeśli uważasz, że uda się rozwiązać problem przy użyciu `CTAS` hello najlepsze sposób tooapproach zazwyczaj jest to go — nawet jeśli w związku z tym pisania większej ilości danych.
+> Pomyśl "CTAS pierwszy". Jeśli uważasz, że uda się rozwiązać problem przy użyciu `CTAS` następnie jest zwykle najlepszym sposobem zbliżających się — nawet wtedy, gdy w związku z tym pisania większej ilości danych.
 > 
 > 
 
 ## <a name="ansi-join-replacement-for-update-statements"></a>ANSI zamienny sprzężenia dla instrukcji update
-Może się okazać się, że masz złożonych aktualizacji, której jest przyłączany więcej niż dwie tabele ze sobą przy użyciu ANSI dołączenie hello tooperform składni UPDATE lub DELETE.
+Może się okazać się, że masz złożonych aktualizacji, w której jest przyłączany więcej niż dwie tabele ze sobą przy użyciu ANSI dołączenie składni przeprowadzić UPDATE lub DELETE.
 
-Załóżmy, że miała tooupdate tej tabeli:
+Załóżmy, że wymagał zaktualizowania tej tabeli:
 
 ```sql
 CREATE TABLE [dbo].[AnnualCategorySales]
@@ -160,7 +160,7 @@ WITH
 ;
 ```
 
-oryginalne zapytanie Hello może sprawdzono podobny do następującego:
+Oryginalne zapytanie może sprawdzono podobny do następującego:
 
 ```sql
 UPDATE    acs
@@ -185,9 +185,9 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 ;
 ```
 
-Ponieważ Magazyn danych SQL nie obsługuje ANSI sprzężenia w hello `FROM` klauzuli `UPDATE` instrukcji, nie można skopiować ten kod nad zmieniając nieco.
+Ponieważ Magazyn danych SQL nie obsługuje ANSI sprzężenia w `FROM` klauzuli `UPDATE` instrukcji, nie można skopiować ten kod nad zmieniając nieco.
 
-Można użyć kombinacji `CTAS` i niejawne join tooreplace ten kod:
+Można użyć kombinacji `CTAS` i niejawne sprzężenia, aby zastąpić ten kod:
 
 ```sql
 -- Create an interim table
@@ -208,7 +208,7 @@ GROUP BY
 ,        [CalendarYear]
 ;
 
--- Use an implicit join tooperform hello update
+-- Use an implicit join to perform the update
 UPDATE  AnnualCategorySales
 SET     AnnualCategorySales.TotalSalesAmount = CTAS_ACS.TotalSalesAmount
 FROM    CTAS_acs
@@ -216,13 +216,13 @@ WHERE   CTAS_acs.[EnglishProductCategoryName] = AnnualCategorySales.[EnglishProd
 AND     CTAS_acs.[CalendarYear]               = AnnualCategorySales.[CalendarYear]
 ;
 
---Drop hello interim table
+--Drop the interim table
 DROP TABLE CTAS_acs
 ;
 ```
 
 ## <a name="ansi-join-replacement-for-delete-statements"></a>Zastępuje sprzężenia ANSI usunąć — instrukcje
-Czasami najlepszym podejściem hello związanych z usuwaniem danych jest toouse `CTAS`. Zamiast usuwania danych powitania po prostu wybierz hello dane, które mają tookeep. To szczególnie istotne dla `DELETE` instrukcji używających ansi dołączenie składni, ponieważ usługa SQL Data Warehouse nie obsługuje sprzężeń ANSI w hello `FROM` klauzuli `DELETE` instrukcji.
+Czasami najlepszym rozwiązaniem związanych z usuwaniem danych jest użycie `CTAS`. Zamiast usuwania danych, po prostu zaznacz dane, które chcesz zachować. To szczególnie istotne dla `DELETE` instrukcji używających ansi łącząca składni, ponieważ usługa SQL Data Warehouse nie obsługuje ANSI sprzężenia w `FROM` klauzuli `DELETE` instrukcji.
 
 Przykład przekonwertowanego instrukcji DELETE jest dostępny poniżej:
 
@@ -232,7 +232,7 @@ WITH
 (   Distribution=HASH(ProductKey)
 ,   CLUSTERED INDEX (ProductKey)
 )
-AS -- Select Data you wish tookeep
+AS -- Select Data you wish to keep
 SELECT     p.ProductKey
 ,          p.EnglishProductName
 ,          p.Color
@@ -241,12 +241,12 @@ RIGHT JOIN dbo.stg_DimProduct s
 ON         p.ProductKey = s.ProductKey
 ;
 
-RENAME OBJECT dbo.DimProduct        tooDimProduct_old;
-RENAME OBJECT dbo.DimProduct_upsert tooDimProduct;
+RENAME OBJECT dbo.DimProduct        TO DimProduct_old;
+RENAME OBJECT dbo.DimProduct_upsert TO DimProduct;
 ```
 
 ## <a name="replace-merge-statements"></a>Zastąp instrukcjach merge
-Instrukcje scalania można zastąpić, co najmniej w części, za pomocą `CTAS`. Można skonsolidować hello `INSERT` i hello `UPDATE` w jednej instrukcji. Rekordy usunięte potrzebny toobe zamknięte w drugim instrukcji.
+Instrukcje scalania można zastąpić, co najmniej w części, za pomocą `CTAS`. Można skonsolidować `INSERT` i `UPDATE` w jednej instrukcji. Rekordy usunięte musi być zamknięte w drugim instrukcji.
 
 Przykład `UPSERT` znajduje się poniżej:
 
@@ -275,8 +275,8 @@ WHERE NOT EXISTS
 )
 ;
 
-RENAME OBJECT dbo.[DimProduct]          too[DimProduct_old];
-RENAME OBJECT dbo.[DimpProduct_upsert]  too[DimProduct];
+RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
+RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
 
 ```
 
@@ -297,9 +297,9 @@ SELECT @d*@f
 ;
 ```
 
-Instynktownie może traktować ten kod tooa CTAS należy zmigrować, a użytkownik będzie poprawna. Istnieje jednak jest ukrytym problem.
+Instynktownie może traktować, należy zainstalować ten kod CTAS, a użytkownik będzie poprawna. Istnieje jednak jest ukrytym problem.
 
-Witaj następujący kod nie uzyskanie takiego samego wyniku hello:
+Następujący kod nie uzyskanie takiego samego wyniku:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -313,9 +313,9 @@ SELECT @d*@f as result
 ;
 ```
 
-Zwróć uwagę, hello kolumny "wynik" przenosi do przodu hello wartości typu i dopuszczanie wartości null danych hello wyrażenia. Może to prowadzić odchylenia toosubtle wartości, jeśli nie są dokładne.
+Zwróć uwagę, kolumna "wynik" przenosi do przodu danych typu i dopuszczanie wartości null wartości wyrażenia. Może to prowadzić do niewielkie różnice w wartości, jeśli nie są dokładne.
 
-Spróbuj następujących hello na przykład:
+Spróbuj wykonać następujące czynności, na przykład:
 
 ```sql
 SELECT result,result*@d
@@ -327,17 +327,17 @@ from ctas_r
 ;
 ```
 
-wartość Hello przechowywane dla wyniku różni się. Jak hello utrwalonego wartości w kolumnie wyników hello jest używany w innych wyrażenia hello błąd staje się jeszcze bardziej znaczące.
+Wartość przechowywana dla wyniku jest inny. Zgodnie z utrwalonego wartości w kolumnie wyników jest używana w innych wyrażeniach błąd staje się jeszcze bardziej znaczące.
 
 ![][1]
 
-Jest to szczególnie ważne w przypadku migracji danych. Mimo że hello drugiego zapytania jest raczej dokładniejsze występuje problem. Hello dane byłyby różnych toohello porównaniu systemu źródłowego i powodująca tooquestions integralności w hello migracji. Jest to jedna z rzadkich przypadkach gdy odpowiedzi "nieprawidłowe" hello jest rzeczywiście hello prawo jeden!
+Jest to szczególnie ważne w przypadku migracji danych. Mimo że drugiego zapytania jest raczej dokładniejsze występuje problem. Dane będą różne w porównaniu z systemem źródłowym i powodująca pytania integralności w procesie migracji. Jest to jeden z tych rzadkich przypadkach, gdy "nieprawidłowe" odpowiedzi jest rzeczywiście właściwy!
 
-Witaj Przyczyna widzimy tej różnicy między wyniki hello dwa działa tooimplicit typu rzutowania. Witaj pierwszej tabeli hello przykład definiuje hello definicji kolumny. Po wstawieniu wiersza hello występuje niejawna konwersja typu. W drugim przykładzie hello nie ma żadnych niejawna konwersja typu jako wyrażenie hello definiuje typ danych kolumny hello. Zwróć uwagę, również tej kolumny hello w drugim przykładzie hello została zdefiniowana jako kolumny wartości null należy w pierwszym przykładzie hello nie. Podczas tworzenia tabeli hello w hello pierwszym przykładzie kolumny opcjami dopuszczania wartości null został jawnie zdefiniowany. W drugim przykładzie hello został właśnie opuściła wyrażenie toohello i domyślnie spowodowałoby to w definicji wartości NULL.  
+Z powodu widzimy tej różnicy między dwoma wynikami jest do rzutowania typu niejawnego. W pierwszym przykładzie tabela definiuje definicji kolumny. Gdy zostanie wstawiona występuje niejawna konwersja typu. W drugim przykładzie nie jest typu niejawna konwersja jako wyrażenie definiuje typ danych kolumny. Należy zauważyć, że kolumny w drugim przykładzie została zdefiniowana jako kolumny wartości null należy w pierwszym przykładzie nie. Podczas tworzenia tabeli w pierwszym dopuszczania wartości Null kolumny przykład został jawnie zdefiniowany. W drugim przykładzie, który został właśnie pozostawiany wyrażeniu i domyślnie to spowoduje definicji wartości NULL.  
 
-tooresolve tych problemów, które należy jawnie ustawić konwersji typu hello i dopuszczanie wartości null hello `SELECT` część hello `CTAS` instrukcji. Nie można ustawić te właściwości w hello tworzenie części tabeli.
+Aby rozwiązać te problemy należy jawnie ustawić konwersji typu i dopuszczanie wartości null w `SELECT` część `CTAS` instrukcji. Te właściwości nie można ustawić w części Tworzenie tabeli.
 
-Witaj w poniższym przykładzie pokazano, jak toofix hello kodu:
+W poniższym przykładzie pokazano, jak poprawić kod:
 
 ```sql
 DECLARE @d decimal(7,2) = 85.455
@@ -349,19 +349,19 @@ AS
 SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 ```
 
-Należy uwzględnić następujące hello:
+Pamiętaj o następujących kwestiach:
 
 * CAST lub CONVERT może zostały już użyte
-* ISNULL jest używane tooforce dopuszczania wartości null nie ŁĄCZONEJ
-* ISNULL jest najbardziej zewnętrzną funkcję hello
-* druga część hello ISNULL Hello jest stałą tj. 0
+* Można wymusić dopuszczania wartości null nie ŁĄCZONEJ ISNULL
+* ISNULL jest najbardziej zewnętrzną funkcję
+* Druga część ISNULL jest stałą tj. 0
 
 > [!NOTE]
-> Dla poprawnie ustawić hello toobe dopuszczania wartości null jest istotne toouse `ISNULL` i nie `COALESCE`. `COALESCE`nie jest deterministyczna funkcji i dlatego hello wynik hello wyrażenia zawsze będzie NULLable. `ISNULL`różni się. Jest ona deterministyczna. W związku z tym jeśli hello drugiej części hello `ISNULL` funkcja jest stałą lub literałem, a następnie zostanie użyta wartość wynikową hello NOT NULL.
+> Dla dopuszczania wartości null poprawnie można ustawić jest niezbędne do używania `ISNULL` i nie `COALESCE`. `COALESCE`nie jest deterministyczna funkcji i dlatego wynikiem wyrażenia zawsze będzie NULLable. `ISNULL`różni się. Jest ona deterministyczna. W związku z tym po drugiej części `ISNULL` funkcja jest stałą lub literałem, a następnie będzie wynikowej wartości NOT NULL.
 > 
 > 
 
-Tej porady nie jest po prostu przydatne w przypadku zapewnienia integralności hello obliczeń. Należy również do przełączenia partycji tabeli. Załóżmy, że w tej tabeli zdefiniowany jako Twoje fakt:
+Tej porady nie jest przydatne tylko w celu zapewnienia integralności obliczeń. Należy również do przełączenia partycji tabeli. Załóżmy, że w tej tabeli zdefiniowany jako Twoje fakt:
 
 ```sql
 CREATE TABLE [dbo].[Sales]
@@ -384,9 +384,9 @@ WITH
 ;
 ```
 
-Pole wartości hello jest jednak wyrażenie obliczeniowej nie jest częścią hello źródła danych.
+Jednak w polu wartość jest wyrażenie obliczeniowej nie jest on częścią źródła danych.
 
-toocreate partycjonowanej zestawu danych toodo może być to:
+Aby utworzyć partycjonowanej zestawu danych może być w tym celu:
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -410,7 +410,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create')
 ;
 ```
 
-Zapytanie Hello może działać dokładnie poprawnie. Hello problem jest dostarczany podczas próby tooperform hello partycji przełącznika. definicje tabel Hello są niezgodne. definicje tabel hello toomake odpowiada hello CTAS musi toobe zmodyfikowane.
+Zapytanie może działać dokładnie poprawnie. Problem jest dostarczany podczas próby wykonania przełącznik partycji. Definicje tabel są zgodne. Aby definicji tabeli, zgodna CTAS ma zostać zmodyfikowana.
 
 ```sql
 CREATE TABLE [dbo].[Sales_in]
@@ -433,9 +433,9 @@ FROM [stg].[source]
 OPTION (LABEL = 'CTAS : Partition IN table : Create');
 ```
 
-Widać w związku z tym, że typ spójności i utrzymywanie właściwości dopuszczania wartości null na CTAS dobrej engineering najlepszym rozwiązaniem jest. Pomaga integralności toomaintain w obliczeniach ono oraz gwarantuje również, że możliwe jest przełączanie partycji.
+Widać w związku z tym, że typ spójności i utrzymywanie właściwości dopuszczania wartości null na CTAS dobrej engineering najlepszym rozwiązaniem jest. Umożliwia zachowanie spójności w obliczeniach, a także zapewnia, że możliwe jest przełączanie partycji.
 
-Przeczytaj tooMSDN, aby uzyskać więcej informacji na temat używania [CTAS][CTAS]. Jest jednym z najważniejszych instrukcje hello w usłudze Azure SQL Data Warehouse. Upewnij się, że rozumiesz dokładnie.
+Zapoznaj się z subskrypcją MSDN, aby uzyskać więcej informacji na temat używania [CTAS][CTAS]. Jest jednym z najważniejszych instrukcje w usłudze Azure SQL Data Warehouse. Upewnij się, że rozumiesz dokładnie.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać więcej porad programistycznych, zobacz [omówienie tworzenia][development overview].

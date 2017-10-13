@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacja bramy aplikacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toodeploy kontrolera dostarczania aplikacji chmury. Dokumentacji przedstawiono, jak tooset Konfigurowanie routingu na poziomie aplikacji i równoważenia obciążenia dla frontonu sieci web."
+title: "Dokumentacja usługi Azure Application Gateway — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak wdrożyć kontrolera dostarczania aplikacji w chmurze. W dokumentacji pokazano, jak skonfigurować routing na poziomie aplikacji i równoważenie obciążenia dla frontonu sieci Web."
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 9351bbc5cf288fd4650e9edb89be5a601c2a13ce
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 18fdc11227a07e02df1a6b9f9711fd33c23eadb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-gateway-documentation"></a>Dokumentacja usługi Application Gateway
 
-Dowiedz się, jak toodeploy aplikacji bramy, kontroler dostarczania aplikacji (ADC) jako usługa. Samouczki, odwołania do interfejsu API i dokumentacji opisano sposób tooset routingu poziomie aplikacji i usług, które pozwalają równoważenia obciążenia kompilacji frontonu sieci web skalowalności i wysokiej dostępności.
+Dowiedz się, jak wdrożyć usługę Application Gateway, kontrolera dostarczania aplikacji (ADC, Application Deliver Controller), jako usługę. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak skonfigurować usługi routingu i równoważenia obciążenia na poziomie aplikacji, które pozwalają tworzyć skalowalne frontony sieci Web o wysokiej dostępności.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak toodeploy aplikacji bramy, kontroler dostarczania aplikacji (A
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie pracy z bramy aplikacji przy użyciu hello portalu Azure</h3>
+                        <h3>Rozpoczynanie pracy z usługą Application Gateway za pośrednictwem witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>

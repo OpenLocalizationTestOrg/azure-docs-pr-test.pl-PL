@@ -1,6 +1,6 @@
 ---
-title: "portal aaaUser dla serwera usługi Azure MFA | Dokumentacja firmy Microsoft"
-description: "Jest hello Azure Multi-Factor authentication strona opisujące, jak tooget wprowadzenie do usługi Azure MFA i hello portal użytkowników."
+title: "Portal użytkowników serwera usługi Azure MFA | Microsoft Docs"
+description: "Ta strona dotycząca usługi Azure Multi-Factor Authentication zawiera informacje umożliwiające rozpoczęcie korzystania z usługi Azure MFA i portalu użytkowników."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
@@ -15,170 +15,170 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: 0e36644c3d780249fb98d5da654e9d267c63561a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a4eb403d3d21b7dbe63c2645b488a7bddb6d39fd
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="user-portal-for-hello-azure-multi-factor-authentication-server"></a>Portal użytkowników na powitania serwera usługi Azure Multi-Factor Authentication
+# <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal użytkowników serwera usługi Azure Multi-Factor Authentication
 
-Hello portal użytkowników to witryna sieci web IIS, który umożliwia tooenroll użytkowników w usłudze Azure Multi-Factor Authentication (MFA) i obsługę kont. Użytkownik może zmienić swój numer telefonu, zmianę kodu PIN lub wybierz toobypass weryfikacji dwuetapowej podczas ich następnego logowania.
+Portal użytkowników to witryna internetowa usług IIS, dzięki której użytkownicy mogą zarejestrować się w usłudze Azure Multi-Factor Authentication (MFA) i obsługiwać swoje konta. Użytkownik może zmienić swój numer telefonu i numer PIN lub zdecydować o pominięciu weryfikacji dwuetapowej podczas następnego logowania.
 
-Użytkownicy Zaloguj się w portalu użytkowników toohello ich zwykłej nazwy użytkownika i hasło, następnie ukończenia wywołania weryfikacji dwuetapowej albo odpowiedzi toocomplete pytania zabezpieczeń uwierzytelniania. Jeśli rejestracja użytkowników jest dozwolona, użytkownicy skonfigurować ich numer telefonu i kod PIN hello zalogują się po raz pierwszy w portalu użytkowników toohello.
+Użytkownik loguje się do portalu użytkowników przy użyciu swojej zwykłej nazwy użytkownika oraz hasła, a następnie wykonuje połączenie uwierzytelniające weryfikacji dwuetapowej lub udziela odpowiedzi na pytanie zabezpieczające, aby ukończyć proces uwierzytelniania. Jeśli rejestracja użytkowników jest dozwolona, użytkownik może skonfigurować swój numer telefonu i numer PIN podczas pierwszego logowania do portalu użytkowników.
 
-Portal użytkowników Administratorzy mogą skonfigurować i przyznane uprawnienia tooadd nowych użytkowników i Aktualizuj istniejących użytkowników.
+Można skonfigurować administratorów portalu użytkowników oraz przyznać im uprawnienia pozwalające dodawać nowych użytkowników i aktualizować istniejących.
 
-W zależności od środowiska, może być toodeploy hello użytkownika portalu na powitania tego samego serwera jako serwera usługi Azure Multi-Factor Authentication lub na innym serwerze skierowane do Internetu.
+W zależności od środowiska można wdrożyć portal użytkowników na tym samym serwerze co serwer usługi Azure Multi-Factor Authentication lub na innym serwerze internetowym.
 
 ![Portal użytkowników usługi MFA](./media/multi-factor-authentication-get-started-portal/portal.png)
 
 > [!NOTE]
-> portal użytkowników Hello jest dostępna tylko w aplikacji serwer Multi-Factor Authentication. Uwierzytelnianie wieloskładnikowe w chmurze hello, zapoznaj się z toohello użytkowników [konfiguracji konta na potrzeby weryfikacji dwuetapowej](./end-user/multi-factor-authentication-end-user-first-time.md) lub [zarządzać ustawieniami na potrzeby weryfikacji dwuetapowej](./end-user/multi-factor-authentication-end-user-manage-settings.md).
+> Portal użytkowników jest dostępny tylko na serwerze usługi Azure Multi-Factor Authentication. Jeśli korzystasz z usługi Multi-Factor Authentication w chmurze, przekieruj użytkowników do artykułu [Konfigurowanie konta na potrzeby weryfikacji dwuetapowej](./end-user/multi-factor-authentication-end-user-first-time.md) lub [Zarządzanie ustawieniami weryfikacji dwuetapowej](./end-user/multi-factor-authentication-end-user-manage-settings.md).
 
-## <a name="install-hello-web-service-sdk"></a>Instalowanie zestawu SDK usług sieci web hello
+## <a name="install-the-web-service-sdk"></a>Instalowanie zestawu SDK usługi sieci Web
 
-W każdym z tych scenariuszy, jeśli hello Azure Multi-Factor Authentication Web Service SDK jest **nie** już zainstalowane na powitania serwera usługi Azure Multi-Factor Authentication (MFA), pełny hello kroków poniżej.
+W dowolnym scenariuszu, jeśli zestaw SDK usługi internetowej Azure Multi-Factor Authentication **nie** został jeszcze zainstalowany na serwerze usługi Azure Multi-Factor Authentication (MFA), wykonaj poniższe kroki.
 
-1. Otwórz program hello aplikacji serwer Multi-Factor Authentication.
-2. Przejdź toohello **zestawu SDK usług sieci Web** i wybierz **Zainstaluj usługę Web Service SDK**.
-3. Zainstaluj pełną hello przy użyciu wartości domyślnych hello, chyba że potrzebne toochange ich jakiegoś powodu.
-4. Powiązania witryny toohello certyfikatu SSL w usługach IIS.
+1. Otwórz konsolę serwera usługi Multi-Factor Authentication.
+2. Przejdź do **zestawu SDK usługi internetowej** i wybierz pozycję **Zainstaluj zestaw SDK usługi internetowej**.
+3. Ukończ instalację przy użyciu ustawień domyślnych, o ile nie trzeba ich zmienić z dowolnej przyczyny.
+4. Powiąż certyfikat SSL z witryną w usługach IIS.
 
-Jeśli masz pytania dotyczące konfigurowania certyfikatu SSL na serwerze IIS, zobacz artykuł hello [jak tooSet zabezpieczeń SSL w usługach IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Jeśli masz pytania dotyczące konfigurowania certyfikatu SSL na serwerze usług IIS, zobacz artykuł [How to Set Up SSL on IIS (Jak skonfigurować protokół SSL w usługach IIS)](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-Witaj zestawu SDK usług sieci Web musi być zabezpieczona za pomocą certyfikatu SSL. W tym celu wystarczy certyfikat z podpisem własnym. Zaimportuj certyfikat hello w magazynie "Zaufane główne urzędy certyfikacji" hello hello konta komputera lokalnego na serwerze sieci web portalu użytkowników hello, tak, aby podczas inicjowania połączenia SSL hello zaufany certyfikat.
+Zestaw SDK usługi sieci Web musi zostać zabezpieczony za pomocą certyfikatu SSL. W tym celu wystarczy certyfikat z podpisem własnym. Zaimportuj certyfikat do magazynu „Zaufane główne urzędy certyfikacji” konta komputera lokalnego na serwerze internetowym portalu użytkowników, dzięki czemu magazyn uzna ten certyfikat za zaufany podczas inicjowania połączenia SSL.
 
 ![Ustawienia konfiguracji serwera usługi MFA — zestaw SDK usługi internetowej](./media/multi-factor-authentication-get-started-portal/sdk.png)
 
-## <a name="deploy-hello-user-portal-on-hello-same-server-as-hello-azure-multi-factor-authentication-server"></a>Wdrożenie aplikacji portal użytkowników hello na powitania tym samym serwerze co powitania serwera usługi Azure Multi-Factor Authentication
+## <a name="deploy-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Wdrażanie portalu użytkowników na tym samym serwerze, na którym działa serwer usługi Azure Multi-Factor Authentication
 
-Witaj następujące wymagania wstępne są wymagane tooinstall hello użytkownika portalu na powitania **tym samym serwerze** jako hello Azure aplikacji serwer Multi-Factor Authentication:
+W celu zainstalowania portalu użytkowników na **tym samym serwerze**, na którym działa serwer usługi Azure Multi-Factor Authentication, wymagane jest spełnienie następujących wymagań wstępnych:
 
 * Usługi IIS, w tym usługi ASP.NET, i zgodność metabazy IIS 6 (dla usług IIS 7 lub nowszych)
-* Konta z prawami administratora hello komputera i domeny, jeśli ma to zastosowanie. Konto Hello na potrzeby grupy zabezpieczeń usługi Active Directory toocreate uprawnienia.
-* Zabezpiecz hello portal użytkowników za pomocą certyfikatu SSL.
-* Zabezpiecz hello Azure Multi-Factor Authentication Web Service SDK za pomocą certyfikatu SSL.
+* Konto z prawami administratora na danym komputerze i w danej domenie (jeśli ma zastosowanie). Konto wymaga uprawnień do tworzenia grup zabezpieczeń usługi Active Directory.
+* Zabezpieczenie portalu użytkowników za pomocą certyfikatu SSL.
+* Zabezpieczenie zestawu SDK usługi sieci Web usługi Azure Multi-Factor Authentication za pomocą certyfikatu SSL.
 
-toodeploy hello użytkownika portalu, wykonaj następujące kroki:
+Aby wdrożyć portal użytkowników, wykonaj następujące czynności:
 
-1. Otwórz konsolę serwera usługi Azure Multi-Factor Authentication hello, kliknij przycisk hello **Portal użytkowników** ikonę w hello pozostałych menu, kliknij przycisk **Zainstaluj Portal użytkowników**.
-2. Zainstaluj pełną hello przy użyciu wartości domyślnych hello, chyba że potrzebne toochange ich jakiegoś powodu.
-3. Powiązania witryny toohello certyfikatu SSL w usługach IIS
+1. Otwórz konsolę usługi Azure Multi-Factor Authentication, kliknij ikonę **Portal użytkowników** w menu po lewej stronie i kliknij pozycję **Zainstaluj portal użytkowników**.
+2. Ukończ instalację przy użyciu ustawień domyślnych, o ile nie trzeba ich zmienić z dowolnej przyczyny.
+3. Tworzenie powiązania certyfikatu SSL z witryną w usługach IIS
 
    > [!NOTE]
    > Ten certyfikat SSL jest przeważnie publicznie podpisanym certyfikatem SSL.
 
-4. Otwórz przeglądarkę sieci web za pomocą dowolnego komputera i przejdź do adresu URL toohello zainstalowaną hello portalu użytkowników (przykład: https://mfa.contoso.com/MultiFactorAuth). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
+4. Otwórz przeglądarkę internetową z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano portal użytkowników (np. https://mfa.contoso.com/MultiFactorAuth). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
 
 ![Instalacja portalu użytkowników serwera usługi MFA](./media/multi-factor-authentication-get-started-portal/install.png)
 
-Jeśli masz pytania dotyczące konfigurowania certyfikatu SSL na serwerze IIS, zobacz artykuł hello [jak tooSet zabezpieczeń SSL w usługach IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Jeśli masz pytania dotyczące konfigurowania certyfikatu SSL na serwerze usług IIS, zobacz artykuł [How to Set Up SSL on IIS (Jak skonfigurować protokół SSL w usługach IIS)](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-## <a name="deploy-hello-user-portal-on-a-separate-server"></a>Wdrożenie aplikacji portal użytkowników hello na osobnym serwerze
+## <a name="deploy-the-user-portal-on-a-separate-server"></a>Wdrażanie portalu użytkowników na osobnym serwerze
 
-Jeśli serwera hello, w którym jest uruchomiona serwera usługi Azure Multi-Factor Authentication nie jest skierowane do Internetu, należy zainstalować portal użytkowników hello na **oddzielne, internetowy serwer**.
+Jeśli serwer, na którym jest uruchomiony serwer usługi Azure Multi-Factor Authentication, nie jest dostępny z Internetu, należy zainstalować portal użytkowników na **osobnym serwerze dostępnym z Internetu**.
 
-Jeśli Twoja organizacja korzysta z hello aplikacji Microsoft Authenticator jako jedną z metod weryfikacji hello i chcesz toodeploy portal użytkowników hello na osobnym serwerze, wykonaj hello następujące wymagania:
+Jeśli organizacja używa aplikacji Microsoft Authenticator jako jednej z metod weryfikacji i chce wdrożyć portal użytkowników na własnym serwerze, upewnij się, że spełniono następujące wymagania:
 
-* Użyj wersji 6.0 lub nowszej powitania serwera usługi Azure Multi-Factor Authentication.
-* Zainstaluj portal użytkowników hello na internetowy serwer sieci web, który jest uruchomiony program Microsoft internet Information Services (IIS) 6.x lub nowszego.
-* Korzystając z usług IIS 6.x, upewnij się, programu ASP.NET v2.0.50727 jest zainstalowana, zarejestrowane i ustawiona zbyt**dozwolone**.
+* Używanie serwera usługi Multi-Factor Authentication w wersji 6.0 lub nowszej.
+* Zainstalowanie portalu użytkowników na dostępnym z Internetu serwerze sieci Web z uruchomionymi usługami Microsoft Internet Information Services (IIS) w wersji 6.x lub nowszej.
+* W przypadku użycia wersji IIS 6.x upewnij się, że program ASP.NET w wersji 2.0.50727 jest zainstalowany i zarejestrowany oraz że wybrano dla niego opcję **Dozwolone**.
 * W przypadku użycia usług IIS 7.x lub nowszych zachowanie zgodności usług IIS z uwzględnieniem uwierzytelniania podstawowego, z technologią ASP.NET i metabazą usług IIS 6.
-* Zabezpiecz hello portal użytkowników za pomocą certyfikatu SSL.
-* Zabezpiecz hello Azure Multi-Factor Authentication Web Service SDK za pomocą certyfikatu SSL.
-* Upewnij się, że tego hello portalu użytkownika można łączyć toohello Azure Multi-Factor Authentication Web Service SDK za pośrednictwem protokołu SSL.
-* Upewnij się, tego hello portalu użytkownika można uwierzytelniać toohello Azure Multi-Factor Authentication Web Service SDK w grupie zabezpieczeń "Administratorzy aplikacji PhoneFactor" hello przy użyciu hello poświadczenia konta usługi. Tego konta usługi i grupy muszą istnieć w usłudze Active Directory, jeśli na powitania serwera usługi Azure Multi-Factor Authentication działa na serwerze przyłączonym do domeny. Na powitania serwera usługi Azure Multi-Factor Authentication istnieje lokalnie tego konta usługi i grupy, ponieważ nie jest tooa przyłączone do domeny.
+* Zabezpieczenie portalu użytkowników za pomocą certyfikatu SSL.
+* Zabezpieczenie zestawu SDK usługi sieci Web usługi Azure Multi-Factor Authentication za pomocą certyfikatu SSL.
+* Portal użytkowników musi być w stanie nawiązać połączenie z zestawem SDK usługi sieci Web usługi Azure Multi-Factor Authentication za pośrednictwem protokołu SSL.
+* Portal użytkowników musi mieć możliwość uwierzytelnienia w zestawie SDK usługi sieci Web usługi Azure Multi-Factor Authentication przy użyciu poświadczeń konta usługi w grupie zabezpieczeń o nazwie „PhoneFactor Admins”. To konto usługi i ta grupa powinny istnieć w usłudze Active Directory, jeśli serwer usługi Azure Multi-Factor Authentication jest uruchomiony na serwerze przyłączonym do domeny. To konto usługi i ta grupa istnieją lokalnie na serwerze usługi Azure Multi-Factor Authentication, jeśli nie jest on przyłączony do domeny.
 
-Instalowanie portalu użytkowników hello na serwerze innym niż powitania serwera usługi Azure Multi-Factor Authentication wymaga hello następujące kroki:
+Zainstalowanie portalu użytkowników na serwerze innym niż serwer usługi Azure Multi-Factor Authentication wymaga wykonania następujących kroków:
 
-1. **Na powitania serwera usługi MFA**, przejdź do ścieżki instalacji toohello (przykład: C:\Program Files\Multi-Factor Authentication Server) i kopiowania pliku hello **MultiFactorAuthenticationUserPortalSetup64** tooa lokalizacji dostępne toohello internetowy serwer, którym zostanie on zainstalowany.
-2. **Na serwerze sieci web internetowy hello**, uruchom plik instalacyjny hello MultiFactorAuthenticationUserPortalSetup64 jako administrator, zmień hello lokacji, w razie potrzeby i zmienić hello wirtualnej katalogu tooa krótką nazwę, jeśli chcesz.
-3. Powiązania witryny toohello certyfikatu SSL w usługach IIS.
+1. **Na serwerze usługi MFA** przejdź do ścieżki instalacji (przykład: C:\Program Files\Multi-Factor Authentication Server), a następnie skopiuj plik **MultiFactorAuthenticationUserPortalSetup64** do lokalizacji dostępnej dla serwera z dostępem do Internetu, na którym zostanie on zainstalowany.
+2. **Na internetowym serwerze dostępnym z Internetu** uruchom plik instalacji MultiFactorAuthenticationUserPortalSetup64 jako administrator, w miarę potrzeb zmieniając miejsce instalacji, a następnie, jeśli chcesz, zmień nazwę katalogu wirtualnego na krótką.
+3. Powiąż certyfikat SSL z witryną w usługach IIS.
 
    > [!NOTE]
    > Ten certyfikat SSL jest przeważnie publicznie podpisanym certyfikatem SSL.
 
-4. Przeglądaj zbyt**C:\inetpub\wwwroot\MultiFactorAuth**
-5. Edytuj hello plik Web.Config w Notatniku
+4. Przejdź do folderu **C:\inetpub\wwwroot\MultiFactorAuth**
+5. Edytowanie pliku Web.Config w Notatniku
 
-    * Znajdź klucz hello **"USE_WEB_SERVICE_SDK"** i zmienić **wartość = "false"** zbyt**wartość = "true"**
-    * Znajdź klucz hello **"Wartość pozycji WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** i zmienić **wartość = ""** za**wartość = "Domena\użytkownik"** domena\nazwa użytkownika w przypadku konta usługi, który jest częścią Grupy "Administratorzy aplikacji PhoneFactor".
-    * Znajdź klucz hello **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** i zmienić **wartość = ""** za**wartość = "Password"** gdzie hasło jest hasło hello hello usługi Wprowadzona w poprzednim wierszu hello konta.
-    * Znajdź wartość hello **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** i zmienić toohello adres URL tego symbolu zastępczego URL zestawu SDK usługi sieci Web zainstalowano w kroku 2.
-    * Zapisz plik Web.Config hello i zamknij Notatnik.
+    * Znajdź klucz **"USE_WEB_SERVICE_SDK"** i zmień wartość **value="false"** na **value="true"**
+    * Znajdź klucz **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** i zmień wartość **value=""** na **value="DOMAIN\User"**, gdzie DOMAIN\User to konto usługi będące częścią grupy „PhoneFactor Admins”.
+    * Znajdź klucz **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** i zmień wartość **value=""** na **value="Password"**, gdzie Password to hasło konta usługi wprowadzonego w poprzednim wierszu.
+    * Znajdź wartość **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** i zmień adres URL tego symbolu zastępczego na adres URL zestawu SDK usługi internetowej zainstalowanej w kroku 2.
+    * Zapisz plik Web.Config i zamknij Notatnik.
 
-6. Otwórz przeglądarkę sieci web za pomocą dowolnego komputera i przejdź do adresu URL toohello zainstalowaną hello portalu użytkowników (przykład: https://mfa.contoso.com/MultiFactorAuth). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
+6. Otwórz przeglądarkę internetową z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano portal użytkowników (np. https://mfa.contoso.com/MultiFactorAuth). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
 
-Jeśli masz pytania dotyczące konfigurowania certyfikatu SSL na serwerze IIS, zobacz artykuł hello [jak tooSet zabezpieczeń SSL w usługach IIS](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Jeśli masz pytania dotyczące konfigurowania certyfikatu SSL na serwerze usług IIS, zobacz artykuł [How to Set Up SSL on IIS (Jak skonfigurować protokół SSL w usługach IIS)](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-## <a name="configure-user-portal-settings-in-hello-azure-multi-factor-authentication-server"></a>Skonfiguruj ustawienia portalu użytkowników w powitania serwera usługi Azure Multi-Factor Authentication
+## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurowanie ustawień portalu użytkowników na serwerze usługi Azure Multi-Factor Authentication
 
-Po zainstalowaniu tego portalu użytkownika hello należy tooconfigure powitania serwera usługi Azure Multi-Factor Authentication toowork hello Portal.
+Po zainstalowaniu portalu użytkowników należy skonfigurować serwer usługi Azure Multi-Factor Authentication do pracy z portalem.
 
-1. W konsoli serwera usługi Azure Multi-Factor Authentication powitania kliknij hello **Portal użytkowników** ikony. Na karcie Ustawienia hello, wprowadź nazwę hello adresu URL toohello użytkownika portalu w hello **adres URL portalu użytkownika** pola tekstowego. Włączenie funkcji poczty e-mail tego adresu URL znajduje się w wiadomościach e-mail hello, które są wysyłane toousers importowane do powitania serwera usługi Azure Multi-Factor Authentication.
-2. Wybierz ustawienia hello, które mają toouse w hello Portal użytkowników. Na przykład, jeśli użytkownicy mogą toochoose ich metod uwierzytelniania, upewnij się, że **użytkownicy metody tooselect** jest zaznaczone, oraz metody hello mogą wybrać z.
-3. Zdefiniować, kto powinien być Administratorzy na powitania **Administratorzy** kartę. Można utworzyć szczegółowego uprawnienia administracyjne, przy użyciu pola wyboru hello i list rozwijanych w polach Dodaj/Edytuj hello.
+1. W konsoli serwera usługi Azure Multi-Factor Authentication kliknij ikonę **Portal użytkowników**. Na karcie Ustawienia wprowadź adres URL portalu użytkowników w polu tekstowym **Adres URL portalu użytkowników**. Jeśli włączono funkcję e-mail, podany adres URL zostanie uwzględniony w wiadomości e-mail wysyłanej do użytkowników po ich zaimportowaniu na serwer usługi Azure Multi-Factor Authentication.
+2. Wybierz ustawienia, których chcesz użyć w portalu użytkowników. Jeśli na przykład użytkownicy mogą wybierać swoje metody uwierzytelniania, upewnij się, że jest zaznaczona opcja **Zezwalaj użytkownikom na wybór metody** oraz poszczególne metody uwierzytelniania, spośród których mogą wybierać użytkownicy.
+3. Zdefiniuj, którzy użytkownicy powinni być administratorami, na karcie **Administratorzy**. Możesz utworzyć szczegółowe uprawnienia administracyjne, korzystając z pól wyboru i list rozwijanych w polach Dodaj/Edytuj.
 
 Konfiguracja opcjonalna:
-- **Pytania zabezpieczające** — Zdefiniuj pytania zabezpieczające dla Twojego środowiska i hello języka pojawią się one w zatwierdzeniu.
+- **Pytania zabezpieczające** — zdefiniuj zatwierdzone pytania zabezpieczające dla środowiska oraz język, w którym mają być wyświetlane.
 - **Przekazane sesje** — skonfiguruj integrację portalu użytkownika z opartą na formularzu witryną internetową przy użyciu usługi MFA.
-- **Zaufanych adresów IP** — Zezwalaj użytkownikom tooskip MFA podczas uwierzytelniania z listy zaufanych adresów IP lub zakresu.
+- **Zaufane adresy IP** — zezwól użytkownikom na pomijanie usługi MFA podczas uwierzytelniania na podstawie listy zaufanych zakresów lub adresów IP.
 
 ![Konfiguracja portalu użytkowników serwera usługi MFA](./media/multi-factor-authentication-get-started-portal/config.png)
 
-Serwer systemu Azure Multi-Factor Authentication zapewnia kilka opcji hello portal użytkowników. Witaj Poniższa tabela zawiera listę tych opcji oraz wyjaśnienie one używane.
+Serwer usługi Azure Multi-Factor Authentication zapewnia kilka opcji związanych z portalem użytkowników. Poniższa tabela zawiera listę tych opcji wraz z opisem ich zastosowania.
 
 | Ustawienia portalu użytkowników | Opis |
 |:--- |:--- |
-| Adres URL portalu użytkowników | Wprowadź adres URL hello gdzie portalu hello jest obsługiwana. |
-| Uwierzytelnianie podstawowe | Określ typ hello toouse uwierzytelniania podczas rejestrowania się w portalu toohello. Dostępne opcje to Windows, Radius lub LDAP. |
-| Zezwalaj użytkownikom toolog w | Zezwalaj tooenter użytkowników na nazwy użytkownika i hasła na powitania strony logowania dla aplikacji portal użytkowników hello. Jeśli ta opcja nie jest zaznaczona, pola hello są wygaszone. |
-| Zezwalaj na rejestrację użytkownika | Zezwalaj tooenroll użytkownika w usłudze Multi-Factor Authentication, wykonując ich ekran konfiguracji tooa monitujące o dodatkowe informacje, takie jak numer telefonu. Monit o zapasowy numer telefonu umożliwia użytkownikom toospecify numeru telefonu dodatkowej. Monituj o innych firm OATH token umożliwia toospecify użytkowników token OATH innej firmy. |
-| Zezwalaj użytkownikom tooinitiate jednokrotnego obejścia | Zezwalaj użytkownikom tooinitiate jednorazowego obejścia. Jeśli użytkownik konfiguruje tę opcję, będzie trwało hello efekt następnym zalogowaniu użytkownika hello. Monituj o obejścia w sekundach zapewnia użytkownikowi hello z polem, dlatego mogą zmienić domyślną hello 300 sekund. W przeciwnym razie hello jednorazowe obejście dotyczy tylko 300 sekund. |
-| Zezwalaj użytkownikom tooselect — metoda | Zezwalaj użytkownikom toospecify ich podstawowej metody kontaktu. Metodą tą może być połączenie telefoniczne, wiadomość SMS, aplikacja mobilna lub token OATH. |
-| Zezwalaj użytkownikom tooselect języka | Zezwalaj użytkownikom toochange hello język, który jest używany dla hello rozmowy telefonicznej, wiadomości tekstowej, aplikacji mobilnej lub tokenu OATH. |
-| Zezwalaj aplikacji mobilnej tooactivate użytkowników | Zezwalaj użytkownikom toogenerate aktywacji kod toocomplete hello aplikacji mobilnej proces aktywacji, który jest używany z serwerem hello.  Można również ustawić hello liczbę urządzeń, aktywować aplikacji hello, w zakresie od 1 do 10. |
-| Użyj pytań zabezpieczających w przypadku uwierzytelniania rezerwowego | Umożliwia udzielenie odpowiedzi na pytania zabezpieczające w przypadku niepowodzenia weryfikacji dwuetapowej. Można określić hello liczbę pytań zabezpieczających, które pomyślnie odpowiedzi. |
-| Zezwalaj na token OATH innej firmy tooassociate użytkowników | Zezwalaj użytkownikom toospecify token OATH innej firmy. |
-| Użyj tokenu OATH w przypadku uwierzytelniania rezerwowego | Umożliwia użycie hello tokenu OATH w przypadku, gdy weryfikacja dwuetapowa zakończy się niepowodzeniem. Można również określić limit czasu sesji hello w minutach. |
-| Włącz rejestrowanie | Włącz rejestrowanie na powitania portal użytkowników. Witaj pliki dziennika znajdują się w: C:\Program Files\Multi-Factor Authentication Server\Logs. |
+| Adres URL portalu użytkowników | Umożliwia wprowadzenie adresu URL, pod którym jest hostowany portal. |
+| Uwierzytelnianie podstawowe | Umożliwia określenie typu uwierzytelniania stosowanego podczas logowania się do portalu. Dostępne opcje to Windows, Radius lub LDAP. |
+| Zezwalaj użytkownikom na logowanie | Umożliwia użytkownikom wprowadzenie swoich nazw i haseł na stronie logowania w portalu użytkowników. Jeśli ta opcja nie zostanie zaznaczona, pola są wyszarzone. |
+| Zezwalaj na rejestrację użytkownika | Umożliwia użytkownikowi rejestrację w usłudze Multi-Factor Authentication, wyświetlając ekran konfiguracji z monitami o dodatkowe informacje, takie jak numer telefonu. Wybór opcji Monituj o zapasowy numer telefonu pozwala użytkownikom wprowadzić dodatkowy numer telefonu. Wybór opcji Monituj o token OATH innej firmy umożliwia użytkownikom podanie tokenu OATH innej firmy. |
+| Zezwalaj użytkownikom na inicjowanie jednokrotnego obejścia | Umożliwia użytkownikom inicjowanie jednokrotnego obejścia. Jeśli użytkownik skonfiguruje tę opcję, zostanie ona zastosowana podczas następnego logowania użytkownika. Opcja Monituj o obejście (w sekundach) zapewnia użytkownikowi dostęp do pola opcji i pozwala zmienić wartość domyślną, jaką jest 300 sekund. Jeśli ta opcja nie zostanie wybrana, jednorazowe obejście będzie działać tylko przez 300 sekund. |
+| Zezwalaj użytkownikom na wybór metody | Umożliwia użytkownikom wskazanie głównego sposobu kontaktu. Metodą tą może być połączenie telefoniczne, wiadomość SMS, aplikacja mobilna lub token OATH. |
+| Zezwalaj użytkownikom na wybór języka | Umożliwia użytkownikom zmianę języka używanego w przypadku rozmów telefonicznych, wiadomości SMS, aplikacji mobilnej lub tokenów OATH. |
+| Zezwalaj użytkownikom na uaktywnienie aplikacji mobilnej | Opcja umożliwia użytkownikom wygenerowanie kodu aktywacji w celu ukończenia procesu aktywacji aplikacji mobilnej, która jest używana w połączeniu z serwerem.  Można również ustawić liczbę urządzeń (od 1 do 10), na których użytkownik może dokonać aktywacji aplikacji. |
+| Użyj pytań zabezpieczających w przypadku uwierzytelniania rezerwowego | Umożliwia udzielenie odpowiedzi na pytania zabezpieczające w przypadku niepowodzenia weryfikacji dwuetapowej. Można określić liczbę pytań zabezpieczających, na które należy udzielić poprawnej odpowiedzi. |
+| Zezwalaj użytkownikom na skojarzenie tokenu OATH innej firmy | Pozwala użytkownikom na określenie tokenu OATH innej firmy. |
+| Użyj tokenu OATH w przypadku uwierzytelniania rezerwowego | Umożliwia korzystanie z tokenów OATH w przypadku niepowodzenia weryfikacji dwuetapowej. Można również określić limit czasu sesji w minutach. |
+| Włącz rejestrowanie | Włącza funkcję rejestrowania w portalu użytkowników. Pliki dziennika znajdują się w folderze: C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
-Te ustawienia będą widoczne toohello użytkownika w portalu hello, gdy są włączone i są zarejestrowane w portalu użytkowników toohello.
+Te ustawienia stają się widoczne dla użytkownika w portalu po ich włączeniu oraz po zalogowaniu się do tego portalu.
 
 ![Ustawienia portalu użytkowników](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Samodzielna rejestracja użytkownika
 
-Toosign Twojego użytkowników i rejestrowanie, należy wybrać hello **Zezwalaj toolog użytkowników w** i **Zezwalaj na rejestrację użytkowników** opcje na karcie Ustawienia hello. Należy pamiętać, że wybrane ustawienia hello wpływają na powitania użytkownika logowania.
+Jeśli chcesz, aby użytkownicy mogli się logować i rejestrować, musisz wybrać opcje **Zezwalaj użytkownikom na logowanie** i **Zezwalaj na rejestrację użytkownika** w obszarze karty Ustawienia. Pamiętaj, że wybrane ustawienia wpływają na środowisko logowania użytkowników.
 
-Na przykład po zalogowaniu użytkownika w portalu użytkownika toohello powitania po raz pierwszy, następnie są one brane toohello ustawienia użytkownika uwierzytelnianie wieloskładnikowe Azure strony. W zależności od sposobu konfiguracji usługi Azure Multi-Factor Authentication, hello użytkownika może być możliwe tooselect ich metody uwierzytelniania.
+Na przykład użytkownik logujący się do portalu po raz pierwszy zostanie przeniesiony na stronę konfiguracji użytkownika usługi Azure Multi-Factor Authentication. W zależności od konfiguracji usługi Azure Multi-Factor Authentication użytkownik może być w stanie wybrać metodę uwierzytelniania.
 
-Jeśli wybierz hello głosu wywołać metodę weryfikacji lub zostały wstępnie skonfigurowane toouse tej metody, strona hello monituje tooenter użytkownika hello ich głównego numeru telefonu i rozszerzenia, jeśli ma to zastosowanie. Może być również dozwolone tooenter zapasowy numer telefonu.
+Jeśli wybierze on metodę weryfikacji Połączenie głosowe lub jeśli usługa została wstępnie skonfigurowana pod kątem użycia tej metody, strona wyświetla monit o podanie podstawowego numeru telefonu użytkownika oraz, w razie potrzeby, numeru wewnętrznego. Użytkownik może także mieć możliwość wprowadzenia zapasowego numeru telefonu.
 
 ![Rejestrowanie podstawowych i zapasowych numerów telefonów](./media/multi-factor-authentication-get-started-portal/backupphone.png)
 
-Jeśli użytkownik hello jest wymagana toouse numeru PIN podczas uwierzytelniania, strony hello monituje o ich toocreate numeru PIN. Po wprowadzeniu swoje numery telefonów i numer PIN (jeśli dotyczy), hello użytkownik klika polecenie hello **Zadzwoń do mnie tooAuthenticate** przycisku. Usługa Azure Multi-Factor Authentication wykonuje połączeń telefonicznych weryfikacji toohello użytkownika głównego numeru telefonu. Użytkownik Hello musi odpowiedzieć hello połączeń telefonicznych i wprowadź swój kod PIN (jeśli dotyczy) i naciśnij klawisz # toomove na toohello następnego kroku procesu rejestracji samodzielnej hello.
+Jeśli podczas uwierzytelniania wymagane jest wprowadzenie przez użytkownika numeru PIN, na stronie wyświetla się także monit o utworzenie numeru PIN. Po wprowadzeniu numerów telefonów i numeru PIN (jeśli dotyczy) użytkownik klika przycisk **Połącz się teraz ze mną w celu uwierzytelnienia**. Usługa Azure Multi-Factor Authentication przeprowadza weryfikację w drodze połączenia telefonicznego z podstawowym numerem telefonu użytkownika. Użytkownik musi odebrać połączenie i wprowadzić numer PIN (jeśli ma zastosowanie), a następnie nacisnąć klawisz #, aby przejść do następnego kroku procesu samodzielnej rejestracji.
 
-Jeśli hello użytkownik wybiera metodę weryfikacji wiadomość hello lub zostało wstępnie skonfigurowane toouse tej metody, strony hello hello wyświetla użytkownikowi monit o ich numeru telefonu komórkowego. Jeśli hello użytkownika jest wymagane toouse numeru PIN podczas uwierzytelniania, strona hello także wyświetla monit o ich tooenter numeru PIN.  Po wprowadzeniu ich numer telefonu i numeru PIN (jeśli dotyczy), hello użytkownik klika polecenie hello **tekst mnie teraz tooAuthenticate** przycisku. Usługa Azure Multi-Factor Authentication wykonuje telefon komórkowy SMS weryfikacji toohello użytkownika. Witaj użytkownik otrzymuje hello wiadomość SMS z jednego-jednorazowej-kod dostępu (OTP), a następnie odpowiedzi toohello wiadomości z tego OTP oraz kod PIN (jeśli dotyczy).
+Jeśli użytkownik wybierze metodę weryfikacji Wiadomość SMS lub jeśli wstępna konfiguracja zakłada użycie tej metody, na stronie jest wyświetlany monit o wprowadzenie numeru telefonu komórkowego. Jeśli podczas uwierzytelniania wymagane jest wprowadzenie przez użytkownika numeru PIN, na stronie wyświetla się także monit o wprowadzenie numeru PIN.  Po wprowadzeniu numeru telefonu i numeru PIN (jeśli dotyczy) użytkownik klika przycisk **Wyślij teraz do mnie wiadomość SMS w celu uwierzytelnienia**. Usługa Azure Multi-Factor Authentication przeprowadza weryfikację SMS z użyciem telefonu komórkowego użytkownika. Użytkownik otrzymuje wiadomość SMS z jednorazowym kodem dostępu, a następnie w odpowiedzi na wiadomość podaje ten kod oraz numer PIN (jeśli dotyczy).
 
 ![Wiadomość SMS z portalu użytkowników](./media/multi-factor-authentication-get-started-portal/text.png)
 
-Jeśli hello użytkownik wybiera metodę weryfikacji hello aplikacji mobilnej, strona hello monituje hello aplikacji Microsoft Authenticator hello tooinstall użytkownika na urządzeniu i wygenerowanie kodu aktywacji. Po zainstalowaniu aplikacji hello, hello użytkownik kliknie przycisk Generuj kod aktywacji hello.
+Jeśli użytkownik wybierze metodę weryfikacji z użyciem aplikacji mobilnej, na stronie jest wyświetlany monit o zainstalowanie aplikacji Microsoft Authenticator na urządzeniu i wygenerowanie kodu aktywacji. Po zainstalowaniu aplikacji użytkownik klika przycisk Generuj kod aktywacji.
 
 > [!NOTE]
-> aplikacji Microsoft Authenticator hello toouse, hello użytkownika należy włączyć powiadomień wypychanych na swoim urządzeniu.
+> Aby móc używać aplikacji Microsoft Authenticator, użytkownik musi włączyć powiadomienia wypychane dla swojego urządzenia.
 
-stronie powitania zostanie wyświetlony kod aktywacyjny i adres URL i obraz kodu kreskowego. Jeśli użytkownik hello jest wymagana toouse numeru PIN podczas uwierzytelniania, hello strony Ponadto monituje o ich tooenter numeru PIN. Użytkownik Hello wejścia hello kod aktywacji i adres URL w aplikacji Microsoft Authenticator hello lub używa hello kod kreskowy skanera tooscan hello kod kreskowy obrazu i kliknie przycisk Aktywuj hello.
+Na stronie zostanie wyświetlony kod aktywacji oraz adres URL wraz z obrazem kodu kreskowego. Jeśli podczas uwierzytelniania wymagane jest wprowadzenie przez użytkownika numeru PIN, na stronie wyświetla się dodatkowo monit o wprowadzenie numeru PIN. Użytkownik wprowadza kod aktywacji i adres URL w aplikacji Microsoft Authenticator lub korzysta ze skanera kodów kreskowych w celu zeskanowania obrazu kodu kreskowego, a następnie klika przycisk Aktywuj.
 
-Po ukończeniu aktywacji hello hello użytkownik klika polecenie hello **Uwierzytelnij mnie teraz** przycisku. Usługa Azure Multi-Factor Authentication wykonuje aplikacji mobilnej użytkownika toohello weryfikacji. Hello użytkownik musi wprowadzić kod PIN (jeśli dotyczy) i naciśnij przycisk Uwierzytelnij hello w ich toomove aplikacji mobilnej na toohello następnego kroku procesu rejestracji samodzielnej hello.
+Po zakończeniu aktywacji użytkownik klika przycisk **Uwierzytelnij mnie teraz**. Usługa Azure Multi-Factor Authentication przeprowadza weryfikację z użyciem aplikacji mobilnej używanej przez użytkownika. Użytkownik musi wprowadzić numer PIN (jeśli ma zastosowanie), a następnie nacisnąć przycisk Uwierzytelnij w aplikacji mobilnej, aby przejść do następnego kroku procesu samodzielnej rejestracji.
 
-Jeśli administratorzy hello skonfigurowano powitania serwera usługi Azure Multi-Factor Authentication toocollect zabezpieczeń pytania i odpowiedzi, użytkownik hello następnie jest pobierany toohello pytania zabezpieczające strony. Witaj użytkownika należy wybrać cztery pytania zabezpieczające i podać odpowiedzi na pytania tootheir wybrane.
+Jeśli administrator skonfigurował serwer usługi Azure Multi-Factor Authentication pod kątem gromadzenia pytań zabezpieczających oraz odpowiedzi na nie, użytkownik zostaje następnie przeniesiony na stronę pytań zabezpieczających. Użytkownik musi wybrać cztery pytania zabezpieczające i podać odpowiedzi na nie.
 
 ![Pytania zabezpieczające portalu użytkowników](./media/multi-factor-authentication-get-started-portal/secq.png)
 
-Samodzielna rejestracja przez użytkownika Hello jest teraz ukończona i hello użytkownik jest zalogowany toohello portal użytkowników. Użytkownicy mogą zalogują się ponownie toohello portal użytkowników w dowolnym momencie w przyszłości toochange hello numery telefonów, numery PIN, metody uwierzytelniania i pytania zabezpieczające Jeśli zmiana ich metod jest dozwolona przez administratorów.
+Proces samodzielnej rejestracji użytkownika zostaje zakończony, a użytkownik zostaje zalogowany do portalu użytkowników. Jeśli administratorzy zapewnią możliwość zmiany wybranej metody, użytkownicy mogą w dowolnym momencie ponownie zalogować się do portalu użytkowników, aby zmienić numery telefonów, numer PIN, metody uwierzytelniania oraz pytania zabezpieczające.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wdrażanie hello Azure Multi-Factor Authentication Server Mobile App Web Service](multi-factor-authentication-get-started-server-webservice.md)
+- [Wdrażanie usługi internetowej aplikacji mobilnej serwera Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)

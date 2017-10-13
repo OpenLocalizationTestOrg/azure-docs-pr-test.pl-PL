@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement interfejsu użytkownika — ustawienia"
-description: "Dowiedz się, jak toomanage hello globalne ustawienia aplikacji przy użyciu usługi Azure Mobile Engagement"
+title: "Interfejs użytkownika usługi Azure Mobile Engagement — ustawienia"
+description: "Dowiedz się, jak zarządzać globalne ustawienia aplikacji przy użyciu usługi Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 02d4a36c591fc5e097410b7e931d1c9ce81d68d5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-hello-global-settings-of-your-application"></a>Jak toomanage hello globalne ustawienia aplikacji
-Witaj **ustawienia** menu opcji dostępnych dla aplikacji mogą być różne, w zależności od platformy hello aplikacji hello i uprawnień hello przyznano Ci dla aplikacji hello. Ustawienia obejmują następujące hello: szczegóły, projektów natywnych powiadomień wypychanych, szybkość wypychania, Tag (app-info) i nacisku komercyjnego. Witaj Tag (app-info) menu opcji hello w sekcji Ustawienia można zarządzać przez aplikację (przy użyciu hello zestawu SDK) lub serwera (przy użyciu hello interfejsu API urządzenia). 
+# <a name="how-to-manage-the-global-settings-of-your-application"></a>Jak zarządzać globalne ustawienia aplikacji
+**Ustawienia** menu opcji dostępnych dla aplikacji mogą być różne, w zależności od platformy aplikacji i uprawnienia można przyznać aplikacji. Ustawienia obejmują następujące elementy: szczegóły, projektów natywnych powiadomień wypychanych, szybkość wypychania, Tag (app-info) i nacisku komercyjnego. Opcji menu Tag (app-info) w sekcji Ustawienia można zarządzać przez aplikację (przy użyciu zestawu SDK) lub serwera (przy użyciu interfejsu API urządzenia). 
 
 > [!NOTE]
-> Wiele sekcji hello **Mobile Engagement** interfejsu użytkownika portalu zawierają hello **Pokaż Pomoc** przycisku. Naciśnij ten przycisk tooget więcej informacje kontekstowe dotyczące sekcji.
+> Wiele sekcji **Mobile Engagement** zawierają interfejsu użytkownika portalu **Pokaż Pomoc** przycisku. Naciśnij ten przycisk, aby uzyskać dodatkowe informacje kontekstowe o sekcji.
 > 
 > 
 
 ## <a name="details"></a>Szczegóły
-Umożliwia toochange hello nazwę i opis Twojej aplikacji, właściciela hello widoku aplikacji i uprawnień roli. 
+Umożliwia zmianę nazwy i opisu aplikacji, Wyświetl właściciela aplikacji i uprawnień roli. 
 
-Konfiguracja Analytics umożliwia tooview lub zmień dzień hello tygodni uruchomić na komputerze i hello czas przechowywania w dni.
+Konfiguracji analizy można wyświetlić lub zmienić dzień rozpoczęcia na tygodnie i czas przechowywania w dni.
 
   ![settings1][46]
 
 ## <a name="projects"></a>Projekty
-Pozwala tooselect wszystkie projekty mają tooappear Twojej aplikacji. 
+Można wybrać wszystkie projekty, które chcesz aplikacji w wynikach. 
 
-Możesz również wyszukać projektu i widoku hello nazwę, opis, właściciela i uprawnień roli projektu aplikacji jest częścią.
+Można również wyszukać projektu i wyświetlić nazwę, opis, właściciela i uprawnień roli aplikacji jest częścią projektu.
 
 Aby uzyskać więcej informacji, zobacz: [dokumentacji interfejsu użytkownika — strona główna][Link 13]
 
   ![settings3][48]
 
 ## <a name="native-push"></a>Natywnych powiadomień wypychanych
-Umożliwia tooregister nowego certyfikatu lub Usuń, a istniejący certyfikat na potrzeby korzystać z natywnych powiadomień wypychanych. Natywnych powiadomień wypychanych umożliwia aplikacji tooyour toopush usługi Azure Mobile Engagement w dowolnym momencie, nawet jeśli nie jest uruchomiona. 
+Można zarejestrować nowego certyfikatu lub Usuń, a istniejący certyfikat do użycia z natywnych powiadomień wypychanych. Natywnych powiadomień wypychanych umożliwia usługi Azure Mobile Engagement do aplikacji w dowolnym momencie, nawet gdy nie jest uruchomiona. 
 
-Po podaniu poświadczeń lub certyfikaty dla co najmniej jedną usługę natywnych powiadomień wypychanych, możesz wybrać "W dowolnym momencie" podczas tworzenia osiągnąć kampanii i użyj parametru "zgłaszający" hello w hello PUSH interfejsu API.
+Po podaniu poświadczeń lub certyfikaty dla co najmniej jedną usługę natywnych powiadomień wypychanych, możesz wybrać "W dowolnym momencie" podczas tworzenia osiągnąć kampanii i użyj parametru "zgłaszający" w interfejsie API PUSH.
 
 ### <a name="apple-push-notification-service-apns"></a>Apple Push Notification Service (APNS)
-tooenable wypychanie natywne przy użyciu hello Apple Push Notification Service należy tooregister certyfikatu. Konieczne będzie toospecify hello typu certyfikatu jako Programowanie (deweloperów) lub produkcyjnym (produkcyjną). Następnie możesz należy przekazać certyfikat i hello hasła.
+Aby włączyć wypychanie natywne przy użyciu usługi Apple Push Notification Service, musisz zarejestrować certyfikat. Należy określić typ certyfikatu jako Programowanie (deweloperów) lub produkcyjnym (produkcyjną). Następnie możesz należy przekazać certyfikat i hasło.
 
-Aby uzyskać więcej informacji, zobacz: [dokumentacji zestawu SDK — dla systemu iOS — jak tooPrepare aplikacji dla powiadomień wypychanych firmy Apple][Link 5]
+Aby uzyskać więcej informacji, zobacz: [dokumentacji zestawu SDK - iOS - sposobu przygotowania aplikacji do powiadomień wypychanych firmy Apple][Link 5]
 
 ![settings4][49]
 
 ### <a name="windows-push-notification-service-wpns"></a>Usługa powiadomień wypychanych systemu Windows (WPNS)
-tooenable wypychanie natywne przy użyciu usługi powiadomień systemu Windows, musisz podać poświadczenia aplikacji. Konieczne będzie identyfikator zabezpieczeń (SID) pakietu i klucz tajny.
+Aby włączyć wypychanie natywne przy użyciu usługi WNS, musisz podać poświadczenia aplikacji. Konieczne będzie identyfikator zabezpieczeń (SID) pakietu i klucz tajny.
 
 ![settings5][50]
 
 ### <a name="google-cloud-messaging-for-android-gcm"></a>Usługa Google Cloud Messaging dla systemu Android (GCM)
-tooenable natywnych powiadomień wypychanych przy użyciu usługi GCM, należy toofollow hello instrukcje od firmy Google. Następnie musisz wkleić prosty klucz interfejsu API serwera, skonfigurowany bez ograniczeń adresu IP. Wymaga integracji z hello zestawu SDK dla systemu Android v1.12.0 +.
+Aby włączyć wypychanie natywne przy użyciu usługi GCM, musisz postępować zgodnie z instrukcjami z Google. Następnie musisz wkleić prosty klucz interfejsu API serwera, skonfigurowany bez ograniczeń adresu IP. Wymaga integracji z zestawem SDK dla systemu Android v1.12.0 +.
 
 Aby uzyskać więcej informacji, zobacz: 
 
-* [Zestaw SDK dokumentacji Android jak GCM tooIntegrate][Link 5]
+* [Dokumentacja zestawu SDK dla systemu Android Integrowanie usługi GCM][Link 5]
 * [Przewodnik dewelopera Google GCM po](http://developer.android.com/guide/google/gcm/gs.html)
 
 ### <a name="amazon-device-messaging-for-android-adm"></a>Urządzenie Amazon Messaging dla systemu Android (ADM)
-tooenable Native Push przy użyciu usługi ADM, musisz podać Amazon <OAuth credentials> składające się z Identyfikatorem klienta i klucz tajny klienta (wymaga integracji z zestawem SDK dla systemu Android v2.1.0 +).
+Aby włączyć wypychanie natywne przy użyciu usługi ADM, należy podać Amazon <OAuth credentials> składające się z Identyfikatorem klienta i klucz tajny klienta (wymaga integracji z zestawem SDK dla systemu Android v2.1.0 +).
 
 Aby uzyskać więcej informacji, zobacz: 
 
-* [Zestaw SDK dokumentacji Android jak tooIntegrate ADM][Link 5]
+* [Dokumentacja zestawu SDK dla systemu Android Integrowanie usługi ADM][Link 5]
 * [Dokumentacja usługi ADM dla deweloperów firmy Amazon](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
 
 ## <a name="push-speed"></a>Szybkość wypychania
-Pokazuje hello bieżąca szybkość wypychania dla aplikacji i pozwala szybkość wypychania hello toodefine aplikacji.
+Pokazuje bieżący szybkość wypychania dla aplikacji i pozwala definiować szybkość wypychania dla aplikacji.
 
   ![settings7][52]
 

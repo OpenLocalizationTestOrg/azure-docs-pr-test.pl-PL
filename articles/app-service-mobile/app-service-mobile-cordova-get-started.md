@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate aplikacji platformy Cordova w usłudze Azure App Service Mobile Apps | Dokumentacja firmy Microsoft"
-description: "Postępuj zgodnie z tego samouczka tooget wprowadzenie do zapleczy aplikacji mobilnych Azure przy użyciu oprogramowania Apache cordova."
+title: "Tworzenie aplikacji oprogramowania Cordova przy użyciu funkcji Azure App Service Mobile Apps | Microsoft Docs"
+description: "Postępuj zgodnie z tym samouczkiem, aby rozpocząć korzystanie z zapleczy usług mobilnych Azure na potrzeby opracowywania aplikacji dla oprogramowania Apache Cordova."
 services: app-service\mobile
 documentationcenter: javascript
 author: ggailey777
@@ -16,46 +16,46 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.author: glenga
-ms.openlocfilehash: 4981cbc0686c15230019ac9f30495f30cbf2c791
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b620465cdc3cfa04933dc6e70163fc32aa9a839b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-apache-cordova-app"></a>Tworzenie aplikacji oprogramowania Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Omówienie
-Ten samouczek pokazuje, jak tooadd wewnętrznej bazy danych opartej na chmurze usługi aplikacji mobilnej oprogramowania Apache Cordova tooan przy użyciu zaplecza aplikacji mobilnej Azure.  Utworzysz nowe zaplecze aplikacji mobilnej oraz prostą aplikację oprogramowania Apache Cordova typu *Lista czynności do wykonania*, która przechowuje dane aplikacji na platformie Azure.
+W tym samouczku przedstawiono sposób dodawania usługi zaplecza opartej na chmurze do aplikacji mobilnej oprogramowania Apache Cordova przy użyciu zaplecza aplikacji mobilnej Azure.  Utworzysz nowe zaplecze aplikacji mobilnej oraz prostą aplikację oprogramowania Apache Cordova typu *Lista czynności do wykonania*, która przechowuje dane aplikacji na platformie Azure.
 
-Wykonanie kroków tego samouczka jest wymaganiem wstępnym dla wszystkich innych samouczków Apache Cordova dotyczących używania funkcji Mobile Apps hello w usłudze Azure App Service.
+Wykonanie kroków tego samouczka jest wymagane w przypadku wszystkich innych samouczków z zakresu oprogramowania Apache Cordova dotyczących używania funkcji Mobile Apps w usłudze Azure App Service.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-toocomplete tego samouczka należy hello następujące wymagania wstępne:
+Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
 
 * Komputer z programem [Visual Studio Community 2017] lub nowszym.
 * [Visual Studio Tools for Apache Cordova].
 * [Aktywne konto platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-Można również pominąć program Visual Studio i używać bezpośrednio wiersza polecenia hello Apache Cordova.  Przy użyciu wiersza polecenia hello jest przydatne, gdy wykonanie kroków samouczka hello na komputerze Mac.  Kompilowanie aplikacji klienckich oprogramowania Apache Cordova za pomocą wiersza polecenia hello nie jest opisane w tym samouczku.
+Można również pominąć program Visual Studio i używać bezpośrednio wiersza polecenia programu Apache Cordova.  Korzystanie z wiersza polecenia jest przydatne w przypadku wykonywania kroków samouczka na komputerze Mac.  Kompilowanie aplikacji klienckich oprogramowania Apache Cordova za pomocą wiersza polecenia nie zostało opisane w tym samouczku.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Tworzenie zaplecza aplikacji mobilnej Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Obejrzyj wideo przedstawiające podobne kroki](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
 
-## <a name="configure-hello-server-project"></a>Konfigurowanie projektu serwera hello
+## <a name="configure-the-server-project"></a>Konfigurowanie projektu serwera
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-apache-cordova-app"></a>Pobieranie i uruchamianie aplikacji oprogramowania Apache Cordova hello
+## <a name="download-and-run-the-apache-cordova-app"></a>Pobieranie i uruchamianie aplikacji oprogramowania Apache Cordova
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Teraz, gdy ukończeniu tego samouczka szybkiego startu przejść tooone hello następujące samouczki:
+Teraz po ukończeniu tego samouczka szybkiego startu, przejdź do jednego z następujących samouczków:
 
-* [Dodawanie danych w trybie Offline](app-service-mobile-cordova-get-started-offline-data.md) tooyour aplikacji oprogramowania Apache Cordova.
-* [Dodawanie uwierzytelniania](app-service-mobile-cordova-get-started-users.md) tooyour aplikacji oprogramowania Apache Cordova.
-* [Dodawanie powiadomień wypychanych](app-service-mobile-cordova-get-started-push.md) tooyour aplikacji oprogramowania Apache Cordova.
+* [Dodawanie danych w trybie offline](app-service-mobile-cordova-get-started-offline-data.md) do aplikacji oprogramowania Apache Cordova.
+* [Dodawanie uwierzytelniania](app-service-mobile-cordova-get-started-users.md) do aplikacji oprogramowania Apache Cordova.
+* [Dodawanie powiadomień wypychanych](app-service-mobile-cordova-get-started-push.md) do aplikacji oprogramowania Apache Cordova.
 
 Dowiedz się więcej na temat najważniejszych pojęć związanych z usługą Azure App Service.
 
@@ -63,7 +63,7 @@ Dowiedz się więcej na temat najważniejszych pojęć związanych z usługą Az
 * [Uwierzytelnianie]
 * [Powiadomienia wypychane]
 
-Dowiedz się, jak toouse hello zestawów SDK.
+Dowiedz się, jak korzystać z zestawów SDK.
 
 * [Zestaw Apache Cordova SDK]
 * [Zestaw ASP.NET Server SDK]

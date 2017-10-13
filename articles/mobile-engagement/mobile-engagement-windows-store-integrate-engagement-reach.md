@@ -1,6 +1,6 @@
 ---
-title: "aaaWindows uniwersalnych aplikacji osiągnąć integracji zestawu SDK"
-description: "Jak tooIntegrate usługi Azure Mobile Engagement nawiązać połączenia z uniwersalnych aplikacji systemu Windows"
+title: "Integracja zestawu SDK osiągnąć uniwersalnych aplikacji systemu Windows"
+description: "Integrowanie dotarcia do usługi Azure Mobile Engagement z uniwersalnych aplikacji systemu Windows"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,32 +14,32 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af311c65940014083333853875a00173b8d6783e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Integracja zestawu SDK osiągnąć uniwersalnych aplikacji systemu Windows
-Musisz wykonać procedurę integracji hello opisanego w hello [Windows Universal integracji zestawu SDK usługi Engagement](mobile-engagement-windows-store-integrate-engagement.md) przed wykonaniem tego przewodnika.
+Wykonaj procedury integracji opisane w sekcji [Windows Universal integracji zestawu SDK usługi Engagement](mobile-engagement-windows-store-integrate-engagement.md) przed wykonaniem tego przewodnika.
 
-## <a name="embed-hello-engagement-reach-sdk-into-your-windows-universal-project"></a>Osadź hello Engagement Reach SDK do projektu uniwersalnych systemu Windows
-Nie masz żadnych tooadd. `EngagementReach`referencje i zasoby są już w projekcie.
+## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>Osadzanie SDK Reach usługi Engagement w projekcie uniwersalnych systemu Windows
+Nie ma nic do dodania. `EngagementReach`referencje i zasoby są już w projekcie.
 
 > [!TIP]
-> Można dostosować obrazy znajdujące się w hello `Resources` folderu projektu, szczególnie hello brand ikona (tej domyślnej toohello Engagement). W aplikacjach uniwersalnych można również przenosić hello `Resources` folderu na Twojej tooshare projektu udostępnionego jego zawartości między aplikacjami, ale będzie mieć tookeep hello `Resources\EngagementConfiguration.xml` pliku w domyślnej lokalizacji, ponieważ jest on zależny platformy.
+> Można dostosować obrazy znajdujące się w `Resources` folderu projektu, szczególnie ikona marki (domyślnie tej ikony Engagement). W aplikacjach uniwersalnych można również przenosić `Resources` folder dla projektu udostępnionego, aby udostępnić jego zawartość między aplikacjami, ale będą musieli zachować `Resources\EngagementConfiguration.xml` pliku w domyślnej lokalizacji, ponieważ jest on zależny platformy.
 > 
 > 
 
-## <a name="enable-hello-windows-notification-service"></a>Włącz hello usługi powiadomień systemu Windows
+## <a name="enable-the-windows-notification-service"></a>Włącz usługę powiadomień systemu Windows
 ### <a name="windows-8x-and-windows-phone-81-only"></a>Windows 8.x i Windows Phone 8.1 tylko
-W kolejności toouse hello **usługi powiadomień systemu Windows** (określanych jako WNS) w Twojej `Package.appxmanifest` plików na `Application UI` kliknij `All Image Assets` hello bot po lewej stronie pola. Na powitania prawej strony pola hello w `Notifications`, zmień `toast capable` z `(not set)` zbyt`(Yes)`.
+Aby można było używać **usługi powiadomień systemu Windows** (określanych jako WNS) w Twojej `Package.appxmanifest` plików na `Application UI` kliknij `All Image Assets` w polu bot po lewej stronie. Po prawej stronie pola w `Notifications`, zmień `toast capable` z `(not set)` do `(Yes)`.
 
 ### <a name="all-platforms"></a>Wszystkie platformy
-Należy toosynchronize Twojego tooyour Microsoft konta i toohello zaangażowania platformy aplikacji. W tym muszą toocreate konto lub zaloguj się na [Centrum deweloperów systemu windows](https://dev.windows.com). Po którym tworzenie nowej aplikacji i znajdowanie hello identyfikator SID i klucz tajny. Na frontonie zaangażowania hello, przejdź na ustawienia aplikacji w `native push` i Wklej swoje poświadczenia. Następnie kliknij prawym przyciskiem myszy projekt, wybierz opcję `store` i `Associate App with hello Store...`. Wystarczy, że aplikacja hello tooselect ma przed toosynchronize jego utworzeniu.
+Należy zsynchronizować aplikację do swojego konta Microsoft i platformy zaangażowania. Dla tego należy utworzyć konto lub zaloguj się na [Centrum deweloperów systemu windows](https://dev.windows.com). Po wykonaniu tej Tworzenie nowej aplikacji i znajdowanie identyfikatora SID i klucz tajny. Na frontonie zaangażowania przejdź na ustawienia aplikacji w `native push` i Wklej swoje poświadczenia. Następnie kliknij prawym przyciskiem myszy projekt, wybierz opcję `store` i `Associate App with the Store...`. Wystarczy wybrać aplikację przed ma utworzyć, aby ją zsynchronizować.
 
-## <a name="initialize-hello-engagement-reach-sdk"></a>Zainicjuj zestaw SDK Reach usługi Engagement hello
-Modyfikowanie hello `App.xaml.cs`:
+## <a name="initialize-the-engagement-reach-sdk"></a>Inicjowanie Reach usługi Engagement SDK
+Modyfikowanie `App.xaml.cs`:
 
 * Wstaw `EngagementReach.Instance.Init` tuż po `EngagementAgent.Instance.Init` w Twojej `InitEngagement` metody:
   
@@ -49,27 +49,27 @@ Modyfikowanie hello `App.xaml.cs`:
         EngagementReach.Instance.Init(e);
       }
   
-  Witaj `EngagementReach.Instance.Init` działa w dedykowanym wątku. Nie masz toodo ją samodzielnie.
+  `EngagementReach.Instance.Init` Działa w dedykowanym wątku. Nie masz zrobić samodzielnie.
 
 > [!NOTE]
-> Jeśli używasz powiadomień wypychanych w innym miejscu w aplikacji, masz zbyt[udostępnianie kanału wypychania](#push-channel-sharing) z Reach usługi Engagement.
+> Jeśli używasz powiadomień wypychanych w innym miejscu w aplikacji, trzeba [udostępnianie kanału wypychania](#push-channel-sharing) z Reach usługi Engagement.
 > 
 > 
 
 ## <a name="integration"></a>Integracja
-Engagement udostępnia dwa sposoby tooadd hello Reach w aplikacji transparentach i międzysegmentowe widoków w przypadku anonsów i sond w aplikacji: hello nakładki integracji i hello integracja ręczna widoki sieci web. Nie należy łączyć oba podejścia na powitania tej samej stronie.
+Engagement udostępnia dwa sposoby dodawania międzysegmentowe widoków w przypadku anonsów i sond i Reach transparentach w aplikacji w aplikacji: integracja z nakładką i integracja ręczne widoki sieci web. Nie należy łączyć oba podejścia na tej samej stronie.
 
-Hello wybór między Witaj dwie integracji można podsumować w ten sposób:
+Wybór między dwoma integracji można podsumować w ten sposób:
 
-* Integracja z nakładką hello może wybrać, jeśli strony już dziedziczy hello agenta `EngagementPage`, jest wystarczy zastępowanie `EngagementPage` przez `EngagementPageOverlay` i `xmlns:engagement="using:Microsoft.Azure.Engagement"` przez `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` na swoich stronach.
-* Można wybrać integracji ręczne widoki sieci web hello tooprecisely miejsce hello osiągnąć interfejsu użytkownika w ramach strony lub jeśli nie chcesz tooadd innej strony poziomu tooyour dziedziczenia. 
+* Integracja z nakładką może wybrać, jeśli strony już dziedziczy od agenta `EngagementPage`, jest wystarczy zastępowanie `EngagementPage` przez `EngagementPageOverlay` i `xmlns:engagement="using:Microsoft.Azure.Engagement"` przez `xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"` na swoich stronach.
+* Możesz wybrać widoki sieci web integracji ręczne Aby precyzyjnie umieścić osiągnąć interfejsu użytkownika w ramach strony lub jeśli nie chcesz dodać kolejny poziom dziedziczenia do stron. 
 
 ### <a name="overlay-integration"></a>Integracja z nakładką
-Hello zaangażowania nakładki są dodawane dynamicznie hello elementy interfejsu użytkownika używanych kampanie Zasięgowe toodisplay na stronie. Jeśli hello nakładki nie własnych układu należy rozważyć hello widoki sieci web integracji ręczne zamiast tego.
+Nakładka zaangażowania dynamicznie dodaje elementy interfejsu użytkownika używana do wyświetlania kampanie Zasięgowe na stronie. Jeśli nakładki nie własnych układu należy rozważyć widoki sieci web integracji ręczne zamiast tego.
 
-W przypadku zmiany pliku .xaml `EngagementPage` zbyt odwołania`EngagementPageOverlay`
+W przypadku zmiany pliku .xaml `EngagementPage` odwołanie do`EngagementPageOverlay`
 
-* Dodaj deklaracje przestrzeni nazw tooyour:
+* Dodaj deklaracje przestrzeni nazw:
   
       xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 * Zastąp `engagement:EngagementPage` z `engagement:EngagementPageOverlay`:
@@ -121,12 +121,12 @@ Następnie w pliku .cs tag strony w `EngagementPageOverlay` zamiast `EngagementP
             }
 
 
-Hello nakładki zaangażowania dodaje `Grid` element na stronie składa się z układ i hello dwa `WebView` elementy co hello banner i hello jeden z nich hello międzysegmentowe widoku.
+Dodaje nakładki Engagement `Grid` element na stronie składa się z układu i dwa `WebView` elementy jeden na banerze i drugi dla widoku międzysegmentowe.
 
-Można dostosowywać elementy nakładki hello bezpośrednio w hello `EngagementPageOverlay.cs` pliku.
+Można dostosowywać elementy nakładki bezpośrednio w `EngagementPageOverlay.cs` pliku.
 
 ### <a name="web-views-manual-integration"></a>Integracja ręczna widoki sieci Web
-Reach będzie wyszukiwanie stron dla hello dwa `WebView` elementy odpowiada za wyświetlanie banera hello i hello międzysegmentowe widoku. Witaj, co ma toodo jest tooadd tylko tych dwóch `WebView` elementy gdzieś na swoich stronach Oto przykład:
+Reach będzie wyszukiwanie stron dla dwóch `WebView` elementy odpowiada za wyświetlanie banera i międzysegmentowe widoku. Jedyną operacją, musisz wykonać jest dodanie tych dwóch `WebView` elementy gdzieś na swoich stronach Oto przykład:
 
     <Grid x:Name="engagementGrid">
 
@@ -137,17 +137,17 @@ Reach będzie wyszukiwanie stron dla hello dwa `WebView` elementy odpowiada za w
     </Grid>
 
 
-W tym hello przykład `WebView` elementy są rozciągane toofit ich kontenera, który automatycznie ponownie rozmiary je w przypadku zmiany rozmiaru ekranu obrotu lub okno.
+W tym przykładzie `WebView` elementy są rozciągany w celu dopasowania ich kontenera, który automatycznie ponownie rozmiary je w przypadku zmiany rozmiaru ekranu obrotu lub okno.
 
 > [!WARNING]
-> Koniecznie tookeep hello tej samej nazwy `engagement_notification_content` i `engagement_announcement_content` dla hello `WebView` elementów. Zasięg identyfikuje je według nazwy. 
+> Ważne jest, aby zachować tego samego nazewnictwa `engagement_notification_content` i `engagement_announcement_content` dla `WebView` elementów. Zasięg identyfikuje je według nazwy. 
 > 
 > 
 
 ## <a name="handle-datapush-optional"></a>Dojście datapush (opcjonalnie)
-Aby wypychania Twojej aplikacji toobe tooreceive stanie Reach danych, masz tooimplement dwa zdarzenia hello EngagementReach klasy:
+Możliwość odbierania Reach wypychania danych aplikacji, należy zaimplementować dwa zdarzenia klasy EngagementReach:
 
-W pliku App.xaml.cs w Konstruktorze App() hello należy dodać:
+W pliku App.xaml.cs w Konstruktorze App() należy dodać:
 
             EngagementReach.Instance.DataPushStringReceived += (body) =>
             {
@@ -162,18 +162,18 @@ W pliku App.xaml.cs w Konstruktorze App() hello należy dodać:
               return true;
             };
 
-Wywołanie zwrotne hello każdego metoda zwraca wartość logiczną jest widoczny. Zaangażowania wysyła opinii tooits zaplecza po wysłaniu hello wypychanie danych. Jeśli wywołanie zwrotne hello zwraca wartość false, hello `exit` opinii będzie wysyłania. W przeciwnym razie będzie `action`. Jeśli bez wywołania zwrotnego ustawiono dla zdarzeń hello, hello `drop` Opinia zostanie zwrócony tooEngagement.
+Widać, że wywołanie zwrotne każdej metody zwraca wartość logiczną. Zaangażowania wysyła opinię do jego zaplecza po wysłaniu wypychanie danych. Jeśli wywołanie zwrotne zwraca wartość FAŁSZ, `exit` opinii będzie wysyłania. W przeciwnym razie będzie `action`. Jeśli ustawiono bez wywołania zwrotnego dla zdarzeń, `drop` Opinia zostanie zwrócony do zaangażowania.
 
 > [!WARNING]
-> Zaangażowania nie jest możliwe tooreceive wielokrotności opinie do wypychania danych. Jeśli planujesz tooset kilka programów obsługi zdarzeń, należy pamiętać, że opinia hello będzie odpowiadać toohello ostatnią wysłane. W takim przypadku zalecamy tooalways zwraca hello tego samego tooavoid wartość o mylące opinii na powitania frontonu.
+> Zaangażowania nie będzie mógł odbierać opinie wielokrotności do wypychania danych. Jeśli planujesz ustawić kilka programów obsługi na zdarzenie, należy pamiętać, że opinii będzie odpowiadać ostatniej jedną wysyłane. W takim przypadku zaleca się zawsze zwraca tę samą wartość, aby uniknąć mylące opinii na frontonu.
 > 
 > 
 
 ## <a name="customize-ui-optional"></a>Dostosowywanie interfejsu użytkownika (opcjonalne)
 ### <a name="first-step"></a>Pierwszym krokiem
-Zezwolimy toocustomize hello reach interfejsu użytkownika.
+Firma Microsoft umożliwiają dostosowanie reach interfejsu użytkownika.
 
-toodo więc z toocreate podklasą hello `EngagementReachHandler` klasy.
+Aby to zrobić, należy utworzyć podklasy `EngagementReachHandler` klasy.
 
 **Przykładowy kod:**
 
@@ -187,7 +187,7 @@ toodo więc z toocreate podklasą hello `EngagementReachHandler` klasy.
               }
             }
 
-Następnie ustaw hello zawartość hello `EngagementReach.Instance.Handler` pole z niestandardowego obiektu w Twojej `App.xaml.cs` klasa w hello `App()` — metoda.
+Następnie ustaw zawartość `EngagementReach.Instance.Handler` pole z niestandardowego obiektu w Twojej `App.xaml.cs` klas w ramach `App()` — metoda.
 
 **Przykładowy kod:**
 
@@ -200,18 +200,18 @@ Następnie ustaw hello zawartość hello `EngagementReach.Instance.Handler` pole
 
 > [!NOTE]
 > Domyślnie program zaangażowania używa własną implementację `EngagementReachHandler`.
-> Nie masz toocreate własny, a jeśli tak zrobisz, nie masz toooverride każdej metody. Witaj domyślne zachowanie to obiektu podstawowego tooselect hello zaangażowania.
+> Nie trzeba tworzyć własne, a jeśli tak zrobisz, nie trzeba co metoda musi zostać zastąpiona. Domyślnym zachowaniem jest wybierz obiekt podstawowy zaangażowania.
 > 
 > 
 
 ### <a name="web-view"></a>Widok sieci Web
-Domyślnie Reach będzie używać zasobów osadzonych hello hello DLL toodisplay hello powiadomień i strony.
+Domyślnie Reach zostaną użyte zasoby osadzone biblioteki dll do wyświetlania powiadomień i stron.
 
-tooprovide pełne możliwości dostosowywania używany tylko w widoku sieci web. Układy toocustomize należy zastąpić bezpośrednio plików zasobów hello `EngagementAnnouncement.html` i `EngagementNotification.html`. Engagement wymaga cały kod w `<body></body>` toorun poprawnie. Możesz dodać tag zewnętrzne, ale `engagement_webview_area`.
+Aby zapewnić pełne dostosowywanie możliwości używamy są tylko widoku sieci web. Jeśli chcesz dostosować układów bezpośrednio zastąpienie plików zasobów `EngagementAnnouncement.html` i `EngagementNotification.html`. Engagement wymaga cały kod w `<body></body>` by działała poprawnie. Możesz dodać tag zewnętrzne, ale `engagement_webview_area`.
 
-Jednak można określić toouse własnych zasobów.
+Można korzystać z własnych zasobów.
 
-Można zastąpić `EngagementReachHandler` metody w Twojej toouse zaangażowania tootell podklasy układów, ale przyjmują mechanizmu zaangażowania hello tooembedded szczególną uwagę:
+Można zastąpić `EngagementReachHandler` metod w Twojej podklasy zaangażowania używać układów, ale należy sprawdzić osadzonych mechanizm engagement:
 
 **Przykładowy kod:**
 
@@ -235,56 +235,56 @@ Można zastąpić `EngagementReachHandler` metody w Twojej toouse zaangażowania
             }
 
 
-Domyślnie jest AnnouncementHTML `ms-appx-web:///Resources/EngagementAnnouncement.html`. Reprezentuje hello plik html, który projektowania zawartości hello wiadomości wypychanych (tekst anonsu, anoucement sieci Web i anonsu sondowania). Jest AnnouncementName `engagement_announcement_content`. To nazwa hello hello projektu widoku sieci Web na stronie xaml.
+Domyślnie jest AnnouncementHTML `ms-appx-web:///Resources/EngagementAnnouncement.html`. Reprezentuje plik html, który projektowania zawartości wiadomości wypychanych (tekst anonsu, anoucement sieci Web i anonsu sondowania). Jest AnnouncementName `engagement_announcement_content`. Jest to nazwa projektu widoku sieci Web ze strony xaml.
 
-Jest NotfificationHTML `ms-appx-web:///Resources/EngagementNotification.html`. Reprezentuje hello plik html, który projekt hello powiadomienie o wiadomości wypychanych. Jest NotfificationName `engagement_notification_content`. To nazwa hello hello projektu widoku sieci Web na stronie xaml.
+Jest NotfificationHTML `ms-appx-web:///Resources/EngagementNotification.html`. Reprezentuje plik html, który zaprojektować powiadomienie o wiadomości wypychanych. Jest NotfificationName `engagement_notification_content`. Jest to nazwa projektu widoku sieci Web ze strony xaml.
 
 ### <a name="customization"></a>Dostosowywanie
-Możesz dostosować powiadomień i anonsu widoku sieci web ma użytkownik w przypadku zachowania obiektu zaangażowania. Zajmie się obiekt widoku sieci Web jest opisano trzy razy — Witaj po raz pierwszy w Twojej xaml drugi raz w pliku .cs w metodzie "setwebview()" hello, a trzeci czas w pliku html hello.
+Możesz dostosować powiadomień i anonsu widoku sieci web ma użytkownik w przypadku zachowania obiektu zaangażowania. Zwróć uwagę na to, że webview obiektu opisano trzy razy — po raz pierwszy w Twojej xaml, w pliku .cs w metodzie "setwebview()" po raz drugi i trzeci czasu w pliku html.
 
-* W Twojej xaml opisywane hello bieżącego układu graficznego widoku sieci Web składnika.
-* W pliku .cs można zdefiniować "setwebview()", w którym można ustawić hello wymiaru webview dwóch hello (powiadomienia, anons). Jest bardzo skuteczne, gdy aplikacja hello jest zmiana rozmiaru.
-* W pliku html zaangażowania hello nasz opisano hello webview zawartości, projektowania i hello pozycji elementy między sobą.
+* W Twojej xaml opisywane bieżącego składnika układu graficznego w widoku sieci Web.
+* W pliku .cs można zdefiniować "setwebview()", w którym można ustawić wymiar dwóch widoku sieci Web (powiadomienia, anons). Jest bardzo skuteczne, gdy aplikacja jest zmiana rozmiaru.
+* W pliku html zaangażowania przedstawione zawartość widoku sieci Web, projektowanie i pozycji elementów między sobą.
 
 ### <a name="launch-message"></a>Uruchamianie wiadomości
-Gdy użytkownik kliknie powiadomienie systemowe (alert), Engagement uruchamia aplikacji hello, zawartość hello obciążenia hello push wiadomości i wyświetlenia strony hello hello odpowiedniego kampanii.
+Gdy użytkownik kliknie powiadomienie systemowe (alert), Engagement uruchamia aplikację, Załaduj zawartość wiadomości wypychanych i wyświetlenia strony do odpowiedniego kampanii.
 
-Występuje opóźnienie między uruchamiania hello hello aplikacji i hello wyświetlania strony hello (w zależności od szybkości hello sieci).
+Występuje opóźnienie między uruchamiania aplikacji i wyświetlania strony (w zależności od szybkości sieci).
 
-tooindicate toohello użytkownika, który wystąpił podczas ładowania, należy podać visual informacji, takich jak pasek postępu lub wskaźnik postępu. Zaangażowania nie może obsłużyć, ale udostępnia kilka programy obsługi dla Ciebie.
+Aby wskazać użytkownikowi coś ładowania, należy podać visual informacji, takich jak pasek postępu lub wskaźnik postępu. Zaangażowania nie może obsłużyć, ale udostępnia kilka programy obsługi dla Ciebie.
 
-Dodaj wywołanie zwrotne hello tooimplement, w pliku App.xaml.cs "Publicznego App() {}":
+Aby zaimplementować metodę wywołania zwrotnego, w pliku App.xaml.cs "{} App() publiczny" Dodaj:
 
-            /* hello application has launched and hello content is loading.
+            /* The application has launched and the content is loading.
              * You should display an indicator here.
              */
             EngagementReach.Instance.RetrieveLaunchMessageStarted += () => { [...] };
 
-            /* hello application has finished loading hello content and hello page
-             * is about toobe displayed.
-             * You should hide hello indicator here.
+            /* The application has finished loading the content and the page
+             * is about to be displayed.
+             * You should hide the indicator here.
              */
             EngagementReach.Instance.RetrieveLaunchMessageCompleted += () => { [...] };
 
-            /* hello content has been loaded, but an error has occurred.
-             * You can provide an information toohello user.
-             * You should hide hello indicator here.
+            /* The content has been loaded, but an error has occurred.
+             * You can provide an information to the user.
+             * You should hide the indicator here.
              */
             EngagementReach.Instance.RetrieveLaunchMessageFailed += () => { [...] };
 
-Wywołanie zwrotne hello można ustawić w metodzie "Publicznego App() {}" z `App.xaml.cs` plików, najlepiej przed hello `EngagementReach.Instance.Init()` wywołania.
+Wywołania zwrotnego można ustawić w metodzie "Publicznego App() {}" z `App.xaml.cs` plików, najlepiej przed `EngagementReach.Instance.Init()` wywołania.
 
 > [!TIP]
-> Każdy program obsługi jest wywoływana przez hello wątku interfejsu użytkownika. Nie masz tooworry, korzystając z MessageBox lub coś związanych z interfejsu użytkownika.
+> Każdy program obsługi jest wywoływana przez wątek interfejsu użytkownika. Masz nie martw się, używając MessageBox lub coś związanych z interfejsu użytkownika.
 > 
 > 
 
 ## <a id="push-channel-sharing"></a>Wypychanie do udostępniania kanału
-Jeśli używasz powiadomień wypychanych do innych celów w aplikacji należy kanału wypychanych hello toouse udostępniania funkcji hello Engagement SDK. Jest to wypychania tooavoid pominięte.
+Jeśli używane są powiadomienia wypychane do innych celów w aplikacji następnie należy użyć kanału wypychanych udostępniania funkcji zestawu SDK usługi Engagement. Pozwoli to uniknąć brakujących wypychania.
 
-* Możesz podać własne wypychania toohello Reach usługi Engagement inicjacji kanału. Witaj zestawu SDK będą używać go zamiast nowego żądania.
+* Możesz podać własne kanału wypychania do inicjowania Reach usługi Engagement. Zestaw SDK będą używać go zamiast nowego żądania.
 
-Zaktualizuj hello inicjowania Reach usługi Engagement za pomocą wypychania kanału w hello `InitEngagement` metody z hello `App.xaml.cs` pliku:
+Zaktualizuj inicjowania Reach usługi Engagement za pomocą wypychania kanału w `InitEngagement` metody z `App.xaml.cs` pliku:
 
     /* Your own push channel logic... */
     var pushChannel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
@@ -293,14 +293,14 @@ Zaktualizuj hello inicjowania Reach usługi Engagement za pomocą wypychania kan
     EngagementAgent.Instance.Init(e);
     EngagementReach.Instance.Init(e,pushChannel);
 
-* Alternatywnie wystarczy tooconsume hello push kanału po zainicjowaniu Reach hello wywołania zwrotnego można ustawić w kanale wypychania hello tooget Reach usługi Engagement po jego utworzeniu przez hello zestawu SDK.
+* Alternatywnie Jeśli chcesz, aby korzystać z kanału wypychanych po możesz inicjowania Reach można ustawiać wywołanie zwrotne Reach usługi Engagement uzyskać kanału wypychanych raz jest tworzona przez zestaw SDK.
 
-Ustaw wywołanie zwrotne w dowolnym miejscu **po** hello inicjowania zasięgu:
+Ustaw wywołanie zwrotne w dowolnym miejscu **po** inicjowania zasięgu:
 
-    /* Set action on hello SDK push channel. */
+    /* Set action on the SDK push channel. */
     EngagementReach.Instance.SetActionOnPushChannel((PushNotificationChannel channel) => 
     {
-      /* hello forwarded channel can be null if its creation fails for any reason. */
+      /* The forwarded channel can be null if its creation fails for any reason. */
       if (channel != null)
       {
         /* Your own push channel logic... */
@@ -308,11 +308,11 @@ Ustaw wywołanie zwrotne w dowolnym miejscu **po** hello inicjowania zasięgu:
     }
 
 ## <a name="custom-scheme-tip"></a>Porada schematu niestandardowego
-Udostępniamy Użyj schematu niestandardowego. Możesz wysłać innego typu identyfikatora URI z toobe frontonu zaangażowania używane w aplikacji usługi engagement. Domyślny schemat, takich jak `http, ftp, ...` są zarządzanie przez system Windows, zostanie okno wierszu są zainstalowane na urządzeniu domyślnej aplikacji. Można również utworzyć własny niestandardowy schemat dla aplikacji.
+Udostępniamy Użyj schematu niestandardowego. Możesz wysłać innego typu identyfikatora URI z frontonu zaangażowania do użycia w aplikacji usługi engagement. Domyślny schemat, takich jak `http, ftp, ...` są zarządzanie przez system Windows, zostanie okno wierszu są zainstalowane na urządzeniu domyślnej aplikacji. Można również utworzyć własny niestandardowy schemat dla aplikacji.
 
-Witaj prosty sposób tooset schematu niestandardowego w aplikacji jest tooopen Twojego `Package.appxmanifest` Przejdź w `Declarations` panelu. Wybierz `Protocol` w hello Przewiń dostępne deklaracje i dodać go. Edytuj hello `Name` pola z Twojej nowy protokół żądaną nazwę.
+Prosty sposób, aby ustawić schematu niestandardowego w aplikacji jest otwarcie Twojej `Package.appxmanifest` Przejdź w `Declarations` panelu. Wybierz `Protocol` w deklaracjach dostępne przewiń okno i dodaj go. Edytuj `Name` pola z Twojej nowy protokół żądaną nazwę.
 
-Teraz toouse tego protokołu, Edytuj Twojej `App.xaml.cs` z hello `OnActivated` metody i nie zapomnij zaangażowania tooinitialize tutaj również:
+Aby użyć tego protokołu, edytować Twojej `App.xaml.cs` z `OnActivated` metody i nie zapomnij inicjowania usługi engagement tutaj również:
 
             /// <summary>
             /// Enter point when app his called by another way than user click
@@ -324,7 +324,7 @@ Teraz toouse tego protokołu, Edytuj Twojej `App.xaml.cs` z hello `OnActivated` 
               EngagementAgent.Instance.Init(args);
               EngagementReach.Instance.Init(args);
 
-              //TODO design action toodo when app is launch
+              //TODO design action to do when app is launch
 
               #region Custom scheme use
               if (args.Kind == ActivationKind.Protocol)

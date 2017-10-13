@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure aplikacji modelu danych Telemetrii Insights - dane telemetryczne dotyczące wyjątków | Dokumentacja firmy Microsoft"
+title: "Model danych Telemetrii aplikacji Azure Insights — dane telemetryczne dotyczące wyjątków | Dokumentacja firmy Microsoft"
 description: "Model danych usługi Insights aplikacji dla dane telemetryczne dotyczące wyjątków"
 services: application-insights
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.openlocfilehash: 4c2b7d1ac3816d5623db9a35819a48a68a13a9cd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6b220b0cb6719bac606f599d657d08ab847c7590
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Dane telemetryczne wyjątku: model danych usługi Application Insights
 
-W [usługi Application Insights](app-insights-overview.md), obsługiwany lub nieobsługiwany wyjątek, który wystąpił podczas wykonywania aplikacji hello monitorowane reprezentuje wystąpienie wyjątku.
+W [usługi Application Insights](app-insights-overview.md), wystąpienie wyjątku reprezentuje obsłużonych i nieobsłużonych wyjątków, który wystąpił podczas wykonywania monitorowanej aplikacji.
 
 ## <a name="problem-id"></a>Identyfikator problemu
 
-Identyfikator której hello Wystąpił wyjątek w kodzie. Używane do grupowania wyjątków. Zwykle połączenie typ wyjątku i funkcję hello stosu wywołań.
+Identyfikator, gdy wyjątek został zgłoszony w kodzie. Używane do grupowania wyjątków. Zwykle połączenie typ wyjątku i funkcję ze stosu wywołań.
 
 Maksymalna długość: 1024 znaki
 
@@ -34,7 +34,7 @@ Poziom ważności śledzenia. Wartość może być `Verbose`, `Information`, `Wa
 
 ## <a name="exception-details"></a>Szczegóły wyjątku
 
-(toobe rozszerzony)
+(Aby rozszerzony)
 
 ## <a name="custom-properties"></a>Właściwości niestandardowe
 
@@ -47,5 +47,5 @@ Poziom ważności śledzenia. Wartość może być `Verbose`, `Information`, `Wa
 ## <a name="next-steps"></a>Następne kroki
 
 - Zobacz [modelu danych](application-insights-data-model.md) dla modelu danych i typów usługi Application Insights.
-- Dowiedz się, jak za[diagnozowanie wyjątków w aplikacjach sieci web za pomocą usługi Application Insights](app-insights-asp-net-exceptions.md).
+- Dowiedz się, jak [diagnozowanie wyjątków w aplikacjach sieci web za pomocą usługi Application Insights](app-insights-asp-net-exceptions.md).
 - Zapoznaj się z [platform](app-insights-platforms.md) obsługiwane przez usługę Application Insights.

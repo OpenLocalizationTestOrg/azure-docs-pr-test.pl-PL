@@ -4,35 +4,35 @@ includes/sql-database-include-ip-address-22-v12portal.md
 
 Latest Freshness check:  2016-03-21 , daleche.
 
-As of circa 2015-09-04, hello following topics might include this include:
+As of circa 2015-09-04, the following topics might include this include:
 articles/sql-database/sql-database-configure-firewall-settings.md
 articles/sql-database/sql-database-connect-query.md
 
 
 ## Server-level firewall rules
 
-### Add a server-level firewall rule through hello new Azure portal
+### Add a server-level firewall rule through the new Azure portal
 -->
 
 
-1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com/) na http://portal.azure.com/.
-2. Witaj transparencie po lewej stronie, kliknij przycisk **PRZEGLĄDAJ wszystko**. Witaj **Przeglądaj** bloku jest wyświetlany.
-3. Przewiń i kliknij przycisk **serwerów SQL**. Witaj **serwerów SQL** bloku jest wyświetlany.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/) na http://portal.azure.com/.
+2. Na banerze po lewej stronie kliknij **PRZEGLĄDAJ wszystko**. **Przeglądaj** bloku jest wyświetlany.
+3. Przewiń i kliknij przycisk **serwerów SQL**. **Serwerów SQL** bloku jest wyświetlany.
    
-    ![Znajdź serwer bazy danych SQL Azure w portalu hello][b21-FindServerInPortal]
-4. Dla wygody, kliknij przycisk hello zminimalizować formantu na powitania wcześniej **Przeglądaj** bloku.
-5. W polu tekstowym hello filtru zacznij wpisywać ciąg hello nazwy serwera. Twoje wiersz jest wyświetlany.
-6. Kliknij wiersz powitania serwera. Zostanie wyświetlony blok serwera.
-7. W bloku serwera, kliknij przycisk **ustawienia**. Witaj **ustawienia** bloku jest wyświetlany.
-8. Kliknij przycisk **zapory**. Witaj **ustawienia zapory** bloku jest wyświetlany.
+    ![Znaleźć serwera bazy danych SQL Azure w portalu][b21-FindServerInPortal]
+4. Dla wygody, kliknij kontrolkę Minimalizuj we wcześniejszej **Przeglądaj** bloku.
+5. W polu filtru zacznij wpisywać nazwę serwera. Twoje wiersz jest wyświetlany.
+6. Kliknij wiersz dla serwera. Zostanie wyświetlony blok serwera.
+7. W bloku serwera, kliknij przycisk **ustawienia**. **Ustawienia** bloku jest wyświetlany.
+8. Kliknij przycisk **zapory**. **Ustawienia zapory** bloku jest wyświetlany.
    
     ![Kliknij przycisk Ustawienia > zapory][b31-SettingsFirewallNavig]
-9. Kliknij przycisk **Dodawanie klienta IP**. Wpisz nazwę nowej reguły na powitania pierwsze pole tekstowe.
-10. Typ w hello niski i wysoki wartości zakresu hello ma adres IP tooenable.
+9. Kliknij przycisk **Dodawanie klienta IP**. W pierwszym polu tekstowym, wpisz nazwę nowej reguły.
+10. Wpisz wartości adresu IP niski i wysoki dla zakresu, który ma zostać włączony.
     
-    * Może być przydatny toohave hello niskiej wartości kończyć się **.0** i hello wysokiej z **.255**.
+    * Może być przydatny zakończeń niskiej wartości z **.0** i wysoki z **.255**.
     
-    ![Dodaj tooallow zakres adresów IP][b41-AddRange]
+    ![Dodaj zakres adresów IP, aby umożliwić][b41-AddRange]
 11. Kliknij pozycję **Zapisz**.
 
 <!-- Image references. -->

@@ -1,6 +1,6 @@
 ---
-title: "aaaOpen porty tooa maszyny Wirtualnej przy użyciu programu Azure PowerShell | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak tooopen portu / create tooyour punktu końcowego maszyny Wirtualnej systemu Windows przy użyciu trybie wdrażania Menedżera zasobów Azure hello i programu Azure PowerShell"
+title: "Otwieranie portów z maszyną wirtualną przy użyciu programu Azure PowerShell | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak otworzyć port / utworzyć punktu końcowego maszyny Wirtualnej systemu Windows przy użyciu wdrożeń w trybie Menedżera zasobów platformy Azure i programu Azure PowerShell"
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: iainfou
-ms.openlocfilehash: c1817a0c447ae4ce7a1ce2a1fc6927bedf2dacb5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e818e3b3c707e1471d6f580f8379a277d3575b89
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-tooopen-ports-and-endpoints-tooa-vm-in-azure-using-powershell"></a>Jak tooopen portów i punkty końcowe tooa maszyny Wirtualnej na platformie Azure przy użyciu programu PowerShell
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Jak otworzyć porty i punktów końcowych do maszyny Wirtualnej na platformie Azure przy użyciu programu PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## <a name="quick-commands"></a>Szybkie polecenia
-Grupy zabezpieczeń sieci toocreate i reguły listy ACL należy [hello najnowszą wersję programu Azure PowerShell zainstalowany](/powershell/azureps-cmdlets-docs). Możesz również [wykonaj te czynności przy użyciu portalu Azure hello](nsg-quickstart-portal.md).
+Aby utworzyć grupę zabezpieczeń sieci i listy ACL zasady należy [najnowszą wersję programu Azure PowerShell zainstalowany](/powershell/azureps-cmdlets-docs). Możesz również [wykonaj te czynności przy użyciu portalu Azure](nsg-quickstart-portal.md).
 
-Zaloguj się tooyour konto platformy Azure:
+Zaloguj się do konta platformy Azure:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Poniższe przykłady w hello Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametrów uwzględnione *myResourceGroup*, *myNetworkSecurityGroup*, i *myVnet*.
+W poniższych przykładach Zastąp przykładowe nazwy parametrów własne wartości. Przykład nazwy parametrów uwzględnione *myResourceGroup*, *myNetworkSecurityGroup*, i *myVnet*.
 
-Utworzyć regułę z [AzureRmNetworkSecurityRuleConfig nowy](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Witaj poniższy przykład powoduje utworzenie reguły o nazwie *myNetworkSecurityGroupRule* tooallow *tcp* ruch na porcie *80*:
+Utworzyć regułę z [AzureRmNetworkSecurityRuleConfig nowy](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Poniższy przykład tworzy reguły o nazwie *myNetworkSecurityGroupRule* umożliwia *tcp* ruch na porcie *80*:
 
 ```powershell
 $httprule = New-AzureRmNetworkSecurityRuleConfig `
@@ -50,7 +50,7 @@ $httprule = New-AzureRmNetworkSecurityRuleConfig `
     -DestinationPortRange 80
 ```
 
-Następnie utwórz grupy zabezpieczeń sieci z [AzureRmNetworkSecurityGroup nowy](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) i przypisz hello HTTP reguł utworzony w następujący sposób. Witaj poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
+Następnie utwórz grupy zabezpieczeń sieci z [AzureRmNetworkSecurityGroup nowy](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) i Przypisz reguły HTTP utworzony w następujący sposób. Poniższy przykład tworzy sieciową grupę zabezpieczeń o nazwie *myNetworkSecurityGroup*:
 
 ```powershell
 $nsg = New-AzureRmNetworkSecurityGroup `
@@ -60,7 +60,7 @@ $nsg = New-AzureRmNetworkSecurityGroup `
     -SecurityRules $httprule
 ```
 
-Teraz załóżmy przypisać podsieć tooa grupy zabezpieczeń sieci. Witaj w poniższym przykładzie przypisano istniejącej sieci wirtualnej o nazwie *myVnet* zmiennej toohello *$vnet* z [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
+Teraz umożliwia przypisywanie sieciowej grupy zabezpieczeń do podsieci. W poniższym przykładzie przypisano istniejącej sieci wirtualnej o nazwie *myVnet* do zmiennej *$vnet* z [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork):
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork `
@@ -68,7 +68,7 @@ $vnet = Get-AzureRmVirtualNetwork `
     -Name "myVnet"
 ```
 
-Skojarz grupy zabezpieczeń sieci z podsieci z [AzureRmVirtualNetworkSubnetConfig zestawu](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). Witaj poniższy przykład powoduje skojarzenie podsieci hello o nazwie *mySubnet* z grupy zabezpieczeń sieci:
+Skojarz grupy zabezpieczeń sieci z podsieci z [AzureRmVirtualNetworkSubnetConfig zestawu](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig). Poniższy przykład powoduje skojarzenie podsieci o nazwie *mySubnet* z grupy zabezpieczeń sieci:
 
 ```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
@@ -80,7 +80,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
     -NetworkSecurityGroup $nsg
 ```
 
-Na koniec, aktualizacja sieci wirtualnej z [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) aby Twoje mocą tootake zmiany:
+Na koniec, aktualizacja sieci wirtualnej z [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) aby zmiany zaczęły obowiązywać:
 
 ```powershell
 Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
@@ -88,12 +88,12 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 
 ## <a name="more-information-on-network-security-groups"></a>Więcej informacji na temat grup zabezpieczeń sieci
-Witaj w tym miejscu szybkie polecenia pozwalają tooget zapasowych i pracy z tooyour przechodzenia ruchu maszyny Wirtualnej. Grupy zabezpieczeń sieci stanowią wielu funkcje i poziom szczegółowości kontrolowanie dostęp do zasobów tooyour. Możesz przeczytać dodatkowe informacje [Tworzenie grupy zabezpieczeń sieci i listy ACL zasady tutaj](tutorial-virtual-network.md#manage-internal-traffic).
+Szybkie polecenia tutaj pozwala rozpocząć pracę z ruchem przepływać do maszyny Wirtualnej. Grupy zabezpieczeń sieci zapewniają wiele funkcje i poziom szczegółowości kontrolowania dostępu do zasobów. Możesz przeczytać dodatkowe informacje [Tworzenie grupy zabezpieczeń sieci i listy ACL zasady tutaj](tutorial-virtual-network.md#manage-internal-traffic).
 
-Dla aplikacji sieci web wysokiej dostępności należy umieszczać maszyny wirtualne za usługą równoważenia obciążenia Azure. Moduł równoważenia obciążenia Hello dystrybuuje tooVMs ruchu, z sieciową grupą zabezpieczeń, który umożliwia filtrowanie ruchu. Aby uzyskać więcej informacji, zobacz [jak maszyn saldo tooload wirtualnych systemu Linux, w Azure toocreate wysokiej dostępności aplikacji](tutorial-load-balancer.md).
+Dla aplikacji sieci web wysokiej dostępności należy umieszczać maszyny wirtualne za usługą równoważenia obciążenia Azure. Moduł równoważenia obciążenia dystrybuuje ruch do maszyn wirtualnych z sieciową grupą zabezpieczeń, który umożliwia filtrowanie ruchu. Aby uzyskać więcej informacji, zobacz [jak załadować saldo maszyn wirtualnych systemu Linux na platformie Azure, aby utworzyć aplikację wysokiej dostępności](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Następne kroki
-W tym przykładzie utworzono ruch tooallow HTTP Prosta reguła. Można znaleźć informacje dotyczące tworzenia środowisk bardziej szczegółowe w hello następujące artykuły:
+W tym przykładzie utworzono prosta Reguła zezwalająca na ruch HTTP. Można znaleźć informacje dotyczące tworzenia środowisk bardziej szczegółowe zawierają następujące artykuły:
 
 * [Omówienie usługi Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 * [Co to jest sieciowa grupa zabezpieczeń?](../../virtual-network/virtual-networks-nsg.md)

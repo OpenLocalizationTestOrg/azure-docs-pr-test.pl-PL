@@ -1,7 +1,7 @@
-Jeśli chcesz toocreate P2S połączenie z komputera klienckiego niż hello jeden używane certyfikaty klienta na powitania toogenerate należy tooinstall certyfikat klienta. Podczas instalowania certyfikatu klienta, należy hello hasło, które utworzono podczas eksportowania hello certyfikatu klienta.
+Jeśli chcesz utworzyć połączenie punkt-lokacja z komputerem klienckim innym niż użyty do wygenerowania certyfikatów klienta, należy zainstalować certyfikat klienta. Podczas instalowania certyfikatu klienta potrzebne jest hasło, które zostało utworzone w trakcie eksportowania certyfikatu klienta.
 
-1. Zlokalizuj i skopiuj hello *PFX* komputer kliencki toohello pliku. Na komputerze klienckim hello, kliknij dwukrotnie hello *PFX* pliku tooinstall. Pozostaw hello **lokalizacji magazynu** jako **bieżącego użytkownika**, a następnie kliknij przycisk **dalej**.
-2. Na powitania **pliku** tooimport strony, nie wprowadzono żadnych zmian. Kliknij przycisk **Dalej**.
-3. Na powitania **ochrony klucza prywatnego** strony, wprowadź hasło hello certyfikatu hello, lub sprawdź tego podmiotu zabezpieczeń hello jest poprawna, a następnie kliknij **dalej**.
-4. Na powitania **magazyn certyfikatów** , pozostaw hello domyślnej lokalizacji, a następnie kliknij przycisk **dalej**.
-5. Kliknij przycisk **Zakończ**. Na powitania **ostrzeżenie o zabezpieczeniach** hello instalacji certyfikatu, kliknij przycisk **tak**. Można bezpiecznie się, klikając przycisk "Tak", ponieważ wygenerowany certyfikat hello. Witaj certyfikat zostanie zaimportowany pomyślnie.
+1. Znajdź plik *pfx* i skopiuj go na komputer kliencki. Na komputerze klienckim kliknij dwukrotnie plik *pfx*, aby go zainstalować. W polu **Lokalizacja magazynu** pozostaw wartość **Bieżący użytkownik**, a następnie kliknij pozycję **Dalej**.
+2. Na stronie importowania **Plik** nie wprowadzaj żadnych zmian. Kliknij przycisk **Dalej**.
+3. Na **ochrony klucza prywatnego** strony, wprowadź hasło dla certyfikatu, lub sprawdź, czy podmiot zabezpieczeń jest poprawna, a następnie kliknij przycisk **dalej**.
+4. Na stronie **Magazyn certyfikatów** pozostaw lokalizację domyślną, a następnie kliknij pozycję **Dalej**.
+5. Kliknij przycisk **Finish** (Zakończ). Na stronie **Ostrzeżenie o zabezpieczeniach** dla instalacji certyfikatu kliknij pozycję **Tak**. Możesz bez obaw kliknąć pozycję „Tak”, ponieważ wygenerowano certyfikat. Certyfikat został pomyślnie zaimportowany.

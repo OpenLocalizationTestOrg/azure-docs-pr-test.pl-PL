@@ -1,6 +1,6 @@
 ---
-title: "Połączenie sieci wirtualnej platformy Azure tooanother sieci wirtualnej: Portal | Dokumentacja firmy Microsoft"
-description: "Utwórz połączenie bramy sieci VPN między sieciami wirtualnymi przy użyciu usługi Resource Manager i hello portalu Azure."
+title: "Łączenie sieci wirtualnej platformy Azure z inną siecią wirtualną: Portal | Microsoft Docs"
+description: "Utwórz połączenie usługi bramy VPN Gateway między sieciami wirtualnymi przy użyciu usługi Resource Manager i witryny Azure Portal."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.openlocfilehash: a529f90d976bee0f50403947d06e9da8a6c05349
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: cbbae06d4e5774d5fdf7bcce65dc7efddaa5f280
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-hello-azure-portal"></a>Skonfiguruj połączenie bramy sieci VPN do wirtualnymi przy użyciu hello portalu Azure
+# <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-the-azure-portal"></a>Konfigurowanie połączenia bramy sieci VPN między sieciami wirtualnymi przy użyciu witryny Azure Portal
 
-W tym artykule opisano sposób toocreate połączenie bramy sieci VPN między sieciami wirtualnymi. Witaj sieci wirtualne mogą być w hello tych samych lub różnych regionów, a z hello takie same lub różnych subskrypcji. Podczas łączenia sieci wirtualne z różnych subskrypcji, subskrypcje hello nie ma potrzeby toobe skojarzone z hello tej samej dzierżawy usługi Active Directory. 
+Ten artykuł pokazuje, jak utworzyć połączenie bramy sieci VPN między sieciami wirtualnymi. Sieci wirtualne mogą być zlokalizowane w tych samych lub różnych regionach i mogą funkcjonować w ramach tej samej lub różnych subskrypcji. W przypadku łączenia sieci wirtualnych z różnych subskrypcji subskrypcje nie muszą być skojarzone z tą samą dzierżawą usługi Active Directory. 
 
-Witaj opisanych w tym artykule zastosować toohello modelu wdrażania usługi Resource Manager i użyj hello portalu Azure. Można również utworzyć tę konfigurację za pomocą narzędzia wdrażania różnych lub model wdrożenia, wybierając inną opcję z hello następującej listy:
+Kroki podane w tym artykule mają zastosowanie do modelu wdrażania przy użyciu usługi Resource Manager i użyto w nich witryny Azure Portal. Tę konfigurację możesz również utworzyć przy użyciu innego narzędzia wdrażania lub modelu wdrażania, wybierając inną opcję z następującej listy:
 
 > [!div class="op_single_selector"]
 > * [Witryna Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -39,29 +39,29 @@ Witaj opisanych w tym artykule zastosować toohello modelu wdrażania usługi Re
 
 ![Diagram połączenia między sieciami wirtualnymi (v2v)](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v2vrmps.png)
 
-Połączenie wirtualnej sieci tooanother sieć wirtualną (VNet-VNet) jest podobne tooconnecting lokalizacji sieci wirtualnej tooan lokalnej lokacji. Oba typy łączności Użyj tooprovide bramy sieci VPN przy użyciu protokołu IPsec/IKE bezpiecznego tunelu. Jeśli Twoje sieci wirtualne są w hello tego samego regionu, może być tooconsider łącząc je przy użyciu sieci wirtualnej komunikacji równorzędnej. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
+Proces nawiązywania połączenia między dwiema sieciami wirtualnymi przebiega podobnie do procesu łączenia sieci wirtualnej z lokacją lokalną. Oba typy połączeń wykorzystują bramę sieci VPN, aby zapewnić bezpieczny tunel z użyciem protokołu IPsec/IKE. Jeśli Twoje sieci wirtualne znajdują się w tym samym regionie, warto rozważyć połączenie ich za pomocą komunikacji równorzędnej sieci wirtualnych. W przypadku komunikacji równorzędnej sieci wirtualnych nie jest używana brama sieci VPN. Aby uzyskać więcej informacji, zobacz temat [Komunikacja równorzędna sieci wirtualnych](../virtual-network/virtual-network-peering-overview.md).
 
-Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obejmującymi wiele lokacji. Dzięki temu można ustanowić topologii sieci, łączące łączności między lokalizacjami z połączeniem sieciowym między wirtualnych, jak pokazano w powitania po diagramu:
+Komunikację między sieciami wirtualnymi można łączyć z konfiguracjami obejmującymi wiele lokacji. Pozwala to tworzyć topologie sieci, które łączą wdrożenia obejmujące wiele lokalizacji z połączeniami między sieciami wirtualnymi, jak pokazano na poniższym diagramie.
 
 ![Informacje o połączeniach](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/aboutconnections.png "Informacje o połączeniach")
 
 ### <a name="why-connect-virtual-networks"></a>Dlaczego łączy się sieci wirtualne?
 
-Warto sieci wirtualnych tooconnect hello z następujących powodów:
+Sieci wirtualne można łączyć z następujących powodów:
 
 * **Niezależna od regionu nadmiarowość i obecność geograficzna**
   
   * Można tworzyć własne replikacje geograficzne lub przeprowadzać synchronizację z bezpiecznym połączeniem bez przechodzenia przez punkty końcowe dostępne z Internetu.
-  * Usługi Azure Traffic Manager i Load Balancer pozwalają skonfigurować obciążenie o wysokiej dostępności z nadmiarowością geograficzną w wielu regionach świadczenia usługi Azure. Przykładem ważne jest tooset się SQL zawsze włączone grupy dostępności rozsyłanie się w różnych regionach platformy Azure.
+  * Usługi Azure Traffic Manager i Load Balancer pozwalają skonfigurować obciążenie o wysokiej dostępności z nadmiarowością geograficzną w wielu regionach świadczenia usługi Azure. Istotnym przykładem jest konfiguracja ustawienia SQL Zawsze włączone, w przypadku którego grupy dostępności rozciągają się na wiele regionów świadczenia usługi Azure.
 * **Regionalne aplikacje wielowarstwowe z izolacją lub granicami administracyjnymi**
   
-  * Poziomu hello sam region, możesz skonfigurować aplikacje wielowarstwowe z wieloma sieciami wirtualnymi, połączonych ze sobą tooisolation lub wymagań administracyjnych.
+  * W ramach jednego regionu można skonfigurować aplikacje wielowarstwowe z wielu połączonych ze sobą sieci wirtualnych, korzystając z izolacji lub wymagań administracyjnych.
 
-Aby uzyskać więcej informacji o połączeniach sieci wirtualnej do sieci wirtualnej, zobacz hello [wirtualnymi — często zadawane pytania dotyczące](#faq) na końcu hello w tym artykule. Należy pamiętać, że jeśli w Twojej sieci wirtualne znajdują się w różnych subskrypcji, nie można utworzyć połączenia hello w portalu hello. Można użyć programu [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) lub [interfejsu wiersza polecenia](vpn-gateway-howto-vnet-vnet-cli.md).
+Więcej informacji na temat połączeń między sieciami wirtualnymi znajduje się w sekcji [Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi](#faq) na końcu tego artykułu. Pamiętaj, że jeśli Twoje sieci wirtualne należą do różnych subskrypcji, to nie można utworzyć połączenia w portalu. Można użyć programu [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) lub [interfejsu wiersza polecenia](vpn-gateway-howto-vnet-vnet-cli.md).
 
 ### <a name="values"></a>Przykładowe ustawienia
 
-Jeśli te kroki jako wykonywania, można użyć hello przykładowe wartości ustawień. W celach demonstracyjnych dla poszczególnych sieci wirtualnych używamy wielu przestrzeni adresowych. Konfiguracje połączeń między sieciami wirtualnymi nie wymagają jednak wielu przestrzeni adresowych.
+Korzystając z tych kroków w charakterze ćwiczenia, można użyć przykładowych wartości ustawień. W celach demonstracyjnych dla poszczególnych sieci wirtualnych używamy wielu przestrzeni adresowych. Konfiguracje połączeń między sieciami wirtualnymi nie wymagają jednak wielu przestrzeni adresowych.
 
 **Wartości dla sieci TestVNet1:**
 
@@ -74,17 +74,17 @@ Jeśli te kroki jako wykonywania, można użyć hello przykładowe wartości ust
 * Przestrzeń adresowa: 10.12.0.0/16
   * Nazwa podsieci: BackEnd
   * Zakres adresów podsieci: 10.12.0.0/24
-* Nazwa podsieci bramy: GatewaySubnet (spowoduje to automatyczne wypełnianie w portalu hello)
+* Nazwa podsieci bramy: GatewaySubnet (zostanie automatycznie wypełniona w portalu)
   * Zakres adresów podsieci bramy: 10.11.255.0/27
-* Serwer DNS: Witaj adres IP serwera DNS używany przez
+* Serwer DNS: użyj adresu IP serwera DNS.
 * Nazwa bramy sieci wirtualnej: TestVNet1GW
 * Typ bramy: VPN
 * Typ sieci VPN: oparta na trasach
-* Jednostka SKU: Wybierz hello jednostka SKU bramy ma toouse
+* Jednostka SKU: wybierz jednostkę SKU bramy, która ma być używana.
 * Publiczna nazwa adresu IP: TestVNet1GWIP
 * Wartości połączenia:
   * Nazwa: TestVNet1toTestVNet4
-  * Klucz współużytkowany: hello klucz udostępniony można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Hello ważną kwestią jest, że podczas tworzenia hello połączenia między sieciami wirtualnymi hello hello wartość musi być zgodna.
+  * Klucz współużytkowany: klucz współużytkowany można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Ważne jest, aby podczas tworzenia połączenia między sieciami wirtualnymi, wartości były zgodne.
 
 **Wartości dla sieci TestVNet4:**
 
@@ -97,22 +97,22 @@ Jeśli te kroki jako wykonywania, można użyć hello przykładowe wartości ust
 * Przestrzeń adresowa: 10.42.0.0/16
   * Nazwa podsieci: BackEnd
   * Zakres adresów podsieci: 10.42.0.0/24
-* Nazwa GatewaySubnet: GatewaySubnet (spowoduje to automatyczne wypełnianie w portalu hello)
+* Nazwa podsieci bramy: GatewaySubnet (zostanie automatycznie wypełniona w portalu)
   * Zakres adresów podsieci GatewaySubnet: 10.41.255.0/27
-* Serwer DNS: Witaj adres IP serwera DNS używany przez
+* Serwer DNS: użyj adresu IP serwera DNS.
 * Nazwa bramy sieci wirtualnej: TestVNet4GW
 * Typ bramy: VPN
 * Typ sieci VPN: oparta na trasach
-* Jednostka SKU: Wybierz hello jednostka SKU bramy ma toouse
+* Jednostka SKU: wybierz jednostkę SKU bramy, która ma być używana.
 * Nazwa publicznego adresu IP: TestVNet4GWIP
 * Wartości połączenia:
   * Nazwa: TestVNet4toTestVNet1
-  * Klucz współużytkowany: hello klucz udostępniony można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Hello ważną kwestią jest, że podczas tworzenia hello połączenia między sieciami wirtualnymi hello hello wartość musi być zgodna.
+  * Klucz współużytkowany: klucz współużytkowany można utworzyć samodzielnie. W tym przykładzie użyjemy wartości abc123. Ważne jest, aby podczas tworzenia połączenia między sieciami wirtualnymi, wartości były zgodne.
 
 ## <a name="CreatVNet"></a>1. Tworzenie i konfigurowanie sieci TestVNet1
-Jeśli masz już sieć wirtualną, sprawdź, czy ustawienia hello są zgodne z projektu bramy sieci VPN. Należy zwrócić szczególną uwagę tooany podsieci, które nakładają się z innymi sieciami. Obecność nakładających się podsieci spowoduje, że połączenie nie będzie działać prawidłowo. Sieci wirtualnej ma skonfigurowane poprawne ustawienia hello, możesz rozpocząć hello kroki hello [Określ serwer DNS](#dns) sekcji.
+Jeśli masz już sieć wirtualną, sprawdź, czy ustawienia są zgodne z projektem bramy sieci VPN. Zwróć szczególną uwagę na wszelkie podsieci, które mogą pokrywać się z innymi sieciami. Obecność nakładających się podsieci spowoduje, że połączenie nie będzie działać prawidłowo. Jeśli sieć wirtualną skonfigurowano poprawnie, można rozpocząć wykonywanie kroków z sekcji [Określanie serwera DNS](#dns).
 
-### <a name="toocreate-a-virtual-network"></a>toocreate sieci wirtualnej
+### <a name="to-create-a-virtual-network"></a>Aby utworzyć sieć wirtualną
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="subnets"></a>2. Dodawanie dodatkowej przestrzeni adresowej i tworzenie podsieci
@@ -121,72 +121,72 @@ Po utworzeniu sieci wirtualnej można dodać do niej dodatkową przestrzeń adre
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Tworzenie podsieci bramy
-Przed połączeniem tooa bramy sieci wirtualnej, należy najpierw podsieci bramy hello toocreate hello toowhich sieć wirtualna ma zostać tooconnect. Jeśli to możliwe jest najlepszym toocreate podsieć bramy przy użyciu blok CIDR /28 lub /27 w kolejności tooprovide adresów IP za mało tooaccommodate dodatkowych przyszłych wymagań konfiguracyjnych.
+Przed połączeniem sieci wirtualnej z bramą należy najpierw utworzyć podsieć bramy sieci wirtualnej, z którą ma zostać nawiązane połączenie. Jeśli to możliwe, najlepiej utworzyć podsieć bramy przy użyciu bloku CIDR /28 lub /27 w celu zapewnienia wystarczającej liczby adresów IP, aby uwzględnić wymagania dotyczące dodatkowych przyszłych konfiguracji.
 
-W przypadku tworzenia tej konfiguracji jako wykonywania, zobacz toothese [przykładowych ustawień](#values) podczas tworzenia podsieci bramy.
+Jeśli tworzysz tę konfigurację w ramach ćwiczenia, użyj [przykładowych ustawień](#values) podczas tworzenia podsieci bramy.
 
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="toocreate-a-gateway-subnet"></a>toocreate podsieci bramy
+### <a name="to-create-a-gateway-subnet"></a>Aby utworzyć podsieć bramy
 [!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## <a name="dns"></a>4. Określanie serwera DNS (opcjonalne)
-Serwer DNS nie jest wymagany w przypadku połączenia typu sieć wirtualna-sieć wirtualna. Jednak jeśli chcesz toohave rozpoznawania nazw zasobów, które są wdrożone tooyour sieci wirtualnej, należy określić serwer DNS. To ustawienie umożliwia określenie serwera DNS hello mają toouse do rozpoznawania nazw dla tej sieci wirtualnej. Nie powoduje ono jednak utworzenia serwera DNS.
+Serwer DNS nie jest wymagany w przypadku połączenia typu sieć wirtualna-sieć wirtualna. Jeśli jednak chcesz korzystać z funkcji rozpoznawania nazw dla zasobów, które zostały wdrożone w Twojej sieci wirtualnej, określ serwer DNS. To ustawienie umożliwia określenie serwera DNS, który ma być używany do rozpoznawania nazw dla tej sieci wirtualnej. Nie powoduje ono jednak utworzenia serwera DNS.
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>5. Tworzenie bramy sieci wirtualnej
-W tym kroku utworzysz hello bramy sieci wirtualnej sieci wirtualnej. Tworzenie bramy może potrwać często 45 minut lub dłużej, w zależności od hello bramy wybranej jednostki SKU. W przypadku tworzenia tej konfiguracji jako wykonywania mogą odwoływać się toohello [ustawienia przykład](#values).
+W tym kroku zostaje utworzona brama dla sieci wirtualnej użytkownika. Tworzenie bramy często może trwać 45 minut lub dłużej, w zależności od wybranej jednostki SKU bramy. W przypadku tworzenia tej konfiguracji w ramach ćwiczenia można korzystać z [przykładowych ustawień](#values).
 
-### <a name="toocreate-a-virtual-network-gateway"></a>toocreate bramy sieci wirtualnej
+### <a name="to-create-a-virtual-network-gateway"></a>Aby utworzyć bramę sieci wirtualnej
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 ## <a name="CreateTestVNet4"></a>6. Tworzenie i konfigurowanie sieci TestVNet4
-Po skonfigurowaniu TestVNet1 utworzyć TestVNet4 powtarzając hello poprzednie kroki, zastępując wartości hello tych TestVNet4. Nie trzeba toowait do momentu zakończenia hello bramy sieci wirtualnej dla TestVNet1 tworzenie przed skonfigurowaniem TestVNet4. Jeśli używasz własne wartości, upewnij się, że przestrzenie adresowe hello nie pokrywały się ze wszystkimi hello sieci wirtualnych, który ma tooconnect do.
+Po skonfigurowaniu sieci TestVNet1 utwórz sieć TestVNet4, powtarzając poprzednie kroki, używając wartości dla sieci TestVNet4. Przed skonfigurowaniem sieci TestVNet4 nie musisz czekać, aż tworzenie bramy sieci wirtualnej dla sieci TestVNet1 zostanie zakończone. Jeśli używasz własnych wartości, upewnij się, że przestrzenie adresowe nie pokrywają się z żadnymi sieciami wirtualnymi, z którymi chcesz się połączyć.
 
-## <a name="TestVNet1Connection"></a>7. Skonfiguruj połączenie hello TestVNet1
-Po zakończeniu bram sieci wirtualnej hello TestVNet1 i TestVNet4, można utworzyć sieci wirtualnej połączenia bramy. W tej sekcji utworzysz połączenie z VNet1 tooVNet4. Te kroki działa tylko dla sieci wirtualnych w hello sam subskrypcji. Jeśli w Twojej sieci wirtualne znajdują się w różnych subskrypcji, należy użyć programu PowerShell toomake hello połączenia. Zobacz hello [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) artykułu.
+## <a name="TestVNet1Connection"></a>7. Konfigurowanie połączenia TestVNet1
+Po zakończeniu tworzenia bram sieci wirtualnej (zarówno dla sieci TestVNet1, jak i TestVNet4) można utworzyć połączenia między bramami sieci wirtualnych. W tej sekcji opisano tworzenie połączenia z sieci VNet1 do sieci VNet4. Następujące kroki działają tylko w przypadku sieci wirtualnych należących do tej samej subskrypcji. Jeśli Twoje sieci wirtualne znajdują się w różnych subskrypcjach, do utworzenia połączenia musisz użyć programu PowerShell. Zobacz artykuł [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md).
 
-1. W **wszystkie zasoby**, przejdź toohello bramy sieci wirtualnej sieci wirtualnej. (np. **TestVNet1GW**). Kliknij przycisk **TestVNet1GW** bloku bramy sieci wirtualnej hello tooopen.
+1. W sekcji **Wszystkie zasoby** przejdź do bramy swojej sieci wirtualnej (np. **TestVNet1GW**). Kliknij pozycję **TestVNet1GW**, aby otworzyć blok bramy sieci wirtualnej.
    
     ![Blok połączeń](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/settings_connection.png "Blok połączeń")
-2. Kliknij przycisk **+ Dodaj** tooopen hello **Dodaj połączenie** bloku.
-3. Na powitania **Dodaj połączenie** bloku, w polu Nazwa hello, wpisz nazwę połączenia. (np. **TestVNet1toTestVNet4**).
+2. Kliknij przycisk **+Dodaj**, aby otworzyć blok **Dodaj połączenie**.
+3. W bloku **Dodaj połączenie** wpisz nazwę połączenia w polu nazwy (np. **TestVNet1toTestVNet4**).
    
     ![Nazwa połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/v1tov4.png "Nazwa połączenia")
-4. Dla opcji **Typ połączenia** Wybierz **do wirtualnymi** z listy rozwijanej hello.
-5. Witaj **pierwsza brama sieci wirtualnej** wartość pola jest wypełniane automatycznie ponieważ tworzenia tego połączenia na podstawie hello określonej sieci wirtualnej bramy.
-6. Witaj **druga Brama sieci wirtualnej** pole jest brama sieci wirtualnej hello hello sieci wirtualnej mają toocreate połączenia. Kliknij przycisk **wybierz inną bramę sieci wirtualnej** tooopen hello **bramy sieci wirtualnej wybierz** bloku.
+4. Dla opcji **Typ połączenia** wybierz z listy rozwijanej pozycję **Sieć wirtualna-sieć wirtualna**.
+5. Wartość pola **Pierwsza brama sieci wirtualnej** zostaje podana automatycznie, ponieważ połączenie jest tworzone z określonej bramy sieci wirtualnej.
+6. Pole **Druga brama sieci wirtualnej** jest bramą sieci wirtualnej sieci wirtualnej, z którą chcesz utworzyć połączenie. Kliknij pozycję **Wybierz inną bramę sieci wirtualnej**, aby otworzyć blok **Wybieranie bramy sieci wirtualnej**.
    
     ![Dodawanie połączenia](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add_connection.png "Dodawanie połączenia")
-7. Bramy sieci wirtualnej hello widoku, które są wymienione w tym bloku. Pamiętaj, że wyświetlane są tylko bramy sieci wirtualnej objęte subskrypcją. Jeśli chcesz, aby brama sieci wirtualnej tooa tooconnect, który nie jest w ramach subskrypcji, użyj hello [artykułu PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). 
-8. Kliknij przycisk hello bramy sieci wirtualnej, który ma tooconnect do.
-9. W hello **klucz udostępniony** wpisz klucza wspólnego dla połączenia. Klucz można wygenerować lub utworzyć samodzielnie. W przypadku połączenia lokacja lokacja hello klucz użyty będzie można dokładnie hello tym samym urządzeniu lokalnym i połączenie bramy sieci wirtualnej. Witaj koncepcja jest podobna, z wyjątkiem zamiast urządzenia sieci VPN tooa łączącego się łączysz tooanother bramy sieci wirtualnej.
+7. Wyświetl bramy sieci wirtualnej wymienione w tym bloku. Pamiętaj, że wyświetlane są tylko bramy sieci wirtualnej objęte subskrypcją. Jeśli chcesz połączyć się z bramą sieci wirtualnej, której nie ma w Twojej subskrypcji, zapoznaj się z [artykułem dotyczącym programu PowerShell](vpn-gateway-vnet-vnet-rm-ps.md). 
+8. Kliknij bramę sieci wirtualnej, z którą chcesz nawiązać połączenie.
+9. W polu **Klucz współużytkowany** wpisz klucz, który będzie używany dla tego połączenia. Klucz można wygenerować lub utworzyć samodzielnie. W przypadku połączenia lokacja-lokacja używany klucz jest dokładnie taki sam dla urządzenia lokalnego oraz połączenia bramy sieci wirtualnej. Koncepcja jest tutaj podobna, z tym że zamiast połączenia z urządzeniem sieci VPN następuje połączenie z inną bramą sieci wirtualnej.
    
     ![Klucz współużytkowany](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/sharedkey.png "Klucz współużytkowany")
-10. Kliknij przycisk **OK** na hello dołu hello bloku toosave zmiany.
+10. Kliknij przycisk **OK** na dole bloku, aby zapisać zmiany.
 
-## <a name="TestVNet4Connection"></a>8. Skonfiguruj połączenie hello TestVNet4
-Następnie należy utworzyć połączenie z TestVNet4 tooTestVNet1. Użyj hello sam metodę użytą toocreate hello połączenia z TestVNet1 tooTestVNet4. Upewnij się, że używasz hello sam wspólny klucz.
+## <a name="TestVNet4Connection"></a>8. Konfigurowanie połączenia z siecią TestVNet4
+Następnie utwórz połączenie z sieci TestVNet4 do sieci TestVNet1. Zastosuj tę samą metodę, która została użyta do utworzenia połączenia z sieci TestVNet1 do sieci TestVNet4. Pamiętaj, aby użyć tego samego klucza współużytkowanego.
 
 ## <a name="VerifyConnection"></a>9. Weryfikowanie połączenia
-Sprawdź połączenie hello. Dla każdej bramy sieci wirtualnej hello następujące:
+Zweryfikuj połączenie. Dla każdej bramy sieci wirtualnej wykonaj następujące czynności:
 
-1. Zlokalizuj bloku hello hello bramy sieci wirtualnej. (np. **TestVNet4GW**). 
-2. W bloku bramy sieci wirtualnej hello, kliknij **połączeń** tooview hello połączeń bloku dla bramy sieci wirtualnej hello.
+1. Znajdź blok bramy sieci wirtualnej (np. **TestVNet4GW**). 
+2. W bloku bramy sieci wirtualnej kliknij opcję **Połączenia**, aby wyświetlić blok połączeń bramy sieci wirtualnej.
 
-Wyświetl hello połączeń i sprawdź hello status. Po utworzeniu połączenia hello zostanie wyświetlona **zakończyło się pomyślnie** i **połączony** jako hello wartości stanu.
+Wyświetl połączenia i zweryfikuj stan. Po utworzeniu połączenia zostanie wyświetlony stan z wartościami **Powodzenie** i **Połączono**.
 
 ![Powodzenie](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Powodzenie")
 
-Dwukrotne kliknięcie każdego połączenia oddzielnie tooview więcej informacji na temat hello połączenia.
+Możesz kliknąć dwukrotnie każde połączenie, aby wyświetlić więcej informacji.
 
 ![Podstawy](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Podstawy")
 
 ## <a name="faq"></a>Często zadawane pytania dotyczące połączeń między sieciami wirtualnymi
-Wyświetl szczegóły hello — często zadawane pytania dodatkowe informacje dotyczące połączeń do wirtualnymi.
+Ta sekcja zawiera odpowiedzi na często zadawane pytań dotyczące połączeń między sieciami wirtualnymi.
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Po zakończeniu połączenia można dodać sieci wirtualnych tooyour maszyn wirtualnych. Zobacz hello [dokumentacji maszyn wirtualnych](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) Aby uzyskać więcej informacji.
+Po zakończeniu procesu nawiązywania połączenia można dodać do sieci wirtualnych maszyny wirtualne. Zobacz [dokumentację dotyczącą maszyn wirtualnych](https://docs.microsoft.com/azure/#pivot=services&panel=Compute), aby uzyskać więcej informacji.

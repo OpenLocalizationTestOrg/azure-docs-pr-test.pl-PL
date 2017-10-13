@@ -1,6 +1,6 @@
 ---
-title: "aaaPassing poświadczeń przy użyciu usługi Konfiguracja DSC tooAzure | Dokumentacja firmy Microsoft"
-description: "Omówienie w bezpieczny sposób przekazywania poświadczeń tooAzure maszyn wirtualnych przy użyciu konfiguracji żądanego stanu programu PowerShell"
+title: "Przekazywania poświadczeń na platformie Azure przy użyciu usługi Konfiguracja DSC | Dokumentacja firmy Microsoft"
+description: "Omówienie w bezpieczny sposób przekazywania poświadczeń do maszyn wirtualnych platformy Azure przy użyciu konfiguracji żądanego stanu programu PowerShell"
 services: virtual-machines-windows
 documentationcenter: 
 author: zjalexander
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
-ms.openlocfilehash: 306ecd3fd481f49a0beca5052fc7531a52999330
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: acd768c0219ec23c0453a65c575faf5213d9c616
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="passing-credentials-toohello-azure-dsc-extension-handler"></a>Przekazywanie obsługi rozszerzenia usługi Konfiguracja DSC Azure toohello poświadczeń
+# <a name="passing-credentials-to-the-azure-dsc-extension-handler"></a>Przekazywania poświadczeń do obsługi rozszerzenia usługi Konfiguracja DSC Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-W tym artykule omówiono hello konfiguracji żądanego stanu rozszerzenia dla platformy Azure. Omówienie hello DSC rozszerzenia obsługi można znaleźć w folderze [wprowadzenie toohello Azure konfiguracji żądanego stanu rozszerzenia obsługi](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+W tym artykule omówiono rozszerzenia konfiguracji żądanego stanu dla platformy Azure. Omówienie obsługi rozszerzenia DSC można znaleźć w folderze [wprowadzenie do obsługi rozszerzenia konfiguracji żądanego stanu Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## <a name="passing-in-credentials"></a>Przekazywanie poświadczeń
-W ramach procesu konfiguracji hello, może być konieczne tooset do kont użytkowników, dostęp do usług, lub zainstaluj program w kontekście użytkownika. toodo elementy potrzebne tooprovide poświadczenia. 
+W ramach procesu konfiguracji może skonfigurować konta użytkowników, dostęp do usług, lub zainstalować program w kontekście użytkownika. Aby wykonać te czynności, musisz podać poświadczenia. 
 
-DSC umożliwia sparametryzowane konfiguracji, w których poświadczenia są przekazywane do konfiguracji hello i bezpiecznie przechowywane w plikach MOF. Hello Azure rozszerzenia obsługi ułatwia zarządzanie poświadczeniami, zapewniając automatyczne zarządzanie certyfikatami. 
+DSC umożliwia sparametryzowane konfiguracji, w których poświadczenia są przekazywane do konfiguracji i bezpiecznie przechowywane w plikach MOF. Obsługi rozszerzenia Azure ułatwia zarządzanie poświadczeniami, zapewniając automatyczne zarządzanie certyfikatami. 
 
-Należy wziąć pod uwagę hello następującego skryptu konfiguracji DSC, która tworzy konto użytkownika lokalnego z hello określone hasło:
+Rozważmy poniższy skrypt konfiguracji DSC tworzy konto użytkownika lokalnego z określonym hasłem:
 
 *user_configuration.ps1*
 
@@ -60,13 +60,13 @@ configuration Main
 } 
 ```
 
-Jest ważne tooinclude *localhost węzła* w ramach konfiguracji hello. W przypadku braku tej instrukcji hello następujące kroki nie działają jako hello rozszerzenia obsługi specjalnie szuka hello węzła localhost instrukcji. Rzutowanie typu tooinclude hello ważna jest również *[PsCredential]*, ponieważ poświadczenia hello tooencrypt rozszerzenia hello wyzwala określonego typu. 
+Należy uwzględnić *localhost węzła* jako część konfiguracji. W przypadku braku tej instrukcji następujące kroki nie działają zgodnie z obsługi rozszerzenia w szczególności szuka instrukcji localhost węzła. Należy również uwzględnić typecast *[PsCredential]*, ponieważ rozszerzenie do szyfrowania poświadczeń wyzwala określonego typu. 
 
-Publikuj ten magazyn tooblob skryptu:
+Publikuj ten skrypt do magazynu obiektów blob:
 
 `Publish-AzureVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Ustaw hello rozszerzenia usługi Konfiguracja DSC Azure i podaj poświadczenia, hello:
+Ustawienia rozszerzenia usługi Konfiguracja DSC Azure i podaj poświadczenia:
 
 ```
 $configurationName = "Main"
@@ -80,16 +80,16 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 ## <a name="how-credentials-are-secured"></a>Jak są zabezpieczone poświadczeń
-Uruchomienie tego kodu wyświetla monit o podanie poświadczeń. Gdy podano, jest on przechowywany w pamięci krótko. Jeśli jest publikowany razem `Set-AzureVmDscExtension` polecenia cmdlet, jego są przesyłane za pośrednictwem protokołu HTTPS toohello maszyny Wirtualnej, w przypadku, gdy Azure przechowuje go szyfrowane na dysku, przy użyciu hello lokalnego certyfikatu maszyny Wirtualnej. A następnie jest krótko odszyfrowane w pamięci i ponownie szyfrować toopass go tooDSC.
+Uruchomienie tego kodu wyświetla monit o podanie poświadczeń. Gdy podano, jest on przechowywany w pamięci krótko. Jeśli jest publikowany razem `Set-AzureVmDscExtension` polecenia cmdlet, jego są przesyłane za pośrednictwem protokołu HTTPS do maszyny Wirtualnej, w przypadku, gdy usługa Azure przechowuje go szyfrowane na dysku, przy użyciu lokalnego certyfikatu maszyny Wirtualnej. Następnie jest krótko odszyfrowane w pamięci i ponownie szyfrowane przekazywany do usługi Konfiguracja DSC.
 
-To zachowanie różni się od [za pomocą bezpiecznej konfiguracji bez obsługi rozszerzenia hello](https://msdn.microsoft.com/powershell/dsc/securemof). Witaj środowiska platformy Azure zapewnia dane konfiguracji tootransmit w sposób bezpieczny sposób za pomocą certyfikatów. Przy użyciu obsługi rozszerzenia hello DSC, nie ma żadnych tooprovide potrzeby $CertificatePath lub $CertificateID / $Thumbprint wpis w ConfigurationData.
+To zachowanie różni się od [za pomocą bezpiecznej konfiguracji bez obsługi rozszerzenia](https://msdn.microsoft.com/powershell/dsc/securemof). Środowisko Azure udostępnia sposób przekazują dane konfiguracji w bezpieczny sposób za pomocą certyfikatów. Korzystając z procedury obsługi rozszerzenia DSC, nie jest konieczne do zapewnienia $CertificatePath lub $CertificateID / $Thumbprint wpis w ConfigurationData.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji dotyczących obsługi rozszerzenia usługi Konfiguracja DSC Azure hello, zobacz [wprowadzenie toohello Azure konfiguracji żądanego stanu rozszerzenia obsługi](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Aby uzyskać więcej informacji dotyczących obsługi rozszerzenia usługi Konfiguracja DSC Azure, zobacz [wprowadzenie do obsługi rozszerzenia konfiguracji żądanego stanu Azure](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Sprawdź hello [szablonu usługi Azure Resource Manager dla rozszerzenia hello DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Sprawdź [szablonu usługi Azure Resource Manager dla rozszerzenia DSC](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Aby uzyskać więcej informacji o konfiguracji DSC środowiska PowerShell [odwiedź Centrum dokumentacji programu PowerShell hello](https://msdn.microsoft.com/powershell/dsc/overview). 
+Aby uzyskać więcej informacji o konfiguracji DSC środowiska PowerShell [odwiedź Centrum dokumentacji programu PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-dodatkowe funkcje toofind można zarządzać w usłudze Konfiguracja DSC środowiska PowerShell, [Przejrzyj galerię programu PowerShell hello](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) więcej zasobów usługi Konfiguracja DSC.
+Aby znaleźć dodatkowe funkcje, którymi można zarządzać w DSC środowiska PowerShell [przeglądać galerii programu PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) więcej zasobów usługi Konfiguracja DSC.
 

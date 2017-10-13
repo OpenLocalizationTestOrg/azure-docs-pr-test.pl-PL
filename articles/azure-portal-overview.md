@@ -1,6 +1,6 @@
 ---
-title: "Przegląd portalu aaaAzure | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse hello portalu Microsoft Azure."
+title: "Omówienie witryny Azure Portal | Microsoft Docs"
+description: "Dowiedz się, jak korzystać z witryny Microsoft Azure Portal."
 services: 
 documentationcenter: 
 author: davidwrede
@@ -14,69 +14,69 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-ms.openlocfilehash: feca8b5e26e9cb373c5e8e688173d5856050bb28
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 71820306716c6297085a29f3ceab89b55396bfe6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-portal-overview"></a>Przegląd witryny Microsoft Azure Portal
-Witaj portalu Microsoft Azure to centralne miejsce, w którym można udostępnić i zarządzania zasobami platformy Azure.  W tym samouczku zostanie zapoznanie się z portalem hello i przedstawia sposób toouse klucza niektórych z tych możliwości:
+Microsoft Azure Portal to centralne miejsce, w którym możliwe jest aprowizowanie zasobów platformy Azure i zarządzanie nimi.  Dzięki temu samouczkowi zapoznasz się z portalem i dowiesz się, jak korzystać z niektórych z następujących kluczowych możliwości:
 
 * **Kompleksowy portal Marketplace** umożliwiający przeglądanie tysięcy elementów od firmy Microsoft i innych dostawców, które mogą zostać zakupione i/lub których możliwa jest aprowizacja.
-* A **ujednolicone i skalowalne środowisko przeglądania** w ten sposób można łatwo toofind hello zasobów interesujących i wykonywać różne operacje zarządzania.
+* **Ujednolicone i skalowalne środowisko przeglądania**, które ułatwia znajdowanie interesujących zasobów i wykonywanie różnych operacji związanych z zarządzaniem.
 * **Spójne strony zarządzania** (lub bloki) umożliwiające zarządzanie szerokim wachlarzem usług platformy Azure w spójny sposób, który polega na udostępnianiu ustawień, akcji, informacji dotyczących rozliczeń, monitorowania kondycji i danych dotyczących zużycia oraz wielu innych elementów.
-* A **własne środowisko** umożliwiające tworzenie dostosowanego ekranu startowego czy pokazuje hello informacje, które mają toosee przy każdym zalogowaniu.  Można również dostosowywać dowolne bloki zarządzania hello, które zawierają Kafelki.
+* **Własne środowisko** umożliwiające tworzenie dostosowanego ekranu startowego, na którym zawsze po zalogowaniu się będą wyświetlane żądane informacje.  Można również dostosowywać dowolne bloki zarządzania, które zawierają kafelki.
   
   ![Orientacja interfejsu użytkownika witryny Azure Portal][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Przed rozpoczęciem
-Konieczne będzie toogo ważnej subskrypcji platformy Azure, opisanych w tym samouczku.  Jeśli nie masz ważnej subskrypcji, [utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) już dzisiaj.  Po utworzeniu subskrypcji można uzyskać dostęp do portalu hello na <https://portal.azure.com>.
+Konieczne będzie posiadanie ważnej subskrypcji platformy Azure, aby móc skorzystać z tego samouczka.  Jeśli nie masz ważnej subskrypcji, [utwórz konto bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) już dzisiaj.  Po utworzeniu subskrypcji dostęp do portalu można uzyskać pod adresem <https://portal.azure.com>.
 
-## <a name="how-toocreate-a-resource"></a>Jak toocreate zasobu
-Platforma Azure zawiera portal Marketplace z tysiącami elementów, które można utworzyć w jednym miejscu.  Załóżmy, że chcesz toocreate nową maszynę Wirtualną programu Windows Server 2012.  Witaj + nowe Centrum jest punktem wejścia do nadzorowanego zestawu polecanych kategorii z portalu marketplace hello.  Każda kategoria ma niewielki zestaw polecanych elementów wraz z łącza toohello pełnego portalu marketplace pokazującego wszystkie kategorie i wyszukiwania. toocreate, że nowe systemu Windows Server 2012 maszyny Wirtualnej, wykonaj hello następujące akcje:  
+## <a name="how-to-create-a-resource"></a>Tworzenie zasobu
+Platforma Azure zawiera portal Marketplace z tysiącami elementów, które można utworzyć w jednym miejscu.  Załóżmy, że chcesz utworzyć nową maszynę wirtualną systemu Windows Server 2012.  Nowe centrum jest punktem wejścia do nadzorowanego zestawu polecanych kategorii z portalu Marketplace.  Każda kategoria ma niewielki zestaw polecanych elementów wraz z linkiem do pełnego portalu Marketplace, w którym są wyświetlane wszystkie kategorie i jest możliwe wyszukiwanie. Aby utworzyć tę nową maszynę wirtualną systemu Windows Server 2012, wykonaj następujące czynności:  
 
-1. Windows Server 2012 jest polecany, więc możesz wybrać je z kategorii obliczenia hello.  
+1. System Windows Server 2012 jest polecany, więc możesz wybrać go z kategorii Obliczenia.  
 2. Wypełnij niektóre podstawowe dane wejściowe formularza.
-3. Maszyna wirtualna zostanie rozpoczęta natychmiast tooprovision i kliknij przycisk "Utwórz".
+3. Kliknij pozycję Utwórz. Aprowizacja maszyny wirtualnej rozpocznie się natychmiast.
 
-Witaj powiadomienia Centrum ostrzega użytkownika, gdy zasób został utworzony i zostanie otwarty blok zarządzania (możesz zawsze przejść tooresources później).
+Po utworzeniu zasobu w centrum powiadomień zostanie wygenerowany alert oraz zostanie otwarty blok zarządzania (możesz zawsze przejść do zasobów później).
 
 ![Kategorie portalu][PortalCategories]
 
-## <a name="how-toofind-your-resources"></a>Jak toofind zasobów
-Tablicy startowej tooyour często używane zasoby zawsze można przypiąć, ale może być konieczne toosomething toobrowse, który nie jest często używany.  wyświetlonego poniżej Centrum przeglądania Hello jest tooall tooget Twojego sposób zasobów.  Można filtrować według subskrypcji, wybieranie i zmienianie rozmiarów kolumn i przejdź bloków zarządzania toohello, klikając na poszczególne elementy.
+## <a name="how-to-find-your-resources"></a>Znajdowanie zasobów
+Często używane zasoby zawsze można przypiąć do tablicy startowej, ale konieczne może być przejście do zasobu, który nie jest często używany.  Za pomocą wyświetlonego poniżej centrum przeglądania można uzyskać dostęp do wszystkich zasobów.  Możliwe jest filtrowanie według subskrypcji, wybieranie i zmienianie rozmiarów kolumn oraz przechodzenie do bloków zarządzania. W tym celu wystarczy kliknąć odpowiednie elementy.
 
 ![Centrum przeglądania][BrowseHub]
 
-## <a name="how-toomanage-and-delegate-access-tooa-resource"></a>Jak toomanage i delegowanie dostępu do zasobów tooa
-Z tego bloku można połączyć toohello maszyny wirtualnej za pomocą pulpitu zdalnego, monitorować kluczowe metryki wydajności, kontrolować dostęp toothis maszyny Wirtualnej przy użyciu dostępu opartego na rolach (RBAC), skonfigurować hello maszyny Wirtualnej i wykonywać inne istotne zadania zarządzania.  Delegowanie dostępu na podstawie roli jest krytyczne toomanaging na dużą skalę.  Kliknij przycisk [tutaj](active-directory/role-based-access-control-configure.md) toolearn więcej informacji na ten temat. toodelegate dostęp do zasobów tooa, wykonać hello następujące akcje:
+## <a name="how-to-manage-and-delegate-access-to-a-resource"></a>Zarządzanie dostępem do zasobu i delegowanie go
+Z poziomu tego bloku można nawiązać połączenie z maszyną wirtualną za pomocą pulpitu zdalnego, monitorować kluczowe metryki wydajności, kontrolować dostęp do tej maszyny wirtualnej przy użyciu dostępu opartego na rolach (RBAC), konfigurować maszynę wirtualną i wykonywać inne istotne zadania zarządzania.  Delegowanie dostępu na podstawie roli ma kluczowe znaczenie dla zarządzania w odpowiedniej skali.  Aby uzyskać więcej informacji, kliknij [tutaj](active-directory/role-based-access-control-configure.md). Aby delegować dostęp do zasobu, należy wykonać następujące czynności:
 
-1. Przeglądaj tooyour zasobów.
-2. Kliknij pozycję wszystkie ustawienia, w sekcji podstawowe elementy hello.
-3. Kliknij pozycję "Użytkownicy" hello ustawień listy.
-4. Kliknij przycisk "Dodaj" na pasku poleceń hello.
+1. Przejdź do zasobu.
+2. Kliknij pozycję Wszystkie ustawienia w sekcji Podstawowe elementy.
+3. Kliknij pozycję Użytkownicy na liście ustawień.
+4. Kliknij pozycję Dodaj na pasku poleceń.
 5. Wybierz użytkownika i rolę.
 
 ![Zarządzanie zasobem][ManageResource]
 
-## <a name="how-tooget-help"></a>Jak tooget pomocy
-Jeśli masz jakikolwiek problem, zawsze Ci pomożemy.  Witaj portal ma stronę pomocy i obsługi technicznej, która może pomóc w znalezieniu odpowiedniego rozwiązania hello.  W zależności od Twojego [plan pomocy technicznej](https://azure.microsoft.com/support/plans/), można również utworzyć bezpośrednio w portalu hello biletami pomocy technicznej.  Po utworzeniu biletu pomocy technicznej, można zarządzać hello cyklem życia bilet powitania od hello portalu. Możesz uzyskać pomoc toohello i strona pomocy technicznej, przechodząc tooBrowse -> Pomoc i obsługa techniczna.  
+## <a name="how-to-get-help"></a>Uzyskiwanie pomocy
+Jeśli masz jakikolwiek problem, zawsze Ci pomożemy.  Portal ma stronę pomocy i obsługi technicznej, która może pomóc w znalezieniu odpowiedniego rozwiązania.  W zależności od Twojego [planu pomocy technicznej](https://azure.microsoft.com/support/plans/) możesz również tworzyć bilety pomocy technicznej bezpośrednio w portalu.  Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z poziomu portalu. Aby wyświetlić stronę pomocy i obsługi technicznej, przejdź do obszaru Przeglądaj -> Pomoc i obsługa techniczna.  
 
 ![Pomoc i obsługa techniczna][HelpSupport]
 
 ## <a name="summary"></a>Podsumowanie
 Informacje zawarte w tym samouczku ułatwiają wykonywanie następujących czynności:
 
-* Przedstawiono sposób toosign, uzyskania subskrypcji i przeglądanie portalu toohello
-* Otrzymano obiektowe z interfejsu użytkownika portalu hello i przedstawiono sposób toocreate i przeglądanie zasobów
-* Możesz przedstawiono sposób toocreate zasobu i przeglądanie zasobów.
-* Poznanie struktury hello lub bloków zarządzania i jak spójnego zarządzania różnymi typami zasobów
-* Przedstawiono sposób toocustomize hello portalu toobring hello interesujących toohello najbardziej widocznym miejscu informacji
-* Przedstawiono sposób toocontrol tooresources dostępu za pomocą roli na podstawie dostępu (RBAC)
-* Przedstawiono sposób tooget Pomoc i obsługa techniczna
+* Zakładanie konta, uzyskiwanie subskrypcji i przeglądanie portalu.
+* Używanie interfejsu użytkownika portalu oraz tworzenie i przeglądanie zasobów.
+* Tworzenie zasobów i ich przeglądanie.
+* Poznanie struktury bloków zarządzania i sposobów spójnego zarządzania różnymi typami zasobów.
+* Dostosowywanie portalu w taki sposób, aby interesujące informacje były wyświetlane w jego najbardziej eksponowanym miejscu.
+* Sterowanie dostępem do zasobów przy użyciu dostępu opartego na rolach (RBAC).
+* Uzyskiwanie pomocy i obsługi technicznej.
 
-Witaj portalu Microsoft Azure znacząco ułatwia tworzenie i zarządzanie nią aplikacji w chmurze hello.  Spójrz na powitania [blogiem zarządzania](https://azure.microsoft.com/blog/topics/management/) tookeep się toodate ponieważ stale [toofeedback nasłuchiwania](https://feedback.azure.com/forums/223579-azure-preview-portal/) i wprowadzamy ulepszenia.  [ScottGu blog](http://weblogs.asp.net/scottgu) jest inny toolook doskonałym miejscem dla wszystkich aktualizacji platformy Azure.
+Witryna Microsoft Azure Portal znacząco ułatwia tworzenie aplikacji w chmurze i zarządzanie nimi.  Zapoznaj się z [blogiem zarządzania](https://azure.microsoft.com/blog/topics/management/), aby być na bieżąco, ponieważ stale [oczekujemy na opinie](https://feedback.azure.com/forums/223579-azure-preview-portal/) i wprowadzamy ulepszenia.  [Blog ScottGu ](http://weblogs.asp.net/scottgu) to inne doskonałe miejsce, aby uzyskać informacje na temat wszystkich aktualizacji platformy Azure.
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png

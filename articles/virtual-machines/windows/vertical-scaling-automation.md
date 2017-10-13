@@ -1,6 +1,6 @@
 ---
-title: "toovertically usługi Automatyzacja Azure aaaUse skalowania maszyn wirtualnych z systemem Windows | Dokumentacja firmy Microsoft"
-description: "Pionowo skalowania maszyny wirtualnej systemu Windows w odpowiedzi toomonitoring alertów z usługi Automatyzacja Azure"
+title: "Automatyzacja Azure umożliwia skalowanie w pionie maszyn wirtualnych systemu Windows | Dokumentacja firmy Microsoft"
+description: "Pionowo skalowania maszyny wirtualnej systemu Windows w odpowiedzi na monitorowanie alertów w usłudze Automatyzacja Azure"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -16,28 +16,28 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24d07f3e2e217668f18676e6d6873be4f9770349
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ea5169c1a95f00e78ae3f5f177812466eb7a0deb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Skalowanie w pionie maszyn wirtualnych systemu Windows w usłudze Automatyzacja Azure
 
-Skalowanie w pionie jest hello proces zwiększania lub zmniejszania zasobów hello maszyny w odpowiedzi toohello obciążenia. W systemie Azure można to zrobić, zmieniając rozmiar hello hello maszyny wirtualnej. Może to pomóc w hello następujące scenariusze
+Skalowanie w pionie to proces zwiększania lub zmniejszania zasobów w odpowiedzi na obciążenie pracą maszyny. W systemie Azure można to zrobić przez zmianę rozmiaru maszyny wirtualnej. Może to pomóc w następujących scenariuszach
 
-* Jeśli nie jest często używany hello maszyny wirtualnej, można zmienić rozmiar go w dół tooa mniejszy rozmiar tooreduce miesięcznych kosztów
-* Jeśli obciążenia szczytowego ma do czynienia z hello maszyny wirtualnej, może być tooa po zmianie rozmiaru większy rozmiar tooincrease pojemności
+* Jeśli maszyna wirtualna nie jest często używany, można zmienić rozmiar go do mniejszy rozmiar, aby zmniejszyć koszty miesięcznego
+* Jeśli maszyna wirtualna ma do czynienia obciążenia szczytowego, można zmieniać na większy rozmiar, aby zwiększyć jego pojemność
 
-Konspekt Hello tooaccomplish kroki hello jest jako poniżej
+Konspekt instrukcje w tym celu jest jako poniżej
 
-1. Konfiguracja usługi Automatyzacja Azure tooaccess maszyny wirtualne
-2. Zaimportować elementy runbook skali pionowej automatyzacji Azure hello w ramach subskrypcji
-3. Dodaj element tooyour elementu webhook
-4. Dodawanie alertu tooyour maszyny wirtualnej
+1. Instalator usługi Automatyzacja Azure na dostęp do maszyn wirtualnych
+2. Importowanie elementów runbook skali pionowej automatyzacji Azure w ramach subskrypcji
+3. Dodawanie elementu webhook z elementem runbook
+4. Dodawanie alertu do maszyny wirtualnej
 
 > [!NOTE]
-> Ze względu na rozmiar hello hello pierwszej maszynie wirtualnej, rozmiarów hello mogą być skalowane, może być ograniczony powodu dostępności toohello hello innych rozmiarach w klastrze hello bieżącej maszyny wirtualnej wdrożonej w. W hello opublikowane elementy runbook automatyzacji używane w tym artykule, firma Microsoft zajmie się tym przypadku i skalować tylko w obrębie hello poniżej pary rozmiar maszyny Wirtualnej. Oznacza to, że Standard_D1v2 maszyny wirtualnej zostanie nie nagle skalowanie tooStandard_G5 lub skalowany w dół tooBasic_A0.
+> Ze względu na rozmiar maszyny wirtualnej pierwszej rozmiary, do których może być skalowana, może być ograniczony z powodu dostępności bieżącej maszyny wirtualnej wdrożonej w innej wielkości w klastrze. W elementach runbook automatyzacji opublikowanych używane w tym artykule zajmie się tym przypadku firma Microsoft i skalować tylko w ramach poniżej pary rozmiar maszyny Wirtualnej. Oznacza to, czy Standard_D1v2 maszyny wirtualnej zostanie nie nagle Skalowanie z Standard_G5 lub skalowany w dół do Basic_A0.
 > 
 > | Rozmiary maszyn wirtualnych, skalowanie pary |  |
 > | --- | --- |
@@ -57,38 +57,38 @@ Konspekt Hello tooaccomplish kroki hello jest jako poniżej
 > 
 > 
 
-## <a name="setup-azure-automation-tooaccess-your-virtual-machines"></a>Konfiguracja usługi Automatyzacja Azure tooaccess maszyny wirtualne
-najpierw Hello należy toodo jest utworzyć konto usługi Automatyzacja Azure, które będzie obsługiwać tooscale elementów runbook używane hello maszyny wirtualnej. Niedawno usługi Automatyzacja hello wprowadzone "Konto Uruchom jako" Funkcja hello, co sprawia, że skonfigurowanie hello nazwy głównej usługi dla automatycznie uruchomione hello elementy runbook w imieniu użytkownika hello bardzo proste. Możesz przeczytać dodatkowe informacje w artykule hello poniżej:
+## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Instalator usługi Automatyzacja Azure na dostęp do maszyn wirtualnych
+W pierwszej kolejności należy wykonać to utworzyć konto usługi Automatyzacja Azure, który będzie obsługiwał elementów runbook, używana do skalowania maszyny wirtualnej. Ostatnio usługi Automatyzacja wprowadzono funkcję "Konto Uruchom jako", co sprawia, że ustawienia zapasowej główną usługi dla automatycznie uruchomione elementy runbook w imieniu użytkownika bardzo proste. Możesz przeczytać więcej na temat tego artykułu poniżej:
 
 * [Uwierzytelnianie elementów Runbook przy użyciu konta Uruchom jako platformy Azure](../../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-hello-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Zaimportować elementy runbook skali pionowej automatyzacji Azure hello w ramach subskrypcji
-Witaj elementów runbook, które są potrzebne w pionie skalowania maszyny wirtualnej zostały już opublikowane w hello galerię elementów Runbook automatyzacji Azure. Konieczne będzie tooimport ich do subskrypcji. Aby dowiedzieć się jak tooimport elementów runbook, odczytując hello poniższego artykułu.
+## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importowanie elementów runbook skali pionowej automatyzacji Azure w ramach subskrypcji
+Elementy runbook, które są potrzebne w pionie skalowania maszyny wirtualnej zostały już opublikowane w galerii elementu Runbook automatyzacji Azure. Konieczne będzie zaimportowanie ich do subskrypcji. Można poznać sposoby zaimportować elementy runbook, odczytując w następującym artykule.
 
 * [Galeria elementów Runbook i modułów dla usługi Automatyzacja Azure](../../automation/automation-runbook-gallery.md)
 
-w poniższym obrazie hello przedstawiono Hello elementów runbook, które należy zaimportować toobe
+Elementy runbook, które wymagają zaimportowania przedstawiono na poniższej ilustracji
 
 ![Importowanie elementów runbook](./media/vertical-scaling-automation/scale-runbooks.png)
 
-## <a name="add-a-webhook-tooyour-runbook"></a>Dodaj element tooyour elementu webhook
-Po zaimportowaniu elementów runbook hello należy tooadd webhook toohello runbook, mogą być wyzwalane przez alert z maszyny wirtualnej. Szczegóły Hello tworzenia elementu webhook dla elementu Runbook, które mogą być odczytywane w tym miejscu
+## <a name="add-a-webhook-to-your-runbook"></a>Dodawanie elementu webhook z elementem runbook
+Po zaimportowaniu elementów runbook, które będą potrzebne, aby dodać elementu webhook do elementu runbook, mogą być wyzwalane przez alert z maszyny wirtualnej. Szczegółowe informacje o utworzeniu elementu webhook dla elementu Runbook, które mogą być odczytywane w tym miejscu
 
 * [Azure automatyzacji elementów webhook](../../automation/automation-webhooks.md)
 
-Upewnij się, że przed zamknięciem okna dialogowego elementu webhook hello ponieważ będzie on potrzebny w następnej sekcji hello kopiowania elementu webhook hello.
+Upewnij się, że można skopiować elementu webhook przed zamknięciem okna dialogowego elementu webhook, ponieważ będzie on potrzebny w następnej sekcji.
 
-## <a name="add-an-alert-tooyour-virtual-machine"></a>Dodawanie alertu tooyour maszyny wirtualnej
+## <a name="add-an-alert-to-your-virtual-machine"></a>Dodawanie alertu do maszyny wirtualnej
 1. Wybierz ustawienia maszyny wirtualnej
 2. Wybierz opcję "Reguły alertu"
 3. Wybierz opcję "Dodaj alert"
-4. Wybierz alert hello toofire metryki na
-5. Wybierz warunek, w przypadku których spełnione będą powodować hello toofire alertu
-6. Wybierz próg dla warunku hello w kroku 5. toobe spełnione
-7. Wybierz okres za pośrednictwem których hello usługi monitorowania będzie sprawdzać hello warunek i wartość progową kroki 5 i 6
-8. Wklej webhook hello, które zostały skopiowane z poprzedniej sekcji hello.
+4. Wybierz metrykę, aby wyzwalać alert na
+5. Wybierz warunek, w przypadku których spełnione będą powodować wyzwalać alert
+6. Wybierz próg dla warunku w kroku 5. do spełnienia
+7. Wybierz okres służącym usługi monitorowania będzie sprawdzać, warunek i wartość progową kroki 5 i 6
+8. Wklej skopiowane z poprzedniej sekcji elementu webhook.
 
-![Dodaj tooVirtual alertu 1 komputera](./media/vertical-scaling-automation/add-alert-webhook-1.png)
+![Dodawanie alertu do maszyny wirtualnej 1](./media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Dodawanie alertu tooVirtual maszyny 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
+![Dodawanie alertu do maszyny wirtualnej 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
 

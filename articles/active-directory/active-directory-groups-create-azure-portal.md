@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate grupę dla użytkowników w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
-description: "Jak toocreate grupy w usłudze Azure Active Directory i dodawanie członków grupy toohello"
+title: "Utwórz grupę dla użytkowników w usłudze Azure Active Directory | Dokumentacja firmy Microsoft"
+description: "Jak utworzyć grupę w usłudze Azure Active Directory i dodawanie członków do grupy"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc583a7f02ce50e7f3b2c8f97a9c032a3e2dc33a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6d3d37761a9fdf9bd9801396d45f2fcd47efb0be
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Utwórz grupy i Dodaj elementy członkowskie w usłudze Azure Active Directory
 > [!div class="op_single_selector"]
@@ -29,25 +29,25 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-W tym artykule opisano sposób toocreate i wypełnić nową grupę w usłudze Azure Active Directory. Użyj zadań zarządzania tooperform grupy, takich jak przypisywanie licencji lub uprawnienia tooa liczby użytkowników lub urządzeń naraz.
+W tym artykule opisano sposób tworzenia i wypełniania nową grupę w usłudze Azure Active Directory. Grupa służy do wykonywania zadań zarządzania, takich jak przypisywanie licencji lub uprawnień do liczby użytkowników lub urządzeń naraz.
 
 ## <a name="how-do-i-create-a-group"></a>Jak utworzyć grupę?
-1. Zaloguj się toohello [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu hello.
-2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w hello pola tekstowego, a następnie wybierz **Enter**.
+1. Zaloguj się do [portalu Azure](https://portal.azure.com) przy użyciu konta, które jest administratorem globalnym katalogu.
+2. Wybierz **więcej usług**, wprowadź **użytkowników i grup** w polu tekstowym, a następnie wybierz **Enter**.
 
    ![Otwieranie Zarządzanie użytkownikami](./media/active-directory-groups-create-azure-portal/search-user-management.png)
-3. Na powitania **użytkowników i grup** bloku, wybierz opcję **wszystkich grup**.
+3. Na **użytkowników i grup** bloku, wybierz opcję **wszystkich grup**.
 
-   ![Otwieranie hello grup bloku](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
-4. Na powitania **użytkowników i grup — wszystkie grupy** bloku, wybierz hello **Dodaj** polecenia.
+   ![Otwieranie bloku grupy](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
+4. Na **użytkowników i grup — wszystkie grupy** bloku, wybierz opcję **Dodaj** polecenia.
 
-   ![Polecenie Dodaj hello](./media/active-directory-groups-create-azure-portal/add-group-command.png)
-5. Na powitania **grupy** bloku, Dodaj nazwę i opis grupy hello.
-6. tooselect członków tooadd toohello grupy wybierz **przypisane** w hello **Typ członkostwa** , a następnie wybierz **członków**. Aby uzyskać więcej informacji o sposobie toomanage hello członkostwa w grupie dynamicznie, zobacz [przy użyciu atrybutów toocreate zaawansowane zasady członkostwa w grupie](active-directory-groups-dynamic-membership-azure-portal.md).
+   ![Dodaj polecenie](./media/active-directory-groups-create-azure-portal/add-group-command.png)
+5. Na **grupy** bloku, Dodaj nazwę i opis grupy.
+6. Aby wybrać elementy członkowskie, aby dodać do grupy, wybierz **przypisane** w **Typ członkostwa** , a następnie wybierz **członków**. Aby uzyskać więcej informacji o sposobie zarządzania członkostwa w grupie dynamicznie, zobacz [tworzenie zaawansowanych reguł członkostwa w grupie za pomocą atrybutów](active-directory-groups-dynamic-membership-azure-portal.md).
 
-   ![Wybieranie elementów członkowskich tooadd](./media/active-directory-groups-create-azure-portal/select-members.png)
-7. Na powitania **członków** bloku, wybierz jedną lub więcej użytkowników lub urządzeń grupy toohello tooadd i wybierz hello **wybierz** przycisk u dołu hello hello bloku tooadd ich toohello grupy. Witaj **użytkownika** filtry pole hello wyświetlania, w oparciu o dopasowanie wpisu z tooany część nazwy użytkownika lub urządzenia. Nie symbole wieloznaczne są akceptowane w tym polu.
-8. Po zakończeniu dodawania elementów członkowskich toohello grupy, wybierz **Utwórz** na powitania **grupy** bloku.    
+   ![Wybieranie członków do dodania](./media/active-directory-groups-create-azure-portal/select-members.png)
+7. Na **członków** bloku, wybierz jeden lub więcej użytkowników lub urządzeń do dodania do grupy, a następnie wybierz **wybierz** przycisk w dolnej części bloku, aby dodać je do grupy. **Użytkownika** okno filtry wyświetlania na podstawie zgodności wpis do dowolnej części nazwy użytkownika lub urządzenia. Nie symbole wieloznaczne są akceptowane w tym polu.
+8. Po zakończeniu dodawania członków do grupy, wybierz **Utwórz** na **grupy** bloku.    
 
    ![Tworzenie grupy potwierdzenia](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
 

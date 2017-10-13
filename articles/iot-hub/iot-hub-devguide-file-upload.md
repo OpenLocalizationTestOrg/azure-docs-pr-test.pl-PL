@@ -1,6 +1,6 @@
 ---
-title: Przekazywanie pliku Centrum IoT Azure aaaUnderstand | Dokumentacja firmy Microsoft
-description: "Przewodnik dewelopera — funkcja przekazywania plików hello użycia z Centrum IoT toomanage przekazywania plików z kontenera obiektów blob magazynu Azure tooan urządzenia."
+title: Zrozumienie przekazania pliku Centrum IoT Azure | Dokumentacja firmy Microsoft
+description: "Przewodnik dewelopera — użycie funkcji przekazywania plików z Centrum IoT do zarządzania przekazywania plików z urządzenia do kontenera obiektów blob magazynu Azure."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: d44f9303ead4fa282dc0baf70887af1b8a03293d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="upload-files-with-iot-hub"></a>Przekazywanie plików z Centrum IoT
 
-Jak wyjaśniono w hello [punkty końcowe Centrum IoT] [ lnk-endpoints] artykułu, urządzenie może inicjować przekazywania pliku, wysyłając powiadomienia za pośrednictwem punktu końcowego uwzględniającym urządzenia (**/devices/ {deviceId} / pliki**). Gdy urządzenia IoT Hub powiadamia o zakończeniu przekazywania, Centrum IoT wysyła komunikat z powiadomieniem przekazywania pliku za pośrednictwem hello **/messages/servicebound/filenotifications** połączonej usługi punktu końcowego.
+Jak wyjaśniono w [punkty końcowe Centrum IoT] [ lnk-endpoints] artykułu, urządzenie może inicjować przekazywania pliku, wysyłając powiadomienia za pośrednictwem punktu końcowego uwzględniającym urządzenia (**/devices/ {deviceId} / pliki**). Gdy urządzenia IoT Hub powiadamia o zakończeniu przekazywania, Centrum IoT wysyła komunikat z powiadomieniem przekazywania plików za pomocą **/messages/servicebound/filenotifications** połączonej usługi punktu końcowego.
 
-Zamiast utrzymywanie właściwych komunikatów za pośrednictwem Centrum IoT, się, Centrum IoT zamiast tego działa jako tooan dyspozytora skojarzone konto magazynu Azure. Urządzenie żądania tokenu magazynu z Centrum IoT, która jest toohello określonego pliku hello urządzenia żąda tooupload. urządzenie Hello używa hello toostorage pliku hello tooupload identyfikatora URI połączenia SAS, a po zakończeniu przekazywania hello hello urządzenie wysyła powiadomienie z informacją o zakończeniu tooIoT Centrum. Centrum IoT sprawdza przekazywania pliku hello została zakończona, a następnie dodaje plik przekazywania powiadomień wiadomości toohello połączonej usługi pliku punktu końcowego powiadomienia.
+Zamiast pośrednictwa komunikaty za pośrednictwem Centrum IoT, samej siebie Centrum IoT zamiast tego działa jako dyspozytora skojarzone konto magazynu Azure. Urządzenie żądania tokenu magazynu z Centrum IoT, która jest specyficzna dla pliku, który chce przekazać urządzenia. Urządzenie korzysta z identyfikatora URI połączenia SAS można przekazać pliku do magazynu, a po zakończeniu przekazywania urządzenie wysyła powiadomienie z informacją o zakończeniu z Centrum IoT. Centrum IoT sprawdza przekazywanie pliku zostało ukończone, a następnie dodaje komunikatu powiadomienia przekazywania pliku do punktu końcowego powiadomienia pliku połączonej usługi.
 
-Przed przekazaniem tooIoT pliku koncentratora, z urządzenia, należy skonfigurować Centrum przez [kojarzenie magazynu Azure] [ lnk-associate-storage] tooit konta.
+Przed przekazaniem pliku do Centrum IoT z urządzenia, należy skonfigurować Centrum przez [kojarzenie magazynu Azure] [ lnk-associate-storage] konta do niego.
 
-Urządzenia można następnie [zainicjować przekazanie] [ lnk-initialize] , a następnie [powiadomienia Centrum IoT] [ lnk-notify] po zakończeniu przekazywania hello. Opcjonalnie, gdy urządzenia IoT Hub powiadamia o zakończeniu przekazywania tej hello, usługa hello może wygenerować [komunikatu powiadomienia][lnk-service-notification].
+Urządzenia można następnie [zainicjować przekazanie] [ lnk-initialize] , a następnie [powiadomienia Centrum IoT] [ lnk-notify] po zakończeniu przekazywania. Opcjonalnie, gdy urządzenie Centrum IoT powiadamia o zakończeniu przekazywania, usługa może wygenerować [komunikatu powiadomienia][lnk-service-notification].
 
-### <a name="when-toouse"></a>Gdy toouse
+### <a name="when-to-use"></a>Kiedy stosować
 
-Użyj plików multimedialnych toosend przekazywania plików i partie dużych telemetrii przekazany przez sporadycznie połączonych urządzeń lub toosave skompresowany przepustowości.
+Przekazywanie pliku używany do wysyłania plików multimedialnych i partie dużych telemetrii przekazany przez sporadycznie połączonych urządzeń lub skompresowane, aby oszczędzić przepustowość.
 
-Odwołuje się zbyt[wskazówki komunikację urządzenia do chmury] [ lnk-d2c-guidance] if wątpliwe między przy użyciu właściwości zgłoszone, wiadomości urządzenia do chmury lub przekazywania pliku.
+Zapoznaj się [wskazówki komunikację urządzenia do chmury] [ lnk-d2c-guidance] if wątpliwe między przy użyciu właściwości zgłoszone, wiadomości urządzenia do chmury lub przekazywania pliku.
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Skojarz konta usługi Azure Storage z Centrum IoT
 
-toouse hello funkcjonalność przekazywania plików, należy najpierw połączyć toohello konta magazynu Azure IoT Hub. To zadanie można wykonać za pośrednictwem hello [portalu Azure][lnk-management-portal], lub programistycznie za pośrednictwem hello [interfejsy API REST dostawcy zasobów Centrum IoT] [ lnk-resource-provider-apis]. Po powiązaniu konta usługi Azure Storage z Centrum IoT hello usługa zwraca identyfikator URI sygnatury dostępu Współdzielonego urządzenia tooa kiedy urządzenie hello inicjuje żądanie przekazywania plików.
+Aby korzystać z funkcji przekazywania pliku, możesz połączyć konto usługi Azure Storage w Centrum IoT. To zadanie można wykonać za pośrednictwem [portalu Azure][lnk-management-portal], lub programistycznie za pomocą [interfejsy API REST dostawcy zasobów Centrum IoT] [ lnk-resource-provider-apis]. Po powiązaniu konta usługi Azure Storage z Centrum IoT usługi zwraca identyfikator URI sygnatury dostępu Współdzielonego na urządzeniu, jeśli urządzenie inicjuje żądanie przekazywania plików.
 
 > [!NOTE]
-> Witaj [Azure IoT SDK] [ lnk-sdks] automatycznie podczas pobierania dojścia hello identyfikatora URI połączenia SAS, przekazywanie pliku hello i powiadamianie o tym Centrum IoT z przekazywanie zostało ukończone.
+> [Azure IoT SDK] [ lnk-sdks] obsługiwać automatycznie podczas pobierania identyfikatora URI połączenia SAS, przekazywania pliku i powiadamiania IoT Hub przekazywanie zostało ukończone.
 
 
 ## <a name="initialize-a-file-upload"></a>Inicjowanie przekazywania pliku
-Centrum IoT ma punkt końcowy specjalnie z myślą o urządzeniach toorequest identyfikator URI sygnatury dostępu Współdzielonego dla magazynu tooupload pliku. tooinitiate hello procesu przekazywania pliku, hello urządzenie wysyła żądanie POST zbyt`{iot hub}.azure-devices.net/devices/{deviceId}/files` z powitania po treści JSON:
+Centrum IoT ma punkt końcowy specjalnie z myślą o urządzeniom na żądanie identyfikatora URI sygnatury dostępu Współdzielonego dla magazynu do przekazania pliku. Aby zainicjować proces przekazywania plików, urządzenie wysyła żądanie POST do `{iot hub}.azure-devices.net/devices/{deviceId}/files` o następujących treści JSON:
 
 ```json
 {
-    "blobName": "{name of hello file for which a SAS URI will be generated}"
+    "blobName": "{name of the file for which a SAS URI will be generated}"
 }
 ```
 
-Centrum IoT zwraca następujące dane, które urządzenie hello używa pliku hello tooupload hello:
+Centrum IoT zwraca następujące dane urządzenie używa można przekazać pliku:
 
 ```json
 {
@@ -68,48 +68,48 @@ Centrum IoT zwraca następujące dane, które urządzenie hello używa pliku hel
 ### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>Przestarzałe: zainicjować pobieranie przekazywania pliku
 
 > [!NOTE]
-> W tej sekcji opisano funkcje uznane za przestarzałe, przez jaki tooreceive identyfikator URI SAS z Centrum IoT. Użyj metody POST hello opisanych powyżej.
+> W tej sekcji opisano funkcje uznane za przestarzałe dla jak uzyskać identyfikator URI SAS z Centrum IoT. Użyj metody POST opisanych powyżej.
 
-Centrum IoT ma dwa pozostałe punkty końcowe toosupport plik przekazać jeden hello tooget identyfikatora URI połączenia SAS magazynu i hello innych Centrum IoT hello toonotify przekazywania zakończonych. Witaj urządzenie inicjuje procesu przekazywania pliku hello wysyłając Centrum IoT toohello GET, na `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. Zwraca Centrum IoT Hello:
+Centrum IoT ma dwa punkty końcowe REST do obsługi przekazywania pliku, go w celu uzyskania identyfikatora URI połączenia SAS dla magazynu, a drugą do powiadamiania Centrum IoT z przekazywanie zostało ukończone. Urządzenie inicjuje procesu przekazywania pliku, wysyłając GET do Centrum IoT na `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. Zwraca Centrum IoT:
 
-* Identyfikator URI sygnatury dostępu Współdzielonego toohello określonego pliku toobe przekazany.
-* Toobe identyfikator korelacji używany po zakończeniu przekazywania hello.
+* Identyfikatora URI połączenia SAS określonego pliku do przekazania.
+* Identyfikator korelacji ma być używany po zakończeniu przekazywania.
 
 ## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Powiadom Centrum IoT przekazywania pliku ukończone
 
-urządzenie Hello jest odpowiedzialny za przekazywanie hello toostorage pliku przy użyciu zestawów SDK magazynu Azure hello. Po zakończeniu przekazywania hello hello urządzenie wysyła żądanie POST zbyt`{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` z powitania po treści JSON:
+Urządzenie jest odpowiedzialny za przekazywania pliku do magazynu przy użyciu zestawów SDK magazynu Azure. Po zakończeniu przekazywania urządzenie wysyła żądanie POST `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` o następujących treści JSON:
 
 ```json
 {
-    "correlationId": "{correlation ID received from hello initial request}",
+    "correlationId": "{correlation ID received from the initial request}",
     "isSuccess": bool,
     "statusCode": XXX,
     "statusDescription": "Description of status"
 }
 ```
 
-Witaj wartość `isSuccess` reprezentująca wartość logiczna, czy plik hello został przekazany pomyślnie. Witaj kod stanu `statusCode` hello stan przekazywania hello hello toostorage pliku, a hello `statusDescription` odpowiada toohello `statusCode`.
+Wartość `isSuccess` reprezentująca wartość logiczna, czy plik został załadowany pomyślnie. Kod stanu `statusCode` jest stan przekazywania plików do magazynu i `statusDescription` odpowiada `statusCode`.
 
 ## <a name="reference-topics"></a>Tematy odwołań:
 
-Witaj następujące tematy dokumentacji zapewniają więcej informacji na temat przekazywania plików z urządzenia.
+Następujące tematy dokumentacji dostarczają więcej informacji na temat przekazywania plików z urządzenia.
 
 ## <a name="file-upload-notifications"></a>Powiadomienia o przekazywania plików
 
-Opcjonalnie urządzenia IoT Hub powiadamia o zakończeniu przekazywania, Centrum IoT może wygenerować komunikat, który zawiera nazwę i magazynu lokalizację hello hello pliku.
+Opcjonalnie urządzenia IoT Hub powiadamia o zakończeniu przekazywania, Centrum IoT może wygenerować komunikat, który zawiera nazwę i magazynu lokalizację pliku.
 
-Zgodnie z objaśnieniem w [punkty końcowe][lnk-endpoints], Centrum IoT zapewnia powiadomienia o przekazywania plików za pośrednictwem punktu końcowego usługi połączonej (**/messages/servicebound/fileuploadnotifications**) jako wiadomości. Hello odbierania semantyki powiadomienia o przekazywania plików są hello takie same jak w przypadku wiadomości chmury do urządzenia oraz mieć takie same hello [cykl życia komunikatów][lnk-lifecycle]. Każdy komunikat pobierane z przekazywania hello pliku punkt końcowy jest rekordem JSON z hello następujące właściwości:
+Zgodnie z objaśnieniem w [punkty końcowe][lnk-endpoints], Centrum IoT zapewnia powiadomienia o przekazywania plików za pośrednictwem punktu końcowego usługi połączonej (**/messages/servicebound/fileuploadnotifications**) jako wiadomości. Semantyka odbierania powiadomień przekazywania plików są takie same jak w przypadku wiadomości chmury do urządzenia i tej samej [cykl życia komunikatów][lnk-lifecycle]. Każdy komunikat pobierane z punktu końcowego powiadomienia przekazywania plików jest rekordem JSON z następującymi właściwościami:
 
 | Właściwość | Opis |
 | --- | --- |
-| EnqueuedTimeUtc |Sygnatura czasowa wskazująca utworzenia hello powiadomień. |
-| Identyfikator urządzenia |**DeviceId** hello urządzeń, które przekazany plik hello. |
-| BlobUri |Identyfikator URI hello przekazać plik. |
-| Element BlobName |Nazwa hello przekazać plik. |
-| LastUpdatedTime |Sygnatura czasowa wskazująca, kiedy ostatniej aktualizacji pliku hello. |
-| BlobSizeInBytes |Rozmiar hello przekazać plik. |
+| EnqueuedTimeUtc |Sygnatura czasowa wskazująca utworzenia powiadomienia. |
+| Identyfikator urządzenia |**DeviceId** urządzenia, które przekazać plik. |
+| BlobUri |Identyfikator URI przekazanego pliku. |
+| Element BlobName |Nazwa przekazanego pliku. |
+| LastUpdatedTime |Sygnatura czasowa wskazująca, kiedy plik ostatniej aktualizacji. |
+| BlobSizeInBytes |Rozmiar przekazanego pliku. |
 
-**Przykład**. Ten przykład przedstawia hello treści pliku przekazać komunikat powiadomienia.
+**Przykład**. Ten przykład przedstawia treści pliku przekazać komunikat powiadomienia.
 
 ```json
 {
@@ -124,38 +124,38 @@ Zgodnie z objaśnieniem w [punkty końcowe][lnk-endpoints], Centrum IoT zapewnia
 
 ## <a name="file-upload-notification-configuration-options"></a>Opcje konfiguracji powiadomień przekazywania pliku
 
-Każdego centrum IoT udostępnia następujące opcje konfiguracji dla powiadomień przekazywania pliku hello:
+Każdy Centrum IoT udostępnia następujące opcje konfiguracji w pliku przekazywania powiadomień:
 
 | Właściwość | Opis | Zakres i domyślne |
 | --- | --- | --- |
-| **enableFileUploadNotifications** |Określa, czy powiadomienia o przekazywania plików są zapisywane punkt końcowy powiadomienia plików toohello. |Wartość logiczna. Domyślnie: True. |
-| **fileNotifications.ttlAsIso8601** |Domyślny czas wygaśnięcia pliku wysyłania powiadomień. |Interwał ISO_8601 się too48H (minimalna 1 minuta). Wartość domyślna: 1 godzina. |
-| **fileNotifications.lockDuration** |Czas trwania blokady do kolejki powiadomień przekazywania plików hello. |5 sekund too300 (minimalna 5 sekund). Domyślnie: 60 sekund. |
-| **fileNotifications.maxDeliveryCount** |Liczba maksymalna dostarczania dla pliku hello przekazać kolejka powiadomień. |1 too100. Domyślnie: 100. |
+| **enableFileUploadNotifications** |Określa, czy powiadomienia o przekazywania plików są zapisywane w pliku punktu końcowego powiadomienia. |Wartość logiczna. Domyślnie: True. |
+| **fileNotifications.ttlAsIso8601** |Domyślny czas wygaśnięcia pliku wysyłania powiadomień. |ISO_8601 interwał maksymalnie 48 H (minimalna 1 minuta). Wartość domyślna: 1 godzina. |
+| **fileNotifications.lockDuration** |Czas trwania blokady do kolejki powiadomień przekazywania plików. |5 a 300 sekund (minimalna 5 sekund). Domyślnie: 60 sekund. |
+| **fileNotifications.maxDeliveryCount** |Liczba maksymalna dostarczania dla pliku przekazać kolejka powiadomień. |1 do 100. Domyślnie: 100. |
 
 ## <a name="additional-reference-material"></a>Odwołanie dodatkowe materiały
 
-Inne tematy referencyjne w hello Centrum IoT — przewodnik dewelopera obejmują:
+Inne tematy referencyjne w Podręczniku dewelopera Centrum IoT obejmują:
 
-* [Punkty końcowe Centrum IoT] [ lnk-endpoints] opisuje hello różnych punktów końcowych, które udostępnia każdego centrum IoT dla operacji zarządzania i środowiska wykonawczego.
-* [Ograniczenia przepustowości i przydziały] [ lnk-quotas] opisuje przydziały hello i ograniczanie zachowań stosowane toohello usługi IoT Hub.
-* [Zestawy Azure IoT urządzenia i usługi SDK] [ lnk-sdks] list hello języka różnych zestawów SDK, można użyć podczas opracowywania aplikacji usług i urządzeń, które współdziałają z Centrum IoT.
-* [Język zapytań Centrum IoT] [ lnk-query] opisuje tooretrieve informacji z Centrum IoT temat zadań i twins urządzenia można używać języka kwerend hello.
-* [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zamieszczono więcej informacji o obsłudze Centrum IoT hello MQTT protokołu.
+* [Punkty końcowe Centrum IoT] [ lnk-endpoints] opisano różne punkty końcowe, które udostępnia każdego centrum IoT dla operacji zarządzania i środowiska wykonawczego.
+* [Ograniczenia przepustowości i przydziały] [ lnk-quotas] opisano przydziały i ograniczenia przepustowości zachowania, które dotyczą usługi Centrum IoT.
+* [Zestawy Azure IoT urządzenia i usługi SDK] [ lnk-sdks] wymieniono języka różnych zestawów SDK, można użyć podczas opracowywania aplikacji usług i urządzeń, które współdziałają z Centrum IoT.
+* [Język zapytań Centrum IoT] [ lnk-query] opisuje język kwerendy można pobrać z Centrum IoT informacji o twins urządzenia i zadania.
+* [Obsługa MQTT Centrum IoT] [ lnk-devguide-mqtt] zapewnia więcej informacji na temat Centrum IoT obsługi protokołu MQTT.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz wiesz już, jak tooupload pliki z urządzeń przy użyciu Centrum IoT, może Cię zainteresować następujące tematy przewodnik dewelopera Centrum IoT hello:
+Po zapoznaniu się przekazywania plików z urządzeń przy użyciu Centrum IoT, mogą być zainteresowane w następujących tematach przewodnik dewelopera Centrum IoT:
 
 * [Zarządzanie tożsamościami urządzenie w Centrum IoT][lnk-devguide-identities]
-* [Kontrola dostępu tooIoT Centrum][lnk-devguide-security]
-* [Urządzenie twins toosynchronize stanu i konfiguracji][lnk-devguide-device-twins]
+* [Kontrola dostępu do Centrum IoT][lnk-devguide-security]
+* [Użyj twins urządzenia, aby zsynchronizować stanu i konfiguracji][lnk-devguide-device-twins]
 * [Wywoływanie metody bezpośrednio na urządzeniu][lnk-devguide-directmethods]
 * [Planowanie zadań na wielu urządzeniach][lnk-devguide-jobs]
 
-Jeśli chcesz tootry niektórych hello pojęcia opisane w tym artykule, mogą być zainteresowane hello samouczka Centrum IoT:
+Jeśli chcesz wypróbować niektóre pojęcia opisane w tym artykule, mogą być zainteresowane w następujących instrukcji Centrum IoT:
 
-* [Jak tooupload pliki z urządzeń toohello chmury z Centrum IoT][lnk-fileupload-tutorial]
+* [Sposób przekazywania plików z urządzenia do chmury z Centrum IoT][lnk-fileupload-tutorial]
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-endpoints]: iot-hub-devguide-endpoints.md

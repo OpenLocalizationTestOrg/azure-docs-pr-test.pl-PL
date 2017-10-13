@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji sieci wirtualnych — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse sieci wirtualnej w hello chmury. Dokumentacji przedstawiono, jak korzystać z jej zasobów toolaunch toodeploy sieci wirtualnej i zintegrować z sieci lokalnej."
+title: "Dokumentacja usługi Azure Virtual Network — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak używać sieci wirtualnej w chmurze. W dokumentacji pokazano, jak wdrożyć sieć wirtualną, użyć jej w celu uruchomienia zasobów i przeprowadzić integrację z siecią lokalną."
 services: virtual-network
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ecaecfab31a2bbfb46a712a035e07a059fa40be7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6ae5c9019f292a18bc4ae8afe8d615977e8e6c9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-documentation"></a>Dokumentacja usługi Virtual Network
 
-Dowiedz się, jak toouse sieć wirtualną (VNet), logiczną reprezentację sieci hello w chmurze. Dokumentacji przedstawiono, jak skonfigurować i zarządzać sieci wirtualnej, ten jest używany toolaunch maszyny wirtualnej lub usługi w chmurze, połączyć sieć lokalną tooyour hello w sieci wirtualnej i rozwiń chmury toohello sieci przy jednoczesnym zachowaniu kontroli nad zasobami.
+Dowiedz się, jak używać sieci wirtualnej, która jest logicznym odzwierciedleniem Twojej sieci w chmurze. W dokumentacji pokazano , jak skonfigurować sieć wirtualną i zarządzać nią, użyć jej w celu uruchomienia usług Virtual Machines lub Cloud Services, połączyć sieć wirtualną z siecią lokalną oraz rozwinąć sieć w chmurze, zachowując kontrolę nad zasobami.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Dowiedz się, jak toouse sieć wirtualną (VNet), logiczną reprezentację sieci
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do sieci wirtualnej przy użyciu hello portalu Azure</h3>
+                        <h3>Wprowadzenie do usługi Virtual Network przy użyciu witryny Azure Portal</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Dowiedz się, jak toouse sieć wirtualną (VNet), logiczną reprezentację sieci
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Wprowadzenie do sieci wirtualnej przy użyciu hello wiersza polecenia platformy Azure</h3>
+                        <h3>Wprowadzenie do usługi Virtual Network przy użyciu interfejsu wiersza polecenia platformy Azure</h3>
                     </div>
                 </div>
             </div>

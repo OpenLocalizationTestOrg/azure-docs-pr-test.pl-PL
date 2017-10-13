@@ -1,6 +1,6 @@
 ---
-title: "aaaHadoop stosu śledzenia komunikaty o błędach - Azure HDInsight | Dokumentacja firmy Microsoft"
-description: "Indeks Hadoop stosu śledzenia komunikaty o błędach w usłudze Azure HDInsight. Znajdź błąd hello toosee hello listy — informacje dotyczące rozwiązywania problemów."
+title: "Hadoop stosu śledzenia komunikaty o błędach - Azure HDInsight | Dokumentacja firmy Microsoft"
+description: "Indeks Hadoop stosu śledzenia komunikaty o błędach w usłudze Azure HDInsight. Znajdź błąd na liście, aby wyświetlić informacje dotyczące rozwiązywania problemów."
 keywords: "ślad stosu, komunikaty o błędach"
 services: hdinsight
 documentationcenter: NA
@@ -16,20 +16,20 @@ ms.tgt_pltfrm: NA
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: jgao
-ms.openlocfilehash: 875cea0198d74feac5791b3bea095a01319dc45e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 45b3df39dcabf8be640bf6b9e5b83a452d6dd824
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Indeks Hadoop w usłudze HDInsight Rozwiązywanie problemów z artykułów
 Artykuły są zorganizowane według typów błędów.
 
 ## <a name="out-of-memory-error"></a>Błąd braku pamięci
-* [Usuń gałąź błędu braku pamięci w usłudze HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Napraw błąd braku pamięci (za mało pamięci) z zapytania Hive. powitania klienta scenariusz obejmuje zapytania w wielu dużych tabel.
+* [Usuń gałąź błędu braku pamięci w usłudze HDInsight](hdinsight-hadoop-hive-out-of-memory-error-oom.md): Napraw błąd braku pamięci (za mało pamięci) z zapytania Hive. Scenariusz klienta obejmuje kwerendy poprzez wielu dużych tabel.
 
 ## <a name="hive-query-performance"></a>Wydajność zapytań technologii Hive
-* [Optymalizuj dla platformy Hadoop w usłudze HDInsight zapytań programu Hive](hdinsight-hadoop-optimize-hive-query.md): w tym artykule omówiono niektóre najbardziej typowe metody optymalizacji wydajności gałęzi, na stosowanie tooHive zapytania.
+* [Optymalizuj dla platformy Hadoop w usłudze HDInsight zapytań programu Hive](hdinsight-hadoop-optimize-hive-query.md): w tym artykule omówiono niektóre najczęściej stosowane do zapytań programu Hive metody optymalizacji wydajności Hive.
 * [Gałąź zapytania Rozwiązywanie problemów z wydajnością w klastrze usługi HDInsight Hadoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
 
 ## <a name="more-troubleshooting-articles"></a>Więcej artykułów rozwiązywania problemów

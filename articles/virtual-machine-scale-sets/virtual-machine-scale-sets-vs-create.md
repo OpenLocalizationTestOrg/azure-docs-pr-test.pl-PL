@@ -1,5 +1,5 @@
 ---
-title: "aaaDeploy zestawu skalowania maszyn wirtualnych za pomocą programu Visual Studio | Dokumentacja firmy Microsoft"
+title: "Wdrażanie zestawu skalowania maszyn wirtualnych za pomocą programu Visual Studio | Dokumentacja firmy Microsoft"
 description: "Wdrażanie zestawów skali maszyny wirtualnej za pomocą szablonu usługi Resource Manager i Visual Studio"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c89a9f2478ccc3d22989aea604a4273bcc46df82
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-toocreate-a-virtual-machine-scale-set-with-visual-studio"></a>Jak toocreate, zestawu skalowania maszyn wirtualnych, z programem Visual Studio
-W tym artykule opisano, jak toodeploy Azure zestawu skalowania maszyn wirtualnych za pomocą programu Visual Studio wdrożenie grupy zasobów.
+# <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Tworzenie zestawu skalowania maszyn wirtualnych z programem Visual Studio
+W tym artykule przedstawiono sposób wdrażania usługi Azure zestawu skalowania maszyn wirtualnych za pomocą programu Visual Studio wdrożenie grupy zasobów.
 
-[Zestawy skalowania maszyny wirtualnej Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) jest toodeploy rozwiązań usługi obliczenia Azure zasobów i zarządzanie kolekcją podobnych maszyn wirtualnych z automatycznego skalowania i równoważenie obciążenia. Można udostępnić i wdrożyć zestawy skalowania maszyny wirtualnej przy użyciu [szablony Menedżera zasobów Azure](https://github.com/Azure/azure-quickstart-templates). Szablony usługi Azure Resource Manager można wdrożyć przy użyciu interfejsu wiersza polecenia Azure, programu PowerShell, REST, a także bezpośrednio z programu Visual Studio. Program Visual Studio oferuje zestaw przykład szablonów, które można wdrożyć w ramach projektu wdrożenia grupy zasobów platformy Azure.
+[Zestawy skalowania maszyny wirtualnej Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) jest zasobem rozwiązań usługi obliczenia Azure, aby wdrożyć i zarządzanie kolekcją podobnych maszyn wirtualnych z automatycznego skalowania i równoważenie obciążenia. Można udostępnić i wdrożyć zestawy skalowania maszyny wirtualnej przy użyciu [szablony Menedżera zasobów Azure](https://github.com/Azure/azure-quickstart-templates). Szablony usługi Azure Resource Manager można wdrożyć przy użyciu interfejsu wiersza polecenia Azure, programu PowerShell, REST, a także bezpośrednio z programu Visual Studio. Program Visual Studio oferuje zestaw przykład szablonów, które można wdrożyć w ramach projektu wdrożenia grupy zasobów platformy Azure.
 
-Wdrożenia grupy zasobów platformy Azure są toogroup sposób i opublikować zestawu powiązanych zasobów systemu Azure w ramach operacji pojedynczego wdrożenia. Więcej informacji o nich w tym miejscu: [tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Wdrożenia grupy zasobów platformy Azure służą do grupowania i opublikować zestawu powiązanych zasobów systemu Azure w ramach operacji pojedynczego wdrożenia. Więcej informacji o nich w tym miejscu: [tworzenie i wdrażanie grup zasobów platformy Azure za pomocą programu Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
-tooget rozpoczęto wdrażanie zestawy skalowania maszyny wirtualnej w programie Visual Studio, potrzebne są następujące hello:
+Aby rozpocząć wdrażanie zestawy skalowania maszyny wirtualnej w programie Visual Studio, potrzebne są następujące elementy:
 
 * Visual Studio 2013 lub nowszy
 * Zestaw Azure SDK 2.8 2.7 i 2.9
@@ -43,57 +43,57 @@ tooget rozpoczęto wdrażanie zestawy skalowania maszyny wirtualnej w programie 
    
     ![Nowy plik][file_new]
 
-2. W obszarze **Visual C# | Chmura**, wybierz **usługi Azure Resource Manager** toocreate projektu wdrażania szablonu usługi Azure Resource Manager.
+2. W obszarze **Visual C# | Chmura**, wybierz **usługi Azure Resource Manager** do utworzenia projektu wdrażania szablonu usługi Azure Resource Manager.
    
     ![Tworzenie projektu][create_project]
 
-3. Z listy hello szablony wybierz hello Linux lub szablon ustawić skali maszyny wirtualnej systemu Windows.
+3. Z listy szablonów wybierz Linux albo szablon ustawić skali maszyny wirtualnej systemu Windows.
    
    ![Wybierz szablon][select_Template]
 
-4. Po utworzeniu projektu Zobacz skryptów wdrażania środowiska PowerShell szablonu usługi Azure Resource Manager i pliku parametrów dla hello zestawu skalowania maszyn wirtualnych.
+4. Po utworzeniu projektu Zobacz skryptów programu PowerShell wdrażania szablonu usługi Azure Resource Manager i pliku parametrów dla zestawu skalowania maszyn wirtualnych.
    
     ![Eksplorator rozwiązań][solution_explorer]
 
 ## <a name="customize-your-project"></a>Dostosowywanie projektu
-Teraz możesz edytować hello toocustomize szablonu reguły równoważenia go na potrzeby aplikacji, takich jak dodawanie właściwości rozszerzenia maszyny Wirtualnej lub edytowanie obciążenia. Domyślnie hello szablony zestawu skali maszyny wirtualnej są skonfigurowane toodeploy hello AzureDiagnostics rozszerzenia, co pozwala na łatwe tooadd reguł skalowania automatycznego. Ponadto wdraża z publicznym adresem IP skonfigurowano reguły NAT ruchu przychodzącego modułu równoważenia obciążenia. 
+Można teraz edytować szablonu, aby dostosować go na potrzeby aplikacji, takich jak dodawanie właściwości rozszerzenia maszyny Wirtualnej lub edytowanie reguły równoważenia obciążenia. Domyślnie szablony zestawu skali maszyny wirtualnej są skonfigurowane do rozszerzenia AzureDiagnostics, co ułatwia dodawanie reguł skalowania automatycznego wdrażania. Ponadto wdraża z publicznym adresem IP skonfigurowano reguły NAT ruchu przychodzącego modułu równoważenia obciążenia. 
 
-Moduł równoważenia obciążenia Hello umożliwia nawiązanie połączenia toohello wystąpień maszyn wirtualnych z protokołu SSH (Linux) lub protokołu RDP (system Windows). zakres portów frontonu Hello rozpoczyna się od 50000. Dla systemu linux oznacza to, że jeśli użytkownik SSH tooport 50000, są routingiem tooport 22 z hello pierwsza maszyna wirtualna w hello zestawu skalowania maszyny wirtualnej. Łączenie tooport 50001 jest kierowany tooport 22 z hello drugie maszyny Wirtualnej i tak dalej.
+Moduł równoważenia obciążenia umożliwia połączenie z wystąpień maszyn wirtualnych z protokołu SSH (Linux) lub protokołu RDP (system Windows). Zakres portów frontonu rozpoczyna się od 50000. Dla systemu linux, oznacza to, że jeśli użytkownik SSH do portu 50000, możesz są kierowane do portu 22 pierwsza maszyna wirtualna w zestawie skalowania. Łączenie z porcie 50001 jest kierowany do portu 22 drugiej maszyny wirtualnej i tak dalej.
 
- Tooedit dobrze szablonów z programem Visual Studio jest toouse hello konspekt pliku JSON tooorganize hello parametrów, zmienne i zasobów. Po zrozumieniu hello schematu programu Visual Studio może wskazywać błędy w szablonie przed przystąpieniem do wdrażania.
+ Dobrym sposobem Edytuj szablony z programem Visual Studio jest konspekt pliku JSON umożliwia organizowanie parametrów, zmienne i zasobów. Po zrozumieniu schematu programu Visual Studio może wskazywać błędy w szablonie przed przystąpieniem do wdrażania.
 
 ![Eksplorator JSON][json_explorer]
 
-## <a name="deploy-hello-project"></a>Wdrażanie projektu hello
-1. Wdrażanie zasobów hello szablon Menedżera zasobów Azure toocreate hello zestawu skalowania maszyn wirtualnych. Kliknij prawym przyciskiem myszy węzeł projektu hello i wybierz polecenie **Wdróż | Nowe wdrożenie**.
+## <a name="deploy-the-project"></a>Wdrażanie projektu
+1. Wdróż szablon Menedżera zasobów Azure, aby utworzyć zasób zestawu skalowania maszyn wirtualnych. Kliknij prawym przyciskiem myszy węzeł projektu i wybierz polecenie **Wdróż | Nowe wdrożenie**.
    
     ![Wdrażanie szablonu][5deploy_Template]
     
-2. W oknie dialogowym "Wdróż tooResource grupy" hello, wybierz subskrypcję.
+2. Wybierz subskrypcję, w oknie dialogowym "Wdrożyć do grupy zasobów".
    
     ![Wdrażanie szablonu][6deploy_Template]
 
-3. W tym miejscu można utworzyć grupy zasobów platformy Azure toodeploy szablon.
+3. W tym miejscu można utworzyć grupy zasobów platformy Azure, aby wdrożyć szablon.
    
     ![Nową grupę zasobów][new_resource]
 
-4. Następnie kliknij przycisk **Edytuj parametry** tooenter parametry przekazywane tooyour szablonu. Podaj hello nazwy użytkownika i hasła dla hello systemu operacyjnego, który jest wymagany toocreate hello wdrożenia. Jeśli nie masz narzędzia programu PowerShell dla programu Visual Studio, zainstalowane, zalecane jest toocheck **zapisywanie haseł** tooavoid ukryte wiersza polecenia programu PowerShell monit, lub użyj [Obsługa keyvault](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
+4. Następnie kliknij przycisk **Edytuj parametry** o wprowadzenie parametrów, które są przekazywane do szablonu. Podaj nazwę użytkownika i hasło dla systemu operacyjnego, który jest wymagany do tworzenia wdrożenia. Jeśli nie masz narzędzia programu PowerShell dla programu Visual Studio, zainstalowane, zalecane jest Sprawdź **zapisywanie haseł** w celu uniknięcia ukryte wierszu polecenia programu PowerShell lub użyj [Obsługa keyvault](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
    
     ![Edytowanie parametrów][edit_parameters]
 
-5. Teraz kliknij **Wdróż**. Witaj **dane wyjściowe** okno zawiera hello postępu wdrożenia. Należy pamiętać, że akcja hello jest wykonywany hello **AzureResourceGroup.ps1 Wdróż** skryptu.
+5. Teraz kliknij **Wdróż**. **Dane wyjściowe** okno będzie wyświetlany postęp wdrażania. Należy pamiętać, że akcja jest wykonywana **AzureResourceGroup.ps1 Wdróż** skryptu.
    
    ![Okno danych wyjściowych][output_window]
 
 ## <a name="exploring-your-virtual-machine-scale-set"></a>Eksplorowanie sieci zestawu skali maszyny wirtualnej
-Po zakończeniu wdrażania hello, można wyświetlić hello nowego zestawu skalowania maszyn wirtualnych w Visual Studio hello **Eksplorator chmury** (Lista hello odświeżania). Eksplorator chmury umożliwia zarządzanie zasobami Azure w programie Visual Studio podczas tworzenia aplikacji. Można również wyświetlić zestawu skalowania maszyn wirtualnych w hello [portalu Azure](https://portal.azure.com) i [Eksploratora zasobów Azure](https://resources.azure.com/).
+Po zakończeniu wdrożenia, można wyświetlić zestawu skali maszyny wirtualnej w programie Visual Studio **Eksplorator chmury** (odświeżenie listy). Eksplorator chmury umożliwia zarządzanie zasobami Azure w programie Visual Studio podczas tworzenia aplikacji. Można również wyświetlić z uprawnieniami w zestawie skalowania maszyn wirtualnych [portalu Azure](https://portal.azure.com) i [Eksploratora zasobów Azure](https://resources.azure.com/).
 
 ![Eksplorator chmury][cloud_explorer]
 
- Hello portal udostępnia najlepszy sposób hello toovisually zarządzać infrastruktury platformy Azure przy użyciu przeglądarki sieci web, gdy Eksploratora zasobów Azure zapewnia prosty sposób tooexplore i debugowania zasobów platformy Azure, nadanie okna do Witaj, "Wyświetl wystąpienia" i również przedstawiający programu PowerShell polecenia hello zasoby, które jest wyświetlany.
+ Portal zawiera najlepszy sposób, aby wizualnie zarządzać infrastruktury platformy Azure przy użyciu przeglądarki sieci web, gdy Eksploratora zasobów Azure pozwala łatwo eksplorować i debugowania zasobów platformy Azure, nadanie okna w widoku"wystąpienia", a także wyświetlanie poleceń programu PowerShell dla zasobów jest wyświetlany.
 
 ## <a name="next-steps"></a>Następne kroki
-Po pomyślnym wdrożeniu zestawy skalowania maszyny wirtualnej za pomocą programu Visual Studio, można dostosować toosuit Twojego projektu wymagań aplikacji. Na przykład skonfigurować automatyczne skalowanie, dodając **Insights** zasobów, dodając infrastruktury tooyour szablonu (na przykład autonomicznych maszyn wirtualnych) lub wdrażanie aplikacji przy użyciu hello niestandardowego rozszerzenia skryptu. Dobrym przykładem szablonów można znaleźć w hello [szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates) repozytorium GitHub (Wyszukaj "vmss").
+Po pomyślnym wdrożeniu zestawy skalowania maszyny wirtualnej za pomocą programu Visual Studio, można dostosować projekt do własnych wymagań aplikacji. Na przykład skonfigurować automatyczne skalowanie, dodając **Insights** zasobów, dodawania infrastruktury do szablonu (na przykład autonomicznych maszyn wirtualnych), lub wdrażania aplikacji za pomocą niestandardowego rozszerzenia skryptu. Dobrym przykładem szablonów można znaleźć w [szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates) repozytorium GitHub (Wyszukaj "vmss").
 
 [file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png
 [create_project]: ./media/virtual-machine-scale-sets-vs-create/2-CreateProject.png

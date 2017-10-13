@@ -1,29 +1,46 @@
 ---
-title: aaa "samouczek lekcji dodatkowych usług Azure Analysis Services: niewyrównanych hierarchie | Opis elementu Microsoft Docs": w tym artykule opisano, jak toofix niewyrównanych hierarchie hello samouczka usług Azure Analysis Services.
-usługi: documentationcenter usług analysis services: "Autor: minewiskan Menedżera: Edytor erikre:" tagów: "
-
-MS.AssetID: ms.service: ms.devlang usług analysis services: NA ms.topic: get-started-article ms.tgt_pltfrm: NA ms.workload: na ms.date: 05/26/2017 ms.author: owend
+title: "Samouczek Azure Analysis Services: lekcja uzupełniająca — niewyrównane hierarchie | Microsoft Docs"
+description: "Opisuje sposób naprawiania niewyrównanych hierarchii w samouczku usług Azure Analysis Services."
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.openlocfilehash: d34b2123153406640cf03bc9f57efa557af4cfaa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lekcja uzupełniająca — niewyrównane hierarchie
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-W tej lekcji uzupełniającej przedstawione zostanie rozwiązanie często występującego problemu polegającego na tworzeniu tabeli przestawnej dla hierarchii zawierających puste wartości (elementy członkowskie) na różnych poziomach. Przykładem może być organizacja, w której menedżer wysokiego szczebla jako bezpośrednich podwładnych ma menedżerów działów oraz osoby niebędące menedżerami. Innym przykładem mogą być hierarchie geograficzne składające się z kraju, regionu i miasta, gdzie niektóre miasta nie mają nadrzędnego kraju lub regionu, jak Waszyngton czy Watykan. Gdy w hierarchii jest puste elementy członkowskie, jego często descends toodifferent lub niewyrównanych poziomów.
+W tej lekcji uzupełniającej przedstawione zostanie rozwiązanie często występującego problemu polegającego na tworzeniu tabeli przestawnej dla hierarchii zawierających puste wartości (elementy członkowskie) na różnych poziomach. Przykładem może być organizacja, w której menedżer wysokiego szczebla jako bezpośrednich podwładnych ma menedżerów działów oraz osoby niebędące menedżerami. Innym przykładem mogą być hierarchie geograficzne składające się z kraju, regionu i miasta, gdzie niektóre miasta nie mają nadrzędnego kraju lub regionu, jak Waszyngton czy Watykan. Hierarchie o pustych elementach członkowskich często osiągają różne, niewyrównane poziomy.
 
 ![aas-lesson-detail-ragged-hierarchies-table](../tutorials/media/aas-lesson-detail-ragged-hierarchies-table.png)
 
-Modeli tabelarycznych przy poziomie zgodności hello 1400 ma dodatkowe **Ukryj elementy członkowskie** właściwości dla hierarchii. Witaj **domyślne** ustawienia obowiązuje założenie, nie ma żadnych członków puste na dowolnym poziomie. Witaj **Ukryj puste elementy członkowskie** wyklucza puste elementy członkowskie z hierarchii powitania po dodaniu tooa tabeli przestawnej lub raportu.  
+Modele tabelaryczne o poziomie zgodności 1400 zapewniają dodatkową właściwość hierarchii o nazwie **Ukryj elementy członkowskie**. Ustawienie **Domyślne** zakłada, że na żadnym poziomie nie występują puste elementy członkowskie. Ustawienie **Ukryj puste elementy członkowskie** wyklucza puste elementy członkowskie z hierarchii w przypadku ich dodania do tabeli przestawnej lub raportu.  
   
-Szacowany czas toocomplete tej lekcji: **20 minut**  
+Szacowany czas trwania lekcji: **20 minut**  
   
 ## <a name="prerequisites"></a>Wymagania wstępne  
-Ta lekcja uzupełniająca stanowi część samouczka modelowania tabelarycznego. Przed wykonaniem zadania hello w tym uzupełniające lekcji, powinno mieć ukończone wszystkie poprzednie — lekcje lub zakończonych projektu modelu przykładowej firmy Adventure Works Internet sprzedaży. 
+Ta lekcja uzupełniająca stanowi część samouczka modelowania tabelarycznego. Przed wykonaniem zadań w tej lekcji uzupełniającej należy ukończyć wszystkie poprzednie lekcje lub wykonać przykładowy projekt modelu Adventure Works Internet Sales. 
 
-Jeśli po utworzeniu projektu sprzedaży Internet AW hello jako części samouczka hello model nie zawiera jeszcze żadnych danych lub hierarchiami niewyrównane. toocomplete tej lekcji uzupełniające, konieczne jest przeprowadzenie najpierw toocreate hello problem, dodając niektóre dodatkowe tabele, Utwórz relacje, kolumn obliczeniowych, miary i nowej hierarchii organizacji. Zajmie to ok. 15 minut. Następnie należy pobrać toosolve w ciągu kilku minut.  
+Jeśli projekt AW Internet Sales został utworzony w ramach tego samouczka, model nie zawiera jeszcze żadnych danych ani hierarchii niewyrównanych. W celu ukończenia tej lekcji uzupełniającej należy najpierw utworzyć problem, dodając pewne dodatkowe tabele oraz tworząc relacje, kolumny obliczeniowe, miarę i nową hierarchię organizacji. Zajmie to ok. 15 minut. Następnie można rozwiązać problem w ciągu kilku minut.  
 
 ## <a name="add-tables-and-objects"></a>Dodawanie tabel i obiektów
   
-### <a name="tooadd-new-tables-tooyour-model"></a>nowy model tooyour tabele tooadd
+### <a name="to-add-new-tables-to-your-model"></a>Dodawanie nowych tabel do modelu
   
 1.  W Eksploratorze modeli tabelarycznych rozwiń pozycję **Źródła danych**, a następnie prawym przyciskiem myszy kliknij połączenie i kliknij pozycję **Importuj nowe tabele**.
   
@@ -31,7 +48,7 @@ Jeśli po utworzeniu projektu sprzedaży Internet AW hello jako części samoucz
 
 3.  W edytorze zapytań kliknij opcję **Importuj**
 
-4.  Utwórz następujące hello [relacje](../tutorials/aas-lesson-4-create-relationships.md):
+4.  Utwórz następującą [relację](../tutorials/aas-lesson-4-create-relationships.md):
 
     | Tabela 1           | Kolumna       | Kierunek filtru   | Tabela 2     | Kolumna      | Aktywne |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
@@ -39,9 +56,9 @@ Jeśli po utworzeniu projektu sprzedaży Internet AW hello jako części samoucz
     | FactResellerSales | DueDate      | Domyślne            | DimDate     | Date        | Nie     |
     | FactResellerSales | ShipDateKey  | Domyślne            | DimDate     | Date        | Nie     |
     | FactResellerSales | ProductKey   | Domyślne            | DimProduct  | ProductKey  | Tak    |
-    | FactResellerSales | EmployeeKey  | Tabele tooBoth | DimEmployee | EmployeeKey | Tak    |
+    | FactResellerSales | EmployeeKey  | Do obu tabel | DimEmployee | EmployeeKey | Tak    |
 
-5. W hello **DimEmployee** tabeli, należy utworzyć następujące hello [kolumn obliczeniowych](../tutorials/aas-lesson-5-create-calculated-columns.md): 
+5. W tabeli **DimEmployee** utwórz następujące [kolumny obliczeniowe](../tutorials/aas-lesson-5-create-calculated-columns.md): 
 
     **Ścieżka** 
     ```
@@ -78,23 +95,23 @@ Jeśli po utworzeniu projektu sprzedaży Internet AW hello jako części samoucz
     =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,5)) 
     ```
 
-6.  W hello **DimEmployee** tabeli, należy utworzyć [hierarchii](../tutorials/aas-lesson-9-create-hierarchies.md) o nazwie **organizacji**. Dodaj następujące kolumny w kolejności hello: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
+6.  W tabeli **DimEmployee** utwórz [hierarchię](../tutorials/aas-lesson-9-create-hierarchies.md) o nazwie **Organization** (Organizacja). Dodaj następujące kolumny w podanej kolejności: **Level1**, **Level2**, **Level3**, **Level4**, **Level5**.
 
-7.  W hello **FactResellerSales** tabeli, należy utworzyć następujące hello [miary](../tutorials/aas-lesson-6-create-measures.md):
+7.  W tabeli **FactResellerSales** utwórz następującą [miarę](../tutorials/aas-lesson-6-create-measures.md):
 
     ```
     ResellerTotalSales:=SUM([SalesAmount])
     ```
 
-8.  Użyj [analizy w programie Excel](../tutorials/aas-lesson-12-analyze-in-excel.md) tooopen programu Excel i automatycznie utworzyć tabelę przestawną.
+8.  Użyj funkcji [Analiza w programie Excel](../tutorials/aas-lesson-12-analyze-in-excel.md), aby otworzyć program Excel i automatycznie utworzyć tabelę przestawną.
 
-9.  W **pól tabeli przestawnej**, Dodaj hello **organizacji** hierarchii z hello **DimEmployee** tabeli zbyt**wierszy**i hello **ResellerTotalSales** miarę z hello **FactResellerSales** tabeli zbyt**wartości**.
+9.  W obszarze **Pola tabeli przestawnej** dodaj hierarchię **Organization** z tabeli **DimEmployee** do pola **Wiersze** i miarę **ResellerTotalSales** z tabeli **FactResellerSales** do pola **Wartości**.
 
     ![aas-lesson-detail-ragged-hierarchies-pivottable](../tutorials/media/aas-lesson-detail-ragged-hierarchies-pivottable.png)
 
-    Jak widać w tabeli przestawnej hello hierarchii hello wyświetla wiersze, które są niewyrównane. Istnieje wiele wierszy, w których są widoczne puste elementy członkowskie.
+    Jak widać w tabeli przestawnej, w hierarchii wyświetlane są wiersze niewyrównane. Istnieje wiele wierszy, w których są widoczne puste elementy członkowskie.
 
-## <a name="toofix-hello-ragged-hierarchy-by-setting-hello-hide-members-property"></a>Witaj toofix niewyrównanych hierarchii poprzez ustawienie właściwości elementów członkowskich Ukryj hello
+## <a name="to-fix-the-ragged-hierarchy-by-setting-the-hide-members-property"></a>Rozwiązywanie niewyrównanej hierarchii przez ustawienie właściwości Ukryj elementy członkowskie
 
 1.  W **Eksploratorze modeli tabelarycznych** rozwiń węzeł **Tabele** > **DimEmployee** > **Hierarchie** > **Organization**.
 
@@ -102,7 +119,7 @@ Jeśli po utworzeniu projektu sprzedaży Internet AW hello jako części samoucz
 
     ![aas-lesson-detail-ragged-hierarchies-hidemembers](../tutorials/media/aas-lesson-detail-ragged-hierarchies-hidemembers.png)
 
-3.  W programie Excel Odśwież hello tabeli przestawnej. 
+3.  Po powrocie do programu Excel odśwież tabelę przestawną. 
 
     ![aas-lesson-detail-ragged-hierarchies-pivottable-refresh](../tutorials/media/aas-lesson-detail-ragged-hierarchies-pivottable-refresh.png)
 

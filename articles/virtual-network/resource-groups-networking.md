@@ -1,6 +1,6 @@
 ---
-title: "Przegląd dostawcy zasobów aaaNetwork | Dokumentacja firmy Microsoft"
-description: "Dowiedz się więcej o hello nowego dostawcy zasobów sieciowych w systemie Azure Resource Manager"
+title: "Omówienie dostawcy zasobów sieci | Dokumentacja firmy Microsoft"
+description: "Więcej informacji na temat nowego dostawcy zasobów sieciowych w systemie Azure Resource Manager"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.openlocfilehash: 81b8f51fe8ee180d8f7885c6e04eb953904d7be5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-resource-provider"></a>Dostawca zasobów sieciowych
-Podstawa w bieżącej sukcesu firmy, jest hello toobuild możliwości zarządzania aplikacjami pamiętać sieci dużą skalę w sposób agile, elastyczne, bezpieczne i repeatable. Usługa Azure Resource Manager umożliwia toocreate można takich aplikacji, jako pojedynczą kolekcję zasobów w grupach zasobów. Takie zasoby są zarządzane przez różnych dostawców zasobów w obszarze usługi Resource Manager.
+Podstawa w bieżącej sukcesu firmy, jest możliwość tworzenia i zarządzania aplikacjami pamiętać sieci dużą skalę w sposób agile, elastyczne, bezpieczne i repeatable. Usługa Azure Resource Manager umożliwia tworzenie takich aplikacji, jako pojedynczą kolekcję zasobów w grupach zasobów. Takie zasoby są zarządzane przez różnych dostawców zasobów w obszarze usługi Resource Manager.
 
-Usługa Azure Resource Manager zależy od zasobu różnych dostawców tooprovide dostęp do tooyour zasobów. Istnieją trzy dostawców zasobów głównego: sieci, magazynu i zasobów obliczeniowych. W tym dokumencie omówiono hello właściwości i zalet hello dostawcy zasobów sieciowych, w tym:
+Usługa Azure Resource Manager zależy od dostawców zasobów różnych w celu zapewnienia dostępu do zasobów. Istnieją trzy dostawców zasobów głównego: sieci, magazynu i zasobów obliczeniowych. W tym dokumencie omówiono charakterystyki i korzyści wynikające z dostawcy zasobów sieciowych, w tym:
 
-* **Metadane** — można dodać tooresources informacji przy użyciu tagów. Znaczniki mogą być używane tootrack wykorzystania zasobów między grupami zasobów i subskrypcje.
-* **Większą kontrolę nad siecią** — są luźno powiązane z zasobów sieciowych i sterować nimi w sposób bardziej szczegółowego. Oznacza to, że masz większą elastyczność w zarządzaniu hello zasobów sieciowych.
+* **Metadane** — informacje można dodać do zasobów przy użyciu tagów. Znaczniki mogą służyć do śledzenia wykorzystania zasobów między grupami zasobów i subskrypcje.
+* **Większą kontrolę nad siecią** — są luźno powiązane z zasobów sieciowych i sterować nimi w sposób bardziej szczegółowego. Oznacza to, że masz większą elastyczność w zarządzaniu zasobów sieciowych.
 * **Szybsze konfiguracji** — ponieważ są luźno powiązane z zasobów sieciowych, można tworzyć i organizowania zasobów sieciowych równolegle. Ma to znaczne zmniejszoną ilość czasu konfiguracji.
-* **Kontroli dostępu opartej na rolach** -RBAC zawiera domyślne role, z określonego zakresu zabezpieczeń, w przypadku tworzenia hello tooallowing dodanie ról niestandardowych do bezpiecznego zarządzania.
-* **Łatwiejsze zarządzanie i wdrażanie** — jest łatwiejsze toodeploy i zarządzania aplikacjami, ponieważ można całego stosu aplikacji można utworzyć jako pojedynczą kolekcję zasobów w grupie zasobów. I szybsze toodeploy, ponieważ po prostu zapewniając ładunek JSON szablonu można wdrożyć.
-* **Dostosowywanie szybkie** — można użyć szablonów deklaratywne stylu tooenable powtarzalnych i szybkiego dostosowywania wdrożeń.
-* **Dostosowywanie powtarzalne** — można użyć szablonów deklaratywne stylu tooenable powtarzalnych i szybkiego dostosowywania wdrożeń.
-* **Interfejsy zarządzania** — można użyć dowolnego z następujących interfejsów toomanage hello zasobów:
+* **Kontroli dostępu opartej na rolach** -RBAC zawiera domyślne role, z określonego zakresu zabezpieczeń, oprócz umożliwienia Tworzenie niestandardowych ról dla bezpiecznego zarządzania.
+* **Łatwiejsze zarządzanie i wdrażanie** — ułatwia wdrażanie i zarządzanie aplikacjami, ponieważ można całego stosu aplikacji można utworzyć jako pojedynczą kolekcję zasobów w grupie zasobów. I szybsze do wdrożenia, ponieważ po prostu zapewniając ładunek JSON szablonu można wdrożyć.
+* **Dostosowywanie szybkie** — szablony deklaratywne stylu można użyć do włączenia powtarzalnych i szybkiego dostosowywania wdrożeń.
+* **Dostosowywanie powtarzalne** — szablony deklaratywne stylu można użyć do włączenia powtarzalnych i szybkiego dostosowywania wdrożeń.
+* **Interfejsy zarządzania** — można użyć dowolnego z poniższych interfejsów do zarządzania zasobami:
   * REST API oparty na
   * PowerShell
   * Zestaw SDK .NET
@@ -49,15 +49,15 @@ Widok koncepcyjny Przykładowe wdrożenie obejmujące wielowarstwowych aplikacji
 
 ![Model zasobów sieciowych](./media/resource-groups-networking/Figure2.png)
 
-Każdy zasób zawiera zbiór wspólnych właściwości i ich indywidualnych właściwości. wspólne właściwości Hello są:
+Każdy zasób zawiera zbiór wspólnych właściwości i ich indywidualnych właściwości. Wspólne właściwości są:
 
 | Właściwość | Opis | Przykładowe wartości |
 | --- | --- | --- |
 | **Nazwa** |Nazwa zasobu unikatowy. Każdy typ zasobu ma własną ograniczenia nazewnictwa. |NIC01 PIP01, VM01, |
-| **location** |Region platformy Azure, w których hello zasób znajduje się |westus, eastus |
+| **location** |Region platformy Azure, w której znajduje się zasób |westus, eastus |
 | **Identyfikator** |Unikatowy identyfikator URI na podstawie |/Subscriptions/<subGUID>/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP |
 
-Możesz sprawdzić hello poszczególnych właściwości zasobów w poniższych sekcjach hello.
+Możesz sprawdzić poszczególnych właściwości zasobów w poniższych sekcjach.
 
 [!INCLUDE [virtual-networks-nrp-pip-include](../../includes/virtual-networks-nrp-pip-include.md)]
 
@@ -85,26 +85,26 @@ Możesz zarządzać zasobami sieci Azure przy użyciu różnych interfejsów. W 
 ### <a name="rest-api"></a>Interfejs API REST
 Jak wspomniano wcześniej, można zarządzać za pośrednictwem różnych interfejsy, w tym interfejsu API REST, zestawu SDK programu .NET, Node.JS SDK, zestaw SDK Java, programu PowerShell, interfejsu wiersza polecenia, portalu Azure i szablony zasobów sieciowych.
 
-Witaj interfejsu API Rest jest zgodna z toohello Specyfikacja protokołu HTTP 1.1. Hello ogólną strukturę URI hello interfejsu API jest przedstawiony poniżej:
+Interfejs API Rest jest zgodny ze specyfikacją protokołu HTTP 1.1. Identyfikator URI ogólną strukturę interfejsu API znajduje się poniżej:
 
     https://management.azure.com/subscriptions/{subscription-id}/providers/{resource-provider-namespace}/locations/{region-location}/register?api-version={api-version}
 
-I reprezentują parametry hello w nawiasach klamrowych hello następujące elementy:
+I parametrów w nawiasach klamrowych reprezentują następujące elementy:
 
 * **Identyfikator subskrypcji** — identyfikator subskrypcji platformy Azure.
-* **przestrzeń nazw dostawcy zasobów** — przestrzeń nazw dla dostawca hello jest używany. wartość Hello dostawcy zasobów sieciowych hello jest *Microsoft.Network*.
-* **Nazwa regionu** — nazwa regionu Azure hello
+* **przestrzeń nazw dostawcy zasobów** — przestrzeń nazw dla używanego dostawcy. Wartość dostawcy zasobów sieciowych jest *Microsoft.Network*.
+* **Nazwa regionu** — nazwa regionu Azure
 
-Witaj następujących metod HTTP obsługiwanych podczas wprowadzania toohello wywołania interfejsu API REST:
+W wywołaniach interfejsu API REST, obsługiwane są następujące metody HTTP:
 
-* **Umieść** — używane toocreate zasobów danego typu, modyfikować właściwości zasobu lub zmień skojarzenia między zasobami.
-* **Pobierz** — używane informacje tooretrieve elastycznie zasobu.
-* **Usuń** — używane toodelete istniejącego zasobu.
+* **Umieść** — umożliwia tworzenie zasobu danego typu, modyfikować właściwości zasobu lub zmiana skojarzenia między zasobami.
+* **Pobierz** — używane do pobierania informacji o elastycznie zasobu.
+* **Usuń** — używane do usuwania istniejącego zasobu.
 
-Zarówno hello żądania i odpowiedzi jest zgodna z format ładunku JSON tooa. Aby uzyskać więcej informacji, zobacz [interfejsów API usługi Azure Resource Management](https://msdn.microsoft.com/library/azure/dn948464.aspx).
+Żądanie i odpowiedź jest zgodna z formatem ładunek JSON. Aby uzyskać więcej informacji, zobacz [interfejsów API usługi Azure Resource Management](https://msdn.microsoft.com/library/azure/dn948464.aspx).
 
 ### <a name="resource-manager-template-language"></a>Język szablonu usługi Resource Manager
-Dodanie toomanaging zasobów imperatively (za pośrednictwem interfejsów API lub zestawu SDK) można również użyć deklaratywne programowania toobuild styl i zarządzania zasobami sieci przy użyciu hello język szablonu usługi Resource Manager.
+Oprócz zarządzania zasobami imperatively (za pośrednictwem interfejsów API lub zestawu SDK), można również używać deklaratywne stylu programowania do tworzenia i zarządzania zasobami sieci przy użyciu języka szablonu usługi Resource Manager.
 
 Poniższe przykładowe reprezentację szablonu —
 
@@ -117,7 +117,7 @@ Poniższe przykładowe reprezentację szablonu —
       "outputs": { <output-of-template> }    
     }
 
-Szablon Hello jest głównie opisu JSON zasobów hello i wartości wystąpienia hello wprowadzonym za pomocą parametrów. w poniższym przykładzie Hello mogą być używane toocreate sieć wirtualną przy użyciu podsieci 2.
+Szablon jest głównie opisu JSON zasobów i wartości wystąpienia wprowadzonym za pomocą parametrów. W poniższym przykładzie może służyć do tworzenia sieci wirtualnej 2 podsieci.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/VNET.json",
@@ -205,7 +205,7 @@ Szablon Hello jest głównie opisu JSON zasobów hello i wartości wystąpienia 
         ]
     }
 
-Masz hello opcja podania wartości parametrów hello ręcznie, przy użyciu szablonu, lub można użyć pliku parametrów. Witaj w poniższym przykładzie przedstawiono możliwe zestaw używany z szablonem hello powyżej toobe wartości parametru:
+Masz ręcznie podać wartości parametrów przy użyciu szablonu, lub można użyć pliku parametrów. W poniższym przykładzie pokazano zestaw możliwych wartości parametrów do użycia na podstawie tego szablonu:
 
     {
       "location": {
@@ -232,28 +232,28 @@ Masz hello opcja podania wartości parametrów hello ręcznie, przy użyciu szab
     }
 
 
-główne zalety Hello za pomocą szablonów są następujące:
+Główne zalety za pomocą szablonów są następujące:
 
-* Można tworzyć złożone infrastruktury w grupie zasobów w stylu deklaratywne. Witaj aranżacji tworzenia zasobów hello, w tym zarządzania zależności jest obsługiwany przez Menedżera zasobów.
-* Witaj infrastruktury można tworzyć w sposób powtarzalny w różnych regionach i w obrębie regionu, zmieniając po prostu parametrów.
-* Styl deklaratywne Hello prowadzi tooshorter czas realizacji w tworzeniu szablonów hello i wdrażania infrastruktury hello.
+* Można tworzyć złożone infrastruktury w grupie zasobów w stylu deklaratywne. Orchestration tworzenia zasobów, w tym zarządzanie zależności jest obsługiwany przez Menedżera zasobów.
+* Infrastruktura można tworzyć w sposób powtarzalny w różnych regionach i w obrębie regionu, zmieniając po prostu parametrów.
+* Styl deklaratywne prowadzi do krótszy czas realizacji w tworzeniu szablonów i wdrażania infrastruktury.
 
 Przykładowe szablonów, zobacz [szablonów Szybki Start Azure](https://github.com/Azure/azure-quickstart-templates).
 
-Aby uzyskać więcej informacji na powitania język szablonu usługi Resource Manager, zobacz [język szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Aby uzyskać więcej informacji o języku szablonu usługi Resource Manager, zobacz [język szablonu usługi Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Przykładowy szablon Hello powyżej używa hello sieci wirtualnej i zasoby podsieci. Brak innych zasobów sieciowych, których można używać wymienione poniżej:
+Przykładowy szablon powyżej korzysta z sieci wirtualnej i zasoby podsieci. Brak innych zasobów sieciowych, których można używać wymienione poniżej:
 
 ### <a name="using-a-template"></a>Przy użyciu szablonu
-TooAzure usługi z szablonu można wdrożyć przy użyciu programu PowerShell, AzureCLI, lub wykonując toodeploy kliknij pozycję z witryny GitHub. toodeploy usługi z szablonu w witrynie GitHub, wykonaj hello następujące kroki:
+Można wdrożyć usługi Azure z szablonu, za pomocą programu PowerShell, AzureCLI, lub wykonując kliknij, aby wdrożyć z usługi GitHub. Do wdrożenia usług z szablonu w usłudze GitHub, wykonaj następujące czynności:
 
-1. Otwórz plik template3 hello z usługi GitHub. Na przykład otwórz [sieci wirtualnej z dwoma podsieciami](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
-2. Polecenie **wdrażanie tooAzure**, a następnie zaloguj się na toohello portalu Azure przy użyciu poświadczeń.
-3. Sprawdź hello szablonu, a następnie kliknij przycisk **zapisać**.
-4. Kliknij przycisk **Edytuj parametry** i wybierz lokalizację, takich jak *zachodnie stany USA*, hello sieci wirtualnej i podsieci.
-5. W razie potrzeby zmień hello **prefiks adresu** i **SUBNETPREFIX** parametry, a następnie kliknij przycisk **OK**.
-6. Kliknij przycisk **wybierz grupę zasobów** a następnie kliknij polecenie hello grupa zasobów ma tooadd hello w sieci wirtualnej i podsieci z. Alternatywnie można utworzyć nową grupę zasobów, klikając **lub utworzyć nowy**.
-7. Kliknij przycisk **Utwórz**. Zwróć uwagę, hello wyświetlanie kafelka **wdrażania szablonu inicjowania obsługi administracyjnej**. Po ukończeniu wdrażania hello, zobaczysz ekran podobny tooone poniżej.
+1. Otwórz plik template3 z usługi GitHub. Na przykład otwórz [sieci wirtualnej z dwoma podsieciami](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
+2. Polecenie **wdrażanie na platformie Azure**, a następnie zaloguj się portalu Azure przy użyciu poświadczeń.
+3. Sprawdź szablon, a następnie kliknij przycisk **zapisać**.
+4. Kliknij przycisk **Edytuj parametry** i wybierz lokalizację, takich jak *zachodnie stany USA*dla sieci wirtualnej i podsieci.
+5. W razie potrzeby zmień **prefiks adresu** i **SUBNETPREFIX** parametry, a następnie kliknij przycisk **OK**.
+6. Kliknij przycisk **wybierz grupę zasobów** a następnie kliknij polecenie grupy zasobów, aby dodać sieć wirtualną i podsieci z. Alternatywnie można utworzyć nową grupę zasobów, klikając **lub utworzyć nowy**.
+7. Kliknij przycisk **Utwórz**. Zwróć uwagę, wyświetlanie kafelka **wdrażania szablonu inicjowania obsługi administracyjnej**. Po zakończeniu wdrożenia zostanie wyświetlony ekran podobny do poniżej.
 
 ![Przykładowe wdrożenie szablonu](./media/resource-groups-networking/Figure6.png)
 

@@ -1,6 +1,6 @@
 ---
-title: aaaGet Started with Azure AD w projektach Visual Studio MVC | Dokumentacja firmy Microsoft
-description: "Sposób uruchamiania przy użyciu usługi Azure Active Directory w projektach MVC po połączeniu tooor Tworzenie usługi Azure AD przy użyciu programu Visual Studio tooget połączone usługi"
+title: "Rozpoczynanie pracy z usługą Azure AD w projektach Visual Studio MVC | Dokumentacja firmy Microsoft"
+description: "Jak rozpocząć pracę przy użyciu usługi Azure Active Directory w projektach MVC po nawiązywania połączenia lub utworzenie usługi Azure AD przy użyciu programu Visual Studio połączenia usługi"
 services: active-directory
 documentationcenter: 
 author: kraigb
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 807824dd6e4e57e443f8a7322cf2e5326384316d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c4d49cfc9887e422b3eaed2b96348c99eca48881
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="getting-started-with-azure-active-directory-and-visual-studio-connected-services-mvc-projects"></a>Wprowadzenie do korzystania z usługi Azure Active Directory i programu Visual Studio połączone usługi (projektów MVC)
 > [!div class="op_single_selector"]
@@ -28,11 +28,11 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-## <a name="requiring-authentication-tooaccess-controllers"></a>Wymaganie uwierzytelniania tooaccess kontrolerów
-Wszystkie kontrolery w projekcie zostały adorned z hello **autoryzacji** atrybutu. Ten atrybut wymaga hello toobe użytkownik uwierzytelniony przed uzyskaniem dostępu do tych kontrolerów. toobe kontrolera hello tooallow dostęp anonimowo, Usuń ten atrybut z hello kontrolera. Uprawnienia hello tooset na bardziej szczegółowym poziomie, można zastosować hello atrybutu tooeach metodę, która wymaga autoryzacji zamiast stosować go toohello klasy kontrolera.
+## <a name="requiring-authentication-to-access-controllers"></a>Wymaganie uwierzytelniania do kontrolerów dostępu
+Wszystkie kontrolery w projekcie zostały adorned z **autoryzacji** atrybutu. Ten atrybut wymaga od użytkownika mają być uwierzytelniani przed uzyskaniem dostępu do tych kontrolerów. Aby umożliwić kontrolerowi można uzyskać dostępu do anonimowo, Usuń ten atrybut z kontrolera. Aby ustawić uprawnienia na poziomie bardziej szczegółowego, należy zastosować atrybut do każdej metody, która wymaga uwierzytelnienia, zamiast stosować go do klasy kontrolera.
 
 ## <a name="adding-signin--signout-controls"></a>Dodawanie SignIn / SignOut kontrolki
-hello tooadd SignIn/SignOut kontrolki widoku tooyour, możesz użyć hello **_LoginPartial.cshtml** widoku częściowego tooadd hello funkcji tooone widoków. Oto przykład hello funkcji toohello dodano standardu **_Layout.cshtml** widoku. (Uwaga hello ostatni element div hello zwinięte pasek nawigacyjny klasy):
+Aby dodać formanty SignIn/SignOut do widoku, można użyć **_LoginPartial.cshtml** widoku częściowego do dodawania funkcji do jednego z widoków. Oto przykład funkcje dodane do standardowego **_Layout.cshtml** widoku. (Uwaga: ostatni element div z klasy pasek nawigacyjny zwinięte):
 
 <pre>
     &lt;!DOCTYPE html&gt; 

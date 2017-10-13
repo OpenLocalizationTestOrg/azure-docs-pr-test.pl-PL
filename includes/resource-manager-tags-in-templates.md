@@ -1,7 +1,7 @@
-tootag zasobów podczas wdrażania, Dodaj hello `tags` elementu toohello zasobów są wdrażane. Podaj nazwę tagu hello i wartość.
+Aby oznaczyć zasób podczas wdrażania, do wdrażanego zasobu dodaj element `tags`. Podaj nazwę i wartość tagu.
 
-### <a name="apply-a-literal-value-toohello-tag-name"></a>Zastosuj nazwę znacznika toohello wartość literału
-Witaj poniższy przykład przedstawia konto magazynu z dwoma tagami (`Dept` i `Environment`) ustawionych tooliteral wartości:
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Stosowanie wartości literału do nazwy tagu
+W poniższym przykładzie przedstawiono konto magazynu z dwoma tagami (`Dept` i `Environment`), dla których ustawiono wartości literału:
 
 ```json
 {
@@ -27,8 +27,8 @@ Witaj poniższy przykład przedstawia konto magazynu z dwoma tagami (`Dept` i `E
 }
 ```
 
-### <a name="apply-an-object-toohello-tag-element"></a>Zastosuj element tag toohello obiektu
-Można określić parametr obiektu, który przechowuje kilka tagów i zastosować tego elementu tag toohello obiektu. Każdej właściwości w obiekcie hello staje się oddzielne tag hello zasobu. Witaj poniższym przykładzie ma parametr o nazwie `tagValues` czyli element tagów toohello zastosowane.
+### <a name="apply-an-object-to-the-tag-element"></a>Stosowanie obiektu do elementu tagu
+Możesz zdefiniować parametr obiektu przechowującego kilka tagów i zastosować ten obiekt do elementu tagu. Każda właściwość obiektu będzie osobnym tagiem dla zasobu. Poniższy przykład zawiera parametr o nazwie `tagValues`, który został zastosowany do elementu tagu.
 
 ```json
 {
@@ -60,9 +60,9 @@ Można określić parametr obiektu, który przechowuje kilka tagów i zastosowa�
 }
 ```
 
-### <a name="apply-a-json-string-toohello-tag-name"></a>Zastosuj nazwy tagu toohello ciągu JSON
+### <a name="apply-a-json-string-to-the-tag-name"></a>Stosowanie ciągu JSON do nazwy tagu
 
-toostore ciąg JSON, który reprezentuje wartości hello zastosowanie wielu wartości w jeden tag. cały ciąg JSON Hello jest przechowywana jako jeden tag, który nie może być dłuższa niż 256 znaków. Witaj poniższym przykładzie przedstawiono jeden tag o nazwie `CostCenter` zawiera kilka wartości z ciągu JSON:  
+Aby przechowywać wiele wartości w jednym tagu, zastosuj ciąg JSON reprezentujący te wartości. Cały ciąg JSON jest przechowywany jako jeden tag, który nie może przekraczać 256 znaków. Poniższy przykład zawiera pojedynczy tag o nazwie `CostCenter`, który zawiera kilka wartości z ciągu JSON:  
 
 ```json
 {

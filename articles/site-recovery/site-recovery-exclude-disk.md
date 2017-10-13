@@ -1,6 +1,6 @@
 ---
-title: "dyski aaaExclude z ochrony za pomocą usługi Azure Site Recovery | Dokumentacja firmy Microsoft"
-description: "Opisuje, dlaczego i w jaki sposób tooexclude maszyny Wirtualnej dyski z replikacji w scenariuszach VMware tooAzure i tooAzure funkcji Hyper-V."
+title: "Wykluczanie dysków z ochrony przy użyciu usługi Azure Site Recovery | Microsoft Docs"
+description: "Opisuje dlaczego i jak wykluczać dyski maszyny wirtualnej w scenariuszach replikacji z programu VMware do platformy Azure i z funkcji Hyper-V do platformy Azure."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,129 +14,129 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.openlocfilehash: f47146bc57aeab3fce90123d0894fa86dde93417
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exclude-disks-from-replication"></a>Wykluczanie dysków z replikacji
-W tym artykule opisano, jak tooexclude dyski z replikacji. To wykluczenie można zoptymalizować przepustowości replikacji hello używane lub optymalizacji zasobów po stronie docelowej hello, które korzystają z tych dysków. Funkcja Hello jest obsługiwana w scenariuszach VMware tooAzure i tooAzure funkcji Hyper-V.
+W tym artykule opisano sposób wykluczania dysków z replikacji. Takie wykluczenie może zoptymalizować przepustowość używaną przez replikację lub zoptymalizować zasoby po stronie docelowej, z których korzystają takie dyski. Ta funkcja jest obsługiwana w przypadku scenariuszy replikacji z programu VMware do platformy Azure i z funkcji Hyper-V do platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Domyślnie wszystkie dyski na maszynie są replikowane. tooexclude dysku z replikacji należy ręcznie zainstalować hello usługi mobilności na maszynie hello przed włączeniem replikacji w przypadku replikowania VMware tooAzure.
+Domyślnie wszystkie dyski na maszynie są replikowane. Aby wykluczyć dysk z replikacji, w przypadku replikacji z programu VMware do platformy Azure musisz ręcznie zainstalować usługę Mobility na maszynie przed włączeniem replikacji.
 
 
 ## <a name="why-exclude-disks-from-replication"></a>Dlaczego wykluczać dyski z replikacji?
 Wykluczenie dysków z replikacji jest często konieczne, ponieważ:
 
-- dane Hello jest churned na dysku hello wykluczone nie są ważne lub nie wymaga toobe replikowane.
+- Dane modyfikowane na wykluczonym dysku nie są istotne lub nie ma konieczności ich replikacji.
 
-- Ma toosave magazynu i zasobów sieciowych przez ten zmian nie będą replikowane.
+- Chcesz oszczędzić zasoby magazynu i zasoby sieciowe, pomijając replikowanie tych zmian.
 
-## <a name="what-are-hello-typical-scenarios"></a>Jakie są typowe scenariusze hello?
-Możliwe jest wskazanie konkretnych przykładów zmian danych, które świetnie nadają się do wykluczenia. Przykłady może obejmować zapisuje plik stronicowania tooa (pagefile.sys) i zapisuje plik bazy danych tempdb toohello programu Microsoft SQL Server. W zależności od obciążenia hello i podsystemu magazynowania hello pliku stronicowania hello można zarejestrować znaczną ilość danych churn. Jednak replikacji tych danych ze hello tooAzure lokacji głównej będzie wymagać wielu zasobów. W związku z tym program hello następujące kroki toooptimize replikacji maszyny wirtualnej z jednego dysk wirtualny, który ma zarówno hello systemu operacyjnego, jak i plik stronicowania hello:
+## <a name="what-are-the-typical-scenarios"></a>Jak wyglądają typowe scenariusze?
+Możliwe jest wskazanie konkretnych przykładów zmian danych, które świetnie nadają się do wykluczenia. Są to na przykład dane zapisywane w pliku stronicowania (pagefile.sys) i w pliku tempdb programu Microsoft SQL Server. W zależności od obciążenia i podsystemu magazynu w pliku stronicowania może być wykonywana znacząca ilość zmian. Jednak replikowanie tych danych z lokacji głównej do platformy Azure wymagałoby dużej ilości zasobów. W związku z tym za pomocą następujących kroków możesz zoptymalizować replikację maszyny wirtualnej z pojedynczym dyskiem wirtualnym, na którym znajduje się zarówno system operacyjny, jak i plik stronicowania:
 
-1. Podziel hello jednego dysku wirtualnego na dwa dyski wirtualne. Jeden dysk wirtualny ma hello systemu operacyjnego, a hello innych ma hello pliku stronicowania.
-2. Wykluczanie dysku z plikiem stronicowania hello z replikacji.
+1. Podziel pojedynczy dysk wirtualny na dwa dyski wirtualne. Na jednym dysku wirtualnym umieść system operacyjny, a na drugim — plik stronicowania.
+2. Wyklucz dysk z plikiem stronicowania z replikacji.
 
-Podobnie można użyć hello następujące kroki toooptimize dysku, który ma zarówno tempdb programu Microsoft SQL Server hello pole i hello plik systemowej bazy danych:
+Podobnie za pomocą następujących kroków możesz zoptymalizować dysk zawierający zarówno plik tempdb programu Microsoft SQL Server, jak i plik systemowej bazy danych:
 
-1. Zachowaj hello systemowej bazy danych i bazy danych tempdb na dwóch różnych dyskach.
-2. Wykluczanie dysku bazy danych tempdb hello z replikacji.
+1. Umieść systemową bazę danych i bazę danych tempdb na dwóch różnych dyskach.
+2. Wyklucz dysk z bazą danych tempdb z replikacji.
 
-## <a name="how-tooexclude-disks-from-replication"></a>Jak tooexclude dyski z replikacji?
+## <a name="how-to-exclude-disks-from-replication"></a>Jak wykluczać dyski z replikacji?
 
-### <a name="vmware-tooazure"></a>VMware tooAzure
-Wykonaj hello [włączyć replikację](site-recovery-vmware-to-azure.md) tooprotect przepływu pracy maszyny wirtualnej z portalu usługi Azure Site Recovery hello. W hello czwarty krok hello przepływu pracy, użyj hello **tooREPLICATE dysku** dysków tooexclude kolumny z replikacji. Domyślnie do replikacji są wybierane wszystkie dyski. Wyczyść pole wyboru hello dysków, które mają tooexclude z replikacji, a następnie pełne hello kroki tooenable replikacji.
+### <a name="vmware-to-azure"></a>Z programu VMware do platformy Azure
+Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-vmware-to-azure.md), aby chronić maszynę wirtualną z portalu usługi Azure Site Recovery. W czwartym kroku przepływu pracy wyklucz dyski z replikacji za pomocą kolumny **DYSK DO REPLIKACJI**. Domyślnie do replikacji są wybierane wszystkie dyski. Usuń zaznaczenie pola wyboru dysków, które chcesz wykluczyć z replikacji, a następnie wykonaj kroki w celu włączenia replikacji.
 
-![Wyklucz z replikacji dyski i włączyć replikację VMware tooAzure powrotu po awarii](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
+![Wykluczanie dysków z replikacji i włączanie replikacji na potrzeby powrotu po awarii z programu VMware do platformy Azure](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 
 
 >[!NOTE]
 >
-> * Można wykluczyć tylko dyski, które już zostały zainstalowane usługi mobilności hello. Należy toomanually instalacji usługi mobilności hello, ponieważ hello usługa mobilności jest instalowany tylko przy użyciu mechanizmu wypychania powitania po włączeniu replikacji.
+> * Wykluczyć możesz tylko te dyski, na których jest już zainstalowana usługa Mobility. Usługę Mobility należy zainstalować ręcznie, ponieważ jest ona instalowana tylko przy użyciu mechanizmu wypychania po włączeniu replikacji.
 > * Tylko dyski podstawowe można wyłączyć z replikacji. Nie możesz wykluczać dysków systemu operacyjnego ani dysków dynamicznych.
-> * Po włączeniu replikacji nie możesz dodawać dysków do replikacji ani ich usuwać. Tooadd lub wykluczyć dysk, wymagają ochrony toodisable hello maszyny i włącz ją ponownie.
-> * Jeśli można wykluczyć dysku, który jest potrzebna dla toooperate aplikacji po tooAzure trybu failover, konieczne będzie toocreate hello dysk ręcznie w systemie Azure, co umożliwia uruchamianie aplikacji hello replikowane. Alternatywnie można zintegrować usługi Automatyzacja Azure dysku hello toocreate planu odzyskiwania w trybie failover hello maszyny.
-> * Maszyna wirtualna z systemem Windows: Dyski utworzone ręcznie na platformie Azure nie mają możliwości powrotu po awarii. Jeśli na przykład przełączysz w tryb failover trzy dyski i utworzysz dwa bezpośrednio w usłudze Azure Virtual Machines, powrót po awarii nastąpi tylko dla trzech dysków przełączonych w tryb failover. Nie można dołączyć dyski, które zostały utworzone ręcznie w przypadku powrotu po awarii lub ponownej ochrony z lokalnymi tooAzure.
+> * Po włączeniu replikacji nie możesz dodawać dysków do replikacji ani ich usuwać. Jeśli chcesz dodać lub wykluczyć dysk, musisz wyłączyć ochronę maszyny, a następnie włączyć ją ponownie.
+> * Jeśli wykluczysz dysk wymagany do działania aplikacji, po przełączeniu w tryb failover na platformie Azure musisz utworzyć go na tej platformie ręcznie, aby można było uruchomić replikowaną aplikację. Alternatywnie możesz zintegrować usługę Azure Automation z planem odzyskiwania, aby utworzyć dysk podczas przełączania maszyny w tryb failover.
+> * Maszyna wirtualna z systemem Windows: Dyski utworzone ręcznie na platformie Azure nie mają możliwości powrotu po awarii. Jeśli na przykład przełączysz w tryb failover trzy dyski i utworzysz dwa bezpośrednio w usłudze Azure Virtual Machines, powrót po awarii nastąpi tylko dla trzech dysków przełączonych w tryb failover. Dysków utworzonych ręcznie nie możesz uwzględnić podczas powrotu po awarii ani ponownego włączania ochrony z zasobów lokalnych do platformy Azure.
 > * Maszyna wirtualna z systemem Linux: Dyski utworzone ręcznie na platformie Azure są uwzględniane podczas powrotu po awarii. Jeśli na przykład przełączysz w tryb failover trzy dyski i utworzysz dwa bezpośrednio w usłudze Azure Virtual Machines, powrót po awarii nastąpi dla wszystkich pięciu dysków. Dysków utworzonych ręcznie nie możesz wykluczyć z powrotu po awarii.
 >
 
-### <a name="hyper-v-tooazure"></a>TooAzure funkcji Hyper-V
-Wykonaj hello [włączyć replikację](site-recovery-hyper-v-site-to-azure.md) tooprotect przepływu pracy maszyny wirtualnej z portalu usługi Azure Site Recovery hello. W hello czwarty krok hello przepływu pracy, użyj hello **tooREPLICATE dysku** dysków tooexclude kolumny z replikacji. Domyślnie do replikacji są wybierane wszystkie dyski. Wyczyść pole wyboru hello dysków, które mają tooexclude z replikacji, a następnie pełne hello kroki tooenable replikacji.
+### <a name="hyper-v-to-azure"></a>Z funkcji Hyper-V do platformy Azure
+Postępuj zgodnie z przepływem pracy [Włączanie replikacji](site-recovery-hyper-v-site-to-azure.md), aby chronić maszynę wirtualną z portalu usługi Azure Site Recovery. W czwartym kroku przepływu pracy wyklucz dyski z replikacji za pomocą kolumny **DYSK DO REPLIKACJI**. Domyślnie do replikacji są wybierane wszystkie dyski. Usuń zaznaczenie pola wyboru dysków, które chcesz wykluczyć z replikacji, a następnie wykonaj kroki w celu włączenia replikacji.
 
-![Wyklucz z replikacji dyski i włączyć replikację funkcji Hyper-V tooAzure powrotu po awarii](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
+![Wykluczanie dysków z replikacji i włączanie replikacji na potrzeby powrotu po awarii z funkcji Hyper-V do platformy Azure](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 >[!NOTE]
 >
-> * Z replikacji możesz wykluczyć tylko dyski podstawowe. Nie możesz wykluczać dysków systemu operacyjnego. Nie zalecamy wykluczania dysków dynamicznych. Usługa Azure Site Recovery nie może zidentyfikować, który wirtualny dysk twardy (VHD) jest podstawowych lub dynamicznych w maszynie wirtualnej typu Gość hello.  Jeśli wszystkie dyski woluminu dynamicznego zależnego nie są wyłączone, chroniony dysk dynamiczny hello staje się uszkodzony dysk na maszynie wirtualnej trybu failover i hello danych na tym dysku nie jest dostępny.
-> * Po włączeniu replikacji nie możesz dodawać dysków do replikacji ani ich usuwać. Tooadd lub wykluczyć dysk, wymagają ochrony toodisable hello maszyny wirtualnej i włącz ją ponownie.
-> * Jeśli dysk jest potrzebna dla toooperate aplikacji zostaną wykluczone, po tooAzure pracy awaryjnej należy toocreate hello dysk ręcznie w systemie Azure, co umożliwia uruchamianie aplikacji hello replikowane. Alternatywnie można zintegrować usługi Automatyzacja Azure dysku hello toocreate planu odzyskiwania w trybie failover hello maszyny.
-> * Dyski utworzone ręcznie na platformie Azure nie mają możliwości powrotu po awarii. Na przykład jeśli się nie powieść ponad trzy dyski i utworzyć dwa dyski bezpośrednio w usłudze Azure Virtual Machines, tylko trzy dyski, które zostały przełączone do trybu failover nie powiedzie się z tooHyper Azure-V. Nie można dołączyć dyski, które zostały utworzone ręcznie w przypadku powrotu po awarii lub replikacji odwrotnej z tooAzure funkcji Hyper-V.
+> * Z replikacji możesz wykluczyć tylko dyski podstawowe. Nie możesz wykluczać dysków systemu operacyjnego. Nie zalecamy wykluczania dysków dynamicznych. Usługa Azure Site Recovery nie może zidentyfikować, który wirtualny dysk twardy jest podstawowy, a który dynamiczny, w maszynie wirtualnej gościa.  Jeśli nie wszystkie zależne dyski woluminu dynamicznego zostaną wykluczone, chroniony dysk dynamiczny będzie uszkodzonym dyskiem maszyny wirtualnej w trybie failover, a dane na tym dysku będą niedostępne.
+> * Po włączeniu replikacji nie możesz dodawać dysków do replikacji ani ich usuwać. Jeśli chcesz dodać lub wykluczyć dysk, musisz wyłączyć ochronę maszyny wirtualnej, a następnie włączyć ją ponownie.
+> * Jeśli wykluczysz dysk wymagany do działania aplikacji, po przełączeniu w tryb failover na platformie Azure musisz utworzyć go na tej platformie ręcznie, aby można było uruchomić replikowaną aplikację. Alternatywnie możesz zintegrować usługę Azure Automation z planem odzyskiwania, aby utworzyć dysk podczas przełączania maszyny w tryb failover.
+> * Dyski utworzone ręcznie na platformie Azure nie mają możliwości powrotu po awarii. Jeśli na przykład przełączysz w tryb failover trzy dyski i utworzysz dwa bezpośrednio w usłudze Azure Virtual Machines, tylko dla trzech dysków przełączonych w tryb failover nastąpi powrót po awarii z platformy Azure do funkcji Hyper-V. Dysków utworzonych ręcznie nie możesz uwzględnić podczas powrotu po awarii ani replikacji odwrotnej z funkcji Hyper-V do platformy Azure.
 
 
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>Kompleksowe scenariusze wykluczania dysków
-Teraz należy wziąć pod uwagę dwa scenariusze toounderstand hello Wyklucz dysku funkcji:
+Rozważmy dwa scenariusze, aby zrozumieć funkcję wykluczania dysku:
 
 - Dysk bazy danych tempdb programu SQL Server
 - Dysk pliku stronicowania (pagefile.sys)
 
-### <a name="exclude-hello-sql-server-tempdb-disk"></a>Wykluczanie dysku bazy danych tempdb serwera SQL hello
+### <a name="exclude-the-sql-server-tempdb-disk"></a>Wykluczanie dysku bazy danych tempdb programu SQL Server
 Rozważmy maszynę wirtualną programu SQL Server z bazą danych tempdb, którą można wykluczyć.
 
-Nazwa Hello hello dysku wirtualnego jest SalesDB.
+Nazwa dysku wirtualnego to SalesDB.
 
-Dyski na powitania źródłowej maszyny wirtualnej są następujące:
+Na źródłowej maszynie wirtualnej są następujące dyski:
 
 
-**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku hello**
+**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | DYSK0 | C:\ | Dysk systemu operacyjnego
 DB-Disk1| Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
-DB — Disk2 (dysk hello wykluczone z ochrony) | Dysk2 | E:\ | Pliki tymczasowe
-DB — Disk3 (dysk hello wykluczone z ochrony) | Dysk3 | F:\ | Baza danych SQL bazy danych tempdb (ścieżka folderu (F:\MSSQL\Data\) < /br/>< /br/>, Zanotuj ścieżkę folderu hello przed trybu failover.
+DB-Disk2 (wykluczono dysk z ochrony) | Dysk2 | E:\ | Pliki tymczasowe
+DB-Disk3 (wykluczono dysk z ochrony) | Dysk3 | F:\ | Baza danych SQL tempdb — ścieżka folderu (F:\MSSQL\Data\) </br /> </br />Zanotuj ścieżkę folderu przed przełączeniem w tryb failover.
 DB-Disk4 | Dysk4 |G:\ |Baza danych użytkownika 2
 
-Przenoszenie danych na dwóch dysków maszyny wirtualnej hello jest tymczasowy, podczas ochrony maszyny wirtualnej SalesDB hello, Disk2 i Disk3 można wykluczyć z replikacji. Usługa Azure Site Recovery nie będzie replikować tych dysków. W tryb failover tych dysków nie będą obecne na maszynie wirtualnej trybu failover hello na platformie Azure.
+Ponieważ zmiany danych na dwóch dyskach maszyny wirtualnej dotyczą danych tymczasowych, podczas włączania ochrony maszyny wirtualnej bazy danych SalesDB, wyklucz dyski Dysk2 i Dysk3 z replikacji. Usługa Azure Site Recovery nie będzie replikować tych dysków. Po przełączeniu w tryb failover te dyski nie będą istnieć na maszynie wirtualnej w trybie failover na platformie Azure.
 
-Dyski na powitania maszyny wirtualnej platformy Azure po trybu failover są następujące:
+Dyski na maszynie wirtualnej platformy Azure po przełączeniu w tryb failover będą następujące:
 
-**Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku hello**
+**Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | ---
 DYSK0 | C:\ | Dysk systemu operacyjnego
-Dysk1 | E:\ | Magazyn tymczasowy < /br / >< /br / > Azure dodaje ten dysk i przypisuje hello pierwszą dostępną literę dysku.
+Dysk1 | E:\ | Magazyn tymczasowy</br /> </br />Platforma Azure dodaje ten dysk i przypisuje mu pierwszą dostępną literę dysku.
 Dysk2 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
 Dysk3 | G:\ | Baza danych użytkownika 2
 
-Ponieważ Disk2 i Disk3 zostały wykluczone z maszyny wirtualnej SalesDB hello, E: jest hello pierwszą literę dysku z listy dostępnych hello. Azure przypisuje woluminie magazynu tymczasowego toohello E:. Dla wszystkich dysków hello replikowane pozostają litery dysku hello hello takie same.
+Ponieważ dyski Dysk2 i Dysk3 zostały wykluczone z maszyny wirtualnej bazy danych SalesDB, E: jest pierwszą dostępną literą dysku. Platforma Azure przypisuje literę E: woluminowi magazynu tymczasowego. Litery dysków wszystkich replikowanych dysków pozostają bez zmian.
 
-Disk3, która była hello SQL bazy danych tempdb dysku (ścieżka folderu bazy danych tempdb F:\MSSQL\Data\), został wykluczony z replikacji. Witaj dysk nie jest dostępne na maszynie wirtualnej hello trybu failover. W związku z tym hello usługi SQL jest w stanie zatrzymania, i musi hello F:\MSSQL\Data ścieżki.
+Dysk3, czyli dysk bazy danych SQL tempdb (ścieżka folderu tempdb F:\MSSQL\Data\), został wykluczony z replikacji. Dysk nie jest dostępny na maszynie wirtualnej w trybie failover. W efekcie usługa SQL przechodzi w stan zatrzymania i potrzebuje ścieżki F:\MSSQL\Data.
 
-Istnieją dwa sposoby toocreate tej ścieżki:
+Istnieją dwa sposoby utworzenia tej ścieżki:
 
 - Dodaj nowy dysk i przypisz ścieżkę folderu bazy danych tempdb.
-- Użyj istniejącego dysku magazynu tymczasowego dla ścieżki folderu hello bazy danych tempdb.
+- Użyj istniejącego dysku magazynu tymczasowego na potrzeby ścieżki folderu bazy danych tempdb.
 
 #### <a name="add-a-new-disk"></a>Dodaj nowy dysk:
 
-1. Zapisz ścieżek hello SQL tempdb.mdf oraz tempdb.ldf przed trybu failover.
-2. Z hello portalu Azure Dodaj nowy dysk toohello trybu failover maszyny wirtualnej z hello tej samej lub więcej rozmiar jak hello źródła SQL bazy danych tempdb dysku (Disk3).
-3. Zaloguj się toohello maszyny wirtualnej platformy Azure. Za pomocą konsoli zarządzania (diskmgmt.msc) dysku hello inicjowanie i formatowanie hello nowo dodanych dysków.
-4. Przypisz hello sama litera użytej przez hello SQL bazy danych tempdb dysku (F:).
-5. Utwórz folder bazy danych tempdb na powitania woluminu F: (F:\MSSQL\Data).
-6. Uruchom usługę SQL hello z konsoli usługi hello.
+1. Przed przełączeniem w tryb failover zanotuj ścieżki plików bazy danych SQL tempdb.mdf i tempdb.ldf.
+2. Z poziomu witryny Azure Portal dodaj nowy dysk do maszyny wirtualnej w trybie failover o takim samym lub większym rozmiarze jak źródłowy dysk bazy danych SQL tempdb (Dysk3).
+3. Zaloguj się do maszyny wirtualnej platformy Azure. Z poziomu konsoli zarządzania dyskami (diskmgmt.msc) zainicjuj i sformatuj nowo dodany dysk.
+4. Przypisz tę samą literę dysku, która była przypisana do dysku bazy danych SQL tempdb (F:).
+5. Utwórz folder bazy danych tempdb na woluminie F: (F:\MSSQL\Data).
+6. Uruchom usługę SQL z poziomu konsoli usługi.
 
-#### <a name="use-an-existing-temporary-storage-disk-for-hello-sql-tempdb-folder-path"></a>Użyj istniejącego dysku magazynu tymczasowego dla ścieżki folderu bazy danych tempdb SQL hello:
+#### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>Użyj istniejącego dysku magazynu tymczasowego na potrzeby ścieżki folderu bazy danych SQL tempdb:
 
 1. Otwórz wiersz polecenia.
-2. Uruchom program SQL Server w trybie odzyskiwania, w wierszu polecenia hello.
+2. Z poziomu wiersza polecenia uruchom program SQL Server w trybie odzyskiwania.
 
         Net start MSSQLSERVER /f / T3608
 
-3. Uruchom hello następujące narzędzia sqlcmd toochange hello tempdb ścieżki toohello nowej ścieżki.
+3. Uruchom następujące polecenie sqlcmd, aby zmienić ścieżkę bazy danych tempdb na nową ścieżkę.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
         USE master;     
@@ -149,50 +149,50 @@ Istnieją dwa sposoby toocreate tej ścieżki:
         GO
 
 
-4. Zatrzymać hello usług Microsoft SQL Server.
+4. Zatrzymaj usługę programu Microsoft SQL Server.
 
         Net stop MSSQLSERVER
-5. Uruchom usługę Microsoft SQL Server hello.
+5. Uruchom usługę programu Microsoft SQL Server.
 
         Net start MSSQLSERVER
 
-Można znaleźć toohello następujące wytyczne Azure dla dysku magazynu tymczasowego:
+Zapoznaj się z następującymi wskazówkami dla platformy Azure dotyczącymi dysku magazynu tymczasowego:
 
-* [Przy użyciu dysków SSD w maszynach wirtualnych platformy Azure toostore TempDB serwera SQL i rozszerzenia puli buforów](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
+* [Przechowywanie bazy danych TempDB programu SQL Server i rozszerzeń puli buforów przy użyciu dysków SSD na platformie Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
 * [Najlepsze rozwiązania w zakresie wydajności dla programu SQL Server w usłudze Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
-### <a name="failback-from-azure-tooan-on-premises-host"></a>Powrót po awarii (z hosta lokalnego Azure tooan)
-Teraz Przyjrzyjmy się hello dysków, które są replikowane w trybie failover z lokalnymi Azure tooyour hosta VMware lub funkcji Hyper-V. Dyski utworzone ręcznie na platformie Azure nie będą replikowane. Jeśli na przykład przełączysz w tryb failover trzy dyski i utworzysz dwa bezpośrednio w usłudze Azure Virtual Machines, powrót po awarii nastąpi tylko dla trzech dysków przełączonych w tryb failover. Nie można dołączyć dyski, które zostały utworzone ręcznie w przypadku powrotu po awarii lub ponownej ochrony z lokalnymi tooAzure. On również nie jest replikowany hello magazyn tymczasowy dysku lokalnego tooon hostów.
+### <a name="failback-from-azure-to-an-on-premises-host"></a>Powrót po awarii (z platformy Azure do hosta lokalnego)
+Teraz omówimy, które dyski zostaną zreplikowane po przełączeniu w tryb failover z platformy Azure do lokalnego hosta programu VMware lub funkcji Hyper-V. Dyski utworzone ręcznie na platformie Azure nie będą replikowane. Jeśli na przykład przełączysz w tryb failover trzy dyski i utworzysz dwa bezpośrednio w usłudze Azure Virtual Machines, powrót po awarii nastąpi tylko dla trzech dysków przełączonych w tryb failover. Dysków utworzonych ręcznie nie możesz uwzględnić podczas powrotu po awarii ani ponownego włączania ochrony z zasobów lokalnych do platformy Azure. Dysk magazynu tymczasowego także nie będzie replikowany do hosta lokalnego.
 
-#### <a name="failback-toooriginal-location-recovery"></a>Odzyskiwanie do lokalizacji toooriginal powrotu po awarii
+#### <a name="failback-to-original-location-recovery"></a>Powrót po awarii do odzyskiwania oryginalnej lokalizacji
 
-W poprzednim przykładzie hello konfigurację dysku maszyny wirtualnej platformy Azure hello jest następujący:
+W poprzednim przykładzie konfiguracja dysków maszyny wirtualnej platformy Azure była następująca:
 
-**Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku hello**
+**Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | ---
 DYSK0 | C:\ | Dysk systemu operacyjnego
-Dysk1 | E:\ | Magazyn tymczasowy < /br / >< /br / > Azure dodaje ten dysk i przypisuje hello pierwszą dostępną literę dysku.
+Dysk1 | E:\ | Magazyn tymczasowy</br /> </br />Platforma Azure dodaje ten dysk i przypisuje mu pierwszą dostępną literę dysku.
 Dysk2 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
 Dysk3 | G:\ | Baza danych użytkownika 2
 
 
-#### <a name="vmware-tooazure"></a>VMware tooAzure
-Po zakończeniu powrotu po awarii toohello oryginalnej lokalizacji konfigurację dysku maszyny wirtualnej na powrót po awarii hello nie ma dysków. Dyski, które zostały wykluczone z VMware tooAzure nie będą dostępne na maszynie wirtualnej hello powrotu po awarii.
+#### <a name="vmware-to-azure"></a>Z programu VMware do platformy Azure
+Po powrocie po awarii do oryginalnej lokalizacji konfiguracja dysków maszyny wirtualnej powrotu po awarii nie zawiera wykluczonych dysków. Dyski wykluczone z replikacji z programu VMware do platformy Azure nie będą dostępne na maszynie wirtualnej powrotu po awarii.
 
-Po planowanego trybu failover z Azure lokalnych tooon VMware dyski na maszynie wirtualnej VMWare hello (oryginalnej lokalizacji) są następujące:
+Dyski na maszynie wirtualnej programu VMware (oryginalna lokalizacja) po zaplanowanym powrocie po awarii z platformy Azure do lokalnych zasobów programu VMware:
 
-**Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku hello**
+**Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | ---
 DYSK0 | C:\ | Dysk systemu operacyjnego
 Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
 Dysk2 | G:\ | Baza danych użytkownika 2
 
-#### <a name="hyper-v-tooazure"></a>TooAzure funkcji Hyper-V
-W przypadku powrotu po awarii jest toohello oryginalnej lokalizacji, hello powrotu po awarii maszyny wirtualnej dysku konfiguracji pozostaje hello takie same jak oryginalną konfigurację dysku maszyny wirtualnej funkcji Hyper-v. Dyski, które zostały wykluczone z tooAzure lokacji funkcji Hyper-V są dostępne na maszynie wirtualnej hello powrotu po awarii.
+#### <a name="hyper-v-to-azure"></a>Z funkcji Hyper-V do platformy Azure
+Jeśli powrót po awarii jest wykonywany do oryginalnej lokalizacji, konfiguracja dysków maszyny wirtualnej powrotu po awarii pozostaje taka sama jak w przypadku oryginalnej konfiguracji dysków maszyny wirtualnej dla funkcji Hyper-V. Dyski wykluczone z replikacji z lokacji funkcji Hyper-V do platformy Azure nie będą dostępne na maszynie wirtualnej powrotu po awarii.
 
-Po zaplanowanym tryb failover z Azure tooon lokalnym funkcji Hyper-V dyski na maszynie wirtualnej funkcji Hyper-V hello (oryginalnej lokalizacji) są następujące:
+Dyski na maszynie wirtualnej funkcji Hyper-V (oryginalna lokalizacja) po zaplanowanym przełączeniu w tryb failover z platformy Azure do lokalnych zasobów funkcji Hyper-V:
 
-**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku hello**
+**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | DYSK0 |   C:\ | Dysk systemu operacyjnego
 DB-Disk1 | Dysk1 | D:\ | Systemowa baza danych SQL i baza danych użytkownika 1
@@ -201,69 +201,69 @@ DB-Disk3 (dysk wykluczony) | Dysk3 | F:\ | Baza danych SQL tempdb — ścieżka 
 DB-Disk4 | Dysk4 | G:\ | Baza danych użytkownika 2
 
 
-#### <a name="exclude-hello-paging-file-pagefilesys-disk"></a>Wyklucz hello stronicowania na dysku z plikiem (pagefile.sys)
+#### <a name="exclude-the-paging-file-pagefilesys-disk"></a>Wykluczanie dysku pliku stronicowania (pagefile.sys)
 
 Rozważmy maszynę wirtualną zawierającą dysk z plikiem stronicowania, który można wykluczyć.
 Są dwa przypadki.
 
-#### <a name="case-1-hello-paging-file-is-configured-on-hello-d-drive"></a>Przypadek 1: plik stronicowania hello jest skonfigurowany na powitania dysku D:
-W tym miejscu jest konfiguracja dysków hello:
+#### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Przypadek 1. Plik stronicowania skonfigurowano na dysku D:
+Konfiguracja dysków:
 
 
-**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku hello**
+**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | DYSK0 | C:\ | Dysk systemu operacyjnego
-Dysk bazy danych — 1 (dysk hello wykluczone z ochrony hello) | Dysk1 | D:\ | pagefile.sys
+DB-Disk1 (wykluczono dysk z ochrony) | Dysk1 | D:\ | pagefile.sys
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
-Poniżej przedstawiono hello rozmiaru pliku stronicowania na powitania źródłowej maszyny wirtualnej:
+Poniżej przedstawiono ustawienia pliku stronicowania na źródłowej maszynie wirtualnej:
 
 ![Ustawienia pliku stronicowania na źródłowej maszynie wirtualnej](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
 
-Po pracy w trybie failover hello maszynę wirtualną z VMware tooAzure lub tooAzure funkcji Hyper-V dyski na powitania maszyny wirtualnej platformy Azure są następujące:
+Po przełączeniu maszyny wirtualnej w tryb failover z programu VMware do platformy Azure lub z funkcji Hyper-V do platformy Azure maszyna wirtualna platformy Azure będzie mieć następujące dyski:
 
-**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku hello**
+**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | DYSK0 | C:\ | Dysk systemu operacyjnego
 DB-Disk1 | Dysk1 | D:\ | Magazyn tymczasowy</br /> </br />pagefile.sys
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
-Ponieważ dysk 1 (D:) został wykluczony, D: jest hello pierwszą literę dysku z listy dostępnych hello. Azure przypisuje woluminie magazynu tymczasowego toohello D:. Ponieważ D: jest dostępna na powitania maszyny wirtualnej platformy Azure, hello ustawienia rozmiaru pliku stronicowania pozostaje maszyny wirtualnej hello hello takie same.
+Ponieważ Dysk1 (D:) został wykluczony, D: jest pierwszą dostępną literą dysku na liście. Platforma Azure przypisuje literę D: woluminowi magazynu tymczasowego. Ponieważ dysk D: jest dostępny na maszynie wirtualnej platformy Azure, ustawienia pliku stronicowania maszyny wirtualnej pozostają takie same.
 
-Poniżej przedstawiono hello rozmiaru pliku stronicowania na powitania maszyny wirtualnej platformy Azure:
+Poniżej przedstawiono ustawienia pliku stronicowania na maszynie wirtualnej platformy Azure:
 
 ![Ustawienia pliku stronicowania na maszynie wirtualnej platformy Azure](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-#### <a name="case-2-hello-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Przypadek 2: plik stronicowania hello jest skonfigurowany na innym dysku (innym niż dysk D:)
+#### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Przypadek 2. Plik stronicowania skonfigurowano na innym dysku (innym niż D:)
 
-Poniżej przedstawiono konfigurację dysku maszyny wirtualnej źródłowego hello:
+Poniżej przedstawiono konfigurację dysków źródłowej maszyny wirtualnej:
 
-**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku hello**
+**Nazwa dysku** | **Nr dysku systemu operacyjnego gościa** | **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | DYSK0 | C:\ | Dysk systemu operacyjnego
-Dysk bazy danych — 1 (dysk hello wykluczone z ochrony) | Dysk1 | G:\ | pagefile.sys
+DB-Disk1 (wykluczono dysk z ochrony) | Dysk1 | G:\ | pagefile.sys
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
-Poniżej przedstawiono hello rozmiaru pliku stronicowania na powitania na lokalnej maszynie wirtualnej:
+Poniżej przedstawiono ustawienia pliku stronicowania na lokalnej maszynie wirtualnej:
 
-![Ustawienia pliku na maszynie wirtualnej lokalne powitania stronicowania](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
+![Ustawienia pliku stronicowania na lokalnej maszynie wirtualnej](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-Po pracy w trybie failover maszyny wirtualnej hello z tooAzure VMware/funkcji Hyper-V dyski na powitania maszyny wirtualnej platformy Azure są następujące:
+Po przełączeniu maszyny wirtualnej w tryb failover z programu VMware lub funkcji Hyper-V do platformy Azure maszyna wirtualna platformy Azure będzie mieć następujące dyski:
 
-**Nazwa dysku**| **Nr dysku systemu operacyjnego gościa**| **Litera dysku** | **Typ danych na dysku hello**
+**Nazwa dysku**| **Nr dysku systemu operacyjnego gościa**| **Litera dysku** | **Typ danych na dysku**
 --- | --- | --- | ---
 DB-Disk0-OS | DYSK0  |C:\ |Dysk systemu operacyjnego
 DB-Disk1 | Dysk1 | D:\ | Magazyn tymczasowy</br /> </br />pagefile.sys
 DB-Disk2 | Dysk2 | E:\ | Dane użytkowników 1
 DB-Disk3 | Dysk3 | F:\ | Dane użytkowników 2
 
-Ponieważ D: hello pierwszą literę dysku z listy dostępnych hello, Azure przypisuje woluminie magazynu tymczasowego toohello D:. Dla wszystkich dysków hello replikowane pozostaje litery dysku hello hello takie same. Ponieważ hello G: dysku nie jest dostępna, hello system będzie używać dysku C: hello hello plik stronicowania.
+Ponieważ litera D: jest pierwszą dostępną literą dysku na liście, platforma Azure przypisuje literę D: do woluminu magazynu tymczasowego. Litery dysków wszystkich replikowanych dysków pozostają bez zmian. Ponieważ dysk G: nie jest dostępny, system użyje dysku C: na potrzeby pliku stronicowania.
 
-Poniżej przedstawiono hello rozmiaru pliku stronicowania na powitania maszyny wirtualnej platformy Azure:
+Poniżej przedstawiono ustawienia pliku stronicowania na maszynie wirtualnej platformy Azure:
 
 ![Ustawienia pliku stronicowania na maszynie wirtualnej platformy Azure](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 

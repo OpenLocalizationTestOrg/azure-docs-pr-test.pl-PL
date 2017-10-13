@@ -1,12 +1,12 @@
-Usługi Azure Resource Manager Zdefiniuj parametry dla wartości ma toospecify po wdrożeniu hello szablonu. Szablon Hello zawiera sekcji parametrów zawierający wszystkie hello wartości parametrów.
-Należy zdefiniować parametr dla tych wartości, które będą się różnić na podstawie hello projektu, który jest wdrażany lub opartych na środowisku hello, który jest wdrażany z. Definiuje parametry dla wartości, które będą zawsze hello takie same. Każda wartość parametru jest używany w hello szablonu toodefine powitalne zasoby, które są wdrażania. 
+Przy użyciu usługi Azure Resource Manager można zdefiniować parametry dla wartości, które mają zostać uwzględnione podczas wdrażania szablonu. Szablon zawiera sekcji parametrów zawierająca wszystkie wartości parametrów.
+Należy zdefiniować parametr dla tych wartości, które będą się różnić na podstawie projektu, który jest wdrażany lub opartych na środowisku, które wdrażasz. Definiuje parametry dla wartości, które będą zawsze taki sam. Każda wartość parametru jest używany w szablonie do definiowania zasobów, które są wdrożone. 
 
-Określając parametry, użyj hello **allowedValues** toospecify pola, które wartości użytkownika można podać podczas wdrażania. Użyj hello **defaultValue** tooassign pola parametru toohello wartości, jeśli wartość nie zostanie podana podczas wdrażania.
+Określając parametry, użyj **allowedValues** pola, aby określić, które wartości użytkownika można podać podczas wdrażania. Użyj **defaultValue** pola, aby przypisać wartości do parametru, jeśli wartość nie zostanie podana podczas wdrażania.
 
-Firma Microsoft będzie opisywać każdego parametru w szablonie hello.
+Firma Microsoft będzie opisywać każdego parametru w szablonie.
 
 ### <a name="logicappname"></a>logicAppName
-Nazwa Hello toocreate aplikacji logiki hello.
+Nazwa aplikacji logiki do utworzenia.
 
     "logicAppName": {
         "type": "string"

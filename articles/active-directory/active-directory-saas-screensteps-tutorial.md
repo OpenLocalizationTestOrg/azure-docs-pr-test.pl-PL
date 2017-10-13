@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z ScreenSteps | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i ScreenSteps."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i ScreenSteps."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,114 +14,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: fd041e5fe4552727eeda2dabc1773d8043d410f8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b6ded8ba1adf03fdccbdb7573c09fae1857c8b16
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Samouczek: Integracji Azure Active Directory z ScreenSteps
 
-Z tego samouczka, dowiesz się, jak toointegrate ScreenSteps w usłudze Azure Active Directory (Azure AD).
+Z tego samouczka dowiesz się integrowanie ScreenSteps z usługi Azure Active Directory (Azure AD).
 
-Integracja z usługą Azure AD ScreenSteps zapewnia hello następujące korzyści:
+Integracja z usługą Azure AD ScreenSteps zapewnia następujące korzyści:
 
-- Można kontrolować w usłudze Azure AD, kto ma dostęp do tooScreenSteps.
-- Można włączyć użytkownika użytkownicy tooautomatically get zalogowane tooScreenSteps (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
-- Możesz zarządzać kont w jednej centralnej lokalizacji - hello portalu Azure.
+- Można kontrolować w usłudze Azure AD, który ma dostęp do ScreenSteps.
+- Umożliwia użytkownikom automatycznie pobrać zalogowane do ScreenSteps (logowanie jednokrotne) przy użyciu ich kont usługi Azure AD.
+- Możesz zarządzać kont w jednej centralnej lokalizacji - portalu Azure.
 
-Jeśli chcesz tooknow więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Jeśli chcesz dowiedzieć się więcej informacji o integracji aplikacji SaaS w usłudze Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-tooconfigure integracji z usługą Azure AD z ScreenSteps należy hello następujące elementy:
+Aby skonfigurować integrację usługi Azure AD z ScreenSteps, potrzebne są następujące elementy:
 
 - Subskrypcję usługi Azure AD
 - ScreenSteps logowanie jednokrotne włączone subskrypcji
 
 > [!NOTE]
-> tootest hello kroków w tym samouczku, zaleca się przy użyciu środowiska produkcyjnego.
+> Aby przetestować kroki opisane w tym samouczku, zaleca się używania środowiska produkcyjnego.
 
-tootest hello kroki opisane w tym samouczku, należy stosować te zalecenia:
+Aby przetestować kroki opisane w tym samouczku, należy wykonać te zalecenia:
 
 - Nie należy używać środowiska produkcyjnego, jeśli jest to konieczne.
 - Jeśli nie masz środowisko wersji próbnej usługi Azure AD, możesz [uzyskać miesięczna wersja próbna](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Opis scenariusza
-W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz Hello opisane w tym samouczku składa się z dwóch głównych elementów:
+W tym samouczku można przetestować usługę Azure AD rejestracji jednokrotnej w środowisku testowym. Scenariusz opisany w tym samouczku składa się z dwóch głównych elementów:
 
-1. Dodawanie ScreenSteps z galerii hello
+1. Dodawanie ScreenSteps z galerii
 2. Konfigurowanie i testowanie usługi Azure AD logowanie jednokrotne
 
-## <a name="adding-screensteps-from-hello-gallery"></a>Dodawanie ScreenSteps z galerii hello
-tooconfigure hello integracji ScreenSteps do usługi Azure AD, należy tooadd ScreenSteps z hello galerii tooyour listę zarządzanych aplikacji SaaS.
+## <a name="adding-screensteps-from-the-gallery"></a>Dodawanie ScreenSteps z galerii
+Aby skonfigurować integrację usługi Azure AD ScreenSteps, należy dodać ScreenSteps z galerii do listy zarządzanych aplikacji SaaS.
 
-**tooadd ScreenSteps z galerii hello, wykonaj następujące kroki hello:**
+**Aby dodać ScreenSteps z galerii, wykonaj następujące czynności:**
 
-1. W hello  **[portalu Azure](https://portal.azure.com)**na temat hello panelu nawigacji po lewej stronie, kliknij przycisk **usługi Azure Active Directory** ikony. 
+1. W  **[portalu Azure](https://portal.azure.com)**, na panelu nawigacyjnym po lewej stronie kliknij **usługi Azure Active Directory** ikony. 
 
-    ![przycisk usługi Azure Active Directory Hello][1]
+    ![Przycisk usługi Azure Active Directory][1]
 
-2. Przejdź za**aplikacje dla przedsiębiorstw**. Następnie przejdź zbyt**wszystkie aplikacje**.
+2. Przejdź do **aplikacje dla przedsiębiorstw**. Następnie przejdź do **wszystkie aplikacje**.
 
-    ![Blok aplikacje przedsiębiorstwa Hello][2]
+    ![Blok aplikacje przedsiębiorstwa][2]
     
-3. tooadd nową aplikację, kliknij przycisk **nowej aplikacji** przycisk u góry hello okna dialogowego.
+3. Aby dodać nową aplikację, kliknij przycisk **nowej aplikacji** przycisk w górnej części okna dialogowego.
 
-    ![Nowy przycisk aplikacji Hello][3]
+    ![Nowy przycisk aplikacji][3]
 
-4. W polu wyszukiwania hello wpisz **ScreenSteps**, wybierz pozycję **ScreenSteps** z panelu wyników następnie kliknij przycisk **Dodaj** przycisk aplikacji hello tooadd.
+4. W polu wyszukiwania wpisz **ScreenSteps**, wybierz pozycję **ScreenSteps** z panelu wyników kliknięcie **Dodaj** przycisk, aby dodać aplikację.
 
-    ![ScreenSteps hello listy wyników](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_addfromgallery.png)
+    ![ScreenSteps na liście wyników](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfiguracja i testowanie usługi Azure AD rejestracji jednokrotnej
 
 W tej sekcji skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z ScreenSteps w oparciu o nazwie "Britta Simona" użytkownika testowego.
 
-Dla pojedynczego logowania jednokrotnego toowork usługi Azure AD musi tooknow użytkownika odpowiednikiem hello w ScreenSteps jest tooa użytkownika w usłudze Azure AD. Innymi słowy relację łącza między użytkownika usługi Azure AD i hello użytkownikowi w ScreenSteps musi toobe ustanowione.
+Dla rejestracji jednokrotnej do pracy usługi Azure AD musi wiedzieć, użytkownik odpowiednika w ScreenSteps jest dla użytkownika, w usłudze Azure AD. Innymi słowy link relację między użytkownikiem usługi Azure AD i danemu użytkownikowi w ScreenSteps musi się.
 
-W ScreenSteps, należy przypisać wartość hello hello **nazwy użytkownika** w usłudze Azure AD jako wartość hello hello **Username** tooestablish hello łącze relacji.
+W ScreenSteps, należy przypisać wartość **nazwy użytkownika** w usłudze Azure AD jako wartość **Username** do ustanawiania relacji łącza.
 
-tooconfigure i testowych usługi Azure AD rejestracji jednokrotnej z ScreenSteps, należy po bloków konstrukcyjnych hello toocomplete:
+Aby skonfigurować i przetestować usługi Azure AD rejestracji jednokrotnej z ScreenSteps, należy wykonać poniższe bloki konstrukcyjne:
 
-1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  -tooenable Twojego toouse użytkowników tej funkcji.
-2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  -tootest usługi Azure AD rejestracji jednokrotnej z Simona Britta.
-3. **[Tworzenie użytkownika testowego ScreenSteps](#create-a-screensteps-test-user)**  -toohave odpowiednikiem Simona Britta w ScreenSteps, który jest połączony toohello usługi Azure AD reprezentację użytkownika.
-4. **[Przypisz użytkownika testowego hello Azure AD](#assign-the-azure-ad-test-user)**  -tooenable Simona Britta toouse usługi Azure AD rejestracji jednokrotnej.
-5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  -tooverify czy hello konfiguracji działania.
+1. **[Konfigurowanie usługi Azure AD rejestracji jednokrotnej](#configure-azure-ad-single-sign-on)**  — aby umożliwić użytkownikom korzystać z tej funkcji.
+2. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)**  — do przetestowania usługi Azure AD rejestracji jednokrotnej z Simona Britta.
+3. **[Tworzenie użytkownika testowego ScreenSteps](#create-a-screensteps-test-user)**  — w celu zapewnienia odpowiednikiem Simona Britta ScreenSteps połączonego z usługi Azure AD reprezentację użytkownika.
+4. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)**  — aby umożliwić Simona Britta do użycia usługi Azure AD rejestracji jednokrotnej.
+5. **[Test rejestracji jednokrotnej](#test-single-sign-on)**  — Aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie usługi Azure AD rejestracji jednokrotnej
 
-W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure hello i skonfigurować logowanie jednokrotne w aplikacji ScreenSteps.
+W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w portalu Azure i skonfigurować logowanie jednokrotne w aplikacji ScreenSteps.
 
-**tooconfigure usługi Azure AD rejestracji jednokrotnej z ScreenSteps, wykonaj następujące kroki hello:**
+**Aby skonfigurować usługi Azure AD rejestracji jednokrotnej z ScreenSteps, wykonaj następujące czynności:**
 
-1. W portalu Azure na powitania hello **ScreenSteps** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
+1. W portalu Azure na **ScreenSteps** strona integracji aplikacji, kliknij przycisk **logowanie jednokrotne**.
 
     ![Skonfigurować łącze rejestracji jednokrotnej][4]
 
-2. Na powitania **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** tooenable rejestracji jednokrotnej.
+2. Na **logowanie jednokrotne** okno dialogowe, wybierz opcję **tryb** jako **na języku SAML logowania jednokrotnego** Aby włączyć logowanie jednokrotne.
  
     ![Okno dialogowe rejestracji jednokrotnej](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_samlbase.png)
 
-3. Na powitania **ScreenSteps domeny i adres URL** sekcji, wykonaj następujące kroki hello:
+3. Na **ScreenSteps domeny i adres URL** sekcji, wykonaj następujące czynności:
 
     ![Adresy URL i domeny ScreenSteps pojedynczy informacje logowania jednokrotnego](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_url.png)
 
-    W hello **adres URL logowania** tekstowym, wpisz adres URL za pomocą hello następującego wzorca:`https://<tenantname>.ScreenSteps.com`
+    W **adres URL logowania** tekstowym, wpisz adres URL, używając następującego wzorca:`https://<tenantname>.ScreenSteps.com`
 
     > [!NOTE] 
-    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość z hello rzeczywisty logowania jednokrotnego adresu URL, który znajduje się w dalszej części tego samouczka. 
+    > Ta wartość nie jest prawdziwe. Zaktualizuj tę wartość rzeczywista logowania jednokrotnego adres URL, który znajduje się w dalszej części tego samouczka. 
 
-4. Na powitania **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu hello na tym komputerze.
+4. Na **certyfikat podpisywania SAML** kliknij **Certificate(Base64)** , a następnie zapisz plik certyfikatu na tym komputerze.
 
-    ![link do pobierania certyfikatu Hello](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_certificate.png) 
+    ![Łącze pobierania certyfikatu](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_certificate.png) 
 
 5. Kliknij przycisk **zapisać** przycisku.
 
     ![Skonfiguruj przycisk pojedynczego logowania jednokrotnego Zapisz](./media/active-directory-saas-screensteps-tutorial/tutorial_general_400.png)
 
-6. Na powitania **konfiguracji ScreenSteps** kliknij **skonfigurować ScreenSteps** tooopen **Konfigurowanie logowania jednokrotnego** okna. Kopiuj hello **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z hello **sekcji krótkimi opisami.**
+6. Na **konfiguracji ScreenSteps** , kliknij przycisk **skonfigurować ScreenSteps** otworzyć **Konfigurowanie logowania jednokrotnego** okna. Kopiuj **Sign-Out adresu URL i SAML pojedynczy znak na adres URL usługi** z **sekcji krótkimi opisami.**
 
     ![Konfiguracja ScreenSteps](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_configure.png) 
 
@@ -139,105 +139,105 @@ W tej sekcji można włączyć usługi Azure AD rejestracji jednokrotnej w porta
 
     ![Zdalne uwierzytelnianie](./media/active-directory-saas-screensteps-tutorial/ic778525.png "uwierzytelniania zdalnego")
 
-11. W hello **utworzyć jeden znak na punkt końcowy** sekcji, wykonaj następujące kroki hello:
+11. W **utworzyć jeden znak na punkt końcowy** sekcji, wykonaj następujące czynności:
 
     ![Tworzenie punktu końcowego uwierzytelniania](./media/active-directory-saas-screensteps-tutorial/ic778526.png "Tworzenie punktu końcowego uwierzytelniania")
     
-    a. W hello **tytuł** tekstowym, wpisz tytuł.
+    a. W **tytuł** tekstowym, wpisz tytuł.
     
-    b. Z hello **tryb** listy, wybierz **SAML**.
+    b. Z **tryb** listy, wybierz **SAML**.
     
     c. Kliknij przycisk **Utwórz**.
 
-12. **Edytuj** hello nowy punkt końcowy.
+12. **Edytuj** nowy punkt końcowy.
 
     ![Edytuj punktu końcowego](./media/active-directory-saas-screensteps-tutorial/ic778528.png "edycji punktu końcowego")
 
-13. W hello **edytować jeden znak na punkt końcowy** sekcji, wykonaj następujące kroki hello:
+13. W **edytować jeden znak na punkt końcowy** sekcji, wykonaj następujące czynności:
 
     ![Uwierzytelniania zdalnego punktu końcowego](./media/active-directory-saas-screensteps-tutorial/ic778527.png "uwierzytelniania zdalnego punktu końcowego")
 
-    a. Kliknij przycisk **Przekaż nowy plik certyfikatu SAML**, a następnie przekaż hello certyfikatu, który został pobrany z portalu Azure.
+    a. Kliknij przycisk **Przekaż nowy plik certyfikatu SAML**, a następnie przekaż certyfikat, który został pobrany z portalu Azure.
     
-    b. Wklej **SAML pojedynczy znak na adres URL usługi** wartość, która została skopiowana z hello portalu Azure do hello **zdalnego adresu URL logowania** pola tekstowego.
+    b. Wklej **SAML pojedynczy znak na adres URL usługi** wartość, która została skopiowana z portalu Azure do **zdalnego adresu URL logowania** pola tekstowego.
     
-    c. Wklej **Sign-Out URL** wartość, która została skopiowana z hello portalu Azure do hello **adres URL wylogowania** pola tekstowego.
+    c. Wklej **Sign-Out URL** wartość, która została skopiowana z portalu Azure do **adres URL wylogowania** pola tekstowego.
     
-    d. Wybierz **grupy** tooassign toowhen użytkowników, które zostały udostępnione.
+    d. Wybierz **grupy** do przypisywania użytkowników do po ich udostępnieniu.
     
     e. Kliknij przycisk **aktualizacji**.
 
-    f. Witaj kopii **adres URL klienta SAML** toohello Schowka i Wklej w toohello **adres URL logowania** textbox w **ScreenSteps domeny i adres URL** sekcji.
+    f. Kopiuj **adres URL klienta SAML** do Schowka i Wklej do **adres URL logowania** textbox w **ScreenSteps domeny i adres URL** sekcji.
     
-    g. Zwraca toohello **edytować jeden znak na punkt końcowy**.
+    g. Wróć do **Edytuj Endpoint rejestracji jednokrotnej**.
     
-    h. Kliknij przycisk hello **domyślnym kontem** przycisk toouse ten punkt końcowy dla wszystkich użytkowników, którzy logują ScreenSteps. Alternatywnie możesz kliknąć hello **dodać tooSite** przycisk toouse ten punkt końcowy dla określonych witryn internetowych w **ScreenSteps**.
+    h. Kliknij przycisk **domyślnym kontem** przycisk, aby używać tego punktu końcowego dla wszystkich użytkowników, którzy logują ScreenSteps. Alternatywnie możesz kliknąć **dodać do lokacji** przycisk, aby używać tego punktu końcowego dla określonych witryn internetowych w **ScreenSteps**.
 
 > [!TIP]
-> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz hello [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji hello!  Po dodaniu tej aplikacji z hello **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij hello **rejestracji jednokrotnej** hello kartę i dostępu do osadzonych dokumentacji za pośrednictwem hello  **Konfiguracja** sekcji u dołu hello. Więcej o hello osadzonych dokumentacji funkcji w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Teraz możesz przeczytać zwięzły wersji tych instrukcji wewnątrz [portalu Azure](https://portal.azure.com), podczas konfigurowania aplikacji!  Po dodaniu tej aplikacji z **usługi Active Directory > aplikacje dla przedsiębiorstw** po prostu kliknij **rejestracji jednokrotnej** karcie i dostęp do dokumentacji osadzonych za pomocą **konfiguracji** sekcji u dołu. Więcej o funkcji dokumentacji osadzonego w tym miejscu: [dokumentacji osadzonych usługi Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
-Celem Hello w tej sekcji jest toocreate użytkownika testowego, w portalu Azure o nazwie Simona Britta hello.
+Celem tej sekcji jest tworzenie użytkownika testowego w portalu Azure o nazwie Simona Britta.
 
    ![Tworzenie użytkownika testowego usługi Azure AD][100]
 
-**toocreate użytkownika testowego w usłudze Azure AD, wykonaj następujące kroki hello:**
+**Aby utworzyć użytkownika testowego w usłudze Azure AD, wykonaj następujące czynności:**
 
-1. W portalu Azure, w okienku po lewej stronie powitania hello kliknij hello **usługi Azure Active Directory** przycisku.
+1. W portalu Azure, w okienku po lewej stronie kliknij **usługi Azure Active Directory** przycisku.
 
-    ![przycisk usługi Azure Active Directory Hello](./media/active-directory-saas-screensteps-tutorial/create_aaduser_01.png)
+    ![Przycisk usługi Azure Active Directory](./media/active-directory-saas-screensteps-tutorial/create_aaduser_01.png)
 
-2. toodisplay hello listę użytkowników, przejdź zbyt**użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
+2. Aby wyświetlić listę użytkowników, przejdź do **użytkowników i grup**, a następnie kliknij przycisk **wszyscy użytkownicy**.
 
-    ![Witaj, "Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-screensteps-tutorial/create_aaduser_02.png)
+    !["Użytkownicy i grupy" i "Wszyscy użytkownicy" łącza](./media/active-directory-saas-screensteps-tutorial/create_aaduser_02.png)
 
-3. Witaj tooopen **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** u góry hello hello **wszyscy użytkownicy** okno dialogowe.
+3. Aby otworzyć **użytkownika** okno dialogowe, kliknij przycisk **Dodaj** w górnej części **wszyscy użytkownicy** okno dialogowe.
 
-    ![przycisk Dodaj Hello](./media/active-directory-saas-screensteps-tutorial/create_aaduser_03.png)
+    ![Przycisk Dodaj](./media/active-directory-saas-screensteps-tutorial/create_aaduser_03.png)
 
-4. W hello **użytkownika** okna dialogowego wykonaj hello następujące kroki:
+4. W **użytkownika** okna dialogowego wykonaj następujące czynności:
 
-    ![okno dialogowe Hello użytkownika](./media/active-directory-saas-screensteps-tutorial/create_aaduser_04.png)
+    ![Okno dialogowe użytkownika](./media/active-directory-saas-screensteps-tutorial/create_aaduser_04.png)
 
-    a. W hello **nazwa** wpisz **BrittaSimon**.
+    a. W **nazwa** wpisz **BrittaSimon**.
 
-    b. W hello **nazwy użytkownika** pole typu hello adres e-mail użytkownika Simona Britta.
+    b. W **nazwy użytkownika** wpisz adres e-mail użytkownika Simona Britta.
 
-    c. Wybierz hello **Pokaż hasło** pole wyboru, a następnie zapisz hello wartość, która jest wyświetlana w hello **hasło** pole.
+    c. Wybierz **Pokaż hasło** pole wyboru, a następnie zanotuj wartość, która jest wyświetlana w **hasło** pole.
 
     d. Kliknij przycisk **Utwórz**.
  
 ### <a name="create-a-screensteps-test-user"></a>Tworzenie użytkownika testowego ScreenSteps
 
-W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w ScreenSteps. Praca z [zespołem pomocy technicznej klienta ScreenSteps](https://www.screensteps.com/contact) do dodawania użytkowników hello hello ScreenSteps platformy. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
+W tej sekcji należy utworzyć użytkownika o nazwie Simona Britta w ScreenSteps. Praca z [zespołem pomocy technicznej klienta ScreenSteps](https://www.screensteps.com/contact) Aby dodać użytkowników do platformy ScreenSteps. Użytkownicy muszą utworzyć i aktywowana, aby użyć rejestracji jednokrotnej. 
 
-### <a name="assign-hello-azure-ad-test-user"></a>Przypisz użytkownika testowego hello Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Przypisz użytkownika testowego usługi Azure AD
 
-W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotnego za udzielanie dostępu tooScreenSteps.
+W tej sekcji można włączyć Simona Britta do używania Azure logowania jednokrotnego za udzielanie dostępu ScreenSteps.
 
-![Przypisanie roli użytkownika hello][200] 
+![Przypisanie roli użytkownika][200] 
 
-**tooassign tooScreenSteps Simona Britta wykonaj hello następujące kroki:**
+**Aby przypisać Simona Britta ScreenSteps, wykonaj następujące czynności:**
 
-1. W portalu Azure hello, otwórz widok aplikacji hello, a następnie przejdź do widoku katalogu toohello i przejść za**aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
+1. W portalu Azure Otwórz widok aplikacji, a następnie przejdź do widoku katalogu i przejdź do **aplikacje dla przedsiębiorstw** kliknięcie **wszystkie aplikacje**.
 
     ![Przypisz użytkownika][201] 
 
-2. Z listy aplikacji hello wybierz **ScreenSteps**.
+2. Na liście aplikacji zaznacz **ScreenSteps**.
 
-    ![łącze ScreenSteps Hello na liście aplikacji hello](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_app.png)  
+    ![Łącze ScreenSteps na liście aplikacji](./media/active-directory-saas-screensteps-tutorial/tutorial_screensteps_app.png)  
 
-3. W menu powitania po lewej stronie powitania kliknij **użytkowników i grup**.
+3. W menu po lewej stronie kliknij **użytkowników i grup**.
 
-    ![łącze "Użytkownicy i grupy" Hello][202]
+    ![Łącze "Użytkownicy i grupy"][202]
 
 4. Kliknij przycisk **Dodaj** przycisku. Następnie wybierz **użytkowników i grup** na **Dodaj przydziału** okna dialogowego.
 
-    ![Okienko Dodaj przypisania Hello][203]
+    ![W okienku Dodaj przydziału][203]
 
-5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** hello listy użytkowników.
+5. Na **użytkowników i grup** okno dialogowe, wybierz opcję **Simona Britta** na liście Użytkownicy.
 
 6. Kliknij przycisk **wybierz** znajdującego się na **użytkowników i grup** okna dialogowego.
 
@@ -245,14 +245,14 @@ W tej sekcji możesz włączyć toouse Simona Britta Azure logowania jednokrotne
     
 ### <a name="test-single-sign-on"></a>Test rejestracji jednokrotnej
 
-W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania jednokrotnego przy użyciu hello panelu dostępu.
+W tej sekcji można przetestować konfiguracji usługi Azure AD pojedynczego logowania za pomocą panelu dostępu.
 
-Po kliknięciu powitalne ScreenSteps kafelka w hello Panel dostępu, należy pobrać automatycznie zalogowane tooyour ScreenSteps aplikacji.
-Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [toohello wprowadzenie panelu dostępu](active-directory-saas-access-panel-introduction.md). 
+Po kliknięciu kafelka ScreenSteps w panelu dostępu użytkownik powinien pobrać automatycznie zalogowane do aplikacji ScreenSteps.
+Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* [Lista samouczków dotyczących tooIntegrate aplikacji SaaS w usłudze Azure Active Directory](active-directory-saas-tutorial-list.md)
+* [Lista samouczków dotyczących sposobów integracji aplikacji SaaS przy użyciu usługi Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

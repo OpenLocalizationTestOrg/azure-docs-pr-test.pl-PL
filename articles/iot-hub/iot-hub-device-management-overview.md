@@ -1,5 +1,5 @@
 ---
-title: "Zarządzanie aaaDevice z Centrum IoT Azure | Dokumentacja firmy Microsoft"
+title: "Zarządzanie urządzeniami za pomocą usługi Azure IoT Hub | Microsoft Docs"
 description: "Omówienie zarządzania urządzeniami w usłudze Azure IoT Hub: cykl życia urządzenia w przedsiębiorstwie i wzorce zarządzania urządzeniami, takie jak ponowne uruchamianie, resetowanie do ustawień fabrycznych, aktualizacja oprogramowania układowego, konfiguracja, bliźniacze reprezentacje urządzeń, zapytania, zadania."
 services: iot-hub
 documentationcenter: 
@@ -14,83 +14,83 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 7e22fb6eb3c541a513b16a047c7c3ef557255532
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Omówienie zarządzania urządzeniami za pomocą usługi IoT Hub
 ## <a name="introduction"></a>Wprowadzenie
-Centrum IoT Azure udostępnia funkcje hello i modelu rozszerzeń, które włączają urządzenia i rozwiązania do zarządzania urządzeniami niezawodne toobuild deweloperzy wewnętrznej. Urządzenia z zakresu od ograniczonego czujników i mikrokontrolerów jednozadaniowe, toopowerful bram, które trasy komunikacji dla grup urządzeń.  Ponadto hello przypadków użycia i wymagania dotyczące operatorów IoT różnią się znacznie w branży.  Niezależnie od zmian zarządzanie urządzeniami za pomocą Centrum IoT zapewnia możliwości hello, wzorców i kod biblioteki toocater tooa różnorodnych urządzeń i użytkowników końcowych.
+Usługa Azure IoT Hub udostępnia funkcje i model rozszerzeń, który umożliwia deweloperom urządzeń i deweloperom zaplecza tworzenie niezawodnych rozwiązań służących do zarządzania urządzeniami IoT. Istnieje wiele urządzeń — od czujników z rygorystycznymi ograniczeniami i pojedynczych mikrokontrolerów przeznaczonych do ściśle określonych celów po zaawansowane bramy służące do kierowania komunikacją grup urządzeń.  Ponadto przypadki użycia i wymagania dla operatorów IoT znacznie się różnią w zależności od branży.  Pomimo tych różnic zarządzanie urządzeniami usługi IoT Hub udostępnia możliwości, wzorce i biblioteki kodu, które spełniają potrzeby różnego zestawu urządzeń i użytkowników końcowych.
 
-Kluczową kwestią tworzenia rozwiązania IoT pomyślne przedsiębiorstwa jest tooprovide strategię jak operatorów obsługuje hello bieżące zarządzanie ich kolekcji urządzeń. Operatory IoT wymagają proste i niezawodne narzędzia i aplikacje, które umożliwia im toofocus na powitania więcej strategicznych aspektów swoich zadań. Ten artykuł zawiera:
+Kluczowym elementem procesu tworzenia prawidłowo działającego rozwiązania IoT w przedsiębiorstwie jest opracowanie strategii dotyczącej metody bieżącego zarządzania kolekcją urządzeń przez operatorów. Operatorzy urządzeń IoT muszą mieć do dyspozycji proste oraz niezawodne narzędzia i aplikacje, dzięki którym będą mogli skoncentrować się na ważniejszych aspektach swojej pracy. Ten artykuł zawiera:
 
-* Krótkie omówienie zarządzania toodevice podejście Azure IoT Hub.
+* Krótkie omówienie podejścia do zarządzania urządzeniami w usłudze Azure IoT Hub.
 * Opis typowych zasad dotyczących zarządzania urządzeniami.
-* Opis hello cykl życia urządzenia.
+* Opis cyklu życia urządzenia.
 * Przegląd typowych wzorców zarządzania urządzeniami.
 
 ## <a name="device-management-principles"></a>Zasady zarządzania urządzeniami
-IoT łączy się z nim unikatowy zestaw wyzwania zarządzania urządzeniami i każde rozwiązanie z klasy korporacyjnej muszą spełnić hello następujące zasady:
+Środowisko IoT charakteryzuje się pewnymi problemami w zakresie zarządzania urządzeniami i każde rozwiązanie klasy korporacyjnej musi uwzględniać następujące zasady:
 
 ![Ilustracja dotycząca zasad zarządzania urządzeniami][img-dm_principles]
 
-* **Skalowanie i automatyzacji**: rozwiązania IoT wymagają proste narzędzia, które Automatyzacja rutynowych zadań i włączenia stosunkowo mały operacji personelu toomanage milionów urządzeń. Codziennych, Operatorzy mogą pojawić się operacje urządzenia toohandle zdalnie, w zbiorczego, i tooonly otrzymywać alerty o problemach wymagających ich uwagi bezpośredniego.
-* **Przejrzystości i zgodności**: hello ekosystemu urządzenia jest bardzo różnorodnych. Narzędzia do zarządzania muszą być dopasowane tooaccommodate wieloma klas urządzeń, platform i protokołów. Operatory musi być w stanie toosupport wiele typów urządzeń z hello najbardziej ograniczonego osadzonych mikroukłady jednego procesu, toopowerful i komputerów w pełni funkcjonalne.
-* **Uwzględnianie kontekstu**: środowiska IoT są dynamiczne i nieustannie się zmieniają. Najważniejszą kwestią jest niezawodność usługi. Operacje zarządzania urządzeniami musi uwzględniać następujące czynniki tooensure hello konta tej obsługi przestoje nie mają wpływ na operacje biznesowe krytyczne lub tworzenie niebezpiecznych warunków:
+* **Skalowanie i automatyzacja**: rozwiązania IoT wymagają prostych narzędzi, które pozwalają zautomatyzować rutynowe zadania i umożliwiają stosunkowo małej grupie pracowników operacyjnych zarządzanie milionami urządzeń. Na co dzień operatorzy chcą zdalnie i zbiorczo obsługiwać operacje związane z urządzeniami oraz chcą być powiadamiani tylko o problemach wymagających ich bezpośredniej uwagi.
+* **Otwartość i zgodność**: ekosystem urządzeń jest bardzo zróżnicowany. Narzędzia do zarządzania muszą być zgodne z wieloma klasami urządzeń, platformami i protokołami. Operatorzy muszą mieć możliwość zapewnienia obsługi dla wielu typów urządzeń — od wbudowanych układów wykonujących pojedyncze procesy po zaawansowane i w pełni funkcjonalne komputery.
+* **Uwzględnianie kontekstu**: środowiska IoT są dynamiczne i nieustannie się zmieniają. Najważniejszą kwestią jest niezawodność usługi. Operacje zarządzania urządzeniami muszą uwzględniać następujące czynniki w celu zapewnienia, że przestój w ramach konserwacji nie wpłynie na operacje o krytycznym znaczeniu dla firmy ani nie spowoduje powstania niebezpiecznych warunków:
     * Okna obsługi w umowie SLA
     * Stany sieci i zasilania
     * Warunki użycia
     * Geolokalizacja urządzenia
-* **Usługi ról wiele**: Obsługa hello unikatowy przepływów pracy i procesy ról operacji IoT odgrywa kluczową rolę. Operatorzy Hello harmonijnego współpracy z hello, ponieważ istnieją ograniczenia wewnętrznego działów IT.  Należy również znajduje się zrównoważony sposób toosurface czasu rzeczywistego urządzenia operacji informacji toosupervisors i innych firm ról zarządzania.
+* **Obsługa wielu ról**: obsługa unikatowych przepływów pracy i procesów ról operacji IoT jest niezwykle ważna. Pracownicy operacyjni muszą zachować zgodność z ograniczeniami wewnętrznych działów IT.  Muszą również znaleźć niezawodne sposoby udostępniania nadzorcom i innym osobom odpowiedzialnym za zarządzanie informacji dotyczących odpowiednich operacji na urządzeniach.
 
 ## <a name="device-lifecycle"></a>Cykl życia urządzenia
-Istnieje zestaw etapy zarządzania ogólne urządzenia, które są typowe projektami IoT enterprise tooall. Azure IoT istnieją pięć etapów hello cykl życia urządzenia:
+Istnieje zestaw ogólnych etapów zarządzania urządzeniami, które są wspólne dla wszystkich projektów IoT. W usłudze Azure IoT istnieje pięć etapów cyklu życia urządzenia:
 
-![Witaj pięć etapy cyklu życia urządzenia Azure IoT: Planowanie, obsługi administracyjnej, konfigurowanie, monitorowanie i wycofać][img-device_lifecycle]
+![Pięć faz cyklu życia urządzenia usługi Azure IoT: planowanie, aprowizowanie, konfigurowanie, monitorowanie, wycofywanie][img-device_lifecycle]
 
-W ramach każdej z tych pięć etapów spełnić kilka wymagań operator urządzenia, które powinny być spełnione tooprovide kompletnego rozwiązania:
+W każdym z tych pięciu etapów istnieje kilka wymagań dotyczących operatora urządzenia, które powinny zostać spełnione, aby zapewnić kompletne rozwiązanie:
 
-* **Planowanie**: Włącz operatory toocreate schemat metadanych urządzenia, który umożliwia im tooeasily i dokładnie zapytanie dla i grupę urządzeń dla operacji zarządzania zbiorczego. Można użyć hello urządzenia dwie toostore te metadane urządzenia w formie hello tagów i właściwości.
+* **Planowanie**: umożliwienie operatorom utworzenia schematu metadanych urządzenia, który pozwoli na łatwe oraz dokładne wykonanie zapytania dotyczącego grupy urządzeń i użycie jej na potrzeby zbiorczych operacji zarządzania. Bliźniaczej reprezentacji urządzenia można użyć do przechowywania metadanych tego urządzenia w postaci tagów i właściwości.
   
-    *Dalsze informacje*: [Rozpoczynanie pracy z urządzenia twins][lnk-twins-getstarted], [zrozumieć urządzenia twins][lnk-twins-devguide], [jak właściwości dwie urządzenia toouse][lnk-twin-properties].
-* **Zainicjuj obsługę**: bezpiecznie udostępnić nowych urządzeń tooIoT koncentratora i Włącz operatory tooimmediately odnajdywanie możliwości urządzenia.  Użyj hello Centrum IoT tożsamość rejestru toocreate elastyczne urządzenia tożsamości i poświadczenia i wykonać tę operację w trybie zbiorczym przy użyciu zadania. Kompilacja tooreport urządzeń, ich możliwości i warunki za pośrednictwem właściwości urządzenia w Witaj dwie urządzenia.
+    *Dalsze informacje*: [Wprowadzenie do zarządzania bliźniaczymi reprezentacjami urządzeń][lnk-twins-getstarted], [Opis bliźniaczych reprezentacji urządzeń][lnk-twins-devguide], [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń).
+* **Aprowizacja**: bezpieczna aprowizacja nowych urządzeń w usłudze IoT Hub oraz umożliwienie operatorom natychmiastowego wykrywania możliwości urządzeń.  Za pomocą rejestru tożsamości usługi IoT Hub można tworzyć elastyczne tożsamości i poświadczenia urządzeń. Aprowizacja może być wykonywana zbiorczo przy użyciu zadania. Możliwe jest tworzenie urządzeń w taki sposób, aby raportowały swoje możliwości i warunki za pośrednictwem właściwości urządzeń w bliźniaczej reprezentacji urządzenia.
   
-    *Dalsze informacje*: [Zarządzanie tożsamościami urządzenia][lnk-identity-registry], [zbiorcze Zarządzanie tożsamościami urządzenia][lnk-bulk-identity], [Jak urządzenie toouse dwie właściwości][lnk-twin-properties].
-* **Skonfiguruj**: ułatwienia zbiorczego zmian konfiguracji i oprogramowanie układowe aktualizuje toodevices, zachowując dane o kondycji i zabezpieczeń. Wykonaj te operacje zarządzania urządzeniami zbiorczo, używając odpowiednich właściwości lub bezpośrednich metod i zadań emisji.
+    *Dalsze informacje*: [Manage device identities][lnk-identity-registry] (Zarządzanie tożsamościami urządzeń), [Bulk management of device identities][lnk-bulk-identity] (Zbiorcze zarządzanie tożsamościami urządzeń), [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń).
+* **Konfigurowanie**: ułatwienie zbiorczego stosowania zmian konfiguracji i aktualizacji oprogramowania układowego na urządzeniach przy zachowaniu kondycji i bezpieczeństwa. Wykonaj te operacje zarządzania urządzeniami zbiorczo, używając odpowiednich właściwości lub bezpośrednich metod i zadań emisji.
   
-    *Dalsze informacje*: [metody bezpośredniego][lnk-c2d-methods], [wywołana metoda bezpośrednio na urządzeniu][lnk-methods-devguide], [jak właściwości dwie urządzenia toouse][lnk-twin-properties], [emisji zadania i harmonogramu][lnk-jobs], [Planowanie zadań na wielu urządzeniach] [lnk-jobs-devguide].
-* **Monitor**: monitorowanie kondycji kolekcji ogólnej urządzenia, stan hello trwających operacji i tooissues operatory alertów, które mogą wymagać ich uwagi.  Zastosuj hello urządzenia dwie tooallow urządzeń tooreport czasu rzeczywistego warunki działania i stan operacji aktualizacji. Zaawansowane pulpit nawigacyjny kompilacji raporty tego powierzchni hello większości problemów z bezpośrednim przy użyciu urządzenia dwie zapytań.
+    *Dalsze informacje*: [Use direct methods][lnk-c2d-methods] (Używanie metod bezpośrednich), [Invoke a direct method on a device][lnk-methods-devguide] (Wywoływanie metody bezpośredniej względem urządzenia), [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [Planowanie i emitowanie zadań][lnk-jobs], [Planowanie zadań na wielu urządzeniach][lnk-jobs-devguide].
+* **Monitorowanie**: monitorowanie ogólnej kondycji kolekcji urządzeń i stanu trwających operacji w celu ostrzegania operatorów o problemach, które mogą wymagać ich uwagi.  Zastosuj bliźniaczą reprezentacją urządzenia, aby umożliwić urządzeniom raportowanie w czasie rzeczywistym warunków pracy i stanu operacji aktualizacji. Twórz zaawansowane raporty pulpitu nawigacyjnego, które służą do udostępniania najważniejszych w danym momencie problemów przy użyciu zapytań bliźniaczych reprezentacji urządzeń.
   
-    *Dalsze informacje*: [jak urządzenie toouse dwie właściwości][lnk-twin-properties], [Centrum IoT zapytania języka twins urządzenia, zadania i rozsyłania wiadomości] [ lnk-query-language].
-* **Wycofywanie**: Zamień lub zlikwidować urządzenia po awarii, Uaktualnij cykl, lub na końcu hello okres istnienia hello usługi.  Użyj informacje o urządzeniu toomaintain hello urządzenia dwie, jeśli urządzenie fizyczne hello jest zastąpienia lub archiwizowane, jeśli wycofana. Użyj hello rejestru tożsamości Centrum IoT bezpiecznie cofnięcia tożsamości urządzenia i poświadczeń.
+    *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [IoT Hub query language for device twins, jobs, and message routing][lnk-query-language] (Język zapytań usługi IoT Hub dla bliźniaczych reprezentacji urządzeń, zadań i routingu wiadomości).
+* **Wycofywanie**: wymiana lub likwidacja urządzeń po awarii albo po zakończeniu cyklu uaktualniania lub okresu istnienia usługi.  Użyj bliźniaczej reprezentacji urządzenia, aby zarządzać informacjami o urządzeniu, jeśli trwa zastępowanie urządzenia fizycznego lub jeśli jest ono archiwizowane w przypadku wycofywania. Za pomocą rejestru tożsamości usługi IoT Hub można bezpiecznie odwołać tożsamości i poświadczenia urządzeń.
   
-    *Dalsze informacje*: [jak urządzenie toouse dwie właściwości][lnk-twin-properties], [Zarządzanie tożsamościami urządzenia][lnk-identity-registry].
+    *Dalsze informacje*: [How to use device twin properties][lnk-twin-properties] (Jak korzystać z właściwości bliźniaczych reprezentacji urządzeń), [Manage device identities][lnk-identity-registry] (Zarządzanie tożsamościami urządzeń).
 
 ## <a name="device-management-patterns"></a>Wzorce zarządzania urządzeniami
-Centrum IoT umożliwia powitania po zestaw wzorców zarządzania urządzeniami.  Hello [samouczki zarządzania urządzeniami] [ lnk-get-started] przedstawia bardziej szczegółowo sposób tooextend toofit te wzorce dokładne scenariusz i jak nowe wzorce toodesign oparte na tych podstawowych szablonów.
+Usługa IoT Hub udostępnia przedstawiony poniżej zestaw wzorców zarządzania urządzeniami.  W [samouczkach dotyczących zarządzania urządzeniami][lnk-get-started] znajduje się bardziej szczegółowy opis sposobu rozszerzenia tych wzorców w celu dopasowania ich do danego scenariusza oraz sposobu projektowania nowych wzorców na podstawie tych szablonów podstawowych.
 
-* **Ponowny rozruch** -hello zaplecza aplikacji informuje hello urządzenia za pomocą metody bezpośredniego czy zainicjował ponowne uruchomienie komputera.  Witaj Witaj używa urządzenie zgłosiło ono właściwości tooupdate hello ponowny rozruch stanu hello urządzenia.
+* **Ponowne uruchomienie** — aplikacja wewnętrzna informuje urządzenie za pośrednictwem metody bezpośredniej o zainicjowaniu ponownego uruchamiania.  Urządzenie aktualizuje stan ponownego uruchomienia urządzenia za pomocą zgłoszonych właściwości.
   
     ![Ilustracja dotycząca wzorca ponownego uruchamiania zarządzania urządzeniami][img-reboot_pattern]
-* **Resetowanie do ustawień fabrycznych** -hello zaplecza aplikacji informuje hello urządzenia za pomocą metody bezpośredniego czy zainicjował resetowania do ustawień fabrycznych.  Witaj urządzenie używa Witaj zgłosił, że właściwości tooupdate hello fabryki zresetowania stanu hello urządzenia.
+* **Zresetowanie do ustawień fabrycznych** — aplikacja wewnętrzna informuje urządzenie za pośrednictwem metody bezpośredniej o zainicjowaniu resetowania do ustawień fabrycznych.  Urządzenie aktualizuje stan resetowania urządzenia do ustawień fabrycznych za pomocą zgłoszonych właściwości.
   
     ![Ilustracja dotycząca wzorca resetowania urządzenia do ustawień fabrycznych zarządzania urządzeniami][img-facreset_pattern]
-* **Konfiguracja** -hello zaplecza aplikacji przy użyciu oprogramowania tooconfigure właściwości hello potrzeby uruchamiania na urządzeniu hello.  Witaj Witaj używa urządzenia zgłosiła stan konfiguracji tooupdate właściwości hello urządzenia.
+* **Konfiguracja** — aplikacja wewnętrzna konfiguruje oprogramowanie uruchomione na urządzeniu za pomocą odpowiednich właściwości.  Urządzenie aktualizuje stan konfiguracji urządzenia za pomocą zgłoszonych właściwości.
   
     ![Ilustracja dotycząca wzorca konfiguracji zarządzania urządzeniami][img-config_pattern]
-* **Aktualizacja oprogramowania układowego** -hello zaplecza aplikacji informuje hello urządzenia za pomocą metody bezpośredniego czy zainicjował aktualizacji oprogramowania.  urządzenie Hello inicjuje obraz wieloetapowego procesu toodownload hello oprogramowania układowego Zastosuj hello oprogramowania układowego obrazu, a na koniec ponownie toohello usługi IoT Hub.  W trakcie procesu wieloetapowego hello hello urządzenie używa hello zgłosił właściwości tooupdate hello postęp i stan hello urządzenia.
+* **Aktualizacja oprogramowania układowego** — aplikacja wewnętrzna informuje urządzenie za pośrednictwem metody bezpośredniej o zainicjowaniu aktualizacji oprogramowania układowego.  Urządzenie inicjuje wieloetapowy proces pobierania obrazu oprogramowania układowego, stosowania obrazu oprogramowania układowego i ponownego nawiązywania połączenia z usługą IoT Hub.  W trakcie tego wieloetapowego procesu urządzenie używa zgłoszonych właściwości do zaktualizowania postępu i stanu urządzenia.
   
     ![Ilustracja dotycząca wzorca aktualizacji oprogramowania układowego zarządzania urządzeniami][img-fwupdate_pattern]
-* **Raportowanie postęp i stan** -zaplecza rozwiązania hello obsługuje kwerendy dwie urządzenia, na zbiór urządzeń, tooreport na powitania stan i postęp działań uruchamianych na urządzeniach hello.
+* **Raportowanie postępu i stanu** — zaplecze rozwiązania wykonuje zapytania dotyczące bliźniaczych reprezentacji urządzeń w zestawie urządzeń w celu raportowania stanu i postępu akcji na urządzeniu.
   
     ![Ilustracja dotycząca postępu i stanu raportowania zarządzania urządzeniami][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>Następne kroki
-możliwości Hello, wzorców i biblioteki kodu, dostępnych w Centrum IoT do zarządzania urządzeniami, Włącz toocreate IoT aplikacje, które spełniają wymagania operator IoT przedsiębiorstwa w ramach każdego etapu cyklu życia urządzenia.
+Funkcji, wzorców i bibliotek kodu udostępnianych przez usługę IoT Hub na potrzeby zarządzania urządzeniami możesz użyć do tworzenia aplikacji IoT, które spełniają wymagania operatora IoT przedsiębiorstwa na każdym etapie cyklu życia urządzenia.
 
-toocontinue poznawania hello funkcje zarządzania urządzeniami w Centrum IoT, zobacz hello [wprowadzenie do zarządzania urządzeniami] [ lnk-get-started] samouczka.
+Aby kontynuować zapoznawanie się z funkcjami zarządzania urządzeniami usługi IoT Hub, zobacz samouczek [Get started with device management][lnk-get-started] (Wprowadzenie do zarządzania urządzeniami).
 
 <!-- Images and links -->
 [img-dm_principles]: media/iot-hub-device-management-overview/image4.png

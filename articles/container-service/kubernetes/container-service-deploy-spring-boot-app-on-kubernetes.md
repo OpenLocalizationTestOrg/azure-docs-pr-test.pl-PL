@@ -1,6 +1,6 @@
 ---
-title: "aaaDeploy aplikacji rozruchu sieci Spring na Kubernetes usługi kontenera platformy Azure | Dokumentacja firmy Microsoft"
-description: "Ten samouczek przeprowadzi Cię jednak hello kroki toodeploy aplikacja Spring rozruchu w klastrze Kubernetes w systemie Microsoft Azure."
+title: "Wdrażanie aplikacji rozruchu Spring na Kubernetes w usłudze kontenera platformy Azure | Dokumentacja firmy Microsoft"
+description: "Ten samouczek przeprowadzi Cię, chociaż kroki, aby wdrożyć aplikację Spring rozruchu w Kubernetes klastra w systemie Microsoft Azure."
 services: container-service
 documentationcenter: java
 author: rmcmurray
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
-ms.openlocfilehash: 2bf9df459f874a1f478f43cdd29992d86c370837
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="deploy-a-spring-boot-application-on-a-kubernetes-cluster-in-hello-azure-container-service"></a>Wdrażanie aplikacji rozruchu Spring w klastrze Kubernetes w hello usługi kontenera platformy Azure
+# <a name="deploy-a-spring-boot-application-on-a-kubernetes-cluster-in-the-azure-container-service"></a>Wdrażanie aplikacji platformy Spring Boot w klastrze Kubernetes w usłudze Azure Container Service
 
-Witaj  **[Spring Framework]**  popularnych struktura open source, który pomaga Java deweloperom tworzenie aplikacji interfejsu API, mobilne i sieci web. W tym samouczku używana przykładowej aplikacji utworzony za pomocą [rozruchu Spring], podejście oparte na Konwencji poświęcone Spring tooget szybko rozpocząć pracę.
+ **[Spring Framework]**  popularnych struktura open source, który pomaga Java deweloperom tworzenie aplikacji interfejsu API, mobilne i sieci web. W tym samouczku używana przykładowej aplikacji utworzony za pomocą [rozruchu Spring], podejście oparte na Konwencji do szybkie rozpoczęcie pracy przy użyciu źródła.
 
-**[Kubernetes]**  i  **[Docker]**  są rozwiązania open source, które ułatwiają deweloperom automatyzację wdrażania hello, skalowania i zarządzania swoje aplikacje uruchomione w kontenerach.
+**[Kubernetes]**  i  **[Docker]**  są rozwiązania open source, które ułatwiają deweloperom automatyzację wdrażania, skalowania i zarządzania swoje aplikacje uruchomione kontenery.
 
-Ten samouczek przeprowadzi Cię, jeśli połączenie tych dwóch popularnych open source technologii toodevelop i wdrażanie rozruchu Spring tooMicrosoft aplikacji Azure. W szczególności, użyj  *[rozruchu Spring]*  przy projektowaniu aplikacji,  *[Kubernetes]*  wdrożenia kontenera i hello [Usługi kontenera platformy azure (ACS)] toohost aplikacji.
+Ten samouczek przedstawia Chociaż połączenie tych dwóch popularnych open source technologii do opracowywania i wdrażania aplikacji Spring rozruchu w systemie Microsoft Azure. W szczególności, użyj  *[rozruchu Spring]*  przy projektowaniu aplikacji,  *[Kubernetes]*  wdrożenia kontenera i [ Usługa kontenera platformy Azure (ACS)] do hostowania aplikacji.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure; Jeśli nie masz jeszcze subskrypcji platformy Azure, możesz przeprowadzić aktywację Twojej [korzyści dla subskrybentów MSDN] lub zarejestrować się w celu [bezpłatne konto platformy Azure].
-* Witaj [Azure interfejsu wiersza polecenia (CLI)].
+* [Azure interfejsu wiersza polecenia (CLI)].
 * Aktualne [Java Developer Kit (JDK)].
 * Apache na [Maven] (w wersji 3) Narzędzie kompilacji.
 * A [Git] klienta.
@@ -40,14 +40,14 @@ Ten samouczek przeprowadzi Cię, jeśli połączenie tych dwóch popularnych ope
 
 > [!NOTE]
 >
-> Ze względu na wymagania dotyczące wirtualizacji toohello tego samouczka nie można wykonać hello opisanych w tym artykule na maszynie wirtualnej; należy użyć komputera fizycznego z włączonymi funkcjami wirtualizacji.
+> Ze względu na wymagania dotyczące wirtualizacji w tym samouczku nie można wykonać kroki opisane w tym artykule na maszynie wirtualnej; należy użyć komputera fizycznego z włączonymi funkcjami wirtualizacji.
 >
 
-## <a name="create-hello-spring-boot-on-docker-getting-started-web-app"></a>Utwórz hello Spring rozruchowego na wprowadzenie Docker aplikacji sieci web
+## <a name="create-the-spring-boot-on-docker-getting-started-web-app"></a>Utwórz rozruchu Spring na wprowadzenie Docker aplikacji sieci web
 
-Witaj następujące kroki opisano tworzenie aplikacji sieci web Spring rozruchu i testowanie go lokalnie.
+W poniższych krokach objaśniono sposób tworzenia aplikacji sieci web Spring rozruchu i testowanie go lokalnie.
 
-1. Otwórz wiersz polecenia i utworzyć toohold lokalnego katalogu aplikacji i zmień katalog toothat; na przykład:
+1. Otwórz wiersz polecenia i utworzyć katalogu lokalnego do przechowywania aplikacji, przejdź do tego katalogu; na przykład:
    ```
    md C:\SpringBoot
    cd C:\SpringBoot
@@ -58,56 +58,56 @@ Witaj następujące kroki opisano tworzenie aplikacji sieci web Spring rozruchu 
    cd /users/robert/SpringBoot
    ```
 
-1. Witaj w klonowania [rozruchu Spring na wprowadzenie Docker] przykładowy projekt do katalogu hello.
+1. Klonowanie [rozruchu Spring na wprowadzenie Docker] przykładowy projekt do katalogu.
    ```
    git clone https://github.com/spring-guides/gs-spring-boot-docker.git
    ```
 
-1. Zmień katalog projektu toohello ukończone.
+1. Zmień katalog projektu zakończone.
    ```
    cd gs-spring-boot-docker
    cd complete
    ```
 
-1. Użyj Maven toobuild i wykonywania hello przykładowej aplikacji.
+1. Używanie programu Maven do tworzenia i uruchamianie przykładowej aplikacji.
    ```
    mvn package spring-boot:run
    ```
 
-1. Test aplikacji sieci web hello przechodząc toohttp://localhost:8080 lub następujący hello `curl` polecenia:
+1. Testowanie aplikacji sieci web, przechodząc do adresem http://localhost: 8080 lub z następującymi `curl` polecenia:
    ```
    curl http://localhost:8080
    ```
 
-1. Powinien zostać wyświetlony komunikat wyświetlany po hello: **Hello Docker World**
+1. Powinien zostać wyświetlony następujący komunikat wyświetlany: **Hello, World Docker**
 
    ![Przejdź do przykładowej aplikacji lokalnie][SB01]
 
-## <a name="create-an-azure-container-registry-using-hello-azure-cli"></a>Tworzenie przy użyciu interfejsu wiersza polecenia Azure hello rejestru kontenera platformy Azure
+## <a name="create-an-azure-container-registry-using-the-azure-cli"></a>Tworzenie rejestru kontenera Azure za pomocą wiersza polecenia platformy Azure
 
 1. Otwórz wiersz polecenia.
 
-1. Zaloguj się tooyour konto platformy Azure:
+1. Zaloguj się do konta platformy Azure:
    ```azurecli
    az login
    ```
 
-1. Utwórz grupę zasobów dla hello Azure zasoby używane w tym samouczku.
+1. Utwórz grupę zasobów dla zasobów platformy Azure używana w tym samouczku.
    ```azurecli
    az group create --name=wingtiptoys-kubernetes --location=eastus
    ```
 
-1. Utwórz rejestru prywatnej kontenera platformy Azure w grupie zasobów hello. Samouczek Hello wypycha hello przykładową aplikację jako rejestru toothis Docker obrazu w kolejnych krokach. Zastąp `wingtiptoysregistry` o unikatowej nazwie dla rejestru.
+1. Utwórz rejestru prywatnej kontenera platformy Azure w grupie zasobów. Samouczek wypychanie przykładową aplikację jako obraz Docker do tego rejestru w kolejnych krokach. Zastąp `wingtiptoysregistry` o unikatowej nazwie dla rejestru.
    ```azurecli
    az acr create --admin-enabled --resource-group wingtiptoys-kubernetes--location eastus \
     --name wingtiptoysregistry --sku Basic
    ```
 
-## <a name="push-your-app-toohello-container-registry"></a>Wypychanie rejestru kontenera toohello aplikacji
+## <a name="push-your-app-to-the-container-registry"></a>Wypychanie aplikację do rejestru kontenera
 
-1. Przejdź do katalogu konfiguracji toohello instalacji Maven (~/.m2/ domyślne lub C:\Users\username\.m2) i otwórz hello *settings.xml* plik w edytorze tekstów.
+1. Przejdź do katalogu konfiguracji dla tej instalacji Maven (~/.m2/ domyślne lub C:\Users\username\.m2), a następnie otwórz *settings.xml* plik w edytorze tekstów.
 
-1. Pobrać hasło hello rejestru kontenera z hello wiersza polecenia platformy Azure.
+1. Pobrać hasło do rejestru kontenera z wiersza polecenia platformy Azure.
    ```azurecli
    az acr credential show --name wingtiptoysregistry --query passwords[0]
    ```
@@ -119,8 +119,8 @@ Witaj następujące kroki opisano tworzenie aplikacji sieci web Spring rozruchu 
    }
    ```
 
-1. Dodaj z rejestru kontenera Azure id i hasła tooa nowe `<server>` kolekcji w hello *settings.xml* pliku.
-Witaj `id` i `username` są nazwa hello hello rejestru. Użyj hello `password` wartość z zakresu od poprzedniego polecenia hello (bez cudzysłowów).
+1. Dodaj identyfikator rejestru kontenera Azure i hasło na nowy `<server>` kolekcji w *settings.xml* pliku.
+`id` i `username` są nazwa rejestru. Użyj `password` wartość z zakresu od poprzedniego polecenia (bez cudzysłowów).
 
    ```xml
    <servers>
@@ -132,9 +132,9 @@ Witaj `id` i `username` są nazwa hello hello rejestru. Użyj hello `password` w
    </servers>
    ```
 
-1. Przejdź do katalogu projektu toohello ukończone aplikacji Spring rozruchu (na przykład "*C:\SpringBoot\gs-spring-boot-docker\complete*"lub"*/users/robert/SpringBoot/gs-spring-boot-docker / pełne*") i otwórz hello *pom.xml* plik w edytorze tekstów.
+1. Przejdź do katalogu projektu zakończone aplikacji Spring rozruchu (na przykład "*C:\SpringBoot\gs-spring-boot-docker\complete*"lub"*/users/robert/SpringBoot/gs-spring-boot-docker/complete* "), a następnie otwórz *pom.xml* plik w edytorze tekstów.
 
-1. Aktualizacja hello `<properties>` kolekcji w hello *pom.xml* pliku z wartością serwera logowania hello rejestru kontenera platformy Azure.
+1. Aktualizacja `<properties>` kolekcji w *pom.xml* pliku z wartością serwera logowania do rejestru kontenera platformy Azure.
 
    ```xml
    <properties>
@@ -143,7 +143,7 @@ Witaj `id` i `username` są nazwa hello hello rejestru. Użyj hello `password` w
    </properties>
    ```
 
-1. Aktualizacja hello `<plugins>` kolekcji w hello *pom.xml* pliku, który hello `<plugin>` zawiera powitania serwera adres i rejestru nazwę logowania dla rejestr kontenera platformy Azure.
+1. Aktualizacja `<plugins>` kolekcji w *pom.xml* pliku, aby `<plugin>` zawiera logowania serwera adresu rejestru nazwę i rejestru kontenera platformy Azure.
 
    ```xml
    <plugin>
@@ -166,7 +166,7 @@ Witaj `id` i `username` są nazwa hello hello rejestru. Użyj hello `password` w
    </plugin>
    ```
 
-1. Przejdź do katalogu projektu toohello ukończone aplikacji Spring rozruchu i uruchom następujące polecenie toobuild hello Docker kontenera i wypychania hello obrazu toohello rejestru hello:
+1. Przejdź do katalogu projektu zakończone aplikacji Spring rozruchu i uruchom następujące polecenie, aby utworzyć kontener Docker i Wypchnij obrazu w rejestrze:
 
    ```
    mvn package docker:build -DpushImage
@@ -174,13 +174,13 @@ Witaj `id` i `username` są nazwa hello hello rejestru. Użyj hello `password` w
 
 > [!NOTE]
 >
->  Użytkownik może zostać wyświetlony komunikat o błędzie jest podobny tooone hello następującego przypadku Maven wypchnięcia tooAzure obrazu hello:
+>  Użytkownik może zostać wyświetlony komunikat o błędzie jest podobny do jednego z następujących przypadku Maven wypchnięcia obrazu na platformie Azure:
 >
-> * `[ERROR] Failed tooexecute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: no basic auth credentials`
+> * `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: no basic auth credentials`
 >
-> * `[ERROR] Failed tooexecute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: Incomplete Docker registry authorization credentials. Please provide all of username, password, and email or none.`
+> * `[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: Incomplete Docker registry authorization credentials. Please provide all of username, password, and email or none.`
 >
-> Jeśli ten błąd wystąpi, zaloguj się za tooAzure z wiersza polecenia Docker hello.
+> Jeśli ten błąd, zaloguj się do platformy Azure z poziomu wiersza polecenia Docker.
 >
 > `docker login -u wingtiptoysregistry -p "AbCdEfGhIjKlMnOpQrStUvWxYz" wingtiptoysregistry.azurecr.io`
 >
@@ -188,59 +188,59 @@ Witaj `id` i `username` są nazwa hello hello rejestru. Użyj hello `password` w
 >
 > `docker push wingtiptoysregistry.azurecr.io/gs-spring-boot-docker`
 
-## <a name="create-a-kubernetes-cluster-on-acs-using-hello-azure-cli"></a>Tworzenie klastra Kubernetes na ACS za pomocą hello wiersza polecenia platformy Azure
+## <a name="create-a-kubernetes-cluster-on-acs-using-the-azure-cli"></a>Tworzenie klastra Kubernetes na ACS za pomocą wiersza polecenia platformy Azure
 
-1. Utwórz klaster Kubernetes usługi kontenera platformy Azure. Witaj poniższe polecenie tworzy *kubernetes* klastra w hello *wingtiptoys kubernetes* zasobów grupy z *wingtiptoys containerservice* jako klaster hello Nazwa i *wingtiptoys kubernetes* jako prefiks DNS hello:
+1. Utwórz klaster Kubernetes usługi kontenera platformy Azure. Poniższe polecenie tworzy *kubernetes* klastra w *wingtiptoys kubernetes* zasobów grupy z *wingtiptoys containerservice* jako nazwę klastra i *wingtiptoys kubernetes* jako DNS prefiksu:
    ```azurecli
    az acs create --orchestrator-type=kubernetes --resource-group=wingtiptoys-kubernetes \ 
     --name=wingtiptoys-containerservice --dns-prefix=wingtiptoys-kubernetes
    ```
-   Polecenie to może chwilę potrwać toocomplete.
+   To polecenie może zająć trochę czasu, aby zakończyć.
 
-1. Zainstaluj `kubectl` przy użyciu hello wiersza polecenia platformy Azure. Użytkownicy systemu Linux mogą mieć tooprefix, to polecenie z `sudo` ponieważ wdraża hello Kubernetes CLI zbyt`/usr/local/bin`.
+1. Zainstaluj `kubectl` przy użyciu wiersza polecenia platformy Azure. Linux użytkownicy mogą mieć do prefiksu to polecenie z `sudo` ponieważ wdrażania Kubernetes CLI `/usr/local/bin`.
    ```azurecli
    az acs kubernetes install-cli
    ```
 
-1. Pobierz informacje o konfiguracji klastra hello tak klastra można zarządzać za pomocą interfejsu sieci web Kubernetes hello i `kubectl`. 
+1. Pobierz informacje o konfiguracji klastra, klaster można zarządzać za pomocą interfejsu sieci web Kubernetes i `kubectl`. 
    ```azurecli
    az acs kubernetes get-credentials --resource-group=wingtiptoys-kubernetes  \ 
     --name=wingtiptoys-containerservice
    ```
 
-## <a name="deploy-hello-image-tooyour-kubernetes-cluster"></a>Wdrażanie klastra Kubernetes tooyour obraz powitania
+## <a name="deploy-the-image-to-your-kubernetes-cluster"></a>Wdrażanie obrazu do klastra Kubernetes
 
-W tym samouczku wdraża przy użyciu aplikacji hello `kubectl`, pozwoli Ci tooexplore hello wdrożenia za pośrednictwem interfejsu sieci web Kubernetes hello.
+W tym samouczku wdraża aplikacje przy użyciu funkcji `kubectl`, umożliwiają następnie eksplorować wdrożenia za pomocą interfejsu sieci web Kubernetes.
 
-### <a name="deploy-with-hello-kubernetes-web-interface"></a>Rozmieszczanie za pomocą interfejsu sieci web Kubernetes hello
+### <a name="deploy-with-the-kubernetes-web-interface"></a>Rozmieszczanie za pomocą interfejsu sieci web Kubernetes
 
 1. Otwórz wiersz polecenia.
 
-1. Otwórz hello konfiguracji witryny sieci Web dla klastra Kubernetes w domyślnej przeglądarce:
+1. Otwórz konfigurację witryny sieci Web dla klastra Kubernetes w domyślnej przeglądarce:
    ```
    az acs kubernetes browse --resource-group=wingtiptoys-kubernetes --name=wingtiptoys-containerservice
    ```
 
-1. Po otwarciu hello Kubernetes konfiguracji witryny sieci Web w przeglądarce, kliknij łącze hello zbyt**wdrażania konteneryzowanych aplikacji**:
+1. Po otwarciu Kubernetes konfiguracji witryny sieci Web w przeglądarce, kliknij łącze, aby **wdrażania konteneryzowanych aplikacji**:
 
    ![Kubernetes konfiguracji witryny sieci Web][KB01]
 
-1. Gdy hello **wdrażania konteneryzowanych aplikacji** zostanie wyświetlona strona, określ hello następujące opcje:
+1. Gdy **wdrażania konteneryzowanych aplikacji** zostanie wyświetlona strona, określ następujące opcje:
 
    a. Wybierz **Określ szczegóły aplikacji poniżej**.
 
-   b. Wprowadź nazwę aplikacji Spring rozruchu dla hello **Nazwa aplikacji**, na przykład: "*gs-spring — rozruchu — docker*".
+   b. Wprowadź nazwę aplikacji Spring rozruchu dla **Nazwa aplikacji**, na przykład: "*gs-spring — rozruchu — docker*".
 
-   c. Wprowadź nazwy logowania serwera i kontener obrazu z wcześniej hello **obrazu kontenera**, na przykład: "*wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*".
+   c. Wprowadź identyfikator logowania serwera i kontener obrazu z wcześniej **obrazu kontenera**, na przykład: "*wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest*".
 
-   d. Wybierz **zewnętrznych** dla hello **usługi**.
+   d. Wybierz **zewnętrznych** dla **usługi**.
 
-   e. Określ sieci zewnętrznych i wewnętrznych portów w hello **portu** i **docelowy port** pól tekstowych.
+   e. Określ sieci zewnętrznych i wewnętrznych portów w **portu** i **docelowy port** pól tekstowych.
 
    ![Kubernetes konfiguracji witryny sieci Web][KB02]
 
 
-1. Kliknij przycisk **Wdróż** toodeploy hello kontenera.
+1. Kliknij przycisk **Wdróż** celu wdrożenia kontenera.
 
    ![Wdrażanie kontenera][KB05]
 
@@ -248,7 +248,7 @@ W tym samouczku wdraża przy użyciu aplikacji hello `kubectl`, pozwoli Ci tooex
 
    ![Kubernetes usług][KB06]
 
-1. Po kliknięciu łącza hello **zewnętrzne punkty końcowe**, zobaczysz rozruchu Spring aplikacji działających na platformie Azure.
+1. Jeśli klikniesz link do **zewnętrzne punkty końcowe**, zobaczysz rozruchu Spring aplikacji działających na platformie Azure.
 
    ![Kubernetes usług][KB07]
 
@@ -259,31 +259,31 @@ W tym samouczku wdraża przy użyciu aplikacji hello `kubectl`, pozwoli Ci tooex
 
 1. Otwórz wiersz polecenia.
 
-1. Uruchom z kontenera hello Kubernetes klastra przy użyciu hello `kubectl run` polecenia. Nadaj nazwę usługi dla aplikacji na Kubernetes i hello pełnego obrazu. Na przykład:
+1. Uruchom z kontenera w klastrze Kubernetes przy użyciu `kubectl run` polecenia. Nadaj nazwę usługi dla aplikacji na Kubernetes i nazwę pełnego obrazu. Na przykład:
    ```
    kubectl run gs-spring-boot-docker --image=wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest
    ```
    W tym poleceniu:
 
-   * Nazwa kontenera Hello `gs-spring-boot-docker` określono natychmiast po hello `run` polecenia
+   * Nazwa kontenera `gs-spring-boot-docker` określono natychmiast po `run` polecenia
 
-   * Witaj `--image` parametr określa hello połączone nazwy logowania serwera i nazwa obrazu jako`wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest`
+   * `--image` Parametr określa nazwę serwera i obrazu połączonego logowania jako`wingtiptoysregistry.azurecr.io/gs-spring-boot-docker:latest`
 
-1. Udostępnianie klastra Kubernetes zewnętrznie, używając hello `kubectl expose` polecenia. Określ nazwę usługi, hello publicznych TCP port używany tooaccess hello aplikacji i hello wewnętrzny docelowy port, którego nasłuchuje aplikacji. Na przykład:
+1. Udostępnianie klastra Kubernetes zewnętrznie przy użyciu `kubectl expose` polecenia. Określ nazwę usługi, port TCP publicznych umożliwiają dostęp do aplikacji i port docelowy wewnętrznego, które nasłuchuje aplikacja. Na przykład:
    ```
    kubectl expose deployment gs-spring-boot-docker --type=LoadBalancer --port=80 --target-port=8080
    ```
    W tym poleceniu:
 
-   * Nazwa kontenera Hello `gs-spring-boot-docker` określono natychmiast po hello `expose deployment` polecenia
+   * Nazwa kontenera `gs-spring-boot-docker` określono natychmiast po `expose deployment` polecenia
 
-   * Witaj `--type` parametr określa klastra hello używa modułu równoważenia obciążenia
+   * `--type` Parametr określa, że klaster używa modułu równoważenia obciążenia
 
-   * Witaj `--port` parametr określa hello publicznych port TCP 80. Możesz uzyskać dostępu do aplikacji hello na tym porcie.
+   * `--port` Parametr określa publicznych port TCP 80. Możesz uzyskać dostępu do aplikacji na tym porcie.
 
-   * Witaj `--target-port` parametr określa hello wewnętrznego portu TCP 8080. Moduł równoważenia obciążenia Hello przekazuje żądania tooyour aplikacji na tym porcie.
+   * `--target-port` Parametr określa wewnętrzny port TCP 8080. Moduł równoważenia obciążenia przekazuje żądania do aplikacji na tym porcie.
 
-1. Po wdrożeniu aplikacji hello klastra toohello zapytania hello zewnętrzny adres IP i otworzyć go w przeglądarce sieci web:
+1. Po wdrożeniu aplikacji do klastra, zapytania zewnętrzny adres IP, a następnie otwórz go w przeglądarce sieci web:
 
    ```
    kubectl get services -o jsonpath={.items[*].status.loadBalancer.ingress[0].ip} --namespace=${namespace}
@@ -294,41 +294,41 @@ W tym samouczku wdraża przy użyciu aplikacji hello `kubectl`, pozwoli Ci tooex
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat Spring rozruch przy użyciu na platformie Azure zobacz następujące artykuły hello:
+Aby uzyskać więcej informacji na temat Spring rozruch przy użyciu na platformie Azure zobacz następujące artykuły:
 
-* [Wdrażanie aplikacji rozruchu Spring toohello usłudze Azure App Service](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
-* [Wdrażanie aplikacji Spring rozruchu w systemie Linux w hello usługi kontenera platformy Azure](container-service-deploy-spring-boot-app-on-linux.md)
+* [Wdrażanie aplikacji rozruchu Spring w usłudze Azure App Service](../../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
+* [Wdrażanie aplikacji Spring rozruchu w systemie Linux w usłudze kontenera platformy Azure](container-service-deploy-spring-boot-app-on-linux.md)
 
-Aby uzyskać więcej informacji o korzystaniu z językiem Java Azure, zobacz hello [Azure Java Developer Center] i hello [Java Tools for Visual Studio Team Services].
+Aby uzyskać więcej informacji o używaniu platformy Azure z językiem Java, zobacz [Centrum deweloperów języka Java dla platformy Azure] i [Java Tools for Visual Studio Team Services] (Narzędzia języka Java dla usługi Visual Studio Team Services).
 
-Aby uzyskać więcej informacji na temat hello Spring rozruchu na Docker przykładowy projekt, zobacz [rozruchu Spring na wprowadzenie Docker].
+Aby uzyskać więcej informacji na temat rozruchu Spring na Docker przykładowy projekt, zobacz [rozruchu Spring na wprowadzenie Docker].
 
-Witaj następującego łącza znajdują się dodatkowe informacje o tworzeniu aplikacji Spring rozruchu:
+Poniższe linki udostępniają dodatkowe informacje na temat tworzenia aplikacji Spring rozruchu:
 
-* Aby uzyskać więcej informacji dotyczących tworzenia prostej aplikacji Spring rozruchu Zobacz hello Spring Initializr na https://start.spring.io/.
+* Aby uzyskać więcej informacji dotyczących tworzenia prostej aplikacji Spring rozruchu Zobacz Initializr Spring na https://start.spring.io/.
 
-Witaj poniższe linki udostępniają dodatkowe informacje dotyczące korzystania z usługi Azure Kubernetes:
+Poniższe linki udostępniają dodatkowe informacje dotyczące korzystania z usługi Azure Kubernetes:
 
 * [Rozpoczynanie pracy z klastrem Kubernetes w usłudze kontenera](https://docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough)
-* [Przy użyciu hello Kubernetes interfejs użytkownika sieci web z usługi kontenera platformy Azure](https://docs.microsoft.com/azure/container-service/container-service-kubernetes-ui)
+* [Przy użyciu interfejsu użytkownika sieci web Kubernetes z usługi kontenera platformy Azure](https://docs.microsoft.com/azure/container-service/container-service-kubernetes-ui)
 
-Więcej informacji na temat przy użyciu interfejsu wiersza polecenia Kubernetes jest dostępna w hello **kubectl** Podręcznik użytkownika w <https://kubernetes.io/docs/user-guide/kubectl/>.
+Więcej informacji na temat przy użyciu interfejsu wiersza polecenia Kubernetes jest dostępna w **kubectl** Podręcznik użytkownika w <https://kubernetes.io/docs/user-guide/kubectl/>.
 
-Witaj Kubernetes witryny sieci Web ma kilka artykuł, w którym omówiono w nim przy użyciu obrazów w rejestrach prywatnych:
+Kubernetes witryny sieci Web ma kilka artykuł, w którym omówiono w nim przy użyciu obrazów w rejestrach prywatnych:
 
 * [Konfigurowanie usługi konta dla stanowiskami]
 * [Przestrzenie nazw]
 * [Ściąganie obrazu z rejestru prywatnych]
 
-Aby uzyskać dodatkowe przykłady sposobu toouse Docker niestandardowe obrazy z platformy Azure, zobacz [dla aplikacji sieci Web platformy Azure w systemie Linux przy użyciu niestandardowego obrazu Docker].
+Dodatkowe przykłady korzystania z platformy Azure, niestandardowe obrazy usługi Docker można znaleźć [dla aplikacji sieci Web platformy Azure w systemie Linux przy użyciu niestandardowego obrazu Docker].
 
 <!-- URL List -->
 
 [Azure interfejsu wiersza polecenia (CLI)]: /cli/azure/overview
-[Usługi kontenera platformy azure (ACS)]: https://azure.microsoft.com/services/container-service/
-[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[ Usługa kontenera platformy Azure (ACS)]: https://azure.microsoft.com/services/container-service/
+[Centrum deweloperów języka Java dla platformy Azure]: https://azure.microsoft.com/develop/java/
 [Azure portal]: https://portal.azure.com/
-[Create a private Docker container registry using hello Azure portal]: /azure/container-registry/container-registry-get-started-portal
+[Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [dla aplikacji sieci Web platformy Azure w systemie Linux przy użyciu niestandardowego obrazu Docker]: /azure/app-service-web/app-service-linux-using-custom-docker-image
 [Docker]: https://www.docker.com/
 [bezpłatne konto platformy Azure]: https://azure.microsoft.com/pricing/free-trial/

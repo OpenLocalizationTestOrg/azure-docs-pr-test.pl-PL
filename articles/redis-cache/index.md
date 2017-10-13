@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Redis pamięć podręczna dokumentacji — samouczki, dokumentacja interfejsu API | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse pamięć podręczna Redis Azure, zabezpieczanie danych w pamięci podręcznej i brokera obsługi komunikatów, zapewniająca aplikacji szybkiego dostępu do toodata. Samouczki, dokumentacja interfejsu API i inne materiały."
+title: "Dokumentacja usługi Azure Redis Cache — samouczki i dokumentacja interfejsu API | Microsoft Docs"
+description: "Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pamięci podręcznej danych i komunikatów, który zapewnia aplikacjom szybki dostęp do danych. Samouczki, dokumentacja interfejsu API i inne materiały."
 services: redis-cache
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 1344e242321b84fe2fbd3bc466a3cb82aba177f4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="redis-cache-documentation"></a>Dokumentacja usługi Redis Cache
 
-Dowiedz się, jak toouse pamięć podręczna Redis Azure, zabezpieczanie danych w pamięci podręcznej i obsługi komunikatów brokera, która zapewnia wysoką wydajnością i małych opóźnieniach dostępu toodata aplikacji. Samouczki, odwołania do interfejsu API i dokumentacji przedstawia sposób toouse pamięci podręcznej Redis z poziomu dowolnej aplikacji na platformie Azure.
+Dowiedz się, jak używać usługi Azure Redis Cache, bezpiecznego brokera pamięci podręcznej danych i komunikatów, który zapewnia aplikacjom dostęp do danych o dużej przepustowości i małych opóźnieniach. W samouczkach, dokumentacji interfejsu API i innych dokumentach pokazano, jak używać usługi Redis Cache z poziomu dowolnej aplikacji na platformie Azure.
 
 <ul class="panelContent cardsFTitle">
     <li>

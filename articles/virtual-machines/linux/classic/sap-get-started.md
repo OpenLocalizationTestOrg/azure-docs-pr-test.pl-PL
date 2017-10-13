@@ -1,5 +1,5 @@
 ---
-title: aaaUsing SAP na maszynach wirtualnych systemu Linux | Dokumentacja firmy Microsoft
+title: "W przypadku maszyn wirtualnych systemu Linux przy użyciu SAP | Dokumentacja firmy Microsoft"
 description: "Informacje na temat używania rozwiązań SAP na maszynach wirtualnych z systemem Linux | Microsoft Azure"
 services: virtual-machines-linux,virtual-network,storage
 documentationcenter: saponazure
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sedusch
-ms.openlocfilehash: a805cdecb515239057e185a92bf5c4d4e707f72f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 078865245989578d17b6eb0b59b379aa2056f31c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-sap-on-linux-virtual-machines-in-azure"></a>W przypadku maszyn wirtualnych systemu Linux na platformie Azure przy użyciu SAP
-Chmura obliczeniowa terminem powszechnie używane, który jest uzyskanie coraz więcej znaczenia w ramach hello branży IT z małych firm się toolarge i wielonarodowych firmy. Microsoft Azure to hello platformy usług w chmurze firmy Microsoft, która oferuje szeroką gamę nowe możliwości. Teraz klienci są toorapidly może udostępnić i usuwanie aplikacji jako usługi w chmurze, więc nie są ograniczone tootechnical lub ograniczeń budżetowych. Zamiast inwestowanie czas i pieniądze na infrastrukturę sprzętu, firmy mogą skupić się na aplikacji hello, procesy biznesowe i korzyści dla klientów i użytkowników.
+Chmura obliczeniowa jest szeroko używanych terminem, który zyskuje coraz większe znaczenie w branży IT, od małych firm po duże i międzynarodowe korporacje. Microsoft Azure to platforma usług w chmurze firmy Microsoft oferująca szerokie spektrum nowych możliwości. Obecnie użytkownicy mogą szybko aprowizować zasoby jako usługi w chmurze i anulować ich aprowizację, dzięki czemu nie muszą przejmować się ograniczeniami technicznymi czy budżetowymi. Zamiast inwestować czas i budżet w infrastrukturę sprzętową firmy mogą skoncentrować się na aplikacjach, procesie biznesowym oraz korzyściach dla swoich klientów i użytkowników.
 
-Maszynom wirtualnym Microsoft Azure firma Microsoft oferuje kompleksowe infrastruktura jako usługa (IaaS) platformy. Aplikacje oparte na oprogramowaniu SAP NetWeaver są obsługiwane w usłudze Azure Virtual Machines (IaaS). oficjalne dokumenty Hello poniżej opisano, jak tooplan i wdrożenia SAP NetWeaver aplikacji opartych na maszynach wirtualnych systemu Windows na platformie Azure. Można też wdrożyć aplikacje SAP NetWeaver oparte na [maszyn wirtualnych Windows](../../windows/classic/sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Maszynom wirtualnym Microsoft Azure firma Microsoft oferuje kompleksowe infrastruktura jako usługa (IaaS) platformy. Aplikacje oparte na oprogramowaniu SAP NetWeaver są obsługiwane w usłudze Azure Virtual Machines (IaaS). Oficjalne dokumenty poniżej opisano, jak zaplanować i wdrożyć aplikacje SAP NetWeaver oparte na maszynach wirtualnych systemu Windows na platformie Azure. Można też wdrożyć aplikacje SAP NetWeaver oparte na [maszyn wirtualnych Windows](../../windows/classic/sap-get-started.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-sap-get-started](../../../../includes/virtual-machines-common-classic-sap-get-started.md)]
 
 ## <a name="sap-netweaver-on-azure-suse-linux-virtual-machines"></a>SAP NetWeaver na maszynach wirtualnych Azure SUSE Linux
-title: aaaTesting SAP NetWeaver na maszynach wirtualnych programu Microsoft Azure SUSE Linux
+Nazwa: Testowanie SAP NetWeaver na maszynach wirtualnych systemu Linux SUSE platformy Microsoft Azure
 
-Podsumowanie: Nie jest oficjalną SAP obsługiwane w tym momencie uruchamiania SAP NetWeaver na maszynach wirtualnych systemu Linux platformy Azure. Niemniej jednak klientów może być toodo niektórych testów lub rozważyć toorun pokaz lub szkolenia systemów SAP na maszynach wirtualnych systemu Linux Azure tak długo, jak nie istnieje potrzeba kontaktu z działem pomocy technicznej SAP. W tym artykule należy pomocy przy konfigurowaniu maszynach wirtualnych platformy Azure SUSE Linux do uruchamiania programu SAP i daje niektóre podstawowe wskazówki w kolejności tooavoid wspólnej potencjalne pułapki związane z.
+Podsumowanie: Nie jest oficjalną SAP obsługiwane w tym momencie uruchamiania SAP NetWeaver na maszynach wirtualnych systemu Linux platformy Azure. Niemniej jednak klientów może być przeprowadzenie niektórych testów lub rozważyć do uruchamiania pokaz SAP lub systemy na maszynach wirtualnych systemu Linux platformy Azure, pod warunkiem, nie istnieje potrzeba kontaktu z działem pomocy technicznej SAP. W tym artykule należy pomocy przy konfigurowaniu maszynach wirtualnych platformy Azure SUSE Linux do uruchamiania programu SAP i daje niektóre podstawowe wskazówki w celu uniknięcia typowych potencjalne pułapki związane.
 
 Zaktualizowano: Grudnia 2015 r.
 

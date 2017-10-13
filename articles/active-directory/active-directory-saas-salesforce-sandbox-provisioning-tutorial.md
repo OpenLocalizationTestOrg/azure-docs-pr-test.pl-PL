@@ -1,6 +1,6 @@
 ---
 title: 'Samouczek: Integracji Azure Active Directory z piaskownicy Salesforce | Dokumentacja firmy Microsoft'
-description: "Dowiedz się, jak tooconfigure logowanie jednokrotne między usługą Azure Active Directory i usług Salesforce piaskownicy."
+description: "Informacje o sposobie konfigurowania rejestracji jednokrotnej między usługą Azure Active Directory i usług Salesforce piaskownicy."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,97 +13,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 06ff50050845383a602b0edd6fca953ddd37cebd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d3c655a754f83284c386d2007c604a731367814
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie piaskownicy Salesforce użytkownika automatycznego inicjowania obsługi administracyjnej.
 
-Celem Hello tego samouczka jest tooshow hello czynności, które należy tooperform w piaskownicy Salesforce i Azure AD tooautomatically udostępniania i usuwanie kont użytkowników z usługi Azure AD tooSalesforce piaskownicy.
+Celem tego samouczka jest opisano czynności, które należy wykonać w piaskownicy Salesforce i Azure AD, aby automatycznie zapewnianie i usuwanie kont użytkowników z usługi Azure AD do usługi Salesforce piaskownicy.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Scenariusz Hello opisane w tym samouczku założono, że już hello następujące elementy:
+Scenariusz opisany w tym samouczku założono, że już następujące elementy:
 
 *   Dzierżawy usługi Azure Active directory.
 *   Musi mieć prawidłową dzierżawy piaskownicy Salesforce pracy lub Salesforce piaskownicy dla instytucji edukacyjnych. Można użyć bezpłatnego konta wersji próbnej dla każdej usługi.
 *   Konto użytkownika w piaskownicy usługi Salesforce z uprawnieniami administratora zespołu.
 
-## <a name="assigning-users-toosalesforce-sandbox"></a>Przypisywanie użytkowników tooSalesforce piaskownicy
+## <a name="assigning-users-to-salesforce-sandbox"></a>Przypisywanie użytkowników do usługi Salesforce piaskownicy
 
-Azure Active Directory korzysta z koncepcji o nazwie "przypisania" toodetermine użytkowników, którzy mają otrzymywać aplikacje tooselected dostępu. W kontekście hello Inicjowanie obsługi konta użytkowników tylko hello użytkowników i grup, które zostały "przypisane" tooan aplikacji w usłudze Azure AD są synchronizowane.
+Usługi Azure Active Directory używa pojęcie o nazwie "przypisania" w celu określenia, którzy użytkownicy powinien otrzymać dostęp do wybranej aplikacji. W kontekście użytkownika automatyczne Inicjowanie obsługi konta tylko użytkownicy i grupy, które "przypisano" do aplikacji w usłudze Azure AD są synchronizowane.
 
-Przed Skonfiguruj i Włącz hello usługi inicjowania obsługi administracyjnej, należy toodecide jakie użytkowników i/lub grup w usłudze Azure AD reprezentują hello użytkowników, którzy wymagają dostępu tooyour aplikacji Salesforce piaskownicy. Po decyzję, wykonując instrukcje hello w tym miejscu można przypisać te tooyour użytkowników aplikacji Salesforce piaskownicy:
+Przed Skonfiguruj i włącz usługę inicjowania obsługi administracyjnej, należy zdecydować, jakie użytkownicy i/lub grup w usłudze Azure AD reprezentują użytkowników, którzy potrzebują dostępu do aplikacji Salesforce piaskownicy. Po decyzję, postępując zgodnie z instrukcjami w tym miejscu można przypisać tych użytkowników do aplikacji Salesforce piaskownicy:
 
-[Przypisywanie użytkownikowi lub grupie aplikacji przedsiębiorstwa tooan](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Przypisanie użytkownika lub grupę do aplikacji w przedsiębiorstwie](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toosalesforce-sandbox"></a>Ważne porady dotyczące przypisywania użytkowników tooSalesforce piaskownicy
+### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Ważne porady dotyczące przypisywania użytkowników do usługi Salesforce piaskownicy
 
-* Zalecane jest jeden użytkownik usługi Azure AD jest przypisany hello tootest piaskownicy tooSalesforce inicjowania obsługi konfiguracji. Później można przypisać dodatkowych użytkowników i/lub grup.
+* Zalecane jest pojedynczego użytkownika usługi Azure AD jest przypisana do piaskownicy usług Salesforce, aby przetestować konfigurację inicjowania obsługi administracyjnej. Później można przypisać dodatkowych użytkowników i/lub grup.
 
-* Podczas przypisywania tooSalesforce użytkownika piaskownicy, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" Hello nie działa w przypadku inicjowania obsługi administracyjnej.
+* Przypisanie użytkownika do piaskownicy Salesforce, musisz wybrać poprawnej roli użytkownika. Rola "Domyślnego dostępu" nie działa w przypadku inicjowania obsługi administracyjnej.
 
 > [!NOTE]
-> Ta aplikacja importuje role niestandardowe w piaskownicy Salesforce jako część procesu, który powitania klienta może być tooselect, przypisując użytkownikom udostępniania hello.
+> Ta aplikacja importuje role niestandardowe w piaskownicy Salesforce jako część procesu inicjowania obsługi administracyjnej klienta może chcesz wybrać podczas przypisywania użytkowników.
 
 ## <a name="enable-automated-user-provisioning"></a>Włącz automatyczne Inicjowanie obsługi użytkowników
 
-Ta sekcja przeprowadzi Cię przez łączenie inicjowania obsługi interfejsu API konta użytkownika piaskownicy tooSalesforce usługi Azure AD i konfigurowanie hello inicjowania obsługi usługi toocreate, zaktualizować, a następnie wyłącz przypisany użytkownik, który kont w piaskownicy Salesforce na podstawie użytkownika i grupy przypisania w usłudze Azure AD.
+Ta sekcja przeprowadzi Cię przez łączenie usługi Azure AD z konta użytkownika usługi Salesforce piaskownicy inicjowania obsługi interfejsu API i konfigurowanie usługi inicjowania obsługi administracyjnej do tworzenia, aktualizacji i wyłączania przypisany użytkownik, który kont w piaskownicy Salesforce na podstawie użytkownika i grupy przypisania w usłudze Azure AD.
 
 >[!Tip]
->Można też tooenabled na języku SAML logowania jednokrotnego dla piaskownicy Salesforce, po hello instrukcje podane w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
+>Można też włączone na języku SAML logowania jednokrotnego dla piaskownicy Salesforce, postępując zgodnie z instrukcjami zawarte w [portalu Azure](https://portal.azure.com). Logowanie jednokrotne można skonfigurować niezależnie od automatycznego inicjowania obsługi administracyjnej, chociaż te dwie funkcje uzupełniania siebie nawzajem.
 
-### <a name="tooconfigure-automatic-user-account-provisioning"></a>tooconfigure użytkownika automatyczne Inicjowanie obsługi konta:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Aby skonfigurować konto użytkownika automatycznego inicjowania obsługi administracyjnej:
 
-Celem Hello w tej sekcji jest toooutline jak tooenable użytkownika usługi Active Directory Inicjowanie obsługi użytkowników kont tooSalesforce piaskownicy.
+Celem tej sekcji jest przedstawiają sposób włączania kont użytkowników usługi Active Directory do usługi Salesforce piaskownicy Inicjowanie obsługi użytkowników.
 
-1. W hello [portalu Azure](https://portal.azure.com), Przeglądaj toohello **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
+1. W [portalu Azure](https://portal.azure.com), przejdź do **usługi Azure Active Directory > aplikacje przedsiębiorstwa > wszystkie aplikacje** sekcji.
 
-2. Salesforce piaskownicy został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpieniem piaskownicy Salesforce za pomocą hello pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **piaskownicy Salesforce** w galerii aplikacji hello. Wybierz piaskownicy usługi Salesforce z wyników wyszukiwania hello i dodać tooyour listy aplikacji.
+2. Salesforce piaskownicy został już skonfigurowany dla logowania jednokrotnego, wyszukaj wystąpieniem piaskownicy Salesforce za pomocą pola wyszukiwania. W przeciwnym razie wybierz **Dodaj** i wyszukaj **piaskownicy Salesforce** w galerii aplikacji. Wybierz piaskownicy usługi Salesforce z wyników wyszukiwania i dodaj go do listy aplikacji.
 
-3. Wybierz wystąpienie usługi Salesforce piaskownicy, a następnie wybierz hello **inicjowania obsługi administracyjnej** kartę.
+3. Wybierz wystąpienie usługi Salesforce piaskownicy, a następnie wybierz **inicjowania obsługi administracyjnej** kartę.
 
-4. Zestaw hello **inicjowania obsługi trybu** za**automatyczne**. 
+4. Ustaw **tryb obsługi administracyjnej** do **automatyczne**. 
     ![Inicjowanie obsługi administracyjnej](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
-5. W obszarze hello **poświadczeń administratora** sekcji, podaj hello następujące ustawienia konfiguracji:
+5. W obszarze **poświadczeń administratora** sekcji, skonfiguruj następujące ustawienia konfiguracji:
    
-    a. W hello **nazwa użytkownika administratora** tekstowym, wpisz nazwę, która ma hello konta piaskownicy Salesforce **administratorem** profilu w witrynie Salesforce.com przypisane.
+    a. W **nazwa użytkownika administratora** tekstowym, wpisz nazwę, która ma konto Salesforce piaskownicy **administratorem** profilu w witrynie Salesforce.com przypisane.
    
-    b. W hello **hasło administratora** tekstowym, wpisz hello hasło dla tego konta.
+    b. W **hasło administratora** tekstowym, wpisz hasło dla tego konta.
 
-6. tooget Twojego tokenu zabezpieczającego usług Salesforce piaskownicy, otwórz nową kartę i zaloguj się hello samo konto administratora usług Salesforce piaskownicy. Na powitania prawym górnym rogu strony hello, kliknij swoją nazwę, a następnie kliknij przycisk **Moje ustawienia**.
+6. Aby uzyskać token zabezpieczeń piaskownicy Salesforce, otwórz nową kartę i zaloguj do tego samego konta administratora usługi Salesforce piaskownicy. W prawym górnym rogu strony, kliknij swoją nazwę, a następnie kliknij **Moje ustawienia**.
 
      ![Włącz inicjowanie obsługi użytkowników](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Włącz inicjowanie obsługi użytkowników")
-7. W okienku nawigacji po lewej stronie powitania kliknij **osobistych** tooexpand hello powiązanych sekcji, a następnie kliknij przycisk **zresetować moje tokenu zabezpieczeń**.
+7. W lewym okienku nawigacji, kliknij polecenie **osobistych** rozwiń sekcję powiązane, a następnie kliknij przycisk **zresetować moje tokenu zabezpieczeń**.
   
     ![Włącz inicjowanie obsługi użytkowników](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Włącz inicjowanie obsługi użytkowników")
-8. Na powitania **zresetować moje tokenu zabezpieczeń** kliknij przycisk hello **zresetować tokenu zabezpieczeń** przycisku.
+8. Na **zresetować moje tokenu zabezpieczeń** kliknij przycisk **zresetować tokenu zabezpieczeń** przycisku.
 
     ![Włącz inicjowanie obsługi użytkowników](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Włącz inicjowanie obsługi użytkowników")
-9. Sprawdź skrzynki odbiorczej poczty e-mail hello skojarzone z tym kontem administratora. Poszukaj wiadomości e-mail z Salesforce Sandbox.com, zawierający hello nowy token zabezpieczający.
-10. Skopiuj hello tokenu, przejdź do pozycji tooyour okno usługi Azure AD i wklej go do hello **gniazda tokenu** pola.
+9. Sprawdź skrzynki odbiorczej poczty e-mail, skojarzone z tym kontem administratora. Poszukaj wiadomości e-mail z Salesforce Sandbox.com, który zawiera nowy token zabezpieczający.
+10. Skopiuj token, przejdź do okna usługi Azure AD i wklej ją do **gniazda tokenu** pola.
 
-11. W portalu Azure hello, kliknij przycisk **Testuj połączenie** tooensure usługi Azure AD mogą się łączyć tooyour aplikacji Salesforce piaskownicy.
+11. W portalu Azure kliknij **Testuj połączenie** zapewniające usługi Azure AD mogą łączyć się z aplikacji Salesforce piaskownicy.
 
-12. W hello **wiadomość E-mail z powiadomieniem** wprowadź hello adres e-mail osoby lub grupy, który powinien otrzymywać powiadomienia błąd inicjowania obsługi administracyjnej i zaznacz pole wyboru hello.
+12. W **wiadomość E-mail z powiadomieniem** wprowadź adres e-mail osoby lub grupy, który powinien otrzymywać powiadomienia błąd inicjowania obsługi administracyjnej i zaznacz pole wyboru.
 
 13. Kliknij przycisk **zapisać.**  
     
-14.  W obszarze hello sekcji mapowania, wybierz **tooSalesforce synchronizacji Azure Active Directory użytkowników piaskownicy.**
+14.  W sekcji mapowania wybierz **synchronizacji Azure użytkownicy usługi Active Directory do usługi Salesforce piaskownicy.**
 
-15. W hello **mapowań atrybutów** Przejrzyj hello atrybutów użytkowników, które są synchronizowane z usługą Azure AD tooSalesforce piaskownicy. Witaj atrybuty wybrany jako **pasujące** właściwości są używane toomatch kont użytkowników hello w piaskownicy Salesforce dla operacji update. Wybierz toocommit przycisk Zapisz hello wszelkie zmiany.
+15. W **mapowań atrybutów** Przejrzyj atrybuty użytkowników, które są synchronizowane z usługi Azure AD do usługi Salesforce piaskownicy. Atrybuty wybrany jako **pasujące** właściwości są używane do dopasowania kont użytkowników w piaskownicy Salesforce dla operacji update. Wybierz przycisk Zapisz, aby zatwierdzić zmiany.
 
-16. tooenable hello inicjowania obsługi usługi Azure AD dla piaskownicy Salesforce, zmień hello **stan inicjowania obsługi administracyjnej** za**na** w sekcji Ustawienia hello
+16. Aby włączyć usługi Azure AD usługi Salesforce piaskownica inicjowania obsługi administracyjnej, zmień **stan inicjowania obsługi administracyjnej** do **na** w sekcji Ustawienia
 
 17. Kliknij przycisk **zapisać.**
 
 
-Rozpoczyna hello wstępnej synchronizacji użytkowników i/lub grupy przypisane tooSalesforce piaskownicy w sekcji hello użytkowników i grup. Witaj początkowej synchronizacji ma tooperform dłużej niż kolejne synchronizacje, które występują co około 20 minut, tak długo, jak działa usługa hello. Można użyć hello **szczegóły synchronizacji** sekcji postępu toomonitor i wykonaj łącza tooprovisioning działania raporty, które opisują wszystkie działania wykonywane przez hello świadczenie usługi w aplikacji Salesforce piaskownicy.
+Rozpoczyna się wstępnej synchronizacji użytkowników i/lub grupy przypisane do piaskownicy Salesforce w sekcji Użytkownicy i grupy. Synchronizacji początkowej zajmuje więcej czasu wykonywania niż kolejne synchronizacje, występujące co około 20 minut, tak długo, jak usługa jest uruchomiona. Można użyć **szczegóły synchronizacji** sekcji, aby monitorować postęp i skorzystaj z linków do inicjowania obsługi administracyjnej raporty działania, które opisują wszystkie akcje wykonywane przez usługę inicjowania obsługi administracyjnej w aplikacji Salesforce piaskownicy.
 
-Można teraz utworzyć konta testowego. Poczekaj na górę minut too20 tooverify, który hello konto zostało zsynchronizowane toosalesforce.
+Można teraz utworzyć konta testowego. Poczekaj maksymalnie 20 minut, aby sprawdzić, czy konto zostało zsynchronizowane z usług salesforce.
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 

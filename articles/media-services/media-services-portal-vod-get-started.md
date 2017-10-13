@@ -1,6 +1,6 @@
 ---
-title: "wprowadzenie do dostarczania VoD przy użyciu portalu Azure hello aaaGet | Dokumentacja firmy Microsoft"
-description: "Ten samouczek przedstawia kroki wdrażania podstawowej usługi dostarczania zawartości wideo na żądanie (VoD) z aplikacją Azure Media Services (AMS) przy użyciu portalu Azure hello hello."
+title: "Wprowadzenie do dostarczania wideo na żądanie przy użyciu witryny Azure Portal | Microsoft Docs"
+description: "W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie za pomocą aplikacji usługi Azure Media Services w witrynie Azure Portal."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,156 +14,145 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5c1c1b1f74ec1f1301120fe8e5a5ae183fe0338f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fb981f3240799c924464c828b2c835ac5d9879ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-hello-azure-portal"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu hello portalu Azure
+# <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Wprowadzenie do dostarczania zawartości na żądanie przy użyciu witryny Azure Portal
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Ten samouczek przedstawia kroki wdrażania podstawowej usługi dostarczania zawartości wideo na żądanie (VoD) z aplikacją Azure Media Services (AMS) przy użyciu portalu Azure hello hello.
+W tym samouczku przedstawiono kolejne kroki wdrażania podstawowej usługi do dostarczania zawartości wideo na żądanie za pomocą aplikacji usługi Azure Media Services w witrynie Azure Portal.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-Samouczek hello toocomplete wymagane są następujące Hello:
+Do ukończenia tego samouczka są niezbędne następujące elementy:
 
-* Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Konto usługi Media Services. Zobacz toocreate konto usługi Media Services [jak tooCreate konta usługi Media Services](media-services-portal-create-account.md).
+* Konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bezpłatna wersja próbna systemu Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Konto usługi Media Services. Aby utworzyć konto usługi Media Services, zobacz [How to create a Media Services account](media-services-portal-create-account.md) (Jak utworzyć konto usługi Media Services).
 
-W tym samouczku opisano hello następujące zadania:
+W tym samouczku opisano następujące zadania:
 
 1. Uruchamianie punktu końcowego przesyłania strumieniowego.
 2. Ładowanie pliku wideo.
-3. Kodowanie pliku źródłowego hello do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów.
-4. Publikowanie zawartości hello i get przesyłania strumieniowego i pobierania progresywnego adresów URL.  
+3. Kodowanie pliku źródłowego do zestawu plików MP4 z adaptacyjną szybkością transmisji bitów.
+4. Publikowanie elementu zawartości i uzyskiwanie adresów URL na potrzeby przesyłania strumieniowego i pobierania progresywnego.  
 5. Odtwarzanie zawartości.
 
-## <a name="start-streaming-endpoints"></a>Uruchamianie punktu końcowego przesyłania strumieniowego 
+## <a name="start-the-streaming-endpoint"></a>Uruchamianie punktu końcowego przesyłania strumieniowego
 
-Podczas pracy w usłudze Azure Media Services jednym z hello najbardziej typowych scenariuszy jest dostarczanie plików wideo przy użyciu przesyłania strumieniowego adaptacyjną szybkością transmisji bitów. Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów, co pozwala toodeliver adaptacyjnej szybkości bitowej MP4 zakodowane zawartości w formatach transmisji strumieniowej obsługiwanych przez usługi Media Services (MPEG DASH, HLS, Smooth Streaming) just-in-time, bez konieczności toostore wstępnie umieszczone wersje każdego z tych formatach.
+Podczas pracy w usłudze Azure Media Services jednym z najbardziej typowych scenariuszy jest dostarczanie wideo za pośrednictwem przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów. Usługa Media Services udostępnia funkcję dynamicznego tworzenia pakietów. Dzięki funkcji dynamicznego tworzenia pakietów można dostarczać zawartość MP4 z adaptacyjną szybkością transmisji bitów w formatach przesyłania strumieniowego „just-in-time”, które są obsługiwane przez usługę Media Services. Przykłady obejmują formaty Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming i Dynamic Adaptive Streaming over HTTP (DASH, nazywany także MPEG-DASH). Używając przesyłania strumieniowego z adaptacyjną szybkością transmisji bitów w usłudze Media Services, można dostarczać wideo bez przechowywania wcześniej utworzonych pakietów z wersjami dla każdego z tych formatów przesyłania strumieniowego.
 
->[!NOTE]
->Po utworzeniu konta usługi AMS **domyślne** punktu końcowego przesyłania strumieniowego w brzmieniu konta tooyour hello **zatrzymane** stanu. przesyłanie strumieniowe zawartości i podejmij korzyści z dynamicznego tworzenia pakietów i dynamicznego szyfrowania toostart hello punktu końcowego przesyłania strumieniowego, z którego mają zostać toostream zawartość ma toobe w hello **systemem** stanu. 
+> [!NOTE]
+> Po utworzeniu konta usługi Media Services do Twojego konta dodawany jest domyślny punkt końcowy przesyłania strumieniowego w stanie **Zatrzymany**. Aby rozpocząć przesyłanie strumieniowe zawartości oraz korzystać z dynamicznego tworzenia pakietów i szyfrowania dynamicznego, punkt końcowy przesyłania strumieniowego, z którego chcesz strumieniowo przesyłać zawartość, musi mieć stan **Uruchomiony**. 
 
-toostart hello punktu końcowego przesyłania strumieniowego, hello następujące:
+Aby uruchomić punkt końcowy przesyłania strumieniowego:
 
-1. Zaloguj się w hello [portalu Azure](https://portal.azure.com/).
-2. W oknie Ustawienia powitania kliknij punkty końcowe przesyłania strumieniowego. 
-3. Kliknij przycisk domyślny hello punktu końcowego przesyłania strumieniowego. 
-
-    zostanie wyświetlone okno Szczegóły punktu KOŃCOWEGO przesyłania STRUMIENIOWEGO domyślne Hello.
-
-4. Kliknij ikonę Start hello.
-5. Kliknij przycisk toosave przycisk Zapisz hello zmiany.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+2. Wybierz pozycje **Ustawienia** > **Punkty końcowe przesyłania strumieniowego**. 
+3. Wybierz domyślny punkt końcowy przesyłania strumieniowego. Zostanie wyświetlone okno **SZCZEGÓŁY DOMYŚLNEGO PUNKTU KOŃCOWEGO PRZESYŁANIA STRUMIENIOWEGO**.
+4. Wybierz ikonę **Uruchom**.
+5. Wybierz ikonę **Zapisz**.
 
 ## <a name="upload-files"></a>Przekazywanie plików
-toostream wideo przy użyciu usługi Azure Media Services, potrzebne tooupload hello źródłowe pliki wideo, zakodować je do wielokrotnych szybkości transmisji bitów i opublikuj hello wynik. pierwszym krokiem Hello zostało opisane w tej sekcji. 
+Aby przesłać strumieniowo pliki wideo przy użyciu usługi Media Services, musisz przekazać źródłowe pliki wideo, zakodować je do wielokrotnych szybkości transmisji bitów, a następnie opublikować wynik. Pierwszy krok został omówiony w tej sekcji. 
 
-1. W hello **ustawienie** okna, kliknij przycisk **zasoby**.
+1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
+2. Wybierz kolejno pozycje **Ustawienia** > **Elementy zawartości**. Następnie wybierz przycisk **Przekaż**.
    
     ![Przekazywanie plików](./media/media-services-portal-vod-get-started/media-services-upload.png)
-2. Kliknij przycisk hello **przekazać** przycisku.
    
-    Witaj **przekazywanie zawartości wideo** zostanie wyświetlone okno.
+    Zostanie wyświetlone okno **Przekaż element zawartości wideo**.
    
    > [!NOTE]
-   > Nie ma żadnego limitu rozmiaru pliku.
+   > W usłudze Media Services nie ma limitu rozmiaru pliku dla przekazywanych wideo.
    > 
    > 
-3. Przeglądaj toohello potrzeby wideo na komputerze, zaznacz go i kliknij przycisk OK.  
+3. Na swoim komputerze przejdź do wideo, które chcesz przekazać. Wybierz wideo, a następnie wybierz przycisk **OK**.  
    
-    rozpocznie się przekazywanie Hello, aby zobaczyć postęp hello pod nazwą pliku hello.  
+    Rozpocznie się przekazywanie. Postęp będzie widoczny pod nazwą pliku.  
 
-Po ukończeniu przekazywania hello Zobacz hello nowy element zawartości na liście hello **zasoby** okna. 
+Po zakończeniu przekazywania nowy element zawartości będzie widoczny w okienku **Elementy zawartości**. 
 
 ## <a name="encode-assets"></a>Kodowanie elementów zawartości
+Aby skorzystać z dynamicznego tworzenia pakietów, musisz zakodować swoje pliki źródłowe jako zestaw plików MP4 o różnych szybkościach transmisji bitów. Kroki kodowania zostały przedstawione w tej sekcji.
 
-Podczas pracy w usłudze Azure Media Services jednym z hello najbardziej typowych scenariuszy jest dostarczanie przesyłania strumieniowego klientów tooyour adaptacyjną szybkością transmisji bitów. Usługa Media Services obsługuje hello następujące technologie przesyłania strumieniowego adaptacyjną szybkością transmisji bitów: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH. tooprepare pliki wideo do przesyłania strumieniowego o adaptacyjnej szybkości bitowej, należy tooencode źródła wideo do plików o różnych szybkościach transmisji bitów. Należy używać hello **Media Encoder Standard** tooencode koder wideo.  
+### <a name="encode-assets-in-the-portal"></a>Kodowanie elementów zawartości w portalu
+Aby zakodować zawartość przy użyciu procesora Media Encoder Standard w witrynie Azure Portal:
 
-Media Services udostępnia również funkcję dynamicznego tworzenia pakietów, co pozwala toodeliver Twojego MP4s wielokrotnej szybkości transmisji bitów w następujących formatów przesyłania strumieniowego hello: MPEG DASH, HLS, Smooth Streaming, bez konieczności toorepackage w tych formatach. Dzięki funkcji dynamicznego tworzenia pakietów, wystarczy toostore i płatności hello pliki w jednym formacie magazynu, a usługa Media Services, tworzy i służy hello właściwą odpowiedź na podstawie żądań klienta.
-
-tootake korzyści z dynamicznego tworzenia pakietów, należy tooencode pliku źródłowego do zestawu plików MP4 wielokrotnej szybkości transmisji bitów (kroki kodowania hello przedstawiono w dalszej części tej sekcji).
-
-### <a name="toouse-hello-portal-tooencode"></a>tooencode portalu hello toouse
-W tej sekcji opisano kroki hello może zająć tooencode zawartości przy użyciu standardu Media Encoder Standard.
-
-1. W hello **ustawienia** wybierz **zasoby**.  
-2. W hello **zasoby** okna, wybierz hello zasobów chcesz tooencode.
-3. Naciśnij klawisz hello **Koduj** przycisku.
-4. W hello **kodowanie elementu zawartości** okna, hello wybierz procesor "Media Encoder Standard" oraz ustawienie wstępne. Aby uzyskać informacje o ustawieniach wstępnych, zobacz [Automatyczne generowanie drabiny szybkości transmisji bitów](media-services-autogen-bitrate-ladder-with-mes.md) i [Ustawienia wstępne zadań usługi MES](media-services-mes-presets-overview.md). Jeśli planujesz toocontrol które kodowania ustawienia wstępnego pamiętać to: koniecznie tooselect hello ustawienia wstępnego najbardziej odpowiednie dla wejściowego pliku wideo. Na przykład, jeśli znasz wejściowy plik wideo ma rozdzielczość 1920 x 1080 pikseli, następnie można hello "H264 szybkość transmisji bitów 1080p" wstępnie zdefiniowane. Jeśli wideo jest w niskiej rozdzielczości (640 x 360), nie używaj ustawienia wstępnego „Wielokrotna szybkość transmisji bitów H264 1080p”.
+1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
+2. Wybierz kolejno pozycje **Ustawienia** > **Elementy zawartości**. Wybierz element zawartości, który chcesz zakodować.
+3. Wybierz przycisk **Koduj**.
+4. W okienku **Kodowanie elementu zawartości** wybierz procesor **Media Encoder Standard** i ustawienia wstępne. Aby uzyskać informacje o ustawieniach wstępnych, zobacz [Auto-generate a bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md) (Automatyczne generowanie drabiny szybkości transmisji bitów) i [Task presets for Media Encoder Standard](media-services-mes-presets-overview.md) (Ustawienia wstępne zadań procesora Media Encoder Standard). Ważne jest, aby wybrać ustawienia wstępne, które będą najlepiej działać dla wejściowego pliku wideo. Na przykład: jeśli wejściowy plik wideo ma rozdzielczość 1920 &#215; 1080 pikseli, można użyć ustawienia wstępnego **Wielokrotna szybkość transmisji bitów H264 1080p**. Jeśli masz wideo w niskiej rozdzielczości (640 &#215; 360), ustawienie wstępne **Wielokrotna szybkość transmisji bitów H264 1080p** nie powinno być używane.
    
-   Aby ułatwić zarządzanie istnieje możliwość edytowania hello nazwę zawartości wyjściowej hello i nazwę hello hello zadania.
+   Aby ułatwić sobie zarządzanie zasobami, możesz poddać edycji nazwę wyjściowego elementu zawartości i nazwę zadania.
    
    ![Kodowanie elementów zawartości](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. Kliknij przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 
 ### <a name="monitor-encoding-job-progress"></a>Monitorowanie postępu zadania kodowania
-postęp hello toomonitor hello kodowanie zadania, kliknij przycisk **ustawienia** (u góry hello hello strony), a następnie wybierz **zadania**.
+Aby monitorować postęp zadania kodowania, kliknij u góry strony pozycję **Ustawienia**, a następnie wybierz pozycję **Zadania**.
 
 ![Zadania](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>Publikowanie zawartości
-tooprovide użytkownika przy użyciu adresu URL, który może być używane toostream lub pobierania zawartości, należy najpierw należy zbyt "Publikuj" zawartości, tworząc Lokalizator. Lokalizatory zapewniają toofiles dostępu do zawartych w hello zasobów. Usługa Media Services obsługuje dwa typy lokalizatorów: 
+Aby podać użytkownikowi adres URL, który może służyć do odtwarzania strumieniowego lub pobierania zawartości, najpierw musisz opublikować swój element zawartości przez utworzenie lokalizatora. Lokalizatory zapewniają dostęp do plików znajdujących się w elemencie zawartości. Usługa Azure Media Services obsługuje dwa typy lokalizatorów: 
 
-* Przesyłanie strumieniowe lokalizatory (OnDemandOrigin) używane do adaptacyjnego przesyłania strumieniowego (na przykład toostream MPEG DASH, HLS lub Smooth Streaming). toocreate Lokalizator przesyłania strumieniowego zawartości musi zawierać plik .ism. 
-* Progresywne lokalizatory (SAS) używane do dostarczania plików wideo przy użyciu pobierania progresywnego.
+* **Lokalizatory przesyłania strumieniowego (OnDemandOrigin)**. Lokalizatory przesyłania strumieniowego służą do adaptacyjnego przesyłania strumieniowego. Przykłady adaptacyjnego przesyłania strumieniowego to HLS, Smooth Streaming i MPEG-DASH. Aby utworzyć lokalizator przesyłania strumieniowego, element zawartości musi zawierać plik ism. 
+* **Lokalizatory progresywne (sygnatura dostępu współdzielonego)**. Lokalizatory progresywne służą do dostarczania wideo przy użyciu pobierania progresywnego.
 
-Adresu URL przesyłania strumieniowego ma hello zgodny z formatem i może być używany tooplay Smooth Streaming zasoby.
+Aby utworzyć adres URL przesyłania strumieniowego w protokole HLS, dołącz do adresu URL ciąg *(format=m3u8-aapl)*:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
-Dołącz toobuild jako HLS URL, przesyłania strumieniowego (format = m3u8-aapl) toohello adresu URL.
+Aby utworzyć adres URL przesyłania strumieniowego do odtwarzania elementu zawartości Smooth Streaming, użyj następującego formatu adresu URL:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
 
-Dołącz toobuild jako MPEG DASH URL, przesyłania strumieniowego (format = mpd-time-csf) toohello adresu URL.
+Aby utworzyć adres URL przesyłania strumieniowego w protokole MPEG-DASH, dołącz do adresu URL ciąg *(format=mpd-time-csf)*:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
+Adres URL sygnatury dostępu współdzielonego ma następujący format:
 
-Adres URL SAS ma hello zgodny z formatem.
-
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+    {blob container name}/{asset name}/{file name}/{shared access signature}
 
 > [!NOTE]
-> Jeśli używasz hello portalu toocreate lokalizatorów przed marcem 2015 r., zostały utworzone lokalizatory z okresem wygaśnięcia dwa lata.  
+> Lokalizatory utworzone w witrynie Azure Portal przed marcem 2015 r. mają dwuletnią datę wygaśnięcia.  
 > 
 > 
 
-tooupdate Data wygaśnięcia na lokalizatorze użyj [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) lub [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) interfejsów API. Po zaktualizowaniu daty wygaśnięcia lokalizatora SAS hello zmienia hello adresu URL.
+Aby zaktualizować datę wygaśnięcia lokalizatora, możesz użyć [interfejsu API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) lub [interfejsu API platformy .NET](http://go.microsoft.com/fwlink/?LinkID=533259). 
 
-### <a name="toouse-hello-portal-toopublish-an-asset"></a>toouse hello portalu toopublish zasobów
-toouse hello portalu toopublish zasobów hello następujące:
+> [!NOTE]
+> Po zaktualizowaniu daty wygaśnięcia lokalizatora sygnatury dostępu współdzielonego następuje zmiana adresu URL.
 
-1. Wybierz kolejno pozycje **Ustawienia** > **Elementy zawartości**.
-2. Wybierz hello zasobów, które mają toopublish.
-3. Kliknij przycisk hello **publikowania** przycisku.
-4. Wybierz typ lokalizatora hello.
-5. Kliknij przycisk **Dodaj**.
+### <a name="to-use-the-portal-to-publish-an-asset"></a>Aby opublikować element zawartości za pomocą portalu
+1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz swoje konto usługi Azure Media Services.
+2. Wybierz kolejno pozycje **Ustawienia** > **Elementy zawartości**. Wybierz element zawartości, który chcesz opublikować.
+3. Wybierz przycisk **Publikuj**.
+4. Wybierz typ lokalizatora.
+5. Wybierz pozycję **Dodaj**.
    
-    ![Publikowanie](./media/media-services-portal-vod-get-started/media-services-publish1.png)
+    ![Publikowanie wideo](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-adres URL Hello jest dodawany listy toohello **publikowane adresy URL**.
+Adres URL jest dodawany do listy **Opublikowane adresy URL**.
 
-## <a name="play-content-from-hello-portal"></a>Odtwarzanie zawartości z portalu hello
-Witaj Azure portal udostępnia odtwarzacz zawartości możesz za pomocą tootest wideo.
+## <a name="play-content-from-the-portal"></a>Odtwarzanie zawartości z portalu
+Swoje wideo możesz przetestować w odtwarzaczu zawartości w witrynie Azure Portal.
 
-Kliknij żądany hello wideo, a następnie kliknij przycisk hello **odtwarzanie** przycisku.
+Wybierz wideo, a następnie wybierz przycisk **Odtwórz**.
 
-![Publikowanie](./media/media-services-portal-vod-get-started/media-services-play.png)
+![Odtwarzanie wideo w witrynie Azure Portal](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Zagadnienia do rozważenia:
 
-* toobegin przesyłania strumieniowego, uruchom uruchomionych hello **domyślne** punktu końcowego przesyłania strumieniowego.
-* Upewnij się, że hello wideo został opublikowany.
-* To **Media player** odtwarza z domyślnego hello punktu końcowego przesyłania strumieniowego. Jeśli chcesz, aby tooplay z innych niż domyślne przesyłania strumieniowego punktu końcowego, kliknij adres URL hello toocopy i użyć innego odtwarzacza. (np. [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)).
-
-## <a name="next-steps"></a>Następne kroki
-Przejrzyj ścieżki szkoleniowe dotyczące usługi Media Services.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+* Aby rozpocząć przesyłanie strumieniowe, uruchom domyślny punkt końcowy przesyłania strumieniowego.
+* Upewnij się, że wideo zostało już opublikowane.
+* Odtwarzacz multimedialny w witrynie Azure Portal odtwarza zawartość z domyślnego punktu końcowego przesyłania strumieniowego. Aby odtworzyć zawartość z punktu końcowego przesyłania strumieniowego innego niż domyślny, zaznacz i skopiuj adres URL, a następnie wklej go do innego odtwarzacza. Na przykład swoje wideo możesz przetestować w usłudze [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a name="provide-feedback"></a>Przekazywanie opinii
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## <a name="next-steps"></a>Następne kroki
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

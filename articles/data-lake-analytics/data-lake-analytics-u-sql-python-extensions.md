@@ -1,6 +1,6 @@
 ---
-title: "aaaExtend U-SQL skrypty języka Python w usłudze Azure Data Lake Analytics | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak kod toorun Python skryptów U-SQL"
+title: "Rozszerzanie skryptów U-SQL z języka Python w usłudze Azure Data Lake Analytics | Dokumentacja firmy Microsoft"
+description: "Dowiedz się, jak uruchomić kod w języku Python w skryptów U-SQL"
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/20/2017
 ms.author: saveenr
-ms.openlocfilehash: f051f56f67522d4f2b8e6e54fd21a5c95ce3ba92
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d18ef1f747aee2fa01cef9891432d0461031ee4c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-get-started-with-extending-u-sql-with-python"></a>Samouczek: Rozpoczynanie pracy z rozszerzanie U-SQL z języka Python
 
-Rozszerzenia języka Python dla U-SQL Włącz deweloperzy tooperform równoległemu wykonywanie kodu języka Python. Witaj poniższy przykład przedstawia hello podstawowe kroki:
+Rozszerzenia języka Python dla U-SQL umożliwiają deweloperom wykonać równoległemu wykonywanie kodu języka Python. Poniższy przykład przedstawia podstawowe kroki:
 
-* Użyj hello `REFERENCE ASSEMBLY` rozszerzenia języka Python tooenable instrukcji hello skryptu U-SQL
-* Przy użyciu hello `REDUCE` operacji toopartition hello wprowadzić dane dla klucza
-* Hello rozszerzenia języka Python dla U-SQL zawierają wbudowane reduktor (`Extension.Python.Reducer`) uruchomione na każdy wierzchołek przypisane toohello reduktor kodu języka Python
-* Hello skryptu U-SQL zawiera osadzone hello Python kod, który ma funkcji o nazwie `usqlml_main` akceptuje pandas DataFrame jako dane wejściowe i zwraca pandas DataFrame jako dane wyjściowe.
+* Użyj `REFERENCE ASSEMBLY` instrukcji, aby włączyć rozszerzenia języka Python dla skryptu U-SQL
+* Przy użyciu `REDUCE` operacji do partycjonowania danych wejściowych dla klucza
+* Rozszerzenia języka Python dla U-SQL to wbudowane reduktor (`Extension.Python.Reducer`) uruchomione na każdy wierzchołek przypisane do reduktor kodu języka Python
+* Skrypt U-SQL zawiera osadzony kod języka Python, który ma funkcji o nazwie `usqlml_main` akceptuje pandas DataFrame jako dane wejściowe i zwraca pandas DataFrame jako dane wyjściowe.
 
 --
 
@@ -59,7 +59,7 @@ Rozszerzenia języka Python dla U-SQL Włącz deweloperzy tooperform równoległ
         USING new Extension.Python.Reducer(pyScript:@myScript);
 
     OUTPUT @m
-        too"/tweetmentions.csv"
+        TO "/tweetmentions.csv"
         USING Outputters.Csv();
 
 ## <a name="how-python-integrates-with-u-sql"></a>Jak Python integruje się z języka U-SQL
@@ -67,11 +67,11 @@ Rozszerzenia języka Python dla U-SQL Włącz deweloperzy tooperform równoległ
 ### <a name="datatypes"></a>Typy danych
 
 * Ciąg, jak i numeryczne kolumny z U-SQL są konwertowane na — między Pandas i języka U-SQL
-* U-SQL wartości null są tooand przekonwertowany z Pandas `NA` wartości
+* U-SQL wartości null są konwertowane do i z Pandas `NA` wartości
 
 ### <a name="schemas"></a>Schematy
 
-* Wektory indeksu w Pandas nie są obsługiwane w języku U-SQL. Wszystkie ramki danych wejściowych w funkcji Python hello zawsze ma 64-bitowych indeksu numerycznych od 0 do hello liczbę wierszy pomniejszonej o 1. 
+* Wektory indeksu w Pandas nie są obsługiwane w języku U-SQL. Wszystkie ramki danych wejściowych w funkcji języka Python zawsze ma 64-bitowych indeksu numerycznych od 0 do liczby wierszy pomniejszonej o 1. 
 * Zestaw danych skryptu U-SQL nie mogą mieć zduplikowanych nazw kolumn
 * U-SQL nazwy kolumn zestawów danych, które nie są ciągami. 
 
@@ -79,20 +79,20 @@ Rozszerzenia języka Python dla U-SQL Włącz deweloperzy tooperform równoległ
 Obsługiwane jest tylko Python 3.5.1 (skompilowany dla systemu Windows). 
 
 ### <a name="standard-python-modules"></a>Standardowe moduły języka Python
-Uwzględniane są wszystkie moduły hello standard języka Python.
+Uwzględniane są wszystkie standardowe moduły języka Python.
 
 ### <a name="additional-python-modules"></a>Dodatkowe moduły języka Python
-Oprócz hello standardowych bibliotek języka Python, uwzględniono kilka bibliotek często używane python:
+Oprócz standardowych bibliotek języka Python uwzględniono kilka bibliotek często używane python:
 
     pandas
     numpy
     numexpr
 
 ### <a name="exception-messages"></a>Komunikaty o wyjątkach
-Obecnie Wystąpił wyjątek w kodzie języka Python jest wyświetlany jako błąd rodzajowy wierzchołka. W przyszłości hello komunikaty o błędach zadań U-SQL hello wyświetli komunikat o wyjątku hello Python.
+Obecnie Wystąpił wyjątek w kodzie języka Python jest wyświetlany jako błąd rodzajowy wierzchołka. Komunikaty o błędach zadań U-SQL w przyszłości, wyświetli komunikat o wyjątku języka Python.
 
 ### <a name="input-and-output-size-limitations"></a>Dane wejściowe i ograniczenia rozmiaru danych wyjściowych
-Każdy wierzchołek ma ograniczoną ilość pamięci przypisana tooit. Obecnie ten limit jest 6 GB dla funkcji Aktualizacje automatyczne. Ponieważ hello DataFrames wejściowych i wyjściowych musi istnieć w pamięci w kodzie języka Python hello, łączny rozmiar hello hello danych wejściowych i wyjściowych nie może przekroczyć 6 GB.
+Każdy wierzchołek ma ograniczoną ilość pamięci przypisanej do niego. Obecnie ten limit jest 6 GB dla funkcji Aktualizacje automatyczne. Ponieważ DataFrames wejściowych i wyjściowych musi istnieć w pamięci w kodzie języka Python, wówczas łączny rozmiar danych wejściowych i wyjściowych nie może przekroczyć 6 GB.
 
 ## <a name="see-also"></a>Zobacz też
 * [Omówienie usługi Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

@@ -1,8 +1,8 @@
 <!--alkohli 02/21/2017 cloud appliance security-->
 
-Zachowaj hello następujące zagadnienia dotyczące zabezpieczeń na uwadze, gdy używasz hello urządzenia chmury StorSimple:
+Jeśli korzystasz z urządzenia StorSimple w chmurze, pamiętaj o następujących zagadnieniach dotyczących zabezpieczeń:
 
-* urządzenia chmury Hello jest chronione przy użyciu subskrypcji platformy Microsoft Azure. Oznacza, że jeśli korzystasz z urządzenia do chmury hello i Twojej subskrypcji platformy Azure zostanie naruszony, hello danych przechowywanych na urządzeniu chmury również wrażliwych.
-* klucz publiczny Hello hello tooencrypt certyfikat użyty, jest bezpiecznie danych przechowywanych w StorSimple wprowadzone toohello dostępne w portalu Azure i hello klucz prywatny jest przechowywany z hello urządzenia chmury StorSimple. Na powitania urządzenia chmury StorSimple zarówno hello klucze publiczne i prywatne są przechowywane w Azure.
-* urządzenia chmury Hello jest obsługiwana w centrach danych Microsoft Azure hello.
+* Urządzenie w chmurze jest zabezpieczane za pośrednictwem subskrypcji platformy Microsoft Azure. Oznacza to, że jeśli używasz urządzenia w chmurze, a bezpieczeństwo subskrypcji platformy Azure zostanie naruszone, dane przechowywane w urządzeniu w chmurze będą również narażone na atak.
+* Klucz publiczny certyfikatu użyty do szyfrowania danych przechowywanych w urządzeniu StorSimple jest bezpiecznie udostępniany w witrynie Azure Portal, a klucz prywatny jest zachowywany w urządzeniu StorSimple w chmurze. W przypadku urządzenia StorSimple w chmurze klucze publiczne i prywatne są przechowywane na platformie Azure.
+* Urządzenie w chmurze jest hostowane w centrum danych platformy Microsoft Azure.
 

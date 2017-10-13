@@ -1,6 +1,6 @@
 ---
-title: "aaaInstall 4 aktualizacji na urządzeniu z serii StorSimple 8000 | Dokumentacja firmy Microsoft"
-description: "Wyjaśniono, jak tooinstall StorSimple 8000 serii aktualizacji 4 na urządzeniu z serii StorSimple 8000."
+title: "Zainstalować na urządzeniu z serii StorSimple 8000 z aktualizacją Update 4 | Dokumentacja firmy Microsoft"
+description: "Wyjaśniono, jak zainstalować StorSimple 8000 serii aktualizacji 4 na urządzeniu z serii StorSimple 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 3507edbde5e6e43b6c450bfea19494d47b5a5ae7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Instalowanie aktualizacji 4 na urządzeniu StorSimple
 
 ## <a name="overview"></a>Omówienie
 
-W tym samouczku wyjaśniono, jak tooinstall 4 aktualizacji na urządzeniu StorSimple ze starszą wersją oprogramowania za pośrednictwem hello portalu Azure i przy użyciu metody poprawki hello. Metoda poprawki Hello jest używana, gdy brama jest skonfigurowana w interfejsie sieciowym innym niż dane 0 hello urządzenia StorSimple i próbujesz tooupdate z wersji oprogramowania 1 przed aktualizacją.
+W tym samouczku przedstawiono sposób instalacji aktualizacji 4 na urządzeniu StorSimple uruchomiona starsza wersja oprogramowania za pośrednictwem portalu Azure i przy użyciu metody poprawki. Metoda poprawki jest używana, gdy brama jest skonfigurowany w interfejsie sieciowym innym niż dane 0 urządzenia StorSimple i są próby aktualizacji z wersji oprogramowania 1 przed aktualizacją.
 
-Aktualizacja 4 zawiera oprogramowania urządzenia, oprogramowania układowego należy LSI sterowników i oprogramowania układowego Storport i Spaceport, systemu operacyjnego aktualizacje zabezpieczeń i inne aktualizacje systemu operacyjnego hosta.  oprogramowanie urządzenia Hello, oprogramowania układowego należy Spaceport, Storport i inne aktualizacje systemu operacyjnego są Brak aktualizacji. mogą być stosowane Hello Brak lub regularnych aktualizacji, za pośrednictwem portalu Azure hello lub metodą hello poprawki. aktualizacje oprogramowania układowego dysku Hello są aktualizacje zakłócenie i mogą być stosowane tylko przy użyciu metody poprawki hello przy użyciu interfejsu programu Windows PowerShell hello hello urządzenia.
+Aktualizacja 4 zawiera oprogramowania urządzenia, oprogramowania układowego należy LSI sterowników i oprogramowania układowego Storport i Spaceport, systemu operacyjnego aktualizacje zabezpieczeń i inne aktualizacje systemu operacyjnego hosta.  Oprogramowanie urządzenia, należy oprogramowania układowego Spaceport, Storport i inne aktualizacje systemu operacyjnego są Brak aktualizacji. Brak lub regularne aktualizacje mogą być stosowane za pośrednictwem portalu Azure lub za pomocą metody poprawki. Aktualizacje oprogramowania układowego dysku są aktualizacje zakłócenie i mogą być stosowane tylko przy użyciu metody poprawek za pomocą interfejsu programu Windows PowerShell urządzenia.
 
 > [!IMPORTANT]
-> * Zestaw ręczne i automatyczne wstępne sprawdzanie gotowe toohello uprzedniej instalacji toodetermine hello urządzenia kondycji pod względem sprzętu stanu i łączność sieciową. Kontrole wstępne są wykonywane tylko wtedy, gdy należy zastosować aktualizacje hello z hello portalu Azure.
-> * Zaleca się zainstalowanie oprogramowania hello i innych regularne aktualizacje za pomocą hello portalu Azure. Interfejsu programu Windows PowerShell toohello hello urządzenia (tooinstall aktualizacje) należy postępować tylko, jeśli hello przed aktualizacją bramy sprawdzenie nie powiedzie się w portalu hello. W zależności od wersji hello aktualizujesz z hello aktualizacji może potrwać 4 godziny (lub nowszego) tooinstall. należy także zainstalować aktualizacje trybu konserwacji Hello za pośrednictwem interfejsu programu Windows PowerShell hello hello urządzenia. Aktualizacje trybu konserwacji są aktualizacje destrukcyjne, te spowoduje dół czasu dla danego urządzenia.
-> * Uruchamianie hello opcjonalne StorSimple Snapshot Manager, upewnij się, uaktualniono Snapshot Manager wersji tooUpdate 4 wcześniejsze tooupdating hello urządzenia.
+> * Zestaw ręczne i automatyczne wstępne sprawdzanie gotowe czasu zainstalowania w celu określenia kondycji urządzenia pod względem sprzętu stanu i łączność sieciową. Kontrole wstępne są wykonywane tylko wtedy, gdy należy zastosować aktualizacje z portalu Azure.
+> * Zaleca się zainstalowanie oprogramowania i innych regularne aktualizacje za pomocą portalu Azure. Tylko powinien możesz przejść do interfejsu programu Windows PowerShell, urządzenia (w celu instalowania aktualizacji), jeśli sprawdzenie przed aktualizacją bramy nie powiedzie się w portalu. W zależności od wersji aktualizujesz z aktualizacji może potrwać 4 godziny (lub nowszego) do zainstalowania. Aktualizacje trybu konserwacji należy także zainstalować za pomocą interfejsu programu Windows PowerShell urządzenia. Aktualizacje trybu konserwacji są aktualizacje destrukcyjne, te spowoduje dół czasu dla danego urządzenia.
+> * Uruchomiona opcjonalne StorSimple Snapshot Manager, upewnij się, że uaktualniono wersji Snapshot Manager Update 4 przed zaktualizowaniem urządzenia.
 
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## <a name="install-update-4-via-hello-azure-portal"></a>Instalowanie aktualizacji 4 za pośrednictwem hello portalu Azure
-Wykonaj następujące kroki tooupdate hello urządzenia zbyt[Update 4](storsimple-update4-release-notes.md).
+## <a name="install-update-4-via-the-azure-portal"></a>Instalowanie aktualizacji 4 za pośrednictwem portalu Azure
+Wykonaj poniższe kroki, aby zaktualizować urządzenie do [aktualizacja 4](storsimple-update4-release-notes.md).
 
 > [!NOTE]
-> Microsoft ściąga dodatkowe informacje diagnostyczne z hello urządzenia. W związku z tym gdy działu operacji identyfikuje urządzenia, które występują problemy, firma Microsoft są lepsze informacje wyposażone toocollect z hello urządzenia i diagnozowanie problemów. 
+> Microsoft ściąga dodatkowych informacji diagnostycznych z urządzenia. W związku z tym gdy działu operacji identyfikuje urządzenia, które występują problemy, firma Microsoft mają większe możliwości zbierania informacji z urządzenia i diagnozowanie problemów. 
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-Sprawdź, czy urządzenie działa **StorSimple 8000 serii aktualizacji w wersji 4 (6.3.9600.17820)**. Witaj **ostatniej aktualizacji daty** również powinien być modyfikowany.
+Sprawdź, czy urządzenie działa **StorSimple 8000 serii aktualizacji w wersji 4 (6.3.9600.17820)**. **Ostatniej aktualizacji daty** również powinien być modyfikowany.
 
-* Teraz zobaczysz, że są dostępne aktualizacje trybu konserwacji hello (ten komunikat może nadal toobe są wyświetlane się too24 godzin po zainstalowaniu hello aktualizacji). Aktualizacje trybu konserwacji są destrukcyjne aktualizacje, które powoduje przestój urządzenia i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell hello urządzenia.
+* Teraz zobaczysz, że są dostępne aktualizacje tryb konserwacji (ten komunikat może nadal wyświetlane przez 24 godziny, po zainstalowaniu aktualizacji). Aktualizacje trybu konserwacji są destrukcyjne aktualizacje, które powoduje przestój urządzenia i mogą być stosowane tylko za pośrednictwem interfejsu programu Windows PowerShell urządzenia.
 
-* Pobierz aktualizacje trybu konserwacji hello przy użyciu hello czynności opisane w [poprawki toodownload](#to-download-hotfixes) toosearch dla i Pobierz KB4011837, który instaluje aktualizacje oprogramowania układowego dysku (hello inne aktualizacje powinny być zainstalowane przez teraz). Wykonaj kroki hello na liście [zainstalowany i sprawdź poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes) tooinstall hello obsługi trybu aktualizacji.
+* Pobierz aktualizacje tryb konserwacji przy użyciu kroków opisanych w [do pobrania poprawek](#to-download-hotfixes) do wyszukania i pobrania KB4011837, które instaluje aktualizacje oprogramowania układowego dysku (inne aktualizacje powinny być zainstalowane przez teraz). Wykonaj czynności opisane w [zainstalowany i sprawdź poprawki trybu konserwacji](#to-install-and-verify-maintenance-mode-hotfixes) trybu konserwacji do zainstalowania aktualizacji.
 
 ## <a name="install-update-4-as-a-hotfix"></a>Instalowanie aktualizacji 4 jako poprawki
-Witaj zalecana metoda tooinstall, jest za pośrednictwem portalu Azure hello Update 4.
+Jest to zalecana metoda instalowania aktualizacji w wersji 4 za pośrednictwem portalu Azure.
 
-Użyj tej procedury, jeśli nie hello bramy wyboru podczas próby aktualizacji hello tooinstall za pośrednictwem hello portalu Azure. Witaj sprawdzenie nie powiedzie się, masz przypisane interfejs sieciowy 0-DATA tooa bramy i urządzeniu jest uruchomiona tooUpdate wcześniejszych wersji 1 oprogramowania.
+Użyj tej procedury, jeśli nie wyboru bramy, podczas próby zainstalowania aktualizacji za pośrednictwem portalu Azure. Sprawdzenie nie powiedzie się, masz przypisane do karty sieciowej 0-DATA bramy i urządzenia z wersją oprogramowania przed Update 1.
 
-Hello wersji oprogramowania, które można uaktualnić za pomocą metody poprawki hello są:
+Dostępne są następujące wersje oprogramowania, które można uaktualnić za pomocą metody poprawki:
 
 * Zaktualizuj 0,1, 0,2, 0,3
 * Aktualizacja 1, 1.1 i 1.2
@@ -63,15 +63,15 @@ Hello wersji oprogramowania, które można uaktualnić za pomocą metody poprawk
 * Aktualizacja 3 w wersji 3.1
 
 
-Metoda poprawki Hello polega na powitania następujące trzy kroki:
+Metoda poprawki obejmuje następujące trzy kroki:
 
-1. Pobierz hello poprawki z hello wykazu usługi Microsoft Update.
-2. Zainstaluj i sprawdź regularne hello poprawki.
-3. Zainstaluj i sprawdź poprawkę trybu konserwacji hello.
+1. Pobierz poprawki z wykazu usługi Microsoft Update.
+2. Zainstaluj i sprawdź regularne poprawki.
+3. Zainstaluj i sprawdź poprawkę trybu konserwacji.
 
 #### <a name="download-updates-for-your-device"></a>Pobierz aktualizacje dla urządzenia
 
-Należy pobrać i zainstalować następujące hello poprawek w hello określonej kolejności i hello sugerowane folderów:
+Należy pobrać i zainstalować poniższe poprawki w określonej kolejności i sugerowane folderów:
 
 | Kolejność | KB | Opis | Typ aktualizacji | Godzina instalacji |Zainstaluj w folderze|
 | --- | --- | --- | --- | --- | --- |
@@ -80,7 +80,7 @@ Należy pobrać i zainstalować następujące hello poprawek w hello określonej
 | 2B. |KB3139398, KB3108381 <br> KB3205400, KB3142030 <br> KB3197873, KB3197873 <br> KB3192392, KB3153704 <br> KB3174644, KB3139914  |Pakiet aktualizacji zabezpieczeń systemu operacyjnego <br> Pobierz system Windows Server 2012 R2 |Regularne <br></br>Bezproblemowa |- |SecondOrderUpdate|
 | 2C. |KB3210083, KB3103616 <br> KB3146621, KB3121261 <br> KB3123538 |Pakiet aktualizacji systemu operacyjnego <br> Pobierz system Windows Server 2012 R2 |Regularne <br></br>Bezproblemowa |- |SecondOrderUpdate|
 
-Możesz również przeprowadzić aktualizacje oprogramowania układowego dysku tooinstall na wszystkie aktualizacje hello pokazano hello poprzednich tabel. Możesz sprawdzić, czy należy hello aktualizacje oprogramowania układowego dysku, uruchamiając hello `Get-HcsFirmwareVersion` polecenia cmdlet. Jeśli używasz tych wersji oprogramowania układowego: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, a następnie nie trzeba tooinstall te aktualizacje.
+Należy również zainstalować aktualizacje oprogramowania układowego dysku na wszystkich aktualizacji zamieszczone w poprzednich tabelach. Możesz sprawdzić, czy potrzebujesz aktualizacje oprogramowania układowego dysku, uruchamiając `Get-HcsFirmwareVersion` polecenia cmdlet. Jeśli używasz tych wersji oprogramowania układowego: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N002`, `0106`, a następnie nie trzeba zainstalować te aktualizacje.
 
 | Kolejność | KB | Opis | Typ aktualizacji | Godzina instalacji | Zainstaluj w folderze|
 | --- | --- | --- | --- | --- | --- |
@@ -89,16 +89,16 @@ Możesz również przeprowadzić aktualizacje oprogramowania układowego dysku t
 <br></br>
 
 > [!IMPORTANT]
-> * Ta procedura toobe potrzeb tylko raz wykonać tooapply Update 4. Możesz użyć hello Azure tooapply portalu kolejnych aktualizacji.
-> * Jeśli aktualizacja Update 3 lub 3.1, hello instalacji całkowity czas jest too4 Zamknij godzin.
-> * Przed użyciem tej procedury tooapply hello aktualizacji, upewnij się, że zarówno kontrolery urządzeń hello są w trybie online i wszystkie składniki sprzętowe hello są w dobrej kondycji.
+> * Ta procedura musi zostać wykonana tylko raz do zastosowania aktualizacji w wersji 4. Azure portal umożliwia stosowanie kolejnych aktualizacji.
+> * Jeśli aktualizacja Update 3 lub 3.1, czas instalacji całkowita jest bliski 4 godziny.
+> * Przed użyciem tej procedury, aby zastosować aktualizację, upewnij się, że kontrolery urządzeń są w trybie online i wszystkie składniki sprzętowe są w dobrej kondycji.
 
-Wykonaj następujące kroki toodownload hello i zainstaluj hello poprawki.
+Wykonaj poniższe kroki, aby pobrać i zainstalować poprawki.
 
 [!INCLUDE [storsimple-install-update4-hotfix](../../includes/storsimple-install-update4-hotfix.md)]
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o hello [wersji aktualizacji 4](storsimple-update4-release-notes.md).
+Dowiedz się więcej o [wersji aktualizacji 4](storsimple-update4-release-notes.md).
 

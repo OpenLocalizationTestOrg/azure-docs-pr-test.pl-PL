@@ -1,6 +1,6 @@
 ---
-title: aaaHow toogrant uprawnienia tooa opracowany niestandardowych aplikacji | Dokumentacja firmy Microsoft
-description: "Jak toogrant tooyour uprawnienia niestandardowe rozwiniętych hello aplikacji przy użyciu portalu usługi Azure AD lub parametr adresu URL"
+title: "Jak można udzielić uprawnienia do aplikacji utworzonych niestandardowych | Dokumentacja firmy Microsoft"
+description: "Jak można przyznać uprawnień dostępu do aplikacji utworzonych niestandardowych za pomocą portalu usługi Azure AD lub parametr adresu URL"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,33 +13,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: e43a105fff60fbf912bdf4f60260f86ee289328d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 336b945929f80e1a566f7cf71b40fd799a98c12d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-toogrant-permissions-tooa-custom-developed-application"></a>Jak toogrant tooa uprawnienia niestandardowe opracowanych aplikacji
+# <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>Jak można udzielić uprawnienia do aplikacji utworzonych niestandardowych
 
-Zgody toogrant preemptively w aplikacji lub wystąpił błąd działają, że nie wyrażono zgodę tooan aplikacji, spróbuj te czynności.
+Jeśli chcesz udzielić zgody preemptively w aplikacji lub są uruchomione, wystąpił błąd, który nie wyrażono zgodę dla aplikacji, spróbuj te czynności.
 
-## <a name="how-tooperform-admin-consent-for-your-application"></a>Jak tooperform zgody administratora aplikacji
+## <a name="how-to-perform-admin-consent-for-your-application"></a>Jak wykonać zgody administratora aplikacji
 
-To ustawienie działa hello udzielania zgody toohello aplikacji dla wszystkich użytkowników w organizacji.
+Skutkuje to udzielania zgody do aplikacji dla wszystkich użytkowników w organizacji.
 
-1. Przejdź toohello **rejestracji aplikacji** bloku jako **administratora globalnego**, a następnie wybierz pozycję aplikacji hello.
+1. Przejdź do **rejestracji aplikacji** bloku jako **administratora globalnego**, następnie wybierz aplikację.
 
-2. Wybierz **wymagane uprawnienia**, a na koniec trafienie hello **udzielanie uprawnień** u góry hello hello bloku.
+2. Wybierz **wymagane uprawnienia**, a na koniec trafienie **udzielanie uprawnień** u góry bloku.
 
-Alternatywnie można konstruować żądanie zbyt*login.microsoftonline.com* z configs Twojej aplikacji i Dołącz na *& Monituj = admin\_zgody*. Po zarejestrowaniu się przy użyciu poświadczeń administratora, aplikacja hello udzielono zgody dla wszystkich użytkowników.
+Alternatywnie można utworzyć żądania *login.microsoftonline.com* z configs Twojej aplikacji i Dołącz na *& Monituj = admin\_zgody*. Po zarejestrowaniu się przy użyciu poświadczeń administratora usługi, aplikacji udzielono zgody dla wszystkich użytkowników.
 
-## <a name="how-tooforce-user-consent-for-your-application"></a>Jak tooforce zgody użytkownika dla aplikacji
+## <a name="how-to-force-user-consent-for-your-application"></a>Jak wymusić zgody użytkownika dla aplikacji
 
-* Dołącz do uwierzytelniania żądań *& Monituj = zgody* który żądania tooconsent użytkowników końcowych za każdym razem uwierzytelniania.
+* Dołącz do uwierzytelniania żądań *& Monituj = zgody* co wymaga zgody zawsze uwierzytelniają użytkowników końcowych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Integrowanie aplikacji i zgody tooAzureAD](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+[Integrowanie aplikacji AzureAD i zgody](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
 
 [Permissioning dla AzureAD w wersji 2.0 i zgody zbieżność aplikacji](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes)<br>
 

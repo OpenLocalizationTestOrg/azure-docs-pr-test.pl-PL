@@ -3,7 +3,7 @@ Usługa DNS platformy Azure to Usługa hostingu domen DNS, rozpoznawania nazw pr
 
 | Właściwość | Opis | Przykładowa wartość |
 | --- | --- | --- |
-| **DNSzones** |Rekordy DNS domeny strefy informacji toohost z określonej domeny |/ subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com " |
+| **DNSzones** |Informacji o strefie domeny do rekordów hosta DNS dla określonej domeny |/ subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com " |
 
 ### <a name="dns-record-sets"></a>Zestawy rekordów DNS
 Strefy DNS mieć obiektu podrzędnego o nazwie zestaw rekordów. Zestawy rekordów jest kolekcją rekordów hosta przez typ strefy DNS. Typy rekordów są A, AAAA, CNAME, MX, NS, SOA, SRV i TXT.
@@ -31,14 +31,14 @@ Przykład strefy DNS w formacie Json:
         "newZoneName": {
           "type": "String",
           "metadata": {
-              "description": "hello name of hello DNS zone toobe created."
+              "description": "The name of the DNS zone to be created."
           }
         },
         "newRecordName": {
           "type": "String",
           "defaultValue": "www",
           "metadata": {
-              "description": "hello name of hello DNS record toobe created.  hello name is relative toohello zone, not hello FQDN."
+              "description": "The name of the DNS record to be created.  The name is relative to the zone, not the FQDN."
           }
         }
       },
@@ -78,7 +78,7 @@ Przykład strefy DNS w formacie Json:
     }
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
-Witaj odczytu [dokumentacja interfejsu API REST dla stref DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx) Aby uzyskać więcej informacji.
+Odczyt [dokumentacja interfejsu API REST dla stref DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx) Aby uzyskać więcej informacji.
 
-Witaj odczytu [dokumentacja interfejsu API REST dla zestawów rekordów DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) Aby uzyskać więcej informacji.
+Odczyt [dokumentacja interfejsu API REST dla zestawów rekordów DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) Aby uzyskać więcej informacji.
 

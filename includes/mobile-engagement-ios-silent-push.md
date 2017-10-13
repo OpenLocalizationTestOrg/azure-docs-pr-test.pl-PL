@@ -1,20 +1,20 @@
 > [!IMPORTANT]
-> tooreceive powiadomienia wypychane z usługi Mobile Engagement należy tooenable `Silent Remote Notifications` w aplikacji. Należy tablicy UIBackgroundModes toohello tooadd hello wartość remote-notification w pliku Info.plist.
+> Aby odbierać powiadomienia wypychane z usługi Mobile Engagement, należy włączyć w aplikacji funkcję `Silent Remote Notifications`. Trzeba dodać wartość remote-notification do tablicy UIBackgroundModes w pliku Info.plist.
 > 
 > 
 
-1. Otwórz `info.plist` plik w projekcie hello
-2. Kliknij prawym przyciskiem myszy pierwszy element listy hello hello (`Information Property List`) i Dodaj nowy wiersz
+1. Otwórz plik `info.plist` w projekcie.
+2. Kliknij prawym przyciskiem myszy pierwszy element na liście (`Information Property List`) i dodaj nowy wiersz.
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png)
-3. W hello wprowadź nowy wiersz`Required background modes`
+3. W nowym wierszu wprowadź wartość `Required background modes`
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png)
-4. Polecenie hello strzałki w lewo tooexpand hello wiersza
-5. Dodaj hello elementem toohello wartość 0`App downloads content in response toopush notifications`
+4. Kliknij strzałkę w lewo, aby rozwinąć wiersz.
+5. Dodaj następującą wartość do elementu 0: `App downloads content in response to push notifications`
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png)
-6. Po wprowadzeniu zmiany hello info.plist hello XML powinien zawierać powitania po klucz i wartość:
+6. Po wprowadzeniu zmiany plik XML info.plist powinien zawierać następujący klucz i wartość:
    
         <key>UIBackgroundModes</key>
         <array>

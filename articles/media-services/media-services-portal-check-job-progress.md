@@ -1,6 +1,6 @@
 ---
-title: "aaaMonitor kodowanie postępu zadania za pomocą hello portalu Azure"
-description: "Ten samouczek przedstawia kroki hello monitorowanie postępu zadania przy użyciu hello portalu Azure."
+title: "Monitorowanie postępu zadania kodowania w portalu Azure"
+description: "Ten samouczek przedstawia kroki monitorowanie postępu zadania przy użyciu portalu Azure."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.openlocfilehash: 4282553d5dbed65ea6427bcd6de778795f1ff9ed
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 571d222068e92a45b0e37bec298bab7a6825f731
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="monitor-encoding-job-progress-with-hello-azure-portal"></a>Monitorowanie postępu zadania kodowania z hello portalu Azure
+# <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Monitorowanie postępu zadania kodowania w portalu Azure
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -30,17 +30,17 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="overview"></a>Omówienie
 > [!NOTE]
-> toocomplete tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Do ukończenia tego samouczka jest potrzebne konto platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł [Bezpłatna wersja próbna platformy Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Po uruchomieniu zadania często wymagają postępu zadania tootrack sposób. 
+Po uruchomieniu zadania często wymagają sposób, aby śledzić postęp zadania. 
 
-postęp hello toomonitor hello kodowanie zadania, kliknij przycisk **ustawienia** (u góry hello hello strony), a następnie wybierz **zadania**.
+Aby monitorować postęp zadania kodowania, kliknij pozycję **Ustawienia** (w górnej części strony), a następnie wybierz pozycję **Zadania**.
 
 ![Zadania](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
-Możesz kliknąć toosee zadania hello więcej szczegółów.
+Możesz kliknąć zadanie, aby zobaczyć więcej szczegółów.
 
 ![Zadania](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 

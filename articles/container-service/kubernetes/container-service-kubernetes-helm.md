@@ -1,6 +1,6 @@
 ---
-title: kontenery aaaDeploy z Helm w Azure Kubernetes | Dokumentacja firmy Microsoft
-description: "Użyj hello Helm pakowania narzędzia toodeploy kontenery w klastrze Kubernetes usługi kontenera platformy Azure"
+title: "Wdrażanie kontenerów z Helm w Azure Kubernetes | Dokumentacja firmy Microsoft"
+description: "Wdrażanie kontenerów w klastrze Kubernetes usługi kontenera platformy Azure za pomocą narzędzia pakowania Helm"
 services: container-service
 documentationcenter: 
 author: sauryadas
@@ -16,20 +16,20 @@ ms.workload: na
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: c7bd780afe00084ebe4e3a14873e1e340a29d144
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3cfcc5abbee03ca8fbbec4e4eae711e7c2d9deae
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="use-helm-toodeploy-containers-on-a-kubernetes-cluster"></a>Używanie kontenerów toodeploy Helm w klastrze Kubernetes 
+# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Umożliwia wdrażanie kontenerów w klastrze Kubernetes Helm 
 
-[Helm](https://github.com/kubernetes/helm/) jest narzędziem open source tworzenia pakietów, które pomaga zainstalować i zarządzanie cyklem życia hello Kubernetes aplikacji. Podobne tooLinux pakietu menedżerów takich jak Apt get i Yum Helm jest używane toomanage Kubernetes wykresy, które są pakiety zasobów Kubernetes wstępnie skonfigurowane. W tym artykule opisano sposób toowork z Helm w klastrze Kubernetes wdrożenia usługi kontenera platformy Azure.
+[Helm](https://github.com/kubernetes/helm/) jest narzędziem open source tworzenia pakietów, które pomaga zainstalować i zarządzanie cyklem życia aplikacji Kubernetes. Podobnie jak menedżerów pakietu systemu Linux, takich jak Apt get i Yum, Helm służy do zarządzania Kubernetes wykresy, które są pakiety zasobów Kubernetes wstępnie skonfigurowane. W tym artykule przedstawiono sposób pracy z Helm w klastrze Kubernetes wdrożony w usłudze kontenera platformy Azure.
 
 Helm ma dwa składniki: 
-* Witaj **Helm CLI** uruchomioną na komputerze lokalnie lub w chmurze powitania klienta  
+* **Helm CLI** jest klienta, który jest uruchamiany na komputerze lokalnie lub w chmurze  
 
-* **Sterownicy** jest serwer, który działa w klastrze Kubernetes hello i zarządza hello cyklem życia aplikacji Kubernetes 
+* **Sterownicy** serwera, która działa w klastrze Kubernetes i umożliwia zarządzanie cyklem życia aplikacji Kubernetes 
  
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,72 +41,72 @@ Helm ma dwa składniki:
 
 ## <a name="helm-basics"></a>Podstawy Helm 
 
-tooview informacji na temat hello Kubernetes klastra są sterownicy Instalowanie i wdrażanie aplikacji, wpisz następujące polecenie hello:
+Aby wyświetlić informacje o klastrze Kubernetes są sterownicy Instalowanie i wdrażanie aplikacji, wpisz następujące polecenie:
 
 ```bash
 kubectl cluster-info 
 ```
 ![kubectl klastra — informacje](./media/container-service-kubernetes-helm/clusterinfo.png)
  
-Po zainstalowaniu Helm zainstalować sterownicy w klastrze Kubernetes, wpisując następujące polecenie hello:
+Po zainstalowaniu Helm zainstalować sterownicy w klastrze Kubernetes, wpisując następujące polecenie:
 
 ```bash
 helm init --upgrade
 ```
-Po pomyślnym ukończeniu, pojawić się dane wyjściowe podobne do następujących hello:
+Po pomyślnym ukończeniu, pojawić się dane wyjściowe podobne do następujących:
 
 ![Sterownicy instalacji](./media/container-service-kubernetes-helm/tiller-install.png)
  
  
  
  
-tooview wszystkich hello Helm wykresów dostępne w repozytorium hello hello wpisz następujące polecenie:
+Aby wyświetlić wszystkie dostępne wykresy Helm w repozytorium, wpisz następujące polecenie:
 
 ```bash 
 helm search 
 ```
 
-Zostaną wyświetlone dane wyjściowe podobne do następujących hello:
+Zostaną wyświetlone dane wyjściowe podobne do następujących:
 
 ![Helm wyszukiwania](./media/container-service-kubernetes-helm/helm-search.png)
  
-tooupdate hello wykresy tooget hello najnowsze wersje, wpisz:
+Aby zaktualizować wykresy, aby pobrać najnowsze wersje, wpisz:
 
 ```bash 
 helm repo update 
 ```
 ## <a name="deploy-an-nginx-ingress-controller-chart"></a>Wdrażanie Nginx wejściowych kontrolera wykresu 
  
-toodeploy Nginx wejściowych kontrolera wykresu wpisz jedno polecenie:
+Aby wdrożyć wykresu kontrolera wejściowych Nginx, wpisz jedno polecenie:
 
 ```bash
 helm install stable/nginx-ingress 
 ```
 ![Wdrażanie kontrolera wejściowych](./media/container-service-kubernetes-helm/nginx-ingress.png)
 
-W przypadku wpisania `kubectl get svc` tooview wszystkich usług, które są uruchomione w klastrze hello, zostanie wyświetlony adres IP jest przypisania toohello wejściowych kontrolera. (Podczas przypisywania hello jest w toku, zobacz `<pending>`. Może potrwać kilka minut toocomplete.) 
+W przypadku wpisania `kubectl get svc` do wyświetlania wszystkich usług, które są uruchomione w klastrze, zobaczysz, że adres IP jest przypisane do kontrolera wejściowych. (Przypisania w trakcie, zobacz `<pending>`. Może potrwać kilka minut.) 
 
-Po przypisaniu adres IP hello Przejdź wartość toohello hello zewnętrznego adresu IP adres toosee hello Nginx zaplecza uruchomiony. 
+Po adres IP przypisany adres, przejdź do wartości jako zewnętrzny adres IP, aby wyświetlić Nginx wewnętrznej bazy danych, systemem. 
  
 ![Transfer danych przychodzących adresów IP](./media/container-service-kubernetes-helm/ingress-ip-address.png)
 
 
-toosee listę wykresy zainstalowanych w klastrze, wpisz:
+Aby wyświetlić listę wykresy zainstalowany w klastrze, wpisz:
 
 ```bash
 helm list 
 ```
 
-Polecenie hello można skrócić zbyt`helm ls`.
+Polecenie można skrócić `helm ls`.
  
  
  
  
 ## <a name="deploy-a-mariadb-chart-and-client"></a>Wdrażanie wykresu MariaDB i klienta
 
-Teraz można wdrożyć wykresu MariaDB i bazy danych MariaDB klienta tooconnect toohello.
+Teraz można wdrożyć na wykresie MariaDB i MariaDB klienta do połączenia z bazą danych.
 
-Wykres toodeploy hello MariaDB, hello wpisz następujące polecenie:
+Aby wdrożyć wykresu MariaDB, wpisz następujące polecenie:
 
 ```bash
 helm install --name v1 stable/mariadb
@@ -115,42 +115,42 @@ helm install --name v1 stable/mariadb
 gdzie `--name` jest znacznika używany w wersjach.
 
 > [!TIP]
-> W przypadku niepowodzenia wdrożenia hello Uruchom `helm repo update` i spróbuj ponownie.
+> Jeśli wdrożenie nie powiedzie się, uruchom `helm repo update` i spróbuj ponownie.
 >
  
  
-tooview wszystkich schematów hello wdrożone w klastrze, wpisz:
+Aby wyświetlić wszystkich schematów, które są wdrożone w klastrze, wpisz:
 
 ```bash 
 helm list
 ```
  
-tooview wszystkich wdrożeń uruchomiona w klastrze, wpisz:
+Aby wyświetlić wszystkie wdrożenia uruchomiona w klastrze, wpisz:
 
 ```bash
 kubectl get deployments 
 ``` 
  
  
-Na koniec toorun pod tooaccess powitania klienta, wpisz:
+Na koniec aby uruchomić pod dostęp klienta do, wpisz:
 
 ```bash
 kubectl run v1-mariadb-client --rm --tty -i --image bitnami/mariadb --command -- bash  
 ``` 
  
  
-tooconnect toohello klienta, hello wpisz następujące polecenie, zastępując `v1-mariadb` o nazwie hello wdrożenia:
+Aby nawiązać połączenie klient, wpisz następujące polecenie, zastępując `v1-mariadb` o nazwie wdrożenia:
 
 ```bash
 sudo mysql –h v1-mariadb
 ```
  
  
-Można teraz używać standardowych poleceń toocreate baz danych, tabelach itp. Na przykład `Create DATABASE testdb1;` tworzy pustą bazę danych. 
+Można teraz używać standardowych poleceń SQL do tworzenia baz danych, tabelach itp. Na przykład `Create DATABASE testdb1;` tworzy pustą bazę danych. 
  
  
  
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji o zarządzaniu Kubernetes wykresy, zobacz hello [Helm dokumentacji](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
+* Aby uzyskać więcej informacji o zarządzaniu Kubernetes wykresy, zobacz [Helm dokumentacji](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
 

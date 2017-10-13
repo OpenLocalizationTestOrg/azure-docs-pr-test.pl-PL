@@ -1,9 +1,9 @@
 ---
-title: tooAzure aaaIntroduction bramy aplikacji | Dokumentacja firmy Microsoft
-description: "Ta strona zawiera omówienie usługi bramy aplikacji hello do równoważenia obciążenia warstwy 7 tym rozmiary bramy, koligacji sesji opartego na pliku cookie, równoważenia obciążenia HTTP i odciążanie protokołu SSL."
+title: "Wprowadzenie do usługi Azure Application Gateway | Microsoft Docs"
+description: "Ta strona zawiera omówienie usługi Application Gateway dla równoważenia obciążenia warstwy 7, z uwzględnieniem rozmiarów bramy, równoważenia obciążenia HTTP, koligacji sesji na podstawie plików cookie i odciążania protokołu SSL."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
-ms.openlocfilehash: c40c9dba64ab03d9f6f81b3cb8f26c6562ac26c6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: davidmu
+ms.openlocfilehash: 33968b72d0da71577428937e5d293a40d62989f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-gateway"></a>Omówienie usługi Application Gateway
 
-Usługa Microsoft Azure Application Gateway to dedykowane urządzenie wirtualne udostępniające kontroler dostarczania aplikacji (ADC, Application Delivery Controller) jako usługę. Oferuje różnorodne możliwości równoważenia obciążenia warstwy 7 dla Twojej aplikacji. Pozwala ona klientom wydajność kolektywu serwerów sieci web toooptimize dzięki przeniesieniu Procesora znacznym SSL zakończenia toohello bramy aplikacji. Udostępnia również inne funkcje routingu warstwy 7 tym działanie okrężne dystrybucję ruchu przychodzącego, koligacji na podstawie plików cookie sesji, routingu adresów URL na podstawie ścieżki i toohost możliwości hello wiele witryn sieci Web za pojedyncza brama aplikacji. Zapora aplikacji sieci web (WAF) jest również udostępniany w ramach bramy aplikacji hello SKU zapory aplikacji sieci Web. Zapewnia on ochronę aplikacje tooweb wspólnej luk w zabezpieczeniach sieci web i luki w zabezpieczeniach. Usługę Application Gateway można skonfigurować jako bramę umożliwiającą dostęp do Internetu, bramę tylko wewnętrzną lub jako kombinację obu tych opcji. 
+Usługa Microsoft Azure Application Gateway to dedykowane urządzenie wirtualne udostępniające kontroler dostarczania aplikacji (ADC, Application Delivery Controller) jako usługę. Oferuje różnorodne możliwości równoważenia obciążenia warstwy 7 dla Twojej aplikacji. Umożliwia to klientom optymalizowanie wydajności farmy sieci Web dzięki przeniesieniu obciążenia intensywnego przerywania połączenia SSL z procesora CPU do usługi Application Gateway. Zapewnia także inne możliwości routingu warstwy 7, takie jak okrężna dystrybucja ruchu przychodzącego, koligacja sesji na podstawie plików cookie, routing oparty na ścieżkach URL i możliwość hostowania wielu witryn sieci Web za pojedynczą bramą Application Gateway. Zapora aplikacji internetowych jest również udostępniana w ramach jednostki SKU zapory aplikacji internetowych w usłudze Application Gateway. Zapewnia ochronę aplikacji internetowych przed typowymi internetowymi lukami w zabezpieczeniach. Usługę Application Gateway można skonfigurować jako bramę umożliwiającą dostęp do Internetu, bramę tylko wewnętrzną lub jako kombinację obu tych opcji. 
 
 ![scenariusz](./media/application-gateway-introduction/scenario.png)
 
 ## <a name="features"></a>Funkcje
 
-Brama aplikacji w obecnie udostępnia hello następujące możliwości:
+Usługa Application Gateway obecnie zapewnia następujące możliwości:
 
 
-* **[Zapora aplikacji sieci Web](application-gateway-webapplicationfirewall-overview.md)**  -hello zapory aplikacji sieci web (WAF) brama aplikacji w usłudze Azure chroni aplikacje sieci web przed wspólnej ataków opartych na sieci web takich jak iniekcja kodu SQL, ataki skryptów między witrynami i hijacks sesji.
+* **[Zapora aplikacji sieci Web](application-gateway-webapplicationfirewall-overview.md)** — zapora aplikacji sieci Web (WAF, web application firewall) w usłudze Azure Application Gateway chroni aplikacje sieci Web przed typowymi atakami w sieci Web, takimi jak iniekcja SQL, ataki z użyciem skryptów w obrębie wielu witryn i przejęcia sesji.
 * **Równoważenie obciążenia HTTP** — usługa Application Gateway zapewnia okrężne równoważenie obciążenia. Równoważenie obciążenia jest wykonywane na warstwie 7 i jest używane tylko na potrzeby ruchu HTTP(S).
-* **Koligacji na podstawie plików cookie sesji** -funkcji koligacji na podstawie plików cookie sesji hello jest przydatne, gdy chcesz tookeep sesji użytkownika na powitania tego samego zaplecza. Za pomocą zarządzanych przez bramę plików cookie, hello bramy aplikacji jest możliwe toodirect kolejnych ruch toohello sesji użytkownika tego samego zaplecza do przetwarzania. Ta funkcja jest ważne w przypadkach, gdy stan sesji jest zapisywany lokalnie na serwerze zaplecza hello sesji użytkownika.
-* **[Bezpieczne odciążania Sockets Layer (SSL)](application-gateway-ssl-arm.md)**  — ta funkcja przyjmuje hello kosztowne zadania odszyfrowywania ruchu HTTPS, wyłącz serwerów sieci web. Przez hello zakończenia połączenia SSL na powitania bramy aplikacji i przekazywania serwer toohello żądania hello bez szyfrowania serwer sieci web hello jest unburdened przez odszyfrowywania.  Brama aplikacji w ponownie szyfruje hello odpowiedzi przed wysłaniem wstecz toohello klienta. Ta funkcja jest przydatne w scenariuszach, w którym znajduje się hello zaplecza w hello takie same zabezpieczonej sieci wirtualnej jako hello brama aplikacji w usłudze Azure.
-* **[Zakończenie tooEnd SSL](application-gateway-backend-ssl.md)**  -Application Gateway obsługuje zakończenia tooend szyfrowania ruchu. Brama aplikacji w następującym cechom zakończenie połączenia SSL hello na powitania bramy aplikacji. Witaj bramy następnie stosuje hello reguły routingu ruchu toohello ponownie szyfruje pakietów hello i przekazuje hello pakietów toohello odpowiedniej wewnętrznej bazy danych na podstawie reguł routingu hello zdefiniowane. Odpowiedzi z serwera sieci web hello przechodzi przez hello tego samego procesu wstecz toohello użytkownika końcowego.
-* **[Adres URL routingu opartego na protokole zawartości](application-gateway-url-route-overview.md)**  — ta funkcja zapewnia możliwość hello toouse różnych serwerów zaplecza innego ruchu sieciowego. Ruchu dla folderu na serwerze sieci web hello lub CDN może być kierowany tooa różnych zaplecza. Ta funkcja zmniejsza niepotrzebne obciążenie zapleczy, które nie obsługują określonej zawartości.
-* **[Obejmujący wiele lokacji routingu](application-gateway-multi-site-overview.md)**  -bramy aplikacji umożliwia tooconsolidate się too20 witryn sieci Web w bramie pojedynczej aplikacji.
-* **[Obsługa protokołu Websocket](application-gateway-websocket.md)**  -inna funkcja wspaniałych aplikacji bramy jest hello macierzystą obsługę protokołu Websocket.
-* **[Monitorowanie kondycji](application-gateway-probe-overview.md)**  -bramy aplikacji umożliwia domyślne monitorowanie kondycji zasobów w wewnętrznej bazie danych i niestandardowych sondy toomonitor dla bardziej konkretnych scenariuszy.
-* **[Zasady protokołu SSL i szyfrów](application-gateway-ssl-policy-overview.md)**  — ta funkcja umożliwia określenie hello wersji protokołu SSL hello toolimit i szyfrów hello mechanizmy, które są obsługiwane i hello kolejności, w jakiej są przetwarzane.
-* **[Żądanie przekierowania](application-gateway-redirect-overview.md)**  — ta funkcja zapewnia odbiornik HTTPS tooan hello możliwości tooredirect HTTP żądania.
+* **Koligacja sesji na podstawie plików cookie** — funkcja koligacji sesji na podstawie plików cookie jest przydatna, gdy chcesz zachować sesję użytkownika na tym samym serwerze zaplecza. Używając plików cookie zarządzanych przez bramę, usługa Application Gateway może kierować dalszy ruch z sesji użytkownika na ten sam serwer zaplecza w celu przetwarzania. Ta funkcja jest ważna w przypadkach, w których stan sesji jest zapisywany lokalnie na serwerze zaplecza dla sesji użytkownika.
+* **[Odciążenie protokołu Secure Sockets Layer (SSL)](application-gateway-ssl-arm.md)** — ta funkcja zdejmuje z serwerów sieci Web kosztowne zadanie odszyfrowywania ruchu HTTPS. Dzięki zakończeniu połączenia SSL w usłudze Application Gateway i przesłaniu na serwer niezaszyfrowanego żądania z serwera internetowego jest zdejmowane zadanie odszyfrowywania.  Usługa Application Gateway ponownie szyfruje odpowiedź przed odesłaniem jej z powrotem do klienta. Ta funkcja jest przydatna w przypadkach, kiedy serwer zaplecza znajduje się w tej samej zabezpieczonej sieci wirtualnej, co usługa Application Gateway na platformie Azure.
+* **[Kompleksowa usługa SSL](application-gateway-backend-ssl.md)** — usługa Application Gateway obsługuje kompleksowe szyfrowanie ruchu. Polega to na tym, że usługa Application Gateway przerywa połączenie SSL na bramie aplikacji. Następnie brama stosuje do ruchu reguły routingu, ponownie szyfruje pakiet i przekazuje pakiet do odpowiedniego serwera zaplecza na podstawie zdefiniowanych reguł routingu. Każda odpowiedź z serwera sieci Web przechodzi przez ten sam proces z powrotem do użytkownika końcowego.
+* **[Routing zawartości oparty na adresach URL](application-gateway-url-route-overview.md)** — ta funkcja zapewnia możliwość używania różnych serwerów zaplecza dla różnego ruchu. Ruch dla folderu na serwerze internetowym lub dla sieci CDN może być kierowany do różnych serwerów zaplecza. Ta funkcja zmniejsza niepotrzebne obciążenie zapleczy, które nie obsługują określonej zawartości.
+* **[Routing obejmujący wiele witryn](application-gateway-multi-site-overview.md)** — usługa Application Gateway umożliwia konsolidację maksymalnie 20 witryn sieci Web na jednej bramie aplikacji.
+* **[Obsługa protokołu Websocket](application-gateway-websocket.md)** — kolejną atrakcyjną funkcją usługi Application Gateway jest natywna obsługa protokołu Websocket.
+* **[Monitorowanie kondycji](application-gateway-probe-overview.md)** — usługa Application Gateway zapewnia domyślne monitorowanie kondycji zasobów zaplecza i niestandardowe sondy na potrzeby monitorowania bardziej specyficznych scenariuszy.
+* **[Szyfry i zasady SSL](application-gateway-ssl-policy-overview.md)** — ta funkcja zapewnia możliwość ograniczenia obsługiwanych mechanizmów szyfrowania i wersji protokołu SSL oraz kolejności, w jakiej są przetwarzane.
+* **[Przekierowywanie żądań](application-gateway-redirect-overview.md)**  — ta funkcja umożliwia przekierowywanie żądań HTTP do odbiornika protokołu HTTPS.
 * **[Obsługa wielodostępnego zaplecza](application-gateway-web-app-overview.md)** — usługa Application Gateway obsługuje konfigurowanie wielodostępnych usług zaplecza, takich jak usługa Azure Web Apps i API Gateway, jako elementów członkowskich puli zaplecza. 
 * **[Zaawansowana diagnostyka](application-gateway-diagnostics.md)** — aplikacja Application Gateway oferuje kompletne dzienniki dostępu i diagnostyki. Dzienniki zapory są dostępne dla zasobów usługi Application Gateway z włączoną zaporą aplikacji sieci Web.
 
@@ -50,16 +50,16 @@ Brama aplikacji w obecnie udostępnia hello następujące możliwości:
 
 Usługa Application Gateway ma następujące zastosowania:
 
-* Aplikacje, które wymagają żądań z hello tego samego użytkownika/klienta sesji tooreach hello tej samej maszyny wirtualnej zaplecza. Przykładami takich aplikacji są aplikacje koszyka zakupów i serwery poczty sieci Web.
+* Aplikacje, które wymagają żądań z tej samej sesji klienta/użytkownika, aby dotrzeć do tej samej maszyny wirtualnej zaplecza. Przykładami takich aplikacji są aplikacje koszyka zakupów i serwery poczty sieci Web.
 * Eliminowanie nakładu pracy związanego z kończeniem żądań SSL dla farm serwerów sieci Web.
-* Aplikacje, takie jak sieci dostarczania zawartości, która wymaga wielu żądań HTTP na powitania tego samego toobe połączenia protokołu TCP długotrwałe trasę lub serwerami zaplecza toodifferent równoważeniem obciążenia.
+* Aplikacje, takie jak sieć dostarczania zawartości, które wymagają, aby wiele żądań HTTP w ramach tego samego długotrwałego połączenia TCP było kierowanych do różnych serwerów zaplecza lub obsługiwanych w sposób równoważący obciążenie na tych serwerach.
 * Aplikacje, które obsługują ruch w ramach protokołu Websocket.
 * Ochrona aplikacji sieci Web przed typowymi atakami internetowymi, takimi jak iniekcja SQL, ataki z użyciem skryptów wykorzystywanych w obrębie wielu witryn i przejęcia sesji.
 * Logiczna dystrybucja ruchu na podstawie różnych kryteriów routingu, takich jak ścieżka adresu URL lub nagłówki domeny.
 
-Usługa Application Gateway jest w pełni zarządzana przez platformę Azure, skalowalna i wysoko dostępna. Zapewnia ona bogaty zestaw funkcji diagnostyki i rejestrowania, aby uprościć zarządzanie. Utworzenie bramy aplikacji powoduje powiązanie punktu końcowego (publicznego adresu VIP lub wewnętrznego adresu IP modułu równoważenia obciążenia) i używanie go na potrzeby ruchu sieciowego danych przychodzących. Tego adresu VIP lub ILB IP są udostępniane przez moduł równoważenia obciążenia Azure na poziomie transportu hello (TCP/UDP) i cały ruch przychodzący ruch sieciowy jest brama aplikacji w toohello równoważeniem obciążenia wystąpień procesów roboczych. Witaj bramy aplikacji, a następnie trasy hello ruchu HTTP/HTTPS na podstawie konfiguracji czy jest ono maszynę wirtualną w chmurze usługi, wewnętrzny lub zewnętrzny adres IP.
+Usługa Application Gateway jest w pełni zarządzana przez platformę Azure, skalowalna i wysoko dostępna. Zapewnia ona bogaty zestaw funkcji diagnostyki i rejestrowania, aby uprościć zarządzanie. Utworzenie bramy aplikacji powoduje powiązanie punktu końcowego (publicznego adresu VIP lub wewnętrznego adresu IP modułu równoważenia obciążenia) i używanie go na potrzeby ruchu sieciowego danych przychodzących. Ten adres VIP lub adres IP wewnętrznego modułu równoważenia obciążenia jest dostarczany za pośrednictwem usługi Azure Load Balancer, która działa na poziomie transportu (TCP/UDP) i równoważy obciążenie całego przychodzącego ruchu sieciowego do wystąpień procesu roboczego usługi Application Gateway. Następnie usługa Application Gateway kieruje ruch HTTP/HTTPS na podstawie konfiguracji, niezależnie od tego, czy jest to maszyna wirtualna, usługa w chmurze czy wewnętrzny lub zewnętrzny adres IP.
 
-Brama aplikacji w Równoważenie obciążenia jak usługi zarządzane Azure pozwala na powitania inicjowania obsługi usługi równoważenia obciążenia warstwy 7 za usługą równoważenia obciążenia Azure oprogramowania hello. Menedżera ruchu może być używane toocomplete hello scenariusz w powitania po obrazu, w którym Menedżera ruchu zapewnia przekierowania i dostępności ruchu toomultiple zasobów brama aplikacji w różnych regionach, a dostarcza bramy aplikacji krzyżowe równoważenia obciążenia warstwy 7 regionu. Przykładem tego scenariusza można znaleźć w folderze: [równoważenia usług w hello chmury Azure obciążenia Using](../traffic-manager/traffic-manager-load-balancing-azure.md)
+Ze względu na to, że równoważenie obciążenia usługi Application Gateway jest usługą zarządzaną przez platformę Azure, możliwa jest aprowizacja modułu równoważenia obciążenia warstwy 7 za modułem równoważenia obciążenia oprogramowania Azure. Przy użyciu usługi Traffic Manager można ukończyć wykonywanie scenariusza, jak pokazano to na poniższym obrazie. W tym przypadku usługa Traffic Manager umożliwia przekierowywanie oraz udostępnianie ruchu wielu zasobom bramy aplikacji w różnych regionach, podczas gdy brama aplikacji zapewnia równoważenie obciążenia warstwy 7 między regionami. Przykład tego scenariusza można znaleźć w temacie [Using load balancing services in the Azure cloud](../traffic-manager/traffic-manager-load-balancing-azure.md) (Używanie usług równoważenia obciążenia w chmurze platformy Azure).
 
 ![scenariusz dla usług traffic manager i application gateway](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
 
@@ -69,9 +69,9 @@ Brama aplikacji w Równoważenie obciążenia jak usługi zarządzane Azure pozw
 
 Usługa Application Gateway jest obecnie oferowana w trzech rozmiarach: małym (**Small**), średnim (**Medium**) i dużym (**Large**). Rozmiary małych wystąpień są przeznaczone na potrzeby programowania i scenariuszy testowania.
 
-Utworzeniem too50 bram aplikacji dla subskrypcji i każdej bramy aplikacji może zawierać maksymalnie too10 wystąpień. Każda brama aplikacji może składać się z 20 odbiorników HTTP. Pełna lista limitów usługi Application Gateway znajduje się na stronie [ograniczeń usługi Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+Można utworzyć maksymalnie 50 bram aplikacji na subskrypcję, a każda brama aplikacji może mieć maksymalnie 10 wystąpień. Każda brama aplikacji może składać się z 20 odbiorników HTTP. Pełna lista limitów usługi Application Gateway znajduje się na stronie [ograniczeń usługi Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-Witaj w poniższej tabeli przedstawia przepływności średniej wydajności dla każdego wystąpienia bramy aplikacji z włączone odciążanie protokołu SSL:
+W poniższej tabeli przedstawiono przepływność przy średniej wydajności dla każdego wystąpienia bramy aplikacji z włączonym obciążeniem SSL:
 
 | Odpowiedź strony zaplecza | Small | Medium | Large |
 | --- | --- | --- | --- |
@@ -79,21 +79,21 @@ Witaj w poniższej tabeli przedstawia przepływności średniej wydajności dla 
 | 100 000 |35 Mb/s |100 Mb/s |200 Mb/s |
 
 > [!NOTE]
-> Są to przybliżone wartości przepływności bramy aplikacji. Przepływność rzeczywiste hello zależy od środowiska szczegółowe informacje, takie jak rozmiar strony, lokalizacja wystąpień zaplecza i tooserve czas przetwarzania strony. Aby uzyskać dokładne wartości wydajności, należy przeprowadzić własne testy. Te wartości są podane tylko jako wskazówki na potrzeby planowania pojemności.
+> Są to przybliżone wartości przepływności bramy aplikacji. Rzeczywista przepływność zależy od różnorodnych szczegółów środowiska, takich jak średni rozmiar strony, lokalizacja wystąpień zaplecza i czas przetwarzania potrzebny do obsługi strony. Aby uzyskać dokładne wartości wydajności, należy przeprowadzić własne testy. Te wartości są podane tylko jako wskazówki na potrzeby planowania pojemności.
 
 ## <a name="health-monitoring"></a>Monitorowanie kondycji
 
-Brama aplikacji Azure automatycznie monitoruje kondycję hello hello wystąpień zaplecza za pośrednictwem sond kondycji podstawowego lub niestandardowego. Za pomocą sondy kondycji, zapewnia to, że tylko w dobrej kondycji hostów odpowiadać tootraffic. Aby uzyskać więcej informacji, zobacz [Application Gateway health monitoring overview](application-gateway-probe-overview.md) (Monitorowanie kondycji usługi Application Gateway — omówienie).
+Usługa Azure Application Gateway automatycznie monitoruje kondycję wystąpień zaplecza za pośrednictwem podstawowych lub niestandardowych sond kondycji. Użycie sond kondycji zapewnia, że tylko hosty o dobrej kondycji będą odpowiadać na ruch sieciowy. Aby uzyskać więcej informacji, zobacz [Application Gateway health monitoring overview](application-gateway-probe-overview.md) (Monitorowanie kondycji usługi Application Gateway — omówienie).
 
 ## <a name="configuring-and-managing"></a>Konfigurowanie i zarządzanie
 
-Punktem końcowym bramy aplikacji, jeśli został skonfigurowany, może być publiczny adres IP, prywatny adres IP lub obydwa te adresy. Usługa Application Gateway jest konfigurowana wewnątrz sieci wirtualnej we własnej podsieci. podsieci Hello utworzone lub używana przez bramę aplikacji nie może zawierać innych typów zasobów, hello tylko zasoby, które są dozwolone w podsieci hello są inne bramy aplikacji. toosecure zasobami zaplecza hello serwerów wewnętrznej bazy danych może być zawarty w innej podsieci w hello tej samej sieci wirtualnej co brama aplikacji hello. Tej podsieci, który nie jest wymagane dla aplikacji zaplecza hello. Tak długo, jak bramy aplikacji hello można uzyskać dostęp do adresu ip hello, bramy aplikacji jest możliwe tooprovide możliwości ADC hello serwerów wewnętrznej bazy danych. 
+Punktem końcowym bramy aplikacji, jeśli został skonfigurowany, może być publiczny adres IP, prywatny adres IP lub obydwa te adresy. Usługa Application Gateway jest konfigurowana wewnątrz sieci wirtualnej we własnej podsieci. Podsieć utworzona lub używana na potrzeby bramy aplikacji nie może zawierać żadnych innych typów zasobów. Jedyne zasoby dozwolone w podsieci to inne bramy aplikacji. Aby zabezpieczyć zasoby zaplecza, można umieścić serwery zaplecza w obrębie innej podsieci w ramach tej samej sieci wirtualnej, w której znajduje się brama aplikacji. Ta podsieć nie jest wymagana dla aplikacji zaplecza. O ile tylko brama aplikacji może osiągnąć adres IP, to usługa Application Gateway jest w stanie zapewnić funkcje usługi ADC dla serwerów zaplecza. 
 
-Możesz utworzyć bramę aplikacji i zarządzać nią, używając interfejsów API REST, poleceń cmdlet programu PowerShell, interfejsu wiersza polecenia Azure lub witryny [Azure Portal](https://portal.azure.com/). Dodatkowe pytania dotyczące aplikacji bramy można znaleźć [— często zadawane pytania dla bramy aplikacji](application-gateway-faq.md) tooview listę typowe często zadawane pytania.
+Możesz utworzyć bramę aplikacji i zarządzać nią, używając interfejsów API REST, poleceń cmdlet programu PowerShell, interfejsu wiersza polecenia Azure lub witryny [Azure Portal](https://portal.azure.com/). Jeśli masz dodatkowe pytania dotyczące usługi Application Gateway, odwiedź stronę [często zadawanych pytań dotyczących usługi Application Gateway](application-gateway-faq.md), na której jest dostępna lista typowych często zadawanych pytań.
 
 ## <a name="pricing"></a>Cennik
 
-Ceny zależą od opłaty godzinnej za wystąpienie bramy i opłaty za przetwarzanie danych. Na godzinę bramy ceny hello SKU zapory aplikacji sieci Web różni się od wersji Standard opłat. Informacje o cenach można znaleźć na stronie [szczegółowego cennika usługi Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/). Przetwarzanie danych, pozostaną opłat hello takie same.
+Ceny zależą od opłaty godzinnej za wystąpienie bramy i opłaty za przetwarzanie danych. Opłata godzinna za bramę w przypadku jednostki SKU zapory aplikacji internetowych różni się od opłat za standardową jednostkę SKU. Informacje o cenach można znaleźć na stronie [szczegółowego cennika usługi Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/). Opłaty za przetwarzanie danych pozostają bez zmian.
 
 ## <a name="faq"></a>Często zadawane pytania
 
@@ -101,8 +101,8 @@ Aby zapoznać się z często zadawanymi pytaniami dotyczącymi usługi Applicati
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po zapoznać się z usługą bramy aplikacji, możesz [Utwórz bramę aplikacji](application-gateway-create-gateway-portal.md) lub [Utwórz bramę aplikacji odciążanie protokołu SSL](application-gateway-ssl-arm.md) tooload saldo połączeń HTTPS.
+Po zapoznaniu się z informacjami na temat usługi Application Gateway możesz [utworzyć bramę aplikacji](application-gateway-create-gateway-portal.md) albo [utworzyć odciążenie protokołu SSL bramy aplikacji](application-gateway-ssl-arm.md), aby zrównoważyć obciążenie połączeń HTTPS.
 
-toolearn jak toocreate bramę aplikacji przy użyciu adresu URL routingu opartego na protokole zawartości, przejdź zbyt[Utwórz bramę aplikacji przy użyciu routingu opartego na adres URL](application-gateway-create-url-route-arm-ps.md) Aby uzyskać więcej informacji.
+Aby dowiedzieć się, jak utworzyć bramę aplikacji przy użyciu routingu zawartości opartego na adresach URL, zobacz [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) (Tworzenie bramy aplikacji przy użyciu routingu opartego na adresach URL).
 
-toolearn o pewnych hello innego klucza sieci możliwości platformy Azure, zobacz [sieci Azure](../networking/networking-overview.md).
+Aby poznać inne kluczowe możliwości sieciowe platformy Azure, zobacz [Sieci na platformie Azure](../networking/networking-overview.md).

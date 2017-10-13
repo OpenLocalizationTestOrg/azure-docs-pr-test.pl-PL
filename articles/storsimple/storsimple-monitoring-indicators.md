@@ -1,6 +1,6 @@
 ---
-title: "wskaźniki monitorowania aaaStorSimple | Dokumentacja firmy Microsoft"
-description: "Opisuje hello światła — elektroluminescencyjne (LED) i stan hello toomonitor alarm dźwiękowy używany hello urządzenia StorSimple."
+title: "Wskaźniki monitorowania StorSimple | Dokumentacja firmy Microsoft"
+description: "Opisuje światła — elektroluminescencyjne (LED) i dźwiękowych alarmy służy do monitorowania stanu urządzenia StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: e690b8f4727272f5fbb8886a594a046f794a1380
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0d44f94719bff0cb58b3727050598e55f4774e66
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-storsimple-monitoring-indicators-toomanage-your-device"></a>Korzystać z urządzenia StorSimple monitorowania toomanage wskaźników
+# <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Umożliwia zarządzanie urządzeniem StorSimple monitorowania wskaźników
 ## <a name="overview"></a>Omówienie
-Urządzenia StorSimple zawiera światła — elektroluminescencyjne (LED) i alarmy, których można używać toomonitor hello moduły i ogólny stan hello urządzenia StorSimple. Witaj wskaźników monitorowania można znaleźć w składniki sprzętowe hello obudowa głównej hello urządzenia i obudowy EBOD hello. Hello wskaźników monitorowania może być LED lub dźwiękowe alarmy.
+Urządzenia StorSimple zawiera światła — elektroluminescencyjne (LED) i alarmów, można monitorować, moduły i ogólny stan urządzenia StorSimple. Wskaźniki monitorowania można znaleźć w składniki sprzętowe obudowa głównej urządzenia i obudowy EBOD. Wskaźniki monitorowania może być LED lub dźwiękowe alarmy.
 
-Istnieją trzy LED stanów używane tooindicate hello stan modułu: zielony miga zielony żółtą toored, lub żółtą czerwony.  
+Istnieją trzy stany LED służy do wskazania stanu modułu: zielony miga zielony żółtą czerwony lub żółtą czerwony.  
 
 * Zielony LED reprezentują prawidłowego stanu operacyjnego.  
-* Miga zielony żółtą toored LED reprezentują obecności hello niekrytyczne warunków, które mogą wymagać interwencji użytkownika.  
-* LED żółtą czerwony oznacza, że obecne w hello module błąd krytyczny.  
+* Miga zielonego na czerwony żółtą LED reprezentują obecności niekrytyczne warunki, które mogą wymagać interwencji użytkownika.  
+* LED żółtą czerwony oznacza, że istnieje w module błąd krytyczny.  
 
-Witaj dalszej części tego artykułu opisano hello różnych monitorowania LED wskaźnika, ich lokalizacji na urządzeniu StorSimple hello, stan urządzenia hello oparty na powitania stanów LED, wraz ze wszystkimi skojarzonymi dźwiękowe alarmy.
+W dalszej części tego artykułu opisano różne monitorowania LED wskaźnika, ich lokalizacji na urządzeniu StorSimple, stan urządzenia na podstawie stanów LED i wszystkie skojarzone alarmy dźwiękowego.
 
 ## <a name="front-panel-indicator-leds"></a>Wskaźnik panelu przedniego LED
-panelu przedniego Hello, nazywany również hello *panelu Operacje* lub *panelu ops*, wyświetla zagregowany stan wszystkich modułów hello hello w systemie hello. panelu przedniego Hello jest identyczne na powitania StorSimple podstawowego i hello obudowa EBOD i poniżej przedstawiono.  
+Przodu panelu, znanej także jako *panelu Operacje* lub *panelu ops*, wyświetla zagregowany stan wszystkich modułów w systemie. Panelu przedniego jest identyczne w głównej StorSimple i obudowy EBOD i przedstawiono poniżej.  
 
    ![Urządzenie panelu przedniego][1]
 
-panelu przedniego Hello zawiera następujące wskaźniki hello:  
+Panelu przedniego zawiera następujące wskaźniki:  
 
 1. Przycisk wyciszenia
 2. Wskaźnik zasilania LED (zielony czerwony żółtą)
@@ -45,14 +45,14 @@ panelu przedniego Hello zawiera następujące wskaźniki hello:
 4. Wskaźnik błędów logicznych DOPROWADZIŁY (na czerwono żółtą/wyłączona
 5. Wyświetlanie Identyfikatora jednostki  
 
-Witaj główna różnica między panelu przedniego hello LED hello urządzenia oraz na powitania obudowa EBOD jest hello **numeru identyfikacyjnego jednostki systemu** wyświetlane na ekranie powitania LED. jednostki domyślne Hello jest wyświetlana na urządzeniu hello identyfikator **00**, a identyfikator jednostki domyślne hello wyświetlany na powitania obudowa EBOD **01**. Dzięki temu można tooquickly rozróżniania hello urządzenia oraz obudowy EBOD powitania po włączeniu urządzenia hello. Jeśli urządzenie jest wyłączone, użyj hello informacji dostępnych w [włączyć nowe urządzenie](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) toodifferentiate hello urządzenia z hello EBOD obudowy.  
+Główna różnica między LED panelu przedniego urządzenia oraz konfiguracje obudowa EBOD jest **numeru identyfikacyjnego jednostki systemu** wyświetlane na ekranie LED. Jednostka domyślny identyfikator wyświetlany na urządzeniu jest **00**, jest wyświetlany na obudowę EBOD domyślny identyfikator jednostki **01**. Dzięki temu można szybko rozróżnianie między urządzeniem i obudowy EBOD, gdy urządzenie jest włączone. Jeśli urządzenie jest wyłączone, należy skorzystać z informacji zawartych w [włączyć nowe urządzenie](storsimple-turn-device-on-or-off.md#turn-on-a-new-device) do odróżnienia urządzenia łączącego obudowę EBOD.  
 
 ## <a name="front-panel-led-status"></a>Stan LED panelu przedniego
-Użyj powitania po stan hello tooidentify tabeli wskazywany przez hello LED na panelu przednim hello hello urządzenia lub hello EBOD obudowy.  
+Poniższa tabela umożliwia zidentyfikowanie stanu wskazuje LED na panelu przednim urządzenia lub obudowy EBOD.  
 
 | Zasilania systemu | Błąd modułu | Błąd logiczny | Alarm | Stan |
 | --- | --- | --- | --- | --- |
-| Żółtą czerwony |WYŁĄCZANIE |WYŁĄCZANIE |Nie dotyczy |Utraty zasilacza korzysta z kopii zapasowej zasilania lub zasilacz i hello kontrolera modułów zostały usunięte. |
+| Żółtą czerwony |WYŁĄCZANIE |WYŁĄCZANIE |Nie dotyczy |Zasilacz utracone, korzysta z kopii zapasowej zasilania lub zasilacz i kontroler, który modułów zostały usunięte. |
 | Zielony |ON |ON |Nie dotyczy |Stan testu OPS panelu Włącz (5s) |
 | Zielony |WYŁĄCZANIE |WYŁĄCZANIE |Nie dotyczy |Włącz wszystkie funkcje dobra |
 | Zielony |ON |Nie dotyczy |Błędów PCM LED, błędów wentylator LED |Żadnych błędów PCM, wentylator usterka, powyżej lub poniżej temperatury |
@@ -61,15 +61,15 @@ Użyj powitania po stan hello tooidentify tabeli wskazywany przez hello LED na p
 | Zielony |Flash |Nie dotyczy |Stan modułu PRZEPROWADZONY w module kontrolera. Błędów PCM LED, błędów wentylator LED |Zainstalowany kontroler nieznany typ modułu, I2C magistrali błąd, błąd konfiguracji kontrolera modułu niezbędne produktu danych (VPD) |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>Chłodzenia modułu (PCM) wskaźnik LED zasilania
-Wskaźnik modułu (PCM) chłodzenia zasilania LED znajduje się na hello obu obudowa głównej hello lub obudowa EBOD dla każdego modułu PCM. W tym temacie omówiono sposób hello toouse po LED toomonitor hello stan urządzenia StorSimple.  
+Zasilania chłodzenia modułu (PCM) wskaźnik LED można znaleźć tyłu obudowy podstawowego lub obudowa EBOD na każdy Moduł PCM. W tym temacie omówiono sposób użycia następujących LED do monitorowania stanu urządzenia StorSimple.  
 
-* LED PCM dla podstawowego obudowa hello
-* Wskaźniki LED PCM hello obudowa EBOD
+* LED PCM dla podstawowego obudowy
+* Wskaźniki LED PCM obudowa EBOD
 
-## <a name="pcm-leds-for-hello-primary-enclosure"></a>LED PCM dla podstawowego obudowa hello
-urządzenie StorSimple Hello ma Moduł PCM 764W o dodatkowe baterii. Witaj poniższej ilustracji przedstawiono panelu LED hello hello urządzenia.  
+## <a name="pcm-leds-for-the-primary-enclosure"></a>LED PCM dla podstawowego obudowy
+Urządzenie StorSimple ma Moduł PCM 764W o dodatkowe baterii. Na poniższej ilustracji przedstawiono panelu LED urządzenia.  
 
-   ![PCM LED hello obudowa podstawowego][2]
+   ![PCM LED obudowa podstawowego][2]
 
 Legenda LED:
 
@@ -80,12 +80,12 @@ Legenda LED:
 5. Błąd kontrolera domeny
 6. Dobrym baterii  
 
-Stan Hello hello PCM jest umieszczona na powitania PRZEPROWADZONY panelu. panel PCM LED urządzenia Hello ma sześć LED. Cztery te LED wyświetlany stan hello hello zasilania i wentylator hello. pozostałe dwie LED Hello wskazują stan hello hello modułu baterii kopii zapasowej w hello PCM. Można użyć następujących tabel toodetermine hello stan hello PCM hello.  
+Stan PCM jest sygnalizowane na panelu LED. Panel PCM LED urządzenie ma sześć LED. Cztery te LED wyświetlanie stanu zasilania i wentylatora. Pozostałe dwie LED wskazują stan modułu baterii kopii zapasowej w PCM. Poniższe tabele można użyć do określenia stanu PCM.  
 
 ### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>Wskaźnik PCM LED zasilania i wentylatora
 | Stan | PCM OK (zielony) | Niepowodzenie AC (żółte) | Wentylator kończyć się niepowodzeniem (żółte) | Niepowodzenie kontrolera domeny (żółte) |
 | --- | --- | --- | --- | --- |
-| Nie zasilacza (tooenclosure) |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |
+| Nie zasilacza (aby obudowa) |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |
 | Nie zasilacza (tego PCM tylko) |WYŁĄCZANIE |ON |WYŁĄCZANIE |ON |
 | Ak przedstawia PCM ON - OK |ON |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |
 | Błędów PCM (niepowodzenie wentylator) |WYŁĄCZANIE |WYŁĄCZANIE |ON |Nie dotyczy |
@@ -94,7 +94,7 @@ Stan Hello hello PCM jest umieszczona na powitania PRZEPROWADZONY panelu. panel 
 | Tryb wstrzymania |Miga |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |
 | Pobranie oprogramowania układowego PCM |WYŁĄCZANIE |Miga |Miga |Miga |
 
-### <a name="pcm-indicator-leds-for-hello-backup-battery"></a>Wskaźnik PCM LED hello kopii zapasowej baterii
+### <a name="pcm-indicator-leds-for-the-backup-battery"></a>Wskaźnik PCM LED dla kopii zapasowej baterii
 | Stan | Baterii dobrą (zielony) | Uszkodzenia (żółtą) |
 | --- | --- | --- |
 | Brak baterii |WYŁĄCZANIE |WYŁĄCZANIE |
@@ -104,16 +104,16 @@ Stan Hello hello PCM jest umieszczona na powitania PRZEPROWADZONY panelu. panel 
 | Błąd "sprzętowy" baterii (nieodwracalny) |WYŁĄCZANIE |ON |
 | Pozbawionych baterii |Miga |WYŁĄCZANIE |
 
-## <a name="pcm-leds-for-hello-ebod-enclosure"></a>Wskaźniki LED PCM hello obudowa EBOD
-Witaj obudowa EBOD ma 580W PCM i nie dodatkowe baterii. panel PCM Hello hello obudowa EBOD ma wskaźnik LED tylko w przypadku hello zasilacze i wentylator hello. Witaj poniższej ilustracji przedstawiono te LED.
+## <a name="pcm-leds-for-the-ebod-enclosure"></a>Wskaźniki LED PCM obudowa EBOD
+Obudowa EBOD ma 580W PCM i nie dodatkowe baterii. Panel PCM obudowa EBOD ma wskaźnik LED tylko w przypadku zasilacze i wentylatora. Na poniższej ilustracji przedstawiono te LED.
 
-   ![PCM LED hello obudowa EBOD][3] 
+   ![PCM LED obudowa EBOD][3] 
 
-Można użyć następującej tabeli toodetermine hello stan hello PCM hello.  
+Poniższa tabela umożliwia określenie stanu PCM.  
 
 | Stan | PCM OK (zielony) | Niepowodzenie AC (żółte) | Wentylator kończyć się niepowodzeniem (żółte) | Niepowodzenie kontrolera domeny (żółte) |
 | --- | --- | --- | --- | --- |
-| Nie zasilacza (tooenclosure) |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |
+| Nie zasilacza (aby obudowa) |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |
 | Nie zasilacza (tego PCM tylko) |WYŁĄCZANIE |ON |WYŁĄCZANIE |ON |
 | Ak przedstawia ON PCM — OK |ON |WYŁĄCZANIE |WYŁĄCZANIE |WYŁĄCZANIE |
 | Błędów PCM (niepowodzenie wentylator) |WYŁĄCZANIE |WYŁĄCZANIE |ON |X |
@@ -123,36 +123,36 @@ Można użyć następującej tabeli toodetermine hello stan hello PCM hello.
 | Pobranie oprogramowania układowego PCM |WYŁĄCZANIE |Miga |Miga |Miga |
 
 ## <a name="controller-module-indicator-leds"></a>Kontroler modułu wskaźnik LED
-urządzenia StorSimple Hello zawiera LED hello podstawowego kontrolera i hello EBOD kontrolera modułów.   
+Urządzenia StorSimple zawiera LED dla podstawowego kontrolera i moduły EBOD kontrolera.   
 
-### <a name="monitoring-leds-for-hello-primary-controller"></a>Monitorowanie LED hello podstawowego kontrolera
-Witaj ilustracji pomaga zidentyfikować hello LED hello podstawowego kontrolera. (Wszystkie składniki hello są wymienione tooaid w orientacji).  
+### <a name="monitoring-leds-for-the-primary-controller"></a>Monitorowanie LED dla podstawowego kontrolera
+Poniższa ilustracja pomaga zidentyfikować LED na podstawowym kontrolerze. (Wszystkie składniki są wymienione pomocy w orientacji.)  
 
    ![Monitorowanie LED - podstawowego kontrolera][4]
 
-Użyj następujących hello tabeli toodetermine, czy moduł kontrolera hello działa prawidłowo.  
+Skorzystaj z poniższej tabeli, aby określić, czy moduł kontrolera działa prawidłowo.  
 
 ### <a name="controller-indicator-leds"></a>Wskaźnik kontrolera LED
 | LED | Opis |
 | --- | --- |
-| Identyfikator LED (niebieski) |Wskazuje, że określono ten moduł hello. Jeśli hello niebieski LED jest migający na działającego kontrolera, następnie hello kontroler jest hello active oraz hello innego hello rezerwy kontroler. Aby uzyskać więcej informacji, zobacz [Identyfikuj hello aktywnym kontrolerze na urządzeniu](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
-| Błąd LED (żółtą) |Wskazuje błąd hello kontrolera. |
-| LED OK (zielony) |Stałej zielony oznacza, że ten kontroler hello jest OK. Miga zielony oznacza kontroler VPD błąd konfiguracji. |
-| Działanie SAS LED (zielony) |Stałej zielony oznacza nie bieżącego działania z nim połączenia. Miga zielony oznacza, że połączenia hello jest bieżące działanie. |
-| Stan Ethernet LED |Po prawej stronie wskazuje działania łącza i sieci: link (zielony stałej) active (miga zielony) działań w sieci. Po lewej stronie wskazuje szybkość sieci: (żółty) 1000 Mb/s (zielony) 100 Mb/s i (OFF) 10 Mb/s. W zależności od modelu składnika hello powyższe może blink, nawet jeśli nie włączono hello interfejsu sieciowego. |
-| LED POST |Wskazuje postęp rozruchu powitania po włączeniu hello kontrolera. W przypadku niepowodzenia tooboot urządzenia StorSimple hello tego LED pomoże zidentyfikować punkt hello w hello proces rozruchu, w którym wystąpił błąd hello Support firmy Microsoft. |
+| Identyfikator LED (niebieski) |Wskazuje, czy moduł jest identyfikowany. Jeśli niebieski LED jest migający na działającego kontrolera, kontroler jest aktywne i jeden z nich jest kontrolerem wstrzymania. Aby uzyskać więcej informacji, zobacz [Zidentyfikuj active kontroler na urządzeniu](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
+| Błąd LED (żółtą) |Wskazuje błąd w kontrolerze. |
+| LED OK (zielony) |Zielony stałej wskazuje, czy kontroler jest OK. Miga zielony oznacza kontroler VPD błąd konfiguracji. |
+| Działanie SAS LED (zielony) |Stałej zielony oznacza nie bieżącego działania z nim połączenia. Miga zielony oznacza, że połączenie jest bieżące działanie. |
+| Stan Ethernet LED |Po prawej stronie wskazuje działania łącza i sieci: link (zielony stałej) active (miga zielony) działań w sieci. Po lewej stronie wskazuje szybkość sieci: (żółty) 1000 Mb/s (zielony) 100 Mb/s i (OFF) 10 Mb/s. W zależności od modelu składnika powyższe może blink, nawet jeśli nie włączono interfejsu sieciowego. |
+| LED POST |Wskazuje postęp rozruchu po włączeniu kontrolera. Jeśli urządzenie StorSimple zakończy się niepowodzeniem, rozruch, to LED pomoże Microsoft Support identyfikowania punktu w proces rozruchu, w którym wystąpił błąd. |
 
 > [!IMPORTANT]
-> Jeśli błąd hello LED jest włączone, występuje problem z modułem kontrolera hello, którego może rozwiązać przez ponowne uruchomienie kontrolera hello. Jeśli ponownie uruchomić kontrolera hello nie rozwiązuje ten problem, skontaktuj się Support firmy Microsoft.  
+> Jeśli błąd LED jest włączone, występuje problem z modułem kontrolera, którego może rozwiązać przez ponowne uruchomienie kontrolera. Jeśli ponowne uruchomienie kontrolera nie rozwiązuje tego problemu, skontaktuj się Support firmy Microsoft.  
 > 
 > 
 
-### <a name="monitoring-leds-for-hello-ebod-ebod-enclosure"></a>Monitorowanie LED hello EBOD (EBOD obudowa)
-Każdy z hello 6 Gb/s kontrolery SAS EBOD ma LED, które wskazać jej stan, jak pokazano na następującej ilustracji hello.  
+### <a name="monitoring-leds-for-the-ebod-ebod-enclosure"></a>Monitorowanie LED EBOD (EBOD obudowa)
+Poszczególnych kontrolerów 6 Gb/s EBOD SAS ma LED, które wskazać jej stan, jak pokazano na poniższej ilustracji.  
 
   ![Monitorowanie LED - obudowa EBOD][5]
 
-Użyj powitania po toodetermine tabeli, czy moduł kontrolera EBOD hello działa normalnie.  
+Skorzystaj z poniższej tabeli, aby określić, czy moduł kontrolera EBOD działa normalnie.  
 
 ### <a name="ebod-controller-module-indicator-leds"></a>Wskaźnik modułu kontrolera EBOD LED
 | Stan | We/Wy modułu OK (zielony) | Błąd modułu we/wy (żółtą) | Aktywność port hosta (zielony) |
@@ -164,16 +164,16 @@ Użyj powitania po toodetermine tabeli, czy moduł kontrolera EBOD hello działa
 | Połączenie z portu zewnętrznego hosta — działania |- |- |Miga |
 | Błąd metadanych modułu kontrolera |Miga |- |- |
 
-## <a name="disk-drive-indicator-leds-for-hello-primary-enclosure-and-ebod-enclosure"></a>Wskaźnik dysku LED hello obudowy podstawowego i obudowy EBOD
-urządzenie StorSimple Hello ma dysków znajduje się w zarówno hello obudowa podstawowego, jak i obudowy EBOD hello. Każdy dysk zawiera monitorowania LED wskaźnika, zgodnie z opisem w tej sekcji. 
+## <a name="disk-drive-indicator-leds-for-the-primary-enclosure-and-ebod-enclosure"></a>Wskaźnik dysku LED obudowy podstawowego i obudowy EBOD
+Urządzenie StorSimple ma dysków znajduje się w głównej obudowa i obudowy EBOD. Każdy dysk zawiera monitorowania LED wskaźnika, zgodnie z opisem w tej sekcji. 
 
-Hello dysków, stan dysku hello jest określane przez zielona LED i LED żółtą red zainstalowanym na powitania na początku każdego modułu operatora dysku. Witaj poniższej ilustracji przedstawiono te LED.
+Dla stacji dysków, stan dysku jest określane przez zielona LED i LED żółtą czerwony zainstalowane na początku każdego modułu operatora dysku. Na poniższej ilustracji przedstawiono te LED.
 
   ![LED dysku][6]
 
-Użyj powitania po tabeli toodetermine hello stan każdego dysku twardego, który z kolei ma wpływ na powitania panelu przedniego ogólne LED stanu.  
+Skorzystaj z poniższej tabeli, aby określić stan każdego dysku twardego, który z kolei ma wpływ na panelu przednim ogólny stan LED.  
 
-### <a name="disk-drive-indicator-leds-for-hello-ebod-enclosure"></a>Dysk wskaźnik LED hello obudowa EBOD
+### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Dysk wskaźnik LED obudowa EBOD
 | Stan | Działanie LED OK (zielony) | Błąd LED (czerwony żółtą) | Skojarzone panelu ops LED |
 | --- | --- | --- | --- |
 | Dysk nie jest zainstalowany |WYŁĄCZANIE |WYŁĄCZANIE |Brak |
@@ -183,7 +183,7 @@ Użyj powitania po tabeli toodetermine hello stan każdego dysku twardego, któr
 | Obwód sterowania zasilaniu |WYŁĄCZANIE |ON |Błąd modułu (czerwony) |
 
 ## <a name="audible-alarms"></a>Alarm dźwiękowy
-Urządzenie StorSimple zawiera dźwiękowe alarmy związane z zarówno hello obudowa podstawowego i obudowy EBOD hello. Alarm dźwiękowy znajduje się na panelu przednim hello (znanej także jako panel ops hello) zarówno obudów. alarmu Hello wskazuje, kiedy warunek błędu jest obecna. Witaj następujące warunki uaktywni hello alarmu:  
+Urządzenie StorSimple zawiera dźwiękowe alarmy związane z zarówno podstawowy obudowa i obudowy EBOD. Alarm dźwiękowy znajduje się na panelu przednim (znanej także jako panel ops) zarówno obudów. Alarmu wskazuje, kiedy występuje warunek błędu. Poniższe warunki uaktywni alarmu:  
 
 * Wentylator błędów lub niepowodzenie
 * Napięcia poza zakresem
@@ -194,26 +194,26 @@ Urządzenie StorSimple zawiera dźwiękowe alarmy związane z zarówno hello obu
 * Awarii zasilania zasilania
 * Usunięcie mocy chłodzenia modułu (PCM)  
 
-Witaj poniższej tabeli opisano hello alarm różne stany.  
+W poniższej tabeli opisano różne stany alarm.  
 
 ### <a name="alarm-states"></a>Alarm stanów
 | Alarm stanu | Akcja | Działania przyciskiem wyciszenia naciśnięty |
 | --- | --- | --- |
 | S0 |Tryb normalny: dyskretnej |Dwa razy dźwiękowego |
-| S1 |Tryb błędów: 1 sekundę na/1 sekundę poza |Przejście tooS2 lub S3 (zobacz Uwagi) |
+| S1 |Tryb błędów: 1 sekundę na/1 sekundę poza |Przejście do S2 lub S3 (zobacz Uwagi) |
 | S2 |Przypomnij tryb: Sporadyczne dźwiękowego |Brak |
 | S3 |Tryb stonowane: dyskretnej |Brak |
 | S4 |Tryb błędów krytycznych: alarm ciągłej |Nie jest dostępna: wyciszanie nie jest aktywny |
 
 > [!NOTE]
-> * W stanie alarm S1 Jeśli nie zostanie naciśnięty wyciszenia w ciągu 2 minut stanu hello automatycznie zostanie przekazana tooS2 lub S3.  
-> * Stany alarm S1 tooS4 zwracać tooS0 po awarii hello jest wyczyszczone.  
+> * W stanie alarm S1 Jeśli nie zostanie naciśnięty wyciszenia w ciągu 2 minut, stan automatycznie zostanie przekazana do S2 lub S3.  
+> * Alarm Państwa S1 S4 zwracają S0 po awarii jest wyczyszczone.  
 > * Stan krytyczny błąd S4 można wpisać w inny stan.  
 
 
-Wyciszanie z hello alarmu, naciskając przycisk wyciszenia hello na powitania ops panelu. Automatyczne wyciszanie nastąpi po dwóch minut, jeśli przełącznik wyciszenia hello ręcznie jest nieobsługiwanymi. Gdy wygaszonego hello alarm będzie toosound z tooindicate krótkich dźwięków sporadyczne, czy problem nadal istnieje. Hello alarm będzie dyskretnej, gdy wszystkie problemy hello zostały wyczyszczone.
+Wyciszanie z alarmu, naciskając przycisk wyciszenia na panelu ops. Automatyczne wyciszanie nastąpi po dwóch minut Jeśli wyciszenia przełącznika nie jest obsługiwana ręcznie. Gdy wyciszeniu alarmu, będzie dźwięk z krótką sygnały sporadyczne wskazująca, czy problem nadal istnieje. Alarm będzie dyskretnej, gdy wszystkie problemy zostały wyczyszczone.
 
-Witaj poniższej tabeli opisano hello alarm różnych warunków.
+W poniższej tabeli opisano różne warunki alarm.
 
 ### <a name="alarm-conditions"></a>Alarm warunków
 | Stan | Ważność | Alarm | OPS panelu LED |

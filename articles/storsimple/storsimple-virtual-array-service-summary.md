@@ -1,6 +1,6 @@
 ---
-title: "bloku podsumowania usługi tablicy wirtualnego aaaStorSimple | Dokumentacja firmy Microsoft"
-description: "Zawiera opis bloku podsumowania hello usługi Menedżer urządzenia StorSimple i jak toouse go kondycji hello toomonitor macierzy wirtualne StorSimple."
+title: "Podsumowanie bloku usługi tablicy wirtualnego StorSimple | Dokumentacja firmy Microsoft"
+description: "Zawiera opis bloku podsumowania usługi Menedżer urządzenia StorSimple i wyjaśniono, jak korzystać z niego do monitorowania kondycji macierzy wirtualne StorSimple."
 services: storsimple
 documentationcenter: 
 author: manuaery
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: e0b10cc47488a8328a7e3c194c1a1045ffbfbe76
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 284e404c44505a98d9e0ed5abe87cd945415af56
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-hello-service-summary-blade-for-storsimple-device-manager-connected-toostorsimple-virtual-array"></a>Podsumowanie bloku usługi hello Użyj Menedżera urządzeń StorSimple połączone tooStorSimple wirtualnego tablicy
+# <a name="use-the-service-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>Użyj bloku podsumowania usługi Menedżera urządzeń StorSimple podłączonym do wirtualnego StorSimple
 ## <a name="overview"></a>Omówienie
-Hello podsumowania bloku hello Menedżera urządzeń StorSimple usługi zawiera widok podsumowania hello tablice wirtualnego StorSimple (znanej także jako StorSimple lokalnego urządzenia wirtualne lub urządzeń wirtualnych), które są połączone usługi tooyour, te, które wymagają wyróżnianie Uwagi administratora systemu. W tym samouczku wprowadza hello usługi podsumowania bloku, opisano hello zawartości i funkcji oraz opisano hello zadania, które można wykonać z poziomu tego bloku.
+Podsumowanie bloku usługi Menedżer urządzeń StorSimple zawiera widok podsumowania StorSimple wirtualnego tablic (znanej także jako StorSimple lokalnego urządzenia wirtualne lub urządzeń wirtualnych), które są połączone z usługą, wyróżnianie te, które wymagają systemu Uwagi administratora. W tym samouczku wprowadza bloku podsumowania usługi, opisano zawartości i funkcji oraz opisano zadania, które można wykonać z poziomu tego bloku.
 
 ![Pulpit nawigacyjny usług](./media/storsimple-virtual-array-service-summary/service-blade.png)
 
 ## <a name="management-commands-and-essentials"></a>Polecenia zarządzania i essentials
-W bloku podsumowania StorSimple hello można zobaczyć hello opcje zarządzania z usługi Menedżer StorSimple urządzenia, a także hello wirtualnego tablice toothis zarejestrowane usługi. Widzisz polecenia zarządzania hello hello górze bloku hello i po lewej stronie powitania.
+W bloku podsumowania StorSimple zobacz temat opcji zarządzania usługi Menedżer StorSimple urządzenia, a także wirtualnego tablic zarejestrowany dla tej usługi. Polecenia zarządzania zostanie wyświetlony w górnej części bloku i po lewej stronie.
 
-Użyj tych tooperform opcje różne operacje takie jak dodawanie udziały lub woluminy lub monitor hello różne zadania uruchomione w tablicach wirtualnego hello.
+Użyj tych opcji, aby wykonywać różne operacje, takie jak dodawanie udziały lub woluminy lub monitor różnych zadań, działają w tablicach wirtualnego.
 
-obszar essentials Hello przechwytuje niektóre właściwości ważne hello, takich jak grupy zasobów hello, lokalizacji i subskrypcji, w której został utworzony Menedżera urządzenia StorSimple.
+Obszar essentials przechwytuje niektóre ważne właściwości, takie jak grupy zasobów, lokalizacji i subskrypcji, w której został utworzony Menedżera urządzenia StorSimple.
 
 ## <a name="storsimple-device-manager-service-summary"></a>Podsumowanie usługi Menedżer StorSimple urządzenia
-* Witaj **alerty** kafelka zawiera migawkę wszystkich hello aktywne alerty dla wszystkich urządzeń wirtualnych, pogrupowane według ważności alertu. Kliknięcie kafelka hello otwiera hello **alerty** bloku, w przypadku, gdy po kliknięciu poszczególnych tooview alertów dodatkowe szczegóły dotyczące alertu, wraz ze wszystkimi zalecane akcje. Można także wyczyścić hello alert, jeśli hello problem został rozwiązany.
-* Witaj **pojemności** kafelka Wyświetla pokazuje hello podstawowego magazynu, który jest elastycznie i pozostałe we wszystkich urządzeń wirtualnych względną toohello całkowita magazynu jest dostępna dla wszystkich wirtualnych urządzeń. **Zainicjowano obsługę administracyjną** odwołuje się toohello ilość miejsca w magazynie, który jest przygotowany i przydzielona do użycia, **pozostała** odwołuje się toohello pozostałych pojemności, które można udostępnić dla wszystkich urządzeń wirtualnych. Hello **pozostałych do warstwy** pojemność to hello dostępnej pojemności, który można udostępnić, łącznie z chmury, podczas hello **pozostałych lokalnego** jest pojemność hello pozostały na dyskach hello dołączona toohello tablice wirtualnego.
-* W hello **użycia** wykresu, zobacz temat hello metryki istotne dla urządzenia wirtualnego. Można wyświetlić hello magazyn podstawowy używany we wszystkich urządzeń wirtualnych, a także magazynu w chmurze hello używane przez urządzenia wirtualne za pośrednictwem hello ostatnich 7 dni, hello domyślny okres czasu. Użyj hello **Edytuj** opcji hello prawym górnym rogu toochoose wykresu hello skali innym czasie.
-* Witaj **urządzeń** kafelka zawiera podsumowanie liczby hello wirtualnego tablic w sieci urządzeń Menedżer StorSimple pogrupowane według stanu urządzenia. Kliknij ten Kafelek hello tooopen **urządzeń** listy bloku, a następnie kliknij przycisk toodrill poszczególnych urządzeń do hello urządzenia podsumowania toohello określonego urządzenia. Można również wykonywać określone czynności urządzenia z danym urządzeniem bloku podsumowania. Aby uzyskać więcej informacji na temat hello urządzenia podsumowania bloku Przejdź zbyt[bloku podsumowania urządzenia](storsimple-virtual-array-device-summary.md).
+* **Alerty** kafelka zawiera migawkę wszystkich aktywnych alertów dla wszystkich urządzeń wirtualnych, pogrupowane według ważności alertu. Kliknięcie kafelka otwiera **alerty** bloku, w przypadku, gdy alert indywidualny, aby wyświetlić dodatkowe szczegóły dotyczące alertu, można kliknąć wraz ze wszystkimi zalecane akcje. Można także wyczyścić alert, jeśli ten problem został rozwiązany.
+* **Pojemności** Wyświetla kafelka przedstawia podstawowy magazynu, który jest inicjowana i pozostałe dla wszystkich urządzeń wirtualnych względem magazynu całkowita, która jest dostępna dla wszystkich urządzeń wirtualnych. **Zainicjowano obsługę administracyjną** odwołuje się do ilość miejsca w magazynie, który jest przygotowany i przydzielona do użycia, **pozostała** odwołuje się do pozostałe zasoby, które można udostępnić dla wszystkich urządzeń wirtualnych. **Pozostałych do warstwy** pojemność jest dostępna pojemność, które można udostępnić, łącznie z chmury, podczas **pozostałych lokalnego** pojemność pozostały na dyskach dołączone do wirtualnego tablic.
+* W **użycia** wykresu, zobacz temat metryki istotne dla urządzenia wirtualnego. Można wyświetlić podstawowy magazyn używany dla wszystkich urządzeń wirtualnych, jak również w magazynie w chmurze używane przez urządzenia wirtualne w ciągu ostatnich 7 dni, domyślny okres czasu. Użyj **Edytuj** opcję w prawym górnym rogu wykresu, aby wybrać inną zapewniały.
+* **Urządzeń** kafelka zawiera podsumowanie liczby wirtualnych tablic w sieci urządzeń Menedżer StorSimple pogrupowane według stanu urządzenia. Kliknij ten Kafelek, aby otworzyć **urządzeń** listy bloku, a następnie kliknij przycisk poszczególnych urządzeń do szczegółowego w podsumowaniu urządzenia specyficzne dla urządzenia. Można również wykonywać określone czynności urządzenia z danym urządzeniem bloku podsumowania. Aby uzyskać więcej informacji o bloku podsumowania urządzeń, przejdź do [bloku podsumowania urządzenia](storsimple-virtual-array-device-summary.md).
 
-## <a name="view-hello-activity-logs"></a>Wyświetl dzienniki aktywności hello
-Witaj tooview różne operacje przeprowadzane w Menedżerze urządzeń StorSimple, kliknij przycisk hello **Dzienniki aktywności** łącze na powitania po lewej stronie StorSimple bloku podsumowania usługi. Powoduje to przejście toohello **Dzienniki aktywności** bloku, w którym można zobaczyć podsumowanie hello ostatnie czynności.
+## <a name="view-the-activity-logs"></a>Wyświetl dzienniki aktywności
+Aby wyświetlić różne operacje przeprowadzane w Menedżerze urządzeń StorSimple, kliknij przycisk **Dzienniki aktywności** link po lewej stronie StorSimple bloku podsumowania usługi. Powoduje to przejście do **Dzienniki aktywności** bloku, w którym można obejrzeć podsumowanie ostatnie operacje przeprowadzane.
 
 ![Dzienniki aktywności](./media/storsimple-virtual-array-service-summary/activity-log.png)
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się, jak za[Użyj hello tooadminister interfejsu użytkownika sieci web lokalnego tablica wirtualnego StorSimple](storsimple-ova-web-ui-admin.md).
+Dowiedz się, jak [używać lokalnego interfejsu użytkownika sieci web do administrowania tablica wirtualnego StorSimple](storsimple-ova-web-ui-admin.md).
 

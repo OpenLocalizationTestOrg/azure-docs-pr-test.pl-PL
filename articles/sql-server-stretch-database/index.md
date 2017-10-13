@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure dokumentacji bazy danych programu SQL Server Stretch — samouczki | Dokumentacja firmy Microsoft"
-description: "Dowiedz się, jak toouse bazy danych programu SQL Server Stretch toomigrate zimnych danych bezpiecznie tooAzure bez modyfikowania zapytania lub aplikacji. Samouczki i inne dokumenty."
+title: "Dokumentacja usługi Azure SQL Server Stretch Database — samouczki | Microsoft Docs"
+description: "Dowiedz się, jak usługa SQL Server Stretch Database umożliwia bezpieczne migrowanie zimnych danych do platformy Azure bez modyfikowania zapytań i aplikacji. Samouczki i inne dokumenty."
 services: sql-server-stretch-database
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 2b009d80224a62d940ec8b11de22ad8c0865d869
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: cbdd210f2fe46228daa8c138815826df2b3b0fd7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="sql-server-stretch-database-documentation"></a>Dokumentacja dotycząca usługi SQL Server Stretch Database
 
-Dowiedz się, jak toouse programu SQL Server Stretch bazy danych zimnych toomigrate w sposób niewidoczny dla użytkownika i bezpiecznie toohello Azure w chmurze. Samouczki i innych dokumentacji pomocy, skonfigurowanych ekonomicznego dostępności dla baz danych, rzadko używane dane bez konieczności zmiany tooexisting zapytaniach ani aplikacjach.
+Dowiedz się, jak usługa SQL Server Stretch Database umożliwia przejrzystą i bezpieczną migrację zimnych danych do chmury platformy Azure. Samouczki i inne dokumenty ułatwiają skonfigurowanie ekonomicznego dostępu dla baz danych z rzadko używanymi danymi bez konieczności wprowadzania zmian w istniejących zapytaniach i aplikacjach.
 
 
 <ul class="panelContent cardsFTitle">
@@ -89,7 +89,7 @@ Dowiedz się, jak toouse programu SQL Server Stretch bazy danych zimnych toomigr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Rozpoczynanie pracy za pomocą Kreatora bazy danych programu SQL Server Stretch hello</h3>
+                        <h3>Rozpoczynanie pracy z kreatorem usługi SQL Server Stretch Database</h3>
                     </div>
                 </div>
             </div>

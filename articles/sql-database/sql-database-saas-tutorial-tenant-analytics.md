@@ -1,5 +1,5 @@
 ---
-title: zapytania analityczne aaaRun wielu baz danych Azure SQL | Dokumentacja firmy Microsoft
+title: "Uruchamianie analitycznych zapytań w wielu bazach danych Azure SQL | Microsoft Docs"
 description: "Wyodrębniania danych z baz danych dzierżawy do celów analizy offline bazy danych analizy"
 keywords: "samouczek usługi sql database"
 services: sql-database
@@ -16,83 +16,83 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: f2664e4aafd2fecc98d20d229342bca19b0b08c1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4e32407d5f321198358e07980907c3420aaf56c6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="extract-data-from-tenant-databases-into-an-analytics-database-for-offline-analysis"></a>Wyodrębniania danych z baz danych dzierżawy do celów analizy offline bazy danych analizy
 
-W tym samouczku używamy zapytań toorun zadania elastycznej bazy danych każdej dzierżawy. zadanie Hello wyodrębnia dane sprzedaży biletów i ładuje go do bazy danych analizy (lub magazynu danych) do analizy. Witaj analytics baza danych jest następnie zbadać tooextract wgląd w dane dotyczące tej codziennych danych operacyjnych wszystkich dzierżawców.
+W tym samouczku elastycznej zadanie służy do wykonywania kwerend do każdej dzierżawy bazy danych. To zadanie umożliwia wyodrębnianie danych sprzedaży biletów i ładuje go do bazy danych analizy (lub magazynu danych) do analizy. Baza danych analizy następnie jest poddawany kwerendzie można wyodrębnić szczegółowych informacji z tego codziennych danych operacyjnych wszystkich dzierżawców.
 
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Tworzenie bazy danych analizy dzierżawy hello
-> * Tworzenie danych tooretrieve zaplanowanego zadania i wypełnianie bazy danych analizy hello
+> * Tworzenie analitycznej bazy danych dzierżaw
+> * Tworzenie zaplanowanego zadania do pobierania danych i wypełniania analitycznej bazy danych
 
-toocomplete tego samouczka, Utwórz hello się, że następujące wymagania wstępne są spełnione:
+Do wykonania zadań opisanych w tym samouczku niezbędne jest spełnienie następujących wymagań wstępnych:
 
-* Aplikacja Wingtip SaaS Hello jest wdrażana. Zobacz toodeploy w mniej niż pięć minut [wdrażania i aplikacji Wingtip SaaS hello](sql-database-saas-tutorial.md)
+* Aplikacja Wingtip SaaS jest wdrażana. Aby wdrożyć w mniej niż 5 minut, zobacz [wdrażania i aplikacji Wingtip SaaS](sql-database-saas-tutorial.md)
 * Zainstalowany jest program Azure PowerShell. Aby uzyskać szczegółowe informacje, zobacz [Rozpoczynanie pracy z programem Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* zainstalowana jest najnowsza wersja Hello programu SQL Server Management Studio (SSMS). [Pobieranie i instalowanie programu SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
+* Zainstalowano najnowszą wersję programu SSMS (SQL Server Management Studio). [Pobieranie i instalowanie programu SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 ## <a name="tenant-operational-analytics-pattern"></a>Wzorzec operacyjnej analizy dzierżaw
 
-Jedną z możliwości dużą hello z aplikacjami SaaS jest toouse hello sformatowanego dzierżawy danych przechowywanych w chmurze hello. Użyj tego danych toogain wgląd w działania hello i użycie aplikacji i dzierżawców. Te dane mogą przeprowadzają opracowanie funkcji, ulepszenia użyteczność i innych inwestycji w aplikacji hello i platformie. Uzyskiwanie dostępu do tych danych w jednej wielodostępnej bazie danych jest łatwe, ale przestaje być proste, gdy są one znacznie rozproszone, potencjalnie nawet na tysiące baz danych. Jeden tooaccessing podejście te dane są zadania elastyczne toouse, umożliwiające zwracanie wyniku wyników zapytania z toobe wykonanie zadania przechwycone dane wyjściowe bazy danych i tabeli.
+Jedną z najważniejszych zalet aplikacji SaaS jest możliwość użycia dużych ilości danych dotyczących dzierżaw, które są przechowywane w chmurze. Użyj tych danych, aby uzyskać wgląd w działanie i wykorzystanie swojej aplikacji i swoich dzierżaw. Te dane mogą ukierunkować rozwój funkcji, usprawnienia w zakresie użyteczności oraz inne inwestycje w aplikacje i platformę. Uzyskiwanie dostępu do tych danych w jednej wielodostępnej bazie danych jest łatwe, ale przestaje być proste, gdy są one znacznie rozproszone, potencjalnie nawet na tysiące baz danych. Jednym z podejść do uzyskiwania dostępu do tych danych jest użycie elastycznych zadań, umożliwiających zwracanie wyników zapytania z wykonywanego zadania i ich przesyłanie do wyjściowej bazy danych i tabeli.
 
-## <a name="get-hello-wingtip-application-scripts"></a>Pobierz skrypty aplikacji hello Wingtip
+## <a name="get-the-wingtip-application-scripts"></a>Pobieranie skryptów aplikacji Wingtip
 
-Witaj Wingtip SaaS skrypty i kod źródłowy aplikacji są dostępne w hello [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repozytorium github. [Kroki skrypty Wingtip SaaS hello toodownload](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
+Wingtip SaaS skrypty i kod źródłowy aplikacji są dostępne w [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS) repozytorium github. [Kroki, aby pobrać skrypty Wingtip SaaS](sql-database-wtp-overview.md#download-and-unblock-the-wingtip-saas-scripts).
 
 ## <a name="deploy-a-database-for-tenant-analytics-results"></a>Wdrażanie bazy danych dla wyników analizy dzierżawy
 
-Ten samouczek wymaga toohave hello toocapture wdrożonej bazy danych w wynikach pochodzący z wykonania zadania, skryptów, które zawierają zwracania wyników kwerendy. W tym celu utwórzmy bazę danych o nazwie tenantanalytics.
+Ten samouczek wymaga posiadania bazy danych wdrożonej w celu przechwytywania wyników wykonania zadania skryptów, które zawierają zapytania zwracające wyniki. W tym celu utwórzmy bazę danych o nazwie tenantanalytics.
 
-1. Otwórz... \\Modułów uczenia\\operacyjne Analytics\\Analytics dzierżawy\\*TenantAnalyticsDB.ps1 pokaz* w hello *PowerShell ISE* i ustaw Witaj, następujące wartości:
+1. Otwórz plik ...\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*Demo-TenantAnalyticsDB.ps1* w programie *PowerShell ISE* i ustaw następującą wartość:
    * **$DemoScenario** = **2** *Deploy operational analytics database* (Wdrażanie bazy danych analizy operacyjnej)
-1. Naciśnij klawisz **F5** toorun hello pokaz skryptu (hello tego wywołania *TenantAnalyticsDB.ps1 Wdróż* skryptu) co powoduje hello dzierżawy analityka w bazie danych.
+1. Naciśnij klawisz **F5**, aby uruchomić skrypt pokazowy (który wywołuje skrypt *Deploy-TenantAnalyticsDB.ps1*) tworzący bazę danych analizy dzierżaw.
 
-## <a name="create-some-data-for-hello-demo"></a>Tworzenie części danych pokaz hello
+## <a name="create-some-data-for-the-demo"></a>Tworzenie danych demonstracyjnych
 
-1. Otwórz... \\Modułów uczenia\\operacyjne Analytics\\Analytics dzierżawy\\*TenantAnalyticsDB.ps1 pokaz* w hello *PowerShell ISE* i ustaw Witaj, następujące wartości:
+1. Otwórz plik ...\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*Demo-TenantAnalyticsDB.ps1* w programie *PowerShell ISE* i ustaw następującą wartość:
    * **$DemoScenario** = **1** *Purchase tickets for events at all venues* (Zakup biletów dla zdarzeń we wszystkich miejscach)
-1. Naciśnij klawisz **F5** toorun hello skryptu i utworzenia biletu zakupu historii.
+1. Naciśnij klawisz **F5**, aby uruchomić skrypt i utworzyć historię zakupów biletów.
 
 
-## <a name="create-a-scheduled-job-tooretrieve-tenant-analytics-about-ticket-purchases"></a>Utwórz zaplanowane zadanie tooretrieve dzierżawy analityczne dotyczące zakupów biletu
+## <a name="create-a-scheduled-job-to-retrieve-tenant-analytics-about-ticket-purchases"></a>Tworzenie zaplanowanego zadania do pobierania informacji analitycznych dotyczących zakupów biletów
 
-Ten skrypt tworzy informacji o zakupie biletu tooretrieve zadania na podstawie wszystkich dzierżawców. Po zagregowane w jednej tabeli, można uzyskać sformatowanego interesującego metryk dotyczących struktury zakupów między dzierżawcami hello biletu.
+Ten skrypt tworzy zadanie do pobierania informacji o zakupie biletów ze wszystkich dzierżaw. Po ich zagregowaniu do pojedynczej tabeli można uzyskać szczegółowy wgląd w metryki związane z wzorcami zakupów biletów we wszystkich dzierżawach.
 
-1. Otwórz program SSMS i połącz toohello katalogu -&lt;użytkownika&gt;. database.windows.net serwera
+1. Otwórz aplikację SSMS i połącz się z serwerem catalog-&lt;użytkownik&gt;.database.windows.net
 1. Otwórz plik ...\\Learning Modules\\Operational Analytics\\Tenant Analytics\\*TicketPurchasesfromAllTenants.sql*
-1. Modyfikowanie &lt;użytkownika&gt;, nazwa użytkownika hello Użyj używane po wdrożeniu aplikacji Wingtip SaaS hello u góry hello skryptu hello, **sp\_Dodaj\_docelowej\_grupy\_elementuczłonkowskiego** i **sp\_dodać\_etap zadania**
-1. Kliknij prawym przyciskiem myszy, wybierz **połączenia**i połącz toohello katalogu -&lt;użytkownika&gt;. database.windows.net serwera, jeśli nie został jeszcze połączony
-1. Upewnij się, są połączone toohello **jobaccount** bazy danych i naciśnij klawisz **F5** do uruchamiania skryptu hello
+1. Modyfikowanie &lt;użytkownika&gt;, należy użyć nazwy użytkownika używane w przypadku wdrażania aplikacji Wingtip SaaS na początku skryptu, **sp\_dodać\_docelowej\_grupy\_elementu członkowskiego** i **sp\_dodać\_etap zadania**
+1. Kliknij prawym przyciskiem myszy, wybierz **połączenia**i połącz się katalogu -&lt;użytkownika&gt;. database.windows.net serwera, jeśli nie został jeszcze połączony
+1. Upewnij się, że masz połączenie z bazą danych **jobaccount**, a następnie naciśnij klawisz **F5**, aby uruchomić skrypt.
 
-* **SP\_dodać\_docelowej\_grupy** tworzy Nazwa grupy docelowej hello *TenantGroup*, teraz potrzebujemy tooadd członków docelowych.
-* **SP\_dodać\_docelowej\_grupy\_elementu członkowskiego** dodaje *serwera* docelowy typ elementu członkowskiego, które uzna za wszystkie bazy danych w ramach tego serwera (to hello customer1 — adnotacja &lt;Użytkownika&gt; serwer zawierający hello dzierżawcy z bazy danych) w czasie zadania wykonywania powinny być uwzględnione w hello zadania.
+* **sp\_add\_target\_group** tworzy nazwę grupy docelowej *TenantGroup*, teraz należy dodać docelowe elementy członkowskie.
+* **SP\_dodać\_docelowej\_grupy\_elementu członkowskiego** dodaje *serwera* docelowy typ elementu członkowskiego, które uzna za wszystkie bazy danych w ramach tego serwera (należy pamiętać, jest to customer1 -&lt;użytkownika&gt; serwer zawierający dzierżawy baz danych) w czasie zadania wykonywania powinny być uwzględnione w zadaniu.
 * **sp\_add\_job** tworzy nowe cotygodniowe zaplanowane zadanie o nazwie „Ticket Purchases from all Tenants”
-* **SP\_dodać\_etap zadania** tworzy hello etap zadania zawierające tooretrieve tekst polecenia T-SQL wszystkie informacje zakupu biletu hello ze wszystkich dzierżaw i zwracanie zestawu w tabeli o nazwie wyników hello kopii  *AllTicketsPurchasesfromAllTenants*
-* Widoki pozostałych Hello w skrypcie hello wyświetlanie istnienie hello hello obiektów i wykonywania zadania monitorowania. Przejrzyj wartości stanu hello z hello **cyklu życia** stan hello toomonitor kolumny. Jeden raz zakończyło się pomyślnie, hello zadanie zakończone pomyślnie, do wszystkich baz danych dzierżawy i hello dwóch dodatkowych baz danych zawierających hello odwołuje się tabela.
+* **sp\_add\_jobstep** tworzy krok zadania zawierający tekst polecenia T-SQL służącego do pobierania wszystkich informacji o zakupach biletów ze wszystkich dzierżaw i kopiowania zestawu zwracanych wyników do tabeli o nazwie *AllTicketsPurchasesfromAllTenants*
+* Pozostałe widoki w skrypcie dotyczą istnienia obiektów i monitorowania wykonania zadań. Sprawdź wartość stanu w kolumnie **lifecycle**, aby monitorować stan. Stan Powodzenie będzie oznaczał, że zadanie zostało zakończone pomyślnie dla wszystkich baz danych dzierżaw i dwóch dodatkowych baz danych zawierających tabelę referencyjną.
 
-Pomyślnie uruchomienie skryptu hello powinno spowodować podobne wyniki:
+Pomyślne uruchomienie skryptu powinno zwrócić wyniki podobne do następujących:
 
 ![wyniki](media/sql-database-saas-tutorial-tenant-analytics/ticket-purchases-job.png)
 
-## <a name="create-a-job-tooretrieve-a-summary-count-of-ticket-purchases-from-all-tenants"></a>Utwórz tooretrieve zadanie podsumowania liczba biletu zakupy z wszystkich dzierżawców
+## <a name="create-a-job-to-retrieve-a-summary-count-of-ticket-purchases-from-all-tenants"></a>Tworzenie zadania pobierania łącznej liczby zakupów biletów we wszystkich dzierżawach
 
-Ten skrypt tworzy zadanie tooretrieve sumę wszystkich zakupy biletu z wszystkich dzierżawców.
+Ten skrypt tworzy zadanie pobierania informacji o sumie wszystkich zakupów biletów ze wszystkich dzierżaw.
 
-1. Otwórz program SSMS i połącz toohello *katalogu -&lt;użytkownika&gt;. database.windows.net* serwera
-1. Otwórz hello pliku... \\Modułów szkoleniowych\\udostępniania i wykaz\\operacyjne Analytics\\dzierżawy Analytics\\*TicketPurchasesfromAllTenants.sql wyników*
-1. Modyfikowanie &lt;użytkownika&gt;, nazwa użytkownika hello Użyj używane po wdrożeniu aplikacji Wingtip SaaS hello w skrypcie hello w hello **sp\_dodać\_etap zadania** procedury składowanej
-1. Kliknij prawym przyciskiem myszy, wybierz **połączenia**i połącz toohello katalogu -&lt;użytkownika&gt;. database.windows.net serwera, jeśli nie został jeszcze połączony
-1. Upewnij się, są połączone toohello **tenantanalytics** bazy danych i naciśnij klawisz **F5** do uruchamiania skryptu hello
+1. Otwórz aplikację SSMS i połącz się z serwerem *catalog-&lt;Użytkownik&gt;.database.windows.net*
+1. Otwórz plik …\\Learning Modules\\Provision and Catalog\\Operational Analytics\\Tenant Analytics\\*Results-TicketPurchasesfromAllTenants.sql*
+1. Modyfikowanie &lt;użytkownika&gt;, należy użyć nazwy użytkownika używane w przypadku wdrażania aplikacji Wingtip SaaS w skrypcie w **sp\_dodać\_etap zadania** procedury składowanej
+1. Kliknij prawym przyciskiem myszy, wybierz **połączenia**i połącz się katalogu -&lt;użytkownika&gt;. database.windows.net serwera, jeśli nie został jeszcze połączony
+1. Upewnij się, że masz połączenie z bazą danych **tenantanalytics**, a następnie naciśnij klawisz **F5**, aby uruchomić skrypt
 
-Pomyślnie uruchomienie skryptu hello powinno spowodować podobne wyniki:
+Pomyślne uruchomienie skryptu powinno zwrócić wyniki podobne do następujących:
 
 ![wyniki](media/sql-database-saas-tutorial-tenant-analytics/total-sales.png)
 
@@ -100,9 +100,9 @@ Pomyślnie uruchomienie skryptu hello powinno spowodować podobne wyniki:
 
 * **sp\_add\_job** tworzy nowe cotygodniowe zaplanowane zadanie o nazwie „ResultsTicketsOrders”
 
-* **SP\_dodać\_etap zadania** tworzy hello etap zadania zawierające tooretrieve tekst polecenia T-SQL wszystkie informacje zakupu biletu hello ze wszystkich dzierżaw i hello kopiowania zwracanie zestawu w tabeli o nazwie CountofTicketOrders wyników
+* **sp\_add\_jobstep** tworzy krok zadania zawierający tekst polecenia T-SQL służącego do pobierania wszystkich informacji o zakupach biletów ze wszystkich dzierżaw i kopiowania zestawu zwracanych wyników do tabeli o nazwie CountofTicketOrders
 
-* Widoki pozostałych Hello w skrypcie hello wyświetlanie istnienie hello hello obiektów i wykonywania zadania monitorowania. Przejrzyj wartości stanu hello z hello **cyklu życia** stan hello toomonitor kolumny. Jeden raz zakończyło się pomyślnie, hello zadanie zakończone pomyślnie, do wszystkich baz danych dzierżawy i hello dwóch dodatkowych baz danych zawierających hello odwołuje się tabela.
+* Pozostałe widoki w skrypcie dotyczą istnienia obiektów i monitorowania wykonania zadań. Sprawdź wartość stanu w kolumnie **lifecycle**, aby monitorować stan. Stan Powodzenie będzie oznaczał, że zadanie zostało zakończone pomyślnie dla wszystkich baz danych dzierżaw i dwóch dodatkowych baz danych zawierających tabelę referencyjną.
 
 
 ## <a name="next-steps"></a>Następne kroki
@@ -111,11 +111,11 @@ W tym samouczku zawarto informacje na temat wykonywania następujących czynnoś
 
 > [!div class="checklist"]
 > * Wdrażanie analitycznej bazy danych dzierżaw
-> * Utwórz zaplanowane zadanie danych analitycznych tooretrieve między dzierżawcami
+> * Tworzenie zaplanowanego zadania do pobierania danych analitycznych z dzierżaw
 
 Gratulacje!
 
 ## <a name="additional-resources"></a>Dodatkowe zasoby
 
-* Dodatkowe [samouczki, które zależą od hello aplikacji Wingtip SaaS](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
+* Dodatkowe [samouczków, z którymi aplikacji Wingtip SaaS](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [Zadania elastyczne](sql-database-elastic-jobs-overview.md)
