@@ -1,0 +1,14 @@
+### <a name="prerequisites"></a><span data-ttu-id="7a353-101">Wymagania wstępne</span><span class="sxs-lookup"><span data-stu-id="7a353-101">Prerequisites</span></span>
+* <span data-ttu-id="7a353-102">[RSS](https://wikipedia.org/wiki/RSS) konta</span><span class="sxs-lookup"><span data-stu-id="7a353-102">An [RSS](https://wikipedia.org/wiki/RSS) account</span></span>  
+
+<span data-ttu-id="7a353-103">Zanim użyjesz konta RSS w aplikacji logiki, należy zezwolić aplikacji logiki do łączenia się z kontem RSS. Na szczęście można w tym z aplikacji logiki w portalu Azure.</span><span class="sxs-lookup"><span data-stu-id="7a353-103">Before you can use your RSS account in a Logic app, you must authorize the Logic app to connect to your RSS account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.</span></span>  
+
+<span data-ttu-id="7a353-104">Poniżej przedstawiono kroki, aby zezwolić aplikacji logiki do łączenia się z kontem RSS:</span><span class="sxs-lookup"><span data-stu-id="7a353-104">Here are the steps to authorize your Logic app to connect to your RSS account:</span></span>  
+
+1. <span data-ttu-id="7a353-105">Aby utworzyć połączenie danych RSS, w Projektancie aplikacji logiki, wybierz **Pokaż Microsoft zarządzanych interfejsów API** na liście rozwijanej wprowadź *RSS* w polu wyszukiwania.</span><span class="sxs-lookup"><span data-stu-id="7a353-105">To create a connection to RSS, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *RSS* in the search box.</span></span> <span data-ttu-id="7a353-106">Wybierz wyzwalacz lub akcja będzie chcesz użyć:</span><span class="sxs-lookup"><span data-stu-id="7a353-106">Select the trigger or action you'll like to use:</span></span>  
+   <span data-ttu-id="7a353-107">![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-1.png)</span><span class="sxs-lookup"><span data-stu-id="7a353-107">![RSS connection creation step](./media/connectors-create-api-rss/rss-1.png)</span></span>  
+2. <span data-ttu-id="7a353-108">Wybierz **utworzyć połączenie** :</span><span class="sxs-lookup"><span data-stu-id="7a353-108">Select **Create connection** :</span></span>  
+   <span data-ttu-id="7a353-109">![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-2.png)</span><span class="sxs-lookup"><span data-stu-id="7a353-109">![RSS connection creation step](./media/connectors-create-api-rss/rss-2.png)</span></span>  
+3. <span data-ttu-id="7a353-110">Zwróć uwagę, utworzono połączenie i wszystko jest teraz mógł kontynuować wykonywanie innych czynności w aplikacji logiki:</span><span class="sxs-lookup"><span data-stu-id="7a353-110">Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:</span></span>  
+   ![Krok tworzenia połączenia danych RSS](./media/connectors-create-api-rss/rss-3.png)  
+

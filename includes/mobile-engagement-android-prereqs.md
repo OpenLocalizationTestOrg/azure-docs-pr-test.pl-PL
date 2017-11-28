@@ -1,0 +1,7 @@
+<span data-ttu-id="b0795-101">Przed rozpoczęciem tego samouczka, należy najpierw wykonać [wprowadzenie](../articles/mobile-engagement/mobile-engagement-android-get-started.md) samouczka.</span><span class="sxs-lookup"><span data-stu-id="b0795-101">Before starting this tutorial, you must first complete the [Getting Started](../articles/mobile-engagement/mobile-engagement-android-get-started.md) tutorial.</span></span>
+
+> [!IMPORTANT]
+> <span data-ttu-id="b0795-102">Minimalny poziom interfejsu API zestawu SDK systemu Android musi być 10 lub nowszej (Android 2.3.3 lub nowszej).</span><span class="sxs-lookup"><span data-stu-id="b0795-102">Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).</span></span>
+> 
+> 
+

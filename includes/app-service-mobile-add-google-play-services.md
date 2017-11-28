@@ -1,0 +1,10 @@
+1. <span data-ttu-id="5fda9-101">Otwórz narzędzie Android SDK Manager, klikając ikonę na pasku narzędzi programu Android Studio lub klikając **narzędzia** > **Android** > **SDK Manager** w menu.</span><span class="sxs-lookup"><span data-stu-id="5fda9-101">Open the Android SDK Manager by clicking the icon on the toolbar of Android Studio, or by clicking **Tools** > **Android** > **SDK Manager** on the menu.</span></span> <span data-ttu-id="5fda9-102">Kliknij przycisk **uruchamianie autonomicznego SDK Manager** łącza.</span><span class="sxs-lookup"><span data-stu-id="5fda9-102">Click the **Launch Standalone SDK Manager** link.</span></span>
+2. <span data-ttu-id="5fda9-103">Znajdź wersję docelową zestawu SDK systemu Android, który jest używany w projekcie, a następnie otwórz go.</span><span class="sxs-lookup"><span data-stu-id="5fda9-103">Locate the target version of the Android SDK that is used in your project, and open it.</span></span> <span data-ttu-id="5fda9-104">Jeśli **interfejsy API Google** nie jest już zainstalowany, a następnie zaznacz go i kliknij **instalacji pakietów...** .</span><span class="sxs-lookup"><span data-stu-id="5fda9-104">If **Google APIs** is not already installed, then select it and click **Install packages...**.</span></span>
+3. <span data-ttu-id="5fda9-105">W programie Android Studio, wybierz **pliku** > **struktury projektu**.</span><span class="sxs-lookup"><span data-stu-id="5fda9-105">In Android Studio, choose **File** > **Project Structure**.</span></span> <span data-ttu-id="5fda9-106">Wybierz **powiadomienia**, wybierz pozycję **Google Cloud Messaging**, a następnie kliknij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="5fda9-106">Select **Notifications**, select **Google Cloud Messaging**, and then click **OK**.</span></span>
+
+<!--
+3. Open **AndroidManifest.xml** and add this tag to the *application* tag.
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+-->

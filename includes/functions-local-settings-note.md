@@ -1,0 +1,2 @@
+>[!Note]
+> <span data-ttu-id="4ee19-101">Firma Microsoft zaleca, użyj konta usługi Azure Storage, wdrażając lokalnie.</span><span class="sxs-lookup"><span data-stu-id="4ee19-101">We recommend that you use an Azure Storage account when developing locally.</span></span> <span data-ttu-id="4ee19-102">Korzystanie z emulatora magazynu Azure nie jest obsługiwane przez narzędzia usługi Azure Functions.</span><span class="sxs-lookup"><span data-stu-id="4ee19-102">Use of the Azure Storage Emulator is not supported by Azure Functions tools.</span></span>

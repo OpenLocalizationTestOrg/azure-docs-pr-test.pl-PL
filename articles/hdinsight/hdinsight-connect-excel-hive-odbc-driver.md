@@ -1,0 +1,119 @@
+---
+title: aaaConnect tooHadoop programu Excel z hello Hive ODBC Driver - Azure HDInsight | Dokumentacja firmy Microsoft
+description: "Dowiedz się, jak tooset się i użyj hello sterownik Microsoft Hive ODBC dla programu Excel tooquery danych w klastrach HDInsight z programu Microsoft Excel."
+keywords: hadoop w programie excel, hive w programie excel, hive odbc
+services: hdinsight
+documentationcenter: 
+author: mumian
+manager: jhubbard
+tags: azure-portal
+editor: cgronlun
+ms.assetid: a7665a14-0211-4521-b3e7-3b26e8029cc0
+ms.service: hdinsight
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 08/22/2017
+ms.author: jgao
+ms.openlocfilehash: f01f89e7d4203c739d56079dc589fc11f4aa2174
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="connect-excel-toohadoop-in-azure-hdinsight-with-hello-microsoft-hive-odbc-driver"></a><span data-ttu-id="6713e-104">Uzyskuj dostęp sterownik Microsoft Hive ODBC hello tooHadoop programu Excel w usłudze Azure HDInsight</span><span class="sxs-lookup"><span data-stu-id="6713e-104">Connect Excel tooHadoop in Azure HDInsight with hello Microsoft Hive ODBC driver</span></span>
+
+[!INCLUDE [ODBC-JDBC-selector](../../includes/hdinsight-selector-odbc-jdbc.md)]
+
+<span data-ttu-id="6713e-105">Rozwiązania danych Big Data firmy Microsoft składniki Microsoft Business Intelligence (BI) jest zintegrowany z klastrów platformy Apache Hadoop, które zostały wdrożone przez hello Azure HDInsight.</span><span class="sxs-lookup"><span data-stu-id="6713e-105">Microsoft's Big Data solution integrates Microsoft Business Intelligence (BI) components with Apache Hadoop clusters that have been deployed by hello Azure HDInsight.</span></span> <span data-ttu-id="6713e-106">Przykładem takiej integracji to hello możliwości tooconnect Excel toohello Hive magazyn danych klastra usługi Hadoop w HDInsight przy użyciu hello sterownika Microsoft Hive bazy danych połączenia ODBC (Open).</span><span class="sxs-lookup"><span data-stu-id="6713e-106">An example of this integration is hello ability tooconnect Excel toohello Hive data warehouse of a Hadoop cluster in HDInsight using hello Microsoft Hive Open Database Connectivity (ODBC) Driver.</span></span>
+
+<span data-ttu-id="6713e-107">Jest również możliwe tooconnect hello danych skojarzonych z klastra usługi HDInsight i innych źródeł danych, łącznie z innymi (z systemem innym niż — usługi HDInsight) klastrów Hadoop, w programie Excel przy użyciu hello dodatku Microsoft Power Query dla programu Excel.</span><span class="sxs-lookup"><span data-stu-id="6713e-107">It is also possible tooconnect hello data associated with an HDInsight cluster and other data sources, including other (non-HDInsight) Hadoop clusters, from Excel using hello Microsoft Power Query add-in for Excel.</span></span> <span data-ttu-id="6713e-108">Aby uzyskać informacje na temat instalowania i za pomocą dodatku Power Query, zobacz [tooHDInsight łączenie programu Excel z dodatku Power Query][hdinsight-power-query].</span><span class="sxs-lookup"><span data-stu-id="6713e-108">For information on installing and using Power Query, see [Connect Excel tooHDInsight with Power Query][hdinsight-power-query].</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="6713e-109">Gdy hello kroki opisane w temacie w tym artykule może być używany z albo Linux lub klastra usługi HDInsight opartej na systemie Windows, Windows jest wymagany dla stacji roboczej powitania klienta.</span><span class="sxs-lookup"><span data-stu-id="6713e-109">While hello steps in this article can be used with either a Linux or Windows-based HDInsight cluster, Windows is required for hello client workstation.</span></span>
+> 
+> 
+
+<span data-ttu-id="6713e-110">**Wymagania wstępne**:</span><span class="sxs-lookup"><span data-stu-id="6713e-110">**Prerequisites**:</span></span>
+
+<span data-ttu-id="6713e-111">Przed rozpoczęciem tego artykułu, musi mieć hello następujące elementy:</span><span class="sxs-lookup"><span data-stu-id="6713e-111">Before you begin this article, you must have hello following items:</span></span>
+
+* <span data-ttu-id="6713e-112">**Klaster usługi HDInsight**.</span><span class="sxs-lookup"><span data-stu-id="6713e-112">**An HDInsight cluster**.</span></span> <span data-ttu-id="6713e-113">Zobacz toocreate, [Rozpoczynanie pracy z usługą Azure HDInsight][hdinsight-get-started].</span><span class="sxs-lookup"><span data-stu-id="6713e-113">toocreate one, see [Get started with Azure HDInsight][hdinsight-get-started].</span></span>
+* <span data-ttu-id="6713e-114">**Stacja robocza** z pakietu Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 autonomicznej lub Office 2010 Professional Plus.</span><span class="sxs-lookup"><span data-stu-id="6713e-114">**A workstation** with Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.</span></span>
+
+## <a name="install-microsoft-hive-odbc-driver"></a><span data-ttu-id="6713e-115">Zainstalować sterownik Microsoft Hive ODBC</span><span class="sxs-lookup"><span data-stu-id="6713e-115">Install Microsoft Hive ODBC driver</span></span>
+<span data-ttu-id="6713e-116">Pobierz i zainstaluj sterownik Microsoft Hive ODBC z hello [Centrum pobierania][hive-odbc-driver-download].</span><span class="sxs-lookup"><span data-stu-id="6713e-116">Download and install Microsoft Hive ODBC Driver from hello [Download Center][hive-odbc-driver-download].</span></span>
+
+<span data-ttu-id="6713e-117">W 32-bitowy lub 64-bitowych wersjach systemu Windows 7, Windows 8, Windows 10, Windows Server 2008 R2 i Windows Server 2012 można zainstalować ten sterownik.</span><span class="sxs-lookup"><span data-stu-id="6713e-117">This driver can be installed on 32-bit or 64-bit versions of Windows 7, Windows 8, Windows 10, Windows Server 2008 R2, and Windows Server 2012.</span></span> <span data-ttu-id="6713e-118">Sterownik Hello umożliwia połączenia tooAzure HDInsight (w wersji 1.6 lub nowszy) i emulatora usługi Azure HDInsight (v.1.0.0.0 i nowsze).</span><span class="sxs-lookup"><span data-stu-id="6713e-118">hello driver allows connection tooAzure HDInsight (version 1.6 and later) and Azure HDInsight Emulator (v.1.0.0.0 and later).</span></span> <span data-ttu-id="6713e-119">Stosuje zainstalować hello wersja jest taka sama wersja hello aplikacji hello których sterownika ODBC hello jest używany.</span><span class="sxs-lookup"><span data-stu-id="6713e-119">You shall install hello version that matches hello version of hello application where you use hello ODBC driver.</span></span> <span data-ttu-id="6713e-120">W tym samouczku sterownik hello jest używany z Office Excel.</span><span class="sxs-lookup"><span data-stu-id="6713e-120">For this tutorial, hello driver is used from Office Excel.</span></span>
+
+## <a name="create-hive-odbc-data-source"></a><span data-ttu-id="6713e-121">Tworzenie źródła danych ODBC usługi Hive</span><span class="sxs-lookup"><span data-stu-id="6713e-121">Create Hive ODBC data source</span></span>
+<span data-ttu-id="6713e-122">Witaj poniższej procedurze pokazano, jak toocreate Hive źródła danych ODBC.</span><span class="sxs-lookup"><span data-stu-id="6713e-122">hello following steps show you how toocreate a Hive ODBC Data Source.</span></span>
+
+1. <span data-ttu-id="6713e-123">Z systemu Windows 8 lub Windows 10, naciśnij klawisz ekranu startowego hello klucza tooopen Windows hello, a następnie wpisz **źródeł danych**.</span><span class="sxs-lookup"><span data-stu-id="6713e-123">From Windows 8 or Windows 10, press hello Windows key tooopen hello Start screen, and then type **data sources**.</span></span>
+2. <span data-ttu-id="6713e-124">Kliknij przycisk **skonfigurować źródła danych ODBC (32-bitowy)** lub **Konfigurowanie źródeł danych ODBC (64-bitowy)** w zależności od używanej wersji pakietu Office.</span><span class="sxs-lookup"><span data-stu-id="6713e-124">Click **Set up ODBC Data sources (32-bit)** or **Set up ODBC Data Sources (64-bit)** depending on your Office version.</span></span> <span data-ttu-id="6713e-125">Jeśli korzystasz z systemu Windows 7, wybierz **źródła danych ODBC (32 bity)** lub **źródła danych ODBC (64 bity)** z **narzędzia administracyjne**.</span><span class="sxs-lookup"><span data-stu-id="6713e-125">If you are using Windows 7, choose **ODBC Data Sources (32 bit)** or **ODBC Data Sources (64 bit)** from **Administrative Tools**.</span></span> <span data-ttu-id="6713e-126">Zostanie wyświetlona hello **Administrator źródła danych ODBC** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="6713e-126">You shall see hello **ODBC Data Source Administrator** dialog.</span></span>
+   
+    <span data-ttu-id="6713e-127">![Administrator źródeł danych OBDC](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "skonfigurować DSN przy użyciu Administrator źródła danych ODBC")</span><span class="sxs-lookup"><span data-stu-id="6713e-127">![OBDC data source administrator](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "Configure a DSN using ODBC Data Source Administrator")</span></span>
+
+3. <span data-ttu-id="6713e-128">Przy użyciu serwera DNS użytkownika, kliknij przycisk **Dodaj** tooopen hello **Utwórz nowe źródło danych** kreatora.</span><span class="sxs-lookup"><span data-stu-id="6713e-128">From User DNS, click **Add** tooopen hello **Create New Data Source** wizard.</span></span>
+4. <span data-ttu-id="6713e-129">Wybierz **sterownik Microsoft Hive ODBC**, a następnie kliknij przycisk **Zakończ**.</span><span class="sxs-lookup"><span data-stu-id="6713e-129">Select **Microsoft Hive ODBC Driver**, and then click **Finish**.</span></span> <span data-ttu-id="6713e-130">Zostanie wyświetlona hello **Instalator programu Microsoft Hive ODBC sterownika DNS** okna dialogowego.</span><span class="sxs-lookup"><span data-stu-id="6713e-130">You shall see hello **Microsoft Hive ODBC Driver DNS Setup** dialog.</span></span>
+5. <span data-ttu-id="6713e-131">Wpisz lub wybierz hello następujące wartości:</span><span class="sxs-lookup"><span data-stu-id="6713e-131">Type or select hello following values:</span></span>
+   
+   | <span data-ttu-id="6713e-132">Właściwość</span><span class="sxs-lookup"><span data-stu-id="6713e-132">Property</span></span> | <span data-ttu-id="6713e-133">Opis</span><span class="sxs-lookup"><span data-stu-id="6713e-133">Description</span></span> |
+   | --- | --- |
+   |  <span data-ttu-id="6713e-134">Data Source Name (Nazwa źródła danych)</span><span class="sxs-lookup"><span data-stu-id="6713e-134">Data Source Name</span></span> |<span data-ttu-id="6713e-135">Nadaj nazwę źródła danych tooyour</span><span class="sxs-lookup"><span data-stu-id="6713e-135">Give a name tooyour data source</span></span> |
+   |  <span data-ttu-id="6713e-136">Host</span><span class="sxs-lookup"><span data-stu-id="6713e-136">Host</span></span> |<span data-ttu-id="6713e-137">Wprowadź ciąg &lt;nazwa_klastra_usługi_HDInsight>.azurehdinsight.net,</span><span class="sxs-lookup"><span data-stu-id="6713e-137">Enter &lt;HDInsightClusterName>.azurehdinsight.net.</span></span> <span data-ttu-id="6713e-138">np. myHDICluster.azurehdinsight.net.</span><span class="sxs-lookup"><span data-stu-id="6713e-138">For example, myHDICluster.azurehdinsight.net</span></span> |
+   |  <span data-ttu-id="6713e-139">Port</span><span class="sxs-lookup"><span data-stu-id="6713e-139">Port</span></span> |<span data-ttu-id="6713e-140">Użyj portu <strong>443</strong>.</span><span class="sxs-lookup"><span data-stu-id="6713e-140">Use <strong>443</strong>.</span></span> <span data-ttu-id="6713e-141">(Ten port została zmieniona z 563 too443.)</span><span class="sxs-lookup"><span data-stu-id="6713e-141">(This port has been changed from 563 too443.)</span></span> |
+   |  <span data-ttu-id="6713e-142">Database (Baza danych)</span><span class="sxs-lookup"><span data-stu-id="6713e-142">Database</span></span> |<span data-ttu-id="6713e-143">Użyj wartości <strong>Default</strong> (Domyślna).</span><span class="sxs-lookup"><span data-stu-id="6713e-143">Use <strong>Default</strong>.</span></span> |
+   |  <span data-ttu-id="6713e-144">Mechanism (Mechanizm)</span><span class="sxs-lookup"><span data-stu-id="6713e-144">Mechanism</span></span> |<span data-ttu-id="6713e-145">Wybierz wartość <strong>Azure HDInsight Service</strong> (Usługa Azure HDInsight).</span><span class="sxs-lookup"><span data-stu-id="6713e-145">Select <strong>Azure HDInsight Service</strong></span></span> |
+   |  <span data-ttu-id="6713e-146">Nazwa użytkownika</span><span class="sxs-lookup"><span data-stu-id="6713e-146">User Name</span></span> |<span data-ttu-id="6713e-147">Wprowadź username użytkownika HTTP klastra usługi HDInsight.</span><span class="sxs-lookup"><span data-stu-id="6713e-147">Enter HDInsight cluster HTTP user username.</span></span> <span data-ttu-id="6713e-148">Witaj domyślna nazwa użytkownika to <strong>admin</strong>.</span><span class="sxs-lookup"><span data-stu-id="6713e-148">hello default username is <strong>admin</strong>.</span></span> |
+   |  <span data-ttu-id="6713e-149">Hasło</span><span class="sxs-lookup"><span data-stu-id="6713e-149">Password</span></span> |<span data-ttu-id="6713e-150">Wprowadź hasło użytkownika klastra usługi HDInsight.</span><span class="sxs-lookup"><span data-stu-id="6713e-150">Enter HDInsight cluster user password.</span></span> |
+   
+    </table>
+   
+    <span data-ttu-id="6713e-151">Niektóre toobe ważne parametry są świadome po kliknięciu **zaawansowane opcje**:</span><span class="sxs-lookup"><span data-stu-id="6713e-151">There are some important parameters toobe aware of when you click **Advanced Options**:</span></span>
+   
+   | <span data-ttu-id="6713e-152">Parametr</span><span class="sxs-lookup"><span data-stu-id="6713e-152">Parameter</span></span> | <span data-ttu-id="6713e-153">Opis</span><span class="sxs-lookup"><span data-stu-id="6713e-153">Description</span></span> |
+   | --- | --- |
+   |  <span data-ttu-id="6713e-154">Użyj natywnego zapytania</span><span class="sxs-lookup"><span data-stu-id="6713e-154">Use Native Query</span></span> |<span data-ttu-id="6713e-155">Gdy jest wybrana, hello sterownik ODBC nie spróbuj tooconvert TSQL do HiveQL.</span><span class="sxs-lookup"><span data-stu-id="6713e-155">When it is selected, hello ODBC driver does NOT try tooconvert TSQL into HiveQL.</span></span> <span data-ttu-id="6713e-156">Są go używać tylko wtedy, gdy 100% się, że przesyłasz czysty instrukcje HiveQL.</span><span class="sxs-lookup"><span data-stu-id="6713e-156">You shall use it only if you are 100% sure you are submitting pure HiveQL statements.</span></span> <span data-ttu-id="6713e-157">Podczas nawiązywania połączenia tooSQL serwera lub bazy danych SQL Azure, należy pozostawić niezaznaczone.</span><span class="sxs-lookup"><span data-stu-id="6713e-157">When connecting tooSQL Server or Azure SQL Database, you should leave it unchecked.</span></span> |
+   |  <span data-ttu-id="6713e-158">Pobranych na blok wierszy</span><span class="sxs-lookup"><span data-stu-id="6713e-158">Rows fetched per block</span></span> |<span data-ttu-id="6713e-159">Podczas pobierania dużej liczby rekordów, dostrajanie ten parametr może być wymagane tooensure optymalnej wydajności.</span><span class="sxs-lookup"><span data-stu-id="6713e-159">When fetching a large number of records, tuning this parameter may be required tooensure optimal performances.</span></span> |
+   |  <span data-ttu-id="6713e-160">Domyślna długość kolumny ciąg, długość kolumny binarnej, skala kolumny dziesiętnej</span><span class="sxs-lookup"><span data-stu-id="6713e-160">Default string column length, Binary column length, Decimal column scale</span></span> |<span data-ttu-id="6713e-161">Typ danych Hello długości i opisie może mieć wpływ na sposób dane są zwracane.</span><span class="sxs-lookup"><span data-stu-id="6713e-161">hello data type lengths and precisions may affect how data is returned.</span></span> <span data-ttu-id="6713e-162">Spowodują one toobe nieprawidłowe informacje zwrócone z powodu tooloss dokładność i/lub obcięcie.</span><span class="sxs-lookup"><span data-stu-id="6713e-162">They cause incorrect information toobe returned due tooloss of precision and/or truncation.</span></span> |
+
+    <span data-ttu-id="6713e-163">![Zaawansowane opcje](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "DSN zaawansowane opcje konfiguracji")</span><span class="sxs-lookup"><span data-stu-id="6713e-163">![Advanced options](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "Advanced DSN configuration options")</span></span>
+
+1. <span data-ttu-id="6713e-164">Kliknij przycisk **testu** źródła danych hello tootest.</span><span class="sxs-lookup"><span data-stu-id="6713e-164">Click **Test** tootest hello data source.</span></span> <span data-ttu-id="6713e-165">Gdy hello źródło danych jest skonfigurowane poprawnie, pokazuje *testy ZAKOŃCZYŁO się pomyślnie!*.</span><span class="sxs-lookup"><span data-stu-id="6713e-165">When hello data source is configured correctly, it shows *TESTS COMPLETED SUCCESSFULLY!*.</span></span>
+2. <span data-ttu-id="6713e-166">Kliknij przycisk **OK** tooclose hello testu w oknie dialogowym.</span><span class="sxs-lookup"><span data-stu-id="6713e-166">Click **OK** tooclose hello Test dialog.</span></span> <span data-ttu-id="6713e-167">Witaj nowego źródła danych są wymienione na powitania **Administrator źródła danych ODBC**.</span><span class="sxs-lookup"><span data-stu-id="6713e-167">hello new data source shall be listed on hello **ODBC Data Source Administrator**.</span></span>
+3. <span data-ttu-id="6713e-168">Kliknij przycisk **OK** tooexit hello kreatora.</span><span class="sxs-lookup"><span data-stu-id="6713e-168">Click **OK** tooexit hello wizard.</span></span>
+
+## <a name="import-data-into-excel-from-hdinsight"></a><span data-ttu-id="6713e-169">Importowanie danych do programu Excel z usługi HDInsight</span><span class="sxs-lookup"><span data-stu-id="6713e-169">Import data into Excel from HDInsight</span></span>
+<span data-ttu-id="6713e-170">Witaj poniższych krokach opisano hello sposób tooimport danych z tabeli programu Hive w skoroszycie programu Excel za pomocą hello źródła danych ODBC, który został utworzony w poprzedniej sekcji hello.</span><span class="sxs-lookup"><span data-stu-id="6713e-170">hello following steps describe hello way tooimport data from a Hive table into an Excel workbook using hello ODBC data source that you created in hello previous section.</span></span>
+
+1. <span data-ttu-id="6713e-171">Otwórz nowy lub istniejący skoroszyt w programie Excel.</span><span class="sxs-lookup"><span data-stu-id="6713e-171">Open a new or existing workbook in Excel.</span></span>
+2. <span data-ttu-id="6713e-172">Z hello **danych** , kliknij pozycję **Pobierz dane**, kliknij przycisk **z innych źródeł**, a następnie kliknij przycisk **z ODBC** toolaunch hello  **Kreator połączenia danych**.</span><span class="sxs-lookup"><span data-stu-id="6713e-172">From hello **Data** tab, click **Get Data**, click **From Other Sources**, and then click **From ODBC** toolaunch hello **Data Connection Wizard**.</span></span>
+   
+    <span data-ttu-id="6713e-173">![Kreator połączenia danych otwartych](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "Kreator połączenia danych otwartych")</span><span class="sxs-lookup"><span data-stu-id="6713e-173">![Open data connection wizard](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "Open data connection wizard")</span></span>
+4. <span data-ttu-id="6713e-174">Wybierz hello danych nazwy utworzonego w ostatniej sekcji hello źródła, a następnie kliknij **OK**.</span><span class="sxs-lookup"><span data-stu-id="6713e-174">Select hello data source name that you created in hello last section, and then click **OK**.</span></span>
+5. <span data-ttu-id="6713e-175">Wprowadź nazwę użytkownika Hadoop (hello domyślną nazwą jest admin) i hello hasło, a następnie kliknij przycisk **Connect**.</span><span class="sxs-lookup"><span data-stu-id="6713e-175">Enter Hadoop user name (hello default name is admin) and hello password, and then click **Connect**.</span></span>
+6. <span data-ttu-id="6713e-176">W Nawigatorze, rozwiń węzeł **HIVE**, rozwiń węzeł **domyślne**, kliknij przycisk **hivesampletable**, a następnie kliknij przycisk **obciążenia**.</span><span class="sxs-lookup"><span data-stu-id="6713e-176">On Navigator, expand **HIVE**, expand **default**, click **hivesampletable**, and then click **Load**.</span></span> <span data-ttu-id="6713e-177">Trwa kilka sekund przed importowanych tooExcel pobiera dane.</span><span class="sxs-lookup"><span data-stu-id="6713e-177">It takes a few seconds before data gets imported tooExcel.</span></span>
+
+    <span data-ttu-id="6713e-178">![Nawigator ODBC programu Hive HDInsight](./media/hdinsight-connect-excel-hive-ODBC-driver/hdinsight.hive.odbc.navigator.png "Kreator połączenia danych otwartych")</span><span class="sxs-lookup"><span data-stu-id="6713e-178">![HDInsight Hive ODBC navigator](./media/hdinsight-connect-excel-hive-ODBC-driver/hdinsight.hive.odbc.navigator.png "Open data connection wizard")</span></span>
+
+
+## <a name="next-steps"></a><span data-ttu-id="6713e-179">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="6713e-179">Next steps</span></span>
+<span data-ttu-id="6713e-180">W tym artykule przedstawiono sposób toouse hello danych tooretrieve sterownik Microsoft Hive ODBC z hello usługi HDInsight do programu Excel.</span><span class="sxs-lookup"><span data-stu-id="6713e-180">In this article, you learned how toouse hello Microsoft Hive ODBC driver tooretrieve data from hello HDInsight Service into Excel.</span></span> <span data-ttu-id="6713e-181">Podobnie można pobrać danych z hello usługi HDInsight do bazy danych SQL.</span><span class="sxs-lookup"><span data-stu-id="6713e-181">Similarly, you can retrieve data from hello HDInsight Service into SQL Database.</span></span> <span data-ttu-id="6713e-182">Możliwe jest również możliwe tooupload danych do usługi HDInsight.</span><span class="sxs-lookup"><span data-stu-id="6713e-182">It is also possible tooupload data into an HDInsight Service.</span></span> <span data-ttu-id="6713e-183">toolearn więcej, zobacz:</span><span class="sxs-lookup"><span data-stu-id="6713e-183">toolearn more, see:</span></span>
+
+* <span data-ttu-id="6713e-184">[Analizowanie danych opóźnienie transmitowane przy użyciu usługi HDInsight][hdinsight-analyze-flight-data]</span><span class="sxs-lookup"><span data-stu-id="6713e-184">[Analyze flight delay data using HDInsight][hdinsight-analyze-flight-data]</span></span>
+* <span data-ttu-id="6713e-185">[Przekazywanie danych tooHDInsight][hdinsight-upload-data]</span><span class="sxs-lookup"><span data-stu-id="6713e-185">[Upload Data tooHDInsight][hdinsight-upload-data]</span></span>
+* <span data-ttu-id="6713e-186">[Korzystanie z usługą HDInsight Sqoop][hdinsight-use-sqoop]</span><span class="sxs-lookup"><span data-stu-id="6713e-186">[Use Sqoop with HDInsight][hdinsight-use-sqoop]</span></span>
+
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
+[hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
+
+[hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
+
+

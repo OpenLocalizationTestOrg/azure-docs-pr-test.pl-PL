@@ -1,0 +1,90 @@
+---
+title: "aaaMonitor urządzeń Surface Hub z Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "Użyj hello Surface Hub rozwiązania tootrack hello kondycji z urządzeń Surface Hub i zrozumieć, jak są one używane."
+services: log-analytics
+documentationcenter: 
+author: bandersmsft
+manager: carmonm
+editor: 
+ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/07/2017
+ms.author: banders
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 623d30e749cafdd4a34ba0c5b3408164f1b4a95b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="monitor-surface-hubs-with-log-analytics-tootrack-their-health"></a><span data-ttu-id="4fd12-103">Monitorowanie urządzeń Surface Hub z tootrack analizy dzienników ich kondycji</span><span class="sxs-lookup"><span data-stu-id="4fd12-103">Monitor Surface Hubs with Log Analytics tootrack their health</span></span>
+
+![Surface Hub symbol](./media/log-analytics-surface-hubs/surface-hub-symbol.png)
+
+<span data-ttu-id="4fd12-105">W tym artykule opisano, jak można użyć hello rozwiązania Surface Hub w analizy dzienników toomonitor Microsoft Surface Hub urządzeniom hello programu Microsoft Operations Management Suite (OMS).</span><span class="sxs-lookup"><span data-stu-id="4fd12-105">This article describes how you can use hello Surface Hub solution in Log Analytics toomonitor Microsoft Surface Hub devices with hello Microsoft Operations Management Suite (OMS).</span></span> <span data-ttu-id="4fd12-106">Zaloguj się Analytics pomaga śledzić, kondycję hello z urządzeń Surface Hub dobrze zrozumieć, jak są one używane.</span><span class="sxs-lookup"><span data-stu-id="4fd12-106">Log Analytics helps you track hello health of your Surface Hubs as well as understand how they are being used.</span></span>
+
+<span data-ttu-id="4fd12-107">Każdy Surface Hub ma hello zainstalowania programu Microsoft Monitoring Agent.</span><span class="sxs-lookup"><span data-stu-id="4fd12-107">Each Surface Hub has hello Microsoft Monitoring Agent installed.</span></span> <span data-ttu-id="4fd12-108">Jego za pośrednictwem agenta hello wysyłania danych z programu tooOMS Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-108">Its through hello agent that you can send data from your Surface Hub tooOMS.</span></span> <span data-ttu-id="4fd12-109">Pliki dziennika są odczytywane z urządzeń Surface Hub i są następnie są wysyłane toohello usługę.</span><span class="sxs-lookup"><span data-stu-id="4fd12-109">Log files are read from your Surface Hubs and are then are sent toohello OMS service.</span></span> <span data-ttu-id="4fd12-110">Problemy, takie jak serwery w trybie offline, hello kalendarza nie synchronizuje lub konta urządzeń hello jest toolog do usługi Skype są wyświetlane w OMS hello Surface Hub w pulpicie nawigacyjnym.</span><span class="sxs-lookup"><span data-stu-id="4fd12-110">Issues like servers being offline, hello calendar not syncing, or if hello device account is unable toolog into Skype are shown in OMS in hello Surface Hub dashboard.</span></span> <span data-ttu-id="4fd12-111">Przy użyciu danych hello hello pulpitu nawigacyjnego, można zidentyfikować urządzenia nie są uruchomione lub są inne problemy i potencjalnie zastosować poprawki hello wykryto problemów.</span><span class="sxs-lookup"><span data-stu-id="4fd12-111">By using hello data in hello dashboard, you can identify devices that are not running, or that are having other problems, and potentially apply fixes for hello detected issues.</span></span>
+
+## <a name="installing-and-configuring-hello-solution"></a><span data-ttu-id="4fd12-112">Instalowanie i konfigurowanie hello rozwiązania</span><span class="sxs-lookup"><span data-stu-id="4fd12-112">Installing and configuring hello solution</span></span>
+<span data-ttu-id="4fd12-113">Użyj powitania po tooinstall informacji i skonfiguruj hello rozwiązania.</span><span class="sxs-lookup"><span data-stu-id="4fd12-113">Use hello following information tooinstall and configure hello solution.</span></span> <span data-ttu-id="4fd12-114">W kolejności toomanage Twojego urządzeń Surface Hub z hello programu Microsoft Operations Management Suite (OMS) należy hello następujące:</span><span class="sxs-lookup"><span data-stu-id="4fd12-114">In order toomanage your Surface Hubs from hello Microsoft Operations Management Suite (OMS), you'll need hello following:</span></span>
+
+* <span data-ttu-id="4fd12-115">Ważnej subskrypcji zbyt[OMS](http://www.microsoft.com/oms).</span><span class="sxs-lookup"><span data-stu-id="4fd12-115">A valid subscription too[OMS](http://www.microsoft.com/oms).</span></span>
+* <span data-ttu-id="4fd12-116">[Subskrypcji OMS](https://azure.microsoft.com/pricing/details/log-analytics/) poziom, który będzie obsługiwać numer hello urządzeń ma toomonitor.</span><span class="sxs-lookup"><span data-stu-id="4fd12-116">An [OMS subscription](https://azure.microsoft.com/pricing/details/log-analytics/) level that will support hello number of devices you want toomonitor.</span></span> <span data-ttu-id="4fd12-117">Cennik pakietu OMS zmienia się w zależności od liczby urządzeń zarejestrowanych i ilość danych go procesów.</span><span class="sxs-lookup"><span data-stu-id="4fd12-117">OMS pricing varies depending on how many devices are enrolled, and how much data it processes.</span></span> <span data-ttu-id="4fd12-118">Należy tootake to pod uwagę podczas planowania wdrożenia Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-118">You'll want tootake this into consideration when planning your Surface Hub rollout.</span></span>
+
+<span data-ttu-id="4fd12-119">Następnie spowoduje dodanie istniejącej subskrypcji Microsoft Azure OMS subskrypcji tooyour lub Utwórz nowy obszar roboczy bezpośrednio za pomocą portalu OMS hello.</span><span class="sxs-lookup"><span data-stu-id="4fd12-119">Next, you will either add an OMS subscription tooyour existing Microsoft Azure subscription or create a new workspace directly through hello OMS portal.</span></span> <span data-ttu-id="4fd12-120">Szczegółowe instrukcje do przy użyciu jednej z metod jest w [wprowadzenie do analizy dzienników](log-analytics-get-started.md).</span><span class="sxs-lookup"><span data-stu-id="4fd12-120">Detailed instructions for using either method is at [Get started with Log Analytics](log-analytics-get-started.md).</span></span> <span data-ttu-id="4fd12-121">Po skonfigurowaniu hello OMS subskrypcji istnieją dwa sposoby tooenroll urządzenia Surface Hub:</span><span class="sxs-lookup"><span data-stu-id="4fd12-121">Once hello OMS subscription is set up, there are two ways tooenroll your Surface Hub devices:</span></span>
+
+* <span data-ttu-id="4fd12-122">Automatycznie za pomocą usługi Intune</span><span class="sxs-lookup"><span data-stu-id="4fd12-122">Automatically through Intune</span></span>
+* <span data-ttu-id="4fd12-123">Ręcznie za pomocą **ustawienia** urządzenia Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-123">Manually through **Settings** on your Surface Hub device.</span></span>
+
+## <a name="set-up-monitoring"></a><span data-ttu-id="4fd12-124">Konfigurowanie monitorowania</span><span class="sxs-lookup"><span data-stu-id="4fd12-124">Set up monitoring</span></span>
+<span data-ttu-id="4fd12-125">Można monitorować hello kondycji i aktywności użytkownika Surface Hub przy użyciu analizy dzienników w OMS.</span><span class="sxs-lookup"><span data-stu-id="4fd12-125">You can monitor hello health and activity of your Surface Hub using Log Analytics in OMS.</span></span> <span data-ttu-id="4fd12-126">Witaj Surface Hub w OMS można zarejestrować za pomocą usługi Intune lub lokalnie przy użyciu **ustawienia** na powitania Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-126">You can enroll hello Surface Hub in OMS by using Intune, or locally by using **Settings** on hello Surface Hub.</span></span>
+
+## <a name="connect-surface-hubs-toooms-through-intune"></a><span data-ttu-id="4fd12-127">Łączenie urządzeń Surface Hub tooOMS za pomocą usługi Intune</span><span class="sxs-lookup"><span data-stu-id="4fd12-127">Connect Surface Hubs tooOMS through Intune</span></span>
+<span data-ttu-id="4fd12-128">Konieczne będzie hello identyfikator i klucz obszaru roboczego dla obszar roboczy OMS hello, która ma zarządzać z urządzeń Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-128">You'll need hello workspace ID and workspace key for hello OMS workspace that will manage your Surface Hubs.</span></span> <span data-ttu-id="4fd12-129">Możesz pobrać z portalu OMS hello.</span><span class="sxs-lookup"><span data-stu-id="4fd12-129">You can get those from hello OMS portal.</span></span>
+
+<span data-ttu-id="4fd12-130">Usługa Intune jest produktem firmy Microsoft, która pozwala toocentrally Zarządzanie ustawieniami konfiguracji OMS hello, które są stosowane tooone lub więcej urządzeń.</span><span class="sxs-lookup"><span data-stu-id="4fd12-130">Intune is a Microsoft product that allows you toocentrally manage hello OMS configuration settings that are applied tooone or more of your devices.</span></span> <span data-ttu-id="4fd12-131">Wykonaj te kroki tooconfigure urządzenia za pomocą usługi Intune:</span><span class="sxs-lookup"><span data-stu-id="4fd12-131">Follow these steps tooconfigure your devices through Intune:</span></span>
+
+1. <span data-ttu-id="4fd12-132">Zaloguj się tooIntune.</span><span class="sxs-lookup"><span data-stu-id="4fd12-132">Sign in tooIntune.</span></span>
+2. <span data-ttu-id="4fd12-133">Przejdź za**ustawienia** > **połączonych źródeł**.</span><span class="sxs-lookup"><span data-stu-id="4fd12-133">Navigate too**Settings** > **Connected Sources**.</span></span>
+3. <span data-ttu-id="4fd12-134">Utwórz lub Edytuj zasady na podstawie szablonu Surface Hub hello.</span><span class="sxs-lookup"><span data-stu-id="4fd12-134">Create or edit a policy based on hello Surface Hub template.</span></span>
+4. <span data-ttu-id="4fd12-135">Przejdź do sekcji OMS (Azure Operational Insights) toohello hello zasad, a następnie dodaj hello *identyfikator obszaru roboczego* i *klucz obszaru roboczego* toohello zasad.</span><span class="sxs-lookup"><span data-stu-id="4fd12-135">Navigate toohello OMS (Azure Operational Insights) section of hello policy, and add hello *Workspace ID* and *Workspace Key* toohello policy.</span></span>
+5. <span data-ttu-id="4fd12-136">Zapisz zasady hello.</span><span class="sxs-lookup"><span data-stu-id="4fd12-136">Save hello policy.</span></span>
+6. <span data-ttu-id="4fd12-137">Kojarzenie zasad hello z hello odpowiednie grupy urządzeń.</span><span class="sxs-lookup"><span data-stu-id="4fd12-137">Associate hello policy with hello appropriate group of devices.</span></span>
+
+   ![Zasady usługi Intune](./media/log-analytics-surface-hubs/intune.png)
+
+<span data-ttu-id="4fd12-139">Następnie usługa Intune przeprowadza synchronizację ustawień OMS hello z urządzeniami hello w grupie docelowej hello zarejestrowanie ich w obszarze roboczym pakietu OMS.</span><span class="sxs-lookup"><span data-stu-id="4fd12-139">Intune then syncs hello OMS settings with hello devices in hello target group, enrolling them in your OMS workspace.</span></span>
+
+## <a name="connect-surface-hubs-toooms-using-hello-settings-app"></a><span data-ttu-id="4fd12-140">Połącz przy użyciu aplikacji ustawienia hello tooOMS urządzeń Surface Hub</span><span class="sxs-lookup"><span data-stu-id="4fd12-140">Connect Surface Hubs tooOMS using hello Settings app</span></span>
+<span data-ttu-id="4fd12-141">Konieczne będzie hello identyfikator i klucz obszaru roboczego dla obszar roboczy OMS hello, która ma zarządzać z urządzeń Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-141">You'll need hello workspace ID and workspace key for hello OMS workspace that will manage your Surface Hubs.</span></span> <span data-ttu-id="4fd12-142">Możesz pobrać z portalu OMS hello.</span><span class="sxs-lookup"><span data-stu-id="4fd12-142">You can get those from hello OMS portal.</span></span>
+
+<span data-ttu-id="4fd12-143">Jeśli nie używasz usługi Intune toomanage środowiska, możesz zarejestrować ręcznie za pomocą urządzenia **ustawienia** na każdym Surface Hub:</span><span class="sxs-lookup"><span data-stu-id="4fd12-143">If you don't use Intune toomanage your environment, you can enroll devices manually through **Settings** on each Surface Hub:</span></span>
+
+1. <span data-ttu-id="4fd12-144">Z Centrum powierzchni, otwórz **ustawienia**.</span><span class="sxs-lookup"><span data-stu-id="4fd12-144">From your Surface Hub, open **Settings**.</span></span>
+2. <span data-ttu-id="4fd12-145">Wprowadź poświadczenia administratora urządzenia powitania po wyświetleniu monitu.</span><span class="sxs-lookup"><span data-stu-id="4fd12-145">Enter hello device admin credentials when prompted.</span></span>
+3. <span data-ttu-id="4fd12-146">Kliknij przycisk **to urządzenie**i hello w obszarze **monitorowanie**, kliknij przycisk **Konfigurowanie ustawień OMS**.</span><span class="sxs-lookup"><span data-stu-id="4fd12-146">Click **This device**, and hello under **Monitoring**, click **Configure OMS Settings**.</span></span>
+4. <span data-ttu-id="4fd12-147">Wybierz **Włącz monitorowanie**.</span><span class="sxs-lookup"><span data-stu-id="4fd12-147">Select **Enable monitoring**.</span></span>
+5. <span data-ttu-id="4fd12-148">W oknie dialogowym Ustawienia OMS hello, wpisz hello **identyfikator obszaru roboczego** i typ hello **klucz obszaru roboczego**.</span><span class="sxs-lookup"><span data-stu-id="4fd12-148">In hello OMS settings dialog, type hello **Workspace ID** and type hello **Workspace Key**.</span></span>  
+   <span data-ttu-id="4fd12-149">![Ustawienia](./media/log-analytics-surface-hubs/settings.png)</span><span class="sxs-lookup"><span data-stu-id="4fd12-149">![settings](./media/log-analytics-surface-hubs/settings.png)</span></span>
+6. <span data-ttu-id="4fd12-150">Kliknij przycisk **OK** toocomplete hello konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="4fd12-150">Click **OK** toocomplete hello configuration.</span></span>
+
+<span data-ttu-id="4fd12-151">Pojawia się potwierdzenie informujący o tym, czy powitalne OMS konfiguracja została pomyślnie zastosowana toohello urządzenia.</span><span class="sxs-lookup"><span data-stu-id="4fd12-151">A confirmation appears telling you whether or not hello OMS configuration was successfully applied toohello device.</span></span> <span data-ttu-id="4fd12-152">Jeśli tak jest, pojawi się komunikat informujący, że hello agent pomyślnie nawiązano połączenie toohello usługę.</span><span class="sxs-lookup"><span data-stu-id="4fd12-152">If it was, a message appears stating that hello agent successfully connected toohello OMS service.</span></span> <span data-ttu-id="4fd12-153">urządzenie Hello następnie rozpoczyna wysyłanie tooOMS danych, w którym można wyświetlać i działa na nim.</span><span class="sxs-lookup"><span data-stu-id="4fd12-153">hello device then starts sending data tooOMS where you can view and act on it.</span></span>
+
+## <a name="monitor-surface-hubs"></a><span data-ttu-id="4fd12-154">Monitor urządzenia Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-154">Monitor Surface Hubs</span></span>
+<span data-ttu-id="4fd12-155">Monitorowanie sieci urządzeń Surface Hub przy użyciu pakietu OMS jest znacznie takich jak monitorowanie innych zarejestrowanych urządzeń.</span><span class="sxs-lookup"><span data-stu-id="4fd12-155">Monitoring your Surface Hubs using OMS is much like monitoring any other enrolled devices.</span></span>
+
+1. <span data-ttu-id="4fd12-156">Zaloguj się toohello portalu OMS.</span><span class="sxs-lookup"><span data-stu-id="4fd12-156">Sign in toohello OMS portal.</span></span>
+2. <span data-ttu-id="4fd12-157">Przejdź toohello Surface Hub rozwiązania pakietu z pulpitu nawigacyjnego.</span><span class="sxs-lookup"><span data-stu-id="4fd12-157">Navigate toohello Surface Hub solution pack dashboard.</span></span>
+3. <span data-ttu-id="4fd12-158">Kondycja urządzenia jest wyświetlana.</span><span class="sxs-lookup"><span data-stu-id="4fd12-158">Your device's health is displayed.</span></span>
+
+   ![Surface Hub pulpitu nawigacyjnego](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
+
+<span data-ttu-id="4fd12-160">Można utworzyć [alerty](log-analytics-alerts.md) oparte na istniejących lub niestandardowych dziennik wyszukiwania.</span><span class="sxs-lookup"><span data-stu-id="4fd12-160">You can create [alerts](log-analytics-alerts.md) based on existing or custom log searches.</span></span> <span data-ttu-id="4fd12-161">Przy użyciu powitalne danych hello OMS zbiera dane z Twojego urządzeń Surface Hub, możesz wyszukać problemy i alert na powitania warunki, które należy zdefiniować dla urządzeń.</span><span class="sxs-lookup"><span data-stu-id="4fd12-161">Using hello data hello OMS collects from your Surface Hubs, you can search for issues and alert on hello conditions that you define for your devices.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="4fd12-162">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="4fd12-162">Next steps</span></span>
+* <span data-ttu-id="4fd12-163">Użyj [Zaloguj wyszukiwania analizy dzienników](log-analytics-log-searches.md) tooview szczegółowe dane Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-163">Use [Log searches in Log Analytics](log-analytics-log-searches.md) tooview detailed Surface Hub data.</span></span>
+* <span data-ttu-id="4fd12-164">Utwórz [alerty](log-analytics-alerts.md) toonotify gdy występują problemy z Twojej urządzeń Surface Hub.</span><span class="sxs-lookup"><span data-stu-id="4fd12-164">Create [alerts](log-analytics-alerts.md) toonotify you when issues occur with your Surface Hubs.</span></span>

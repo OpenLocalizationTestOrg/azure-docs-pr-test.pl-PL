@@ -1,0 +1,4 @@
+<span data-ttu-id="37122-101">Ścieżki szkoleniowe dotyczące usługi Azure Media Services można wyświetlić tutaj:</span><span class="sxs-lookup"><span data-stu-id="37122-101">You can view Azure Media Services learning paths here:</span></span>
+
+* [<span data-ttu-id="37122-102">Przepływ pracy transmisji strumieniowej na żywo usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="37122-102">Media Services Live Streaming Workflow</span></span>](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+* [<span data-ttu-id="37122-103">Przepływ pracy transmisji strumieniowej na żądanie usługi Media Services</span><span class="sxs-lookup"><span data-stu-id="37122-103">Media Services on Demand Streaming Workflow</span></span>](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)

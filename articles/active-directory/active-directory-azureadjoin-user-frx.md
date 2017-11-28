@@ -1,0 +1,61 @@
+---
+title: "Konfigurowanie nowego urządzenia z usługą Azure AD podczas instalacji | Dokumentacja firmy Microsoft"
+description: "Temat, który objaśnia, jak użytkownicy mogli skonfigurować Azure AD Join podczas ich środowisko pierwszego uruchomienia."
+services: active-directory
+documentationcenter: 
+author: MarkusVi
+manager: femila
+editor: 
+tags: azure-classic-portal
+ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/16/2017
+ms.author: markvi
+ms.openlocfilehash: 4367f453ef7c794653dfa9f305b137a168e0d207
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/29/2017
+---
+# <a name="set-up-a-new-device-with-azure-ad-during-setup"></a><span data-ttu-id="700ca-103">Konfigurowanie nowego urządzenia z usługą Azure AD podczas instalacji</span><span class="sxs-lookup"><span data-stu-id="700ca-103">Set up a new device with Azure AD during Setup</span></span>
+<span data-ttu-id="700ca-104">W systemie Windows 10 użytkownicy mogą dołączenie swojego urządzenia do usługi Azure Active Directory (Azure AD) w pierwszego uruchomienia komputera (FRX).</span><span class="sxs-lookup"><span data-stu-id="700ca-104">In Windows 10, users can join their devices to Azure Active Directory (Azure AD) in the first-run experience (FRX).</span></span> <span data-ttu-id="700ca-105">Dzięki temu organizacje mogą Dystrybuuj urządzenia porządnie zapakowane pracownikom lub studentów lub daj wybrać własne urządzenia (CYOD).</span><span class="sxs-lookup"><span data-stu-id="700ca-105">This allows organizations to distribute shrink-wrapped devices to their employees or students, or let them choose their own devices (CYOD).</span></span>
+<span data-ttu-id="700ca-106">Jeśli system Windows 10 Professional lub Windows 10 Enterprise Edition jest zainstalowany na urządzeniu, środowisko domyślnie procesu instalacji urządzenia należące do firmy.</span><span class="sxs-lookup"><span data-stu-id="700ca-106">If either Windows 10 Professional or Windows 10 Enterprise editions is installed on a device, the experience defaults to the setup process for company-owned devices.</span></span>
+
+## <a name="to-join-a-device-to-azure-ad"></a><span data-ttu-id="700ca-107">Aby dołączyć urządzenie do usługi Azure AD</span><span class="sxs-lookup"><span data-stu-id="700ca-107">To join a device to Azure AD</span></span>
+1. <span data-ttu-id="700ca-108">Po włączeniu nowe urządzenie i rozpocząć proces instalacji, powinna zostać wyświetlona **pierwsze gotowe** wiadomości.</span><span class="sxs-lookup"><span data-stu-id="700ca-108">When you turn on your new device and start the setup process, you should see the  **Getting Ready** message.</span></span> <span data-ttu-id="700ca-109">Postępuj zgodnie z monitami, aby skonfigurować urządzenie.</span><span class="sxs-lookup"><span data-stu-id="700ca-109">Follow the prompts to set up your device.</span></span>
+2. <span data-ttu-id="700ca-110">Rozpocznij od Dostosowywanie region i język.</span><span class="sxs-lookup"><span data-stu-id="700ca-110">Start by customizing your region and language.</span></span> <span data-ttu-id="700ca-111">Następnie zaakceptuj postanowienia licencyjne dotyczące oprogramowania firmy Microsoft.</span><span class="sxs-lookup"><span data-stu-id="700ca-111">Then accept the Microsoft Software License Terms.</span></span>
+   <span data-ttu-id="700ca-112">![Dostosowywanie w Twoim regionie](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)</span><span class="sxs-lookup"><span data-stu-id="700ca-112">![Customize for your region](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)</span></span>
+3. <span data-ttu-id="700ca-113">Wybierz sieć, który ma być używany do łączenia się z Internetem.</span><span class="sxs-lookup"><span data-stu-id="700ca-113">Select the network you want to use for connecting to the Internet.</span></span>
+4. <span data-ttu-id="700ca-114">Określ, czy używasz osobiste urządzenie lub urządzenia należące do firmy.</span><span class="sxs-lookup"><span data-stu-id="700ca-114">Select whether you're using a personal device or a company-owned device.</span></span> <span data-ttu-id="700ca-115">Jeśli należące do firmy, kliknij przycisk **to urządzenie należy do mojej organizacji**.</span><span class="sxs-lookup"><span data-stu-id="700ca-115">If it's company-owned, click **This device belongs to my organization**.</span></span> <span data-ttu-id="700ca-116">Spowoduje to uruchomienie środowiska Azure AD Join.</span><span class="sxs-lookup"><span data-stu-id="700ca-116">This starts the Azure AD Join experience.</span></span> <span data-ttu-id="700ca-117">Poniżej znajduje się ekranu, że zobaczysz, jeśli używasz systemu Windows 10 Professional.</span><span class="sxs-lookup"><span data-stu-id="700ca-117">Following is a screen that you'll see if you're using Windows 10 Professional.</span></span>
+   <span data-ttu-id="700ca-118"><center>
+   ![Kto jest właścicielem tego ekranu komputera](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)</span><span class="sxs-lookup"><span data-stu-id="700ca-118"><center>
+![Who owns this PC screen](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)</span></span>
+5. <span data-ttu-id="700ca-119">Wprowadź poświadczenia, które zostały przekazane użytkownikowi przez organizację.</span><span class="sxs-lookup"><span data-stu-id="700ca-119">Enter the credentials that were provided to you by your organization.</span></span>
+   <span data-ttu-id="700ca-120"><center>
+   ![Ekran logowania](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)</span><span class="sxs-lookup"><span data-stu-id="700ca-120"><center>
+![Sign-in screen](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)</span></span>
+6. <span data-ttu-id="700ca-121">Po wprowadzeniu nazwy użytkownika pasującego dzierżawy znajduje się w usłudze Azure AD.</span><span class="sxs-lookup"><span data-stu-id="700ca-121">After you have entered your user name, a matching tenant is located in Azure AD.</span></span> <span data-ttu-id="700ca-122">Jeśli w domenie federacyjnych, nastąpi przekierowanie do lokalnego serwera Secure Token Service (STS) — na przykład Active Directory Federation Services (AD FS).</span><span class="sxs-lookup"><span data-stu-id="700ca-122">If you are in a federated domain, you will be redirected to your on-premises Secure Token Service (STS) server--for example, Active Directory Federation Services (AD FS).</span></span>
+7. <span data-ttu-id="700ca-123">Jeśli użytkownik jest użytkownikiem domeny z systemem innym niż federacyjnych, wprowadź swoje poświadczenia bezpośrednio na stronie hostowanych przez usługi AD platformy Azure.</span><span class="sxs-lookup"><span data-stu-id="700ca-123">If you are a user in a non-federated domain, enter your credentials directly on the Azure AD-hosted page.</span></span> <span data-ttu-id="700ca-124">Jeśli skonfigurowano logo firmy, będą również Zobacz logo organizacji i obsługuje tekstu.</span><span class="sxs-lookup"><span data-stu-id="700ca-124">If company branding was configured, you will also see your organization’s logo and support text.</span></span>
+8. <span data-ttu-id="700ca-125">Zostanie wyświetlony monit o żądanie uwierzytelniania wieloskładnikowego.</span><span class="sxs-lookup"><span data-stu-id="700ca-125">You're prompted for a multi-factor authentication challenge.</span></span> <span data-ttu-id="700ca-126">To żądanie jest konfigurowane przez administratora IT.</span><span class="sxs-lookup"><span data-stu-id="700ca-126">This challenge is configurable by an IT administrator.</span></span>
+9. <span data-ttu-id="700ca-127">Usługi Azure AD sprawdza, czy użytkownika/urządzenie wymaga rejestracji w zarządzaniu urządzeniami przenośnymi.</span><span class="sxs-lookup"><span data-stu-id="700ca-127">Azure AD checks whether this user/device requires enrollment in mobile device management.</span></span>
+10. <span data-ttu-id="700ca-128">System Windows zarejestrowanie urządzenia w katalogu organizacji w usłudze Azure AD i rejestruje w przystawce Zarządzanie urządzeniami przenośnymi w razie potrzeby.</span><span class="sxs-lookup"><span data-stu-id="700ca-128">Windows registers the device in the organization’s directory in Azure AD and enrolls it in mobile device management, if appropriate.</span></span>
+11. <span data-ttu-id="700ca-129">Jeśli jesteś użytkownikiem zarządzanych systemu Windows umożliwia przejście do pulpitu za pośrednictwem proces automatycznego logowania.</span><span class="sxs-lookup"><span data-stu-id="700ca-129">If you are a managed user, Windows takes you to the desktop through the automatic sign-in process.</span></span>
+12. <span data-ttu-id="700ca-130">W przypadku użytkowników federacyjnych są przekierowywane do ekranu logowania systemu Windows, aby wprowadzić swoje poświadczenia.</span><span class="sxs-lookup"><span data-stu-id="700ca-130">If you are a federated user, you are directed to the Windows sign-in screen to enter your credentials.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="700ca-131">Przyłączania do domeny usługi Active Directory systemu Windows Server lokalne środowisko out-of-box systemu Windows nie jest obsługiwana.</span><span class="sxs-lookup"><span data-stu-id="700ca-131">Joining an on-premises Windows Server Active Directory domain in the Windows out-of-box experience is not supported.</span></span> <span data-ttu-id="700ca-132">W związku z tym, jeśli planujesz przyłączyć komputer do domeny, należy wybrać link **instalacji systemu Windows przy użyciu konta lokalnego** zamiast tego.</span><span class="sxs-lookup"><span data-stu-id="700ca-132">Therefore, if you plan to join a computer to a domain, you should select the link **Set up Windows with a local account** instead.</span></span> <span data-ttu-id="700ca-133">Następnie można przyłączyć do domeny z ustawień na komputerze, jak zostało wykonane przed.</span><span class="sxs-lookup"><span data-stu-id="700ca-133">You can then join the domain from the settings on your computer as you’ve done before.</span></span>
+> 
+> 
+
+## <a name="additional-information"></a><span data-ttu-id="700ca-134">Dodatkowe informacje</span><span class="sxs-lookup"><span data-stu-id="700ca-134">Additional information</span></span>
+* [<span data-ttu-id="700ca-135">System Windows 10 dla przedsiębiorstw: sposoby używania urządzenia do pracy</span><span class="sxs-lookup"><span data-stu-id="700ca-135">Windows 10 for the enterprise: Ways to use devices for work</span></span>](active-directory-azureadjoin-windows10-devices-overview.md)
+* [<span data-ttu-id="700ca-136">Rozszerzanie możliwości chmury dla urządzeń z systemem Windows 10 za pomocą usługi Azure Active Directory Join</span><span class="sxs-lookup"><span data-stu-id="700ca-136">Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join</span></span>](active-directory-azureadjoin-user-upgrade.md)
+* [<span data-ttu-id="700ca-137">Uwierzytelnianie tożsamości bez hasła przy użyciu Microsoft Passport</span><span class="sxs-lookup"><span data-stu-id="700ca-137">Authenticating identities without passwords through Microsoft Passport</span></span>](active-directory-azureadjoin-passport.md)
+* [<span data-ttu-id="700ca-138">Dowiedz się więcej na temat scenariuszy użycia funkcji Azure AD Join</span><span class="sxs-lookup"><span data-stu-id="700ca-138">Learn about usage scenarios for Azure AD Join</span></span>](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [<span data-ttu-id="700ca-139">Łączenie urządzeń przyłączonych do domeny z usługą Azure AD w celu korzystania z możliwości systemu Windows 10</span><span class="sxs-lookup"><span data-stu-id="700ca-139">Connect domain-joined devices to Azure AD for Windows 10 experiences</span></span>](active-directory-azureadjoin-devices-group-policy.md)
+* [<span data-ttu-id="700ca-140">Konfigurowanie funkcji Azure AD Join</span><span class="sxs-lookup"><span data-stu-id="700ca-140">Set up Azure AD Join</span></span>](active-directory-azureadjoin-setup.md)
+

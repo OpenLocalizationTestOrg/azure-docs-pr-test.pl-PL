@@ -1,0 +1,84 @@
+---
+title: "aaaEnable replikację dla maszyn wirtualnych VMware replikowanie tooAzure z usługą Azure Site Recovery | Dokumentacja firmy Microsoft"
+description: "Zawiera podsumowanie kroków hello należy tooenable tooAzure replikacji przy użyciu usługi Azure Site Recovery hello maszynach wirtualnych VMware"
+documentationcenter: 
+author: rayne-wiselman
+manager: carmonm
+editor: 
+ms.assetid: 519c5559-7032-4954-b8b5-f24f5242a954
+ms.service: site-recovery
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/27/2017
+ms.author: raynew
+ms.openlocfilehash: 490782bbbfa3dd92c626d3985c75d771df53d566
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 10/06/2017
+---
+# <a name="step-11-enable-replication-for-vmware-virtual-machines-tooazure"></a><span data-ttu-id="63855-103">Krok 11: Włącz replikację tooAzure maszyn wirtualnych VMware</span><span class="sxs-lookup"><span data-stu-id="63855-103">Step 11: Enable replication for VMware virtual machines tooAzure</span></span>
+
+
+<span data-ttu-id="63855-104">W tym artykule opisano, jak replikacja tooenable wirtualnych VMware lokalnej maszyny tooAzure przy użyciu hello [usługi Azure Site Recovery](site-recovery-overview.md) w hello portalu Azure.</span><span class="sxs-lookup"><span data-stu-id="63855-104">This article describes how tooenable replication for on-premises VMware virtual machines tooAzure, using hello [Azure Site Recovery](site-recovery-overview.md) service in hello Azure portal.</span></span>
+
+<span data-ttu-id="63855-105">Opublikuj komentarze i pytania u dołu hello w tym artykule, albo na powitania [Forum usług odzyskiwania Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span><span class="sxs-lookup"><span data-stu-id="63855-105">Post comments and questions at hello bottom of this article, or on hello [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).</span></span>
+
+
+## <a name="before-you-start"></a><span data-ttu-id="63855-106">Przed rozpoczęciem</span><span class="sxs-lookup"><span data-stu-id="63855-106">Before you start</span></span>
+
+- <span data-ttu-id="63855-107">Maszyny wirtualne VMware muszą mieć hello [zainstalowanie składnika usługi Mobility](vmware-walkthrough-install-mobility.md).</span><span class="sxs-lookup"><span data-stu-id="63855-107">VMware VMs must have hello [Mobility service component installed](vmware-walkthrough-install-mobility.md).</span></span> <span data-ttu-id="63855-108">— Jeśli maszyna wirtualna jest gotowy do instalacji w trybie wypychania, serwer przetwarzania hello automatycznie instaluje usługi mobilności hello po włączeniu replikacji.</span><span class="sxs-lookup"><span data-stu-id="63855-108">- If a VM is prepared for push installation, hello process server automatically installs hello Mobility service when you enable replication.</span></span>
+- <span data-ttu-id="63855-109">Twoje konto użytkownika systemu Azure wymaga określonych [uprawnienia](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) tooenable replikacji tooAzure maszyny Wirtualnej</span><span class="sxs-lookup"><span data-stu-id="63855-109">Your Azure user account needs specific [permissions](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) tooenable replication of a VM tooAzure</span></span>
+- <span data-ttu-id="63855-110">Podczas dodawania lub modyfikowania maszyn wirtualnych, może upłynąć górę too15 minut lub dłużej dla efektu tootake zmiany i ich tooappear w portalu hello.</span><span class="sxs-lookup"><span data-stu-id="63855-110">When you add or modify VMs, it can take up too15 minutes or longer for changes tootake effect, and for them tooappear in hello portal.</span></span>
+- <span data-ttu-id="63855-111">Możesz sprawdzić czas hello ostatnio odnalezione dla maszyn wirtualnych w **serwery konfiguracji** > **ostatniego kontaktu w**.</span><span class="sxs-lookup"><span data-stu-id="63855-111">You can check hello last discovered time for VMs in **Configuration Servers** > **Last Contact At**.</span></span>
+- <span data-ttu-id="63855-112">tooadd maszyn wirtualnych bez oczekiwania na powitania zaplanowanego odnajdywania, wyróżnij hello konfiguracji serwera (nie klikaj pozycji go) i kliknij przycisk **Odśwież**.</span><span class="sxs-lookup"><span data-stu-id="63855-112">tooadd VMs without waiting for hello scheduled discovery, highlight hello configuration server (don’t click it), and click **Refresh**.</span></span>
+
+
+
+## <a name="exclude-disks-from-replication"></a><span data-ttu-id="63855-113">Wykluczanie dysków z replikacji</span><span class="sxs-lookup"><span data-stu-id="63855-113">Exclude disks from replication</span></span>
+
+<span data-ttu-id="63855-114">Domyślnie wszystkie dyski na komputerze są replikowane.</span><span class="sxs-lookup"><span data-stu-id="63855-114">By default all disks on a machine are replicated.</span></span> <span data-ttu-id="63855-115">Dyski można wykluczyć z replikacji.</span><span class="sxs-lookup"><span data-stu-id="63855-115">You can exclude disks from replication.</span></span> <span data-ttu-id="63855-116">Na przykład nie ma dysków tooreplicate przy użyciu danych tymczasowych lub dane, które odświeżył każdym komputerze lub ponownym uruchomieniem aplikacji (na przykład pagefile.sys lub tempdb serwera SQL).</span><span class="sxs-lookup"><span data-stu-id="63855-116">For example you might not want tooreplicate disks with temporary data, or data that's refreshed each time a machine or application restarts (for example pagefile.sys or SQL Server tempdb).</span></span> [<span data-ttu-id="63855-117">Dowiedz się więcej</span><span class="sxs-lookup"><span data-stu-id="63855-117">Learn more</span></span>](site-recovery-exclude-disk.md)
+
+## <a name="replicate-vms"></a><span data-ttu-id="63855-118">Replikowanie maszyn wirtualnych</span><span class="sxs-lookup"><span data-stu-id="63855-118">Replicate VMs</span></span>
+
+<span data-ttu-id="63855-119">Przed rozpoczęciem, Obejrzyj to szybki przegląd wideo</span><span class="sxs-lookup"><span data-stu-id="63855-119">Before you start, watch a quick video overview</span></span>
+
+>[!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/VMware-to-Azure-with-ASR-Video3-Protect-VMware-Virtual-Machines/player]
+
+1. <span data-ttu-id="63855-120">Kliknij kolejno pozycje **Krok 2. Replikowanie aplikacji** > **Źródło**.</span><span class="sxs-lookup"><span data-stu-id="63855-120">Click **Step 2: Replicate application** > **Source**.</span></span>
+2. <span data-ttu-id="63855-121">W **źródła**, wybierz pozycję powitania serwera konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="63855-121">In **Source**, select hello configuration server.</span></span>
+3. <span data-ttu-id="63855-122">W **komputera typu**, wybierz pozycję **maszyn wirtualnych**.</span><span class="sxs-lookup"><span data-stu-id="63855-122">In **Machine type**, select **Virtual Machines**.</span></span>
+4. <span data-ttu-id="63855-123">W **vCenter/vSphere Hypervisor**, wybierz hello vCenter server zarządzającego hostem vSphere hello, lub wybierz hello host.</span><span class="sxs-lookup"><span data-stu-id="63855-123">In **vCenter/vSphere Hypervisor**, select hello vCenter server that manages hello vSphere host, or select hello host.</span></span>
+5. <span data-ttu-id="63855-124">Wybierz serwer przetwarzania hello.</span><span class="sxs-lookup"><span data-stu-id="63855-124">Select hello process server.</span></span> <span data-ttu-id="63855-125">Jeśli nie utworzono żadnych serwerów dodatkowych procesów będzie powitania serwera konfiguracji.</span><span class="sxs-lookup"><span data-stu-id="63855-125">If you haven't created any additional process servers this will be hello configuration server.</span></span> <span data-ttu-id="63855-126">Następnie kliknij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="63855-126">Then click **OK**.</span></span>
+
+    ![Włączanie replikacji](./media/vmware-walkthrough-enable-replication/enable-replication2.png)
+
+6. <span data-ttu-id="63855-128">W **docelowego**, wybierz subskrypcję hello i hello grupy zasobów, w której ma zostać hello toocreate przejścia w tryb failover maszyn wirtualnych.</span><span class="sxs-lookup"><span data-stu-id="63855-128">In **Target**, select hello subscription and hello resource group in which you want toocreate hello failed over VMs.</span></span> <span data-ttu-id="63855-129">Wybierz model wdrożenia hello, która ma toouse na platformie Azure (Zarządzanie zasobu lub classic) hello przejścia w tryb failover maszyn wirtualnych.</span><span class="sxs-lookup"><span data-stu-id="63855-129">Choose hello deployment model that you want toouse in Azure (classic or resource management), for hello failed over VMs.</span></span>
+
+
+7. <span data-ttu-id="63855-130">Wybierz konto magazynu Azure hello, które chcesz toouse do replikacji danych.</span><span class="sxs-lookup"><span data-stu-id="63855-130">Select hello Azure storage account you want toouse for replicating data.</span></span> <span data-ttu-id="63855-131">Jeśli nie chcesz toouse konta, które zostały już skonfigurowane, można utworzyć nowy.</span><span class="sxs-lookup"><span data-stu-id="63855-131">If you don't want toouse an account you've already set up, you can create a new one.</span></span>
+
+8. <span data-ttu-id="63855-132">Wybierz hello Azure toowhich sieci i podsieci maszyn wirtualnych platformy Azure będą się łączyć, gdy są tworzone po pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="63855-132">Select hello Azure network and subnet toowhich Azure VMs will connect, when they're created after failover.</span></span> <span data-ttu-id="63855-133">Wybierz **Konfiguruj teraz dla wybranych maszyn**, tooapply hello sieci ustawienie tooall maszyn wybranych do ochrony.</span><span class="sxs-lookup"><span data-stu-id="63855-133">Select **Configure now for selected machines**, tooapply hello network setting tooall machines you select for protection.</span></span> <span data-ttu-id="63855-134">Wybierz **później skonfigurować** hello tooselect sieć platformy Azure dla poszczególnych komputerów.</span><span class="sxs-lookup"><span data-stu-id="63855-134">Select **Configure later** tooselect hello Azure network per machine.</span></span> <span data-ttu-id="63855-135">Jeśli nie chcesz toouse istniejącej sieci, można go utworzyć.</span><span class="sxs-lookup"><span data-stu-id="63855-135">If you don't want toouse an existing network, you can create one.</span></span>
+
+    ![Włączanie replikacji](./media/vmware-walkthrough-enable-replication/enable-rep3.png)
+9. <span data-ttu-id="63855-137">W **maszyn wirtualnych** > **wybierz maszyny wirtualne**, kliknij i zaznacz każdy komputer ma tooreplicate.</span><span class="sxs-lookup"><span data-stu-id="63855-137">In **Virtual Machines** > **Select virtual machines**, click and select each machine you want tooreplicate.</span></span> <span data-ttu-id="63855-138">Możesz wybrać tylko te maszyny, dla których można włączyć replikację.</span><span class="sxs-lookup"><span data-stu-id="63855-138">You can only select machines for which replication can be enabled.</span></span> <span data-ttu-id="63855-139">Następnie kliknij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="63855-139">Then click **OK**.</span></span>
+
+    ![Włączanie replikacji](./media/vmware-walkthrough-enable-replication/enable-replication5.png)
+10. <span data-ttu-id="63855-141">W **właściwości** > **skonfigurować właściwości**, wybierz pozycję hello konta, które będą używane przez hello procesu serwera tooautomatically Zainstaluj hello usługi mobilności na maszynie hello.</span><span class="sxs-lookup"><span data-stu-id="63855-141">In **Properties** > **Configure properties**, select hello account that will be used by hello process server tooautomatically install hello Mobility service on hello machine.</span></span>
+11. <span data-ttu-id="63855-142">Domyślnie wszystkie dyski są replikowane.</span><span class="sxs-lookup"><span data-stu-id="63855-142">By default all disks are replicated.</span></span> <span data-ttu-id="63855-143">Kliknij przycisk **wszystkie dyski** i wyczyść wszystkie dyski, które nie mają tooreplicate.</span><span class="sxs-lookup"><span data-stu-id="63855-143">Click **All Disks** and clear any disks you don't want tooreplicate.</span></span> <span data-ttu-id="63855-144">Następnie kliknij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="63855-144">Then click **OK**.</span></span> <span data-ttu-id="63855-145">Później można ustawić dodatkowe właściwości maszyny Wirtualnej.</span><span class="sxs-lookup"><span data-stu-id="63855-145">You can set additional VM properties later.</span></span>
+
+    ![Włączanie replikacji](./media/vmware-walkthrough-enable-replication/enable-replication6.png)
+11. <span data-ttu-id="63855-147">W **ustawienia replikacji** > **Konfigurowanie ustawień replikacji**, sprawdź, że hello poprawne wybrano zasady replikacji.</span><span class="sxs-lookup"><span data-stu-id="63855-147">In **Replication settings** > **Configure replication settings**, verify that hello correct replication policy is selected.</span></span> <span data-ttu-id="63855-148">Jeśli zmodyfikujesz zasady, zmiany zostaną zastosowane tooreplicating maszyny i toonew maszyny.</span><span class="sxs-lookup"><span data-stu-id="63855-148">If you modify a policy, changes will be applied tooreplicating machine, and toonew machines.</span></span>
+12. <span data-ttu-id="63855-149">Włącz **spójności wielu maszyn wirtualnych** toogather maszyny do grupy replikacji, i określ nazwę grupy hello.</span><span class="sxs-lookup"><span data-stu-id="63855-149">Enable **Multi-VM consistency** if you want toogather machines into a replication group, and specify a name for hello group.</span></span> <span data-ttu-id="63855-150">Następnie kliknij przycisk **OK**.</span><span class="sxs-lookup"><span data-stu-id="63855-150">Then click **OK**.</span></span> <span data-ttu-id="63855-151">Należy pamiętać, że:</span><span class="sxs-lookup"><span data-stu-id="63855-151">Note that:</span></span>
+
+    * <span data-ttu-id="63855-152">Komputery w grupach replikacji replikowane wspólnie i udostępnione punkty odzyskiwania spójna w razie awarii i spójności aplikacji podczas ich w tryb failover.</span><span class="sxs-lookup"><span data-stu-id="63855-152">Machines in replication groups replicate together, and have shared crash-consistent and app-consistent recovery points when they fail over.</span></span>
+    * <span data-ttu-id="63855-153">Zaleca się, że użytkownik zbiera maszyn wirtualnych i serwerów fizycznych, aby odzwierciedlały obciążeń.</span><span class="sxs-lookup"><span data-stu-id="63855-153">We recommend that you gather VMs and physical servers together so that they mirror your workloads.</span></span> <span data-ttu-id="63855-154">Włączenie spójności wielu maszyn wirtualnych może wpłynąć na wydajność obciążenia, a powinien być używany tylko przez hello są uruchomione maszyny tego samego obciążenia i wymagana jest spójność.</span><span class="sxs-lookup"><span data-stu-id="63855-154">Enabling multi-VM consistency can impact workload performance, and should only be used if machines are running hello same workload and you need consistency.</span></span>
+
+    ![Włączanie replikacji](./media/vmware-walkthrough-enable-replication/enable-replication7.png)
+13. <span data-ttu-id="63855-156">Kliknij przycisk **włączyć replikację**.</span><span class="sxs-lookup"><span data-stu-id="63855-156">Click **Enable Replication**.</span></span> <span data-ttu-id="63855-157">Możesz śledzić postępy hello **Włącz ochronę** zadania w **ustawienia** > **zadania** > **zadania usługi Site Recovery**.</span><span class="sxs-lookup"><span data-stu-id="63855-157">You can track progress of hello **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**.</span></span> <span data-ttu-id="63855-158">Po hello **zakończenia ochrony** zadania działa hello maszyna jest gotowa do pracy awaryjnej.</span><span class="sxs-lookup"><span data-stu-id="63855-158">After hello **Finalize Protection** job runs hello machine is ready for failover.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="63855-159">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="63855-159">Next steps</span></span>
+
+<span data-ttu-id="63855-160">Przejdź do zbyt[krok 12: testować tryb failover](vmware-walkthrough-test-failover.md)</span><span class="sxs-lookup"><span data-stu-id="63855-160">Go too[Step 12: Run a test failover](vmware-walkthrough-test-failover.md)</span></span>

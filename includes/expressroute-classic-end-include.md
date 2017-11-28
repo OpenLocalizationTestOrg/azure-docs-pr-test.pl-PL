@@ -1,0 +1,12 @@
+> [!IMPORTANT] 
+> <span data-ttu-id="09fd6-101">Od 1 marca 2017 r. nie można tworzyć obwodów usługi ExpressRoute w modelu wdrożenia klasycznego.</span><span class="sxs-lookup"><span data-stu-id="09fd6-101">As of March 1, 2017, you can't create new ExpressRoute circuits in the classic deployment model.</span></span>
+> 
+> - <span data-ttu-id="09fd6-102">Istniejący obwód usługi ExpressRoute można przenieść z klasycznego modelu wdrożenia do modelu wdrożenia usługi Resource Manager bez przestojów łączności.</span><span class="sxs-lookup"><span data-stu-id="09fd6-102">You can move an existing ExpressRoute circuit from the classic deployment model to the Resource Manager deployment model without experiencing any connectivity down time.</span></span> <span data-ttu-id="09fd6-103">Aby uzyskać więcej informacji, zobacz [Przenoszenie istniejącego obwodu](../articles/expressroute/expressroute-move.md).</span><span class="sxs-lookup"><span data-stu-id="09fd6-103">For more information, see [Move an existing circuit](../articles/expressroute/expressroute-move.md).</span></span>
+> - <span data-ttu-id="09fd6-104">Aby nawiązać połączenie z sieciami wirtualnymi w klasycznym modelu wdrożenia, można ustawić pozycję **allowClassicOperations** na wartość TRUE.</span><span class="sxs-lookup"><span data-stu-id="09fd6-104">You can connect to virtual networks in the classic deployment model by setting **allowClassicOperations** to TRUE.</span></span>
+> 
+> <span data-ttu-id="09fd6-105">Użyj poniższych linków, aby tworzyć obwody usługi ExpressRoute i zarządzać nimi w modelu wdrożenia usługi Resource Manager:</span><span class="sxs-lookup"><span data-stu-id="09fd6-105">Use the following links to create and manage ExpressRoute circuits in the Resource Manager deployment model:</span></span>
+
+> - [<span data-ttu-id="09fd6-106">Tworzenie obwodów usługi ExpressRoute i zarządzanie nimi</span><span class="sxs-lookup"><span data-stu-id="09fd6-106">Create and manage ExpressRoute circuits</span></span>](../articles/expressroute/expressroute-howto-circuit-portal-resource-manager.md)<br>
+> - [<span data-ttu-id="09fd6-107">Konfigurowanie routingu (komunikacji równorzędnej) dla obwodów usługi ExpressRoute</span><span class="sxs-lookup"><span data-stu-id="09fd6-107">Configure routing (peering) for ExpressRoute circuits</span></span>](../articles/expressroute/expressroute-howto-routing-portal-resource-manager.md)
+>
+>

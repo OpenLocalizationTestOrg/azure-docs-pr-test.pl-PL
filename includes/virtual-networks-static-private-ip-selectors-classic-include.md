@@ -1,0 +1,7 @@
+> [!div class="op_single_selector"]
+> * [<span data-ttu-id="19a57-101">Azure Portal</span><span class="sxs-lookup"><span data-stu-id="19a57-101">Azure portal</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
+> * [<span data-ttu-id="19a57-102">PowerShell</span><span class="sxs-lookup"><span data-stu-id="19a57-102">PowerShell</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
+> * [<span data-ttu-id="19a57-103">Interfejs wiersza polecenia platformy Azure</span><span class="sxs-lookup"><span data-stu-id="19a57-103">Azure CLI</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
+> * [<span data-ttu-id="19a57-104">Portalu Azure (klasyczne)</span><span class="sxs-lookup"><span data-stu-id="19a57-104">Azure portal (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
+> * [<span data-ttu-id="19a57-105">PowerShell (klasyczny)</span><span class="sxs-lookup"><span data-stu-id="19a57-105">PowerShell (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md)
+> * [<span data-ttu-id="19a57-106">Interfejs wiersza polecenia platformy Azure (klasyczne)</span><span class="sxs-lookup"><span data-stu-id="19a57-106">Azure CLI (Classic)</span></span>](../articles/virtual-network/virtual-networks-static-private-ip-classic-cli.md)

@@ -1,0 +1,53 @@
+---
+title: "Portale tworzenia i edytowania dziennika zapytań w programie Azure Log Analytics | Dokumentacja firmy Microsoft"
+description: "W tym artykule opisano portali, których można używać w Azure Log Analytics można tworzyć i edytować dziennika wyszukiwania."
+services: log-analytics
+documentationcenter: 
+author: bwren
+manager: carmonm
+editor: 
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/25/2017
+ms.author: bwren
+ms.openlocfilehash: 29dfa31d38f85574f84ed351bc5c26224b1a7e16
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 08/29/2017
+---
+# <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a><span data-ttu-id="72f18-103">Portale tworzenia i edytowania dziennika zapytań w programie Azure Log Analytics</span><span class="sxs-lookup"><span data-stu-id="72f18-103">Portals for creating and editing log queries in Azure Log Analytics</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="72f18-104">W tym artykule opisano portali w przy użyciu nowego języka zapytań usługi Analiza dzienników Azure.</span><span class="sxs-lookup"><span data-stu-id="72f18-104">This article describes portals in Azure Log Analytics using the new query language.</span></span>  <span data-ttu-id="72f18-105">Możesz dowiedzieć się więcej o nowy język i uzyskać Procedura uaktualniania obszaru roboczego na [uaktualnienia obszaru roboczego analizy dzienników Azure do nowego wyszukiwania dziennika](log-analytics-log-search-upgrade.md).</span><span class="sxs-lookup"><span data-stu-id="72f18-105">You can learn more about the new language and get the procedure to upgrade your workspace at [Upgrade your Azure Log Analytics workspace to new log search](log-analytics-log-search-upgrade.md).</span></span>  
+>
+> <span data-ttu-id="72f18-106">Jeśli nowy język kwerendy nie została ona uaktualniona obszaru roboczego, należy zapoznać się [wyszukiwanie danych przy użyciu dziennika wyszukiwania w analizy dzienników](log-analytics-log-searches.md) Aby uzyskać informacje o bieżącej wersji portalu wyszukiwania dziennika.</span><span class="sxs-lookup"><span data-stu-id="72f18-106">If your workspace hasn't been upgraded to the new query language, you should refer to [Find data using log searches in Log Analytics](log-analytics-log-searches.md) for information on the current version of the Log Search portal.</span></span>
+
+<span data-ttu-id="72f18-107">Dziennik wyszukiwania w różnych miejscach analizy dzienników służy do pobierania danych z obszaru roboczego.</span><span class="sxs-lookup"><span data-stu-id="72f18-107">You use log searches in a variety of places throughout Log Analytics to retrieve data from the workspace.</span></span>  <span data-ttu-id="72f18-108">Faktycznie tworzenie i edytowanie zapytań oprócz pracy interakcyjnie z dane zwrotne jednak, masz dwie opcje, które są opisane poniżej.</span><span class="sxs-lookup"><span data-stu-id="72f18-108">For actually creating and editing queries in addition to working interactively with returned data though, you have two options that are described below.</span></span>  
+
+## <a name="log-search-portal"></a><span data-ttu-id="72f18-109">Dziennik wyszukiwania portalu</span><span class="sxs-lookup"><span data-stu-id="72f18-109">Log search portal</span></span>
+<span data-ttu-id="72f18-110">Portal wyszukiwania dziennika jest dostępny w portalu Azure lub w portalu OMS.</span><span class="sxs-lookup"><span data-stu-id="72f18-110">The Log Search portal is accessible from the Azure portal or the OMS portal.</span></span>  <span data-ttu-id="72f18-111">Jest ona odpowiednia dla tworzenia podstawowych zapytań, które mogą zostać utworzone w jednym wierszu.</span><span class="sxs-lookup"><span data-stu-id="72f18-111">It's suitable for creating basic queries that can be created on a single line.</span></span>  <span data-ttu-id="72f18-112">Portal dziennik wyszukiwania może być używany bez uruchamiania zewnętrznego portalu i służy do wykonywania różnych funkcji z dziennika wyszukiwania w tym tworzenie reguły alertu, tworzenie grup komputerów i eksportowanie wyników zapytania.</span><span class="sxs-lookup"><span data-stu-id="72f18-112">The Log Search portal can be used without launching an external portal, and you can use it to perform a variety of functions with log searches including creating alert rules, creating computer groups, and exporting the results of the query.</span></span>  
+
+<span data-ttu-id="72f18-113">Portal wyszukiwania dziennika zawiera wiele funkcji do edycji zapytanie bez pełnej znajomości języka kwerend.</span><span class="sxs-lookup"><span data-stu-id="72f18-113">The Log Search portal provides multiple features for editing the query without having a full knowledge of the query language.</span></span>  <span data-ttu-id="72f18-114">Można uzyskać podsumowanie informacji o tych funkcji w [Utwórz dziennik wyszukiwania w Analiza dzienników Azure przy użyciu portalu wyszukiwania dziennika](log-analytics-log-search-log-search-portal.md).</span><span class="sxs-lookup"><span data-stu-id="72f18-114">You can get a summary of these features in [Create log searches in Azure Log Analytics using the Log Search portal](log-analytics-log-search-log-search-portal.md).</span></span>
+
+
+![Dziennik wyszukiwania portalu](media/log-analytics-log-search-portals/log-search-portal.png)
+
+## <a name="advanced-analytics-portal"></a><span data-ttu-id="72f18-116">Zaawansowane portal analityka</span><span class="sxs-lookup"><span data-stu-id="72f18-116">Advanced Analytics portal</span></span>
+<span data-ttu-id="72f18-117">Portal zaawansowana analityka jest dedykowany portal, który udostępnia zaawansowane funkcje, które nie jest dostępne w portalu wyszukiwania dziennika.</span><span class="sxs-lookup"><span data-stu-id="72f18-117">The Advanced Analytics portal is a dedicated portal that provides advanced functionality not available in the Log Search portal.</span></span>  <span data-ttu-id="72f18-118">Funkcje obejmują możliwość edytowania zapytania w wielu wierszach, selektywnie wykonania kodu, kontekstowej Intellisense i analiza inteligentne.</span><span class="sxs-lookup"><span data-stu-id="72f18-118">Features include the ability to edit a query on multiple lines, selectively execute code, context sensitive Intellisense, and Smart Analytics.</span></span>  <span data-ttu-id="72f18-119">Portal analityka zaawansowane jest najbardziej odpowiednie dla projektowania złożonych zapytań, które są albo zapisywane jako dziennik wyszukiwania lub kopiować i wklejać do innych elementów analizy dzienników.</span><span class="sxs-lookup"><span data-stu-id="72f18-119">The Advanced Analytics portal is most suitable for designing complex queries that are either saved as a log search or copied and pasted into other Log Analytics elements.</span></span>  <span data-ttu-id="72f18-120">Można uruchomić portal analityka Zaawansowane z linku w portalu wyszukiwania dziennika.</span><span class="sxs-lookup"><span data-stu-id="72f18-120">You launch the Advanced Analytics portal from a link in the Log Search portal.</span></span>
+
+![Zaawansowane portal analityka](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
+
+
+<span data-ttu-id="72f18-122">Ze względu na jego funkcje zaawansowane zwykle użyjesz portalu zaawansowana analityka jako narzędzia do głównej tworzenia i edytowania zapytania.</span><span class="sxs-lookup"><span data-stu-id="72f18-122">Because of its advanced features, you'll usually use the Advanced Analytics portal as your primary tool for creating and editing queries.</span></span>  <span data-ttu-id="72f18-123">Po określeniu, czy zapytanie działa zgodnie z oczekiwaniami, a następnie należy go skopiować i wkleić go w innym miejscu takie jak dziennik wyszukiwania portalu lub Widok projektanta.</span><span class="sxs-lookup"><span data-stu-id="72f18-123">Once you've determined that the query works as expected, then you'll copy and paste it elsewhere such as the Log Search portal or View Designer.</span></span>  <span data-ttu-id="72f18-124">Ponieważ portal analityka zaawansowane obsługuje jednak zapytania z wielu wierszy, należy wziąć pod uwagę następujące pod uwagę podczas kopiowania zapytania z tego portalu.</span><span class="sxs-lookup"><span data-stu-id="72f18-124">Because the Advanced Analytics portal supports queries with multiple lines though, you need to take the following into consideration when copying a query from this portal.</span></span>
+
+- <span data-ttu-id="72f18-125">Komentarze należy usunąć z zapytania przed skopiować i wkleić do innej lokalizacji.</span><span class="sxs-lookup"><span data-stu-id="72f18-125">Comments must be removed from the query before it's copied and pasted into another location.</span></span>  <span data-ttu-id="72f18-126">Komentarz dotyczący wiersza poprzedzając ją dwa ukośniki (/ /).</span><span class="sxs-lookup"><span data-stu-id="72f18-126">You can comment a line by preceding it with two slashes (//).</span></span>  <span data-ttu-id="72f18-127">Podczas wklejania wielu zapytań wiersza w jednym wierszu, podziały wiersza zostaną usunięte.</span><span class="sxs-lookup"><span data-stu-id="72f18-127">When you paste a multiple line query into a single line, line breaks are removed.</span></span>  <span data-ttu-id="72f18-128">Jeśli są uwzględniane, wszystkie znaki od pierwszego komentarza są traktowane jako część komentarza.</span><span class="sxs-lookup"><span data-stu-id="72f18-128">If comments are included, all characters after the first comment are considered part of the comment.</span></span>
+
+
+## <a name="next-steps"></a><span data-ttu-id="72f18-129">Następne kroki</span><span class="sxs-lookup"><span data-stu-id="72f18-129">Next steps</span></span>
+
+- <span data-ttu-id="72f18-130">Zapoznaj się z artykułem samouczek na temat używania [dziennik wyszukiwania portalu](log-analytics-log-search-log-search-portal.md) lub [portal analityka zaawansowane](https://go.microsoft.com/fwlink/?linkid=856587) tworzenia zapytań.</span><span class="sxs-lookup"><span data-stu-id="72f18-130">Walk through a tutorial on using the [Log Search portal](log-analytics-log-search-log-search-portal.md) or the [Advanced Analytics portal](https://go.microsoft.com/fwlink/?linkid=856587) to create queries.</span></span>
+- <span data-ttu-id="72f18-131">Zapoznaj się z [Samouczek o pisaniu zapytań](https://go.microsoft.com/fwlink/?linkid=856078) przy użyciu nowego języka zapytań.</span><span class="sxs-lookup"><span data-stu-id="72f18-131">Check out a [tutorial on writing queries](https://go.microsoft.com/fwlink/?linkid=856078) using the new query language.</span></span>
