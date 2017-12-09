@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: dastrock
 ms.openlocfilehash: 51001feb17ae99d3bd391a9f980d514e07f97099
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.sourcegitcommit: dfd6f46af588d4cd9b7a11a026dd66612ce37a4e
+ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Usługa Azure Active Directory B2C: typy aplikacji
 Usługa Azure Active Directory (Azure AD) B2C obsługuje uwierzytelnianie w wielu nowoczesnych architekturach aplikacji. Wszystkie one są oparte na standardowych protokołach branżowych [OAuth 2.0](active-directory-b2c-reference-protocols.md) lub [OpenID Connect](active-directory-b2c-reference-protocols.md). W tym dokumencie krótko opisano typy aplikacji, które można tworzyć, niezależnie od preferowanego języka lub platformy. Ułatwia on także zrozumienie ogólnych scenariuszy przed [rozpoczęciem tworzenia aplikacji](active-directory-b2c-overview.md#get-started).
