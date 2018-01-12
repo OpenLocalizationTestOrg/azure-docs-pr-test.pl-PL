@@ -756,7 +756,7 @@ Oczekiwaną odpowiedzią jest błąd 401. Oznacza on, że warstwa oprogramowania
 ## <a name="you-now-have-a-rest-api-service-that-uses-oauth2"></a>Efektem jest usługa interfejsu API REST korzystająca z protokołu OAuth2
 Udało Ci się wdrożyć interfejs API REST przy użyciu modułu Restify i strategii OAuth! Masz teraz kod wystarczający do tego, aby kontynuować opracowywanie usługi i tworzyć ją na bazie tego przykładu. W przypadku tego serwera nie można wykonać żadnych dalszych czynności bez użycia klienta zgodnego z protokołem OAuth2. Na potrzeby następnego kroku użyj dodatkowego przewodnika, na przykład naszego przewodnika [Podłączanie do interfejsu API sieci Web przy użyciu systemu iOS z usługą B2C](active-directory-b2c-devquickstarts-ios.md).
 
-## <a name="next-steps"></a>Następne kroki
+## <a name="next-steps"></a>Kolejne kroki
 Możesz teraz przejść do bardziej zaawansowanych tematów, takich jak:
 
 [Podłączanie do interfejsu API sieci Web przy użyciu systemu iOS z usługą B2C](active-directory-b2c-devquickstarts-ios.md)
