@@ -1,19 +1,19 @@
-1. Zaloguj się w hello [Azure Portal].
+1. Zaloguj się w [portalu Azure].
 2. Kliknij kolejno opcje **+NOWE** > **Sieci Web i mobilność** > **Aplikacja mobilna**, a następnie podaj nazwę zaplecza aplikacji mobilnej.
-3. Dla hello **grupy zasobów**, wybierz istniejącą grupę zasobów lub Utwórz nową (używając hello tej samej nazwie co aplikacja). 
+3. W obszarze **Grupa zasobów** wybierz istniejącą grupę zasobów lub utwórz nową (używając tej samej nazwy, co aplikacja). 
    
-    Możesz wybrać inny plan usługi App Service lub utworzyć nowy. Aby uzyskać więcej informacji na temat planów usługi aplikacji i jak toocreate nowego planu w różnych cen warstwy, a w preferowanej lokalizacji, zobacz [szczegółowe omówienie planów usługi aplikacji Azure](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. Dla hello **planu usługi aplikacji**, hello plan domyślny (w hello [warstwy standardowa](https://azure.microsoft.com/pricing/details/app-service/)) jest zaznaczone. Możesz też wybrać inny plan lub [Utwórz nową](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Witaj planu usługi aplikacji określają ustawienia hello [lokalizację, funkcje, koszt i zasoby obliczeniowe](https://azure.microsoft.com/pricing/details/app-service/) skojarzone z aplikacją. 
+    Możesz wybrać inny plan usługi App Service lub utworzyć nowy. Aby uzyskać więcej informacji na temat planów usług App Services oraz sposobu tworzenia nowego planu w innej warstwie cenowej oraz w preferowanej lokalizacji, zobacz temat [Szczegółowe omówienie planów usługi Azure App Service](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+4. W przypadku **planu usługi App Service** jest wybrany plan domyślny (w [warstwie standardowej](https://azure.microsoft.com/pricing/details/app-service/)). Możesz też wybrać inny plan lub [Utwórz nową](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan). Ustawienia planu usługi App Service określają [lokalizację, funkcje, koszt i zasoby obliczeniowe](https://azure.microsoft.com/pricing/details/app-service/) skojarzone z aplikacją. 
    
-    Po podjęciu decyzji o hello planu, kliknij przycisk **Utwórz**. Spowoduje to utworzenie zaplecza aplikacji mobilnej hello. 
-5. W hello **ustawienia** bloku zaplecze nowej aplikacji mobilnej powitania kliknij **szybki start** > platforma aplikacji klienta > **połączyć z bazą danych**. 
+    Po wybraniu planu kliknij przycisk **Utwórz**. Spowoduje to utworzenie zaplecza aplikacji mobilnej. 
+5. W bloku **Ustawienia** dotyczącym nowego zaplecza aplikacji mobilnej kliknij kolejno pozycje **Szybki start** > platforma aplikacji klienta > **Połącz z bazą danych**. 
    
     ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
-6. W hello **Dodaj połączenie danych** bloku, kliknij przycisk **bazy danych SQL** > **Utwórz nową bazę danych**, bazy danych hello typu **nazwa**, Wybierz warstwę cenową, a następnie kliknij przycisk **serwera**.  Możesz użyć tej nowej bazy danych ponownie. Jeśli masz już bazę danych w hello tej samej lokalizacji, zamiast tego możesz **Użyj istniejącej bazy danych**. Witaj bazy danych w innej lokalizacji nie jest zalecane toobandwidth kosztów i większego opóźnienia.
+6. W bloku **Add data connection** (Dodaj połączenie danych) kliknij kolejno opcje **Baza danych SQL** > **Utwórz nową bazę danych**, wpisz nazwę bazy danych w polu **Nazwa**, wybierz warstwę cenową, a następnie kliknij opcję **Serwer**.  Możesz użyć tej nowej bazy danych ponownie. Jeśli masz już bazę danych w tej samej lokalizacji, możesz zamiast tego wybrać opcję **Użyj istniejącej bazy danych**. Korzystanie z bazy danych w innej lokalizacji nie jest zalecane z powodu kosztów przepustowości i większego opóźnienia.
    
     ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
-7. W hello **nowy serwer** bloku, wpisz unikatową nazwą serwera w hello **nazwy serwera** Podaj identyfikator logowania i hasło, sprawdź **Zezwalaj usługom platformy azure tooaccess serwera**i kliknij przycisk **OK**. Spowoduje to utworzenie nowej bazy danych hello.
-8. Po powrocie do hello **Dodaj połączenie danych** bloku, kliknij przycisk **ciąg połączenia**, wpisz hello wartości identyfikator logowania i hasło dla bazy danych i kliknij przycisk **OK**. Poczekaj kilka minut, aż hello toobe bazy danych pomyślnie wdrożone przed kontynuowaniem.
+7. W bloku **Nowy serwer** wpisz unikatową nazwą serwera w polu **Nazwa serwera**, podaj identyfikator logowania i hasło, zaznacz opcję **Zezwalaj usługom platformy Azure na dostęp do serwera** i kliknij przycisk **OK**. Zostanie utworzona nowa baza danych.
+8. Po powrocie do bloku **Add data connection** (Dodaj połączenie danych) kliknij opcję **Parametry połączenia**, wpisz wartości identyfikatora logowania i hasła dla bazy danych, po czym kliknij przycisk **OK**. Przed podjęciem dalszych działań poczekaj kilka minut, aż baza danych zostanie pomyślnie wdrożona.
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[portalu Azure]: https://portal.azure.com/

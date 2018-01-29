@@ -1,0 +1,18 @@
+- name: Dokumentacja usługi Azure Storage
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Wprowadzenie
+      href: ./common/storage-introduction.md
+    - name: 'Wybieranie obiektów blob, plików lub dysków'
+      href: ./common/storage-decide-blobs-files-disks.md
+- name: Obiekty blob
+  href: ./blobs/storage-blobs-introduction.md
+- name: Pliki
+  href: ./files/storage-files-introduction.md
+- name: Kolejki
+  href: ./queues/storage-queues-introduction.md
+- name: Tabele
+  href: ../cosmos-db/table-storage-overview.md
+- name: Dyski
+  href: ../virtual-machines/windows/managed-disks-overview.md

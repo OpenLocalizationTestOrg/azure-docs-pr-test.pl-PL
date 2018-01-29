@@ -1,5 +1,5 @@
 > [!WARNING]
-> Po włączeniu diagnostyki w istniejącej roli wszystkich rozszerzeń, które aktywowano zostanie wyłączone, po wdrożeniu pakietu hello. Należą do nich:
+> Po włączeniu diagnostyki dla istniejącej roli wszystkich rozszerzeń, które już zostały ustawione są wyłączone podczas wdrażania pakietu. Należą do nich:
 >
 > * Diagnostyka agenta monitorowania firmy Microsoft
 > * Monitorowanie zabezpieczeń platformy Microsoft Azure
@@ -11,5 +11,5 @@
 > * Windows Azure rozszerzenia usług pulpitu zdalnego
 > * Moduł zbierający dzienniki Azure systemu Windows
 >
-> Po wdrożeniu hello aktualizacji roli, może ponownie włączyć rozszerzeń za pomocą hello portalu Azure lub programu PowerShell.
+> Po wdrożeniu roli zaktualizowane, można zresetować rozszerzeń za pośrednictwem portalu Azure lub programu PowerShell.
 >

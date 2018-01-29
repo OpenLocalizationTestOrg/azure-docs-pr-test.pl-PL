@@ -1,5 +1,5 @@
 ## <a name="scenario"></a>Scenariusz
-Maszynę Wirtualną z jednej karty Sieciowej jest tooa utworzone i połączone sieci wirtualnej. Hello maszyna wirtualna wymaga trzech różnych *prywatnej* IP adresy i dwa *publicznego* adresów IP. Witaj, adresy IP są przypisywane toohello następujące konfiguracje adresów IP:
+Maszynę Wirtualną z jednej karty Sieciowej jest utworzony i podłączony do sieci wirtualnej. Maszyna wirtualna wymaga trzech różnych *prywatnej* IP adresy i dwa *publicznego* adresów IP. Adresy IP są przypisywane do następujące konfiguracje adresów IP:
 
 * **IPConfig-1:** przypisuje *statycznych* prywatnego adresu IP i *statycznych* publicznego adresu IP.
 * **Polecenie IPConfig-2:** przypisuje *statycznych* prywatnego adresu IP i *statycznych* publicznego adresu IP.
@@ -7,7 +7,7 @@ Maszynę Wirtualną z jednej karty Sieciowej jest tooa utworzone i połączone s
   
     ![Wiele adresów IP](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 
-konfiguracje adresów IP Hello są skojarzone toohello kart interfejsu Sieciowego, gdy hello, karta sieciowa jest tworzona i hello kart interfejsu Sieciowego jest toohello dołączona maszyna wirtualna po utworzeniu hello maszyny Wirtualnej. typy Hello adresy IP używane dla scenariusza hello są ilustracyjną. Można przypisać niezależnie od adresu i przypisywania typów IP wymagane.
+Konfiguracje adresów IP są powiązane z kartą sieciową, gdy karta sieciowa jest tworzony i karty Sieciowej jest dołączony do maszyny Wirtualnej po utworzeniu maszyny Wirtualnej. Typy adresy IP używane dla tego scenariusza są ilustracyjną. Można przypisać niezależnie od adresu i przypisywania typów IP wymagane.
 
 > [!NOTE]
-> Chociaż hello kroków tym artykule przypisuje wszystkie tooa konfiguracji IP jednej karty Sieciowej, można przypisać wielu tooany konfiguracji adresu IP karty Sieciowej na maszynie Wirtualnej z wieloma kartami Sieciowymi. jak toocreate Maszynę wirtualną z wieloma kartami sieciowymi, przeczytaj toolearn hello [tworzenia maszyn wirtualnych z wieloma kartami sieciowymi](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) artykułu.
+> Chociaż kroki opisane w tym artykule przypisuje wszystkie konfiguracje adresów IP do jednej karty Sieciowej, można także przypisać wielu konfiguracji adresów IP do dowolnej karty interfejsu Sieciowego na maszynie Wirtualnej z wieloma kartami Sieciowymi. Aby dowiedzieć się, jak utworzyć Maszynę wirtualną z wieloma kartami sieciowymi, przeczytaj [tworzenia maszyn wirtualnych z wieloma kartami sieciowymi](../articles/virtual-machines/windows/multiple-nics.md) artykułu.

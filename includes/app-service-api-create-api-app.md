@@ -1,15 +1,15 @@
 
-Utwórz [aplikacji interfejsu API](../articles/app-service-api/app-service-api-apps-why-best-platform.md) w hello `myAppServicePlan` planu usługi aplikacji z hello [tworzenie aplikacji sieci Web az](/cli/azure/appservice/web#create) polecenia. 
+Polecenie [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) umożliwia utworzenie aplikacji w planie usługi App Service `myAppServicePlan`. 
 
-aplikacji sieci web Hello hostingu miejsce do interfejsu API i zapewnia to aplikacja hello wdrożone tooview adresu URL.
+Aplikacja sieci Web udostępnia miejsce na hosting Twojego interfejsu API i zawiera adres URL do wyświetlania wdrożonej aplikacji.
 
-Zastąp następujące polecenie, w hello  *\<nazwa_aplikacji >* o unikatowej nazwie. Jeśli `<app_name>` jest nie jest unikatowy, otrzymasz komunikat o błędzie hello "Witryny sieci Web o podanej nazwie < nazwa_aplikacji > już istnieje." Witaj domyślny adres URL aplikacji sieci web hello jest `https://<app_name>.azurewebsites.net`. 
+W poniższym poleceniu zastąp ciąg *\<nazwa_aplikacji>* unikatową nazwą. Jeśli nazwa `<app_name>` nie jest unikatowa, zostanie wyświetlony komunikat o błędzie „Witryna internetowa o nazwie <nazwa_aplikacji> już istnieje”. Domyślnym adresem URL aplikacji sieci Web jest `https://<app_name>.azurewebsites.net`. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Podczas tworzenia aplikacji sieci web hello hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład:
+Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do następujących:
 
 ```json
 {

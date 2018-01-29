@@ -1,69 +1,69 @@
-W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail. 25 000 bezpłatne miesięczne wiadomościach zapewni dostęp tooadvanced raportowania i analiz i [wszystkich interfejsów API] [ all APIs] (sieci Web, SMTP, zdarzenia, analizy i inne). Informacje o dodatkowe usługi zapewnianie przez włączenie, można znaleźć hello [rozwiązań SendGrid] [ SendGrid Solutions] strony.
+W każdym miesiącu klienci platformy Azure mogą odblokować 25 000 bezpłatnych wiadomości e-mail. Pozwala to uzyskać dostęp do zaawansowanych raportów i analiz oraz [wszystkich interfejsów API][all APIs] (np. sieci Web, protokołu SMTP, zdarzeń czy analizy). Informacje o dodatkowych usługach SendGrid można znaleźć na stronie z [rozwiązaniami usługi SendGrid][SendGrid Solutions].
 
-### <a name="toosign-up-for-a-sendgrid-account"></a>toosign dla konta SendGrid
-1. Zaloguj się za toohello [portalu zarządzania Azure][Azure Management Portal].
-2. W menu powitania po lewej stronie powitania kliknij **nowy**.
+### <a name="to-sign-up-for-a-sendgrid-account"></a>Aby utworzyć konto usługi SendGrid
+1. Zaloguj się do [portalu Azure][Azure portal].
+2. W menu po lewej stronie kliknij pozycję **Nowy**.
 
     ![command-bar-new][command-bar-new]
 3. Kliknij kolejno pozycje **Dodatki** i **Dostarczanie poczty e-mail przy użyciu usługi SendGrid**.
 
     ![sendgrid-store][sendgrid-store]
-4. Wypełnij formularz rejestracji hello i wybierz **Utwórz**.
+4. Wypełnij formularz rejestracji i wybierz pozycję **Utwórz**.
 
     ![sendgrid-create][sendgrid-create]
-5. Wprowadź **nazwa** tooidentify Twojego SendGrid usługa w ustawieniach platformy Azure. Nazwa musi mieć długość od 1 do 100 znaków i może zawierać tylko znaki alfanumeryczne, łączniki, kropki i znaki podkreślenia. Nazwa Hello musi być unikatowa na liście elementów subskrybowanego magazynu Azure.
+5. Wprowadź **nazwę** identyfikującą usługę SendGrid w ustawieniach platformy Azure. Nazwa musi mieć długość od 1 do 100 znaków i może zawierać tylko znaki alfanumeryczne, łączniki, kropki i znaki podkreślenia. Nazwa musi być unikatowa w obrębie subskrybowanych elementów sklepu Azure Store.
 6. Wprowadź i potwierdź **hasło**.
 7. Wybierz **subskrypcję**.
 8. Utwórz nową **grupę zasobów** lub wybierz istniejącą.
-9. W hello **warstwa cenowa** sekcji wybierz plan SendGrid hello ma toosign usłudze.
+9. W sekcji **Warstwa cenowa** wybierz plan usługi SendGrid, w ramach którego chcesz utworzyć konto.
 
     ![sendgrid-pricing][sendgrid-pricing]
 10. Wprowadź **kod promocyjny**, jeśli go masz.
 11. Wprowadź **informacje kontaktowe**.
-12. Przejrzyj i zaakceptuj hello **postanowienia prawne**.
-13. Po potwierdzeniu zakupu zobaczysz **Zakończono pomyślnie wdrażanie** okienko wyskakujące, a zostanie wyświetlony na liście hello konta **wszystkie zasoby** sekcji.
+12. Zapoznaj się z **postanowieniami prawnymi** i zaakceptuj je.
+13. Po potwierdzeniu zakupu zobaczysz okno podręczne z informacją o **pomyślnym zakończeniu wdrożenia**. Twoje konto pojawi się na liście w sekcji **Wszystkie zasoby**.
 
     ![all-resources][all-resources]
 
-    Po ukończone zakupu i kliknięciu hello **Zarządzaj** proces weryfikacji przycisk tooinitiate hello poczty e-mail, otrzymasz wiadomość e-mail z prośbą tooverify SendGrid Twoje konto. Jeśli wiadomość e-mail nie dotarła do Ciebie lub masz problemy z weryfikacją konta, zobacz zbiór często zadawanych pytań.
+    Po zakończeniu zakupu i kliknięciu przycisku **Zarządzaj** w celu rozpoczęcia procesu weryfikacji adresu e-mail otrzymasz wiadomość e-mail od zespołu SendGrid z monitem o potwierdzenie konta. Jeśli wiadomość e-mail nie dotarła do Ciebie lub masz problemy z weryfikacją konta, zobacz zbiór często zadawanych pytań.
 
     ![manage][manage]
 
-    **Możesz wysyłać tylko górę too100 wiadomości e-mail/dzień dopóki nie upewnisz się konta.**
+    **Do momentu zweryfikowania konta możesz wysyłać maksymalnie 100 wiadomości e-mail dziennie.**
 
-    toomodify Twojego planu subskrypcji lub zobacz hello ustawienia osoby kontaktowej SendGrid, kliknij nazwę hello hello tooopen Twojego SendGrid usługi Pulpit nawigacyjny z witryny SendGrid Marketplace.
+    Aby zmodyfikować plan subskrypcji lub wyświetlić ustawienia kontaktowe usługi SendGrid, kliknij nazwę usługi SendGrid w celu otwarcia pulpitu nawigacyjnego witryny SendGrid Marketplace.
 
     ![settings][settings]
 
-    toosend usługi poczty e-mail przy użyciu SendGrid, należy podać klucz interfejsu API.
+    Aby wysłać wiadomość e-mail przy użyciu usługi SendGrid, musisz podać klucz interfejsu API.
 
-### <a name="toofind-your-sendgrid-api-key"></a>toofind SendGrid klucza interfejsu API
+### <a name="to-find-your-sendgrid-api-key"></a>Aby znaleźć klucz interfejsu API usługi SendGrid
 1. Kliknij pozycję **Zarządzaj**.
 
     ![manage][manage]
-2. Na pulpicie nawigacyjnym SendGrid wybierz **ustawienia** , a następnie **klucze interfejsu API** hello menu po lewej stronie powitania.
+2. W pulpicie nawigacyjnym usługi SendGrid wybierz pozycję **Ustawienia**, a następnie pozycję **Klucze interfejsu API** w menu po lewej stronie.
 
     ![api-keys][api-keys]
 
-3. Kliknij przycisk hello **Utwórz klucz interfejsu API** listy rozwijanej i wybierz **klucz interfejsu API ogólne**.
+3. Kliknij listę rozwijaną **Utwórz klucz interfejsu API** i wybierz pozycję **Ogólny klucz interfejsu API**.
 
     ![general-api-key][general-api-key]
-4. Co najmniej, podaj hello **nazwa tego klucza** i umożliwianie pełnego dostępu zbyt**wysyłania poczty** i wybierz **zapisać**.
+4. Musisz podać **nazwę klucza** i przyznać pełen dostęp w wierszu **Wysyłanie poczty**. Wybierz przycisk **Zapisz**.
 
     ![access][access]
-5. Po wykonaniu tych czynności zostanie wyświetlony klucz interfejsu API. Należy się upewnić toostore go bezpiecznie.
+5. Po wykonaniu tych czynności zostanie wyświetlony klucz interfejsu API. Zapisz go w bezpiecznym miejscu.
 
-### <a name="toofind-your-sendgrid-credentials"></a>toofind poświadczeń SendGrid
-1. Kliknij hello ikonę klucza toofind Twojego **Username**.
+### <a name="to-find-your-sendgrid-credentials"></a>Aby znaleźć poświadczenia usługi SendGrid
+1. Kliknij ikonę klucza, aby wyświetlić swoją **nazwę użytkownika**.
 
     ![key][key]
-2. hasło Hello jest hello co wybrane podczas instalacji. Możesz wybrać **Zmień hasło** lub **resetowania hasła** toomake wszelkie zmiany.
+2. Hasło zostało wcześniej ustawione podczas konfiguracji. Aby wprowadzić zmiany, możesz wybrać opcję **Zmień hasło** lub **Resetuj hasło**.
 
-toomanage powitania kliknij przycisk Ustawienia poczty e-mail deliverability **przycisku Zarządzaj**. Nastąpi przekierowanie tooyour SendGrid z pulpitu nawigacyjnego.
+Aby zarządzać ustawieniami dostarczania poczty e-mail, kliknij przycisk **Zarządzaj**. Nastąpi przekierowanie do pulpitu nawigacyjnego SendGrid.
 
     ![manage][manage]
 
-    For more information on sending email through SendGrid, visit hello [Email API Overview][Email API Overview].
+    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
 
 <!--images-->
 
@@ -82,7 +82,7 @@ toomanage powitania kliknij przycisk Ustawienia poczty e-mail deliverability **p
 <!--Links-->
 
 [SendGrid Solutions]: https://sendgrid.com/solutions
-[Azure Management Portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [SendGrid Getting Started]: http://sendgrid.com/docs
 [SendGrid Provisioning Process]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [all APIs]: https://sendgrid.com/docs/API_Reference/index.html

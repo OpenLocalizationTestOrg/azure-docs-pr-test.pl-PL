@@ -1,9 +1,9 @@
-1. W portalu hello Przejdź toohello sieci wirtualnej, dla której ma zostać toocreate bramy sieci wirtualnej.
-2. W hello **ustawienia** sekcji strony sieci wirtualnej, kliknij przycisk **podsieci** tooexpand hello podsieci strony.
-3. Na powitania **podsieci** kliknij przycisk **+ podsieci bramy** na powitania top tooopen hello **Dodaj podsieć** strony.
+1. W portalu przejdź do sieci wirtualnej, dla której chcesz utworzyć bramę sieci wirtualnej.
+2. W sekcji **Ustawienia** na stronie sieci wirtualnej kliknij pozycję **Podsieci**, aby rozwinąć stronę Podsieci.
+3. Na stronie **Podsieci** kliknij pozycję **+Podsieć bramy** u góry, aby otworzyć stronę **Dodaj podsieć**.
 
-  ![Dodaj podsieć bramy hello](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "Dodaj podsieć bramy hello")
-4. Witaj **nazwa** dla podsieci jest automatycznie wypełniane hello wartość "GatewaySubnet". Witaj wartość GatewaySubnet jest wymagane dla podsieci hello Azure toorecognize jako hello podsieci bramy. Dostosuj hello automatycznie wypełnianej **zakres adresów** wartości toomatch wymagań dotyczących konfiguracji.
+  ![Dodawanie podsieci bramy](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addgwsub.png "Dodawanie podsieci bramy")
+4. **Nazwa** dla podsieci zostanie automatycznie wypełniona wartością „GatewaySubnet”. Wartość elementu GatewaySubnet jest wymagana, aby platforma Azure mogła rozpoznać podsieć jako podsieć bramy. Dostosuj automatycznie wypełnione wartości w polu **Zakres adresów** do wymagań konfiguracji.
 
-  ![Dodawanie podsieci bramy hello](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "Dodawanie hello podsieci bramy")
-5. toocreate hello podsieci, kliknij przycisk **OK** u dołu hello hello strony.
+  ![Dodawanie podsieci bramy](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/addsub2.png "Dodawanie podsieci bramy")
+5. Aby utworzyć podsieć, kliknij przycisk **OK** u dołu strony.

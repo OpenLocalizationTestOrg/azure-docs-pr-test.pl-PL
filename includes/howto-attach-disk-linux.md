@@ -4,20 +4,20 @@ Aby uzyskać więcej informacji o dyskach, zobacz [About Disks and VHDs for Virt
 <a id="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>Dołączanie pustego dysku
-1. Otwórz 1.0 interfejsu wiersza polecenia platformy Azure i [połączyć tooyour subskrypcji platformy Azure](../articles/xplat-cli-connect.md). Upewnij się, że jesteś w trybie usługi Azure Service Management (`azure config mode asm`).
-2. Wprowadź `azure vm disk attach-new` toocreate i dołączyć nowego dysku, jak pokazano w hello poniższy przykład. Zastąp *myVM* o nazwie hello z maszyny wirtualnej systemu Linux i określ rozmiar hello dysku hello w GB, który jest *100GB* w tym przykładzie:
+1. Otwórz interfejs wiersza polecenia platformy Azure 1.0 i [połącz się ze swoją subskrypcją platformy Azure](/cli/azure/authenticate-azure-cli). Upewnij się, że jesteś w trybie usługi Azure Service Management (`azure config mode asm`).
+2. Wprowadź polecenie `azure vm disk attach-new`, aby utworzyć i dołączyć nowy dysk, jak pokazano to w następującym przykładzie. Zastąp ciąg *myVM* nazwą swojej maszyny wirtualnej z systemem Linux i określ rozmiar dysku w GB, który w tym przykładzie wynosi *100 GB*:
 
     ```azurecli
     azure vm disk attach-new myVM 100
     ```
 
-3. Po utworzeniu i dołączyć dysku danych hello, znajduje się w danych wyjściowych hello `azure vm disk list <virtual-machine-name>` pokazane na powitania poniższy przykład:
+3. Po utworzeniu i dołączeniu dysku danych jest on widoczny w danych wyjściowych polecenia `azure vm disk list <virtual-machine-name>`, jak pokazano to w następującym przykładzie:
    
     ```azurecli
     azure vm disk list TestVM
     ```
 
-    Witaj danych wyjściowych jest toohello podobnie poniższy przykład:
+    Dane wyjściowe są podobne do poniższego przykładu:
 
     ```bash
     info:    Executing command vm disk list
@@ -37,14 +37,14 @@ Aby uzyskać więcej informacji o dyskach, zobacz [About Disks and VHDs for Virt
 ## <a name="attach-an-existing-disk"></a>Dołączanie istniejącego dysku
 Dołączanie istniejącego dysku wymaga pliku vhd dostępnego na koncie magazynu.
 
-1. Otwórz 1.0 interfejsu wiersza polecenia platformy Azure i [połączyć tooyour subskrypcji platformy Azure](../articles/xplat-cli-connect.md). Upewnij się, że jesteś w trybie usługi Azure Service Management (`azure config mode asm`).
-2. Sprawdź, czy hello wirtualnego dysku twardego mają być tooattach jest już przekazany tooyour subskrypcji platformy Azure:
+1. Otwórz interfejs wiersza polecenia platformy Azure 1.0 i [połącz się ze swoją subskrypcją platformy Azure](/cli/azure/authenticate-azure-cli). Upewnij się, że jesteś w trybie usługi Azure Service Management (`azure config mode asm`).
+2. Sprawdź, czy wirtualny dysk twardy, który chcesz dołączyć, został już przekazany do Twojej subskrypcji platformy Azure:
    
     ```azurecli
     azure vm disk list
     ```
 
-    Witaj danych wyjściowych jest toohello podobnie poniższy przykład:
+    Dane wyjściowe są podobne do poniższego przykładu:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -58,13 +58,13 @@ Dołączanie istniejącego dysku wymaga pliku vhd dostępnego na koncie magazynu
      info:    vm disk list command OK
     ```
 
-3. Jeśli nie można znaleźć dysku hello czy chcesz toouse, może przekazać subskrypcji tooyour lokalnego wirtualnego dysku twardego za pomocą `azure vm disk create` lub `azure vm disk upload`. Przykład `disk create` byłoby jak hello poniższy przykład:
+3. Jeśli nie możesz znaleźć dysku, którego chcesz użyć, możesz przekazać do swojej subskrypcji lokalny wirtualny dysk twardy, używając polecenia `azure vm disk create` lub `azure vm disk upload`. Polecenie `disk create` mogłoby wyglądać tak jak w następującym przykładzie:
    
     ```azurecli
     azure vm disk create myVhd .\TempDisk\test.VHD -l "East US" -o Linux
     ```
 
-    Witaj danych wyjściowych jest toohello podobnie poniższy przykład:
+    Dane wyjściowe są podobne do poniższego przykładu:
 
     ```azurecli
     info:    Executing command vm disk create
@@ -78,23 +78,23 @@ Dołączanie istniejącego dysku wymaga pliku vhd dostępnego na koncie magazynu
     info:    vm disk create command OK
     ```
    
-   Można także użyć `azure vm disk upload` tooupload konta magazynu określonych tooa wirtualnego dysku twardego. Przeczytaj więcej na temat hello polecenia toomanage dysków danych maszyny wirtualnej Azure [za pośrednictwem tutaj](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+   Można także użyć polecenia `azure vm disk upload` do przekazania wirtualnego dysku twardego na konkretne konto magazynu. [Tutaj](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) możesz przeczytać więcej na temat poleceń do zarządzania dyskami danych maszyny wirtualnej platformy Azure.
 
-4. Teraz możesz dołączyć hello potrzeby maszyny wirtualnej tooyour wirtualnego dysku twardego:
+4. Teraz dołącz żądany wirtualny dysk twardy do maszyny wirtualnej:
    
     ```azurecli
     azure vm disk attach myVM myVhd
     ```
    
-   Upewnij się, że tooreplace *myVM* o nazwie hello maszyny wirtualnej, i *myVHD* z żądaną dysk VHD.
+   Pamiętaj, aby zastąpić ciąg *myVM* nazwą maszyny wirtualnej, a ciąg *myVHD* żądanym wirtualnym dyskiem twardym.
 
-5. Możesz sprawdzić dysku hello jest dołączona toohello maszynę wirtualną z `azure vm disk list <virtual-machine-name>`:
+5. Możesz sprawdzić, czy dysk jest podłączony do maszyny wirtualnej, używając polecenia `azure vm disk list <virtual-machine-name>`:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Witaj danych wyjściowych jest toohello podobnie poniższy przykład:
+    Dane wyjściowe są podobne do poniższego przykładu:
 
     ```azurecli
      info:    Executing command vm disk list
@@ -111,7 +111,7 @@ Dołączanie istniejącego dysku wymaga pliku vhd dostępnego na koncie magazynu
     ```
 
 > [!NOTE]
-> Po dodaniu dysku danych, będzie konieczne toolog na maszynie wirtualnej toohello i zainicjalizować dysk hello, więc hello może używać maszyna wirtualna hello dysku magazynu (zobacz hello następujące kroki Aby uzyskać więcej informacji na jak toodo zainicjalizować dysk hello).
+> Po dodaniu dysku danych musisz zalogować się na maszynę wirtualną i zainicjować dysk, aby maszyna wirtualna mogła używać tego dysku do przechowywania danych (informacje o inicjowaniu dysku znajdziesz w kolejnych krokach).
 > 
 > 
 

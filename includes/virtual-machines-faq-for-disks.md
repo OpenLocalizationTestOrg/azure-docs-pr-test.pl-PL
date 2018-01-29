@@ -54,7 +54,7 @@ Nie. Maszyn wirtualnych w zestawie dostępności muszą używać wszystkich zarz
 
 **Jest domyślną opcją w portalu Azure zarządzane dyski?**
 
-Aktualnie nie ale stanie się domyślnie w przyszłości.
+Tak. 
 
 **Można utworzyć pusty dysk zarządzany?**
 
@@ -101,6 +101,10 @@ Dyskach zarządzanych platformy Azure obsługuje obecnie tylko lokalnie nadmiaro
 
 Nie. Ta funkcja nie jest obecnie obsługiwana. 
 
+**Dzierżawy mogą być dzielone na tym dysku?**
+
+Nie. Nie jest to obsługiwane obecnie dzierżawy jest obecny zapobiega przypadkowemu usunięciu, gdy dysk jest używany.
+
 **Właściwość Nazwa komputera można zmienić po specjalistycznej (nie utworzone przy użyciu narzędzia przygotowywania systemu lub uogólniony) dysku systemu operacyjnego jest używany do udostępnienia maszyny Wirtualnej?**
 
 Nie. Nie można zaktualizować właściwości Nazwa komputera. Nowa maszyna wirtualna dziedziczy z elementu nadrzędnego maszyny Wirtualnej, który został użyty do utworzenia dysku systemu operacyjnego. 
@@ -108,6 +112,40 @@ Nie. Nie można zaktualizować właściwości Nazwa komputera. Nowa maszyna wirt
 **Gdzie można znaleźć przykładowych szablonów usługi Azure Resource Manager do tworzenia maszyn wirtualnych z dyskami zarządzanych**
 * [Lista szablonów przy użyciu dysków zarządzanych](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## <a name="migrate-to-managed-disks"></a>Migrowanie do usługi Managed Disks 
+
+**Jakie zmiany są wymagane w przypadku istniejącego kopia zapasowa Azure usługi konfiguracji przed lub po migracji do zarządzanych dysków?**
+
+Zmiany nie są wymagane. 
+
+**Kopiach zapasowych maszyny Wirtualnej utworzone za pomocą usługi Azure Backup przed migracją będzie działać?**
+
+Tak, kopie zapasowe działają bezproblemowo.
+
+**Jakie zmiany są wymagane w przypadku istniejącego szyfrowania dysków Azure konfiguracji przed lub po migracji do zarządzanych dysków?**
+
+Zmiany nie są wymagane. 
+
+**Jest automatycznej migracji z istniejącej maszyny Wirtualnej skali zestawów (VMSS) z dysków niezarządzanych do zarządzanych dysków obsługiwane?**
+
+Nie. Można utworzyć nowego VMSS z dyskami zarządzane przy użyciu obrazu z Twojego starego VMSS z dyskami niezarządzane. 
+
+**Czy można utworzyć dysku zarządzanego z migawką obiektu blob strony przed migracją do zarządzanych dysków**
+
+Nie. Można wyeksportować migawki obiektu blob strony w postaci stronicowych obiektów blob i następnie utwórz dysk zarządzane z wyeksportowanego stronicowych obiektów blob. 
+
+**Można nie za pośrednictwem Moje maszyny lokalnej chronione przez usługę Azure Site Recovery do maszyny Wirtualnej z dyskami zarządzane?**
+
+Tak, możesz przełączyć się awaryjnie na maszynę Wirtualną za pomocą zarządzania dyskami.
+
+**Znajduje wszystkie wpływ migracji na maszynach wirtualnych Azure chronione przez odzyskiwania lokacji Azure (ASR) za pomocą replikacji Azure do platformy Azure?**
+
+Tak. Funkcja automatycznego odzyskiwania systemu Azure do platformy Azure ochrona nie jest obsługiwana dla maszyn wirtualnych z zarządzania dyskami. Ma to być obsługiwana przez koniec CY2018 P1. 
+
+**Czy można migrować maszyny wirtualne z dyskami niezarządzane, które znajdują się na kontach magazynu, które są lub wcześniej były szyfrowane do zarządzanych dysków**
+
+Yes
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Zarządzane dysków i szyfrowanie usługi magazynu 
 
@@ -144,7 +182,7 @@ Tak. Wszystkie zarządzane migawki i obrazy utworzone po 9 czerwca 2017 r są sz
 
 **Czy mogę przekonwertować maszyny wirtualne z dyskami niezarządzane, które znajdują się na kontach magazynu, które są lub wcześniej były szyfrowane do zarządzanych dysków**
 
-Tak
+Yes
 
 **Wyeksportowane wirtualnego dysku twardego z zarządzanego dysku lub migawka także będą zaszyfrowane?**
 

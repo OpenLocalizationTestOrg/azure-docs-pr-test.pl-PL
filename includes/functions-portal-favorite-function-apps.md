@@ -1,17 +1,17 @@
-## <a name="add-function-apps-tooyour-portal-favorites"></a>Dodaj ulubione portalu tooyour aplikacje — funkcja 
+## <a name="favorite-functions-in-the-portal"></a>Funkcje ulubionych w portalu 
 
-Jeśli jeszcze tego nie zrobiono, dodać ulubione tooyour funkcji aplikacji hello portalu Azure. Dzięki temu można łatwiej toofind funkcji aplikacji. Jeśli użytkownik ma już zostało to zrobione, Pomiń toohello następnej sekcji. 
+Jeśli jeszcze tego nie zrobiono, dodaj aplikację funkcji do ulubionych w witrynie Azure Portal. Ułatwia to znajdowanie aplikacji funkcji. Jeśli już wykonano ten krok, przejdź do kolejnej sekcji. 
 
-1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-2. Kliknij strzałkę hello na tooexpand lewej dolnej hello wszystkich usług, wpisz `Functions` w hello **filtru** pola, a następnie kliknij gwiazdki hello obok zbyt**aplikacji funkcji**.  
+2. Kliknij strzałkę w lewym dolnym rogu, aby rozwinąć wszystkie usługi, wpisz `Functions` w polu **Filtr**, a następnie kliknij przycisk gwiazdki obok pozycji **Aplikacje funkcji**.  
  
-    ![Tworzenie aplikacji funkcji w hello portalu Azure](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
+    ![Tworzenie aplikacji funkcji w witrynie Azure Portal](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
 
-    Spowoduje to dodanie hello funkcje ikona toohello menu po lewej stronie powitania hello portalu.
+    Powoduje to dodanie ikony Funkcje do menu po lewej stronie portalu.
 
-3. Zamknij hello menu, a następnie przewiń w dół toohello dolnej toosee hello funkcje ikony. Kliknij ten toosee ikona listę wszystkich funkcji aplikacji. Kliknij przycisk z funkcji toowork aplikacji z funkcjami w tej aplikacji. 
+3. Zamknij menu, a następnie przewiń w dół, aby wyświetlić ikonę Funkcje. Kliknij tę ikonę, aby wyświetlić listę wszystkich aplikacji funkcji. Kliknij aplikację funkcji, aby pracować z funkcjami w tej aplikacji. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Funkcja aplikacji w ulubionych](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

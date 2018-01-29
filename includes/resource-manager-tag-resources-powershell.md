@@ -1,24 +1,12 @@
-Wersja 3.0 moduł AzureRm.Resources hello uwzględnione znaczących zmian w sposób pracy z tagami. Przed kontynuowaniem sprawdź swoją wersję:
+Przykłady w tym artykule wymaga wersji 3.0 lub nowszej programu Azure PowerShell. Jeśli nie masz w wersji 3.0 lub nowszej, [zaktualizuj swoją wersję](/powershell/azureps-cmdlets-docs/) za pomocą Instalatora platformy sieci Web lub w galerii programu PowerShell.
 
-```powershell
-Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
-```
-
-Jeśli wyniki wskazują, wersja 3.0 lub nowszej, hello przykłady w tym temacie pracować ze środowiskiem. Jeśli nie masz wersji 3.0 lub nowszej, przed kontynuowaniem pracy z tym tematem [zaktualizuj swoją wersję](/powershell/azureps-cmdlets-docs/) za pomocą Galerii programu PowerShell lub Instalatora platformy sieci Web.
-
-```powershell
-Version
--------
-3.5.0
-```
-
-toosee hello znaczników dla *grupy zasobów*, użyj:
+Aby wyświetlić istniejące tagi dla *grupy zasobów*, użyj:
 
 ```powershell
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
-Czy skrypt zwraca hello następującego formatu:
+Ten skrypt zwraca następujący format:
 
 ```powershell
 Name                           Value
@@ -27,39 +15,39 @@ Dept                           IT
 Environment                    Test
 ```
 
-toosee hello znaczników dla *zasób, który ma identyfikator określonego zasobu*, użyj:
+Aby wyświetlić istniejące tagi dla *zasobu o określonym identyfikatorze zasobu*, użyj:
 
 ```powershell
 (Get-AzureRmResource -ResourceId {resource-id}).Tags
 ```
 
-Lub toosee hello znaczników dla *zasób, który ma nazwę i zasobów do określonej grupy*, użyj:
+Aby wyświetlić istniejące tagi dla *zasobu o określonej nazwie i grupie zasobów*, użyj:
 
 ```powershell
 (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-tooget *grup zasobów, które mają określonego tagu*, użyj:
+Aby uzyskać *grupy zasobów, które mają konkretny tag*, użyj:
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
 ```
 
-tooget *zasoby, które mają konkretnego znacznika*, użyj:
+Aby uzyskać *zasoby, które mają konkretny tag*, użyj:
 
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
 
-Zawsze należy zastosować tagi tooa zasób lub grupa zasobów, należy zastąpić znaczników hello na tym zasób lub grupa zasobów. W związku z tym należy użyć innego podejścia opartego na czy hello zasób lub grupa zasobów ma znaczników. 
+Za każdym razem, gdy stosujesz tagi do zasobu lub grupy zasobów, istniejące tagi tego zasobu lub tej grupy zasobów są zastępowane. Dlatego konieczne jest różne podejście w zależności od tego, czy dany zasób lub dana grupa zasobów ma istniejące tagi.
 
-tooadd znaczniki tooa *grupy zasobów bez znaczników*, użyj:
+Aby dodać tagi do *grupy zasobów bez istniejących tagów*, użyj:
 
 ```powershell
 Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-tooadd znaczniki tooa *grupę zasobów, która ma znaczników*, pobrać hello znaczników, Dodaj nowy znacznik hello i ponownie zastosuj tagi hello:
+Aby dodać tagi do *grupy zasobów z istniejącymi tagami*, pobierz istniejące tagi, dodaj nowy tag i ponownie zastosuj tagi:
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
@@ -67,57 +55,52 @@ $tags += @{Status="Approved"}
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
-tooadd znaczniki tooa *zasobu bez znaczników*, użyj:
+Aby dodać tagi do *zasobu bez istniejących tagów*, użyj:
 
 ```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
-tooadd znaczniki tooa *zasobu, który znaczników*, użyj:
+Aby dodać tagi do *zasobu z istniejącymi tagami*, użyj:
 
 ```powershell
-$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
-$tags += @{Status="Approved"}
-Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r.tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-tooapply wszystkie znaczniki z tooits zasobów grupy zasobów i *nie zachować istniejące znaczniki zasobów hello*, użyj następującego skryptu hello:
+Aby zastosować wszystkie tagi z grupy zasobów do jej zasobów *bez zachowania tagów istniejących w zasobach*, użyj następującego skryptu:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
+foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
+    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
-tooapply wszystkie znaczniki z tooits zasobów grupy zasobów i *zachować istniejące znaczniki na zasoby, które nie są duplikatami*, użyj następującego skryptu hello:
+Aby zastosować wszystkie tagi z grupy zasobów do jej zasobów *z zachowaniem tagów istniejących w zasobach, które nie są duplikatami*, użyj następującego skryptu:
 
 ```powershell
-$groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
-{
-    if ($g.Tags -ne $null) {
-        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName 
-        foreach ($r in $resources)
+$group = Get-AzureRmResourceGroup "examplegroup"
+if ($group.Tags -ne $null) {
+    $resources = $group | Find-AzureRmResource
+    foreach ($r in $resources)
+    {
+        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        foreach ($key in $group.Tags.Keys)
         {
-            $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-            foreach ($key in $g.Tags.Keys)
-            {
-                if ($resourcetags.ContainsKey($key)) { $resourcetags.Remove($key) }
-            }
-            $resourcetags += $g.Tags
-            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
         }
+        $resourcetags += $group.Tags
+        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```
 
-tooremove wszystkie tagi, Przekaż tablicy skrótów pusta:
+Aby usunąć wszystkie tagi, przekaż pustą tablicę skrótów:
 
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
-
-

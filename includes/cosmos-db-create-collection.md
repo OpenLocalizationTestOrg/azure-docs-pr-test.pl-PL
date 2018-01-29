@@ -1,18 +1,22 @@
-Można teraz używać narzędzia Eksplorator danych hello w hello Azure toocreate portalu bazy danych i kolekcji. 
+Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby utworzyć bazę danych i kolekcję. 
 
-1. W portalu Azure, w menu nawigacji po lewej stronie powitania hello kliknij **Eksploratora danych (wersja zapoznawcza)**. 
+1. Kliknij przycisk **Eksplorator danych** > **Nowa kolekcja**. 
+    
+    Obszar **Dodaj kolekcję** jest wyświetlany po prawej stronie i konieczne może być przewinięcie w prawo w celu wyświetlenia go.
 
-2. Na powitania **Eksploratora danych (wersja zapoznawcza)** bloku, kliknij przycisk **nowej kolekcji**, a następnie podaj hello następujących informacji:
+    ![Eksplorator danych w witrynie Azure Portal, blok Dodaj kolekcję](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
-    ![Witaj bloku Eksploratora danych portalu Azure](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+2. Na stronie **Dodaj kolekcję** wprowadź ustawienia dla nowej kolekcji.
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    Identyfikator bazy danych|Zadania|Witaj nazwę nowej bazy danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków /, \\, #, ? ani mieć spacji na końcu.
-    Identyfikator kolekcji|Items|Witaj nazwę nowej kolekcji. Nazwy kolekcji mają hello znak takie same wymagania bazy danych identyfikatorów.
-    Pojemność magazynu| Stała (10 GB)|Użyj wartości domyślnej hello. Ta wartość jest hello pojemności hello bazy danych.
-    Przepływność|400 RU|Użyj wartości domyślnej hello. Jeśli chcesz opóźnienia tooreduce przepływności hello można zwiększać później.
-    Klucz partycji|/category|Klucz partycji, który równomiernie rozdziela danych tooeach partycji. Wybieranie klucza partycji poprawne hello jest ważne w tworzenie kolekcji wydajności. toolearn więcej, zobacz [projektowania partycjonowania](../articles/cosmos-db/partition-data.md#designing-for-partitioning).    
-3. Po zakończeniu formularza powitania kliknij **OK**.
+    Identyfikator bazy danych|Zadania|Wprowadź *Zadania* jako nazwę nowej bazy danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków /, \\, #, ? ani mieć spacji na końcu.
+    Identyfikator kolekcji|Items|Wprowadź *Elementy* jako nazwę nowej kolekcji. W przypadku identyfikatorów kolekcji obowiązują takie same wymagania dotyczące znaków, jak dla nazw baz danych.
+    Pojemność magazynu| Stała (10 GB)|Zmień wartość na **Stała (10 GB)**. Ta wartość to pojemność magazynu bazy danych.
+    Przepływność|400 RU|Zmień przepływność na 400 jednostek żądania na sekundę (RU/s). Pojemność magazynu musi być ustawiona na **Stałe (10 GB)**, aby możliwe było ustawienie przepływności na 400 RU/s. Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę. 
+    
+    Kliknij przycisk **OK**.
 
-Pokazuje Eksploratora danych hello nowej bazy danych i kolekcji. 
+    W Eksploratorze danych zostanie wyświetlona nowa baza danych i kolekcja.
+
+    ![Eksplorator danych w witrynie Azure Portal z widoczną nową bazą danych i kolekcją](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)

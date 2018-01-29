@@ -1,8 +1,8 @@
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Utwórz grupę zasobów o hello [Tworzenie grupy az](/cli/azure/group#create) polecenia. Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az_group_create). Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. 
 
-Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w hello *eastus* lokalizacji.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -10,9 +10,9 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-Utwórz maszynę Wirtualną z hello [tworzenia maszyny wirtualnej az](/cli/azure/vm#create) polecenia. 
+Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az_vm_create). 
 
-Witaj poniższy przykład tworzy Maszynę wirtualną o nazwie *myVM* i tworzy kluczy SSH, jeśli nie już istnieją w domyślnej lokalizacji klucza. toouse określonego zestawu kluczy, należy użyć hello `--ssh-key-value` opcji.  
+Następujący przykład umożliwia utworzenie maszyny wirtualnej o nazwie *myVM* i kluczy SSH, jeśli jeszcze nie istnieją w domyślnej lokalizacji kluczy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`. Polecenie ustawia również *azureuser* jako nazwa użytkownika administratora. Możesz użyć tej nazwy później do nawiązania połączenia z maszyną Wirtualną. 
 
 ```azurecli-interactive 
 az vm create \
@@ -23,7 +23,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Podczas tworzenia maszyny Wirtualnej hello hello Azure CLI pokazuje informacje toohello podobnie poniższy przykład. Zwróć uwagę na powitania `publicIpAddress`. Ten adres jest używany tooaccess hello maszyny Wirtualnej.
+Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostanie wyświetlona informacja podobna do następującej. Zwróć uwagę na element `publicIpAddress`. Ten adres jest używany do maszyny Wirtualnej w kolejnych krokach.
 
 ```azurecli-interactive 
 {
@@ -42,7 +42,7 @@ Podczas tworzenia maszyny Wirtualnej hello hello Azure CLI pokazuje informacje t
 
 ## <a name="open-port-80-for-web-traffic"></a>Otwieranie portu 80 na potrzeby ruchu w sieci Web 
 
-Domyślnie tylko połączeń SSH mają dostęp do maszyn wirtualnych systemu Linux wdrożonych na platformie Azure. Ponieważ ta maszyna wirtualna będzie toobe serwera sieci web, wystarczy tooopen port 80 hello internet. Użyj hello [port Otwórz az maszyny wirtualnej](/cli/azure/vm#open-port) polecenia tooopen hello żądany port.  
+Domyślnie tylko połączeń SSH mają dostęp do maszyn wirtualnych systemu Linux wdrożonych na platformie Azure. Ponieważ ta maszyna wirtualna ma być serwerem sieci web, należy otworzyć port 80 z Internetu. Otwórz odpowiedni port za pomocą polecenia [az vm open-port](/cli/azure/vm#az_vm_open_port).  
  
 ```azurecli-interactive 
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -50,14 +50,14 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ## <a name="ssh-into-your-vm"></a>Łączenie z maszyną wirtualną za pośrednictwem protokołu SSH
 
 
-Jeśli nie znasz już hello publicznego adresu IP maszyny Wirtualnej, uruchom hello [az sieci ip publicznego listy](/cli/azure/network/public-ip#list) polecenia:
+Jeśli nie znasz już publicznego adresu IP maszyny Wirtualnej, należy uruchomić [az sieci ip publicznego listy](/cli/azure/network/public-ip#list) polecenia. Należy ten adres IP dla kilku kolejnych krokach.
 
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress
 ```
 
-Użyj hello następujące polecenie toocreate jako sesji SSH z maszyną wirtualną hello. Zastąp hello poprawne publiczny adres IP maszyny wirtualnej. W tym przykładzie adres IP hello jest *40.68.254.142*.
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną. Zastąp poprawne publiczny adres IP maszyny wirtualnej. W tym przykładzie adres IP jest *40.68.254.142*. *azureuser* jest nazwa użytkownika administratora ustawione podczas tworzenia maszyny Wirtualnej.
 
 ```bash
 ssh azureuser@40.68.254.142

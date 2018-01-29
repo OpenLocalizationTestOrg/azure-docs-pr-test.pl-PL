@@ -1,19 +1,27 @@
+Magazynu zoptymalizowane rozmiarów maszyn wirtualnych alokację dysku wysokiej przepływności oraz we/wy i idealnie nadają się do bazy danych Big Data, SQL i NoSQL. Ten artykuł zawiera informacje o liczbie Vcpu, dysków z danymi i karty sieciowe, a także przepustowości przepływności i sieć magazynu dla każdego rozmiaru w tej metodzie grupowania. 
 
-Witaj serii Ls jest zoptymalizowana pod kątem obciążeń, które wymagają magazyn tymczasowy małymi opóźnieniami, takich jak bazy danych NoSQL Cloudera Cassandra, bazy danych MongoDB, w tym i Redis. zapewnia Hello serii Ls too32 Vcpu, przy użyciu hello [procesor Intel Xeon® E5 v3 rodziny](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). pobiera Hello serii Ls hello wydajności procesora CPU, jak hello GS-G-Series i wyposażony w 8 GiB pamięci dla vCPU.  
+Maszyny wirtualne serii Ls oferują do 32 procesorów wirtualnych vCPU — procesor [Intel® Xeon® z rodziny E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Wydajność procesora CPU dla serii Ls jest taka sama jak w przypadku maszyn wirtualnych serii G/GS. Na procesor wirtualny vCPU przypada pamięć o pojemności 8 GiB.  
 
 ## <a name="ls-series"></a>Seria Ls
 
 ACU: 180–240
  
-| Rozmiar          | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) | 
+| Rozmiar          | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepustowość magazynu tymczasowego: IOPS / MB/s | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych / oczekiwano przepustowości sieci (MB/s) | 
 |---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standardowa_L4s  | 4    | 32   | 678   | 8              | ND / ND (0)          | 5000 / 125                               | 2 / 4000       | 
-| Standardowa_L8s  | 8    | 64   | 1,388 | 16             | ND / ND (0)          | 10 000 / 250                              | 4 / 8000  | 
-| Standardowa_L16s | 16   | 128  | 2,807 | 32             | ND / ND (0)          | 20 000 / 500                              | 8 / 6000–16 000 &#8224; | 
-| Standardowa_L32s* | 32 | 256  | 5,630 | 64             | ND / ND (0)          | 40 000 / 1000                            | 8 / 20 000 | 
+| Standardowa_L4s   | 4    | 32   | 678   | 16    | 20,000 / 200   | 5000 / 125        | 2 / 4,000  | 
+| Standardowa_L8s   | 8    | 64   | 1,388 | 32   | 40,000 / 400   | 10 000 / 250       | 4 / 8,000  | 
+| Standardowa_L16s  | 16   | 128  | 2,807 | 64   | 80,000 / 800   | 20 000 / 500       | 8 / 16,000 | 
+| Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40 000 / 1000     | 8 / 20,000 | 
  
 
-przepustowość maksymalna liczba dyskowych operacji Hello możliwe Ls serii maszyn wirtualnych może być ograniczone przez hello liczba, rozmiar i rozkładanie dowolnego dołączone dyski. Aby uzyskać szczegółowe informacje, zobacz [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/common/storage-premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure). 
+Maksymalna przepływność dysków możliwa dla maszyn wirtualnych serii Ls może być ograniczona przez liczbę, rozmiar i rozłożenie wszelkich dołączonych dysków. Aby uzyskać szczegółowe informacje, zobacz [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: magazyn o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure). 
 
-* Wystąpienie jest izolowane toohardware dedykowanych tooa jednego odbiorcy.
+<sup>1</sup> wystąpienia jest izolowana sprzętu przeznaczonego do jednego odbiorcy.
 
+## <a name="size-table-definitions"></a>Definicje tabel rozmiaru
+
+- Pojemność magazynu jest podawana w jednostkach GiB (1024^3 bajtów). Podczas porównywania dysków mierzonych w GB (1000^3 bajtów) z dyskami mierzonymi w GiB (1024^3 bajtów) należy pamiętać, że pojemność podawana w GiB może wydawać się mniejsza. Na przykład 1023 GiB = 1098,4 GB.
+- Przepływność dysku mierzona jest jako liczba operacji wejścia/wyjścia na sekundę i MB/s, gdzie 1 MB/s = 10^6 bajtów/s.
+- Dyski danych serii ls nie może działać w trybie buforowanym, tryb buforowania hosta musi mieć ustawioną **Brak**.
+- Jeśli chcesz uzyskać najlepszą wydajność dla maszyn wirtualnych, należy ograniczyć liczbę dysków z danymi na 2 dyski na vCPU.
+- **Oczekiwano przepustowość sieci** jest agregowana maksymalną [przepustowości zaalokowany typu maszyny Wirtualnej](../articles/virtual-network/virtual-machine-network-throughput.md) dla wszystkich kart dla wszystkich miejsc docelowych. Górne limity nie są gwarantowane, ale mają stanowić wskazówkę do wybierania właściwego typu maszyny wirtualnej dla planowanej aplikacji. Rzeczywista wydajność sieci będzie zależeć od wielu czynników, takich jak przeciążenie sieci, obciążenie aplikacji oraz ustawienia sieci. Aby uzyskać informacje na temat optymalizowania przepływności sieci, zobacz [Optimizing network throughput for Windows and Linux (Optymalizowanie przepływności sieci dla systemów Windows i Linux)](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md). Aby uzyskać oczekiwaną wydajność sieci w systemie Linux lub Windows, konieczne może być wybranie konkretnej wersji maszyny wirtualnej lub jej zoptymalizowanie. Aby uzyskać więcej informacji, zobacz [How to reliably test for virtual machine throughput (Jak wiarygodnie przetestować przepływność maszyny wirtualnej)](../articles/virtual-network/virtual-network-bandwidth-testing.md).

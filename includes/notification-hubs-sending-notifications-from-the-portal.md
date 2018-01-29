@@ -1,13 +1,11 @@
 
 
-Powiadomienia wypychane są zwykle wysyłane za pośrednictwem usługi wewnętrznej bazy danych, takiej jak Mobile Apps czy ASP.NET, przy użyciu zgodnej biblioteki. Umożliwia także hello interfejsu API REST bezpośrednio toosend powiadomień wiadomości, jeśli biblioteka nie jest dostępna dla sieci wewnętrznej. 
+Powiadomienia wypychane są zwykle wysyłane za pośrednictwem usługi wewnętrznej bazy danych, takiej jak Mobile Apps czy ASP.NET, przy użyciu zgodnej biblioteki. Jeśli biblioteka nie jest dostępna w danym zapleczu, powiadomienia można również wysyłać bezpośrednio za pomocą interfejsu API REST.
 
-Poniżej przedstawiono listę niektórych innych samouczków może być tooreview wysyłania powiadomień:
+Poniższa lista zawiera kilka innych samouczków, z którymi warto się zapoznać, planując wysyłanie powiadomień:
 
-* Azure Mobile Apps: Przykład jak toosend powiadomień z zaplecza aplikacji mobilnej zintegrowany z usługą Notification Hubs, zobacz [Dodawanie powiadomień wypychanych aplikacja systemu iOS tooyour](../articles/app-service-mobile/app-service-mobile-ios-get-started-push.md).  
-* ASP.NET: [toousers powiadomienia toopush użyciu usługi Notification Hubs](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
-* Java Centrum powiadomień Azure SDK: zobacz [jak toouse usługi Notification Hubs za pomocą języka Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md) wysyłania powiadomień za pomocą języka Java. To rozwiązanie przetestowano w programie Eclipse pod kątem tworzenia aplikacji dla systemu Android.
-* PHP: [jak toouse usługi Notification Hubs za pomocą języka PHP](../articles/notification-hubs/notification-hubs-php-push-notification-tutorial.md).
-
-W następnej sekcji hello samouczka hello, dowiesz się jak toouse hello [interfejsu REST Centrum powiadomień](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) toosend hello powiadomienie bezpośrednio w aplikacji. Wszystkie zarejestrowane urządzenia odbierają powiadomienia hello wysłane z dowolnego urządzenia.  
+* Azure Mobile Apps: aby zapoznać się z przykładem wysyłania powiadomień z poziomu wewnętrznej bazy danych usługi Mobile Apps zintegrowanej z usługą Notification Hubs, zobacz temat [Add Push Notifications to your iOS App (Dodawanie powiadomień push do aplikacji dla systemu iOS)](../articles/app-service-mobile/app-service-mobile-ios-get-started-push.md).  
+* ASP.NET: [Używanie usługi Notification Hubs w celu wysyłania powiadomień push do użytkowników](../articles/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
+* Zestaw Java SDK centrum Azure Notification Hub: informacje na temat wysyłania powiadomień za pomocą języka Java można znaleźć w temacie [How to use Notification Hubs from Java](../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md) (Używanie usługi Notification Hubs z poziomu języka Java). To rozwiązanie przetestowano w programie Eclipse pod kątem tworzenia aplikacji dla systemu Android.
+* PHP: [How to use Notification Hubs from PHP](../articles/notification-hubs/notification-hubs-php-push-notification-tutorial.md) (Używanie usługi Notification Hubs z poziomu języka PHP).
 

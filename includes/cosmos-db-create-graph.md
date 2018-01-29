@@ -1,16 +1,16 @@
-Po wykonaniu użyć narzędzia Eksplorator danych hello w hello Azure toocreate portalu bazy danych wykresu. 
+Teraz możesz użyć narzędzia Eksplorator danych w witrynie Azure Portal, aby utworzyć bazę danych grafów. 
 
-1. W portalu Azure, w menu nawigacji po lewej stronie powitania hello kliknij **Eksploratora danych (wersja zapoznawcza)**. 
-2. W hello **Eksploratora danych (wersja zapoznawcza)** bloku, kliknij przycisk **nowy wykres**, a następnie wypełnij hello strony przy użyciu hello następujących informacji.
+1. W portalu Azure, w menu po lewej stronie, wybierz **Eksploratora danych (wersja zapoznawcza)**.
 
-    ![Eksplorator danych w hello portalu Azure](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
+2. W obszarze **Eksploratora danych (wersja zapoznawcza)**, wybierz pozycję **nowy wykres**. Następnie wypełnij strony, korzystając z następujących informacji:
+
+    ![Eksplorator danych w witrynie Azure Portal](./media/cosmos-db-create-graph/azure-cosmosdb-data-explorer.png)
 
     Ustawienie|Sugerowana wartość|Opis
     ---|---|---
-    Identyfikator bazy danych|sample-database|Identyfikator Hello nową bazę danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków `/ \ # ?` ani mieć spacji na końcu.
-    Identyfikator grafu|sample-graph|Identyfikator Hello nowego wykresu. Wykres nazwy mają hello wymagania sam znak jako identyfikatory bazy danych.
-    Pojemność magazynu| 10 GB|Pozostaw wartość domyślną hello. Jest to hello pojemności hello bazy danych.
-    Przepływność|400 jednostek żądania|Pozostaw wartość domyślną hello. Można zwiększać przepływności hello później Chcąc tooreduce opóźnienia.
-    Klucz partycji|/userid|Klucz partycji, który będzie równomierne danych tooeach partycji. Wybieranie hello poprawny klucz partycji to ważne w wydajności tworzenia wykresu, Dowiedz się więcej o w [projektowania partycjonowania](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Identyfikator bazy danych|sample-database|Wprowadź *sample-database* jako nazwę nowej bazy danych. Nazwy bazy danych musi należeć do zakresu od 1 do 255 znaków i nie może zawierać `/ \ # ?` lub spacji.
+    Identyfikator grafu|sample-graph|Wprowadź *sample-graph* jako nazwę nowej kolekcji. W przypadku nazw grafów obowiązują takie same wymagania dotyczące znaków jak dla identyfikatorów baz danych.
+    Pojemność magazynu| 10 GB|Pozostaw wartość domyślną. To jest pojemność magazynu bazy danych.
+    Przepływność|400 jednostek żądania|Pozostaw wartość domyślną. Później możesz skalować przepływność, aby zmniejszyć opóźnienie.
 
-3. Gdy formularz hello jest wypełniane, kliknij przycisk **OK**.
+3. Po wypełnić formularza wybierz **OK**.

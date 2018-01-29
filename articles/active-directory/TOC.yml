@@ -1,0 +1,104 @@
+- name: Omówienie zarządzania dostępem
+  href: manage-access-to-azure-resources.md
+- name: Dostęp do zasobów na platformie Azure
+  href: active-directory-understanding-resource-access.md
+- name: Kontrola dostępu oparta na rolach (RBAC)
+  href: role-based-access-control-what-is.md
+  items:
+    - name: Zarządzanie przypisaniami dostępu
+      items:
+        - name: Według użytkownika
+          href: role-based-access-control-manage-assignments.md
+        - name: Według zasobu
+          href: role-based-access-control-configure.md
+    - name: Wbudowane role
+      href: role-based-access-built-in-roles.md
+    - name: Role niestandardowe
+      href: role-based-access-control-custom-roles.md
+    - name: Przypisywanie ról niestandardowych dla użytkowników wewnętrznych i zewnętrznych
+      href: role-based-access-control-create-custom-roles-for-internal-external-users.md
+    - name: Raportowanie
+      href: role-based-access-control-access-change-history-report.md
+    - name: Więcej sposobów na zarządzanie rolami
+      items:
+        - name: Z interfejsem wiersza polecenia platformy Azure
+          href: role-based-access-control-manage-access-azure-cli.md
+        - name: Przy użyciu programu PowerShell
+          href: role-based-access-control-manage-access-powershell.md
+        - name: Przy użyciu architektury REST
+          href: role-based-access-control-manage-access-rest.md
+    - name: Podniesienie poziomu dostępu administratora dzierżawy
+      href: role-based-access-control-tenant-admin-access.md
+    - name: Rozwiązywanie problemów
+      href: role-based-access-control-troubleshooting.md
+    - name: Operacje dostawcy zasobów
+      href: role-based-access-control-resource-provider-operations.md
+- name: Usługa Privileged Identity Management (PIM) dla Kontroli dostępu opartej na rolach
+  href: pim-azure-resource.md
+- name: Dostęp warunkowy do zarządzania platformy Azure
+  href: conditional-access-azure-management.md
+- name: Tożsamość usługi zarządzanej
+  href: msi-overview.md
+  items:
+    - name: Konfigurowanie pliku MSI dla maszyny wirtualnej platformy Azure
+      items:
+        - name: Korzystanie z witryny Azure Portal
+          href: msi-qs-configure-portal-windows-vm.md
+        - name: Korzystanie z programu PowerShell
+          href: msi-qs-configure-powershell-windows-vm.md
+        - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
+          href: msi-qs-configure-cli-windows-vm.md
+        - name: Korzystanie z szablonu usługi Azure Resource Manager
+          href: msi-qs-configure-template-windows-vm.md
+        - name: Korzystanie z zestawu Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
+    - name: Udzielanie maszynie wirtualnej dostępu tożsamości usługi zarządzanej do usługi Resource Manager
+      items:
+        - name: Korzystanie z witryny Azure Portal
+          href: msi-howto-assign-access-portal.md
+        - name: Korzystanie z programu PowerShell
+          href: msi-howto-assign-access-powershell.md
+        - name: Korzystanie z interfejsu wiersza polecenia platformy Azure
+          href: msi-howto-assign-access-cli.md
+    - name: 'Jak korzystać z tożsamości usługi zarządzanej maszyny wirtualnej '
+      items:
+        - name: Uzyskiwanie tokenu dostępu
+          href: msi-how-to-use-vm-msi-token.md
+        - name: Logowanie się do programu PowerShell (interfejsu wiersza polecenia platformy Azure)
+          href: msi-how-to-use-vm-msi-sign-in.md
+        - name: Używanie z zestawami SDK platformy Azure
+          href: msi-how-to-use-vm-msi-sdk.md
+    - name: Uzyskiwanie dostępu do usługi Azure Data Lake Store przy użyciu tożsamości usługi zarządzanej
+      items:
+        - name: Z maszyny wirtualnej z systemem Windows
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: Z maszyny wirtualnej z systemem Linux
+          href: msi-tutorial-linux-vm-access-datalake.md
+    - name: Uzyskiwanie dostępu do usługi Azure Resource Manager przy użyciu tożsamości usługi zarządzanej
+      items:
+        - name: Z maszyny wirtualnej z systemem Windows
+          href: msi-tutorial-windows-vm-access-arm.md
+        - name: Z maszyny wirtualnej z systemem Linux
+          href: msi-tutorial-linux-vm-access-arm.md
+    - name: Uzyskiwanie dostępu do serwera SQL platformy Azure przy użyciu tożsamości usługi zarządzanej
+      items:
+        - name: Z maszyny wirtualnej z systemem Windows
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: Uzyskiwanie dostępu do magazynu platformy Azure przy użyciu tożsamości usługi zarządzanej
+      items:
+        - name: Z maszyny wirtualnej z systemem Windows przy użyciu klucza dostępu
+          href: msi-tutorial-windows-vm-access-storage.md
+        - name: Z maszyny wirtualnej z systemem Windows przy użyciu sygnatury dostępu współdzielonego
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: Z maszyny wirtualnej z systemem Linux przy użyciu klucza dostępu
+          href: msi-tutorial-linux-vm-access-storage.md
+        - name: Z maszyny wirtualnej z systemem Linux przy użyciu sygnatury dostępu współdzielonego
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: Uzyskiwanie dostępu do usługi Azure Key Vault przy użyciu tożsamości usługi zarządzanej
+      items:
+        - name: Z maszyny wirtualnej z systemem Windows
+          href: msi-tutorial-windows-vm-access-nonaad.md
+        - name: Z maszyny wirtualnej z systemem Linux
+          href: msi-tutorial-linux-vm-access-nonaad.md
+    - name: Często zadawane pytania i znane problemy
+      href: msi-known-issues.md

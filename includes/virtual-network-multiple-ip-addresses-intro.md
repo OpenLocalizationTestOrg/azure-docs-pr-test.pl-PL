@@ -1,17 +1,16 @@
 > [!div class="op_single_selector"]
-> * [Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [Azure Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [Interfejs wiersza polecenia 2.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
-> * [Interfejs wiersza polecenia 1.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md)
+> * [Interfejs wiersza polecenia platformy Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 > * [Szablon](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
 >
 
-Maszyny wirtualnej Azure (VM) ma jedną lub więcej interfejsów sieciowych (NIC) dołączony tooit. Dowolnej karty interfejsu Sieciowego może mieć jeden lub więcej statyczne lub dynamiczne publiczne i prywatne IP adresów tooit przypisane. Przypisywanie IP wielu adresów tooa maszyny Wirtualnej umożliwia hello następujące możliwości:
+Do maszyny wirtualnej platformy Azure jest dołączony co najmniej jeden interfejs sieciowy (karta sieciowa). Każda karta sieciowa może mieć przypisany jeden lub wiele statycznych lub dynamicznych publicznych i prywatnych adresów IP. Przypisywanie wielu adresów IP do maszyny wirtualnej włącza następujące możliwości:
 
 * Hostowanie wielu witryn sieci Web lub usług z różnymi adresami IP i certyfikatami SSL na jednym serwerze.
 * Może służyć jako sieciowe urządzenie wirtualne, takie jak zapora lub moduł równoważenia obciążenia.
-* Witaj tooadd możliwości adresów żadnego hello prywatnego adresu IP dla każdego tooan kart sieciowych hello puli zaplecza modułu równoważenia obciążenia Azure. Witaj poza tylko hello podstawowego adresu IP hello podstawowej karty Sieciowej może być dodane tooa puli zaplecza. więcej informacji o toolearn jak tooload równoważenie wielu konfiguracji adresów IP, odczytać hello [wielu konfiguracji adresów IP równoważenia obciążenia](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artykułu.
+* Możliwość dodania dowolnego z prywatnych adresów IP dla dowolnej z kart sieciowych do puli zaplecza usługi Azure Load Balancer. W przeszłości tylko podstawowy adres IP podstawowej karty sieciowej można było dodać do puli zaplecza. Aby dowiedzieć się więcej na temat sposobu równoważenia obciążenia dla wielu konfiguracji adresów IP, zapoznaj się z artykułem [Load balancing multiple IP configurations](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Równoważenie obciążenia dla wielu konfiguracji adresów IP).
 
-Co tooa kartę Sieciową podłączoną maszyna wirtualna ma jedną lub więcej konfiguracje adresów IP skojarzonych tooit. Każdej konfiguracji jest przypisany jeden statyczny lub dynamiczny prywatny adres IP. Każdej konfiguracji mogą zawierać jeden publiczny tooit skojarzonych zasobów adresu IP. Zasób publiczny adres IP ma albo dynamicznej lub statycznej publicznego adresu IP przypisany adres tooit. adresy toolearn więcej informacji na temat adresu IP na platformie Azure, przeczytaj hello [adresów IP na platformie Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) artykułu. 
+Z każdą kartą sieciową dołączoną do maszyny wirtualnej jest skojarzona co najmniej jedna konfiguracja adresu IP. Każdej konfiguracji jest przypisany jeden statyczny lub dynamiczny prywatny adres IP. Każda konfiguracja może mieć również powiązany jeden zasób publicznego adresu IP. Zasób publicznego adresu IP ma przypisany dynamiczny lub statyczny publiczny adres IP. Aby dowiedzieć się więcej o adresach IP na platformie Azure, zapoznaj się z artykułem [Adresy IP na platformie Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). 
 
-Brak limit toohow wiele prywatnego adresu IP można przypisać adresów tooa karty sieciowej. Istnieje również limit toohow wiele publicznych adresów IP, które mogą być używane w subskrypcji platformy Azure. Zobacz hello [Azure ogranicza](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) artykułu, aby uzyskać szczegółowe informacje.
+Istnieje limit liczby prywatnych adresów IP można przypisać do karty sieciowej. Istnieje również maksymalną liczbę publicznych adresów IP, które mogą być używane w subskrypcji platformy Azure. Aby uzyskać szczegółowe informacje, zobacz artykuł dotyczący [limitów platformy Azure](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).

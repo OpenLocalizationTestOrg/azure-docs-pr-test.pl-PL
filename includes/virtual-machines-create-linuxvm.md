@@ -1,13 +1,13 @@
 
-1. Zaloguj się tooyour subskrypcji platformy Azure przy użyciu hello czynności opisane w [połączyć tooAzure z hello Azure CLI 1.0](../articles/xplat-cli-connect.md).
+1. Zaloguj się do subskrypcji platformy Azure, wykonując kroki opisane w temacie [Connect to Azure from the Azure CLI 1.0](/cli/azure/authenticate-azure-cli) (Łączenie z platformą Azure z interfejsu wiersza polecenia platformy Azure w wersji 1.0).
 
-2. Upewnij się, że są w trybie wdrożenia klasycznego hello w następujący sposób:
+2. Upewnij się, że pracujesz w trybie klasycznym wdrożenia, w następujący sposób:
 
     ```azurecli
     azure config mode asm
     ```
 
-3. Sprawdzić hello obrazu systemu Linux, które mają tooload z hello dostępnych obrazów w następujący sposób:
+3. Wśród dostępnych obrazów wyszukaj obraz systemu Linux do załadowania w następujący sposób:
 
    ```azurecli   
     azure vm image list | grep "Linux"
@@ -15,7 +15,7 @@
    
     W oknie wiersza polecenia systemu Windows użyj polecenia **find** zamiast grep.
    
-4. Użyj `azure vm create` toocreate maszyny Wirtualnej z obrazu systemu Linux hello z poprzedniej liście hello. Ten krok powoduje utworzenie konta magazynu i usługi w chmurze. Można także połączyć tej maszyny Wirtualnej tooan istniejącej usługi w chmurze z `-c` opcji. Utwórz toolog punkt końcowy SSH w maszyny wirtualnej systemu Linux toohello z hello `-e` opcji. Witaj poniższy przykład tworzy Maszynę wirtualną o nazwie `myVM` przy użyciu hello `Ubuntu-14_04_4-LTS` obrazu w hello `West US` lokalizacji i dodaje nazwę użytkownika `ops`:
+4. Użyj instrukcji `azure vm create`, aby utworzyć maszynę wirtualną przy użyciu obrazu systemu Linux z poprzedniej listy. Ten krok powoduje utworzenie konta magazynu i usługi w chmurze. Można także połączyć tę maszynę wirtualną z istniejącą usługą w chmurze przy użyciu opcji `-c`. Utwórz punkt końcowy SSH, aby zalogować się do maszyny wirtualnej z systemem Linux przy użyciu opcji `-e`. W poniższym przykładzie jest tworzona maszyna wirtualna o nazwie `myVM` przy użyciu obrazu `Ubuntu-14_04_4-LTS` w lokalizacji `West US`, a następnie zostaje dodana nazwa użytkownika `ops`:
    
     ```azurecli
     azure vm create myVM \
@@ -23,7 +23,7 @@
         -g ops -p P@ssw0rd! -z "Small" -e -l "West US"
     ```
 
-    Witaj danych wyjściowych jest toohello podobnie poniższy przykład:
+    Dane wyjściowe są podobne do poniższego przykładu:
 
     ```azurecli
     info:    Executing command vm create
@@ -37,20 +37,20 @@
     ```
    
    > [!NOTE]
-   > Dla maszyny wirtualnej systemu Linux, należy podać hello `-e` opcji `vm create`. Nie jest możliwe tooenable SSH po utworzeniu maszyny wirtualnej hello. Aby uzyskać więcej szczegółów na SSH, przeczytaj [jak tooUse SSH z systemem Linux na platformie Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+   > W przypadku maszyny wirtualnej z systemem Linux musisz użyć opcji `-e` w instrukcji `vm create`. Po utworzeniu maszyny wirtualnej nie można włączyć protokołu SSH. Aby uzyskać dalsze szczegółowe informacje dotyczące protokołu SSH, zapoznaj się z tematem [How to Use SSH with Linux on Azure](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Jak korzystać z protokołu SSH w systemie Linux na platformie Azure).
 
-5. Atrybuty hello hello maszyny Wirtualnej można sprawdzić za pomocą hello `azure vm show` polecenia. Witaj poniższy przykład zawiera informacje dotyczące hello maszyny Wirtualnej o nazwie `myVM`:
+5. Atrybuty maszyny wirtualnej można sprawdzić za pomocą polecenia `azure vm show`. Poniższy przykład zawiera listę informacji dotyczących maszyny wirtualnej o nazwie `myVM`:
 
     ```azurecli   
     azure vm show myVM
     ```
 
-6. Uruchom maszyny Wirtualnej z hello `azure vm start` polecenia w następujący sposób:
+6. Uruchom maszynę wirtualną przy użyciu polecenia `azure vm start` w następujący sposób:
 
     ```azurecli
     azure vm start myVM
     ```
 
 ## <a name="next-steps"></a>Następne kroki
-Aby uzyskać więcej informacji na temat wszystkich tych poleceń maszyny wirtualnej Azure CLI w wersji 1.0, przeczytaj hello [hello Using Azure CLI 1.0 z hello wdrażania klasycznego interfejsu API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+Szczegółowe informacje na temat wszystkich poleceń maszyny wirtualnej interfejsu wiersza polecenia platformy Azure w wersji 1.0 można znaleźć w temacie [Using the Azure CLI 1.0 with the Classic deployment API](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) (Korzystanie z interfejsu wiersza polecenia platformy Azure w wersji 1.0 przy użyciu interfejsu API wdrożenia klasycznego).
 

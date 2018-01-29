@@ -1,22 +1,22 @@
 ## <a name="create-a-ruby-application"></a>Tworzenie aplikacji Ruby
-Aby uzyskać instrukcje, zobacz [tworzenie aplikacji Ruby na platformie Azure](../articles/virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Aby uzyskać instrukcje, zobacz [tworzenie aplikacji Ruby na platformie Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 
-## <a name="configure-your-application-toouse-service-bus"></a>Konfigurowanie sieci tooUse aplikacji usługi Service Bus
-toouse usługi Service Bus pobranie i użycie hello Azure Ruby pakiet, który zawiera zestaw wygody bibliotek, które komunikują się z usługi REST magazynu hello.
+## <a name="configure-your-application-to-use-service-bus"></a>Skonfigurować aplikację do użycia usługi Service Bus
+Aby korzystać z usługi Service Bus, pobranie i użycie pakiet Azure Ruby, który zawiera zestaw wygody bibliotek, które komunikują się z magazynu usługi REST.
 
-### <a name="use-rubygems-tooobtain-hello-package"></a>Użyj RubyGems tooobtain hello pakietu
+### <a name="use-rubygems-to-obtain-the-package"></a>Umożliwia uzyskanie pakietu RubyGems
 1. Użyj interfejsu wiersza polecenia, takich jak **PowerShell** (system Windows), **terminali** (Mac), lub **Bash** (Unix).
-2. Wpisz "gem zainstalować program azure" hello polecenia okna tooinstall hello gem i zależności.
+2. Wpisz "azure gem instalacji" w oknie wiersza polecenia, aby zainstalować gem i zależności.
 
-### <a name="import-hello-package"></a>Importowanie pakietu hello
-Za pomocą edytora tekstu, dodać powitania od góry toohello hello Ruby pliku, w którym planujesz toouse magazynu:
+### <a name="import-the-package"></a>Importowanie pakietu
+Za pomocą edytora tekstu, Dodaj następujący element do góry dopisków fonetycznych pliku, w którym mają być używane magazynu:
 
 ```ruby
 require "azure"
 ```
 
 ## <a name="set-up-a-service-bus-connection"></a>Skonfiguruj połączenie usługi Service Bus
-Użyj hello poniższy kod tooset hello wartości przestrzeni nazw, nazwę hello klucza, klucz podpisujący i hosta:
+Aby ustawić wartości przestrzeni nazw, nazwę klucza, klucz podpisujący i hosta, należy użyć poniższego kodu:
 
 ```ruby
 Azure.configure do |config|
@@ -28,4 +28,4 @@ signer = Azure::ServiceBus::Auth::SharedAccessSigner.new
 sb_host = "https://#{Azure.sb_namespace}.servicebus.windows.net"
 ```
 
-Wartość hello przestrzeni nazw wartość toohello utworzonego zamiast hello cały adres URL. Na przykład użyć **"yourexamplenamespace"**, nie "yourexamplenamespace.servicebus.windows.net".
+Ustaw wartość przestrzeni nazw na wartość, którą utworzono zamiast całej adresu URL. Na przykład użyć **"yourexamplenamespace"**, nie "yourexamplenamespace.servicebus.windows.net".

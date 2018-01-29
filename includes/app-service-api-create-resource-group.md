@@ -1,11 +1,11 @@
-Utwórz grupę zasobów o hello [Tworzenie grupy az](/cli/azure/group#create) polecenia.
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group?view=azure-cli-latest#az_group_create).
 
 [!INCLUDE [resource group intro text](resource-group.md)]
 
-Witaj poniższy przykład tworzy grupę zasobów o nazwie *myResourceGroup* w hello *westeurope* lokalizacji.
+Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *westeurope*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
 
-toosee hello dostępnych lokalizacji, uruchom hello `az appservice list-locations` polecenia. Zasadniczo tworzysz zasoby w pobliskim regionie.
+Aby wyświetlić dostępne lokalizacje, użyj polecenia `az appservice list-locations`. Zasadniczo tworzysz zasoby w pobliskim regionie.

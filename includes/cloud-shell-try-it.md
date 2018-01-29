@@ -1,21 +1,12 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Uruchamianie usługi Azure Cloud Shell
 
-Hello powłoki chmury Azure jest bezpłatna powłoki Bash, który można uruchomić bezpośrednio z poziomu hello portalu Azure. Ma ona hello Azure CLI wstępnie zainstalowane i skonfigurowane toouse z Twoim kontem. Kliknij przycisk hello **powłoki chmury** przycisk menu hello w hello prawym górnym rogu hello [portalu Azure](https://portal.azure.com).
+Powłoka chmury Azure jest bezpłatna powłoka interaktywnego, która umożliwia wykonanie kroków w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Po prostu kliknij **kopiowania** Aby skopiować kod, wklej go do powłoki chmury, a następnie naciśnij klawisz enter, aby go uruchomić.  Istnieje kilka sposobów Uruchom powłokę chmury:
 
-[![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
-
-przycisk Hello uruchamia interakcyjne powłoki, pomocne toorun wszystkie hello kroków w tym temacie:
-
-[![Zrzut ekranu przedstawiający hello powłoki chmury okna w portalu hello](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
-
-
-
-
-
-
-
-
-
-
+|  |   |
+|-----------------------------------------------|---|
+| Kliknij przycisk **spróbuj on** w prawym górnym rogu bloku kodu. | ![Chmura powłoki w tym artykule](./media/cloud-shell-try-it/cli-try-it.png) |
+| Otwórz powłokę chmury w przeglądarce. | [![https://shell.azure.com/bash](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
+| Kliknij przycisk **powłoki chmury** przycisk menu w prawym górnym rogu [portalu Azure](https://portal.azure.com). |    ![Powłoka chmury w portalu](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+|  |  |
 

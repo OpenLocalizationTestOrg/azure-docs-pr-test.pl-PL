@@ -1,24 +1,24 @@
 ### <a name="record-names"></a>Nazwy rekordów
 
-W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. A *w pełni kwalifikowana* nazwy domeny (FQDN) zawiera nazwę strefy hello, podczas gdy *względną* nie ma nazwy. Na przykład względna nazwa rekordu "www" w strefie hello "contoso.com" hello nadaje nazwę FQDN rekordu hello "www.contoso.com".
+W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. *W pełni kwalifikowana* nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa *względna*. Na przykład względna nazwa rekordu „www” w strefie „contoso.com” daje w pełni kwalifikowaną nazwę rekordu www.contoso.com.
 
-*Wierzchołku* rekord jest rekord DNS w głównym hello (lub *wierzchołku*) strefy DNS. Na przykład w hello strefę DNS "contoso.com" rekord wierzchołku ma również hello w pełni kwalifikowanej nazwy domeny "contoso.com" (jest to czasem nazywane *naked* domeny).  Według Konwencji hello względnej nazwy "@" jest używana toorepresent rekordów na wierzchołku.
+Rekord *wierzchołka* to rekord DNS w katalogu głównym (*wierzchołku*) strefy DNS. Na przykład w strefie DNS „contoso.com” rekord wierzchołka ma także w pełni kwalifikowaną nazwę „contoso.com” (jest to czasami nazywane *samą* domeną).  Zgodnie z konwencją nazwa względna '@' jest używana do reprezentowania rekordów wierzchołków.
 
 ### <a name="record-types"></a>Typy rekordów
 
-Każdy rekord DNS ma nazwę i typ. Rekordy są pogrupowane w różne typy według danych toohello, które zawierają. najczęściej spotykanym typem Hello jest "" rekord, który mapuje nazwę tooan adres IPv4. Inny spotykanym typem jest rekord "MX", która mapuje nazwy serwera poczty tooa.
+Każdy rekord DNS ma nazwę i typ. Rekordy są pogrupowane w różne typy według danych, które zawierają. Najczęściej spotykanym typem jest rekord „A”, który mapuje nazwę na adres IPv4. Innym często spotykanym typem jest rekord „MX”, który mapuje nazwę na serwer poczty e-mail.
 
-Usługa DNS platformy Azure obsługuje wszystkie popularne typy rekordów DNS: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV i TXT. Należy pamiętać, że [rekordy SPF są reprezentowane przy użyciu rekordu TXT](../articles/dns/dns-zones-records.md#spf-records).
+Usługa Azure DNS obsługuje wszystkie popularne typy rekordów DNS: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV i TXT. Należy pamiętać, że [rekordy SPF są reprezentowane przy użyciu rekordu TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Zestawy rekordów
 
-Czasami trzeba toocreate więcej niż jeden rekord DNS o podanej nazwie i typu. Na przykład załóżmy, że witryna sieci web "www.contoso.com" hello znajduje się na dwóch różnych adresów IP. Witaj witryny sieci Web wymaga dwóch różnych rekordów, po jednym dla każdego adresu IP. Oto przykład zestawu rekordów:
+Czasami trzeba utworzyć więcej niż jeden rekord DNS określonego typu o danej nazwie. Na przykład załóżmy, że witryna sieci Web „www.contoso.com” jest hostowana pod dwoma różnymi adresami IP. Witryna sieci Web wymaga dwóch różnych rekordów A, po jednym dla każdego adresu IP. Oto przykład zestawu rekordów:
 
     www.contoso.com.        3600    IN    A    134.170.185.46
     www.contoso.com.        3600    IN    A    134.170.188.221
 
-System DNS platformy Azure zarządza wszystkimi rekordami DNS za pomocą *zestawów rekordów*. Zestaw rekordów (znanej także jako *zasobów* zestawu rekordów) kolekcja hello rekordy DNS w strefie, które mają hello takie same nazwy i hello są tego samego typu. Większość zestawów rekordów zawiera jeden rekord. Jednak sytuacje hello jeden powyżej, w którym zestaw rekordów zawiera więcej niż jeden rekord, nie są rzadko.
+System DNS platformy Azure zarządza wszystkimi rekordami DNS za pomocą *zestawów rekordów*. Zestaw rekordów (określany także jako zestaw rekordów *zasobów*) jest kolekcją rekordów DNS w strefie, które mają taką samą nazwę i są tego samego typu. Większość zestawów rekordów zawiera jeden rekord. Sytuacje taka jak powyższa, w których zestaw rekordów zawiera więcej niż jeden rekord, również mają często miejsce.
 
-Na przykład, załóżmy, że utworzono już rekordu A "www" w strefie hello "contoso.com", wskazując toohello IP adresów "134.170.185.46" (hello pierwszy rekord powyżej).  toocreate hello drugi rekord, który należy dodać wykaz istniejącego rekordu toohello ustawić, zamiast tworzyć dodatkowe zestawu rekordów.
+Na przykład załóżmy, że utworzono wcześniej rekord A „www” w strefie „contoso.com” wskazujący na adres IP „134.170.185.46” (pierwszy rekord powyżej).  W celu utworzenia drugiego rekordu ten rekord zostanie dodany do istniejącego zestawu rekordów zamiast tworzenia dodatkowego zestawu rekordów.
 
-Witaj SOA i typy rekordów CNAME stanowią wyjątki. Standardy usługi DNS Hello nie zezwalają na występowanie wielu rekordów z hello takie same nazwy dla tych typów, w związku z tym tych zestawów rekordów mogą zawierać tylko jeden rekord.
+Typy rekordów SOA i CNAME stanowią wyjątki. Standardy systemu DNS nie zezwalają na występowanie wielu rekordów tych typów o takiej samej nazwie, w związku z czym te zestawy rekordów mogą zawierać tylko jeden rekord.

@@ -1,18 +1,16 @@
-Utwórz poświadczenia wdrażania z hello [ustawiono użytkownika wdrożenia aplikacji sieci Web az](/cli/azure/webapp/deployment/user#set) polecenia.
+W usłudze Cloud Shell utwórz poświadczenia wdrożenia za pomocą polecenia [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set). Użytkownik wdrożenia jest wymagany do wdrożenia protokołu FTP i lokalnego narzędzia Git w aplikacji internetowej. Nazwa użytkownika i hasło są określane na poziomie konta. _Różnią się one od poświadczeń subskrypcji platformy Azure._
 
-Użytkownik wdrożenia jest wymagana dla FTP i lokalnych aplikacji sieci web tooa wdrożenia Git. Witaj, nazwę użytkownika i hasło są poziomu kont. _Różnią się one od poświadczeń subskrypcji platformy Azure._
-
-Zastąp następujące polecenie, w hello  *\<nazwa użytkownika >* i  *\<hasło >* nową nazwę użytkownika i hasło. Witaj, nazwa użytkownika musi być unikatowa. Witaj hasło musi mieć co najmniej ośmiu znaków, przy użyciu dwóch hello następujące trzy elementy: liter, cyfr, symboli. 
+W poniższym przykładzie Zastąp  *\<nazwa użytkownika >* i  *\<hasło >* (w tym nawiasy) przy użyciu nowej nazwy użytkownika i hasła. Nazwa użytkownika musi być unikatowa. Hasło musi mieć długość co najmniej ośmiu znaków i zawierać dwa z następujących trzech elementów: litery, cyfry, symbole. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Jeśli otrzymasz ` 'Conflict'. Details: 409` błąd, username hello zmiany. Jeśli wystąpił błąd ` 'Bad Request'. Details: 400`, użyj silniejszego hasła.
+Jeśli wystąpił błąd ` 'Conflict'. Details: 409`, zmień nazwę użytkownika. Jeśli wystąpił błąd ` 'Bad Request'. Details: 400`, użyj silniejszego hasła.
 
 Ten użytkownik wdrożenia jest tworzony tylko jeden raz. Można go używać we wszystkich wdrożeniach platformy Azure.
 
 > [!NOTE]
-> Nazwa użytkownika hello rekordu i hasło. Należy je aplikacji sieci web toodeploy hello później.
+> Zapisz nazwę użytkownika i hasło. Będą one potrzebne później do wdrożenia aplikacji internetowej.
 >
 >

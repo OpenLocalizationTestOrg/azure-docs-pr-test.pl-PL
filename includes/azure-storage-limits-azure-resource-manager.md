@@ -1,4 +1,4 @@
-Witaj następujące ograniczenia mają zastosowanie tylko w przypadku używania hello Azure Resource Manager i grupy zasobów platformy Azure.
+Następujące ograniczenia mają zastosowanie podczas wykonywania operacji zarządzania przy użyciu usługi Azure Resource Manager tylko.
 
 | Zasób | Limit domyślny |
 | --- | --- |

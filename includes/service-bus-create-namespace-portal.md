@@ -1,30 +1,31 @@
-kolejkuje toobegin przy użyciu usługi Service Bus na platformie Azure, musisz najpierw utworzyć przestrzeń nazw o nazwie, która jest unikatowa w obrębie platformy Azure. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
+Aby rozpocząć korzystanie z obsługi wiadomości usługi Service Bus na platformie Azure, musisz najpierw utworzyć przestrzeń nazw o nazwie, która jest unikatowa w obrębie platformy Azure. Przestrzeń nazw zapewnia kontener określania zakresu na potrzeby adresowania zasobów usługi Service Bus w aplikacji.
 
-toocreate przestrzeni nazw:
+Aby utworzyć przestrzeń nazw:
 
-1. Zaloguj się na toohello [portalu Azure][Azure portal].
-2. W okienku nawigacji po lewej stronie powitania hello portalu kliknij **nowy**, następnie kliknij przycisk **integracji przedsiębiorstwa**, a następnie kliknij przycisk **usługi Service Bus**.
-3. W hello **tworzenie przestrzeni nazw** okna dialogowego, wprowadź nazwę przestrzeni nazw. system powitania od razu sprawdza toosee, jeśli nazwa hello jest dostępna.
-4. Po co czy hello przestrzeni nazw jest dostępna, należy wybrać hello cenowym (podstawowa, standardowa lub Premium).
-5. W hello **subskrypcji** pola, wybierz subskrypcję platformy Azure, w których toocreate hello nazw.
-6. W hello **grupy zasobów** wybierz istniejącą grupę zasobów, w których hello przestrzeni nazw zostanie na żywo lub Utwórz nową.      
-7. W **lokalizacji**, wybierz hello kraj lub region, w którym ma być hostowana przestrzeni nazw.
+1. Zaloguj się w witrynie [Azure Portal][Azure portal].
+2. W okienku nawigacji po lewej stronie portalu kliknij **+ Utwórz zasób**, następnie kliknij przycisk **integracji przedsiębiorstwa**, a następnie kliknij przycisk **usługi Service Bus**.
+3. W oknie dialogowym **Tworzenie przestrzeni nazw** wprowadź nazwę przestrzeni nazw. System od razu sprawdza, czy nazwa jest dostępna.
+4. Po upewnieniu się, że nazwa przestrzeni nazw jest dostępna, wybierz warstwę cenową (Podstawowa, Standardowa lub Premium).
+5. W polu **Subskrypcja** wybierz subskrypcję platformy Azure, w której ma zostać utworzona przestrzeń nazw.
+6. W polu **Grupa zasobów** wybierz istniejącą grupę zasobów, w której znajdzie się przestrzeń nazw, lub utwórz nową.      
+7. W polu **Lokalizacja** wybierz kraj lub region, w którym powinna być hostowana przestrzeń nazw.
    
     ![Create namespace][create-namespace]
-8. Kliknij przycisk **Utwórz**. teraz Hello system utworzy przestrzeń nazw i włączy ją. Toowait może mieć kilka minut hello systemu inicjowania obsługi administracyjnej zasobów dla Twojego konta.
+8. Kliknij pozycję **Utwórz**. W systemie zostanie utworzona i włączona przestrzeń nazw. Proces aprowizacji zasobów dla konta w systemie może potrwać kilka minut.
 
-### <a name="obtain-hello-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania hello
+### <a name="obtain-the-management-credentials"></a>Uzyskiwanie poświadczeń zarządzania
+Automatyczne tworzenie nowej przestrzeni nazw generuje początkowej reguły dostępu sygnatury dostępu Współdzielonego przy skojarzone pary kluczy podstawowych i pomocniczych, że każdy przyznaje pełną kontrolę nad wszystkimi aspektami przestrzeni nazw. Zobacz [magistrali usług uwierzytelniania i autoryzacji](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) informacji o tym, jak tworzyć dodatkowe reguły z więcej ograniczone prawa do regularnych nadawcami a odbiornikami. Aby skopiować początkową regułę, wykonaj następujące kroki: 
 
-1. Kliknij hello nowo utworzona nazwa przestrzeni nazw na liście hello przestrzeni nazw.
-2. W bloku przestrzeni nazw powitania kliknij **zasady dostępu współużytkowanego**.
-3. W hello **zasady dostępu współużytkowanego** bloku, kliknij przycisk **RootManageSharedAccessKey**.
+1.  Kliknij przycisk **wszystkie zasoby**, następnie kliknij nazwę nowo utworzonej przestrzeni nazw.
+2. W oknie przestrzeni nazw kliknij **zasady dostępu współużytkowanego**.
+3. W **zasady dostępu współużytkowanego** kliknij **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. W hello **zasad: RootManageSharedAccessKey** bloku, kliknij przycisk Kopiuj hello obok zbyt**połączenia ciąg — podstawowy klucz**, toocopy hello połączenia ciąg tooyour Schowka do późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
+4. W **zasad: RootManageSharedAccessKey** , kliknij kopię przycisk Dalej, aby **połączenia ciąg — podstawowy klucz**, aby skopiować parametry połączenia do Schowka do późniejszego użycia. Wklej tę wartość do Notatnika lub innej tymczasowej lokalizacji.
    
     ![connection-string][connection-string]
 
-5. Hello powtórzeń poprzedniego kroku, kopiowanie i wklejanie wartość hello **klucza podstawowego** tooa lokalizacji tymczasowej na potrzeby późniejszego użycia.
+5. Powtórz poprzedni krok, kopiując i wklejając wartość pozycji **Klucz podstawowy** w lokalizacji tymczasowej do późniejszego użycia.
 
 <!--Image references-->
 

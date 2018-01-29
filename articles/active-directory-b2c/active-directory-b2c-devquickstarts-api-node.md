@@ -4,7 +4,7 @@ description: "Jak tworzyć interfejs API sieci Web w środowisku Node.js, który
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: fc2b9af8-fbda-44e0-962a-8b963449106a
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.openlocfilehash: 6480be75c314ede1b786e959a79c0385dd2edea8
-ms.sourcegitcommit: 73f159cdbc122ffe42f3e1f7a3de05f77b6a4725
-ms.translationtype: MT
+ms.openlocfilehash: 3a0249f2f7dfd76d89cbf497376f53fe06c250c3
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Usługa Azure AD B2C: zabezpieczanie interfejsu API sieci Web przy użyciu środowiska Node.js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -35,7 +35,7 @@ Usługa Azure Active Directory (Azure AD) B2C umożliwia zabezpieczanie interfej
 Aby pracować z tą próbką, należy:
 
 1. Zarejestrować aplikację w usłudze Azure AD.
-2. Skonfigurować aplikację do korzystania z wtyczki `azure-ad-passport` oprogramowania Passport.
+2. Skonfigurować aplikację do korzystania z wtyczki `passport-azure-ad` oprogramowania Passport.
 3. Skonfigurować aplikację klienta do wywołania interfejsu API sieci Web listy zadań do wykonania.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Tworzenie katalogu usługi Azure AD B2C
@@ -48,8 +48,6 @@ Następnie należy utworzyć aplikację w katalogu B2C, która dostarcza do usł
 * Wprowadź `http://localhost/TodoListService` w polu **Adres URL odpowiedzi**. Jest to domyślny adres URL dla tej próbki kodu.
 * Utwórz **klucz tajny aplikacji** i skopiuj go. Te dane będą potrzebne później. Pamiętaj, że aby go użyć, jego wartość musi być [ujęta w kodzie XML w znaki ucieczki](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape).
 * Skopiuj **Identyfikator aplikacji** przypisany do aplikacji. Te dane będą potrzebne później.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Tworzenie zasad
 W usłudze Azure AD B2C każde działanie użytkownika jest definiowane przy użyciu [zasad](active-directory-b2c-reference-policies.md). Ta aplikacja zawiera dwa elementy dotyczące tożsamości: rejestracja i logowanie. Dla każdego typu należy utworzyć jeden zbiór zasad zgodnie z opisem w [artykule o zasadach](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Podczas tworzenia trzech zbiorów zasad należy koniecznie:
@@ -756,7 +754,7 @@ Oczekiwaną odpowiedzią jest błąd 401. Oznacza on, że warstwa oprogramowania
 ## <a name="you-now-have-a-rest-api-service-that-uses-oauth2"></a>Efektem jest usługa interfejsu API REST korzystająca z protokołu OAuth2
 Udało Ci się wdrożyć interfejs API REST przy użyciu modułu Restify i strategii OAuth! Masz teraz kod wystarczający do tego, aby kontynuować opracowywanie usługi i tworzyć ją na bazie tego przykładu. W przypadku tego serwera nie można wykonać żadnych dalszych czynności bez użycia klienta zgodnego z protokołem OAuth2. Na potrzeby następnego kroku użyj dodatkowego przewodnika, na przykład naszego przewodnika [Podłączanie do interfejsu API sieci Web przy użyciu systemu iOS z usługą B2C](active-directory-b2c-devquickstarts-ios.md).
 
-## <a name="next-steps"></a>Kolejne kroki
+## <a name="next-steps"></a>Następne kroki
 Możesz teraz przejść do bardziej zaawansowanych tematów, takich jak:
 
 [Podłączanie do interfejsu API sieci Web przy użyciu systemu iOS z usługą B2C](active-directory-b2c-devquickstarts-ios.md)

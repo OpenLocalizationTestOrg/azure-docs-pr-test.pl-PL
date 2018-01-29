@@ -1,102 +1,101 @@
-## <a name="log-in-toohello-azure-portal"></a>Zaloguj się za toohello portalu Azure
+## <a name="log-in-to-the-azure-portal"></a>Logowanie do witryny Azure Portal
 
-Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
+Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-database-using-hello-azure-portal"></a>Utwórz pustą bazę danych SQL przy użyciu hello portalu Azure
+## <a name="create-a-blank-sql-database"></a>Utwórz pustą bazę danych SQL
 
-Baza danych Azure SQL jest tworzona ze zdefiniowanym zestawem [zasobów obliczeniowych i przechowywania](../articles/sql-database/sql-database-service-tiers.md). Witaj baza danych została utworzona w ramach [grupy zasobów platformy Azure](../articles/azure-resource-manager/resource-group-overview.md) i [serwera logicznego bazy danych SQL Azure](../articles/sql-database/sql-database-features.md). 
+Baza danych Azure SQL jest tworzona ze zdefiniowanym zestawem [zasobów obliczeniowych i przechowywania](../articles/sql-database/sql-database-service-tiers.md). Baza danych jest tworzona w [grupie zasobów platformy Azure](../articles/azure-resource-manager/resource-group-overview.md) oraz na [serwerze logicznym bazy danych Azure SQL Database](../articles/sql-database/sql-database-features.md). 
 
-Wykonaj te kroki toocreate pustej bazy danych SQL. 
+Wykonaj następujące kroki, aby utworzyć pustą bazę danych SQL. 
 
-1. Kliknij przycisk hello **nowy** znaleziono przycisku na powitania lewym górnym rogu hello portalu Azure.
+1. Kliknij przycisk **Nowy** znajdujący się w lewym górnym rogu witryny Azure Portal.
 
-2. Wybierz **baz danych** z hello **nowy** i wybrać opcję **bazy danych SQL** z hello **baz danych** strony. 
+2. Na stronie **Nowy** wybierz pozycję **Bazy danych**, a następnie na stronie **Nowy** w obszarze **SQL Database** wybierz pozycję **Utwórz**.
 
    ![Tworzenie bazy danych puste](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
-3. Wypełnianie hello bazy danych SQL formularza z hello następujących informacji, jak pokazano na powitania poprzedzających obrazu:   
+3. Wypełnij formularz Baza danych SQL w sposób pokazany na wcześniejszej ilustracji, używając następujących informacji:   
 
-   | Ustawienie | Sugerowana wartość | Opis |
-   | --------| --------------- | ----------- | 
+   | Ustawienie       | Sugerowana wartość | Opis | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nazwa bazy danych** | mySampleDatabase | Prawidłowe nazwy baz danych opisano w artykule [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych). | 
    | **Subskrypcja** | Twoja subskrypcja  | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
    | **Grupa zasobów** | myResourceGroup | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). |
    | **Wybierz źródło** | Pusta baza danych | Określa, czy można utworzyć pustej bazy danych. |
-   ||||
 
-4. Kliknij przycisk **serwera** toocreate i skonfiguruj nowy serwer dla nowej bazy danych. Wypełnianie hello **nowy formularz serwera** z hello następujących informacji: 
+4. Kliknij pozycję **Serwer**, aby utworzyć i skonfigurować nowy serwer dla nowej bazy danych. Wypełnij **formularz nowego serwera**, używając następujących informacji: 
 
-   | Ustawienie | Sugerowana wartość | Opis |
-   | --------| --------------- | ----------- | 
-   | **Nazwa serwera** | Wszelkie globalnie unikatowej nazwy. | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). | 
-   | **Identyfikator logowania administratora serwera** | Wszelkie prawidłową nazwę. | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych).|
-   | **Hasło** | Wszystkie prawidłowe hasło. | Hasło musi mieć co najmniej ośmiu znaków i musi zawierać znaki z trzech z następujących kategorii hello: wielkich liter, małych liter, cyfr i znaków innych niż alfanumeryczne. |
-   | **Lokalizacja** | Żadnej prawidłowej lokalizacji. | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
-   ||||
+   | Ustawienie       | Sugerowana wartość | Opis | 
+   | ------------ | ------------------ | ------------------------------------------------- | 
+   | **Nazwa serwera** | Dowolna nazwa unikatowa w skali globalnej | Prawidłowe nazwy serwera opisano w artykule [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Reguły i ograniczenia nazewnictwa). | 
+   | **Identyfikator logowania administratora serwera** | Dowolna prawidłowa nazwa | Prawidłowe nazwy identyfikatorów logowania opisano w artykule [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identyfikatory baz danych).|
+   | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej 8 znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
+   | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
 
    ![tworzenie serwera bazy danych](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
 5. Kliknij pozycję **Wybierz**.
 
-6. Kliknij przycisk **warstwa cenowa** toospecify hello warstwę i poziom wydajności usługi dla nowej bazy danych. W tym samouczku, wybierz **20 jednostek Dtu** i **250** GB miejsca do magazynowania.
+6. Kliknij pozycję **Warstwa cenowa**, aby określić warstwę usługi, liczbę jednostek DTU i ilość miejsca do magazynowania. Przejrzyj opcje liczby jednostek DTU i miejsca do magazynowania dostępne dla poszczególnych warstw usługi. 
+
+7. W tym samouczku, wybierz **standardowe** warstwę usługi, a następnie wybierz za pomocą suwaka **100 Dtu (S3)** i **400** GB miejsca do magazynowania.
 
    ![tworzenie bazy danych s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-7. Kliknij przycisk **Zastosuj**.  
-
-8. Wybierz **sortowania** dla hello pustej bazy danych (w tym samouczku, wartość domyślna używana hello). Aby uzyskać więcej informacji na temat sortowań zobacz [sortowania](https://docs.microsoft.com/sql/t-sql/statements/collations)
-
-9. Kliknij przycisk **Utwórz** tooprovision hello w bazie danych. Inicjowanie obsługi administracyjnej ma o toocomplete minutę i pół. 
-
-10. Na pasku narzędzi hello, kliknij przycisk **powiadomienia** procesu wdrażania hello toomonitor.
-
-   ![powiadomienie](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
-
-## <a name="create-a-server-level-firewall-rule-using-hello-azure-portal"></a>Utworzyć regułę zapory poziomu serwera przy użyciu hello portalu Azure
-
-Witaj usługi baza danych SQL tworzy zapory na poziomie serwera hello. Początkowo hello Zapora uniemożliwia zewnętrznych narzędzi i aplikacji łączących toohello serwera lub bazy danych tooany na powitania serwera. Połączenia są dozwolone po utworzeniu reguły zapory tooopen określonych adresów IP. Wykonaj te kroki toocreate [regułę zapory poziomu serwera bazy danych SQL](../articles/sql-database/sql-database-firewall-configure.md) adresów IP klienta i tooenable łączność zewnętrzną przez zaporę bazy danych SQL hello tylko adresu IP. 
-
-
-> [!NOTE]
-> Baza danych SQL Azure komunikuje się za pośrednictwem portu 1433. Możesz połączyć tooSQL bazy danych tylko wtedy, gdy Zapora hello sieci zezwala na ruch wychodzący przez port 1433.
-
-
-1. Po zakończeniu wdrażania hello, kliknij przycisk **baz danych SQL** z menu po lewej stronie powitania, a następnie kliknij przycisk **mySampleDatabase** na powitania **baz danych SQL** strony. Witaj strona przeglądu otwartym bazy danych przedstawiający hello w pełni kwalifikowana nazwa serwera (takich jak **mynewserver20170313.database.windows.net**) i udostępnia opcje dla dalszej konfiguracji. Skopiuj tę w pełni kwalifikowaną nazwę serwera do użycia w przyszłości.
+8. Zaakceptuj warunki wersji zapoznawczej, aby użyć opcji **dodatkowego magazynu**. 
 
    > [!IMPORTANT]
-   > Należy to pełna nazwa tooconnect tooyour serwera i jego baz danych w kolejnych Szybki Start.
+   > \* Magazyn o rozmiarze większym niż ilość miejsca do magazynowania są dostępne w wersji zapoznawczej dodatkowych kosztów za dodatkową opłatą. Szczegóły można znaleźć w [cenniku usługi SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). 
+   >
+   >\*W warstwie Premium więcej niż 1 TB pamięci masowej jest obecnie dostępna w następujących regionach: Australia Wschodnia, Australia Południowo-Wschodnia, Kanada centralnej, Kanada Wschodnia, Francja centralnej, centralnej Niemcy Japonia Wschodnia, centralnej Korei południowo-środkowe USA, Południowo-Wschodnia, Azja, Stany East2 , Europa Zachodnia, zachodnie stany USA i Virginia wersji dla instytucji rządowych Stanów Zjednoczonych. Więcej informacji można znaleźć na stronie [bieżących ograniczeń poziomów P11–P15](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
+
+9. Po wybraniu warstwy serwera, liczby jednostek DTU i ilości miejsca do magazynowania kliknij przycisk **Zastosuj**.  
+
+10. Wybierz **sortowania** dla pustą bazę danych (w tym samouczku, użyj wartości domyślnej). Aby uzyskać więcej informacji na temat sortowań zobacz [sortowania](https://docs.microsoft.com/sql/t-sql/statements/collations)
+
+11. Kliknij pozycję **Utwórz**, aby aprowizować bazę danych. Inicjowanie obsługi administracyjnej ma temat minutę i pół do wykonania. 
+
+12. Na pasku narzędzi kliknij pozycję **Powiadomienia**, aby monitorować proces wdrażania.
+    
+     ![powiadomienie](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
+
+## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
+
+Usługa SQL Database tworzy zaporę na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem i wszelkimi bazami danych na tym serwerze, chyba że zostanie utworzona reguła zapory otwierająca zaporę dla konkretnych adresów IP. Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera usługi SQL Database](../articles/sql-database/sql-database-firewall-configure.md) dla podanego adresu IP klienta i włączyć zewnętrzną łączność przez zaporę usługi SQL Database wyłącznie dla konkretnego adresu IP. 
+
+> [!NOTE]
+> Usługa SQL Database nawiązuje komunikację na porcie 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być zablokowany przez firmową zaporę. Jeśli nastąpi taka sytuacja, nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433.
+>
+
+1. Po ukończeniu wdrażania kliknij pozycję **Bazy danych SQL** w menu po lewej stronie i kliknij bazę danych **mySampleDatabase** na stronie **Bazy danych SQL**. Zostanie otwarta strona Przegląd bazy danych, wyświetlając nazwę FQDN serwera (takich jak **mynewserver20170824.database.windows.net**) i udostępnia opcje dla dalszej konfiguracji. 
+
+2. Skopiuj tę w pełni kwalifikowaną nazwę serwera w celu nawiązania połączenia z serwerem i jego bazami danych w kolejnych przewodnikach Szybki start. 
 
    ![nazwa serwera](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
 
-2. Kliknij przycisk **ustawić Zapora serwera** na powitania narzędzi, jak pokazano na poprzedniej ilustracji hello. Witaj **ustawienia zapory** zostanie otwarta strona hello bazy danych SQL Server. 
+3. Kliknij przycisk **ustawić Zapora serwera** na pasku narzędzi. Zostanie otwarta strona **Ustawienia zapory** dla serwera SQL Database. 
 
    ![reguła zapory serwera](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
 
+4. Kliknij pozycję **Dodaj adres IP klienta** na pasku narzędzi, aby dodać bieżący adres IP do nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
 
-3. Kliknij przycisk **Dodaj adres IP klienta** na powitania narzędzi tooadd IP bieżący adres tooa nowej reguły zapory. Reguła zapory może otworzyć port 1433 dla pojedynczego adresu IP lub zakresu adresów IP.
+5. Kliknij pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera otwierająca port 1433 na serwerze logicznym.
 
-4. Kliknij pozycję **Zapisz**. Dla bieżącego adresu IP otwierania portu 1433 na serwerze logicznym hello tworzona jest reguła zapory poziomu serwera.
+6. Kliknij przycisk **OK**, a następnie zamknij stronę **Ustawienia zapory**.
 
-   ![ustawianie reguły zapory serwera](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule-set.png) 
-
-4. Kliknij przycisk **OK** , a następnie zamknij hello **ustawienia zapory** strony.
-
-Teraz można podłączyć toohello serwera bazy danych SQL Azure i jej baz danych za pomocą narzędzi takich jak SQL Server Management Studio (SSMS). połączenie Hello jest z tego adresu IP i używa konta administratora serwera na powitania utworzone wcześniej.
+Teraz można połączyć się z serwerem usługi SQL Database i jego bazami danych przy użyciu programu SQL Server Management Studio lub innego wybranego narzędzia z tego adresu IP przy użyciu poprzednio utworzonego konta administratora serwera.
 
 
 > [!IMPORTANT]
-> Domyślnie dostęp za pośrednictwem zapory bazy danych SQL hello jest włączona dla wszystkich usług platformy Azure. Kliknij przycisk **OFF** na toodisable tej strony dla wszystkich usług platformy Azure.
+> Domyślnie dostęp za pośrednictwem zapory usługi SQL Database jest włączony dla wszystkich usług platformy Azure. Kliknij przycisk **WYŁ.** na tej stronie, aby wyłączyć tę opcję dla wszystkich usług platformy Azure.
 
+## <a name="sql-server-connection-information"></a>Informacje o połączeniu z serwerem SQL
 
-## <a name="get-connection-string-values-using-hello-azure-portal"></a>Pobierz wartości parametrów połączeń przy użyciu hello portalu Azure
+Pobierz w pełni kwalifikowaną nazwę serwera dla serwera Azure SQL Database w witrynie Azure Portal. W pełni kwalifikowanej nazwy serwera używa się do nawiązywania połączenia z serwerem przy użyciu programu SQL Server Management Studio.
 
-Pobierz hello pełni kwalifikowaną nazwę serwera dla serwera bazy danych SQL Azure w hello portalu Azure. Możesz użyć hello pełną nazwę tooconnect tooyour serwera przy użyciu programu SQL Server Management Studio.
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/).
+2. Wybierz opcję **Bazy danych SQL** z menu po lewej stronie, a następnie kliknij bazę danych na stronie **Bazy danych SQL**. 
+3. W okienku **Essentials** na stronie bazy danych w witrynie Azure Portal zlokalizuj i skopiuj **nazwę serwera**.
 
-1. Zaloguj się za toohello [portalu Azure](https://portal.azure.com/).
-
-2. Wybierz **baz danych SQL** z menu po lewej stronie powitania i kliknij bazę danych na powitania **baz danych SQL** strony. 
-
-3. W hello **Essentials** okienka w hello strony portalu systemu Azure dla bazy danych, Znajdź, a następnie skopiuj hello **nazwy serwera**.
-
-   ![informacje o połączeniu](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
+   ![informacje o połączeniu](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)

@@ -4,7 +4,7 @@ Istnieją dwa typy kont magazynu:
 Konto magazynu ogólnego przeznaczenia zapewnia dostęp do usług Azure Storage, takich jak Tables, Queues, Files i Blobs oraz dysków maszyn wirtualnych Azure, w ramach jednego konta. Ten typ konta magazynu ma dwie warstwy wydajności:
 
 * Warstwę wydajności magazynu standardowego umożliwiającą przechowywanie tabel, kolejek, plików, obiektów blob i dysków maszyny wirtualnej Azure.
-* Warstwę wydajności magazynu w warstwie Premium, która obecnie obsługuje tylko dyski maszyny wirtualnej Azure. Zobacz temat [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/common/storage-premium-storage.md) (Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure), aby uzyskać szczegółowe informacje o usłudze Premium Storage.
+* Warstwę wydajności magazynu w warstwie Premium, która obecnie obsługuje tylko dyski maszyny wirtualnej Azure. Zobacz temat [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/virtual-machines/windows/premium-storage.md) (Premium Storage: usługa Storage o wysokiej wydajności dla obciążeń maszyn wirtualnych platformy Azure), aby uzyskać szczegółowe informacje o usłudze Premium Storage.
 
 ### <a name="blob-storage-accounts"></a>Konta usługi Blob Storage
 Konto usługi Blob Storage to specjalne konto magazynu służące do przechowywania danych niestrukturalnych w formie obiektów blob w usłudze Azure Storage. Konta usługi Blob Storage są podobne do istniejących kont magazynu ogólnego przeznaczenia i udostępniają wszystkie używane obecnie funkcje doskonałej trwałości, dostępności, skalowalności i wydajności, łącznie z pełną spójnością interfejsu API na potrzeby blokowych i uzupełnialnych obiektów blob. W przypadku aplikacji wymagających tylko magazynu obiektów blokowych lub uzupełnialnych obiektów blob zalecamy używanie kont usługi Blob Storage.
@@ -19,7 +19,7 @@ Konta usługi Blob Storage udostępniają atrybut **Warstwa dostępu**, który m
 * **Gorąca** warstwa dostępu, oznaczająca, że dostęp do obiektów na koncie magazynu będzie uzyskiwany częściej. Dzięki temu można przechowywać dane, do których jest tańszy dostęp.
 * **Chłodna** warstwa dostępu, oznaczająca, że dostęp do obiektów na koncie magazynu będzie uzyskiwany rzadziej. Dzięki temu można przechowywać dane, których przechowywanie jest tańsze.
 
-W przypadku zmiany wzorca użycia danych można także w dowolnym momencie przełączyć się między tymi warstwami dostępu. Zmiana warstwy dostępu może spowodować naliczenie dodatkowych opłat. Więcej szczegółowych informacji znajduje się w temacie [Pricing and billing for Blob storage accounts](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing) (Cennik i rozliczenia — konta usługi Blob Storage).
+W przypadku zmiany wzorca użycia danych można także w dowolnym momencie przełączyć się między tymi warstwami dostępu. Zmiana warstwy dostępu może spowodować naliczenie dodatkowych opłat. Więcej szczegółowych informacji znajduje się w temacie [Pricing and billing for Blob storage accounts](../articles/storage/common/storage-account-options.md#pricing-and-billing) (Cennik i rozliczenia — konta usługi Blob Storage).
 
 Więcej szczegółowych informacji na temat kont usługi Blob Storage znajduje się w temacie [Azure Blob Storage: Cool and Hot tiers](../articles/storage/blobs/storage-blob-storage-tiers.md) (Usługa Azure Blob Storage: warstwa chłodna i gorąca).
 

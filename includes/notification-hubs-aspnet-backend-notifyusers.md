@@ -1,38 +1,57 @@
-## <a name="create-hello-webapi-project"></a>Utwórz hello WebAPI projektu
-Nowego zaplecza ASP.NET WebAPI zostaną utworzone w kolejnych sekcjach hello i będzie mieć trzy główne cele:
+## <a name="create-the-webapi-project"></a>Utwórz projekt WebAPI
+Kolejnych sekcjach omówiono tworzenie nowych zaplecze ASP.NET WebAPI. Ten proces ma trzy główne cele:
 
-1. **Uwierzytelnianie klientów**: program obsługi komunikatów zostanie dodany nowszych żądań klientów tooauthenticate i skojarz hello użytkownika z żądaniem hello.
-2. **Rejestracje powiadomień klienta**: później, należy dodać kontroler toohandle nowe rejestracje klienta tooreceive powiadomień. Witaj nazwę uwierzytelnionego użytkownika zostanie automatycznie dodane rejestracji toohello jako [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Wysyłanie powiadomień tooClients**: później zostaną dodane również tooprovide kontrolera sposób tootrigger użytkownika toodevices bezpiecznego wypychania i klientów skojarzonych z tagiem hello. 
+* **Uwierzytelnianie klientów**: Dodaj program obsługi komunikatów dalej do uwierzytelniania żądań klientów i skojarzyć użytkownika z żądaniem.
 
-Witaj następujące kroki pokazują, jak toocreate hello nowego zaplecza ASP.NET WebAPI: 
+* **Zarejestrowanie powiadomienia za pomocą WebAPI zaplecza**: Dodawanie kontrolera do obsługi nowej rejestracji dla urządzenia klienckiego otrzymywać powiadomienia. Nazwa uwierzytelnionego użytkownika jest automatycznie dodawany do rejestracji jako [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+
+* **Wyślij powiadomienia do klientów**: również dodać z kontrolerem, aby umożliwić użytkownikom wyzwalanie bezpieczne powiadomień wypychanych do urządzeń i klientów, skojarzonych ze znacznikiem. 
+
+Utwórz nowego zaplecza ASP.NET WebAPI, wykonując następujące czynności: 
 
 > [!IMPORTANT]
-> Jeśli używasz programu Visual Studio 2015 lub starszym, przed rozpoczęciem tego samouczka, upewnij się, że zainstalowano najnowszą wersję hello hello Menedżera pakietów NuGet. toocheck, uruchamiania programu Visual Studio. Z hello **narzędzia** menu, kliknij przycisk **rozszerzenia i aktualizacje**. Wyszukaj **Menedżera pakietów NuGet** dla używanej wersji programu Visual Studio i upewnij się, że masz hello najnowszej wersji. Jeśli nie, odinstaluj, a następnie ponownie zainstalować hello Menedżera pakietów NuGet.
-> 
-> ![][B4]
-> 
+> Jeśli używasz programu Visual Studio 2015 lub starsze, przed rozpoczęciem tego samouczka, upewnij się, że zainstalowano najnowszą wersję Menedżera pakietów NuGet dla programu Visual Studio. 
+>
+>Aby to sprawdzić, uruchom program Visual Studio. Na **narzędzia** menu, wybierz opcję **rozszerzenia i aktualizacje**. Wyszukaj **Menedżera pakietów NuGet** w wersji programu Visual Studio i upewnij się, że masz najnowszą wersję. Jeśli używana wersja nie jest najnowsza wersja, odinstaluj ją i ponownie zainstalować Menedżera pakietów NuGet.
+ 
+![][B4]
+
 > [!NOTE]
-> Upewnij się, że zainstalowano hello Visual Studio [zestawu Azure SDK](https://azure.microsoft.com/downloads/) wdrożenia witryny sieci Web.
+> Upewnij się, że masz zainstalowany [zestaw Azure SDK](https://azure.microsoft.com/downloads/) programu Visual Studio na potrzeby wdrażania witryny internetowej.
 > 
 > 
 
-1. Uruchom program Visual Studio lub Visual Studio Express. Kliknij przycisk **Eksploratora serwera** i zaloguj się na tooyour konto platformy Azure. Visual Studio będzie konieczne jest podpisany w zasobach witryny sieci web hello toocreate Twojego konta.
-2. W programie Visual Studio, kliknij przycisk **pliku**, następnie kliknij przycisk **nowy**, następnie **projektu**, rozwiń węzeł **szablony**, **Visual C#**, następnie kliknij przycisk **sieci Web** i **aplikacji sieci Web ASP.NET**, nazwa typu hello **AppBackend**, a następnie kliknij przycisk **OK**. 
-   
-    ![][B1]
-3. W hello **nowy projekt ASP.NET** okna dialogowego, kliknij przycisk **interfejsu API sieci Web**, następnie kliknij przycisk **OK**.
-   
-    ![][B2]
-4. W hello **Konfigurowanie aplikacji sieci Web Microsoft Azure** okno dialogowe, wybierz subskrypcję, a **planu usługi aplikacji** zostały już utworzone. Można również wybrać **Utwórz nowy plan usługi aplikacji** i utwórz je z okna dialogowego hello. Ten samouczek nie wymaga bazy danych. Po wybraniu planu usługi aplikacji, kliknij przycisk **OK** toocreate hello projektu.
-   
-    ![][B5]
+1. Uruchom program Visual Studio lub Visual Studio Express. 
 
-## <a name="authenticating-clients-toohello-webapi-backend"></a>Uwierzytelnianie klientów toohello WebAPI wewnętrznej bazy danych
-W tej sekcji utworzysz nową klasę programu obsługi wiadomości o nazwie **AuthenticationTestHandler** dla hello nowego zaplecza. Ta klasa pochodzi od [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) i dodawane jako program obsługi komunikatów, więc może przetwarzać wszystkie żądania kierowane do hello wewnętrznej bazy danych. 
+2. Wybierz **Eksploratora serwera**i zaloguj się do konta platformy Azure. Można utworzyć zasoby witryny sieci web na Twoim koncie, muszą być podpisane.
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy hello **AppBackend** projektu, kliknij przycisk **Dodaj**, następnie kliknij przycisk **klasy**. Nazwa nowej klasy hello **AuthenticationTestHandler.cs**i kliknij przycisk **Dodaj** toogenerate hello klasy. Ta klasa będzie używana tooauthenticate użytkowników przy użyciu *uwierzytelnianie podstawowe* dla uproszczenia. Pamiętaj, że Twoja aplikacja może używać dowolnego schematu uwierzytelniania.
-2. W AuthenticationTestHandler.cs, Dodaj następujące hello `using` instrukcji:
+3. W programie Visual Studio, wybierz **pliku** > **nowy** > **projektu**, rozwiń węzeł **szablony**, rozwiń węzeł **Visual C#**, a następnie wybierz **Web** i **aplikacji sieci Web ASP.NET**.
+
+4. W **nazwa** wpisz **AppBackend**, a następnie wybierz **OK**. 
+   
+    ![Okno nowy projekt][B1]
+
+5. W **nowy projekt ASP.NET** wybierz **interfejsu API sieci Web** pole wyboru, a następnie wybierz **OK**.
+   
+    ![Okno nowy projekt ASP.NET][B2]
+
+6. W **Konfigurowanie aplikacji sieci Web Microsoft Azure** okna, wybierz subskrypcję, a następnie w **planu usługi aplikacji** listy, wykonaj jedną z następujących czynności:
+
+    * Wybierz plan usługi aplikacji, które zostały już utworzone. 
+    * Wybierz **Utwórz nowy plan usługi aplikacji**, a następnie utworzyć jeden. 
+    
+  Ten samouczek nie wymaga bazy danych. Po wybraniu planu usługi aplikacji, wybierz **OK** Aby utworzyć projekt.
+   
+    ![Okno Konfigurowanie aplikacji sieci Web Microsoft Azure][B5]
+
+## <a name="authenticate-clients-to-the-webapi-back-end"></a>Uwierzytelnianie klientów do WebAPI zaplecza
+W tej sekcji, Utwórz nową klasę programu obsługi wiadomości o nazwie **AuthenticationTestHandler** dla nowego zaplecza. Ta klasa pochodzi od [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) i dodawane jako program obsługi komunikatów tak, aby mógł on przetwarzać wszystkie żądania tego wejdzie w wewnętrznej. 
+
+1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **AppBackend** projektu, zaznacz **Dodaj**, a następnie wybierz **klasy**. 
+ 
+2. Nazwa nowej klasy **AuthenticationTestHandler.cs**, a następnie wybierz **Dodaj** do generowania klasy. Ta klasa służy do uwierzytelniania użytkowników za pomocą *uwierzytelnianie podstawowe* dla uproszczenia. Aplikację można używać żadnych schematu uwierzytelniania.
+
+3. W klasie AuthenticationTestHandler.cs dodaj następujące instrukcje `using`:
    
         using System.Net.Http;
         using System.Threading;
@@ -41,19 +60,24 @@ W tej sekcji utworzysz nową klasę programu obsługi wiadomości o nazwie **Aut
         using System.Text;
         using System.Threading.Tasks;
 
-3. W AuthenticationTestHandler.cs, zastępując hello `AuthenticationTestHandler` klasy definicji z hello następującego kodu. 
+4. W AuthenticationTestHandler.cs, Zastąp `AuthenticationTestHandler` klasy definicji z następującym kodem: 
    
-    Ten program obsługi autoryzacji żądania hello gdy wszystkie spełnione są następujące trzy warunki hello:
+    Program obsługi autoryzacji żądania, gdy spełnione są następujące trzy warunki:
    
-   * Żądanie hello uwzględnione *autoryzacji* nagłówka. 
-   * Żądanie hello używa *podstawowe* uwierzytelniania. 
-   * ciąg nazwy użytkownika Hello i haśle hello są hello tych samych parametrach.
+   * Żądanie zawiera *autoryzacji* nagłówka. 
+   * Żądanie używa uwierzytelniania *basic*. 
+   * Ciąg nazwy użytkownika i ciąg hasła to ten sam ciąg.
      
-     W przeciwnym razie hello żądanie zostanie odrzucone. Nie jest to rzeczywiste podejście do uwierzytelniania i autoryzacji. Jest to bardzo prosty przykład na potrzeby tego samouczka.
+  W przeciwnym razie żądanie zostanie odrzucone. Nie jest to rzeczywiste podejście do uwierzytelniania i autoryzacji. W tym samouczku jest tylko bardzo prosty przykład.
      
-     Jeśli komunikat żądania hello uwierzytelnieniu i autoryzacji przez hello `AuthenticationTestHandler`, hello uwierzytelnianie podstawowe użytkownika zostaną dołączone toohello bieżącego żądania na powitania [element HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Informacje o użytkowniku w hello element HttpContext będzie używany przez inny kontroler (RegisterController) nowszego tooadd [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) żądanie rejestracji toohello powiadomień.
+  Jeśli uwierzytelnieniu i autoryzacji przez komunikat żądania `AuthenticationTestHandler`, uwierzytelnianie podstawowe użytkownika jest dołączony do bieżącego żądania na [element HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Informacje o użytkowniku w element HttpContext będą korzystali innego kontrolera (RegisterController) później można dodać [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) do żądania rejestracji powiadomienia.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler
+       {
+           protected override Task<HttpResponseMessage> SendAsync(
+           HttpRequestMessage request, CancellationToken cancellationToken)
+           {
+               var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -67,7 +91,7 @@ W tej sekcji utworzysz nową klasę programu obsługi wiadomości o nazwie **Aut
      
                    if (verifyUserAndPwd(user, password))
                    {
-                       // Attach hello new principal object toohello current HttpContext object
+                       // Attach the new principal object to the current HttpContext object
                        HttpContext.Current.User =
                            new GenericPrincipal(new GenericIdentity(user), new string[0]);
                        System.Threading.Thread.CurrentPrincipal =
@@ -96,29 +120,35 @@ W tej sekcji utworzysz nową klasę programu obsługi wiadomości o nazwie **Aut
        }
      
      > [!NOTE]
-     > **Uwaga dotycząca zabezpieczeń**: hello `AuthenticationTestHandler` klasa nie zapewnia uwierzytelniania wartość true. Jest używane tylko toomimic uwierzytelniania podstawowego i nie jest bezpieczna. W swoich aplikacjach i usługach produkcyjnych musisz zaimplementować mechanizm bezpiecznego uwierzytelniania.                
+     > Uwaga dotycząca zabezpieczeń: `AuthenticationTestHandler` klasa nie zapewnia uwierzytelniania wartość true. Jest ona używana tylko do naśladowania uwierzytelniania podstawowego i nie jest bezpieczna. W swoich aplikacjach i usługach produkcyjnych musisz zaimplementować mechanizm bezpiecznego uwierzytelniania.                
      > 
      > 
-4. Dodaj następującego kodu na końcu hello hello hello `Register` metoda hello **App_Start/WebApiConfig.cs** obsługi wiadomości powitania tooregister klasy:
+5. Aby zarejestrować program obsługi komunikatów, Dodaj następujący kod na końcu `Register` metody w **App_Start/WebApiConfig.cs** klasy:
    
         config.MessageHandlers.Add(new AuthenticationTestHandler());
-5. Zapisz zmiany.
 
-## <a name="registering-for-notifications-using-hello-webapi-backend"></a>Rejestrowanie na potrzeby powiadomień za pomocą hello WebAPI wewnętrznej bazy danych
-W tej sekcji dodamy nowe toohandle zaplecza WebAPI toohello kontrolera żądań tooregister użytkownika i urządzenie na potrzeby powiadomień dotyczących usługi notification hubs przy użyciu powitania klienta biblioteki. Kontroler Hello doda tag użytkownika dla użytkownika hello, który został uwierzytelniony i dołączyć toohello element HttpContext przez hello `AuthenticationTestHandler`. Hello tag będzie mieć format ciągu hello, `"username:<actual username>"`.
+6. Zapisz zmiany.
 
-1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy hello **AppBackend** projektu, a następnie kliknij przycisk **Zarządzaj pakietami NuGet**.
-2. Na powitania po lewej stronie, kliknij przycisk **Online**i wyszukaj **Microsoft.Azure.NotificationHubs** w hello **wyszukiwania** pole.
-3. Kliknij na liście wyników hello **centra powiadomień Microsoft Azure**, a następnie kliknij przycisk **zainstalować**. Ukończenie instalacji hello, a następnie zamknij okno Menedżera pakietów NuGet hello.
+## <a name="register-for-notifications-by-using-the-webapi-back-end"></a>Zarejestrować odbieranie powiadomień za pomocą WebAPI zaplecza
+W tej sekcji możesz dodać nowego kontrolera do WebAPI zaplecza do obsługi żądań, aby zarejestrować użytkowników i urządzeń dla powiadomień za pomocą biblioteki klienta dla usługi notification hubs. Kontroler dodaje tag użytkownika dla użytkownika, który został uwierzytelniony i powiązany element HttpContext przez `AuthenticationTestHandler`. Tag będzie miał format ciągu `"username:<actual username>"`.
+
+1. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **AppBackend** projektu, a następnie wybierz **Zarządzaj pakietami NuGet**.
+
+2. W okienku po lewej stronie wybierz **Online** , a następnie w **wyszukiwania** wpisz **Microsoft.Azure.NotificationHubs**.
+
+3. Na liście wyników wybierz **Microsoft Azure Notification Hubs**, a następnie wybierz **zainstalować**. Zakończenie instalacji, a następnie zamknij okno Menedżera pakietów NuGet.
    
-    Spowoduje to dodanie toohello odwołanie do zestawu SDK usługi Azure Notification Hubs za pomocą hello <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pakietu Microsoft.Azure.Notification Hubs NuGet</a>.
-4. Teraz utworzymy nowy plik klasy reprezentujące hello połączenia z powiadomieniami toosend używane Centrum powiadomień. W Eksploratorze rozwiązań hello, kliknij prawym przyciskiem myszy hello **modele** folderu, kliknij przycisk **Dodaj**, następnie kliknij przycisk **klasy**. Nazwa nowej klasy hello **Notifications.cs**, następnie kliknij przycisk **Dodaj** toogenerate hello klasy. 
+    Ta akcja spowoduje dodanie odwołania do zestawu SDK usługi Azure Notification Hubs z użyciem <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">pakietu NuGet Microsoft.Azure.Notification Hubs</a>.
+
+4. Utwórz nowy plik klasy, która reprezentuje połączenie z Centrum powiadomień, który służy do wysyłania powiadomień. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **modele** folderu, wybierz opcję **Dodaj**, a następnie wybierz **klasy**. Nazwa nowej klasy **Notifications.cs**, a następnie wybierz **Dodaj** do generowania klasy. 
    
-    ![][B6]
-5. W Notifications.cs, Dodaj następujące hello `using` instrukcji u góry pliku hello hello:
+    ![Dodaj nowy element okna][B6]
+
+5. W klasie Notifications.cs dodaj następującą instrukcję `using` na początku pliku:
    
         using Microsoft.Azure.NotificationHubs;
-6. Zastąp hello `Notifications` klasy definicji hello następujący i wprowadzić symbole zastępcze hello dwa tooreplace się przy użyciu parametrów połączenia hello (z pełnym dostępem) dla Centrum powiadomień, a hello nazwy Centrum (dostępne pod adresem [klasycznego portalu Azure ](http://manage.windowsazure.com)):
+
+6. Zastąp `Notifications` klasy definicji z następującym kodem, a następnie zastąp symbole zastępcze dwa parametry połączenia (z pełnym dostępem) dla Centrum powiadomień i nazwy koncentratora (dostępne pod adresem [portalu Azure](http://portal.azure.com)):
    
         public class Notifications
         {
@@ -131,19 +161,25 @@ W tej sekcji dodamy nowe toohandle zaplecza WebAPI toohello kontrolera żądań 
                                                                              "<hub name>");
             }
         }
-7. Następnie utworzymy nowy kontroler o nazwie **RegisterController**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy hello **kontrolerów** folderu, następnie kliknij przycisk **Dodaj**, następnie kliknij przycisk **kontrolera**. Kliknij przycisk hello **kontroler 2 interfejsu API sieci Web — pusty** elementu, a następnie kliknij przycisk **Dodaj**. Nazwa nowej klasy hello **RegisterController**, a następnie kliknij przycisk **Dodaj** ponownie toogenerate hello kontrolera.
+7. Następnie należy utworzyć nowy kontroler o nazwie **RegisterController**. W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy **kontrolerów** folderu, wybierz opcję **Dodaj**, a następnie wybierz **kontrolera**. 
+
+8. Wybierz **kontrolera 2 interfejsu API sieci Web — pusty**, a następnie wybierz **Dodaj**.
    
-    ![][B7]
+    ![Okno Dodawanie szkieletu][B7]
    
-    ![][B8]
-8. W RegisterController.cs, Dodaj następujące hello `using` instrukcji:
+9. W **nazwy kontrolera** wpisz **RegisterController** nowej klasie nazwę, a następnie wybierz **Dodaj**.
+
+    ![Okno Dodawanie kontrolera][B8]
+
+10. W pliku RegisterController.cs dodaj następujące instrukcje `using`:
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-9. Dodaj następujące kodu wewnątrz hello hello `RegisterController` definicji klasy. Należy pamiętać, że w tym kodzie, możemy dodać tag użytkownika dla użytkownika hello, który jest dołączony toohello element HttpContext. Hello użytkownik został uwierzytelniony i dołączony toohello element HttpContext przez filtr wiadomość hello dodaliśmy, `AuthenticationTestHandler`. Można również dodać tooverify kontroli opcjonalne, które hello użytkownika ma uprawnienia tooregister dla hello wymagane tagi.
+
+11. Dodaj następujący kod wewnątrz definicji klasy `RegisterController`. Należy pamiętać, że w tym kodzie możemy dodać tag użytkownika dla użytkownika, który jest powiązany element HttpContext. Użytkownik został uwierzytelniony i powiązany element HttpContext przez filtr komunikatów, które dodano, `AuthenticationTestHandler`. Można również dodać opcjonalne sprawdzenia w celu weryfikacji, czy użytkownik ma uprawnienia do rejestrowania żądanych tagów.
    
         private NotificationHubClient hub;
    
@@ -190,7 +226,7 @@ W tej sekcji dodamy nowe toohandle zaplecza WebAPI toohello kontrolera żądań 
         }
    
         // PUT api/register/5
-        // This creates or updates a registration (with provided channelURI) at hello specified id
+        // This creates or updates a registration (with provided channelURI) at the specified id
         public async Task<HttpResponseMessage> Put(string id, DeviceRegistration deviceUpdate)
         {
             RegistrationDescription registration = null;
@@ -215,7 +251,7 @@ W tej sekcji dodamy nowe toohandle zaplecza WebAPI toohello kontrolera żądań 
             registration.RegistrationId = id;
             var username = HttpContext.Current.User.Identity.Name;
    
-            // add check if user is allowed tooadd these tags
+            // add check if user is allowed to add these tags
             registration.Tags = new HashSet<string>(deviceUpdate.Tags);
             registration.Tags.Add("username:" + username);
    
@@ -248,22 +284,24 @@ W tej sekcji dodamy nowe toohandle zaplecza WebAPI toohello kontrolera żądań 
                     throw new HttpRequestException(HttpStatusCode.Gone.ToString());
             }
         }
-10. Zapisz zmiany.
+12. Zapisz zmiany.
 
-## <a name="sending-notifications-from-hello-webapi-backend"></a>Wysyłanie powiadomień z zaplecza WebAPI hello
-W tej sekcji możesz dodać nowego kontrolera, który opisuje sposób dla klienta urządzenia toosend powiadomienie oparte na powitania username tag przy użyciu Biblioteka zarządzania usługi centra powiadomień Azure w hello zaplecza ASP.NET WebAPI.
+## <a name="send-notifications-from-the-webapi-back-end"></a>Wysyłanie powiadomień z zaplecza WebAPI
+W tej sekcji możesz dodać nowego kontrolera, który opisuje sposób w przypadku urządzeń klienckich do wysyłania powiadomień. Powiadomienie jest oparta na tag nazwy użytkownika, który używa zaplecza ASP.NET WebAPI Biblioteka zarządzania usługi centra powiadomień Azure.
 
-1. Utwórz kolejny nowy kontroler o nazwie **NotificationsController**. Utwórz go hello taki sam sposób utworzyć hello **RegisterController** w poprzedniej sekcji hello.
-2. W NotificationsController.cs, Dodaj następujące hello `using` instrukcji:
+1. Utwórz innego nowego kontrolera o nazwie **NotificationsController** taki sam sposób tworzenia **RegisterController** w poprzedniej sekcji.
+
+2. W pliku NotificationsController.cs dodaj następujące instrukcje `using`:
    
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-3. Dodaj następujące metody toohello hello **NotificationsController** klasy.
+
+3. Dodaj następującą metodę do **NotificationsController** klasy:
    
-    Ten kod wysyłania typ powiadomienia, oparte na powitania usługi powiadomień platformy (PNS) `pns` parametru. Witaj wartość `to_tag` jest używane tooset hello *username* tagu na wiadomość powitania. Ten tag musi być zgodny z tagiem username aktywnej rejestracji centrum powiadomień. komunikat z powiadomieniem Hello jest pobierane z hello treści żądania POST hello i sformatowany dla elementu docelowego hello systemu powiadomień platformy. 
+    Typ powiadomienia, który jest oparty na usługi powiadomień platformy (PNS) wysyła ten kod `pns` parametru. Wartość `to_tag` służy do ustawiania tagu *username* w komunikacie. Ten tag musi być zgodny z tagiem username aktywnej rejestracji centrum powiadomień. Komunikat powiadomienia jest pobierany z treści żądania POST i formatowany dla docelowej usługi PNS. 
    
-    W zależności od hello czy obsługiwanych urządzeń, użyj tooreceive powiadomień platformy powiadomień usługi (PNS) różnych powiadomienia są obsługiwane przy użyciu różnych formatach. Na przykład w przypadku urządzeń z systemem Windows możesz użyć [wyskakujących powiadomień za pomocą usługi WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx), które nie są bezpośrednio obsługiwane przez inną usługę PNS. Dzięki zaplecza musi tooformat hello powiadomień do obsługiwanych powiadomień dla hello systemu powiadomień platformy urządzeń, który planujesz toosupport. Następnie użyj interfejsu API wysyłania odpowiednie hello na powitania [NotificationHubClient — klasa](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    W zależności od systemu powiadomień platformy obsługiwane urządzenia używanego do odbierania powiadomień powiadomienia są obsługiwane przez różne formaty. Na przykład urządzenia z systemem Windows, może użyć [wyskakujących powiadomień z usługą WNS](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) który bezpośrednio nie jest obsługiwany przez inny systemu powiadomień platformy. W wystąpieniu Twoje zaplecza musi format powiadomienia w obsługiwanych powiadomienie w przypadku systemu powiadomień platformy urządzeń, które mają być obsługuje. Następnie użyj odpowiedni interfejs API wysyłania na [NotificationHubClient klasy](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -306,20 +344,30 @@ W tej sekcji możesz dodać nowego kontrolera, który opisuje sposób dla klient
    
             return Request.CreateResponse(ret);
         }
-4. Naciśnij klawisz **F5** toorun hello aplikacji i tooensure hello dokładność pracy wykonanej do tej pory. Aplikacja Hello powinno uruchomić przeglądarki sieci web i wyświetlenie strony głównej hello ASP.NET. 
 
-## <a name="publish-hello-new-webapi-backend"></a>Publikowanie hello nowego zaplecza WebAPI
-1. Teraz wdrożymy ten tooan aplikacji witryny sieci Web Azure w kolejności toomake go ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy na powitania **AppBackend** projekt i wybierz **publikowania**.
-2. Wybierz pozycję **Microsoft Azure App Service** jako docelową lokalizację publikacji, a następnie kliknij przycisk **Publikuj**. Zostanie otwarte okno dialogowe Tworzenie usługi App Service hello, które pomaga w utworzeniu wszystkich aplikacji sieci web serwera hello niezbędnych zasobów Azure toorun hello ASP.NET na platformie Azure.
+4. Aby uruchomić aplikację i upewnij się, dokładność pracy wykonanej do tej pory, zaznacz **F5** klucza. Aplikacja otwiera w przeglądarce sieci web i jest wyświetlany na stronie głównej programu ASP.NET. 
 
-    ![][B15]
-3. W hello **Tworzenie usługi App Service** okno dialogowe, wybierz konto platformy Azure. Kliknij pozycję **Zmień typ** i wybierz pozycję **Aplikacja sieci Web**. Zachowaj hello **Nazwa aplikacji sieci Web** hello danego i wybierz pozycję **subskrypcji**, **grupy zasobów**, i **planu usługi App Service**.  Kliknij przycisk **Utwórz**.
+## <a name="publish-the-new-webapi-back-end"></a>Publikowanie nowego zaplecza WebAPI
+Następnie można wdrożyć aplikację na witrynie systemu Azure, aby udostępnić go ze wszystkich urządzeń. 
 
-4. Zanotuj hello **adres URL witryny** właściwości w hello **Podsumowanie** sekcji. Odnoszą się adres URL toothis Twojego *wewnętrznej bazy danych punktu końcowego* dalszej części tego samouczka. Kliknij przycisk **Opublikuj**.
+1. Kliknij prawym przyciskiem myszy **AppBackend** projektu, a następnie wybierz **publikowania**.
 
-5. Po zakończeniu pracy Kreatora hello, powoduje ona publikowanie tooAzure aplikacji sieci web ASP.NET hello, a następnie spowoduje uruchomienie hello aplikacji hello domyślnej przeglądarki.  Twoja aplikacja będzie widoczna w usłudze Azure App Service.
+2. Wybierz **Microsoft Azure App Service** jako lokalizacja docelowa publikowania, a następnie wybierz **publikowania**.  
+    Zostanie otwarte okno Tworzenie usługi App Service. Tutaj możesz tworzyć wszystkie niezbędne zasoby platformy Azure do uruchomienia aplikacji sieci web platformy ASP.NET na platformie Azure.
 
-adres URL Hello używa hello Nazwa aplikacji sieci web, określony wcześniej, z hello format http://<app_name>.azurewebsites.net.
+    ![Na kafelku Microsoft Azure App Service][B15]
+
+3. W **Tworzenie usługi App Service** okna, wybierz konto platformy Azure. Wybierz **Zmień typ** > **sieci Web aplikacji**. Zachowaj ustawienie domyślne **Nazwa aplikacji sieci Web**, a następnie wybierz **subskrypcji**, **grupy zasobów**, i **planu usługi App Service**. 
+
+4. Wybierz pozycję **Utwórz**.
+
+5. Zanotuj wartość właściwości **Adres URL witryny** w sekcji **Podsumowanie**. Ten adres URL jest Twoje *punktu końcowego zaplecza* dalszej części samouczka. 
+
+6. Wybierz **publikowania**.
+
+Po zakończeniu pracy z kreatorem, publikuje aplikacji sieci web platformy ASP.NET na platformie Azure, a następnie otwiera aplikacji w domyślnej przeglądarce.  Aplikacja jest wyświetlana w usługi aplikacji Azure.
+
+Adres URL używa określonej wcześniej nazwy aplikacji internetowej w formacie http://<nazwa_aplikacji>.azurewebsites.net.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png

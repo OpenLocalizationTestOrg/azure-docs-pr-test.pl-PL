@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>WebAPI projektu
-1. W programie Visual Studio Otwórz hello **AppBackend** projektu, który został utworzony w hello **Powiadom użytkowników** samouczka.
-2. W Notifications.cs, Zastąp hello całego **powiadomienia** klasy z hello następującego kodu. Należy się symbole zastępcze hello tooreplace z parametrów połączenia dla Centrum powiadomień, a nazwa Centrum hello (z pełnym dostępem). Te wartości można uzyskać z hello [klasycznego portalu Azure](http://manage.windowsazure.com). Ten moduł reprezentuje teraz hello różnych bezpieczne powiadomień, które będą wysyłane. W pełnej implementacji hello powiadomienia będą przechowywane w bazie danych; dla uproszczenia w tym przypadku są przechowywane ich w pamięci.
+1. W programie Visual Studio Otwórz **AppBackend** projektu, który został utworzony w **Powiadom użytkowników** samouczka.
+2. W Notifications.cs, Zastąp cały **powiadomienia** klasy następującym kodem. Należy zastąpić symbole zastępcze ciąg połączenia (z pełnym dostępem) dla Centrum powiadomień i nazwy koncentratora. Możesz uzyskać te wartości z [portalu Azure](http://portal.azure.com). Ten moduł teraz reprezentuje inną bezpieczne powiadomień, które będą wysyłane. W pełnej implementacji powiadomienia będą przechowywane w bazie danych; dla uproszczenia w tym przypadku są przechowywane ich w pamięci.
    
         public class Notification
         {
@@ -40,7 +40,7 @@
             }
         }
 
-1. W NotificationsController.cs, Zastąp kod hello wewnątrz hello **NotificationsController** klasy definicji z hello następującego kodu. Ten składnik implementuje bezpieczny sposób hello urządzenia tooretrieve hello powiadomienia o, a także tootrigger sposób (na potrzeby tego samouczka hello) urządzeń tooyour bezpiecznego wypychania. Należy pamiętać, że podczas wysyłania Centrum powiadomień toohello powiadomień hello, tylko powiadomienie zostanie wysłane raw o identyfikatorze hello hello powiadomienia (i żaden komunikat rzeczywiste):
+1. W NotificationsController.cs, Zastąp kod wewnątrz **NotificationsController** klasy definicji z następującym kodem. Ten składnik implementuje sposób urządzenia pobrać bezpiecznie powiadomienia, a także sposób (na potrzeby tego samouczka) do wyzwolenia bezpiecznego wypychanych do urządzeń z systemem. Należy pamiętać, że podczas wysyłania powiadomień do Centrum powiadomień, tylko powiadomienie zostanie wysłane pierwotnych z Identyfikatorem powiadomienia (i żaden komunikat rzeczywiste):
    
        public NotificationsController()
        {
@@ -75,8 +75,8 @@
         }
 
 
-Należy pamiętać, że hello `Post` metody teraz nie wysyłania wyskakujących powiadomień. Wysyła powiadomienie raw, które zawiera tylko hello identyfikator powiadomień, a nie poufną zawartością. Ponadto upewnij się, że toocomment hello operacji dla platform hello, dla których nie masz zostały skonfigurowane w Centrum powiadomień, jak będą powodować błędy wysyłania.
+Należy pamiętać, że `Post` metody teraz nie wysyłania wyskakujących powiadomień. Wysyła raw powiadomienie, które zawiera tylko identyfikator powiadomień, a nie poufną zawartością. Upewnij się również dodać komentarz operacji wysyłania dla platformy, dla których nie masz zostały skonfigurowane w Centrum powiadomień, jak będą powodować błędy.
 
-1. Teraz ponownie wdrożymy ten tooan aplikacji witryny sieci Web Azure w kolejności toomake go ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy na powitania **AppBackend** projekt i wybierz **publikowania**.
-2. Wybierz urządzenie docelowe publikowania witryny sieci Web platformy Azure. Zaloguj się przy użyciu konta platformy Azure i wybierz istniejącą lub nową witrynę sieci Web i zanotuj hello **docelowy adres URL** właściwości w hello **połączenia** kartę. Odnoszą się adres URL toothis Twojego *wewnętrznej bazy danych punktu końcowego* dalszej części tego samouczka. Kliknij przycisk **Opublikuj**.
+1. Teraz ponownie wdrożymy tę aplikację do witryny sieci Web platformy Azure, aby udostępnić go ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy projekt **AppBackend** i wybierz polecenie **Publikuj**.
+2. Wybierz urządzenie docelowe publikowania witryny sieci Web platformy Azure. Zaloguj się przy użyciu konta platformy Azure i wybierz istniejącą lub nową witrynę sieci Web i zanotuj **docelowy adres URL** właściwości w **połączenia** kartę. W dalszej części tego samouczka będziemy nazywać ten adres URL *punktem końcowym zaplecza*. Kliknij przycisk **Opublikuj**.
 

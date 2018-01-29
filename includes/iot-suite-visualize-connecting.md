@@ -1,40 +1,40 @@
-## <a name="view-device-telemetry-in-hello-dashboard"></a>Telemetrii urządzenia widoku na pulpicie nawigacyjnym hello
-pulpit nawigacyjny Hello w hello zdalne monitorowanie umożliwia rozwiązanie możesz tooview hello telemetrii urządzenia wysyłania tooIoT koncentratora.
+## <a name="view-device-telemetry"></a>Wyświetlanie danych telemetrycznych z urządzenia
 
-1. W przeglądarce zwracany toohello zdalnego monitorowania rozwiązania pulpitu nawigacyjnego, kliknij przycisk **urządzeń** w hello lewym panelu toonavigate toohello **listy urządzeń**.
-2. W hello **listy urządzeń**, powinny być widoczne czy hello stan urządzenia jest **systemem**. Jeśli nie, kliknij przycisk **Włącz urządzenie** w hello **szczegóły urządzenia** panelu.
-   
-    ![Wyświetlanie stanu urządzenia][18]
-3. Kliknij przycisk **pulpitu nawigacyjnego** tooreturn toohello pulpitu nawigacyjnego, wybierz swoje urządzenie w hello **tooView urządzenia** tooview listy rozwijanej jego telemetrii. telemetrii Hello z hello przykładowej aplikacji jest 50 jednostek dla wewnętrznej temperatury, 55 jednostki dla zewnętrznych temperatury oraz 50 urządzeń wilgotności.
-   
-    ![Wyświetlanie danych telemetrycznych z urządzenia][img-telemetry]
+Można wyświetlić dane telemetryczne, wysyłane z urządzenia **urządzeń** strony w rozwiązaniu.
 
-## <a name="invoke-a-method-on-your-device"></a>Wywoływanie metody na urządzeniu
-pulpit nawigacyjny Hello w zdalnym rozwiązanie monitorowania hello umożliwia metody tooinvoke na urządzeniach za pośrednictwem Centrum IoT. Na przykład w hello zdalnego rozwiązanie monitorujące, można wywoływać toosimulate metody, ponowne uruchomienie urządzenia.
+1. Wybierz urządzenie, którego inicjowana na liście urządzeń na **urządzeń** strony. Panel wyświetla informacje o urządzeniu, włącznie z wykresu telemetrii urządzenia:
 
-1. W hello zdalnego monitorowania rozwiązania pulpitu nawigacyjnego, kliknij przycisk **urządzeń** w hello lewym panelu toonavigate toohello **listy urządzeń**.
-2. Kliknij przycisk **identyfikator urządzenia** dla urządzenia w hello **listy urządzeń**.
-3. W hello **szczegóły urządzenia** panelu, kliknij przycisk **metody**.
-   
-    ![Metody urządzenia][13]
-4. W hello **metody** listy rozwijanej, wybierz pozycję **InitiateFirmwareUpdate**, a następnie w **FWPACKAGEURI** fikcyjny adres URL. Kliknij przycisk **wywołania metody** metody hello toocall hello urządzenia.
-   
-    ![Wywoływanie metody urządzenia][14]
-   
+    ![Szczegóły urządzenia](media/iot-suite-visualize-connecting/devicesdetail.png)
 
-5. Zostanie wyświetlony komunikat w konsoli hello systemem kodu urządzenia, obsługując urządzenia hello hello — metoda. wyniki Hello metody hello są dodawane historii toohello w portalu rozwiązania hello:
+1. Wybierz **wykorzystania** Aby zmienić sposób wyświetlania danych telemetrii:
 
-    ![Wyświetlanie historii metod][img-method-history]
+    ![Widok wykorzystania telemetrii](media/iot-suite-visualize-connecting/devicespressure.png)
+
+1. Aby wyświetlić informacje diagnostyczne o urządzeniu, przewiń w dół do **diagnostyki**:
+
+    ![Wyświetlanie urządzeń diagnostyki](media/iot-suite-visualize-connecting/devicesdiagnostics.png)
+
+## <a name="act-on-your-device"></a>Działania na urządzeniu
+
+Aby wywołać metody na urządzeniach, należy użyć **urządzeń** strony w zdalnym rozwiązanie monitorowania. Na przykład w przypadku zdalnego rozwiązanie monitorowania **Chłodnica** zaimplementować urządzeń **ponowny rozruch** metody.
+
+1. Wybierz **urządzeń** można przejść do **urządzeń** strony w rozwiązaniu.
+
+1. Wybierz urządzenie, którego inicjowana na liście urządzeń na **urządzeń** strony:
+
+    ![Wybierz urządzenia fizycznego](media/iot-suite-visualize-connecting/devicesselect.png)
+
+1. Aby wyświetlić listę metod można wywołać na urządzeniu, wybierz **harmonogram**. Aby zaplanować metody do uruchamiania na wielu urządzeniach, można wybrać wiele urządzeń na liście. **Harmonogram** panelu przedstawiono typy metody wspólne dla wszystkich wybranych urządzeń.
+
+1. Wybierz **ponowny rozruch**, ustaw nazwę zadania **RebootPhysicalChiller**i wybierz polecenie **Zastosuj**:
+
+    ![Harmonogram ponownego uruchomienia](media/iot-suite-visualize-connecting/deviceschedule.png)
+
+1. W konsoli uruchamiania kodu urządzenia metody obsługując urządzenia zostanie wyświetlony komunikat.
+
+> [!NOTE]
+> Aby śledzić stan zadania w rozwiązaniu, wybierz **widoku**.
 
 ## <a name="next-steps"></a>Następne kroki
-Artykuł Hello [Dostosowywanie wstępnie rozwiązań] [ lnk-customize] opisano kilka metod, można rozszerzyć w tym przykładzie. Możliwe rozszerzenia obejmują użycie rzeczywistych czujników i implementację dodatkowych poleceń.
 
-Dowiedz się więcej o hello [uprawnienia w witrynie azureiotsuite.com hello][lnk-permissions].
-
-[13]: ./media/iot-suite-visualize-connecting/suite4.png
-[14]: ./media/iot-suite-visualize-connecting/suite7-1.png
-[18]: ./media/iot-suite-visualize-connecting/suite10.png
-[img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
-[img-method-history]: ./media/iot-suite-visualize-connecting/history.png
-[lnk-customize]: ../articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md
-[lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md
+Artykuł [dostosować zdalnego wstępnie skonfigurowane rozwiązanie monitorowania](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) opisano kilka metod, aby dostosować wstępnie skonfigurowane rozwiązanie.

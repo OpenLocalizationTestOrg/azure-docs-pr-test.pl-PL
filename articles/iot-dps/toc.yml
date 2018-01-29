@@ -1,0 +1,127 @@
+- name: Dokumentacja usługi Azure IoT Hub Device Provisioning
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o usłudze IoT Hub Device Provisioning
+      href: about-iot-dps.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Konfigurowanie automatycznej aprowizacji
+      href: quick-setup-auto-provision.md
+    - name: Tworzenie symulowanego urządzenia
+      items:
+        - name: Moduł TPM
+          items:
+            - name: C
+              href: quick-create-simulated-device.md
+            - name: Java
+              href: quick-create-simulated-device-tpm-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-tpm-csharp.md
+            - name: Python
+              href: quick-create-simulated-device-tpm-python.md
+        - name: X.509
+          items:
+            - name: C
+              href: quick-create-simulated-device-x509.md
+            - name: Java
+              href: quick-create-simulated-device-x509-java.md
+            - name: 'C#'
+              href: quick-create-simulated-device-x509-csharp.md
+            - name: Python
+              href: quick-create-simulated-device-x509-python.md
+    - name: Rejestrowanie urządzenia
+      items:
+        - name: Moduł TPM
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+        - name: X.509
+          items:
+            - name: Java
+              href: quick-enroll-device-x509-java.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
+- name: Samouczki
+  items:
+    - name: 1 — Konfigurowanie zasobów w chmurze
+      href: tutorial-set-up-cloud.md
+    - name: 2 — Konfigurowanie urządzenia
+      href: tutorial-set-up-device.md
+    - name: 3 — Aprowizowanie urządzenia w centrum IoT
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
+    - name: 4 — Aprowizowanie urządzeń w wielu centrach
+      href: tutorial-provision-multiple-hubs.md
+    - name: 5 — Aprowizowanie rejestracji grup
+      href: tutorial-group-enrollments.md
+- name: Pojęcia
+  items:
+    - name: Pojęcia dotyczące urządzeń
+      href: concepts-device.md
+    - name: Pojęcia dotyczące usługi
+      href: concepts-service.md
+    - name: Pojęcia dotyczące zabezpieczeń
+      href: concepts-security.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Zarządzanie rejestracjami urządzeń
+      items:
+        - name: Zarządzanie rejestracjami urządzeń w witrynie Azure Portal
+          href: how-to-manage-enrollments.md
+        - name: Zarządzanie rejestracjami urządzeń przy użyciu zestawów SDK usług
+          href: how-to-manage-enrollments-sdks.md
+    - name: Odwoływanie dostępu urządzeń
+      href: how-to-revoke-device-access-portal.md
+    - name: Anulowanie aprowizacji urządzeń
+      href: how-to-unprovision-devices.md
+    - name: Używanie modułu HSM z zestawem SDK
+      href: use-hsm-with-sdk.md
+    - name: Kontrola dostępu do usługi Provisioning Service
+      href: how-to-control-access.md
+    - name: Zarządzanie usługą aprowizowania urządzeń za pomocą interfejsu wiersza polecenia platformy Azure
+      href: how-to-manage-dps-with-cli.md
+    - name: Programowanie za pomocą narzędzi zestawu SDK
+      href: how-to-use-sdk-tools.md
+- name: Dokumentacja
+  items:
+    - name: REST
+      href: /rest/api/iot-dps
+- name: Zasoby
+  items:
+    - name: Azure IoT Hub
+      href: 'https://azure.microsoft.com/services/iot-hub/'
+    - name: Certyfikat platformy Microsoft Azure dla IoT — wykaz urządzeń
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Centrum deweloperów Azure IoT
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Narzędzie Device Explorer
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: Narzędzie iothub-diagnostics
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: iothub-explorer tool
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Ścieżka szkoleniowa
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Cennik
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Kalkulator cen
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aktualizacje usług
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Techniczne analizy przypadków
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Filmy wideo
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'
